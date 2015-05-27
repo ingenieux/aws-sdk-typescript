@@ -1,0 +1,24 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "aws-sdk/aws-sdk.d.ts": {
+      "commit": "36a4540d16548a6abbb8702612528729ab0e4175"
+    },
+    "mustache/mustache.d.ts": {
+      "commit": "36a4540d16548a6abbb8702612528729ab0e4175"
+    },
+    "handlebars/handlebars.d.ts": {
+      "commit": "36a4540d16548a6abbb8702612528729ab0e4175"
+    },
+    "glob/glob.d.ts": {
+      "commit": "70737c2a2496f7a13c4da63eb00081cad94d19f1"
+    },
+    "minimatch/minimatch.d.ts": {
+      "commit": "70737c2a2496f7a13c4da63eb00081cad94d19f1"
+    }
+  }
+}
