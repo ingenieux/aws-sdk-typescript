@@ -3,297 +3,231 @@
 declare module "aws-sdk" {
     export class ImportExport {
       constructor(options?: any);
-      cancelJob(params: CancelJobInput, callback: (err: InvalidJobIdException|ExpiredJobIdException|CanceledJobIdException|UnableToCancelJobIdException|InvalidAccessKeyIdException|InvalidVersionException|any, data: CancelJobOutput|any) => void): void;
-      createJob(params: CreateJobInput, callback: (err: MissingParameterException|InvalidParameterException|InvalidAccessKeyIdException|InvalidAddressException|InvalidManifestFieldException|MissingManifestFieldException|NoSuchBucketException|MissingCustomsException|InvalidCustomsException|InvalidFileSystemException|MultipleRegionsException|BucketPermissionException|MalformedManifestException|CreateJobQuotaExceededException|InvalidJobIdException|InvalidVersionException|any, data: CreateJobOutput|any) => void): void;
-      getShippingLabel(params: GetShippingLabelInput, callback: (err: InvalidJobIdException|ExpiredJobIdException|CanceledJobIdException|InvalidAccessKeyIdException|InvalidAddressException|InvalidVersionException|InvalidParameterException|any, data: GetShippingLabelOutput|any) => void): void;
-      getStatus(params: GetStatusInput, callback: (err: InvalidJobIdException|ExpiredJobIdException|CanceledJobIdException|InvalidAccessKeyIdException|InvalidVersionException|any, data: GetStatusOutput|any) => void): void;
-      listJobs(params: ListJobsInput, callback: (err: InvalidParameterException|InvalidAccessKeyIdException|InvalidVersionException|any, data: ListJobsOutput|any) => void): void;
-      updateJob(params: UpdateJobInput, callback: (err: MissingParameterException|InvalidParameterException|InvalidAccessKeyIdException|InvalidAddressException|InvalidManifestFieldException|InvalidJobIdException|MissingManifestFieldException|NoSuchBucketException|ExpiredJobIdException|CanceledJobIdException|MissingCustomsException|InvalidCustomsException|InvalidFileSystemException|MultipleRegionsException|BucketPermissionException|MalformedManifestException|UnableToUpdateJobIdException|InvalidVersionException|any, data: UpdateJobOutput|any) => void): void;
+      cancelJob(params: ImportExportCancelJobInput, callback: (err: ImportExportInvalidJobIdException|ImportExportExpiredJobIdException|ImportExportCanceledJobIdException|ImportExportUnableToCancelJobIdException|ImportExportInvalidAccessKeyIdException|ImportExportInvalidVersionException|any, data: ImportExportCancelJobOutput|any) => void): void;
+      createJob(params: ImportExportCreateJobInput, callback: (err: ImportExportMissingParameterException|ImportExportInvalidParameterException|ImportExportInvalidAccessKeyIdException|ImportExportInvalidAddressException|ImportExportInvalidManifestFieldException|ImportExportMissingManifestFieldException|ImportExportNoSuchBucketException|ImportExportMissingCustomsException|ImportExportInvalidCustomsException|ImportExportInvalidFileSystemException|ImportExportMultipleRegionsException|ImportExportBucketPermissionException|ImportExportMalformedManifestException|ImportExportCreateJobQuotaExceededException|ImportExportInvalidJobIdException|ImportExportInvalidVersionException|any, data: ImportExportCreateJobOutput|any) => void): void;
+      getShippingLabel(params: ImportExportGetShippingLabelInput, callback: (err: ImportExportInvalidJobIdException|ImportExportExpiredJobIdException|ImportExportCanceledJobIdException|ImportExportInvalidAccessKeyIdException|ImportExportInvalidAddressException|ImportExportInvalidVersionException|ImportExportInvalidParameterException|any, data: ImportExportGetShippingLabelOutput|any) => void): void;
+      getStatus(params: ImportExportGetStatusInput, callback: (err: ImportExportInvalidJobIdException|ImportExportExpiredJobIdException|ImportExportCanceledJobIdException|ImportExportInvalidAccessKeyIdException|ImportExportInvalidVersionException|any, data: ImportExportGetStatusOutput|any) => void): void;
+      listJobs(params: ImportExportListJobsInput, callback: (err: ImportExportInvalidParameterException|ImportExportInvalidAccessKeyIdException|ImportExportInvalidVersionException|any, data: ImportExportListJobsOutput|any) => void): void;
+      updateJob(params: ImportExportUpdateJobInput, callback: (err: ImportExportMissingParameterException|ImportExportInvalidParameterException|ImportExportInvalidAccessKeyIdException|ImportExportInvalidAddressException|ImportExportInvalidManifestFieldException|ImportExportInvalidJobIdException|ImportExportMissingManifestFieldException|ImportExportNoSuchBucketException|ImportExportExpiredJobIdException|ImportExportCanceledJobIdException|ImportExportMissingCustomsException|ImportExportInvalidCustomsException|ImportExportInvalidFileSystemException|ImportExportMultipleRegionsException|ImportExportBucketPermissionException|ImportExportMalformedManifestException|ImportExportUnableToUpdateJobIdException|ImportExportInvalidVersionException|any, data: ImportExportUpdateJobOutput|any) => void): void;
     }
 
-    export type APIVersion = string;
-
-    export interface Artifact {
-      Description?: Description;
-      URL?: URL;
+    export type ImportExportAPIVersion = string;
+    export interface ImportExportArtifact {
+        Description?: ImportExportDescription;
+        URL?: ImportExportURL;
     }
 
-
-    export type ArtifactList = Array<Artifact>;
-
-    export interface BucketPermissionException {
-      message?: ErrorMessage;
+    export type ImportExportArtifactList = Array<ImportExportArtifact>;
+    export interface ImportExportBucketPermissionException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export interface CancelJobInput {
-      JobId: JobId;
-      APIVersion?: APIVersion;
+    export interface ImportExportCancelJobInput {
+        JobId: ImportExportJobId;
+        APIVersion?: ImportExportAPIVersion;
     }
 
-
-    export interface CancelJobOutput {
-      Success?: Success;
+    export interface ImportExportCancelJobOutput {
+        Success?: ImportExportSuccess;
     }
 
-
-    export interface CanceledJobIdException {
-      message?: ErrorMessage;
+    export interface ImportExportCanceledJobIdException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export type Carrier = string;
-
-    export interface CreateJobInput {
-      JobType: JobType;
-      Manifest: Manifest;
-      ManifestAddendum?: ManifestAddendum;
-      ValidateOnly: ValidateOnly;
-      APIVersion?: APIVersion;
+    export type ImportExportCarrier = string;
+    export interface ImportExportCreateJobInput {
+        JobType: ImportExportJobType;
+        Manifest: ImportExportManifest;
+        ManifestAddendum?: ImportExportManifestAddendum;
+        ValidateOnly: ImportExportValidateOnly;
+        APIVersion?: ImportExportAPIVersion;
     }
 
-
-    export interface CreateJobOutput {
-      JobId?: JobId;
-      JobType?: JobType;
-      Signature?: Signature;
-      SignatureFileContents?: SignatureFileContents;
-      WarningMessage?: WarningMessage;
-      ArtifactList?: ArtifactList;
+    export interface ImportExportCreateJobOutput {
+        JobId?: ImportExportJobId;
+        JobType?: ImportExportJobType;
+        Signature?: ImportExportSignature;
+        SignatureFileContents?: ImportExportSignatureFileContents;
+        WarningMessage?: ImportExportWarningMessage;
+        ArtifactList?: ImportExportArtifactList;
     }
 
-
-    export interface CreateJobQuotaExceededException {
-      message?: ErrorMessage;
+    export interface ImportExportCreateJobQuotaExceededException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export type CreationDate = number;
-
-    export type CurrentManifest = string;
-
-    export type Description = string;
-
-    export type ErrorCount = number;
-
-    export type ErrorMessage = string;
-
-    export interface ExpiredJobIdException {
-      message?: ErrorMessage;
+    export type ImportExportCreationDate = number;
+    export type ImportExportCurrentManifest = string;
+    export type ImportExportDescription = string;
+    export type ImportExportErrorCount = number;
+    export type ImportExportErrorMessage = string;
+    export interface ImportExportExpiredJobIdException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export type GenericString = string;
-
-    export interface GetShippingLabelInput {
-      jobIds: JobIdList;
-      name?: GenericString;
-      company?: GenericString;
-      phoneNumber?: GenericString;
-      country?: GenericString;
-      stateOrProvince?: GenericString;
-      city?: GenericString;
-      postalCode?: GenericString;
-      street1?: GenericString;
-      street2?: GenericString;
-      street3?: GenericString;
-      APIVersion?: GenericString;
+    export type ImportExportGenericString = string;
+    export interface ImportExportGetShippingLabelInput {
+        jobIds: ImportExportJobIdList;
+        name?: ImportExportGenericString;
+        company?: ImportExportGenericString;
+        phoneNumber?: ImportExportGenericString;
+        country?: ImportExportGenericString;
+        stateOrProvince?: ImportExportGenericString;
+        city?: ImportExportGenericString;
+        postalCode?: ImportExportGenericString;
+        street1?: ImportExportGenericString;
+        street2?: ImportExportGenericString;
+        street3?: ImportExportGenericString;
+        APIVersion?: ImportExportGenericString;
     }
 
-
-    export interface GetShippingLabelOutput {
-      ShippingLabelURL?: GenericString;
-      Warning?: GenericString;
+    export interface ImportExportGetShippingLabelOutput {
+        ShippingLabelURL?: ImportExportGenericString;
+        Warning?: ImportExportGenericString;
     }
 
-
-    export interface GetStatusInput {
-      JobId: JobId;
-      APIVersion?: APIVersion;
+    export interface ImportExportGetStatusInput {
+        JobId: ImportExportJobId;
+        APIVersion?: ImportExportAPIVersion;
     }
 
-
-    export interface GetStatusOutput {
-      JobId?: JobId;
-      JobType?: JobType;
-      LocationCode?: LocationCode;
-      LocationMessage?: LocationMessage;
-      ProgressCode?: ProgressCode;
-      ProgressMessage?: ProgressMessage;
-      Carrier?: Carrier;
-      TrackingNumber?: TrackingNumber;
-      LogBucket?: LogBucket;
-      LogKey?: LogKey;
-      ErrorCount?: ErrorCount;
-      Signature?: Signature;
-      SignatureFileContents?: Signature;
-      CurrentManifest?: CurrentManifest;
-      CreationDate?: CreationDate;
-      ArtifactList?: ArtifactList;
+    export interface ImportExportGetStatusOutput {
+        JobId?: ImportExportJobId;
+        JobType?: ImportExportJobType;
+        LocationCode?: ImportExportLocationCode;
+        LocationMessage?: ImportExportLocationMessage;
+        ProgressCode?: ImportExportProgressCode;
+        ProgressMessage?: ImportExportProgressMessage;
+        Carrier?: ImportExportCarrier;
+        TrackingNumber?: ImportExportTrackingNumber;
+        LogBucket?: ImportExportLogBucket;
+        LogKey?: ImportExportLogKey;
+        ErrorCount?: ImportExportErrorCount;
+        Signature?: ImportExportSignature;
+        SignatureFileContents?: ImportExportSignature;
+        CurrentManifest?: ImportExportCurrentManifest;
+        CreationDate?: ImportExportCreationDate;
+        ArtifactList?: ImportExportArtifactList;
     }
 
-
-    export interface InvalidAccessKeyIdException {
-      message?: ErrorMessage;
+    export interface ImportExportInvalidAccessKeyIdException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export interface InvalidAddressException {
-      message?: ErrorMessage;
+    export interface ImportExportInvalidAddressException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export interface InvalidCustomsException {
-      message?: ErrorMessage;
+    export interface ImportExportInvalidCustomsException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export interface InvalidFileSystemException {
-      message?: ErrorMessage;
+    export interface ImportExportInvalidFileSystemException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export interface InvalidJobIdException {
-      message?: ErrorMessage;
+    export interface ImportExportInvalidJobIdException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export interface InvalidManifestFieldException {
-      message?: ErrorMessage;
+    export interface ImportExportInvalidManifestFieldException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export interface InvalidParameterException {
-      message?: ErrorMessage;
+    export interface ImportExportInvalidParameterException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export interface InvalidVersionException {
-      message?: ErrorMessage;
+    export interface ImportExportInvalidVersionException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export type IsCanceled = boolean;
-
-    export type IsTruncated = boolean;
-
-    export interface Job {
-      JobId?: JobId;
-      CreationDate?: CreationDate;
-      IsCanceled?: IsCanceled;
-      JobType?: JobType;
+    export type ImportExportIsCanceled = boolean;
+    export type ImportExportIsTruncated = boolean;
+    export interface ImportExportJob {
+        JobId?: ImportExportJobId;
+        CreationDate?: ImportExportCreationDate;
+        IsCanceled?: ImportExportIsCanceled;
+        JobType?: ImportExportJobType;
     }
 
-
-    export type JobId = string;
-
-    export type JobIdList = Array<GenericString>;
-
-    export type JobType = string;
-
-    export type JobsList = Array<Job>;
-
-    export interface ListJobsInput {
-      MaxJobs?: MaxJobs;
-      Marker?: Marker;
-      APIVersion?: APIVersion;
+    export type ImportExportJobId = string;
+    export type ImportExportJobIdList = Array<ImportExportGenericString>;
+    export type ImportExportJobType = string;
+    export type ImportExportJobsList = Array<ImportExportJob>;
+    export interface ImportExportListJobsInput {
+        MaxJobs?: ImportExportMaxJobs;
+        Marker?: ImportExportMarker;
+        APIVersion?: ImportExportAPIVersion;
     }
 
-
-    export interface ListJobsOutput {
-      Jobs?: JobsList;
-      IsTruncated?: IsTruncated;
+    export interface ImportExportListJobsOutput {
+        Jobs?: ImportExportJobsList;
+        IsTruncated?: ImportExportIsTruncated;
     }
 
-
-    export type LocationCode = string;
-
-    export type LocationMessage = string;
-
-    export type LogBucket = string;
-
-    export type LogKey = string;
-
-    export interface MalformedManifestException {
-      message?: ErrorMessage;
+    export type ImportExportLocationCode = string;
+    export type ImportExportLocationMessage = string;
+    export type ImportExportLogBucket = string;
+    export type ImportExportLogKey = string;
+    export interface ImportExportMalformedManifestException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export type Manifest = string;
-
-    export type ManifestAddendum = string;
-
-    export type Marker = string;
-
-    export type MaxJobs = number;
-
-    export interface MissingCustomsException {
-      message?: ErrorMessage;
+    export type ImportExportManifest = string;
+    export type ImportExportManifestAddendum = string;
+    export type ImportExportMarker = string;
+    export type ImportExportMaxJobs = number;
+    export interface ImportExportMissingCustomsException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export interface MissingManifestFieldException {
-      message?: ErrorMessage;
+    export interface ImportExportMissingManifestFieldException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export interface MissingParameterException {
-      message?: ErrorMessage;
+    export interface ImportExportMissingParameterException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export interface MultipleRegionsException {
-      message?: ErrorMessage;
+    export interface ImportExportMultipleRegionsException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export interface NoSuchBucketException {
-      message?: ErrorMessage;
+    export interface ImportExportNoSuchBucketException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export type ProgressCode = string;
-
-    export type ProgressMessage = string;
-
-    export type Signature = string;
-
-    export type SignatureFileContents = string;
-
-    export type Success = boolean;
-
-    export type TrackingNumber = string;
-
-    export type URL = string;
-
-    export interface UnableToCancelJobIdException {
-      message?: ErrorMessage;
+    export type ImportExportProgressCode = string;
+    export type ImportExportProgressMessage = string;
+    export type ImportExportSignature = string;
+    export type ImportExportSignatureFileContents = string;
+    export type ImportExportSuccess = boolean;
+    export type ImportExportTrackingNumber = string;
+    export type ImportExportURL = string;
+    export interface ImportExportUnableToCancelJobIdException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export interface UnableToUpdateJobIdException {
-      message?: ErrorMessage;
+    export interface ImportExportUnableToUpdateJobIdException {
+        message?: ImportExportErrorMessage;
     }
 
-
-    export interface UpdateJobInput {
-      JobId: JobId;
-      Manifest: Manifest;
-      JobType: JobType;
-      ValidateOnly: ValidateOnly;
-      APIVersion?: APIVersion;
+    export interface ImportExportUpdateJobInput {
+        JobId: ImportExportJobId;
+        Manifest: ImportExportManifest;
+        JobType: ImportExportJobType;
+        ValidateOnly: ImportExportValidateOnly;
+        APIVersion?: ImportExportAPIVersion;
     }
 
-
-    export interface UpdateJobOutput {
-      Success?: Success;
-      WarningMessage?: WarningMessage;
-      ArtifactList?: ArtifactList;
+    export interface ImportExportUpdateJobOutput {
+        Success?: ImportExportSuccess;
+        WarningMessage?: ImportExportWarningMessage;
+        ArtifactList?: ImportExportArtifactList;
     }
 
-
-    export type ValidateOnly = boolean;
-
-    export type WarningMessage = string;
-
+    export type ImportExportValidateOnly = boolean;
+    export type ImportExportWarningMessage = string;
 }

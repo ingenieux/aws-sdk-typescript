@@ -3,329 +3,259 @@
 declare module "aws-sdk" {
     export class CloudHSM {
       constructor(options?: any);
-      createHapg(params: CreateHapgRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: CreateHapgResponse|any) => void): void;
-      createHsm(params: CreateHsmRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: CreateHsmResponse|any) => void): void;
-      createLunaClient(params: CreateLunaClientRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: CreateLunaClientResponse|any) => void): void;
-      deleteHapg(params: DeleteHapgRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: DeleteHapgResponse|any) => void): void;
-      deleteHsm(params: DeleteHsmRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: DeleteHsmResponse|any) => void): void;
-      deleteLunaClient(params: DeleteLunaClientRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: DeleteLunaClientResponse|any) => void): void;
-      describeHapg(params: DescribeHapgRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: DescribeHapgResponse|any) => void): void;
-      describeHsm(params: DescribeHsmRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: DescribeHsmResponse|any) => void): void;
-      describeLunaClient(params: DescribeLunaClientRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: DescribeLunaClientResponse|any) => void): void;
-      getConfig(params: GetConfigRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: GetConfigResponse|any) => void): void;
-      listAvailableZones(params: ListAvailableZonesRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: ListAvailableZonesResponse|any) => void): void;
-      listHapgs(params: ListHapgsRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: ListHapgsResponse|any) => void): void;
-      listHsms(params: ListHsmsRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: ListHsmsResponse|any) => void): void;
-      listLunaClients(params: ListLunaClientsRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: ListLunaClientsResponse|any) => void): void;
-      modifyHapg(params: ModifyHapgRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: ModifyHapgResponse|any) => void): void;
-      modifyHsm(params: ModifyHsmRequest, callback: (err: CloudHsmServiceException|CloudHsmInternalException|InvalidRequestException|any, data: ModifyHsmResponse|any) => void): void;
-      modifyLunaClient(params: ModifyLunaClientRequest, callback: (err: CloudHsmServiceException|any, data: ModifyLunaClientResponse|any) => void): void;
+      createHapg(params: CloudHSMCreateHapgRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMCreateHapgResponse|any) => void): void;
+      createHsm(params: CloudHSMCreateHsmRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMCreateHsmResponse|any) => void): void;
+      createLunaClient(params: CloudHSMCreateLunaClientRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMCreateLunaClientResponse|any) => void): void;
+      deleteHapg(params: CloudHSMDeleteHapgRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDeleteHapgResponse|any) => void): void;
+      deleteHsm(params: CloudHSMDeleteHsmRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDeleteHsmResponse|any) => void): void;
+      deleteLunaClient(params: CloudHSMDeleteLunaClientRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDeleteLunaClientResponse|any) => void): void;
+      describeHapg(params: CloudHSMDescribeHapgRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDescribeHapgResponse|any) => void): void;
+      describeHsm(params: CloudHSMDescribeHsmRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDescribeHsmResponse|any) => void): void;
+      describeLunaClient(params: CloudHSMDescribeLunaClientRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDescribeLunaClientResponse|any) => void): void;
+      getConfig(params: CloudHSMGetConfigRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMGetConfigResponse|any) => void): void;
+      listAvailableZones(params: CloudHSMListAvailableZonesRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMListAvailableZonesResponse|any) => void): void;
+      listHapgs(params: CloudHSMListHapgsRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMListHapgsResponse|any) => void): void;
+      listHsms(params: CloudHSMListHsmsRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMListHsmsResponse|any) => void): void;
+      listLunaClients(params: CloudHSMListLunaClientsRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMListLunaClientsResponse|any) => void): void;
+      modifyHapg(params: CloudHSMModifyHapgRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMModifyHapgResponse|any) => void): void;
+      modifyHsm(params: CloudHSMModifyHsmRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMModifyHsmResponse|any) => void): void;
+      modifyLunaClient(params: CloudHSMModifyLunaClientRequest, callback: (err: CloudHSMCloudHsmServiceException|any, data: CloudHSMModifyLunaClientResponse|any) => void): void;
     }
 
-    export type AZ = string; // pattern: "[a-zA-Z0-9\-]*"
-
-    export type AZList = Array<AZ>;
-
-    export type Boolean = boolean;
-
-    export type Certificate = string; // pattern: "[\w :+=./\n-]*"
-
-    export type CertificateFingerprint = string; // pattern: "([0-9a-fA-F][0-9a-fA-F]:){15}[0-9a-fA-F][0-9a-fA-F]"
-
-    export type ClientArn = string; // pattern: "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\-]*:[0-9]{12}:client-[0-9a-f]{8}"
-
-    export type ClientLabel = string; // pattern: "[a-zA-Z0-9_.-]{2,64}"
-
-    export type ClientList = Array<ClientArn>;
-
-    export type ClientToken = string; // pattern: "[a-zA-Z0-9]{1,64}"
-
-    export type ClientVersion = string;
-
-    export interface CloudHsmInternalException {
+    export type CloudHSMAZ = string; // pattern: "[a-zA-Z0-9\-]*"
+    export type CloudHSMAZList = Array<CloudHSMAZ>;
+    export type CloudHSMBoolean = boolean;
+    export type CloudHSMCertificate = string; // pattern: "[\w :+=./\n-]*"
+    export type CloudHSMCertificateFingerprint = string; // pattern: "([0-9a-fA-F][0-9a-fA-F]:){15}[0-9a-fA-F][0-9a-fA-F]"
+    export type CloudHSMClientArn = string; // pattern: "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\-]*:[0-9]{12}:client-[0-9a-f]{8}"
+    export type CloudHSMClientLabel = string; // pattern: "[a-zA-Z0-9_.-]{2,64}"
+    export type CloudHSMClientList = Array<CloudHSMClientArn>;
+    export type CloudHSMClientToken = string; // pattern: "[a-zA-Z0-9]{1,64}"
+    export type CloudHSMClientVersion = string;
+    export interface CloudHSMCloudHsmInternalException {
     }
 
-
-    export type CloudHsmObjectState = string;
-
-    export interface CloudHsmServiceException {
-      message?: String;
-      retryable?: Boolean;
+    export type CloudHSMCloudHsmObjectState = string;
+    export interface CloudHSMCloudHsmServiceException {
+        message?: CloudHSMString;
+        retryable?: CloudHSMBoolean;
     }
 
-
-    export interface CreateHapgRequest {
-      Label: Label;
+    export interface CloudHSMCreateHapgRequest {
+        Label: CloudHSMLabel;
     }
 
-
-    export interface CreateHapgResponse {
-      HapgArn?: HapgArn;
+    export interface CloudHSMCreateHapgResponse {
+        HapgArn?: CloudHSMHapgArn;
     }
 
-
-    export interface CreateHsmRequest {
-      SubnetId: SubnetId;
-      SshKey: SshKey;
-      EniIp?: IpAddress;
-      IamRoleArn: IamRoleArn;
-      ExternalId?: ExternalId;
-      SubscriptionType: SubscriptionType;
-      ClientToken?: ClientToken;
-      SyslogIp?: IpAddress;
+    export interface CloudHSMCreateHsmRequest {
+        SubnetId: CloudHSMSubnetId;
+        SshKey: CloudHSMSshKey;
+        EniIp?: CloudHSMIpAddress;
+        IamRoleArn: CloudHSMIamRoleArn;
+        ExternalId?: CloudHSMExternalId;
+        SubscriptionType: CloudHSMSubscriptionType;
+        ClientToken?: CloudHSMClientToken;
+        SyslogIp?: CloudHSMIpAddress;
     }
 
-
-    export interface CreateHsmResponse {
-      HsmArn?: HsmArn;
+    export interface CloudHSMCreateHsmResponse {
+        HsmArn?: CloudHSMHsmArn;
     }
 
-
-    export interface CreateLunaClientRequest {
-      Label?: ClientLabel;
-      Certificate: Certificate;
+    export interface CloudHSMCreateLunaClientRequest {
+        Label?: CloudHSMClientLabel;
+        Certificate: CloudHSMCertificate;
     }
 
-
-    export interface CreateLunaClientResponse {
-      ClientArn?: ClientArn;
+    export interface CloudHSMCreateLunaClientResponse {
+        ClientArn?: CloudHSMClientArn;
     }
 
-
-    export interface DeleteHapgRequest {
-      HapgArn: HapgArn;
+    export interface CloudHSMDeleteHapgRequest {
+        HapgArn: CloudHSMHapgArn;
     }
 
-
-    export interface DeleteHapgResponse {
-      Status: String;
+    export interface CloudHSMDeleteHapgResponse {
+        Status: CloudHSMString;
     }
 
-
-    export interface DeleteHsmRequest {
-      HsmArn: HsmArn;
+    export interface CloudHSMDeleteHsmRequest {
+        HsmArn: CloudHSMHsmArn;
     }
 
-
-    export interface DeleteHsmResponse {
-      Status: String;
+    export interface CloudHSMDeleteHsmResponse {
+        Status: CloudHSMString;
     }
 
-
-    export interface DeleteLunaClientRequest {
-      ClientArn: ClientArn;
+    export interface CloudHSMDeleteLunaClientRequest {
+        ClientArn: CloudHSMClientArn;
     }
 
-
-    export interface DeleteLunaClientResponse {
-      Status: String;
+    export interface CloudHSMDeleteLunaClientResponse {
+        Status: CloudHSMString;
     }
 
-
-    export interface DescribeHapgRequest {
-      HapgArn: HapgArn;
+    export interface CloudHSMDescribeHapgRequest {
+        HapgArn: CloudHSMHapgArn;
     }
 
-
-    export interface DescribeHapgResponse {
-      HapgArn?: HapgArn;
-      HapgSerial?: String;
-      HsmsLastActionFailed?: HsmList;
-      HsmsPendingDeletion?: HsmList;
-      HsmsPendingRegistration?: HsmList;
-      Label?: Label;
-      LastModifiedTimestamp?: Timestamp;
-      PartitionSerialList?: PartitionSerialList;
-      State?: CloudHsmObjectState;
+    export interface CloudHSMDescribeHapgResponse {
+        HapgArn?: CloudHSMHapgArn;
+        HapgSerial?: CloudHSMString;
+        HsmsLastActionFailed?: CloudHSMHsmList;
+        HsmsPendingDeletion?: CloudHSMHsmList;
+        HsmsPendingRegistration?: CloudHSMHsmList;
+        Label?: CloudHSMLabel;
+        LastModifiedTimestamp?: CloudHSMTimestamp;
+        PartitionSerialList?: CloudHSMPartitionSerialList;
+        State?: CloudHSMCloudHsmObjectState;
     }
 
-
-    export interface DescribeHsmRequest {
-      HsmArn?: HsmArn;
-      HsmSerialNumber?: HsmSerialNumber;
+    export interface CloudHSMDescribeHsmRequest {
+        HsmArn?: CloudHSMHsmArn;
+        HsmSerialNumber?: CloudHSMHsmSerialNumber;
     }
 
-
-    export interface DescribeHsmResponse {
-      HsmArn?: HsmArn;
-      Status?: HsmStatus;
-      StatusDetails?: String;
-      AvailabilityZone?: AZ;
-      EniId?: EniId;
-      EniIp?: IpAddress;
-      SubscriptionType?: SubscriptionType;
-      SubscriptionStartDate?: Timestamp;
-      SubscriptionEndDate?: Timestamp;
-      VpcId?: VpcId;
-      SubnetId?: SubnetId;
-      IamRoleArn?: IamRoleArn;
-      SerialNumber?: HsmSerialNumber;
-      VendorName?: String;
-      HsmType?: String;
-      SoftwareVersion?: String;
-      SshPublicKey?: SshKey;
-      SshKeyLastUpdated?: Timestamp;
-      ServerCertUri?: String;
-      ServerCertLastUpdated?: Timestamp;
-      Partitions?: PartitionList;
+    export interface CloudHSMDescribeHsmResponse {
+        HsmArn?: CloudHSMHsmArn;
+        Status?: CloudHSMHsmStatus;
+        StatusDetails?: CloudHSMString;
+        AvailabilityZone?: CloudHSMAZ;
+        EniId?: CloudHSMEniId;
+        EniIp?: CloudHSMIpAddress;
+        SubscriptionType?: CloudHSMSubscriptionType;
+        SubscriptionStartDate?: CloudHSMTimestamp;
+        SubscriptionEndDate?: CloudHSMTimestamp;
+        VpcId?: CloudHSMVpcId;
+        SubnetId?: CloudHSMSubnetId;
+        IamRoleArn?: CloudHSMIamRoleArn;
+        SerialNumber?: CloudHSMHsmSerialNumber;
+        VendorName?: CloudHSMString;
+        HsmType?: CloudHSMString;
+        SoftwareVersion?: CloudHSMString;
+        SshPublicKey?: CloudHSMSshKey;
+        SshKeyLastUpdated?: CloudHSMTimestamp;
+        ServerCertUri?: CloudHSMString;
+        ServerCertLastUpdated?: CloudHSMTimestamp;
+        Partitions?: CloudHSMPartitionList;
     }
 
-
-    export interface DescribeLunaClientRequest {
-      ClientArn?: ClientArn;
-      CertificateFingerprint?: CertificateFingerprint;
+    export interface CloudHSMDescribeLunaClientRequest {
+        ClientArn?: CloudHSMClientArn;
+        CertificateFingerprint?: CloudHSMCertificateFingerprint;
     }
 
-
-    export interface DescribeLunaClientResponse {
-      ClientArn?: ClientArn;
-      Certificate?: Certificate;
-      CertificateFingerprint?: CertificateFingerprint;
-      LastModifiedTimestamp?: Timestamp;
-      Label?: Label;
+    export interface CloudHSMDescribeLunaClientResponse {
+        ClientArn?: CloudHSMClientArn;
+        Certificate?: CloudHSMCertificate;
+        CertificateFingerprint?: CloudHSMCertificateFingerprint;
+        LastModifiedTimestamp?: CloudHSMTimestamp;
+        Label?: CloudHSMLabel;
     }
 
-
-    export type EniId = string; // pattern: "eni-[0-9a-f]{8}"
-
-    export type ExternalId = string; // pattern: "[\w :+=./-]*"
-
-    export interface GetConfigRequest {
-      ClientArn: ClientArn;
-      ClientVersion: ClientVersion;
-      HapgList: HapgList;
+    export type CloudHSMEniId = string; // pattern: "eni-[0-9a-f]{8}"
+    export type CloudHSMExternalId = string; // pattern: "[\w :+=./-]*"
+    export interface CloudHSMGetConfigRequest {
+        ClientArn: CloudHSMClientArn;
+        ClientVersion: CloudHSMClientVersion;
+        HapgList: CloudHSMHapgList;
     }
 
-
-    export interface GetConfigResponse {
-      ConfigType?: String;
-      ConfigFile?: String;
-      ConfigCred?: String;
+    export interface CloudHSMGetConfigResponse {
+        ConfigType?: CloudHSMString;
+        ConfigFile?: CloudHSMString;
+        ConfigCred?: CloudHSMString;
     }
 
-
-    export type HapgArn = string; // pattern: "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\-]*:[0-9]{12}:hapg-[0-9a-f]{8}"
-
-    export type HapgList = Array<HapgArn>;
-
-    export type HsmArn = string; // pattern: "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\-]*:[0-9]{12}:hsm-[0-9a-f]{8}"
-
-    export type HsmList = Array<HsmArn>;
-
-    export type HsmSerialNumber = string; // pattern: "\d{1,16}"
-
-    export type HsmStatus = string;
-
-    export type IamRoleArn = string; // pattern: "arn:aws(-iso)?:iam::[0-9]{12}:role/[a-zA-Z0-9_\+=,\.\-@]{1,64}"
-
-    export interface InvalidRequestException {
+    export type CloudHSMHapgArn = string; // pattern: "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\-]*:[0-9]{12}:hapg-[0-9a-f]{8}"
+    export type CloudHSMHapgList = Array<CloudHSMHapgArn>;
+    export type CloudHSMHsmArn = string; // pattern: "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\-]*:[0-9]{12}:hsm-[0-9a-f]{8}"
+    export type CloudHSMHsmList = Array<CloudHSMHsmArn>;
+    export type CloudHSMHsmSerialNumber = string; // pattern: "\d{1,16}"
+    export type CloudHSMHsmStatus = string;
+    export type CloudHSMIamRoleArn = string; // pattern: "arn:aws(-iso)?:iam::[0-9]{12}:role/[a-zA-Z0-9_\+=,\.\-@]{1,64}"
+    export interface CloudHSMInvalidRequestException {
     }
 
-
-    export type IpAddress = string; // pattern: "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
-
-    export type Label = string; // pattern: "[a-zA-Z0-9_.-]{1,64}"
-
-    export interface ListAvailableZonesRequest {
+    export type CloudHSMIpAddress = string; // pattern: "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
+    export type CloudHSMLabel = string; // pattern: "[a-zA-Z0-9_.-]{1,64}"
+    export interface CloudHSMListAvailableZonesRequest {
     }
 
-
-    export interface ListAvailableZonesResponse {
-      AZList?: AZList;
+    export interface CloudHSMListAvailableZonesResponse {
+        AZList?: CloudHSMAZList;
     }
 
-
-    export interface ListHapgsRequest {
-      NextToken?: PaginationToken;
+    export interface CloudHSMListHapgsRequest {
+        NextToken?: CloudHSMPaginationToken;
     }
 
-
-    export interface ListHapgsResponse {
-      HapgList: HapgList;
-      NextToken?: PaginationToken;
+    export interface CloudHSMListHapgsResponse {
+        HapgList: CloudHSMHapgList;
+        NextToken?: CloudHSMPaginationToken;
     }
 
-
-    export interface ListHsmsRequest {
-      NextToken?: PaginationToken;
+    export interface CloudHSMListHsmsRequest {
+        NextToken?: CloudHSMPaginationToken;
     }
 
-
-    export interface ListHsmsResponse {
-      HsmList?: HsmList;
-      NextToken?: PaginationToken;
+    export interface CloudHSMListHsmsResponse {
+        HsmList?: CloudHSMHsmList;
+        NextToken?: CloudHSMPaginationToken;
     }
 
-
-    export interface ListLunaClientsRequest {
-      NextToken?: PaginationToken;
+    export interface CloudHSMListLunaClientsRequest {
+        NextToken?: CloudHSMPaginationToken;
     }
 
-
-    export interface ListLunaClientsResponse {
-      ClientList: ClientList;
-      NextToken?: PaginationToken;
+    export interface CloudHSMListLunaClientsResponse {
+        ClientList: CloudHSMClientList;
+        NextToken?: CloudHSMPaginationToken;
     }
 
-
-    export interface ModifyHapgRequest {
-      HapgArn: HapgArn;
-      Label?: Label;
-      PartitionSerialList?: PartitionSerialList;
+    export interface CloudHSMModifyHapgRequest {
+        HapgArn: CloudHSMHapgArn;
+        Label?: CloudHSMLabel;
+        PartitionSerialList?: CloudHSMPartitionSerialList;
     }
 
-
-    export interface ModifyHapgResponse {
-      HapgArn?: HapgArn;
+    export interface CloudHSMModifyHapgResponse {
+        HapgArn?: CloudHSMHapgArn;
     }
 
-
-    export interface ModifyHsmRequest {
-      HsmArn: HsmArn;
-      SubnetId?: SubnetId;
-      EniIp?: IpAddress;
-      IamRoleArn?: IamRoleArn;
-      ExternalId?: ExternalId;
-      SyslogIp?: IpAddress;
+    export interface CloudHSMModifyHsmRequest {
+        HsmArn: CloudHSMHsmArn;
+        SubnetId?: CloudHSMSubnetId;
+        EniIp?: CloudHSMIpAddress;
+        IamRoleArn?: CloudHSMIamRoleArn;
+        ExternalId?: CloudHSMExternalId;
+        SyslogIp?: CloudHSMIpAddress;
     }
 
-
-    export interface ModifyHsmResponse {
-      HsmArn?: HsmArn;
+    export interface CloudHSMModifyHsmResponse {
+        HsmArn?: CloudHSMHsmArn;
     }
 
-
-    export interface ModifyLunaClientRequest {
-      ClientArn: ClientArn;
-      Certificate: Certificate;
+    export interface CloudHSMModifyLunaClientRequest {
+        ClientArn: CloudHSMClientArn;
+        Certificate: CloudHSMCertificate;
     }
 
-
-    export interface ModifyLunaClientResponse {
-      ClientArn?: ClientArn;
+    export interface CloudHSMModifyLunaClientResponse {
+        ClientArn?: CloudHSMClientArn;
     }
 
-
-    export type PaginationToken = string; // pattern: "[a-zA-Z0-9+/]*"
-
-    export type PartitionArn = string; // pattern: "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\-]*:[0-9]{12}:hsm-[0-9a-f]{8}/partition-[0-9]{6,12}"
-
-    export type PartitionList = Array<PartitionArn>;
-
-    export type PartitionSerial = string; // pattern: "\d{9}"
-
-    export type PartitionSerialList = Array<PartitionSerial>;
-
-    export type SshKey = string; // pattern: "[a-zA-Z0-9+/= ._:\\@-]*"
-
-    export type String = string; // pattern: "[\w :+=./\\-]*"
-
-    export type SubnetId = string; // pattern: "subnet-[0-9a-f]{8}"
-
-    export type SubscriptionType = string;
-
-    export type Timestamp = string; // pattern: "\d*"
-
-    export type VpcId = string; // pattern: "vpc-[0-9a-f]{8}"
-
+    export type CloudHSMPaginationToken = string; // pattern: "[a-zA-Z0-9+/]*"
+    export type CloudHSMPartitionArn = string; // pattern: "arn:aws(-iso)?:cloudhsm:[a-zA-Z0-9\-]*:[0-9]{12}:hsm-[0-9a-f]{8}/partition-[0-9]{6,12}"
+    export type CloudHSMPartitionList = Array<CloudHSMPartitionArn>;
+    export type CloudHSMPartitionSerial = string; // pattern: "\d{9}"
+    export type CloudHSMPartitionSerialList = Array<CloudHSMPartitionSerial>;
+    export type CloudHSMSshKey = string; // pattern: "[a-zA-Z0-9+/= ._:\\@-]*"
+    export type CloudHSMString = string; // pattern: "[\w :+=./\\-]*"
+    export type CloudHSMSubnetId = string; // pattern: "subnet-[0-9a-f]{8}"
+    export type CloudHSMSubscriptionType = string;
+    export type CloudHSMTimestamp = string; // pattern: "\d*"
+    export type CloudHSMVpcId = string; // pattern: "vpc-[0-9a-f]{8}"
 }

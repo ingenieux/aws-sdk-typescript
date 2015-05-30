@@ -3,481 +3,375 @@
 declare module "aws-sdk" {
     export class CloudFormation {
       constructor(options?: any);
-      cancelUpdateStack(params: CancelUpdateStackInput, callback: (err: any, data: any) => void): void;
-      createStack(params: CreateStackInput, callback: (err: LimitExceededException|AlreadyExistsException|InsufficientCapabilitiesException|any, data: CreateStackOutput|any) => void): void;
-      deleteStack(params: DeleteStackInput, callback: (err: any, data: any) => void): void;
-      describeStackEvents(params: DescribeStackEventsInput, callback: (err: any, data: DescribeStackEventsOutput|any) => void): void;
-      describeStackResource(params: DescribeStackResourceInput, callback: (err: any, data: DescribeStackResourceOutput|any) => void): void;
-      describeStackResources(params: DescribeStackResourcesInput, callback: (err: any, data: DescribeStackResourcesOutput|any) => void): void;
-      describeStacks(params: DescribeStacksInput, callback: (err: any, data: DescribeStacksOutput|any) => void): void;
-      estimateTemplateCost(params: EstimateTemplateCostInput, callback: (err: any, data: EstimateTemplateCostOutput|any) => void): void;
-      getStackPolicy(params: GetStackPolicyInput, callback: (err: any, data: GetStackPolicyOutput|any) => void): void;
-      getTemplate(params: GetTemplateInput, callback: (err: any, data: GetTemplateOutput|any) => void): void;
-      getTemplateSummary(params: GetTemplateSummaryInput, callback: (err: any, data: GetTemplateSummaryOutput|any) => void): void;
-      listStackResources(params: ListStackResourcesInput, callback: (err: any, data: ListStackResourcesOutput|any) => void): void;
-      listStacks(params: ListStacksInput, callback: (err: any, data: ListStacksOutput|any) => void): void;
-      setStackPolicy(params: SetStackPolicyInput, callback: (err: any, data: any) => void): void;
-      signalResource(params: SignalResourceInput, callback: (err: any, data: any) => void): void;
-      updateStack(params: UpdateStackInput, callback: (err: InsufficientCapabilitiesException|any, data: UpdateStackOutput|any) => void): void;
-      validateTemplate(params: ValidateTemplateInput, callback: (err: any, data: ValidateTemplateOutput|any) => void): void;
+      cancelUpdateStack(params: CloudFormationCancelUpdateStackInput, callback: (err: any, data: any) => void): void;
+      createStack(params: CloudFormationCreateStackInput, callback: (err: CloudFormationLimitExceededException|CloudFormationAlreadyExistsException|CloudFormationInsufficientCapabilitiesException|any, data: CloudFormationCreateStackOutput|any) => void): void;
+      deleteStack(params: CloudFormationDeleteStackInput, callback: (err: any, data: any) => void): void;
+      describeStackEvents(params: CloudFormationDescribeStackEventsInput, callback: (err: any, data: CloudFormationDescribeStackEventsOutput|any) => void): void;
+      describeStackResource(params: CloudFormationDescribeStackResourceInput, callback: (err: any, data: CloudFormationDescribeStackResourceOutput|any) => void): void;
+      describeStackResources(params: CloudFormationDescribeStackResourcesInput, callback: (err: any, data: CloudFormationDescribeStackResourcesOutput|any) => void): void;
+      describeStacks(params: CloudFormationDescribeStacksInput, callback: (err: any, data: CloudFormationDescribeStacksOutput|any) => void): void;
+      estimateTemplateCost(params: CloudFormationEstimateTemplateCostInput, callback: (err: any, data: CloudFormationEstimateTemplateCostOutput|any) => void): void;
+      getStackPolicy(params: CloudFormationGetStackPolicyInput, callback: (err: any, data: CloudFormationGetStackPolicyOutput|any) => void): void;
+      getTemplate(params: CloudFormationGetTemplateInput, callback: (err: any, data: CloudFormationGetTemplateOutput|any) => void): void;
+      getTemplateSummary(params: CloudFormationGetTemplateSummaryInput, callback: (err: any, data: CloudFormationGetTemplateSummaryOutput|any) => void): void;
+      listStackResources(params: CloudFormationListStackResourcesInput, callback: (err: any, data: CloudFormationListStackResourcesOutput|any) => void): void;
+      listStacks(params: CloudFormationListStacksInput, callback: (err: any, data: CloudFormationListStacksOutput|any) => void): void;
+      setStackPolicy(params: CloudFormationSetStackPolicyInput, callback: (err: any, data: any) => void): void;
+      signalResource(params: CloudFormationSignalResourceInput, callback: (err: any, data: any) => void): void;
+      updateStack(params: CloudFormationUpdateStackInput, callback: (err: CloudFormationInsufficientCapabilitiesException|any, data: CloudFormationUpdateStackOutput|any) => void): void;
+      validateTemplate(params: CloudFormationValidateTemplateInput, callback: (err: any, data: CloudFormationValidateTemplateOutput|any) => void): void;
     }
 
-    export type AllowedValue = string;
-
-    export type AllowedValues = Array<AllowedValue>;
-
-    export interface AlreadyExistsException {
+    export type CloudFormationAllowedValue = string;
+    export type CloudFormationAllowedValues = Array<CloudFormationAllowedValue>;
+    export interface CloudFormationAlreadyExistsException {
     }
 
-
-    export interface CancelUpdateStackInput {
-      StackName: StackName;
+    export interface CloudFormationCancelUpdateStackInput {
+        StackName: CloudFormationStackName;
     }
 
-
-    export type Capabilities = Array<Capability>;
-
-    export type CapabilitiesReason = string;
-
-    export type Capability = string;
-
-    export interface CreateStackInput {
-      StackName: StackName;
-      TemplateBody?: TemplateBody;
-      TemplateURL?: TemplateURL;
-      Parameters?: Parameters;
-      DisableRollback?: DisableRollback;
-      TimeoutInMinutes?: TimeoutMinutes;
-      NotificationARNs?: NotificationARNs;
-      Capabilities?: Capabilities;
-      OnFailure?: OnFailure;
-      StackPolicyBody?: StackPolicyBody;
-      StackPolicyURL?: StackPolicyURL;
-      Tags?: Tags;
+    export type CloudFormationCapabilities = Array<CloudFormationCapability>;
+    export type CloudFormationCapabilitiesReason = string;
+    export type CloudFormationCapability = string;
+    export interface CloudFormationCreateStackInput {
+        StackName: CloudFormationStackName;
+        TemplateBody?: CloudFormationTemplateBody;
+        TemplateURL?: CloudFormationTemplateURL;
+        Parameters?: CloudFormationParameters;
+        DisableRollback?: CloudFormationDisableRollback;
+        TimeoutInMinutes?: CloudFormationTimeoutMinutes;
+        NotificationARNs?: CloudFormationNotificationARNs;
+        Capabilities?: CloudFormationCapabilities;
+        OnFailure?: CloudFormationOnFailure;
+        StackPolicyBody?: CloudFormationStackPolicyBody;
+        StackPolicyURL?: CloudFormationStackPolicyURL;
+        Tags?: CloudFormationTags;
     }
 
-
-    export interface CreateStackOutput {
-      StackId?: StackId;
+    export interface CloudFormationCreateStackOutput {
+        StackId?: CloudFormationStackId;
     }
 
-
-    export type CreationTime = number;
-
-    export interface DeleteStackInput {
-      StackName: StackName;
+    export type CloudFormationCreationTime = number;
+    export interface CloudFormationDeleteStackInput {
+        StackName: CloudFormationStackName;
     }
 
-
-    export type DeletionTime = number;
-
-    export interface DescribeStackEventsInput {
-      StackName?: StackName;
-      NextToken?: NextToken;
+    export type CloudFormationDeletionTime = number;
+    export interface CloudFormationDescribeStackEventsInput {
+        StackName?: CloudFormationStackName;
+        NextToken?: CloudFormationNextToken;
     }
 
-
-    export interface DescribeStackEventsOutput {
-      StackEvents?: StackEvents;
-      NextToken?: NextToken;
+    export interface CloudFormationDescribeStackEventsOutput {
+        StackEvents?: CloudFormationStackEvents;
+        NextToken?: CloudFormationNextToken;
     }
 
-
-    export interface DescribeStackResourceInput {
-      StackName: StackName;
-      LogicalResourceId: LogicalResourceId;
+    export interface CloudFormationDescribeStackResourceInput {
+        StackName: CloudFormationStackName;
+        LogicalResourceId: CloudFormationLogicalResourceId;
     }
 
-
-    export interface DescribeStackResourceOutput {
-      StackResourceDetail?: StackResourceDetail;
+    export interface CloudFormationDescribeStackResourceOutput {
+        StackResourceDetail?: CloudFormationStackResourceDetail;
     }
 
-
-    export interface DescribeStackResourcesInput {
-      StackName?: StackName;
-      LogicalResourceId?: LogicalResourceId;
-      PhysicalResourceId?: PhysicalResourceId;
+    export interface CloudFormationDescribeStackResourcesInput {
+        StackName?: CloudFormationStackName;
+        LogicalResourceId?: CloudFormationLogicalResourceId;
+        PhysicalResourceId?: CloudFormationPhysicalResourceId;
     }
 
-
-    export interface DescribeStackResourcesOutput {
-      StackResources?: StackResources;
+    export interface CloudFormationDescribeStackResourcesOutput {
+        StackResources?: CloudFormationStackResources;
     }
 
-
-    export interface DescribeStacksInput {
-      StackName?: StackName;
-      NextToken?: NextToken;
+    export interface CloudFormationDescribeStacksInput {
+        StackName?: CloudFormationStackName;
+        NextToken?: CloudFormationNextToken;
     }
 
-
-    export interface DescribeStacksOutput {
-      Stacks?: Stacks;
-      NextToken?: NextToken;
+    export interface CloudFormationDescribeStacksOutput {
+        Stacks?: CloudFormationStacks;
+        NextToken?: CloudFormationNextToken;
     }
 
-
-    export type Description = string;
-
-    export type DisableRollback = boolean;
-
-    export interface EstimateTemplateCostInput {
-      TemplateBody?: TemplateBody;
-      TemplateURL?: TemplateURL;
-      Parameters?: Parameters;
+    export type CloudFormationDescription = string;
+    export type CloudFormationDisableRollback = boolean;
+    export interface CloudFormationEstimateTemplateCostInput {
+        TemplateBody?: CloudFormationTemplateBody;
+        TemplateURL?: CloudFormationTemplateURL;
+        Parameters?: CloudFormationParameters;
     }
 
-
-    export interface EstimateTemplateCostOutput {
-      Url?: Url;
+    export interface CloudFormationEstimateTemplateCostOutput {
+        Url?: CloudFormationUrl;
     }
 
-
-    export type EventId = string;
-
-    export interface GetStackPolicyInput {
-      StackName: StackName;
+    export type CloudFormationEventId = string;
+    export interface CloudFormationGetStackPolicyInput {
+        StackName: CloudFormationStackName;
     }
 
-
-    export interface GetStackPolicyOutput {
-      StackPolicyBody?: StackPolicyBody;
+    export interface CloudFormationGetStackPolicyOutput {
+        StackPolicyBody?: CloudFormationStackPolicyBody;
     }
 
-
-    export interface GetTemplateInput {
-      StackName: StackName;
+    export interface CloudFormationGetTemplateInput {
+        StackName: CloudFormationStackName;
     }
 
-
-    export interface GetTemplateOutput {
-      TemplateBody?: TemplateBody;
+    export interface CloudFormationGetTemplateOutput {
+        TemplateBody?: CloudFormationTemplateBody;
     }
 
-
-    export interface GetTemplateSummaryInput {
-      TemplateBody?: TemplateBody;
-      TemplateURL?: TemplateURL;
-      StackName?: StackNameOrId;
+    export interface CloudFormationGetTemplateSummaryInput {
+        TemplateBody?: CloudFormationTemplateBody;
+        TemplateURL?: CloudFormationTemplateURL;
+        StackName?: CloudFormationStackNameOrId;
     }
 
-
-    export interface GetTemplateSummaryOutput {
-      Parameters?: ParameterDeclarations;
-      Description?: Description;
-      Capabilities?: Capabilities;
-      CapabilitiesReason?: CapabilitiesReason;
-      Version?: Version;
-      Metadata?: Metadata;
+    export interface CloudFormationGetTemplateSummaryOutput {
+        Parameters?: CloudFormationParameterDeclarations;
+        Description?: CloudFormationDescription;
+        Capabilities?: CloudFormationCapabilities;
+        CapabilitiesReason?: CloudFormationCapabilitiesReason;
+        Version?: CloudFormationVersion;
+        Metadata?: CloudFormationMetadata;
     }
 
-
-    export interface InsufficientCapabilitiesException {
+    export interface CloudFormationInsufficientCapabilitiesException {
     }
 
-
-    export type LastUpdatedTime = number;
-
-    export interface LimitExceededException {
+    export type CloudFormationLastUpdatedTime = number;
+    export interface CloudFormationLimitExceededException {
     }
 
-
-    export interface ListStackResourcesInput {
-      StackName: StackName;
-      NextToken?: NextToken;
+    export interface CloudFormationListStackResourcesInput {
+        StackName: CloudFormationStackName;
+        NextToken?: CloudFormationNextToken;
     }
 
-
-    export interface ListStackResourcesOutput {
-      StackResourceSummaries?: StackResourceSummaries;
-      NextToken?: NextToken;
+    export interface CloudFormationListStackResourcesOutput {
+        StackResourceSummaries?: CloudFormationStackResourceSummaries;
+        NextToken?: CloudFormationNextToken;
     }
 
-
-    export interface ListStacksInput {
-      NextToken?: NextToken;
-      StackStatusFilter?: StackStatusFilter;
+    export interface CloudFormationListStacksInput {
+        NextToken?: CloudFormationNextToken;
+        StackStatusFilter?: CloudFormationStackStatusFilter;
     }
 
-
-    export interface ListStacksOutput {
-      StackSummaries?: StackSummaries;
-      NextToken?: NextToken;
+    export interface CloudFormationListStacksOutput {
+        StackSummaries?: CloudFormationStackSummaries;
+        NextToken?: CloudFormationNextToken;
     }
 
-
-    export type LogicalResourceId = string;
-
-    export type Metadata = string;
-
-    export type NextToken = string;
-
-    export type NoEcho = boolean;
-
-    export type NotificationARN = string;
-
-    export type NotificationARNs = Array<NotificationARN>; // max: 5
-
-    export type OnFailure = string;
-
-    export interface Output {
-      OutputKey?: OutputKey;
-      OutputValue?: OutputValue;
-      Description?: Description;
+    export type CloudFormationLogicalResourceId = string;
+    export type CloudFormationMetadata = string;
+    export type CloudFormationNextToken = string;
+    export type CloudFormationNoEcho = boolean;
+    export type CloudFormationNotificationARN = string;
+    export type CloudFormationNotificationARNs = Array<CloudFormationNotificationARN>; // max: 5
+    export type CloudFormationOnFailure = string;
+    export interface CloudFormationOutput {
+        OutputKey?: CloudFormationOutputKey;
+        OutputValue?: CloudFormationOutputValue;
+        Description?: CloudFormationDescription;
     }
 
-
-    export type OutputKey = string;
-
-    export type OutputValue = string;
-
-    export type Outputs = Array<Output>;
-
-    export interface Parameter {
-      ParameterKey?: ParameterKey;
-      ParameterValue?: ParameterValue;
-      UsePreviousValue?: UsePreviousValue;
+    export type CloudFormationOutputKey = string;
+    export type CloudFormationOutputValue = string;
+    export type CloudFormationOutputs = Array<CloudFormationOutput>;
+    export interface CloudFormationParameter {
+        ParameterKey?: CloudFormationParameterKey;
+        ParameterValue?: CloudFormationParameterValue;
+        UsePreviousValue?: CloudFormationUsePreviousValue;
     }
 
-
-    export interface ParameterConstraints {
-      AllowedValues?: AllowedValues;
+    export interface CloudFormationParameterConstraints {
+        AllowedValues?: CloudFormationAllowedValues;
     }
 
-
-    export interface ParameterDeclaration {
-      ParameterKey?: ParameterKey;
-      DefaultValue?: ParameterValue;
-      ParameterType?: ParameterType;
-      NoEcho?: NoEcho;
-      Description?: Description;
-      ParameterConstraints?: ParameterConstraints;
+    export interface CloudFormationParameterDeclaration {
+        ParameterKey?: CloudFormationParameterKey;
+        DefaultValue?: CloudFormationParameterValue;
+        ParameterType?: CloudFormationParameterType;
+        NoEcho?: CloudFormationNoEcho;
+        Description?: CloudFormationDescription;
+        ParameterConstraints?: CloudFormationParameterConstraints;
     }
 
-
-    export type ParameterDeclarations = Array<ParameterDeclaration>;
-
-    export type ParameterKey = string;
-
-    export type ParameterType = string;
-
-    export type ParameterValue = string;
-
-    export type Parameters = Array<Parameter>;
-
-    export type PhysicalResourceId = string;
-
-    export type ResourceProperties = string;
-
-    export type ResourceSignalStatus = string;
-
-    export type ResourceSignalUniqueId = string;
-
-    export type ResourceStatus = string;
-
-    export type ResourceStatusReason = string;
-
-    export type ResourceType = string;
-
-    export interface SetStackPolicyInput {
-      StackName: StackName;
-      StackPolicyBody?: StackPolicyBody;
-      StackPolicyURL?: StackPolicyURL;
+    export type CloudFormationParameterDeclarations = Array<CloudFormationParameterDeclaration>;
+    export type CloudFormationParameterKey = string;
+    export type CloudFormationParameterType = string;
+    export type CloudFormationParameterValue = string;
+    export type CloudFormationParameters = Array<CloudFormationParameter>;
+    export type CloudFormationPhysicalResourceId = string;
+    export type CloudFormationResourceProperties = string;
+    export type CloudFormationResourceSignalStatus = string;
+    export type CloudFormationResourceSignalUniqueId = string;
+    export type CloudFormationResourceStatus = string;
+    export type CloudFormationResourceStatusReason = string;
+    export type CloudFormationResourceType = string;
+    export interface CloudFormationSetStackPolicyInput {
+        StackName: CloudFormationStackName;
+        StackPolicyBody?: CloudFormationStackPolicyBody;
+        StackPolicyURL?: CloudFormationStackPolicyURL;
     }
 
-
-    export interface SignalResourceInput {
-      StackName: StackNameOrId;
-      LogicalResourceId: LogicalResourceId;
-      UniqueId: ResourceSignalUniqueId;
-      Status: ResourceSignalStatus;
+    export interface CloudFormationSignalResourceInput {
+        StackName: CloudFormationStackNameOrId;
+        LogicalResourceId: CloudFormationLogicalResourceId;
+        UniqueId: CloudFormationResourceSignalUniqueId;
+        Status: CloudFormationResourceSignalStatus;
     }
 
-
-    export interface Stack {
-      StackId?: StackId;
-      StackName: StackName;
-      Description?: Description;
-      Parameters?: Parameters;
-      CreationTime: CreationTime;
-      LastUpdatedTime?: LastUpdatedTime;
-      StackStatus: StackStatus;
-      StackStatusReason?: StackStatusReason;
-      DisableRollback?: DisableRollback;
-      NotificationARNs?: NotificationARNs;
-      TimeoutInMinutes?: TimeoutMinutes;
-      Capabilities?: Capabilities;
-      Outputs?: Outputs;
-      Tags?: Tags;
+    export interface CloudFormationStack {
+        StackId?: CloudFormationStackId;
+        StackName: CloudFormationStackName;
+        Description?: CloudFormationDescription;
+        Parameters?: CloudFormationParameters;
+        CreationTime: CloudFormationCreationTime;
+        LastUpdatedTime?: CloudFormationLastUpdatedTime;
+        StackStatus: CloudFormationStackStatus;
+        StackStatusReason?: CloudFormationStackStatusReason;
+        DisableRollback?: CloudFormationDisableRollback;
+        NotificationARNs?: CloudFormationNotificationARNs;
+        TimeoutInMinutes?: CloudFormationTimeoutMinutes;
+        Capabilities?: CloudFormationCapabilities;
+        Outputs?: CloudFormationOutputs;
+        Tags?: CloudFormationTags;
     }
 
-
-    export interface StackEvent {
-      StackId: StackId;
-      EventId: EventId;
-      StackName: StackName;
-      LogicalResourceId?: LogicalResourceId;
-      PhysicalResourceId?: PhysicalResourceId;
-      ResourceType?: ResourceType;
-      Timestamp: Timestamp;
-      ResourceStatus?: ResourceStatus;
-      ResourceStatusReason?: ResourceStatusReason;
-      ResourceProperties?: ResourceProperties;
+    export interface CloudFormationStackEvent {
+        StackId: CloudFormationStackId;
+        EventId: CloudFormationEventId;
+        StackName: CloudFormationStackName;
+        LogicalResourceId?: CloudFormationLogicalResourceId;
+        PhysicalResourceId?: CloudFormationPhysicalResourceId;
+        ResourceType?: CloudFormationResourceType;
+        Timestamp: CloudFormationTimestamp;
+        ResourceStatus?: CloudFormationResourceStatus;
+        ResourceStatusReason?: CloudFormationResourceStatusReason;
+        ResourceProperties?: CloudFormationResourceProperties;
     }
 
-
-    export type StackEvents = Array<StackEvent>;
-
-    export type StackId = string;
-
-    export type StackName = string;
-
-    export type StackNameOrId = string; // pattern: "([a-zA-Z][-a-zA-Z0-9]*)|(arn:\b(aws|aws-us-gov|aws-cn)\b:[-a-zA-Z0-9:/._+]*)"
-
-    export type StackPolicyBody = string;
-
-    export type StackPolicyDuringUpdateBody = string;
-
-    export type StackPolicyDuringUpdateURL = string;
-
-    export type StackPolicyURL = string;
-
-    export interface StackResource {
-      StackName?: StackName;
-      StackId?: StackId;
-      LogicalResourceId: LogicalResourceId;
-      PhysicalResourceId?: PhysicalResourceId;
-      ResourceType: ResourceType;
-      Timestamp: Timestamp;
-      ResourceStatus: ResourceStatus;
-      ResourceStatusReason?: ResourceStatusReason;
-      Description?: Description;
+    export type CloudFormationStackEvents = Array<CloudFormationStackEvent>;
+    export type CloudFormationStackId = string;
+    export type CloudFormationStackName = string;
+    export type CloudFormationStackNameOrId = string; // pattern: "([a-zA-Z][-a-zA-Z0-9]*)|(arn:\b(aws|aws-us-gov|aws-cn)\b:[-a-zA-Z0-9:/._+]*)"
+    export type CloudFormationStackPolicyBody = string;
+    export type CloudFormationStackPolicyDuringUpdateBody = string;
+    export type CloudFormationStackPolicyDuringUpdateURL = string;
+    export type CloudFormationStackPolicyURL = string;
+    export interface CloudFormationStackResource {
+        StackName?: CloudFormationStackName;
+        StackId?: CloudFormationStackId;
+        LogicalResourceId: CloudFormationLogicalResourceId;
+        PhysicalResourceId?: CloudFormationPhysicalResourceId;
+        ResourceType: CloudFormationResourceType;
+        Timestamp: CloudFormationTimestamp;
+        ResourceStatus: CloudFormationResourceStatus;
+        ResourceStatusReason?: CloudFormationResourceStatusReason;
+        Description?: CloudFormationDescription;
     }
 
-
-    export interface StackResourceDetail {
-      StackName?: StackName;
-      StackId?: StackId;
-      LogicalResourceId: LogicalResourceId;
-      PhysicalResourceId?: PhysicalResourceId;
-      ResourceType: ResourceType;
-      LastUpdatedTimestamp: Timestamp;
-      ResourceStatus: ResourceStatus;
-      ResourceStatusReason?: ResourceStatusReason;
-      Description?: Description;
-      Metadata?: Metadata;
+    export interface CloudFormationStackResourceDetail {
+        StackName?: CloudFormationStackName;
+        StackId?: CloudFormationStackId;
+        LogicalResourceId: CloudFormationLogicalResourceId;
+        PhysicalResourceId?: CloudFormationPhysicalResourceId;
+        ResourceType: CloudFormationResourceType;
+        LastUpdatedTimestamp: CloudFormationTimestamp;
+        ResourceStatus: CloudFormationResourceStatus;
+        ResourceStatusReason?: CloudFormationResourceStatusReason;
+        Description?: CloudFormationDescription;
+        Metadata?: CloudFormationMetadata;
     }
 
-
-    export type StackResourceSummaries = Array<StackResourceSummary>;
-
-    export interface StackResourceSummary {
-      LogicalResourceId: LogicalResourceId;
-      PhysicalResourceId?: PhysicalResourceId;
-      ResourceType: ResourceType;
-      LastUpdatedTimestamp: Timestamp;
-      ResourceStatus: ResourceStatus;
-      ResourceStatusReason?: ResourceStatusReason;
+    export type CloudFormationStackResourceSummaries = Array<CloudFormationStackResourceSummary>;
+    export interface CloudFormationStackResourceSummary {
+        LogicalResourceId: CloudFormationLogicalResourceId;
+        PhysicalResourceId?: CloudFormationPhysicalResourceId;
+        ResourceType: CloudFormationResourceType;
+        LastUpdatedTimestamp: CloudFormationTimestamp;
+        ResourceStatus: CloudFormationResourceStatus;
+        ResourceStatusReason?: CloudFormationResourceStatusReason;
     }
 
-
-    export type StackResources = Array<StackResource>;
-
-    export type StackStatus = string;
-
-    export type StackStatusFilter = Array<StackStatus>;
-
-    export type StackStatusReason = string;
-
-    export type StackSummaries = Array<StackSummary>;
-
-    export interface StackSummary {
-      StackId?: StackId;
-      StackName: StackName;
-      TemplateDescription?: TemplateDescription;
-      CreationTime: CreationTime;
-      LastUpdatedTime?: LastUpdatedTime;
-      DeletionTime?: DeletionTime;
-      StackStatus: StackStatus;
-      StackStatusReason?: StackStatusReason;
+    export type CloudFormationStackResources = Array<CloudFormationStackResource>;
+    export type CloudFormationStackStatus = string;
+    export type CloudFormationStackStatusFilter = Array<CloudFormationStackStatus>;
+    export type CloudFormationStackStatusReason = string;
+    export type CloudFormationStackSummaries = Array<CloudFormationStackSummary>;
+    export interface CloudFormationStackSummary {
+        StackId?: CloudFormationStackId;
+        StackName: CloudFormationStackName;
+        TemplateDescription?: CloudFormationTemplateDescription;
+        CreationTime: CloudFormationCreationTime;
+        LastUpdatedTime?: CloudFormationLastUpdatedTime;
+        DeletionTime?: CloudFormationDeletionTime;
+        StackStatus: CloudFormationStackStatus;
+        StackStatusReason?: CloudFormationStackStatusReason;
     }
 
-
-    export type Stacks = Array<Stack>;
-
-    export interface Tag {
-      Key?: TagKey;
-      Value?: TagValue;
+    export type CloudFormationStacks = Array<CloudFormationStack>;
+    export interface CloudFormationTag {
+        Key?: CloudFormationTagKey;
+        Value?: CloudFormationTagValue;
     }
 
-
-    export type TagKey = string;
-
-    export type TagValue = string;
-
-    export type Tags = Array<Tag>;
-
-    export type TemplateBody = string;
-
-    export type TemplateDescription = string;
-
-    export interface TemplateParameter {
-      ParameterKey?: ParameterKey;
-      DefaultValue?: ParameterValue;
-      NoEcho?: NoEcho;
-      Description?: Description;
+    export type CloudFormationTagKey = string;
+    export type CloudFormationTagValue = string;
+    export type CloudFormationTags = Array<CloudFormationTag>;
+    export type CloudFormationTemplateBody = string;
+    export type CloudFormationTemplateDescription = string;
+    export interface CloudFormationTemplateParameter {
+        ParameterKey?: CloudFormationParameterKey;
+        DefaultValue?: CloudFormationParameterValue;
+        NoEcho?: CloudFormationNoEcho;
+        Description?: CloudFormationDescription;
     }
 
-
-    export type TemplateParameters = Array<TemplateParameter>;
-
-    export type TemplateURL = string;
-
-    export type TimeoutMinutes = number;
-
-    export type Timestamp = number;
-
-    export interface UpdateStackInput {
-      StackName: StackName;
-      TemplateBody?: TemplateBody;
-      TemplateURL?: TemplateURL;
-      UsePreviousTemplate?: UsePreviousTemplate;
-      StackPolicyDuringUpdateBody?: StackPolicyDuringUpdateBody;
-      StackPolicyDuringUpdateURL?: StackPolicyDuringUpdateURL;
-      Parameters?: Parameters;
-      Capabilities?: Capabilities;
-      StackPolicyBody?: StackPolicyBody;
-      StackPolicyURL?: StackPolicyURL;
-      NotificationARNs?: NotificationARNs;
+    export type CloudFormationTemplateParameters = Array<CloudFormationTemplateParameter>;
+    export type CloudFormationTemplateURL = string;
+    export type CloudFormationTimeoutMinutes = number;
+    export type CloudFormationTimestamp = number;
+    export interface CloudFormationUpdateStackInput {
+        StackName: CloudFormationStackName;
+        TemplateBody?: CloudFormationTemplateBody;
+        TemplateURL?: CloudFormationTemplateURL;
+        UsePreviousTemplate?: CloudFormationUsePreviousTemplate;
+        StackPolicyDuringUpdateBody?: CloudFormationStackPolicyDuringUpdateBody;
+        StackPolicyDuringUpdateURL?: CloudFormationStackPolicyDuringUpdateURL;
+        Parameters?: CloudFormationParameters;
+        Capabilities?: CloudFormationCapabilities;
+        StackPolicyBody?: CloudFormationStackPolicyBody;
+        StackPolicyURL?: CloudFormationStackPolicyURL;
+        NotificationARNs?: CloudFormationNotificationARNs;
     }
 
-
-    export interface UpdateStackOutput {
-      StackId?: StackId;
+    export interface CloudFormationUpdateStackOutput {
+        StackId?: CloudFormationStackId;
     }
 
-
-    export type Url = string;
-
-    export type UsePreviousTemplate = boolean;
-
-    export type UsePreviousValue = boolean;
-
-    export interface ValidateTemplateInput {
-      TemplateBody?: TemplateBody;
-      TemplateURL?: TemplateURL;
+    export type CloudFormationUrl = string;
+    export type CloudFormationUsePreviousTemplate = boolean;
+    export type CloudFormationUsePreviousValue = boolean;
+    export interface CloudFormationValidateTemplateInput {
+        TemplateBody?: CloudFormationTemplateBody;
+        TemplateURL?: CloudFormationTemplateURL;
     }
 
-
-    export interface ValidateTemplateOutput {
-      Parameters?: TemplateParameters;
-      Description?: Description;
-      Capabilities?: Capabilities;
-      CapabilitiesReason?: CapabilitiesReason;
+    export interface CloudFormationValidateTemplateOutput {
+        Parameters?: CloudFormationTemplateParameters;
+        Description?: CloudFormationDescription;
+        Capabilities?: CloudFormationCapabilities;
+        CapabilitiesReason?: CloudFormationCapabilitiesReason;
     }
 
-
-    export type Version = string;
-
+    export type CloudFormationVersion = string;
 }

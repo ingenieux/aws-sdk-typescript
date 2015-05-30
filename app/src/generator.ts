@@ -16,7 +16,7 @@ export class AWSTypeGenerator {
     return handlebars.compile(templateSource)
   }
 
-  executeOn(apiGeneratorArgs: APIGeneratorArgs, content:string) {
+  executeOn(api: APIGeneratorArgs, content:string) {
     var moduleTemplate = this.fetchTemplate("module")
     var structureTemplate = this.fetchTemplate("structure")
 
@@ -26,22 +26,24 @@ export class AWSTypeGenerator {
 
     var m: meta.Descriptor = JSON.parse(content)
 
+    var prefix = "    "
+
     handlebars.registerHelper("dumpShape", function(context, options) {
       var result = ""
       if ("string" === context.type) {
-        result = `    export type ${options.data.key} = string;`
+        result = `${prefix}export type ${api.name}${options.data.key} = string;`
 
         if (context.pattern) {
           result += ` // pattern: "${context.pattern}"`
         }
       } else if ("long" === context.type || "integer" === context.type || "timestamp" === context.type || "double" === context.type || "float" === context.type) {
-        result = `    export type ${options.data.key} = number;`
+        result = `${prefix}export type ${api.name}${options.data.key} = number;`
       } else if ("boolean" === context.type) {
-        result = `    export type ${options.data.key} = boolean;`
+        result = `${prefix}export type ${api.name}${options.data.key} = boolean;`
       } else if ("map" === context.type || "blob" === context.type) {
-        result = `    export type ${options.data.key} = any; // not really - it was '${context.type}' instead - must fix this one`
+        result = `${prefix}export type ${api.name}${options.data.key} = any; // not really - it was '${context.type}' instead - must fix this one`
       } else if ("list" === context.type) {
-        result = `    export type ${options.data.key} = Array<${context.member.shape}>;`
+        result = `${prefix}export type ${api.name}${options.data.key} = Array<${api.name}${context.member.shape}>;`
 
         if (context.max) {
           result += ` // max: ${context.max}`
@@ -57,7 +59,7 @@ export class AWSTypeGenerator {
           })
         }
 
-        result = structureTemplate({ c: context, name: options.data.key })
+        result = structureTemplate({ c: context, name: options.data.key, api: api })
       } else {
         throw new Error(`Unknown type: ${context.type}`)
       }
@@ -66,7 +68,7 @@ export class AWSTypeGenerator {
 
     var ctx = {
       m: m,
-      api: apiGeneratorArgs
+      api: api
     }
 
     return moduleTemplate(ctx)

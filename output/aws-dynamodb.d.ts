@@ -3,409 +3,321 @@
 declare module "aws-sdk" {
     export class DynamoDB {
       constructor(options?: any);
-      batchGetItem(params: BatchGetItemInput, callback: (err: ProvisionedThroughputExceededException|ResourceNotFoundException|InternalServerError|any, data: BatchGetItemOutput|any) => void): void;
-      batchWriteItem(params: BatchWriteItemInput, callback: (err: ProvisionedThroughputExceededException|ResourceNotFoundException|LimitExceededException|InternalServerError|any, data: BatchWriteItemOutput|any) => void): void;
-      createTable(params: CreateTableInput, callback: (err: ResourceInUseException|LimitExceededException|InternalServerError|any, data: CreateTableOutput|any) => void): void;
-      deleteItem(params: DeleteItemInput, callback: (err: ConditionalCheckFailedException|ProvisionedThroughputExceededException|ResourceNotFoundException|LimitExceededException|InternalServerError|any, data: DeleteItemOutput|any) => void): void;
-      deleteTable(params: DeleteTableInput, callback: (err: ResourceInUseException|ResourceNotFoundException|LimitExceededException|InternalServerError|any, data: DeleteTableOutput|any) => void): void;
-      describeTable(params: DescribeTableInput, callback: (err: ResourceNotFoundException|InternalServerError|any, data: DescribeTableOutput|any) => void): void;
-      getItem(params: GetItemInput, callback: (err: ProvisionedThroughputExceededException|ResourceNotFoundException|InternalServerError|any, data: GetItemOutput|any) => void): void;
-      listTables(params: ListTablesInput, callback: (err: InternalServerError|any, data: ListTablesOutput|any) => void): void;
-      putItem(params: PutItemInput, callback: (err: ConditionalCheckFailedException|ProvisionedThroughputExceededException|ResourceNotFoundException|LimitExceededException|InternalServerError|any, data: PutItemOutput|any) => void): void;
-      query(params: QueryInput, callback: (err: ProvisionedThroughputExceededException|ResourceNotFoundException|InternalServerError|any, data: QueryOutput|any) => void): void;
-      scan(params: ScanInput, callback: (err: ProvisionedThroughputExceededException|ResourceNotFoundException|InternalServerError|any, data: ScanOutput|any) => void): void;
-      updateItem(params: UpdateItemInput, callback: (err: ConditionalCheckFailedException|ProvisionedThroughputExceededException|ResourceNotFoundException|LimitExceededException|InternalServerError|any, data: UpdateItemOutput|any) => void): void;
-      updateTable(params: UpdateTableInput, callback: (err: ResourceInUseException|ResourceNotFoundException|LimitExceededException|InternalServerError|any, data: UpdateTableOutput|any) => void): void;
+      batchGetItem(params: DynamoDBBatchGetItemInput, callback: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBBatchGetItemOutput|any) => void): void;
+      batchWriteItem(params: DynamoDBBatchWriteItemInput, callback: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBBatchWriteItemOutput|any) => void): void;
+      createTable(params: DynamoDBCreateTableInput, callback: (err: DynamoDBResourceInUseException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBCreateTableOutput|any) => void): void;
+      deleteItem(params: DynamoDBDeleteItemInput, callback: (err: DynamoDBConditionalCheckFailedException|DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBDeleteItemOutput|any) => void): void;
+      deleteTable(params: DynamoDBDeleteTableInput, callback: (err: DynamoDBResourceInUseException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBDeleteTableOutput|any) => void): void;
+      describeTable(params: DynamoDBDescribeTableInput, callback: (err: DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBDescribeTableOutput|any) => void): void;
+      getItem(params: DynamoDBGetItemInput, callback: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBGetItemOutput|any) => void): void;
+      listTables(params: DynamoDBListTablesInput, callback: (err: DynamoDBInternalServerError|any, data: DynamoDBListTablesOutput|any) => void): void;
+      putItem(params: DynamoDBPutItemInput, callback: (err: DynamoDBConditionalCheckFailedException|DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBPutItemOutput|any) => void): void;
+      query(params: DynamoDBQueryInput, callback: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBQueryOutput|any) => void): void;
+      scan(params: DynamoDBScanInput, callback: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBScanOutput|any) => void): void;
+      updateItem(params: DynamoDBUpdateItemInput, callback: (err: DynamoDBConditionalCheckFailedException|DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBUpdateItemOutput|any) => void): void;
+      updateTable(params: DynamoDBUpdateTableInput, callback: (err: DynamoDBResourceInUseException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBUpdateTableOutput|any) => void): void;
     }
 
-    export type AttributeAction = string;
-
-    export type AttributeMap = any; // not really - it was 'map' instead - must fix this one
-
-    export type AttributeName = string;
-
-    export type AttributeNameList = Array<AttributeName>;
-
-    export type AttributeUpdates = any; // not really - it was 'map' instead - must fix this one
-
-    export interface AttributeValue {
-      S?: StringAttributeValue;
-      N?: NumberAttributeValue;
-      B?: BinaryAttributeValue;
-      SS?: StringSetAttributeValue;
-      NS?: NumberSetAttributeValue;
-      BS?: BinarySetAttributeValue;
+    export type DynamoDBAttributeAction = string;
+    export type DynamoDBAttributeMap = any; // not really - it was 'map' instead - must fix this one
+    export type DynamoDBAttributeName = string;
+    export type DynamoDBAttributeNameList = Array<DynamoDBAttributeName>;
+    export type DynamoDBAttributeUpdates = any; // not really - it was 'map' instead - must fix this one
+    export interface DynamoDBAttributeValue {
+        S?: DynamoDBStringAttributeValue;
+        N?: DynamoDBNumberAttributeValue;
+        B?: DynamoDBBinaryAttributeValue;
+        SS?: DynamoDBStringSetAttributeValue;
+        NS?: DynamoDBNumberSetAttributeValue;
+        BS?: DynamoDBBinarySetAttributeValue;
     }
 
-
-    export type AttributeValueList = Array<AttributeValue>;
-
-    export interface AttributeValueUpdate {
-      Value?: AttributeValue;
-      Action?: AttributeAction;
+    export type DynamoDBAttributeValueList = Array<DynamoDBAttributeValue>;
+    export interface DynamoDBAttributeValueUpdate {
+        Value?: DynamoDBAttributeValue;
+        Action?: DynamoDBAttributeAction;
     }
 
-
-    export interface BatchGetItemInput {
-      RequestItems: BatchGetRequestMap;
+    export interface DynamoDBBatchGetItemInput {
+        RequestItems: DynamoDBBatchGetRequestMap;
     }
 
-
-    export interface BatchGetItemOutput {
-      Responses?: BatchGetResponseMap;
-      UnprocessedKeys?: BatchGetRequestMap;
+    export interface DynamoDBBatchGetItemOutput {
+        Responses?: DynamoDBBatchGetResponseMap;
+        UnprocessedKeys?: DynamoDBBatchGetRequestMap;
     }
 
-
-    export type BatchGetRequestMap = any; // not really - it was 'map' instead - must fix this one
-
-    export type BatchGetResponseMap = any; // not really - it was 'map' instead - must fix this one
-
-    export interface BatchResponse {
-      Items?: ItemList;
-      ConsumedCapacityUnits?: ConsumedCapacityUnits;
+    export type DynamoDBBatchGetRequestMap = any; // not really - it was 'map' instead - must fix this one
+    export type DynamoDBBatchGetResponseMap = any; // not really - it was 'map' instead - must fix this one
+    export interface DynamoDBBatchResponse {
+        Items?: DynamoDBItemList;
+        ConsumedCapacityUnits?: DynamoDBConsumedCapacityUnits;
     }
 
-
-    export interface BatchWriteItemInput {
-      RequestItems: BatchWriteItemRequestMap;
+    export interface DynamoDBBatchWriteItemInput {
+        RequestItems: DynamoDBBatchWriteItemRequestMap;
     }
 
-
-    export interface BatchWriteItemOutput {
-      Responses?: BatchWriteResponseMap;
-      UnprocessedItems?: BatchWriteItemRequestMap;
+    export interface DynamoDBBatchWriteItemOutput {
+        Responses?: DynamoDBBatchWriteResponseMap;
+        UnprocessedItems?: DynamoDBBatchWriteItemRequestMap;
     }
 
-
-    export type BatchWriteItemRequestMap = any; // not really - it was 'map' instead - must fix this one
-
-    export interface BatchWriteResponse {
-      ConsumedCapacityUnits?: ConsumedCapacityUnits;
+    export type DynamoDBBatchWriteItemRequestMap = any; // not really - it was 'map' instead - must fix this one
+    export interface DynamoDBBatchWriteResponse {
+        ConsumedCapacityUnits?: DynamoDBConsumedCapacityUnits;
     }
 
-
-    export type BatchWriteResponseMap = any; // not really - it was 'map' instead - must fix this one
-
-    export type BinaryAttributeValue = any; // not really - it was 'blob' instead - must fix this one
-
-    export type BinarySetAttributeValue = Array<BinaryAttributeValue>;
-
-    export type BooleanObject = boolean;
-
-    export type ComparisonOperator = string;
-
-    export interface Condition {
-      AttributeValueList?: AttributeValueList;
-      ComparisonOperator: ComparisonOperator;
+    export type DynamoDBBatchWriteResponseMap = any; // not really - it was 'map' instead - must fix this one
+    export type DynamoDBBinaryAttributeValue = any; // not really - it was 'blob' instead - must fix this one
+    export type DynamoDBBinarySetAttributeValue = Array<DynamoDBBinaryAttributeValue>;
+    export type DynamoDBBooleanObject = boolean;
+    export type DynamoDBComparisonOperator = string;
+    export interface DynamoDBCondition {
+        AttributeValueList?: DynamoDBAttributeValueList;
+        ComparisonOperator: DynamoDBComparisonOperator;
     }
 
-
-    export interface ConditionalCheckFailedException {
-      message?: ErrorMessage;
+    export interface DynamoDBConditionalCheckFailedException {
+        message?: DynamoDBErrorMessage;
     }
 
-
-    export type ConsistentRead = boolean;
-
-    export type ConsumedCapacityUnits = number;
-
-    export interface CreateTableInput {
-      TableName: TableName;
-      KeySchema: KeySchema;
-      ProvisionedThroughput: ProvisionedThroughput;
+    export type DynamoDBConsistentRead = boolean;
+    export type DynamoDBConsumedCapacityUnits = number;
+    export interface DynamoDBCreateTableInput {
+        TableName: DynamoDBTableName;
+        KeySchema: DynamoDBKeySchema;
+        ProvisionedThroughput: DynamoDBProvisionedThroughput;
     }
 
-
-    export interface CreateTableOutput {
-      TableDescription?: TableDescription;
+    export interface DynamoDBCreateTableOutput {
+        TableDescription?: DynamoDBTableDescription;
     }
 
-
-    export type Date = number;
-
-    export interface DeleteItemInput {
-      TableName: TableName;
-      Key: Key;
-      Expected?: ExpectedAttributeMap;
-      ReturnValues?: ReturnValue;
+    export type DynamoDBDate = number;
+    export interface DynamoDBDeleteItemInput {
+        TableName: DynamoDBTableName;
+        Key: DynamoDBKey;
+        Expected?: DynamoDBExpectedAttributeMap;
+        ReturnValues?: DynamoDBReturnValue;
     }
 
-
-    export interface DeleteItemOutput {
-      Attributes?: AttributeMap;
-      ConsumedCapacityUnits?: ConsumedCapacityUnits;
+    export interface DynamoDBDeleteItemOutput {
+        Attributes?: DynamoDBAttributeMap;
+        ConsumedCapacityUnits?: DynamoDBConsumedCapacityUnits;
     }
 
-
-    export interface DeleteRequest {
-      Key: Key;
+    export interface DynamoDBDeleteRequest {
+        Key: DynamoDBKey;
     }
 
-
-    export interface DeleteTableInput {
-      TableName: TableName;
+    export interface DynamoDBDeleteTableInput {
+        TableName: DynamoDBTableName;
     }
 
-
-    export interface DeleteTableOutput {
-      TableDescription?: TableDescription;
+    export interface DynamoDBDeleteTableOutput {
+        TableDescription?: DynamoDBTableDescription;
     }
 
-
-    export interface DescribeTableInput {
-      TableName: TableName;
+    export interface DynamoDBDescribeTableInput {
+        TableName: DynamoDBTableName;
     }
 
-
-    export interface DescribeTableOutput {
-      Table?: TableDescription;
+    export interface DynamoDBDescribeTableOutput {
+        Table?: DynamoDBTableDescription;
     }
 
-
-    export type ErrorMessage = string;
-
-    export type ExpectedAttributeMap = any; // not really - it was 'map' instead - must fix this one
-
-    export interface ExpectedAttributeValue {
-      Value?: AttributeValue;
-      Exists?: BooleanObject;
+    export type DynamoDBErrorMessage = string;
+    export type DynamoDBExpectedAttributeMap = any; // not really - it was 'map' instead - must fix this one
+    export interface DynamoDBExpectedAttributeValue {
+        Value?: DynamoDBAttributeValue;
+        Exists?: DynamoDBBooleanObject;
     }
 
-
-    export type FilterConditionMap = any; // not really - it was 'map' instead - must fix this one
-
-    export interface GetItemInput {
-      TableName: TableName;
-      Key: Key;
-      AttributesToGet?: AttributeNameList;
-      ConsistentRead?: ConsistentRead;
+    export type DynamoDBFilterConditionMap = any; // not really - it was 'map' instead - must fix this one
+    export interface DynamoDBGetItemInput {
+        TableName: DynamoDBTableName;
+        Key: DynamoDBKey;
+        AttributesToGet?: DynamoDBAttributeNameList;
+        ConsistentRead?: DynamoDBConsistentRead;
     }
 
-
-    export interface GetItemOutput {
-      Item?: AttributeMap;
-      ConsumedCapacityUnits?: ConsumedCapacityUnits;
+    export interface DynamoDBGetItemOutput {
+        Item?: DynamoDBAttributeMap;
+        ConsumedCapacityUnits?: DynamoDBConsumedCapacityUnits;
     }
 
-
-    export type Integer = number;
-
-    export interface InternalServerError {
-      message?: ErrorMessage;
+    export type DynamoDBInteger = number;
+    export interface DynamoDBInternalServerError {
+        message?: DynamoDBErrorMessage;
     }
 
-
-    export type ItemList = Array<AttributeMap>;
-
-    export interface Key {
-      HashKeyElement: AttributeValue;
-      RangeKeyElement?: AttributeValue;
+    export type DynamoDBItemList = Array<DynamoDBAttributeMap>;
+    export interface DynamoDBKey {
+        HashKeyElement: DynamoDBAttributeValue;
+        RangeKeyElement?: DynamoDBAttributeValue;
     }
 
-
-    export type KeyList = Array<Key>; // max: 100
-
-    export interface KeySchema {
-      HashKeyElement: KeySchemaElement;
-      RangeKeyElement?: KeySchemaElement;
+    export type DynamoDBKeyList = Array<DynamoDBKey>; // max: 100
+    export interface DynamoDBKeySchema {
+        HashKeyElement: DynamoDBKeySchemaElement;
+        RangeKeyElement?: DynamoDBKeySchemaElement;
     }
 
-
-    export type KeySchemaAttributeName = string;
-
-    export interface KeySchemaElement {
-      AttributeName: KeySchemaAttributeName;
-      AttributeType: ScalarAttributeType;
+    export type DynamoDBKeySchemaAttributeName = string;
+    export interface DynamoDBKeySchemaElement {
+        AttributeName: DynamoDBKeySchemaAttributeName;
+        AttributeType: DynamoDBScalarAttributeType;
     }
 
-
-    export interface KeysAndAttributes {
-      Keys: KeyList;
-      AttributesToGet?: AttributeNameList;
-      ConsistentRead?: ConsistentRead;
+    export interface DynamoDBKeysAndAttributes {
+        Keys: DynamoDBKeyList;
+        AttributesToGet?: DynamoDBAttributeNameList;
+        ConsistentRead?: DynamoDBConsistentRead;
     }
 
-
-    export interface LimitExceededException {
-      message?: ErrorMessage;
+    export interface DynamoDBLimitExceededException {
+        message?: DynamoDBErrorMessage;
     }
 
-
-    export interface ListTablesInput {
-      ExclusiveStartTableName?: TableName;
-      Limit?: ListTablesInputLimit;
+    export interface DynamoDBListTablesInput {
+        ExclusiveStartTableName?: DynamoDBTableName;
+        Limit?: DynamoDBListTablesInputLimit;
     }
 
-
-    export type ListTablesInputLimit = number;
-
-    export interface ListTablesOutput {
-      TableNames?: TableNameList;
-      LastEvaluatedTableName?: TableName;
+    export type DynamoDBListTablesInputLimit = number;
+    export interface DynamoDBListTablesOutput {
+        TableNames?: DynamoDBTableNameList;
+        LastEvaluatedTableName?: DynamoDBTableName;
     }
 
-
-    export type Long = number;
-
-    export type NumberAttributeValue = string;
-
-    export type NumberSetAttributeValue = Array<NumberAttributeValue>;
-
-    export type PositiveIntegerObject = number;
-
-    export type PositiveLongObject = number;
-
-    export interface ProvisionedThroughput {
-      ReadCapacityUnits: PositiveLongObject;
-      WriteCapacityUnits: PositiveLongObject;
+    export type DynamoDBLong = number;
+    export type DynamoDBNumberAttributeValue = string;
+    export type DynamoDBNumberSetAttributeValue = Array<DynamoDBNumberAttributeValue>;
+    export type DynamoDBPositiveIntegerObject = number;
+    export type DynamoDBPositiveLongObject = number;
+    export interface DynamoDBProvisionedThroughput {
+        ReadCapacityUnits: DynamoDBPositiveLongObject;
+        WriteCapacityUnits: DynamoDBPositiveLongObject;
     }
 
-
-    export interface ProvisionedThroughputDescription {
-      LastIncreaseDateTime?: Date;
-      LastDecreaseDateTime?: Date;
-      NumberOfDecreasesToday?: PositiveLongObject;
-      ReadCapacityUnits?: PositiveLongObject;
-      WriteCapacityUnits?: PositiveLongObject;
+    export interface DynamoDBProvisionedThroughputDescription {
+        LastIncreaseDateTime?: DynamoDBDate;
+        LastDecreaseDateTime?: DynamoDBDate;
+        NumberOfDecreasesToday?: DynamoDBPositiveLongObject;
+        ReadCapacityUnits?: DynamoDBPositiveLongObject;
+        WriteCapacityUnits?: DynamoDBPositiveLongObject;
     }
 
-
-    export interface ProvisionedThroughputExceededException {
-      message?: ErrorMessage;
+    export interface DynamoDBProvisionedThroughputExceededException {
+        message?: DynamoDBErrorMessage;
     }
 
-
-    export interface PutItemInput {
-      TableName: TableName;
-      Item: PutItemInputAttributeMap;
-      Expected?: ExpectedAttributeMap;
-      ReturnValues?: ReturnValue;
+    export interface DynamoDBPutItemInput {
+        TableName: DynamoDBTableName;
+        Item: DynamoDBPutItemInputAttributeMap;
+        Expected?: DynamoDBExpectedAttributeMap;
+        ReturnValues?: DynamoDBReturnValue;
     }
 
-
-    export type PutItemInputAttributeMap = any; // not really - it was 'map' instead - must fix this one
-
-    export interface PutItemOutput {
-      Attributes?: AttributeMap;
-      ConsumedCapacityUnits?: ConsumedCapacityUnits;
+    export type DynamoDBPutItemInputAttributeMap = any; // not really - it was 'map' instead - must fix this one
+    export interface DynamoDBPutItemOutput {
+        Attributes?: DynamoDBAttributeMap;
+        ConsumedCapacityUnits?: DynamoDBConsumedCapacityUnits;
     }
 
-
-    export interface PutRequest {
-      Item: PutItemInputAttributeMap;
+    export interface DynamoDBPutRequest {
+        Item: DynamoDBPutItemInputAttributeMap;
     }
 
-
-    export interface QueryInput {
-      TableName: TableName;
-      AttributesToGet?: AttributeNameList;
-      Limit?: PositiveIntegerObject;
-      ConsistentRead?: ConsistentRead;
-      Count?: BooleanObject;
-      HashKeyValue: AttributeValue;
-      RangeKeyCondition?: Condition;
-      ScanIndexForward?: BooleanObject;
-      ExclusiveStartKey?: Key;
+    export interface DynamoDBQueryInput {
+        TableName: DynamoDBTableName;
+        AttributesToGet?: DynamoDBAttributeNameList;
+        Limit?: DynamoDBPositiveIntegerObject;
+        ConsistentRead?: DynamoDBConsistentRead;
+        Count?: DynamoDBBooleanObject;
+        HashKeyValue: DynamoDBAttributeValue;
+        RangeKeyCondition?: DynamoDBCondition;
+        ScanIndexForward?: DynamoDBBooleanObject;
+        ExclusiveStartKey?: DynamoDBKey;
     }
 
-
-    export interface QueryOutput {
-      Items?: ItemList;
-      Count?: Integer;
-      LastEvaluatedKey?: Key;
-      ConsumedCapacityUnits?: ConsumedCapacityUnits;
+    export interface DynamoDBQueryOutput {
+        Items?: DynamoDBItemList;
+        Count?: DynamoDBInteger;
+        LastEvaluatedKey?: DynamoDBKey;
+        ConsumedCapacityUnits?: DynamoDBConsumedCapacityUnits;
     }
 
-
-    export interface ResourceInUseException {
-      message?: ErrorMessage;
+    export interface DynamoDBResourceInUseException {
+        message?: DynamoDBErrorMessage;
     }
 
-
-    export interface ResourceNotFoundException {
-      message?: ErrorMessage;
+    export interface DynamoDBResourceNotFoundException {
+        message?: DynamoDBErrorMessage;
     }
 
-
-    export type ReturnValue = string;
-
-    export type ScalarAttributeType = string;
-
-    export interface ScanInput {
-      TableName: TableName;
-      AttributesToGet?: AttributeNameList;
-      Limit?: PositiveIntegerObject;
-      Count?: BooleanObject;
-      ScanFilter?: FilterConditionMap;
-      ExclusiveStartKey?: Key;
+    export type DynamoDBReturnValue = string;
+    export type DynamoDBScalarAttributeType = string;
+    export interface DynamoDBScanInput {
+        TableName: DynamoDBTableName;
+        AttributesToGet?: DynamoDBAttributeNameList;
+        Limit?: DynamoDBPositiveIntegerObject;
+        Count?: DynamoDBBooleanObject;
+        ScanFilter?: DynamoDBFilterConditionMap;
+        ExclusiveStartKey?: DynamoDBKey;
     }
 
-
-    export interface ScanOutput {
-      Items?: ItemList;
-      Count?: Integer;
-      ScannedCount?: Integer;
-      LastEvaluatedKey?: Key;
-      ConsumedCapacityUnits?: ConsumedCapacityUnits;
+    export interface DynamoDBScanOutput {
+        Items?: DynamoDBItemList;
+        Count?: DynamoDBInteger;
+        ScannedCount?: DynamoDBInteger;
+        LastEvaluatedKey?: DynamoDBKey;
+        ConsumedCapacityUnits?: DynamoDBConsumedCapacityUnits;
     }
 
-
-    export type String = string;
-
-    export type StringAttributeValue = string;
-
-    export type StringSetAttributeValue = Array<StringAttributeValue>;
-
-    export interface TableDescription {
-      TableName?: TableName;
-      KeySchema?: KeySchema;
-      TableStatus?: TableStatus;
-      CreationDateTime?: Date;
-      ProvisionedThroughput?: ProvisionedThroughputDescription;
-      TableSizeBytes?: Long;
-      ItemCount?: Long;
+    export type DynamoDBString = string;
+    export type DynamoDBStringAttributeValue = string;
+    export type DynamoDBStringSetAttributeValue = Array<DynamoDBStringAttributeValue>;
+    export interface DynamoDBTableDescription {
+        TableName?: DynamoDBTableName;
+        KeySchema?: DynamoDBKeySchema;
+        TableStatus?: DynamoDBTableStatus;
+        CreationDateTime?: DynamoDBDate;
+        ProvisionedThroughput?: DynamoDBProvisionedThroughputDescription;
+        TableSizeBytes?: DynamoDBLong;
+        ItemCount?: DynamoDBLong;
     }
 
-
-    export type TableName = string; // pattern: "[a-zA-Z0-9_.-]+"
-
-    export type TableNameList = Array<TableName>;
-
-    export type TableStatus = string;
-
-    export interface UpdateItemInput {
-      TableName: TableName;
-      Key: Key;
-      AttributeUpdates: AttributeUpdates;
-      Expected?: ExpectedAttributeMap;
-      ReturnValues?: ReturnValue;
+    export type DynamoDBTableName = string; // pattern: "[a-zA-Z0-9_.-]+"
+    export type DynamoDBTableNameList = Array<DynamoDBTableName>;
+    export type DynamoDBTableStatus = string;
+    export interface DynamoDBUpdateItemInput {
+        TableName: DynamoDBTableName;
+        Key: DynamoDBKey;
+        AttributeUpdates: DynamoDBAttributeUpdates;
+        Expected?: DynamoDBExpectedAttributeMap;
+        ReturnValues?: DynamoDBReturnValue;
     }
 
-
-    export interface UpdateItemOutput {
-      Attributes?: AttributeMap;
-      ConsumedCapacityUnits?: ConsumedCapacityUnits;
+    export interface DynamoDBUpdateItemOutput {
+        Attributes?: DynamoDBAttributeMap;
+        ConsumedCapacityUnits?: DynamoDBConsumedCapacityUnits;
     }
 
-
-    export interface UpdateTableInput {
-      TableName: TableName;
-      ProvisionedThroughput: ProvisionedThroughput;
+    export interface DynamoDBUpdateTableInput {
+        TableName: DynamoDBTableName;
+        ProvisionedThroughput: DynamoDBProvisionedThroughput;
     }
 
-
-    export interface UpdateTableOutput {
-      TableDescription?: TableDescription;
+    export interface DynamoDBUpdateTableOutput {
+        TableDescription?: DynamoDBTableDescription;
     }
 
-
-    export interface WriteRequest {
-      PutRequest?: PutRequest;
-      DeleteRequest?: DeleteRequest;
+    export interface DynamoDBWriteRequest {
+        PutRequest?: DynamoDBPutRequest;
+        DeleteRequest?: DynamoDBDeleteRequest;
     }
 
-
-    export type WriteRequests = Array<WriteRequest>; // max: 25
-
+    export type DynamoDBWriteRequests = Array<DynamoDBWriteRequest>; // max: 25
 }

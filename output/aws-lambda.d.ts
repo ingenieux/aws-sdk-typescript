@@ -3,216 +3,174 @@
 declare module "aws-sdk" {
     export class Lambda {
       constructor(options?: any);
-      addEventSource(params: AddEventSourceRequest, callback: (err: ServiceException|InvalidParameterValueException|any, data: EventSourceConfiguration|any) => void): void;
-      deleteFunction(params: DeleteFunctionRequest, callback: (err: ServiceException|ResourceNotFoundException|any, data: any) => void): void;
-      getEventSource(params: GetEventSourceRequest, callback: (err: ServiceException|ResourceNotFoundException|InvalidParameterValueException|any, data: EventSourceConfiguration|any) => void): void;
-      getFunction(params: GetFunctionRequest, callback: (err: ServiceException|ResourceNotFoundException|any, data: GetFunctionResponse|any) => void): void;
-      getFunctionConfiguration(params: GetFunctionConfigurationRequest, callback: (err: ServiceException|ResourceNotFoundException|any, data: FunctionConfiguration|any) => void): void;
-      invokeAsync(params: InvokeAsyncRequest, callback: (err: ServiceException|ResourceNotFoundException|InvalidRequestContentException|any, data: InvokeAsyncResponse|any) => void): void;
-      listEventSources(params: ListEventSourcesRequest, callback: (err: ServiceException|ResourceNotFoundException|InvalidParameterValueException|any, data: ListEventSourcesResponse|any) => void): void;
-      listFunctions(params: ListFunctionsRequest, callback: (err: ServiceException|any, data: ListFunctionsResponse|any) => void): void;
-      removeEventSource(params: RemoveEventSourceRequest, callback: (err: ServiceException|ResourceNotFoundException|InvalidParameterValueException|any, data: any) => void): void;
-      updateFunctionConfiguration(params: UpdateFunctionConfigurationRequest, callback: (err: ServiceException|ResourceNotFoundException|InvalidParameterValueException|any, data: FunctionConfiguration|any) => void): void;
-      uploadFunction(params: UploadFunctionRequest, callback: (err: ServiceException|InvalidParameterValueException|ResourceNotFoundException|any, data: FunctionConfiguration|any) => void): void;
+      addEventSource(params: LambdaAddEventSourceRequest, callback: (err: LambdaServiceException|LambdaInvalidParameterValueException|any, data: LambdaEventSourceConfiguration|any) => void): void;
+      deleteFunction(params: LambdaDeleteFunctionRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|any, data: any) => void): void;
+      getEventSource(params: LambdaGetEventSourceRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidParameterValueException|any, data: LambdaEventSourceConfiguration|any) => void): void;
+      getFunction(params: LambdaGetFunctionRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|any, data: LambdaGetFunctionResponse|any) => void): void;
+      getFunctionConfiguration(params: LambdaGetFunctionConfigurationRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|any, data: LambdaFunctionConfiguration|any) => void): void;
+      invokeAsync(params: LambdaInvokeAsyncRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidRequestContentException|any, data: LambdaInvokeAsyncResponse|any) => void): void;
+      listEventSources(params: LambdaListEventSourcesRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidParameterValueException|any, data: LambdaListEventSourcesResponse|any) => void): void;
+      listFunctions(params: LambdaListFunctionsRequest, callback: (err: LambdaServiceException|any, data: LambdaListFunctionsResponse|any) => void): void;
+      removeEventSource(params: LambdaRemoveEventSourceRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidParameterValueException|any, data: any) => void): void;
+      updateFunctionConfiguration(params: LambdaUpdateFunctionConfigurationRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidParameterValueException|any, data: LambdaFunctionConfiguration|any) => void): void;
+      uploadFunction(params: LambdaUploadFunctionRequest, callback: (err: LambdaServiceException|LambdaInvalidParameterValueException|LambdaResourceNotFoundException|any, data: LambdaFunctionConfiguration|any) => void): void;
     }
 
-    export interface AddEventSourceRequest {
-      EventSource: String;
-      FunctionName: FunctionName;
-      Role: RoleArn;
-      BatchSize?: Integer;
-      Parameters?: Map;
+    export interface LambdaAddEventSourceRequest {
+        EventSource: LambdaString;
+        FunctionName: LambdaFunctionName;
+        Role: LambdaRoleArn;
+        BatchSize?: LambdaInteger;
+        Parameters?: LambdaMap;
     }
 
-
-    export type Blob = any; // not really - it was 'blob' instead - must fix this one
-
-    export interface DeleteFunctionRequest {
-      FunctionName: FunctionName;
+    export type LambdaBlob = any; // not really - it was 'blob' instead - must fix this one
+    export interface LambdaDeleteFunctionRequest {
+        FunctionName: LambdaFunctionName;
     }
 
-
-    export type Description = string;
-
-    export interface EventSourceConfiguration {
-      UUID?: String;
-      BatchSize?: Integer;
-      EventSource?: String;
-      FunctionName?: FunctionName;
-      Parameters?: Map;
-      Role?: RoleArn;
-      LastModified?: Timestamp;
-      IsActive?: Boolean;
-      Status?: String;
+    export type LambdaDescription = string;
+    export interface LambdaEventSourceConfiguration {
+        UUID?: LambdaString;
+        BatchSize?: LambdaInteger;
+        EventSource?: LambdaString;
+        FunctionName?: LambdaFunctionName;
+        Parameters?: LambdaMap;
+        Role?: LambdaRoleArn;
+        LastModified?: LambdaTimestamp;
+        IsActive?: LambdaBoolean;
+        Status?: LambdaString;
     }
 
-
-    export type EventSourceList = Array<EventSourceConfiguration>;
-
-    export type FunctionArn = string; // pattern: "arn:aws:lambda:[a-z]{2}-[a-z]+-\d{1}:\d{12}:function:[a-zA-Z0-9-_]+(\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})?"
-
-    export interface FunctionCodeLocation {
-      RepositoryType?: String;
-      Location?: String;
+    export type LambdaEventSourceList = Array<LambdaEventSourceConfiguration>;
+    export type LambdaFunctionArn = string; // pattern: "arn:aws:lambda:[a-z]{2}-[a-z]+-\d{1}:\d{12}:function:[a-zA-Z0-9-_]+(\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})?"
+    export interface LambdaFunctionCodeLocation {
+        RepositoryType?: LambdaString;
+        Location?: LambdaString;
     }
 
-
-    export interface FunctionConfiguration {
-      FunctionName?: FunctionName;
-      FunctionARN?: FunctionArn;
-      ConfigurationId?: String;
-      Runtime?: Runtime;
-      Role?: RoleArn;
-      Handler?: Handler;
-      Mode?: Mode;
-      CodeSize?: Long;
-      Description?: Description;
-      Timeout?: Timeout;
-      MemorySize?: MemorySize;
-      LastModified?: Timestamp;
+    export interface LambdaFunctionConfiguration {
+        FunctionName?: LambdaFunctionName;
+        FunctionARN?: LambdaFunctionArn;
+        ConfigurationId?: LambdaString;
+        Runtime?: LambdaRuntime;
+        Role?: LambdaRoleArn;
+        Handler?: LambdaHandler;
+        Mode?: LambdaMode;
+        CodeSize?: LambdaLong;
+        Description?: LambdaDescription;
+        Timeout?: LambdaTimeout;
+        MemorySize?: LambdaMemorySize;
+        LastModified?: LambdaTimestamp;
     }
 
-
-    export type FunctionList = Array<FunctionConfiguration>;
-
-    export type FunctionName = string; // pattern: "[a-zA-Z0-9-_]+"
-
-    export interface GetEventSourceRequest {
-      UUID: String;
+    export type LambdaFunctionList = Array<LambdaFunctionConfiguration>;
+    export type LambdaFunctionName = string; // pattern: "[a-zA-Z0-9-_]+"
+    export interface LambdaGetEventSourceRequest {
+        UUID: LambdaString;
     }
 
-
-    export interface GetFunctionConfigurationRequest {
-      FunctionName: FunctionName;
+    export interface LambdaGetFunctionConfigurationRequest {
+        FunctionName: LambdaFunctionName;
     }
 
-
-    export interface GetFunctionRequest {
-      FunctionName: FunctionName;
+    export interface LambdaGetFunctionRequest {
+        FunctionName: LambdaFunctionName;
     }
 
-
-    export interface GetFunctionResponse {
-      Configuration?: FunctionConfiguration;
-      Code?: FunctionCodeLocation;
+    export interface LambdaGetFunctionResponse {
+        Configuration?: LambdaFunctionConfiguration;
+        Code?: LambdaFunctionCodeLocation;
     }
 
-
-    export type Handler = string; // pattern: "[a-zA-Z0-9./\-_]+"
-
-    export type HttpStatus = number;
-
-    export type Integer = number;
-
-    export interface InvalidParameterValueException {
-      Type?: String;
-      message?: String;
+    export type LambdaHandler = string; // pattern: "[a-zA-Z0-9./\-_]+"
+    export type LambdaHttpStatus = number;
+    export type LambdaInteger = number;
+    export interface LambdaInvalidParameterValueException {
+        Type?: LambdaString;
+        message?: LambdaString;
     }
 
-
-    export interface InvalidRequestContentException {
-      Type?: String;
-      message?: String;
+    export interface LambdaInvalidRequestContentException {
+        Type?: LambdaString;
+        message?: LambdaString;
     }
 
-
-    export interface InvokeAsyncRequest {
-      FunctionName: FunctionName;
-      InvokeArgs: Blob;
+    export interface LambdaInvokeAsyncRequest {
+        FunctionName: LambdaFunctionName;
+        InvokeArgs: LambdaBlob;
     }
 
-
-    export interface InvokeAsyncResponse {
-      Status?: HttpStatus;
+    export interface LambdaInvokeAsyncResponse {
+        Status?: LambdaHttpStatus;
     }
 
-
-    export interface ListEventSourcesRequest {
-      EventSourceArn?: String;
-      FunctionName?: FunctionName;
-      Marker?: String;
-      MaxItems?: MaxListItems;
+    export interface LambdaListEventSourcesRequest {
+        EventSourceArn?: LambdaString;
+        FunctionName?: LambdaFunctionName;
+        Marker?: LambdaString;
+        MaxItems?: LambdaMaxListItems;
     }
 
-
-    export interface ListEventSourcesResponse {
-      NextMarker?: String;
-      EventSources?: EventSourceList;
+    export interface LambdaListEventSourcesResponse {
+        NextMarker?: LambdaString;
+        EventSources?: LambdaEventSourceList;
     }
 
-
-    export interface ListFunctionsRequest {
-      Marker?: String;
-      MaxItems?: MaxListItems;
+    export interface LambdaListFunctionsRequest {
+        Marker?: LambdaString;
+        MaxItems?: LambdaMaxListItems;
     }
 
-
-    export interface ListFunctionsResponse {
-      NextMarker?: String;
-      Functions?: FunctionList;
+    export interface LambdaListFunctionsResponse {
+        NextMarker?: LambdaString;
+        Functions?: LambdaFunctionList;
     }
 
-
-    export type Long = number;
-
-    export type Map = any; // not really - it was 'map' instead - must fix this one
-
-    export type MaxListItems = number;
-
-    export type MemorySize = number;
-
-    export type Mode = string;
-
-    export interface RemoveEventSourceRequest {
-      UUID: String;
+    export type LambdaLong = number;
+    export type LambdaMap = any; // not really - it was 'map' instead - must fix this one
+    export type LambdaMaxListItems = number;
+    export type LambdaMemorySize = number;
+    export type LambdaMode = string;
+    export interface LambdaRemoveEventSourceRequest {
+        UUID: LambdaString;
     }
 
-
-    export interface ResourceNotFoundException {
-      Type?: String;
-      Message?: String;
+    export interface LambdaResourceNotFoundException {
+        Type?: LambdaString;
+        Message?: LambdaString;
     }
 
-
-    export type RoleArn = string; // pattern: "arn:aws:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+"
-
-    export type Runtime = string;
-
-    export interface ServiceException {
-      Type?: String;
-      Message?: String;
+    export type LambdaRoleArn = string; // pattern: "arn:aws:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+"
+    export type LambdaRuntime = string;
+    export interface LambdaServiceException {
+        Type?: LambdaString;
+        Message?: LambdaString;
     }
 
-
-    export type String = string;
-
-    export type Timeout = number;
-
-    export type Timestamp = number;
-
-    export interface UpdateFunctionConfigurationRequest {
-      FunctionName: FunctionName;
-      Role?: RoleArn;
-      Handler?: Handler;
-      Description?: Description;
-      Timeout?: Timeout;
-      MemorySize?: MemorySize;
+    export type LambdaString = string;
+    export type LambdaTimeout = number;
+    export type LambdaTimestamp = number;
+    export interface LambdaUpdateFunctionConfigurationRequest {
+        FunctionName: LambdaFunctionName;
+        Role?: LambdaRoleArn;
+        Handler?: LambdaHandler;
+        Description?: LambdaDescription;
+        Timeout?: LambdaTimeout;
+        MemorySize?: LambdaMemorySize;
     }
 
-
-    export interface UploadFunctionRequest {
-      FunctionName: FunctionName;
-      FunctionZip: Blob;
-      Runtime: Runtime;
-      Role: RoleArn;
-      Handler: Handler;
-      Mode: Mode;
-      Description?: Description;
-      Timeout?: Timeout;
-      MemorySize?: MemorySize;
+    export interface LambdaUploadFunctionRequest {
+        FunctionName: LambdaFunctionName;
+        FunctionZip: LambdaBlob;
+        Runtime: LambdaRuntime;
+        Role: LambdaRoleArn;
+        Handler: LambdaHandler;
+        Mode: LambdaMode;
+        Description?: LambdaDescription;
+        Timeout?: LambdaTimeout;
+        MemorySize?: LambdaMemorySize;
     }
 
-
-    export type Boolean = boolean;
-
+    export type LambdaBoolean = boolean;
 }

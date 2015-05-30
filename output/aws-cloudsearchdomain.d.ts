@@ -3,189 +3,142 @@
 declare module "aws-sdk" {
     export class CloudSearchDomain {
       constructor(options?: any);
-      search(params: SearchRequest, callback: (err: SearchException|any, data: SearchResponse|any) => void): void;
-      suggest(params: SuggestRequest, callback: (err: SearchException|any, data: SuggestResponse|any) => void): void;
-      uploadDocuments(params: UploadDocumentsRequest, callback: (err: DocumentServiceException|any, data: UploadDocumentsResponse|any) => void): void;
+      search(params: CloudSearchDomainSearchRequest, callback: (err: CloudSearchDomainSearchException|any, data: CloudSearchDomainSearchResponse|any) => void): void;
+      suggest(params: CloudSearchDomainSuggestRequest, callback: (err: CloudSearchDomainSearchException|any, data: CloudSearchDomainSuggestResponse|any) => void): void;
+      uploadDocuments(params: CloudSearchDomainUploadDocumentsRequest, callback: (err: CloudSearchDomainDocumentServiceException|any, data: CloudSearchDomainUploadDocumentsResponse|any) => void): void;
     }
 
-    export type Adds = number;
-
-    export type Blob = any; // not really - it was 'blob' instead - must fix this one
-
-    export interface Bucket {
-      value?: String;
-      count?: Long;
+    export type CloudSearchDomainAdds = number;
+    export type CloudSearchDomainBlob = any; // not really - it was 'blob' instead - must fix this one
+    export interface CloudSearchDomainBucket {
+        value?: CloudSearchDomainString;
+        count?: CloudSearchDomainLong;
     }
 
-
-    export interface BucketInfo {
-      buckets?: BucketList;
+    export interface CloudSearchDomainBucketInfo {
+        buckets?: CloudSearchDomainBucketList;
     }
 
-
-    export type BucketList = Array<Bucket>;
-
-    export type ContentType = string;
-
-    export type Cursor = string;
-
-    export type Deletes = number;
-
-    export interface DocumentServiceException {
-      status?: String;
-      message?: String;
+    export type CloudSearchDomainBucketList = Array<CloudSearchDomainBucket>;
+    export type CloudSearchDomainContentType = string;
+    export type CloudSearchDomainCursor = string;
+    export type CloudSearchDomainDeletes = number;
+    export interface CloudSearchDomainDocumentServiceException {
+        status?: CloudSearchDomainString;
+        message?: CloudSearchDomainString;
     }
 
-
-    export interface DocumentServiceWarning {
-      message?: String;
+    export interface CloudSearchDomainDocumentServiceWarning {
+        message?: CloudSearchDomainString;
     }
 
-
-    export type DocumentServiceWarnings = Array<DocumentServiceWarning>;
-
-    export type Expr = string;
-
-    export type Exprs = any; // not really - it was 'map' instead - must fix this one
-
-    export type Facet = string;
-
-    export type Facets = any; // not really - it was 'map' instead - must fix this one
-
-    export type FieldValue = Array<String>;
-
-    export type Fields = any; // not really - it was 'map' instead - must fix this one
-
-    export type FilterQuery = string;
-
-    export type Highlight = string;
-
-    export type Highlights = any; // not really - it was 'map' instead - must fix this one
-
-    export interface Hit {
-      id?: String;
-      fields?: Fields;
-      exprs?: Exprs;
-      highlights?: Highlights;
+    export type CloudSearchDomainDocumentServiceWarnings = Array<CloudSearchDomainDocumentServiceWarning>;
+    export type CloudSearchDomainExpr = string;
+    export type CloudSearchDomainExprs = any; // not really - it was 'map' instead - must fix this one
+    export type CloudSearchDomainFacet = string;
+    export type CloudSearchDomainFacets = any; // not really - it was 'map' instead - must fix this one
+    export type CloudSearchDomainFieldValue = Array<CloudSearchDomainString>;
+    export type CloudSearchDomainFields = any; // not really - it was 'map' instead - must fix this one
+    export type CloudSearchDomainFilterQuery = string;
+    export type CloudSearchDomainHighlight = string;
+    export type CloudSearchDomainHighlights = any; // not really - it was 'map' instead - must fix this one
+    export interface CloudSearchDomainHit {
+        id?: CloudSearchDomainString;
+        fields?: CloudSearchDomainFields;
+        exprs?: CloudSearchDomainExprs;
+        highlights?: CloudSearchDomainHighlights;
     }
 
-
-    export type HitList = Array<Hit>;
-
-    export interface Hits {
-      found?: Long;
-      start?: Long;
-      cursor?: String;
-      hit?: HitList;
+    export type CloudSearchDomainHitList = Array<CloudSearchDomainHit>;
+    export interface CloudSearchDomainHits {
+        found?: CloudSearchDomainLong;
+        start?: CloudSearchDomainLong;
+        cursor?: CloudSearchDomainString;
+        hit?: CloudSearchDomainHitList;
     }
 
-
-    export type Long = number;
-
-    export type Partial = boolean;
-
-    export type Query = string;
-
-    export type QueryOptions = string;
-
-    export type QueryParser = string;
-
-    export type Return = string;
-
-    export interface SearchException {
-      message?: String;
+    export type CloudSearchDomainLong = number;
+    export type CloudSearchDomainPartial = boolean;
+    export type CloudSearchDomainQuery = string;
+    export type CloudSearchDomainQueryOptions = string;
+    export type CloudSearchDomainQueryParser = string;
+    export type CloudSearchDomainReturn = string;
+    export interface CloudSearchDomainSearchException {
+        message?: CloudSearchDomainString;
     }
 
-
-    export interface SearchRequest {
-      cursor?: Cursor;
-      expr?: Expr;
-      facet?: Facet;
-      filterQuery?: FilterQuery;
-      highlight?: Highlight;
-      partial?: Partial;
-      query: Query;
-      queryOptions?: QueryOptions;
-      queryParser?: QueryParser;
-      return?: Return;
-      size?: Size;
-      sort?: Sort;
-      start?: Start;
+    export interface CloudSearchDomainSearchRequest {
+        cursor?: CloudSearchDomainCursor;
+        expr?: CloudSearchDomainExpr;
+        facet?: CloudSearchDomainFacet;
+        filterQuery?: CloudSearchDomainFilterQuery;
+        highlight?: CloudSearchDomainHighlight;
+        partial?: CloudSearchDomainPartial;
+        query: CloudSearchDomainQuery;
+        queryOptions?: CloudSearchDomainQueryOptions;
+        queryParser?: CloudSearchDomainQueryParser;
+        return?: CloudSearchDomainReturn;
+        size?: CloudSearchDomainSize;
+        sort?: CloudSearchDomainSort;
+        start?: CloudSearchDomainStart;
     }
 
-
-    export interface SearchResponse {
-      status?: SearchStatus;
-      hits?: Hits;
-      facets?: Facets;
+    export interface CloudSearchDomainSearchResponse {
+        status?: CloudSearchDomainSearchStatus;
+        hits?: CloudSearchDomainHits;
+        facets?: CloudSearchDomainFacets;
     }
 
-
-    export interface SearchStatus {
-      timems?: Long;
-      rid?: String;
+    export interface CloudSearchDomainSearchStatus {
+        timems?: CloudSearchDomainLong;
+        rid?: CloudSearchDomainString;
     }
 
-
-    export type Size = number;
-
-    export type Sort = string;
-
-    export type Start = number;
-
-    export type String = string;
-
-    export interface SuggestModel {
-      query?: String;
-      found?: Long;
-      suggestions?: Suggestions;
+    export type CloudSearchDomainSize = number;
+    export type CloudSearchDomainSort = string;
+    export type CloudSearchDomainStart = number;
+    export type CloudSearchDomainString = string;
+    export interface CloudSearchDomainSuggestModel {
+        query?: CloudSearchDomainString;
+        found?: CloudSearchDomainLong;
+        suggestions?: CloudSearchDomainSuggestions;
     }
 
-
-    export interface SuggestRequest {
-      query: Query;
-      suggester: Suggester;
-      size?: SuggestionsSize;
+    export interface CloudSearchDomainSuggestRequest {
+        query: CloudSearchDomainQuery;
+        suggester: CloudSearchDomainSuggester;
+        size?: CloudSearchDomainSuggestionsSize;
     }
 
-
-    export interface SuggestResponse {
-      status?: SuggestStatus;
-      suggest?: SuggestModel;
+    export interface CloudSearchDomainSuggestResponse {
+        status?: CloudSearchDomainSuggestStatus;
+        suggest?: CloudSearchDomainSuggestModel;
     }
 
-
-    export interface SuggestStatus {
-      timems?: Long;
-      rid?: String;
+    export interface CloudSearchDomainSuggestStatus {
+        timems?: CloudSearchDomainLong;
+        rid?: CloudSearchDomainString;
     }
 
-
-    export type Suggester = string;
-
-    export interface SuggestionMatch {
-      suggestion?: String;
-      score?: Long;
-      id?: String;
+    export type CloudSearchDomainSuggester = string;
+    export interface CloudSearchDomainSuggestionMatch {
+        suggestion?: CloudSearchDomainString;
+        score?: CloudSearchDomainLong;
+        id?: CloudSearchDomainString;
     }
 
-
-    export type Suggestions = Array<SuggestionMatch>;
-
-    export type SuggestionsSize = number;
-
-    export interface UploadDocumentsRequest {
-      documents: Blob;
-      contentType: ContentType;
+    export type CloudSearchDomainSuggestions = Array<CloudSearchDomainSuggestionMatch>;
+    export type CloudSearchDomainSuggestionsSize = number;
+    export interface CloudSearchDomainUploadDocumentsRequest {
+        documents: CloudSearchDomainBlob;
+        contentType: CloudSearchDomainContentType;
     }
 
-
-    export interface UploadDocumentsResponse {
-      status?: String;
-      adds?: Adds;
-      deletes?: Deletes;
-      warnings?: DocumentServiceWarnings;
+    export interface CloudSearchDomainUploadDocumentsResponse {
+        status?: CloudSearchDomainString;
+        adds?: CloudSearchDomainAdds;
+        deletes?: CloudSearchDomainDeletes;
+        warnings?: CloudSearchDomainDocumentServiceWarnings;
     }
-
 
 }

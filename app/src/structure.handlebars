@@ -1,5 +1,5 @@
-    export interface {{name}} {
+    export interface {{api.name}}{{name}} {
 {{#each c.members}}
-      {{@key}}{{this.required}}: {{this.shape}};
+        {{@key}}{{this.required}}: {{../api.name}}{{this.shape}};
 {{/each}}
     }

@@ -3,461 +3,358 @@
 declare module "aws-sdk" {
     export class Support {
       constructor(options?: any);
-      addAttachmentsToSet(params: AddAttachmentsToSetRequest, callback: (err: InternalServerError|AttachmentSetIdNotFound|AttachmentSetExpired|AttachmentSetSizeLimitExceeded|AttachmentLimitExceeded|any, data: AddAttachmentsToSetResponse|any) => void): void;
-      addCommunicationToCase(params: AddCommunicationToCaseRequest, callback: (err: InternalServerError|CaseIdNotFound|AttachmentSetIdNotFound|AttachmentSetExpired|any, data: AddCommunicationToCaseResponse|any) => void): void;
-      createCase(params: CreateCaseRequest, callback: (err: InternalServerError|CaseCreationLimitExceeded|AttachmentSetIdNotFound|AttachmentSetExpired|any, data: CreateCaseResponse|any) => void): void;
-      describeAttachment(params: DescribeAttachmentRequest, callback: (err: InternalServerError|DescribeAttachmentLimitExceeded|AttachmentIdNotFound|any, data: DescribeAttachmentResponse|any) => void): void;
-      describeCases(params: DescribeCasesRequest, callback: (err: InternalServerError|CaseIdNotFound|any, data: DescribeCasesResponse|any) => void): void;
-      describeCommunications(params: DescribeCommunicationsRequest, callback: (err: InternalServerError|CaseIdNotFound|any, data: DescribeCommunicationsResponse|any) => void): void;
-      describeServices(params: DescribeServicesRequest, callback: (err: InternalServerError|any, data: DescribeServicesResponse|any) => void): void;
-      describeSeverityLevels(params: DescribeSeverityLevelsRequest, callback: (err: InternalServerError|any, data: DescribeSeverityLevelsResponse|any) => void): void;
-      describeTrustedAdvisorCheckRefreshStatuses(params: DescribeTrustedAdvisorCheckRefreshStatusesRequest, callback: (err: InternalServerError|any, data: DescribeTrustedAdvisorCheckRefreshStatusesResponse|any) => void): void;
-      describeTrustedAdvisorCheckResult(params: DescribeTrustedAdvisorCheckResultRequest, callback: (err: InternalServerError|any, data: DescribeTrustedAdvisorCheckResultResponse|any) => void): void;
-      describeTrustedAdvisorCheckSummaries(params: DescribeTrustedAdvisorCheckSummariesRequest, callback: (err: InternalServerError|any, data: DescribeTrustedAdvisorCheckSummariesResponse|any) => void): void;
-      describeTrustedAdvisorChecks(params: DescribeTrustedAdvisorChecksRequest, callback: (err: InternalServerError|any, data: DescribeTrustedAdvisorChecksResponse|any) => void): void;
-      refreshTrustedAdvisorCheck(params: RefreshTrustedAdvisorCheckRequest, callback: (err: InternalServerError|any, data: RefreshTrustedAdvisorCheckResponse|any) => void): void;
-      resolveCase(params: ResolveCaseRequest, callback: (err: InternalServerError|CaseIdNotFound|any, data: ResolveCaseResponse|any) => void): void;
+      addAttachmentsToSet(params: SupportAddAttachmentsToSetRequest, callback: (err: SupportInternalServerError|SupportAttachmentSetIdNotFound|SupportAttachmentSetExpired|SupportAttachmentSetSizeLimitExceeded|SupportAttachmentLimitExceeded|any, data: SupportAddAttachmentsToSetResponse|any) => void): void;
+      addCommunicationToCase(params: SupportAddCommunicationToCaseRequest, callback: (err: SupportInternalServerError|SupportCaseIdNotFound|SupportAttachmentSetIdNotFound|SupportAttachmentSetExpired|any, data: SupportAddCommunicationToCaseResponse|any) => void): void;
+      createCase(params: SupportCreateCaseRequest, callback: (err: SupportInternalServerError|SupportCaseCreationLimitExceeded|SupportAttachmentSetIdNotFound|SupportAttachmentSetExpired|any, data: SupportCreateCaseResponse|any) => void): void;
+      describeAttachment(params: SupportDescribeAttachmentRequest, callback: (err: SupportInternalServerError|SupportDescribeAttachmentLimitExceeded|SupportAttachmentIdNotFound|any, data: SupportDescribeAttachmentResponse|any) => void): void;
+      describeCases(params: SupportDescribeCasesRequest, callback: (err: SupportInternalServerError|SupportCaseIdNotFound|any, data: SupportDescribeCasesResponse|any) => void): void;
+      describeCommunications(params: SupportDescribeCommunicationsRequest, callback: (err: SupportInternalServerError|SupportCaseIdNotFound|any, data: SupportDescribeCommunicationsResponse|any) => void): void;
+      describeServices(params: SupportDescribeServicesRequest, callback: (err: SupportInternalServerError|any, data: SupportDescribeServicesResponse|any) => void): void;
+      describeSeverityLevels(params: SupportDescribeSeverityLevelsRequest, callback: (err: SupportInternalServerError|any, data: SupportDescribeSeverityLevelsResponse|any) => void): void;
+      describeTrustedAdvisorCheckRefreshStatuses(params: SupportDescribeTrustedAdvisorCheckRefreshStatusesRequest, callback: (err: SupportInternalServerError|any, data: SupportDescribeTrustedAdvisorCheckRefreshStatusesResponse|any) => void): void;
+      describeTrustedAdvisorCheckResult(params: SupportDescribeTrustedAdvisorCheckResultRequest, callback: (err: SupportInternalServerError|any, data: SupportDescribeTrustedAdvisorCheckResultResponse|any) => void): void;
+      describeTrustedAdvisorCheckSummaries(params: SupportDescribeTrustedAdvisorCheckSummariesRequest, callback: (err: SupportInternalServerError|any, data: SupportDescribeTrustedAdvisorCheckSummariesResponse|any) => void): void;
+      describeTrustedAdvisorChecks(params: SupportDescribeTrustedAdvisorChecksRequest, callback: (err: SupportInternalServerError|any, data: SupportDescribeTrustedAdvisorChecksResponse|any) => void): void;
+      refreshTrustedAdvisorCheck(params: SupportRefreshTrustedAdvisorCheckRequest, callback: (err: SupportInternalServerError|any, data: SupportRefreshTrustedAdvisorCheckResponse|any) => void): void;
+      resolveCase(params: SupportResolveCaseRequest, callback: (err: SupportInternalServerError|SupportCaseIdNotFound|any, data: SupportResolveCaseResponse|any) => void): void;
     }
 
-    export interface AddAttachmentsToSetRequest {
-      attachmentSetId?: AttachmentSetId;
-      attachments: Attachments;
+    export interface SupportAddAttachmentsToSetRequest {
+        attachmentSetId?: SupportAttachmentSetId;
+        attachments: SupportAttachments;
     }
 
-
-    export interface AddAttachmentsToSetResponse {
-      attachmentSetId?: AttachmentSetId;
-      expiryTime?: ExpiryTime;
+    export interface SupportAddAttachmentsToSetResponse {
+        attachmentSetId?: SupportAttachmentSetId;
+        expiryTime?: SupportExpiryTime;
     }
 
-
-    export interface AddCommunicationToCaseRequest {
-      caseId?: CaseId;
-      communicationBody: CommunicationBody;
-      ccEmailAddresses?: CcEmailAddressList;
-      attachmentSetId?: AttachmentSetId;
+    export interface SupportAddCommunicationToCaseRequest {
+        caseId?: SupportCaseId;
+        communicationBody: SupportCommunicationBody;
+        ccEmailAddresses?: SupportCcEmailAddressList;
+        attachmentSetId?: SupportAttachmentSetId;
     }
 
-
-    export interface AddCommunicationToCaseResponse {
-      result?: Result;
+    export interface SupportAddCommunicationToCaseResponse {
+        result?: SupportResult;
     }
 
-
-    export type AfterTime = string;
-
-    export interface Attachment {
-      fileName?: FileName;
-      data?: Data;
+    export type SupportAfterTime = string;
+    export interface SupportAttachment {
+        fileName?: SupportFileName;
+        data?: SupportData;
     }
 
-
-    export interface AttachmentDetails {
-      attachmentId?: AttachmentId;
-      fileName?: FileName;
+    export interface SupportAttachmentDetails {
+        attachmentId?: SupportAttachmentId;
+        fileName?: SupportFileName;
     }
 
-
-    export type AttachmentId = string;
-
-    export interface AttachmentIdNotFound {
-      message?: ErrorMessage;
+    export type SupportAttachmentId = string;
+    export interface SupportAttachmentIdNotFound {
+        message?: SupportErrorMessage;
     }
 
-
-    export interface AttachmentLimitExceeded {
-      message?: ErrorMessage;
+    export interface SupportAttachmentLimitExceeded {
+        message?: SupportErrorMessage;
     }
 
-
-    export type AttachmentSet = Array<AttachmentDetails>;
-
-    export interface AttachmentSetExpired {
-      message?: ErrorMessage;
+    export type SupportAttachmentSet = Array<SupportAttachmentDetails>;
+    export interface SupportAttachmentSetExpired {
+        message?: SupportErrorMessage;
     }
 
-
-    export type AttachmentSetId = string;
-
-    export interface AttachmentSetIdNotFound {
-      message?: ErrorMessage;
+    export type SupportAttachmentSetId = string;
+    export interface SupportAttachmentSetIdNotFound {
+        message?: SupportErrorMessage;
     }
 
-
-    export interface AttachmentSetSizeLimitExceeded {
-      message?: ErrorMessage;
+    export interface SupportAttachmentSetSizeLimitExceeded {
+        message?: SupportErrorMessage;
     }
 
-
-    export type Attachments = Array<Attachment>;
-
-    export type BeforeTime = string;
-
-    export type Boolean = boolean;
-
-    export interface CaseCreationLimitExceeded {
-      message?: ErrorMessage;
+    export type SupportAttachments = Array<SupportAttachment>;
+    export type SupportBeforeTime = string;
+    export type SupportBoolean = boolean;
+    export interface SupportCaseCreationLimitExceeded {
+        message?: SupportErrorMessage;
     }
 
-
-    export interface CaseDetails {
-      caseId?: CaseId;
-      displayId?: DisplayId;
-      subject?: Subject;
-      status?: Status;
-      serviceCode?: ServiceCode;
-      categoryCode?: CategoryCode;
-      severityCode?: SeverityCode;
-      submittedBy?: SubmittedBy;
-      timeCreated?: TimeCreated;
-      recentCommunications?: RecentCaseCommunications;
-      ccEmailAddresses?: CcEmailAddressList;
-      language?: Language;
+    export interface SupportCaseDetails {
+        caseId?: SupportCaseId;
+        displayId?: SupportDisplayId;
+        subject?: SupportSubject;
+        status?: SupportStatus;
+        serviceCode?: SupportServiceCode;
+        categoryCode?: SupportCategoryCode;
+        severityCode?: SupportSeverityCode;
+        submittedBy?: SupportSubmittedBy;
+        timeCreated?: SupportTimeCreated;
+        recentCommunications?: SupportRecentCaseCommunications;
+        ccEmailAddresses?: SupportCcEmailAddressList;
+        language?: SupportLanguage;
     }
 
-
-    export type CaseId = string;
-
-    export type CaseIdList = Array<CaseId>; // max: 100
-
-    export interface CaseIdNotFound {
-      message?: ErrorMessage;
+    export type SupportCaseId = string;
+    export type SupportCaseIdList = Array<SupportCaseId>; // max: 100
+    export interface SupportCaseIdNotFound {
+        message?: SupportErrorMessage;
     }
 
-
-    export type CaseList = Array<CaseDetails>;
-
-    export type CaseStatus = string;
-
-    export interface Category {
-      code?: CategoryCode;
-      name?: CategoryName;
+    export type SupportCaseList = Array<SupportCaseDetails>;
+    export type SupportCaseStatus = string;
+    export interface SupportCategory {
+        code?: SupportCategoryCode;
+        name?: SupportCategoryName;
     }
 
-
-    export type CategoryCode = string;
-
-    export type CategoryList = Array<Category>;
-
-    export type CategoryName = string;
-
-    export type CcEmailAddress = string;
-
-    export type CcEmailAddressList = Array<CcEmailAddress>;
-
-    export interface Communication {
-      caseId?: CaseId;
-      body?: CommunicationBody;
-      submittedBy?: SubmittedBy;
-      timeCreated?: TimeCreated;
-      attachmentSet?: AttachmentSet;
+    export type SupportCategoryCode = string;
+    export type SupportCategoryList = Array<SupportCategory>;
+    export type SupportCategoryName = string;
+    export type SupportCcEmailAddress = string;
+    export type SupportCcEmailAddressList = Array<SupportCcEmailAddress>;
+    export interface SupportCommunication {
+        caseId?: SupportCaseId;
+        body?: SupportCommunicationBody;
+        submittedBy?: SupportSubmittedBy;
+        timeCreated?: SupportTimeCreated;
+        attachmentSet?: SupportAttachmentSet;
     }
 
-
-    export type CommunicationBody = string;
-
-    export type CommunicationList = Array<Communication>;
-
-    export interface CreateCaseRequest {
-      subject: Subject;
-      serviceCode?: ServiceCode;
-      severityCode?: SeverityCode;
-      categoryCode?: CategoryCode;
-      communicationBody: CommunicationBody;
-      ccEmailAddresses?: CcEmailAddressList;
-      language?: Language;
-      issueType?: IssueType;
-      attachmentSetId?: AttachmentSetId;
+    export type SupportCommunicationBody = string;
+    export type SupportCommunicationList = Array<SupportCommunication>;
+    export interface SupportCreateCaseRequest {
+        subject: SupportSubject;
+        serviceCode?: SupportServiceCode;
+        severityCode?: SupportSeverityCode;
+        categoryCode?: SupportCategoryCode;
+        communicationBody: SupportCommunicationBody;
+        ccEmailAddresses?: SupportCcEmailAddressList;
+        language?: SupportLanguage;
+        issueType?: SupportIssueType;
+        attachmentSetId?: SupportAttachmentSetId;
     }
 
-
-    export interface CreateCaseResponse {
-      caseId?: CaseId;
+    export interface SupportCreateCaseResponse {
+        caseId?: SupportCaseId;
     }
 
-
-    export type Data = any; // not really - it was 'blob' instead - must fix this one
-
-    export interface DescribeAttachmentLimitExceeded {
-      message?: ErrorMessage;
+    export type SupportData = any; // not really - it was 'blob' instead - must fix this one
+    export interface SupportDescribeAttachmentLimitExceeded {
+        message?: SupportErrorMessage;
     }
 
-
-    export interface DescribeAttachmentRequest {
-      attachmentId: AttachmentId;
+    export interface SupportDescribeAttachmentRequest {
+        attachmentId: SupportAttachmentId;
     }
 
-
-    export interface DescribeAttachmentResponse {
-      attachment?: Attachment;
+    export interface SupportDescribeAttachmentResponse {
+        attachment?: SupportAttachment;
     }
 
-
-    export interface DescribeCasesRequest {
-      caseIdList?: CaseIdList;
-      displayId?: DisplayId;
-      afterTime?: AfterTime;
-      beforeTime?: BeforeTime;
-      includeResolvedCases?: IncludeResolvedCases;
-      nextToken?: NextToken;
-      maxResults?: MaxResults;
-      language?: Language;
-      includeCommunications?: IncludeCommunications;
+    export interface SupportDescribeCasesRequest {
+        caseIdList?: SupportCaseIdList;
+        displayId?: SupportDisplayId;
+        afterTime?: SupportAfterTime;
+        beforeTime?: SupportBeforeTime;
+        includeResolvedCases?: SupportIncludeResolvedCases;
+        nextToken?: SupportNextToken;
+        maxResults?: SupportMaxResults;
+        language?: SupportLanguage;
+        includeCommunications?: SupportIncludeCommunications;
     }
 
-
-    export interface DescribeCasesResponse {
-      cases?: CaseList;
-      nextToken?: NextToken;
+    export interface SupportDescribeCasesResponse {
+        cases?: SupportCaseList;
+        nextToken?: SupportNextToken;
     }
 
-
-    export interface DescribeCommunicationsRequest {
-      caseId: CaseId;
-      beforeTime?: BeforeTime;
-      afterTime?: AfterTime;
-      nextToken?: NextToken;
-      maxResults?: MaxResults;
+    export interface SupportDescribeCommunicationsRequest {
+        caseId: SupportCaseId;
+        beforeTime?: SupportBeforeTime;
+        afterTime?: SupportAfterTime;
+        nextToken?: SupportNextToken;
+        maxResults?: SupportMaxResults;
     }
 
-
-    export interface DescribeCommunicationsResponse {
-      communications?: CommunicationList;
-      nextToken?: NextToken;
+    export interface SupportDescribeCommunicationsResponse {
+        communications?: SupportCommunicationList;
+        nextToken?: SupportNextToken;
     }
 
-
-    export interface DescribeServicesRequest {
-      serviceCodeList?: ServiceCodeList;
-      language?: Language;
+    export interface SupportDescribeServicesRequest {
+        serviceCodeList?: SupportServiceCodeList;
+        language?: SupportLanguage;
     }
 
-
-    export interface DescribeServicesResponse {
-      services?: ServiceList;
+    export interface SupportDescribeServicesResponse {
+        services?: SupportServiceList;
     }
 
-
-    export interface DescribeSeverityLevelsRequest {
-      language?: Language;
+    export interface SupportDescribeSeverityLevelsRequest {
+        language?: SupportLanguage;
     }
 
-
-    export interface DescribeSeverityLevelsResponse {
-      severityLevels?: SeverityLevelsList;
+    export interface SupportDescribeSeverityLevelsResponse {
+        severityLevels?: SupportSeverityLevelsList;
     }
 
-
-    export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
-      checkIds: StringList;
+    export interface SupportDescribeTrustedAdvisorCheckRefreshStatusesRequest {
+        checkIds: SupportStringList;
     }
 
-
-    export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
-      statuses: TrustedAdvisorCheckRefreshStatusList;
+    export interface SupportDescribeTrustedAdvisorCheckRefreshStatusesResponse {
+        statuses: SupportTrustedAdvisorCheckRefreshStatusList;
     }
 
-
-    export interface DescribeTrustedAdvisorCheckResultRequest {
-      checkId: String;
-      language?: String;
+    export interface SupportDescribeTrustedAdvisorCheckResultRequest {
+        checkId: SupportString;
+        language?: SupportString;
     }
 
-
-    export interface DescribeTrustedAdvisorCheckResultResponse {
-      result?: TrustedAdvisorCheckResult;
+    export interface SupportDescribeTrustedAdvisorCheckResultResponse {
+        result?: SupportTrustedAdvisorCheckResult;
     }
 
-
-    export interface DescribeTrustedAdvisorCheckSummariesRequest {
-      checkIds: StringList;
+    export interface SupportDescribeTrustedAdvisorCheckSummariesRequest {
+        checkIds: SupportStringList;
     }
 
-
-    export interface DescribeTrustedAdvisorCheckSummariesResponse {
-      summaries: TrustedAdvisorCheckSummaryList;
+    export interface SupportDescribeTrustedAdvisorCheckSummariesResponse {
+        summaries: SupportTrustedAdvisorCheckSummaryList;
     }
 
-
-    export interface DescribeTrustedAdvisorChecksRequest {
-      language: String;
+    export interface SupportDescribeTrustedAdvisorChecksRequest {
+        language: SupportString;
     }
 
-
-    export interface DescribeTrustedAdvisorChecksResponse {
-      checks: TrustedAdvisorCheckList;
+    export interface SupportDescribeTrustedAdvisorChecksResponse {
+        checks: SupportTrustedAdvisorCheckList;
     }
 
-
-    export type DisplayId = string;
-
-    export type Double = number;
-
-    export type ErrorMessage = string;
-
-    export type ExpiryTime = string;
-
-    export type FileName = string;
-
-    export type IncludeCommunications = boolean;
-
-    export type IncludeResolvedCases = boolean;
-
-    export interface InternalServerError {
-      message?: ErrorMessage;
+    export type SupportDisplayId = string;
+    export type SupportDouble = number;
+    export type SupportErrorMessage = string;
+    export type SupportExpiryTime = string;
+    export type SupportFileName = string;
+    export type SupportIncludeCommunications = boolean;
+    export type SupportIncludeResolvedCases = boolean;
+    export interface SupportInternalServerError {
+        message?: SupportErrorMessage;
     }
 
-
-    export type IssueType = string;
-
-    export type Language = string;
-
-    export type Long = number;
-
-    export type MaxResults = number;
-
-    export type NextToken = string;
-
-    export interface RecentCaseCommunications {
-      communications?: CommunicationList;
-      nextToken?: NextToken;
+    export type SupportIssueType = string;
+    export type SupportLanguage = string;
+    export type SupportLong = number;
+    export type SupportMaxResults = number;
+    export type SupportNextToken = string;
+    export interface SupportRecentCaseCommunications {
+        communications?: SupportCommunicationList;
+        nextToken?: SupportNextToken;
     }
 
-
-    export interface RefreshTrustedAdvisorCheckRequest {
-      checkId: String;
+    export interface SupportRefreshTrustedAdvisorCheckRequest {
+        checkId: SupportString;
     }
 
-
-    export interface RefreshTrustedAdvisorCheckResponse {
-      status: TrustedAdvisorCheckRefreshStatus;
+    export interface SupportRefreshTrustedAdvisorCheckResponse {
+        status: SupportTrustedAdvisorCheckRefreshStatus;
     }
 
-
-    export interface ResolveCaseRequest {
-      caseId?: CaseId;
+    export interface SupportResolveCaseRequest {
+        caseId?: SupportCaseId;
     }
 
-
-    export interface ResolveCaseResponse {
-      initialCaseStatus?: CaseStatus;
-      finalCaseStatus?: CaseStatus;
+    export interface SupportResolveCaseResponse {
+        initialCaseStatus?: SupportCaseStatus;
+        finalCaseStatus?: SupportCaseStatus;
     }
 
-
-    export type Result = boolean;
-
-    export interface Service {
-      code?: ServiceCode;
-      name?: ServiceName;
-      categories?: CategoryList;
+    export type SupportResult = boolean;
+    export interface SupportService {
+        code?: SupportServiceCode;
+        name?: SupportServiceName;
+        categories?: SupportCategoryList;
     }
 
-
-    export type ServiceCode = string; // pattern: "[0-9a-z\-_]+"
-
-    export type ServiceCodeList = Array<ServiceCode>; // max: 100
-
-    export type ServiceList = Array<Service>;
-
-    export type ServiceName = string;
-
-    export type SeverityCode = string;
-
-    export interface SeverityLevel {
-      code?: SeverityLevelCode;
-      name?: SeverityLevelName;
+    export type SupportServiceCode = string; // pattern: "[0-9a-z\-_]+"
+    export type SupportServiceCodeList = Array<SupportServiceCode>; // max: 100
+    export type SupportServiceList = Array<SupportService>;
+    export type SupportServiceName = string;
+    export type SupportSeverityCode = string;
+    export interface SupportSeverityLevel {
+        code?: SupportSeverityLevelCode;
+        name?: SupportSeverityLevelName;
     }
 
-
-    export type SeverityLevelCode = string;
-
-    export type SeverityLevelName = string;
-
-    export type SeverityLevelsList = Array<SeverityLevel>;
-
-    export type Status = string;
-
-    export type String = string;
-
-    export type StringList = Array<String>;
-
-    export type Subject = string;
-
-    export type SubmittedBy = string;
-
-    export type TimeCreated = string;
-
-    export interface TrustedAdvisorCategorySpecificSummary {
-      costOptimizing?: TrustedAdvisorCostOptimizingSummary;
+    export type SupportSeverityLevelCode = string;
+    export type SupportSeverityLevelName = string;
+    export type SupportSeverityLevelsList = Array<SupportSeverityLevel>;
+    export type SupportStatus = string;
+    export type SupportString = string;
+    export type SupportStringList = Array<SupportString>;
+    export type SupportSubject = string;
+    export type SupportSubmittedBy = string;
+    export type SupportTimeCreated = string;
+    export interface SupportTrustedAdvisorCategorySpecificSummary {
+        costOptimizing?: SupportTrustedAdvisorCostOptimizingSummary;
     }
 
-
-    export interface TrustedAdvisorCheckDescription {
-      id: String;
-      name: String;
-      description: String;
-      category: String;
-      metadata: StringList;
+    export interface SupportTrustedAdvisorCheckDescription {
+        id: SupportString;
+        name: SupportString;
+        description: SupportString;
+        category: SupportString;
+        metadata: SupportStringList;
     }
 
-
-    export type TrustedAdvisorCheckList = Array<TrustedAdvisorCheckDescription>;
-
-    export interface TrustedAdvisorCheckRefreshStatus {
-      checkId: String;
-      status: String;
-      millisUntilNextRefreshable: Long;
+    export type SupportTrustedAdvisorCheckList = Array<SupportTrustedAdvisorCheckDescription>;
+    export interface SupportTrustedAdvisorCheckRefreshStatus {
+        checkId: SupportString;
+        status: SupportString;
+        millisUntilNextRefreshable: SupportLong;
     }
 
-
-    export type TrustedAdvisorCheckRefreshStatusList = Array<TrustedAdvisorCheckRefreshStatus>;
-
-    export interface TrustedAdvisorCheckResult {
-      checkId: String;
-      timestamp: String;
-      status: String;
-      resourcesSummary: TrustedAdvisorResourcesSummary;
-      categorySpecificSummary: TrustedAdvisorCategorySpecificSummary;
-      flaggedResources: TrustedAdvisorResourceDetailList;
+    export type SupportTrustedAdvisorCheckRefreshStatusList = Array<SupportTrustedAdvisorCheckRefreshStatus>;
+    export interface SupportTrustedAdvisorCheckResult {
+        checkId: SupportString;
+        timestamp: SupportString;
+        status: SupportString;
+        resourcesSummary: SupportTrustedAdvisorResourcesSummary;
+        categorySpecificSummary: SupportTrustedAdvisorCategorySpecificSummary;
+        flaggedResources: SupportTrustedAdvisorResourceDetailList;
     }
 
-
-    export interface TrustedAdvisorCheckSummary {
-      checkId: String;
-      timestamp: String;
-      status: String;
-      hasFlaggedResources?: Boolean;
-      resourcesSummary: TrustedAdvisorResourcesSummary;
-      categorySpecificSummary: TrustedAdvisorCategorySpecificSummary;
+    export interface SupportTrustedAdvisorCheckSummary {
+        checkId: SupportString;
+        timestamp: SupportString;
+        status: SupportString;
+        hasFlaggedResources?: SupportBoolean;
+        resourcesSummary: SupportTrustedAdvisorResourcesSummary;
+        categorySpecificSummary: SupportTrustedAdvisorCategorySpecificSummary;
     }
 
-
-    export type TrustedAdvisorCheckSummaryList = Array<TrustedAdvisorCheckSummary>;
-
-    export interface TrustedAdvisorCostOptimizingSummary {
-      estimatedMonthlySavings: Double;
-      estimatedPercentMonthlySavings: Double;
+    export type SupportTrustedAdvisorCheckSummaryList = Array<SupportTrustedAdvisorCheckSummary>;
+    export interface SupportTrustedAdvisorCostOptimizingSummary {
+        estimatedMonthlySavings: SupportDouble;
+        estimatedPercentMonthlySavings: SupportDouble;
     }
 
-
-    export interface TrustedAdvisorResourceDetail {
-      status: String;
-      region: String;
-      resourceId: String;
-      isSuppressed?: Boolean;
-      metadata: StringList;
+    export interface SupportTrustedAdvisorResourceDetail {
+        status: SupportString;
+        region: SupportString;
+        resourceId: SupportString;
+        isSuppressed?: SupportBoolean;
+        metadata: SupportStringList;
     }
 
-
-    export type TrustedAdvisorResourceDetailList = Array<TrustedAdvisorResourceDetail>;
-
-    export interface TrustedAdvisorResourcesSummary {
-      resourcesProcessed: Long;
-      resourcesFlagged: Long;
-      resourcesIgnored: Long;
-      resourcesSuppressed: Long;
+    export type SupportTrustedAdvisorResourceDetailList = Array<SupportTrustedAdvisorResourceDetail>;
+    export interface SupportTrustedAdvisorResourcesSummary {
+        resourcesProcessed: SupportLong;
+        resourcesFlagged: SupportLong;
+        resourcesIgnored: SupportLong;
+        resourcesSuppressed: SupportLong;
     }
-
 
 }

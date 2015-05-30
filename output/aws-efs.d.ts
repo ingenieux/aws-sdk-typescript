@@ -3,301 +3,241 @@
 declare module "aws-sdk" {
     export class EFS {
       constructor(options?: any);
-      createFileSystem(params: CreateFileSystemRequest, callback: (err: BadRequest|InternalServerError|FileSystemAlreadyExists|FileSystemLimitExceeded|any, data: FileSystemDescription|any) => void): void;
-      createMountTarget(params: CreateMountTargetRequest, callback: (err: BadRequest|InternalServerError|FileSystemNotFound|IncorrectFileSystemLifeCycleState|MountTargetConflict|SubnetNotFound|NoFreeAddressesInSubnet|IpAddressInUse|NetworkInterfaceLimitExceeded|SecurityGroupLimitExceeded|SecurityGroupNotFound|UnsupportedAvailabilityZone|any, data: MountTargetDescription|any) => void): void;
-      createTags(params: CreateTagsRequest, callback: (err: BadRequest|InternalServerError|FileSystemNotFound|any, data: any) => void): void;
-      deleteFileSystem(params: DeleteFileSystemRequest, callback: (err: BadRequest|InternalServerError|FileSystemNotFound|FileSystemInUse|any, data: any) => void): void;
-      deleteMountTarget(params: DeleteMountTargetRequest, callback: (err: BadRequest|InternalServerError|DependencyTimeout|MountTargetNotFound|any, data: any) => void): void;
-      deleteTags(params: DeleteTagsRequest, callback: (err: BadRequest|InternalServerError|FileSystemNotFound|any, data: any) => void): void;
-      describeFileSystems(params: DescribeFileSystemsRequest, callback: (err: BadRequest|InternalServerError|FileSystemNotFound|any, data: DescribeFileSystemsResponse|any) => void): void;
-      describeMountTargetSecurityGroups(params: DescribeMountTargetSecurityGroupsRequest, callback: (err: BadRequest|InternalServerError|MountTargetNotFound|IncorrectMountTargetState|any, data: DescribeMountTargetSecurityGroupsResponse|any) => void): void;
-      describeMountTargets(params: DescribeMountTargetsRequest, callback: (err: BadRequest|InternalServerError|FileSystemNotFound|any, data: DescribeMountTargetsResponse|any) => void): void;
-      describeTags(params: DescribeTagsRequest, callback: (err: BadRequest|InternalServerError|FileSystemNotFound|any, data: DescribeTagsResponse|any) => void): void;
-      modifyMountTargetSecurityGroups(params: ModifyMountTargetSecurityGroupsRequest, callback: (err: BadRequest|InternalServerError|MountTargetNotFound|IncorrectMountTargetState|SecurityGroupLimitExceeded|SecurityGroupNotFound|any, data: any) => void): void;
+      createFileSystem(params: EFSCreateFileSystemRequest, callback: (err: EFSBadRequest|EFSInternalServerError|EFSFileSystemAlreadyExists|EFSFileSystemLimitExceeded|any, data: EFSFileSystemDescription|any) => void): void;
+      createMountTarget(params: EFSCreateMountTargetRequest, callback: (err: EFSBadRequest|EFSInternalServerError|EFSFileSystemNotFound|EFSIncorrectFileSystemLifeCycleState|EFSMountTargetConflict|EFSSubnetNotFound|EFSNoFreeAddressesInSubnet|EFSIpAddressInUse|EFSNetworkInterfaceLimitExceeded|EFSSecurityGroupLimitExceeded|EFSSecurityGroupNotFound|EFSUnsupportedAvailabilityZone|any, data: EFSMountTargetDescription|any) => void): void;
+      createTags(params: EFSCreateTagsRequest, callback: (err: EFSBadRequest|EFSInternalServerError|EFSFileSystemNotFound|any, data: any) => void): void;
+      deleteFileSystem(params: EFSDeleteFileSystemRequest, callback: (err: EFSBadRequest|EFSInternalServerError|EFSFileSystemNotFound|EFSFileSystemInUse|any, data: any) => void): void;
+      deleteMountTarget(params: EFSDeleteMountTargetRequest, callback: (err: EFSBadRequest|EFSInternalServerError|EFSDependencyTimeout|EFSMountTargetNotFound|any, data: any) => void): void;
+      deleteTags(params: EFSDeleteTagsRequest, callback: (err: EFSBadRequest|EFSInternalServerError|EFSFileSystemNotFound|any, data: any) => void): void;
+      describeFileSystems(params: EFSDescribeFileSystemsRequest, callback: (err: EFSBadRequest|EFSInternalServerError|EFSFileSystemNotFound|any, data: EFSDescribeFileSystemsResponse|any) => void): void;
+      describeMountTargetSecurityGroups(params: EFSDescribeMountTargetSecurityGroupsRequest, callback: (err: EFSBadRequest|EFSInternalServerError|EFSMountTargetNotFound|EFSIncorrectMountTargetState|any, data: EFSDescribeMountTargetSecurityGroupsResponse|any) => void): void;
+      describeMountTargets(params: EFSDescribeMountTargetsRequest, callback: (err: EFSBadRequest|EFSInternalServerError|EFSFileSystemNotFound|any, data: EFSDescribeMountTargetsResponse|any) => void): void;
+      describeTags(params: EFSDescribeTagsRequest, callback: (err: EFSBadRequest|EFSInternalServerError|EFSFileSystemNotFound|any, data: EFSDescribeTagsResponse|any) => void): void;
+      modifyMountTargetSecurityGroups(params: EFSModifyMountTargetSecurityGroupsRequest, callback: (err: EFSBadRequest|EFSInternalServerError|EFSMountTargetNotFound|EFSIncorrectMountTargetState|EFSSecurityGroupLimitExceeded|EFSSecurityGroupNotFound|any, data: any) => void): void;
     }
 
-    export type AwsAccountId = string; // pattern: "[0-9]{12}"
-
-    export interface BadRequest {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export type EFSAwsAccountId = string; // pattern: "[0-9]{12}"
+    export interface EFSBadRequest {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export interface CreateFileSystemRequest {
-      CreationToken: CreationToken;
+    export interface EFSCreateFileSystemRequest {
+        CreationToken: EFSCreationToken;
     }
 
-
-    export interface CreateMountTargetRequest {
-      FileSystemId: FileSystemId;
-      SubnetId: SubnetId;
-      IpAddress?: IpAddress;
-      SecurityGroups?: SecurityGroups;
+    export interface EFSCreateMountTargetRequest {
+        FileSystemId: EFSFileSystemId;
+        SubnetId: EFSSubnetId;
+        IpAddress?: EFSIpAddress;
+        SecurityGroups?: EFSSecurityGroups;
     }
 
-
-    export interface CreateTagsRequest {
-      FileSystemId: FileSystemId;
-      Tags: Tags;
+    export interface EFSCreateTagsRequest {
+        FileSystemId: EFSFileSystemId;
+        Tags: EFSTags;
     }
 
-
-    export type CreationToken = string;
-
-    export interface DeleteFileSystemRequest {
-      FileSystemId: FileSystemId;
+    export type EFSCreationToken = string;
+    export interface EFSDeleteFileSystemRequest {
+        FileSystemId: EFSFileSystemId;
     }
 
-
-    export interface DeleteMountTargetRequest {
-      MountTargetId: MountTargetId;
+    export interface EFSDeleteMountTargetRequest {
+        MountTargetId: EFSMountTargetId;
     }
 
-
-    export interface DeleteTagsRequest {
-      FileSystemId: FileSystemId;
-      TagKeys: TagKeys;
+    export interface EFSDeleteTagsRequest {
+        FileSystemId: EFSFileSystemId;
+        TagKeys: EFSTagKeys;
     }
 
-
-    export interface DependencyTimeout {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export interface EFSDependencyTimeout {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export interface DescribeFileSystemsRequest {
-      MaxItems?: MaxItems;
-      Marker?: Marker;
-      CreationToken?: CreationToken;
-      FileSystemId?: FileSystemId;
+    export interface EFSDescribeFileSystemsRequest {
+        MaxItems?: EFSMaxItems;
+        Marker?: EFSMarker;
+        CreationToken?: EFSCreationToken;
+        FileSystemId?: EFSFileSystemId;
     }
 
-
-    export interface DescribeFileSystemsResponse {
-      Marker?: Marker;
-      FileSystems?: FileSystemDescriptions;
-      NextMarker?: Marker;
+    export interface EFSDescribeFileSystemsResponse {
+        Marker?: EFSMarker;
+        FileSystems?: EFSFileSystemDescriptions;
+        NextMarker?: EFSMarker;
     }
 
-
-    export interface DescribeMountTargetSecurityGroupsRequest {
-      MountTargetId: MountTargetId;
+    export interface EFSDescribeMountTargetSecurityGroupsRequest {
+        MountTargetId: EFSMountTargetId;
     }
 
-
-    export interface DescribeMountTargetSecurityGroupsResponse {
-      SecurityGroups: SecurityGroups;
+    export interface EFSDescribeMountTargetSecurityGroupsResponse {
+        SecurityGroups: EFSSecurityGroups;
     }
 
-
-    export interface DescribeMountTargetsRequest {
-      MaxItems?: MaxItems;
-      Marker?: Marker;
-      FileSystemId: FileSystemId;
+    export interface EFSDescribeMountTargetsRequest {
+        MaxItems?: EFSMaxItems;
+        Marker?: EFSMarker;
+        FileSystemId: EFSFileSystemId;
     }
 
-
-    export interface DescribeMountTargetsResponse {
-      Marker?: Marker;
-      MountTargets?: MountTargetDescriptions;
-      NextMarker?: Marker;
+    export interface EFSDescribeMountTargetsResponse {
+        Marker?: EFSMarker;
+        MountTargets?: EFSMountTargetDescriptions;
+        NextMarker?: EFSMarker;
     }
 
-
-    export interface DescribeTagsRequest {
-      MaxItems?: MaxItems;
-      Marker?: Marker;
-      FileSystemId: FileSystemId;
+    export interface EFSDescribeTagsRequest {
+        MaxItems?: EFSMaxItems;
+        Marker?: EFSMarker;
+        FileSystemId: EFSFileSystemId;
     }
 
-
-    export interface DescribeTagsResponse {
-      Marker?: Marker;
-      Tags: Tags;
-      NextMarker?: Marker;
+    export interface EFSDescribeTagsResponse {
+        Marker?: EFSMarker;
+        Tags: EFSTags;
+        NextMarker?: EFSMarker;
     }
 
-
-    export type ErrorCode = string;
-
-    export type ErrorMessage = string;
-
-    export interface FileSystemAlreadyExists {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
-      FileSystemId: FileSystemId;
+    export type EFSErrorCode = string;
+    export type EFSErrorMessage = string;
+    export interface EFSFileSystemAlreadyExists {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
+        FileSystemId: EFSFileSystemId;
     }
 
-
-    export interface FileSystemDescription {
-      OwnerId: AwsAccountId;
-      CreationToken: CreationToken;
-      FileSystemId: FileSystemId;
-      CreationTime: Timestamp;
-      LifeCycleState: LifeCycleState;
-      Name?: TagValue;
-      NumberOfMountTargets: MountTargetCount;
-      SizeInBytes: FileSystemSize;
+    export interface EFSFileSystemDescription {
+        OwnerId: EFSAwsAccountId;
+        CreationToken: EFSCreationToken;
+        FileSystemId: EFSFileSystemId;
+        CreationTime: EFSTimestamp;
+        LifeCycleState: EFSLifeCycleState;
+        Name?: EFSTagValue;
+        NumberOfMountTargets: EFSMountTargetCount;
+        SizeInBytes: EFSFileSystemSize;
     }
 
-
-    export type FileSystemDescriptions = Array<FileSystemDescription>;
-
-    export type FileSystemId = string; // pattern: "fs-[0-9a-f]{8}"
-
-    export interface FileSystemInUse {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export type EFSFileSystemDescriptions = Array<EFSFileSystemDescription>;
+    export type EFSFileSystemId = string; // pattern: "fs-[0-9a-f]{8}"
+    export interface EFSFileSystemInUse {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export interface FileSystemLimitExceeded {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export interface EFSFileSystemLimitExceeded {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export interface FileSystemNotFound {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export interface EFSFileSystemNotFound {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export interface FileSystemSize {
-      Value: FileSystemSizeValue;
-      Timestamp?: Timestamp;
+    export interface EFSFileSystemSize {
+        Value: EFSFileSystemSizeValue;
+        Timestamp?: EFSTimestamp;
     }
 
-
-    export type FileSystemSizeValue = number;
-
-    export interface IncorrectFileSystemLifeCycleState {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export type EFSFileSystemSizeValue = number;
+    export interface EFSIncorrectFileSystemLifeCycleState {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export interface IncorrectMountTargetState {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export interface EFSIncorrectMountTargetState {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export interface InternalServerError {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export interface EFSInternalServerError {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export type IpAddress = string; // pattern: "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
-
-    export interface IpAddressInUse {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export type EFSIpAddress = string; // pattern: "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
+    export interface EFSIpAddressInUse {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export type LifeCycleState = string;
-
-    export type Marker = string;
-
-    export type MaxItems = number;
-
-    export interface ModifyMountTargetSecurityGroupsRequest {
-      MountTargetId: MountTargetId;
-      SecurityGroups?: SecurityGroups;
+    export type EFSLifeCycleState = string;
+    export type EFSMarker = string;
+    export type EFSMaxItems = number;
+    export interface EFSModifyMountTargetSecurityGroupsRequest {
+        MountTargetId: EFSMountTargetId;
+        SecurityGroups?: EFSSecurityGroups;
     }
 
-
-    export interface MountTargetConflict {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export interface EFSMountTargetConflict {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export type MountTargetCount = number;
-
-    export interface MountTargetDescription {
-      OwnerId?: AwsAccountId;
-      MountTargetId: MountTargetId;
-      FileSystemId: FileSystemId;
-      SubnetId: SubnetId;
-      LifeCycleState: LifeCycleState;
-      IpAddress?: IpAddress;
-      NetworkInterfaceId?: NetworkInterfaceId;
+    export type EFSMountTargetCount = number;
+    export interface EFSMountTargetDescription {
+        OwnerId?: EFSAwsAccountId;
+        MountTargetId: EFSMountTargetId;
+        FileSystemId: EFSFileSystemId;
+        SubnetId: EFSSubnetId;
+        LifeCycleState: EFSLifeCycleState;
+        IpAddress?: EFSIpAddress;
+        NetworkInterfaceId?: EFSNetworkInterfaceId;
     }
 
-
-    export type MountTargetDescriptions = Array<MountTargetDescription>;
-
-    export type MountTargetId = string; // pattern: "fsmt-[0-9a-f]{8}"
-
-    export interface MountTargetNotFound {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export type EFSMountTargetDescriptions = Array<EFSMountTargetDescription>;
+    export type EFSMountTargetId = string; // pattern: "fsmt-[0-9a-f]{8}"
+    export interface EFSMountTargetNotFound {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export type NetworkInterfaceId = string; // pattern: "eni-[0-9a-f]{8}"
-
-    export interface NetworkInterfaceLimitExceeded {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export type EFSNetworkInterfaceId = string; // pattern: "eni-[0-9a-f]{8}"
+    export interface EFSNetworkInterfaceLimitExceeded {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export interface NoFreeAddressesInSubnet {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export interface EFSNoFreeAddressesInSubnet {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export type SecurityGroup = string; // pattern: "sg-[0-9a-f]{8}"
-
-    export interface SecurityGroupLimitExceeded {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export type EFSSecurityGroup = string; // pattern: "sg-[0-9a-f]{8}"
+    export interface EFSSecurityGroupLimitExceeded {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export interface SecurityGroupNotFound {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export interface EFSSecurityGroupNotFound {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export type SecurityGroups = Array<SecurityGroup>; // max: 5
-
-    export type SubnetId = string; // pattern: "subnet-[0-9a-f]{8}"
-
-    export interface SubnetNotFound {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export type EFSSecurityGroups = Array<EFSSecurityGroup>; // max: 5
+    export type EFSSubnetId = string; // pattern: "subnet-[0-9a-f]{8}"
+    export interface EFSSubnetNotFound {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
 
-
-    export interface Tag {
-      Key: TagKey;
-      Value: TagValue;
+    export interface EFSTag {
+        Key: EFSTagKey;
+        Value: EFSTagValue;
     }
 
-
-    export type TagKey = string; // pattern: "^([\p{L}\p{Z}\p{N}_.:/=+\-%@]*)$"
-
-    export type TagKeys = Array<TagKey>;
-
-    export type TagValue = string; // pattern: "^([\p{L}\p{Z}\p{N}_.:/=+\-%@]*)$"
-
-    export type Tags = Array<Tag>;
-
-    export type Timestamp = number;
-
-    export interface UnsupportedAvailabilityZone {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+    export type EFSTagKey = string; // pattern: "^([\p{L}\p{Z}\p{N}_.:/=+\-%@]*)$"
+    export type EFSTagKeys = Array<EFSTagKey>;
+    export type EFSTagValue = string; // pattern: "^([\p{L}\p{Z}\p{N}_.:/=+\-%@]*)$"
+    export type EFSTags = Array<EFSTag>;
+    export type EFSTimestamp = number;
+    export interface EFSUnsupportedAvailabilityZone {
+        ErrorCode: EFSErrorCode;
+        Message?: EFSErrorMessage;
     }
-
 
 }

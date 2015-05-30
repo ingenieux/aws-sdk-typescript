@@ -3,1278 +3,1095 @@
 declare module "aws-sdk" {
     export class OpsWorks {
       constructor(options?: any);
-      assignInstance(params: AssignInstanceRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      assignVolume(params: AssignVolumeRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      associateElasticIp(params: AssociateElasticIpRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      attachElasticLoadBalancer(params: AttachElasticLoadBalancerRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      cloneStack(params: CloneStackRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: CloneStackResult|any) => void): void;
-      createApp(params: CreateAppRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: CreateAppResult|any) => void): void;
-      createDeployment(params: CreateDeploymentRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: CreateDeploymentResult|any) => void): void;
-      createInstance(params: CreateInstanceRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: CreateInstanceResult|any) => void): void;
-      createLayer(params: CreateLayerRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: CreateLayerResult|any) => void): void;
-      createStack(params: CreateStackRequest, callback: (err: ValidationException|any, data: CreateStackResult|any) => void): void;
-      createUserProfile(params: CreateUserProfileRequest, callback: (err: ValidationException|any, data: CreateUserProfileResult|any) => void): void;
-      deleteApp(params: DeleteAppRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      deleteInstance(params: DeleteInstanceRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      deleteLayer(params: DeleteLayerRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      deleteStack(params: DeleteStackRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      deleteUserProfile(params: DeleteUserProfileRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      deregisterElasticIp(params: DeregisterElasticIpRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      deregisterInstance(params: DeregisterInstanceRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      deregisterRdsDbInstance(params: DeregisterRdsDbInstanceRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      deregisterVolume(params: DeregisterVolumeRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      describeApps(params: DescribeAppsRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeAppsResult|any) => void): void;
-      describeCommands(params: DescribeCommandsRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeCommandsResult|any) => void): void;
-      describeDeployments(params: DescribeDeploymentsRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeDeploymentsResult|any) => void): void;
-      describeElasticIps(params: DescribeElasticIpsRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeElasticIpsResult|any) => void): void;
-      describeElasticLoadBalancers(params: DescribeElasticLoadBalancersRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeElasticLoadBalancersResult|any) => void): void;
-      describeInstances(params: DescribeInstancesRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeInstancesResult|any) => void): void;
-      describeLayers(params: DescribeLayersRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeLayersResult|any) => void): void;
-      describeLoadBasedAutoScaling(params: DescribeLoadBasedAutoScalingRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeLoadBasedAutoScalingResult|any) => void): void;
-      describeMyUserProfile(callback: (err: any, data: DescribeMyUserProfileResult|any) => void): void;
-      describePermissions(params: DescribePermissionsRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribePermissionsResult|any) => void): void;
-      describeRaidArrays(params: DescribeRaidArraysRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeRaidArraysResult|any) => void): void;
-      describeRdsDbInstances(params: DescribeRdsDbInstancesRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeRdsDbInstancesResult|any) => void): void;
-      describeServiceErrors(params: DescribeServiceErrorsRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeServiceErrorsResult|any) => void): void;
-      describeStackProvisioningParameters(params: DescribeStackProvisioningParametersRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeStackProvisioningParametersResult|any) => void): void;
-      describeStackSummary(params: DescribeStackSummaryRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeStackSummaryResult|any) => void): void;
-      describeStacks(params: DescribeStacksRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeStacksResult|any) => void): void;
-      describeTimeBasedAutoScaling(params: DescribeTimeBasedAutoScalingRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeTimeBasedAutoScalingResult|any) => void): void;
-      describeUserProfiles(params: DescribeUserProfilesRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeUserProfilesResult|any) => void): void;
-      describeVolumes(params: DescribeVolumesRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: DescribeVolumesResult|any) => void): void;
-      detachElasticLoadBalancer(params: DetachElasticLoadBalancerRequest, callback: (err: ResourceNotFoundException|any, data: any) => void): void;
-      disassociateElasticIp(params: DisassociateElasticIpRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      getHostnameSuggestion(params: GetHostnameSuggestionRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: GetHostnameSuggestionResult|any) => void): void;
-      grantAccess(params: GrantAccessRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: GrantAccessResult|any) => void): void;
-      rebootInstance(params: RebootInstanceRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      registerElasticIp(params: RegisterElasticIpRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: RegisterElasticIpResult|any) => void): void;
-      registerInstance(params: RegisterInstanceRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: RegisterInstanceResult|any) => void): void;
-      registerRdsDbInstance(params: RegisterRdsDbInstanceRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      registerVolume(params: RegisterVolumeRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: RegisterVolumeResult|any) => void): void;
-      setLoadBasedAutoScaling(params: SetLoadBasedAutoScalingRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      setPermission(params: SetPermissionRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      setTimeBasedAutoScaling(params: SetTimeBasedAutoScalingRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      startInstance(params: StartInstanceRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      startStack(params: StartStackRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      stopInstance(params: StopInstanceRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      stopStack(params: StopStackRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      unassignInstance(params: UnassignInstanceRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      unassignVolume(params: UnassignVolumeRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      updateApp(params: UpdateAppRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      updateElasticIp(params: UpdateElasticIpRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      updateInstance(params: UpdateInstanceRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      updateLayer(params: UpdateLayerRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      updateMyUserProfile(params: UpdateMyUserProfileRequest, callback: (err: ValidationException|any, data: any) => void): void;
-      updateRdsDbInstance(params: UpdateRdsDbInstanceRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      updateStack(params: UpdateStackRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      updateUserProfile(params: UpdateUserProfileRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-      updateVolume(params: UpdateVolumeRequest, callback: (err: ValidationException|ResourceNotFoundException|any, data: any) => void): void;
-    }
-
-    export interface App {
-      AppId?: String;
-      StackId?: String;
-      Shortname?: String;
-      Name?: String;
-      Description?: String;
-      DataSources?: DataSources;
-      Type?: AppType;
-      AppSource?: Source;
-      Domains?: Strings;
-      EnableSsl?: Boolean;
-      SslConfiguration?: SslConfiguration;
-      Attributes?: AppAttributes;
-      CreatedAt?: String;
-      Environment?: EnvironmentVariables;
-    }
-
-
-    export type AppAttributes = any; // not really - it was 'map' instead - must fix this one
-
-    export type AppAttributesKeys = string;
-
-    export type AppType = string;
-
-    export type Apps = Array<App>;
-
-    export type Architecture = string;
-
-    export interface AssignInstanceRequest {
-      InstanceId: String;
-      LayerIds: Strings;
-    }
-
+      assignInstance(params: OpsWorksAssignInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      assignVolume(params: OpsWorksAssignVolumeRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      associateElasticIp(params: OpsWorksAssociateElasticIpRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      attachElasticLoadBalancer(params: OpsWorksAttachElasticLoadBalancerRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      cloneStack(params: OpsWorksCloneStackRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksCloneStackResult|any) => void): void;
+      createApp(params: OpsWorksCreateAppRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksCreateAppResult|any) => void): void;
+      createDeployment(params: OpsWorksCreateDeploymentRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksCreateDeploymentResult|any) => void): void;
+      createInstance(params: OpsWorksCreateInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksCreateInstanceResult|any) => void): void;
+      createLayer(params: OpsWorksCreateLayerRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksCreateLayerResult|any) => void): void;
+      createStack(params: OpsWorksCreateStackRequest, callback: (err: OpsWorksValidationException|any, data: OpsWorksCreateStackResult|any) => void): void;
+      createUserProfile(params: OpsWorksCreateUserProfileRequest, callback: (err: OpsWorksValidationException|any, data: OpsWorksCreateUserProfileResult|any) => void): void;
+      deleteApp(params: OpsWorksDeleteAppRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      deleteInstance(params: OpsWorksDeleteInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      deleteLayer(params: OpsWorksDeleteLayerRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      deleteStack(params: OpsWorksDeleteStackRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      deleteUserProfile(params: OpsWorksDeleteUserProfileRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      deregisterElasticIp(params: OpsWorksDeregisterElasticIpRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      deregisterInstance(params: OpsWorksDeregisterInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      deregisterRdsDbInstance(params: OpsWorksDeregisterRdsDbInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      deregisterVolume(params: OpsWorksDeregisterVolumeRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      describeApps(params: OpsWorksDescribeAppsRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeAppsResult|any) => void): void;
+      describeCommands(params: OpsWorksDescribeCommandsRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeCommandsResult|any) => void): void;
+      describeDeployments(params: OpsWorksDescribeDeploymentsRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeDeploymentsResult|any) => void): void;
+      describeElasticIps(params: OpsWorksDescribeElasticIpsRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeElasticIpsResult|any) => void): void;
+      describeElasticLoadBalancers(params: OpsWorksDescribeElasticLoadBalancersRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeElasticLoadBalancersResult|any) => void): void;
+      describeInstances(params: OpsWorksDescribeInstancesRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeInstancesResult|any) => void): void;
+      describeLayers(params: OpsWorksDescribeLayersRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeLayersResult|any) => void): void;
+      describeLoadBasedAutoScaling(params: OpsWorksDescribeLoadBasedAutoScalingRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeLoadBasedAutoScalingResult|any) => void): void;
+      describeMyUserProfile(callback: (err: any, data: OpsWorksDescribeMyUserProfileResult|any) => void): void;
+      describePermissions(params: OpsWorksDescribePermissionsRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribePermissionsResult|any) => void): void;
+      describeRaidArrays(params: OpsWorksDescribeRaidArraysRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeRaidArraysResult|any) => void): void;
+      describeRdsDbInstances(params: OpsWorksDescribeRdsDbInstancesRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeRdsDbInstancesResult|any) => void): void;
+      describeServiceErrors(params: OpsWorksDescribeServiceErrorsRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeServiceErrorsResult|any) => void): void;
+      describeStackProvisioningParameters(params: OpsWorksDescribeStackProvisioningParametersRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeStackProvisioningParametersResult|any) => void): void;
+      describeStackSummary(params: OpsWorksDescribeStackSummaryRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeStackSummaryResult|any) => void): void;
+      describeStacks(params: OpsWorksDescribeStacksRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeStacksResult|any) => void): void;
+      describeTimeBasedAutoScaling(params: OpsWorksDescribeTimeBasedAutoScalingRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeTimeBasedAutoScalingResult|any) => void): void;
+      describeUserProfiles(params: OpsWorksDescribeUserProfilesRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeUserProfilesResult|any) => void): void;
+      describeVolumes(params: OpsWorksDescribeVolumesRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeVolumesResult|any) => void): void;
+      detachElasticLoadBalancer(params: OpsWorksDetachElasticLoadBalancerRequest, callback: (err: OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      disassociateElasticIp(params: OpsWorksDisassociateElasticIpRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      getHostnameSuggestion(params: OpsWorksGetHostnameSuggestionRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksGetHostnameSuggestionResult|any) => void): void;
+      grantAccess(params: OpsWorksGrantAccessRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksGrantAccessResult|any) => void): void;
+      rebootInstance(params: OpsWorksRebootInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      registerElasticIp(params: OpsWorksRegisterElasticIpRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksRegisterElasticIpResult|any) => void): void;
+      registerInstance(params: OpsWorksRegisterInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksRegisterInstanceResult|any) => void): void;
+      registerRdsDbInstance(params: OpsWorksRegisterRdsDbInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      registerVolume(params: OpsWorksRegisterVolumeRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksRegisterVolumeResult|any) => void): void;
+      setLoadBasedAutoScaling(params: OpsWorksSetLoadBasedAutoScalingRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      setPermission(params: OpsWorksSetPermissionRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      setTimeBasedAutoScaling(params: OpsWorksSetTimeBasedAutoScalingRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      startInstance(params: OpsWorksStartInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      startStack(params: OpsWorksStartStackRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      stopInstance(params: OpsWorksStopInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      stopStack(params: OpsWorksStopStackRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      unassignInstance(params: OpsWorksUnassignInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      unassignVolume(params: OpsWorksUnassignVolumeRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      updateApp(params: OpsWorksUpdateAppRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      updateElasticIp(params: OpsWorksUpdateElasticIpRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      updateInstance(params: OpsWorksUpdateInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      updateLayer(params: OpsWorksUpdateLayerRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      updateMyUserProfile(params: OpsWorksUpdateMyUserProfileRequest, callback: (err: OpsWorksValidationException|any, data: any) => void): void;
+      updateRdsDbInstance(params: OpsWorksUpdateRdsDbInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      updateStack(params: OpsWorksUpdateStackRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      updateUserProfile(params: OpsWorksUpdateUserProfileRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      updateVolume(params: OpsWorksUpdateVolumeRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+    }
+
+    export interface OpsWorksApp {
+        AppId?: OpsWorksString;
+        StackId?: OpsWorksString;
+        Shortname?: OpsWorksString;
+        Name?: OpsWorksString;
+        Description?: OpsWorksString;
+        DataSources?: OpsWorksDataSources;
+        Type?: OpsWorksAppType;
+        AppSource?: OpsWorksSource;
+        Domains?: OpsWorksStrings;
+        EnableSsl?: OpsWorksBoolean;
+        SslConfiguration?: OpsWorksSslConfiguration;
+        Attributes?: OpsWorksAppAttributes;
+        CreatedAt?: OpsWorksString;
+        Environment?: OpsWorksEnvironmentVariables;
+    }
+
+    export type OpsWorksAppAttributes = any; // not really - it was 'map' instead - must fix this one
+    export type OpsWorksAppAttributesKeys = string;
+    export type OpsWorksAppType = string;
+    export type OpsWorksApps = Array<OpsWorksApp>;
+    export type OpsWorksArchitecture = string;
+    export interface OpsWorksAssignInstanceRequest {
+        InstanceId: OpsWorksString;
+        LayerIds: OpsWorksStrings;
+    }
+
+    export interface OpsWorksAssignVolumeRequest {
+        VolumeId: OpsWorksString;
+        InstanceId?: OpsWorksString;
+    }
+
+    export interface OpsWorksAssociateElasticIpRequest {
+        ElasticIp: OpsWorksString;
+        InstanceId?: OpsWorksString;
+    }
+
+    export interface OpsWorksAttachElasticLoadBalancerRequest {
+        ElasticLoadBalancerName: OpsWorksString;
+        LayerId: OpsWorksString;
+    }
+
+    export interface OpsWorksAutoScalingThresholds {
+        InstanceCount?: OpsWorksInteger;
+        ThresholdsWaitTime?: OpsWorksMinute;
+        IgnoreMetricsTime?: OpsWorksMinute;
+        CpuThreshold?: OpsWorksDouble;
+        MemoryThreshold?: OpsWorksDouble;
+        LoadThreshold?: OpsWorksDouble;
+        Alarms?: OpsWorksStrings;
+    }
+
+    export type OpsWorksAutoScalingType = string;
+    export interface OpsWorksBlockDeviceMapping {
+        DeviceName?: OpsWorksString;
+        NoDevice?: OpsWorksString;
+        VirtualName?: OpsWorksString;
+        Ebs?: OpsWorksEbsBlockDevice;
+    }
+
+    export type OpsWorksBlockDeviceMappings = Array<OpsWorksBlockDeviceMapping>;
+    export type OpsWorksBoolean = boolean;
+    export interface OpsWorksChefConfiguration {
+        ManageBerkshelf?: OpsWorksBoolean;
+        BerkshelfVersion?: OpsWorksString;
+    }
+
+    export interface OpsWorksCloneStackRequest {
+        SourceStackId: OpsWorksString;
+        Name?: OpsWorksString;
+        Region?: OpsWorksString;
+        VpcId?: OpsWorksString;
+        Attributes?: OpsWorksStackAttributes;
+        ServiceRoleArn: OpsWorksString;
+        DefaultInstanceProfileArn?: OpsWorksString;
+        DefaultOs?: OpsWorksString;
+        HostnameTheme?: OpsWorksString;
+        DefaultAvailabilityZone?: OpsWorksString;
+        DefaultSubnetId?: OpsWorksString;
+        CustomJson?: OpsWorksString;
+        ConfigurationManager?: OpsWorksStackConfigurationManager;
+        ChefConfiguration?: OpsWorksChefConfiguration;
+        UseCustomCookbooks?: OpsWorksBoolean;
+        UseOpsworksSecurityGroups?: OpsWorksBoolean;
+        CustomCookbooksSource?: OpsWorksSource;
+        DefaultSshKeyName?: OpsWorksString;
+        ClonePermissions?: OpsWorksBoolean;
+        CloneAppIds?: OpsWorksStrings;
+        DefaultRootDeviceType?: OpsWorksRootDeviceType;
+    }
+
+    export interface OpsWorksCloneStackResult {
+        StackId?: OpsWorksString;
+    }
+
+    export interface OpsWorksCommand {
+        CommandId?: OpsWorksString;
+        InstanceId?: OpsWorksString;
+        DeploymentId?: OpsWorksString;
+        CreatedAt?: OpsWorksDateTime;
+        AcknowledgedAt?: OpsWorksDateTime;
+        CompletedAt?: OpsWorksDateTime;
+        Status?: OpsWorksString;
+        ExitCode?: OpsWorksInteger;
+        LogUrl?: OpsWorksString;
+        Type?: OpsWorksString;
+    }
+
+    export type OpsWorksCommands = Array<OpsWorksCommand>;
+    export interface OpsWorksCreateAppRequest {
+        StackId: OpsWorksString;
+        Shortname?: OpsWorksString;
+        Name: OpsWorksString;
+        Description?: OpsWorksString;
+        DataSources?: OpsWorksDataSources;
+        Type: OpsWorksAppType;
+        AppSource?: OpsWorksSource;
+        Domains?: OpsWorksStrings;
+        EnableSsl?: OpsWorksBoolean;
+        SslConfiguration?: OpsWorksSslConfiguration;
+        Attributes?: OpsWorksAppAttributes;
+        Environment?: OpsWorksEnvironmentVariables;
+    }
+
+    export interface OpsWorksCreateAppResult {
+        AppId?: OpsWorksString;
+    }
+
+    export interface OpsWorksCreateDeploymentRequest {
+        StackId: OpsWorksString;
+        AppId?: OpsWorksString;
+        InstanceIds?: OpsWorksStrings;
+        Command: OpsWorksDeploymentCommand;
+        Comment?: OpsWorksString;
+        CustomJson?: OpsWorksString;
+    }
+
+    export interface OpsWorksCreateDeploymentResult {
+        DeploymentId?: OpsWorksString;
+    }
+
+    export interface OpsWorksCreateInstanceRequest {
+        StackId: OpsWorksString;
+        LayerIds: OpsWorksStrings;
+        InstanceType: OpsWorksString;
+        AutoScalingType?: OpsWorksAutoScalingType;
+        Hostname?: OpsWorksString;
+        Os?: OpsWorksString;
+        AmiId?: OpsWorksString;
+        SshKeyName?: OpsWorksString;
+        AvailabilityZone?: OpsWorksString;
+        VirtualizationType?: OpsWorksString;
+        SubnetId?: OpsWorksString;
+        Architecture?: OpsWorksArchitecture;
+        RootDeviceType?: OpsWorksRootDeviceType;
+        BlockDeviceMappings?: OpsWorksBlockDeviceMappings;
+        InstallUpdatesOnBoot?: OpsWorksBoolean;
+        EbsOptimized?: OpsWorksBoolean;
+    }
+
+    export interface OpsWorksCreateInstanceResult {
+        InstanceId?: OpsWorksString;
+    }
+
+    export interface OpsWorksCreateLayerRequest {
+        StackId: OpsWorksString;
+        Type: OpsWorksLayerType;
+        Name: OpsWorksString;
+        Shortname: OpsWorksString;
+        Attributes?: OpsWorksLayerAttributes;
+        CustomInstanceProfileArn?: OpsWorksString;
+        CustomSecurityGroupIds?: OpsWorksStrings;
+        Packages?: OpsWorksStrings;
+        VolumeConfigurations?: OpsWorksVolumeConfigurations;
+        EnableAutoHealing?: OpsWorksBoolean;
+        AutoAssignElasticIps?: OpsWorksBoolean;
+        AutoAssignPublicIps?: OpsWorksBoolean;
+        CustomRecipes?: OpsWorksRecipes;
+        InstallUpdatesOnBoot?: OpsWorksBoolean;
+        UseEbsOptimizedInstances?: OpsWorksBoolean;
+        LifecycleEventConfiguration?: OpsWorksLifecycleEventConfiguration;
+    }
+
+    export interface OpsWorksCreateLayerResult {
+        LayerId?: OpsWorksString;
+    }
+
+    export interface OpsWorksCreateStackRequest {
+        Name: OpsWorksString;
+        Region: OpsWorksString;
+        VpcId?: OpsWorksString;
+        Attributes?: OpsWorksStackAttributes;
+        ServiceRoleArn: OpsWorksString;
+        DefaultInstanceProfileArn: OpsWorksString;
+        DefaultOs?: OpsWorksString;
+        HostnameTheme?: OpsWorksString;
+        DefaultAvailabilityZone?: OpsWorksString;
+        DefaultSubnetId?: OpsWorksString;
+        CustomJson?: OpsWorksString;
+        ConfigurationManager?: OpsWorksStackConfigurationManager;
+        ChefConfiguration?: OpsWorksChefConfiguration;
+        UseCustomCookbooks?: OpsWorksBoolean;
+        UseOpsworksSecurityGroups?: OpsWorksBoolean;
+        CustomCookbooksSource?: OpsWorksSource;
+        DefaultSshKeyName?: OpsWorksString;
+        DefaultRootDeviceType?: OpsWorksRootDeviceType;
+    }
 
-    export interface AssignVolumeRequest {
-      VolumeId: String;
-      InstanceId?: String;
+    export interface OpsWorksCreateStackResult {
+        StackId?: OpsWorksString;
     }
 
-
-    export interface AssociateElasticIpRequest {
-      ElasticIp: String;
-      InstanceId?: String;
-    }
-
-
-    export interface AttachElasticLoadBalancerRequest {
-      ElasticLoadBalancerName: String;
-      LayerId: String;
-    }
-
-
-    export interface AutoScalingThresholds {
-      InstanceCount?: Integer;
-      ThresholdsWaitTime?: Minute;
-      IgnoreMetricsTime?: Minute;
-      CpuThreshold?: Double;
-      MemoryThreshold?: Double;
-      LoadThreshold?: Double;
-      Alarms?: Strings;
-    }
-
-
-    export type AutoScalingType = string;
-
-    export interface BlockDeviceMapping {
-      DeviceName?: String;
-      NoDevice?: String;
-      VirtualName?: String;
-      Ebs?: EbsBlockDevice;
-    }
-
-
-    export type BlockDeviceMappings = Array<BlockDeviceMapping>;
-
-    export type Boolean = boolean;
-
-    export interface ChefConfiguration {
-      ManageBerkshelf?: Boolean;
-      BerkshelfVersion?: String;
-    }
-
-
-    export interface CloneStackRequest {
-      SourceStackId: String;
-      Name?: String;
-      Region?: String;
-      VpcId?: String;
-      Attributes?: StackAttributes;
-      ServiceRoleArn: String;
-      DefaultInstanceProfileArn?: String;
-      DefaultOs?: String;
-      HostnameTheme?: String;
-      DefaultAvailabilityZone?: String;
-      DefaultSubnetId?: String;
-      CustomJson?: String;
-      ConfigurationManager?: StackConfigurationManager;
-      ChefConfiguration?: ChefConfiguration;
-      UseCustomCookbooks?: Boolean;
-      UseOpsworksSecurityGroups?: Boolean;
-      CustomCookbooksSource?: Source;
-      DefaultSshKeyName?: String;
-      ClonePermissions?: Boolean;
-      CloneAppIds?: Strings;
-      DefaultRootDeviceType?: RootDeviceType;
-    }
-
-
-    export interface CloneStackResult {
-      StackId?: String;
-    }
-
-
-    export interface Command {
-      CommandId?: String;
-      InstanceId?: String;
-      DeploymentId?: String;
-      CreatedAt?: DateTime;
-      AcknowledgedAt?: DateTime;
-      CompletedAt?: DateTime;
-      Status?: String;
-      ExitCode?: Integer;
-      LogUrl?: String;
-      Type?: String;
-    }
-
-
-    export type Commands = Array<Command>;
-
-    export interface CreateAppRequest {
-      StackId: String;
-      Shortname?: String;
-      Name: String;
-      Description?: String;
-      DataSources?: DataSources;
-      Type: AppType;
-      AppSource?: Source;
-      Domains?: Strings;
-      EnableSsl?: Boolean;
-      SslConfiguration?: SslConfiguration;
-      Attributes?: AppAttributes;
-      Environment?: EnvironmentVariables;
-    }
-
-
-    export interface CreateAppResult {
-      AppId?: String;
-    }
-
-
-    export interface CreateDeploymentRequest {
-      StackId: String;
-      AppId?: String;
-      InstanceIds?: Strings;
-      Command: DeploymentCommand;
-      Comment?: String;
-      CustomJson?: String;
-    }
-
-
-    export interface CreateDeploymentResult {
-      DeploymentId?: String;
-    }
-
-
-    export interface CreateInstanceRequest {
-      StackId: String;
-      LayerIds: Strings;
-      InstanceType: String;
-      AutoScalingType?: AutoScalingType;
-      Hostname?: String;
-      Os?: String;
-      AmiId?: String;
-      SshKeyName?: String;
-      AvailabilityZone?: String;
-      VirtualizationType?: String;
-      SubnetId?: String;
-      Architecture?: Architecture;
-      RootDeviceType?: RootDeviceType;
-      BlockDeviceMappings?: BlockDeviceMappings;
-      InstallUpdatesOnBoot?: Boolean;
-      EbsOptimized?: Boolean;
-    }
-
-
-    export interface CreateInstanceResult {
-      InstanceId?: String;
-    }
-
-
-    export interface CreateLayerRequest {
-      StackId: String;
-      Type: LayerType;
-      Name: String;
-      Shortname: String;
-      Attributes?: LayerAttributes;
-      CustomInstanceProfileArn?: String;
-      CustomSecurityGroupIds?: Strings;
-      Packages?: Strings;
-      VolumeConfigurations?: VolumeConfigurations;
-      EnableAutoHealing?: Boolean;
-      AutoAssignElasticIps?: Boolean;
-      AutoAssignPublicIps?: Boolean;
-      CustomRecipes?: Recipes;
-      InstallUpdatesOnBoot?: Boolean;
-      UseEbsOptimizedInstances?: Boolean;
-      LifecycleEventConfiguration?: LifecycleEventConfiguration;
-    }
-
-
-    export interface CreateLayerResult {
-      LayerId?: String;
-    }
-
-
-    export interface CreateStackRequest {
-      Name: String;
-      Region: String;
-      VpcId?: String;
-      Attributes?: StackAttributes;
-      ServiceRoleArn: String;
-      DefaultInstanceProfileArn: String;
-      DefaultOs?: String;
-      HostnameTheme?: String;
-      DefaultAvailabilityZone?: String;
-      DefaultSubnetId?: String;
-      CustomJson?: String;
-      ConfigurationManager?: StackConfigurationManager;
-      ChefConfiguration?: ChefConfiguration;
-      UseCustomCookbooks?: Boolean;
-      UseOpsworksSecurityGroups?: Boolean;
-      CustomCookbooksSource?: Source;
-      DefaultSshKeyName?: String;
-      DefaultRootDeviceType?: RootDeviceType;
+    export interface OpsWorksCreateUserProfileRequest {
+        IamUserArn: OpsWorksString;
+        SshUsername?: OpsWorksString;
+        SshPublicKey?: OpsWorksString;
+        AllowSelfManagement?: OpsWorksBoolean;
     }
 
-
-    export interface CreateStackResult {
-      StackId?: String;
-    }
-
-
-    export interface CreateUserProfileRequest {
-      IamUserArn: String;
-      SshUsername?: String;
-      SshPublicKey?: String;
-      AllowSelfManagement?: Boolean;
-    }
-
-
-    export interface CreateUserProfileResult {
-      IamUserArn?: String;
+    export interface OpsWorksCreateUserProfileResult {
+        IamUserArn?: OpsWorksString;
     }
-
-
-    export type DailyAutoScalingSchedule = any; // not really - it was 'map' instead - must fix this one
 
-    export interface DataSource {
-      Type?: String;
-      Arn?: String;
-      DatabaseName?: String;
+    export type OpsWorksDailyAutoScalingSchedule = any; // not really - it was 'map' instead - must fix this one
+    export interface OpsWorksDataSource {
+        Type?: OpsWorksString;
+        Arn?: OpsWorksString;
+        DatabaseName?: OpsWorksString;
     }
 
-
-    export type DataSources = Array<DataSource>;
-
-    export type DateTime = string;
-
-    export interface DeleteAppRequest {
-      AppId: String;
+    export type OpsWorksDataSources = Array<OpsWorksDataSource>;
+    export type OpsWorksDateTime = string;
+    export interface OpsWorksDeleteAppRequest {
+        AppId: OpsWorksString;
     }
-
 
-    export interface DeleteInstanceRequest {
-      InstanceId: String;
-      DeleteElasticIp?: Boolean;
-      DeleteVolumes?: Boolean;
+    export interface OpsWorksDeleteInstanceRequest {
+        InstanceId: OpsWorksString;
+        DeleteElasticIp?: OpsWorksBoolean;
+        DeleteVolumes?: OpsWorksBoolean;
     }
 
-
-    export interface DeleteLayerRequest {
-      LayerId: String;
+    export interface OpsWorksDeleteLayerRequest {
+        LayerId: OpsWorksString;
     }
 
-
-    export interface DeleteStackRequest {
-      StackId: String;
+    export interface OpsWorksDeleteStackRequest {
+        StackId: OpsWorksString;
     }
-
 
-    export interface DeleteUserProfileRequest {
-      IamUserArn: String;
+    export interface OpsWorksDeleteUserProfileRequest {
+        IamUserArn: OpsWorksString;
     }
 
-
-    export interface Deployment {
-      DeploymentId?: String;
-      StackId?: String;
-      AppId?: String;
-      CreatedAt?: DateTime;
-      CompletedAt?: DateTime;
-      Duration?: Integer;
-      IamUserArn?: String;
-      Comment?: String;
-      Command?: DeploymentCommand;
-      Status?: String;
-      CustomJson?: String;
-      InstanceIds?: Strings;
+    export interface OpsWorksDeployment {
+        DeploymentId?: OpsWorksString;
+        StackId?: OpsWorksString;
+        AppId?: OpsWorksString;
+        CreatedAt?: OpsWorksDateTime;
+        CompletedAt?: OpsWorksDateTime;
+        Duration?: OpsWorksInteger;
+        IamUserArn?: OpsWorksString;
+        Comment?: OpsWorksString;
+        Command?: OpsWorksDeploymentCommand;
+        Status?: OpsWorksString;
+        CustomJson?: OpsWorksString;
+        InstanceIds?: OpsWorksStrings;
     }
 
-
-    export interface DeploymentCommand {
-      Name: DeploymentCommandName;
-      Args?: DeploymentCommandArgs;
+    export interface OpsWorksDeploymentCommand {
+        Name: OpsWorksDeploymentCommandName;
+        Args?: OpsWorksDeploymentCommandArgs;
     }
-
 
-    export type DeploymentCommandArgs = any; // not really - it was 'map' instead - must fix this one
-
-    export type DeploymentCommandName = string;
-
-    export type Deployments = Array<Deployment>;
-
-    export interface DeregisterElasticIpRequest {
-      ElasticIp: String;
+    export type OpsWorksDeploymentCommandArgs = any; // not really - it was 'map' instead - must fix this one
+    export type OpsWorksDeploymentCommandName = string;
+    export type OpsWorksDeployments = Array<OpsWorksDeployment>;
+    export interface OpsWorksDeregisterElasticIpRequest {
+        ElasticIp: OpsWorksString;
     }
 
-
-    export interface DeregisterInstanceRequest {
-      InstanceId: String;
+    export interface OpsWorksDeregisterInstanceRequest {
+        InstanceId: OpsWorksString;
     }
-
 
-    export interface DeregisterRdsDbInstanceRequest {
-      RdsDbInstanceArn: String;
+    export interface OpsWorksDeregisterRdsDbInstanceRequest {
+        RdsDbInstanceArn: OpsWorksString;
     }
 
-
-    export interface DeregisterVolumeRequest {
-      VolumeId: String;
+    export interface OpsWorksDeregisterVolumeRequest {
+        VolumeId: OpsWorksString;
     }
-
 
-    export interface DescribeAppsRequest {
-      StackId?: String;
-      AppIds?: Strings;
+    export interface OpsWorksDescribeAppsRequest {
+        StackId?: OpsWorksString;
+        AppIds?: OpsWorksStrings;
     }
 
-
-    export interface DescribeAppsResult {
-      Apps?: Apps;
+    export interface OpsWorksDescribeAppsResult {
+        Apps?: OpsWorksApps;
     }
 
-
-    export interface DescribeCommandsRequest {
-      DeploymentId?: String;
-      InstanceId?: String;
-      CommandIds?: Strings;
+    export interface OpsWorksDescribeCommandsRequest {
+        DeploymentId?: OpsWorksString;
+        InstanceId?: OpsWorksString;
+        CommandIds?: OpsWorksStrings;
     }
-
 
-    export interface DescribeCommandsResult {
-      Commands?: Commands;
+    export interface OpsWorksDescribeCommandsResult {
+        Commands?: OpsWorksCommands;
     }
 
-
-    export interface DescribeDeploymentsRequest {
-      StackId?: String;
-      AppId?: String;
-      DeploymentIds?: Strings;
+    export interface OpsWorksDescribeDeploymentsRequest {
+        StackId?: OpsWorksString;
+        AppId?: OpsWorksString;
+        DeploymentIds?: OpsWorksStrings;
     }
 
-
-    export interface DescribeDeploymentsResult {
-      Deployments?: Deployments;
+    export interface OpsWorksDescribeDeploymentsResult {
+        Deployments?: OpsWorksDeployments;
     }
-
 
-    export interface DescribeElasticIpsRequest {
-      InstanceId?: String;
-      StackId?: String;
-      Ips?: Strings;
+    export interface OpsWorksDescribeElasticIpsRequest {
+        InstanceId?: OpsWorksString;
+        StackId?: OpsWorksString;
+        Ips?: OpsWorksStrings;
     }
 
-
-    export interface DescribeElasticIpsResult {
-      ElasticIps?: ElasticIps;
+    export interface OpsWorksDescribeElasticIpsResult {
+        ElasticIps?: OpsWorksElasticIps;
     }
 
-
-    export interface DescribeElasticLoadBalancersRequest {
-      StackId?: String;
-      LayerIds?: Strings;
+    export interface OpsWorksDescribeElasticLoadBalancersRequest {
+        StackId?: OpsWorksString;
+        LayerIds?: OpsWorksStrings;
     }
-
 
-    export interface DescribeElasticLoadBalancersResult {
-      ElasticLoadBalancers?: ElasticLoadBalancers;
+    export interface OpsWorksDescribeElasticLoadBalancersResult {
+        ElasticLoadBalancers?: OpsWorksElasticLoadBalancers;
     }
 
-
-    export interface DescribeInstancesRequest {
-      StackId?: String;
-      LayerId?: String;
-      InstanceIds?: Strings;
+    export interface OpsWorksDescribeInstancesRequest {
+        StackId?: OpsWorksString;
+        LayerId?: OpsWorksString;
+        InstanceIds?: OpsWorksStrings;
     }
-
 
-    export interface DescribeInstancesResult {
-      Instances?: Instances;
+    export interface OpsWorksDescribeInstancesResult {
+        Instances?: OpsWorksInstances;
     }
 
-
-    export interface DescribeLayersRequest {
-      StackId?: String;
-      LayerIds?: Strings;
+    export interface OpsWorksDescribeLayersRequest {
+        StackId?: OpsWorksString;
+        LayerIds?: OpsWorksStrings;
     }
-
 
-    export interface DescribeLayersResult {
-      Layers?: Layers;
+    export interface OpsWorksDescribeLayersResult {
+        Layers?: OpsWorksLayers;
     }
 
-
-    export interface DescribeLoadBasedAutoScalingRequest {
-      LayerIds: Strings;
+    export interface OpsWorksDescribeLoadBasedAutoScalingRequest {
+        LayerIds: OpsWorksStrings;
     }
 
-
-    export interface DescribeLoadBasedAutoScalingResult {
-      LoadBasedAutoScalingConfigurations?: LoadBasedAutoScalingConfigurations;
+    export interface OpsWorksDescribeLoadBasedAutoScalingResult {
+        LoadBasedAutoScalingConfigurations?: OpsWorksLoadBasedAutoScalingConfigurations;
     }
-
 
-    export interface DescribeMyUserProfileResult {
-      UserProfile?: SelfUserProfile;
+    export interface OpsWorksDescribeMyUserProfileResult {
+        UserProfile?: OpsWorksSelfUserProfile;
     }
 
-
-    export interface DescribePermissionsRequest {
-      IamUserArn?: String;
-      StackId?: String;
+    export interface OpsWorksDescribePermissionsRequest {
+        IamUserArn?: OpsWorksString;
+        StackId?: OpsWorksString;
     }
-
 
-    export interface DescribePermissionsResult {
-      Permissions?: Permissions;
+    export interface OpsWorksDescribePermissionsResult {
+        Permissions?: OpsWorksPermissions;
     }
 
-
-    export interface DescribeRaidArraysRequest {
-      InstanceId?: String;
-      StackId?: String;
-      RaidArrayIds?: Strings;
+    export interface OpsWorksDescribeRaidArraysRequest {
+        InstanceId?: OpsWorksString;
+        StackId?: OpsWorksString;
+        RaidArrayIds?: OpsWorksStrings;
     }
-
 
-    export interface DescribeRaidArraysResult {
-      RaidArrays?: RaidArrays;
+    export interface OpsWorksDescribeRaidArraysResult {
+        RaidArrays?: OpsWorksRaidArrays;
     }
 
-
-    export interface DescribeRdsDbInstancesRequest {
-      StackId: String;
-      RdsDbInstanceArns?: Strings;
+    export interface OpsWorksDescribeRdsDbInstancesRequest {
+        StackId: OpsWorksString;
+        RdsDbInstanceArns?: OpsWorksStrings;
     }
 
-
-    export interface DescribeRdsDbInstancesResult {
-      RdsDbInstances?: RdsDbInstances;
+    export interface OpsWorksDescribeRdsDbInstancesResult {
+        RdsDbInstances?: OpsWorksRdsDbInstances;
     }
-
 
-    export interface DescribeServiceErrorsRequest {
-      StackId?: String;
-      InstanceId?: String;
-      ServiceErrorIds?: Strings;
+    export interface OpsWorksDescribeServiceErrorsRequest {
+        StackId?: OpsWorksString;
+        InstanceId?: OpsWorksString;
+        ServiceErrorIds?: OpsWorksStrings;
     }
 
-
-    export interface DescribeServiceErrorsResult {
-      ServiceErrors?: ServiceErrors;
+    export interface OpsWorksDescribeServiceErrorsResult {
+        ServiceErrors?: OpsWorksServiceErrors;
     }
-
 
-    export interface DescribeStackProvisioningParametersRequest {
-      StackId: String;
+    export interface OpsWorksDescribeStackProvisioningParametersRequest {
+        StackId: OpsWorksString;
     }
 
-
-    export interface DescribeStackProvisioningParametersResult {
-      AgentInstallerUrl?: String;
-      Parameters?: Parameters;
+    export interface OpsWorksDescribeStackProvisioningParametersResult {
+        AgentInstallerUrl?: OpsWorksString;
+        Parameters?: OpsWorksParameters;
     }
-
 
-    export interface DescribeStackSummaryRequest {
-      StackId: String;
+    export interface OpsWorksDescribeStackSummaryRequest {
+        StackId: OpsWorksString;
     }
 
-
-    export interface DescribeStackSummaryResult {
-      StackSummary?: StackSummary;
+    export interface OpsWorksDescribeStackSummaryResult {
+        StackSummary?: OpsWorksStackSummary;
     }
 
-
-    export interface DescribeStacksRequest {
-      StackIds?: Strings;
+    export interface OpsWorksDescribeStacksRequest {
+        StackIds?: OpsWorksStrings;
     }
-
 
-    export interface DescribeStacksResult {
-      Stacks?: Stacks;
+    export interface OpsWorksDescribeStacksResult {
+        Stacks?: OpsWorksStacks;
     }
 
-
-    export interface DescribeTimeBasedAutoScalingRequest {
-      InstanceIds: Strings;
+    export interface OpsWorksDescribeTimeBasedAutoScalingRequest {
+        InstanceIds: OpsWorksStrings;
     }
 
-
-    export interface DescribeTimeBasedAutoScalingResult {
-      TimeBasedAutoScalingConfigurations?: TimeBasedAutoScalingConfigurations;
+    export interface OpsWorksDescribeTimeBasedAutoScalingResult {
+        TimeBasedAutoScalingConfigurations?: OpsWorksTimeBasedAutoScalingConfigurations;
     }
-
 
-    export interface DescribeUserProfilesRequest {
-      IamUserArns?: Strings;
+    export interface OpsWorksDescribeUserProfilesRequest {
+        IamUserArns?: OpsWorksStrings;
     }
 
-
-    export interface DescribeUserProfilesResult {
-      UserProfiles?: UserProfiles;
+    export interface OpsWorksDescribeUserProfilesResult {
+        UserProfiles?: OpsWorksUserProfiles;
     }
 
-
-    export interface DescribeVolumesRequest {
-      InstanceId?: String;
-      StackId?: String;
-      RaidArrayId?: String;
-      VolumeIds?: Strings;
+    export interface OpsWorksDescribeVolumesRequest {
+        InstanceId?: OpsWorksString;
+        StackId?: OpsWorksString;
+        RaidArrayId?: OpsWorksString;
+        VolumeIds?: OpsWorksStrings;
     }
-
 
-    export interface DescribeVolumesResult {
-      Volumes?: Volumes;
+    export interface OpsWorksDescribeVolumesResult {
+        Volumes?: OpsWorksVolumes;
     }
 
-
-    export interface DetachElasticLoadBalancerRequest {
-      ElasticLoadBalancerName: String;
-      LayerId: String;
+    export interface OpsWorksDetachElasticLoadBalancerRequest {
+        ElasticLoadBalancerName: OpsWorksString;
+        LayerId: OpsWorksString;
     }
-
 
-    export interface DisassociateElasticIpRequest {
-      ElasticIp: String;
+    export interface OpsWorksDisassociateElasticIpRequest {
+        ElasticIp: OpsWorksString;
     }
-
-
-    export type Double = number;
 
-    export interface EbsBlockDevice {
-      SnapshotId?: String;
-      Iops?: Integer;
-      VolumeSize?: Integer;
-      VolumeType?: VolumeType;
-      DeleteOnTermination?: Boolean;
+    export type OpsWorksDouble = number;
+    export interface OpsWorksEbsBlockDevice {
+        SnapshotId?: OpsWorksString;
+        Iops?: OpsWorksInteger;
+        VolumeSize?: OpsWorksInteger;
+        VolumeType?: OpsWorksVolumeType;
+        DeleteOnTermination?: OpsWorksBoolean;
     }
 
-
-    export interface ElasticIp {
-      Ip?: String;
-      Name?: String;
-      Domain?: String;
-      Region?: String;
-      InstanceId?: String;
+    export interface OpsWorksElasticIp {
+        Ip?: OpsWorksString;
+        Name?: OpsWorksString;
+        Domain?: OpsWorksString;
+        Region?: OpsWorksString;
+        InstanceId?: OpsWorksString;
     }
-
-
-    export type ElasticIps = Array<ElasticIp>;
 
-    export interface ElasticLoadBalancer {
-      ElasticLoadBalancerName?: String;
-      Region?: String;
-      DnsName?: String;
-      StackId?: String;
-      LayerId?: String;
-      VpcId?: String;
-      AvailabilityZones?: Strings;
-      SubnetIds?: Strings;
-      Ec2InstanceIds?: Strings;
+    export type OpsWorksElasticIps = Array<OpsWorksElasticIp>;
+    export interface OpsWorksElasticLoadBalancer {
+        ElasticLoadBalancerName?: OpsWorksString;
+        Region?: OpsWorksString;
+        DnsName?: OpsWorksString;
+        StackId?: OpsWorksString;
+        LayerId?: OpsWorksString;
+        VpcId?: OpsWorksString;
+        AvailabilityZones?: OpsWorksStrings;
+        SubnetIds?: OpsWorksStrings;
+        Ec2InstanceIds?: OpsWorksStrings;
     }
 
-
-    export type ElasticLoadBalancers = Array<ElasticLoadBalancer>;
-
-    export interface EnvironmentVariable {
-      Key: String;
-      Value: String;
-      Secure?: Boolean;
+    export type OpsWorksElasticLoadBalancers = Array<OpsWorksElasticLoadBalancer>;
+    export interface OpsWorksEnvironmentVariable {
+        Key: OpsWorksString;
+        Value: OpsWorksString;
+        Secure?: OpsWorksBoolean;
     }
-
 
-    export type EnvironmentVariables = Array<EnvironmentVariable>;
-
-    export interface GetHostnameSuggestionRequest {
-      LayerId: String;
+    export type OpsWorksEnvironmentVariables = Array<OpsWorksEnvironmentVariable>;
+    export interface OpsWorksGetHostnameSuggestionRequest {
+        LayerId: OpsWorksString;
     }
 
-
-    export interface GetHostnameSuggestionResult {
-      LayerId?: String;
-      Hostname?: String;
+    export interface OpsWorksGetHostnameSuggestionResult {
+        LayerId?: OpsWorksString;
+        Hostname?: OpsWorksString;
     }
-
 
-    export interface GrantAccessRequest {
-      InstanceId: String;
-      ValidForInMinutes?: ValidForInMinutes;
+    export interface OpsWorksGrantAccessRequest {
+        InstanceId: OpsWorksString;
+        ValidForInMinutes?: OpsWorksValidForInMinutes;
     }
 
-
-    export interface GrantAccessResult {
-      TemporaryCredential?: TemporaryCredential;
+    export interface OpsWorksGrantAccessResult {
+        TemporaryCredential?: OpsWorksTemporaryCredential;
     }
-
 
-    export type Hour = string;
-
-    export interface Instance {
-      InstanceId?: String;
-      Ec2InstanceId?: String;
-      VirtualizationType?: VirtualizationType;
-      Hostname?: String;
-      StackId?: String;
-      LayerIds?: Strings;
-      SecurityGroupIds?: Strings;
-      InstanceType?: String;
-      InstanceProfileArn?: String;
-      Status?: String;
-      Os?: String;
-      AmiId?: String;
-      AvailabilityZone?: String;
-      SubnetId?: String;
-      PublicDns?: String;
-      PrivateDns?: String;
-      PublicIp?: String;
-      PrivateIp?: String;
-      ElasticIp?: String;
-      AutoScalingType?: AutoScalingType;
-      SshKeyName?: String;
-      SshHostRsaKeyFingerprint?: String;
-      SshHostDsaKeyFingerprint?: String;
-      CreatedAt?: DateTime;
-      LastServiceErrorId?: String;
-      Architecture?: Architecture;
-      RootDeviceType?: RootDeviceType;
-      RootDeviceVolumeId?: String;
-      BlockDeviceMappings?: BlockDeviceMappings;
-      InstallUpdatesOnBoot?: Boolean;
-      EbsOptimized?: Boolean;
-      ReportedAgentVersion?: String;
-      ReportedOs?: ReportedOs;
-      InfrastructureClass?: String;
-      RegisteredBy?: String;
+    export type OpsWorksHour = string;
+    export interface OpsWorksInstance {
+        InstanceId?: OpsWorksString;
+        Ec2InstanceId?: OpsWorksString;
+        VirtualizationType?: OpsWorksVirtualizationType;
+        Hostname?: OpsWorksString;
+        StackId?: OpsWorksString;
+        LayerIds?: OpsWorksStrings;
+        SecurityGroupIds?: OpsWorksStrings;
+        InstanceType?: OpsWorksString;
+        InstanceProfileArn?: OpsWorksString;
+        Status?: OpsWorksString;
+        Os?: OpsWorksString;
+        AmiId?: OpsWorksString;
+        AvailabilityZone?: OpsWorksString;
+        SubnetId?: OpsWorksString;
+        PublicDns?: OpsWorksString;
+        PrivateDns?: OpsWorksString;
+        PublicIp?: OpsWorksString;
+        PrivateIp?: OpsWorksString;
+        ElasticIp?: OpsWorksString;
+        AutoScalingType?: OpsWorksAutoScalingType;
+        SshKeyName?: OpsWorksString;
+        SshHostRsaKeyFingerprint?: OpsWorksString;
+        SshHostDsaKeyFingerprint?: OpsWorksString;
+        CreatedAt?: OpsWorksDateTime;
+        LastServiceErrorId?: OpsWorksString;
+        Architecture?: OpsWorksArchitecture;
+        RootDeviceType?: OpsWorksRootDeviceType;
+        RootDeviceVolumeId?: OpsWorksString;
+        BlockDeviceMappings?: OpsWorksBlockDeviceMappings;
+        InstallUpdatesOnBoot?: OpsWorksBoolean;
+        EbsOptimized?: OpsWorksBoolean;
+        ReportedAgentVersion?: OpsWorksString;
+        ReportedOs?: OpsWorksReportedOs;
+        InfrastructureClass?: OpsWorksString;
+        RegisteredBy?: OpsWorksString;
     }
-
 
-    export interface InstanceIdentity {
-      Document?: String;
-      Signature?: String;
+    export interface OpsWorksInstanceIdentity {
+        Document?: OpsWorksString;
+        Signature?: OpsWorksString;
     }
 
-
-    export type Instances = Array<Instance>;
-
-    export interface InstancesCount {
-      Assigning?: Integer;
-      Booting?: Integer;
-      ConnectionLost?: Integer;
-      Deregistering?: Integer;
-      Online?: Integer;
-      Pending?: Integer;
-      Rebooting?: Integer;
-      Registered?: Integer;
-      Registering?: Integer;
-      Requested?: Integer;
-      RunningSetup?: Integer;
-      SetupFailed?: Integer;
-      ShuttingDown?: Integer;
-      StartFailed?: Integer;
-      Stopped?: Integer;
-      Stopping?: Integer;
-      Terminated?: Integer;
-      Terminating?: Integer;
-      Unassigning?: Integer;
+    export type OpsWorksInstances = Array<OpsWorksInstance>;
+    export interface OpsWorksInstancesCount {
+        Assigning?: OpsWorksInteger;
+        Booting?: OpsWorksInteger;
+        ConnectionLost?: OpsWorksInteger;
+        Deregistering?: OpsWorksInteger;
+        Online?: OpsWorksInteger;
+        Pending?: OpsWorksInteger;
+        Rebooting?: OpsWorksInteger;
+        Registered?: OpsWorksInteger;
+        Registering?: OpsWorksInteger;
+        Requested?: OpsWorksInteger;
+        RunningSetup?: OpsWorksInteger;
+        SetupFailed?: OpsWorksInteger;
+        ShuttingDown?: OpsWorksInteger;
+        StartFailed?: OpsWorksInteger;
+        Stopped?: OpsWorksInteger;
+        Stopping?: OpsWorksInteger;
+        Terminated?: OpsWorksInteger;
+        Terminating?: OpsWorksInteger;
+        Unassigning?: OpsWorksInteger;
     }
-
 
-    export type Integer = number;
-
-    export interface Layer {
-      StackId?: String;
-      LayerId?: String;
-      Type?: LayerType;
-      Name?: String;
-      Shortname?: String;
-      Attributes?: LayerAttributes;
-      CustomInstanceProfileArn?: String;
-      CustomSecurityGroupIds?: Strings;
-      DefaultSecurityGroupNames?: Strings;
-      Packages?: Strings;
-      VolumeConfigurations?: VolumeConfigurations;
-      EnableAutoHealing?: Boolean;
-      AutoAssignElasticIps?: Boolean;
-      AutoAssignPublicIps?: Boolean;
-      DefaultRecipes?: Recipes;
-      CustomRecipes?: Recipes;
-      CreatedAt?: DateTime;
-      InstallUpdatesOnBoot?: Boolean;
-      UseEbsOptimizedInstances?: Boolean;
-      LifecycleEventConfiguration?: LifecycleEventConfiguration;
+    export type OpsWorksInteger = number;
+    export interface OpsWorksLayer {
+        StackId?: OpsWorksString;
+        LayerId?: OpsWorksString;
+        Type?: OpsWorksLayerType;
+        Name?: OpsWorksString;
+        Shortname?: OpsWorksString;
+        Attributes?: OpsWorksLayerAttributes;
+        CustomInstanceProfileArn?: OpsWorksString;
+        CustomSecurityGroupIds?: OpsWorksStrings;
+        DefaultSecurityGroupNames?: OpsWorksStrings;
+        Packages?: OpsWorksStrings;
+        VolumeConfigurations?: OpsWorksVolumeConfigurations;
+        EnableAutoHealing?: OpsWorksBoolean;
+        AutoAssignElasticIps?: OpsWorksBoolean;
+        AutoAssignPublicIps?: OpsWorksBoolean;
+        DefaultRecipes?: OpsWorksRecipes;
+        CustomRecipes?: OpsWorksRecipes;
+        CreatedAt?: OpsWorksDateTime;
+        InstallUpdatesOnBoot?: OpsWorksBoolean;
+        UseEbsOptimizedInstances?: OpsWorksBoolean;
+        LifecycleEventConfiguration?: OpsWorksLifecycleEventConfiguration;
     }
-
-
-    export type LayerAttributes = any; // not really - it was 'map' instead - must fix this one
 
-    export type LayerAttributesKeys = string;
-
-    export type LayerType = string;
-
-    export type Layers = Array<Layer>;
-
-    export interface LifecycleEventConfiguration {
-      Shutdown?: ShutdownEventConfiguration;
+    export type OpsWorksLayerAttributes = any; // not really - it was 'map' instead - must fix this one
+    export type OpsWorksLayerAttributesKeys = string;
+    export type OpsWorksLayerType = string;
+    export type OpsWorksLayers = Array<OpsWorksLayer>;
+    export interface OpsWorksLifecycleEventConfiguration {
+        Shutdown?: OpsWorksShutdownEventConfiguration;
     }
 
-
-    export interface LoadBasedAutoScalingConfiguration {
-      LayerId?: String;
-      Enable?: Boolean;
-      UpScaling?: AutoScalingThresholds;
-      DownScaling?: AutoScalingThresholds;
+    export interface OpsWorksLoadBasedAutoScalingConfiguration {
+        LayerId?: OpsWorksString;
+        Enable?: OpsWorksBoolean;
+        UpScaling?: OpsWorksAutoScalingThresholds;
+        DownScaling?: OpsWorksAutoScalingThresholds;
     }
-
-
-    export type LoadBasedAutoScalingConfigurations = Array<LoadBasedAutoScalingConfiguration>;
-
-    export type Minute = number;
 
-    export type Parameters = any; // not really - it was 'map' instead - must fix this one
-
-    export interface Permission {
-      StackId?: String;
-      IamUserArn?: String;
-      AllowSsh?: Boolean;
-      AllowSudo?: Boolean;
-      Level?: String;
+    export type OpsWorksLoadBasedAutoScalingConfigurations = Array<OpsWorksLoadBasedAutoScalingConfiguration>;
+    export type OpsWorksMinute = number;
+    export type OpsWorksParameters = any; // not really - it was 'map' instead - must fix this one
+    export interface OpsWorksPermission {
+        StackId?: OpsWorksString;
+        IamUserArn?: OpsWorksString;
+        AllowSsh?: OpsWorksBoolean;
+        AllowSudo?: OpsWorksBoolean;
+        Level?: OpsWorksString;
     }
-
-
-    export type Permissions = Array<Permission>;
 
-    export interface RaidArray {
-      RaidArrayId?: String;
-      InstanceId?: String;
-      Name?: String;
-      RaidLevel?: Integer;
-      NumberOfDisks?: Integer;
-      Size?: Integer;
-      Device?: String;
-      MountPoint?: String;
-      AvailabilityZone?: String;
-      CreatedAt?: DateTime;
-      StackId?: String;
-      VolumeType?: String;
-      Iops?: Integer;
+    export type OpsWorksPermissions = Array<OpsWorksPermission>;
+    export interface OpsWorksRaidArray {
+        RaidArrayId?: OpsWorksString;
+        InstanceId?: OpsWorksString;
+        Name?: OpsWorksString;
+        RaidLevel?: OpsWorksInteger;
+        NumberOfDisks?: OpsWorksInteger;
+        Size?: OpsWorksInteger;
+        Device?: OpsWorksString;
+        MountPoint?: OpsWorksString;
+        AvailabilityZone?: OpsWorksString;
+        CreatedAt?: OpsWorksDateTime;
+        StackId?: OpsWorksString;
+        VolumeType?: OpsWorksString;
+        Iops?: OpsWorksInteger;
     }
 
-
-    export type RaidArrays = Array<RaidArray>;
-
-    export interface RdsDbInstance {
-      RdsDbInstanceArn?: String;
-      DbInstanceIdentifier?: String;
-      DbUser?: String;
-      DbPassword?: String;
-      Region?: String;
-      Address?: String;
-      Engine?: String;
-      StackId?: String;
-      MissingOnRds?: Boolean;
+    export type OpsWorksRaidArrays = Array<OpsWorksRaidArray>;
+    export interface OpsWorksRdsDbInstance {
+        RdsDbInstanceArn?: OpsWorksString;
+        DbInstanceIdentifier?: OpsWorksString;
+        DbUser?: OpsWorksString;
+        DbPassword?: OpsWorksString;
+        Region?: OpsWorksString;
+        Address?: OpsWorksString;
+        Engine?: OpsWorksString;
+        StackId?: OpsWorksString;
+        MissingOnRds?: OpsWorksBoolean;
     }
-
-
-    export type RdsDbInstances = Array<RdsDbInstance>;
 
-    export interface RebootInstanceRequest {
-      InstanceId: String;
+    export type OpsWorksRdsDbInstances = Array<OpsWorksRdsDbInstance>;
+    export interface OpsWorksRebootInstanceRequest {
+        InstanceId: OpsWorksString;
     }
 
-
-    export interface Recipes {
-      Setup?: Strings;
-      Configure?: Strings;
-      Deploy?: Strings;
-      Undeploy?: Strings;
-      Shutdown?: Strings;
+    export interface OpsWorksRecipes {
+        Setup?: OpsWorksStrings;
+        Configure?: OpsWorksStrings;
+        Deploy?: OpsWorksStrings;
+        Undeploy?: OpsWorksStrings;
+        Shutdown?: OpsWorksStrings;
     }
 
-
-    export interface RegisterElasticIpRequest {
-      ElasticIp: String;
-      StackId: String;
+    export interface OpsWorksRegisterElasticIpRequest {
+        ElasticIp: OpsWorksString;
+        StackId: OpsWorksString;
     }
-
 
-    export interface RegisterElasticIpResult {
-      ElasticIp?: String;
+    export interface OpsWorksRegisterElasticIpResult {
+        ElasticIp?: OpsWorksString;
     }
 
-
-    export interface RegisterInstanceRequest {
-      StackId: String;
-      Hostname?: String;
-      PublicIp?: String;
-      PrivateIp?: String;
-      RsaPublicKey?: String;
-      RsaPublicKeyFingerprint?: String;
-      InstanceIdentity?: InstanceIdentity;
+    export interface OpsWorksRegisterInstanceRequest {
+        StackId: OpsWorksString;
+        Hostname?: OpsWorksString;
+        PublicIp?: OpsWorksString;
+        PrivateIp?: OpsWorksString;
+        RsaPublicKey?: OpsWorksString;
+        RsaPublicKeyFingerprint?: OpsWorksString;
+        InstanceIdentity?: OpsWorksInstanceIdentity;
     }
-
 
-    export interface RegisterInstanceResult {
-      InstanceId?: String;
+    export interface OpsWorksRegisterInstanceResult {
+        InstanceId?: OpsWorksString;
     }
 
-
-    export interface RegisterRdsDbInstanceRequest {
-      StackId: String;
-      RdsDbInstanceArn: String;
-      DbUser: String;
-      DbPassword: String;
+    export interface OpsWorksRegisterRdsDbInstanceRequest {
+        StackId: OpsWorksString;
+        RdsDbInstanceArn: OpsWorksString;
+        DbUser: OpsWorksString;
+        DbPassword: OpsWorksString;
     }
-
 
-    export interface RegisterVolumeRequest {
-      Ec2VolumeId?: String;
-      StackId: String;
+    export interface OpsWorksRegisterVolumeRequest {
+        Ec2VolumeId?: OpsWorksString;
+        StackId: OpsWorksString;
     }
 
-
-    export interface RegisterVolumeResult {
-      VolumeId?: String;
+    export interface OpsWorksRegisterVolumeResult {
+        VolumeId?: OpsWorksString;
     }
 
-
-    export interface ReportedOs {
-      Family?: String;
-      Name?: String;
-      Version?: String;
+    export interface OpsWorksReportedOs {
+        Family?: OpsWorksString;
+        Name?: OpsWorksString;
+        Version?: OpsWorksString;
     }
-
 
-    export interface ResourceNotFoundException {
-      message?: String;
+    export interface OpsWorksResourceNotFoundException {
+        message?: OpsWorksString;
     }
 
-
-    export type RootDeviceType = string;
-
-    export interface SelfUserProfile {
-      IamUserArn?: String;
-      Name?: String;
-      SshUsername?: String;
-      SshPublicKey?: String;
+    export type OpsWorksRootDeviceType = string;
+    export interface OpsWorksSelfUserProfile {
+        IamUserArn?: OpsWorksString;
+        Name?: OpsWorksString;
+        SshUsername?: OpsWorksString;
+        SshPublicKey?: OpsWorksString;
     }
-
 
-    export interface ServiceError {
-      ServiceErrorId?: String;
-      StackId?: String;
-      InstanceId?: String;
-      Type?: String;
-      Message?: String;
-      CreatedAt?: DateTime;
+    export interface OpsWorksServiceError {
+        ServiceErrorId?: OpsWorksString;
+        StackId?: OpsWorksString;
+        InstanceId?: OpsWorksString;
+        Type?: OpsWorksString;
+        Message?: OpsWorksString;
+        CreatedAt?: OpsWorksDateTime;
     }
 
-
-    export type ServiceErrors = Array<ServiceError>;
-
-    export interface SetLoadBasedAutoScalingRequest {
-      LayerId: String;
-      Enable?: Boolean;
-      UpScaling?: AutoScalingThresholds;
-      DownScaling?: AutoScalingThresholds;
+    export type OpsWorksServiceErrors = Array<OpsWorksServiceError>;
+    export interface OpsWorksSetLoadBasedAutoScalingRequest {
+        LayerId: OpsWorksString;
+        Enable?: OpsWorksBoolean;
+        UpScaling?: OpsWorksAutoScalingThresholds;
+        DownScaling?: OpsWorksAutoScalingThresholds;
     }
-
 
-    export interface SetPermissionRequest {
-      StackId: String;
-      IamUserArn: String;
-      AllowSsh?: Boolean;
-      AllowSudo?: Boolean;
-      Level?: String;
+    export interface OpsWorksSetPermissionRequest {
+        StackId: OpsWorksString;
+        IamUserArn: OpsWorksString;
+        AllowSsh?: OpsWorksBoolean;
+        AllowSudo?: OpsWorksBoolean;
+        Level?: OpsWorksString;
     }
 
-
-    export interface SetTimeBasedAutoScalingRequest {
-      InstanceId: String;
-      AutoScalingSchedule?: WeeklyAutoScalingSchedule;
+    export interface OpsWorksSetTimeBasedAutoScalingRequest {
+        InstanceId: OpsWorksString;
+        AutoScalingSchedule?: OpsWorksWeeklyAutoScalingSchedule;
     }
-
 
-    export interface ShutdownEventConfiguration {
-      ExecutionTimeout?: Integer;
-      DelayUntilElbConnectionsDrained?: Boolean;
+    export interface OpsWorksShutdownEventConfiguration {
+        ExecutionTimeout?: OpsWorksInteger;
+        DelayUntilElbConnectionsDrained?: OpsWorksBoolean;
     }
 
-
-    export interface Source {
-      Type?: SourceType;
-      Url?: String;
-      Username?: String;
-      Password?: String;
-      SshKey?: String;
-      Revision?: String;
+    export interface OpsWorksSource {
+        Type?: OpsWorksSourceType;
+        Url?: OpsWorksString;
+        Username?: OpsWorksString;
+        Password?: OpsWorksString;
+        SshKey?: OpsWorksString;
+        Revision?: OpsWorksString;
     }
-
 
-    export type SourceType = string;
-
-    export interface SslConfiguration {
-      Certificate: String;
-      PrivateKey: String;
-      Chain?: String;
+    export type OpsWorksSourceType = string;
+    export interface OpsWorksSslConfiguration {
+        Certificate: OpsWorksString;
+        PrivateKey: OpsWorksString;
+        Chain?: OpsWorksString;
     }
 
-
-    export interface Stack {
-      StackId?: String;
-      Name?: String;
-      Arn?: String;
-      Region?: String;
-      VpcId?: String;
-      Attributes?: StackAttributes;
-      ServiceRoleArn?: String;
-      DefaultInstanceProfileArn?: String;
-      DefaultOs?: String;
-      HostnameTheme?: String;
-      DefaultAvailabilityZone?: String;
-      DefaultSubnetId?: String;
-      CustomJson?: String;
-      ConfigurationManager?: StackConfigurationManager;
-      ChefConfiguration?: ChefConfiguration;
-      UseCustomCookbooks?: Boolean;
-      UseOpsworksSecurityGroups?: Boolean;
-      CustomCookbooksSource?: Source;
-      DefaultSshKeyName?: String;
-      CreatedAt?: DateTime;
-      DefaultRootDeviceType?: RootDeviceType;
+    export interface OpsWorksStack {
+        StackId?: OpsWorksString;
+        Name?: OpsWorksString;
+        Arn?: OpsWorksString;
+        Region?: OpsWorksString;
+        VpcId?: OpsWorksString;
+        Attributes?: OpsWorksStackAttributes;
+        ServiceRoleArn?: OpsWorksString;
+        DefaultInstanceProfileArn?: OpsWorksString;
+        DefaultOs?: OpsWorksString;
+        HostnameTheme?: OpsWorksString;
+        DefaultAvailabilityZone?: OpsWorksString;
+        DefaultSubnetId?: OpsWorksString;
+        CustomJson?: OpsWorksString;
+        ConfigurationManager?: OpsWorksStackConfigurationManager;
+        ChefConfiguration?: OpsWorksChefConfiguration;
+        UseCustomCookbooks?: OpsWorksBoolean;
+        UseOpsworksSecurityGroups?: OpsWorksBoolean;
+        CustomCookbooksSource?: OpsWorksSource;
+        DefaultSshKeyName?: OpsWorksString;
+        CreatedAt?: OpsWorksDateTime;
+        DefaultRootDeviceType?: OpsWorksRootDeviceType;
     }
-
 
-    export type StackAttributes = any; // not really - it was 'map' instead - must fix this one
-
-    export type StackAttributesKeys = string;
-
-    export interface StackConfigurationManager {
-      Name?: String;
-      Version?: String;
+    export type OpsWorksStackAttributes = any; // not really - it was 'map' instead - must fix this one
+    export type OpsWorksStackAttributesKeys = string;
+    export interface OpsWorksStackConfigurationManager {
+        Name?: OpsWorksString;
+        Version?: OpsWorksString;
     }
-
 
-    export interface StackSummary {
-      StackId?: String;
-      Name?: String;
-      Arn?: String;
-      LayersCount?: Integer;
-      AppsCount?: Integer;
-      InstancesCount?: InstancesCount;
+    export interface OpsWorksStackSummary {
+        StackId?: OpsWorksString;
+        Name?: OpsWorksString;
+        Arn?: OpsWorksString;
+        LayersCount?: OpsWorksInteger;
+        AppsCount?: OpsWorksInteger;
+        InstancesCount?: OpsWorksInstancesCount;
     }
 
-
-    export type Stacks = Array<Stack>;
-
-    export interface StartInstanceRequest {
-      InstanceId: String;
+    export type OpsWorksStacks = Array<OpsWorksStack>;
+    export interface OpsWorksStartInstanceRequest {
+        InstanceId: OpsWorksString;
     }
-
 
-    export interface StartStackRequest {
-      StackId: String;
+    export interface OpsWorksStartStackRequest {
+        StackId: OpsWorksString;
     }
 
-
-    export interface StopInstanceRequest {
-      InstanceId: String;
+    export interface OpsWorksStopInstanceRequest {
+        InstanceId: OpsWorksString;
     }
-
 
-    export interface StopStackRequest {
-      StackId: String;
+    export interface OpsWorksStopStackRequest {
+        StackId: OpsWorksString;
     }
-
-
-    export type String = string;
 
-    export type Strings = Array<String>;
-
-    export type Switch = string;
-
-    export interface TemporaryCredential {
-      Username?: String;
-      Password?: String;
-      ValidForInMinutes?: Integer;
-      InstanceId?: String;
+    export type OpsWorksString = string;
+    export type OpsWorksStrings = Array<OpsWorksString>;
+    export type OpsWorksSwitch = string;
+    export interface OpsWorksTemporaryCredential {
+        Username?: OpsWorksString;
+        Password?: OpsWorksString;
+        ValidForInMinutes?: OpsWorksInteger;
+        InstanceId?: OpsWorksString;
     }
-
 
-    export interface TimeBasedAutoScalingConfiguration {
-      InstanceId?: String;
-      AutoScalingSchedule?: WeeklyAutoScalingSchedule;
+    export interface OpsWorksTimeBasedAutoScalingConfiguration {
+        InstanceId?: OpsWorksString;
+        AutoScalingSchedule?: OpsWorksWeeklyAutoScalingSchedule;
     }
 
-
-    export type TimeBasedAutoScalingConfigurations = Array<TimeBasedAutoScalingConfiguration>;
-
-    export interface UnassignInstanceRequest {
-      InstanceId: String;
+    export type OpsWorksTimeBasedAutoScalingConfigurations = Array<OpsWorksTimeBasedAutoScalingConfiguration>;
+    export interface OpsWorksUnassignInstanceRequest {
+        InstanceId: OpsWorksString;
     }
-
 
-    export interface UnassignVolumeRequest {
-      VolumeId: String;
+    export interface OpsWorksUnassignVolumeRequest {
+        VolumeId: OpsWorksString;
     }
 
-
-    export interface UpdateAppRequest {
-      AppId: String;
-      Name?: String;
-      Description?: String;
-      DataSources?: DataSources;
-      Type?: AppType;
-      AppSource?: Source;
-      Domains?: Strings;
-      EnableSsl?: Boolean;
-      SslConfiguration?: SslConfiguration;
-      Attributes?: AppAttributes;
-      Environment?: EnvironmentVariables;
+    export interface OpsWorksUpdateAppRequest {
+        AppId: OpsWorksString;
+        Name?: OpsWorksString;
+        Description?: OpsWorksString;
+        DataSources?: OpsWorksDataSources;
+        Type?: OpsWorksAppType;
+        AppSource?: OpsWorksSource;
+        Domains?: OpsWorksStrings;
+        EnableSsl?: OpsWorksBoolean;
+        SslConfiguration?: OpsWorksSslConfiguration;
+        Attributes?: OpsWorksAppAttributes;
+        Environment?: OpsWorksEnvironmentVariables;
     }
 
-
-    export interface UpdateElasticIpRequest {
-      ElasticIp: String;
-      Name?: String;
+    export interface OpsWorksUpdateElasticIpRequest {
+        ElasticIp: OpsWorksString;
+        Name?: OpsWorksString;
     }
-
 
-    export interface UpdateInstanceRequest {
-      InstanceId: String;
-      LayerIds?: Strings;
-      InstanceType?: String;
-      AutoScalingType?: AutoScalingType;
-      Hostname?: String;
-      Os?: String;
-      AmiId?: String;
-      SshKeyName?: String;
-      Architecture?: Architecture;
-      InstallUpdatesOnBoot?: Boolean;
-      EbsOptimized?: Boolean;
+    export interface OpsWorksUpdateInstanceRequest {
+        InstanceId: OpsWorksString;
+        LayerIds?: OpsWorksStrings;
+        InstanceType?: OpsWorksString;
+        AutoScalingType?: OpsWorksAutoScalingType;
+        Hostname?: OpsWorksString;
+        Os?: OpsWorksString;
+        AmiId?: OpsWorksString;
+        SshKeyName?: OpsWorksString;
+        Architecture?: OpsWorksArchitecture;
+        InstallUpdatesOnBoot?: OpsWorksBoolean;
+        EbsOptimized?: OpsWorksBoolean;
     }
 
-
-    export interface UpdateLayerRequest {
-      LayerId: String;
-      Name?: String;
-      Shortname?: String;
-      Attributes?: LayerAttributes;
-      CustomInstanceProfileArn?: String;
-      CustomSecurityGroupIds?: Strings;
-      Packages?: Strings;
-      VolumeConfigurations?: VolumeConfigurations;
-      EnableAutoHealing?: Boolean;
-      AutoAssignElasticIps?: Boolean;
-      AutoAssignPublicIps?: Boolean;
-      CustomRecipes?: Recipes;
-      InstallUpdatesOnBoot?: Boolean;
-      UseEbsOptimizedInstances?: Boolean;
-      LifecycleEventConfiguration?: LifecycleEventConfiguration;
+    export interface OpsWorksUpdateLayerRequest {
+        LayerId: OpsWorksString;
+        Name?: OpsWorksString;
+        Shortname?: OpsWorksString;
+        Attributes?: OpsWorksLayerAttributes;
+        CustomInstanceProfileArn?: OpsWorksString;
+        CustomSecurityGroupIds?: OpsWorksStrings;
+        Packages?: OpsWorksStrings;
+        VolumeConfigurations?: OpsWorksVolumeConfigurations;
+        EnableAutoHealing?: OpsWorksBoolean;
+        AutoAssignElasticIps?: OpsWorksBoolean;
+        AutoAssignPublicIps?: OpsWorksBoolean;
+        CustomRecipes?: OpsWorksRecipes;
+        InstallUpdatesOnBoot?: OpsWorksBoolean;
+        UseEbsOptimizedInstances?: OpsWorksBoolean;
+        LifecycleEventConfiguration?: OpsWorksLifecycleEventConfiguration;
     }
-
 
-    export interface UpdateMyUserProfileRequest {
-      SshPublicKey?: String;
+    export interface OpsWorksUpdateMyUserProfileRequest {
+        SshPublicKey?: OpsWorksString;
     }
 
-
-    export interface UpdateRdsDbInstanceRequest {
-      RdsDbInstanceArn: String;
-      DbUser?: String;
-      DbPassword?: String;
+    export interface OpsWorksUpdateRdsDbInstanceRequest {
+        RdsDbInstanceArn: OpsWorksString;
+        DbUser?: OpsWorksString;
+        DbPassword?: OpsWorksString;
     }
-
 
-    export interface UpdateStackRequest {
-      StackId: String;
-      Name?: String;
-      Attributes?: StackAttributes;
-      ServiceRoleArn?: String;
-      DefaultInstanceProfileArn?: String;
-      DefaultOs?: String;
-      HostnameTheme?: String;
-      DefaultAvailabilityZone?: String;
-      DefaultSubnetId?: String;
-      CustomJson?: String;
-      ConfigurationManager?: StackConfigurationManager;
-      ChefConfiguration?: ChefConfiguration;
-      UseCustomCookbooks?: Boolean;
-      CustomCookbooksSource?: Source;
-      DefaultSshKeyName?: String;
-      DefaultRootDeviceType?: RootDeviceType;
-      UseOpsworksSecurityGroups?: Boolean;
+    export interface OpsWorksUpdateStackRequest {
+        StackId: OpsWorksString;
+        Name?: OpsWorksString;
+        Attributes?: OpsWorksStackAttributes;
+        ServiceRoleArn?: OpsWorksString;
+        DefaultInstanceProfileArn?: OpsWorksString;
+        DefaultOs?: OpsWorksString;
+        HostnameTheme?: OpsWorksString;
+        DefaultAvailabilityZone?: OpsWorksString;
+        DefaultSubnetId?: OpsWorksString;
+        CustomJson?: OpsWorksString;
+        ConfigurationManager?: OpsWorksStackConfigurationManager;
+        ChefConfiguration?: OpsWorksChefConfiguration;
+        UseCustomCookbooks?: OpsWorksBoolean;
+        CustomCookbooksSource?: OpsWorksSource;
+        DefaultSshKeyName?: OpsWorksString;
+        DefaultRootDeviceType?: OpsWorksRootDeviceType;
+        UseOpsworksSecurityGroups?: OpsWorksBoolean;
     }
 
-
-    export interface UpdateUserProfileRequest {
-      IamUserArn: String;
-      SshUsername?: String;
-      SshPublicKey?: String;
-      AllowSelfManagement?: Boolean;
+    export interface OpsWorksUpdateUserProfileRequest {
+        IamUserArn: OpsWorksString;
+        SshUsername?: OpsWorksString;
+        SshPublicKey?: OpsWorksString;
+        AllowSelfManagement?: OpsWorksBoolean;
     }
 
-
-    export interface UpdateVolumeRequest {
-      VolumeId: String;
-      Name?: String;
-      MountPoint?: String;
+    export interface OpsWorksUpdateVolumeRequest {
+        VolumeId: OpsWorksString;
+        Name?: OpsWorksString;
+        MountPoint?: OpsWorksString;
     }
-
 
-    export interface UserProfile {
-      IamUserArn?: String;
-      Name?: String;
-      SshUsername?: String;
-      SshPublicKey?: String;
-      AllowSelfManagement?: Boolean;
+    export interface OpsWorksUserProfile {
+        IamUserArn?: OpsWorksString;
+        Name?: OpsWorksString;
+        SshUsername?: OpsWorksString;
+        SshPublicKey?: OpsWorksString;
+        AllowSelfManagement?: OpsWorksBoolean;
     }
 
-
-    export type UserProfiles = Array<UserProfile>;
-
-    export type ValidForInMinutes = number;
-
-    export interface ValidationException {
-      message?: String;
+    export type OpsWorksUserProfiles = Array<OpsWorksUserProfile>;
+    export type OpsWorksValidForInMinutes = number;
+    export interface OpsWorksValidationException {
+        message?: OpsWorksString;
     }
-
 
-    export type VirtualizationType = string;
-
-    export interface Volume {
-      VolumeId?: String;
-      Ec2VolumeId?: String;
-      Name?: String;
-      RaidArrayId?: String;
-      InstanceId?: String;
-      Status?: String;
-      Size?: Integer;
-      Device?: String;
-      MountPoint?: String;
-      Region?: String;
-      AvailabilityZone?: String;
-      VolumeType?: String;
-      Iops?: Integer;
+    export type OpsWorksVirtualizationType = string;
+    export interface OpsWorksVolume {
+        VolumeId?: OpsWorksString;
+        Ec2VolumeId?: OpsWorksString;
+        Name?: OpsWorksString;
+        RaidArrayId?: OpsWorksString;
+        InstanceId?: OpsWorksString;
+        Status?: OpsWorksString;
+        Size?: OpsWorksInteger;
+        Device?: OpsWorksString;
+        MountPoint?: OpsWorksString;
+        Region?: OpsWorksString;
+        AvailabilityZone?: OpsWorksString;
+        VolumeType?: OpsWorksString;
+        Iops?: OpsWorksInteger;
     }
 
-
-    export interface VolumeConfiguration {
-      MountPoint: String;
-      RaidLevel?: Integer;
-      NumberOfDisks: Integer;
-      Size: Integer;
-      VolumeType?: String;
-      Iops?: Integer;
+    export interface OpsWorksVolumeConfiguration {
+        MountPoint: OpsWorksString;
+        RaidLevel?: OpsWorksInteger;
+        NumberOfDisks: OpsWorksInteger;
+        Size: OpsWorksInteger;
+        VolumeType?: OpsWorksString;
+        Iops?: OpsWorksInteger;
     }
-
 
-    export type VolumeConfigurations = Array<VolumeConfiguration>;
-
-    export type VolumeType = string;
-
-    export type Volumes = Array<Volume>;
-
-    export interface WeeklyAutoScalingSchedule {
-      Monday?: DailyAutoScalingSchedule;
-      Tuesday?: DailyAutoScalingSchedule;
-      Wednesday?: DailyAutoScalingSchedule;
-      Thursday?: DailyAutoScalingSchedule;
-      Friday?: DailyAutoScalingSchedule;
-      Saturday?: DailyAutoScalingSchedule;
-      Sunday?: DailyAutoScalingSchedule;
+    export type OpsWorksVolumeConfigurations = Array<OpsWorksVolumeConfiguration>;
+    export type OpsWorksVolumeType = string;
+    export type OpsWorksVolumes = Array<OpsWorksVolume>;
+    export interface OpsWorksWeeklyAutoScalingSchedule {
+        Monday?: OpsWorksDailyAutoScalingSchedule;
+        Tuesday?: OpsWorksDailyAutoScalingSchedule;
+        Wednesday?: OpsWorksDailyAutoScalingSchedule;
+        Thursday?: OpsWorksDailyAutoScalingSchedule;
+        Friday?: OpsWorksDailyAutoScalingSchedule;
+        Saturday?: OpsWorksDailyAutoScalingSchedule;
+        Sunday?: OpsWorksDailyAutoScalingSchedule;
     }
-
 
 }

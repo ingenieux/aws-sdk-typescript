@@ -3,1238 +3,1041 @@
 declare module "aws-sdk" {
     export class SWF {
       constructor(options?: any);
-      countClosedWorkflowExecutions(params: CountClosedWorkflowExecutionsInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: WorkflowExecutionCount|any) => void): void;
-      countOpenWorkflowExecutions(params: CountOpenWorkflowExecutionsInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: WorkflowExecutionCount|any) => void): void;
-      countPendingActivityTasks(params: CountPendingActivityTasksInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: PendingTaskCount|any) => void): void;
-      countPendingDecisionTasks(params: CountPendingDecisionTasksInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: PendingTaskCount|any) => void): void;
-      deprecateActivityType(params: DeprecateActivityTypeInput, callback: (err: UnknownResourceFault|TypeDeprecatedFault|OperationNotPermittedFault|any, data: any) => void): void;
-      deprecateDomain(params: DeprecateDomainInput, callback: (err: UnknownResourceFault|DomainDeprecatedFault|OperationNotPermittedFault|any, data: any) => void): void;
-      deprecateWorkflowType(params: DeprecateWorkflowTypeInput, callback: (err: UnknownResourceFault|TypeDeprecatedFault|OperationNotPermittedFault|any, data: any) => void): void;
-      describeActivityType(params: DescribeActivityTypeInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: ActivityTypeDetail|any) => void): void;
-      describeDomain(params: DescribeDomainInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: DomainDetail|any) => void): void;
-      describeWorkflowExecution(params: DescribeWorkflowExecutionInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: WorkflowExecutionDetail|any) => void): void;
-      describeWorkflowType(params: DescribeWorkflowTypeInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: WorkflowTypeDetail|any) => void): void;
-      getWorkflowExecutionHistory(params: GetWorkflowExecutionHistoryInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: History|any) => void): void;
-      listActivityTypes(params: ListActivityTypesInput, callback: (err: OperationNotPermittedFault|UnknownResourceFault|any, data: ActivityTypeInfos|any) => void): void;
-      listClosedWorkflowExecutions(params: ListClosedWorkflowExecutionsInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: WorkflowExecutionInfos|any) => void): void;
-      listDomains(params: ListDomainsInput, callback: (err: OperationNotPermittedFault|any, data: DomainInfos|any) => void): void;
-      listOpenWorkflowExecutions(params: ListOpenWorkflowExecutionsInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: WorkflowExecutionInfos|any) => void): void;
-      listWorkflowTypes(params: ListWorkflowTypesInput, callback: (err: OperationNotPermittedFault|UnknownResourceFault|any, data: WorkflowTypeInfos|any) => void): void;
-      pollForActivityTask(params: PollForActivityTaskInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|LimitExceededFault|any, data: ActivityTask|any) => void): void;
-      pollForDecisionTask(params: PollForDecisionTaskInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|LimitExceededFault|any, data: DecisionTask|any) => void): void;
-      recordActivityTaskHeartbeat(params: RecordActivityTaskHeartbeatInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: ActivityTaskStatus|any) => void): void;
-      registerActivityType(params: RegisterActivityTypeInput, callback: (err: TypeAlreadyExistsFault|LimitExceededFault|UnknownResourceFault|OperationNotPermittedFault|any, data: any) => void): void;
-      registerDomain(params: RegisterDomainInput, callback: (err: DomainAlreadyExistsFault|LimitExceededFault|OperationNotPermittedFault|any, data: any) => void): void;
-      registerWorkflowType(params: RegisterWorkflowTypeInput, callback: (err: TypeAlreadyExistsFault|LimitExceededFault|UnknownResourceFault|OperationNotPermittedFault|any, data: any) => void): void;
-      requestCancelWorkflowExecution(params: RequestCancelWorkflowExecutionInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: any) => void): void;
-      respondActivityTaskCanceled(params: RespondActivityTaskCanceledInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: any) => void): void;
-      respondActivityTaskCompleted(params: RespondActivityTaskCompletedInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: any) => void): void;
-      respondActivityTaskFailed(params: RespondActivityTaskFailedInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: any) => void): void;
-      respondDecisionTaskCompleted(params: RespondDecisionTaskCompletedInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: any) => void): void;
-      signalWorkflowExecution(params: SignalWorkflowExecutionInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: any) => void): void;
-      startWorkflowExecution(params: StartWorkflowExecutionInput, callback: (err: UnknownResourceFault|TypeDeprecatedFault|WorkflowExecutionAlreadyStartedFault|LimitExceededFault|OperationNotPermittedFault|DefaultUndefinedFault|any, data: Run|any) => void): void;
-      terminateWorkflowExecution(params: TerminateWorkflowExecutionInput, callback: (err: UnknownResourceFault|OperationNotPermittedFault|any, data: any) => void): void;
+      countClosedWorkflowExecutions(params: SWFCountClosedWorkflowExecutionsInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionCount|any) => void): void;
+      countOpenWorkflowExecutions(params: SWFCountOpenWorkflowExecutionsInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionCount|any) => void): void;
+      countPendingActivityTasks(params: SWFCountPendingActivityTasksInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFPendingTaskCount|any) => void): void;
+      countPendingDecisionTasks(params: SWFCountPendingDecisionTasksInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFPendingTaskCount|any) => void): void;
+      deprecateActivityType(params: SWFDeprecateActivityTypeInput, callback: (err: SWFUnknownResourceFault|SWFTypeDeprecatedFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
+      deprecateDomain(params: SWFDeprecateDomainInput, callback: (err: SWFUnknownResourceFault|SWFDomainDeprecatedFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
+      deprecateWorkflowType(params: SWFDeprecateWorkflowTypeInput, callback: (err: SWFUnknownResourceFault|SWFTypeDeprecatedFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
+      describeActivityType(params: SWFDescribeActivityTypeInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFActivityTypeDetail|any) => void): void;
+      describeDomain(params: SWFDescribeDomainInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFDomainDetail|any) => void): void;
+      describeWorkflowExecution(params: SWFDescribeWorkflowExecutionInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionDetail|any) => void): void;
+      describeWorkflowType(params: SWFDescribeWorkflowTypeInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowTypeDetail|any) => void): void;
+      getWorkflowExecutionHistory(params: SWFGetWorkflowExecutionHistoryInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFHistory|any) => void): void;
+      listActivityTypes(params: SWFListActivityTypesInput, callback: (err: SWFOperationNotPermittedFault|SWFUnknownResourceFault|any, data: SWFActivityTypeInfos|any) => void): void;
+      listClosedWorkflowExecutions(params: SWFListClosedWorkflowExecutionsInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionInfos|any) => void): void;
+      listDomains(params: SWFListDomainsInput, callback: (err: SWFOperationNotPermittedFault|any, data: SWFDomainInfos|any) => void): void;
+      listOpenWorkflowExecutions(params: SWFListOpenWorkflowExecutionsInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionInfos|any) => void): void;
+      listWorkflowTypes(params: SWFListWorkflowTypesInput, callback: (err: SWFOperationNotPermittedFault|SWFUnknownResourceFault|any, data: SWFWorkflowTypeInfos|any) => void): void;
+      pollForActivityTask(params: SWFPollForActivityTaskInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|SWFLimitExceededFault|any, data: SWFActivityTask|any) => void): void;
+      pollForDecisionTask(params: SWFPollForDecisionTaskInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|SWFLimitExceededFault|any, data: SWFDecisionTask|any) => void): void;
+      recordActivityTaskHeartbeat(params: SWFRecordActivityTaskHeartbeatInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFActivityTaskStatus|any) => void): void;
+      registerActivityType(params: SWFRegisterActivityTypeInput, callback: (err: SWFTypeAlreadyExistsFault|SWFLimitExceededFault|SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
+      registerDomain(params: SWFRegisterDomainInput, callback: (err: SWFDomainAlreadyExistsFault|SWFLimitExceededFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
+      registerWorkflowType(params: SWFRegisterWorkflowTypeInput, callback: (err: SWFTypeAlreadyExistsFault|SWFLimitExceededFault|SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
+      requestCancelWorkflowExecution(params: SWFRequestCancelWorkflowExecutionInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
+      respondActivityTaskCanceled(params: SWFRespondActivityTaskCanceledInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
+      respondActivityTaskCompleted(params: SWFRespondActivityTaskCompletedInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
+      respondActivityTaskFailed(params: SWFRespondActivityTaskFailedInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
+      respondDecisionTaskCompleted(params: SWFRespondDecisionTaskCompletedInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
+      signalWorkflowExecution(params: SWFSignalWorkflowExecutionInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
+      startWorkflowExecution(params: SWFStartWorkflowExecutionInput, callback: (err: SWFUnknownResourceFault|SWFTypeDeprecatedFault|SWFWorkflowExecutionAlreadyStartedFault|SWFLimitExceededFault|SWFOperationNotPermittedFault|SWFDefaultUndefinedFault|any, data: SWFRun|any) => void): void;
+      terminateWorkflowExecution(params: SWFTerminateWorkflowExecutionInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
+    }
+
+    export type SWFActivityId = string;
+    export interface SWFActivityTask {
+        taskToken: SWFTaskToken;
+        activityId: SWFActivityId;
+        startedEventId: SWFEventId;
+        workflowExecution: SWFWorkflowExecution;
+        activityType: SWFActivityType;
+        input?: SWFData;
+    }
+
+    export interface SWFActivityTaskCancelRequestedEventAttributes {
+        decisionTaskCompletedEventId: SWFEventId;
+        activityId: SWFActivityId;
+    }
+
+    export interface SWFActivityTaskCanceledEventAttributes {
+        details?: SWFData;
+        scheduledEventId: SWFEventId;
+        startedEventId: SWFEventId;
+        latestCancelRequestedEventId?: SWFEventId;
+    }
+
+    export interface SWFActivityTaskCompletedEventAttributes {
+        result?: SWFData;
+        scheduledEventId: SWFEventId;
+        startedEventId: SWFEventId;
+    }
+
+    export interface SWFActivityTaskFailedEventAttributes {
+        reason?: SWFFailureReason;
+        details?: SWFData;
+        scheduledEventId: SWFEventId;
+        startedEventId: SWFEventId;
+    }
+
+    export interface SWFActivityTaskScheduledEventAttributes {
+        activityType: SWFActivityType;
+        activityId: SWFActivityId;
+        input?: SWFData;
+        control?: SWFData;
+        scheduleToStartTimeout?: SWFDurationInSecondsOptional;
+        scheduleToCloseTimeout?: SWFDurationInSecondsOptional;
+        startToCloseTimeout?: SWFDurationInSecondsOptional;
+        taskList: SWFTaskList;
+        taskPriority?: SWFTaskPriority;
+        decisionTaskCompletedEventId: SWFEventId;
+        heartbeatTimeout?: SWFDurationInSecondsOptional;
+    }
+
+    export interface SWFActivityTaskStartedEventAttributes {
+        identity?: SWFIdentity;
+        scheduledEventId: SWFEventId;
+    }
+
+    export interface SWFActivityTaskStatus {
+        cancelRequested: SWFCanceled;
+    }
+
+    export interface SWFActivityTaskTimedOutEventAttributes {
+        timeoutType: SWFActivityTaskTimeoutType;
+        scheduledEventId: SWFEventId;
+        startedEventId: SWFEventId;
+        details?: SWFLimitedData;
+    }
+
+    export type SWFActivityTaskTimeoutType = string;
+    export interface SWFActivityType {
+        name: SWFName;
+        version: SWFVersion;
     }
 
-    export type ActivityId = string;
-
-    export interface ActivityTask {
-      taskToken: TaskToken;
-      activityId: ActivityId;
-      startedEventId: EventId;
-      workflowExecution: WorkflowExecution;
-      activityType: ActivityType;
-      input?: Data;
-    }
-
-
-    export interface ActivityTaskCancelRequestedEventAttributes {
-      decisionTaskCompletedEventId: EventId;
-      activityId: ActivityId;
-    }
-
-
-    export interface ActivityTaskCanceledEventAttributes {
-      details?: Data;
-      scheduledEventId: EventId;
-      startedEventId: EventId;
-      latestCancelRequestedEventId?: EventId;
-    }
-
-
-    export interface ActivityTaskCompletedEventAttributes {
-      result?: Data;
-      scheduledEventId: EventId;
-      startedEventId: EventId;
-    }
-
-
-    export interface ActivityTaskFailedEventAttributes {
-      reason?: FailureReason;
-      details?: Data;
-      scheduledEventId: EventId;
-      startedEventId: EventId;
-    }
-
-
-    export interface ActivityTaskScheduledEventAttributes {
-      activityType: ActivityType;
-      activityId: ActivityId;
-      input?: Data;
-      control?: Data;
-      scheduleToStartTimeout?: DurationInSecondsOptional;
-      scheduleToCloseTimeout?: DurationInSecondsOptional;
-      startToCloseTimeout?: DurationInSecondsOptional;
-      taskList: TaskList;
-      taskPriority?: TaskPriority;
-      decisionTaskCompletedEventId: EventId;
-      heartbeatTimeout?: DurationInSecondsOptional;
-    }
-
-
-    export interface ActivityTaskStartedEventAttributes {
-      identity?: Identity;
-      scheduledEventId: EventId;
-    }
-
-
-    export interface ActivityTaskStatus {
-      cancelRequested: Canceled;
-    }
-
-
-    export interface ActivityTaskTimedOutEventAttributes {
-      timeoutType: ActivityTaskTimeoutType;
-      scheduledEventId: EventId;
-      startedEventId: EventId;
-      details?: LimitedData;
-    }
-
-
-    export type ActivityTaskTimeoutType = string;
-
-    export interface ActivityType {
-      name: Name;
-      version: Version;
-    }
-
-
-    export interface ActivityTypeConfiguration {
-      defaultTaskStartToCloseTimeout?: DurationInSecondsOptional;
-      defaultTaskHeartbeatTimeout?: DurationInSecondsOptional;
-      defaultTaskList?: TaskList;
-      defaultTaskPriority?: TaskPriority;
-      defaultTaskScheduleToStartTimeout?: DurationInSecondsOptional;
-      defaultTaskScheduleToCloseTimeout?: DurationInSecondsOptional;
+    export interface SWFActivityTypeConfiguration {
+        defaultTaskStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        defaultTaskHeartbeatTimeout?: SWFDurationInSecondsOptional;
+        defaultTaskList?: SWFTaskList;
+        defaultTaskPriority?: SWFTaskPriority;
+        defaultTaskScheduleToStartTimeout?: SWFDurationInSecondsOptional;
+        defaultTaskScheduleToCloseTimeout?: SWFDurationInSecondsOptional;
     }
-
 
-    export interface ActivityTypeDetail {
-      typeInfo: ActivityTypeInfo;
-      configuration: ActivityTypeConfiguration;
+    export interface SWFActivityTypeDetail {
+        typeInfo: SWFActivityTypeInfo;
+        configuration: SWFActivityTypeConfiguration;
     }
 
-
-    export interface ActivityTypeInfo {
-      activityType: ActivityType;
-      status: RegistrationStatus;
-      description?: Description;
-      creationDate: Timestamp;
-      deprecationDate?: Timestamp;
+    export interface SWFActivityTypeInfo {
+        activityType: SWFActivityType;
+        status: SWFRegistrationStatus;
+        description?: SWFDescription;
+        creationDate: SWFTimestamp;
+        deprecationDate?: SWFTimestamp;
     }
-
-
-    export type ActivityTypeInfoList = Array<ActivityTypeInfo>;
 
-    export interface ActivityTypeInfos {
-      typeInfos: ActivityTypeInfoList;
-      nextPageToken?: PageToken;
+    export type SWFActivityTypeInfoList = Array<SWFActivityTypeInfo>;
+    export interface SWFActivityTypeInfos {
+        typeInfos: SWFActivityTypeInfoList;
+        nextPageToken?: SWFPageToken;
     }
 
-
-    export interface CancelTimerDecisionAttributes {
-      timerId: TimerId;
+    export interface SWFCancelTimerDecisionAttributes {
+        timerId: SWFTimerId;
     }
-
 
-    export type CancelTimerFailedCause = string;
-
-    export interface CancelTimerFailedEventAttributes {
-      timerId: TimerId;
-      cause: CancelTimerFailedCause;
-      decisionTaskCompletedEventId: EventId;
+    export type SWFCancelTimerFailedCause = string;
+    export interface SWFCancelTimerFailedEventAttributes {
+        timerId: SWFTimerId;
+        cause: SWFCancelTimerFailedCause;
+        decisionTaskCompletedEventId: SWFEventId;
     }
-
 
-    export interface CancelWorkflowExecutionDecisionAttributes {
-      details?: Data;
+    export interface SWFCancelWorkflowExecutionDecisionAttributes {
+        details?: SWFData;
     }
 
-
-    export type CancelWorkflowExecutionFailedCause = string;
-
-    export interface CancelWorkflowExecutionFailedEventAttributes {
-      cause: CancelWorkflowExecutionFailedCause;
-      decisionTaskCompletedEventId: EventId;
+    export type SWFCancelWorkflowExecutionFailedCause = string;
+    export interface SWFCancelWorkflowExecutionFailedEventAttributes {
+        cause: SWFCancelWorkflowExecutionFailedCause;
+        decisionTaskCompletedEventId: SWFEventId;
     }
-
 
-    export type Canceled = boolean;
-
-    export type ChildPolicy = string;
-
-    export interface ChildWorkflowExecutionCanceledEventAttributes {
-      workflowExecution: WorkflowExecution;
-      workflowType: WorkflowType;
-      details?: Data;
-      initiatedEventId: EventId;
-      startedEventId: EventId;
+    export type SWFCanceled = boolean;
+    export type SWFChildPolicy = string;
+    export interface SWFChildWorkflowExecutionCanceledEventAttributes {
+        workflowExecution: SWFWorkflowExecution;
+        workflowType: SWFWorkflowType;
+        details?: SWFData;
+        initiatedEventId: SWFEventId;
+        startedEventId: SWFEventId;
     }
 
-
-    export interface ChildWorkflowExecutionCompletedEventAttributes {
-      workflowExecution: WorkflowExecution;
-      workflowType: WorkflowType;
-      result?: Data;
-      initiatedEventId: EventId;
-      startedEventId: EventId;
+    export interface SWFChildWorkflowExecutionCompletedEventAttributes {
+        workflowExecution: SWFWorkflowExecution;
+        workflowType: SWFWorkflowType;
+        result?: SWFData;
+        initiatedEventId: SWFEventId;
+        startedEventId: SWFEventId;
     }
-
 
-    export interface ChildWorkflowExecutionFailedEventAttributes {
-      workflowExecution: WorkflowExecution;
-      workflowType: WorkflowType;
-      reason?: FailureReason;
-      details?: Data;
-      initiatedEventId: EventId;
-      startedEventId: EventId;
+    export interface SWFChildWorkflowExecutionFailedEventAttributes {
+        workflowExecution: SWFWorkflowExecution;
+        workflowType: SWFWorkflowType;
+        reason?: SWFFailureReason;
+        details?: SWFData;
+        initiatedEventId: SWFEventId;
+        startedEventId: SWFEventId;
     }
 
-
-    export interface ChildWorkflowExecutionStartedEventAttributes {
-      workflowExecution: WorkflowExecution;
-      workflowType: WorkflowType;
-      initiatedEventId: EventId;
+    export interface SWFChildWorkflowExecutionStartedEventAttributes {
+        workflowExecution: SWFWorkflowExecution;
+        workflowType: SWFWorkflowType;
+        initiatedEventId: SWFEventId;
     }
 
-
-    export interface ChildWorkflowExecutionTerminatedEventAttributes {
-      workflowExecution: WorkflowExecution;
-      workflowType: WorkflowType;
-      initiatedEventId: EventId;
-      startedEventId: EventId;
+    export interface SWFChildWorkflowExecutionTerminatedEventAttributes {
+        workflowExecution: SWFWorkflowExecution;
+        workflowType: SWFWorkflowType;
+        initiatedEventId: SWFEventId;
+        startedEventId: SWFEventId;
     }
-
 
-    export interface ChildWorkflowExecutionTimedOutEventAttributes {
-      workflowExecution: WorkflowExecution;
-      workflowType: WorkflowType;
-      timeoutType: WorkflowExecutionTimeoutType;
-      initiatedEventId: EventId;
-      startedEventId: EventId;
+    export interface SWFChildWorkflowExecutionTimedOutEventAttributes {
+        workflowExecution: SWFWorkflowExecution;
+        workflowType: SWFWorkflowType;
+        timeoutType: SWFWorkflowExecutionTimeoutType;
+        initiatedEventId: SWFEventId;
+        startedEventId: SWFEventId;
     }
 
-
-    export type CloseStatus = string;
-
-    export interface CloseStatusFilter {
-      status: CloseStatus;
+    export type SWFCloseStatus = string;
+    export interface SWFCloseStatusFilter {
+        status: SWFCloseStatus;
     }
 
-
-    export interface CompleteWorkflowExecutionDecisionAttributes {
-      result?: Data;
+    export interface SWFCompleteWorkflowExecutionDecisionAttributes {
+        result?: SWFData;
     }
-
 
-    export type CompleteWorkflowExecutionFailedCause = string;
-
-    export interface CompleteWorkflowExecutionFailedEventAttributes {
-      cause: CompleteWorkflowExecutionFailedCause;
-      decisionTaskCompletedEventId: EventId;
+    export type SWFCompleteWorkflowExecutionFailedCause = string;
+    export interface SWFCompleteWorkflowExecutionFailedEventAttributes {
+        cause: SWFCompleteWorkflowExecutionFailedCause;
+        decisionTaskCompletedEventId: SWFEventId;
     }
 
-
-    export interface ContinueAsNewWorkflowExecutionDecisionAttributes {
-      input?: Data;
-      executionStartToCloseTimeout?: DurationInSecondsOptional;
-      taskList?: TaskList;
-      taskPriority?: TaskPriority;
-      taskStartToCloseTimeout?: DurationInSecondsOptional;
-      childPolicy?: ChildPolicy;
-      tagList?: TagList;
-      workflowTypeVersion?: Version;
+    export interface SWFContinueAsNewWorkflowExecutionDecisionAttributes {
+        input?: SWFData;
+        executionStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        taskList?: SWFTaskList;
+        taskPriority?: SWFTaskPriority;
+        taskStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        childPolicy?: SWFChildPolicy;
+        tagList?: SWFTagList;
+        workflowTypeVersion?: SWFVersion;
     }
-
 
-    export type ContinueAsNewWorkflowExecutionFailedCause = string;
-
-    export interface ContinueAsNewWorkflowExecutionFailedEventAttributes {
-      cause: ContinueAsNewWorkflowExecutionFailedCause;
-      decisionTaskCompletedEventId: EventId;
+    export type SWFContinueAsNewWorkflowExecutionFailedCause = string;
+    export interface SWFContinueAsNewWorkflowExecutionFailedEventAttributes {
+        cause: SWFContinueAsNewWorkflowExecutionFailedCause;
+        decisionTaskCompletedEventId: SWFEventId;
     }
-
-
-    export type Count = number;
 
-    export interface CountClosedWorkflowExecutionsInput {
-      domain: DomainName;
-      startTimeFilter?: ExecutionTimeFilter;
-      closeTimeFilter?: ExecutionTimeFilter;
-      executionFilter?: WorkflowExecutionFilter;
-      typeFilter?: WorkflowTypeFilter;
-      tagFilter?: TagFilter;
-      closeStatusFilter?: CloseStatusFilter;
+    export type SWFCount = number;
+    export interface SWFCountClosedWorkflowExecutionsInput {
+        domain: SWFDomainName;
+        startTimeFilter?: SWFExecutionTimeFilter;
+        closeTimeFilter?: SWFExecutionTimeFilter;
+        executionFilter?: SWFWorkflowExecutionFilter;
+        typeFilter?: SWFWorkflowTypeFilter;
+        tagFilter?: SWFTagFilter;
+        closeStatusFilter?: SWFCloseStatusFilter;
     }
 
-
-    export interface CountOpenWorkflowExecutionsInput {
-      domain: DomainName;
-      startTimeFilter: ExecutionTimeFilter;
-      typeFilter?: WorkflowTypeFilter;
-      tagFilter?: TagFilter;
-      executionFilter?: WorkflowExecutionFilter;
+    export interface SWFCountOpenWorkflowExecutionsInput {
+        domain: SWFDomainName;
+        startTimeFilter: SWFExecutionTimeFilter;
+        typeFilter?: SWFWorkflowTypeFilter;
+        tagFilter?: SWFTagFilter;
+        executionFilter?: SWFWorkflowExecutionFilter;
     }
 
-
-    export interface CountPendingActivityTasksInput {
-      domain: DomainName;
-      taskList: TaskList;
+    export interface SWFCountPendingActivityTasksInput {
+        domain: SWFDomainName;
+        taskList: SWFTaskList;
     }
-
 
-    export interface CountPendingDecisionTasksInput {
-      domain: DomainName;
-      taskList: TaskList;
+    export interface SWFCountPendingDecisionTasksInput {
+        domain: SWFDomainName;
+        taskList: SWFTaskList;
     }
 
-
-    export type Data = string;
-
-    export interface Decision {
-      decisionType: DecisionType;
-      scheduleActivityTaskDecisionAttributes?: ScheduleActivityTaskDecisionAttributes;
-      requestCancelActivityTaskDecisionAttributes?: RequestCancelActivityTaskDecisionAttributes;
-      completeWorkflowExecutionDecisionAttributes?: CompleteWorkflowExecutionDecisionAttributes;
-      failWorkflowExecutionDecisionAttributes?: FailWorkflowExecutionDecisionAttributes;
-      cancelWorkflowExecutionDecisionAttributes?: CancelWorkflowExecutionDecisionAttributes;
-      continueAsNewWorkflowExecutionDecisionAttributes?: ContinueAsNewWorkflowExecutionDecisionAttributes;
-      recordMarkerDecisionAttributes?: RecordMarkerDecisionAttributes;
-      startTimerDecisionAttributes?: StartTimerDecisionAttributes;
-      cancelTimerDecisionAttributes?: CancelTimerDecisionAttributes;
-      signalExternalWorkflowExecutionDecisionAttributes?: SignalExternalWorkflowExecutionDecisionAttributes;
-      requestCancelExternalWorkflowExecutionDecisionAttributes?: RequestCancelExternalWorkflowExecutionDecisionAttributes;
-      startChildWorkflowExecutionDecisionAttributes?: StartChildWorkflowExecutionDecisionAttributes;
+    export type SWFData = string;
+    export interface SWFDecision {
+        decisionType: SWFDecisionType;
+        scheduleActivityTaskDecisionAttributes?: SWFScheduleActivityTaskDecisionAttributes;
+        requestCancelActivityTaskDecisionAttributes?: SWFRequestCancelActivityTaskDecisionAttributes;
+        completeWorkflowExecutionDecisionAttributes?: SWFCompleteWorkflowExecutionDecisionAttributes;
+        failWorkflowExecutionDecisionAttributes?: SWFFailWorkflowExecutionDecisionAttributes;
+        cancelWorkflowExecutionDecisionAttributes?: SWFCancelWorkflowExecutionDecisionAttributes;
+        continueAsNewWorkflowExecutionDecisionAttributes?: SWFContinueAsNewWorkflowExecutionDecisionAttributes;
+        recordMarkerDecisionAttributes?: SWFRecordMarkerDecisionAttributes;
+        startTimerDecisionAttributes?: SWFStartTimerDecisionAttributes;
+        cancelTimerDecisionAttributes?: SWFCancelTimerDecisionAttributes;
+        signalExternalWorkflowExecutionDecisionAttributes?: SWFSignalExternalWorkflowExecutionDecisionAttributes;
+        requestCancelExternalWorkflowExecutionDecisionAttributes?: SWFRequestCancelExternalWorkflowExecutionDecisionAttributes;
+        startChildWorkflowExecutionDecisionAttributes?: SWFStartChildWorkflowExecutionDecisionAttributes;
     }
-
-
-    export type DecisionList = Array<Decision>;
 
-    export interface DecisionTask {
-      taskToken: TaskToken;
-      startedEventId: EventId;
-      workflowExecution: WorkflowExecution;
-      workflowType: WorkflowType;
-      events: HistoryEventList;
-      nextPageToken?: PageToken;
-      previousStartedEventId?: EventId;
+    export type SWFDecisionList = Array<SWFDecision>;
+    export interface SWFDecisionTask {
+        taskToken: SWFTaskToken;
+        startedEventId: SWFEventId;
+        workflowExecution: SWFWorkflowExecution;
+        workflowType: SWFWorkflowType;
+        events: SWFHistoryEventList;
+        nextPageToken?: SWFPageToken;
+        previousStartedEventId?: SWFEventId;
     }
 
-
-    export interface DecisionTaskCompletedEventAttributes {
-      executionContext?: Data;
-      scheduledEventId: EventId;
-      startedEventId: EventId;
+    export interface SWFDecisionTaskCompletedEventAttributes {
+        executionContext?: SWFData;
+        scheduledEventId: SWFEventId;
+        startedEventId: SWFEventId;
     }
 
-
-    export interface DecisionTaskScheduledEventAttributes {
-      taskList: TaskList;
-      taskPriority?: TaskPriority;
-      startToCloseTimeout?: DurationInSecondsOptional;
+    export interface SWFDecisionTaskScheduledEventAttributes {
+        taskList: SWFTaskList;
+        taskPriority?: SWFTaskPriority;
+        startToCloseTimeout?: SWFDurationInSecondsOptional;
     }
-
 
-    export interface DecisionTaskStartedEventAttributes {
-      identity?: Identity;
-      scheduledEventId: EventId;
+    export interface SWFDecisionTaskStartedEventAttributes {
+        identity?: SWFIdentity;
+        scheduledEventId: SWFEventId;
     }
 
-
-    export interface DecisionTaskTimedOutEventAttributes {
-      timeoutType: DecisionTaskTimeoutType;
-      scheduledEventId: EventId;
-      startedEventId: EventId;
+    export interface SWFDecisionTaskTimedOutEventAttributes {
+        timeoutType: SWFDecisionTaskTimeoutType;
+        scheduledEventId: SWFEventId;
+        startedEventId: SWFEventId;
     }
-
-
-    export type DecisionTaskTimeoutType = string;
-
-    export type DecisionType = string;
 
-    export interface DefaultUndefinedFault {
-      message?: ErrorMessage;
+    export type SWFDecisionTaskTimeoutType = string;
+    export type SWFDecisionType = string;
+    export interface SWFDefaultUndefinedFault {
+        message?: SWFErrorMessage;
     }
 
-
-    export interface DeprecateActivityTypeInput {
-      domain: DomainName;
-      activityType: ActivityType;
+    export interface SWFDeprecateActivityTypeInput {
+        domain: SWFDomainName;
+        activityType: SWFActivityType;
     }
 
-
-    export interface DeprecateDomainInput {
-      name: DomainName;
+    export interface SWFDeprecateDomainInput {
+        name: SWFDomainName;
     }
-
 
-    export interface DeprecateWorkflowTypeInput {
-      domain: DomainName;
-      workflowType: WorkflowType;
+    export interface SWFDeprecateWorkflowTypeInput {
+        domain: SWFDomainName;
+        workflowType: SWFWorkflowType;
     }
 
-
-    export interface DescribeActivityTypeInput {
-      domain: DomainName;
-      activityType: ActivityType;
+    export interface SWFDescribeActivityTypeInput {
+        domain: SWFDomainName;
+        activityType: SWFActivityType;
     }
-
 
-    export interface DescribeDomainInput {
-      name: DomainName;
+    export interface SWFDescribeDomainInput {
+        name: SWFDomainName;
     }
 
-
-    export interface DescribeWorkflowExecutionInput {
-      domain: DomainName;
-      execution: WorkflowExecution;
+    export interface SWFDescribeWorkflowExecutionInput {
+        domain: SWFDomainName;
+        execution: SWFWorkflowExecution;
     }
-
 
-    export interface DescribeWorkflowTypeInput {
-      domain: DomainName;
-      workflowType: WorkflowType;
+    export interface SWFDescribeWorkflowTypeInput {
+        domain: SWFDomainName;
+        workflowType: SWFWorkflowType;
     }
 
-
-    export type Description = string;
-
-    export interface DomainAlreadyExistsFault {
-      message?: ErrorMessage;
+    export type SWFDescription = string;
+    export interface SWFDomainAlreadyExistsFault {
+        message?: SWFErrorMessage;
     }
-
 
-    export interface DomainConfiguration {
-      workflowExecutionRetentionPeriodInDays: DurationInDays;
+    export interface SWFDomainConfiguration {
+        workflowExecutionRetentionPeriodInDays: SWFDurationInDays;
     }
 
-
-    export interface DomainDeprecatedFault {
-      message?: ErrorMessage;
+    export interface SWFDomainDeprecatedFault {
+        message?: SWFErrorMessage;
     }
 
-
-    export interface DomainDetail {
-      domainInfo: DomainInfo;
-      configuration: DomainConfiguration;
+    export interface SWFDomainDetail {
+        domainInfo: SWFDomainInfo;
+        configuration: SWFDomainConfiguration;
     }
-
 
-    export interface DomainInfo {
-      name: DomainName;
-      status: RegistrationStatus;
-      description?: Description;
+    export interface SWFDomainInfo {
+        name: SWFDomainName;
+        status: SWFRegistrationStatus;
+        description?: SWFDescription;
     }
 
-
-    export type DomainInfoList = Array<DomainInfo>;
-
-    export interface DomainInfos {
-      domainInfos: DomainInfoList;
-      nextPageToken?: PageToken;
+    export type SWFDomainInfoList = Array<SWFDomainInfo>;
+    export interface SWFDomainInfos {
+        domainInfos: SWFDomainInfoList;
+        nextPageToken?: SWFPageToken;
     }
-
-
-    export type DomainName = string;
-
-    export type DurationInDays = string;
-
-    export type DurationInSeconds = string;
-
-    export type DurationInSecondsOptional = string;
 
-    export type ErrorMessage = string;
-
-    export type EventId = number;
-
-    export type EventType = string;
-
-    export type ExecutionStatus = string;
-
-    export interface ExecutionTimeFilter {
-      oldestDate: Timestamp;
-      latestDate?: Timestamp;
+    export type SWFDomainName = string;
+    export type SWFDurationInDays = string;
+    export type SWFDurationInSeconds = string;
+    export type SWFDurationInSecondsOptional = string;
+    export type SWFErrorMessage = string;
+    export type SWFEventId = number;
+    export type SWFEventType = string;
+    export type SWFExecutionStatus = string;
+    export interface SWFExecutionTimeFilter {
+        oldestDate: SWFTimestamp;
+        latestDate?: SWFTimestamp;
     }
-
 
-    export interface ExternalWorkflowExecutionCancelRequestedEventAttributes {
-      workflowExecution: WorkflowExecution;
-      initiatedEventId: EventId;
+    export interface SWFExternalWorkflowExecutionCancelRequestedEventAttributes {
+        workflowExecution: SWFWorkflowExecution;
+        initiatedEventId: SWFEventId;
     }
 
-
-    export interface ExternalWorkflowExecutionSignaledEventAttributes {
-      workflowExecution: WorkflowExecution;
-      initiatedEventId: EventId;
+    export interface SWFExternalWorkflowExecutionSignaledEventAttributes {
+        workflowExecution: SWFWorkflowExecution;
+        initiatedEventId: SWFEventId;
     }
-
 
-    export interface FailWorkflowExecutionDecisionAttributes {
-      reason?: FailureReason;
-      details?: Data;
+    export interface SWFFailWorkflowExecutionDecisionAttributes {
+        reason?: SWFFailureReason;
+        details?: SWFData;
     }
 
-
-    export type FailWorkflowExecutionFailedCause = string;
-
-    export interface FailWorkflowExecutionFailedEventAttributes {
-      cause: FailWorkflowExecutionFailedCause;
-      decisionTaskCompletedEventId: EventId;
+    export type SWFFailWorkflowExecutionFailedCause = string;
+    export interface SWFFailWorkflowExecutionFailedEventAttributes {
+        cause: SWFFailWorkflowExecutionFailedCause;
+        decisionTaskCompletedEventId: SWFEventId;
     }
-
 
-    export type FailureReason = string;
-
-    export interface GetWorkflowExecutionHistoryInput {
-      domain: DomainName;
-      execution: WorkflowExecution;
-      nextPageToken?: PageToken;
-      maximumPageSize?: PageSize;
-      reverseOrder?: ReverseOrder;
+    export type SWFFailureReason = string;
+    export interface SWFGetWorkflowExecutionHistoryInput {
+        domain: SWFDomainName;
+        execution: SWFWorkflowExecution;
+        nextPageToken?: SWFPageToken;
+        maximumPageSize?: SWFPageSize;
+        reverseOrder?: SWFReverseOrder;
     }
-
 
-    export interface History {
-      events: HistoryEventList;
-      nextPageToken?: PageToken;
+    export interface SWFHistory {
+        events: SWFHistoryEventList;
+        nextPageToken?: SWFPageToken;
     }
 
-
-    export interface HistoryEvent {
-      eventTimestamp: Timestamp;
-      eventType: EventType;
-      eventId: EventId;
-      workflowExecutionStartedEventAttributes?: WorkflowExecutionStartedEventAttributes;
-      workflowExecutionCompletedEventAttributes?: WorkflowExecutionCompletedEventAttributes;
-      completeWorkflowExecutionFailedEventAttributes?: CompleteWorkflowExecutionFailedEventAttributes;
-      workflowExecutionFailedEventAttributes?: WorkflowExecutionFailedEventAttributes;
-      failWorkflowExecutionFailedEventAttributes?: FailWorkflowExecutionFailedEventAttributes;
-      workflowExecutionTimedOutEventAttributes?: WorkflowExecutionTimedOutEventAttributes;
-      workflowExecutionCanceledEventAttributes?: WorkflowExecutionCanceledEventAttributes;
-      cancelWorkflowExecutionFailedEventAttributes?: CancelWorkflowExecutionFailedEventAttributes;
-      workflowExecutionContinuedAsNewEventAttributes?: WorkflowExecutionContinuedAsNewEventAttributes;
-      continueAsNewWorkflowExecutionFailedEventAttributes?: ContinueAsNewWorkflowExecutionFailedEventAttributes;
-      workflowExecutionTerminatedEventAttributes?: WorkflowExecutionTerminatedEventAttributes;
-      workflowExecutionCancelRequestedEventAttributes?: WorkflowExecutionCancelRequestedEventAttributes;
-      decisionTaskScheduledEventAttributes?: DecisionTaskScheduledEventAttributes;
-      decisionTaskStartedEventAttributes?: DecisionTaskStartedEventAttributes;
-      decisionTaskCompletedEventAttributes?: DecisionTaskCompletedEventAttributes;
-      decisionTaskTimedOutEventAttributes?: DecisionTaskTimedOutEventAttributes;
-      activityTaskScheduledEventAttributes?: ActivityTaskScheduledEventAttributes;
-      activityTaskStartedEventAttributes?: ActivityTaskStartedEventAttributes;
-      activityTaskCompletedEventAttributes?: ActivityTaskCompletedEventAttributes;
-      activityTaskFailedEventAttributes?: ActivityTaskFailedEventAttributes;
-      activityTaskTimedOutEventAttributes?: ActivityTaskTimedOutEventAttributes;
-      activityTaskCanceledEventAttributes?: ActivityTaskCanceledEventAttributes;
-      activityTaskCancelRequestedEventAttributes?: ActivityTaskCancelRequestedEventAttributes;
-      workflowExecutionSignaledEventAttributes?: WorkflowExecutionSignaledEventAttributes;
-      markerRecordedEventAttributes?: MarkerRecordedEventAttributes;
-      recordMarkerFailedEventAttributes?: RecordMarkerFailedEventAttributes;
-      timerStartedEventAttributes?: TimerStartedEventAttributes;
-      timerFiredEventAttributes?: TimerFiredEventAttributes;
-      timerCanceledEventAttributes?: TimerCanceledEventAttributes;
-      startChildWorkflowExecutionInitiatedEventAttributes?: StartChildWorkflowExecutionInitiatedEventAttributes;
-      childWorkflowExecutionStartedEventAttributes?: ChildWorkflowExecutionStartedEventAttributes;
-      childWorkflowExecutionCompletedEventAttributes?: ChildWorkflowExecutionCompletedEventAttributes;
-      childWorkflowExecutionFailedEventAttributes?: ChildWorkflowExecutionFailedEventAttributes;
-      childWorkflowExecutionTimedOutEventAttributes?: ChildWorkflowExecutionTimedOutEventAttributes;
-      childWorkflowExecutionCanceledEventAttributes?: ChildWorkflowExecutionCanceledEventAttributes;
-      childWorkflowExecutionTerminatedEventAttributes?: ChildWorkflowExecutionTerminatedEventAttributes;
-      signalExternalWorkflowExecutionInitiatedEventAttributes?: SignalExternalWorkflowExecutionInitiatedEventAttributes;
-      externalWorkflowExecutionSignaledEventAttributes?: ExternalWorkflowExecutionSignaledEventAttributes;
-      signalExternalWorkflowExecutionFailedEventAttributes?: SignalExternalWorkflowExecutionFailedEventAttributes;
-      externalWorkflowExecutionCancelRequestedEventAttributes?: ExternalWorkflowExecutionCancelRequestedEventAttributes;
-      requestCancelExternalWorkflowExecutionInitiatedEventAttributes?: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes;
-      requestCancelExternalWorkflowExecutionFailedEventAttributes?: RequestCancelExternalWorkflowExecutionFailedEventAttributes;
-      scheduleActivityTaskFailedEventAttributes?: ScheduleActivityTaskFailedEventAttributes;
-      requestCancelActivityTaskFailedEventAttributes?: RequestCancelActivityTaskFailedEventAttributes;
-      startTimerFailedEventAttributes?: StartTimerFailedEventAttributes;
-      cancelTimerFailedEventAttributes?: CancelTimerFailedEventAttributes;
-      startChildWorkflowExecutionFailedEventAttributes?: StartChildWorkflowExecutionFailedEventAttributes;
+    export interface SWFHistoryEvent {
+        eventTimestamp: SWFTimestamp;
+        eventType: SWFEventType;
+        eventId: SWFEventId;
+        workflowExecutionStartedEventAttributes?: SWFWorkflowExecutionStartedEventAttributes;
+        workflowExecutionCompletedEventAttributes?: SWFWorkflowExecutionCompletedEventAttributes;
+        completeWorkflowExecutionFailedEventAttributes?: SWFCompleteWorkflowExecutionFailedEventAttributes;
+        workflowExecutionFailedEventAttributes?: SWFWorkflowExecutionFailedEventAttributes;
+        failWorkflowExecutionFailedEventAttributes?: SWFFailWorkflowExecutionFailedEventAttributes;
+        workflowExecutionTimedOutEventAttributes?: SWFWorkflowExecutionTimedOutEventAttributes;
+        workflowExecutionCanceledEventAttributes?: SWFWorkflowExecutionCanceledEventAttributes;
+        cancelWorkflowExecutionFailedEventAttributes?: SWFCancelWorkflowExecutionFailedEventAttributes;
+        workflowExecutionContinuedAsNewEventAttributes?: SWFWorkflowExecutionContinuedAsNewEventAttributes;
+        continueAsNewWorkflowExecutionFailedEventAttributes?: SWFContinueAsNewWorkflowExecutionFailedEventAttributes;
+        workflowExecutionTerminatedEventAttributes?: SWFWorkflowExecutionTerminatedEventAttributes;
+        workflowExecutionCancelRequestedEventAttributes?: SWFWorkflowExecutionCancelRequestedEventAttributes;
+        decisionTaskScheduledEventAttributes?: SWFDecisionTaskScheduledEventAttributes;
+        decisionTaskStartedEventAttributes?: SWFDecisionTaskStartedEventAttributes;
+        decisionTaskCompletedEventAttributes?: SWFDecisionTaskCompletedEventAttributes;
+        decisionTaskTimedOutEventAttributes?: SWFDecisionTaskTimedOutEventAttributes;
+        activityTaskScheduledEventAttributes?: SWFActivityTaskScheduledEventAttributes;
+        activityTaskStartedEventAttributes?: SWFActivityTaskStartedEventAttributes;
+        activityTaskCompletedEventAttributes?: SWFActivityTaskCompletedEventAttributes;
+        activityTaskFailedEventAttributes?: SWFActivityTaskFailedEventAttributes;
+        activityTaskTimedOutEventAttributes?: SWFActivityTaskTimedOutEventAttributes;
+        activityTaskCanceledEventAttributes?: SWFActivityTaskCanceledEventAttributes;
+        activityTaskCancelRequestedEventAttributes?: SWFActivityTaskCancelRequestedEventAttributes;
+        workflowExecutionSignaledEventAttributes?: SWFWorkflowExecutionSignaledEventAttributes;
+        markerRecordedEventAttributes?: SWFMarkerRecordedEventAttributes;
+        recordMarkerFailedEventAttributes?: SWFRecordMarkerFailedEventAttributes;
+        timerStartedEventAttributes?: SWFTimerStartedEventAttributes;
+        timerFiredEventAttributes?: SWFTimerFiredEventAttributes;
+        timerCanceledEventAttributes?: SWFTimerCanceledEventAttributes;
+        startChildWorkflowExecutionInitiatedEventAttributes?: SWFStartChildWorkflowExecutionInitiatedEventAttributes;
+        childWorkflowExecutionStartedEventAttributes?: SWFChildWorkflowExecutionStartedEventAttributes;
+        childWorkflowExecutionCompletedEventAttributes?: SWFChildWorkflowExecutionCompletedEventAttributes;
+        childWorkflowExecutionFailedEventAttributes?: SWFChildWorkflowExecutionFailedEventAttributes;
+        childWorkflowExecutionTimedOutEventAttributes?: SWFChildWorkflowExecutionTimedOutEventAttributes;
+        childWorkflowExecutionCanceledEventAttributes?: SWFChildWorkflowExecutionCanceledEventAttributes;
+        childWorkflowExecutionTerminatedEventAttributes?: SWFChildWorkflowExecutionTerminatedEventAttributes;
+        signalExternalWorkflowExecutionInitiatedEventAttributes?: SWFSignalExternalWorkflowExecutionInitiatedEventAttributes;
+        externalWorkflowExecutionSignaledEventAttributes?: SWFExternalWorkflowExecutionSignaledEventAttributes;
+        signalExternalWorkflowExecutionFailedEventAttributes?: SWFSignalExternalWorkflowExecutionFailedEventAttributes;
+        externalWorkflowExecutionCancelRequestedEventAttributes?: SWFExternalWorkflowExecutionCancelRequestedEventAttributes;
+        requestCancelExternalWorkflowExecutionInitiatedEventAttributes?: SWFRequestCancelExternalWorkflowExecutionInitiatedEventAttributes;
+        requestCancelExternalWorkflowExecutionFailedEventAttributes?: SWFRequestCancelExternalWorkflowExecutionFailedEventAttributes;
+        scheduleActivityTaskFailedEventAttributes?: SWFScheduleActivityTaskFailedEventAttributes;
+        requestCancelActivityTaskFailedEventAttributes?: SWFRequestCancelActivityTaskFailedEventAttributes;
+        startTimerFailedEventAttributes?: SWFStartTimerFailedEventAttributes;
+        cancelTimerFailedEventAttributes?: SWFCancelTimerFailedEventAttributes;
+        startChildWorkflowExecutionFailedEventAttributes?: SWFStartChildWorkflowExecutionFailedEventAttributes;
     }
-
 
-    export type HistoryEventList = Array<HistoryEvent>;
-
-    export type Identity = string;
-
-    export interface LimitExceededFault {
-      message?: ErrorMessage;
+    export type SWFHistoryEventList = Array<SWFHistoryEvent>;
+    export type SWFIdentity = string;
+    export interface SWFLimitExceededFault {
+        message?: SWFErrorMessage;
     }
-
 
-    export type LimitedData = string;
-
-    export interface ListActivityTypesInput {
-      domain: DomainName;
-      name?: Name;
-      registrationStatus: RegistrationStatus;
-      nextPageToken?: PageToken;
-      maximumPageSize?: PageSize;
-      reverseOrder?: ReverseOrder;
+    export type SWFLimitedData = string;
+    export interface SWFListActivityTypesInput {
+        domain: SWFDomainName;
+        name?: SWFName;
+        registrationStatus: SWFRegistrationStatus;
+        nextPageToken?: SWFPageToken;
+        maximumPageSize?: SWFPageSize;
+        reverseOrder?: SWFReverseOrder;
     }
 
-
-    export interface ListClosedWorkflowExecutionsInput {
-      domain: DomainName;
-      startTimeFilter?: ExecutionTimeFilter;
-      closeTimeFilter?: ExecutionTimeFilter;
-      executionFilter?: WorkflowExecutionFilter;
-      closeStatusFilter?: CloseStatusFilter;
-      typeFilter?: WorkflowTypeFilter;
-      tagFilter?: TagFilter;
-      nextPageToken?: PageToken;
-      maximumPageSize?: PageSize;
-      reverseOrder?: ReverseOrder;
+    export interface SWFListClosedWorkflowExecutionsInput {
+        domain: SWFDomainName;
+        startTimeFilter?: SWFExecutionTimeFilter;
+        closeTimeFilter?: SWFExecutionTimeFilter;
+        executionFilter?: SWFWorkflowExecutionFilter;
+        closeStatusFilter?: SWFCloseStatusFilter;
+        typeFilter?: SWFWorkflowTypeFilter;
+        tagFilter?: SWFTagFilter;
+        nextPageToken?: SWFPageToken;
+        maximumPageSize?: SWFPageSize;
+        reverseOrder?: SWFReverseOrder;
     }
-
 
-    export interface ListDomainsInput {
-      nextPageToken?: PageToken;
-      registrationStatus: RegistrationStatus;
-      maximumPageSize?: PageSize;
-      reverseOrder?: ReverseOrder;
+    export interface SWFListDomainsInput {
+        nextPageToken?: SWFPageToken;
+        registrationStatus: SWFRegistrationStatus;
+        maximumPageSize?: SWFPageSize;
+        reverseOrder?: SWFReverseOrder;
     }
 
-
-    export interface ListOpenWorkflowExecutionsInput {
-      domain: DomainName;
-      startTimeFilter: ExecutionTimeFilter;
-      typeFilter?: WorkflowTypeFilter;
-      tagFilter?: TagFilter;
-      nextPageToken?: PageToken;
-      maximumPageSize?: PageSize;
-      reverseOrder?: ReverseOrder;
-      executionFilter?: WorkflowExecutionFilter;
+    export interface SWFListOpenWorkflowExecutionsInput {
+        domain: SWFDomainName;
+        startTimeFilter: SWFExecutionTimeFilter;
+        typeFilter?: SWFWorkflowTypeFilter;
+        tagFilter?: SWFTagFilter;
+        nextPageToken?: SWFPageToken;
+        maximumPageSize?: SWFPageSize;
+        reverseOrder?: SWFReverseOrder;
+        executionFilter?: SWFWorkflowExecutionFilter;
     }
 
-
-    export interface ListWorkflowTypesInput {
-      domain: DomainName;
-      name?: Name;
-      registrationStatus: RegistrationStatus;
-      nextPageToken?: PageToken;
-      maximumPageSize?: PageSize;
-      reverseOrder?: ReverseOrder;
+    export interface SWFListWorkflowTypesInput {
+        domain: SWFDomainName;
+        name?: SWFName;
+        registrationStatus: SWFRegistrationStatus;
+        nextPageToken?: SWFPageToken;
+        maximumPageSize?: SWFPageSize;
+        reverseOrder?: SWFReverseOrder;
     }
-
 
-    export type MarkerName = string;
-
-    export interface MarkerRecordedEventAttributes {
-      markerName: MarkerName;
-      details?: Data;
-      decisionTaskCompletedEventId: EventId;
+    export type SWFMarkerName = string;
+    export interface SWFMarkerRecordedEventAttributes {
+        markerName: SWFMarkerName;
+        details?: SWFData;
+        decisionTaskCompletedEventId: SWFEventId;
     }
-
-
-    export type Name = string;
-
-    export type OpenDecisionTasksCount = number;
 
-    export interface OperationNotPermittedFault {
-      message?: ErrorMessage;
+    export type SWFName = string;
+    export type SWFOpenDecisionTasksCount = number;
+    export interface SWFOperationNotPermittedFault {
+        message?: SWFErrorMessage;
     }
 
-
-    export type PageSize = number;
-
-    export type PageToken = string;
-
-    export interface PendingTaskCount {
-      count: Count;
-      truncated?: Truncated;
+    export type SWFPageSize = number;
+    export type SWFPageToken = string;
+    export interface SWFPendingTaskCount {
+        count: SWFCount;
+        truncated?: SWFTruncated;
     }
 
-
-    export interface PollForActivityTaskInput {
-      domain: DomainName;
-      taskList: TaskList;
-      identity?: Identity;
+    export interface SWFPollForActivityTaskInput {
+        domain: SWFDomainName;
+        taskList: SWFTaskList;
+        identity?: SWFIdentity;
     }
-
 
-    export interface PollForDecisionTaskInput {
-      domain: DomainName;
-      taskList: TaskList;
-      identity?: Identity;
-      nextPageToken?: PageToken;
-      maximumPageSize?: PageSize;
-      reverseOrder?: ReverseOrder;
+    export interface SWFPollForDecisionTaskInput {
+        domain: SWFDomainName;
+        taskList: SWFTaskList;
+        identity?: SWFIdentity;
+        nextPageToken?: SWFPageToken;
+        maximumPageSize?: SWFPageSize;
+        reverseOrder?: SWFReverseOrder;
     }
 
-
-    export interface RecordActivityTaskHeartbeatInput {
-      taskToken: TaskToken;
-      details?: LimitedData;
+    export interface SWFRecordActivityTaskHeartbeatInput {
+        taskToken: SWFTaskToken;
+        details?: SWFLimitedData;
     }
-
 
-    export interface RecordMarkerDecisionAttributes {
-      markerName: MarkerName;
-      details?: Data;
+    export interface SWFRecordMarkerDecisionAttributes {
+        markerName: SWFMarkerName;
+        details?: SWFData;
     }
 
-
-    export type RecordMarkerFailedCause = string;
-
-    export interface RecordMarkerFailedEventAttributes {
-      markerName: MarkerName;
-      cause: RecordMarkerFailedCause;
-      decisionTaskCompletedEventId: EventId;
+    export type SWFRecordMarkerFailedCause = string;
+    export interface SWFRecordMarkerFailedEventAttributes {
+        markerName: SWFMarkerName;
+        cause: SWFRecordMarkerFailedCause;
+        decisionTaskCompletedEventId: SWFEventId;
     }
-
 
-    export interface RegisterActivityTypeInput {
-      domain: DomainName;
-      name: Name;
-      version: Version;
-      description?: Description;
-      defaultTaskStartToCloseTimeout?: DurationInSecondsOptional;
-      defaultTaskHeartbeatTimeout?: DurationInSecondsOptional;
-      defaultTaskList?: TaskList;
-      defaultTaskPriority?: TaskPriority;
-      defaultTaskScheduleToStartTimeout?: DurationInSecondsOptional;
-      defaultTaskScheduleToCloseTimeout?: DurationInSecondsOptional;
+    export interface SWFRegisterActivityTypeInput {
+        domain: SWFDomainName;
+        name: SWFName;
+        version: SWFVersion;
+        description?: SWFDescription;
+        defaultTaskStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        defaultTaskHeartbeatTimeout?: SWFDurationInSecondsOptional;
+        defaultTaskList?: SWFTaskList;
+        defaultTaskPriority?: SWFTaskPriority;
+        defaultTaskScheduleToStartTimeout?: SWFDurationInSecondsOptional;
+        defaultTaskScheduleToCloseTimeout?: SWFDurationInSecondsOptional;
     }
 
-
-    export interface RegisterDomainInput {
-      name: DomainName;
-      description?: Description;
-      workflowExecutionRetentionPeriodInDays: DurationInDays;
+    export interface SWFRegisterDomainInput {
+        name: SWFDomainName;
+        description?: SWFDescription;
+        workflowExecutionRetentionPeriodInDays: SWFDurationInDays;
     }
-
 
-    export interface RegisterWorkflowTypeInput {
-      domain: DomainName;
-      name: Name;
-      version: Version;
-      description?: Description;
-      defaultTaskStartToCloseTimeout?: DurationInSecondsOptional;
-      defaultExecutionStartToCloseTimeout?: DurationInSecondsOptional;
-      defaultTaskList?: TaskList;
-      defaultTaskPriority?: TaskPriority;
-      defaultChildPolicy?: ChildPolicy;
+    export interface SWFRegisterWorkflowTypeInput {
+        domain: SWFDomainName;
+        name: SWFName;
+        version: SWFVersion;
+        description?: SWFDescription;
+        defaultTaskStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        defaultExecutionStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        defaultTaskList?: SWFTaskList;
+        defaultTaskPriority?: SWFTaskPriority;
+        defaultChildPolicy?: SWFChildPolicy;
     }
-
-
-    export type RegistrationStatus = string;
 
-    export interface RequestCancelActivityTaskDecisionAttributes {
-      activityId: ActivityId;
+    export type SWFRegistrationStatus = string;
+    export interface SWFRequestCancelActivityTaskDecisionAttributes {
+        activityId: SWFActivityId;
     }
 
-
-    export type RequestCancelActivityTaskFailedCause = string;
-
-    export interface RequestCancelActivityTaskFailedEventAttributes {
-      activityId: ActivityId;
-      cause: RequestCancelActivityTaskFailedCause;
-      decisionTaskCompletedEventId: EventId;
+    export type SWFRequestCancelActivityTaskFailedCause = string;
+    export interface SWFRequestCancelActivityTaskFailedEventAttributes {
+        activityId: SWFActivityId;
+        cause: SWFRequestCancelActivityTaskFailedCause;
+        decisionTaskCompletedEventId: SWFEventId;
     }
-
 
-    export interface RequestCancelExternalWorkflowExecutionDecisionAttributes {
-      workflowId: WorkflowId;
-      runId?: RunIdOptional;
-      control?: Data;
+    export interface SWFRequestCancelExternalWorkflowExecutionDecisionAttributes {
+        workflowId: SWFWorkflowId;
+        runId?: SWFRunIdOptional;
+        control?: SWFData;
     }
 
-
-    export type RequestCancelExternalWorkflowExecutionFailedCause = string;
-
-    export interface RequestCancelExternalWorkflowExecutionFailedEventAttributes {
-      workflowId: WorkflowId;
-      runId?: RunIdOptional;
-      cause: RequestCancelExternalWorkflowExecutionFailedCause;
-      initiatedEventId: EventId;
-      decisionTaskCompletedEventId: EventId;
-      control?: Data;
+    export type SWFRequestCancelExternalWorkflowExecutionFailedCause = string;
+    export interface SWFRequestCancelExternalWorkflowExecutionFailedEventAttributes {
+        workflowId: SWFWorkflowId;
+        runId?: SWFRunIdOptional;
+        cause: SWFRequestCancelExternalWorkflowExecutionFailedCause;
+        initiatedEventId: SWFEventId;
+        decisionTaskCompletedEventId: SWFEventId;
+        control?: SWFData;
     }
-
 
-    export interface RequestCancelExternalWorkflowExecutionInitiatedEventAttributes {
-      workflowId: WorkflowId;
-      runId?: RunIdOptional;
-      decisionTaskCompletedEventId: EventId;
-      control?: Data;
+    export interface SWFRequestCancelExternalWorkflowExecutionInitiatedEventAttributes {
+        workflowId: SWFWorkflowId;
+        runId?: SWFRunIdOptional;
+        decisionTaskCompletedEventId: SWFEventId;
+        control?: SWFData;
     }
 
-
-    export interface RequestCancelWorkflowExecutionInput {
-      domain: DomainName;
-      workflowId: WorkflowId;
-      runId?: RunIdOptional;
+    export interface SWFRequestCancelWorkflowExecutionInput {
+        domain: SWFDomainName;
+        workflowId: SWFWorkflowId;
+        runId?: SWFRunIdOptional;
     }
 
-
-    export interface RespondActivityTaskCanceledInput {
-      taskToken: TaskToken;
-      details?: Data;
+    export interface SWFRespondActivityTaskCanceledInput {
+        taskToken: SWFTaskToken;
+        details?: SWFData;
     }
-
 
-    export interface RespondActivityTaskCompletedInput {
-      taskToken: TaskToken;
-      result?: Data;
+    export interface SWFRespondActivityTaskCompletedInput {
+        taskToken: SWFTaskToken;
+        result?: SWFData;
     }
 
-
-    export interface RespondActivityTaskFailedInput {
-      taskToken: TaskToken;
-      reason?: FailureReason;
-      details?: Data;
+    export interface SWFRespondActivityTaskFailedInput {
+        taskToken: SWFTaskToken;
+        reason?: SWFFailureReason;
+        details?: SWFData;
     }
-
 
-    export interface RespondDecisionTaskCompletedInput {
-      taskToken: TaskToken;
-      decisions?: DecisionList;
-      executionContext?: Data;
+    export interface SWFRespondDecisionTaskCompletedInput {
+        taskToken: SWFTaskToken;
+        decisions?: SWFDecisionList;
+        executionContext?: SWFData;
     }
-
-
-    export type ReverseOrder = boolean;
 
-    export interface Run {
-      runId?: RunId;
+    export type SWFReverseOrder = boolean;
+    export interface SWFRun {
+        runId?: SWFRunId;
     }
 
-
-    export type RunId = string;
-
-    export type RunIdOptional = string;
-
-    export interface ScheduleActivityTaskDecisionAttributes {
-      activityType: ActivityType;
-      activityId: ActivityId;
-      control?: Data;
-      input?: Data;
-      scheduleToCloseTimeout?: DurationInSecondsOptional;
-      taskList?: TaskList;
-      taskPriority?: TaskPriority;
-      scheduleToStartTimeout?: DurationInSecondsOptional;
-      startToCloseTimeout?: DurationInSecondsOptional;
-      heartbeatTimeout?: DurationInSecondsOptional;
+    export type SWFRunId = string;
+    export type SWFRunIdOptional = string;
+    export interface SWFScheduleActivityTaskDecisionAttributes {
+        activityType: SWFActivityType;
+        activityId: SWFActivityId;
+        control?: SWFData;
+        input?: SWFData;
+        scheduleToCloseTimeout?: SWFDurationInSecondsOptional;
+        taskList?: SWFTaskList;
+        taskPriority?: SWFTaskPriority;
+        scheduleToStartTimeout?: SWFDurationInSecondsOptional;
+        startToCloseTimeout?: SWFDurationInSecondsOptional;
+        heartbeatTimeout?: SWFDurationInSecondsOptional;
     }
 
-
-    export type ScheduleActivityTaskFailedCause = string;
-
-    export interface ScheduleActivityTaskFailedEventAttributes {
-      activityType: ActivityType;
-      activityId: ActivityId;
-      cause: ScheduleActivityTaskFailedCause;
-      decisionTaskCompletedEventId: EventId;
+    export type SWFScheduleActivityTaskFailedCause = string;
+    export interface SWFScheduleActivityTaskFailedEventAttributes {
+        activityType: SWFActivityType;
+        activityId: SWFActivityId;
+        cause: SWFScheduleActivityTaskFailedCause;
+        decisionTaskCompletedEventId: SWFEventId;
     }
 
-
-    export interface SignalExternalWorkflowExecutionDecisionAttributes {
-      workflowId: WorkflowId;
-      runId?: RunIdOptional;
-      signalName: SignalName;
-      input?: Data;
-      control?: Data;
+    export interface SWFSignalExternalWorkflowExecutionDecisionAttributes {
+        workflowId: SWFWorkflowId;
+        runId?: SWFRunIdOptional;
+        signalName: SWFSignalName;
+        input?: SWFData;
+        control?: SWFData;
     }
-
 
-    export type SignalExternalWorkflowExecutionFailedCause = string;
-
-    export interface SignalExternalWorkflowExecutionFailedEventAttributes {
-      workflowId: WorkflowId;
-      runId?: RunIdOptional;
-      cause: SignalExternalWorkflowExecutionFailedCause;
-      initiatedEventId: EventId;
-      decisionTaskCompletedEventId: EventId;
-      control?: Data;
+    export type SWFSignalExternalWorkflowExecutionFailedCause = string;
+    export interface SWFSignalExternalWorkflowExecutionFailedEventAttributes {
+        workflowId: SWFWorkflowId;
+        runId?: SWFRunIdOptional;
+        cause: SWFSignalExternalWorkflowExecutionFailedCause;
+        initiatedEventId: SWFEventId;
+        decisionTaskCompletedEventId: SWFEventId;
+        control?: SWFData;
     }
 
-
-    export interface SignalExternalWorkflowExecutionInitiatedEventAttributes {
-      workflowId: WorkflowId;
-      runId?: RunIdOptional;
-      signalName: SignalName;
-      input?: Data;
-      decisionTaskCompletedEventId: EventId;
-      control?: Data;
+    export interface SWFSignalExternalWorkflowExecutionInitiatedEventAttributes {
+        workflowId: SWFWorkflowId;
+        runId?: SWFRunIdOptional;
+        signalName: SWFSignalName;
+        input?: SWFData;
+        decisionTaskCompletedEventId: SWFEventId;
+        control?: SWFData;
     }
-
 
-    export type SignalName = string;
-
-    export interface SignalWorkflowExecutionInput {
-      domain: DomainName;
-      workflowId: WorkflowId;
-      runId?: RunIdOptional;
-      signalName: SignalName;
-      input?: Data;
+    export type SWFSignalName = string;
+    export interface SWFSignalWorkflowExecutionInput {
+        domain: SWFDomainName;
+        workflowId: SWFWorkflowId;
+        runId?: SWFRunIdOptional;
+        signalName: SWFSignalName;
+        input?: SWFData;
     }
-
 
-    export interface StartChildWorkflowExecutionDecisionAttributes {
-      workflowType: WorkflowType;
-      workflowId: WorkflowId;
-      control?: Data;
-      input?: Data;
-      executionStartToCloseTimeout?: DurationInSecondsOptional;
-      taskList?: TaskList;
-      taskPriority?: TaskPriority;
-      taskStartToCloseTimeout?: DurationInSecondsOptional;
-      childPolicy?: ChildPolicy;
-      tagList?: TagList;
+    export interface SWFStartChildWorkflowExecutionDecisionAttributes {
+        workflowType: SWFWorkflowType;
+        workflowId: SWFWorkflowId;
+        control?: SWFData;
+        input?: SWFData;
+        executionStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        taskList?: SWFTaskList;
+        taskPriority?: SWFTaskPriority;
+        taskStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        childPolicy?: SWFChildPolicy;
+        tagList?: SWFTagList;
     }
-
-
-    export type StartChildWorkflowExecutionFailedCause = string;
 
-    export interface StartChildWorkflowExecutionFailedEventAttributes {
-      workflowType: WorkflowType;
-      cause: StartChildWorkflowExecutionFailedCause;
-      workflowId: WorkflowId;
-      initiatedEventId: EventId;
-      decisionTaskCompletedEventId: EventId;
-      control?: Data;
+    export type SWFStartChildWorkflowExecutionFailedCause = string;
+    export interface SWFStartChildWorkflowExecutionFailedEventAttributes {
+        workflowType: SWFWorkflowType;
+        cause: SWFStartChildWorkflowExecutionFailedCause;
+        workflowId: SWFWorkflowId;
+        initiatedEventId: SWFEventId;
+        decisionTaskCompletedEventId: SWFEventId;
+        control?: SWFData;
     }
 
-
-    export interface StartChildWorkflowExecutionInitiatedEventAttributes {
-      workflowId: WorkflowId;
-      workflowType: WorkflowType;
-      control?: Data;
-      input?: Data;
-      executionStartToCloseTimeout?: DurationInSecondsOptional;
-      taskList: TaskList;
-      taskPriority?: TaskPriority;
-      decisionTaskCompletedEventId: EventId;
-      childPolicy: ChildPolicy;
-      taskStartToCloseTimeout?: DurationInSecondsOptional;
-      tagList?: TagList;
+    export interface SWFStartChildWorkflowExecutionInitiatedEventAttributes {
+        workflowId: SWFWorkflowId;
+        workflowType: SWFWorkflowType;
+        control?: SWFData;
+        input?: SWFData;
+        executionStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        taskList: SWFTaskList;
+        taskPriority?: SWFTaskPriority;
+        decisionTaskCompletedEventId: SWFEventId;
+        childPolicy: SWFChildPolicy;
+        taskStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        tagList?: SWFTagList;
     }
 
-
-    export interface StartTimerDecisionAttributes {
-      timerId: TimerId;
-      control?: Data;
-      startToFireTimeout: DurationInSeconds;
+    export interface SWFStartTimerDecisionAttributes {
+        timerId: SWFTimerId;
+        control?: SWFData;
+        startToFireTimeout: SWFDurationInSeconds;
     }
-
 
-    export type StartTimerFailedCause = string;
-
-    export interface StartTimerFailedEventAttributes {
-      timerId: TimerId;
-      cause: StartTimerFailedCause;
-      decisionTaskCompletedEventId: EventId;
+    export type SWFStartTimerFailedCause = string;
+    export interface SWFStartTimerFailedEventAttributes {
+        timerId: SWFTimerId;
+        cause: SWFStartTimerFailedCause;
+        decisionTaskCompletedEventId: SWFEventId;
     }
 
-
-    export interface StartWorkflowExecutionInput {
-      domain: DomainName;
-      workflowId: WorkflowId;
-      workflowType: WorkflowType;
-      taskList?: TaskList;
-      taskPriority?: TaskPriority;
-      input?: Data;
-      executionStartToCloseTimeout?: DurationInSecondsOptional;
-      tagList?: TagList;
-      taskStartToCloseTimeout?: DurationInSecondsOptional;
-      childPolicy?: ChildPolicy;
+    export interface SWFStartWorkflowExecutionInput {
+        domain: SWFDomainName;
+        workflowId: SWFWorkflowId;
+        workflowType: SWFWorkflowType;
+        taskList?: SWFTaskList;
+        taskPriority?: SWFTaskPriority;
+        input?: SWFData;
+        executionStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        tagList?: SWFTagList;
+        taskStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        childPolicy?: SWFChildPolicy;
     }
-
 
-    export type Tag = string;
-
-    export interface TagFilter {
-      tag: Tag;
+    export type SWFTag = string;
+    export interface SWFTagFilter {
+        tag: SWFTag;
     }
-
-
-    export type TagList = Array<Tag>; // max: 5
 
-    export interface TaskList {
-      name: Name;
+    export type SWFTagList = Array<SWFTag>; // max: 5
+    export interface SWFTaskList {
+        name: SWFName;
     }
-
-
-    export type TaskPriority = string;
-
-    export type TaskToken = string;
-
-    export type TerminateReason = string;
 
-    export interface TerminateWorkflowExecutionInput {
-      domain: DomainName;
-      workflowId: WorkflowId;
-      runId?: RunIdOptional;
-      reason?: TerminateReason;
-      details?: Data;
-      childPolicy?: ChildPolicy;
+    export type SWFTaskPriority = string;
+    export type SWFTaskToken = string;
+    export type SWFTerminateReason = string;
+    export interface SWFTerminateWorkflowExecutionInput {
+        domain: SWFDomainName;
+        workflowId: SWFWorkflowId;
+        runId?: SWFRunIdOptional;
+        reason?: SWFTerminateReason;
+        details?: SWFData;
+        childPolicy?: SWFChildPolicy;
     }
 
-
-    export interface TimerCanceledEventAttributes {
-      timerId: TimerId;
-      startedEventId: EventId;
-      decisionTaskCompletedEventId: EventId;
+    export interface SWFTimerCanceledEventAttributes {
+        timerId: SWFTimerId;
+        startedEventId: SWFEventId;
+        decisionTaskCompletedEventId: SWFEventId;
     }
 
-
-    export interface TimerFiredEventAttributes {
-      timerId: TimerId;
-      startedEventId: EventId;
+    export interface SWFTimerFiredEventAttributes {
+        timerId: SWFTimerId;
+        startedEventId: SWFEventId;
     }
-
 
-    export type TimerId = string;
-
-    export interface TimerStartedEventAttributes {
-      timerId: TimerId;
-      control?: Data;
-      startToFireTimeout: DurationInSeconds;
-      decisionTaskCompletedEventId: EventId;
+    export type SWFTimerId = string;
+    export interface SWFTimerStartedEventAttributes {
+        timerId: SWFTimerId;
+        control?: SWFData;
+        startToFireTimeout: SWFDurationInSeconds;
+        decisionTaskCompletedEventId: SWFEventId;
     }
-
-
-    export type Timestamp = number;
-
-    export type Truncated = boolean;
 
-    export interface TypeAlreadyExistsFault {
-      message?: ErrorMessage;
+    export type SWFTimestamp = number;
+    export type SWFTruncated = boolean;
+    export interface SWFTypeAlreadyExistsFault {
+        message?: SWFErrorMessage;
     }
 
-
-    export interface TypeDeprecatedFault {
-      message?: ErrorMessage;
+    export interface SWFTypeDeprecatedFault {
+        message?: SWFErrorMessage;
     }
 
-
-    export interface UnknownResourceFault {
-      message?: ErrorMessage;
+    export interface SWFUnknownResourceFault {
+        message?: SWFErrorMessage;
     }
-
 
-    export type Version = string;
-
-    export type VersionOptional = string;
-
-    export interface WorkflowExecution {
-      workflowId: WorkflowId;
-      runId: RunId;
+    export type SWFVersion = string;
+    export type SWFVersionOptional = string;
+    export interface SWFWorkflowExecution {
+        workflowId: SWFWorkflowId;
+        runId: SWFRunId;
     }
 
-
-    export interface WorkflowExecutionAlreadyStartedFault {
-      message?: ErrorMessage;
+    export interface SWFWorkflowExecutionAlreadyStartedFault {
+        message?: SWFErrorMessage;
     }
-
 
-    export type WorkflowExecutionCancelRequestedCause = string;
-
-    export interface WorkflowExecutionCancelRequestedEventAttributes {
-      externalWorkflowExecution?: WorkflowExecution;
-      externalInitiatedEventId?: EventId;
-      cause?: WorkflowExecutionCancelRequestedCause;
+    export type SWFWorkflowExecutionCancelRequestedCause = string;
+    export interface SWFWorkflowExecutionCancelRequestedEventAttributes {
+        externalWorkflowExecution?: SWFWorkflowExecution;
+        externalInitiatedEventId?: SWFEventId;
+        cause?: SWFWorkflowExecutionCancelRequestedCause;
     }
 
-
-    export interface WorkflowExecutionCanceledEventAttributes {
-      details?: Data;
-      decisionTaskCompletedEventId: EventId;
+    export interface SWFWorkflowExecutionCanceledEventAttributes {
+        details?: SWFData;
+        decisionTaskCompletedEventId: SWFEventId;
     }
-
 
-    export interface WorkflowExecutionCompletedEventAttributes {
-      result?: Data;
-      decisionTaskCompletedEventId: EventId;
+    export interface SWFWorkflowExecutionCompletedEventAttributes {
+        result?: SWFData;
+        decisionTaskCompletedEventId: SWFEventId;
     }
 
-
-    export interface WorkflowExecutionConfiguration {
-      taskStartToCloseTimeout: DurationInSeconds;
-      executionStartToCloseTimeout: DurationInSeconds;
-      taskList: TaskList;
-      taskPriority?: TaskPriority;
-      childPolicy: ChildPolicy;
+    export interface SWFWorkflowExecutionConfiguration {
+        taskStartToCloseTimeout: SWFDurationInSeconds;
+        executionStartToCloseTimeout: SWFDurationInSeconds;
+        taskList: SWFTaskList;
+        taskPriority?: SWFTaskPriority;
+        childPolicy: SWFChildPolicy;
     }
-
 
-    export interface WorkflowExecutionContinuedAsNewEventAttributes {
-      input?: Data;
-      decisionTaskCompletedEventId: EventId;
-      newExecutionRunId: RunId;
-      executionStartToCloseTimeout?: DurationInSecondsOptional;
-      taskList: TaskList;
-      taskPriority?: TaskPriority;
-      taskStartToCloseTimeout?: DurationInSecondsOptional;
-      childPolicy: ChildPolicy;
-      tagList?: TagList;
-      workflowType: WorkflowType;
+    export interface SWFWorkflowExecutionContinuedAsNewEventAttributes {
+        input?: SWFData;
+        decisionTaskCompletedEventId: SWFEventId;
+        newExecutionRunId: SWFRunId;
+        executionStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        taskList: SWFTaskList;
+        taskPriority?: SWFTaskPriority;
+        taskStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        childPolicy: SWFChildPolicy;
+        tagList?: SWFTagList;
+        workflowType: SWFWorkflowType;
     }
 
-
-    export interface WorkflowExecutionCount {
-      count: Count;
-      truncated?: Truncated;
+    export interface SWFWorkflowExecutionCount {
+        count: SWFCount;
+        truncated?: SWFTruncated;
     }
-
 
-    export interface WorkflowExecutionDetail {
-      executionInfo: WorkflowExecutionInfo;
-      executionConfiguration: WorkflowExecutionConfiguration;
-      openCounts: WorkflowExecutionOpenCounts;
-      latestActivityTaskTimestamp?: Timestamp;
-      latestExecutionContext?: Data;
+    export interface SWFWorkflowExecutionDetail {
+        executionInfo: SWFWorkflowExecutionInfo;
+        executionConfiguration: SWFWorkflowExecutionConfiguration;
+        openCounts: SWFWorkflowExecutionOpenCounts;
+        latestActivityTaskTimestamp?: SWFTimestamp;
+        latestExecutionContext?: SWFData;
     }
 
-
-    export interface WorkflowExecutionFailedEventAttributes {
-      reason?: FailureReason;
-      details?: Data;
-      decisionTaskCompletedEventId: EventId;
+    export interface SWFWorkflowExecutionFailedEventAttributes {
+        reason?: SWFFailureReason;
+        details?: SWFData;
+        decisionTaskCompletedEventId: SWFEventId;
     }
 
-
-    export interface WorkflowExecutionFilter {
-      workflowId: WorkflowId;
+    export interface SWFWorkflowExecutionFilter {
+        workflowId: SWFWorkflowId;
     }
-
 
-    export interface WorkflowExecutionInfo {
-      execution: WorkflowExecution;
-      workflowType: WorkflowType;
-      startTimestamp: Timestamp;
-      closeTimestamp?: Timestamp;
-      executionStatus: ExecutionStatus;
-      closeStatus?: CloseStatus;
-      parent?: WorkflowExecution;
-      tagList?: TagList;
-      cancelRequested?: Canceled;
+    export interface SWFWorkflowExecutionInfo {
+        execution: SWFWorkflowExecution;
+        workflowType: SWFWorkflowType;
+        startTimestamp: SWFTimestamp;
+        closeTimestamp?: SWFTimestamp;
+        executionStatus: SWFExecutionStatus;
+        closeStatus?: SWFCloseStatus;
+        parent?: SWFWorkflowExecution;
+        tagList?: SWFTagList;
+        cancelRequested?: SWFCanceled;
     }
 
-
-    export type WorkflowExecutionInfoList = Array<WorkflowExecutionInfo>;
-
-    export interface WorkflowExecutionInfos {
-      executionInfos: WorkflowExecutionInfoList;
-      nextPageToken?: PageToken;
+    export type SWFWorkflowExecutionInfoList = Array<SWFWorkflowExecutionInfo>;
+    export interface SWFWorkflowExecutionInfos {
+        executionInfos: SWFWorkflowExecutionInfoList;
+        nextPageToken?: SWFPageToken;
     }
 
-
-    export interface WorkflowExecutionOpenCounts {
-      openActivityTasks: Count;
-      openDecisionTasks: OpenDecisionTasksCount;
-      openTimers: Count;
-      openChildWorkflowExecutions: Count;
+    export interface SWFWorkflowExecutionOpenCounts {
+        openActivityTasks: SWFCount;
+        openDecisionTasks: SWFOpenDecisionTasksCount;
+        openTimers: SWFCount;
+        openChildWorkflowExecutions: SWFCount;
     }
-
 
-    export interface WorkflowExecutionSignaledEventAttributes {
-      signalName: SignalName;
-      input?: Data;
-      externalWorkflowExecution?: WorkflowExecution;
-      externalInitiatedEventId?: EventId;
+    export interface SWFWorkflowExecutionSignaledEventAttributes {
+        signalName: SWFSignalName;
+        input?: SWFData;
+        externalWorkflowExecution?: SWFWorkflowExecution;
+        externalInitiatedEventId?: SWFEventId;
     }
 
-
-    export interface WorkflowExecutionStartedEventAttributes {
-      input?: Data;
-      executionStartToCloseTimeout?: DurationInSecondsOptional;
-      taskStartToCloseTimeout?: DurationInSecondsOptional;
-      childPolicy: ChildPolicy;
-      taskList: TaskList;
-      workflowType: WorkflowType;
-      tagList?: TagList;
-      taskPriority?: TaskPriority;
-      continuedExecutionRunId?: RunIdOptional;
-      parentWorkflowExecution?: WorkflowExecution;
-      parentInitiatedEventId?: EventId;
+    export interface SWFWorkflowExecutionStartedEventAttributes {
+        input?: SWFData;
+        executionStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        taskStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        childPolicy: SWFChildPolicy;
+        taskList: SWFTaskList;
+        workflowType: SWFWorkflowType;
+        tagList?: SWFTagList;
+        taskPriority?: SWFTaskPriority;
+        continuedExecutionRunId?: SWFRunIdOptional;
+        parentWorkflowExecution?: SWFWorkflowExecution;
+        parentInitiatedEventId?: SWFEventId;
     }
-
-
-    export type WorkflowExecutionTerminatedCause = string;
 
-    export interface WorkflowExecutionTerminatedEventAttributes {
-      reason?: TerminateReason;
-      details?: Data;
-      childPolicy: ChildPolicy;
-      cause?: WorkflowExecutionTerminatedCause;
+    export type SWFWorkflowExecutionTerminatedCause = string;
+    export interface SWFWorkflowExecutionTerminatedEventAttributes {
+        reason?: SWFTerminateReason;
+        details?: SWFData;
+        childPolicy: SWFChildPolicy;
+        cause?: SWFWorkflowExecutionTerminatedCause;
     }
 
-
-    export interface WorkflowExecutionTimedOutEventAttributes {
-      timeoutType: WorkflowExecutionTimeoutType;
-      childPolicy: ChildPolicy;
+    export interface SWFWorkflowExecutionTimedOutEventAttributes {
+        timeoutType: SWFWorkflowExecutionTimeoutType;
+        childPolicy: SWFChildPolicy;
     }
-
-
-    export type WorkflowExecutionTimeoutType = string;
-
-    export type WorkflowId = string;
 
-    export interface WorkflowType {
-      name: Name;
-      version: Version;
+    export type SWFWorkflowExecutionTimeoutType = string;
+    export type SWFWorkflowId = string;
+    export interface SWFWorkflowType {
+        name: SWFName;
+        version: SWFVersion;
     }
 
-
-    export interface WorkflowTypeConfiguration {
-      defaultTaskStartToCloseTimeout?: DurationInSecondsOptional;
-      defaultExecutionStartToCloseTimeout?: DurationInSecondsOptional;
-      defaultTaskList?: TaskList;
-      defaultTaskPriority?: TaskPriority;
-      defaultChildPolicy?: ChildPolicy;
+    export interface SWFWorkflowTypeConfiguration {
+        defaultTaskStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        defaultExecutionStartToCloseTimeout?: SWFDurationInSecondsOptional;
+        defaultTaskList?: SWFTaskList;
+        defaultTaskPriority?: SWFTaskPriority;
+        defaultChildPolicy?: SWFChildPolicy;
     }
 
-
-    export interface WorkflowTypeDetail {
-      typeInfo: WorkflowTypeInfo;
-      configuration: WorkflowTypeConfiguration;
+    export interface SWFWorkflowTypeDetail {
+        typeInfo: SWFWorkflowTypeInfo;
+        configuration: SWFWorkflowTypeConfiguration;
     }
-
 
-    export interface WorkflowTypeFilter {
-      name: Name;
-      version?: VersionOptional;
+    export interface SWFWorkflowTypeFilter {
+        name: SWFName;
+        version?: SWFVersionOptional;
     }
 
-
-    export interface WorkflowTypeInfo {
-      workflowType: WorkflowType;
-      status: RegistrationStatus;
-      description?: Description;
-      creationDate: Timestamp;
-      deprecationDate?: Timestamp;
+    export interface SWFWorkflowTypeInfo {
+        workflowType: SWFWorkflowType;
+        status: SWFRegistrationStatus;
+        description?: SWFDescription;
+        creationDate: SWFTimestamp;
+        deprecationDate?: SWFTimestamp;
     }
-
 
-    export type WorkflowTypeInfoList = Array<WorkflowTypeInfo>;
-
-    export interface WorkflowTypeInfos {
-      typeInfos: WorkflowTypeInfoList;
-      nextPageToken?: PageToken;
+    export type SWFWorkflowTypeInfoList = Array<SWFWorkflowTypeInfo>;
+    export interface SWFWorkflowTypeInfos {
+        typeInfos: SWFWorkflowTypeInfoList;
+        nextPageToken?: SWFPageToken;
     }
-
 
 }

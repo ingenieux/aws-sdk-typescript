@@ -3,310 +3,239 @@
 declare module "aws-sdk" {
     export class SSM {
       constructor(options?: any);
-      createAssociation(params: CreateAssociationRequest, callback: (err: AssociationAlreadyExists|AssociationLimitExceeded|InternalServerError|InvalidDocument|InvalidInstanceId|any, data: CreateAssociationResult|any) => void): void;
-      createAssociationBatch(params: CreateAssociationBatchRequest, callback: (err: InternalServerError|InvalidDocument|InvalidInstanceId|DuplicateInstanceId|AssociationLimitExceeded|any, data: CreateAssociationBatchResult|any) => void): void;
-      createDocument(params: CreateDocumentRequest, callback: (err: DocumentAlreadyExists|MaxDocumentSizeExceeded|InternalServerError|InvalidDocumentContent|DocumentLimitExceeded|any, data: CreateDocumentResult|any) => void): void;
-      deleteAssociation(params: DeleteAssociationRequest, callback: (err: AssociationDoesNotExist|InternalServerError|InvalidDocument|InvalidInstanceId|TooManyUpdates|any, data: DeleteAssociationResult|any) => void): void;
-      deleteDocument(params: DeleteDocumentRequest, callback: (err: InternalServerError|InvalidDocument|AssociatedInstances|any, data: DeleteDocumentResult|any) => void): void;
-      describeAssociation(params: DescribeAssociationRequest, callback: (err: AssociationDoesNotExist|InternalServerError|InvalidDocument|InvalidInstanceId|any, data: DescribeAssociationResult|any) => void): void;
-      describeDocument(params: DescribeDocumentRequest, callback: (err: InternalServerError|InvalidDocument|any, data: DescribeDocumentResult|any) => void): void;
-      getDocument(params: GetDocumentRequest, callback: (err: InternalServerError|InvalidDocument|any, data: GetDocumentResult|any) => void): void;
-      listAssociations(params: ListAssociationsRequest, callback: (err: InternalServerError|InvalidNextToken|any, data: ListAssociationsResult|any) => void): void;
-      listDocuments(params: ListDocumentsRequest, callback: (err: InternalServerError|InvalidNextToken|any, data: ListDocumentsResult|any) => void): void;
-      updateAssociationStatus(params: UpdateAssociationStatusRequest, callback: (err: InternalServerError|InvalidInstanceId|InvalidDocument|AssociationDoesNotExist|StatusUnchanged|TooManyUpdates|any, data: UpdateAssociationStatusResult|any) => void): void;
+      createAssociation(params: SSMCreateAssociationRequest, callback: (err: SSMAssociationAlreadyExists|SSMAssociationLimitExceeded|SSMInternalServerError|SSMInvalidDocument|SSMInvalidInstanceId|any, data: SSMCreateAssociationResult|any) => void): void;
+      createAssociationBatch(params: SSMCreateAssociationBatchRequest, callback: (err: SSMInternalServerError|SSMInvalidDocument|SSMInvalidInstanceId|SSMDuplicateInstanceId|SSMAssociationLimitExceeded|any, data: SSMCreateAssociationBatchResult|any) => void): void;
+      createDocument(params: SSMCreateDocumentRequest, callback: (err: SSMDocumentAlreadyExists|SSMMaxDocumentSizeExceeded|SSMInternalServerError|SSMInvalidDocumentContent|SSMDocumentLimitExceeded|any, data: SSMCreateDocumentResult|any) => void): void;
+      deleteAssociation(params: SSMDeleteAssociationRequest, callback: (err: SSMAssociationDoesNotExist|SSMInternalServerError|SSMInvalidDocument|SSMInvalidInstanceId|SSMTooManyUpdates|any, data: SSMDeleteAssociationResult|any) => void): void;
+      deleteDocument(params: SSMDeleteDocumentRequest, callback: (err: SSMInternalServerError|SSMInvalidDocument|SSMAssociatedInstances|any, data: SSMDeleteDocumentResult|any) => void): void;
+      describeAssociation(params: SSMDescribeAssociationRequest, callback: (err: SSMAssociationDoesNotExist|SSMInternalServerError|SSMInvalidDocument|SSMInvalidInstanceId|any, data: SSMDescribeAssociationResult|any) => void): void;
+      describeDocument(params: SSMDescribeDocumentRequest, callback: (err: SSMInternalServerError|SSMInvalidDocument|any, data: SSMDescribeDocumentResult|any) => void): void;
+      getDocument(params: SSMGetDocumentRequest, callback: (err: SSMInternalServerError|SSMInvalidDocument|any, data: SSMGetDocumentResult|any) => void): void;
+      listAssociations(params: SSMListAssociationsRequest, callback: (err: SSMInternalServerError|SSMInvalidNextToken|any, data: SSMListAssociationsResult|any) => void): void;
+      listDocuments(params: SSMListDocumentsRequest, callback: (err: SSMInternalServerError|SSMInvalidNextToken|any, data: SSMListDocumentsResult|any) => void): void;
+      updateAssociationStatus(params: SSMUpdateAssociationStatusRequest, callback: (err: SSMInternalServerError|SSMInvalidInstanceId|SSMInvalidDocument|SSMAssociationDoesNotExist|SSMStatusUnchanged|SSMTooManyUpdates|any, data: SSMUpdateAssociationStatusResult|any) => void): void;
     }
 
-    export interface AssociatedInstances {
+    export interface SSMAssociatedInstances {
     }
 
-
-    export interface Association {
-      Name?: DocumentName;
-      InstanceId?: InstanceId;
+    export interface SSMAssociation {
+        Name?: SSMDocumentName;
+        InstanceId?: SSMInstanceId;
     }
 
-
-    export interface AssociationAlreadyExists {
+    export interface SSMAssociationAlreadyExists {
     }
 
-
-    export interface AssociationDescription {
-      Name?: DocumentName;
-      InstanceId?: InstanceId;
-      Date?: DateTime;
-      Status?: AssociationStatus;
+    export interface SSMAssociationDescription {
+        Name?: SSMDocumentName;
+        InstanceId?: SSMInstanceId;
+        Date?: SSMDateTime;
+        Status?: SSMAssociationStatus;
     }
 
-
-    export type AssociationDescriptionList = Array<AssociationDescription>;
-
-    export interface AssociationDoesNotExist {
+    export type SSMAssociationDescriptionList = Array<SSMAssociationDescription>;
+    export interface SSMAssociationDoesNotExist {
     }
 
-
-    export interface AssociationFilter {
-      key: AssociationFilterKey;
-      value: AssociationFilterValue;
+    export interface SSMAssociationFilter {
+        key: SSMAssociationFilterKey;
+        value: SSMAssociationFilterValue;
     }
 
-
-    export type AssociationFilterKey = string;
-
-    export type AssociationFilterList = Array<AssociationFilter>;
-
-    export type AssociationFilterValue = string;
-
-    export interface AssociationLimitExceeded {
+    export type SSMAssociationFilterKey = string;
+    export type SSMAssociationFilterList = Array<SSMAssociationFilter>;
+    export type SSMAssociationFilterValue = string;
+    export interface SSMAssociationLimitExceeded {
     }
 
-
-    export type AssociationList = Array<Association>;
-
-    export interface AssociationStatus {
-      Date: DateTime;
-      Name: AssociationStatusName;
-      Message: StatusMessage;
-      AdditionalInfo?: StatusAdditionalInfo;
+    export type SSMAssociationList = Array<SSMAssociation>;
+    export interface SSMAssociationStatus {
+        Date: SSMDateTime;
+        Name: SSMAssociationStatusName;
+        Message: SSMStatusMessage;
+        AdditionalInfo?: SSMStatusAdditionalInfo;
     }
 
-
-    export type AssociationStatusName = string;
-
-    export type BatchErrorMessage = string;
-
-    export interface CreateAssociationBatchRequest {
-      Entries: CreateAssociationBatchRequestEntries;
+    export type SSMAssociationStatusName = string;
+    export type SSMBatchErrorMessage = string;
+    export interface SSMCreateAssociationBatchRequest {
+        Entries: SSMCreateAssociationBatchRequestEntries;
     }
 
-
-    export type CreateAssociationBatchRequestEntries = Array<CreateAssociationBatchRequestEntry>;
-
-    export interface CreateAssociationBatchRequestEntry {
-      Name?: DocumentName;
-      InstanceId?: InstanceId;
+    export type SSMCreateAssociationBatchRequestEntries = Array<SSMCreateAssociationBatchRequestEntry>;
+    export interface SSMCreateAssociationBatchRequestEntry {
+        Name?: SSMDocumentName;
+        InstanceId?: SSMInstanceId;
     }
 
-
-    export interface CreateAssociationBatchResult {
-      Successful?: AssociationDescriptionList;
-      Failed?: FailedCreateAssociationList;
+    export interface SSMCreateAssociationBatchResult {
+        Successful?: SSMAssociationDescriptionList;
+        Failed?: SSMFailedCreateAssociationList;
     }
 
-
-    export interface CreateAssociationRequest {
-      Name: DocumentName;
-      InstanceId: InstanceId;
+    export interface SSMCreateAssociationRequest {
+        Name: SSMDocumentName;
+        InstanceId: SSMInstanceId;
     }
 
-
-    export interface CreateAssociationResult {
-      AssociationDescription?: AssociationDescription;
+    export interface SSMCreateAssociationResult {
+        AssociationDescription?: SSMAssociationDescription;
     }
 
-
-    export interface CreateDocumentRequest {
-      Content: DocumentContent;
-      Name: DocumentName;
+    export interface SSMCreateDocumentRequest {
+        Content: SSMDocumentContent;
+        Name: SSMDocumentName;
     }
 
-
-    export interface CreateDocumentResult {
-      DocumentDescription?: DocumentDescription;
+    export interface SSMCreateDocumentResult {
+        DocumentDescription?: SSMDocumentDescription;
     }
 
-
-    export type DateTime = number;
-
-    export interface DeleteAssociationRequest {
-      Name: DocumentName;
-      InstanceId: InstanceId;
+    export type SSMDateTime = number;
+    export interface SSMDeleteAssociationRequest {
+        Name: SSMDocumentName;
+        InstanceId: SSMInstanceId;
     }
 
-
-    export interface DeleteAssociationResult {
+    export interface SSMDeleteAssociationResult {
     }
 
-
-    export interface DeleteDocumentRequest {
-      Name: DocumentName;
+    export interface SSMDeleteDocumentRequest {
+        Name: SSMDocumentName;
     }
 
-
-    export interface DeleteDocumentResult {
+    export interface SSMDeleteDocumentResult {
     }
 
-
-    export interface DescribeAssociationRequest {
-      Name: DocumentName;
-      InstanceId: InstanceId;
+    export interface SSMDescribeAssociationRequest {
+        Name: SSMDocumentName;
+        InstanceId: SSMInstanceId;
     }
 
-
-    export interface DescribeAssociationResult {
-      AssociationDescription?: AssociationDescription;
+    export interface SSMDescribeAssociationResult {
+        AssociationDescription?: SSMAssociationDescription;
     }
 
-
-    export interface DescribeDocumentRequest {
-      Name: DocumentName;
+    export interface SSMDescribeDocumentRequest {
+        Name: SSMDocumentName;
     }
 
-
-    export interface DescribeDocumentResult {
-      Document?: DocumentDescription;
+    export interface SSMDescribeDocumentResult {
+        Document?: SSMDocumentDescription;
     }
 
-
-    export interface DocumentAlreadyExists {
+    export interface SSMDocumentAlreadyExists {
     }
 
-
-    export type DocumentContent = string;
-
-    export interface DocumentDescription {
-      Sha1?: DocumentSha1;
-      Name?: DocumentName;
-      CreatedDate?: DateTime;
-      Status?: DocumentStatus;
+    export type SSMDocumentContent = string;
+    export interface SSMDocumentDescription {
+        Sha1?: SSMDocumentSha1;
+        Name?: SSMDocumentName;
+        CreatedDate?: SSMDateTime;
+        Status?: SSMDocumentStatus;
     }
 
-
-    export interface DocumentFilter {
-      key: DocumentFilterKey;
-      value: DocumentFilterValue;
+    export interface SSMDocumentFilter {
+        key: SSMDocumentFilterKey;
+        value: SSMDocumentFilterValue;
     }
 
-
-    export type DocumentFilterKey = string;
-
-    export type DocumentFilterList = Array<DocumentFilter>;
-
-    export type DocumentFilterValue = string;
-
-    export interface DocumentIdentifier {
-      Name?: DocumentName;
+    export type SSMDocumentFilterKey = string;
+    export type SSMDocumentFilterList = Array<SSMDocumentFilter>;
+    export type SSMDocumentFilterValue = string;
+    export interface SSMDocumentIdentifier {
+        Name?: SSMDocumentName;
     }
 
-
-    export type DocumentIdentifierList = Array<DocumentIdentifier>;
-
-    export interface DocumentLimitExceeded {
+    export type SSMDocumentIdentifierList = Array<SSMDocumentIdentifier>;
+    export interface SSMDocumentLimitExceeded {
     }
 
-
-    export type DocumentName = string; // pattern: "^[a-zA-Z0-9_\-.]{3,64}$"
-
-    export type DocumentSha1 = string;
-
-    export type DocumentStatus = string;
-
-    export interface DuplicateInstanceId {
+    export type SSMDocumentName = string; // pattern: "^[a-zA-Z0-9_\-.]{3,64}$"
+    export type SSMDocumentSha1 = string;
+    export type SSMDocumentStatus = string;
+    export interface SSMDuplicateInstanceId {
     }
 
-
-    export interface FailedCreateAssociation {
-      Entry?: CreateAssociationBatchRequestEntry;
-      Message?: BatchErrorMessage;
-      Fault?: Fault;
+    export interface SSMFailedCreateAssociation {
+        Entry?: SSMCreateAssociationBatchRequestEntry;
+        Message?: SSMBatchErrorMessage;
+        Fault?: SSMFault;
     }
 
-
-    export type FailedCreateAssociationList = Array<FailedCreateAssociation>;
-
-    export type Fault = string;
-
-    export interface GetDocumentRequest {
-      Name: DocumentName;
+    export type SSMFailedCreateAssociationList = Array<SSMFailedCreateAssociation>;
+    export type SSMFault = string;
+    export interface SSMGetDocumentRequest {
+        Name: SSMDocumentName;
     }
 
-
-    export interface GetDocumentResult {
-      Name?: DocumentName;
-      Content?: DocumentContent;
+    export interface SSMGetDocumentResult {
+        Name?: SSMDocumentName;
+        Content?: SSMDocumentContent;
     }
 
-
-    export type InstanceId = string; // pattern: "^(?=.{10}$)(i-(\w){8})"
-
-    export interface InternalServerError {
+    export type SSMInstanceId = string; // pattern: "^(?=.{10}$)(i-(\w){8})"
+    export interface SSMInternalServerError {
     }
 
-
-    export interface InvalidDocument {
+    export interface SSMInvalidDocument {
     }
 
-
-    export interface InvalidDocumentContent {
-      message?: String;
+    export interface SSMInvalidDocumentContent {
+        message?: SSMString;
     }
 
-
-    export interface InvalidInstanceId {
+    export interface SSMInvalidInstanceId {
     }
 
-
-    export interface InvalidNextToken {
+    export interface SSMInvalidNextToken {
     }
 
-
-    export interface ListAssociationsRequest {
-      AssociationFilterList: AssociationFilterList;
-      MaxResults?: MaxResults;
-      NextToken?: NextToken;
+    export interface SSMListAssociationsRequest {
+        AssociationFilterList: SSMAssociationFilterList;
+        MaxResults?: SSMMaxResults;
+        NextToken?: SSMNextToken;
     }
 
-
-    export interface ListAssociationsResult {
-      Associations?: AssociationList;
-      NextToken?: NextToken;
+    export interface SSMListAssociationsResult {
+        Associations?: SSMAssociationList;
+        NextToken?: SSMNextToken;
     }
 
-
-    export interface ListDocumentsRequest {
-      DocumentFilterList?: DocumentFilterList;
-      MaxResults?: MaxResults;
-      NextToken?: NextToken;
+    export interface SSMListDocumentsRequest {
+        DocumentFilterList?: SSMDocumentFilterList;
+        MaxResults?: SSMMaxResults;
+        NextToken?: SSMNextToken;
     }
 
-
-    export interface ListDocumentsResult {
-      DocumentIdentifiers?: DocumentIdentifierList;
-      NextToken?: NextToken;
+    export interface SSMListDocumentsResult {
+        DocumentIdentifiers?: SSMDocumentIdentifierList;
+        NextToken?: SSMNextToken;
     }
 
-
-    export interface MaxDocumentSizeExceeded {
+    export interface SSMMaxDocumentSizeExceeded {
     }
 
-
-    export type MaxResults = number;
-
-    export type NextToken = string;
-
-    export type StatusAdditionalInfo = string;
-
-    export type StatusMessage = string;
-
-    export interface StatusUnchanged {
+    export type SSMMaxResults = number;
+    export type SSMNextToken = string;
+    export type SSMStatusAdditionalInfo = string;
+    export type SSMStatusMessage = string;
+    export interface SSMStatusUnchanged {
     }
 
-
-    export type String = string;
-
-    export interface TooManyUpdates {
+    export type SSMString = string;
+    export interface SSMTooManyUpdates {
     }
 
-
-    export interface UpdateAssociationStatusRequest {
-      Name: DocumentName;
-      InstanceId: InstanceId;
-      AssociationStatus: AssociationStatus;
+    export interface SSMUpdateAssociationStatusRequest {
+        Name: SSMDocumentName;
+        InstanceId: SSMInstanceId;
+        AssociationStatus: SSMAssociationStatus;
     }
 
-
-    export interface UpdateAssociationStatusResult {
-      AssociationDescription?: AssociationDescription;
+    export interface SSMUpdateAssociationStatusResult {
+        AssociationDescription?: SSMAssociationDescription;
     }
-
 
 }

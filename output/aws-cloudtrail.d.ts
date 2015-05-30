@@ -3,251 +3,203 @@
 declare module "aws-sdk" {
     export class CloudTrail {
       constructor(options?: any);
-      createTrail(params: CreateTrailRequest, callback: (err: MaximumNumberOfTrailsExceededException|TrailAlreadyExistsException|S3BucketDoesNotExistException|InsufficientS3BucketPolicyException|InsufficientSnsTopicPolicyException|InvalidS3BucketNameException|InvalidS3PrefixException|InvalidSnsTopicNameException|InvalidTrailNameException|InvalidCloudWatchLogsLogGroupArnException|InvalidCloudWatchLogsRoleArnException|CloudWatchLogsDeliveryUnavailableException|any, data: CreateTrailResponse|any) => void): void;
-      deleteTrail(params: DeleteTrailRequest, callback: (err: TrailNotFoundException|InvalidTrailNameException|any, data: DeleteTrailResponse|any) => void): void;
-      describeTrails(params: DescribeTrailsRequest, callback: (err: any, data: DescribeTrailsResponse|any) => void): void;
-      getTrailStatus(params: GetTrailStatusRequest, callback: (err: TrailNotFoundException|InvalidTrailNameException|any, data: GetTrailStatusResponse|any) => void): void;
-      lookupEvents(params: LookupEventsRequest, callback: (err: InvalidLookupAttributesException|InvalidTimeRangeException|InvalidMaxResultsException|InvalidNextTokenException|any, data: LookupEventsResponse|any) => void): void;
-      startLogging(params: StartLoggingRequest, callback: (err: TrailNotFoundException|InvalidTrailNameException|any, data: StartLoggingResponse|any) => void): void;
-      stopLogging(params: StopLoggingRequest, callback: (err: TrailNotFoundException|InvalidTrailNameException|any, data: StopLoggingResponse|any) => void): void;
-      updateTrail(params: UpdateTrailRequest, callback: (err: S3BucketDoesNotExistException|InsufficientS3BucketPolicyException|InsufficientSnsTopicPolicyException|TrailNotFoundException|InvalidS3BucketNameException|InvalidS3PrefixException|InvalidSnsTopicNameException|InvalidTrailNameException|InvalidCloudWatchLogsLogGroupArnException|InvalidCloudWatchLogsRoleArnException|CloudWatchLogsDeliveryUnavailableException|any, data: UpdateTrailResponse|any) => void): void;
+      createTrail(params: CloudTrailCreateTrailRequest, callback: (err: CloudTrailMaximumNumberOfTrailsExceededException|CloudTrailTrailAlreadyExistsException|CloudTrailS3BucketDoesNotExistException|CloudTrailInsufficientS3BucketPolicyException|CloudTrailInsufficientSnsTopicPolicyException|CloudTrailInvalidS3BucketNameException|CloudTrailInvalidS3PrefixException|CloudTrailInvalidSnsTopicNameException|CloudTrailInvalidTrailNameException|CloudTrailInvalidCloudWatchLogsLogGroupArnException|CloudTrailInvalidCloudWatchLogsRoleArnException|CloudTrailCloudWatchLogsDeliveryUnavailableException|any, data: CloudTrailCreateTrailResponse|any) => void): void;
+      deleteTrail(params: CloudTrailDeleteTrailRequest, callback: (err: CloudTrailTrailNotFoundException|CloudTrailInvalidTrailNameException|any, data: CloudTrailDeleteTrailResponse|any) => void): void;
+      describeTrails(params: CloudTrailDescribeTrailsRequest, callback: (err: any, data: CloudTrailDescribeTrailsResponse|any) => void): void;
+      getTrailStatus(params: CloudTrailGetTrailStatusRequest, callback: (err: CloudTrailTrailNotFoundException|CloudTrailInvalidTrailNameException|any, data: CloudTrailGetTrailStatusResponse|any) => void): void;
+      lookupEvents(params: CloudTrailLookupEventsRequest, callback: (err: CloudTrailInvalidLookupAttributesException|CloudTrailInvalidTimeRangeException|CloudTrailInvalidMaxResultsException|CloudTrailInvalidNextTokenException|any, data: CloudTrailLookupEventsResponse|any) => void): void;
+      startLogging(params: CloudTrailStartLoggingRequest, callback: (err: CloudTrailTrailNotFoundException|CloudTrailInvalidTrailNameException|any, data: CloudTrailStartLoggingResponse|any) => void): void;
+      stopLogging(params: CloudTrailStopLoggingRequest, callback: (err: CloudTrailTrailNotFoundException|CloudTrailInvalidTrailNameException|any, data: CloudTrailStopLoggingResponse|any) => void): void;
+      updateTrail(params: CloudTrailUpdateTrailRequest, callback: (err: CloudTrailS3BucketDoesNotExistException|CloudTrailInsufficientS3BucketPolicyException|CloudTrailInsufficientSnsTopicPolicyException|CloudTrailTrailNotFoundException|CloudTrailInvalidS3BucketNameException|CloudTrailInvalidS3PrefixException|CloudTrailInvalidSnsTopicNameException|CloudTrailInvalidTrailNameException|CloudTrailInvalidCloudWatchLogsLogGroupArnException|CloudTrailInvalidCloudWatchLogsRoleArnException|CloudTrailCloudWatchLogsDeliveryUnavailableException|any, data: CloudTrailUpdateTrailResponse|any) => void): void;
     }
 
-    export type Boolean = boolean;
-
-    export interface CloudWatchLogsDeliveryUnavailableException {
+    export type CloudTrailBoolean = boolean;
+    export interface CloudTrailCloudWatchLogsDeliveryUnavailableException {
     }
 
-
-    export interface CreateTrailRequest {
-      Name: String;
-      S3BucketName: String;
-      S3KeyPrefix?: String;
-      SnsTopicName?: String;
-      IncludeGlobalServiceEvents?: Boolean;
-      CloudWatchLogsLogGroupArn?: String;
-      CloudWatchLogsRoleArn?: String;
+    export interface CloudTrailCreateTrailRequest {
+        Name: CloudTrailString;
+        S3BucketName: CloudTrailString;
+        S3KeyPrefix?: CloudTrailString;
+        SnsTopicName?: CloudTrailString;
+        IncludeGlobalServiceEvents?: CloudTrailBoolean;
+        CloudWatchLogsLogGroupArn?: CloudTrailString;
+        CloudWatchLogsRoleArn?: CloudTrailString;
     }
 
-
-    export interface CreateTrailResponse {
-      Name?: String;
-      S3BucketName?: String;
-      S3KeyPrefix?: String;
-      SnsTopicName?: String;
-      IncludeGlobalServiceEvents?: Boolean;
-      CloudWatchLogsLogGroupArn?: String;
-      CloudWatchLogsRoleArn?: String;
+    export interface CloudTrailCreateTrailResponse {
+        Name?: CloudTrailString;
+        S3BucketName?: CloudTrailString;
+        S3KeyPrefix?: CloudTrailString;
+        SnsTopicName?: CloudTrailString;
+        IncludeGlobalServiceEvents?: CloudTrailBoolean;
+        CloudWatchLogsLogGroupArn?: CloudTrailString;
+        CloudWatchLogsRoleArn?: CloudTrailString;
     }
 
-
-    export type Date = number;
-
-    export interface DeleteTrailRequest {
-      Name: String;
+    export type CloudTrailDate = number;
+    export interface CloudTrailDeleteTrailRequest {
+        Name: CloudTrailString;
     }
 
-
-    export interface DeleteTrailResponse {
+    export interface CloudTrailDeleteTrailResponse {
     }
 
-
-    export interface DescribeTrailsRequest {
-      trailNameList?: TrailNameList;
+    export interface CloudTrailDescribeTrailsRequest {
+        trailNameList?: CloudTrailTrailNameList;
     }
 
-
-    export interface DescribeTrailsResponse {
-      trailList?: TrailList;
+    export interface CloudTrailDescribeTrailsResponse {
+        trailList?: CloudTrailTrailList;
     }
 
-
-    export interface Event {
-      EventId?: String;
-      EventName?: String;
-      EventTime?: Date;
-      Username?: String;
-      Resources?: ResourceList;
-      CloudTrailEvent?: String;
+    export interface CloudTrailEvent {
+        EventId?: CloudTrailString;
+        EventName?: CloudTrailString;
+        EventTime?: CloudTrailDate;
+        Username?: CloudTrailString;
+        Resources?: CloudTrailResourceList;
+        CloudTrailEvent?: CloudTrailString;
     }
 
-
-    export type EventsList = Array<Event>;
-
-    export interface GetTrailStatusRequest {
-      Name: String;
+    export type CloudTrailEventsList = Array<CloudTrailEvent>;
+    export interface CloudTrailGetTrailStatusRequest {
+        Name: CloudTrailString;
     }
 
-
-    export interface GetTrailStatusResponse {
-      IsLogging?: Boolean;
-      LatestDeliveryError?: String;
-      LatestNotificationError?: String;
-      LatestDeliveryTime?: Date;
-      LatestNotificationTime?: Date;
-      StartLoggingTime?: Date;
-      StopLoggingTime?: Date;
-      LatestCloudWatchLogsDeliveryError?: String;
-      LatestCloudWatchLogsDeliveryTime?: Date;
+    export interface CloudTrailGetTrailStatusResponse {
+        IsLogging?: CloudTrailBoolean;
+        LatestDeliveryError?: CloudTrailString;
+        LatestNotificationError?: CloudTrailString;
+        LatestDeliveryTime?: CloudTrailDate;
+        LatestNotificationTime?: CloudTrailDate;
+        StartLoggingTime?: CloudTrailDate;
+        StopLoggingTime?: CloudTrailDate;
+        LatestCloudWatchLogsDeliveryError?: CloudTrailString;
+        LatestCloudWatchLogsDeliveryTime?: CloudTrailDate;
     }
 
-
-    export interface InsufficientS3BucketPolicyException {
+    export interface CloudTrailInsufficientS3BucketPolicyException {
     }
 
-
-    export interface InsufficientSnsTopicPolicyException {
+    export interface CloudTrailInsufficientSnsTopicPolicyException {
     }
 
-
-    export interface InvalidCloudWatchLogsLogGroupArnException {
+    export interface CloudTrailInvalidCloudWatchLogsLogGroupArnException {
     }
 
-
-    export interface InvalidCloudWatchLogsRoleArnException {
+    export interface CloudTrailInvalidCloudWatchLogsRoleArnException {
     }
 
-
-    export interface InvalidLookupAttributesException {
+    export interface CloudTrailInvalidLookupAttributesException {
     }
 
-
-    export interface InvalidMaxResultsException {
+    export interface CloudTrailInvalidMaxResultsException {
     }
 
-
-    export interface InvalidNextTokenException {
+    export interface CloudTrailInvalidNextTokenException {
     }
 
-
-    export interface InvalidS3BucketNameException {
+    export interface CloudTrailInvalidS3BucketNameException {
     }
 
-
-    export interface InvalidS3PrefixException {
+    export interface CloudTrailInvalidS3PrefixException {
     }
 
-
-    export interface InvalidSnsTopicNameException {
+    export interface CloudTrailInvalidSnsTopicNameException {
     }
 
-
-    export interface InvalidTimeRangeException {
+    export interface CloudTrailInvalidTimeRangeException {
     }
 
-
-    export interface InvalidTrailNameException {
+    export interface CloudTrailInvalidTrailNameException {
     }
 
-
-    export interface LookupAttribute {
-      AttributeKey: LookupAttributeKey;
-      AttributeValue: String;
+    export interface CloudTrailLookupAttribute {
+        AttributeKey: CloudTrailLookupAttributeKey;
+        AttributeValue: CloudTrailString;
     }
 
-
-    export type LookupAttributeKey = string;
-
-    export type LookupAttributesList = Array<LookupAttribute>;
-
-    export interface LookupEventsRequest {
-      LookupAttributes?: LookupAttributesList;
-      StartTime?: Date;
-      EndTime?: Date;
-      MaxResults?: MaxResults;
-      NextToken?: NextToken;
+    export type CloudTrailLookupAttributeKey = string;
+    export type CloudTrailLookupAttributesList = Array<CloudTrailLookupAttribute>;
+    export interface CloudTrailLookupEventsRequest {
+        LookupAttributes?: CloudTrailLookupAttributesList;
+        StartTime?: CloudTrailDate;
+        EndTime?: CloudTrailDate;
+        MaxResults?: CloudTrailMaxResults;
+        NextToken?: CloudTrailNextToken;
     }
 
-
-    export interface LookupEventsResponse {
-      Events?: EventsList;
-      NextToken?: NextToken;
+    export interface CloudTrailLookupEventsResponse {
+        Events?: CloudTrailEventsList;
+        NextToken?: CloudTrailNextToken;
     }
 
-
-    export type MaxResults = number;
-
-    export interface MaximumNumberOfTrailsExceededException {
+    export type CloudTrailMaxResults = number;
+    export interface CloudTrailMaximumNumberOfTrailsExceededException {
     }
 
-
-    export type NextToken = string;
-
-    export interface Resource {
-      ResourceType?: String;
-      ResourceName?: String;
+    export type CloudTrailNextToken = string;
+    export interface CloudTrailResource {
+        ResourceType?: CloudTrailString;
+        ResourceName?: CloudTrailString;
     }
 
-
-    export type ResourceList = Array<Resource>;
-
-    export interface S3BucketDoesNotExistException {
+    export type CloudTrailResourceList = Array<CloudTrailResource>;
+    export interface CloudTrailS3BucketDoesNotExistException {
     }
 
-
-    export interface StartLoggingRequest {
-      Name: String;
+    export interface CloudTrailStartLoggingRequest {
+        Name: CloudTrailString;
     }
 
-
-    export interface StartLoggingResponse {
+    export interface CloudTrailStartLoggingResponse {
     }
 
-
-    export interface StopLoggingRequest {
-      Name: String;
+    export interface CloudTrailStopLoggingRequest {
+        Name: CloudTrailString;
     }
 
-
-    export interface StopLoggingResponse {
+    export interface CloudTrailStopLoggingResponse {
     }
 
-
-    export type String = string;
-
-    export interface Trail {
-      Name?: String;
-      S3BucketName?: String;
-      S3KeyPrefix?: String;
-      SnsTopicName?: String;
-      IncludeGlobalServiceEvents?: Boolean;
-      CloudWatchLogsLogGroupArn?: String;
-      CloudWatchLogsRoleArn?: String;
+    export type CloudTrailString = string;
+    export interface CloudTrailTrail {
+        Name?: CloudTrailString;
+        S3BucketName?: CloudTrailString;
+        S3KeyPrefix?: CloudTrailString;
+        SnsTopicName?: CloudTrailString;
+        IncludeGlobalServiceEvents?: CloudTrailBoolean;
+        CloudWatchLogsLogGroupArn?: CloudTrailString;
+        CloudWatchLogsRoleArn?: CloudTrailString;
     }
 
-
-    export interface TrailAlreadyExistsException {
+    export interface CloudTrailTrailAlreadyExistsException {
     }
 
-
-    export type TrailList = Array<Trail>;
-
-    export type TrailNameList = Array<String>;
-
-    export interface TrailNotFoundException {
+    export type CloudTrailTrailList = Array<CloudTrailTrail>;
+    export type CloudTrailTrailNameList = Array<CloudTrailString>;
+    export interface CloudTrailTrailNotFoundException {
     }
 
-
-    export interface UpdateTrailRequest {
-      Name: String;
-      S3BucketName?: String;
-      S3KeyPrefix?: String;
-      SnsTopicName?: String;
-      IncludeGlobalServiceEvents?: Boolean;
-      CloudWatchLogsLogGroupArn?: String;
-      CloudWatchLogsRoleArn?: String;
+    export interface CloudTrailUpdateTrailRequest {
+        Name: CloudTrailString;
+        S3BucketName?: CloudTrailString;
+        S3KeyPrefix?: CloudTrailString;
+        SnsTopicName?: CloudTrailString;
+        IncludeGlobalServiceEvents?: CloudTrailBoolean;
+        CloudWatchLogsLogGroupArn?: CloudTrailString;
+        CloudWatchLogsRoleArn?: CloudTrailString;
     }
 
-
-    export interface UpdateTrailResponse {
-      Name?: String;
-      S3BucketName?: String;
-      S3KeyPrefix?: String;
-      SnsTopicName?: String;
-      IncludeGlobalServiceEvents?: Boolean;
-      CloudWatchLogsLogGroupArn?: String;
-      CloudWatchLogsRoleArn?: String;
+    export interface CloudTrailUpdateTrailResponse {
+        Name?: CloudTrailString;
+        S3BucketName?: CloudTrailString;
+        S3KeyPrefix?: CloudTrailString;
+        SnsTopicName?: CloudTrailString;
+        IncludeGlobalServiceEvents?: CloudTrailBoolean;
+        CloudWatchLogsLogGroupArn?: CloudTrailString;
+        CloudWatchLogsRoleArn?: CloudTrailString;
     }
-
 
 }

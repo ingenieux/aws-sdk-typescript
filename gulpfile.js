@@ -14,7 +14,7 @@ gulp.task('default', ['watch']);
 // ** Running ** //
 
 gulp.task('run', shell.task([
-  'node app/build/index.js'
+  'node app/build/app.js ../aws-sdk-js/apis'
 ]));
 
 gulp.task('buildrun', function (cb) {

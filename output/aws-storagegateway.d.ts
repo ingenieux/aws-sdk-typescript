@@ -3,944 +3,755 @@
 declare module "aws-sdk" {
     export class StorageGateway {
       constructor(options?: any);
-      activateGateway(params: ActivateGatewayInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: ActivateGatewayOutput|any) => void): void;
-      addCache(params: AddCacheInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: AddCacheOutput|any) => void): void;
-      addUploadBuffer(params: AddUploadBufferInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: AddUploadBufferOutput|any) => void): void;
-      addWorkingStorage(params: AddWorkingStorageInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: AddWorkingStorageOutput|any) => void): void;
-      cancelArchival(params: CancelArchivalInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: CancelArchivalOutput|any) => void): void;
-      cancelRetrieval(params: CancelRetrievalInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: CancelRetrievalOutput|any) => void): void;
-      createCachediSCSIVolume(params: CreateCachediSCSIVolumeInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: CreateCachediSCSIVolumeOutput|any) => void): void;
-      createSnapshot(params: CreateSnapshotInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: CreateSnapshotOutput|any) => void): void;
-      createSnapshotFromVolumeRecoveryPoint(params: CreateSnapshotFromVolumeRecoveryPointInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: CreateSnapshotFromVolumeRecoveryPointOutput|any) => void): void;
-      createStorediSCSIVolume(params: CreateStorediSCSIVolumeInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: CreateStorediSCSIVolumeOutput|any) => void): void;
-      createTapes(params: CreateTapesInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: CreateTapesOutput|any) => void): void;
-      deleteBandwidthRateLimit(params: DeleteBandwidthRateLimitInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DeleteBandwidthRateLimitOutput|any) => void): void;
-      deleteChapCredentials(params: DeleteChapCredentialsInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DeleteChapCredentialsOutput|any) => void): void;
-      deleteGateway(params: DeleteGatewayInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DeleteGatewayOutput|any) => void): void;
-      deleteSnapshotSchedule(params: DeleteSnapshotScheduleInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DeleteSnapshotScheduleOutput|any) => void): void;
-      deleteTape(params: DeleteTapeInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DeleteTapeOutput|any) => void): void;
-      deleteTapeArchive(params: DeleteTapeArchiveInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DeleteTapeArchiveOutput|any) => void): void;
-      deleteVolume(params: DeleteVolumeInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DeleteVolumeOutput|any) => void): void;
-      describeBandwidthRateLimit(params: DescribeBandwidthRateLimitInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DescribeBandwidthRateLimitOutput|any) => void): void;
-      describeCache(params: DescribeCacheInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DescribeCacheOutput|any) => void): void;
-      describeCachediSCSIVolumes(params: DescribeCachediSCSIVolumesInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DescribeCachediSCSIVolumesOutput|any) => void): void;
-      describeChapCredentials(params: DescribeChapCredentialsInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DescribeChapCredentialsOutput|any) => void): void;
-      describeGatewayInformation(params: DescribeGatewayInformationInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DescribeGatewayInformationOutput|any) => void): void;
-      describeMaintenanceStartTime(params: DescribeMaintenanceStartTimeInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DescribeMaintenanceStartTimeOutput|any) => void): void;
-      describeSnapshotSchedule(params: DescribeSnapshotScheduleInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DescribeSnapshotScheduleOutput|any) => void): void;
-      describeStorediSCSIVolumes(params: DescribeStorediSCSIVolumesInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DescribeStorediSCSIVolumesOutput|any) => void): void;
-      describeTapeArchives(params: DescribeTapeArchivesInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DescribeTapeArchivesOutput|any) => void): void;
-      describeTapeRecoveryPoints(params: DescribeTapeRecoveryPointsInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DescribeTapeRecoveryPointsOutput|any) => void): void;
-      describeTapes(params: DescribeTapesInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DescribeTapesOutput|any) => void): void;
-      describeUploadBuffer(params: DescribeUploadBufferInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DescribeUploadBufferOutput|any) => void): void;
-      describeVTLDevices(params: DescribeVTLDevicesInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DescribeVTLDevicesOutput|any) => void): void;
-      describeWorkingStorage(params: DescribeWorkingStorageInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DescribeWorkingStorageOutput|any) => void): void;
-      disableGateway(params: DisableGatewayInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: DisableGatewayOutput|any) => void): void;
-      listGateways(params: ListGatewaysInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: ListGatewaysOutput|any) => void): void;
-      listLocalDisks(params: ListLocalDisksInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: ListLocalDisksOutput|any) => void): void;
-      listVolumeRecoveryPoints(params: ListVolumeRecoveryPointsInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: ListVolumeRecoveryPointsOutput|any) => void): void;
-      listVolumes(params: ListVolumesInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: ListVolumesOutput|any) => void): void;
-      resetCache(params: ResetCacheInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: ResetCacheOutput|any) => void): void;
-      retrieveTapeArchive(params: RetrieveTapeArchiveInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: RetrieveTapeArchiveOutput|any) => void): void;
-      retrieveTapeRecoveryPoint(params: RetrieveTapeRecoveryPointInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: RetrieveTapeRecoveryPointOutput|any) => void): void;
-      shutdownGateway(params: ShutdownGatewayInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: ShutdownGatewayOutput|any) => void): void;
-      startGateway(params: StartGatewayInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: StartGatewayOutput|any) => void): void;
-      updateBandwidthRateLimit(params: UpdateBandwidthRateLimitInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: UpdateBandwidthRateLimitOutput|any) => void): void;
-      updateChapCredentials(params: UpdateChapCredentialsInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: UpdateChapCredentialsOutput|any) => void): void;
-      updateGatewayInformation(params: UpdateGatewayInformationInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: UpdateGatewayInformationOutput|any) => void): void;
-      updateGatewaySoftwareNow(params: UpdateGatewaySoftwareNowInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: UpdateGatewaySoftwareNowOutput|any) => void): void;
-      updateMaintenanceStartTime(params: UpdateMaintenanceStartTimeInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: UpdateMaintenanceStartTimeOutput|any) => void): void;
-      updateSnapshotSchedule(params: UpdateSnapshotScheduleInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: UpdateSnapshotScheduleOutput|any) => void): void;
-      updateVTLDeviceType(params: UpdateVTLDeviceTypeInput, callback: (err: InvalidGatewayRequestException|InternalServerError|any, data: UpdateVTLDeviceTypeOutput|any) => void): void;
+      activateGateway(params: StorageGatewayActivateGatewayInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayActivateGatewayOutput|any) => void): void;
+      addCache(params: StorageGatewayAddCacheInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayAddCacheOutput|any) => void): void;
+      addUploadBuffer(params: StorageGatewayAddUploadBufferInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayAddUploadBufferOutput|any) => void): void;
+      addWorkingStorage(params: StorageGatewayAddWorkingStorageInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayAddWorkingStorageOutput|any) => void): void;
+      cancelArchival(params: StorageGatewayCancelArchivalInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayCancelArchivalOutput|any) => void): void;
+      cancelRetrieval(params: StorageGatewayCancelRetrievalInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayCancelRetrievalOutput|any) => void): void;
+      createCachediSCSIVolume(params: StorageGatewayCreateCachediSCSIVolumeInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayCreateCachediSCSIVolumeOutput|any) => void): void;
+      createSnapshot(params: StorageGatewayCreateSnapshotInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayCreateSnapshotOutput|any) => void): void;
+      createSnapshotFromVolumeRecoveryPoint(params: StorageGatewayCreateSnapshotFromVolumeRecoveryPointInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayCreateSnapshotFromVolumeRecoveryPointOutput|any) => void): void;
+      createStorediSCSIVolume(params: StorageGatewayCreateStorediSCSIVolumeInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayCreateStorediSCSIVolumeOutput|any) => void): void;
+      createTapes(params: StorageGatewayCreateTapesInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayCreateTapesOutput|any) => void): void;
+      deleteBandwidthRateLimit(params: StorageGatewayDeleteBandwidthRateLimitInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDeleteBandwidthRateLimitOutput|any) => void): void;
+      deleteChapCredentials(params: StorageGatewayDeleteChapCredentialsInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDeleteChapCredentialsOutput|any) => void): void;
+      deleteGateway(params: StorageGatewayDeleteGatewayInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDeleteGatewayOutput|any) => void): void;
+      deleteSnapshotSchedule(params: StorageGatewayDeleteSnapshotScheduleInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDeleteSnapshotScheduleOutput|any) => void): void;
+      deleteTape(params: StorageGatewayDeleteTapeInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDeleteTapeOutput|any) => void): void;
+      deleteTapeArchive(params: StorageGatewayDeleteTapeArchiveInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDeleteTapeArchiveOutput|any) => void): void;
+      deleteVolume(params: StorageGatewayDeleteVolumeInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDeleteVolumeOutput|any) => void): void;
+      describeBandwidthRateLimit(params: StorageGatewayDescribeBandwidthRateLimitInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDescribeBandwidthRateLimitOutput|any) => void): void;
+      describeCache(params: StorageGatewayDescribeCacheInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDescribeCacheOutput|any) => void): void;
+      describeCachediSCSIVolumes(params: StorageGatewayDescribeCachediSCSIVolumesInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDescribeCachediSCSIVolumesOutput|any) => void): void;
+      describeChapCredentials(params: StorageGatewayDescribeChapCredentialsInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDescribeChapCredentialsOutput|any) => void): void;
+      describeGatewayInformation(params: StorageGatewayDescribeGatewayInformationInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDescribeGatewayInformationOutput|any) => void): void;
+      describeMaintenanceStartTime(params: StorageGatewayDescribeMaintenanceStartTimeInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDescribeMaintenanceStartTimeOutput|any) => void): void;
+      describeSnapshotSchedule(params: StorageGatewayDescribeSnapshotScheduleInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDescribeSnapshotScheduleOutput|any) => void): void;
+      describeStorediSCSIVolumes(params: StorageGatewayDescribeStorediSCSIVolumesInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDescribeStorediSCSIVolumesOutput|any) => void): void;
+      describeTapeArchives(params: StorageGatewayDescribeTapeArchivesInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDescribeTapeArchivesOutput|any) => void): void;
+      describeTapeRecoveryPoints(params: StorageGatewayDescribeTapeRecoveryPointsInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDescribeTapeRecoveryPointsOutput|any) => void): void;
+      describeTapes(params: StorageGatewayDescribeTapesInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDescribeTapesOutput|any) => void): void;
+      describeUploadBuffer(params: StorageGatewayDescribeUploadBufferInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDescribeUploadBufferOutput|any) => void): void;
+      describeVTLDevices(params: StorageGatewayDescribeVTLDevicesInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDescribeVTLDevicesOutput|any) => void): void;
+      describeWorkingStorage(params: StorageGatewayDescribeWorkingStorageInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDescribeWorkingStorageOutput|any) => void): void;
+      disableGateway(params: StorageGatewayDisableGatewayInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDisableGatewayOutput|any) => void): void;
+      listGateways(params: StorageGatewayListGatewaysInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayListGatewaysOutput|any) => void): void;
+      listLocalDisks(params: StorageGatewayListLocalDisksInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayListLocalDisksOutput|any) => void): void;
+      listVolumeRecoveryPoints(params: StorageGatewayListVolumeRecoveryPointsInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayListVolumeRecoveryPointsOutput|any) => void): void;
+      listVolumes(params: StorageGatewayListVolumesInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayListVolumesOutput|any) => void): void;
+      resetCache(params: StorageGatewayResetCacheInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayResetCacheOutput|any) => void): void;
+      retrieveTapeArchive(params: StorageGatewayRetrieveTapeArchiveInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayRetrieveTapeArchiveOutput|any) => void): void;
+      retrieveTapeRecoveryPoint(params: StorageGatewayRetrieveTapeRecoveryPointInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayRetrieveTapeRecoveryPointOutput|any) => void): void;
+      shutdownGateway(params: StorageGatewayShutdownGatewayInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayShutdownGatewayOutput|any) => void): void;
+      startGateway(params: StorageGatewayStartGatewayInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayStartGatewayOutput|any) => void): void;
+      updateBandwidthRateLimit(params: StorageGatewayUpdateBandwidthRateLimitInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayUpdateBandwidthRateLimitOutput|any) => void): void;
+      updateChapCredentials(params: StorageGatewayUpdateChapCredentialsInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayUpdateChapCredentialsOutput|any) => void): void;
+      updateGatewayInformation(params: StorageGatewayUpdateGatewayInformationInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayUpdateGatewayInformationOutput|any) => void): void;
+      updateGatewaySoftwareNow(params: StorageGatewayUpdateGatewaySoftwareNowInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayUpdateGatewaySoftwareNowOutput|any) => void): void;
+      updateMaintenanceStartTime(params: StorageGatewayUpdateMaintenanceStartTimeInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayUpdateMaintenanceStartTimeOutput|any) => void): void;
+      updateSnapshotSchedule(params: StorageGatewayUpdateSnapshotScheduleInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayUpdateSnapshotScheduleOutput|any) => void): void;
+      updateVTLDeviceType(params: StorageGatewayUpdateVTLDeviceTypeInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayUpdateVTLDeviceTypeOutput|any) => void): void;
+    }
+
+    export interface StorageGatewayActivateGatewayInput {
+        ActivationKey: StorageGatewayActivationKey;
+        GatewayName: StorageGatewayGatewayName;
+        GatewayTimezone: StorageGatewayGatewayTimezone;
+        GatewayRegion: StorageGatewayRegionId;
+        GatewayType?: StorageGatewayGatewayType;
+        TapeDriveType?: StorageGatewayTapeDriveType;
+        MediumChangerType?: StorageGatewayMediumChangerType;
+    }
+
+    export interface StorageGatewayActivateGatewayOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+    }
+
+    export type StorageGatewayActivationKey = string;
+    export interface StorageGatewayAddCacheInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        DiskIds: StorageGatewayDiskIds;
+    }
+
+    export interface StorageGatewayAddCacheOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+    }
+
+    export interface StorageGatewayAddUploadBufferInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        DiskIds: StorageGatewayDiskIds;
+    }
+
+    export interface StorageGatewayAddUploadBufferOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+    }
+
+    export interface StorageGatewayAddWorkingStorageInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        DiskIds: StorageGatewayDiskIds;
+    }
+
+    export interface StorageGatewayAddWorkingStorageOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+    }
+
+    export type StorageGatewayBandwidthDownloadRateLimit = number;
+    export type StorageGatewayBandwidthType = string;
+    export type StorageGatewayBandwidthUploadRateLimit = number;
+    export interface StorageGatewayCachediSCSIVolume {
+        VolumeARN?: StorageGatewayVolumeARN;
+        VolumeId?: StorageGatewayVolumeId;
+        VolumeType?: StorageGatewayVolumeType;
+        VolumeStatus?: StorageGatewayVolumeStatus;
+        VolumeSizeInBytes?: StorageGatewaylong;
+        VolumeProgress?: StorageGatewayDoubleObject;
+        SourceSnapshotId?: StorageGatewaySnapshotId;
+        VolumeiSCSIAttributes?: StorageGatewayVolumeiSCSIAttributes;
     }
 
-    export interface ActivateGatewayInput {
-      ActivationKey: ActivationKey;
-      GatewayName: GatewayName;
-      GatewayTimezone: GatewayTimezone;
-      GatewayRegion: RegionId;
-      GatewayType?: GatewayType;
-      TapeDriveType?: TapeDriveType;
-      MediumChangerType?: MediumChangerType;
+    export type StorageGatewayCachediSCSIVolumes = Array<StorageGatewayCachediSCSIVolume>;
+    export interface StorageGatewayCancelArchivalInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        TapeARN: StorageGatewayTapeARN;
     }
 
-
-    export interface ActivateGatewayOutput {
-      GatewayARN?: GatewayARN;
-    }
-
-
-    export type ActivationKey = string;
-
-    export interface AddCacheInput {
-      GatewayARN: GatewayARN;
-      DiskIds: DiskIds;
-    }
-
-
-    export interface AddCacheOutput {
-      GatewayARN?: GatewayARN;
-    }
-
-
-    export interface AddUploadBufferInput {
-      GatewayARN: GatewayARN;
-      DiskIds: DiskIds;
-    }
-
-
-    export interface AddUploadBufferOutput {
-      GatewayARN?: GatewayARN;
-    }
-
-
-    export interface AddWorkingStorageInput {
-      GatewayARN: GatewayARN;
-      DiskIds: DiskIds;
-    }
-
-
-    export interface AddWorkingStorageOutput {
-      GatewayARN?: GatewayARN;
-    }
-
-
-    export type BandwidthDownloadRateLimit = number;
-
-    export type BandwidthType = string;
-
-    export type BandwidthUploadRateLimit = number;
-
-    export interface CachediSCSIVolume {
-      VolumeARN?: VolumeARN;
-      VolumeId?: VolumeId;
-      VolumeType?: VolumeType;
-      VolumeStatus?: VolumeStatus;
-      VolumeSizeInBytes?: long;
-      VolumeProgress?: DoubleObject;
-      SourceSnapshotId?: SnapshotId;
-      VolumeiSCSIAttributes?: VolumeiSCSIAttributes;
-    }
-
-
-    export type CachediSCSIVolumes = Array<CachediSCSIVolume>;
-
-    export interface CancelArchivalInput {
-      GatewayARN: GatewayARN;
-      TapeARN: TapeARN;
-    }
-
-
-    export interface CancelArchivalOutput {
-      TapeARN?: TapeARN;
+    export interface StorageGatewayCancelArchivalOutput {
+        TapeARN?: StorageGatewayTapeARN;
     }
-
 
-    export interface CancelRetrievalInput {
-      GatewayARN: GatewayARN;
-      TapeARN: TapeARN;
+    export interface StorageGatewayCancelRetrievalInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        TapeARN: StorageGatewayTapeARN;
     }
 
-
-    export interface CancelRetrievalOutput {
-      TapeARN?: TapeARN;
+    export interface StorageGatewayCancelRetrievalOutput {
+        TapeARN?: StorageGatewayTapeARN;
     }
-
 
-    export type ChapCredentials = Array<ChapInfo>;
-
-    export interface ChapInfo {
-      TargetARN?: TargetARN;
-      SecretToAuthenticateInitiator?: ChapSecret;
-      InitiatorName?: IqnName;
-      SecretToAuthenticateTarget?: ChapSecret;
+    export type StorageGatewayChapCredentials = Array<StorageGatewayChapInfo>;
+    export interface StorageGatewayChapInfo {
+        TargetARN?: StorageGatewayTargetARN;
+        SecretToAuthenticateInitiator?: StorageGatewayChapSecret;
+        InitiatorName?: StorageGatewayIqnName;
+        SecretToAuthenticateTarget?: StorageGatewayChapSecret;
     }
-
 
-    export type ChapSecret = string;
-
-    export type ClientToken = string;
-
-    export interface CreateCachediSCSIVolumeInput {
-      GatewayARN: GatewayARN;
-      VolumeSizeInBytes: long;
-      SnapshotId?: SnapshotId;
-      TargetName: TargetName;
-      NetworkInterfaceId: NetworkInterfaceId;
-      ClientToken: ClientToken;
+    export type StorageGatewayChapSecret = string;
+    export type StorageGatewayClientToken = string;
+    export interface StorageGatewayCreateCachediSCSIVolumeInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        VolumeSizeInBytes: StorageGatewaylong;
+        SnapshotId?: StorageGatewaySnapshotId;
+        TargetName: StorageGatewayTargetName;
+        NetworkInterfaceId: StorageGatewayNetworkInterfaceId;
+        ClientToken: StorageGatewayClientToken;
     }
-
 
-    export interface CreateCachediSCSIVolumeOutput {
-      VolumeARN?: VolumeARN;
-      TargetARN?: TargetARN;
+    export interface StorageGatewayCreateCachediSCSIVolumeOutput {
+        VolumeARN?: StorageGatewayVolumeARN;
+        TargetARN?: StorageGatewayTargetARN;
     }
 
-
-    export interface CreateSnapshotFromVolumeRecoveryPointInput {
-      VolumeARN: VolumeARN;
-      SnapshotDescription: SnapshotDescription;
+    export interface StorageGatewayCreateSnapshotFromVolumeRecoveryPointInput {
+        VolumeARN: StorageGatewayVolumeARN;
+        SnapshotDescription: StorageGatewaySnapshotDescription;
     }
 
-
-    export interface CreateSnapshotFromVolumeRecoveryPointOutput {
-      SnapshotId?: SnapshotId;
-      VolumeARN?: VolumeARN;
-      VolumeRecoveryPointTime?: string;
+    export interface StorageGatewayCreateSnapshotFromVolumeRecoveryPointOutput {
+        SnapshotId?: StorageGatewaySnapshotId;
+        VolumeARN?: StorageGatewayVolumeARN;
+        VolumeRecoveryPointTime?: StorageGatewaystring;
     }
-
 
-    export interface CreateSnapshotInput {
-      VolumeARN: VolumeARN;
-      SnapshotDescription: SnapshotDescription;
+    export interface StorageGatewayCreateSnapshotInput {
+        VolumeARN: StorageGatewayVolumeARN;
+        SnapshotDescription: StorageGatewaySnapshotDescription;
     }
 
-
-    export interface CreateSnapshotOutput {
-      VolumeARN?: VolumeARN;
-      SnapshotId?: SnapshotId;
+    export interface StorageGatewayCreateSnapshotOutput {
+        VolumeARN?: StorageGatewayVolumeARN;
+        SnapshotId?: StorageGatewaySnapshotId;
     }
 
-
-    export interface CreateStorediSCSIVolumeInput {
-      GatewayARN: GatewayARN;
-      DiskId: DiskId;
-      SnapshotId?: SnapshotId;
-      PreserveExistingData: boolean;
-      TargetName: TargetName;
-      NetworkInterfaceId: NetworkInterfaceId;
+    export interface StorageGatewayCreateStorediSCSIVolumeInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        DiskId: StorageGatewayDiskId;
+        SnapshotId?: StorageGatewaySnapshotId;
+        PreserveExistingData: StorageGatewayboolean;
+        TargetName: StorageGatewayTargetName;
+        NetworkInterfaceId: StorageGatewayNetworkInterfaceId;
     }
-
 
-    export interface CreateStorediSCSIVolumeOutput {
-      VolumeARN?: VolumeARN;
-      VolumeSizeInBytes?: long;
-      TargetARN?: TargetARN;
+    export interface StorageGatewayCreateStorediSCSIVolumeOutput {
+        VolumeARN?: StorageGatewayVolumeARN;
+        VolumeSizeInBytes?: StorageGatewaylong;
+        TargetARN?: StorageGatewayTargetARN;
     }
 
-
-    export interface CreateTapesInput {
-      GatewayARN: GatewayARN;
-      TapeSizeInBytes: TapeSize;
-      ClientToken: ClientToken;
-      NumTapesToCreate: NumTapesToCreate;
-      TapeBarcodePrefix: TapeBarcodePrefix;
+    export interface StorageGatewayCreateTapesInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        TapeSizeInBytes: StorageGatewayTapeSize;
+        ClientToken: StorageGatewayClientToken;
+        NumTapesToCreate: StorageGatewayNumTapesToCreate;
+        TapeBarcodePrefix: StorageGatewayTapeBarcodePrefix;
     }
-
 
-    export interface CreateTapesOutput {
-      TapeARNs?: TapeARNs;
+    export interface StorageGatewayCreateTapesOutput {
+        TapeARNs?: StorageGatewayTapeARNs;
     }
-
-
-    export type DayOfWeek = number;
 
-    export interface DeleteBandwidthRateLimitInput {
-      GatewayARN: GatewayARN;
-      BandwidthType: BandwidthType;
+    export type StorageGatewayDayOfWeek = number;
+    export interface StorageGatewayDeleteBandwidthRateLimitInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        BandwidthType: StorageGatewayBandwidthType;
     }
 
-
-    export interface DeleteBandwidthRateLimitOutput {
-      GatewayARN?: GatewayARN;
+    export interface StorageGatewayDeleteBandwidthRateLimitOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
     }
 
-
-    export interface DeleteChapCredentialsInput {
-      TargetARN: TargetARN;
-      InitiatorName: IqnName;
+    export interface StorageGatewayDeleteChapCredentialsInput {
+        TargetARN: StorageGatewayTargetARN;
+        InitiatorName: StorageGatewayIqnName;
     }
-
 
-    export interface DeleteChapCredentialsOutput {
-      TargetARN?: TargetARN;
-      InitiatorName?: IqnName;
+    export interface StorageGatewayDeleteChapCredentialsOutput {
+        TargetARN?: StorageGatewayTargetARN;
+        InitiatorName?: StorageGatewayIqnName;
     }
 
-
-    export interface DeleteGatewayInput {
-      GatewayARN: GatewayARN;
+    export interface StorageGatewayDeleteGatewayInput {
+        GatewayARN: StorageGatewayGatewayARN;
     }
 
-
-    export interface DeleteGatewayOutput {
-      GatewayARN?: GatewayARN;
+    export interface StorageGatewayDeleteGatewayOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
     }
-
 
-    export interface DeleteSnapshotScheduleInput {
-      VolumeARN: VolumeARN;
+    export interface StorageGatewayDeleteSnapshotScheduleInput {
+        VolumeARN: StorageGatewayVolumeARN;
     }
 
-
-    export interface DeleteSnapshotScheduleOutput {
-      VolumeARN?: VolumeARN;
+    export interface StorageGatewayDeleteSnapshotScheduleOutput {
+        VolumeARN?: StorageGatewayVolumeARN;
     }
 
-
-    export interface DeleteTapeArchiveInput {
-      TapeARN: TapeARN;
+    export interface StorageGatewayDeleteTapeArchiveInput {
+        TapeARN: StorageGatewayTapeARN;
     }
-
 
-    export interface DeleteTapeArchiveOutput {
-      TapeARN?: TapeARN;
+    export interface StorageGatewayDeleteTapeArchiveOutput {
+        TapeARN?: StorageGatewayTapeARN;
     }
 
-
-    export interface DeleteTapeInput {
-      GatewayARN: GatewayARN;
-      TapeARN: TapeARN;
+    export interface StorageGatewayDeleteTapeInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        TapeARN: StorageGatewayTapeARN;
     }
-
 
-    export interface DeleteTapeOutput {
-      TapeARN?: TapeARN;
+    export interface StorageGatewayDeleteTapeOutput {
+        TapeARN?: StorageGatewayTapeARN;
     }
 
-
-    export interface DeleteVolumeInput {
-      VolumeARN: VolumeARN;
+    export interface StorageGatewayDeleteVolumeInput {
+        VolumeARN: StorageGatewayVolumeARN;
     }
-
 
-    export interface DeleteVolumeOutput {
-      VolumeARN?: VolumeARN;
+    export interface StorageGatewayDeleteVolumeOutput {
+        VolumeARN?: StorageGatewayVolumeARN;
     }
 
-
-    export interface DescribeBandwidthRateLimitInput {
-      GatewayARN: GatewayARN;
+    export interface StorageGatewayDescribeBandwidthRateLimitInput {
+        GatewayARN: StorageGatewayGatewayARN;
     }
 
-
-    export interface DescribeBandwidthRateLimitOutput {
-      GatewayARN?: GatewayARN;
-      AverageUploadRateLimitInBitsPerSec?: BandwidthUploadRateLimit;
-      AverageDownloadRateLimitInBitsPerSec?: BandwidthDownloadRateLimit;
+    export interface StorageGatewayDescribeBandwidthRateLimitOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+        AverageUploadRateLimitInBitsPerSec?: StorageGatewayBandwidthUploadRateLimit;
+        AverageDownloadRateLimitInBitsPerSec?: StorageGatewayBandwidthDownloadRateLimit;
     }
-
 
-    export interface DescribeCacheInput {
-      GatewayARN: GatewayARN;
+    export interface StorageGatewayDescribeCacheInput {
+        GatewayARN: StorageGatewayGatewayARN;
     }
 
-
-    export interface DescribeCacheOutput {
-      GatewayARN?: GatewayARN;
-      DiskIds?: DiskIds;
-      CacheAllocatedInBytes?: long;
-      CacheUsedPercentage?: double;
-      CacheDirtyPercentage?: double;
-      CacheHitPercentage?: double;
-      CacheMissPercentage?: double;
+    export interface StorageGatewayDescribeCacheOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+        DiskIds?: StorageGatewayDiskIds;
+        CacheAllocatedInBytes?: StorageGatewaylong;
+        CacheUsedPercentage?: StorageGatewaydouble;
+        CacheDirtyPercentage?: StorageGatewaydouble;
+        CacheHitPercentage?: StorageGatewaydouble;
+        CacheMissPercentage?: StorageGatewaydouble;
     }
 
-
-    export interface DescribeCachediSCSIVolumesInput {
-      VolumeARNs: VolumeARNs;
+    export interface StorageGatewayDescribeCachediSCSIVolumesInput {
+        VolumeARNs: StorageGatewayVolumeARNs;
     }
-
 
-    export interface DescribeCachediSCSIVolumesOutput {
-      CachediSCSIVolumes?: CachediSCSIVolumes;
+    export interface StorageGatewayDescribeCachediSCSIVolumesOutput {
+        CachediSCSIVolumes?: StorageGatewayCachediSCSIVolumes;
     }
 
-
-    export interface DescribeChapCredentialsInput {
-      TargetARN: TargetARN;
+    export interface StorageGatewayDescribeChapCredentialsInput {
+        TargetARN: StorageGatewayTargetARN;
     }
 
-
-    export interface DescribeChapCredentialsOutput {
-      ChapCredentials?: ChapCredentials;
+    export interface StorageGatewayDescribeChapCredentialsOutput {
+        ChapCredentials?: StorageGatewayChapCredentials;
     }
-
 
-    export interface DescribeGatewayInformationInput {
-      GatewayARN: GatewayARN;
+    export interface StorageGatewayDescribeGatewayInformationInput {
+        GatewayARN: StorageGatewayGatewayARN;
     }
 
-
-    export interface DescribeGatewayInformationOutput {
-      GatewayARN?: GatewayARN;
-      GatewayId?: GatewayId;
-      GatewayTimezone?: GatewayTimezone;
-      GatewayState?: GatewayState;
-      GatewayNetworkInterfaces?: GatewayNetworkInterfaces;
-      GatewayType?: GatewayType;
-      NextUpdateAvailabilityDate?: NextUpdateAvailabilityDate;
+    export interface StorageGatewayDescribeGatewayInformationOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+        GatewayId?: StorageGatewayGatewayId;
+        GatewayTimezone?: StorageGatewayGatewayTimezone;
+        GatewayState?: StorageGatewayGatewayState;
+        GatewayNetworkInterfaces?: StorageGatewayGatewayNetworkInterfaces;
+        GatewayType?: StorageGatewayGatewayType;
+        NextUpdateAvailabilityDate?: StorageGatewayNextUpdateAvailabilityDate;
     }
-
 
-    export interface DescribeMaintenanceStartTimeInput {
-      GatewayARN: GatewayARN;
+    export interface StorageGatewayDescribeMaintenanceStartTimeInput {
+        GatewayARN: StorageGatewayGatewayARN;
     }
 
-
-    export interface DescribeMaintenanceStartTimeOutput {
-      GatewayARN?: GatewayARN;
-      HourOfDay?: HourOfDay;
-      MinuteOfHour?: MinuteOfHour;
-      DayOfWeek?: DayOfWeek;
-      Timezone?: GatewayTimezone;
+    export interface StorageGatewayDescribeMaintenanceStartTimeOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+        HourOfDay?: StorageGatewayHourOfDay;
+        MinuteOfHour?: StorageGatewayMinuteOfHour;
+        DayOfWeek?: StorageGatewayDayOfWeek;
+        Timezone?: StorageGatewayGatewayTimezone;
     }
-
 
-    export interface DescribeSnapshotScheduleInput {
-      VolumeARN: VolumeARN;
+    export interface StorageGatewayDescribeSnapshotScheduleInput {
+        VolumeARN: StorageGatewayVolumeARN;
     }
 
-
-    export interface DescribeSnapshotScheduleOutput {
-      VolumeARN?: VolumeARN;
-      StartAt?: HourOfDay;
-      RecurrenceInHours?: RecurrenceInHours;
-      Description?: Description;
-      Timezone?: GatewayTimezone;
+    export interface StorageGatewayDescribeSnapshotScheduleOutput {
+        VolumeARN?: StorageGatewayVolumeARN;
+        StartAt?: StorageGatewayHourOfDay;
+        RecurrenceInHours?: StorageGatewayRecurrenceInHours;
+        Description?: StorageGatewayDescription;
+        Timezone?: StorageGatewayGatewayTimezone;
     }
 
-
-    export interface DescribeStorediSCSIVolumesInput {
-      VolumeARNs: VolumeARNs;
+    export interface StorageGatewayDescribeStorediSCSIVolumesInput {
+        VolumeARNs: StorageGatewayVolumeARNs;
     }
-
 
-    export interface DescribeStorediSCSIVolumesOutput {
-      StorediSCSIVolumes?: StorediSCSIVolumes;
+    export interface StorageGatewayDescribeStorediSCSIVolumesOutput {
+        StorediSCSIVolumes?: StorageGatewayStorediSCSIVolumes;
     }
 
-
-    export interface DescribeTapeArchivesInput {
-      TapeARNs?: TapeARNs;
-      Marker?: Marker;
-      Limit?: PositiveIntObject;
+    export interface StorageGatewayDescribeTapeArchivesInput {
+        TapeARNs?: StorageGatewayTapeARNs;
+        Marker?: StorageGatewayMarker;
+        Limit?: StorageGatewayPositiveIntObject;
     }
 
-
-    export interface DescribeTapeArchivesOutput {
-      TapeArchives?: TapeArchives;
-      Marker?: Marker;
+    export interface StorageGatewayDescribeTapeArchivesOutput {
+        TapeArchives?: StorageGatewayTapeArchives;
+        Marker?: StorageGatewayMarker;
     }
-
 
-    export interface DescribeTapeRecoveryPointsInput {
-      GatewayARN: GatewayARN;
-      Marker?: Marker;
-      Limit?: PositiveIntObject;
+    export interface StorageGatewayDescribeTapeRecoveryPointsInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        Marker?: StorageGatewayMarker;
+        Limit?: StorageGatewayPositiveIntObject;
     }
 
-
-    export interface DescribeTapeRecoveryPointsOutput {
-      GatewayARN?: GatewayARN;
-      TapeRecoveryPointInfos?: TapeRecoveryPointInfos;
-      Marker?: Marker;
+    export interface StorageGatewayDescribeTapeRecoveryPointsOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+        TapeRecoveryPointInfos?: StorageGatewayTapeRecoveryPointInfos;
+        Marker?: StorageGatewayMarker;
     }
 
-
-    export interface DescribeTapesInput {
-      GatewayARN: GatewayARN;
-      TapeARNs?: TapeARNs;
-      Marker?: Marker;
-      Limit?: PositiveIntObject;
+    export interface StorageGatewayDescribeTapesInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        TapeARNs?: StorageGatewayTapeARNs;
+        Marker?: StorageGatewayMarker;
+        Limit?: StorageGatewayPositiveIntObject;
     }
-
 
-    export interface DescribeTapesOutput {
-      Tapes?: Tapes;
-      Marker?: Marker;
+    export interface StorageGatewayDescribeTapesOutput {
+        Tapes?: StorageGatewayTapes;
+        Marker?: StorageGatewayMarker;
     }
 
-
-    export interface DescribeUploadBufferInput {
-      GatewayARN: GatewayARN;
+    export interface StorageGatewayDescribeUploadBufferInput {
+        GatewayARN: StorageGatewayGatewayARN;
     }
-
 
-    export interface DescribeUploadBufferOutput {
-      GatewayARN?: GatewayARN;
-      DiskIds?: DiskIds;
-      UploadBufferUsedInBytes?: long;
-      UploadBufferAllocatedInBytes?: long;
+    export interface StorageGatewayDescribeUploadBufferOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+        DiskIds?: StorageGatewayDiskIds;
+        UploadBufferUsedInBytes?: StorageGatewaylong;
+        UploadBufferAllocatedInBytes?: StorageGatewaylong;
     }
 
-
-    export interface DescribeVTLDevicesInput {
-      GatewayARN: GatewayARN;
-      VTLDeviceARNs?: VTLDeviceARNs;
-      Marker?: Marker;
-      Limit?: PositiveIntObject;
+    export interface StorageGatewayDescribeVTLDevicesInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        VTLDeviceARNs?: StorageGatewayVTLDeviceARNs;
+        Marker?: StorageGatewayMarker;
+        Limit?: StorageGatewayPositiveIntObject;
     }
-
 
-    export interface DescribeVTLDevicesOutput {
-      GatewayARN?: GatewayARN;
-      VTLDevices?: VTLDevices;
-      Marker?: Marker;
+    export interface StorageGatewayDescribeVTLDevicesOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+        VTLDevices?: StorageGatewayVTLDevices;
+        Marker?: StorageGatewayMarker;
     }
 
-
-    export interface DescribeWorkingStorageInput {
-      GatewayARN: GatewayARN;
+    export interface StorageGatewayDescribeWorkingStorageInput {
+        GatewayARN: StorageGatewayGatewayARN;
     }
 
-
-    export interface DescribeWorkingStorageOutput {
-      GatewayARN?: GatewayARN;
-      DiskIds?: DiskIds;
-      WorkingStorageUsedInBytes?: long;
-      WorkingStorageAllocatedInBytes?: long;
+    export interface StorageGatewayDescribeWorkingStorageOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+        DiskIds?: StorageGatewayDiskIds;
+        WorkingStorageUsedInBytes?: StorageGatewaylong;
+        WorkingStorageAllocatedInBytes?: StorageGatewaylong;
     }
-
 
-    export type Description = string;
-
-    export type DeviceType = string;
-
-    export interface DeviceiSCSIAttributes {
-      TargetARN?: TargetARN;
-      NetworkInterfaceId?: NetworkInterfaceId;
-      NetworkInterfacePort?: integer;
-      ChapEnabled?: boolean;
+    export type StorageGatewayDescription = string;
+    export type StorageGatewayDeviceType = string;
+    export interface StorageGatewayDeviceiSCSIAttributes {
+        TargetARN?: StorageGatewayTargetARN;
+        NetworkInterfaceId?: StorageGatewayNetworkInterfaceId;
+        NetworkInterfacePort?: StorageGatewayinteger;
+        ChapEnabled?: StorageGatewayboolean;
     }
-
 
-    export interface DisableGatewayInput {
-      GatewayARN: GatewayARN;
+    export interface StorageGatewayDisableGatewayInput {
+        GatewayARN: StorageGatewayGatewayARN;
     }
 
-
-    export interface DisableGatewayOutput {
-      GatewayARN?: GatewayARN;
+    export interface StorageGatewayDisableGatewayOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
     }
 
-
-    export interface Disk {
-      DiskId?: DiskId;
-      DiskPath?: string;
-      DiskNode?: string;
-      DiskStatus?: string;
-      DiskSizeInBytes?: long;
-      DiskAllocationType?: DiskAllocationType;
-      DiskAllocationResource?: string;
+    export interface StorageGatewayDisk {
+        DiskId?: StorageGatewayDiskId;
+        DiskPath?: StorageGatewaystring;
+        DiskNode?: StorageGatewaystring;
+        DiskStatus?: StorageGatewaystring;
+        DiskSizeInBytes?: StorageGatewaylong;
+        DiskAllocationType?: StorageGatewayDiskAllocationType;
+        DiskAllocationResource?: StorageGatewaystring;
     }
-
-
-    export type DiskAllocationType = string;
-
-    export type DiskId = string;
-
-    export type DiskIds = Array<DiskId>;
-
-    export type Disks = Array<Disk>;
 
-    export type DoubleObject = number;
-
-    export type ErrorCode = string;
-
-    export type GatewayARN = string;
-
-    export type GatewayId = string;
-
-    export interface GatewayInfo {
-      GatewayARN?: GatewayARN;
-      GatewayType?: GatewayType;
-      GatewayOperationalState?: GatewayOperationalState;
+    export type StorageGatewayDiskAllocationType = string;
+    export type StorageGatewayDiskId = string;
+    export type StorageGatewayDiskIds = Array<StorageGatewayDiskId>;
+    export type StorageGatewayDisks = Array<StorageGatewayDisk>;
+    export type StorageGatewayDoubleObject = number;
+    export type StorageGatewayErrorCode = string;
+    export type StorageGatewayGatewayARN = string;
+    export type StorageGatewayGatewayId = string;
+    export interface StorageGatewayGatewayInfo {
+        GatewayARN?: StorageGatewayGatewayARN;
+        GatewayType?: StorageGatewayGatewayType;
+        GatewayOperationalState?: StorageGatewayGatewayOperationalState;
     }
-
-
-    export type GatewayName = string; // pattern: "^[ -\.0-\[\]-~]*[!-\.0-\[\]-~][ -\.0-\[\]-~]*$"
-
-    export type GatewayNetworkInterfaces = Array<NetworkInterface>;
-
-    export type GatewayOperationalState = string;
-
-    export type GatewayState = string;
-
-    export type GatewayTimezone = string;
-
-    export type GatewayType = string;
-
-    export type Gateways = Array<GatewayInfo>;
-
-    export type HourOfDay = number;
 
-    export interface InternalServerError {
-      message?: string;
-      error?: StorageGatewayError;
+    export type StorageGatewayGatewayName = string; // pattern: "^[ -\.0-\[\]-~]*[!-\.0-\[\]-~][ -\.0-\[\]-~]*$"
+    export type StorageGatewayGatewayNetworkInterfaces = Array<StorageGatewayNetworkInterface>;
+    export type StorageGatewayGatewayOperationalState = string;
+    export type StorageGatewayGatewayState = string;
+    export type StorageGatewayGatewayTimezone = string;
+    export type StorageGatewayGatewayType = string;
+    export type StorageGatewayGateways = Array<StorageGatewayGatewayInfo>;
+    export type StorageGatewayHourOfDay = number;
+    export interface StorageGatewayInternalServerError {
+        message?: StorageGatewaystring;
+        error?: StorageGatewayStorageGatewayError;
     }
 
-
-    export interface InvalidGatewayRequestException {
-      message?: string;
-      error?: StorageGatewayError;
+    export interface StorageGatewayInvalidGatewayRequestException {
+        message?: StorageGatewaystring;
+        error?: StorageGatewayStorageGatewayError;
     }
-
-
-    export type IqnName = string; // pattern: "[0-9a-z:.-]+"
 
-    export interface ListGatewaysInput {
-      Marker?: Marker;
-      Limit?: PositiveIntObject;
+    export type StorageGatewayIqnName = string; // pattern: "[0-9a-z:.-]+"
+    export interface StorageGatewayListGatewaysInput {
+        Marker?: StorageGatewayMarker;
+        Limit?: StorageGatewayPositiveIntObject;
     }
 
-
-    export interface ListGatewaysOutput {
-      Gateways?: Gateways;
-      Marker?: Marker;
+    export interface StorageGatewayListGatewaysOutput {
+        Gateways?: StorageGatewayGateways;
+        Marker?: StorageGatewayMarker;
     }
 
-
-    export interface ListLocalDisksInput {
-      GatewayARN: GatewayARN;
+    export interface StorageGatewayListLocalDisksInput {
+        GatewayARN: StorageGatewayGatewayARN;
     }
-
 
-    export interface ListLocalDisksOutput {
-      GatewayARN?: GatewayARN;
-      Disks?: Disks;
+    export interface StorageGatewayListLocalDisksOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+        Disks?: StorageGatewayDisks;
     }
 
-
-    export interface ListVolumeRecoveryPointsInput {
-      GatewayARN: GatewayARN;
+    export interface StorageGatewayListVolumeRecoveryPointsInput {
+        GatewayARN: StorageGatewayGatewayARN;
     }
 
-
-    export interface ListVolumeRecoveryPointsOutput {
-      GatewayARN?: GatewayARN;
-      VolumeRecoveryPointInfos?: VolumeRecoveryPointInfos;
+    export interface StorageGatewayListVolumeRecoveryPointsOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+        VolumeRecoveryPointInfos?: StorageGatewayVolumeRecoveryPointInfos;
     }
-
 
-    export interface ListVolumesInput {
-      GatewayARN: GatewayARN;
-      Marker?: Marker;
-      Limit?: PositiveIntObject;
+    export interface StorageGatewayListVolumesInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        Marker?: StorageGatewayMarker;
+        Limit?: StorageGatewayPositiveIntObject;
     }
 
-
-    export interface ListVolumesOutput {
-      GatewayARN?: GatewayARN;
-      Marker?: Marker;
-      VolumeInfos?: VolumeInfos;
+    export interface StorageGatewayListVolumesOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
+        Marker?: StorageGatewayMarker;
+        VolumeInfos?: StorageGatewayVolumeInfos;
     }
-
-
-    export type Marker = string;
-
-    export type MediumChangerType = string;
 
-    export type MinuteOfHour = number;
-
-    export interface NetworkInterface {
-      Ipv4Address?: string;
-      MacAddress?: string;
-      Ipv6Address?: string;
+    export type StorageGatewayMarker = string;
+    export type StorageGatewayMediumChangerType = string;
+    export type StorageGatewayMinuteOfHour = number;
+    export interface StorageGatewayNetworkInterface {
+        Ipv4Address?: StorageGatewaystring;
+        MacAddress?: StorageGatewaystring;
+        Ipv6Address?: StorageGatewaystring;
     }
-
-
-    export type NetworkInterfaceId = string; // pattern: "\A(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}\z"
-
-    export type NextUpdateAvailabilityDate = string;
-
-    export type NumTapesToCreate = number;
-
-    export type PositiveIntObject = number;
 
-    export type RecurrenceInHours = number;
-
-    export type RegionId = string;
-
-    export interface ResetCacheInput {
-      GatewayARN: GatewayARN;
+    export type StorageGatewayNetworkInterfaceId = string; // pattern: "\A(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}\z"
+    export type StorageGatewayNextUpdateAvailabilityDate = string;
+    export type StorageGatewayNumTapesToCreate = number;
+    export type StorageGatewayPositiveIntObject = number;
+    export type StorageGatewayRecurrenceInHours = number;
+    export type StorageGatewayRegionId = string;
+    export interface StorageGatewayResetCacheInput {
+        GatewayARN: StorageGatewayGatewayARN;
     }
-
 
-    export interface ResetCacheOutput {
-      GatewayARN?: GatewayARN;
+    export interface StorageGatewayResetCacheOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
     }
 
-
-    export interface RetrieveTapeArchiveInput {
-      TapeARN: TapeARN;
-      GatewayARN: GatewayARN;
+    export interface StorageGatewayRetrieveTapeArchiveInput {
+        TapeARN: StorageGatewayTapeARN;
+        GatewayARN: StorageGatewayGatewayARN;
     }
-
 
-    export interface RetrieveTapeArchiveOutput {
-      TapeARN?: TapeARN;
+    export interface StorageGatewayRetrieveTapeArchiveOutput {
+        TapeARN?: StorageGatewayTapeARN;
     }
 
-
-    export interface RetrieveTapeRecoveryPointInput {
-      TapeARN: TapeARN;
-      GatewayARN: GatewayARN;
+    export interface StorageGatewayRetrieveTapeRecoveryPointInput {
+        TapeARN: StorageGatewayTapeARN;
+        GatewayARN: StorageGatewayGatewayARN;
     }
-
 
-    export interface RetrieveTapeRecoveryPointOutput {
-      TapeARN?: TapeARN;
+    export interface StorageGatewayRetrieveTapeRecoveryPointOutput {
+        TapeARN?: StorageGatewayTapeARN;
     }
 
-
-    export interface ShutdownGatewayInput {
-      GatewayARN: GatewayARN;
+    export interface StorageGatewayShutdownGatewayInput {
+        GatewayARN: StorageGatewayGatewayARN;
     }
 
-
-    export interface ShutdownGatewayOutput {
-      GatewayARN?: GatewayARN;
+    export interface StorageGatewayShutdownGatewayOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
     }
-
 
-    export type SnapshotDescription = string;
-
-    export type SnapshotId = string; // pattern: "\Asnap-[0-9a-fA-F]{8}\z"
-
-    export interface StartGatewayInput {
-      GatewayARN: GatewayARN;
+    export type StorageGatewaySnapshotDescription = string;
+    export type StorageGatewaySnapshotId = string; // pattern: "\Asnap-[0-9a-fA-F]{8}\z"
+    export interface StorageGatewayStartGatewayInput {
+        GatewayARN: StorageGatewayGatewayARN;
     }
-
 
-    export interface StartGatewayOutput {
-      GatewayARN?: GatewayARN;
+    export interface StorageGatewayStartGatewayOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
     }
 
-
-    export interface StorageGatewayError {
-      errorCode?: ErrorCode;
-      errorDetails?: errorDetails;
+    export interface StorageGatewayStorageGatewayError {
+        errorCode?: StorageGatewayErrorCode;
+        errorDetails?: StorageGatewayerrorDetails;
     }
 
-
-    export interface StorediSCSIVolume {
-      VolumeARN?: VolumeARN;
-      VolumeId?: VolumeId;
-      VolumeType?: VolumeType;
-      VolumeStatus?: VolumeStatus;
-      VolumeSizeInBytes?: long;
-      VolumeProgress?: DoubleObject;
-      VolumeDiskId?: DiskId;
-      SourceSnapshotId?: SnapshotId;
-      PreservedExistingData?: boolean;
-      VolumeiSCSIAttributes?: VolumeiSCSIAttributes;
+    export interface StorageGatewayStorediSCSIVolume {
+        VolumeARN?: StorageGatewayVolumeARN;
+        VolumeId?: StorageGatewayVolumeId;
+        VolumeType?: StorageGatewayVolumeType;
+        VolumeStatus?: StorageGatewayVolumeStatus;
+        VolumeSizeInBytes?: StorageGatewaylong;
+        VolumeProgress?: StorageGatewayDoubleObject;
+        VolumeDiskId?: StorageGatewayDiskId;
+        SourceSnapshotId?: StorageGatewaySnapshotId;
+        PreservedExistingData?: StorageGatewayboolean;
+        VolumeiSCSIAttributes?: StorageGatewayVolumeiSCSIAttributes;
     }
-
 
-    export type StorediSCSIVolumes = Array<StorediSCSIVolume>;
-
-    export interface Tape {
-      TapeARN?: TapeARN;
-      TapeBarcode?: TapeBarcode;
-      TapeSizeInBytes?: TapeSize;
-      TapeStatus?: TapeStatus;
-      VTLDevice?: VTLDeviceARN;
-      Progress?: DoubleObject;
+    export type StorageGatewayStorediSCSIVolumes = Array<StorageGatewayStorediSCSIVolume>;
+    export interface StorageGatewayTape {
+        TapeARN?: StorageGatewayTapeARN;
+        TapeBarcode?: StorageGatewayTapeBarcode;
+        TapeSizeInBytes?: StorageGatewayTapeSize;
+        TapeStatus?: StorageGatewayTapeStatus;
+        VTLDevice?: StorageGatewayVTLDeviceARN;
+        Progress?: StorageGatewayDoubleObject;
     }
-
-
-    export type TapeARN = string;
-
-    export type TapeARNs = Array<TapeARN>;
 
-    export interface TapeArchive {
-      TapeARN?: TapeARN;
-      TapeBarcode?: TapeBarcode;
-      TapeSizeInBytes?: TapeSize;
-      CompletionTime?: Time;
-      RetrievedTo?: GatewayARN;
-      TapeStatus?: TapeArchiveStatus;
+    export type StorageGatewayTapeARN = string;
+    export type StorageGatewayTapeARNs = Array<StorageGatewayTapeARN>;
+    export interface StorageGatewayTapeArchive {
+        TapeARN?: StorageGatewayTapeARN;
+        TapeBarcode?: StorageGatewayTapeBarcode;
+        TapeSizeInBytes?: StorageGatewayTapeSize;
+        CompletionTime?: StorageGatewayTime;
+        RetrievedTo?: StorageGatewayGatewayARN;
+        TapeStatus?: StorageGatewayTapeArchiveStatus;
     }
 
-
-    export type TapeArchiveStatus = string;
-
-    export type TapeArchives = Array<TapeArchive>;
-
-    export type TapeBarcode = string; // pattern: "^[A-Z0-9]*$"
-
-    export type TapeBarcodePrefix = string; // pattern: "^[A-Z]*$"
-
-    export type TapeDriveType = string;
-
-    export interface TapeRecoveryPointInfo {
-      TapeARN?: TapeARN;
-      TapeRecoveryPointTime?: Time;
-      TapeSizeInBytes?: TapeSize;
-      TapeStatus?: TapeRecoveryPointStatus;
+    export type StorageGatewayTapeArchiveStatus = string;
+    export type StorageGatewayTapeArchives = Array<StorageGatewayTapeArchive>;
+    export type StorageGatewayTapeBarcode = string; // pattern: "^[A-Z0-9]*$"
+    export type StorageGatewayTapeBarcodePrefix = string; // pattern: "^[A-Z]*$"
+    export type StorageGatewayTapeDriveType = string;
+    export interface StorageGatewayTapeRecoveryPointInfo {
+        TapeARN?: StorageGatewayTapeARN;
+        TapeRecoveryPointTime?: StorageGatewayTime;
+        TapeSizeInBytes?: StorageGatewayTapeSize;
+        TapeStatus?: StorageGatewayTapeRecoveryPointStatus;
     }
-
-
-    export type TapeRecoveryPointInfos = Array<TapeRecoveryPointInfo>;
-
-    export type TapeRecoveryPointStatus = string;
-
-    export type TapeSize = number;
-
-    export type TapeStatus = string;
-
-    export type Tapes = Array<Tape>;
-
-    export type TargetARN = string;
 
-    export type TargetName = string; // pattern: "^[-\.;a-z0-9]+$"
-
-    export type Time = number;
-
-    export interface UpdateBandwidthRateLimitInput {
-      GatewayARN: GatewayARN;
-      AverageUploadRateLimitInBitsPerSec?: BandwidthUploadRateLimit;
-      AverageDownloadRateLimitInBitsPerSec?: BandwidthDownloadRateLimit;
+    export type StorageGatewayTapeRecoveryPointInfos = Array<StorageGatewayTapeRecoveryPointInfo>;
+    export type StorageGatewayTapeRecoveryPointStatus = string;
+    export type StorageGatewayTapeSize = number;
+    export type StorageGatewayTapeStatus = string;
+    export type StorageGatewayTapes = Array<StorageGatewayTape>;
+    export type StorageGatewayTargetARN = string;
+    export type StorageGatewayTargetName = string; // pattern: "^[-\.;a-z0-9]+$"
+    export type StorageGatewayTime = number;
+    export interface StorageGatewayUpdateBandwidthRateLimitInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        AverageUploadRateLimitInBitsPerSec?: StorageGatewayBandwidthUploadRateLimit;
+        AverageDownloadRateLimitInBitsPerSec?: StorageGatewayBandwidthDownloadRateLimit;
     }
-
 
-    export interface UpdateBandwidthRateLimitOutput {
-      GatewayARN?: GatewayARN;
+    export interface StorageGatewayUpdateBandwidthRateLimitOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
     }
 
-
-    export interface UpdateChapCredentialsInput {
-      TargetARN: TargetARN;
-      SecretToAuthenticateInitiator: ChapSecret;
-      InitiatorName: IqnName;
-      SecretToAuthenticateTarget?: ChapSecret;
+    export interface StorageGatewayUpdateChapCredentialsInput {
+        TargetARN: StorageGatewayTargetARN;
+        SecretToAuthenticateInitiator: StorageGatewayChapSecret;
+        InitiatorName: StorageGatewayIqnName;
+        SecretToAuthenticateTarget?: StorageGatewayChapSecret;
     }
 
-
-    export interface UpdateChapCredentialsOutput {
-      TargetARN?: TargetARN;
-      InitiatorName?: IqnName;
+    export interface StorageGatewayUpdateChapCredentialsOutput {
+        TargetARN?: StorageGatewayTargetARN;
+        InitiatorName?: StorageGatewayIqnName;
     }
-
 
-    export interface UpdateGatewayInformationInput {
-      GatewayARN: GatewayARN;
-      GatewayName?: GatewayName;
-      GatewayTimezone?: GatewayTimezone;
+    export interface StorageGatewayUpdateGatewayInformationInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        GatewayName?: StorageGatewayGatewayName;
+        GatewayTimezone?: StorageGatewayGatewayTimezone;
     }
 
-
-    export interface UpdateGatewayInformationOutput {
-      GatewayARN?: GatewayARN;
+    export interface StorageGatewayUpdateGatewayInformationOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
     }
 
-
-    export interface UpdateGatewaySoftwareNowInput {
-      GatewayARN: GatewayARN;
+    export interface StorageGatewayUpdateGatewaySoftwareNowInput {
+        GatewayARN: StorageGatewayGatewayARN;
     }
-
 
-    export interface UpdateGatewaySoftwareNowOutput {
-      GatewayARN?: GatewayARN;
+    export interface StorageGatewayUpdateGatewaySoftwareNowOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
     }
 
-
-    export interface UpdateMaintenanceStartTimeInput {
-      GatewayARN: GatewayARN;
-      HourOfDay: HourOfDay;
-      MinuteOfHour: MinuteOfHour;
-      DayOfWeek: DayOfWeek;
+    export interface StorageGatewayUpdateMaintenanceStartTimeInput {
+        GatewayARN: StorageGatewayGatewayARN;
+        HourOfDay: StorageGatewayHourOfDay;
+        MinuteOfHour: StorageGatewayMinuteOfHour;
+        DayOfWeek: StorageGatewayDayOfWeek;
     }
-
 
-    export interface UpdateMaintenanceStartTimeOutput {
-      GatewayARN?: GatewayARN;
+    export interface StorageGatewayUpdateMaintenanceStartTimeOutput {
+        GatewayARN?: StorageGatewayGatewayARN;
     }
 
-
-    export interface UpdateSnapshotScheduleInput {
-      VolumeARN: VolumeARN;
-      StartAt: HourOfDay;
-      RecurrenceInHours: RecurrenceInHours;
-      Description?: Description;
+    export interface StorageGatewayUpdateSnapshotScheduleInput {
+        VolumeARN: StorageGatewayVolumeARN;
+        StartAt: StorageGatewayHourOfDay;
+        RecurrenceInHours: StorageGatewayRecurrenceInHours;
+        Description?: StorageGatewayDescription;
     }
-
 
-    export interface UpdateSnapshotScheduleOutput {
-      VolumeARN?: VolumeARN;
+    export interface StorageGatewayUpdateSnapshotScheduleOutput {
+        VolumeARN?: StorageGatewayVolumeARN;
     }
 
-
-    export interface UpdateVTLDeviceTypeInput {
-      VTLDeviceARN: VTLDeviceARN;
-      DeviceType: DeviceType;
+    export interface StorageGatewayUpdateVTLDeviceTypeInput {
+        VTLDeviceARN: StorageGatewayVTLDeviceARN;
+        DeviceType: StorageGatewayDeviceType;
     }
 
-
-    export interface UpdateVTLDeviceTypeOutput {
-      VTLDeviceARN?: VTLDeviceARN;
+    export interface StorageGatewayUpdateVTLDeviceTypeOutput {
+        VTLDeviceARN?: StorageGatewayVTLDeviceARN;
     }
-
 
-    export interface VTLDevice {
-      VTLDeviceARN?: VTLDeviceARN;
-      VTLDeviceType?: VTLDeviceType;
-      VTLDeviceVendor?: VTLDeviceVendor;
-      VTLDeviceProductIdentifier?: VTLDeviceProductIdentifier;
-      DeviceiSCSIAttributes?: DeviceiSCSIAttributes;
+    export interface StorageGatewayVTLDevice {
+        VTLDeviceARN?: StorageGatewayVTLDeviceARN;
+        VTLDeviceType?: StorageGatewayVTLDeviceType;
+        VTLDeviceVendor?: StorageGatewayVTLDeviceVendor;
+        VTLDeviceProductIdentifier?: StorageGatewayVTLDeviceProductIdentifier;
+        DeviceiSCSIAttributes?: StorageGatewayDeviceiSCSIAttributes;
     }
-
-
-    export type VTLDeviceARN = string;
-
-    export type VTLDeviceARNs = Array<VTLDeviceARN>;
-
-    export type VTLDeviceProductIdentifier = string;
-
-    export type VTLDeviceType = string;
-
-    export type VTLDeviceVendor = string;
-
-    export type VTLDevices = Array<VTLDevice>;
-
-    export type VolumeARN = string;
-
-    export type VolumeARNs = Array<VolumeARN>;
-
-    export type VolumeId = string;
 
-    export interface VolumeInfo {
-      VolumeARN?: VolumeARN;
-      VolumeType?: VolumeType;
+    export type StorageGatewayVTLDeviceARN = string;
+    export type StorageGatewayVTLDeviceARNs = Array<StorageGatewayVTLDeviceARN>;
+    export type StorageGatewayVTLDeviceProductIdentifier = string;
+    export type StorageGatewayVTLDeviceType = string;
+    export type StorageGatewayVTLDeviceVendor = string;
+    export type StorageGatewayVTLDevices = Array<StorageGatewayVTLDevice>;
+    export type StorageGatewayVolumeARN = string;
+    export type StorageGatewayVolumeARNs = Array<StorageGatewayVolumeARN>;
+    export type StorageGatewayVolumeId = string;
+    export interface StorageGatewayVolumeInfo {
+        VolumeARN?: StorageGatewayVolumeARN;
+        VolumeType?: StorageGatewayVolumeType;
     }
 
-
-    export type VolumeInfos = Array<VolumeInfo>;
-
-    export interface VolumeRecoveryPointInfo {
-      VolumeARN?: VolumeARN;
-      VolumeSizeInBytes?: long;
-      VolumeUsageInBytes?: long;
-      VolumeRecoveryPointTime?: string;
+    export type StorageGatewayVolumeInfos = Array<StorageGatewayVolumeInfo>;
+    export interface StorageGatewayVolumeRecoveryPointInfo {
+        VolumeARN?: StorageGatewayVolumeARN;
+        VolumeSizeInBytes?: StorageGatewaylong;
+        VolumeUsageInBytes?: StorageGatewaylong;
+        VolumeRecoveryPointTime?: StorageGatewaystring;
     }
-
-
-    export type VolumeRecoveryPointInfos = Array<VolumeRecoveryPointInfo>;
-
-    export type VolumeStatus = string;
-
-    export type VolumeType = string;
 
-    export interface VolumeiSCSIAttributes {
-      TargetARN?: TargetARN;
-      NetworkInterfaceId?: NetworkInterfaceId;
-      NetworkInterfacePort?: integer;
-      LunNumber?: PositiveIntObject;
-      ChapEnabled?: boolean;
+    export type StorageGatewayVolumeRecoveryPointInfos = Array<StorageGatewayVolumeRecoveryPointInfo>;
+    export type StorageGatewayVolumeStatus = string;
+    export type StorageGatewayVolumeType = string;
+    export interface StorageGatewayVolumeiSCSIAttributes {
+        TargetARN?: StorageGatewayTargetARN;
+        NetworkInterfaceId?: StorageGatewayNetworkInterfaceId;
+        NetworkInterfacePort?: StorageGatewayinteger;
+        LunNumber?: StorageGatewayPositiveIntObject;
+        ChapEnabled?: StorageGatewayboolean;
     }
-
-
-    export type boolean = boolean;
-
-    export type double = number;
-
-    export type errorDetails = any; // not really - it was 'map' instead - must fix this one
-
-    export type integer = number;
-
-    export type long = number;
-
-    export type string = string;
 
+    export type StorageGatewayboolean = boolean;
+    export type StorageGatewaydouble = number;
+    export type StorageGatewayerrorDetails = any; // not really - it was 'map' instead - must fix this one
+    export type StorageGatewayinteger = number;
+    export type StorageGatewaylong = number;
+    export type StorageGatewaystring = string;
 }

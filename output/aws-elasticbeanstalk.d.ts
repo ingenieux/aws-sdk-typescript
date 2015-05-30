@@ -3,749 +3,585 @@
 declare module "aws-sdk" {
     export class ElasticBeanstalk {
       constructor(options?: any);
-      abortEnvironmentUpdate(params: AbortEnvironmentUpdateMessage, callback: (err: InsufficientPrivilegesException|any, data: any) => void): void;
-      checkDNSAvailability(params: CheckDNSAvailabilityMessage, callback: (err: any, data: CheckDNSAvailabilityResultMessage|any) => void): void;
-      createApplication(params: CreateApplicationMessage, callback: (err: TooManyApplicationsException|any, data: ApplicationDescriptionMessage|any) => void): void;
-      createApplicationVersion(params: CreateApplicationVersionMessage, callback: (err: TooManyApplicationsException|TooManyApplicationVersionsException|InsufficientPrivilegesException|S3LocationNotInServiceRegionException|any, data: ApplicationVersionDescriptionMessage|any) => void): void;
-      createConfigurationTemplate(params: CreateConfigurationTemplateMessage, callback: (err: InsufficientPrivilegesException|TooManyConfigurationTemplatesException|any, data: ConfigurationSettingsDescription|any) => void): void;
-      createEnvironment(params: CreateEnvironmentMessage, callback: (err: TooManyEnvironmentsException|InsufficientPrivilegesException|any, data: EnvironmentDescription|any) => void): void;
-      createStorageLocation(callback: (err: TooManyBucketsException|S3SubscriptionRequiredException|InsufficientPrivilegesException|any, data: CreateStorageLocationResultMessage|any) => void): void;
-      deleteApplication(params: DeleteApplicationMessage, callback: (err: OperationInProgressException|any, data: any) => void): void;
-      deleteApplicationVersion(params: DeleteApplicationVersionMessage, callback: (err: SourceBundleDeletionException|InsufficientPrivilegesException|OperationInProgressException|S3LocationNotInServiceRegionException|any, data: any) => void): void;
-      deleteConfigurationTemplate(params: DeleteConfigurationTemplateMessage, callback: (err: OperationInProgressException|any, data: any) => void): void;
-      deleteEnvironmentConfiguration(params: DeleteEnvironmentConfigurationMessage, callback: (err: any, data: any) => void): void;
-      describeApplicationVersions(params: DescribeApplicationVersionsMessage, callback: (err: any, data: ApplicationVersionDescriptionsMessage|any) => void): void;
-      describeApplications(params: DescribeApplicationsMessage, callback: (err: any, data: ApplicationDescriptionsMessage|any) => void): void;
-      describeConfigurationOptions(params: DescribeConfigurationOptionsMessage, callback: (err: any, data: ConfigurationOptionsDescription|any) => void): void;
-      describeConfigurationSettings(params: DescribeConfigurationSettingsMessage, callback: (err: any, data: ConfigurationSettingsDescriptions|any) => void): void;
-      describeEnvironmentResources(params: DescribeEnvironmentResourcesMessage, callback: (err: InsufficientPrivilegesException|any, data: EnvironmentResourceDescriptionsMessage|any) => void): void;
-      describeEnvironments(params: DescribeEnvironmentsMessage, callback: (err: any, data: EnvironmentDescriptionsMessage|any) => void): void;
-      describeEvents(params: DescribeEventsMessage, callback: (err: any, data: EventDescriptionsMessage|any) => void): void;
-      listAvailableSolutionStacks(callback: (err: any, data: ListAvailableSolutionStacksResultMessage|any) => void): void;
-      rebuildEnvironment(params: RebuildEnvironmentMessage, callback: (err: InsufficientPrivilegesException|any, data: any) => void): void;
-      requestEnvironmentInfo(params: RequestEnvironmentInfoMessage, callback: (err: any, data: any) => void): void;
-      restartAppServer(params: RestartAppServerMessage, callback: (err: any, data: any) => void): void;
-      retrieveEnvironmentInfo(params: RetrieveEnvironmentInfoMessage, callback: (err: any, data: RetrieveEnvironmentInfoResultMessage|any) => void): void;
-      swapEnvironmentCNAMEs(params: SwapEnvironmentCNAMEsMessage, callback: (err: any, data: any) => void): void;
-      terminateEnvironment(params: TerminateEnvironmentMessage, callback: (err: InsufficientPrivilegesException|any, data: EnvironmentDescription|any) => void): void;
-      updateApplication(params: UpdateApplicationMessage, callback: (err: any, data: ApplicationDescriptionMessage|any) => void): void;
-      updateApplicationVersion(params: UpdateApplicationVersionMessage, callback: (err: any, data: ApplicationVersionDescriptionMessage|any) => void): void;
-      updateConfigurationTemplate(params: UpdateConfigurationTemplateMessage, callback: (err: InsufficientPrivilegesException|any, data: ConfigurationSettingsDescription|any) => void): void;
-      updateEnvironment(params: UpdateEnvironmentMessage, callback: (err: InsufficientPrivilegesException|any, data: EnvironmentDescription|any) => void): void;
-      validateConfigurationSettings(params: ValidateConfigurationSettingsMessage, callback: (err: InsufficientPrivilegesException|any, data: ConfigurationSettingsValidationMessages|any) => void): void;
+      abortEnvironmentUpdate(params: ElasticBeanstalkAbortEnvironmentUpdateMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: any) => void): void;
+      checkDNSAvailability(params: ElasticBeanstalkCheckDNSAvailabilityMessage, callback: (err: any, data: ElasticBeanstalkCheckDNSAvailabilityResultMessage|any) => void): void;
+      createApplication(params: ElasticBeanstalkCreateApplicationMessage, callback: (err: ElasticBeanstalkTooManyApplicationsException|any, data: ElasticBeanstalkApplicationDescriptionMessage|any) => void): void;
+      createApplicationVersion(params: ElasticBeanstalkCreateApplicationVersionMessage, callback: (err: ElasticBeanstalkTooManyApplicationsException|ElasticBeanstalkTooManyApplicationVersionsException|ElasticBeanstalkInsufficientPrivilegesException|ElasticBeanstalkS3LocationNotInServiceRegionException|any, data: ElasticBeanstalkApplicationVersionDescriptionMessage|any) => void): void;
+      createConfigurationTemplate(params: ElasticBeanstalkCreateConfigurationTemplateMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|ElasticBeanstalkTooManyConfigurationTemplatesException|any, data: ElasticBeanstalkConfigurationSettingsDescription|any) => void): void;
+      createEnvironment(params: ElasticBeanstalkCreateEnvironmentMessage, callback: (err: ElasticBeanstalkTooManyEnvironmentsException|ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkEnvironmentDescription|any) => void): void;
+      createStorageLocation(callback: (err: ElasticBeanstalkTooManyBucketsException|ElasticBeanstalkS3SubscriptionRequiredException|ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkCreateStorageLocationResultMessage|any) => void): void;
+      deleteApplication(params: ElasticBeanstalkDeleteApplicationMessage, callback: (err: ElasticBeanstalkOperationInProgressException|any, data: any) => void): void;
+      deleteApplicationVersion(params: ElasticBeanstalkDeleteApplicationVersionMessage, callback: (err: ElasticBeanstalkSourceBundleDeletionException|ElasticBeanstalkInsufficientPrivilegesException|ElasticBeanstalkOperationInProgressException|ElasticBeanstalkS3LocationNotInServiceRegionException|any, data: any) => void): void;
+      deleteConfigurationTemplate(params: ElasticBeanstalkDeleteConfigurationTemplateMessage, callback: (err: ElasticBeanstalkOperationInProgressException|any, data: any) => void): void;
+      deleteEnvironmentConfiguration(params: ElasticBeanstalkDeleteEnvironmentConfigurationMessage, callback: (err: any, data: any) => void): void;
+      describeApplicationVersions(params: ElasticBeanstalkDescribeApplicationVersionsMessage, callback: (err: any, data: ElasticBeanstalkApplicationVersionDescriptionsMessage|any) => void): void;
+      describeApplications(params: ElasticBeanstalkDescribeApplicationsMessage, callback: (err: any, data: ElasticBeanstalkApplicationDescriptionsMessage|any) => void): void;
+      describeConfigurationOptions(params: ElasticBeanstalkDescribeConfigurationOptionsMessage, callback: (err: any, data: ElasticBeanstalkConfigurationOptionsDescription|any) => void): void;
+      describeConfigurationSettings(params: ElasticBeanstalkDescribeConfigurationSettingsMessage, callback: (err: any, data: ElasticBeanstalkConfigurationSettingsDescriptions|any) => void): void;
+      describeEnvironmentResources(params: ElasticBeanstalkDescribeEnvironmentResourcesMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkEnvironmentResourceDescriptionsMessage|any) => void): void;
+      describeEnvironments(params: ElasticBeanstalkDescribeEnvironmentsMessage, callback: (err: any, data: ElasticBeanstalkEnvironmentDescriptionsMessage|any) => void): void;
+      describeEvents(params: ElasticBeanstalkDescribeEventsMessage, callback: (err: any, data: ElasticBeanstalkEventDescriptionsMessage|any) => void): void;
+      listAvailableSolutionStacks(callback: (err: any, data: ElasticBeanstalkListAvailableSolutionStacksResultMessage|any) => void): void;
+      rebuildEnvironment(params: ElasticBeanstalkRebuildEnvironmentMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: any) => void): void;
+      requestEnvironmentInfo(params: ElasticBeanstalkRequestEnvironmentInfoMessage, callback: (err: any, data: any) => void): void;
+      restartAppServer(params: ElasticBeanstalkRestartAppServerMessage, callback: (err: any, data: any) => void): void;
+      retrieveEnvironmentInfo(params: ElasticBeanstalkRetrieveEnvironmentInfoMessage, callback: (err: any, data: ElasticBeanstalkRetrieveEnvironmentInfoResultMessage|any) => void): void;
+      swapEnvironmentCNAMEs(params: ElasticBeanstalkSwapEnvironmentCNAMEsMessage, callback: (err: any, data: any) => void): void;
+      terminateEnvironment(params: ElasticBeanstalkTerminateEnvironmentMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkEnvironmentDescription|any) => void): void;
+      updateApplication(params: ElasticBeanstalkUpdateApplicationMessage, callback: (err: any, data: ElasticBeanstalkApplicationDescriptionMessage|any) => void): void;
+      updateApplicationVersion(params: ElasticBeanstalkUpdateApplicationVersionMessage, callback: (err: any, data: ElasticBeanstalkApplicationVersionDescriptionMessage|any) => void): void;
+      updateConfigurationTemplate(params: ElasticBeanstalkUpdateConfigurationTemplateMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkConfigurationSettingsDescription|any) => void): void;
+      updateEnvironment(params: ElasticBeanstalkUpdateEnvironmentMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkEnvironmentDescription|any) => void): void;
+      validateConfigurationSettings(params: ElasticBeanstalkValidateConfigurationSettingsMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkConfigurationSettingsValidationMessages|any) => void): void;
+    }
+
+    export interface ElasticBeanstalkAbortEnvironmentUpdateMessage {
+        EnvironmentId?: ElasticBeanstalkEnvironmentId;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+    }
+
+    export type ElasticBeanstalkAbortableOperationInProgress = boolean;
+    export interface ElasticBeanstalkApplicationDescription {
+        ApplicationName?: ElasticBeanstalkApplicationName;
+        Description?: ElasticBeanstalkDescription;
+        DateCreated?: ElasticBeanstalkCreationDate;
+        DateUpdated?: ElasticBeanstalkUpdateDate;
+        Versions?: ElasticBeanstalkVersionLabelsList;
+        ConfigurationTemplates?: ElasticBeanstalkConfigurationTemplateNamesList;
+    }
+
+    export type ElasticBeanstalkApplicationDescriptionList = Array<ElasticBeanstalkApplicationDescription>;
+    export interface ElasticBeanstalkApplicationDescriptionMessage {
+        Application?: ElasticBeanstalkApplicationDescription;
+    }
+
+    export interface ElasticBeanstalkApplicationDescriptionsMessage {
+        Applications?: ElasticBeanstalkApplicationDescriptionList;
+    }
+
+    export type ElasticBeanstalkApplicationName = string;
+    export type ElasticBeanstalkApplicationNamesList = Array<ElasticBeanstalkApplicationName>;
+    export interface ElasticBeanstalkApplicationVersionDescription {
+        ApplicationName?: ElasticBeanstalkApplicationName;
+        Description?: ElasticBeanstalkDescription;
+        VersionLabel?: ElasticBeanstalkVersionLabel;
+        SourceBundle?: ElasticBeanstalkS3Location;
+        DateCreated?: ElasticBeanstalkCreationDate;
+        DateUpdated?: ElasticBeanstalkUpdateDate;
+    }
+
+    export type ElasticBeanstalkApplicationVersionDescriptionList = Array<ElasticBeanstalkApplicationVersionDescription>;
+    export interface ElasticBeanstalkApplicationVersionDescriptionMessage {
+        ApplicationVersion?: ElasticBeanstalkApplicationVersionDescription;
+    }
+
+    export interface ElasticBeanstalkApplicationVersionDescriptionsMessage {
+        ApplicationVersions?: ElasticBeanstalkApplicationVersionDescriptionList;
+    }
+
+    export type ElasticBeanstalkAutoCreateApplication = boolean;
+    export interface ElasticBeanstalkAutoScalingGroup {
+        Name?: ElasticBeanstalkResourceId;
+    }
+
+    export type ElasticBeanstalkAutoScalingGroupList = Array<ElasticBeanstalkAutoScalingGroup>;
+    export type ElasticBeanstalkAvailableSolutionStackDetailsList = Array<ElasticBeanstalkSolutionStackDescription>;
+    export type ElasticBeanstalkAvailableSolutionStackNamesList = Array<ElasticBeanstalkSolutionStackName>;
+    export interface ElasticBeanstalkCheckDNSAvailabilityMessage {
+        CNAMEPrefix: ElasticBeanstalkDNSCnamePrefix;
+    }
+
+    export interface ElasticBeanstalkCheckDNSAvailabilityResultMessage {
+        Available?: ElasticBeanstalkCnameAvailability;
+        FullyQualifiedCNAME?: ElasticBeanstalkDNSCname;
+    }
+
+    export type ElasticBeanstalkCnameAvailability = boolean;
+    export type ElasticBeanstalkConfigurationDeploymentStatus = string;
+    export type ElasticBeanstalkConfigurationOptionDefaultValue = string;
+    export interface ElasticBeanstalkConfigurationOptionDescription {
+        Namespace?: ElasticBeanstalkOptionNamespace;
+        Name?: ElasticBeanstalkConfigurationOptionName;
+        DefaultValue?: ElasticBeanstalkConfigurationOptionDefaultValue;
+        ChangeSeverity?: ElasticBeanstalkConfigurationOptionSeverity;
+        UserDefined?: ElasticBeanstalkUserDefinedOption;
+        ValueType?: ElasticBeanstalkConfigurationOptionValueType;
+        ValueOptions?: ElasticBeanstalkConfigurationOptionPossibleValues;
+        MinValue?: ElasticBeanstalkOptionRestrictionMinValue;
+        MaxValue?: ElasticBeanstalkOptionRestrictionMaxValue;
+        MaxLength?: ElasticBeanstalkOptionRestrictionMaxLength;
+        Regex?: ElasticBeanstalkOptionRestrictionRegex;
+    }
+
+    export type ElasticBeanstalkConfigurationOptionDescriptionsList = Array<ElasticBeanstalkConfigurationOptionDescription>;
+    export type ElasticBeanstalkConfigurationOptionName = string;
+    export type ElasticBeanstalkConfigurationOptionPossibleValue = string;
+    export type ElasticBeanstalkConfigurationOptionPossibleValues = Array<ElasticBeanstalkConfigurationOptionPossibleValue>;
+    export interface ElasticBeanstalkConfigurationOptionSetting {
+        ResourceName?: ElasticBeanstalkResourceName;
+        Namespace?: ElasticBeanstalkOptionNamespace;
+        OptionName?: ElasticBeanstalkConfigurationOptionName;
+        Value?: ElasticBeanstalkConfigurationOptionValue;
     }
 
-    export interface AbortEnvironmentUpdateMessage {
-      EnvironmentId?: EnvironmentId;
-      EnvironmentName?: EnvironmentName;
+    export type ElasticBeanstalkConfigurationOptionSettingsList = Array<ElasticBeanstalkConfigurationOptionSetting>;
+    export type ElasticBeanstalkConfigurationOptionSeverity = string;
+    export type ElasticBeanstalkConfigurationOptionValue = string;
+    export type ElasticBeanstalkConfigurationOptionValueType = string;
+    export interface ElasticBeanstalkConfigurationOptionsDescription {
+        SolutionStackName?: ElasticBeanstalkSolutionStackName;
+        Options?: ElasticBeanstalkConfigurationOptionDescriptionsList;
     }
 
-
-    export type AbortableOperationInProgress = boolean;
-
-    export interface ApplicationDescription {
-      ApplicationName?: ApplicationName;
-      Description?: Description;
-      DateCreated?: CreationDate;
-      DateUpdated?: UpdateDate;
-      Versions?: VersionLabelsList;
-      ConfigurationTemplates?: ConfigurationTemplateNamesList;
-    }
-
-
-    export type ApplicationDescriptionList = Array<ApplicationDescription>;
-
-    export interface ApplicationDescriptionMessage {
-      Application?: ApplicationDescription;
-    }
-
-
-    export interface ApplicationDescriptionsMessage {
-      Applications?: ApplicationDescriptionList;
-    }
-
-
-    export type ApplicationName = string;
-
-    export type ApplicationNamesList = Array<ApplicationName>;
-
-    export interface ApplicationVersionDescription {
-      ApplicationName?: ApplicationName;
-      Description?: Description;
-      VersionLabel?: VersionLabel;
-      SourceBundle?: S3Location;
-      DateCreated?: CreationDate;
-      DateUpdated?: UpdateDate;
-    }
-
-
-    export type ApplicationVersionDescriptionList = Array<ApplicationVersionDescription>;
-
-    export interface ApplicationVersionDescriptionMessage {
-      ApplicationVersion?: ApplicationVersionDescription;
-    }
-
-
-    export interface ApplicationVersionDescriptionsMessage {
-      ApplicationVersions?: ApplicationVersionDescriptionList;
-    }
-
-
-    export type AutoCreateApplication = boolean;
-
-    export interface AutoScalingGroup {
-      Name?: ResourceId;
-    }
-
-
-    export type AutoScalingGroupList = Array<AutoScalingGroup>;
-
-    export type AvailableSolutionStackDetailsList = Array<SolutionStackDescription>;
-
-    export type AvailableSolutionStackNamesList = Array<SolutionStackName>;
-
-    export interface CheckDNSAvailabilityMessage {
-      CNAMEPrefix: DNSCnamePrefix;
-    }
-
-
-    export interface CheckDNSAvailabilityResultMessage {
-      Available?: CnameAvailability;
-      FullyQualifiedCNAME?: DNSCname;
-    }
-
-
-    export type CnameAvailability = boolean;
-
-    export type ConfigurationDeploymentStatus = string;
-
-    export type ConfigurationOptionDefaultValue = string;
-
-    export interface ConfigurationOptionDescription {
-      Namespace?: OptionNamespace;
-      Name?: ConfigurationOptionName;
-      DefaultValue?: ConfigurationOptionDefaultValue;
-      ChangeSeverity?: ConfigurationOptionSeverity;
-      UserDefined?: UserDefinedOption;
-      ValueType?: ConfigurationOptionValueType;
-      ValueOptions?: ConfigurationOptionPossibleValues;
-      MinValue?: OptionRestrictionMinValue;
-      MaxValue?: OptionRestrictionMaxValue;
-      MaxLength?: OptionRestrictionMaxLength;
-      Regex?: OptionRestrictionRegex;
-    }
-
-
-    export type ConfigurationOptionDescriptionsList = Array<ConfigurationOptionDescription>;
-
-    export type ConfigurationOptionName = string;
-
-    export type ConfigurationOptionPossibleValue = string;
-
-    export type ConfigurationOptionPossibleValues = Array<ConfigurationOptionPossibleValue>;
-
-    export interface ConfigurationOptionSetting {
-      ResourceName?: ResourceName;
-      Namespace?: OptionNamespace;
-      OptionName?: ConfigurationOptionName;
-      Value?: ConfigurationOptionValue;
-    }
-
-
-    export type ConfigurationOptionSettingsList = Array<ConfigurationOptionSetting>;
-
-    export type ConfigurationOptionSeverity = string;
-
-    export type ConfigurationOptionValue = string;
-
-    export type ConfigurationOptionValueType = string;
-
-    export interface ConfigurationOptionsDescription {
-      SolutionStackName?: SolutionStackName;
-      Options?: ConfigurationOptionDescriptionsList;
-    }
-
-
-    export interface ConfigurationSettingsDescription {
-      SolutionStackName?: SolutionStackName;
-      ApplicationName?: ApplicationName;
-      TemplateName?: ConfigurationTemplateName;
-      Description?: Description;
-      EnvironmentName?: EnvironmentName;
-      DeploymentStatus?: ConfigurationDeploymentStatus;
-      DateCreated?: CreationDate;
-      DateUpdated?: UpdateDate;
-      OptionSettings?: ConfigurationOptionSettingsList;
-    }
-
-
-    export type ConfigurationSettingsDescriptionList = Array<ConfigurationSettingsDescription>;
-
-    export interface ConfigurationSettingsDescriptions {
-      ConfigurationSettings?: ConfigurationSettingsDescriptionList;
-    }
-
-
-    export interface ConfigurationSettingsValidationMessages {
-      Messages?: ValidationMessagesList;
-    }
-
-
-    export type ConfigurationTemplateName = string;
-
-    export type ConfigurationTemplateNamesList = Array<ConfigurationTemplateName>;
-
-    export interface CreateApplicationMessage {
-      ApplicationName: ApplicationName;
-      Description?: Description;
-    }
-
-
-    export interface CreateApplicationVersionMessage {
-      ApplicationName: ApplicationName;
-      VersionLabel: VersionLabel;
-      Description?: Description;
-      SourceBundle?: S3Location;
-      AutoCreateApplication?: AutoCreateApplication;
-    }
-
-
-    export interface CreateConfigurationTemplateMessage {
-      ApplicationName: ApplicationName;
-      TemplateName: ConfigurationTemplateName;
-      SolutionStackName?: SolutionStackName;
-      SourceConfiguration?: SourceConfiguration;
-      EnvironmentId?: EnvironmentId;
-      Description?: Description;
-      OptionSettings?: ConfigurationOptionSettingsList;
-    }
-
-
-    export interface CreateEnvironmentMessage {
-      ApplicationName: ApplicationName;
-      EnvironmentName: EnvironmentName;
-      Description?: Description;
-      CNAMEPrefix?: DNSCnamePrefix;
-      Tier?: EnvironmentTier;
-      Tags?: Tags;
-      VersionLabel?: VersionLabel;
-      TemplateName?: ConfigurationTemplateName;
-      SolutionStackName?: SolutionStackName;
-      OptionSettings?: ConfigurationOptionSettingsList;
-      OptionsToRemove?: OptionsSpecifierList;
-    }
-
-
-    export interface CreateStorageLocationResultMessage {
-      S3Bucket?: S3Bucket;
-    }
-
-
-    export type CreationDate = number;
-
-    export type DNSCname = string;
-
-    export type DNSCnamePrefix = string;
-
-    export interface DeleteApplicationMessage {
-      ApplicationName: ApplicationName;
-      TerminateEnvByForce?: TerminateEnvForce;
-    }
-
-
-    export interface DeleteApplicationVersionMessage {
-      ApplicationName: ApplicationName;
-      VersionLabel: VersionLabel;
-      DeleteSourceBundle?: DeleteSourceBundle;
-    }
-
-
-    export interface DeleteConfigurationTemplateMessage {
-      ApplicationName: ApplicationName;
-      TemplateName: ConfigurationTemplateName;
+    export interface ElasticBeanstalkConfigurationSettingsDescription {
+        SolutionStackName?: ElasticBeanstalkSolutionStackName;
+        ApplicationName?: ElasticBeanstalkApplicationName;
+        TemplateName?: ElasticBeanstalkConfigurationTemplateName;
+        Description?: ElasticBeanstalkDescription;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        DeploymentStatus?: ElasticBeanstalkConfigurationDeploymentStatus;
+        DateCreated?: ElasticBeanstalkCreationDate;
+        DateUpdated?: ElasticBeanstalkUpdateDate;
+        OptionSettings?: ElasticBeanstalkConfigurationOptionSettingsList;
     }
 
-
-    export interface DeleteEnvironmentConfigurationMessage {
-      ApplicationName: ApplicationName;
-      EnvironmentName: EnvironmentName;
-    }
-
-
-    export type DeleteSourceBundle = boolean;
-
-    export interface DescribeApplicationVersionsMessage {
-      ApplicationName?: ApplicationName;
-      VersionLabels?: VersionLabelsList;
-    }
-
-
-    export interface DescribeApplicationsMessage {
-      ApplicationNames?: ApplicationNamesList;
-    }
-
-
-    export interface DescribeConfigurationOptionsMessage {
-      ApplicationName?: ApplicationName;
-      TemplateName?: ConfigurationTemplateName;
-      EnvironmentName?: EnvironmentName;
-      SolutionStackName?: SolutionStackName;
-      Options?: OptionsSpecifierList;
+    export type ElasticBeanstalkConfigurationSettingsDescriptionList = Array<ElasticBeanstalkConfigurationSettingsDescription>;
+    export interface ElasticBeanstalkConfigurationSettingsDescriptions {
+        ConfigurationSettings?: ElasticBeanstalkConfigurationSettingsDescriptionList;
     }
-
 
-    export interface DescribeConfigurationSettingsMessage {
-      ApplicationName: ApplicationName;
-      TemplateName?: ConfigurationTemplateName;
-      EnvironmentName?: EnvironmentName;
+    export interface ElasticBeanstalkConfigurationSettingsValidationMessages {
+        Messages?: ElasticBeanstalkValidationMessagesList;
     }
 
-
-    export interface DescribeEnvironmentResourcesMessage {
-      EnvironmentId?: EnvironmentId;
-      EnvironmentName?: EnvironmentName;
+    export type ElasticBeanstalkConfigurationTemplateName = string;
+    export type ElasticBeanstalkConfigurationTemplateNamesList = Array<ElasticBeanstalkConfigurationTemplateName>;
+    export interface ElasticBeanstalkCreateApplicationMessage {
+        ApplicationName: ElasticBeanstalkApplicationName;
+        Description?: ElasticBeanstalkDescription;
     }
-
 
-    export interface DescribeEnvironmentsMessage {
-      ApplicationName?: ApplicationName;
-      VersionLabel?: VersionLabel;
-      EnvironmentIds?: EnvironmentIdList;
-      EnvironmentNames?: EnvironmentNamesList;
-      IncludeDeleted?: IncludeDeleted;
-      IncludedDeletedBackTo?: IncludeDeletedBackTo;
+    export interface ElasticBeanstalkCreateApplicationVersionMessage {
+        ApplicationName: ElasticBeanstalkApplicationName;
+        VersionLabel: ElasticBeanstalkVersionLabel;
+        Description?: ElasticBeanstalkDescription;
+        SourceBundle?: ElasticBeanstalkS3Location;
+        AutoCreateApplication?: ElasticBeanstalkAutoCreateApplication;
     }
 
-
-    export interface DescribeEventsMessage {
-      ApplicationName?: ApplicationName;
-      VersionLabel?: VersionLabel;
-      TemplateName?: ConfigurationTemplateName;
-      EnvironmentId?: EnvironmentId;
-      EnvironmentName?: EnvironmentName;
-      RequestId?: RequestId;
-      Severity?: EventSeverity;
-      StartTime?: TimeFilterStart;
-      EndTime?: TimeFilterEnd;
-      MaxRecords?: MaxRecords;
-      NextToken?: Token;
+    export interface ElasticBeanstalkCreateConfigurationTemplateMessage {
+        ApplicationName: ElasticBeanstalkApplicationName;
+        TemplateName: ElasticBeanstalkConfigurationTemplateName;
+        SolutionStackName?: ElasticBeanstalkSolutionStackName;
+        SourceConfiguration?: ElasticBeanstalkSourceConfiguration;
+        EnvironmentId?: ElasticBeanstalkEnvironmentId;
+        Description?: ElasticBeanstalkDescription;
+        OptionSettings?: ElasticBeanstalkConfigurationOptionSettingsList;
     }
-
-
-    export type Description = string;
 
-    export type Ec2InstanceId = string;
-
-    export type EndpointURL = string;
-
-    export interface EnvironmentDescription {
-      EnvironmentName?: EnvironmentName;
-      EnvironmentId?: EnvironmentId;
-      ApplicationName?: ApplicationName;
-      VersionLabel?: VersionLabel;
-      SolutionStackName?: SolutionStackName;
-      TemplateName?: ConfigurationTemplateName;
-      Description?: Description;
-      EndpointURL?: EndpointURL;
-      CNAME?: DNSCname;
-      DateCreated?: CreationDate;
-      DateUpdated?: UpdateDate;
-      Status?: EnvironmentStatus;
-      AbortableOperationInProgress?: AbortableOperationInProgress;
-      Health?: EnvironmentHealth;
-      Resources?: EnvironmentResourcesDescription;
-      Tier?: EnvironmentTier;
+    export interface ElasticBeanstalkCreateEnvironmentMessage {
+        ApplicationName: ElasticBeanstalkApplicationName;
+        EnvironmentName: ElasticBeanstalkEnvironmentName;
+        Description?: ElasticBeanstalkDescription;
+        CNAMEPrefix?: ElasticBeanstalkDNSCnamePrefix;
+        Tier?: ElasticBeanstalkEnvironmentTier;
+        Tags?: ElasticBeanstalkTags;
+        VersionLabel?: ElasticBeanstalkVersionLabel;
+        TemplateName?: ElasticBeanstalkConfigurationTemplateName;
+        SolutionStackName?: ElasticBeanstalkSolutionStackName;
+        OptionSettings?: ElasticBeanstalkConfigurationOptionSettingsList;
+        OptionsToRemove?: ElasticBeanstalkOptionsSpecifierList;
+    }
+
+    export interface ElasticBeanstalkCreateStorageLocationResultMessage {
+        S3Bucket?: ElasticBeanstalkS3Bucket;
+    }
+
+    export type ElasticBeanstalkCreationDate = number;
+    export type ElasticBeanstalkDNSCname = string;
+    export type ElasticBeanstalkDNSCnamePrefix = string;
+    export interface ElasticBeanstalkDeleteApplicationMessage {
+        ApplicationName: ElasticBeanstalkApplicationName;
+        TerminateEnvByForce?: ElasticBeanstalkTerminateEnvForce;
+    }
+
+    export interface ElasticBeanstalkDeleteApplicationVersionMessage {
+        ApplicationName: ElasticBeanstalkApplicationName;
+        VersionLabel: ElasticBeanstalkVersionLabel;
+        DeleteSourceBundle?: ElasticBeanstalkDeleteSourceBundle;
+    }
+
+    export interface ElasticBeanstalkDeleteConfigurationTemplateMessage {
+        ApplicationName: ElasticBeanstalkApplicationName;
+        TemplateName: ElasticBeanstalkConfigurationTemplateName;
+    }
+
+    export interface ElasticBeanstalkDeleteEnvironmentConfigurationMessage {
+        ApplicationName: ElasticBeanstalkApplicationName;
+        EnvironmentName: ElasticBeanstalkEnvironmentName;
+    }
+
+    export type ElasticBeanstalkDeleteSourceBundle = boolean;
+    export interface ElasticBeanstalkDescribeApplicationVersionsMessage {
+        ApplicationName?: ElasticBeanstalkApplicationName;
+        VersionLabels?: ElasticBeanstalkVersionLabelsList;
+    }
+
+    export interface ElasticBeanstalkDescribeApplicationsMessage {
+        ApplicationNames?: ElasticBeanstalkApplicationNamesList;
+    }
+
+    export interface ElasticBeanstalkDescribeConfigurationOptionsMessage {
+        ApplicationName?: ElasticBeanstalkApplicationName;
+        TemplateName?: ElasticBeanstalkConfigurationTemplateName;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        SolutionStackName?: ElasticBeanstalkSolutionStackName;
+        Options?: ElasticBeanstalkOptionsSpecifierList;
+    }
+
+    export interface ElasticBeanstalkDescribeConfigurationSettingsMessage {
+        ApplicationName: ElasticBeanstalkApplicationName;
+        TemplateName?: ElasticBeanstalkConfigurationTemplateName;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+    }
+
+    export interface ElasticBeanstalkDescribeEnvironmentResourcesMessage {
+        EnvironmentId?: ElasticBeanstalkEnvironmentId;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+    }
+
+    export interface ElasticBeanstalkDescribeEnvironmentsMessage {
+        ApplicationName?: ElasticBeanstalkApplicationName;
+        VersionLabel?: ElasticBeanstalkVersionLabel;
+        EnvironmentIds?: ElasticBeanstalkEnvironmentIdList;
+        EnvironmentNames?: ElasticBeanstalkEnvironmentNamesList;
+        IncludeDeleted?: ElasticBeanstalkIncludeDeleted;
+        IncludedDeletedBackTo?: ElasticBeanstalkIncludeDeletedBackTo;
+    }
+
+    export interface ElasticBeanstalkDescribeEventsMessage {
+        ApplicationName?: ElasticBeanstalkApplicationName;
+        VersionLabel?: ElasticBeanstalkVersionLabel;
+        TemplateName?: ElasticBeanstalkConfigurationTemplateName;
+        EnvironmentId?: ElasticBeanstalkEnvironmentId;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        RequestId?: ElasticBeanstalkRequestId;
+        Severity?: ElasticBeanstalkEventSeverity;
+        StartTime?: ElasticBeanstalkTimeFilterStart;
+        EndTime?: ElasticBeanstalkTimeFilterEnd;
+        MaxRecords?: ElasticBeanstalkMaxRecords;
+        NextToken?: ElasticBeanstalkToken;
+    }
+
+    export type ElasticBeanstalkDescription = string;
+    export type ElasticBeanstalkEc2InstanceId = string;
+    export type ElasticBeanstalkEndpointURL = string;
+    export interface ElasticBeanstalkEnvironmentDescription {
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        EnvironmentId?: ElasticBeanstalkEnvironmentId;
+        ApplicationName?: ElasticBeanstalkApplicationName;
+        VersionLabel?: ElasticBeanstalkVersionLabel;
+        SolutionStackName?: ElasticBeanstalkSolutionStackName;
+        TemplateName?: ElasticBeanstalkConfigurationTemplateName;
+        Description?: ElasticBeanstalkDescription;
+        EndpointURL?: ElasticBeanstalkEndpointURL;
+        CNAME?: ElasticBeanstalkDNSCname;
+        DateCreated?: ElasticBeanstalkCreationDate;
+        DateUpdated?: ElasticBeanstalkUpdateDate;
+        Status?: ElasticBeanstalkEnvironmentStatus;
+        AbortableOperationInProgress?: ElasticBeanstalkAbortableOperationInProgress;
+        Health?: ElasticBeanstalkEnvironmentHealth;
+        Resources?: ElasticBeanstalkEnvironmentResourcesDescription;
+        Tier?: ElasticBeanstalkEnvironmentTier;
     }
-
 
-    export type EnvironmentDescriptionsList = Array<EnvironmentDescription>;
-
-    export interface EnvironmentDescriptionsMessage {
-      Environments?: EnvironmentDescriptionsList;
+    export type ElasticBeanstalkEnvironmentDescriptionsList = Array<ElasticBeanstalkEnvironmentDescription>;
+    export interface ElasticBeanstalkEnvironmentDescriptionsMessage {
+        Environments?: ElasticBeanstalkEnvironmentDescriptionsList;
     }
-
-
-    export type EnvironmentHealth = string;
 
-    export type EnvironmentId = string;
-
-    export type EnvironmentIdList = Array<EnvironmentId>;
-
-    export interface EnvironmentInfoDescription {
-      InfoType?: EnvironmentInfoType;
-      Ec2InstanceId?: Ec2InstanceId;
-      SampleTimestamp?: SampleTimestamp;
-      Message?: Message;
+    export type ElasticBeanstalkEnvironmentHealth = string;
+    export type ElasticBeanstalkEnvironmentId = string;
+    export type ElasticBeanstalkEnvironmentIdList = Array<ElasticBeanstalkEnvironmentId>;
+    export interface ElasticBeanstalkEnvironmentInfoDescription {
+        InfoType?: ElasticBeanstalkEnvironmentInfoType;
+        Ec2InstanceId?: ElasticBeanstalkEc2InstanceId;
+        SampleTimestamp?: ElasticBeanstalkSampleTimestamp;
+        Message?: ElasticBeanstalkMessage;
     }
-
-
-    export type EnvironmentInfoDescriptionList = Array<EnvironmentInfoDescription>;
 
-    export type EnvironmentInfoType = string;
-
-    export type EnvironmentName = string;
-
-    export type EnvironmentNamesList = Array<EnvironmentName>;
-
-    export interface EnvironmentResourceDescription {
-      EnvironmentName?: EnvironmentName;
-      AutoScalingGroups?: AutoScalingGroupList;
-      Instances?: InstanceList;
-      LaunchConfigurations?: LaunchConfigurationList;
-      LoadBalancers?: LoadBalancerList;
-      Triggers?: TriggerList;
-      Queues?: QueueList;
+    export type ElasticBeanstalkEnvironmentInfoDescriptionList = Array<ElasticBeanstalkEnvironmentInfoDescription>;
+    export type ElasticBeanstalkEnvironmentInfoType = string;
+    export type ElasticBeanstalkEnvironmentName = string;
+    export type ElasticBeanstalkEnvironmentNamesList = Array<ElasticBeanstalkEnvironmentName>;
+    export interface ElasticBeanstalkEnvironmentResourceDescription {
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        AutoScalingGroups?: ElasticBeanstalkAutoScalingGroupList;
+        Instances?: ElasticBeanstalkInstanceList;
+        LaunchConfigurations?: ElasticBeanstalkLaunchConfigurationList;
+        LoadBalancers?: ElasticBeanstalkLoadBalancerList;
+        Triggers?: ElasticBeanstalkTriggerList;
+        Queues?: ElasticBeanstalkQueueList;
     }
 
-
-    export interface EnvironmentResourceDescriptionsMessage {
-      EnvironmentResources?: EnvironmentResourceDescription;
+    export interface ElasticBeanstalkEnvironmentResourceDescriptionsMessage {
+        EnvironmentResources?: ElasticBeanstalkEnvironmentResourceDescription;
     }
 
-
-    export interface EnvironmentResourcesDescription {
-      LoadBalancer?: LoadBalancerDescription;
+    export interface ElasticBeanstalkEnvironmentResourcesDescription {
+        LoadBalancer?: ElasticBeanstalkLoadBalancerDescription;
     }
-
 
-    export type EnvironmentStatus = string;
-
-    export interface EnvironmentTier {
-      Name?: String;
-      Type?: String;
-      Version?: String;
+    export type ElasticBeanstalkEnvironmentStatus = string;
+    export interface ElasticBeanstalkEnvironmentTier {
+        Name?: ElasticBeanstalkString;
+        Type?: ElasticBeanstalkString;
+        Version?: ElasticBeanstalkString;
     }
-
-
-    export type EventDate = number;
 
-    export interface EventDescription {
-      EventDate?: EventDate;
-      Message?: EventMessage;
-      ApplicationName?: ApplicationName;
-      VersionLabel?: VersionLabel;
-      TemplateName?: ConfigurationTemplateName;
-      EnvironmentName?: EnvironmentName;
-      RequestId?: RequestId;
-      Severity?: EventSeverity;
+    export type ElasticBeanstalkEventDate = number;
+    export interface ElasticBeanstalkEventDescription {
+        EventDate?: ElasticBeanstalkEventDate;
+        Message?: ElasticBeanstalkEventMessage;
+        ApplicationName?: ElasticBeanstalkApplicationName;
+        VersionLabel?: ElasticBeanstalkVersionLabel;
+        TemplateName?: ElasticBeanstalkConfigurationTemplateName;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        RequestId?: ElasticBeanstalkRequestId;
+        Severity?: ElasticBeanstalkEventSeverity;
     }
 
-
-    export type EventDescriptionList = Array<EventDescription>;
-
-    export interface EventDescriptionsMessage {
-      Events?: EventDescriptionList;
-      NextToken?: Token;
+    export type ElasticBeanstalkEventDescriptionList = Array<ElasticBeanstalkEventDescription>;
+    export interface ElasticBeanstalkEventDescriptionsMessage {
+        Events?: ElasticBeanstalkEventDescriptionList;
+        NextToken?: ElasticBeanstalkToken;
     }
-
-
-    export type EventMessage = string;
 
-    export type EventSeverity = string;
-
-    export type FileTypeExtension = string;
-
-    export type IncludeDeleted = boolean;
-
-    export type IncludeDeletedBackTo = number;
-
-    export interface Instance {
-      Id?: ResourceId;
+    export type ElasticBeanstalkEventMessage = string;
+    export type ElasticBeanstalkEventSeverity = string;
+    export type ElasticBeanstalkFileTypeExtension = string;
+    export type ElasticBeanstalkIncludeDeleted = boolean;
+    export type ElasticBeanstalkIncludeDeletedBackTo = number;
+    export interface ElasticBeanstalkInstance {
+        Id?: ElasticBeanstalkResourceId;
     }
-
-
-    export type InstanceList = Array<Instance>;
 
-    export interface InsufficientPrivilegesException {
+    export type ElasticBeanstalkInstanceList = Array<ElasticBeanstalkInstance>;
+    export interface ElasticBeanstalkInsufficientPrivilegesException {
     }
 
-
-    export type Integer = number;
-
-    export interface LaunchConfiguration {
-      Name?: ResourceId;
+    export type ElasticBeanstalkInteger = number;
+    export interface ElasticBeanstalkLaunchConfiguration {
+        Name?: ElasticBeanstalkResourceId;
     }
-
 
-    export type LaunchConfigurationList = Array<LaunchConfiguration>;
-
-    export interface ListAvailableSolutionStacksResultMessage {
-      SolutionStacks?: AvailableSolutionStackNamesList;
-      SolutionStackDetails?: AvailableSolutionStackDetailsList;
+    export type ElasticBeanstalkLaunchConfigurationList = Array<ElasticBeanstalkLaunchConfiguration>;
+    export interface ElasticBeanstalkListAvailableSolutionStacksResultMessage {
+        SolutionStacks?: ElasticBeanstalkAvailableSolutionStackNamesList;
+        SolutionStackDetails?: ElasticBeanstalkAvailableSolutionStackDetailsList;
     }
-
 
-    export interface Listener {
-      Protocol?: String;
-      Port?: Integer;
+    export interface ElasticBeanstalkListener {
+        Protocol?: ElasticBeanstalkString;
+        Port?: ElasticBeanstalkInteger;
     }
 
-
-    export interface LoadBalancer {
-      Name?: ResourceId;
+    export interface ElasticBeanstalkLoadBalancer {
+        Name?: ElasticBeanstalkResourceId;
     }
-
 
-    export interface LoadBalancerDescription {
-      LoadBalancerName?: String;
-      Domain?: String;
-      Listeners?: LoadBalancerListenersDescription;
+    export interface ElasticBeanstalkLoadBalancerDescription {
+        LoadBalancerName?: ElasticBeanstalkString;
+        Domain?: ElasticBeanstalkString;
+        Listeners?: ElasticBeanstalkLoadBalancerListenersDescription;
     }
 
-
-    export type LoadBalancerList = Array<LoadBalancer>;
-
-    export type LoadBalancerListenersDescription = Array<Listener>;
-
-    export type MaxRecords = number;
-
-    export type Message = string;
-
-    export interface OperationInProgressException {
+    export type ElasticBeanstalkLoadBalancerList = Array<ElasticBeanstalkLoadBalancer>;
+    export type ElasticBeanstalkLoadBalancerListenersDescription = Array<ElasticBeanstalkListener>;
+    export type ElasticBeanstalkMaxRecords = number;
+    export type ElasticBeanstalkMessage = string;
+    export interface ElasticBeanstalkOperationInProgressException {
     }
-
-
-    export type OptionNamespace = string;
 
-    export type OptionRestrictionMaxLength = number;
-
-    export type OptionRestrictionMaxValue = number;
-
-    export type OptionRestrictionMinValue = number;
-
-    export interface OptionRestrictionRegex {
-      Pattern?: RegexPattern;
-      Label?: RegexLabel;
+    export type ElasticBeanstalkOptionNamespace = string;
+    export type ElasticBeanstalkOptionRestrictionMaxLength = number;
+    export type ElasticBeanstalkOptionRestrictionMaxValue = number;
+    export type ElasticBeanstalkOptionRestrictionMinValue = number;
+    export interface ElasticBeanstalkOptionRestrictionRegex {
+        Pattern?: ElasticBeanstalkRegexPattern;
+        Label?: ElasticBeanstalkRegexLabel;
     }
 
-
-    export interface OptionSpecification {
-      ResourceName?: ResourceName;
-      Namespace?: OptionNamespace;
-      OptionName?: ConfigurationOptionName;
+    export interface ElasticBeanstalkOptionSpecification {
+        ResourceName?: ElasticBeanstalkResourceName;
+        Namespace?: ElasticBeanstalkOptionNamespace;
+        OptionName?: ElasticBeanstalkConfigurationOptionName;
     }
-
 
-    export type OptionsSpecifierList = Array<OptionSpecification>;
-
-    export interface Queue {
-      Name?: String;
-      URL?: String;
+    export type ElasticBeanstalkOptionsSpecifierList = Array<ElasticBeanstalkOptionSpecification>;
+    export interface ElasticBeanstalkQueue {
+        Name?: ElasticBeanstalkString;
+        URL?: ElasticBeanstalkString;
     }
-
 
-    export type QueueList = Array<Queue>;
-
-    export interface RebuildEnvironmentMessage {
-      EnvironmentId?: EnvironmentId;
-      EnvironmentName?: EnvironmentName;
+    export type ElasticBeanstalkQueueList = Array<ElasticBeanstalkQueue>;
+    export interface ElasticBeanstalkRebuildEnvironmentMessage {
+        EnvironmentId?: ElasticBeanstalkEnvironmentId;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
     }
-
-
-    export type RegexLabel = string;
 
-    export type RegexPattern = string;
-
-    export interface RequestEnvironmentInfoMessage {
-      EnvironmentId?: EnvironmentId;
-      EnvironmentName?: EnvironmentName;
-      InfoType: EnvironmentInfoType;
+    export type ElasticBeanstalkRegexLabel = string;
+    export type ElasticBeanstalkRegexPattern = string;
+    export interface ElasticBeanstalkRequestEnvironmentInfoMessage {
+        EnvironmentId?: ElasticBeanstalkEnvironmentId;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        InfoType: ElasticBeanstalkEnvironmentInfoType;
     }
-
-
-    export type RequestId = string;
 
-    export type ResourceId = string;
-
-    export type ResourceName = string;
-
-    export interface RestartAppServerMessage {
-      EnvironmentId?: EnvironmentId;
-      EnvironmentName?: EnvironmentName;
+    export type ElasticBeanstalkRequestId = string;
+    export type ElasticBeanstalkResourceId = string;
+    export type ElasticBeanstalkResourceName = string;
+    export interface ElasticBeanstalkRestartAppServerMessage {
+        EnvironmentId?: ElasticBeanstalkEnvironmentId;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
     }
-
 
-    export interface RetrieveEnvironmentInfoMessage {
-      EnvironmentId?: EnvironmentId;
-      EnvironmentName?: EnvironmentName;
-      InfoType: EnvironmentInfoType;
+    export interface ElasticBeanstalkRetrieveEnvironmentInfoMessage {
+        EnvironmentId?: ElasticBeanstalkEnvironmentId;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        InfoType: ElasticBeanstalkEnvironmentInfoType;
     }
 
-
-    export interface RetrieveEnvironmentInfoResultMessage {
-      EnvironmentInfo?: EnvironmentInfoDescriptionList;
+    export interface ElasticBeanstalkRetrieveEnvironmentInfoResultMessage {
+        EnvironmentInfo?: ElasticBeanstalkEnvironmentInfoDescriptionList;
     }
-
-
-    export type S3Bucket = string;
-
-    export type S3Key = string;
 
-    export interface S3Location {
-      S3Bucket?: S3Bucket;
-      S3Key?: S3Key;
+    export type ElasticBeanstalkS3Bucket = string;
+    export type ElasticBeanstalkS3Key = string;
+    export interface ElasticBeanstalkS3Location {
+        S3Bucket?: ElasticBeanstalkS3Bucket;
+        S3Key?: ElasticBeanstalkS3Key;
     }
 
-
-    export interface S3LocationNotInServiceRegionException {
+    export interface ElasticBeanstalkS3LocationNotInServiceRegionException {
     }
 
-
-    export interface S3SubscriptionRequiredException {
+    export interface ElasticBeanstalkS3SubscriptionRequiredException {
     }
-
 
-    export type SampleTimestamp = number;
-
-    export interface SolutionStackDescription {
-      SolutionStackName?: SolutionStackName;
-      PermittedFileTypes?: SolutionStackFileTypeList;
+    export type ElasticBeanstalkSampleTimestamp = number;
+    export interface ElasticBeanstalkSolutionStackDescription {
+        SolutionStackName?: ElasticBeanstalkSolutionStackName;
+        PermittedFileTypes?: ElasticBeanstalkSolutionStackFileTypeList;
     }
-
-
-    export type SolutionStackFileTypeList = Array<FileTypeExtension>;
-
-    export type SolutionStackName = string;
 
-    export interface SourceBundleDeletionException {
+    export type ElasticBeanstalkSolutionStackFileTypeList = Array<ElasticBeanstalkFileTypeExtension>;
+    export type ElasticBeanstalkSolutionStackName = string;
+    export interface ElasticBeanstalkSourceBundleDeletionException {
     }
 
-
-    export interface SourceConfiguration {
-      ApplicationName?: ApplicationName;
-      TemplateName?: ConfigurationTemplateName;
+    export interface ElasticBeanstalkSourceConfiguration {
+        ApplicationName?: ElasticBeanstalkApplicationName;
+        TemplateName?: ElasticBeanstalkConfigurationTemplateName;
     }
-
-
-    export type String = string;
 
-    export interface SwapEnvironmentCNAMEsMessage {
-      SourceEnvironmentId?: EnvironmentId;
-      SourceEnvironmentName?: EnvironmentName;
-      DestinationEnvironmentId?: EnvironmentId;
-      DestinationEnvironmentName?: EnvironmentName;
+    export type ElasticBeanstalkString = string;
+    export interface ElasticBeanstalkSwapEnvironmentCNAMEsMessage {
+        SourceEnvironmentId?: ElasticBeanstalkEnvironmentId;
+        SourceEnvironmentName?: ElasticBeanstalkEnvironmentName;
+        DestinationEnvironmentId?: ElasticBeanstalkEnvironmentId;
+        DestinationEnvironmentName?: ElasticBeanstalkEnvironmentName;
     }
 
-
-    export interface Tag {
-      Key?: TagKey;
-      Value?: TagValue;
+    export interface ElasticBeanstalkTag {
+        Key?: ElasticBeanstalkTagKey;
+        Value?: ElasticBeanstalkTagValue;
     }
-
-
-    export type TagKey = string;
-
-    export type TagValue = string;
 
-    export type Tags = Array<Tag>;
-
-    export type TerminateEnvForce = boolean;
-
-    export interface TerminateEnvironmentMessage {
-      EnvironmentId?: EnvironmentId;
-      EnvironmentName?: EnvironmentName;
-      TerminateResources?: TerminateEnvironmentResources;
+    export type ElasticBeanstalkTagKey = string;
+    export type ElasticBeanstalkTagValue = string;
+    export type ElasticBeanstalkTags = Array<ElasticBeanstalkTag>;
+    export type ElasticBeanstalkTerminateEnvForce = boolean;
+    export interface ElasticBeanstalkTerminateEnvironmentMessage {
+        EnvironmentId?: ElasticBeanstalkEnvironmentId;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        TerminateResources?: ElasticBeanstalkTerminateEnvironmentResources;
     }
-
-
-    export type TerminateEnvironmentResources = boolean;
-
-    export type TimeFilterEnd = number;
-
-    export type TimeFilterStart = number;
 
-    export type Token = string;
-
-    export interface TooManyApplicationVersionsException {
+    export type ElasticBeanstalkTerminateEnvironmentResources = boolean;
+    export type ElasticBeanstalkTimeFilterEnd = number;
+    export type ElasticBeanstalkTimeFilterStart = number;
+    export type ElasticBeanstalkToken = string;
+    export interface ElasticBeanstalkTooManyApplicationVersionsException {
     }
 
-
-    export interface TooManyApplicationsException {
+    export interface ElasticBeanstalkTooManyApplicationsException {
     }
-
 
-    export interface TooManyBucketsException {
+    export interface ElasticBeanstalkTooManyBucketsException {
     }
 
-
-    export interface TooManyConfigurationTemplatesException {
+    export interface ElasticBeanstalkTooManyConfigurationTemplatesException {
     }
-
 
-    export interface TooManyEnvironmentsException {
+    export interface ElasticBeanstalkTooManyEnvironmentsException {
     }
 
-
-    export interface Trigger {
-      Name?: ResourceId;
+    export interface ElasticBeanstalkTrigger {
+        Name?: ElasticBeanstalkResourceId;
     }
-
 
-    export type TriggerList = Array<Trigger>;
-
-    export interface UpdateApplicationMessage {
-      ApplicationName: ApplicationName;
-      Description?: Description;
+    export type ElasticBeanstalkTriggerList = Array<ElasticBeanstalkTrigger>;
+    export interface ElasticBeanstalkUpdateApplicationMessage {
+        ApplicationName: ElasticBeanstalkApplicationName;
+        Description?: ElasticBeanstalkDescription;
     }
 
-
-    export interface UpdateApplicationVersionMessage {
-      ApplicationName: ApplicationName;
-      VersionLabel: VersionLabel;
-      Description?: Description;
+    export interface ElasticBeanstalkUpdateApplicationVersionMessage {
+        ApplicationName: ElasticBeanstalkApplicationName;
+        VersionLabel: ElasticBeanstalkVersionLabel;
+        Description?: ElasticBeanstalkDescription;
     }
-
 
-    export interface UpdateConfigurationTemplateMessage {
-      ApplicationName: ApplicationName;
-      TemplateName: ConfigurationTemplateName;
-      Description?: Description;
-      OptionSettings?: ConfigurationOptionSettingsList;
-      OptionsToRemove?: OptionsSpecifierList;
+    export interface ElasticBeanstalkUpdateConfigurationTemplateMessage {
+        ApplicationName: ElasticBeanstalkApplicationName;
+        TemplateName: ElasticBeanstalkConfigurationTemplateName;
+        Description?: ElasticBeanstalkDescription;
+        OptionSettings?: ElasticBeanstalkConfigurationOptionSettingsList;
+        OptionsToRemove?: ElasticBeanstalkOptionsSpecifierList;
     }
 
-
-    export type UpdateDate = number;
-
-    export interface UpdateEnvironmentMessage {
-      EnvironmentId?: EnvironmentId;
-      EnvironmentName?: EnvironmentName;
-      Description?: Description;
-      Tier?: EnvironmentTier;
-      VersionLabel?: VersionLabel;
-      TemplateName?: ConfigurationTemplateName;
-      SolutionStackName?: SolutionStackName;
-      OptionSettings?: ConfigurationOptionSettingsList;
-      OptionsToRemove?: OptionsSpecifierList;
+    export type ElasticBeanstalkUpdateDate = number;
+    export interface ElasticBeanstalkUpdateEnvironmentMessage {
+        EnvironmentId?: ElasticBeanstalkEnvironmentId;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        Description?: ElasticBeanstalkDescription;
+        Tier?: ElasticBeanstalkEnvironmentTier;
+        VersionLabel?: ElasticBeanstalkVersionLabel;
+        TemplateName?: ElasticBeanstalkConfigurationTemplateName;
+        SolutionStackName?: ElasticBeanstalkSolutionStackName;
+        OptionSettings?: ElasticBeanstalkConfigurationOptionSettingsList;
+        OptionsToRemove?: ElasticBeanstalkOptionsSpecifierList;
     }
-
-
-    export type UserDefinedOption = boolean;
 
-    export interface ValidateConfigurationSettingsMessage {
-      ApplicationName: ApplicationName;
-      TemplateName?: ConfigurationTemplateName;
-      EnvironmentName?: EnvironmentName;
-      OptionSettings: ConfigurationOptionSettingsList;
+    export type ElasticBeanstalkUserDefinedOption = boolean;
+    export interface ElasticBeanstalkValidateConfigurationSettingsMessage {
+        ApplicationName: ElasticBeanstalkApplicationName;
+        TemplateName?: ElasticBeanstalkConfigurationTemplateName;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        OptionSettings: ElasticBeanstalkConfigurationOptionSettingsList;
     }
 
-
-    export interface ValidationMessage {
-      Message?: ValidationMessageString;
-      Severity?: ValidationSeverity;
-      Namespace?: OptionNamespace;
-      OptionName?: ConfigurationOptionName;
+    export interface ElasticBeanstalkValidationMessage {
+        Message?: ElasticBeanstalkValidationMessageString;
+        Severity?: ElasticBeanstalkValidationSeverity;
+        Namespace?: ElasticBeanstalkOptionNamespace;
+        OptionName?: ElasticBeanstalkConfigurationOptionName;
     }
-
-
-    export type ValidationMessageString = string;
-
-    export type ValidationMessagesList = Array<ValidationMessage>;
-
-    export type ValidationSeverity = string;
-
-    export type VersionLabel = string;
-
-    export type VersionLabelsList = Array<VersionLabel>;
 
+    export type ElasticBeanstalkValidationMessageString = string;
+    export type ElasticBeanstalkValidationMessagesList = Array<ElasticBeanstalkValidationMessage>;
+    export type ElasticBeanstalkValidationSeverity = string;
+    export type ElasticBeanstalkVersionLabel = string;
+    export type ElasticBeanstalkVersionLabelsList = Array<ElasticBeanstalkVersionLabel>;
 }

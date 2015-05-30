@@ -3,402 +3,317 @@
 declare module "aws-sdk" {
     export class SNS {
       constructor(options?: any);
-      addPermission(params: AddPermissionInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|NotFoundException|any, data: any) => void): void;
-      confirmSubscription(params: ConfirmSubscriptionInput, callback: (err: SubscriptionLimitExceededException|InvalidParameterException|NotFoundException|InternalErrorException|AuthorizationErrorException|any, data: ConfirmSubscriptionResponse|any) => void): void;
-      createPlatformApplication(params: CreatePlatformApplicationInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|any, data: CreatePlatformApplicationResponse|any) => void): void;
-      createPlatformEndpoint(params: CreatePlatformEndpointInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|NotFoundException|any, data: CreateEndpointResponse|any) => void): void;
-      createTopic(params: CreateTopicInput, callback: (err: InvalidParameterException|TopicLimitExceededException|InternalErrorException|AuthorizationErrorException|any, data: CreateTopicResponse|any) => void): void;
-      deleteEndpoint(params: DeleteEndpointInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|any, data: any) => void): void;
-      deletePlatformApplication(params: DeletePlatformApplicationInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|any, data: any) => void): void;
-      deleteTopic(params: DeleteTopicInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|NotFoundException|any, data: any) => void): void;
-      getEndpointAttributes(params: GetEndpointAttributesInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|NotFoundException|any, data: GetEndpointAttributesResponse|any) => void): void;
-      getPlatformApplicationAttributes(params: GetPlatformApplicationAttributesInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|NotFoundException|any, data: GetPlatformApplicationAttributesResponse|any) => void): void;
-      getSubscriptionAttributes(params: GetSubscriptionAttributesInput, callback: (err: InvalidParameterException|InternalErrorException|NotFoundException|AuthorizationErrorException|any, data: GetSubscriptionAttributesResponse|any) => void): void;
-      getTopicAttributes(params: GetTopicAttributesInput, callback: (err: InvalidParameterException|InternalErrorException|NotFoundException|AuthorizationErrorException|any, data: GetTopicAttributesResponse|any) => void): void;
-      listEndpointsByPlatformApplication(params: ListEndpointsByPlatformApplicationInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|NotFoundException|any, data: ListEndpointsByPlatformApplicationResponse|any) => void): void;
-      listPlatformApplications(params: ListPlatformApplicationsInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|any, data: ListPlatformApplicationsResponse|any) => void): void;
-      listSubscriptions(params: ListSubscriptionsInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|any, data: ListSubscriptionsResponse|any) => void): void;
-      listSubscriptionsByTopic(params: ListSubscriptionsByTopicInput, callback: (err: InvalidParameterException|InternalErrorException|NotFoundException|AuthorizationErrorException|any, data: ListSubscriptionsByTopicResponse|any) => void): void;
-      listTopics(params: ListTopicsInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|any, data: ListTopicsResponse|any) => void): void;
-      publish(params: PublishInput, callback: (err: InvalidParameterException|InvalidParameterValueException|InternalErrorException|NotFoundException|EndpointDisabledException|PlatformApplicationDisabledException|AuthorizationErrorException|any, data: PublishResponse|any) => void): void;
-      removePermission(params: RemovePermissionInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|NotFoundException|any, data: any) => void): void;
-      setEndpointAttributes(params: SetEndpointAttributesInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|NotFoundException|any, data: any) => void): void;
-      setPlatformApplicationAttributes(params: SetPlatformApplicationAttributesInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|NotFoundException|any, data: any) => void): void;
-      setSubscriptionAttributes(params: SetSubscriptionAttributesInput, callback: (err: InvalidParameterException|InternalErrorException|NotFoundException|AuthorizationErrorException|any, data: any) => void): void;
-      setTopicAttributes(params: SetTopicAttributesInput, callback: (err: InvalidParameterException|InternalErrorException|NotFoundException|AuthorizationErrorException|any, data: any) => void): void;
-      subscribe(params: SubscribeInput, callback: (err: SubscriptionLimitExceededException|InvalidParameterException|InternalErrorException|NotFoundException|AuthorizationErrorException|any, data: SubscribeResponse|any) => void): void;
-      unsubscribe(params: UnsubscribeInput, callback: (err: InvalidParameterException|InternalErrorException|AuthorizationErrorException|NotFoundException|any, data: any) => void): void;
+      addPermission(params: SNSAddPermissionInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|SNSNotFoundException|any, data: any) => void): void;
+      confirmSubscription(params: SNSConfirmSubscriptionInput, callback: (err: SNSSubscriptionLimitExceededException|SNSInvalidParameterException|SNSNotFoundException|SNSInternalErrorException|SNSAuthorizationErrorException|any, data: SNSConfirmSubscriptionResponse|any) => void): void;
+      createPlatformApplication(params: SNSCreatePlatformApplicationInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|any, data: SNSCreatePlatformApplicationResponse|any) => void): void;
+      createPlatformEndpoint(params: SNSCreatePlatformEndpointInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|SNSNotFoundException|any, data: SNSCreateEndpointResponse|any) => void): void;
+      createTopic(params: SNSCreateTopicInput, callback: (err: SNSInvalidParameterException|SNSTopicLimitExceededException|SNSInternalErrorException|SNSAuthorizationErrorException|any, data: SNSCreateTopicResponse|any) => void): void;
+      deleteEndpoint(params: SNSDeleteEndpointInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|any, data: any) => void): void;
+      deletePlatformApplication(params: SNSDeletePlatformApplicationInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|any, data: any) => void): void;
+      deleteTopic(params: SNSDeleteTopicInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|SNSNotFoundException|any, data: any) => void): void;
+      getEndpointAttributes(params: SNSGetEndpointAttributesInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|SNSNotFoundException|any, data: SNSGetEndpointAttributesResponse|any) => void): void;
+      getPlatformApplicationAttributes(params: SNSGetPlatformApplicationAttributesInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|SNSNotFoundException|any, data: SNSGetPlatformApplicationAttributesResponse|any) => void): void;
+      getSubscriptionAttributes(params: SNSGetSubscriptionAttributesInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSNotFoundException|SNSAuthorizationErrorException|any, data: SNSGetSubscriptionAttributesResponse|any) => void): void;
+      getTopicAttributes(params: SNSGetTopicAttributesInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSNotFoundException|SNSAuthorizationErrorException|any, data: SNSGetTopicAttributesResponse|any) => void): void;
+      listEndpointsByPlatformApplication(params: SNSListEndpointsByPlatformApplicationInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|SNSNotFoundException|any, data: SNSListEndpointsByPlatformApplicationResponse|any) => void): void;
+      listPlatformApplications(params: SNSListPlatformApplicationsInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|any, data: SNSListPlatformApplicationsResponse|any) => void): void;
+      listSubscriptions(params: SNSListSubscriptionsInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|any, data: SNSListSubscriptionsResponse|any) => void): void;
+      listSubscriptionsByTopic(params: SNSListSubscriptionsByTopicInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSNotFoundException|SNSAuthorizationErrorException|any, data: SNSListSubscriptionsByTopicResponse|any) => void): void;
+      listTopics(params: SNSListTopicsInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|any, data: SNSListTopicsResponse|any) => void): void;
+      publish(params: SNSPublishInput, callback: (err: SNSInvalidParameterException|SNSInvalidParameterValueException|SNSInternalErrorException|SNSNotFoundException|SNSEndpointDisabledException|SNSPlatformApplicationDisabledException|SNSAuthorizationErrorException|any, data: SNSPublishResponse|any) => void): void;
+      removePermission(params: SNSRemovePermissionInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|SNSNotFoundException|any, data: any) => void): void;
+      setEndpointAttributes(params: SNSSetEndpointAttributesInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|SNSNotFoundException|any, data: any) => void): void;
+      setPlatformApplicationAttributes(params: SNSSetPlatformApplicationAttributesInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|SNSNotFoundException|any, data: any) => void): void;
+      setSubscriptionAttributes(params: SNSSetSubscriptionAttributesInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSNotFoundException|SNSAuthorizationErrorException|any, data: any) => void): void;
+      setTopicAttributes(params: SNSSetTopicAttributesInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSNotFoundException|SNSAuthorizationErrorException|any, data: any) => void): void;
+      subscribe(params: SNSSubscribeInput, callback: (err: SNSSubscriptionLimitExceededException|SNSInvalidParameterException|SNSInternalErrorException|SNSNotFoundException|SNSAuthorizationErrorException|any, data: SNSSubscribeResponse|any) => void): void;
+      unsubscribe(params: SNSUnsubscribeInput, callback: (err: SNSInvalidParameterException|SNSInternalErrorException|SNSAuthorizationErrorException|SNSNotFoundException|any, data: any) => void): void;
     }
 
-    export type ActionsList = Array<action>;
-
-    export interface AddPermissionInput {
-      TopicArn: topicARN;
-      Label: label;
-      AWSAccountId: DelegatesList;
-      ActionName: ActionsList;
+    export type SNSActionsList = Array<SNSaction>;
+    export interface SNSAddPermissionInput {
+        TopicArn: SNStopicARN;
+        Label: SNSlabel;
+        AWSAccountId: SNSDelegatesList;
+        ActionName: SNSActionsList;
     }
 
-
-    export interface AuthorizationErrorException {
-      message?: string;
+    export interface SNSAuthorizationErrorException {
+        message?: SNSstring;
     }
 
-
-    export type Binary = any; // not really - it was 'blob' instead - must fix this one
-
-    export interface ConfirmSubscriptionInput {
-      TopicArn: topicARN;
-      Token: token;
-      AuthenticateOnUnsubscribe?: authenticateOnUnsubscribe;
+    export type SNSBinary = any; // not really - it was 'blob' instead - must fix this one
+    export interface SNSConfirmSubscriptionInput {
+        TopicArn: SNStopicARN;
+        Token: SNStoken;
+        AuthenticateOnUnsubscribe?: SNSauthenticateOnUnsubscribe;
     }
 
-
-    export interface ConfirmSubscriptionResponse {
-      SubscriptionArn?: subscriptionARN;
+    export interface SNSConfirmSubscriptionResponse {
+        SubscriptionArn?: SNSsubscriptionARN;
     }
 
-
-    export interface CreateEndpointResponse {
-      EndpointArn?: String;
+    export interface SNSCreateEndpointResponse {
+        EndpointArn?: SNSString;
     }
 
-
-    export interface CreatePlatformApplicationInput {
-      Name: String;
-      Platform: String;
-      Attributes: MapStringToString;
+    export interface SNSCreatePlatformApplicationInput {
+        Name: SNSString;
+        Platform: SNSString;
+        Attributes: SNSMapStringToString;
     }
 
-
-    export interface CreatePlatformApplicationResponse {
-      PlatformApplicationArn?: String;
+    export interface SNSCreatePlatformApplicationResponse {
+        PlatformApplicationArn?: SNSString;
     }
 
-
-    export interface CreatePlatformEndpointInput {
-      PlatformApplicationArn: String;
-      Token: String;
-      CustomUserData?: String;
-      Attributes?: MapStringToString;
+    export interface SNSCreatePlatformEndpointInput {
+        PlatformApplicationArn: SNSString;
+        Token: SNSString;
+        CustomUserData?: SNSString;
+        Attributes?: SNSMapStringToString;
     }
 
-
-    export interface CreateTopicInput {
-      Name: topicName;
+    export interface SNSCreateTopicInput {
+        Name: SNStopicName;
     }
 
-
-    export interface CreateTopicResponse {
-      TopicArn?: topicARN;
+    export interface SNSCreateTopicResponse {
+        TopicArn?: SNStopicARN;
     }
 
-
-    export type DelegatesList = Array<delegate>;
-
-    export interface DeleteEndpointInput {
-      EndpointArn: String;
+    export type SNSDelegatesList = Array<SNSdelegate>;
+    export interface SNSDeleteEndpointInput {
+        EndpointArn: SNSString;
     }
 
-
-    export interface DeletePlatformApplicationInput {
-      PlatformApplicationArn: String;
+    export interface SNSDeletePlatformApplicationInput {
+        PlatformApplicationArn: SNSString;
     }
 
-
-    export interface DeleteTopicInput {
-      TopicArn: topicARN;
+    export interface SNSDeleteTopicInput {
+        TopicArn: SNStopicARN;
     }
 
-
-    export interface Endpoint {
-      EndpointArn?: String;
-      Attributes?: MapStringToString;
+    export interface SNSEndpoint {
+        EndpointArn?: SNSString;
+        Attributes?: SNSMapStringToString;
     }
 
-
-    export interface EndpointDisabledException {
-      message?: string;
+    export interface SNSEndpointDisabledException {
+        message?: SNSstring;
     }
 
-
-    export interface GetEndpointAttributesInput {
-      EndpointArn: String;
+    export interface SNSGetEndpointAttributesInput {
+        EndpointArn: SNSString;
     }
 
-
-    export interface GetEndpointAttributesResponse {
-      Attributes?: MapStringToString;
+    export interface SNSGetEndpointAttributesResponse {
+        Attributes?: SNSMapStringToString;
     }
 
-
-    export interface GetPlatformApplicationAttributesInput {
-      PlatformApplicationArn: String;
+    export interface SNSGetPlatformApplicationAttributesInput {
+        PlatformApplicationArn: SNSString;
     }
 
-
-    export interface GetPlatformApplicationAttributesResponse {
-      Attributes?: MapStringToString;
+    export interface SNSGetPlatformApplicationAttributesResponse {
+        Attributes?: SNSMapStringToString;
     }
 
-
-    export interface GetSubscriptionAttributesInput {
-      SubscriptionArn: subscriptionARN;
+    export interface SNSGetSubscriptionAttributesInput {
+        SubscriptionArn: SNSsubscriptionARN;
     }
 
-
-    export interface GetSubscriptionAttributesResponse {
-      Attributes?: SubscriptionAttributesMap;
+    export interface SNSGetSubscriptionAttributesResponse {
+        Attributes?: SNSSubscriptionAttributesMap;
     }
 
-
-    export interface GetTopicAttributesInput {
-      TopicArn: topicARN;
+    export interface SNSGetTopicAttributesInput {
+        TopicArn: SNStopicARN;
     }
 
-
-    export interface GetTopicAttributesResponse {
-      Attributes?: TopicAttributesMap;
+    export interface SNSGetTopicAttributesResponse {
+        Attributes?: SNSTopicAttributesMap;
     }
 
-
-    export interface InternalErrorException {
-      message?: string;
+    export interface SNSInternalErrorException {
+        message?: SNSstring;
     }
 
-
-    export interface InvalidParameterException {
-      message?: string;
+    export interface SNSInvalidParameterException {
+        message?: SNSstring;
     }
 
-
-    export interface InvalidParameterValueException {
-      message?: string;
+    export interface SNSInvalidParameterValueException {
+        message?: SNSstring;
     }
 
-
-    export interface ListEndpointsByPlatformApplicationInput {
-      PlatformApplicationArn: String;
-      NextToken?: String;
+    export interface SNSListEndpointsByPlatformApplicationInput {
+        PlatformApplicationArn: SNSString;
+        NextToken?: SNSString;
     }
 
-
-    export interface ListEndpointsByPlatformApplicationResponse {
-      Endpoints?: ListOfEndpoints;
-      NextToken?: String;
+    export interface SNSListEndpointsByPlatformApplicationResponse {
+        Endpoints?: SNSListOfEndpoints;
+        NextToken?: SNSString;
     }
 
-
-    export type ListOfEndpoints = Array<Endpoint>;
-
-    export type ListOfPlatformApplications = Array<PlatformApplication>;
-
-    export interface ListPlatformApplicationsInput {
-      NextToken?: String;
+    export type SNSListOfEndpoints = Array<SNSEndpoint>;
+    export type SNSListOfPlatformApplications = Array<SNSPlatformApplication>;
+    export interface SNSListPlatformApplicationsInput {
+        NextToken?: SNSString;
     }
 
-
-    export interface ListPlatformApplicationsResponse {
-      PlatformApplications?: ListOfPlatformApplications;
-      NextToken?: String;
+    export interface SNSListPlatformApplicationsResponse {
+        PlatformApplications?: SNSListOfPlatformApplications;
+        NextToken?: SNSString;
     }
 
-
-    export interface ListSubscriptionsByTopicInput {
-      TopicArn: topicARN;
-      NextToken?: nextToken;
+    export interface SNSListSubscriptionsByTopicInput {
+        TopicArn: SNStopicARN;
+        NextToken?: SNSnextToken;
     }
 
-
-    export interface ListSubscriptionsByTopicResponse {
-      Subscriptions?: SubscriptionsList;
-      NextToken?: nextToken;
+    export interface SNSListSubscriptionsByTopicResponse {
+        Subscriptions?: SNSSubscriptionsList;
+        NextToken?: SNSnextToken;
     }
 
-
-    export interface ListSubscriptionsInput {
-      NextToken?: nextToken;
+    export interface SNSListSubscriptionsInput {
+        NextToken?: SNSnextToken;
     }
 
-
-    export interface ListSubscriptionsResponse {
-      Subscriptions?: SubscriptionsList;
-      NextToken?: nextToken;
+    export interface SNSListSubscriptionsResponse {
+        Subscriptions?: SNSSubscriptionsList;
+        NextToken?: SNSnextToken;
     }
 
-
-    export interface ListTopicsInput {
-      NextToken?: nextToken;
+    export interface SNSListTopicsInput {
+        NextToken?: SNSnextToken;
     }
 
-
-    export interface ListTopicsResponse {
-      Topics?: TopicsList;
-      NextToken?: nextToken;
+    export interface SNSListTopicsResponse {
+        Topics?: SNSTopicsList;
+        NextToken?: SNSnextToken;
     }
 
-
-    export type MapStringToString = any; // not really - it was 'map' instead - must fix this one
-
-    export type MessageAttributeMap = any; // not really - it was 'map' instead - must fix this one
-
-    export interface MessageAttributeValue {
-      DataType: String;
-      StringValue?: String;
-      BinaryValue?: Binary;
+    export type SNSMapStringToString = any; // not really - it was 'map' instead - must fix this one
+    export type SNSMessageAttributeMap = any; // not really - it was 'map' instead - must fix this one
+    export interface SNSMessageAttributeValue {
+        DataType: SNSString;
+        StringValue?: SNSString;
+        BinaryValue?: SNSBinary;
     }
 
-
-    export interface NotFoundException {
-      message?: string;
+    export interface SNSNotFoundException {
+        message?: SNSstring;
     }
 
-
-    export interface PlatformApplication {
-      PlatformApplicationArn?: String;
-      Attributes?: MapStringToString;
+    export interface SNSPlatformApplication {
+        PlatformApplicationArn?: SNSString;
+        Attributes?: SNSMapStringToString;
     }
 
-
-    export interface PlatformApplicationDisabledException {
-      message?: string;
+    export interface SNSPlatformApplicationDisabledException {
+        message?: SNSstring;
     }
 
-
-    export interface PublishInput {
-      TopicArn?: topicARN;
-      TargetArn?: String;
-      Message: message;
-      Subject?: subject;
-      MessageStructure?: messageStructure;
-      MessageAttributes?: MessageAttributeMap;
+    export interface SNSPublishInput {
+        TopicArn?: SNStopicARN;
+        TargetArn?: SNSString;
+        Message: SNSmessage;
+        Subject?: SNSsubject;
+        MessageStructure?: SNSmessageStructure;
+        MessageAttributes?: SNSMessageAttributeMap;
     }
 
-
-    export interface PublishResponse {
-      MessageId?: messageId;
+    export interface SNSPublishResponse {
+        MessageId?: SNSmessageId;
     }
 
-
-    export interface RemovePermissionInput {
-      TopicArn: topicARN;
-      Label: label;
+    export interface SNSRemovePermissionInput {
+        TopicArn: SNStopicARN;
+        Label: SNSlabel;
     }
 
-
-    export interface SetEndpointAttributesInput {
-      EndpointArn: String;
-      Attributes: MapStringToString;
+    export interface SNSSetEndpointAttributesInput {
+        EndpointArn: SNSString;
+        Attributes: SNSMapStringToString;
     }
 
-
-    export interface SetPlatformApplicationAttributesInput {
-      PlatformApplicationArn: String;
-      Attributes: MapStringToString;
+    export interface SNSSetPlatformApplicationAttributesInput {
+        PlatformApplicationArn: SNSString;
+        Attributes: SNSMapStringToString;
     }
 
-
-    export interface SetSubscriptionAttributesInput {
-      SubscriptionArn: subscriptionARN;
-      AttributeName: attributeName;
-      AttributeValue?: attributeValue;
+    export interface SNSSetSubscriptionAttributesInput {
+        SubscriptionArn: SNSsubscriptionARN;
+        AttributeName: SNSattributeName;
+        AttributeValue?: SNSattributeValue;
     }
 
-
-    export interface SetTopicAttributesInput {
-      TopicArn: topicARN;
-      AttributeName: attributeName;
-      AttributeValue?: attributeValue;
+    export interface SNSSetTopicAttributesInput {
+        TopicArn: SNStopicARN;
+        AttributeName: SNSattributeName;
+        AttributeValue?: SNSattributeValue;
     }
 
-
-    export type String = string;
-
-    export interface SubscribeInput {
-      TopicArn: topicARN;
-      Protocol: protocol;
-      Endpoint?: endpoint;
+    export type SNSString = string;
+    export interface SNSSubscribeInput {
+        TopicArn: SNStopicARN;
+        Protocol: SNSprotocol;
+        Endpoint?: SNSendpoint;
     }
 
-
-    export interface SubscribeResponse {
-      SubscriptionArn?: subscriptionARN;
+    export interface SNSSubscribeResponse {
+        SubscriptionArn?: SNSsubscriptionARN;
     }
 
-
-    export interface Subscription {
-      SubscriptionArn?: subscriptionARN;
-      Owner?: account;
-      Protocol?: protocol;
-      Endpoint?: endpoint;
-      TopicArn?: topicARN;
+    export interface SNSSubscription {
+        SubscriptionArn?: SNSsubscriptionARN;
+        Owner?: SNSaccount;
+        Protocol?: SNSprotocol;
+        Endpoint?: SNSendpoint;
+        TopicArn?: SNStopicARN;
     }
 
-
-    export type SubscriptionAttributesMap = any; // not really - it was 'map' instead - must fix this one
-
-    export interface SubscriptionLimitExceededException {
-      message?: string;
+    export type SNSSubscriptionAttributesMap = any; // not really - it was 'map' instead - must fix this one
+    export interface SNSSubscriptionLimitExceededException {
+        message?: SNSstring;
     }
 
-
-    export type SubscriptionsList = Array<Subscription>;
-
-    export interface Topic {
-      TopicArn?: topicARN;
+    export type SNSSubscriptionsList = Array<SNSSubscription>;
+    export interface SNSTopic {
+        TopicArn?: SNStopicARN;
     }
 
-
-    export type TopicAttributesMap = any; // not really - it was 'map' instead - must fix this one
-
-    export interface TopicLimitExceededException {
-      message?: string;
+    export type SNSTopicAttributesMap = any; // not really - it was 'map' instead - must fix this one
+    export interface SNSTopicLimitExceededException {
+        message?: SNSstring;
     }
 
-
-    export type TopicsList = Array<Topic>;
-
-    export interface UnsubscribeInput {
-      SubscriptionArn: subscriptionARN;
+    export type SNSTopicsList = Array<SNSTopic>;
+    export interface SNSUnsubscribeInput {
+        SubscriptionArn: SNSsubscriptionARN;
     }
 
-
-    export type account = string;
-
-    export type action = string;
-
-    export type attributeName = string;
-
-    export type attributeValue = string;
-
-    export type authenticateOnUnsubscribe = string;
-
-    export type delegate = string;
-
-    export type endpoint = string;
-
-    export type label = string;
-
-    export type message = string;
-
-    export type messageId = string;
-
-    export type messageStructure = string;
-
-    export type nextToken = string;
-
-    export type protocol = string;
-
-    export type string = string;
-
-    export type subject = string;
-
-    export type subscriptionARN = string;
-
-    export type token = string;
-
-    export type topicARN = string;
-
-    export type topicName = string;
-
+    export type SNSaccount = string;
+    export type SNSaction = string;
+    export type SNSattributeName = string;
+    export type SNSattributeValue = string;
+    export type SNSauthenticateOnUnsubscribe = string;
+    export type SNSdelegate = string;
+    export type SNSendpoint = string;
+    export type SNSlabel = string;
+    export type SNSmessage = string;
+    export type SNSmessageId = string;
+    export type SNSmessageStructure = string;
+    export type SNSnextToken = string;
+    export type SNSprotocol = string;
+    export type SNSstring = string;
+    export type SNSsubject = string;
+    export type SNSsubscriptionARN = string;
+    export type SNStoken = string;
+    export type SNStopicARN = string;
+    export type SNStopicName = string;
 }

@@ -3,904 +3,703 @@
 declare module "aws-sdk" {
     export class CodeDeploy {
       constructor(options?: any);
-      addTagsToOnPremisesInstances(params: AddTagsToOnPremisesInstancesInput, callback: (err: InstanceNameRequiredException|TagRequiredException|InvalidTagException|TagLimitExceededException|InstanceLimitExceededException|InstanceNotRegisteredException|any, data: any) => void): void;
-      batchGetApplications(params: BatchGetApplicationsInput, callback: (err: ApplicationNameRequiredException|InvalidApplicationNameException|ApplicationDoesNotExistException|any, data: BatchGetApplicationsOutput|any) => void): void;
-      batchGetDeployments(params: BatchGetDeploymentsInput, callback: (err: DeploymentIdRequiredException|InvalidDeploymentIdException|any, data: BatchGetDeploymentsOutput|any) => void): void;
-      batchGetOnPremisesInstances(params: BatchGetOnPremisesInstancesInput, callback: (err: InstanceNameRequiredException|InvalidInstanceNameException|any, data: BatchGetOnPremisesInstancesOutput|any) => void): void;
-      createApplication(params: CreateApplicationInput, callback: (err: ApplicationNameRequiredException|InvalidApplicationNameException|ApplicationAlreadyExistsException|ApplicationLimitExceededException|any, data: CreateApplicationOutput|any) => void): void;
-      createDeployment(params: CreateDeploymentInput, callback: (err: ApplicationNameRequiredException|InvalidApplicationNameException|ApplicationDoesNotExistException|DeploymentGroupNameRequiredException|InvalidDeploymentGroupNameException|DeploymentGroupDoesNotExistException|RevisionRequiredException|InvalidRevisionException|InvalidDeploymentConfigNameException|DeploymentConfigDoesNotExistException|DescriptionTooLongException|DeploymentLimitExceededException|any, data: CreateDeploymentOutput|any) => void): void;
-      createDeploymentConfig(params: CreateDeploymentConfigInput, callback: (err: InvalidDeploymentConfigNameException|DeploymentConfigNameRequiredException|DeploymentConfigAlreadyExistsException|InvalidMinimumHealthyHostValueException|DeploymentConfigLimitExceededException|any, data: CreateDeploymentConfigOutput|any) => void): void;
-      createDeploymentGroup(params: CreateDeploymentGroupInput, callback: (err: ApplicationNameRequiredException|InvalidApplicationNameException|ApplicationDoesNotExistException|DeploymentGroupNameRequiredException|InvalidDeploymentGroupNameException|DeploymentGroupAlreadyExistsException|InvalidEC2TagException|InvalidTagException|InvalidAutoScalingGroupException|InvalidDeploymentConfigNameException|DeploymentConfigDoesNotExistException|RoleRequiredException|InvalidRoleException|DeploymentGroupLimitExceededException|any, data: CreateDeploymentGroupOutput|any) => void): void;
-      deleteApplication(params: DeleteApplicationInput, callback: (err: ApplicationNameRequiredException|InvalidApplicationNameException|any, data: any) => void): void;
-      deleteDeploymentConfig(params: DeleteDeploymentConfigInput, callback: (err: InvalidDeploymentConfigNameException|DeploymentConfigNameRequiredException|DeploymentConfigInUseException|InvalidOperationException|any, data: any) => void): void;
-      deleteDeploymentGroup(params: DeleteDeploymentGroupInput, callback: (err: ApplicationNameRequiredException|InvalidApplicationNameException|DeploymentGroupNameRequiredException|InvalidDeploymentGroupNameException|InvalidRoleException|any, data: DeleteDeploymentGroupOutput|any) => void): void;
-      deregisterOnPremisesInstance(params: DeregisterOnPremisesInstanceInput, callback: (err: InstanceNameRequiredException|InvalidInstanceNameException|any, data: any) => void): void;
-      getApplication(params: GetApplicationInput, callback: (err: ApplicationNameRequiredException|InvalidApplicationNameException|ApplicationDoesNotExistException|any, data: GetApplicationOutput|any) => void): void;
-      getApplicationRevision(params: GetApplicationRevisionInput, callback: (err: ApplicationDoesNotExistException|ApplicationNameRequiredException|InvalidApplicationNameException|RevisionDoesNotExistException|RevisionRequiredException|InvalidRevisionException|any, data: GetApplicationRevisionOutput|any) => void): void;
-      getDeployment(params: GetDeploymentInput, callback: (err: DeploymentIdRequiredException|InvalidDeploymentIdException|DeploymentDoesNotExistException|any, data: GetDeploymentOutput|any) => void): void;
-      getDeploymentConfig(params: GetDeploymentConfigInput, callback: (err: InvalidDeploymentConfigNameException|DeploymentConfigNameRequiredException|DeploymentConfigDoesNotExistException|any, data: GetDeploymentConfigOutput|any) => void): void;
-      getDeploymentGroup(params: GetDeploymentGroupInput, callback: (err: ApplicationNameRequiredException|InvalidApplicationNameException|ApplicationDoesNotExistException|DeploymentGroupNameRequiredException|InvalidDeploymentGroupNameException|DeploymentGroupDoesNotExistException|any, data: GetDeploymentGroupOutput|any) => void): void;
-      getDeploymentInstance(params: GetDeploymentInstanceInput, callback: (err: DeploymentIdRequiredException|DeploymentDoesNotExistException|InstanceIdRequiredException|InvalidDeploymentIdException|InstanceDoesNotExistException|any, data: GetDeploymentInstanceOutput|any) => void): void;
-      getOnPremisesInstance(params: GetOnPremisesInstanceInput, callback: (err: InstanceNameRequiredException|InstanceNotRegisteredException|InvalidInstanceNameException|any, data: GetOnPremisesInstanceOutput|any) => void): void;
-      listApplicationRevisions(params: ListApplicationRevisionsInput, callback: (err: ApplicationDoesNotExistException|ApplicationNameRequiredException|InvalidApplicationNameException|InvalidSortByException|InvalidSortOrderException|InvalidBucketNameFilterException|InvalidKeyPrefixFilterException|BucketNameFilterRequiredException|InvalidDeployedStateFilterException|InvalidNextTokenException|any, data: ListApplicationRevisionsOutput|any) => void): void;
-      listApplications(params: ListApplicationsInput, callback: (err: InvalidNextTokenException|any, data: ListApplicationsOutput|any) => void): void;
-      listDeploymentConfigs(params: ListDeploymentConfigsInput, callback: (err: InvalidNextTokenException|any, data: ListDeploymentConfigsOutput|any) => void): void;
-      listDeploymentGroups(params: ListDeploymentGroupsInput, callback: (err: ApplicationNameRequiredException|InvalidApplicationNameException|ApplicationDoesNotExistException|InvalidNextTokenException|any, data: ListDeploymentGroupsOutput|any) => void): void;
-      listDeploymentInstances(params: ListDeploymentInstancesInput, callback: (err: DeploymentIdRequiredException|DeploymentDoesNotExistException|DeploymentNotStartedException|InvalidNextTokenException|InvalidDeploymentIdException|InvalidInstanceStatusException|any, data: ListDeploymentInstancesOutput|any) => void): void;
-      listDeployments(params: ListDeploymentsInput, callback: (err: ApplicationNameRequiredException|InvalidApplicationNameException|ApplicationDoesNotExistException|InvalidDeploymentGroupNameException|DeploymentGroupDoesNotExistException|DeploymentGroupNameRequiredException|InvalidTimeRangeException|InvalidDeploymentStatusException|InvalidNextTokenException|any, data: ListDeploymentsOutput|any) => void): void;
-      listOnPremisesInstances(params: ListOnPremisesInstancesInput, callback: (err: InvalidRegistrationStatusException|InvalidTagFilterException|InvalidNextTokenException|any, data: ListOnPremisesInstancesOutput|any) => void): void;
-      registerApplicationRevision(params: RegisterApplicationRevisionInput, callback: (err: ApplicationDoesNotExistException|ApplicationNameRequiredException|InvalidApplicationNameException|DescriptionTooLongException|RevisionRequiredException|InvalidRevisionException|any, data: any) => void): void;
-      registerOnPremisesInstance(params: RegisterOnPremisesInstanceInput, callback: (err: InstanceNameAlreadyRegisteredException|IamUserArnAlreadyRegisteredException|InstanceNameRequiredException|IamUserArnRequiredException|InvalidInstanceNameException|InvalidIamUserArnException|any, data: any) => void): void;
-      removeTagsFromOnPremisesInstances(params: RemoveTagsFromOnPremisesInstancesInput, callback: (err: InstanceNameRequiredException|TagRequiredException|InvalidTagException|TagLimitExceededException|InstanceLimitExceededException|InstanceNotRegisteredException|any, data: any) => void): void;
-      stopDeployment(params: StopDeploymentInput, callback: (err: DeploymentIdRequiredException|DeploymentDoesNotExistException|DeploymentAlreadyCompletedException|InvalidDeploymentIdException|any, data: StopDeploymentOutput|any) => void): void;
-      updateApplication(params: UpdateApplicationInput, callback: (err: ApplicationNameRequiredException|InvalidApplicationNameException|ApplicationAlreadyExistsException|ApplicationDoesNotExistException|any, data: any) => void): void;
-      updateDeploymentGroup(params: UpdateDeploymentGroupInput, callback: (err: ApplicationNameRequiredException|InvalidApplicationNameException|ApplicationDoesNotExistException|InvalidDeploymentGroupNameException|DeploymentGroupAlreadyExistsException|DeploymentGroupNameRequiredException|DeploymentGroupDoesNotExistException|InvalidEC2TagException|InvalidTagException|InvalidAutoScalingGroupException|InvalidDeploymentConfigNameException|DeploymentConfigDoesNotExistException|InvalidRoleException|any, data: UpdateDeploymentGroupOutput|any) => void): void;
+      addTagsToOnPremisesInstances(params: CodeDeployAddTagsToOnPremisesInstancesInput, callback: (err: CodeDeployInstanceNameRequiredException|CodeDeployTagRequiredException|CodeDeployInvalidTagException|CodeDeployTagLimitExceededException|CodeDeployInstanceLimitExceededException|CodeDeployInstanceNotRegisteredException|any, data: any) => void): void;
+      batchGetApplications(params: CodeDeployBatchGetApplicationsInput, callback: (err: CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|CodeDeployApplicationDoesNotExistException|any, data: CodeDeployBatchGetApplicationsOutput|any) => void): void;
+      batchGetDeployments(params: CodeDeployBatchGetDeploymentsInput, callback: (err: CodeDeployDeploymentIdRequiredException|CodeDeployInvalidDeploymentIdException|any, data: CodeDeployBatchGetDeploymentsOutput|any) => void): void;
+      batchGetOnPremisesInstances(params: CodeDeployBatchGetOnPremisesInstancesInput, callback: (err: CodeDeployInstanceNameRequiredException|CodeDeployInvalidInstanceNameException|any, data: CodeDeployBatchGetOnPremisesInstancesOutput|any) => void): void;
+      createApplication(params: CodeDeployCreateApplicationInput, callback: (err: CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|CodeDeployApplicationAlreadyExistsException|CodeDeployApplicationLimitExceededException|any, data: CodeDeployCreateApplicationOutput|any) => void): void;
+      createDeployment(params: CodeDeployCreateDeploymentInput, callback: (err: CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|CodeDeployApplicationDoesNotExistException|CodeDeployDeploymentGroupNameRequiredException|CodeDeployInvalidDeploymentGroupNameException|CodeDeployDeploymentGroupDoesNotExistException|CodeDeployRevisionRequiredException|CodeDeployInvalidRevisionException|CodeDeployInvalidDeploymentConfigNameException|CodeDeployDeploymentConfigDoesNotExistException|CodeDeployDescriptionTooLongException|CodeDeployDeploymentLimitExceededException|any, data: CodeDeployCreateDeploymentOutput|any) => void): void;
+      createDeploymentConfig(params: CodeDeployCreateDeploymentConfigInput, callback: (err: CodeDeployInvalidDeploymentConfigNameException|CodeDeployDeploymentConfigNameRequiredException|CodeDeployDeploymentConfigAlreadyExistsException|CodeDeployInvalidMinimumHealthyHostValueException|CodeDeployDeploymentConfigLimitExceededException|any, data: CodeDeployCreateDeploymentConfigOutput|any) => void): void;
+      createDeploymentGroup(params: CodeDeployCreateDeploymentGroupInput, callback: (err: CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|CodeDeployApplicationDoesNotExistException|CodeDeployDeploymentGroupNameRequiredException|CodeDeployInvalidDeploymentGroupNameException|CodeDeployDeploymentGroupAlreadyExistsException|CodeDeployInvalidEC2TagException|CodeDeployInvalidTagException|CodeDeployInvalidAutoScalingGroupException|CodeDeployInvalidDeploymentConfigNameException|CodeDeployDeploymentConfigDoesNotExistException|CodeDeployRoleRequiredException|CodeDeployInvalidRoleException|CodeDeployDeploymentGroupLimitExceededException|any, data: CodeDeployCreateDeploymentGroupOutput|any) => void): void;
+      deleteApplication(params: CodeDeployDeleteApplicationInput, callback: (err: CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|any, data: any) => void): void;
+      deleteDeploymentConfig(params: CodeDeployDeleteDeploymentConfigInput, callback: (err: CodeDeployInvalidDeploymentConfigNameException|CodeDeployDeploymentConfigNameRequiredException|CodeDeployDeploymentConfigInUseException|CodeDeployInvalidOperationException|any, data: any) => void): void;
+      deleteDeploymentGroup(params: CodeDeployDeleteDeploymentGroupInput, callback: (err: CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|CodeDeployDeploymentGroupNameRequiredException|CodeDeployInvalidDeploymentGroupNameException|CodeDeployInvalidRoleException|any, data: CodeDeployDeleteDeploymentGroupOutput|any) => void): void;
+      deregisterOnPremisesInstance(params: CodeDeployDeregisterOnPremisesInstanceInput, callback: (err: CodeDeployInstanceNameRequiredException|CodeDeployInvalidInstanceNameException|any, data: any) => void): void;
+      getApplication(params: CodeDeployGetApplicationInput, callback: (err: CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|CodeDeployApplicationDoesNotExistException|any, data: CodeDeployGetApplicationOutput|any) => void): void;
+      getApplicationRevision(params: CodeDeployGetApplicationRevisionInput, callback: (err: CodeDeployApplicationDoesNotExistException|CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|CodeDeployRevisionDoesNotExistException|CodeDeployRevisionRequiredException|CodeDeployInvalidRevisionException|any, data: CodeDeployGetApplicationRevisionOutput|any) => void): void;
+      getDeployment(params: CodeDeployGetDeploymentInput, callback: (err: CodeDeployDeploymentIdRequiredException|CodeDeployInvalidDeploymentIdException|CodeDeployDeploymentDoesNotExistException|any, data: CodeDeployGetDeploymentOutput|any) => void): void;
+      getDeploymentConfig(params: CodeDeployGetDeploymentConfigInput, callback: (err: CodeDeployInvalidDeploymentConfigNameException|CodeDeployDeploymentConfigNameRequiredException|CodeDeployDeploymentConfigDoesNotExistException|any, data: CodeDeployGetDeploymentConfigOutput|any) => void): void;
+      getDeploymentGroup(params: CodeDeployGetDeploymentGroupInput, callback: (err: CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|CodeDeployApplicationDoesNotExistException|CodeDeployDeploymentGroupNameRequiredException|CodeDeployInvalidDeploymentGroupNameException|CodeDeployDeploymentGroupDoesNotExistException|any, data: CodeDeployGetDeploymentGroupOutput|any) => void): void;
+      getDeploymentInstance(params: CodeDeployGetDeploymentInstanceInput, callback: (err: CodeDeployDeploymentIdRequiredException|CodeDeployDeploymentDoesNotExistException|CodeDeployInstanceIdRequiredException|CodeDeployInvalidDeploymentIdException|CodeDeployInstanceDoesNotExistException|any, data: CodeDeployGetDeploymentInstanceOutput|any) => void): void;
+      getOnPremisesInstance(params: CodeDeployGetOnPremisesInstanceInput, callback: (err: CodeDeployInstanceNameRequiredException|CodeDeployInstanceNotRegisteredException|CodeDeployInvalidInstanceNameException|any, data: CodeDeployGetOnPremisesInstanceOutput|any) => void): void;
+      listApplicationRevisions(params: CodeDeployListApplicationRevisionsInput, callback: (err: CodeDeployApplicationDoesNotExistException|CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|CodeDeployInvalidSortByException|CodeDeployInvalidSortOrderException|CodeDeployInvalidBucketNameFilterException|CodeDeployInvalidKeyPrefixFilterException|CodeDeployBucketNameFilterRequiredException|CodeDeployInvalidDeployedStateFilterException|CodeDeployInvalidNextTokenException|any, data: CodeDeployListApplicationRevisionsOutput|any) => void): void;
+      listApplications(params: CodeDeployListApplicationsInput, callback: (err: CodeDeployInvalidNextTokenException|any, data: CodeDeployListApplicationsOutput|any) => void): void;
+      listDeploymentConfigs(params: CodeDeployListDeploymentConfigsInput, callback: (err: CodeDeployInvalidNextTokenException|any, data: CodeDeployListDeploymentConfigsOutput|any) => void): void;
+      listDeploymentGroups(params: CodeDeployListDeploymentGroupsInput, callback: (err: CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|CodeDeployApplicationDoesNotExistException|CodeDeployInvalidNextTokenException|any, data: CodeDeployListDeploymentGroupsOutput|any) => void): void;
+      listDeploymentInstances(params: CodeDeployListDeploymentInstancesInput, callback: (err: CodeDeployDeploymentIdRequiredException|CodeDeployDeploymentDoesNotExistException|CodeDeployDeploymentNotStartedException|CodeDeployInvalidNextTokenException|CodeDeployInvalidDeploymentIdException|CodeDeployInvalidInstanceStatusException|any, data: CodeDeployListDeploymentInstancesOutput|any) => void): void;
+      listDeployments(params: CodeDeployListDeploymentsInput, callback: (err: CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|CodeDeployApplicationDoesNotExistException|CodeDeployInvalidDeploymentGroupNameException|CodeDeployDeploymentGroupDoesNotExistException|CodeDeployDeploymentGroupNameRequiredException|CodeDeployInvalidTimeRangeException|CodeDeployInvalidDeploymentStatusException|CodeDeployInvalidNextTokenException|any, data: CodeDeployListDeploymentsOutput|any) => void): void;
+      listOnPremisesInstances(params: CodeDeployListOnPremisesInstancesInput, callback: (err: CodeDeployInvalidRegistrationStatusException|CodeDeployInvalidTagFilterException|CodeDeployInvalidNextTokenException|any, data: CodeDeployListOnPremisesInstancesOutput|any) => void): void;
+      registerApplicationRevision(params: CodeDeployRegisterApplicationRevisionInput, callback: (err: CodeDeployApplicationDoesNotExistException|CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|CodeDeployDescriptionTooLongException|CodeDeployRevisionRequiredException|CodeDeployInvalidRevisionException|any, data: any) => void): void;
+      registerOnPremisesInstance(params: CodeDeployRegisterOnPremisesInstanceInput, callback: (err: CodeDeployInstanceNameAlreadyRegisteredException|CodeDeployIamUserArnAlreadyRegisteredException|CodeDeployInstanceNameRequiredException|CodeDeployIamUserArnRequiredException|CodeDeployInvalidInstanceNameException|CodeDeployInvalidIamUserArnException|any, data: any) => void): void;
+      removeTagsFromOnPremisesInstances(params: CodeDeployRemoveTagsFromOnPremisesInstancesInput, callback: (err: CodeDeployInstanceNameRequiredException|CodeDeployTagRequiredException|CodeDeployInvalidTagException|CodeDeployTagLimitExceededException|CodeDeployInstanceLimitExceededException|CodeDeployInstanceNotRegisteredException|any, data: any) => void): void;
+      stopDeployment(params: CodeDeployStopDeploymentInput, callback: (err: CodeDeployDeploymentIdRequiredException|CodeDeployDeploymentDoesNotExistException|CodeDeployDeploymentAlreadyCompletedException|CodeDeployInvalidDeploymentIdException|any, data: CodeDeployStopDeploymentOutput|any) => void): void;
+      updateApplication(params: CodeDeployUpdateApplicationInput, callback: (err: CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|CodeDeployApplicationAlreadyExistsException|CodeDeployApplicationDoesNotExistException|any, data: any) => void): void;
+      updateDeploymentGroup(params: CodeDeployUpdateDeploymentGroupInput, callback: (err: CodeDeployApplicationNameRequiredException|CodeDeployInvalidApplicationNameException|CodeDeployApplicationDoesNotExistException|CodeDeployInvalidDeploymentGroupNameException|CodeDeployDeploymentGroupAlreadyExistsException|CodeDeployDeploymentGroupNameRequiredException|CodeDeployDeploymentGroupDoesNotExistException|CodeDeployInvalidEC2TagException|CodeDeployInvalidTagException|CodeDeployInvalidAutoScalingGroupException|CodeDeployInvalidDeploymentConfigNameException|CodeDeployDeploymentConfigDoesNotExistException|CodeDeployInvalidRoleException|any, data: CodeDeployUpdateDeploymentGroupOutput|any) => void): void;
     }
 
-    export interface AddTagsToOnPremisesInstancesInput {
-      tags: TagList;
-      instanceNames: InstanceNameList;
+    export interface CodeDeployAddTagsToOnPremisesInstancesInput {
+        tags: CodeDeployTagList;
+        instanceNames: CodeDeployInstanceNameList;
     }
 
-
-    export interface ApplicationAlreadyExistsException {
+    export interface CodeDeployApplicationAlreadyExistsException {
     }
 
-
-    export interface ApplicationDoesNotExistException {
+    export interface CodeDeployApplicationDoesNotExistException {
     }
-
 
-    export type ApplicationId = string;
-
-    export interface ApplicationInfo {
-      applicationId?: ApplicationId;
-      applicationName?: ApplicationName;
-      createTime?: Timestamp;
-      linkedToGitHub?: Boolean;
+    export type CodeDeployApplicationId = string;
+    export interface CodeDeployApplicationInfo {
+        applicationId?: CodeDeployApplicationId;
+        applicationName?: CodeDeployApplicationName;
+        createTime?: CodeDeployTimestamp;
+        linkedToGitHub?: CodeDeployBoolean;
     }
 
-
-    export interface ApplicationLimitExceededException {
+    export interface CodeDeployApplicationLimitExceededException {
     }
-
 
-    export type ApplicationName = string;
-
-    export interface ApplicationNameRequiredException {
+    export type CodeDeployApplicationName = string;
+    export interface CodeDeployApplicationNameRequiredException {
     }
-
-
-    export type ApplicationRevisionSortBy = string;
 
-    export type ApplicationsInfoList = Array<ApplicationInfo>;
-
-    export type ApplicationsList = Array<ApplicationName>;
-
-    export interface AutoScalingGroup {
-      name?: AutoScalingGroupName;
-      hook?: AutoScalingGroupHook;
+    export type CodeDeployApplicationRevisionSortBy = string;
+    export type CodeDeployApplicationsInfoList = Array<CodeDeployApplicationInfo>;
+    export type CodeDeployApplicationsList = Array<CodeDeployApplicationName>;
+    export interface CodeDeployAutoScalingGroup {
+        name?: CodeDeployAutoScalingGroupName;
+        hook?: CodeDeployAutoScalingGroupHook;
     }
-
 
-    export type AutoScalingGroupHook = string;
-
-    export type AutoScalingGroupList = Array<AutoScalingGroup>;
-
-    export type AutoScalingGroupName = string;
-
-    export type AutoScalingGroupNameList = Array<AutoScalingGroupName>;
-
-    export interface BatchGetApplicationsInput {
-      applicationNames?: ApplicationsList;
+    export type CodeDeployAutoScalingGroupHook = string;
+    export type CodeDeployAutoScalingGroupList = Array<CodeDeployAutoScalingGroup>;
+    export type CodeDeployAutoScalingGroupName = string;
+    export type CodeDeployAutoScalingGroupNameList = Array<CodeDeployAutoScalingGroupName>;
+    export interface CodeDeployBatchGetApplicationsInput {
+        applicationNames?: CodeDeployApplicationsList;
     }
 
-
-    export interface BatchGetApplicationsOutput {
-      applicationsInfo?: ApplicationsInfoList;
+    export interface CodeDeployBatchGetApplicationsOutput {
+        applicationsInfo?: CodeDeployApplicationsInfoList;
     }
-
 
-    export interface BatchGetDeploymentsInput {
-      deploymentIds?: DeploymentsList;
+    export interface CodeDeployBatchGetDeploymentsInput {
+        deploymentIds?: CodeDeployDeploymentsList;
     }
 
-
-    export interface BatchGetDeploymentsOutput {
-      deploymentsInfo?: DeploymentsInfoList;
+    export interface CodeDeployBatchGetDeploymentsOutput {
+        deploymentsInfo?: CodeDeployDeploymentsInfoList;
     }
 
-
-    export interface BatchGetOnPremisesInstancesInput {
-      instanceNames?: InstanceNameList;
+    export interface CodeDeployBatchGetOnPremisesInstancesInput {
+        instanceNames?: CodeDeployInstanceNameList;
     }
-
 
-    export interface BatchGetOnPremisesInstancesOutput {
-      instanceInfos?: InstanceInfoList;
+    export interface CodeDeployBatchGetOnPremisesInstancesOutput {
+        instanceInfos?: CodeDeployInstanceInfoList;
     }
 
-
-    export type Boolean = boolean;
-
-    export interface BucketNameFilterRequiredException {
+    export type CodeDeployBoolean = boolean;
+    export interface CodeDeployBucketNameFilterRequiredException {
     }
-
-
-    export type BundleType = string;
 
-    export type CommitId = string;
-
-    export interface CreateApplicationInput {
-      applicationName: ApplicationName;
+    export type CodeDeployBundleType = string;
+    export type CodeDeployCommitId = string;
+    export interface CodeDeployCreateApplicationInput {
+        applicationName: CodeDeployApplicationName;
     }
 
-
-    export interface CreateApplicationOutput {
-      applicationId?: ApplicationId;
+    export interface CodeDeployCreateApplicationOutput {
+        applicationId?: CodeDeployApplicationId;
     }
-
 
-    export interface CreateDeploymentConfigInput {
-      deploymentConfigName: DeploymentConfigName;
-      minimumHealthyHosts?: MinimumHealthyHosts;
+    export interface CodeDeployCreateDeploymentConfigInput {
+        deploymentConfigName: CodeDeployDeploymentConfigName;
+        minimumHealthyHosts?: CodeDeployMinimumHealthyHosts;
     }
 
-
-    export interface CreateDeploymentConfigOutput {
-      deploymentConfigId?: DeploymentConfigId;
+    export interface CodeDeployCreateDeploymentConfigOutput {
+        deploymentConfigId?: CodeDeployDeploymentConfigId;
     }
 
-
-    export interface CreateDeploymentGroupInput {
-      applicationName: ApplicationName;
-      deploymentGroupName: DeploymentGroupName;
-      deploymentConfigName?: DeploymentConfigName;
-      ec2TagFilters?: EC2TagFilterList;
-      onPremisesInstanceTagFilters?: TagFilterList;
-      autoScalingGroups?: AutoScalingGroupNameList;
-      serviceRoleArn: Role;
+    export interface CodeDeployCreateDeploymentGroupInput {
+        applicationName: CodeDeployApplicationName;
+        deploymentGroupName: CodeDeployDeploymentGroupName;
+        deploymentConfigName?: CodeDeployDeploymentConfigName;
+        ec2TagFilters?: CodeDeployEC2TagFilterList;
+        onPremisesInstanceTagFilters?: CodeDeployTagFilterList;
+        autoScalingGroups?: CodeDeployAutoScalingGroupNameList;
+        serviceRoleArn: CodeDeployRole;
     }
-
 
-    export interface CreateDeploymentGroupOutput {
-      deploymentGroupId?: DeploymentGroupId;
+    export interface CodeDeployCreateDeploymentGroupOutput {
+        deploymentGroupId?: CodeDeployDeploymentGroupId;
     }
 
-
-    export interface CreateDeploymentInput {
-      applicationName: ApplicationName;
-      deploymentGroupName?: DeploymentGroupName;
-      revision?: RevisionLocation;
-      deploymentConfigName?: DeploymentConfigName;
-      description?: Description;
-      ignoreApplicationStopFailures?: Boolean;
+    export interface CodeDeployCreateDeploymentInput {
+        applicationName: CodeDeployApplicationName;
+        deploymentGroupName?: CodeDeployDeploymentGroupName;
+        revision?: CodeDeployRevisionLocation;
+        deploymentConfigName?: CodeDeployDeploymentConfigName;
+        description?: CodeDeployDescription;
+        ignoreApplicationStopFailures?: CodeDeployBoolean;
     }
 
-
-    export interface CreateDeploymentOutput {
-      deploymentId?: DeploymentId;
+    export interface CodeDeployCreateDeploymentOutput {
+        deploymentId?: CodeDeployDeploymentId;
     }
-
 
-    export interface DeleteApplicationInput {
-      applicationName: ApplicationName;
+    export interface CodeDeployDeleteApplicationInput {
+        applicationName: CodeDeployApplicationName;
     }
 
-
-    export interface DeleteDeploymentConfigInput {
-      deploymentConfigName: DeploymentConfigName;
+    export interface CodeDeployDeleteDeploymentConfigInput {
+        deploymentConfigName: CodeDeployDeploymentConfigName;
     }
 
-
-    export interface DeleteDeploymentGroupInput {
-      applicationName: ApplicationName;
-      deploymentGroupName: DeploymentGroupName;
+    export interface CodeDeployDeleteDeploymentGroupInput {
+        applicationName: CodeDeployApplicationName;
+        deploymentGroupName: CodeDeployDeploymentGroupName;
     }
-
 
-    export interface DeleteDeploymentGroupOutput {
-      hooksNotCleanedUp?: AutoScalingGroupList;
+    export interface CodeDeployDeleteDeploymentGroupOutput {
+        hooksNotCleanedUp?: CodeDeployAutoScalingGroupList;
     }
 
-
-    export interface DeploymentAlreadyCompletedException {
+    export interface CodeDeployDeploymentAlreadyCompletedException {
     }
 
-
-    export interface DeploymentConfigAlreadyExistsException {
+    export interface CodeDeployDeploymentConfigAlreadyExistsException {
     }
-
 
-    export interface DeploymentConfigDoesNotExistException {
+    export interface CodeDeployDeploymentConfigDoesNotExistException {
     }
 
-
-    export type DeploymentConfigId = string;
-
-    export interface DeploymentConfigInUseException {
+    export type CodeDeployDeploymentConfigId = string;
+    export interface CodeDeployDeploymentConfigInUseException {
     }
-
 
-    export interface DeploymentConfigInfo {
-      deploymentConfigId?: DeploymentConfigId;
-      deploymentConfigName?: DeploymentConfigName;
-      minimumHealthyHosts?: MinimumHealthyHosts;
-      createTime?: Timestamp;
+    export interface CodeDeployDeploymentConfigInfo {
+        deploymentConfigId?: CodeDeployDeploymentConfigId;
+        deploymentConfigName?: CodeDeployDeploymentConfigName;
+        minimumHealthyHosts?: CodeDeployMinimumHealthyHosts;
+        createTime?: CodeDeployTimestamp;
     }
 
-
-    export interface DeploymentConfigLimitExceededException {
+    export interface CodeDeployDeploymentConfigLimitExceededException {
     }
-
-
-    export type DeploymentConfigName = string;
 
-    export interface DeploymentConfigNameRequiredException {
+    export type CodeDeployDeploymentConfigName = string;
+    export interface CodeDeployDeploymentConfigNameRequiredException {
     }
 
-
-    export type DeploymentConfigsList = Array<DeploymentConfigName>;
-
-    export type DeploymentCreator = string;
-
-    export interface DeploymentDoesNotExistException {
+    export type CodeDeployDeploymentConfigsList = Array<CodeDeployDeploymentConfigName>;
+    export type CodeDeployDeploymentCreator = string;
+    export interface CodeDeployDeploymentDoesNotExistException {
     }
-
 
-    export interface DeploymentGroupAlreadyExistsException {
+    export interface CodeDeployDeploymentGroupAlreadyExistsException {
     }
 
-
-    export interface DeploymentGroupDoesNotExistException {
+    export interface CodeDeployDeploymentGroupDoesNotExistException {
     }
-
-
-    export type DeploymentGroupId = string;
 
-    export interface DeploymentGroupInfo {
-      applicationName?: ApplicationName;
-      deploymentGroupId?: DeploymentGroupId;
-      deploymentGroupName?: DeploymentGroupName;
-      deploymentConfigName?: DeploymentConfigName;
-      ec2TagFilters?: EC2TagFilterList;
-      onPremisesInstanceTagFilters?: TagFilterList;
-      autoScalingGroups?: AutoScalingGroupList;
-      serviceRoleArn?: Role;
-      targetRevision?: RevisionLocation;
+    export type CodeDeployDeploymentGroupId = string;
+    export interface CodeDeployDeploymentGroupInfo {
+        applicationName?: CodeDeployApplicationName;
+        deploymentGroupId?: CodeDeployDeploymentGroupId;
+        deploymentGroupName?: CodeDeployDeploymentGroupName;
+        deploymentConfigName?: CodeDeployDeploymentConfigName;
+        ec2TagFilters?: CodeDeployEC2TagFilterList;
+        onPremisesInstanceTagFilters?: CodeDeployTagFilterList;
+        autoScalingGroups?: CodeDeployAutoScalingGroupList;
+        serviceRoleArn?: CodeDeployRole;
+        targetRevision?: CodeDeployRevisionLocation;
     }
 
-
-    export interface DeploymentGroupLimitExceededException {
+    export interface CodeDeployDeploymentGroupLimitExceededException {
     }
-
-
-    export type DeploymentGroupName = string;
 
-    export interface DeploymentGroupNameRequiredException {
+    export type CodeDeployDeploymentGroupName = string;
+    export interface CodeDeployDeploymentGroupNameRequiredException {
     }
 
-
-    export type DeploymentGroupsList = Array<DeploymentGroupName>;
-
-    export type DeploymentId = string;
-
-    export interface DeploymentIdRequiredException {
+    export type CodeDeployDeploymentGroupsList = Array<CodeDeployDeploymentGroupName>;
+    export type CodeDeployDeploymentId = string;
+    export interface CodeDeployDeploymentIdRequiredException {
     }
 
-
-    export interface DeploymentInfo {
-      applicationName?: ApplicationName;
-      deploymentGroupName?: DeploymentGroupName;
-      deploymentConfigName?: DeploymentConfigName;
-      deploymentId?: DeploymentId;
-      revision?: RevisionLocation;
-      status?: DeploymentStatus;
-      errorInformation?: ErrorInformation;
-      createTime?: Timestamp;
-      startTime?: Timestamp;
-      completeTime?: Timestamp;
-      deploymentOverview?: DeploymentOverview;
-      description?: Description;
-      creator?: DeploymentCreator;
-      ignoreApplicationStopFailures?: Boolean;
+    export interface CodeDeployDeploymentInfo {
+        applicationName?: CodeDeployApplicationName;
+        deploymentGroupName?: CodeDeployDeploymentGroupName;
+        deploymentConfigName?: CodeDeployDeploymentConfigName;
+        deploymentId?: CodeDeployDeploymentId;
+        revision?: CodeDeployRevisionLocation;
+        status?: CodeDeployDeploymentStatus;
+        errorInformation?: CodeDeployErrorInformation;
+        createTime?: CodeDeployTimestamp;
+        startTime?: CodeDeployTimestamp;
+        completeTime?: CodeDeployTimestamp;
+        deploymentOverview?: CodeDeployDeploymentOverview;
+        description?: CodeDeployDescription;
+        creator?: CodeDeployDeploymentCreator;
+        ignoreApplicationStopFailures?: CodeDeployBoolean;
     }
 
-
-    export interface DeploymentLimitExceededException {
+    export interface CodeDeployDeploymentLimitExceededException {
     }
-
 
-    export interface DeploymentNotStartedException {
+    export interface CodeDeployDeploymentNotStartedException {
     }
 
-
-    export interface DeploymentOverview {
-      Pending?: InstanceCount;
-      InProgress?: InstanceCount;
-      Succeeded?: InstanceCount;
-      Failed?: InstanceCount;
-      Skipped?: InstanceCount;
+    export interface CodeDeployDeploymentOverview {
+        Pending?: CodeDeployInstanceCount;
+        InProgress?: CodeDeployInstanceCount;
+        Succeeded?: CodeDeployInstanceCount;
+        Failed?: CodeDeployInstanceCount;
+        Skipped?: CodeDeployInstanceCount;
     }
-
-
-    export type DeploymentStatus = string;
-
-    export type DeploymentStatusList = Array<DeploymentStatus>;
-
-    export type DeploymentsInfoList = Array<DeploymentInfo>;
-
-    export type DeploymentsList = Array<DeploymentId>;
 
-    export interface DeregisterOnPremisesInstanceInput {
-      instanceName: InstanceName;
+    export type CodeDeployDeploymentStatus = string;
+    export type CodeDeployDeploymentStatusList = Array<CodeDeployDeploymentStatus>;
+    export type CodeDeployDeploymentsInfoList = Array<CodeDeployDeploymentInfo>;
+    export type CodeDeployDeploymentsList = Array<CodeDeployDeploymentId>;
+    export interface CodeDeployDeregisterOnPremisesInstanceInput {
+        instanceName: CodeDeployInstanceName;
     }
 
-
-    export type Description = string;
-
-    export interface DescriptionTooLongException {
+    export type CodeDeployDescription = string;
+    export interface CodeDeployDescriptionTooLongException {
     }
-
 
-    export interface Diagnostics {
-      errorCode?: LifecycleErrorCode;
-      scriptName?: ScriptName;
-      message?: LifecycleMessage;
-      logTail?: LogTail;
+    export interface CodeDeployDiagnostics {
+        errorCode?: CodeDeployLifecycleErrorCode;
+        scriptName?: CodeDeployScriptName;
+        message?: CodeDeployLifecycleMessage;
+        logTail?: CodeDeployLogTail;
     }
 
-
-    export interface EC2TagFilter {
-      Key?: Key;
-      Value?: Value;
-      Type?: EC2TagFilterType;
+    export interface CodeDeployEC2TagFilter {
+        Key?: CodeDeployKey;
+        Value?: CodeDeployValue;
+        Type?: CodeDeployEC2TagFilterType;
     }
-
-
-    export type EC2TagFilterList = Array<EC2TagFilter>;
-
-    export type EC2TagFilterType = string;
 
-    export type ETag = string;
-
-    export type ErrorCode = string;
-
-    export interface ErrorInformation {
-      code?: ErrorCode;
-      message?: ErrorMessage;
+    export type CodeDeployEC2TagFilterList = Array<CodeDeployEC2TagFilter>;
+    export type CodeDeployEC2TagFilterType = string;
+    export type CodeDeployETag = string;
+    export type CodeDeployErrorCode = string;
+    export interface CodeDeployErrorInformation {
+        code?: CodeDeployErrorCode;
+        message?: CodeDeployErrorMessage;
     }
-
 
-    export type ErrorMessage = string;
-
-    export interface GenericRevisionInfo {
-      description?: Description;
-      deploymentGroups?: DeploymentGroupsList;
-      firstUsedTime?: Timestamp;
-      lastUsedTime?: Timestamp;
-      registerTime?: Timestamp;
+    export type CodeDeployErrorMessage = string;
+    export interface CodeDeployGenericRevisionInfo {
+        description?: CodeDeployDescription;
+        deploymentGroups?: CodeDeployDeploymentGroupsList;
+        firstUsedTime?: CodeDeployTimestamp;
+        lastUsedTime?: CodeDeployTimestamp;
+        registerTime?: CodeDeployTimestamp;
     }
 
-
-    export interface GetApplicationInput {
-      applicationName: ApplicationName;
+    export interface CodeDeployGetApplicationInput {
+        applicationName: CodeDeployApplicationName;
     }
-
 
-    export interface GetApplicationOutput {
-      application?: ApplicationInfo;
+    export interface CodeDeployGetApplicationOutput {
+        application?: CodeDeployApplicationInfo;
     }
 
-
-    export interface GetApplicationRevisionInput {
-      applicationName: ApplicationName;
-      revision: RevisionLocation;
+    export interface CodeDeployGetApplicationRevisionInput {
+        applicationName: CodeDeployApplicationName;
+        revision: CodeDeployRevisionLocation;
     }
 
-
-    export interface GetApplicationRevisionOutput {
-      applicationName?: ApplicationName;
-      revision?: RevisionLocation;
-      revisionInfo?: GenericRevisionInfo;
+    export interface CodeDeployGetApplicationRevisionOutput {
+        applicationName?: CodeDeployApplicationName;
+        revision?: CodeDeployRevisionLocation;
+        revisionInfo?: CodeDeployGenericRevisionInfo;
     }
-
 
-    export interface GetDeploymentConfigInput {
-      deploymentConfigName: DeploymentConfigName;
+    export interface CodeDeployGetDeploymentConfigInput {
+        deploymentConfigName: CodeDeployDeploymentConfigName;
     }
 
-
-    export interface GetDeploymentConfigOutput {
-      deploymentConfigInfo?: DeploymentConfigInfo;
+    export interface CodeDeployGetDeploymentConfigOutput {
+        deploymentConfigInfo?: CodeDeployDeploymentConfigInfo;
     }
 
-
-    export interface GetDeploymentGroupInput {
-      applicationName: ApplicationName;
-      deploymentGroupName: DeploymentGroupName;
+    export interface CodeDeployGetDeploymentGroupInput {
+        applicationName: CodeDeployApplicationName;
+        deploymentGroupName: CodeDeployDeploymentGroupName;
     }
-
 
-    export interface GetDeploymentGroupOutput {
-      deploymentGroupInfo?: DeploymentGroupInfo;
+    export interface CodeDeployGetDeploymentGroupOutput {
+        deploymentGroupInfo?: CodeDeployDeploymentGroupInfo;
     }
 
-
-    export interface GetDeploymentInput {
-      deploymentId: DeploymentId;
+    export interface CodeDeployGetDeploymentInput {
+        deploymentId: CodeDeployDeploymentId;
     }
 
-
-    export interface GetDeploymentInstanceInput {
-      deploymentId: DeploymentId;
-      instanceId: InstanceId;
+    export interface CodeDeployGetDeploymentInstanceInput {
+        deploymentId: CodeDeployDeploymentId;
+        instanceId: CodeDeployInstanceId;
     }
-
 
-    export interface GetDeploymentInstanceOutput {
-      instanceSummary?: InstanceSummary;
+    export interface CodeDeployGetDeploymentInstanceOutput {
+        instanceSummary?: CodeDeployInstanceSummary;
     }
 
-
-    export interface GetDeploymentOutput {
-      deploymentInfo?: DeploymentInfo;
+    export interface CodeDeployGetDeploymentOutput {
+        deploymentInfo?: CodeDeployDeploymentInfo;
     }
 
-
-    export interface GetOnPremisesInstanceInput {
-      instanceName: InstanceName;
+    export interface CodeDeployGetOnPremisesInstanceInput {
+        instanceName: CodeDeployInstanceName;
     }
-
 
-    export interface GetOnPremisesInstanceOutput {
-      instanceInfo?: InstanceInfo;
+    export interface CodeDeployGetOnPremisesInstanceOutput {
+        instanceInfo?: CodeDeployInstanceInfo;
     }
 
-
-    export interface GitHubLocation {
-      repository?: Repository;
-      commitId?: CommitId;
+    export interface CodeDeployGitHubLocation {
+        repository?: CodeDeployRepository;
+        commitId?: CodeDeployCommitId;
     }
-
-
-    export type IamUserArn = string;
 
-    export interface IamUserArnAlreadyRegisteredException {
+    export type CodeDeployIamUserArn = string;
+    export interface CodeDeployIamUserArnAlreadyRegisteredException {
     }
 
-
-    export interface IamUserArnRequiredException {
+    export interface CodeDeployIamUserArnRequiredException {
     }
-
-
-    export type InstanceArn = string;
-
-    export type InstanceCount = number;
 
-    export interface InstanceDoesNotExistException {
+    export type CodeDeployInstanceArn = string;
+    export type CodeDeployInstanceCount = number;
+    export interface CodeDeployInstanceDoesNotExistException {
     }
 
-
-    export type InstanceId = string;
-
-    export interface InstanceIdRequiredException {
+    export type CodeDeployInstanceId = string;
+    export interface CodeDeployInstanceIdRequiredException {
     }
-
 
-    export interface InstanceInfo {
-      instanceName?: InstanceName;
-      iamUserArn?: IamUserArn;
-      instanceArn?: InstanceArn;
-      registerTime?: Timestamp;
-      deregisterTime?: Timestamp;
-      tags?: TagList;
+    export interface CodeDeployInstanceInfo {
+        instanceName?: CodeDeployInstanceName;
+        iamUserArn?: CodeDeployIamUserArn;
+        instanceArn?: CodeDeployInstanceArn;
+        registerTime?: CodeDeployTimestamp;
+        deregisterTime?: CodeDeployTimestamp;
+        tags?: CodeDeployTagList;
     }
 
-
-    export type InstanceInfoList = Array<InstanceInfo>;
-
-    export interface InstanceLimitExceededException {
+    export type CodeDeployInstanceInfoList = Array<CodeDeployInstanceInfo>;
+    export interface CodeDeployInstanceLimitExceededException {
     }
-
 
-    export type InstanceName = string;
-
-    export interface InstanceNameAlreadyRegisteredException {
+    export type CodeDeployInstanceName = string;
+    export interface CodeDeployInstanceNameAlreadyRegisteredException {
     }
-
-
-    export type InstanceNameList = Array<InstanceName>;
 
-    export interface InstanceNameRequiredException {
+    export type CodeDeployInstanceNameList = Array<CodeDeployInstanceName>;
+    export interface CodeDeployInstanceNameRequiredException {
     }
 
-
-    export interface InstanceNotRegisteredException {
+    export interface CodeDeployInstanceNotRegisteredException {
     }
-
-
-    export type InstanceStatus = string;
 
-    export type InstanceStatusList = Array<InstanceStatus>;
-
-    export interface InstanceSummary {
-      deploymentId?: DeploymentId;
-      instanceId?: InstanceId;
-      status?: InstanceStatus;
-      lastUpdatedAt?: Timestamp;
-      lifecycleEvents?: LifecycleEventList;
+    export type CodeDeployInstanceStatus = string;
+    export type CodeDeployInstanceStatusList = Array<CodeDeployInstanceStatus>;
+    export interface CodeDeployInstanceSummary {
+        deploymentId?: CodeDeployDeploymentId;
+        instanceId?: CodeDeployInstanceId;
+        status?: CodeDeployInstanceStatus;
+        lastUpdatedAt?: CodeDeployTimestamp;
+        lifecycleEvents?: CodeDeployLifecycleEventList;
     }
-
-
-    export type InstancesList = Array<InstanceId>;
 
-    export interface InvalidApplicationNameException {
+    export type CodeDeployInstancesList = Array<CodeDeployInstanceId>;
+    export interface CodeDeployInvalidApplicationNameException {
     }
 
-
-    export interface InvalidAutoScalingGroupException {
+    export interface CodeDeployInvalidAutoScalingGroupException {
     }
 
-
-    export interface InvalidBucketNameFilterException {
+    export interface CodeDeployInvalidBucketNameFilterException {
     }
-
 
-    export interface InvalidDeployedStateFilterException {
+    export interface CodeDeployInvalidDeployedStateFilterException {
     }
 
-
-    export interface InvalidDeploymentConfigNameException {
+    export interface CodeDeployInvalidDeploymentConfigNameException {
     }
 
-
-    export interface InvalidDeploymentGroupNameException {
+    export interface CodeDeployInvalidDeploymentGroupNameException {
     }
-
 
-    export interface InvalidDeploymentIdException {
+    export interface CodeDeployInvalidDeploymentIdException {
     }
 
-
-    export interface InvalidDeploymentStatusException {
+    export interface CodeDeployInvalidDeploymentStatusException {
     }
-
 
-    export interface InvalidEC2TagException {
+    export interface CodeDeployInvalidEC2TagException {
     }
 
-
-    export interface InvalidIamUserArnException {
+    export interface CodeDeployInvalidIamUserArnException {
     }
-
 
-    export interface InvalidInstanceNameException {
+    export interface CodeDeployInvalidInstanceNameException {
     }
 
-
-    export interface InvalidInstanceStatusException {
+    export interface CodeDeployInvalidInstanceStatusException {
     }
 
-
-    export interface InvalidKeyPrefixFilterException {
+    export interface CodeDeployInvalidKeyPrefixFilterException {
     }
-
 
-    export interface InvalidMinimumHealthyHostValueException {
+    export interface CodeDeployInvalidMinimumHealthyHostValueException {
     }
 
-
-    export interface InvalidNextTokenException {
+    export interface CodeDeployInvalidNextTokenException {
     }
 
-
-    export interface InvalidOperationException {
+    export interface CodeDeployInvalidOperationException {
     }
-
 
-    export interface InvalidRegistrationStatusException {
+    export interface CodeDeployInvalidRegistrationStatusException {
     }
 
-
-    export interface InvalidRevisionException {
+    export interface CodeDeployInvalidRevisionException {
     }
 
-
-    export interface InvalidRoleException {
+    export interface CodeDeployInvalidRoleException {
     }
-
 
-    export interface InvalidSortByException {
+    export interface CodeDeployInvalidSortByException {
     }
 
-
-    export interface InvalidSortOrderException {
+    export interface CodeDeployInvalidSortOrderException {
     }
 
-
-    export interface InvalidTagException {
+    export interface CodeDeployInvalidTagException {
     }
-
 
-    export interface InvalidTagFilterException {
+    export interface CodeDeployInvalidTagFilterException {
     }
 
-
-    export interface InvalidTimeRangeException {
+    export interface CodeDeployInvalidTimeRangeException {
     }
-
-
-    export type Key = string;
 
-    export type LifecycleErrorCode = string;
-
-    export interface LifecycleEvent {
-      lifecycleEventName?: LifecycleEventName;
-      diagnostics?: Diagnostics;
-      startTime?: Timestamp;
-      endTime?: Timestamp;
-      status?: LifecycleEventStatus;
+    export type CodeDeployKey = string;
+    export type CodeDeployLifecycleErrorCode = string;
+    export interface CodeDeployLifecycleEvent {
+        lifecycleEventName?: CodeDeployLifecycleEventName;
+        diagnostics?: CodeDeployDiagnostics;
+        startTime?: CodeDeployTimestamp;
+        endTime?: CodeDeployTimestamp;
+        status?: CodeDeployLifecycleEventStatus;
     }
-
-
-    export type LifecycleEventList = Array<LifecycleEvent>;
 
-    export type LifecycleEventName = string;
-
-    export type LifecycleEventStatus = string;
-
-    export type LifecycleMessage = string;
-
-    export interface ListApplicationRevisionsInput {
-      applicationName: ApplicationName;
-      sortBy?: ApplicationRevisionSortBy;
-      sortOrder?: SortOrder;
-      s3Bucket?: S3Bucket;
-      s3KeyPrefix?: S3Key;
-      deployed?: ListStateFilterAction;
-      nextToken?: NextToken;
+    export type CodeDeployLifecycleEventList = Array<CodeDeployLifecycleEvent>;
+    export type CodeDeployLifecycleEventName = string;
+    export type CodeDeployLifecycleEventStatus = string;
+    export type CodeDeployLifecycleMessage = string;
+    export interface CodeDeployListApplicationRevisionsInput {
+        applicationName: CodeDeployApplicationName;
+        sortBy?: CodeDeployApplicationRevisionSortBy;
+        sortOrder?: CodeDeploySortOrder;
+        s3Bucket?: CodeDeployS3Bucket;
+        s3KeyPrefix?: CodeDeployS3Key;
+        deployed?: CodeDeployListStateFilterAction;
+        nextToken?: CodeDeployNextToken;
     }
 
-
-    export interface ListApplicationRevisionsOutput {
-      revisions?: RevisionLocationList;
-      nextToken?: NextToken;
+    export interface CodeDeployListApplicationRevisionsOutput {
+        revisions?: CodeDeployRevisionLocationList;
+        nextToken?: CodeDeployNextToken;
     }
-
 
-    export interface ListApplicationsInput {
-      nextToken?: NextToken;
+    export interface CodeDeployListApplicationsInput {
+        nextToken?: CodeDeployNextToken;
     }
 
-
-    export interface ListApplicationsOutput {
-      applications?: ApplicationsList;
-      nextToken?: NextToken;
+    export interface CodeDeployListApplicationsOutput {
+        applications?: CodeDeployApplicationsList;
+        nextToken?: CodeDeployNextToken;
     }
-
 
-    export interface ListDeploymentConfigsInput {
-      nextToken?: NextToken;
+    export interface CodeDeployListDeploymentConfigsInput {
+        nextToken?: CodeDeployNextToken;
     }
 
-
-    export interface ListDeploymentConfigsOutput {
-      deploymentConfigsList?: DeploymentConfigsList;
-      nextToken?: NextToken;
+    export interface CodeDeployListDeploymentConfigsOutput {
+        deploymentConfigsList?: CodeDeployDeploymentConfigsList;
+        nextToken?: CodeDeployNextToken;
     }
 
-
-    export interface ListDeploymentGroupsInput {
-      applicationName: ApplicationName;
-      nextToken?: NextToken;
+    export interface CodeDeployListDeploymentGroupsInput {
+        applicationName: CodeDeployApplicationName;
+        nextToken?: CodeDeployNextToken;
     }
-
 
-    export interface ListDeploymentGroupsOutput {
-      applicationName?: ApplicationName;
-      deploymentGroups?: DeploymentGroupsList;
-      nextToken?: NextToken;
+    export interface CodeDeployListDeploymentGroupsOutput {
+        applicationName?: CodeDeployApplicationName;
+        deploymentGroups?: CodeDeployDeploymentGroupsList;
+        nextToken?: CodeDeployNextToken;
     }
 
-
-    export interface ListDeploymentInstancesInput {
-      deploymentId: DeploymentId;
-      nextToken?: NextToken;
-      instanceStatusFilter?: InstanceStatusList;
+    export interface CodeDeployListDeploymentInstancesInput {
+        deploymentId: CodeDeployDeploymentId;
+        nextToken?: CodeDeployNextToken;
+        instanceStatusFilter?: CodeDeployInstanceStatusList;
     }
 
-
-    export interface ListDeploymentInstancesOutput {
-      instancesList?: InstancesList;
-      nextToken?: NextToken;
+    export interface CodeDeployListDeploymentInstancesOutput {
+        instancesList?: CodeDeployInstancesList;
+        nextToken?: CodeDeployNextToken;
     }
-
 
-    export interface ListDeploymentsInput {
-      applicationName?: ApplicationName;
-      deploymentGroupName?: DeploymentGroupName;
-      includeOnlyStatuses?: DeploymentStatusList;
-      createTimeRange?: TimeRange;
-      nextToken?: NextToken;
+    export interface CodeDeployListDeploymentsInput {
+        applicationName?: CodeDeployApplicationName;
+        deploymentGroupName?: CodeDeployDeploymentGroupName;
+        includeOnlyStatuses?: CodeDeployDeploymentStatusList;
+        createTimeRange?: CodeDeployTimeRange;
+        nextToken?: CodeDeployNextToken;
     }
 
-
-    export interface ListDeploymentsOutput {
-      deployments?: DeploymentsList;
-      nextToken?: NextToken;
+    export interface CodeDeployListDeploymentsOutput {
+        deployments?: CodeDeployDeploymentsList;
+        nextToken?: CodeDeployNextToken;
     }
 
-
-    export interface ListOnPremisesInstancesInput {
-      registrationStatus?: RegistrationStatus;
-      tagFilters?: TagFilterList;
-      nextToken?: NextToken;
+    export interface CodeDeployListOnPremisesInstancesInput {
+        registrationStatus?: CodeDeployRegistrationStatus;
+        tagFilters?: CodeDeployTagFilterList;
+        nextToken?: CodeDeployNextToken;
     }
-
 
-    export interface ListOnPremisesInstancesOutput {
-      instanceNames?: InstanceNameList;
-      nextToken?: NextToken;
+    export interface CodeDeployListOnPremisesInstancesOutput {
+        instanceNames?: CodeDeployInstanceNameList;
+        nextToken?: CodeDeployNextToken;
     }
-
-
-    export type ListStateFilterAction = string;
-
-    export type LogTail = string;
 
-    export type Message = string;
-
-    export interface MinimumHealthyHosts {
-      value?: MinimumHealthyHostsValue;
-      type?: MinimumHealthyHostsType;
+    export type CodeDeployListStateFilterAction = string;
+    export type CodeDeployLogTail = string;
+    export type CodeDeployMessage = string;
+    export interface CodeDeployMinimumHealthyHosts {
+        value?: CodeDeployMinimumHealthyHostsValue;
+        type?: CodeDeployMinimumHealthyHostsType;
     }
-
-
-    export type MinimumHealthyHostsType = string;
 
-    export type MinimumHealthyHostsValue = number;
-
-    export type NextToken = string;
-
-    export interface RegisterApplicationRevisionInput {
-      applicationName: ApplicationName;
-      description?: Description;
-      revision: RevisionLocation;
+    export type CodeDeployMinimumHealthyHostsType = string;
+    export type CodeDeployMinimumHealthyHostsValue = number;
+    export type CodeDeployNextToken = string;
+    export interface CodeDeployRegisterApplicationRevisionInput {
+        applicationName: CodeDeployApplicationName;
+        description?: CodeDeployDescription;
+        revision: CodeDeployRevisionLocation;
     }
-
 
-    export interface RegisterOnPremisesInstanceInput {
-      instanceName: InstanceName;
-      iamUserArn: IamUserArn;
+    export interface CodeDeployRegisterOnPremisesInstanceInput {
+        instanceName: CodeDeployInstanceName;
+        iamUserArn: CodeDeployIamUserArn;
     }
 
-
-    export type RegistrationStatus = string;
-
-    export interface RemoveTagsFromOnPremisesInstancesInput {
-      tags: TagList;
-      instanceNames: InstanceNameList;
+    export type CodeDeployRegistrationStatus = string;
+    export interface CodeDeployRemoveTagsFromOnPremisesInstancesInput {
+        tags: CodeDeployTagList;
+        instanceNames: CodeDeployInstanceNameList;
     }
-
 
-    export type Repository = string;
-
-    export interface RevisionDoesNotExistException {
+    export type CodeDeployRepository = string;
+    export interface CodeDeployRevisionDoesNotExistException {
     }
-
 
-    export interface RevisionLocation {
-      revisionType?: RevisionLocationType;
-      s3Location?: S3Location;
-      gitHubLocation?: GitHubLocation;
+    export interface CodeDeployRevisionLocation {
+        revisionType?: CodeDeployRevisionLocationType;
+        s3Location?: CodeDeployS3Location;
+        gitHubLocation?: CodeDeployGitHubLocation;
     }
-
-
-    export type RevisionLocationList = Array<RevisionLocation>;
 
-    export type RevisionLocationType = string;
-
-    export interface RevisionRequiredException {
+    export type CodeDeployRevisionLocationList = Array<CodeDeployRevisionLocation>;
+    export type CodeDeployRevisionLocationType = string;
+    export interface CodeDeployRevisionRequiredException {
     }
-
-
-    export type Role = string;
 
-    export interface RoleRequiredException {
+    export type CodeDeployRole = string;
+    export interface CodeDeployRoleRequiredException {
     }
-
-
-    export type S3Bucket = string;
-
-    export type S3Key = string;
 
-    export interface S3Location {
-      bucket?: S3Bucket;
-      key?: S3Key;
-      bundleType?: BundleType;
-      version?: VersionId;
-      eTag?: ETag;
+    export type CodeDeployS3Bucket = string;
+    export type CodeDeployS3Key = string;
+    export interface CodeDeployS3Location {
+        bucket?: CodeDeployS3Bucket;
+        key?: CodeDeployS3Key;
+        bundleType?: CodeDeployBundleType;
+        version?: CodeDeployVersionId;
+        eTag?: CodeDeployETag;
     }
 
-
-    export type ScriptName = string;
-
-    export type SortOrder = string;
-
-    export interface StopDeploymentInput {
-      deploymentId: DeploymentId;
+    export type CodeDeployScriptName = string;
+    export type CodeDeploySortOrder = string;
+    export interface CodeDeployStopDeploymentInput {
+        deploymentId: CodeDeployDeploymentId;
     }
 
-
-    export interface StopDeploymentOutput {
-      status?: StopStatus;
-      statusMessage?: Message;
+    export interface CodeDeployStopDeploymentOutput {
+        status?: CodeDeployStopStatus;
+        statusMessage?: CodeDeployMessage;
     }
-
 
-    export type StopStatus = string;
-
-    export interface Tag {
-      Key?: Key;
-      Value?: Value;
+    export type CodeDeployStopStatus = string;
+    export interface CodeDeployTag {
+        Key?: CodeDeployKey;
+        Value?: CodeDeployValue;
     }
-
 
-    export interface TagFilter {
-      Key?: Key;
-      Value?: Value;
-      Type?: TagFilterType;
+    export interface CodeDeployTagFilter {
+        Key?: CodeDeployKey;
+        Value?: CodeDeployValue;
+        Type?: CodeDeployTagFilterType;
     }
 
-
-    export type TagFilterList = Array<TagFilter>;
-
-    export type TagFilterType = string;
-
-    export interface TagLimitExceededException {
+    export type CodeDeployTagFilterList = Array<CodeDeployTagFilter>;
+    export type CodeDeployTagFilterType = string;
+    export interface CodeDeployTagLimitExceededException {
     }
 
-
-    export type TagList = Array<Tag>;
-
-    export interface TagRequiredException {
+    export type CodeDeployTagList = Array<CodeDeployTag>;
+    export interface CodeDeployTagRequiredException {
     }
-
 
-    export interface TimeRange {
-      start?: Timestamp;
-      end?: Timestamp;
+    export interface CodeDeployTimeRange {
+        start?: CodeDeployTimestamp;
+        end?: CodeDeployTimestamp;
     }
 
-
-    export type Timestamp = number;
-
-    export interface UpdateApplicationInput {
-      applicationName?: ApplicationName;
-      newApplicationName?: ApplicationName;
+    export type CodeDeployTimestamp = number;
+    export interface CodeDeployUpdateApplicationInput {
+        applicationName?: CodeDeployApplicationName;
+        newApplicationName?: CodeDeployApplicationName;
     }
-
 
-    export interface UpdateDeploymentGroupInput {
-      applicationName: ApplicationName;
-      currentDeploymentGroupName: DeploymentGroupName;
-      newDeploymentGroupName?: DeploymentGroupName;
-      deploymentConfigName?: DeploymentConfigName;
-      ec2TagFilters?: EC2TagFilterList;
-      onPremisesInstanceTagFilters?: TagFilterList;
-      autoScalingGroups?: AutoScalingGroupNameList;
-      serviceRoleArn?: Role;
+    export interface CodeDeployUpdateDeploymentGroupInput {
+        applicationName: CodeDeployApplicationName;
+        currentDeploymentGroupName: CodeDeployDeploymentGroupName;
+        newDeploymentGroupName?: CodeDeployDeploymentGroupName;
+        deploymentConfigName?: CodeDeployDeploymentConfigName;
+        ec2TagFilters?: CodeDeployEC2TagFilterList;
+        onPremisesInstanceTagFilters?: CodeDeployTagFilterList;
+        autoScalingGroups?: CodeDeployAutoScalingGroupNameList;
+        serviceRoleArn?: CodeDeployRole;
     }
 
-
-    export interface UpdateDeploymentGroupOutput {
-      hooksNotCleanedUp?: AutoScalingGroupList;
+    export interface CodeDeployUpdateDeploymentGroupOutput {
+        hooksNotCleanedUp?: CodeDeployAutoScalingGroupList;
     }
-
-
-    export type Value = string;
-
-    export type VersionId = string;
 
+    export type CodeDeployValue = string;
+    export type CodeDeployVersionId = string;
 }

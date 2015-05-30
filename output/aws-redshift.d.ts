@@ -3,1495 +3,1237 @@
 declare module "aws-sdk" {
     export class Redshift {
       constructor(options?: any);
-      authorizeClusterSecurityGroupIngress(params: AuthorizeClusterSecurityGroupIngressMessage, callback: (err: ClusterSecurityGroupNotFoundFault|InvalidClusterSecurityGroupStateFault|AuthorizationAlreadyExistsFault|AuthorizationQuotaExceededFault|any, data: AuthorizeClusterSecurityGroupIngressResult|any) => void): void;
-      authorizeSnapshotAccess(params: AuthorizeSnapshotAccessMessage, callback: (err: ClusterSnapshotNotFoundFault|AuthorizationAlreadyExistsFault|AuthorizationQuotaExceededFault|any, data: AuthorizeSnapshotAccessResult|any) => void): void;
-      copyClusterSnapshot(params: CopyClusterSnapshotMessage, callback: (err: ClusterSnapshotAlreadyExistsFault|ClusterSnapshotNotFoundFault|InvalidClusterSnapshotStateFault|ClusterSnapshotQuotaExceededFault|any, data: CopyClusterSnapshotResult|any) => void): void;
-      createCluster(params: CreateClusterMessage, callback: (err: ClusterAlreadyExistsFault|InsufficientClusterCapacityFault|ClusterParameterGroupNotFoundFault|ClusterSecurityGroupNotFoundFault|ClusterQuotaExceededFault|NumberOfNodesQuotaExceededFault|NumberOfNodesPerClusterLimitExceededFault|ClusterSubnetGroupNotFoundFault|InvalidVPCNetworkStateFault|InvalidClusterSubnetGroupStateFault|InvalidSubnet|UnauthorizedOperation|HsmClientCertificateNotFoundFault|HsmConfigurationNotFoundFault|InvalidElasticIpFault|TagLimitExceededFault|InvalidTagFault|any, data: CreateClusterResult|any) => void): void;
-      createClusterParameterGroup(params: CreateClusterParameterGroupMessage, callback: (err: ClusterParameterGroupQuotaExceededFault|ClusterParameterGroupAlreadyExistsFault|TagLimitExceededFault|InvalidTagFault|any, data: CreateClusterParameterGroupResult|any) => void): void;
-      createClusterSecurityGroup(params: CreateClusterSecurityGroupMessage, callback: (err: ClusterSecurityGroupAlreadyExistsFault|ClusterSecurityGroupQuotaExceededFault|TagLimitExceededFault|InvalidTagFault|any, data: CreateClusterSecurityGroupResult|any) => void): void;
-      createClusterSnapshot(params: CreateClusterSnapshotMessage, callback: (err: ClusterSnapshotAlreadyExistsFault|InvalidClusterStateFault|ClusterNotFoundFault|ClusterSnapshotQuotaExceededFault|TagLimitExceededFault|InvalidTagFault|any, data: CreateClusterSnapshotResult|any) => void): void;
-      createClusterSubnetGroup(params: CreateClusterSubnetGroupMessage, callback: (err: ClusterSubnetGroupAlreadyExistsFault|ClusterSubnetGroupQuotaExceededFault|ClusterSubnetQuotaExceededFault|InvalidSubnet|UnauthorizedOperation|TagLimitExceededFault|InvalidTagFault|any, data: CreateClusterSubnetGroupResult|any) => void): void;
-      createEventSubscription(params: CreateEventSubscriptionMessage, callback: (err: EventSubscriptionQuotaExceededFault|SubscriptionAlreadyExistFault|SNSInvalidTopicFault|SNSNoAuthorizationFault|SNSTopicArnNotFoundFault|SubscriptionEventIdNotFoundFault|SubscriptionCategoryNotFoundFault|SubscriptionSeverityNotFoundFault|SourceNotFoundFault|TagLimitExceededFault|InvalidTagFault|any, data: CreateEventSubscriptionResult|any) => void): void;
-      createHsmClientCertificate(params: CreateHsmClientCertificateMessage, callback: (err: HsmClientCertificateAlreadyExistsFault|HsmClientCertificateQuotaExceededFault|TagLimitExceededFault|InvalidTagFault|any, data: CreateHsmClientCertificateResult|any) => void): void;
-      createHsmConfiguration(params: CreateHsmConfigurationMessage, callback: (err: HsmConfigurationAlreadyExistsFault|HsmConfigurationQuotaExceededFault|TagLimitExceededFault|InvalidTagFault|any, data: CreateHsmConfigurationResult|any) => void): void;
-      createTags(params: CreateTagsMessage, callback: (err: TagLimitExceededFault|ResourceNotFoundFault|InvalidTagFault|any, data: any) => void): void;
-      deleteCluster(params: DeleteClusterMessage, callback: (err: ClusterNotFoundFault|InvalidClusterStateFault|ClusterSnapshotAlreadyExistsFault|ClusterSnapshotQuotaExceededFault|any, data: DeleteClusterResult|any) => void): void;
-      deleteClusterParameterGroup(params: DeleteClusterParameterGroupMessage, callback: (err: InvalidClusterParameterGroupStateFault|ClusterParameterGroupNotFoundFault|any, data: any) => void): void;
-      deleteClusterSecurityGroup(params: DeleteClusterSecurityGroupMessage, callback: (err: InvalidClusterSecurityGroupStateFault|ClusterSecurityGroupNotFoundFault|any, data: any) => void): void;
-      deleteClusterSnapshot(params: DeleteClusterSnapshotMessage, callback: (err: InvalidClusterSnapshotStateFault|ClusterSnapshotNotFoundFault|any, data: DeleteClusterSnapshotResult|any) => void): void;
-      deleteClusterSubnetGroup(params: DeleteClusterSubnetGroupMessage, callback: (err: InvalidClusterSubnetGroupStateFault|InvalidClusterSubnetStateFault|ClusterSubnetGroupNotFoundFault|any, data: any) => void): void;
-      deleteEventSubscription(params: DeleteEventSubscriptionMessage, callback: (err: SubscriptionNotFoundFault|InvalidSubscriptionStateFault|any, data: any) => void): void;
-      deleteHsmClientCertificate(params: DeleteHsmClientCertificateMessage, callback: (err: InvalidHsmClientCertificateStateFault|HsmClientCertificateNotFoundFault|any, data: any) => void): void;
-      deleteHsmConfiguration(params: DeleteHsmConfigurationMessage, callback: (err: InvalidHsmConfigurationStateFault|HsmConfigurationNotFoundFault|any, data: any) => void): void;
-      deleteTags(params: DeleteTagsMessage, callback: (err: ResourceNotFoundFault|any, data: any) => void): void;
-      describeClusterParameterGroups(params: DescribeClusterParameterGroupsMessage, callback: (err: ClusterParameterGroupNotFoundFault|any, data: ClusterParameterGroupsMessage|any) => void): void;
-      describeClusterParameters(params: DescribeClusterParametersMessage, callback: (err: ClusterParameterGroupNotFoundFault|any, data: ClusterParameterGroupDetails|any) => void): void;
-      describeClusterSecurityGroups(params: DescribeClusterSecurityGroupsMessage, callback: (err: ClusterSecurityGroupNotFoundFault|any, data: ClusterSecurityGroupMessage|any) => void): void;
-      describeClusterSnapshots(params: DescribeClusterSnapshotsMessage, callback: (err: ClusterSnapshotNotFoundFault|any, data: SnapshotMessage|any) => void): void;
-      describeClusterSubnetGroups(params: DescribeClusterSubnetGroupsMessage, callback: (err: ClusterSubnetGroupNotFoundFault|any, data: ClusterSubnetGroupMessage|any) => void): void;
-      describeClusterVersions(params: DescribeClusterVersionsMessage, callback: (err: any, data: ClusterVersionsMessage|any) => void): void;
-      describeClusters(params: DescribeClustersMessage, callback: (err: ClusterNotFoundFault|any, data: ClustersMessage|any) => void): void;
-      describeDefaultClusterParameters(params: DescribeDefaultClusterParametersMessage, callback: (err: any, data: DescribeDefaultClusterParametersResult|any) => void): void;
-      describeEventCategories(params: DescribeEventCategoriesMessage, callback: (err: any, data: EventCategoriesMessage|any) => void): void;
-      describeEventSubscriptions(params: DescribeEventSubscriptionsMessage, callback: (err: SubscriptionNotFoundFault|any, data: EventSubscriptionsMessage|any) => void): void;
-      describeEvents(params: DescribeEventsMessage, callback: (err: any, data: EventsMessage|any) => void): void;
-      describeHsmClientCertificates(params: DescribeHsmClientCertificatesMessage, callback: (err: HsmClientCertificateNotFoundFault|any, data: HsmClientCertificateMessage|any) => void): void;
-      describeHsmConfigurations(params: DescribeHsmConfigurationsMessage, callback: (err: HsmConfigurationNotFoundFault|any, data: HsmConfigurationMessage|any) => void): void;
-      describeLoggingStatus(params: DescribeLoggingStatusMessage, callback: (err: ClusterNotFoundFault|any, data: LoggingStatus|any) => void): void;
-      describeOrderableClusterOptions(params: DescribeOrderableClusterOptionsMessage, callback: (err: any, data: OrderableClusterOptionsMessage|any) => void): void;
-      describeReservedNodeOfferings(params: DescribeReservedNodeOfferingsMessage, callback: (err: ReservedNodeOfferingNotFoundFault|any, data: ReservedNodeOfferingsMessage|any) => void): void;
-      describeReservedNodes(params: DescribeReservedNodesMessage, callback: (err: ReservedNodeNotFoundFault|any, data: ReservedNodesMessage|any) => void): void;
-      describeResize(params: DescribeResizeMessage, callback: (err: ClusterNotFoundFault|ResizeNotFoundFault|any, data: ResizeProgressMessage|any) => void): void;
-      describeTags(params: DescribeTagsMessage, callback: (err: ResourceNotFoundFault|any, data: TaggedResourceListMessage|any) => void): void;
-      disableLogging(params: DisableLoggingMessage, callback: (err: ClusterNotFoundFault|any, data: LoggingStatus|any) => void): void;
-      disableSnapshotCopy(params: DisableSnapshotCopyMessage, callback: (err: ClusterNotFoundFault|SnapshotCopyAlreadyDisabledFault|InvalidClusterStateFault|UnauthorizedOperation|any, data: DisableSnapshotCopyResult|any) => void): void;
-      enableLogging(params: EnableLoggingMessage, callback: (err: ClusterNotFoundFault|BucketNotFoundFault|InsufficientS3BucketPolicyFault|InvalidS3KeyPrefixFault|InvalidS3BucketNameFault|any, data: LoggingStatus|any) => void): void;
-      enableSnapshotCopy(params: EnableSnapshotCopyMessage, callback: (err: IncompatibleOrderableOptions|InvalidClusterStateFault|ClusterNotFoundFault|CopyToRegionDisabledFault|SnapshotCopyAlreadyEnabledFault|UnknownSnapshotCopyRegionFault|UnauthorizedOperation|any, data: EnableSnapshotCopyResult|any) => void): void;
-      modifyCluster(params: ModifyClusterMessage, callback: (err: InvalidClusterStateFault|InvalidClusterSecurityGroupStateFault|ClusterNotFoundFault|NumberOfNodesQuotaExceededFault|ClusterSecurityGroupNotFoundFault|ClusterParameterGroupNotFoundFault|InsufficientClusterCapacityFault|UnsupportedOptionFault|UnauthorizedOperation|HsmClientCertificateNotFoundFault|HsmConfigurationNotFoundFault|ClusterAlreadyExistsFault|any, data: ModifyClusterResult|any) => void): void;
-      modifyClusterParameterGroup(params: ModifyClusterParameterGroupMessage, callback: (err: ClusterParameterGroupNotFoundFault|InvalidClusterParameterGroupStateFault|any, data: ClusterParameterGroupNameMessage|any) => void): void;
-      modifyClusterSubnetGroup(params: ModifyClusterSubnetGroupMessage, callback: (err: ClusterSubnetGroupNotFoundFault|ClusterSubnetQuotaExceededFault|SubnetAlreadyInUse|InvalidSubnet|UnauthorizedOperation|any, data: ModifyClusterSubnetGroupResult|any) => void): void;
-      modifyEventSubscription(params: ModifyEventSubscriptionMessage, callback: (err: SubscriptionNotFoundFault|SNSInvalidTopicFault|SNSNoAuthorizationFault|SNSTopicArnNotFoundFault|SubscriptionEventIdNotFoundFault|SubscriptionCategoryNotFoundFault|SubscriptionSeverityNotFoundFault|SourceNotFoundFault|InvalidSubscriptionStateFault|any, data: ModifyEventSubscriptionResult|any) => void): void;
-      modifySnapshotCopyRetentionPeriod(params: ModifySnapshotCopyRetentionPeriodMessage, callback: (err: ClusterNotFoundFault|SnapshotCopyDisabledFault|UnauthorizedOperation|InvalidClusterStateFault|any, data: ModifySnapshotCopyRetentionPeriodResult|any) => void): void;
-      purchaseReservedNodeOffering(params: PurchaseReservedNodeOfferingMessage, callback: (err: ReservedNodeOfferingNotFoundFault|ReservedNodeAlreadyExistsFault|ReservedNodeQuotaExceededFault|any, data: PurchaseReservedNodeOfferingResult|any) => void): void;
-      rebootCluster(params: RebootClusterMessage, callback: (err: InvalidClusterStateFault|ClusterNotFoundFault|any, data: RebootClusterResult|any) => void): void;
-      resetClusterParameterGroup(params: ResetClusterParameterGroupMessage, callback: (err: InvalidClusterParameterGroupStateFault|ClusterParameterGroupNotFoundFault|any, data: ClusterParameterGroupNameMessage|any) => void): void;
-      restoreFromClusterSnapshot(params: RestoreFromClusterSnapshotMessage, callback: (err: AccessToSnapshotDeniedFault|ClusterAlreadyExistsFault|ClusterSnapshotNotFoundFault|ClusterQuotaExceededFault|InsufficientClusterCapacityFault|InvalidClusterSnapshotStateFault|InvalidRestoreFault|NumberOfNodesQuotaExceededFault|NumberOfNodesPerClusterLimitExceededFault|InvalidVPCNetworkStateFault|InvalidClusterSubnetGroupStateFault|InvalidSubnet|ClusterSubnetGroupNotFoundFault|UnauthorizedOperation|HsmClientCertificateNotFoundFault|HsmConfigurationNotFoundFault|InvalidElasticIpFault|ClusterParameterGroupNotFoundFault|ClusterSecurityGroupNotFoundFault|any, data: RestoreFromClusterSnapshotResult|any) => void): void;
-      revokeClusterSecurityGroupIngress(params: RevokeClusterSecurityGroupIngressMessage, callback: (err: ClusterSecurityGroupNotFoundFault|AuthorizationNotFoundFault|InvalidClusterSecurityGroupStateFault|any, data: RevokeClusterSecurityGroupIngressResult|any) => void): void;
-      revokeSnapshotAccess(params: RevokeSnapshotAccessMessage, callback: (err: AccessToSnapshotDeniedFault|AuthorizationNotFoundFault|ClusterSnapshotNotFoundFault|any, data: RevokeSnapshotAccessResult|any) => void): void;
-      rotateEncryptionKey(params: RotateEncryptionKeyMessage, callback: (err: ClusterNotFoundFault|InvalidClusterStateFault|any, data: RotateEncryptionKeyResult|any) => void): void;
+      authorizeClusterSecurityGroupIngress(params: RedshiftAuthorizeClusterSecurityGroupIngressMessage, callback: (err: RedshiftClusterSecurityGroupNotFoundFault|RedshiftInvalidClusterSecurityGroupStateFault|RedshiftAuthorizationAlreadyExistsFault|RedshiftAuthorizationQuotaExceededFault|any, data: RedshiftAuthorizeClusterSecurityGroupIngressResult|any) => void): void;
+      authorizeSnapshotAccess(params: RedshiftAuthorizeSnapshotAccessMessage, callback: (err: RedshiftClusterSnapshotNotFoundFault|RedshiftAuthorizationAlreadyExistsFault|RedshiftAuthorizationQuotaExceededFault|any, data: RedshiftAuthorizeSnapshotAccessResult|any) => void): void;
+      copyClusterSnapshot(params: RedshiftCopyClusterSnapshotMessage, callback: (err: RedshiftClusterSnapshotAlreadyExistsFault|RedshiftClusterSnapshotNotFoundFault|RedshiftInvalidClusterSnapshotStateFault|RedshiftClusterSnapshotQuotaExceededFault|any, data: RedshiftCopyClusterSnapshotResult|any) => void): void;
+      createCluster(params: RedshiftCreateClusterMessage, callback: (err: RedshiftClusterAlreadyExistsFault|RedshiftInsufficientClusterCapacityFault|RedshiftClusterParameterGroupNotFoundFault|RedshiftClusterSecurityGroupNotFoundFault|RedshiftClusterQuotaExceededFault|RedshiftNumberOfNodesQuotaExceededFault|RedshiftNumberOfNodesPerClusterLimitExceededFault|RedshiftClusterSubnetGroupNotFoundFault|RedshiftInvalidVPCNetworkStateFault|RedshiftInvalidClusterSubnetGroupStateFault|RedshiftInvalidSubnet|RedshiftUnauthorizedOperation|RedshiftHsmClientCertificateNotFoundFault|RedshiftHsmConfigurationNotFoundFault|RedshiftInvalidElasticIpFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateClusterResult|any) => void): void;
+      createClusterParameterGroup(params: RedshiftCreateClusterParameterGroupMessage, callback: (err: RedshiftClusterParameterGroupQuotaExceededFault|RedshiftClusterParameterGroupAlreadyExistsFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateClusterParameterGroupResult|any) => void): void;
+      createClusterSecurityGroup(params: RedshiftCreateClusterSecurityGroupMessage, callback: (err: RedshiftClusterSecurityGroupAlreadyExistsFault|RedshiftClusterSecurityGroupQuotaExceededFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateClusterSecurityGroupResult|any) => void): void;
+      createClusterSnapshot(params: RedshiftCreateClusterSnapshotMessage, callback: (err: RedshiftClusterSnapshotAlreadyExistsFault|RedshiftInvalidClusterStateFault|RedshiftClusterNotFoundFault|RedshiftClusterSnapshotQuotaExceededFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateClusterSnapshotResult|any) => void): void;
+      createClusterSubnetGroup(params: RedshiftCreateClusterSubnetGroupMessage, callback: (err: RedshiftClusterSubnetGroupAlreadyExistsFault|RedshiftClusterSubnetGroupQuotaExceededFault|RedshiftClusterSubnetQuotaExceededFault|RedshiftInvalidSubnet|RedshiftUnauthorizedOperation|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateClusterSubnetGroupResult|any) => void): void;
+      createEventSubscription(params: RedshiftCreateEventSubscriptionMessage, callback: (err: RedshiftEventSubscriptionQuotaExceededFault|RedshiftSubscriptionAlreadyExistFault|RedshiftSNSInvalidTopicFault|RedshiftSNSNoAuthorizationFault|RedshiftSNSTopicArnNotFoundFault|RedshiftSubscriptionEventIdNotFoundFault|RedshiftSubscriptionCategoryNotFoundFault|RedshiftSubscriptionSeverityNotFoundFault|RedshiftSourceNotFoundFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateEventSubscriptionResult|any) => void): void;
+      createHsmClientCertificate(params: RedshiftCreateHsmClientCertificateMessage, callback: (err: RedshiftHsmClientCertificateAlreadyExistsFault|RedshiftHsmClientCertificateQuotaExceededFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateHsmClientCertificateResult|any) => void): void;
+      createHsmConfiguration(params: RedshiftCreateHsmConfigurationMessage, callback: (err: RedshiftHsmConfigurationAlreadyExistsFault|RedshiftHsmConfigurationQuotaExceededFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateHsmConfigurationResult|any) => void): void;
+      createTags(params: RedshiftCreateTagsMessage, callback: (err: RedshiftTagLimitExceededFault|RedshiftResourceNotFoundFault|RedshiftInvalidTagFault|any, data: any) => void): void;
+      deleteCluster(params: RedshiftDeleteClusterMessage, callback: (err: RedshiftClusterNotFoundFault|RedshiftInvalidClusterStateFault|RedshiftClusterSnapshotAlreadyExistsFault|RedshiftClusterSnapshotQuotaExceededFault|any, data: RedshiftDeleteClusterResult|any) => void): void;
+      deleteClusterParameterGroup(params: RedshiftDeleteClusterParameterGroupMessage, callback: (err: RedshiftInvalidClusterParameterGroupStateFault|RedshiftClusterParameterGroupNotFoundFault|any, data: any) => void): void;
+      deleteClusterSecurityGroup(params: RedshiftDeleteClusterSecurityGroupMessage, callback: (err: RedshiftInvalidClusterSecurityGroupStateFault|RedshiftClusterSecurityGroupNotFoundFault|any, data: any) => void): void;
+      deleteClusterSnapshot(params: RedshiftDeleteClusterSnapshotMessage, callback: (err: RedshiftInvalidClusterSnapshotStateFault|RedshiftClusterSnapshotNotFoundFault|any, data: RedshiftDeleteClusterSnapshotResult|any) => void): void;
+      deleteClusterSubnetGroup(params: RedshiftDeleteClusterSubnetGroupMessage, callback: (err: RedshiftInvalidClusterSubnetGroupStateFault|RedshiftInvalidClusterSubnetStateFault|RedshiftClusterSubnetGroupNotFoundFault|any, data: any) => void): void;
+      deleteEventSubscription(params: RedshiftDeleteEventSubscriptionMessage, callback: (err: RedshiftSubscriptionNotFoundFault|RedshiftInvalidSubscriptionStateFault|any, data: any) => void): void;
+      deleteHsmClientCertificate(params: RedshiftDeleteHsmClientCertificateMessage, callback: (err: RedshiftInvalidHsmClientCertificateStateFault|RedshiftHsmClientCertificateNotFoundFault|any, data: any) => void): void;
+      deleteHsmConfiguration(params: RedshiftDeleteHsmConfigurationMessage, callback: (err: RedshiftInvalidHsmConfigurationStateFault|RedshiftHsmConfigurationNotFoundFault|any, data: any) => void): void;
+      deleteTags(params: RedshiftDeleteTagsMessage, callback: (err: RedshiftResourceNotFoundFault|any, data: any) => void): void;
+      describeClusterParameterGroups(params: RedshiftDescribeClusterParameterGroupsMessage, callback: (err: RedshiftClusterParameterGroupNotFoundFault|any, data: RedshiftClusterParameterGroupsMessage|any) => void): void;
+      describeClusterParameters(params: RedshiftDescribeClusterParametersMessage, callback: (err: RedshiftClusterParameterGroupNotFoundFault|any, data: RedshiftClusterParameterGroupDetails|any) => void): void;
+      describeClusterSecurityGroups(params: RedshiftDescribeClusterSecurityGroupsMessage, callback: (err: RedshiftClusterSecurityGroupNotFoundFault|any, data: RedshiftClusterSecurityGroupMessage|any) => void): void;
+      describeClusterSnapshots(params: RedshiftDescribeClusterSnapshotsMessage, callback: (err: RedshiftClusterSnapshotNotFoundFault|any, data: RedshiftSnapshotMessage|any) => void): void;
+      describeClusterSubnetGroups(params: RedshiftDescribeClusterSubnetGroupsMessage, callback: (err: RedshiftClusterSubnetGroupNotFoundFault|any, data: RedshiftClusterSubnetGroupMessage|any) => void): void;
+      describeClusterVersions(params: RedshiftDescribeClusterVersionsMessage, callback: (err: any, data: RedshiftClusterVersionsMessage|any) => void): void;
+      describeClusters(params: RedshiftDescribeClustersMessage, callback: (err: RedshiftClusterNotFoundFault|any, data: RedshiftClustersMessage|any) => void): void;
+      describeDefaultClusterParameters(params: RedshiftDescribeDefaultClusterParametersMessage, callback: (err: any, data: RedshiftDescribeDefaultClusterParametersResult|any) => void): void;
+      describeEventCategories(params: RedshiftDescribeEventCategoriesMessage, callback: (err: any, data: RedshiftEventCategoriesMessage|any) => void): void;
+      describeEventSubscriptions(params: RedshiftDescribeEventSubscriptionsMessage, callback: (err: RedshiftSubscriptionNotFoundFault|any, data: RedshiftEventSubscriptionsMessage|any) => void): void;
+      describeEvents(params: RedshiftDescribeEventsMessage, callback: (err: any, data: RedshiftEventsMessage|any) => void): void;
+      describeHsmClientCertificates(params: RedshiftDescribeHsmClientCertificatesMessage, callback: (err: RedshiftHsmClientCertificateNotFoundFault|any, data: RedshiftHsmClientCertificateMessage|any) => void): void;
+      describeHsmConfigurations(params: RedshiftDescribeHsmConfigurationsMessage, callback: (err: RedshiftHsmConfigurationNotFoundFault|any, data: RedshiftHsmConfigurationMessage|any) => void): void;
+      describeLoggingStatus(params: RedshiftDescribeLoggingStatusMessage, callback: (err: RedshiftClusterNotFoundFault|any, data: RedshiftLoggingStatus|any) => void): void;
+      describeOrderableClusterOptions(params: RedshiftDescribeOrderableClusterOptionsMessage, callback: (err: any, data: RedshiftOrderableClusterOptionsMessage|any) => void): void;
+      describeReservedNodeOfferings(params: RedshiftDescribeReservedNodeOfferingsMessage, callback: (err: RedshiftReservedNodeOfferingNotFoundFault|any, data: RedshiftReservedNodeOfferingsMessage|any) => void): void;
+      describeReservedNodes(params: RedshiftDescribeReservedNodesMessage, callback: (err: RedshiftReservedNodeNotFoundFault|any, data: RedshiftReservedNodesMessage|any) => void): void;
+      describeResize(params: RedshiftDescribeResizeMessage, callback: (err: RedshiftClusterNotFoundFault|RedshiftResizeNotFoundFault|any, data: RedshiftResizeProgressMessage|any) => void): void;
+      describeTags(params: RedshiftDescribeTagsMessage, callback: (err: RedshiftResourceNotFoundFault|any, data: RedshiftTaggedResourceListMessage|any) => void): void;
+      disableLogging(params: RedshiftDisableLoggingMessage, callback: (err: RedshiftClusterNotFoundFault|any, data: RedshiftLoggingStatus|any) => void): void;
+      disableSnapshotCopy(params: RedshiftDisableSnapshotCopyMessage, callback: (err: RedshiftClusterNotFoundFault|RedshiftSnapshotCopyAlreadyDisabledFault|RedshiftInvalidClusterStateFault|RedshiftUnauthorizedOperation|any, data: RedshiftDisableSnapshotCopyResult|any) => void): void;
+      enableLogging(params: RedshiftEnableLoggingMessage, callback: (err: RedshiftClusterNotFoundFault|RedshiftBucketNotFoundFault|RedshiftInsufficientS3BucketPolicyFault|RedshiftInvalidS3KeyPrefixFault|RedshiftInvalidS3BucketNameFault|any, data: RedshiftLoggingStatus|any) => void): void;
+      enableSnapshotCopy(params: RedshiftEnableSnapshotCopyMessage, callback: (err: RedshiftIncompatibleOrderableOptions|RedshiftInvalidClusterStateFault|RedshiftClusterNotFoundFault|RedshiftCopyToRegionDisabledFault|RedshiftSnapshotCopyAlreadyEnabledFault|RedshiftUnknownSnapshotCopyRegionFault|RedshiftUnauthorizedOperation|any, data: RedshiftEnableSnapshotCopyResult|any) => void): void;
+      modifyCluster(params: RedshiftModifyClusterMessage, callback: (err: RedshiftInvalidClusterStateFault|RedshiftInvalidClusterSecurityGroupStateFault|RedshiftClusterNotFoundFault|RedshiftNumberOfNodesQuotaExceededFault|RedshiftClusterSecurityGroupNotFoundFault|RedshiftClusterParameterGroupNotFoundFault|RedshiftInsufficientClusterCapacityFault|RedshiftUnsupportedOptionFault|RedshiftUnauthorizedOperation|RedshiftHsmClientCertificateNotFoundFault|RedshiftHsmConfigurationNotFoundFault|RedshiftClusterAlreadyExistsFault|any, data: RedshiftModifyClusterResult|any) => void): void;
+      modifyClusterParameterGroup(params: RedshiftModifyClusterParameterGroupMessage, callback: (err: RedshiftClusterParameterGroupNotFoundFault|RedshiftInvalidClusterParameterGroupStateFault|any, data: RedshiftClusterParameterGroupNameMessage|any) => void): void;
+      modifyClusterSubnetGroup(params: RedshiftModifyClusterSubnetGroupMessage, callback: (err: RedshiftClusterSubnetGroupNotFoundFault|RedshiftClusterSubnetQuotaExceededFault|RedshiftSubnetAlreadyInUse|RedshiftInvalidSubnet|RedshiftUnauthorizedOperation|any, data: RedshiftModifyClusterSubnetGroupResult|any) => void): void;
+      modifyEventSubscription(params: RedshiftModifyEventSubscriptionMessage, callback: (err: RedshiftSubscriptionNotFoundFault|RedshiftSNSInvalidTopicFault|RedshiftSNSNoAuthorizationFault|RedshiftSNSTopicArnNotFoundFault|RedshiftSubscriptionEventIdNotFoundFault|RedshiftSubscriptionCategoryNotFoundFault|RedshiftSubscriptionSeverityNotFoundFault|RedshiftSourceNotFoundFault|RedshiftInvalidSubscriptionStateFault|any, data: RedshiftModifyEventSubscriptionResult|any) => void): void;
+      modifySnapshotCopyRetentionPeriod(params: RedshiftModifySnapshotCopyRetentionPeriodMessage, callback: (err: RedshiftClusterNotFoundFault|RedshiftSnapshotCopyDisabledFault|RedshiftUnauthorizedOperation|RedshiftInvalidClusterStateFault|any, data: RedshiftModifySnapshotCopyRetentionPeriodResult|any) => void): void;
+      purchaseReservedNodeOffering(params: RedshiftPurchaseReservedNodeOfferingMessage, callback: (err: RedshiftReservedNodeOfferingNotFoundFault|RedshiftReservedNodeAlreadyExistsFault|RedshiftReservedNodeQuotaExceededFault|any, data: RedshiftPurchaseReservedNodeOfferingResult|any) => void): void;
+      rebootCluster(params: RedshiftRebootClusterMessage, callback: (err: RedshiftInvalidClusterStateFault|RedshiftClusterNotFoundFault|any, data: RedshiftRebootClusterResult|any) => void): void;
+      resetClusterParameterGroup(params: RedshiftResetClusterParameterGroupMessage, callback: (err: RedshiftInvalidClusterParameterGroupStateFault|RedshiftClusterParameterGroupNotFoundFault|any, data: RedshiftClusterParameterGroupNameMessage|any) => void): void;
+      restoreFromClusterSnapshot(params: RedshiftRestoreFromClusterSnapshotMessage, callback: (err: RedshiftAccessToSnapshotDeniedFault|RedshiftClusterAlreadyExistsFault|RedshiftClusterSnapshotNotFoundFault|RedshiftClusterQuotaExceededFault|RedshiftInsufficientClusterCapacityFault|RedshiftInvalidClusterSnapshotStateFault|RedshiftInvalidRestoreFault|RedshiftNumberOfNodesQuotaExceededFault|RedshiftNumberOfNodesPerClusterLimitExceededFault|RedshiftInvalidVPCNetworkStateFault|RedshiftInvalidClusterSubnetGroupStateFault|RedshiftInvalidSubnet|RedshiftClusterSubnetGroupNotFoundFault|RedshiftUnauthorizedOperation|RedshiftHsmClientCertificateNotFoundFault|RedshiftHsmConfigurationNotFoundFault|RedshiftInvalidElasticIpFault|RedshiftClusterParameterGroupNotFoundFault|RedshiftClusterSecurityGroupNotFoundFault|any, data: RedshiftRestoreFromClusterSnapshotResult|any) => void): void;
+      revokeClusterSecurityGroupIngress(params: RedshiftRevokeClusterSecurityGroupIngressMessage, callback: (err: RedshiftClusterSecurityGroupNotFoundFault|RedshiftAuthorizationNotFoundFault|RedshiftInvalidClusterSecurityGroupStateFault|any, data: RedshiftRevokeClusterSecurityGroupIngressResult|any) => void): void;
+      revokeSnapshotAccess(params: RedshiftRevokeSnapshotAccessMessage, callback: (err: RedshiftAccessToSnapshotDeniedFault|RedshiftAuthorizationNotFoundFault|RedshiftClusterSnapshotNotFoundFault|any, data: RedshiftRevokeSnapshotAccessResult|any) => void): void;
+      rotateEncryptionKey(params: RedshiftRotateEncryptionKeyMessage, callback: (err: RedshiftClusterNotFoundFault|RedshiftInvalidClusterStateFault|any, data: RedshiftRotateEncryptionKeyResult|any) => void): void;
+    }
+
+    export interface RedshiftAccessToSnapshotDeniedFault {
+    }
+
+    export interface RedshiftAccountWithRestoreAccess {
+        AccountId?: RedshiftString;
+    }
+
+    export type RedshiftAccountsWithRestoreAccessList = Array<RedshiftAccountWithRestoreAccess>;
+    export interface RedshiftAuthorizationAlreadyExistsFault {
+    }
+
+    export interface RedshiftAuthorizationNotFoundFault {
+    }
+
+    export interface RedshiftAuthorizationQuotaExceededFault {
+    }
+
+    export interface RedshiftAuthorizeClusterSecurityGroupIngressMessage {
+        ClusterSecurityGroupName: RedshiftString;
+        CIDRIP?: RedshiftString;
+        EC2SecurityGroupName?: RedshiftString;
+        EC2SecurityGroupOwnerId?: RedshiftString;
+    }
+
+    export interface RedshiftAuthorizeSnapshotAccessMessage {
+        SnapshotIdentifier: RedshiftString;
+        SnapshotClusterIdentifier?: RedshiftString;
+        AccountWithRestoreAccess: RedshiftString;
+    }
+
+    export interface RedshiftAvailabilityZone {
+        Name?: RedshiftString;
+    }
+
+    export type RedshiftAvailabilityZoneList = Array<RedshiftAvailabilityZone>;
+    export type RedshiftBoolean = boolean;
+    export type RedshiftBooleanOptional = boolean;
+    export interface RedshiftBucketNotFoundFault {
     }
 
-    export interface AccessToSnapshotDeniedFault {
+    export interface RedshiftCluster {
+        ClusterIdentifier?: RedshiftString;
+        NodeType?: RedshiftString;
+        ClusterStatus?: RedshiftString;
+        ModifyStatus?: RedshiftString;
+        MasterUsername?: RedshiftString;
+        DBName?: RedshiftString;
+        Endpoint?: RedshiftEndpoint;
+        ClusterCreateTime?: RedshiftTStamp;
+        AutomatedSnapshotRetentionPeriod?: RedshiftInteger;
+        ClusterSecurityGroups?: RedshiftClusterSecurityGroupMembershipList;
+        VpcSecurityGroups?: RedshiftVpcSecurityGroupMembershipList;
+        ClusterParameterGroups?: RedshiftClusterParameterGroupStatusList;
+        ClusterSubnetGroupName?: RedshiftString;
+        VpcId?: RedshiftString;
+        AvailabilityZone?: RedshiftString;
+        PreferredMaintenanceWindow?: RedshiftString;
+        PendingModifiedValues?: RedshiftPendingModifiedValues;
+        ClusterVersion?: RedshiftString;
+        AllowVersionUpgrade?: RedshiftBoolean;
+        NumberOfNodes?: RedshiftInteger;
+        PubliclyAccessible?: RedshiftBoolean;
+        Encrypted?: RedshiftBoolean;
+        RestoreStatus?: RedshiftRestoreStatus;
+        HsmStatus?: RedshiftHsmStatus;
+        ClusterSnapshotCopyStatus?: RedshiftClusterSnapshotCopyStatus;
+        ClusterPublicKey?: RedshiftString;
+        ClusterNodes?: RedshiftClusterNodesList;
+        ElasticIpStatus?: RedshiftElasticIpStatus;
+        ClusterRevisionNumber?: RedshiftString;
+        Tags?: RedshiftTagList;
+        KmsKeyId?: RedshiftString;
     }
 
-
-    export interface AccountWithRestoreAccess {
-      AccountId?: String;
-    }
-
-
-    export type AccountsWithRestoreAccessList = Array<AccountWithRestoreAccess>;
-
-    export interface AuthorizationAlreadyExistsFault {
-    }
-
-
-    export interface AuthorizationNotFoundFault {
-    }
-
-
-    export interface AuthorizationQuotaExceededFault {
-    }
-
-
-    export interface AuthorizeClusterSecurityGroupIngressMessage {
-      ClusterSecurityGroupName: String;
-      CIDRIP?: String;
-      EC2SecurityGroupName?: String;
-      EC2SecurityGroupOwnerId?: String;
-    }
-
-
-    export interface AuthorizeSnapshotAccessMessage {
-      SnapshotIdentifier: String;
-      SnapshotClusterIdentifier?: String;
-      AccountWithRestoreAccess: String;
+    export interface RedshiftClusterAlreadyExistsFault {
     }
-
-
-    export interface AvailabilityZone {
-      Name?: String;
-    }
-
-
-    export type AvailabilityZoneList = Array<AvailabilityZone>;
-
-    export type Boolean = boolean;
-
-    export type BooleanOptional = boolean;
-
-    export interface BucketNotFoundFault {
-    }
-
-
-    export interface Cluster {
-      ClusterIdentifier?: String;
-      NodeType?: String;
-      ClusterStatus?: String;
-      ModifyStatus?: String;
-      MasterUsername?: String;
-      DBName?: String;
-      Endpoint?: Endpoint;
-      ClusterCreateTime?: TStamp;
-      AutomatedSnapshotRetentionPeriod?: Integer;
-      ClusterSecurityGroups?: ClusterSecurityGroupMembershipList;
-      VpcSecurityGroups?: VpcSecurityGroupMembershipList;
-      ClusterParameterGroups?: ClusterParameterGroupStatusList;
-      ClusterSubnetGroupName?: String;
-      VpcId?: String;
-      AvailabilityZone?: String;
-      PreferredMaintenanceWindow?: String;
-      PendingModifiedValues?: PendingModifiedValues;
-      ClusterVersion?: String;
-      AllowVersionUpgrade?: Boolean;
-      NumberOfNodes?: Integer;
-      PubliclyAccessible?: Boolean;
-      Encrypted?: Boolean;
-      RestoreStatus?: RestoreStatus;
-      HsmStatus?: HsmStatus;
-      ClusterSnapshotCopyStatus?: ClusterSnapshotCopyStatus;
-      ClusterPublicKey?: String;
-      ClusterNodes?: ClusterNodesList;
-      ElasticIpStatus?: ElasticIpStatus;
-      ClusterRevisionNumber?: String;
-      Tags?: TagList;
-      KmsKeyId?: String;
-    }
-
-
-    export interface ClusterAlreadyExistsFault {
-    }
-
-
-    export type ClusterList = Array<Cluster>;
 
-    export interface ClusterNode {
-      NodeRole?: String;
-      PrivateIPAddress?: String;
-      PublicIPAddress?: String;
+    export type RedshiftClusterList = Array<RedshiftCluster>;
+    export interface RedshiftClusterNode {
+        NodeRole?: RedshiftString;
+        PrivateIPAddress?: RedshiftString;
+        PublicIPAddress?: RedshiftString;
     }
 
-
-    export type ClusterNodesList = Array<ClusterNode>;
-
-    export interface ClusterNotFoundFault {
+    export type RedshiftClusterNodesList = Array<RedshiftClusterNode>;
+    export interface RedshiftClusterNotFoundFault {
     }
 
-
-    export interface ClusterParameterGroup {
-      ParameterGroupName?: String;
-      ParameterGroupFamily?: String;
-      Description?: String;
-      Tags?: TagList;
+    export interface RedshiftClusterParameterGroup {
+        ParameterGroupName?: RedshiftString;
+        ParameterGroupFamily?: RedshiftString;
+        Description?: RedshiftString;
+        Tags?: RedshiftTagList;
     }
-
 
-    export interface ClusterParameterGroupAlreadyExistsFault {
+    export interface RedshiftClusterParameterGroupAlreadyExistsFault {
     }
 
-
-    export interface ClusterParameterGroupDetails {
-      Parameters?: ParametersList;
-      Marker?: String;
+    export interface RedshiftClusterParameterGroupDetails {
+        Parameters?: RedshiftParametersList;
+        Marker?: RedshiftString;
     }
-
 
-    export interface ClusterParameterGroupNameMessage {
-      ParameterGroupName?: String;
-      ParameterGroupStatus?: String;
+    export interface RedshiftClusterParameterGroupNameMessage {
+        ParameterGroupName?: RedshiftString;
+        ParameterGroupStatus?: RedshiftString;
     }
 
-
-    export interface ClusterParameterGroupNotFoundFault {
+    export interface RedshiftClusterParameterGroupNotFoundFault {
     }
-
 
-    export interface ClusterParameterGroupQuotaExceededFault {
+    export interface RedshiftClusterParameterGroupQuotaExceededFault {
     }
 
-
-    export interface ClusterParameterGroupStatus {
-      ParameterGroupName?: String;
-      ParameterApplyStatus?: String;
+    export interface RedshiftClusterParameterGroupStatus {
+        ParameterGroupName?: RedshiftString;
+        ParameterApplyStatus?: RedshiftString;
     }
-
 
-    export type ClusterParameterGroupStatusList = Array<ClusterParameterGroupStatus>;
-
-    export interface ClusterParameterGroupsMessage {
-      Marker?: String;
-      ParameterGroups?: ParameterGroupList;
+    export type RedshiftClusterParameterGroupStatusList = Array<RedshiftClusterParameterGroupStatus>;
+    export interface RedshiftClusterParameterGroupsMessage {
+        Marker?: RedshiftString;
+        ParameterGroups?: RedshiftParameterGroupList;
     }
-
 
-    export interface ClusterQuotaExceededFault {
+    export interface RedshiftClusterQuotaExceededFault {
     }
 
-
-    export interface ClusterSecurityGroup {
-      ClusterSecurityGroupName?: String;
-      Description?: String;
-      EC2SecurityGroups?: EC2SecurityGroupList;
-      IPRanges?: IPRangeList;
-      Tags?: TagList;
+    export interface RedshiftClusterSecurityGroup {
+        ClusterSecurityGroupName?: RedshiftString;
+        Description?: RedshiftString;
+        EC2SecurityGroups?: RedshiftEC2SecurityGroupList;
+        IPRanges?: RedshiftIPRangeList;
+        Tags?: RedshiftTagList;
     }
-
 
-    export interface ClusterSecurityGroupAlreadyExistsFault {
+    export interface RedshiftClusterSecurityGroupAlreadyExistsFault {
     }
 
-
-    export interface ClusterSecurityGroupMembership {
-      ClusterSecurityGroupName?: String;
-      Status?: String;
+    export interface RedshiftClusterSecurityGroupMembership {
+        ClusterSecurityGroupName?: RedshiftString;
+        Status?: RedshiftString;
     }
-
-
-    export type ClusterSecurityGroupMembershipList = Array<ClusterSecurityGroupMembership>;
 
-    export interface ClusterSecurityGroupMessage {
-      Marker?: String;
-      ClusterSecurityGroups?: ClusterSecurityGroups;
+    export type RedshiftClusterSecurityGroupMembershipList = Array<RedshiftClusterSecurityGroupMembership>;
+    export interface RedshiftClusterSecurityGroupMessage {
+        Marker?: RedshiftString;
+        ClusterSecurityGroups?: RedshiftClusterSecurityGroups;
     }
 
-
-    export type ClusterSecurityGroupNameList = Array<String>;
-
-    export interface ClusterSecurityGroupNotFoundFault {
+    export type RedshiftClusterSecurityGroupNameList = Array<RedshiftString>;
+    export interface RedshiftClusterSecurityGroupNotFoundFault {
     }
 
-
-    export interface ClusterSecurityGroupQuotaExceededFault {
+    export interface RedshiftClusterSecurityGroupQuotaExceededFault {
     }
-
 
-    export type ClusterSecurityGroups = Array<ClusterSecurityGroup>;
-
-    export interface ClusterSnapshotAlreadyExistsFault {
+    export type RedshiftClusterSecurityGroups = Array<RedshiftClusterSecurityGroup>;
+    export interface RedshiftClusterSnapshotAlreadyExistsFault {
     }
-
 
-    export interface ClusterSnapshotCopyStatus {
-      DestinationRegion?: String;
-      RetentionPeriod?: Long;
+    export interface RedshiftClusterSnapshotCopyStatus {
+        DestinationRegion?: RedshiftString;
+        RetentionPeriod?: RedshiftLong;
     }
 
-
-    export interface ClusterSnapshotNotFoundFault {
+    export interface RedshiftClusterSnapshotNotFoundFault {
     }
 
-
-    export interface ClusterSnapshotQuotaExceededFault {
+    export interface RedshiftClusterSnapshotQuotaExceededFault {
     }
-
 
-    export interface ClusterSubnetGroup {
-      ClusterSubnetGroupName?: String;
-      Description?: String;
-      VpcId?: String;
-      SubnetGroupStatus?: String;
-      Subnets?: SubnetList;
-      Tags?: TagList;
+    export interface RedshiftClusterSubnetGroup {
+        ClusterSubnetGroupName?: RedshiftString;
+        Description?: RedshiftString;
+        VpcId?: RedshiftString;
+        SubnetGroupStatus?: RedshiftString;
+        Subnets?: RedshiftSubnetList;
+        Tags?: RedshiftTagList;
     }
 
-
-    export interface ClusterSubnetGroupAlreadyExistsFault {
+    export interface RedshiftClusterSubnetGroupAlreadyExistsFault {
     }
-
 
-    export interface ClusterSubnetGroupMessage {
-      Marker?: String;
-      ClusterSubnetGroups?: ClusterSubnetGroups;
+    export interface RedshiftClusterSubnetGroupMessage {
+        Marker?: RedshiftString;
+        ClusterSubnetGroups?: RedshiftClusterSubnetGroups;
     }
 
-
-    export interface ClusterSubnetGroupNotFoundFault {
+    export interface RedshiftClusterSubnetGroupNotFoundFault {
     }
-
 
-    export interface ClusterSubnetGroupQuotaExceededFault {
+    export interface RedshiftClusterSubnetGroupQuotaExceededFault {
     }
 
-
-    export type ClusterSubnetGroups = Array<ClusterSubnetGroup>;
-
-    export interface ClusterSubnetQuotaExceededFault {
+    export type RedshiftClusterSubnetGroups = Array<RedshiftClusterSubnetGroup>;
+    export interface RedshiftClusterSubnetQuotaExceededFault {
     }
 
-
-    export interface ClusterVersion {
-      ClusterVersion?: String;
-      ClusterParameterGroupFamily?: String;
-      Description?: String;
+    export interface RedshiftClusterVersion {
+        ClusterVersion?: RedshiftString;
+        ClusterParameterGroupFamily?: RedshiftString;
+        Description?: RedshiftString;
     }
-
-
-    export type ClusterVersionList = Array<ClusterVersion>;
 
-    export interface ClusterVersionsMessage {
-      Marker?: String;
-      ClusterVersions?: ClusterVersionList;
+    export type RedshiftClusterVersionList = Array<RedshiftClusterVersion>;
+    export interface RedshiftClusterVersionsMessage {
+        Marker?: RedshiftString;
+        ClusterVersions?: RedshiftClusterVersionList;
     }
 
-
-    export interface ClustersMessage {
-      Marker?: String;
-      Clusters?: ClusterList;
+    export interface RedshiftClustersMessage {
+        Marker?: RedshiftString;
+        Clusters?: RedshiftClusterList;
     }
-
 
-    export interface CopyClusterSnapshotMessage {
-      SourceSnapshotIdentifier: String;
-      SourceSnapshotClusterIdentifier?: String;
-      TargetSnapshotIdentifier: String;
+    export interface RedshiftCopyClusterSnapshotMessage {
+        SourceSnapshotIdentifier: RedshiftString;
+        SourceSnapshotClusterIdentifier?: RedshiftString;
+        TargetSnapshotIdentifier: RedshiftString;
     }
 
-
-    export interface CopyToRegionDisabledFault {
+    export interface RedshiftCopyToRegionDisabledFault {
     }
-
 
-    export interface CreateClusterMessage {
-      DBName?: String;
-      ClusterIdentifier: String;
-      ClusterType?: String;
-      NodeType: String;
-      MasterUsername: String;
-      MasterUserPassword: String;
-      ClusterSecurityGroups?: ClusterSecurityGroupNameList;
-      VpcSecurityGroupIds?: VpcSecurityGroupIdList;
-      ClusterSubnetGroupName?: String;
-      AvailabilityZone?: String;
-      PreferredMaintenanceWindow?: String;
-      ClusterParameterGroupName?: String;
-      AutomatedSnapshotRetentionPeriod?: IntegerOptional;
-      Port?: IntegerOptional;
-      ClusterVersion?: String;
-      AllowVersionUpgrade?: BooleanOptional;
-      NumberOfNodes?: IntegerOptional;
-      PubliclyAccessible?: BooleanOptional;
-      Encrypted?: BooleanOptional;
-      HsmClientCertificateIdentifier?: String;
-      HsmConfigurationIdentifier?: String;
-      ElasticIp?: String;
-      Tags?: TagList;
-      KmsKeyId?: String;
+    export interface RedshiftCreateClusterMessage {
+        DBName?: RedshiftString;
+        ClusterIdentifier: RedshiftString;
+        ClusterType?: RedshiftString;
+        NodeType: RedshiftString;
+        MasterUsername: RedshiftString;
+        MasterUserPassword: RedshiftString;
+        ClusterSecurityGroups?: RedshiftClusterSecurityGroupNameList;
+        VpcSecurityGroupIds?: RedshiftVpcSecurityGroupIdList;
+        ClusterSubnetGroupName?: RedshiftString;
+        AvailabilityZone?: RedshiftString;
+        PreferredMaintenanceWindow?: RedshiftString;
+        ClusterParameterGroupName?: RedshiftString;
+        AutomatedSnapshotRetentionPeriod?: RedshiftIntegerOptional;
+        Port?: RedshiftIntegerOptional;
+        ClusterVersion?: RedshiftString;
+        AllowVersionUpgrade?: RedshiftBooleanOptional;
+        NumberOfNodes?: RedshiftIntegerOptional;
+        PubliclyAccessible?: RedshiftBooleanOptional;
+        Encrypted?: RedshiftBooleanOptional;
+        HsmClientCertificateIdentifier?: RedshiftString;
+        HsmConfigurationIdentifier?: RedshiftString;
+        ElasticIp?: RedshiftString;
+        Tags?: RedshiftTagList;
+        KmsKeyId?: RedshiftString;
     }
 
-
-    export interface CreateClusterParameterGroupMessage {
-      ParameterGroupName: String;
-      ParameterGroupFamily: String;
-      Description: String;
-      Tags?: TagList;
+    export interface RedshiftCreateClusterParameterGroupMessage {
+        ParameterGroupName: RedshiftString;
+        ParameterGroupFamily: RedshiftString;
+        Description: RedshiftString;
+        Tags?: RedshiftTagList;
     }
-
 
-    export interface CreateClusterSecurityGroupMessage {
-      ClusterSecurityGroupName: String;
-      Description: String;
-      Tags?: TagList;
+    export interface RedshiftCreateClusterSecurityGroupMessage {
+        ClusterSecurityGroupName: RedshiftString;
+        Description: RedshiftString;
+        Tags?: RedshiftTagList;
     }
 
-
-    export interface CreateClusterSnapshotMessage {
-      SnapshotIdentifier: String;
-      ClusterIdentifier: String;
-      Tags?: TagList;
+    export interface RedshiftCreateClusterSnapshotMessage {
+        SnapshotIdentifier: RedshiftString;
+        ClusterIdentifier: RedshiftString;
+        Tags?: RedshiftTagList;
     }
-
 
-    export interface CreateClusterSubnetGroupMessage {
-      ClusterSubnetGroupName: String;
-      Description: String;
-      SubnetIds: SubnetIdentifierList;
-      Tags?: TagList;
+    export interface RedshiftCreateClusterSubnetGroupMessage {
+        ClusterSubnetGroupName: RedshiftString;
+        Description: RedshiftString;
+        SubnetIds: RedshiftSubnetIdentifierList;
+        Tags?: RedshiftTagList;
     }
 
-
-    export interface CreateEventSubscriptionMessage {
-      SubscriptionName: String;
-      SnsTopicArn: String;
-      SourceType?: String;
-      SourceIds?: SourceIdsList;
-      EventCategories?: EventCategoriesList;
-      Severity?: String;
-      Enabled?: BooleanOptional;
-      Tags?: TagList;
+    export interface RedshiftCreateEventSubscriptionMessage {
+        SubscriptionName: RedshiftString;
+        SnsTopicArn: RedshiftString;
+        SourceType?: RedshiftString;
+        SourceIds?: RedshiftSourceIdsList;
+        EventCategories?: RedshiftEventCategoriesList;
+        Severity?: RedshiftString;
+        Enabled?: RedshiftBooleanOptional;
+        Tags?: RedshiftTagList;
     }
-
 
-    export interface CreateHsmClientCertificateMessage {
-      HsmClientCertificateIdentifier: String;
-      Tags?: TagList;
+    export interface RedshiftCreateHsmClientCertificateMessage {
+        HsmClientCertificateIdentifier: RedshiftString;
+        Tags?: RedshiftTagList;
     }
 
-
-    export interface CreateHsmConfigurationMessage {
-      HsmConfigurationIdentifier: String;
-      Description: String;
-      HsmIpAddress: String;
-      HsmPartitionName: String;
-      HsmPartitionPassword: String;
-      HsmServerPublicCertificate: String;
-      Tags?: TagList;
+    export interface RedshiftCreateHsmConfigurationMessage {
+        HsmConfigurationIdentifier: RedshiftString;
+        Description: RedshiftString;
+        HsmIpAddress: RedshiftString;
+        HsmPartitionName: RedshiftString;
+        HsmPartitionPassword: RedshiftString;
+        HsmServerPublicCertificate: RedshiftString;
+        Tags?: RedshiftTagList;
     }
-
 
-    export interface CreateTagsMessage {
-      ResourceName: String;
-      Tags: TagList;
+    export interface RedshiftCreateTagsMessage {
+        ResourceName: RedshiftString;
+        Tags: RedshiftTagList;
     }
 
-
-    export interface DefaultClusterParameters {
-      ParameterGroupFamily?: String;
-      Marker?: String;
-      Parameters?: ParametersList;
+    export interface RedshiftDefaultClusterParameters {
+        ParameterGroupFamily?: RedshiftString;
+        Marker?: RedshiftString;
+        Parameters?: RedshiftParametersList;
     }
-
 
-    export interface DeleteClusterMessage {
-      ClusterIdentifier: String;
-      SkipFinalClusterSnapshot?: Boolean;
-      FinalClusterSnapshotIdentifier?: String;
+    export interface RedshiftDeleteClusterMessage {
+        ClusterIdentifier: RedshiftString;
+        SkipFinalClusterSnapshot?: RedshiftBoolean;
+        FinalClusterSnapshotIdentifier?: RedshiftString;
     }
 
-
-    export interface DeleteClusterParameterGroupMessage {
-      ParameterGroupName: String;
+    export interface RedshiftDeleteClusterParameterGroupMessage {
+        ParameterGroupName: RedshiftString;
     }
 
-
-    export interface DeleteClusterSecurityGroupMessage {
-      ClusterSecurityGroupName: String;
+    export interface RedshiftDeleteClusterSecurityGroupMessage {
+        ClusterSecurityGroupName: RedshiftString;
     }
-
 
-    export interface DeleteClusterSnapshotMessage {
-      SnapshotIdentifier: String;
-      SnapshotClusterIdentifier?: String;
+    export interface RedshiftDeleteClusterSnapshotMessage {
+        SnapshotIdentifier: RedshiftString;
+        SnapshotClusterIdentifier?: RedshiftString;
     }
 
-
-    export interface DeleteClusterSubnetGroupMessage {
-      ClusterSubnetGroupName: String;
+    export interface RedshiftDeleteClusterSubnetGroupMessage {
+        ClusterSubnetGroupName: RedshiftString;
     }
-
 
-    export interface DeleteEventSubscriptionMessage {
-      SubscriptionName: String;
+    export interface RedshiftDeleteEventSubscriptionMessage {
+        SubscriptionName: RedshiftString;
     }
 
-
-    export interface DeleteHsmClientCertificateMessage {
-      HsmClientCertificateIdentifier: String;
+    export interface RedshiftDeleteHsmClientCertificateMessage {
+        HsmClientCertificateIdentifier: RedshiftString;
     }
-
 
-    export interface DeleteHsmConfigurationMessage {
-      HsmConfigurationIdentifier: String;
+    export interface RedshiftDeleteHsmConfigurationMessage {
+        HsmConfigurationIdentifier: RedshiftString;
     }
 
-
-    export interface DeleteTagsMessage {
-      ResourceName: String;
-      TagKeys: TagKeyList;
+    export interface RedshiftDeleteTagsMessage {
+        ResourceName: RedshiftString;
+        TagKeys: RedshiftTagKeyList;
     }
-
 
-    export interface DescribeClusterParameterGroupsMessage {
-      ParameterGroupName?: String;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
-      TagKeys?: TagKeyList;
-      TagValues?: TagValueList;
+    export interface RedshiftDescribeClusterParameterGroupsMessage {
+        ParameterGroupName?: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
+        TagKeys?: RedshiftTagKeyList;
+        TagValues?: RedshiftTagValueList;
     }
 
-
-    export interface DescribeClusterParametersMessage {
-      ParameterGroupName: String;
-      Source?: String;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
+    export interface RedshiftDescribeClusterParametersMessage {
+        ParameterGroupName: RedshiftString;
+        Source?: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
     }
-
 
-    export interface DescribeClusterSecurityGroupsMessage {
-      ClusterSecurityGroupName?: String;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
-      TagKeys?: TagKeyList;
-      TagValues?: TagValueList;
+    export interface RedshiftDescribeClusterSecurityGroupsMessage {
+        ClusterSecurityGroupName?: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
+        TagKeys?: RedshiftTagKeyList;
+        TagValues?: RedshiftTagValueList;
     }
 
-
-    export interface DescribeClusterSnapshotsMessage {
-      ClusterIdentifier?: String;
-      SnapshotIdentifier?: String;
-      SnapshotType?: String;
-      StartTime?: TStamp;
-      EndTime?: TStamp;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
-      OwnerAccount?: String;
-      TagKeys?: TagKeyList;
-      TagValues?: TagValueList;
+    export interface RedshiftDescribeClusterSnapshotsMessage {
+        ClusterIdentifier?: RedshiftString;
+        SnapshotIdentifier?: RedshiftString;
+        SnapshotType?: RedshiftString;
+        StartTime?: RedshiftTStamp;
+        EndTime?: RedshiftTStamp;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
+        OwnerAccount?: RedshiftString;
+        TagKeys?: RedshiftTagKeyList;
+        TagValues?: RedshiftTagValueList;
     }
-
 
-    export interface DescribeClusterSubnetGroupsMessage {
-      ClusterSubnetGroupName?: String;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
-      TagKeys?: TagKeyList;
-      TagValues?: TagValueList;
+    export interface RedshiftDescribeClusterSubnetGroupsMessage {
+        ClusterSubnetGroupName?: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
+        TagKeys?: RedshiftTagKeyList;
+        TagValues?: RedshiftTagValueList;
     }
 
-
-    export interface DescribeClusterVersionsMessage {
-      ClusterVersion?: String;
-      ClusterParameterGroupFamily?: String;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
+    export interface RedshiftDescribeClusterVersionsMessage {
+        ClusterVersion?: RedshiftString;
+        ClusterParameterGroupFamily?: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
     }
-
 
-    export interface DescribeClustersMessage {
-      ClusterIdentifier?: String;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
-      TagKeys?: TagKeyList;
-      TagValues?: TagValueList;
+    export interface RedshiftDescribeClustersMessage {
+        ClusterIdentifier?: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
+        TagKeys?: RedshiftTagKeyList;
+        TagValues?: RedshiftTagValueList;
     }
 
-
-    export interface DescribeDefaultClusterParametersMessage {
-      ParameterGroupFamily: String;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
+    export interface RedshiftDescribeDefaultClusterParametersMessage {
+        ParameterGroupFamily: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
     }
-
 
-    export interface DescribeEventCategoriesMessage {
-      SourceType?: String;
+    export interface RedshiftDescribeEventCategoriesMessage {
+        SourceType?: RedshiftString;
     }
 
-
-    export interface DescribeEventSubscriptionsMessage {
-      SubscriptionName?: String;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
+    export interface RedshiftDescribeEventSubscriptionsMessage {
+        SubscriptionName?: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
     }
 
-
-    export interface DescribeEventsMessage {
-      SourceIdentifier?: String;
-      SourceType?: SourceType;
-      StartTime?: TStamp;
-      EndTime?: TStamp;
-      Duration?: IntegerOptional;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
+    export interface RedshiftDescribeEventsMessage {
+        SourceIdentifier?: RedshiftString;
+        SourceType?: RedshiftSourceType;
+        StartTime?: RedshiftTStamp;
+        EndTime?: RedshiftTStamp;
+        Duration?: RedshiftIntegerOptional;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
     }
-
 
-    export interface DescribeHsmClientCertificatesMessage {
-      HsmClientCertificateIdentifier?: String;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
-      TagKeys?: TagKeyList;
-      TagValues?: TagValueList;
+    export interface RedshiftDescribeHsmClientCertificatesMessage {
+        HsmClientCertificateIdentifier?: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
+        TagKeys?: RedshiftTagKeyList;
+        TagValues?: RedshiftTagValueList;
     }
 
-
-    export interface DescribeHsmConfigurationsMessage {
-      HsmConfigurationIdentifier?: String;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
-      TagKeys?: TagKeyList;
-      TagValues?: TagValueList;
+    export interface RedshiftDescribeHsmConfigurationsMessage {
+        HsmConfigurationIdentifier?: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
+        TagKeys?: RedshiftTagKeyList;
+        TagValues?: RedshiftTagValueList;
     }
-
 
-    export interface DescribeLoggingStatusMessage {
-      ClusterIdentifier: String;
+    export interface RedshiftDescribeLoggingStatusMessage {
+        ClusterIdentifier: RedshiftString;
     }
 
-
-    export interface DescribeOrderableClusterOptionsMessage {
-      ClusterVersion?: String;
-      NodeType?: String;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
+    export interface RedshiftDescribeOrderableClusterOptionsMessage {
+        ClusterVersion?: RedshiftString;
+        NodeType?: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
     }
-
 
-    export interface DescribeReservedNodeOfferingsMessage {
-      ReservedNodeOfferingId?: String;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
+    export interface RedshiftDescribeReservedNodeOfferingsMessage {
+        ReservedNodeOfferingId?: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
     }
 
-
-    export interface DescribeReservedNodesMessage {
-      ReservedNodeId?: String;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
+    export interface RedshiftDescribeReservedNodesMessage {
+        ReservedNodeId?: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
     }
-
 
-    export interface DescribeResizeMessage {
-      ClusterIdentifier: String;
+    export interface RedshiftDescribeResizeMessage {
+        ClusterIdentifier: RedshiftString;
     }
 
-
-    export interface DescribeTagsMessage {
-      ResourceName?: String;
-      ResourceType?: String;
-      MaxRecords?: IntegerOptional;
-      Marker?: String;
-      TagKeys?: TagKeyList;
-      TagValues?: TagValueList;
+    export interface RedshiftDescribeTagsMessage {
+        ResourceName?: RedshiftString;
+        ResourceType?: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
+        TagKeys?: RedshiftTagKeyList;
+        TagValues?: RedshiftTagValueList;
     }
-
 
-    export interface DisableLoggingMessage {
-      ClusterIdentifier: String;
+    export interface RedshiftDisableLoggingMessage {
+        ClusterIdentifier: RedshiftString;
     }
 
-
-    export interface DisableSnapshotCopyMessage {
-      ClusterIdentifier: String;
+    export interface RedshiftDisableSnapshotCopyMessage {
+        ClusterIdentifier: RedshiftString;
     }
-
-
-    export type Double = number;
-
-    export type DoubleOptional = number;
 
-    export interface EC2SecurityGroup {
-      Status?: String;
-      EC2SecurityGroupName?: String;
-      EC2SecurityGroupOwnerId?: String;
-      Tags?: TagList;
+    export type RedshiftDouble = number;
+    export type RedshiftDoubleOptional = number;
+    export interface RedshiftEC2SecurityGroup {
+        Status?: RedshiftString;
+        EC2SecurityGroupName?: RedshiftString;
+        EC2SecurityGroupOwnerId?: RedshiftString;
+        Tags?: RedshiftTagList;
     }
 
-
-    export type EC2SecurityGroupList = Array<EC2SecurityGroup>;
-
-    export interface ElasticIpStatus {
-      ElasticIp?: String;
-      Status?: String;
+    export type RedshiftEC2SecurityGroupList = Array<RedshiftEC2SecurityGroup>;
+    export interface RedshiftElasticIpStatus {
+        ElasticIp?: RedshiftString;
+        Status?: RedshiftString;
     }
 
-
-    export interface EnableLoggingMessage {
-      ClusterIdentifier: String;
-      BucketName: String;
-      S3KeyPrefix?: String;
+    export interface RedshiftEnableLoggingMessage {
+        ClusterIdentifier: RedshiftString;
+        BucketName: RedshiftString;
+        S3KeyPrefix?: RedshiftString;
     }
 
-
-    export interface EnableSnapshotCopyMessage {
-      ClusterIdentifier: String;
-      DestinationRegion: String;
-      RetentionPeriod?: IntegerOptional;
+    export interface RedshiftEnableSnapshotCopyMessage {
+        ClusterIdentifier: RedshiftString;
+        DestinationRegion: RedshiftString;
+        RetentionPeriod?: RedshiftIntegerOptional;
     }
-
 
-    export interface Endpoint {
-      Address?: String;
-      Port?: Integer;
+    export interface RedshiftEndpoint {
+        Address?: RedshiftString;
+        Port?: RedshiftInteger;
     }
 
-
-    export interface Event {
-      SourceIdentifier?: String;
-      SourceType?: SourceType;
-      Message?: String;
-      EventCategories?: EventCategoriesList;
-      Severity?: String;
-      Date?: TStamp;
-      EventId?: String;
+    export interface RedshiftEvent {
+        SourceIdentifier?: RedshiftString;
+        SourceType?: RedshiftSourceType;
+        Message?: RedshiftString;
+        EventCategories?: RedshiftEventCategoriesList;
+        Severity?: RedshiftString;
+        Date?: RedshiftTStamp;
+        EventId?: RedshiftString;
     }
-
 
-    export type EventCategoriesList = Array<String>;
-
-    export interface EventCategoriesMap {
-      SourceType?: String;
-      Events?: EventInfoMapList;
+    export type RedshiftEventCategoriesList = Array<RedshiftString>;
+    export interface RedshiftEventCategoriesMap {
+        SourceType?: RedshiftString;
+        Events?: RedshiftEventInfoMapList;
     }
-
 
-    export type EventCategoriesMapList = Array<EventCategoriesMap>;
-
-    export interface EventCategoriesMessage {
-      EventCategoriesMapList?: EventCategoriesMapList;
+    export type RedshiftEventCategoriesMapList = Array<RedshiftEventCategoriesMap>;
+    export interface RedshiftEventCategoriesMessage {
+        EventCategoriesMapList?: RedshiftEventCategoriesMapList;
     }
-
 
-    export interface EventInfoMap {
-      EventId?: String;
-      EventCategories?: EventCategoriesList;
-      EventDescription?: String;
-      Severity?: String;
+    export interface RedshiftEventInfoMap {
+        EventId?: RedshiftString;
+        EventCategories?: RedshiftEventCategoriesList;
+        EventDescription?: RedshiftString;
+        Severity?: RedshiftString;
     }
-
-
-    export type EventInfoMapList = Array<EventInfoMap>;
-
-    export type EventList = Array<Event>;
 
-    export interface EventSubscription {
-      CustomerAwsId?: String;
-      CustSubscriptionId?: String;
-      SnsTopicArn?: String;
-      Status?: String;
-      SubscriptionCreationTime?: TStamp;
-      SourceType?: String;
-      SourceIdsList?: SourceIdsList;
-      EventCategoriesList?: EventCategoriesList;
-      Severity?: String;
-      Enabled?: Boolean;
-      Tags?: TagList;
+    export type RedshiftEventInfoMapList = Array<RedshiftEventInfoMap>;
+    export type RedshiftEventList = Array<RedshiftEvent>;
+    export interface RedshiftEventSubscription {
+        CustomerAwsId?: RedshiftString;
+        CustSubscriptionId?: RedshiftString;
+        SnsTopicArn?: RedshiftString;
+        Status?: RedshiftString;
+        SubscriptionCreationTime?: RedshiftTStamp;
+        SourceType?: RedshiftString;
+        SourceIdsList?: RedshiftSourceIdsList;
+        EventCategoriesList?: RedshiftEventCategoriesList;
+        Severity?: RedshiftString;
+        Enabled?: RedshiftBoolean;
+        Tags?: RedshiftTagList;
     }
 
-
-    export interface EventSubscriptionQuotaExceededFault {
+    export interface RedshiftEventSubscriptionQuotaExceededFault {
     }
-
 
-    export type EventSubscriptionsList = Array<EventSubscription>;
-
-    export interface EventSubscriptionsMessage {
-      Marker?: String;
-      EventSubscriptionsList?: EventSubscriptionsList;
+    export type RedshiftEventSubscriptionsList = Array<RedshiftEventSubscription>;
+    export interface RedshiftEventSubscriptionsMessage {
+        Marker?: RedshiftString;
+        EventSubscriptionsList?: RedshiftEventSubscriptionsList;
     }
-
 
-    export interface EventsMessage {
-      Marker?: String;
-      Events?: EventList;
+    export interface RedshiftEventsMessage {
+        Marker?: RedshiftString;
+        Events?: RedshiftEventList;
     }
 
-
-    export interface HsmClientCertificate {
-      HsmClientCertificateIdentifier?: String;
-      HsmClientCertificatePublicKey?: String;
-      Tags?: TagList;
+    export interface RedshiftHsmClientCertificate {
+        HsmClientCertificateIdentifier?: RedshiftString;
+        HsmClientCertificatePublicKey?: RedshiftString;
+        Tags?: RedshiftTagList;
     }
-
 
-    export interface HsmClientCertificateAlreadyExistsFault {
+    export interface RedshiftHsmClientCertificateAlreadyExistsFault {
     }
 
-
-    export type HsmClientCertificateList = Array<HsmClientCertificate>;
-
-    export interface HsmClientCertificateMessage {
-      Marker?: String;
-      HsmClientCertificates?: HsmClientCertificateList;
+    export type RedshiftHsmClientCertificateList = Array<RedshiftHsmClientCertificate>;
+    export interface RedshiftHsmClientCertificateMessage {
+        Marker?: RedshiftString;
+        HsmClientCertificates?: RedshiftHsmClientCertificateList;
     }
-
 
-    export interface HsmClientCertificateNotFoundFault {
+    export interface RedshiftHsmClientCertificateNotFoundFault {
     }
 
-
-    export interface HsmClientCertificateQuotaExceededFault {
+    export interface RedshiftHsmClientCertificateQuotaExceededFault {
     }
-
 
-    export interface HsmConfiguration {
-      HsmConfigurationIdentifier?: String;
-      Description?: String;
-      HsmIpAddress?: String;
-      HsmPartitionName?: String;
-      Tags?: TagList;
+    export interface RedshiftHsmConfiguration {
+        HsmConfigurationIdentifier?: RedshiftString;
+        Description?: RedshiftString;
+        HsmIpAddress?: RedshiftString;
+        HsmPartitionName?: RedshiftString;
+        Tags?: RedshiftTagList;
     }
 
-
-    export interface HsmConfigurationAlreadyExistsFault {
+    export interface RedshiftHsmConfigurationAlreadyExistsFault {
     }
-
 
-    export type HsmConfigurationList = Array<HsmConfiguration>;
-
-    export interface HsmConfigurationMessage {
-      Marker?: String;
-      HsmConfigurations?: HsmConfigurationList;
+    export type RedshiftHsmConfigurationList = Array<RedshiftHsmConfiguration>;
+    export interface RedshiftHsmConfigurationMessage {
+        Marker?: RedshiftString;
+        HsmConfigurations?: RedshiftHsmConfigurationList;
     }
-
 
-    export interface HsmConfigurationNotFoundFault {
+    export interface RedshiftHsmConfigurationNotFoundFault {
     }
 
-
-    export interface HsmConfigurationQuotaExceededFault {
+    export interface RedshiftHsmConfigurationQuotaExceededFault {
     }
-
 
-    export interface HsmStatus {
-      HsmClientCertificateIdentifier?: String;
-      HsmConfigurationIdentifier?: String;
-      Status?: String;
+    export interface RedshiftHsmStatus {
+        HsmClientCertificateIdentifier?: RedshiftString;
+        HsmConfigurationIdentifier?: RedshiftString;
+        Status?: RedshiftString;
     }
 
-
-    export interface IPRange {
-      Status?: String;
-      CIDRIP?: String;
-      Tags?: TagList;
+    export interface RedshiftIPRange {
+        Status?: RedshiftString;
+        CIDRIP?: RedshiftString;
+        Tags?: RedshiftTagList;
     }
-
-
-    export type IPRangeList = Array<IPRange>;
-
-    export type ImportTablesCompleted = Array<String>;
 
-    export type ImportTablesInProgress = Array<String>;
-
-    export type ImportTablesNotStarted = Array<String>;
-
-    export interface IncompatibleOrderableOptions {
+    export type RedshiftIPRangeList = Array<RedshiftIPRange>;
+    export type RedshiftImportTablesCompleted = Array<RedshiftString>;
+    export type RedshiftImportTablesInProgress = Array<RedshiftString>;
+    export type RedshiftImportTablesNotStarted = Array<RedshiftString>;
+    export interface RedshiftIncompatibleOrderableOptions {
     }
 
-
-    export interface InsufficientClusterCapacityFault {
+    export interface RedshiftInsufficientClusterCapacityFault {
     }
 
-
-    export interface InsufficientS3BucketPolicyFault {
+    export interface RedshiftInsufficientS3BucketPolicyFault {
     }
-
 
-    export type Integer = number;
-
-    export type IntegerOptional = number;
-
-    export interface InvalidClusterParameterGroupStateFault {
+    export type RedshiftInteger = number;
+    export type RedshiftIntegerOptional = number;
+    export interface RedshiftInvalidClusterParameterGroupStateFault {
     }
 
-
-    export interface InvalidClusterSecurityGroupStateFault {
+    export interface RedshiftInvalidClusterSecurityGroupStateFault {
     }
-
 
-    export interface InvalidClusterSnapshotStateFault {
+    export interface RedshiftInvalidClusterSnapshotStateFault {
     }
 
-
-    export interface InvalidClusterStateFault {
+    export interface RedshiftInvalidClusterStateFault {
     }
-
 
-    export interface InvalidClusterSubnetGroupStateFault {
+    export interface RedshiftInvalidClusterSubnetGroupStateFault {
     }
 
-
-    export interface InvalidClusterSubnetStateFault {
+    export interface RedshiftInvalidClusterSubnetStateFault {
     }
-
 
-    export interface InvalidElasticIpFault {
+    export interface RedshiftInvalidElasticIpFault {
     }
 
-
-    export interface InvalidHsmClientCertificateStateFault {
+    export interface RedshiftInvalidHsmClientCertificateStateFault {
     }
-
 
-    export interface InvalidHsmConfigurationStateFault {
+    export interface RedshiftInvalidHsmConfigurationStateFault {
     }
 
-
-    export interface InvalidRestoreFault {
+    export interface RedshiftInvalidRestoreFault {
     }
-
 
-    export interface InvalidS3BucketNameFault {
+    export interface RedshiftInvalidS3BucketNameFault {
     }
 
-
-    export interface InvalidS3KeyPrefixFault {
+    export interface RedshiftInvalidS3KeyPrefixFault {
     }
-
 
-    export interface InvalidSubnet {
+    export interface RedshiftInvalidSubnet {
     }
 
-
-    export interface InvalidSubscriptionStateFault {
+    export interface RedshiftInvalidSubscriptionStateFault {
     }
 
-
-    export interface InvalidTagFault {
+    export interface RedshiftInvalidTagFault {
     }
-
 
-    export interface InvalidVPCNetworkStateFault {
+    export interface RedshiftInvalidVPCNetworkStateFault {
     }
 
-
-    export interface LoggingStatus {
-      LoggingEnabled?: Boolean;
-      BucketName?: String;
-      S3KeyPrefix?: String;
-      LastSuccessfulDeliveryTime?: TStamp;
-      LastFailureTime?: TStamp;
-      LastFailureMessage?: String;
+    export interface RedshiftLoggingStatus {
+        LoggingEnabled?: RedshiftBoolean;
+        BucketName?: RedshiftString;
+        S3KeyPrefix?: RedshiftString;
+        LastSuccessfulDeliveryTime?: RedshiftTStamp;
+        LastFailureTime?: RedshiftTStamp;
+        LastFailureMessage?: RedshiftString;
     }
-
-
-    export type Long = number;
-
-    export type LongOptional = number;
 
-    export interface ModifyClusterMessage {
-      ClusterIdentifier: String;
-      ClusterType?: String;
-      NodeType?: String;
-      NumberOfNodes?: IntegerOptional;
-      ClusterSecurityGroups?: ClusterSecurityGroupNameList;
-      VpcSecurityGroupIds?: VpcSecurityGroupIdList;
-      MasterUserPassword?: String;
-      ClusterParameterGroupName?: String;
-      AutomatedSnapshotRetentionPeriod?: IntegerOptional;
-      PreferredMaintenanceWindow?: String;
-      ClusterVersion?: String;
-      AllowVersionUpgrade?: BooleanOptional;
-      HsmClientCertificateIdentifier?: String;
-      HsmConfigurationIdentifier?: String;
-      NewClusterIdentifier?: String;
+    export type RedshiftLong = number;
+    export type RedshiftLongOptional = number;
+    export interface RedshiftModifyClusterMessage {
+        ClusterIdentifier: RedshiftString;
+        ClusterType?: RedshiftString;
+        NodeType?: RedshiftString;
+        NumberOfNodes?: RedshiftIntegerOptional;
+        ClusterSecurityGroups?: RedshiftClusterSecurityGroupNameList;
+        VpcSecurityGroupIds?: RedshiftVpcSecurityGroupIdList;
+        MasterUserPassword?: RedshiftString;
+        ClusterParameterGroupName?: RedshiftString;
+        AutomatedSnapshotRetentionPeriod?: RedshiftIntegerOptional;
+        PreferredMaintenanceWindow?: RedshiftString;
+        ClusterVersion?: RedshiftString;
+        AllowVersionUpgrade?: RedshiftBooleanOptional;
+        HsmClientCertificateIdentifier?: RedshiftString;
+        HsmConfigurationIdentifier?: RedshiftString;
+        NewClusterIdentifier?: RedshiftString;
     }
 
-
-    export interface ModifyClusterParameterGroupMessage {
-      ParameterGroupName: String;
-      Parameters: ParametersList;
+    export interface RedshiftModifyClusterParameterGroupMessage {
+        ParameterGroupName: RedshiftString;
+        Parameters: RedshiftParametersList;
     }
-
 
-    export interface ModifyClusterSubnetGroupMessage {
-      ClusterSubnetGroupName: String;
-      Description?: String;
-      SubnetIds: SubnetIdentifierList;
+    export interface RedshiftModifyClusterSubnetGroupMessage {
+        ClusterSubnetGroupName: RedshiftString;
+        Description?: RedshiftString;
+        SubnetIds: RedshiftSubnetIdentifierList;
     }
 
-
-    export interface ModifyEventSubscriptionMessage {
-      SubscriptionName: String;
-      SnsTopicArn?: String;
-      SourceType?: String;
-      SourceIds?: SourceIdsList;
-      EventCategories?: EventCategoriesList;
-      Severity?: String;
-      Enabled?: BooleanOptional;
+    export interface RedshiftModifyEventSubscriptionMessage {
+        SubscriptionName: RedshiftString;
+        SnsTopicArn?: RedshiftString;
+        SourceType?: RedshiftString;
+        SourceIds?: RedshiftSourceIdsList;
+        EventCategories?: RedshiftEventCategoriesList;
+        Severity?: RedshiftString;
+        Enabled?: RedshiftBooleanOptional;
     }
-
 
-    export interface ModifySnapshotCopyRetentionPeriodMessage {
-      ClusterIdentifier: String;
-      RetentionPeriod: Integer;
+    export interface RedshiftModifySnapshotCopyRetentionPeriodMessage {
+        ClusterIdentifier: RedshiftString;
+        RetentionPeriod: RedshiftInteger;
     }
 
-
-    export interface NumberOfNodesPerClusterLimitExceededFault {
+    export interface RedshiftNumberOfNodesPerClusterLimitExceededFault {
     }
-
 
-    export interface NumberOfNodesQuotaExceededFault {
+    export interface RedshiftNumberOfNodesQuotaExceededFault {
     }
 
-
-    export interface OrderableClusterOption {
-      ClusterVersion?: String;
-      ClusterType?: String;
-      NodeType?: String;
-      AvailabilityZones?: AvailabilityZoneList;
+    export interface RedshiftOrderableClusterOption {
+        ClusterVersion?: RedshiftString;
+        ClusterType?: RedshiftString;
+        NodeType?: RedshiftString;
+        AvailabilityZones?: RedshiftAvailabilityZoneList;
     }
-
 
-    export type OrderableClusterOptionsList = Array<OrderableClusterOption>;
-
-    export interface OrderableClusterOptionsMessage {
-      OrderableClusterOptions?: OrderableClusterOptionsList;
-      Marker?: String;
+    export type RedshiftOrderableClusterOptionsList = Array<RedshiftOrderableClusterOption>;
+    export interface RedshiftOrderableClusterOptionsMessage {
+        OrderableClusterOptions?: RedshiftOrderableClusterOptionsList;
+        Marker?: RedshiftString;
     }
-
 
-    export interface Parameter {
-      ParameterName?: String;
-      ParameterValue?: String;
-      Description?: String;
-      Source?: String;
-      DataType?: String;
-      AllowedValues?: String;
-      IsModifiable?: Boolean;
-      MinimumEngineVersion?: String;
+    export interface RedshiftParameter {
+        ParameterName?: RedshiftString;
+        ParameterValue?: RedshiftString;
+        Description?: RedshiftString;
+        Source?: RedshiftString;
+        DataType?: RedshiftString;
+        AllowedValues?: RedshiftString;
+        IsModifiable?: RedshiftBoolean;
+        MinimumEngineVersion?: RedshiftString;
     }
-
-
-    export type ParameterGroupList = Array<ClusterParameterGroup>;
-
-    export type ParametersList = Array<Parameter>;
 
-    export interface PendingModifiedValues {
-      MasterUserPassword?: String;
-      NodeType?: String;
-      NumberOfNodes?: IntegerOptional;
-      ClusterType?: String;
-      ClusterVersion?: String;
-      AutomatedSnapshotRetentionPeriod?: IntegerOptional;
-      ClusterIdentifier?: String;
+    export type RedshiftParameterGroupList = Array<RedshiftClusterParameterGroup>;
+    export type RedshiftParametersList = Array<RedshiftParameter>;
+    export interface RedshiftPendingModifiedValues {
+        MasterUserPassword?: RedshiftString;
+        NodeType?: RedshiftString;
+        NumberOfNodes?: RedshiftIntegerOptional;
+        ClusterType?: RedshiftString;
+        ClusterVersion?: RedshiftString;
+        AutomatedSnapshotRetentionPeriod?: RedshiftIntegerOptional;
+        ClusterIdentifier?: RedshiftString;
     }
 
-
-    export interface PurchaseReservedNodeOfferingMessage {
-      ReservedNodeOfferingId: String;
-      NodeCount?: IntegerOptional;
+    export interface RedshiftPurchaseReservedNodeOfferingMessage {
+        ReservedNodeOfferingId: RedshiftString;
+        NodeCount?: RedshiftIntegerOptional;
     }
-
 
-    export interface RebootClusterMessage {
-      ClusterIdentifier: String;
+    export interface RedshiftRebootClusterMessage {
+        ClusterIdentifier: RedshiftString;
     }
 
-
-    export interface RecurringCharge {
-      RecurringChargeAmount?: Double;
-      RecurringChargeFrequency?: String;
+    export interface RedshiftRecurringCharge {
+        RecurringChargeAmount?: RedshiftDouble;
+        RecurringChargeFrequency?: RedshiftString;
     }
-
 
-    export type RecurringChargeList = Array<RecurringCharge>;
-
-    export interface ReservedNode {
-      ReservedNodeId?: String;
-      ReservedNodeOfferingId?: String;
-      NodeType?: String;
-      StartTime?: TStamp;
-      Duration?: Integer;
-      FixedPrice?: Double;
-      UsagePrice?: Double;
-      CurrencyCode?: String;
-      NodeCount?: Integer;
-      State?: String;
-      OfferingType?: String;
-      RecurringCharges?: RecurringChargeList;
+    export type RedshiftRecurringChargeList = Array<RedshiftRecurringCharge>;
+    export interface RedshiftReservedNode {
+        ReservedNodeId?: RedshiftString;
+        ReservedNodeOfferingId?: RedshiftString;
+        NodeType?: RedshiftString;
+        StartTime?: RedshiftTStamp;
+        Duration?: RedshiftInteger;
+        FixedPrice?: RedshiftDouble;
+        UsagePrice?: RedshiftDouble;
+        CurrencyCode?: RedshiftString;
+        NodeCount?: RedshiftInteger;
+        State?: RedshiftString;
+        OfferingType?: RedshiftString;
+        RecurringCharges?: RedshiftRecurringChargeList;
     }
-
 
-    export interface ReservedNodeAlreadyExistsFault {
+    export interface RedshiftReservedNodeAlreadyExistsFault {
     }
 
-
-    export type ReservedNodeList = Array<ReservedNode>;
-
-    export interface ReservedNodeNotFoundFault {
+    export type RedshiftReservedNodeList = Array<RedshiftReservedNode>;
+    export interface RedshiftReservedNodeNotFoundFault {
     }
-
 
-    export interface ReservedNodeOffering {
-      ReservedNodeOfferingId?: String;
-      NodeType?: String;
-      Duration?: Integer;
-      FixedPrice?: Double;
-      UsagePrice?: Double;
-      CurrencyCode?: String;
-      OfferingType?: String;
-      RecurringCharges?: RecurringChargeList;
+    export interface RedshiftReservedNodeOffering {
+        ReservedNodeOfferingId?: RedshiftString;
+        NodeType?: RedshiftString;
+        Duration?: RedshiftInteger;
+        FixedPrice?: RedshiftDouble;
+        UsagePrice?: RedshiftDouble;
+        CurrencyCode?: RedshiftString;
+        OfferingType?: RedshiftString;
+        RecurringCharges?: RedshiftRecurringChargeList;
     }
 
-
-    export type ReservedNodeOfferingList = Array<ReservedNodeOffering>;
-
-    export interface ReservedNodeOfferingNotFoundFault {
+    export type RedshiftReservedNodeOfferingList = Array<RedshiftReservedNodeOffering>;
+    export interface RedshiftReservedNodeOfferingNotFoundFault {
     }
 
-
-    export interface ReservedNodeOfferingsMessage {
-      Marker?: String;
-      ReservedNodeOfferings?: ReservedNodeOfferingList;
+    export interface RedshiftReservedNodeOfferingsMessage {
+        Marker?: RedshiftString;
+        ReservedNodeOfferings?: RedshiftReservedNodeOfferingList;
     }
-
 
-    export interface ReservedNodeQuotaExceededFault {
+    export interface RedshiftReservedNodeQuotaExceededFault {
     }
 
-
-    export interface ReservedNodesMessage {
-      Marker?: String;
-      ReservedNodes?: ReservedNodeList;
+    export interface RedshiftReservedNodesMessage {
+        Marker?: RedshiftString;
+        ReservedNodes?: RedshiftReservedNodeList;
     }
-
 
-    export interface ResetClusterParameterGroupMessage {
-      ParameterGroupName: String;
-      ResetAllParameters?: Boolean;
-      Parameters?: ParametersList;
+    export interface RedshiftResetClusterParameterGroupMessage {
+        ParameterGroupName: RedshiftString;
+        ResetAllParameters?: RedshiftBoolean;
+        Parameters?: RedshiftParametersList;
     }
 
-
-    export interface ResizeNotFoundFault {
+    export interface RedshiftResizeNotFoundFault {
     }
 
-
-    export interface ResizeProgressMessage {
-      TargetNodeType?: String;
-      TargetNumberOfNodes?: IntegerOptional;
-      TargetClusterType?: String;
-      Status?: String;
-      ImportTablesCompleted?: ImportTablesCompleted;
-      ImportTablesInProgress?: ImportTablesInProgress;
-      ImportTablesNotStarted?: ImportTablesNotStarted;
-      AvgResizeRateInMegaBytesPerSecond?: DoubleOptional;
-      TotalResizeDataInMegaBytes?: LongOptional;
-      ProgressInMegaBytes?: LongOptional;
-      ElapsedTimeInSeconds?: LongOptional;
-      EstimatedTimeToCompletionInSeconds?: LongOptional;
+    export interface RedshiftResizeProgressMessage {
+        TargetNodeType?: RedshiftString;
+        TargetNumberOfNodes?: RedshiftIntegerOptional;
+        TargetClusterType?: RedshiftString;
+        Status?: RedshiftString;
+        ImportTablesCompleted?: RedshiftImportTablesCompleted;
+        ImportTablesInProgress?: RedshiftImportTablesInProgress;
+        ImportTablesNotStarted?: RedshiftImportTablesNotStarted;
+        AvgResizeRateInMegaBytesPerSecond?: RedshiftDoubleOptional;
+        TotalResizeDataInMegaBytes?: RedshiftLongOptional;
+        ProgressInMegaBytes?: RedshiftLongOptional;
+        ElapsedTimeInSeconds?: RedshiftLongOptional;
+        EstimatedTimeToCompletionInSeconds?: RedshiftLongOptional;
     }
-
 
-    export interface ResourceNotFoundFault {
+    export interface RedshiftResourceNotFoundFault {
     }
 
-
-    export interface RestoreFromClusterSnapshotMessage {
-      ClusterIdentifier: String;
-      SnapshotIdentifier: String;
-      SnapshotClusterIdentifier?: String;
-      Port?: IntegerOptional;
-      AvailabilityZone?: String;
-      AllowVersionUpgrade?: BooleanOptional;
-      ClusterSubnetGroupName?: String;
-      PubliclyAccessible?: BooleanOptional;
-      OwnerAccount?: String;
-      HsmClientCertificateIdentifier?: String;
-      HsmConfigurationIdentifier?: String;
-      ElasticIp?: String;
-      ClusterParameterGroupName?: String;
-      ClusterSecurityGroups?: ClusterSecurityGroupNameList;
-      VpcSecurityGroupIds?: VpcSecurityGroupIdList;
-      PreferredMaintenanceWindow?: String;
-      AutomatedSnapshotRetentionPeriod?: IntegerOptional;
-      KmsKeyId?: String;
+    export interface RedshiftRestoreFromClusterSnapshotMessage {
+        ClusterIdentifier: RedshiftString;
+        SnapshotIdentifier: RedshiftString;
+        SnapshotClusterIdentifier?: RedshiftString;
+        Port?: RedshiftIntegerOptional;
+        AvailabilityZone?: RedshiftString;
+        AllowVersionUpgrade?: RedshiftBooleanOptional;
+        ClusterSubnetGroupName?: RedshiftString;
+        PubliclyAccessible?: RedshiftBooleanOptional;
+        OwnerAccount?: RedshiftString;
+        HsmClientCertificateIdentifier?: RedshiftString;
+        HsmConfigurationIdentifier?: RedshiftString;
+        ElasticIp?: RedshiftString;
+        ClusterParameterGroupName?: RedshiftString;
+        ClusterSecurityGroups?: RedshiftClusterSecurityGroupNameList;
+        VpcSecurityGroupIds?: RedshiftVpcSecurityGroupIdList;
+        PreferredMaintenanceWindow?: RedshiftString;
+        AutomatedSnapshotRetentionPeriod?: RedshiftIntegerOptional;
+        KmsKeyId?: RedshiftString;
     }
-
 
-    export interface RestoreStatus {
-      Status?: String;
-      CurrentRestoreRateInMegaBytesPerSecond?: Double;
-      SnapshotSizeInMegaBytes?: Long;
-      ProgressInMegaBytes?: Long;
-      ElapsedTimeInSeconds?: Long;
-      EstimatedTimeToCompletionInSeconds?: Long;
+    export interface RedshiftRestoreStatus {
+        Status?: RedshiftString;
+        CurrentRestoreRateInMegaBytesPerSecond?: RedshiftDouble;
+        SnapshotSizeInMegaBytes?: RedshiftLong;
+        ProgressInMegaBytes?: RedshiftLong;
+        ElapsedTimeInSeconds?: RedshiftLong;
+        EstimatedTimeToCompletionInSeconds?: RedshiftLong;
     }
 
-
-    export interface RevokeClusterSecurityGroupIngressMessage {
-      ClusterSecurityGroupName: String;
-      CIDRIP?: String;
-      EC2SecurityGroupName?: String;
-      EC2SecurityGroupOwnerId?: String;
+    export interface RedshiftRevokeClusterSecurityGroupIngressMessage {
+        ClusterSecurityGroupName: RedshiftString;
+        CIDRIP?: RedshiftString;
+        EC2SecurityGroupName?: RedshiftString;
+        EC2SecurityGroupOwnerId?: RedshiftString;
     }
-
 
-    export interface RevokeSnapshotAccessMessage {
-      SnapshotIdentifier: String;
-      SnapshotClusterIdentifier?: String;
-      AccountWithRestoreAccess: String;
+    export interface RedshiftRevokeSnapshotAccessMessage {
+        SnapshotIdentifier: RedshiftString;
+        SnapshotClusterIdentifier?: RedshiftString;
+        AccountWithRestoreAccess: RedshiftString;
     }
 
-
-    export interface RotateEncryptionKeyMessage {
-      ClusterIdentifier: String;
+    export interface RedshiftRotateEncryptionKeyMessage {
+        ClusterIdentifier: RedshiftString;
     }
-
 
-    export interface SNSInvalidTopicFault {
+    export interface RedshiftSNSInvalidTopicFault {
     }
 
-
-    export interface SNSNoAuthorizationFault {
+    export interface RedshiftSNSNoAuthorizationFault {
     }
-
 
-    export interface SNSTopicArnNotFoundFault {
+    export interface RedshiftSNSTopicArnNotFoundFault {
     }
 
-
-    export interface Snapshot {
-      SnapshotIdentifier?: String;
-      ClusterIdentifier?: String;
-      SnapshotCreateTime?: TStamp;
-      Status?: String;
-      Port?: Integer;
-      AvailabilityZone?: String;
-      ClusterCreateTime?: TStamp;
-      MasterUsername?: String;
-      ClusterVersion?: String;
-      SnapshotType?: String;
-      NodeType?: String;
-      NumberOfNodes?: Integer;
-      DBName?: String;
-      VpcId?: String;
-      Encrypted?: Boolean;
-      KmsKeyId?: String;
-      EncryptedWithHSM?: Boolean;
-      AccountsWithRestoreAccess?: AccountsWithRestoreAccessList;
-      OwnerAccount?: String;
-      TotalBackupSizeInMegaBytes?: Double;
-      ActualIncrementalBackupSizeInMegaBytes?: Double;
-      BackupProgressInMegaBytes?: Double;
-      CurrentBackupRateInMegaBytesPerSecond?: Double;
-      EstimatedSecondsToCompletion?: Long;
-      ElapsedTimeInSeconds?: Long;
-      SourceRegion?: String;
-      Tags?: TagList;
+    export interface RedshiftSnapshot {
+        SnapshotIdentifier?: RedshiftString;
+        ClusterIdentifier?: RedshiftString;
+        SnapshotCreateTime?: RedshiftTStamp;
+        Status?: RedshiftString;
+        Port?: RedshiftInteger;
+        AvailabilityZone?: RedshiftString;
+        ClusterCreateTime?: RedshiftTStamp;
+        MasterUsername?: RedshiftString;
+        ClusterVersion?: RedshiftString;
+        SnapshotType?: RedshiftString;
+        NodeType?: RedshiftString;
+        NumberOfNodes?: RedshiftInteger;
+        DBName?: RedshiftString;
+        VpcId?: RedshiftString;
+        Encrypted?: RedshiftBoolean;
+        KmsKeyId?: RedshiftString;
+        EncryptedWithHSM?: RedshiftBoolean;
+        AccountsWithRestoreAccess?: RedshiftAccountsWithRestoreAccessList;
+        OwnerAccount?: RedshiftString;
+        TotalBackupSizeInMegaBytes?: RedshiftDouble;
+        ActualIncrementalBackupSizeInMegaBytes?: RedshiftDouble;
+        BackupProgressInMegaBytes?: RedshiftDouble;
+        CurrentBackupRateInMegaBytesPerSecond?: RedshiftDouble;
+        EstimatedSecondsToCompletion?: RedshiftLong;
+        ElapsedTimeInSeconds?: RedshiftLong;
+        SourceRegion?: RedshiftString;
+        Tags?: RedshiftTagList;
     }
-
 
-    export interface SnapshotCopyAlreadyDisabledFault {
+    export interface RedshiftSnapshotCopyAlreadyDisabledFault {
     }
 
-
-    export interface SnapshotCopyAlreadyEnabledFault {
+    export interface RedshiftSnapshotCopyAlreadyEnabledFault {
     }
-
 
-    export interface SnapshotCopyDisabledFault {
+    export interface RedshiftSnapshotCopyDisabledFault {
     }
 
-
-    export type SnapshotList = Array<Snapshot>;
-
-    export interface SnapshotMessage {
-      Marker?: String;
-      Snapshots?: SnapshotList;
+    export type RedshiftSnapshotList = Array<RedshiftSnapshot>;
+    export interface RedshiftSnapshotMessage {
+        Marker?: RedshiftString;
+        Snapshots?: RedshiftSnapshotList;
     }
 
-
-    export type SourceIdsList = Array<String>;
-
-    export interface SourceNotFoundFault {
+    export type RedshiftSourceIdsList = Array<RedshiftString>;
+    export interface RedshiftSourceNotFoundFault {
     }
-
 
-    export type SourceType = string;
-
-    export type String = string;
-
-    export interface Subnet {
-      SubnetIdentifier?: String;
-      SubnetAvailabilityZone?: AvailabilityZone;
-      SubnetStatus?: String;
+    export type RedshiftSourceType = string;
+    export type RedshiftString = string;
+    export interface RedshiftSubnet {
+        SubnetIdentifier?: RedshiftString;
+        SubnetAvailabilityZone?: RedshiftAvailabilityZone;
+        SubnetStatus?: RedshiftString;
     }
 
-
-    export interface SubnetAlreadyInUse {
+    export interface RedshiftSubnetAlreadyInUse {
     }
-
 
-    export type SubnetIdentifierList = Array<String>;
-
-    export type SubnetList = Array<Subnet>;
-
-    export interface SubscriptionAlreadyExistFault {
+    export type RedshiftSubnetIdentifierList = Array<RedshiftString>;
+    export type RedshiftSubnetList = Array<RedshiftSubnet>;
+    export interface RedshiftSubscriptionAlreadyExistFault {
     }
 
-
-    export interface SubscriptionCategoryNotFoundFault {
+    export interface RedshiftSubscriptionCategoryNotFoundFault {
     }
-
 
-    export interface SubscriptionEventIdNotFoundFault {
+    export interface RedshiftSubscriptionEventIdNotFoundFault {
     }
 
-
-    export interface SubscriptionNotFoundFault {
+    export interface RedshiftSubscriptionNotFoundFault {
     }
-
 
-    export interface SubscriptionSeverityNotFoundFault {
+    export interface RedshiftSubscriptionSeverityNotFoundFault {
     }
-
-
-    export type TStamp = number;
 
-    export interface Tag {
-      Key?: String;
-      Value?: String;
+    export type RedshiftTStamp = number;
+    export interface RedshiftTag {
+        Key?: RedshiftString;
+        Value?: RedshiftString;
     }
 
-
-    export type TagKeyList = Array<String>;
-
-    export interface TagLimitExceededFault {
+    export type RedshiftTagKeyList = Array<RedshiftString>;
+    export interface RedshiftTagLimitExceededFault {
     }
-
-
-    export type TagList = Array<Tag>;
-
-    export type TagValueList = Array<String>;
 
-    export interface TaggedResource {
-      Tag?: Tag;
-      ResourceName?: String;
-      ResourceType?: String;
+    export type RedshiftTagList = Array<RedshiftTag>;
+    export type RedshiftTagValueList = Array<RedshiftString>;
+    export interface RedshiftTaggedResource {
+        Tag?: RedshiftTag;
+        ResourceName?: RedshiftString;
+        ResourceType?: RedshiftString;
     }
 
-
-    export type TaggedResourceList = Array<TaggedResource>;
-
-    export interface TaggedResourceListMessage {
-      TaggedResources?: TaggedResourceList;
-      Marker?: String;
+    export type RedshiftTaggedResourceList = Array<RedshiftTaggedResource>;
+    export interface RedshiftTaggedResourceListMessage {
+        TaggedResources?: RedshiftTaggedResourceList;
+        Marker?: RedshiftString;
     }
 
-
-    export interface UnauthorizedOperation {
+    export interface RedshiftUnauthorizedOperation {
     }
-
 
-    export interface UnknownSnapshotCopyRegionFault {
+    export interface RedshiftUnknownSnapshotCopyRegionFault {
     }
 
-
-    export interface UnsupportedOptionFault {
+    export interface RedshiftUnsupportedOptionFault {
     }
-
 
-    export type VpcSecurityGroupIdList = Array<String>;
-
-    export interface VpcSecurityGroupMembership {
-      VpcSecurityGroupId?: String;
-      Status?: String;
+    export type RedshiftVpcSecurityGroupIdList = Array<RedshiftString>;
+    export interface RedshiftVpcSecurityGroupMembership {
+        VpcSecurityGroupId?: RedshiftString;
+        Status?: RedshiftString;
     }
-
 
-    export type VpcSecurityGroupMembershipList = Array<VpcSecurityGroupMembership>;
-
-    export interface AuthorizeClusterSecurityGroupIngressResult {
-      ClusterSecurityGroup?: ClusterSecurityGroup;
+    export type RedshiftVpcSecurityGroupMembershipList = Array<RedshiftVpcSecurityGroupMembership>;
+    export interface RedshiftAuthorizeClusterSecurityGroupIngressResult {
+        ClusterSecurityGroup?: RedshiftClusterSecurityGroup;
     }
-
 
-    export interface AuthorizeSnapshotAccessResult {
-      Snapshot?: Snapshot;
+    export interface RedshiftAuthorizeSnapshotAccessResult {
+        Snapshot?: RedshiftSnapshot;
     }
 
-
-    export interface CopyClusterSnapshotResult {
-      Snapshot?: Snapshot;
+    export interface RedshiftCopyClusterSnapshotResult {
+        Snapshot?: RedshiftSnapshot;
     }
-
 
-    export interface CreateClusterResult {
-      Cluster?: Cluster;
+    export interface RedshiftCreateClusterResult {
+        Cluster?: RedshiftCluster;
     }
 
-
-    export interface CreateClusterParameterGroupResult {
-      ClusterParameterGroup?: ClusterParameterGroup;
+    export interface RedshiftCreateClusterParameterGroupResult {
+        ClusterParameterGroup?: RedshiftClusterParameterGroup;
     }
-
 
-    export interface CreateClusterSecurityGroupResult {
-      ClusterSecurityGroup?: ClusterSecurityGroup;
+    export interface RedshiftCreateClusterSecurityGroupResult {
+        ClusterSecurityGroup?: RedshiftClusterSecurityGroup;
     }
 
-
-    export interface CreateClusterSnapshotResult {
-      Snapshot?: Snapshot;
+    export interface RedshiftCreateClusterSnapshotResult {
+        Snapshot?: RedshiftSnapshot;
     }
 
-
-    export interface CreateClusterSubnetGroupResult {
-      ClusterSubnetGroup?: ClusterSubnetGroup;
+    export interface RedshiftCreateClusterSubnetGroupResult {
+        ClusterSubnetGroup?: RedshiftClusterSubnetGroup;
     }
-
 
-    export interface CreateEventSubscriptionResult {
-      EventSubscription?: EventSubscription;
+    export interface RedshiftCreateEventSubscriptionResult {
+        EventSubscription?: RedshiftEventSubscription;
     }
 
-
-    export interface CreateHsmClientCertificateResult {
-      HsmClientCertificate?: HsmClientCertificate;
+    export interface RedshiftCreateHsmClientCertificateResult {
+        HsmClientCertificate?: RedshiftHsmClientCertificate;
     }
-
 
-    export interface CreateHsmConfigurationResult {
-      HsmConfiguration?: HsmConfiguration;
+    export interface RedshiftCreateHsmConfigurationResult {
+        HsmConfiguration?: RedshiftHsmConfiguration;
     }
 
-
-    export interface DeleteClusterResult {
-      Cluster?: Cluster;
+    export interface RedshiftDeleteClusterResult {
+        Cluster?: RedshiftCluster;
     }
-
 
-    export interface DeleteClusterSnapshotResult {
-      Snapshot?: Snapshot;
+    export interface RedshiftDeleteClusterSnapshotResult {
+        Snapshot?: RedshiftSnapshot;
     }
 
-
-    export interface DescribeDefaultClusterParametersResult {
-      DefaultClusterParameters?: DefaultClusterParameters;
+    export interface RedshiftDescribeDefaultClusterParametersResult {
+        DefaultClusterParameters?: RedshiftDefaultClusterParameters;
     }
-
 
-    export interface DisableSnapshotCopyResult {
-      Cluster?: Cluster;
+    export interface RedshiftDisableSnapshotCopyResult {
+        Cluster?: RedshiftCluster;
     }
 
-
-    export interface EnableSnapshotCopyResult {
-      Cluster?: Cluster;
+    export interface RedshiftEnableSnapshotCopyResult {
+        Cluster?: RedshiftCluster;
     }
 
-
-    export interface ModifyClusterResult {
-      Cluster?: Cluster;
+    export interface RedshiftModifyClusterResult {
+        Cluster?: RedshiftCluster;
     }
-
 
-    export interface ModifyClusterSubnetGroupResult {
-      ClusterSubnetGroup?: ClusterSubnetGroup;
+    export interface RedshiftModifyClusterSubnetGroupResult {
+        ClusterSubnetGroup?: RedshiftClusterSubnetGroup;
     }
 
-
-    export interface ModifyEventSubscriptionResult {
-      EventSubscription?: EventSubscription;
+    export interface RedshiftModifyEventSubscriptionResult {
+        EventSubscription?: RedshiftEventSubscription;
     }
-
 
-    export interface ModifySnapshotCopyRetentionPeriodResult {
-      Cluster?: Cluster;
+    export interface RedshiftModifySnapshotCopyRetentionPeriodResult {
+        Cluster?: RedshiftCluster;
     }
 
-
-    export interface PurchaseReservedNodeOfferingResult {
-      ReservedNode?: ReservedNode;
+    export interface RedshiftPurchaseReservedNodeOfferingResult {
+        ReservedNode?: RedshiftReservedNode;
     }
-
 
-    export interface RebootClusterResult {
-      Cluster?: Cluster;
+    export interface RedshiftRebootClusterResult {
+        Cluster?: RedshiftCluster;
     }
 
-
-    export interface RestoreFromClusterSnapshotResult {
-      Cluster?: Cluster;
+    export interface RedshiftRestoreFromClusterSnapshotResult {
+        Cluster?: RedshiftCluster;
     }
-
 
-    export interface RevokeClusterSecurityGroupIngressResult {
-      ClusterSecurityGroup?: ClusterSecurityGroup;
+    export interface RedshiftRevokeClusterSecurityGroupIngressResult {
+        ClusterSecurityGroup?: RedshiftClusterSecurityGroup;
     }
 
-
-    export interface RevokeSnapshotAccessResult {
-      Snapshot?: Snapshot;
+    export interface RedshiftRevokeSnapshotAccessResult {
+        Snapshot?: RedshiftSnapshot;
     }
 
-
-    export interface RotateEncryptionKeyResult {
-      Cluster?: Cluster;
+    export interface RedshiftRotateEncryptionKeyResult {
+        Cluster?: RedshiftCluster;
     }
-
 
 }

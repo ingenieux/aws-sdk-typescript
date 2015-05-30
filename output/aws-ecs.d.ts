@@ -3,613 +3,510 @@
 declare module "aws-sdk" {
     export class ECS {
       constructor(options?: any);
-      createCluster(params: CreateClusterRequest, callback: (err: ServerException|ClientException|any, data: CreateClusterResponse|any) => void): void;
-      createService(params: CreateServiceRequest, callback: (err: ServerException|ClientException|any, data: CreateServiceResponse|any) => void): void;
-      deleteCluster(params: DeleteClusterRequest, callback: (err: ServerException|ClientException|any, data: DeleteClusterResponse|any) => void): void;
-      deleteService(params: DeleteServiceRequest, callback: (err: ServerException|ClientException|any, data: DeleteServiceResponse|any) => void): void;
-      deregisterContainerInstance(params: DeregisterContainerInstanceRequest, callback: (err: ServerException|ClientException|any, data: DeregisterContainerInstanceResponse|any) => void): void;
-      deregisterTaskDefinition(params: DeregisterTaskDefinitionRequest, callback: (err: ServerException|ClientException|any, data: DeregisterTaskDefinitionResponse|any) => void): void;
-      describeClusters(params: DescribeClustersRequest, callback: (err: ServerException|ClientException|any, data: DescribeClustersResponse|any) => void): void;
-      describeContainerInstances(params: DescribeContainerInstancesRequest, callback: (err: ServerException|ClientException|any, data: DescribeContainerInstancesResponse|any) => void): void;
-      describeServices(params: DescribeServicesRequest, callback: (err: ServerException|ClientException|any, data: DescribeServicesResponse|any) => void): void;
-      describeTaskDefinition(params: DescribeTaskDefinitionRequest, callback: (err: ServerException|ClientException|any, data: DescribeTaskDefinitionResponse|any) => void): void;
-      describeTasks(params: DescribeTasksRequest, callback: (err: ServerException|ClientException|any, data: DescribeTasksResponse|any) => void): void;
-      discoverPollEndpoint(params: DiscoverPollEndpointRequest, callback: (err: ServerException|ClientException|any, data: DiscoverPollEndpointResponse|any) => void): void;
-      listClusters(params: ListClustersRequest, callback: (err: ServerException|ClientException|any, data: ListClustersResponse|any) => void): void;
-      listContainerInstances(params: ListContainerInstancesRequest, callback: (err: ServerException|ClientException|any, data: ListContainerInstancesResponse|any) => void): void;
-      listServices(params: ListServicesRequest, callback: (err: ServerException|ClientException|any, data: ListServicesResponse|any) => void): void;
-      listTaskDefinitionFamilies(params: ListTaskDefinitionFamiliesRequest, callback: (err: ServerException|ClientException|any, data: ListTaskDefinitionFamiliesResponse|any) => void): void;
-      listTaskDefinitions(params: ListTaskDefinitionsRequest, callback: (err: ServerException|ClientException|any, data: ListTaskDefinitionsResponse|any) => void): void;
-      listTasks(params: ListTasksRequest, callback: (err: ServerException|ClientException|any, data: ListTasksResponse|any) => void): void;
-      registerContainerInstance(params: RegisterContainerInstanceRequest, callback: (err: ServerException|ClientException|any, data: RegisterContainerInstanceResponse|any) => void): void;
-      registerTaskDefinition(params: RegisterTaskDefinitionRequest, callback: (err: ServerException|ClientException|any, data: RegisterTaskDefinitionResponse|any) => void): void;
-      runTask(params: RunTaskRequest, callback: (err: ServerException|ClientException|any, data: RunTaskResponse|any) => void): void;
-      startTask(params: StartTaskRequest, callback: (err: ServerException|ClientException|any, data: StartTaskResponse|any) => void): void;
-      stopTask(params: StopTaskRequest, callback: (err: ServerException|ClientException|any, data: StopTaskResponse|any) => void): void;
-      submitContainerStateChange(params: SubmitContainerStateChangeRequest, callback: (err: ServerException|ClientException|any, data: SubmitContainerStateChangeResponse|any) => void): void;
-      submitTaskStateChange(params: SubmitTaskStateChangeRequest, callback: (err: ServerException|ClientException|any, data: SubmitTaskStateChangeResponse|any) => void): void;
-      updateService(params: UpdateServiceRequest, callback: (err: ServerException|ClientException|any, data: UpdateServiceResponse|any) => void): void;
+      createCluster(params: ECSCreateClusterRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSCreateClusterResponse|any) => void): void;
+      createService(params: ECSCreateServiceRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSCreateServiceResponse|any) => void): void;
+      deleteCluster(params: ECSDeleteClusterRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSDeleteClusterResponse|any) => void): void;
+      deleteService(params: ECSDeleteServiceRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSDeleteServiceResponse|any) => void): void;
+      deregisterContainerInstance(params: ECSDeregisterContainerInstanceRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSDeregisterContainerInstanceResponse|any) => void): void;
+      deregisterTaskDefinition(params: ECSDeregisterTaskDefinitionRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSDeregisterTaskDefinitionResponse|any) => void): void;
+      describeClusters(params: ECSDescribeClustersRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSDescribeClustersResponse|any) => void): void;
+      describeContainerInstances(params: ECSDescribeContainerInstancesRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSDescribeContainerInstancesResponse|any) => void): void;
+      describeServices(params: ECSDescribeServicesRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSDescribeServicesResponse|any) => void): void;
+      describeTaskDefinition(params: ECSDescribeTaskDefinitionRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSDescribeTaskDefinitionResponse|any) => void): void;
+      describeTasks(params: ECSDescribeTasksRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSDescribeTasksResponse|any) => void): void;
+      discoverPollEndpoint(params: ECSDiscoverPollEndpointRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSDiscoverPollEndpointResponse|any) => void): void;
+      listClusters(params: ECSListClustersRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSListClustersResponse|any) => void): void;
+      listContainerInstances(params: ECSListContainerInstancesRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSListContainerInstancesResponse|any) => void): void;
+      listServices(params: ECSListServicesRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSListServicesResponse|any) => void): void;
+      listTaskDefinitionFamilies(params: ECSListTaskDefinitionFamiliesRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSListTaskDefinitionFamiliesResponse|any) => void): void;
+      listTaskDefinitions(params: ECSListTaskDefinitionsRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSListTaskDefinitionsResponse|any) => void): void;
+      listTasks(params: ECSListTasksRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSListTasksResponse|any) => void): void;
+      registerContainerInstance(params: ECSRegisterContainerInstanceRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSRegisterContainerInstanceResponse|any) => void): void;
+      registerTaskDefinition(params: ECSRegisterTaskDefinitionRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSRegisterTaskDefinitionResponse|any) => void): void;
+      runTask(params: ECSRunTaskRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSRunTaskResponse|any) => void): void;
+      startTask(params: ECSStartTaskRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSStartTaskResponse|any) => void): void;
+      stopTask(params: ECSStopTaskRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSStopTaskResponse|any) => void): void;
+      submitContainerStateChange(params: ECSSubmitContainerStateChangeRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSSubmitContainerStateChangeResponse|any) => void): void;
+      submitTaskStateChange(params: ECSSubmitTaskStateChangeRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSSubmitTaskStateChangeResponse|any) => void): void;
+      updateService(params: ECSUpdateServiceRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSUpdateServiceResponse|any) => void): void;
+    }
+
+    export type ECSBoolean = boolean;
+    export type ECSBoxedBoolean = boolean;
+    export type ECSBoxedInteger = number;
+    export interface ECSClientException {
+        message?: ECSString;
+    }
+
+    export interface ECSCluster {
+        clusterArn?: ECSString;
+        clusterName?: ECSString;
+        status?: ECSString;
+        registeredContainerInstancesCount?: ECSInteger;
+        runningTasksCount?: ECSInteger;
+        pendingTasksCount?: ECSInteger;
+    }
+
+    export type ECSClusters = Array<ECSCluster>;
+    export interface ECSContainer {
+        containerArn?: ECSString;
+        taskArn?: ECSString;
+        name?: ECSString;
+        lastStatus?: ECSString;
+        exitCode?: ECSBoxedInteger;
+        reason?: ECSString;
+        networkBindings?: ECSNetworkBindings;
+    }
+
+    export interface ECSContainerDefinition {
+        name?: ECSString;
+        image?: ECSString;
+        cpu?: ECSInteger;
+        memory?: ECSInteger;
+        links?: ECSStringList;
+        portMappings?: ECSPortMappingList;
+        essential?: ECSBoxedBoolean;
+        entryPoint?: ECSStringList;
+        command?: ECSStringList;
+        environment?: ECSEnvironmentVariables;
+        mountPoints?: ECSMountPointList;
+        volumesFrom?: ECSVolumeFromList;
     }
 
-    export type Boolean = boolean;
-
-    export type BoxedBoolean = boolean;
-
-    export type BoxedInteger = number;
-
-    export interface ClientException {
-      message?: String;
-    }
-
-
-    export interface Cluster {
-      clusterArn?: String;
-      clusterName?: String;
-      status?: String;
-      registeredContainerInstancesCount?: Integer;
-      runningTasksCount?: Integer;
-      pendingTasksCount?: Integer;
-    }
-
-
-    export type Clusters = Array<Cluster>;
-
-    export interface Container {
-      containerArn?: String;
-      taskArn?: String;
-      name?: String;
-      lastStatus?: String;
-      exitCode?: BoxedInteger;
-      reason?: String;
-      networkBindings?: NetworkBindings;
-    }
-
-
-    export interface ContainerDefinition {
-      name?: String;
-      image?: String;
-      cpu?: Integer;
-      memory?: Integer;
-      links?: StringList;
-      portMappings?: PortMappingList;
-      essential?: BoxedBoolean;
-      entryPoint?: StringList;
-      command?: StringList;
-      environment?: EnvironmentVariables;
-      mountPoints?: MountPointList;
-      volumesFrom?: VolumeFromList;
+    export type ECSContainerDefinitions = Array<ECSContainerDefinition>;
+    export interface ECSContainerInstance {
+        containerInstanceArn?: ECSString;
+        ec2InstanceId?: ECSString;
+        remainingResources?: ECSResources;
+        registeredResources?: ECSResources;
+        status?: ECSString;
+        agentConnected?: ECSBoolean;
+        runningTasksCount?: ECSInteger;
+        pendingTasksCount?: ECSInteger;
     }
 
-
-    export type ContainerDefinitions = Array<ContainerDefinition>;
-
-    export interface ContainerInstance {
-      containerInstanceArn?: String;
-      ec2InstanceId?: String;
-      remainingResources?: Resources;
-      registeredResources?: Resources;
-      status?: String;
-      agentConnected?: Boolean;
-      runningTasksCount?: Integer;
-      pendingTasksCount?: Integer;
-    }
-
-
-    export type ContainerInstances = Array<ContainerInstance>;
-
-    export interface ContainerOverride {
-      name?: String;
-      command?: StringList;
+    export type ECSContainerInstances = Array<ECSContainerInstance>;
+    export interface ECSContainerOverride {
+        name?: ECSString;
+        command?: ECSStringList;
     }
-
 
-    export type ContainerOverrides = Array<ContainerOverride>;
-
-    export type Containers = Array<Container>;
-
-    export interface CreateClusterRequest {
-      clusterName?: String;
+    export type ECSContainerOverrides = Array<ECSContainerOverride>;
+    export type ECSContainers = Array<ECSContainer>;
+    export interface ECSCreateClusterRequest {
+        clusterName?: ECSString;
     }
-
 
-    export interface CreateClusterResponse {
-      cluster?: Cluster;
+    export interface ECSCreateClusterResponse {
+        cluster?: ECSCluster;
     }
 
-
-    export interface CreateServiceRequest {
-      cluster?: String;
-      serviceName: String;
-      taskDefinition?: String;
-      loadBalancers?: LoadBalancers;
-      desiredCount?: BoxedInteger;
-      clientToken?: String;
-      role?: String;
+    export interface ECSCreateServiceRequest {
+        cluster?: ECSString;
+        serviceName: ECSString;
+        taskDefinition?: ECSString;
+        loadBalancers?: ECSLoadBalancers;
+        desiredCount?: ECSBoxedInteger;
+        clientToken?: ECSString;
+        role?: ECSString;
     }
-
 
-    export interface CreateServiceResponse {
-      service?: Service;
+    export interface ECSCreateServiceResponse {
+        service?: ECSService;
     }
 
-
-    export interface DeleteClusterRequest {
-      cluster: String;
+    export interface ECSDeleteClusterRequest {
+        cluster: ECSString;
     }
-
 
-    export interface DeleteClusterResponse {
-      cluster?: Cluster;
+    export interface ECSDeleteClusterResponse {
+        cluster?: ECSCluster;
     }
 
-
-    export interface DeleteServiceRequest {
-      cluster?: String;
-      service: String;
+    export interface ECSDeleteServiceRequest {
+        cluster?: ECSString;
+        service: ECSString;
     }
 
-
-    export interface DeleteServiceResponse {
-      service?: Service;
+    export interface ECSDeleteServiceResponse {
+        service?: ECSService;
     }
-
 
-    export interface Deployment {
-      id?: String;
-      status?: String;
-      taskDefinition?: String;
-      desiredCount?: Integer;
-      pendingCount?: Integer;
-      runningCount?: Integer;
-      createdAt?: Timestamp;
-      updatedAt?: Timestamp;
+    export interface ECSDeployment {
+        id?: ECSString;
+        status?: ECSString;
+        taskDefinition?: ECSString;
+        desiredCount?: ECSInteger;
+        pendingCount?: ECSInteger;
+        runningCount?: ECSInteger;
+        createdAt?: ECSTimestamp;
+        updatedAt?: ECSTimestamp;
     }
 
-
-    export type Deployments = Array<Deployment>;
-
-    export interface DeregisterContainerInstanceRequest {
-      cluster?: String;
-      containerInstance: String;
-      force?: BoxedBoolean;
+    export type ECSDeployments = Array<ECSDeployment>;
+    export interface ECSDeregisterContainerInstanceRequest {
+        cluster?: ECSString;
+        containerInstance: ECSString;
+        force?: ECSBoxedBoolean;
     }
 
-
-    export interface DeregisterContainerInstanceResponse {
-      containerInstance?: ContainerInstance;
+    export interface ECSDeregisterContainerInstanceResponse {
+        containerInstance?: ECSContainerInstance;
     }
-
 
-    export interface DeregisterTaskDefinitionRequest {
-      taskDefinition: String;
+    export interface ECSDeregisterTaskDefinitionRequest {
+        taskDefinition: ECSString;
     }
 
-
-    export interface DeregisterTaskDefinitionResponse {
-      taskDefinition?: TaskDefinition;
+    export interface ECSDeregisterTaskDefinitionResponse {
+        taskDefinition?: ECSTaskDefinition;
     }
 
-
-    export interface DescribeClustersRequest {
-      clusters?: StringList;
+    export interface ECSDescribeClustersRequest {
+        clusters?: ECSStringList;
     }
-
 
-    export interface DescribeClustersResponse {
-      clusters?: Clusters;
-      failures?: Failures;
+    export interface ECSDescribeClustersResponse {
+        clusters?: ECSClusters;
+        failures?: ECSFailures;
     }
 
-
-    export interface DescribeContainerInstancesRequest {
-      cluster?: String;
-      containerInstances: StringList;
+    export interface ECSDescribeContainerInstancesRequest {
+        cluster?: ECSString;
+        containerInstances: ECSStringList;
     }
-
 
-    export interface DescribeContainerInstancesResponse {
-      containerInstances?: ContainerInstances;
-      failures?: Failures;
+    export interface ECSDescribeContainerInstancesResponse {
+        containerInstances?: ECSContainerInstances;
+        failures?: ECSFailures;
     }
 
-
-    export interface DescribeServicesRequest {
-      cluster?: String;
-      services: StringList;
+    export interface ECSDescribeServicesRequest {
+        cluster?: ECSString;
+        services: ECSStringList;
     }
-
 
-    export interface DescribeServicesResponse {
-      services?: Services;
-      failures?: Failures;
+    export interface ECSDescribeServicesResponse {
+        services?: ECSServices;
+        failures?: ECSFailures;
     }
 
-
-    export interface DescribeTaskDefinitionRequest {
-      taskDefinition: String;
+    export interface ECSDescribeTaskDefinitionRequest {
+        taskDefinition: ECSString;
     }
 
-
-    export interface DescribeTaskDefinitionResponse {
-      taskDefinition?: TaskDefinition;
+    export interface ECSDescribeTaskDefinitionResponse {
+        taskDefinition?: ECSTaskDefinition;
     }
-
 
-    export interface DescribeTasksRequest {
-      cluster?: String;
-      tasks: StringList;
+    export interface ECSDescribeTasksRequest {
+        cluster?: ECSString;
+        tasks: ECSStringList;
     }
 
-
-    export interface DescribeTasksResponse {
-      tasks?: Tasks;
-      failures?: Failures;
+    export interface ECSDescribeTasksResponse {
+        tasks?: ECSTasks;
+        failures?: ECSFailures;
     }
-
 
-    export interface DiscoverPollEndpointRequest {
-      containerInstance?: String;
-      cluster?: String;
+    export interface ECSDiscoverPollEndpointRequest {
+        containerInstance?: ECSString;
+        cluster?: ECSString;
     }
 
-
-    export interface DiscoverPollEndpointResponse {
-      endpoint?: String;
+    export interface ECSDiscoverPollEndpointResponse {
+        endpoint?: ECSString;
     }
-
 
-    export type Double = number;
-
-    export type EnvironmentVariables = Array<KeyValuePair>;
-
-    export interface Failure {
-      arn?: String;
-      reason?: String;
+    export type ECSDouble = number;
+    export type ECSEnvironmentVariables = Array<ECSKeyValuePair>;
+    export interface ECSFailure {
+        arn?: ECSString;
+        reason?: ECSString;
     }
-
 
-    export type Failures = Array<Failure>;
-
-    export interface HostVolumeProperties {
-      sourcePath?: String;
+    export type ECSFailures = Array<ECSFailure>;
+    export interface ECSHostVolumeProperties {
+        sourcePath?: ECSString;
     }
-
 
-    export type Integer = number;
-
-    export interface KeyValuePair {
-      name?: String;
-      value?: String;
+    export type ECSInteger = number;
+    export interface ECSKeyValuePair {
+        name?: ECSString;
+        value?: ECSString;
     }
-
 
-    export interface ListClustersRequest {
-      nextToken?: String;
-      maxResults?: BoxedInteger;
+    export interface ECSListClustersRequest {
+        nextToken?: ECSString;
+        maxResults?: ECSBoxedInteger;
     }
 
-
-    export interface ListClustersResponse {
-      clusterArns?: StringList;
-      nextToken?: String;
+    export interface ECSListClustersResponse {
+        clusterArns?: ECSStringList;
+        nextToken?: ECSString;
     }
 
-
-    export interface ListContainerInstancesRequest {
-      cluster?: String;
-      nextToken?: String;
-      maxResults?: BoxedInteger;
+    export interface ECSListContainerInstancesRequest {
+        cluster?: ECSString;
+        nextToken?: ECSString;
+        maxResults?: ECSBoxedInteger;
     }
-
 
-    export interface ListContainerInstancesResponse {
-      containerInstanceArns?: StringList;
-      nextToken?: String;
+    export interface ECSListContainerInstancesResponse {
+        containerInstanceArns?: ECSStringList;
+        nextToken?: ECSString;
     }
 
-
-    export interface ListServicesRequest {
-      cluster?: String;
-      nextToken?: String;
-      maxResults?: BoxedInteger;
+    export interface ECSListServicesRequest {
+        cluster?: ECSString;
+        nextToken?: ECSString;
+        maxResults?: ECSBoxedInteger;
     }
-
 
-    export interface ListServicesResponse {
-      serviceArns?: StringList;
-      nextToken?: String;
+    export interface ECSListServicesResponse {
+        serviceArns?: ECSStringList;
+        nextToken?: ECSString;
     }
 
-
-    export interface ListTaskDefinitionFamiliesRequest {
-      familyPrefix?: String;
-      nextToken?: String;
-      maxResults?: BoxedInteger;
+    export interface ECSListTaskDefinitionFamiliesRequest {
+        familyPrefix?: ECSString;
+        nextToken?: ECSString;
+        maxResults?: ECSBoxedInteger;
     }
-
 
-    export interface ListTaskDefinitionFamiliesResponse {
-      families?: StringList;
-      nextToken?: String;
+    export interface ECSListTaskDefinitionFamiliesResponse {
+        families?: ECSStringList;
+        nextToken?: ECSString;
     }
 
-
-    export interface ListTaskDefinitionsRequest {
-      familyPrefix?: String;
-      nextToken?: String;
-      maxResults?: BoxedInteger;
+    export interface ECSListTaskDefinitionsRequest {
+        familyPrefix?: ECSString;
+        nextToken?: ECSString;
+        maxResults?: ECSBoxedInteger;
     }
 
-
-    export interface ListTaskDefinitionsResponse {
-      taskDefinitionArns?: StringList;
-      nextToken?: String;
+    export interface ECSListTaskDefinitionsResponse {
+        taskDefinitionArns?: ECSStringList;
+        nextToken?: ECSString;
     }
-
 
-    export interface ListTasksRequest {
-      cluster?: String;
-      containerInstance?: String;
-      family?: String;
-      nextToken?: String;
-      maxResults?: BoxedInteger;
-      startedBy?: String;
-      serviceName?: String;
+    export interface ECSListTasksRequest {
+        cluster?: ECSString;
+        containerInstance?: ECSString;
+        family?: ECSString;
+        nextToken?: ECSString;
+        maxResults?: ECSBoxedInteger;
+        startedBy?: ECSString;
+        serviceName?: ECSString;
     }
 
-
-    export interface ListTasksResponse {
-      taskArns?: StringList;
-      nextToken?: String;
+    export interface ECSListTasksResponse {
+        taskArns?: ECSStringList;
+        nextToken?: ECSString;
     }
-
 
-    export interface LoadBalancer {
-      loadBalancerName?: String;
-      containerName?: String;
-      containerPort?: BoxedInteger;
+    export interface ECSLoadBalancer {
+        loadBalancerName?: ECSString;
+        containerName?: ECSString;
+        containerPort?: ECSBoxedInteger;
     }
-
-
-    export type LoadBalancers = Array<LoadBalancer>;
 
-    export type Long = number;
-
-    export interface MountPoint {
-      sourceVolume?: String;
-      containerPath?: String;
-      readOnly?: BoxedBoolean;
+    export type ECSLoadBalancers = Array<ECSLoadBalancer>;
+    export type ECSLong = number;
+    export interface ECSMountPoint {
+        sourceVolume?: ECSString;
+        containerPath?: ECSString;
+        readOnly?: ECSBoxedBoolean;
     }
-
-
-    export type MountPointList = Array<MountPoint>;
 
-    export interface NetworkBinding {
-      bindIP?: String;
-      containerPort?: BoxedInteger;
-      hostPort?: BoxedInteger;
+    export type ECSMountPointList = Array<ECSMountPoint>;
+    export interface ECSNetworkBinding {
+        bindIP?: ECSString;
+        containerPort?: ECSBoxedInteger;
+        hostPort?: ECSBoxedInteger;
     }
 
-
-    export type NetworkBindings = Array<NetworkBinding>;
-
-    export interface PortMapping {
-      containerPort?: Integer;
-      hostPort?: Integer;
+    export type ECSNetworkBindings = Array<ECSNetworkBinding>;
+    export interface ECSPortMapping {
+        containerPort?: ECSInteger;
+        hostPort?: ECSInteger;
     }
-
-
-    export type PortMappingList = Array<PortMapping>;
 
-    export interface RegisterContainerInstanceRequest {
-      cluster?: String;
-      instanceIdentityDocument?: String;
-      instanceIdentityDocumentSignature?: String;
-      totalResources?: Resources;
-      versionInfo?: VersionInfo;
+    export type ECSPortMappingList = Array<ECSPortMapping>;
+    export interface ECSRegisterContainerInstanceRequest {
+        cluster?: ECSString;
+        instanceIdentityDocument?: ECSString;
+        instanceIdentityDocumentSignature?: ECSString;
+        totalResources?: ECSResources;
+        versionInfo?: ECSVersionInfo;
     }
 
-
-    export interface RegisterContainerInstanceResponse {
-      containerInstance?: ContainerInstance;
+    export interface ECSRegisterContainerInstanceResponse {
+        containerInstance?: ECSContainerInstance;
     }
 
-
-    export interface RegisterTaskDefinitionRequest {
-      family: String;
-      containerDefinitions: ContainerDefinitions;
-      volumes?: VolumeList;
+    export interface ECSRegisterTaskDefinitionRequest {
+        family: ECSString;
+        containerDefinitions: ECSContainerDefinitions;
+        volumes?: ECSVolumeList;
     }
-
 
-    export interface RegisterTaskDefinitionResponse {
-      taskDefinition?: TaskDefinition;
+    export interface ECSRegisterTaskDefinitionResponse {
+        taskDefinition?: ECSTaskDefinition;
     }
 
-
-    export interface Resource {
-      name?: String;
-      type?: String;
-      doubleValue?: Double;
-      longValue?: Long;
-      integerValue?: Integer;
-      stringSetValue?: StringList;
+    export interface ECSResource {
+        name?: ECSString;
+        type?: ECSString;
+        doubleValue?: ECSDouble;
+        longValue?: ECSLong;
+        integerValue?: ECSInteger;
+        stringSetValue?: ECSStringList;
     }
-
 
-    export type Resources = Array<Resource>;
-
-    export interface RunTaskRequest {
-      cluster?: String;
-      taskDefinition: String;
-      overrides?: TaskOverride;
-      count?: BoxedInteger;
-      startedBy?: String;
+    export type ECSResources = Array<ECSResource>;
+    export interface ECSRunTaskRequest {
+        cluster?: ECSString;
+        taskDefinition: ECSString;
+        overrides?: ECSTaskOverride;
+        count?: ECSBoxedInteger;
+        startedBy?: ECSString;
     }
-
 
-    export interface RunTaskResponse {
-      tasks?: Tasks;
-      failures?: Failures;
+    export interface ECSRunTaskResponse {
+        tasks?: ECSTasks;
+        failures?: ECSFailures;
     }
 
-
-    export interface ServerException {
-      message?: String;
+    export interface ECSServerException {
+        message?: ECSString;
     }
 
-
-    export interface Service {
-      serviceArn?: String;
-      serviceName?: String;
-      clusterArn?: String;
-      loadBalancers?: LoadBalancers;
-      status?: String;
-      desiredCount?: Integer;
-      runningCount?: Integer;
-      pendingCount?: Integer;
-      taskDefinition?: String;
-      deployments?: Deployments;
-      roleArn?: String;
-      events?: ServiceEvents;
+    export interface ECSService {
+        serviceArn?: ECSString;
+        serviceName?: ECSString;
+        clusterArn?: ECSString;
+        loadBalancers?: ECSLoadBalancers;
+        status?: ECSString;
+        desiredCount?: ECSInteger;
+        runningCount?: ECSInteger;
+        pendingCount?: ECSInteger;
+        taskDefinition?: ECSString;
+        deployments?: ECSDeployments;
+        roleArn?: ECSString;
+        events?: ECSServiceEvents;
     }
-
 
-    export interface ServiceEvent {
-      id?: String;
-      createdAt?: Timestamp;
-      message?: String;
+    export interface ECSServiceEvent {
+        id?: ECSString;
+        createdAt?: ECSTimestamp;
+        message?: ECSString;
     }
 
-
-    export type ServiceEvents = Array<ServiceEvent>;
-
-    export type Services = Array<Service>;
-
-    export interface StartTaskRequest {
-      cluster?: String;
-      taskDefinition: String;
-      overrides?: TaskOverride;
-      containerInstances: StringList;
-      startedBy?: String;
+    export type ECSServiceEvents = Array<ECSServiceEvent>;
+    export type ECSServices = Array<ECSService>;
+    export interface ECSStartTaskRequest {
+        cluster?: ECSString;
+        taskDefinition: ECSString;
+        overrides?: ECSTaskOverride;
+        containerInstances: ECSStringList;
+        startedBy?: ECSString;
     }
-
 
-    export interface StartTaskResponse {
-      tasks?: Tasks;
-      failures?: Failures;
+    export interface ECSStartTaskResponse {
+        tasks?: ECSTasks;
+        failures?: ECSFailures;
     }
 
-
-    export interface StopTaskRequest {
-      cluster?: String;
-      task: String;
+    export interface ECSStopTaskRequest {
+        cluster?: ECSString;
+        task: ECSString;
     }
 
-
-    export interface StopTaskResponse {
-      task?: Task;
+    export interface ECSStopTaskResponse {
+        task?: ECSTask;
     }
-
 
-    export type String = string;
-
-    export type StringList = Array<String>;
-
-    export interface SubmitContainerStateChangeRequest {
-      cluster?: String;
-      task?: String;
-      containerName?: String;
-      status?: String;
-      exitCode?: BoxedInteger;
-      reason?: String;
-      networkBindings?: NetworkBindings;
+    export type ECSString = string;
+    export type ECSStringList = Array<ECSString>;
+    export interface ECSSubmitContainerStateChangeRequest {
+        cluster?: ECSString;
+        task?: ECSString;
+        containerName?: ECSString;
+        status?: ECSString;
+        exitCode?: ECSBoxedInteger;
+        reason?: ECSString;
+        networkBindings?: ECSNetworkBindings;
     }
 
-
-    export interface SubmitContainerStateChangeResponse {
-      acknowledgment?: String;
+    export interface ECSSubmitContainerStateChangeResponse {
+        acknowledgment?: ECSString;
     }
-
 
-    export interface SubmitTaskStateChangeRequest {
-      cluster?: String;
-      task?: String;
-      status?: String;
-      reason?: String;
+    export interface ECSSubmitTaskStateChangeRequest {
+        cluster?: ECSString;
+        task?: ECSString;
+        status?: ECSString;
+        reason?: ECSString;
     }
 
-
-    export interface SubmitTaskStateChangeResponse {
-      acknowledgment?: String;
+    export interface ECSSubmitTaskStateChangeResponse {
+        acknowledgment?: ECSString;
     }
 
-
-    export interface Task {
-      taskArn?: String;
-      clusterArn?: String;
-      taskDefinitionArn?: String;
-      containerInstanceArn?: String;
-      overrides?: TaskOverride;
-      lastStatus?: String;
-      desiredStatus?: String;
-      containers?: Containers;
-      startedBy?: String;
+    export interface ECSTask {
+        taskArn?: ECSString;
+        clusterArn?: ECSString;
+        taskDefinitionArn?: ECSString;
+        containerInstanceArn?: ECSString;
+        overrides?: ECSTaskOverride;
+        lastStatus?: ECSString;
+        desiredStatus?: ECSString;
+        containers?: ECSContainers;
+        startedBy?: ECSString;
     }
-
 
-    export interface TaskDefinition {
-      taskDefinitionArn?: String;
-      containerDefinitions?: ContainerDefinitions;
-      family?: String;
-      revision?: Integer;
-      volumes?: VolumeList;
+    export interface ECSTaskDefinition {
+        taskDefinitionArn?: ECSString;
+        containerDefinitions?: ECSContainerDefinitions;
+        family?: ECSString;
+        revision?: ECSInteger;
+        volumes?: ECSVolumeList;
     }
 
-
-    export interface TaskOverride {
-      containerOverrides?: ContainerOverrides;
+    export interface ECSTaskOverride {
+        containerOverrides?: ECSContainerOverrides;
     }
-
-
-    export type Tasks = Array<Task>;
-
-    export type Timestamp = number;
 
-    export interface UpdateServiceRequest {
-      cluster?: String;
-      service: String;
-      desiredCount?: BoxedInteger;
-      taskDefinition?: String;
+    export type ECSTasks = Array<ECSTask>;
+    export type ECSTimestamp = number;
+    export interface ECSUpdateServiceRequest {
+        cluster?: ECSString;
+        service: ECSString;
+        desiredCount?: ECSBoxedInteger;
+        taskDefinition?: ECSString;
     }
 
-
-    export interface UpdateServiceResponse {
-      service?: Service;
+    export interface ECSUpdateServiceResponse {
+        service?: ECSService;
     }
 
-
-    export interface VersionInfo {
-      agentVersion?: String;
-      agentHash?: String;
-      dockerVersion?: String;
+    export interface ECSVersionInfo {
+        agentVersion?: ECSString;
+        agentHash?: ECSString;
+        dockerVersion?: ECSString;
     }
-
 
-    export interface Volume {
-      name?: String;
-      host?: HostVolumeProperties;
+    export interface ECSVolume {
+        name?: ECSString;
+        host?: ECSHostVolumeProperties;
     }
 
-
-    export interface VolumeFrom {
-      sourceContainer?: String;
-      readOnly?: BoxedBoolean;
+    export interface ECSVolumeFrom {
+        sourceContainer?: ECSString;
+        readOnly?: ECSBoxedBoolean;
     }
-
-
-    export type VolumeFromList = Array<VolumeFrom>;
-
-    export type VolumeList = Array<Volume>;
 
+    export type ECSVolumeFromList = Array<ECSVolumeFrom>;
+    export type ECSVolumeList = Array<ECSVolume>;
 }
