@@ -1,3 +1,11 @@
+export interface ServiceInfo {
+  name:string;
+  versions?:string[];
+  prefix?:string;
+  input?:string;
+  output?:string;
+}
+
 export interface Descriptor {
   version: string
   metadata: Metadata

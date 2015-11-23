@@ -1,15 +1,19 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-var generator = require("./generator"),
-  fs = require("fs"),
-  path = require("path"),
-  glob = require("glob")
+import generator = require("./generator");
+import meta = require("./meta");
+import fs = require("fs");
+import path = require("path");
+import glob = require("glob");
+  
+var sdkDir:string;
+var metadata:{[serviceName:string]:meta.ServiceInfo}; 
 
 console.log(JSON.stringify(process.argv))
 
-var sdkDir = (process.argv.length > 2) ? process.argv[-1 + process.argv.length] : "../aws-sdk-js/apis";
+sdkDir = (process.argv.length > 2) ? process.argv[-1 + process.argv.length] : "../aws-sdk-js/apis";
 
-var metadata = JSON.parse(fs.readFileSync(path.join(sdkDir, "metadata.json")).toString())
+metadata = JSON.parse(fs.readFileSync(path.join(sdkDir, "metadata.json")).toString())
 
 Object.keys(metadata).forEach((serviceName) => {
   var expr = path.join(sdkDir, `${serviceName}-*.normal.json`)
