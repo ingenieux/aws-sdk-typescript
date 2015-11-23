@@ -9,11 +9,12 @@
     "handlebars": "^3.0.3"
   },
   "devDependencies": {
+    "del": "^2.1.0",
     "gulp": "^3.6.2",
-    "gulp-tsc": "^0.9.0",
     "gulp-shell": "^0.2.5",
-    "run-sequence": "^0.3.6",
-    "mocha": "*"
+    "gulp-tsc": "^0.9.0",
+    "mocha": "*",
+    "run-sequence": "^0.3.6"
   },
   "scripts": {
     "main": "gulp buildrun",
