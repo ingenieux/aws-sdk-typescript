@@ -9,6 +9,10 @@ var paths = {
 		src : ['app/src/**/*.ts'],
 		dest : 'app/build' 
 	},
+	tests: {
+		src: ['test/**/*.ts'],
+		dest: 'app/build/test'
+	},
 	output: 'output/**/*'
 };
 
@@ -26,8 +30,6 @@ gulp.task('buildrun', function (cb) {
 });
 
 // ** Watching ** //
-
-
 gulp.task('watch', function () {
 	gulp.watch(paths.tscripts.src, ['compile:typescript']);
 });
@@ -50,6 +52,17 @@ gulp.task('compile:typescript', function () {
 	}))
 	.pipe(gulp.dest(paths.tscripts.dest));
 });
+
+gulp.task('compile:tests', function() {
+	return gulp
+	.src(paths.tests.src)
+	.pipe(tsc({
+		module: "commonjs",
+		emitError: false
+	}))
+	.pipe(gulp.dest(paths.tests.dest));
+});
+
 
 // ** Clean ** //
 
