@@ -1,5 +1,7 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class Route53 {
       constructor(options?: any);
@@ -93,6 +95,7 @@ declare module "aws-sdk" {
 
     export type Route53Changes = Array<Route53Change>;
     export type Route53CheckerIpRanges = Array<Route53IPAddressCidr>;
+    export type Route53ChildHealthCheckList = Array<Route53HealthCheckId>; // max: 256
     export interface Route53ConflictingDomainExists {
         message?: Route53ErrorMessage;
     }
@@ -322,6 +325,10 @@ declare module "aws-sdk" {
         SearchString?: Route53SearchString;
         RequestInterval?: Route53RequestInterval;
         FailureThreshold?: Route53FailureThreshold;
+        MeasureLatency?: Route53MeasureLatency;
+        Inverted?: Route53Inverted;
+        HealthThreshold?: Route53HealthThreshold;
+        ChildHealthChecks?: Route53ChildHealthCheckList;
     }
 
     export type Route53HealthCheckCount = number;
@@ -344,6 +351,7 @@ declare module "aws-sdk" {
     }
 
     export type Route53HealthChecks = Array<Route53HealthCheck>;
+    export type Route53HealthThreshold = number;
     export interface Route53HostedZone {
         Id: Route53ResourceId;
         Name: Route53DNSName;
@@ -398,6 +406,7 @@ declare module "aws-sdk" {
         message?: Route53ErrorMessage;
     }
 
+    export type Route53Inverted = boolean;
     export type Route53IsPrivateZone = boolean;
     export interface Route53LastVPCAssociation {
         message?: Route53ErrorMessage;
@@ -514,6 +523,7 @@ declare module "aws-sdk" {
         ResourceTagSets: Route53ResourceTagSetList;
     }
 
+    export type Route53MeasureLatency = boolean;
     export interface Route53NoSuchChange {
         message?: Route53ErrorMessage;
     }
@@ -627,6 +637,9 @@ declare module "aws-sdk" {
         FullyQualifiedDomainName?: Route53FullyQualifiedDomainName;
         SearchString?: Route53SearchString;
         FailureThreshold?: Route53FailureThreshold;
+        Inverted?: Route53Inverted;
+        HealthThreshold?: Route53HealthThreshold;
+        ChildHealthChecks?: Route53ChildHealthCheckList;
     }
 
     export interface Route53UpdateHealthCheckResponse {

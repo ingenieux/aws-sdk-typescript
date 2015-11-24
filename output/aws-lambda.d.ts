@@ -1,5 +1,7 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class Lambda {
       constructor(options?: any);

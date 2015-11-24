@@ -1,0 +1,9 @@
+///<reference path="./aws-sdk-common.d.ts" />
+{{#each services}}
+///<reference path="./aws-{{this}}.d.ts" />
+{{/each}}
+
+declare module "aws-sdk" {
+	
+}
+	

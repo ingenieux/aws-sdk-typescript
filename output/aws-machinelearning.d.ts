@@ -1,5 +1,7 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class MachineLearning {
       constructor(options?: any);
@@ -604,7 +606,7 @@ declare module "aws-sdk" {
     }
 
     export type MachineLearningVariableName = string;
-    export type MachineLearningVariableValue = string; // pattern: "[a-zA-Z0-9_]*"
+    export type MachineLearningVariableValue = string;
     export type MachineLearningVerbose = boolean;
     export type MachineLearningVipURL = string; // pattern: "https://[a-zA-Z0-9-.]*\.amazon(aws)?\.com[/]?"
     export type MachineLearningfloatLabel = number;

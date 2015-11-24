@@ -1,5 +1,7 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class ElasticBeanstalk {
       constructor(options?: any);
@@ -18,9 +20,11 @@ declare module "aws-sdk" {
       describeApplications(params: ElasticBeanstalkDescribeApplicationsMessage, callback: (err: any, data: ElasticBeanstalkApplicationDescriptionsMessage|any) => void): void;
       describeConfigurationOptions(params: ElasticBeanstalkDescribeConfigurationOptionsMessage, callback: (err: any, data: ElasticBeanstalkConfigurationOptionsDescription|any) => void): void;
       describeConfigurationSettings(params: ElasticBeanstalkDescribeConfigurationSettingsMessage, callback: (err: any, data: ElasticBeanstalkConfigurationSettingsDescriptions|any) => void): void;
+      describeEnvironmentHealth(params: ElasticBeanstalkDescribeEnvironmentHealthRequest, callback: (err: ElasticBeanstalkInvalidRequestException|ElasticBeanstalkElasticBeanstalkServiceException|any, data: ElasticBeanstalkDescribeEnvironmentHealthResult|any) => void): void;
       describeEnvironmentResources(params: ElasticBeanstalkDescribeEnvironmentResourcesMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkEnvironmentResourceDescriptionsMessage|any) => void): void;
       describeEnvironments(params: ElasticBeanstalkDescribeEnvironmentsMessage, callback: (err: any, data: ElasticBeanstalkEnvironmentDescriptionsMessage|any) => void): void;
       describeEvents(params: ElasticBeanstalkDescribeEventsMessage, callback: (err: any, data: ElasticBeanstalkEventDescriptionsMessage|any) => void): void;
+      describeInstancesHealth(params: ElasticBeanstalkDescribeInstancesHealthRequest, callback: (err: ElasticBeanstalkInvalidRequestException|ElasticBeanstalkElasticBeanstalkServiceException|any, data: ElasticBeanstalkDescribeInstancesHealthResult|any) => void): void;
       listAvailableSolutionStacks(callback: (err: any, data: ElasticBeanstalkListAvailableSolutionStacksResultMessage|any) => void): void;
       rebuildEnvironment(params: ElasticBeanstalkRebuildEnvironmentMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: any) => void): void;
       requestEnvironmentInfo(params: ElasticBeanstalkRequestEnvironmentInfoMessage, callback: (err: any, data: any) => void): void;
@@ -59,6 +63,13 @@ declare module "aws-sdk" {
         Applications?: ElasticBeanstalkApplicationDescriptionList;
     }
 
+    export interface ElasticBeanstalkApplicationMetrics {
+        Duration?: ElasticBeanstalkNullableInteger;
+        RequestCount?: ElasticBeanstalkRequestCount;
+        StatusCodes?: ElasticBeanstalkStatusCodes;
+        Latency?: ElasticBeanstalkLatency;
+    }
+
     export type ElasticBeanstalkApplicationName = string;
     export type ElasticBeanstalkApplicationNamesList = Array<ElasticBeanstalkApplicationName>;
     export interface ElasticBeanstalkApplicationVersionDescription {
@@ -87,6 +98,18 @@ declare module "aws-sdk" {
     export type ElasticBeanstalkAutoScalingGroupList = Array<ElasticBeanstalkAutoScalingGroup>;
     export type ElasticBeanstalkAvailableSolutionStackDetailsList = Array<ElasticBeanstalkSolutionStackDescription>;
     export type ElasticBeanstalkAvailableSolutionStackNamesList = Array<ElasticBeanstalkSolutionStackName>;
+    export interface ElasticBeanstalkCPUUtilization {
+        User?: ElasticBeanstalkNullableDouble;
+        Nice?: ElasticBeanstalkNullableDouble;
+        System?: ElasticBeanstalkNullableDouble;
+        Idle?: ElasticBeanstalkNullableDouble;
+        IOWait?: ElasticBeanstalkNullableDouble;
+        IRQ?: ElasticBeanstalkNullableDouble;
+        SoftIRQ?: ElasticBeanstalkNullableDouble;
+    }
+
+    export type ElasticBeanstalkCause = string;
+    export type ElasticBeanstalkCauses = Array<ElasticBeanstalkCause>;
     export interface ElasticBeanstalkCheckDNSAvailabilityMessage {
         CNAMEPrefix: ElasticBeanstalkDNSCnamePrefix;
     }
@@ -245,6 +268,23 @@ declare module "aws-sdk" {
         EnvironmentName?: ElasticBeanstalkEnvironmentName;
     }
 
+    export interface ElasticBeanstalkDescribeEnvironmentHealthRequest {
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        EnvironmentId?: ElasticBeanstalkEnvironmentId;
+        AttributeNames?: ElasticBeanstalkEnvironmentHealthAttributes;
+    }
+
+    export interface ElasticBeanstalkDescribeEnvironmentHealthResult {
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        HealthStatus?: ElasticBeanstalkString;
+        Status?: ElasticBeanstalkEnvironmentHealth;
+        Color?: ElasticBeanstalkString;
+        Causes?: ElasticBeanstalkCauses;
+        ApplicationMetrics?: ElasticBeanstalkApplicationMetrics;
+        InstancesHealth?: ElasticBeanstalkInstanceHealthSummary;
+        RefreshedAt?: ElasticBeanstalkRefreshedAt;
+    }
+
     export interface ElasticBeanstalkDescribeEnvironmentResourcesMessage {
         EnvironmentId?: ElasticBeanstalkEnvironmentId;
         EnvironmentName?: ElasticBeanstalkEnvironmentName;
@@ -273,8 +313,25 @@ declare module "aws-sdk" {
         NextToken?: ElasticBeanstalkToken;
     }
 
+    export interface ElasticBeanstalkDescribeInstancesHealthRequest {
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        EnvironmentId?: ElasticBeanstalkEnvironmentId;
+        AttributeNames?: ElasticBeanstalkInstancesHealthAttributes;
+        NextToken?: ElasticBeanstalkNextToken;
+    }
+
+    export interface ElasticBeanstalkDescribeInstancesHealthResult {
+        InstanceHealthList?: ElasticBeanstalkInstanceHealthList;
+        RefreshedAt?: ElasticBeanstalkRefreshedAt;
+        NextToken?: ElasticBeanstalkNextToken;
+    }
+
     export type ElasticBeanstalkDescription = string;
     export type ElasticBeanstalkEc2InstanceId = string;
+    export interface ElasticBeanstalkElasticBeanstalkServiceException {
+        message?: ElasticBeanstalkExceptionMessage;
+    }
+
     export type ElasticBeanstalkEndpointURL = string;
     export interface ElasticBeanstalkEnvironmentDescription {
         EnvironmentName?: ElasticBeanstalkEnvironmentName;
@@ -291,6 +348,7 @@ declare module "aws-sdk" {
         Status?: ElasticBeanstalkEnvironmentStatus;
         AbortableOperationInProgress?: ElasticBeanstalkAbortableOperationInProgress;
         Health?: ElasticBeanstalkEnvironmentHealth;
+        HealthStatus?: ElasticBeanstalkEnvironmentHealthStatus;
         Resources?: ElasticBeanstalkEnvironmentResourcesDescription;
         Tier?: ElasticBeanstalkEnvironmentTier;
     }
@@ -301,6 +359,9 @@ declare module "aws-sdk" {
     }
 
     export type ElasticBeanstalkEnvironmentHealth = string;
+    export type ElasticBeanstalkEnvironmentHealthAttribute = string;
+    export type ElasticBeanstalkEnvironmentHealthAttributes = Array<ElasticBeanstalkEnvironmentHealthAttribute>;
+    export type ElasticBeanstalkEnvironmentHealthStatus = string;
     export type ElasticBeanstalkEnvironmentId = string;
     export type ElasticBeanstalkEnvironmentIdList = Array<ElasticBeanstalkEnvironmentId>;
     export interface ElasticBeanstalkEnvironmentInfoDescription {
@@ -359,6 +420,7 @@ declare module "aws-sdk" {
 
     export type ElasticBeanstalkEventMessage = string;
     export type ElasticBeanstalkEventSeverity = string;
+    export type ElasticBeanstalkExceptionMessage = string;
     export type ElasticBeanstalkFileTypeExtension = string;
     export type ElasticBeanstalkIncludeDeleted = boolean;
     export type ElasticBeanstalkIncludeDeletedBackTo = number;
@@ -366,16 +428,46 @@ declare module "aws-sdk" {
         Id?: ElasticBeanstalkResourceId;
     }
 
+    export type ElasticBeanstalkInstanceHealthList = Array<ElasticBeanstalkSingleInstanceHealth>;
+    export interface ElasticBeanstalkInstanceHealthSummary {
+        NoData?: ElasticBeanstalkNullableInteger;
+        Unknown?: ElasticBeanstalkNullableInteger;
+        Pending?: ElasticBeanstalkNullableInteger;
+        Ok?: ElasticBeanstalkNullableInteger;
+        Info?: ElasticBeanstalkNullableInteger;
+        Warning?: ElasticBeanstalkNullableInteger;
+        Degraded?: ElasticBeanstalkNullableInteger;
+        Severe?: ElasticBeanstalkNullableInteger;
+    }
+
+    export type ElasticBeanstalkInstanceId = string;
     export type ElasticBeanstalkInstanceList = Array<ElasticBeanstalkInstance>;
+    export type ElasticBeanstalkInstancesHealthAttribute = string;
+    export type ElasticBeanstalkInstancesHealthAttributes = Array<ElasticBeanstalkInstancesHealthAttribute>;
     export interface ElasticBeanstalkInsufficientPrivilegesException {
     }
 
     export type ElasticBeanstalkInteger = number;
+    export interface ElasticBeanstalkInvalidRequestException {
+    }
+
+    export interface ElasticBeanstalkLatency {
+        P999?: ElasticBeanstalkNullableDouble;
+        P99?: ElasticBeanstalkNullableDouble;
+        P95?: ElasticBeanstalkNullableDouble;
+        P90?: ElasticBeanstalkNullableDouble;
+        P85?: ElasticBeanstalkNullableDouble;
+        P75?: ElasticBeanstalkNullableDouble;
+        P50?: ElasticBeanstalkNullableDouble;
+        P10?: ElasticBeanstalkNullableDouble;
+    }
+
     export interface ElasticBeanstalkLaunchConfiguration {
         Name?: ElasticBeanstalkResourceId;
     }
 
     export type ElasticBeanstalkLaunchConfigurationList = Array<ElasticBeanstalkLaunchConfiguration>;
+    export type ElasticBeanstalkLaunchedAt = number;
     export interface ElasticBeanstalkListAvailableSolutionStacksResultMessage {
         SolutionStacks?: ElasticBeanstalkAvailableSolutionStackNamesList;
         SolutionStackDetails?: ElasticBeanstalkAvailableSolutionStackDetailsList;
@@ -386,6 +478,8 @@ declare module "aws-sdk" {
         Port?: ElasticBeanstalkInteger;
     }
 
+    export type ElasticBeanstalkLoadAverage = Array<ElasticBeanstalkLoadAverageValue>;
+    export type ElasticBeanstalkLoadAverageValue = number;
     export interface ElasticBeanstalkLoadBalancer {
         Name?: ElasticBeanstalkResourceId;
     }
@@ -400,6 +494,9 @@ declare module "aws-sdk" {
     export type ElasticBeanstalkLoadBalancerListenersDescription = Array<ElasticBeanstalkListener>;
     export type ElasticBeanstalkMaxRecords = number;
     export type ElasticBeanstalkMessage = string;
+    export type ElasticBeanstalkNextToken = string;
+    export type ElasticBeanstalkNullableDouble = number;
+    export type ElasticBeanstalkNullableInteger = number;
     export interface ElasticBeanstalkOperationInProgressException {
     }
 
@@ -430,8 +527,10 @@ declare module "aws-sdk" {
         EnvironmentName?: ElasticBeanstalkEnvironmentName;
     }
 
+    export type ElasticBeanstalkRefreshedAt = number;
     export type ElasticBeanstalkRegexLabel = string;
     export type ElasticBeanstalkRegexPattern = string;
+    export type ElasticBeanstalkRequestCount = number;
     export interface ElasticBeanstalkRequestEnvironmentInfoMessage {
         EnvironmentId?: ElasticBeanstalkEnvironmentId;
         EnvironmentName?: ElasticBeanstalkEnvironmentName;
@@ -470,6 +569,16 @@ declare module "aws-sdk" {
     }
 
     export type ElasticBeanstalkSampleTimestamp = number;
+    export interface ElasticBeanstalkSingleInstanceHealth {
+        InstanceId?: ElasticBeanstalkInstanceId;
+        HealthStatus?: ElasticBeanstalkString;
+        Color?: ElasticBeanstalkString;
+        Causes?: ElasticBeanstalkCauses;
+        LaunchedAt?: ElasticBeanstalkLaunchedAt;
+        ApplicationMetrics?: ElasticBeanstalkApplicationMetrics;
+        System?: ElasticBeanstalkSystemStatus;
+    }
+
     export interface ElasticBeanstalkSolutionStackDescription {
         SolutionStackName?: ElasticBeanstalkSolutionStackName;
         PermittedFileTypes?: ElasticBeanstalkSolutionStackFileTypeList;
@@ -485,12 +594,24 @@ declare module "aws-sdk" {
         TemplateName?: ElasticBeanstalkConfigurationTemplateName;
     }
 
+    export interface ElasticBeanstalkStatusCodes {
+        Status2xx?: ElasticBeanstalkNullableInteger;
+        Status3xx?: ElasticBeanstalkNullableInteger;
+        Status4xx?: ElasticBeanstalkNullableInteger;
+        Status5xx?: ElasticBeanstalkNullableInteger;
+    }
+
     export type ElasticBeanstalkString = string;
     export interface ElasticBeanstalkSwapEnvironmentCNAMEsMessage {
         SourceEnvironmentId?: ElasticBeanstalkEnvironmentId;
         SourceEnvironmentName?: ElasticBeanstalkEnvironmentName;
         DestinationEnvironmentId?: ElasticBeanstalkEnvironmentId;
         DestinationEnvironmentName?: ElasticBeanstalkEnvironmentName;
+    }
+
+    export interface ElasticBeanstalkSystemStatus {
+        CPUUtilization?: ElasticBeanstalkCPUUtilization;
+        LoadAverage?: ElasticBeanstalkLoadAverage;
     }
 
     export interface ElasticBeanstalkTag {

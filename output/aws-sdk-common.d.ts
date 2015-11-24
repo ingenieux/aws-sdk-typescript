@@ -1,11 +1,3 @@
-// Type definitions for aws-sdk
-// Project: https://github.com/aws/aws-sdk-js
-// Definitions by: midknight41 <https://github.com/midknight41>
-// Definitions: https://github.com/borisyankov/DefinitelyTyped
-
-// Imported from: https://github.com/soywiz/typescript-node-definitions/aws-sdk.d.ts
-
-/// <reference path="../node/node.d.ts" />
 
 declare module "aws-sdk" {
 
@@ -30,7 +22,7 @@ declare module "aws-sdk" {
 		xhrAsync?: boolean;
 		xhrWithCredentials?: boolean;
 	}
-
+	
 	export interface Services {
 		autoscaling?: any;
 		cloudformation?: any;
@@ -71,7 +63,7 @@ declare module "aws-sdk" {
 		support?: any;
 		swf?: any;
 	}
-
+	
 	export interface ClientConfigPartial extends Services {
 		credentials?: Credentials;
 		region?: string;
@@ -96,4 +88,24 @@ declare module "aws-sdk" {
 		credentials: Credentials;
 		region: string;
 	}
+	
+	export class Endpoint {
+		constructor(endpoint:string);
+		
+		host:string;
+		hostname:string;
+		href:string;
+		port:number;
+		protocol:string;
+	}
+	
+	export class Service {
+		apiVersions:string[];
+		makeRequest(operation:string, params:Object, callback:(error?:Error, data?:any) => void): void; 
+		makeUnauthenticatedRequest(operation:string, params:Object, callback: (error?:Error, data?:any) => void): void;
+		setupRequestListeners(): void;
+		waitFor(state:string, params:Object, callback:(error?:Error, data?:any) => void): void;   
+	}
+	
 }
+	

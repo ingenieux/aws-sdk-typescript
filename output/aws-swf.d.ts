@@ -1,5 +1,7 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class SWF {
       constructor(options?: any);
@@ -135,6 +137,7 @@ declare module "aws-sdk" {
         nextPageToken?: SWFPageToken;
     }
 
+    export type SWFArn = string;
     export interface SWFCancelTimerDecisionAttributes {
         timerId: SWFTimerId;
     }
@@ -157,6 +160,7 @@ declare module "aws-sdk" {
     }
 
     export type SWFCanceled = boolean;
+    export type SWFCauseMessage = string;
     export type SWFChildPolicy = string;
     export interface SWFChildWorkflowExecutionCanceledEventAttributes {
         workflowExecution: SWFWorkflowExecution;
@@ -228,6 +232,7 @@ declare module "aws-sdk" {
         childPolicy?: SWFChildPolicy;
         tagList?: SWFTagList;
         workflowTypeVersion?: SWFVersion;
+        lambdaRole?: SWFArn;
     }
 
     export type SWFContinueAsNewWorkflowExecutionFailedCause = string;
@@ -280,6 +285,7 @@ declare module "aws-sdk" {
         signalExternalWorkflowExecutionDecisionAttributes?: SWFSignalExternalWorkflowExecutionDecisionAttributes;
         requestCancelExternalWorkflowExecutionDecisionAttributes?: SWFRequestCancelExternalWorkflowExecutionDecisionAttributes;
         startChildWorkflowExecutionDecisionAttributes?: SWFStartChildWorkflowExecutionDecisionAttributes;
+        scheduleLambdaFunctionDecisionAttributes?: SWFScheduleLambdaFunctionDecisionAttributes;
     }
 
     export type SWFDecisionList = Array<SWFDecision>;
@@ -420,6 +426,9 @@ declare module "aws-sdk" {
     }
 
     export type SWFFailureReason = string;
+    export type SWFFunctionId = string;
+    export type SWFFunctionInput = string;
+    export type SWFFunctionName = string;
     export interface SWFGetWorkflowExecutionHistoryInput {
         domain: SWFDomainName;
         execution: SWFWorkflowExecution;
@@ -484,10 +493,49 @@ declare module "aws-sdk" {
         startTimerFailedEventAttributes?: SWFStartTimerFailedEventAttributes;
         cancelTimerFailedEventAttributes?: SWFCancelTimerFailedEventAttributes;
         startChildWorkflowExecutionFailedEventAttributes?: SWFStartChildWorkflowExecutionFailedEventAttributes;
+        lambdaFunctionScheduledEventAttributes?: SWFLambdaFunctionScheduledEventAttributes;
+        lambdaFunctionStartedEventAttributes?: SWFLambdaFunctionStartedEventAttributes;
+        lambdaFunctionCompletedEventAttributes?: SWFLambdaFunctionCompletedEventAttributes;
+        lambdaFunctionFailedEventAttributes?: SWFLambdaFunctionFailedEventAttributes;
+        lambdaFunctionTimedOutEventAttributes?: SWFLambdaFunctionTimedOutEventAttributes;
+        scheduleLambdaFunctionFailedEventAttributes?: SWFScheduleLambdaFunctionFailedEventAttributes;
+        startLambdaFunctionFailedEventAttributes?: SWFStartLambdaFunctionFailedEventAttributes;
     }
 
     export type SWFHistoryEventList = Array<SWFHistoryEvent>;
     export type SWFIdentity = string;
+    export interface SWFLambdaFunctionCompletedEventAttributes {
+        scheduledEventId: SWFEventId;
+        startedEventId: SWFEventId;
+        result?: SWFData;
+    }
+
+    export interface SWFLambdaFunctionFailedEventAttributes {
+        scheduledEventId: SWFEventId;
+        startedEventId: SWFEventId;
+        reason?: SWFFailureReason;
+        details?: SWFData;
+    }
+
+    export interface SWFLambdaFunctionScheduledEventAttributes {
+        id: SWFFunctionId;
+        name: SWFFunctionName;
+        input?: SWFFunctionInput;
+        startToCloseTimeout?: SWFDurationInSecondsOptional;
+        decisionTaskCompletedEventId: SWFEventId;
+    }
+
+    export interface SWFLambdaFunctionStartedEventAttributes {
+        scheduledEventId: SWFEventId;
+    }
+
+    export interface SWFLambdaFunctionTimedOutEventAttributes {
+        scheduledEventId: SWFEventId;
+        startedEventId: SWFEventId;
+        timeoutType?: SWFLambdaFunctionTimeoutType;
+    }
+
+    export type SWFLambdaFunctionTimeoutType = string;
     export interface SWFLimitExceededFault {
         message?: SWFErrorMessage;
     }
@@ -623,6 +671,7 @@ declare module "aws-sdk" {
         defaultTaskList?: SWFTaskList;
         defaultTaskPriority?: SWFTaskPriority;
         defaultChildPolicy?: SWFChildPolicy;
+        defaultLambdaRole?: SWFArn;
     }
 
     export type SWFRegistrationStatus = string;
@@ -716,6 +765,21 @@ declare module "aws-sdk" {
         decisionTaskCompletedEventId: SWFEventId;
     }
 
+    export interface SWFScheduleLambdaFunctionDecisionAttributes {
+        id: SWFFunctionId;
+        name: SWFFunctionName;
+        input?: SWFFunctionInput;
+        startToCloseTimeout?: SWFDurationInSecondsOptional;
+    }
+
+    export type SWFScheduleLambdaFunctionFailedCause = string;
+    export interface SWFScheduleLambdaFunctionFailedEventAttributes {
+        id: SWFFunctionId;
+        name: SWFFunctionName;
+        cause: SWFScheduleLambdaFunctionFailedCause;
+        decisionTaskCompletedEventId: SWFEventId;
+    }
+
     export interface SWFSignalExternalWorkflowExecutionDecisionAttributes {
         workflowId: SWFWorkflowId;
         runId?: SWFRunIdOptional;
@@ -763,6 +827,7 @@ declare module "aws-sdk" {
         taskStartToCloseTimeout?: SWFDurationInSecondsOptional;
         childPolicy?: SWFChildPolicy;
         tagList?: SWFTagList;
+        lambdaRole?: SWFArn;
     }
 
     export type SWFStartChildWorkflowExecutionFailedCause = string;
@@ -787,6 +852,14 @@ declare module "aws-sdk" {
         childPolicy: SWFChildPolicy;
         taskStartToCloseTimeout?: SWFDurationInSecondsOptional;
         tagList?: SWFTagList;
+        lambdaRole?: SWFArn;
+    }
+
+    export type SWFStartLambdaFunctionFailedCause = string;
+    export interface SWFStartLambdaFunctionFailedEventAttributes {
+        scheduledEventId?: SWFEventId;
+        cause?: SWFStartLambdaFunctionFailedCause;
+        message?: SWFCauseMessage;
     }
 
     export interface SWFStartTimerDecisionAttributes {
@@ -813,6 +886,7 @@ declare module "aws-sdk" {
         tagList?: SWFTagList;
         taskStartToCloseTimeout?: SWFDurationInSecondsOptional;
         childPolicy?: SWFChildPolicy;
+        lambdaRole?: SWFArn;
     }
 
     export type SWFTag = string;
@@ -904,6 +978,7 @@ declare module "aws-sdk" {
         taskList: SWFTaskList;
         taskPriority?: SWFTaskPriority;
         childPolicy: SWFChildPolicy;
+        lambdaRole?: SWFArn;
     }
 
     export interface SWFWorkflowExecutionContinuedAsNewEventAttributes {
@@ -917,6 +992,7 @@ declare module "aws-sdk" {
         childPolicy: SWFChildPolicy;
         tagList?: SWFTagList;
         workflowType: SWFWorkflowType;
+        lambdaRole?: SWFArn;
     }
 
     export interface SWFWorkflowExecutionCount {
@@ -965,6 +1041,7 @@ declare module "aws-sdk" {
         openDecisionTasks: SWFOpenDecisionTasksCount;
         openTimers: SWFCount;
         openChildWorkflowExecutions: SWFCount;
+        openLambdaFunctions?: SWFCount;
     }
 
     export interface SWFWorkflowExecutionSignaledEventAttributes {
@@ -986,6 +1063,7 @@ declare module "aws-sdk" {
         continuedExecutionRunId?: SWFRunIdOptional;
         parentWorkflowExecution?: SWFWorkflowExecution;
         parentInitiatedEventId?: SWFEventId;
+        lambdaRole?: SWFArn;
     }
 
     export type SWFWorkflowExecutionTerminatedCause = string;
@@ -1014,6 +1092,7 @@ declare module "aws-sdk" {
         defaultTaskList?: SWFTaskList;
         defaultTaskPriority?: SWFTaskPriority;
         defaultChildPolicy?: SWFChildPolicy;
+        defaultLambdaRole?: SWFArn;
     }
 
     export interface SWFWorkflowTypeDetail {

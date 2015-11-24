@@ -1,5 +1,7 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class EC2 {
       constructor(options?: any);
@@ -29,6 +31,7 @@ declare module "aws-sdk" {
       copySnapshot(params: EC2CopySnapshotRequest, callback: (err: any, data: EC2CopySnapshotResult|any) => void): void;
       createCustomerGateway(params: EC2CreateCustomerGatewayRequest, callback: (err: any, data: EC2CreateCustomerGatewayResult|any) => void): void;
       createDhcpOptions(params: EC2CreateDhcpOptionsRequest, callback: (err: any, data: EC2CreateDhcpOptionsResult|any) => void): void;
+      createFlowLogs(params: EC2CreateFlowLogsRequest, callback: (err: any, data: EC2CreateFlowLogsResult|any) => void): void;
       createImage(params: EC2CreateImageRequest, callback: (err: any, data: EC2CreateImageResult|any) => void): void;
       createInstanceExportTask(params: EC2CreateInstanceExportTaskRequest, callback: (err: any, data: EC2CreateInstanceExportTaskResult|any) => void): void;
       createInternetGateway(params: EC2CreateInternetGatewayRequest, callback: (err: any, data: EC2CreateInternetGatewayResult|any) => void): void;
@@ -54,6 +57,7 @@ declare module "aws-sdk" {
       createVpnGateway(params: EC2CreateVpnGatewayRequest, callback: (err: any, data: EC2CreateVpnGatewayResult|any) => void): void;
       deleteCustomerGateway(params: EC2DeleteCustomerGatewayRequest, callback: (err: any, data: any) => void): void;
       deleteDhcpOptions(params: EC2DeleteDhcpOptionsRequest, callback: (err: any, data: any) => void): void;
+      deleteFlowLogs(params: EC2DeleteFlowLogsRequest, callback: (err: any, data: EC2DeleteFlowLogsResult|any) => void): void;
       deleteInternetGateway(params: EC2DeleteInternetGatewayRequest, callback: (err: any, data: any) => void): void;
       deleteKeyPair(params: EC2DeleteKeyPairRequest, callback: (err: any, data: any) => void): void;
       deleteNetworkAcl(params: EC2DeleteNetworkAclRequest, callback: (err: any, data: any) => void): void;
@@ -84,6 +88,7 @@ declare module "aws-sdk" {
       describeCustomerGateways(params: EC2DescribeCustomerGatewaysRequest, callback: (err: any, data: EC2DescribeCustomerGatewaysResult|any) => void): void;
       describeDhcpOptions(params: EC2DescribeDhcpOptionsRequest, callback: (err: any, data: EC2DescribeDhcpOptionsResult|any) => void): void;
       describeExportTasks(params: EC2DescribeExportTasksRequest, callback: (err: any, data: EC2DescribeExportTasksResult|any) => void): void;
+      describeFlowLogs(params: EC2DescribeFlowLogsRequest, callback: (err: any, data: EC2DescribeFlowLogsResult|any) => void): void;
       describeImageAttribute(params: EC2DescribeImageAttributeRequest, callback: (err: any, data: EC2ImageAttribute|any) => void): void;
       describeImages(params: EC2DescribeImagesRequest, callback: (err: any, data: EC2DescribeImagesResult|any) => void): void;
       describeImportImageTasks(params: EC2DescribeImportImageTasksRequest, callback: (err: any, data: EC2DescribeImportImageTasksResult|any) => void): void;
@@ -151,6 +156,7 @@ declare module "aws-sdk" {
       modifyNetworkInterfaceAttribute(params: EC2ModifyNetworkInterfaceAttributeRequest, callback: (err: any, data: any) => void): void;
       modifyReservedInstances(params: EC2ModifyReservedInstancesRequest, callback: (err: any, data: EC2ModifyReservedInstancesResult|any) => void): void;
       modifySnapshotAttribute(params: EC2ModifySnapshotAttributeRequest, callback: (err: any, data: any) => void): void;
+      modifySpotFleetRequest(params: EC2ModifySpotFleetRequestRequest, callback: (err: any, data: EC2ModifySpotFleetRequestResponse|any) => void): void;
       modifySubnetAttribute(params: EC2ModifySubnetAttributeRequest, callback: (err: any, data: any) => void): void;
       modifyVolumeAttribute(params: EC2ModifyVolumeAttributeRequest, callback: (err: any, data: any) => void): void;
       modifyVpcAttribute(params: EC2ModifyVpcAttributeRequest, callback: (err: any, data: any) => void): void;
@@ -237,6 +243,7 @@ declare module "aws-sdk" {
     }
 
     export type EC2AllocationIdList = Array<EC2String>;
+    export type EC2AllocationStrategy = string;
     export type EC2ArchitectureValues = string;
     export interface EC2AssignPrivateIpAddressesRequest {
         NetworkInterfaceId: EC2String;
@@ -516,6 +523,7 @@ declare module "aws-sdk" {
 
     export interface EC2ConfirmProductInstanceResult {
         OwnerId?: EC2String;
+        Return?: EC2Boolean;
     }
 
     export type EC2ContainerFormat = string;
@@ -551,6 +559,8 @@ declare module "aws-sdk" {
         Description?: EC2String;
         DestinationRegion?: EC2String;
         PresignedUrl?: EC2String;
+        Encrypted?: EC2Boolean;
+        KmsKeyId?: EC2String;
     }
 
     export interface EC2CopySnapshotResult {
@@ -575,6 +585,21 @@ declare module "aws-sdk" {
 
     export interface EC2CreateDhcpOptionsResult {
         DhcpOptions?: EC2DhcpOptions;
+    }
+
+    export interface EC2CreateFlowLogsRequest {
+        ResourceIds: EC2ValueStringList;
+        ResourceType: EC2FlowLogsResourceType;
+        TrafficType: EC2TrafficType;
+        LogGroupName: EC2String;
+        DeliverLogsPermissionArn: EC2String;
+        ClientToken?: EC2String;
+    }
+
+    export interface EC2CreateFlowLogsResult {
+        FlowLogIds?: EC2ValueStringList;
+        ClientToken?: EC2String;
+        Unsuccessful?: EC2UnsuccessfulItemSet;
     }
 
     export interface EC2CreateImageRequest {
@@ -674,12 +699,10 @@ declare module "aws-sdk" {
         InstanceId?: EC2String;
         NetworkInterfaceId?: EC2String;
         VpcPeeringConnectionId?: EC2String;
-        ClientToken?: EC2String;
     }
 
     export interface EC2CreateRouteResult {
         Return?: EC2Boolean;
-        ClientToken?: EC2String;
     }
 
     export interface EC2CreateRouteTableRequest {
@@ -841,6 +864,14 @@ declare module "aws-sdk" {
     export interface EC2DeleteDhcpOptionsRequest {
         DryRun?: EC2Boolean;
         DhcpOptionsId: EC2String;
+    }
+
+    export interface EC2DeleteFlowLogsRequest {
+        FlowLogIds: EC2ValueStringList;
+    }
+
+    export interface EC2DeleteFlowLogsResult {
+        Unsuccessful?: EC2UnsuccessfulItemSet;
     }
 
     export interface EC2DeleteInternetGatewayRequest {
@@ -1050,6 +1081,18 @@ declare module "aws-sdk" {
 
     export interface EC2DescribeExportTasksResult {
         ExportTasks?: EC2ExportTaskList;
+    }
+
+    export interface EC2DescribeFlowLogsRequest {
+        FlowLogIds?: EC2ValueStringList;
+        Filter?: EC2FilterList;
+        NextToken?: EC2String;
+        MaxResults?: EC2Integer;
+    }
+
+    export interface EC2DescribeFlowLogsResult {
+        FlowLogs?: EC2FlowLogSet;
+        NextToken?: EC2String;
     }
 
     export interface EC2DescribeImageAttributeRequest {
@@ -1706,6 +1749,7 @@ declare module "aws-sdk" {
     }
 
     export type EC2EventType = string;
+    export type EC2ExcessCapacityTerminationPolicy = string;
     export type EC2ExecutableByStringList = Array<EC2String>;
     export type EC2ExportEnvironment = string;
     export interface EC2ExportTask {
@@ -1741,6 +1785,20 @@ declare module "aws-sdk" {
 
     export type EC2FilterList = Array<EC2Filter>;
     export type EC2Float = number;
+    export interface EC2FlowLog {
+        CreationTime?: EC2DateTime;
+        FlowLogId?: EC2String;
+        FlowLogStatus?: EC2String;
+        ResourceId?: EC2String;
+        TrafficType?: EC2TrafficType;
+        LogGroupName?: EC2String;
+        DeliverLogsStatus?: EC2String;
+        DeliverLogsErrorMessage?: EC2String;
+        DeliverLogsPermissionArn?: EC2String;
+    }
+
+    export type EC2FlowLogSet = Array<EC2FlowLog>;
+    export type EC2FlowLogsResourceType = string;
     export type EC2GatewayType = string;
     export interface EC2GetConsoleOutputRequest {
         DryRun?: EC2Boolean;
@@ -2249,7 +2307,7 @@ declare module "aws-sdk" {
         Monitoring?: EC2RunInstancesMonitoringEnabled;
     }
 
-    export type EC2LaunchSpecsList = Array<EC2LaunchSpecification>;
+    export type EC2LaunchSpecsList = Array<EC2SpotFleetLaunchSpecification>;
     export type EC2ListingState = string;
     export type EC2ListingStatus = string;
     export type EC2Long = number;
@@ -2257,7 +2315,7 @@ declare module "aws-sdk" {
         DryRun?: EC2Boolean;
         ImageId: EC2String;
         Attribute?: EC2String;
-        OperationType?: EC2String;
+        OperationType?: EC2OperationType;
         UserIds?: EC2UserIdStringList;
         UserGroups?: EC2UserGroupStringList;
         ProductCodes?: EC2ProductCodeStringList;
@@ -2307,10 +2365,20 @@ declare module "aws-sdk" {
         DryRun?: EC2Boolean;
         SnapshotId: EC2String;
         Attribute?: EC2SnapshotAttributeName;
-        OperationType?: EC2String;
+        OperationType?: EC2OperationType;
         UserIds?: EC2UserIdStringList;
         GroupNames?: EC2GroupNameStringList;
         CreateVolumePermission?: EC2CreateVolumePermissionModifications;
+    }
+
+    export interface EC2ModifySpotFleetRequestRequest {
+        SpotFleetRequestId: EC2String;
+        TargetCapacity?: EC2Integer;
+        ExcessCapacityTerminationPolicy?: EC2ExcessCapacityTerminationPolicy;
+    }
+
+    export interface EC2ModifySpotFleetRequestResponse {
+        Return?: EC2Boolean;
     }
 
     export interface EC2ModifySubnetAttributeRequest {
@@ -2459,6 +2527,7 @@ declare module "aws-sdk" {
     export type EC2NetworkInterfacePrivateIpAddressList = Array<EC2NetworkInterfacePrivateIpAddress>;
     export type EC2NetworkInterfaceStatus = string;
     export type EC2OfferingTypeValues = string;
+    export type EC2OperationType = string;
     export type EC2OwnerStringList = Array<EC2String>;
     export type EC2PermissionGroup = string;
     export interface EC2Placement {
@@ -2676,6 +2745,7 @@ declare module "aws-sdk" {
         ValidUntil?: EC2DateTime;
         LaunchGroup?: EC2String;
         AvailabilityZoneGroup?: EC2String;
+        BlockDurationMinutes?: EC2Integer;
         LaunchSpecification?: EC2RequestSpotLaunchSpecification;
     }
 
@@ -2938,6 +3008,7 @@ declare module "aws-sdk" {
         SnapshotId?: EC2String;
         VolumeId?: EC2String;
         State?: EC2SnapshotState;
+        StateMessage?: EC2String;
         StartTime?: EC2DateTime;
         Progress?: EC2String;
         OwnerId?: EC2String;
@@ -2947,6 +3018,7 @@ declare module "aws-sdk" {
         Tags?: EC2TagList;
         Encrypted?: EC2Boolean;
         KmsKeyId?: EC2String;
+        DataEncryptionKeyId?: EC2String;
     }
 
     export type EC2SnapshotAttributeName = string;
@@ -2994,10 +3066,35 @@ declare module "aws-sdk" {
         Fault?: EC2SpotInstanceStateFault;
     }
 
+    export interface EC2SpotFleetLaunchSpecification {
+        ImageId?: EC2String;
+        KeyName?: EC2String;
+        SecurityGroups?: EC2GroupIdentifierList;
+        UserData?: EC2String;
+        AddressingType?: EC2String;
+        InstanceType?: EC2InstanceType;
+        Placement?: EC2SpotPlacement;
+        KernelId?: EC2String;
+        RamdiskId?: EC2String;
+        BlockDeviceMappings?: EC2BlockDeviceMappingList;
+        Monitoring?: EC2SpotFleetMonitoring;
+        SubnetId?: EC2String;
+        NetworkInterfaces?: EC2InstanceNetworkInterfaceSpecificationList;
+        IamInstanceProfile?: EC2IamInstanceProfileSpecification;
+        EbsOptimized?: EC2Boolean;
+        WeightedCapacity?: EC2Double;
+        SpotPrice?: EC2String;
+    }
+
+    export interface EC2SpotFleetMonitoring {
+        Enabled?: EC2Boolean;
+    }
+
     export interface EC2SpotFleetRequestConfig {
         SpotFleetRequestId: EC2String;
         SpotFleetRequestState: EC2BatchState;
         SpotFleetRequestConfig: EC2SpotFleetRequestConfigData;
+        CreateTime: EC2DateTime;
     }
 
     export interface EC2SpotFleetRequestConfigData {
@@ -3009,6 +3106,8 @@ declare module "aws-sdk" {
         TerminateInstancesWithExpiration?: EC2Boolean;
         IamFleetRole: EC2String;
         LaunchSpecifications: EC2LaunchSpecsList;
+        ExcessCapacityTerminationPolicy?: EC2ExcessCapacityTerminationPolicy;
+        AllocationStrategy?: EC2AllocationStrategy;
     }
 
     export type EC2SpotFleetRequestConfigSet = Array<EC2SpotFleetRequestConfig>;
@@ -3027,6 +3126,8 @@ declare module "aws-sdk" {
         InstanceId?: EC2String;
         CreateTime?: EC2DateTime;
         ProductDescription?: EC2RIProductDescription;
+        BlockDurationMinutes?: EC2Integer;
+        ActualBlockHourlyPrice?: EC2String;
         Tags?: EC2TagList;
         LaunchedAvailabilityZone?: EC2String;
     }
@@ -3135,6 +3236,7 @@ declare module "aws-sdk" {
         TerminatingInstances?: EC2InstanceStateChangeList;
     }
 
+    export type EC2TrafficType = string;
     export interface EC2UnassignPrivateIpAddressesRequest {
         NetworkInterfaceId: EC2String;
         PrivateIpAddresses: EC2PrivateIpAddressStringList;
@@ -3317,10 +3419,11 @@ declare module "aws-sdk" {
 
     export type EC2VpcPeeringConnectionList = Array<EC2VpcPeeringConnection>;
     export interface EC2VpcPeeringConnectionStateReason {
-        Code?: EC2String;
+        Code?: EC2VpcPeeringConnectionStateReasonCode;
         Message?: EC2String;
     }
 
+    export type EC2VpcPeeringConnectionStateReasonCode = string;
     export interface EC2VpcPeeringConnectionVpcInfo {
         CidrBlock?: EC2String;
         OwnerId?: EC2String;

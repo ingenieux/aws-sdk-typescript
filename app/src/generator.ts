@@ -4,19 +4,13 @@ import meta = require("./meta")
 import fs = require("fs")
 import handlebars = require("handlebars")
 
-export interface APIGeneratorArgs {
-  name: string
-  prefix?: string
-  versions: Array<String>
-}
-
 export class AWSTypeGenerator {
   fetchTemplate(name: string) {
     var templateSource = fs.readFileSync(__dirname + `/../src/${name}.handlebars`).toString()
     return handlebars.compile(templateSource)
   }
 
-  executeOn(api: APIGeneratorArgs, content:string) {
+  executeOn(api: meta.ServiceInfo, content:string|Buffer) {
     var moduleTemplate = this.fetchTemplate("module")
     var structureTemplate = this.fetchTemplate("structure")
 
@@ -24,7 +18,7 @@ export class AWSTypeGenerator {
       return name.charAt(0).toLowerCase() + name.substring(1)
     })
 
-    var m: meta.Descriptor = JSON.parse(content)
+    var m: meta.Descriptor = JSON.parse(content.toString())
 
     var prefix = "    "
 
@@ -72,5 +66,10 @@ export class AWSTypeGenerator {
     }
 
     return moduleTemplate(ctx)
+  }
+  
+  generateMainModule(services:string[]) {
+    var template = this.fetchTemplate('aws-sdk');
+    return template({services:services});
   }
 }
