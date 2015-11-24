@@ -1,53 +1,58 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class AutoScaling {
       constructor(options?: any);
-      attachInstances(params: AutoScalingAttachInstancesQuery, callback: (err: any, data: any) => void): void;
-      completeLifecycleAction(params: AutoScalingCompleteLifecycleActionType, callback: (err: any, data: AutoScalingCompleteLifecycleActionAnswer|any) => void): void;
-      createAutoScalingGroup(params: AutoScalingCreateAutoScalingGroupType, callback: (err: AutoScalingAlreadyExistsFault|AutoScalingLimitExceededFault|any, data: any) => void): void;
-      createLaunchConfiguration(params: AutoScalingCreateLaunchConfigurationType, callback: (err: AutoScalingAlreadyExistsFault|AutoScalingLimitExceededFault|any, data: any) => void): void;
-      createOrUpdateTags(params: AutoScalingCreateOrUpdateTagsType, callback: (err: AutoScalingLimitExceededFault|AutoScalingAlreadyExistsFault|any, data: any) => void): void;
-      deleteAutoScalingGroup(params: AutoScalingDeleteAutoScalingGroupType, callback: (err: AutoScalingScalingActivityInProgressFault|AutoScalingResourceInUseFault|any, data: any) => void): void;
-      deleteLaunchConfiguration(params: AutoScalingLaunchConfigurationNameType, callback: (err: AutoScalingResourceInUseFault|any, data: any) => void): void;
-      deleteLifecycleHook(params: AutoScalingDeleteLifecycleHookType, callback: (err: any, data: AutoScalingDeleteLifecycleHookAnswer|any) => void): void;
-      deleteNotificationConfiguration(params: AutoScalingDeleteNotificationConfigurationType, callback: (err: any, data: any) => void): void;
-      deletePolicy(params: AutoScalingDeletePolicyType, callback: (err: any, data: any) => void): void;
-      deleteScheduledAction(params: AutoScalingDeleteScheduledActionType, callback: (err: any, data: any) => void): void;
-      deleteTags(params: AutoScalingDeleteTagsType, callback: (err: any, data: any) => void): void;
-      describeAccountLimits(callback: (err: any, data: AutoScalingDescribeAccountLimitsAnswer|any) => void): void;
-      describeAdjustmentTypes(callback: (err: any, data: AutoScalingDescribeAdjustmentTypesAnswer|any) => void): void;
-      describeAutoScalingGroups(params: AutoScalingAutoScalingGroupNamesType, callback: (err: AutoScalingInvalidNextToken|any, data: AutoScalingAutoScalingGroupsType|any) => void): void;
-      describeAutoScalingInstances(params: AutoScalingDescribeAutoScalingInstancesType, callback: (err: AutoScalingInvalidNextToken|any, data: AutoScalingAutoScalingInstancesType|any) => void): void;
-      describeAutoScalingNotificationTypes(callback: (err: any, data: AutoScalingDescribeAutoScalingNotificationTypesAnswer|any) => void): void;
-      describeLaunchConfigurations(params: AutoScalingLaunchConfigurationNamesType, callback: (err: AutoScalingInvalidNextToken|any, data: AutoScalingLaunchConfigurationsType|any) => void): void;
-      describeLifecycleHookTypes(callback: (err: any, data: AutoScalingDescribeLifecycleHookTypesAnswer|any) => void): void;
-      describeLifecycleHooks(params: AutoScalingDescribeLifecycleHooksType, callback: (err: any, data: AutoScalingDescribeLifecycleHooksAnswer|any) => void): void;
-      describeMetricCollectionTypes(callback: (err: any, data: AutoScalingDescribeMetricCollectionTypesAnswer|any) => void): void;
-      describeNotificationConfigurations(params: AutoScalingDescribeNotificationConfigurationsType, callback: (err: AutoScalingInvalidNextToken|any, data: AutoScalingDescribeNotificationConfigurationsAnswer|any) => void): void;
-      describePolicies(params: AutoScalingDescribePoliciesType, callback: (err: AutoScalingInvalidNextToken|any, data: AutoScalingPoliciesType|any) => void): void;
-      describeScalingActivities(params: AutoScalingDescribeScalingActivitiesType, callback: (err: AutoScalingInvalidNextToken|any, data: AutoScalingActivitiesType|any) => void): void;
-      describeScalingProcessTypes(callback: (err: any, data: AutoScalingProcessesType|any) => void): void;
-      describeScheduledActions(params: AutoScalingDescribeScheduledActionsType, callback: (err: AutoScalingInvalidNextToken|any, data: AutoScalingScheduledActionsType|any) => void): void;
-      describeTags(params: AutoScalingDescribeTagsType, callback: (err: AutoScalingInvalidNextToken|any, data: AutoScalingTagsType|any) => void): void;
-      describeTerminationPolicyTypes(callback: (err: any, data: AutoScalingDescribeTerminationPolicyTypesAnswer|any) => void): void;
-      detachInstances(params: AutoScalingDetachInstancesQuery, callback: (err: any, data: AutoScalingDetachInstancesAnswer|any) => void): void;
-      disableMetricsCollection(params: AutoScalingDisableMetricsCollectionQuery, callback: (err: any, data: any) => void): void;
-      enableMetricsCollection(params: AutoScalingEnableMetricsCollectionQuery, callback: (err: any, data: any) => void): void;
-      enterStandby(params: AutoScalingEnterStandbyQuery, callback: (err: any, data: AutoScalingEnterStandbyAnswer|any) => void): void;
-      executePolicy(params: AutoScalingExecutePolicyType, callback: (err: AutoScalingScalingActivityInProgressFault|any, data: any) => void): void;
-      exitStandby(params: AutoScalingExitStandbyQuery, callback: (err: any, data: AutoScalingExitStandbyAnswer|any) => void): void;
-      putLifecycleHook(params: AutoScalingPutLifecycleHookType, callback: (err: AutoScalingLimitExceededFault|any, data: AutoScalingPutLifecycleHookAnswer|any) => void): void;
-      putNotificationConfiguration(params: AutoScalingPutNotificationConfigurationType, callback: (err: AutoScalingLimitExceededFault|any, data: any) => void): void;
-      putScalingPolicy(params: AutoScalingPutScalingPolicyType, callback: (err: AutoScalingLimitExceededFault|any, data: AutoScalingPolicyARNType|any) => void): void;
-      putScheduledUpdateGroupAction(params: AutoScalingPutScheduledUpdateGroupActionType, callback: (err: AutoScalingAlreadyExistsFault|AutoScalingLimitExceededFault|any, data: any) => void): void;
-      recordLifecycleActionHeartbeat(params: AutoScalingRecordLifecycleActionHeartbeatType, callback: (err: any, data: AutoScalingRecordLifecycleActionHeartbeatAnswer|any) => void): void;
-      resumeProcesses(params: AutoScalingScalingProcessQuery, callback: (err: any, data: any) => void): void;
-      setDesiredCapacity(params: AutoScalingSetDesiredCapacityType, callback: (err: AutoScalingScalingActivityInProgressFault|any, data: any) => void): void;
-      setInstanceHealth(params: AutoScalingSetInstanceHealthQuery, callback: (err: any, data: any) => void): void;
-      suspendProcesses(params: AutoScalingScalingProcessQuery, callback: (err: any, data: any) => void): void;
-      terminateInstanceInAutoScalingGroup(params: AutoScalingTerminateInstanceInAutoScalingGroupType, callback: (err: AutoScalingScalingActivityInProgressFault|any, data: AutoScalingActivityType|any) => void): void;
-      updateAutoScalingGroup(params: AutoScalingUpdateAutoScalingGroupType, callback: (err: AutoScalingScalingActivityInProgressFault|any, data: any) => void): void;
+      attachInstances(params: AutoScalingAttachInstancesQuery, callback: (err: AutoScalingResourceContentionFault|any, data: any) => void): void;
+      attachLoadBalancers(params: AutoScalingAttachLoadBalancersType, callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingAttachLoadBalancersResultType|any) => void): void;
+      completeLifecycleAction(params: AutoScalingCompleteLifecycleActionType, callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingCompleteLifecycleActionAnswer|any) => void): void;
+      createAutoScalingGroup(params: AutoScalingCreateAutoScalingGroupType, callback: (err: AutoScalingAlreadyExistsFault|AutoScalingLimitExceededFault|AutoScalingResourceContentionFault|any, data: any) => void): void;
+      createLaunchConfiguration(params: AutoScalingCreateLaunchConfigurationType, callback: (err: AutoScalingAlreadyExistsFault|AutoScalingLimitExceededFault|AutoScalingResourceContentionFault|any, data: any) => void): void;
+      createOrUpdateTags(params: AutoScalingCreateOrUpdateTagsType, callback: (err: AutoScalingLimitExceededFault|AutoScalingAlreadyExistsFault|AutoScalingResourceContentionFault|any, data: any) => void): void;
+      deleteAutoScalingGroup(params: AutoScalingDeleteAutoScalingGroupType, callback: (err: AutoScalingScalingActivityInProgressFault|AutoScalingResourceInUseFault|AutoScalingResourceContentionFault|any, data: any) => void): void;
+      deleteLaunchConfiguration(params: AutoScalingLaunchConfigurationNameType, callback: (err: AutoScalingResourceInUseFault|AutoScalingResourceContentionFault|any, data: any) => void): void;
+      deleteLifecycleHook(params: AutoScalingDeleteLifecycleHookType, callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingDeleteLifecycleHookAnswer|any) => void): void;
+      deleteNotificationConfiguration(params: AutoScalingDeleteNotificationConfigurationType, callback: (err: AutoScalingResourceContentionFault|any, data: any) => void): void;
+      deletePolicy(params: AutoScalingDeletePolicyType, callback: (err: AutoScalingResourceContentionFault|any, data: any) => void): void;
+      deleteScheduledAction(params: AutoScalingDeleteScheduledActionType, callback: (err: AutoScalingResourceContentionFault|any, data: any) => void): void;
+      deleteTags(params: AutoScalingDeleteTagsType, callback: (err: AutoScalingResourceContentionFault|any, data: any) => void): void;
+      describeAccountLimits(callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingDescribeAccountLimitsAnswer|any) => void): void;
+      describeAdjustmentTypes(callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingDescribeAdjustmentTypesAnswer|any) => void): void;
+      describeAutoScalingGroups(params: AutoScalingAutoScalingGroupNamesType, callback: (err: AutoScalingInvalidNextToken|AutoScalingResourceContentionFault|any, data: AutoScalingAutoScalingGroupsType|any) => void): void;
+      describeAutoScalingInstances(params: AutoScalingDescribeAutoScalingInstancesType, callback: (err: AutoScalingInvalidNextToken|AutoScalingResourceContentionFault|any, data: AutoScalingAutoScalingInstancesType|any) => void): void;
+      describeAutoScalingNotificationTypes(callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingDescribeAutoScalingNotificationTypesAnswer|any) => void): void;
+      describeLaunchConfigurations(params: AutoScalingLaunchConfigurationNamesType, callback: (err: AutoScalingInvalidNextToken|AutoScalingResourceContentionFault|any, data: AutoScalingLaunchConfigurationsType|any) => void): void;
+      describeLifecycleHookTypes(callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingDescribeLifecycleHookTypesAnswer|any) => void): void;
+      describeLifecycleHooks(params: AutoScalingDescribeLifecycleHooksType, callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingDescribeLifecycleHooksAnswer|any) => void): void;
+      describeLoadBalancers(params: AutoScalingDescribeLoadBalancersRequest, callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingDescribeLoadBalancersResponse|any) => void): void;
+      describeMetricCollectionTypes(callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingDescribeMetricCollectionTypesAnswer|any) => void): void;
+      describeNotificationConfigurations(params: AutoScalingDescribeNotificationConfigurationsType, callback: (err: AutoScalingInvalidNextToken|AutoScalingResourceContentionFault|any, data: AutoScalingDescribeNotificationConfigurationsAnswer|any) => void): void;
+      describePolicies(params: AutoScalingDescribePoliciesType, callback: (err: AutoScalingInvalidNextToken|AutoScalingResourceContentionFault|any, data: AutoScalingPoliciesType|any) => void): void;
+      describeScalingActivities(params: AutoScalingDescribeScalingActivitiesType, callback: (err: AutoScalingInvalidNextToken|AutoScalingResourceContentionFault|any, data: AutoScalingActivitiesType|any) => void): void;
+      describeScalingProcessTypes(callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingProcessesType|any) => void): void;
+      describeScheduledActions(params: AutoScalingDescribeScheduledActionsType, callback: (err: AutoScalingInvalidNextToken|AutoScalingResourceContentionFault|any, data: AutoScalingScheduledActionsType|any) => void): void;
+      describeTags(params: AutoScalingDescribeTagsType, callback: (err: AutoScalingInvalidNextToken|AutoScalingResourceContentionFault|any, data: AutoScalingTagsType|any) => void): void;
+      describeTerminationPolicyTypes(callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingDescribeTerminationPolicyTypesAnswer|any) => void): void;
+      detachInstances(params: AutoScalingDetachInstancesQuery, callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingDetachInstancesAnswer|any) => void): void;
+      detachLoadBalancers(params: AutoScalingDetachLoadBalancersType, callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingDetachLoadBalancersResultType|any) => void): void;
+      disableMetricsCollection(params: AutoScalingDisableMetricsCollectionQuery, callback: (err: AutoScalingResourceContentionFault|any, data: any) => void): void;
+      enableMetricsCollection(params: AutoScalingEnableMetricsCollectionQuery, callback: (err: AutoScalingResourceContentionFault|any, data: any) => void): void;
+      enterStandby(params: AutoScalingEnterStandbyQuery, callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingEnterStandbyAnswer|any) => void): void;
+      executePolicy(params: AutoScalingExecutePolicyType, callback: (err: AutoScalingScalingActivityInProgressFault|AutoScalingResourceContentionFault|any, data: any) => void): void;
+      exitStandby(params: AutoScalingExitStandbyQuery, callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingExitStandbyAnswer|any) => void): void;
+      putLifecycleHook(params: AutoScalingPutLifecycleHookType, callback: (err: AutoScalingLimitExceededFault|AutoScalingResourceContentionFault|any, data: AutoScalingPutLifecycleHookAnswer|any) => void): void;
+      putNotificationConfiguration(params: AutoScalingPutNotificationConfigurationType, callback: (err: AutoScalingLimitExceededFault|AutoScalingResourceContentionFault|any, data: any) => void): void;
+      putScalingPolicy(params: AutoScalingPutScalingPolicyType, callback: (err: AutoScalingLimitExceededFault|AutoScalingResourceContentionFault|any, data: AutoScalingPolicyARNType|any) => void): void;
+      putScheduledUpdateGroupAction(params: AutoScalingPutScheduledUpdateGroupActionType, callback: (err: AutoScalingAlreadyExistsFault|AutoScalingLimitExceededFault|AutoScalingResourceContentionFault|any, data: any) => void): void;
+      recordLifecycleActionHeartbeat(params: AutoScalingRecordLifecycleActionHeartbeatType, callback: (err: AutoScalingResourceContentionFault|any, data: AutoScalingRecordLifecycleActionHeartbeatAnswer|any) => void): void;
+      resumeProcesses(params: AutoScalingScalingProcessQuery, callback: (err: AutoScalingResourceInUseFault|AutoScalingResourceContentionFault|any, data: any) => void): void;
+      setDesiredCapacity(params: AutoScalingSetDesiredCapacityType, callback: (err: AutoScalingScalingActivityInProgressFault|AutoScalingResourceContentionFault|any, data: any) => void): void;
+      setInstanceHealth(params: AutoScalingSetInstanceHealthQuery, callback: (err: AutoScalingResourceContentionFault|any, data: any) => void): void;
+      suspendProcesses(params: AutoScalingScalingProcessQuery, callback: (err: AutoScalingResourceInUseFault|AutoScalingResourceContentionFault|any, data: any) => void): void;
+      terminateInstanceInAutoScalingGroup(params: AutoScalingTerminateInstanceInAutoScalingGroupType, callback: (err: AutoScalingScalingActivityInProgressFault|AutoScalingResourceContentionFault|any, data: AutoScalingActivityType|any) => void): void;
+      updateAutoScalingGroup(params: AutoScalingUpdateAutoScalingGroupType, callback: (err: AutoScalingScalingActivityInProgressFault|AutoScalingResourceContentionFault|any, data: any) => void): void;
     }
 
     export type AutoScalingActivities = Array<AutoScalingActivity>;
@@ -94,6 +99,14 @@ declare module "aws-sdk" {
     export interface AutoScalingAttachInstancesQuery {
         InstanceIds?: AutoScalingInstanceIds;
         AutoScalingGroupName: AutoScalingResourceName;
+    }
+
+    export interface AutoScalingAttachLoadBalancersResultType {
+    }
+
+    export interface AutoScalingAttachLoadBalancersType {
+        AutoScalingGroupName?: AutoScalingResourceName;
+        LoadBalancerNames?: AutoScalingLoadBalancerNames;
     }
 
     export interface AutoScalingAutoScalingGroup {
@@ -153,6 +166,7 @@ declare module "aws-sdk" {
     export type AutoScalingAutoScalingNotificationTypes = Array<AutoScalingXmlStringMaxLen255>;
     export type AutoScalingAvailabilityZones = Array<AutoScalingXmlStringMaxLen255>;
     export type AutoScalingBlockDeviceEbsDeleteOnTermination = boolean;
+    export type AutoScalingBlockDeviceEbsEncrypted = boolean;
     export type AutoScalingBlockDeviceEbsIops = number;
     export type AutoScalingBlockDeviceEbsVolumeSize = number;
     export type AutoScalingBlockDeviceEbsVolumeType = string;
@@ -283,6 +297,17 @@ declare module "aws-sdk" {
         LifecycleHookNames?: AutoScalingLifecycleHookNames;
     }
 
+    export interface AutoScalingDescribeLoadBalancersRequest {
+        AutoScalingGroupName: AutoScalingResourceName;
+        NextToken?: AutoScalingXmlString;
+        MaxRecords?: AutoScalingMaxRecords;
+    }
+
+    export interface AutoScalingDescribeLoadBalancersResponse {
+        LoadBalancers?: AutoScalingLoadBalancerStates;
+        NextToken?: AutoScalingXmlString;
+    }
+
     export interface AutoScalingDescribeMetricCollectionTypesAnswer {
         Metrics?: AutoScalingMetricCollectionTypes;
         Granularities?: AutoScalingMetricGranularityTypes;
@@ -302,6 +327,7 @@ declare module "aws-sdk" {
     export interface AutoScalingDescribePoliciesType {
         AutoScalingGroupName?: AutoScalingResourceName;
         PolicyNames?: AutoScalingPolicyNames;
+        PolicyTypes?: AutoScalingPolicyTypes;
         NextToken?: AutoScalingXmlString;
         MaxRecords?: AutoScalingMaxRecords;
     }
@@ -342,6 +368,14 @@ declare module "aws-sdk" {
         ShouldDecrementDesiredCapacity: AutoScalingShouldDecrementDesiredCapacity;
     }
 
+    export interface AutoScalingDetachLoadBalancersResultType {
+    }
+
+    export interface AutoScalingDetachLoadBalancersType {
+        AutoScalingGroupName?: AutoScalingResourceName;
+        LoadBalancerNames?: AutoScalingLoadBalancerNames;
+    }
+
     export interface AutoScalingDisableMetricsCollectionQuery {
         AutoScalingGroupName: AutoScalingResourceName;
         Metrics?: AutoScalingMetrics;
@@ -353,6 +387,7 @@ declare module "aws-sdk" {
         VolumeType?: AutoScalingBlockDeviceEbsVolumeType;
         DeleteOnTermination?: AutoScalingBlockDeviceEbsDeleteOnTermination;
         Iops?: AutoScalingBlockDeviceEbsIops;
+        Encrypted?: AutoScalingBlockDeviceEbsEncrypted;
     }
 
     export type AutoScalingEbsOptimized = boolean;
@@ -378,10 +413,13 @@ declare module "aws-sdk" {
         ShouldDecrementDesiredCapacity: AutoScalingShouldDecrementDesiredCapacity;
     }
 
+    export type AutoScalingEstimatedInstanceWarmup = number;
     export interface AutoScalingExecutePolicyType {
         AutoScalingGroupName?: AutoScalingResourceName;
         PolicyName: AutoScalingResourceName;
         HonorCooldown?: AutoScalingHonorCooldown;
+        MetricValue?: AutoScalingMetricScale;
+        BreachThreshold?: AutoScalingMetricScale;
     }
 
     export interface AutoScalingExitStandbyAnswer {
@@ -484,6 +522,12 @@ declare module "aws-sdk" {
     }
 
     export type AutoScalingLoadBalancerNames = Array<AutoScalingXmlStringMaxLen255>;
+    export interface AutoScalingLoadBalancerState {
+        LoadBalancerName?: AutoScalingXmlStringMaxLen255;
+        State?: AutoScalingXmlStringMaxLen255;
+    }
+
+    export type AutoScalingLoadBalancerStates = Array<AutoScalingLoadBalancerState>;
     export type AutoScalingMaxNumberOfAutoScalingGroups = number;
     export type AutoScalingMaxNumberOfLaunchConfigurations = number;
     export type AutoScalingMaxRecords = number;
@@ -497,7 +541,9 @@ declare module "aws-sdk" {
     }
 
     export type AutoScalingMetricGranularityTypes = Array<AutoScalingMetricGranularityType>;
+    export type AutoScalingMetricScale = number;
     export type AutoScalingMetrics = Array<AutoScalingXmlStringMaxLen255>;
+    export type AutoScalingMinAdjustmentMagnitude = number;
     export type AutoScalingMinAdjustmentStep = number;
     export type AutoScalingMonitoringEnabled = boolean;
     export type AutoScalingNoDevice = boolean;
@@ -519,6 +565,7 @@ declare module "aws-sdk" {
 
     export type AutoScalingPolicyIncrement = number;
     export type AutoScalingPolicyNames = Array<AutoScalingResourceName>;
+    export type AutoScalingPolicyTypes = Array<AutoScalingXmlStringMaxLen64>;
     export type AutoScalingProcessNames = Array<AutoScalingXmlStringMaxLen255>;
     export interface AutoScalingProcessType {
         ProcessName: AutoScalingXmlStringMaxLen255;
@@ -554,10 +601,15 @@ declare module "aws-sdk" {
     export interface AutoScalingPutScalingPolicyType {
         AutoScalingGroupName: AutoScalingResourceName;
         PolicyName: AutoScalingXmlStringMaxLen255;
-        ScalingAdjustment: AutoScalingPolicyIncrement;
+        PolicyType?: AutoScalingXmlStringMaxLen64;
         AdjustmentType: AutoScalingXmlStringMaxLen255;
-        Cooldown?: AutoScalingCooldown;
         MinAdjustmentStep?: AutoScalingMinAdjustmentStep;
+        MinAdjustmentMagnitude?: AutoScalingMinAdjustmentMagnitude;
+        ScalingAdjustment?: AutoScalingPolicyIncrement;
+        Cooldown?: AutoScalingCooldown;
+        MetricAggregationType?: AutoScalingXmlStringMaxLen32;
+        StepAdjustments?: AutoScalingStepAdjustments;
+        EstimatedInstanceWarmup?: AutoScalingEstimatedInstanceWarmup;
     }
 
     export interface AutoScalingPutScheduledUpdateGroupActionType {
@@ -581,6 +633,10 @@ declare module "aws-sdk" {
         LifecycleActionToken: AutoScalingLifecycleActionToken;
     }
 
+    export interface AutoScalingResourceContentionFault {
+        message?: AutoScalingXmlStringMaxLen255;
+    }
+
     export interface AutoScalingResourceInUseFault {
         message?: AutoScalingXmlStringMaxLen255;
     }
@@ -595,12 +651,17 @@ declare module "aws-sdk" {
     export interface AutoScalingScalingPolicy {
         AutoScalingGroupName?: AutoScalingXmlStringMaxLen255;
         PolicyName?: AutoScalingXmlStringMaxLen255;
-        ScalingAdjustment?: AutoScalingPolicyIncrement;
-        AdjustmentType?: AutoScalingXmlStringMaxLen255;
-        Cooldown?: AutoScalingCooldown;
         PolicyARN?: AutoScalingResourceName;
-        Alarms?: AutoScalingAlarms;
+        PolicyType?: AutoScalingXmlStringMaxLen64;
+        AdjustmentType?: AutoScalingXmlStringMaxLen255;
         MinAdjustmentStep?: AutoScalingMinAdjustmentStep;
+        MinAdjustmentMagnitude?: AutoScalingMinAdjustmentMagnitude;
+        ScalingAdjustment?: AutoScalingPolicyIncrement;
+        Cooldown?: AutoScalingCooldown;
+        StepAdjustments?: AutoScalingStepAdjustments;
+        MetricAggregationType?: AutoScalingXmlStringMaxLen32;
+        EstimatedInstanceWarmup?: AutoScalingEstimatedInstanceWarmup;
+        Alarms?: AutoScalingAlarms;
     }
 
     export interface AutoScalingScalingProcessQuery {
@@ -644,6 +705,13 @@ declare module "aws-sdk" {
     export type AutoScalingShouldDecrementDesiredCapacity = boolean;
     export type AutoScalingShouldRespectGracePeriod = boolean;
     export type AutoScalingSpotPrice = string;
+    export interface AutoScalingStepAdjustment {
+        MetricIntervalLowerBound?: AutoScalingMetricScale;
+        MetricIntervalUpperBound?: AutoScalingMetricScale;
+        ScalingAdjustment: AutoScalingPolicyIncrement;
+    }
+
+    export type AutoScalingStepAdjustments = Array<AutoScalingStepAdjustment>;
     export interface AutoScalingSuspendedProcess {
         ProcessName?: AutoScalingXmlStringMaxLen255;
         SuspensionReason?: AutoScalingXmlStringMaxLen255;

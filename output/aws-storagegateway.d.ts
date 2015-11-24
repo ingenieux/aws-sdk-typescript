@@ -1,10 +1,13 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class StorageGateway {
       constructor(options?: any);
       activateGateway(params: StorageGatewayActivateGatewayInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayActivateGatewayOutput|any) => void): void;
       addCache(params: StorageGatewayAddCacheInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayAddCacheOutput|any) => void): void;
+      addTagsToResource(params: StorageGatewayAddTagsToResourceInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayAddTagsToResourceOutput|any) => void): void;
       addUploadBuffer(params: StorageGatewayAddUploadBufferInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayAddUploadBufferOutput|any) => void): void;
       addWorkingStorage(params: StorageGatewayAddWorkingStorageInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayAddWorkingStorageOutput|any) => void): void;
       cancelArchival(params: StorageGatewayCancelArchivalInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayCancelArchivalOutput|any) => void): void;
@@ -38,8 +41,11 @@ declare module "aws-sdk" {
       disableGateway(params: StorageGatewayDisableGatewayInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayDisableGatewayOutput|any) => void): void;
       listGateways(params: StorageGatewayListGatewaysInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayListGatewaysOutput|any) => void): void;
       listLocalDisks(params: StorageGatewayListLocalDisksInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayListLocalDisksOutput|any) => void): void;
+      listTagsForResource(params: StorageGatewayListTagsForResourceInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayListTagsForResourceOutput|any) => void): void;
+      listVolumeInitiators(params: StorageGatewayListVolumeInitiatorsInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayListVolumeInitiatorsOutput|any) => void): void;
       listVolumeRecoveryPoints(params: StorageGatewayListVolumeRecoveryPointsInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayListVolumeRecoveryPointsOutput|any) => void): void;
       listVolumes(params: StorageGatewayListVolumesInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayListVolumesOutput|any) => void): void;
+      removeTagsFromResource(params: StorageGatewayRemoveTagsFromResourceInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayRemoveTagsFromResourceOutput|any) => void): void;
       resetCache(params: StorageGatewayResetCacheInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayResetCacheOutput|any) => void): void;
       retrieveTapeArchive(params: StorageGatewayRetrieveTapeArchiveInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayRetrieveTapeArchiveOutput|any) => void): void;
       retrieveTapeRecoveryPoint(params: StorageGatewayRetrieveTapeRecoveryPointInput, callback: (err: StorageGatewayInvalidGatewayRequestException|StorageGatewayInternalServerError|any, data: StorageGatewayRetrieveTapeRecoveryPointOutput|any) => void): void;
@@ -76,6 +82,15 @@ declare module "aws-sdk" {
 
     export interface StorageGatewayAddCacheOutput {
         GatewayARN?: StorageGatewayGatewayARN;
+    }
+
+    export interface StorageGatewayAddTagsToResourceInput {
+        ResourceARN: StorageGatewayResourceARN;
+        Tags: StorageGatewayTags;
+    }
+
+    export interface StorageGatewayAddTagsToResourceOutput {
+        ResourceARN?: StorageGatewayResourceARN;
     }
 
     export interface StorageGatewayAddUploadBufferInput {
@@ -309,11 +324,13 @@ declare module "aws-sdk" {
     export interface StorageGatewayDescribeGatewayInformationOutput {
         GatewayARN?: StorageGatewayGatewayARN;
         GatewayId?: StorageGatewayGatewayId;
+        GatewayName?: StorageGatewaystring;
         GatewayTimezone?: StorageGatewayGatewayTimezone;
         GatewayState?: StorageGatewayGatewayState;
         GatewayNetworkInterfaces?: StorageGatewayGatewayNetworkInterfaces;
         GatewayType?: StorageGatewayGatewayType;
         NextUpdateAvailabilityDate?: StorageGatewayNextUpdateAvailabilityDate;
+        LastSoftwareUpdate?: StorageGatewayLastSoftwareUpdate;
     }
 
     export interface StorageGatewayDescribeMaintenanceStartTimeInput {
@@ -457,6 +474,7 @@ declare module "aws-sdk" {
         GatewayARN?: StorageGatewayGatewayARN;
         GatewayType?: StorageGatewayGatewayType;
         GatewayOperationalState?: StorageGatewayGatewayOperationalState;
+        GatewayName?: StorageGatewaystring;
     }
 
     export type StorageGatewayGatewayName = string; // pattern: "^[ -\.0-\[\]-~]*[!-\.0-\[\]-~][ -\.0-\[\]-~]*$"
@@ -467,6 +485,8 @@ declare module "aws-sdk" {
     export type StorageGatewayGatewayType = string;
     export type StorageGatewayGateways = Array<StorageGatewayGatewayInfo>;
     export type StorageGatewayHourOfDay = number;
+    export type StorageGatewayInitiator = string;
+    export type StorageGatewayInitiators = Array<StorageGatewayInitiator>;
     export interface StorageGatewayInternalServerError {
         message?: StorageGatewaystring;
         error?: StorageGatewayStorageGatewayError;
@@ -478,6 +498,7 @@ declare module "aws-sdk" {
     }
 
     export type StorageGatewayIqnName = string; // pattern: "[0-9a-z:.-]+"
+    export type StorageGatewayLastSoftwareUpdate = string;
     export interface StorageGatewayListGatewaysInput {
         Marker?: StorageGatewayMarker;
         Limit?: StorageGatewayPositiveIntObject;
@@ -495,6 +516,26 @@ declare module "aws-sdk" {
     export interface StorageGatewayListLocalDisksOutput {
         GatewayARN?: StorageGatewayGatewayARN;
         Disks?: StorageGatewayDisks;
+    }
+
+    export interface StorageGatewayListTagsForResourceInput {
+        ResourceARN?: StorageGatewayResourceARN;
+        Marker?: StorageGatewayMarker;
+        Limit?: StorageGatewayPositiveIntObject;
+    }
+
+    export interface StorageGatewayListTagsForResourceOutput {
+        ResourceARN?: StorageGatewayResourceARN;
+        Marker?: StorageGatewayMarker;
+        Tags?: StorageGatewayTags;
+    }
+
+    export interface StorageGatewayListVolumeInitiatorsInput {
+        VolumeARN: StorageGatewayVolumeARN;
+    }
+
+    export interface StorageGatewayListVolumeInitiatorsOutput {
+        Initiators?: StorageGatewayInitiators;
     }
 
     export interface StorageGatewayListVolumeRecoveryPointsInput {
@@ -533,6 +574,15 @@ declare module "aws-sdk" {
     export type StorageGatewayPositiveIntObject = number;
     export type StorageGatewayRecurrenceInHours = number;
     export type StorageGatewayRegionId = string;
+    export interface StorageGatewayRemoveTagsFromResourceInput {
+        ResourceARN?: StorageGatewayResourceARN;
+        TagKeys?: StorageGatewayTagKeys;
+    }
+
+    export interface StorageGatewayRemoveTagsFromResourceOutput {
+        ResourceARN?: StorageGatewayResourceARN;
+    }
+
     export interface StorageGatewayResetCacheInput {
         GatewayARN: StorageGatewayGatewayARN;
     }
@@ -541,6 +591,7 @@ declare module "aws-sdk" {
         GatewayARN?: StorageGatewayGatewayARN;
     }
 
+    export type StorageGatewayResourceARN = string;
     export interface StorageGatewayRetrieveTapeArchiveInput {
         TapeARN: StorageGatewayTapeARN;
         GatewayARN: StorageGatewayGatewayARN;
@@ -596,6 +647,15 @@ declare module "aws-sdk" {
     }
 
     export type StorageGatewayStorediSCSIVolumes = Array<StorageGatewayStorediSCSIVolume>;
+    export interface StorageGatewayTag {
+        Key: StorageGatewayTagKey;
+        Value: StorageGatewayTagValue;
+    }
+
+    export type StorageGatewayTagKey = string; // pattern: "^([\p{L}\p{Z}\p{N}_.:/=+\-%@]*)$"
+    export type StorageGatewayTagKeys = Array<StorageGatewayTagKey>;
+    export type StorageGatewayTagValue = string;
+    export type StorageGatewayTags = Array<StorageGatewayTag>;
     export interface StorageGatewayTape {
         TapeARN?: StorageGatewayTapeARN;
         TapeBarcode?: StorageGatewayTapeBarcode;
@@ -666,6 +726,7 @@ declare module "aws-sdk" {
 
     export interface StorageGatewayUpdateGatewayInformationOutput {
         GatewayARN?: StorageGatewayGatewayARN;
+        GatewayName?: StorageGatewaystring;
     }
 
     export interface StorageGatewayUpdateGatewaySoftwareNowInput {

@@ -1,5 +1,7 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class WorkSpaces {
       constructor(options?: any);
@@ -24,6 +26,7 @@ declare module "aws-sdk" {
         Name?: WorkSpacesCompute;
     }
 
+    export type WorkSpacesComputerName = string;
     export interface WorkSpacesCreateWorkspacesRequest {
         Workspaces: WorkSpacesWorkspaceRequestList;
     }
@@ -166,6 +169,7 @@ declare module "aws-sdk" {
         Capacity?: WorkSpacesNonEmptyString;
     }
 
+    export type WorkSpacesVolumeEncryptionKey = string;
     export interface WorkSpacesWorkspace {
         WorkspaceId?: WorkSpacesWorkspaceId;
         DirectoryId?: WorkSpacesDirectoryId;
@@ -176,6 +180,10 @@ declare module "aws-sdk" {
         SubnetId?: WorkSpacesSubnetId;
         ErrorMessage?: WorkSpacesDescription;
         ErrorCode?: WorkSpacesWorkspaceErrorCode;
+        ComputerName?: WorkSpacesComputerName;
+        VolumeEncryptionKey?: WorkSpacesVolumeEncryptionKey;
+        UserVolumeEncryptionEnabled?: WorkSpacesBooleanObject;
+        RootVolumeEncryptionEnabled?: WorkSpacesBooleanObject;
     }
 
     export interface WorkSpacesWorkspaceBundle {
@@ -212,6 +220,9 @@ declare module "aws-sdk" {
         DirectoryId: WorkSpacesDirectoryId;
         UserName: WorkSpacesUserName;
         BundleId: WorkSpacesBundleId;
+        VolumeEncryptionKey?: WorkSpacesVolumeEncryptionKey;
+        UserVolumeEncryptionEnabled?: WorkSpacesBooleanObject;
+        RootVolumeEncryptionEnabled?: WorkSpacesBooleanObject;
     }
 
     export type WorkSpacesWorkspaceRequestList = Array<WorkSpacesWorkspaceRequest>; // max: 25

@@ -1,14 +1,18 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class Kinesis {
       constructor(options?: any);
       addTagsToStream(params: KinesisAddTagsToStreamInput, callback: (err: KinesisResourceNotFoundException|KinesisResourceInUseException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: any) => void): void;
       createStream(params: KinesisCreateStreamInput, callback: (err: KinesisResourceInUseException|KinesisLimitExceededException|KinesisInvalidArgumentException|any, data: any) => void): void;
+      decreaseStreamRetentionPeriod(params: KinesisDecreaseStreamRetentionPeriodInput, callback: (err: KinesisResourceInUseException|KinesisResourceNotFoundException|KinesisLimitExceededException|KinesisInvalidArgumentException|any, data: any) => void): void;
       deleteStream(params: KinesisDeleteStreamInput, callback: (err: KinesisResourceNotFoundException|KinesisLimitExceededException|any, data: any) => void): void;
       describeStream(params: KinesisDescribeStreamInput, callback: (err: KinesisResourceNotFoundException|KinesisLimitExceededException|any, data: KinesisDescribeStreamOutput|any) => void): void;
       getRecords(params: KinesisGetRecordsInput, callback: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisProvisionedThroughputExceededException|KinesisExpiredIteratorException|any, data: KinesisGetRecordsOutput|any) => void): void;
       getShardIterator(params: KinesisGetShardIteratorInput, callback: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisProvisionedThroughputExceededException|any, data: KinesisGetShardIteratorOutput|any) => void): void;
+      increaseStreamRetentionPeriod(params: KinesisIncreaseStreamRetentionPeriodInput, callback: (err: KinesisResourceInUseException|KinesisResourceNotFoundException|KinesisLimitExceededException|KinesisInvalidArgumentException|any, data: any) => void): void;
       listStreams(params: KinesisListStreamsInput, callback: (err: KinesisLimitExceededException|any, data: KinesisListStreamsOutput|any) => void): void;
       listTagsForStream(params: KinesisListTagsForStreamInput, callback: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: KinesisListTagsForStreamOutput|any) => void): void;
       mergeShards(params: KinesisMergeShardsInput, callback: (err: KinesisResourceNotFoundException|KinesisResourceInUseException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: any) => void): void;
@@ -23,6 +27,7 @@ declare module "aws-sdk" {
         Tags: KinesisTagMap;
     }
 
+    export type KinesisApproximateArrivalTimestamp = number;
     export type KinesisBooleanObject = boolean;
     export interface KinesisCreateStreamInput {
         StreamName: KinesisStreamName;
@@ -30,6 +35,11 @@ declare module "aws-sdk" {
     }
 
     export type KinesisData = any; // not really - it was 'blob' instead - must fix this one
+    export interface KinesisDecreaseStreamRetentionPeriodInput {
+        StreamName: KinesisStreamName;
+        RetentionPeriodHours: KinesisRetentionPeriodHours;
+    }
+
     export interface KinesisDeleteStreamInput {
         StreamName: KinesisStreamName;
     }
@@ -78,6 +88,11 @@ declare module "aws-sdk" {
     export interface KinesisHashKeyRange {
         StartingHashKey: KinesisHashKey;
         EndingHashKey: KinesisHashKey;
+    }
+
+    export interface KinesisIncreaseStreamRetentionPeriodInput {
+        StreamName: KinesisStreamName;
+        RetentionPeriodHours: KinesisRetentionPeriodHours;
     }
 
     export interface KinesisInvalidArgumentException {
@@ -164,6 +179,7 @@ declare module "aws-sdk" {
     export type KinesisPutRecordsResultEntryList = Array<KinesisPutRecordsResultEntry>; // max: 500
     export interface KinesisRecord {
         SequenceNumber: KinesisSequenceNumber;
+        ApproximateArrivalTimestamp?: KinesisApproximateArrivalTimestamp;
         Data: KinesisData;
         PartitionKey: KinesisPartitionKey;
     }
@@ -182,6 +198,7 @@ declare module "aws-sdk" {
         message?: KinesisErrorMessage;
     }
 
+    export type KinesisRetentionPeriodHours = number;
     export type KinesisSequenceNumber = string; // pattern: "0|([1-9]\d{0,128})"
     export interface KinesisSequenceNumberRange {
         StartingSequenceNumber: KinesisSequenceNumber;
@@ -213,6 +230,7 @@ declare module "aws-sdk" {
         StreamStatus: KinesisStreamStatus;
         Shards: KinesisShardList;
         HasMoreShards: KinesisBooleanObject;
+        RetentionPeriodHours: KinesisRetentionPeriodHours;
     }
 
     export type KinesisStreamName = string; // pattern: "[a-zA-Z0-9_.-]+"

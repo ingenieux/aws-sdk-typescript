@@ -1,5 +1,7 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class IAM {
       constructor(options?: any);
@@ -36,6 +38,7 @@ declare module "aws-sdk" {
       deleteRole(params: IAMDeleteRoleRequest, callback: (err: IAMNoSuchEntityException|IAMDeleteConflictException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): void;
       deleteRolePolicy(params: IAMDeleteRolePolicyRequest, callback: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): void;
       deleteSAMLProvider(params: IAMDeleteSAMLProviderRequest, callback: (err: IAMInvalidInputException|IAMLimitExceededException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: any) => void): void;
+      deleteSSHPublicKey(params: IAMDeleteSSHPublicKeyRequest, callback: (err: IAMNoSuchEntityException|any, data: any) => void): void;
       deleteServerCertificate(params: IAMDeleteServerCertificateRequest, callback: (err: IAMNoSuchEntityException|IAMDeleteConflictException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): void;
       deleteSigningCertificate(params: IAMDeleteSigningCertificateRequest, callback: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): void;
       deleteUser(params: IAMDeleteUserRequest, callback: (err: IAMLimitExceededException|IAMNoSuchEntityException|IAMDeleteConflictException|IAMServiceFailureException|any, data: any) => void): void;
@@ -50,6 +53,8 @@ declare module "aws-sdk" {
       getAccountAuthorizationDetails(params: IAMGetAccountAuthorizationDetailsRequest, callback: (err: IAMServiceFailureException|any, data: IAMGetAccountAuthorizationDetailsResponse|any) => void): void;
       getAccountPasswordPolicy(callback: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetAccountPasswordPolicyResponse|any) => void): void;
       getAccountSummary(callback: (err: IAMServiceFailureException|any, data: IAMGetAccountSummaryResponse|any) => void): void;
+      getContextKeysForCustomPolicy(params: IAMGetContextKeysForCustomPolicyRequest, callback: (err: IAMInvalidInputException|any, data: IAMGetContextKeysForPolicyResponse|any) => void): void;
+      getContextKeysForPrincipalPolicy(params: IAMGetContextKeysForPrincipalPolicyRequest, callback: (err: IAMNoSuchEntityException|IAMInvalidInputException|any, data: IAMGetContextKeysForPolicyResponse|any) => void): void;
       getCredentialReport(callback: (err: IAMCredentialReportNotPresentException|IAMCredentialReportExpiredException|IAMCredentialReportNotReadyException|IAMServiceFailureException|any, data: IAMGetCredentialReportResponse|any) => void): void;
       getGroup(params: IAMGetGroupRequest, callback: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetGroupResponse|any) => void): void;
       getGroupPolicy(params: IAMGetGroupPolicyRequest, callback: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetGroupPolicyResponse|any) => void): void;
@@ -61,6 +66,7 @@ declare module "aws-sdk" {
       getRole(params: IAMGetRoleRequest, callback: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetRoleResponse|any) => void): void;
       getRolePolicy(params: IAMGetRolePolicyRequest, callback: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetRolePolicyResponse|any) => void): void;
       getSAMLProvider(params: IAMGetSAMLProviderRequest, callback: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMServiceFailureException|any, data: IAMGetSAMLProviderResponse|any) => void): void;
+      getSSHPublicKey(params: IAMGetSSHPublicKeyRequest, callback: (err: IAMNoSuchEntityException|IAMUnrecognizedPublicKeyEncodingException|any, data: IAMGetSSHPublicKeyResponse|any) => void): void;
       getServerCertificate(params: IAMGetServerCertificateRequest, callback: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetServerCertificateResponse|any) => void): void;
       getUser(params: IAMGetUserRequest, callback: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetUserResponse|any) => void): void;
       getUserPolicy(params: IAMGetUserPolicyRequest, callback: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetUserPolicyResponse|any) => void): void;
@@ -82,6 +88,7 @@ declare module "aws-sdk" {
       listRolePolicies(params: IAMListRolePoliciesRequest, callback: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMListRolePoliciesResponse|any) => void): void;
       listRoles(params: IAMListRolesRequest, callback: (err: IAMServiceFailureException|any, data: IAMListRolesResponse|any) => void): void;
       listSAMLProviders(params: IAMListSAMLProvidersRequest, callback: (err: IAMServiceFailureException|any, data: IAMListSAMLProvidersResponse|any) => void): void;
+      listSSHPublicKeys(params: IAMListSSHPublicKeysRequest, callback: (err: IAMNoSuchEntityException|any, data: IAMListSSHPublicKeysResponse|any) => void): void;
       listServerCertificates(params: IAMListServerCertificatesRequest, callback: (err: IAMServiceFailureException|any, data: IAMListServerCertificatesResponse|any) => void): void;
       listSigningCertificates(params: IAMListSigningCertificatesRequest, callback: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMListSigningCertificatesResponse|any) => void): void;
       listUserPolicies(params: IAMListUserPoliciesRequest, callback: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMListUserPoliciesResponse|any) => void): void;
@@ -95,6 +102,8 @@ declare module "aws-sdk" {
       removeUserFromGroup(params: IAMRemoveUserFromGroupRequest, callback: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): void;
       resyncMFADevice(params: IAMResyncMFADeviceRequest, callback: (err: IAMInvalidAuthenticationCodeException|IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): void;
       setDefaultPolicyVersion(params: IAMSetDefaultPolicyVersionRequest, callback: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): void;
+      simulateCustomPolicy(params: IAMSimulateCustomPolicyRequest, callback: (err: IAMInvalidInputException|IAMPolicyEvaluationException|any, data: IAMSimulatePolicyResponse|any) => void): void;
+      simulatePrincipalPolicy(params: IAMSimulatePrincipalPolicyRequest, callback: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMPolicyEvaluationException|any, data: IAMSimulatePolicyResponse|any) => void): void;
       updateAccessKey(params: IAMUpdateAccessKeyRequest, callback: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): void;
       updateAccountPasswordPolicy(params: IAMUpdateAccountPasswordPolicyRequest, callback: (err: IAMNoSuchEntityException|IAMMalformedPolicyDocumentException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): void;
       updateAssumeRolePolicy(params: IAMUpdateAssumeRolePolicyRequest, callback: (err: IAMNoSuchEntityException|IAMMalformedPolicyDocumentException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): void;
@@ -102,9 +111,11 @@ declare module "aws-sdk" {
       updateLoginProfile(params: IAMUpdateLoginProfileRequest, callback: (err: IAMEntityTemporarilyUnmodifiableException|IAMNoSuchEntityException|IAMPasswordPolicyViolationException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): void;
       updateOpenIDConnectProviderThumbprint(params: IAMUpdateOpenIDConnectProviderThumbprintRequest, callback: (err: IAMInvalidInputException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: any) => void): void;
       updateSAMLProvider(params: IAMUpdateSAMLProviderRequest, callback: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMLimitExceededException|IAMServiceFailureException|any, data: IAMUpdateSAMLProviderResponse|any) => void): void;
+      updateSSHPublicKey(params: IAMUpdateSSHPublicKeyRequest, callback: (err: IAMNoSuchEntityException|any, data: any) => void): void;
       updateServerCertificate(params: IAMUpdateServerCertificateRequest, callback: (err: IAMNoSuchEntityException|IAMEntityAlreadyExistsException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): void;
       updateSigningCertificate(params: IAMUpdateSigningCertificateRequest, callback: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): void;
       updateUser(params: IAMUpdateUserRequest, callback: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMEntityAlreadyExistsException|IAMEntityTemporarilyUnmodifiableException|IAMServiceFailureException|any, data: any) => void): void;
+      uploadSSHPublicKey(params: IAMUploadSSHPublicKeyRequest, callback: (err: IAMLimitExceededException|IAMNoSuchEntityException|IAMInvalidPublicKeyException|IAMDuplicateSSHPublicKeyException|IAMUnrecognizedPublicKeyEncodingException|any, data: IAMUploadSSHPublicKeyResponse|any) => void): void;
       uploadServerCertificate(params: IAMUploadServerCertificateRequest, callback: (err: IAMLimitExceededException|IAMEntityAlreadyExistsException|IAMMalformedCertificateException|IAMKeyPairMismatchException|IAMServiceFailureException|any, data: IAMUploadServerCertificateResponse|any) => void): void;
       uploadSigningCertificate(params: IAMUploadSigningCertificateRequest, callback: (err: IAMLimitExceededException|IAMEntityAlreadyExistsException|IAMMalformedCertificateException|IAMInvalidCertificateException|IAMDuplicateCertificateException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMUploadSigningCertificateResponse|any) => void): void;
     }
@@ -130,6 +141,8 @@ declare module "aws-sdk" {
         CreateDate?: IAMdateType;
     }
 
+    export type IAMActionNameListType = Array<IAMActionNameType>;
+    export type IAMActionNameType = string;
     export interface IAMAddClientIDToOpenIDConnectProviderRequest {
         OpenIDConnectProviderArn: IAMarnType;
         ClientID: IAMclientIDType;
@@ -171,6 +184,19 @@ declare module "aws-sdk" {
         NewPassword: IAMpasswordType;
     }
 
+    export type IAMColumnNumber = number;
+    export interface IAMContextEntry {
+        ContextKeyName?: IAMContextKeyNameType;
+        ContextKeyValues?: IAMContextKeyValueListType;
+        ContextKeyType?: IAMContextKeyTypeEnum;
+    }
+
+    export type IAMContextEntryListType = Array<IAMContextEntry>;
+    export type IAMContextKeyNameType = string;
+    export type IAMContextKeyNamesResultListType = Array<IAMContextKeyNameType>;
+    export type IAMContextKeyTypeEnum = string;
+    export type IAMContextKeyValueListType = Array<IAMContextKeyValueType>;
+    export type IAMContextKeyValueType = string;
     export interface IAMCreateAccessKeyRequest {
         UserName?: IAMexistingUserNameType;
     }
@@ -352,6 +378,11 @@ declare module "aws-sdk" {
         SAMLProviderArn: IAMarnType;
     }
 
+    export interface IAMDeleteSSHPublicKeyRequest {
+        UserName: IAMuserNameType;
+        SSHPublicKeyId: IAMpublicKeyIdType;
+    }
+
     export interface IAMDeleteServerCertificateRequest {
         ServerCertificateName: IAMserverCertificateNameType;
     }
@@ -393,6 +424,10 @@ declare module "aws-sdk" {
         message?: IAMduplicateCertificateMessage;
     }
 
+    export interface IAMDuplicateSSHPublicKeyException {
+        message?: IAMduplicateSSHPublicKeyMessage;
+    }
+
     export interface IAMEnableMFADeviceRequest {
         UserName: IAMexistingUserNameType;
         SerialNumber: IAMserialNumberType;
@@ -409,6 +444,19 @@ declare module "aws-sdk" {
     }
 
     export type IAMEntityType = string;
+    export type IAMEvalDecisionDetailsType = any; // not really - it was 'map' instead - must fix this one
+    export type IAMEvalDecisionSourceType = string;
+    export interface IAMEvaluationResult {
+        EvalActionName: IAMActionNameType;
+        EvalResourceName?: IAMResourceNameType;
+        EvalDecision: IAMPolicyEvaluationDecisionType;
+        MatchedStatements?: IAMStatementListType;
+        MissingContextValues?: IAMContextKeyNamesResultListType;
+        EvalDecisionDetails?: IAMEvalDecisionDetailsType;
+        ResourceSpecificResults?: IAMResourceSpecificResultListType;
+    }
+
+    export type IAMEvaluationResultsListType = Array<IAMEvaluationResult>;
     export interface IAMGenerateCredentialReportResponse {
         State?: IAMReportStateType;
         Description?: IAMReportStateDescriptionType;
@@ -444,6 +492,19 @@ declare module "aws-sdk" {
 
     export interface IAMGetAccountSummaryResponse {
         SummaryMap?: IAMsummaryMapType;
+    }
+
+    export interface IAMGetContextKeysForCustomPolicyRequest {
+        PolicyInputList: IAMSimulationPolicyListType;
+    }
+
+    export interface IAMGetContextKeysForPolicyResponse {
+        ContextKeyNames?: IAMContextKeyNamesResultListType;
+    }
+
+    export interface IAMGetContextKeysForPrincipalPolicyRequest {
+        PolicySourceArn: IAMarnType;
+        PolicyInputList?: IAMSimulationPolicyListType;
     }
 
     export interface IAMGetCredentialReportResponse {
@@ -549,6 +610,16 @@ declare module "aws-sdk" {
         ValidUntil?: IAMdateType;
     }
 
+    export interface IAMGetSSHPublicKeyRequest {
+        UserName: IAMuserNameType;
+        SSHPublicKeyId: IAMpublicKeyIdType;
+        Encoding: IAMencodingType;
+    }
+
+    export interface IAMGetSSHPublicKeyResponse {
+        SSHPublicKey?: IAMSSHPublicKey;
+    }
+
     export interface IAMGetServerCertificateRequest {
         ServerCertificateName: IAMserverCertificateNameType;
     }
@@ -615,6 +686,10 @@ declare module "aws-sdk" {
         message?: IAMinvalidInputMessage;
     }
 
+    export interface IAMInvalidPublicKeyException {
+        message?: IAMinvalidPublicKeyMessage;
+    }
+
     export interface IAMInvalidUserTypeException {
         message?: IAMinvalidUserTypeMessage;
     }
@@ -627,6 +702,7 @@ declare module "aws-sdk" {
         message?: IAMlimitExceededMessage;
     }
 
+    export type IAMLineNumber = number;
     export interface IAMListAccessKeysRequest {
         UserName?: IAMexistingUserNameType;
         Marker?: IAMmarkerType;
@@ -841,6 +917,18 @@ declare module "aws-sdk" {
         SAMLProviderList?: IAMSAMLProviderListType;
     }
 
+    export interface IAMListSSHPublicKeysRequest {
+        UserName?: IAMuserNameType;
+        Marker?: IAMmarkerType;
+        MaxItems?: IAMmaxItemsType;
+    }
+
+    export interface IAMListSSHPublicKeysResponse {
+        SSHPublicKeys?: IAMSSHPublicKeyListType;
+        IsTruncated?: IAMbooleanType;
+        Marker?: IAMmarkerType;
+    }
+
     export interface IAMListServerCertificatesRequest {
         PathPrefix?: IAMpathPrefixType;
         Marker?: IAMmarkerType;
@@ -981,16 +1069,23 @@ declare module "aws-sdk" {
         PolicyDocument?: IAMpolicyDocumentType;
     }
 
+    export type IAMPolicyEvaluationDecisionType = string;
+    export interface IAMPolicyEvaluationException {
+        message?: IAMpolicyEvaluationErrorMessage;
+    }
+
     export interface IAMPolicyGroup {
         GroupName?: IAMgroupNameType;
     }
 
     export type IAMPolicyGroupListType = Array<IAMPolicyGroup>;
+    export type IAMPolicyIdentifierType = string;
     export interface IAMPolicyRole {
         RoleName?: IAMroleNameType;
     }
 
     export type IAMPolicyRoleListType = Array<IAMPolicyRole>;
+    export type IAMPolicySourceType = string;
     export interface IAMPolicyUser {
         UserName?: IAMuserNameType;
     }
@@ -1001,6 +1096,11 @@ declare module "aws-sdk" {
         VersionId?: IAMpolicyVersionIdType;
         IsDefaultVersion?: IAMbooleanType;
         CreateDate?: IAMdateType;
+    }
+
+    export interface IAMPosition {
+        Line?: IAMLineNumber;
+        Column?: IAMColumnNumber;
     }
 
     export interface IAMPutGroupPolicyRequest {
@@ -1040,6 +1140,18 @@ declare module "aws-sdk" {
     export type IAMReportFormatType = string;
     export type IAMReportStateDescriptionType = string;
     export type IAMReportStateType = string;
+    export type IAMResourceHandlingOptionType = string;
+    export type IAMResourceNameListType = Array<IAMResourceNameType>;
+    export type IAMResourceNameType = string;
+    export interface IAMResourceSpecificResult {
+        EvalResourceName: IAMResourceNameType;
+        EvalResourceDecision: IAMPolicyEvaluationDecisionType;
+        MatchedStatements?: IAMStatementListType;
+        MissingContextValues?: IAMContextKeyNamesResultListType;
+        EvalDecisionDetails?: IAMEvalDecisionDetailsType;
+    }
+
+    export type IAMResourceSpecificResultListType = Array<IAMResourceSpecificResult>;
     export interface IAMResyncMFADeviceRequest {
         UserName: IAMexistingUserNameType;
         SerialNumber: IAMserialNumberType;
@@ -1076,7 +1188,24 @@ declare module "aws-sdk" {
     }
 
     export type IAMSAMLProviderListType = Array<IAMSAMLProviderListEntry>;
-    export type IAMSAMLProviderNameType = string; // pattern: "[\w._-]*"
+    export type IAMSAMLProviderNameType = string; // pattern: "[\w._-]+"
+    export interface IAMSSHPublicKey {
+        UserName: IAMuserNameType;
+        SSHPublicKeyId: IAMpublicKeyIdType;
+        Fingerprint: IAMpublicKeyFingerprintType;
+        SSHPublicKeyBody: IAMpublicKeyMaterialType;
+        Status: IAMstatusType;
+        UploadDate?: IAMdateType;
+    }
+
+    export type IAMSSHPublicKeyListType = Array<IAMSSHPublicKeyMetadata>;
+    export interface IAMSSHPublicKeyMetadata {
+        UserName: IAMuserNameType;
+        SSHPublicKeyId: IAMpublicKeyIdType;
+        Status: IAMstatusType;
+        UploadDate: IAMdateType;
+    }
+
     export interface IAMServerCertificate {
         ServerCertificateMetadata: IAMServerCertificateMetadata;
         CertificateBody: IAMcertificateBodyType;
@@ -1107,6 +1236,52 @@ declare module "aws-sdk" {
         CertificateBody: IAMcertificateBodyType;
         Status: IAMstatusType;
         UploadDate?: IAMdateType;
+    }
+
+    export interface IAMSimulateCustomPolicyRequest {
+        PolicyInputList: IAMSimulationPolicyListType;
+        ActionNames: IAMActionNameListType;
+        ResourceArns?: IAMResourceNameListType;
+        ResourcePolicy?: IAMpolicyDocumentType;
+        ResourceOwner?: IAMResourceNameType;
+        CallerArn?: IAMResourceNameType;
+        ContextEntries?: IAMContextEntryListType;
+        ResourceHandlingOption?: IAMResourceHandlingOptionType;
+        MaxItems?: IAMmaxItemsType;
+        Marker?: IAMmarkerType;
+    }
+
+    export interface IAMSimulatePolicyResponse {
+        EvaluationResults?: IAMEvaluationResultsListType;
+        IsTruncated?: IAMbooleanType;
+        Marker?: IAMmarkerType;
+    }
+
+    export interface IAMSimulatePrincipalPolicyRequest {
+        PolicySourceArn: IAMarnType;
+        PolicyInputList?: IAMSimulationPolicyListType;
+        ActionNames: IAMActionNameListType;
+        ResourceArns?: IAMResourceNameListType;
+        ResourcePolicy?: IAMpolicyDocumentType;
+        ResourceOwner?: IAMResourceNameType;
+        CallerArn?: IAMResourceNameType;
+        ContextEntries?: IAMContextEntryListType;
+        ResourceHandlingOption?: IAMResourceHandlingOptionType;
+        MaxItems?: IAMmaxItemsType;
+        Marker?: IAMmarkerType;
+    }
+
+    export type IAMSimulationPolicyListType = Array<IAMpolicyDocumentType>;
+    export interface IAMStatement {
+        SourcePolicyId?: IAMPolicyIdentifierType;
+        SourcePolicyType?: IAMPolicySourceType;
+        StartPosition?: IAMPosition;
+        EndPosition?: IAMPosition;
+    }
+
+    export type IAMStatementListType = Array<IAMStatement>;
+    export interface IAMUnrecognizedPublicKeyEncodingException {
+        message?: IAMunrecognizedPublicKeyEncodingMessage;
     }
 
     export interface IAMUpdateAccessKeyRequest {
@@ -1158,6 +1333,12 @@ declare module "aws-sdk" {
         SAMLProviderArn?: IAMarnType;
     }
 
+    export interface IAMUpdateSSHPublicKeyRequest {
+        UserName: IAMuserNameType;
+        SSHPublicKeyId: IAMpublicKeyIdType;
+        Status: IAMstatusType;
+    }
+
     export interface IAMUpdateServerCertificateRequest {
         ServerCertificateName: IAMserverCertificateNameType;
         NewPath?: IAMpathType;
@@ -1174,6 +1355,15 @@ declare module "aws-sdk" {
         UserName: IAMexistingUserNameType;
         NewPath?: IAMpathType;
         NewUserName?: IAMuserNameType;
+    }
+
+    export interface IAMUploadSSHPublicKeyRequest {
+        UserName: IAMuserNameType;
+        SSHPublicKeyBody: IAMpublicKeyMaterialType;
+    }
+
+    export interface IAMUploadSSHPublicKeyResponse {
+        SSHPublicKey?: IAMSSHPublicKey;
     }
 
     export interface IAMUploadServerCertificateRequest {
@@ -1225,7 +1415,7 @@ declare module "aws-sdk" {
         EnableDate?: IAMdateType;
     }
 
-    export type IAMaccessKeyIdType = string; // pattern: "[\w]*"
+    export type IAMaccessKeyIdType = string; // pattern: "[\w]+"
     export type IAMaccessKeyMetadataListType = Array<IAMAccessKeyMetadata>;
     export type IAMaccessKeySecretType = string;
     export type IAMaccountAliasListType = Array<IAMaccountAliasType>;
@@ -1234,12 +1424,12 @@ declare module "aws-sdk" {
     export type IAMassignmentStatusType = string;
     export type IAMattachedPoliciesListType = Array<IAMAttachedPolicy>;
     export type IAMattachmentCountType = number;
-    export type IAMauthenticationCodeType = string; // pattern: "[\d]*"
+    export type IAMauthenticationCodeType = string; // pattern: "[\d]+"
     export type IAMbooleanObjectType = boolean;
     export type IAMbooleanType = boolean;
     export type IAMcertificateBodyType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]+"
-    export type IAMcertificateChainType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]*"
-    export type IAMcertificateIdType = string; // pattern: "[\w]*"
+    export type IAMcertificateChainType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]+"
+    export type IAMcertificateIdType = string; // pattern: "[\w]+"
     export type IAMcertificateListType = Array<IAMSigningCertificate>;
     export type IAMclientIDListType = Array<IAMclientIDType>;
     export type IAMclientIDType = string;
@@ -1249,26 +1439,29 @@ declare module "aws-sdk" {
     export type IAMdateType = number;
     export type IAMdeleteConflictMessage = string;
     export type IAMduplicateCertificateMessage = string;
+    export type IAMduplicateSSHPublicKeyMessage = string;
+    export type IAMencodingType = string;
     export type IAMentityAlreadyExistsMessage = string;
     export type IAMentityListType = Array<IAMEntityType>;
     export type IAMentityTemporarilyUnmodifiableMessage = string;
-    export type IAMexistingUserNameType = string; // pattern: "[\w+=,.@-]*"
+    export type IAMexistingUserNameType = string; // pattern: "[\w+=,.@-]+"
     export type IAMgroupDetailListType = Array<IAMGroupDetail>;
     export type IAMgroupListType = Array<IAMGroup>;
     export type IAMgroupNameListType = Array<IAMgroupNameType>;
-    export type IAMgroupNameType = string; // pattern: "[\w+=,.@-]*"
-    export type IAMidType = string; // pattern: "[\w]*"
+    export type IAMgroupNameType = string; // pattern: "[\w+=,.@-]+"
+    export type IAMidType = string; // pattern: "[\w]+"
     export type IAMinstanceProfileListType = Array<IAMInstanceProfile>;
-    export type IAMinstanceProfileNameType = string; // pattern: "[\w+=,.@-]*"
+    export type IAMinstanceProfileNameType = string; // pattern: "[\w+=,.@-]+"
     export type IAMinvalidAuthenticationCodeMessage = string;
     export type IAMinvalidCertificateMessage = string;
     export type IAMinvalidInputMessage = string;
+    export type IAMinvalidPublicKeyMessage = string;
     export type IAMinvalidUserTypeMessage = string;
     export type IAMkeyPairMismatchMessage = string;
     export type IAMlimitExceededMessage = string;
     export type IAMmalformedCertificateMessage = string;
     export type IAMmalformedPolicyDocumentMessage = string;
-    export type IAMmarkerType = string; // pattern: "[\u0020-\u00FF]*"
+    export type IAMmarkerType = string; // pattern: "[\u0020-\u00FF]+"
     export type IAMmaxItemsType = number;
     export type IAMmaxPasswordAgeType = number;
     export type IAMmfaDeviceListType = Array<IAMMFADevice>;
@@ -1283,19 +1476,23 @@ declare module "aws-sdk" {
     export type IAMpolicyDetailListType = Array<IAMPolicyDetail>;
     export type IAMpolicyDocumentType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]+"
     export type IAMpolicyDocumentVersionListType = Array<IAMPolicyVersion>;
+    export type IAMpolicyEvaluationErrorMessage = string;
     export type IAMpolicyListType = Array<IAMPolicy>;
     export type IAMpolicyNameListType = Array<IAMpolicyNameType>;
-    export type IAMpolicyNameType = string; // pattern: "[\w+=,.@-]*"
+    export type IAMpolicyNameType = string; // pattern: "[\w+=,.@-]+"
     export type IAMpolicyPathType = string; // pattern: "((/[A-Za-z0-9\.,\+@=_-]+)*)/"
     export type IAMpolicyScopeType = string;
     export type IAMpolicyVersionIdType = string; // pattern: "v[1-9][0-9]*(\.[A-Za-z0-9-]*)?"
-    export type IAMprivateKeyType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]*"
+    export type IAMprivateKeyType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]+"
+    export type IAMpublicKeyFingerprintType = string; // pattern: "[:\w]+"
+    export type IAMpublicKeyIdType = string; // pattern: "[\w]+"
+    export type IAMpublicKeyMaterialType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]+"
     export type IAMroleDetailListType = Array<IAMRoleDetail>;
     export type IAMroleListType = Array<IAMRole>;
-    export type IAMroleNameType = string; // pattern: "[\w+=,.@-]*"
-    export type IAMserialNumberType = string; // pattern: "[\w+=/:,.@-]*"
+    export type IAMroleNameType = string; // pattern: "[\w+=,.@-]+"
+    export type IAMserialNumberType = string; // pattern: "[\w+=/:,.@-]+"
     export type IAMserverCertificateMetadataListType = Array<IAMServerCertificateMetadata>;
-    export type IAMserverCertificateNameType = string; // pattern: "[\w+=,.@-]*"
+    export type IAMserverCertificateNameType = string; // pattern: "[\w+=,.@-]+"
     export type IAMserviceFailureExceptionMessage = string;
     export type IAMstatusType = string;
     export type IAMstringType = string;
@@ -1304,9 +1501,10 @@ declare module "aws-sdk" {
     export type IAMsummaryValueType = number;
     export type IAMthumbprintListType = Array<IAMthumbprintType>;
     export type IAMthumbprintType = string;
+    export type IAMunrecognizedPublicKeyEncodingMessage = string;
     export type IAMuserDetailListType = Array<IAMUserDetail>;
     export type IAMuserListType = Array<IAMUser>;
-    export type IAMuserNameType = string; // pattern: "[\w+=,.@-]*"
+    export type IAMuserNameType = string; // pattern: "[\w+=,.@-]+"
     export type IAMvirtualMFADeviceListType = Array<IAMVirtualMFADevice>;
-    export type IAMvirtualMFADeviceName = string; // pattern: "[\w+=,.@-]*"
+    export type IAMvirtualMFADeviceName = string; // pattern: "[\w+=,.@-]+"
 }

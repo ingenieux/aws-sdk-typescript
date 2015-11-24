@@ -1,12 +1,14 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class Redshift {
       constructor(options?: any);
       authorizeClusterSecurityGroupIngress(params: RedshiftAuthorizeClusterSecurityGroupIngressMessage, callback: (err: RedshiftClusterSecurityGroupNotFoundFault|RedshiftInvalidClusterSecurityGroupStateFault|RedshiftAuthorizationAlreadyExistsFault|RedshiftAuthorizationQuotaExceededFault|any, data: RedshiftAuthorizeClusterSecurityGroupIngressResult|any) => void): void;
       authorizeSnapshotAccess(params: RedshiftAuthorizeSnapshotAccessMessage, callback: (err: RedshiftClusterSnapshotNotFoundFault|RedshiftAuthorizationAlreadyExistsFault|RedshiftAuthorizationQuotaExceededFault|any, data: RedshiftAuthorizeSnapshotAccessResult|any) => void): void;
       copyClusterSnapshot(params: RedshiftCopyClusterSnapshotMessage, callback: (err: RedshiftClusterSnapshotAlreadyExistsFault|RedshiftClusterSnapshotNotFoundFault|RedshiftInvalidClusterSnapshotStateFault|RedshiftClusterSnapshotQuotaExceededFault|any, data: RedshiftCopyClusterSnapshotResult|any) => void): void;
-      createCluster(params: RedshiftCreateClusterMessage, callback: (err: RedshiftClusterAlreadyExistsFault|RedshiftInsufficientClusterCapacityFault|RedshiftClusterParameterGroupNotFoundFault|RedshiftClusterSecurityGroupNotFoundFault|RedshiftClusterQuotaExceededFault|RedshiftNumberOfNodesQuotaExceededFault|RedshiftNumberOfNodesPerClusterLimitExceededFault|RedshiftClusterSubnetGroupNotFoundFault|RedshiftInvalidVPCNetworkStateFault|RedshiftInvalidClusterSubnetGroupStateFault|RedshiftInvalidSubnet|RedshiftUnauthorizedOperation|RedshiftHsmClientCertificateNotFoundFault|RedshiftHsmConfigurationNotFoundFault|RedshiftInvalidElasticIpFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateClusterResult|any) => void): void;
+      createCluster(params: RedshiftCreateClusterMessage, callback: (err: RedshiftClusterAlreadyExistsFault|RedshiftInsufficientClusterCapacityFault|RedshiftClusterParameterGroupNotFoundFault|RedshiftClusterSecurityGroupNotFoundFault|RedshiftClusterQuotaExceededFault|RedshiftNumberOfNodesQuotaExceededFault|RedshiftNumberOfNodesPerClusterLimitExceededFault|RedshiftClusterSubnetGroupNotFoundFault|RedshiftInvalidVPCNetworkStateFault|RedshiftInvalidClusterSubnetGroupStateFault|RedshiftInvalidSubnet|RedshiftUnauthorizedOperation|RedshiftHsmClientCertificateNotFoundFault|RedshiftHsmConfigurationNotFoundFault|RedshiftInvalidElasticIpFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|RedshiftLimitExceededFault|any, data: RedshiftCreateClusterResult|any) => void): void;
       createClusterParameterGroup(params: RedshiftCreateClusterParameterGroupMessage, callback: (err: RedshiftClusterParameterGroupQuotaExceededFault|RedshiftClusterParameterGroupAlreadyExistsFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateClusterParameterGroupResult|any) => void): void;
       createClusterSecurityGroup(params: RedshiftCreateClusterSecurityGroupMessage, callback: (err: RedshiftClusterSecurityGroupAlreadyExistsFault|RedshiftClusterSecurityGroupQuotaExceededFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateClusterSecurityGroupResult|any) => void): void;
       createClusterSnapshot(params: RedshiftCreateClusterSnapshotMessage, callback: (err: RedshiftClusterSnapshotAlreadyExistsFault|RedshiftInvalidClusterStateFault|RedshiftClusterNotFoundFault|RedshiftClusterSnapshotQuotaExceededFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateClusterSnapshotResult|any) => void): void;
@@ -14,6 +16,7 @@ declare module "aws-sdk" {
       createEventSubscription(params: RedshiftCreateEventSubscriptionMessage, callback: (err: RedshiftEventSubscriptionQuotaExceededFault|RedshiftSubscriptionAlreadyExistFault|RedshiftSNSInvalidTopicFault|RedshiftSNSNoAuthorizationFault|RedshiftSNSTopicArnNotFoundFault|RedshiftSubscriptionEventIdNotFoundFault|RedshiftSubscriptionCategoryNotFoundFault|RedshiftSubscriptionSeverityNotFoundFault|RedshiftSourceNotFoundFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateEventSubscriptionResult|any) => void): void;
       createHsmClientCertificate(params: RedshiftCreateHsmClientCertificateMessage, callback: (err: RedshiftHsmClientCertificateAlreadyExistsFault|RedshiftHsmClientCertificateQuotaExceededFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateHsmClientCertificateResult|any) => void): void;
       createHsmConfiguration(params: RedshiftCreateHsmConfigurationMessage, callback: (err: RedshiftHsmConfigurationAlreadyExistsFault|RedshiftHsmConfigurationQuotaExceededFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateHsmConfigurationResult|any) => void): void;
+      createSnapshotCopyGrant(params: RedshiftCreateSnapshotCopyGrantMessage, callback: (err: RedshiftSnapshotCopyGrantAlreadyExistsFault|RedshiftSnapshotCopyGrantQuotaExceededFault|RedshiftLimitExceededFault|RedshiftTagLimitExceededFault|RedshiftInvalidTagFault|any, data: RedshiftCreateSnapshotCopyGrantResult|any) => void): void;
       createTags(params: RedshiftCreateTagsMessage, callback: (err: RedshiftTagLimitExceededFault|RedshiftResourceNotFoundFault|RedshiftInvalidTagFault|any, data: any) => void): void;
       deleteCluster(params: RedshiftDeleteClusterMessage, callback: (err: RedshiftClusterNotFoundFault|RedshiftInvalidClusterStateFault|RedshiftClusterSnapshotAlreadyExistsFault|RedshiftClusterSnapshotQuotaExceededFault|any, data: RedshiftDeleteClusterResult|any) => void): void;
       deleteClusterParameterGroup(params: RedshiftDeleteClusterParameterGroupMessage, callback: (err: RedshiftInvalidClusterParameterGroupStateFault|RedshiftClusterParameterGroupNotFoundFault|any, data: any) => void): void;
@@ -23,39 +26,41 @@ declare module "aws-sdk" {
       deleteEventSubscription(params: RedshiftDeleteEventSubscriptionMessage, callback: (err: RedshiftSubscriptionNotFoundFault|RedshiftInvalidSubscriptionStateFault|any, data: any) => void): void;
       deleteHsmClientCertificate(params: RedshiftDeleteHsmClientCertificateMessage, callback: (err: RedshiftInvalidHsmClientCertificateStateFault|RedshiftHsmClientCertificateNotFoundFault|any, data: any) => void): void;
       deleteHsmConfiguration(params: RedshiftDeleteHsmConfigurationMessage, callback: (err: RedshiftInvalidHsmConfigurationStateFault|RedshiftHsmConfigurationNotFoundFault|any, data: any) => void): void;
-      deleteTags(params: RedshiftDeleteTagsMessage, callback: (err: RedshiftResourceNotFoundFault|any, data: any) => void): void;
-      describeClusterParameterGroups(params: RedshiftDescribeClusterParameterGroupsMessage, callback: (err: RedshiftClusterParameterGroupNotFoundFault|any, data: RedshiftClusterParameterGroupsMessage|any) => void): void;
+      deleteSnapshotCopyGrant(params: RedshiftDeleteSnapshotCopyGrantMessage, callback: (err: RedshiftInvalidSnapshotCopyGrantStateFault|RedshiftSnapshotCopyGrantNotFoundFault|any, data: any) => void): void;
+      deleteTags(params: RedshiftDeleteTagsMessage, callback: (err: RedshiftResourceNotFoundFault|RedshiftInvalidTagFault|any, data: any) => void): void;
+      describeClusterParameterGroups(params: RedshiftDescribeClusterParameterGroupsMessage, callback: (err: RedshiftClusterParameterGroupNotFoundFault|RedshiftInvalidTagFault|any, data: RedshiftClusterParameterGroupsMessage|any) => void): void;
       describeClusterParameters(params: RedshiftDescribeClusterParametersMessage, callback: (err: RedshiftClusterParameterGroupNotFoundFault|any, data: RedshiftClusterParameterGroupDetails|any) => void): void;
-      describeClusterSecurityGroups(params: RedshiftDescribeClusterSecurityGroupsMessage, callback: (err: RedshiftClusterSecurityGroupNotFoundFault|any, data: RedshiftClusterSecurityGroupMessage|any) => void): void;
-      describeClusterSnapshots(params: RedshiftDescribeClusterSnapshotsMessage, callback: (err: RedshiftClusterSnapshotNotFoundFault|any, data: RedshiftSnapshotMessage|any) => void): void;
-      describeClusterSubnetGroups(params: RedshiftDescribeClusterSubnetGroupsMessage, callback: (err: RedshiftClusterSubnetGroupNotFoundFault|any, data: RedshiftClusterSubnetGroupMessage|any) => void): void;
+      describeClusterSecurityGroups(params: RedshiftDescribeClusterSecurityGroupsMessage, callback: (err: RedshiftClusterSecurityGroupNotFoundFault|RedshiftInvalidTagFault|any, data: RedshiftClusterSecurityGroupMessage|any) => void): void;
+      describeClusterSnapshots(params: RedshiftDescribeClusterSnapshotsMessage, callback: (err: RedshiftClusterSnapshotNotFoundFault|RedshiftInvalidTagFault|any, data: RedshiftSnapshotMessage|any) => void): void;
+      describeClusterSubnetGroups(params: RedshiftDescribeClusterSubnetGroupsMessage, callback: (err: RedshiftClusterSubnetGroupNotFoundFault|RedshiftInvalidTagFault|any, data: RedshiftClusterSubnetGroupMessage|any) => void): void;
       describeClusterVersions(params: RedshiftDescribeClusterVersionsMessage, callback: (err: any, data: RedshiftClusterVersionsMessage|any) => void): void;
-      describeClusters(params: RedshiftDescribeClustersMessage, callback: (err: RedshiftClusterNotFoundFault|any, data: RedshiftClustersMessage|any) => void): void;
+      describeClusters(params: RedshiftDescribeClustersMessage, callback: (err: RedshiftClusterNotFoundFault|RedshiftInvalidTagFault|any, data: RedshiftClustersMessage|any) => void): void;
       describeDefaultClusterParameters(params: RedshiftDescribeDefaultClusterParametersMessage, callback: (err: any, data: RedshiftDescribeDefaultClusterParametersResult|any) => void): void;
       describeEventCategories(params: RedshiftDescribeEventCategoriesMessage, callback: (err: any, data: RedshiftEventCategoriesMessage|any) => void): void;
       describeEventSubscriptions(params: RedshiftDescribeEventSubscriptionsMessage, callback: (err: RedshiftSubscriptionNotFoundFault|any, data: RedshiftEventSubscriptionsMessage|any) => void): void;
       describeEvents(params: RedshiftDescribeEventsMessage, callback: (err: any, data: RedshiftEventsMessage|any) => void): void;
-      describeHsmClientCertificates(params: RedshiftDescribeHsmClientCertificatesMessage, callback: (err: RedshiftHsmClientCertificateNotFoundFault|any, data: RedshiftHsmClientCertificateMessage|any) => void): void;
-      describeHsmConfigurations(params: RedshiftDescribeHsmConfigurationsMessage, callback: (err: RedshiftHsmConfigurationNotFoundFault|any, data: RedshiftHsmConfigurationMessage|any) => void): void;
+      describeHsmClientCertificates(params: RedshiftDescribeHsmClientCertificatesMessage, callback: (err: RedshiftHsmClientCertificateNotFoundFault|RedshiftInvalidTagFault|any, data: RedshiftHsmClientCertificateMessage|any) => void): void;
+      describeHsmConfigurations(params: RedshiftDescribeHsmConfigurationsMessage, callback: (err: RedshiftHsmConfigurationNotFoundFault|RedshiftInvalidTagFault|any, data: RedshiftHsmConfigurationMessage|any) => void): void;
       describeLoggingStatus(params: RedshiftDescribeLoggingStatusMessage, callback: (err: RedshiftClusterNotFoundFault|any, data: RedshiftLoggingStatus|any) => void): void;
       describeOrderableClusterOptions(params: RedshiftDescribeOrderableClusterOptionsMessage, callback: (err: any, data: RedshiftOrderableClusterOptionsMessage|any) => void): void;
-      describeReservedNodeOfferings(params: RedshiftDescribeReservedNodeOfferingsMessage, callback: (err: RedshiftReservedNodeOfferingNotFoundFault|any, data: RedshiftReservedNodeOfferingsMessage|any) => void): void;
+      describeReservedNodeOfferings(params: RedshiftDescribeReservedNodeOfferingsMessage, callback: (err: RedshiftReservedNodeOfferingNotFoundFault|RedshiftUnsupportedOperationFault|any, data: RedshiftReservedNodeOfferingsMessage|any) => void): void;
       describeReservedNodes(params: RedshiftDescribeReservedNodesMessage, callback: (err: RedshiftReservedNodeNotFoundFault|any, data: RedshiftReservedNodesMessage|any) => void): void;
       describeResize(params: RedshiftDescribeResizeMessage, callback: (err: RedshiftClusterNotFoundFault|RedshiftResizeNotFoundFault|any, data: RedshiftResizeProgressMessage|any) => void): void;
-      describeTags(params: RedshiftDescribeTagsMessage, callback: (err: RedshiftResourceNotFoundFault|any, data: RedshiftTaggedResourceListMessage|any) => void): void;
+      describeSnapshotCopyGrants(params: RedshiftDescribeSnapshotCopyGrantsMessage, callback: (err: RedshiftSnapshotCopyGrantNotFoundFault|RedshiftInvalidTagFault|any, data: RedshiftSnapshotCopyGrantMessage|any) => void): void;
+      describeTags(params: RedshiftDescribeTagsMessage, callback: (err: RedshiftResourceNotFoundFault|RedshiftInvalidTagFault|any, data: RedshiftTaggedResourceListMessage|any) => void): void;
       disableLogging(params: RedshiftDisableLoggingMessage, callback: (err: RedshiftClusterNotFoundFault|any, data: RedshiftLoggingStatus|any) => void): void;
       disableSnapshotCopy(params: RedshiftDisableSnapshotCopyMessage, callback: (err: RedshiftClusterNotFoundFault|RedshiftSnapshotCopyAlreadyDisabledFault|RedshiftInvalidClusterStateFault|RedshiftUnauthorizedOperation|any, data: RedshiftDisableSnapshotCopyResult|any) => void): void;
       enableLogging(params: RedshiftEnableLoggingMessage, callback: (err: RedshiftClusterNotFoundFault|RedshiftBucketNotFoundFault|RedshiftInsufficientS3BucketPolicyFault|RedshiftInvalidS3KeyPrefixFault|RedshiftInvalidS3BucketNameFault|any, data: RedshiftLoggingStatus|any) => void): void;
-      enableSnapshotCopy(params: RedshiftEnableSnapshotCopyMessage, callback: (err: RedshiftIncompatibleOrderableOptions|RedshiftInvalidClusterStateFault|RedshiftClusterNotFoundFault|RedshiftCopyToRegionDisabledFault|RedshiftSnapshotCopyAlreadyEnabledFault|RedshiftUnknownSnapshotCopyRegionFault|RedshiftUnauthorizedOperation|any, data: RedshiftEnableSnapshotCopyResult|any) => void): void;
-      modifyCluster(params: RedshiftModifyClusterMessage, callback: (err: RedshiftInvalidClusterStateFault|RedshiftInvalidClusterSecurityGroupStateFault|RedshiftClusterNotFoundFault|RedshiftNumberOfNodesQuotaExceededFault|RedshiftClusterSecurityGroupNotFoundFault|RedshiftClusterParameterGroupNotFoundFault|RedshiftInsufficientClusterCapacityFault|RedshiftUnsupportedOptionFault|RedshiftUnauthorizedOperation|RedshiftHsmClientCertificateNotFoundFault|RedshiftHsmConfigurationNotFoundFault|RedshiftClusterAlreadyExistsFault|any, data: RedshiftModifyClusterResult|any) => void): void;
+      enableSnapshotCopy(params: RedshiftEnableSnapshotCopyMessage, callback: (err: RedshiftIncompatibleOrderableOptions|RedshiftInvalidClusterStateFault|RedshiftClusterNotFoundFault|RedshiftCopyToRegionDisabledFault|RedshiftSnapshotCopyAlreadyEnabledFault|RedshiftUnknownSnapshotCopyRegionFault|RedshiftUnauthorizedOperation|RedshiftSnapshotCopyGrantNotFoundFault|RedshiftLimitExceededFault|any, data: RedshiftEnableSnapshotCopyResult|any) => void): void;
+      modifyCluster(params: RedshiftModifyClusterMessage, callback: (err: RedshiftInvalidClusterStateFault|RedshiftInvalidClusterSecurityGroupStateFault|RedshiftClusterNotFoundFault|RedshiftNumberOfNodesQuotaExceededFault|RedshiftClusterSecurityGroupNotFoundFault|RedshiftClusterParameterGroupNotFoundFault|RedshiftInsufficientClusterCapacityFault|RedshiftUnsupportedOptionFault|RedshiftUnauthorizedOperation|RedshiftHsmClientCertificateNotFoundFault|RedshiftHsmConfigurationNotFoundFault|RedshiftClusterAlreadyExistsFault|RedshiftLimitExceededFault|any, data: RedshiftModifyClusterResult|any) => void): void;
       modifyClusterParameterGroup(params: RedshiftModifyClusterParameterGroupMessage, callback: (err: RedshiftClusterParameterGroupNotFoundFault|RedshiftInvalidClusterParameterGroupStateFault|any, data: RedshiftClusterParameterGroupNameMessage|any) => void): void;
       modifyClusterSubnetGroup(params: RedshiftModifyClusterSubnetGroupMessage, callback: (err: RedshiftClusterSubnetGroupNotFoundFault|RedshiftClusterSubnetQuotaExceededFault|RedshiftSubnetAlreadyInUse|RedshiftInvalidSubnet|RedshiftUnauthorizedOperation|any, data: RedshiftModifyClusterSubnetGroupResult|any) => void): void;
       modifyEventSubscription(params: RedshiftModifyEventSubscriptionMessage, callback: (err: RedshiftSubscriptionNotFoundFault|RedshiftSNSInvalidTopicFault|RedshiftSNSNoAuthorizationFault|RedshiftSNSTopicArnNotFoundFault|RedshiftSubscriptionEventIdNotFoundFault|RedshiftSubscriptionCategoryNotFoundFault|RedshiftSubscriptionSeverityNotFoundFault|RedshiftSourceNotFoundFault|RedshiftInvalidSubscriptionStateFault|any, data: RedshiftModifyEventSubscriptionResult|any) => void): void;
       modifySnapshotCopyRetentionPeriod(params: RedshiftModifySnapshotCopyRetentionPeriodMessage, callback: (err: RedshiftClusterNotFoundFault|RedshiftSnapshotCopyDisabledFault|RedshiftUnauthorizedOperation|RedshiftInvalidClusterStateFault|any, data: RedshiftModifySnapshotCopyRetentionPeriodResult|any) => void): void;
-      purchaseReservedNodeOffering(params: RedshiftPurchaseReservedNodeOfferingMessage, callback: (err: RedshiftReservedNodeOfferingNotFoundFault|RedshiftReservedNodeAlreadyExistsFault|RedshiftReservedNodeQuotaExceededFault|any, data: RedshiftPurchaseReservedNodeOfferingResult|any) => void): void;
+      purchaseReservedNodeOffering(params: RedshiftPurchaseReservedNodeOfferingMessage, callback: (err: RedshiftReservedNodeOfferingNotFoundFault|RedshiftReservedNodeAlreadyExistsFault|RedshiftReservedNodeQuotaExceededFault|RedshiftUnsupportedOperationFault|any, data: RedshiftPurchaseReservedNodeOfferingResult|any) => void): void;
       rebootCluster(params: RedshiftRebootClusterMessage, callback: (err: RedshiftInvalidClusterStateFault|RedshiftClusterNotFoundFault|any, data: RedshiftRebootClusterResult|any) => void): void;
       resetClusterParameterGroup(params: RedshiftResetClusterParameterGroupMessage, callback: (err: RedshiftInvalidClusterParameterGroupStateFault|RedshiftClusterParameterGroupNotFoundFault|any, data: RedshiftClusterParameterGroupNameMessage|any) => void): void;
-      restoreFromClusterSnapshot(params: RedshiftRestoreFromClusterSnapshotMessage, callback: (err: RedshiftAccessToSnapshotDeniedFault|RedshiftClusterAlreadyExistsFault|RedshiftClusterSnapshotNotFoundFault|RedshiftClusterQuotaExceededFault|RedshiftInsufficientClusterCapacityFault|RedshiftInvalidClusterSnapshotStateFault|RedshiftInvalidRestoreFault|RedshiftNumberOfNodesQuotaExceededFault|RedshiftNumberOfNodesPerClusterLimitExceededFault|RedshiftInvalidVPCNetworkStateFault|RedshiftInvalidClusterSubnetGroupStateFault|RedshiftInvalidSubnet|RedshiftClusterSubnetGroupNotFoundFault|RedshiftUnauthorizedOperation|RedshiftHsmClientCertificateNotFoundFault|RedshiftHsmConfigurationNotFoundFault|RedshiftInvalidElasticIpFault|RedshiftClusterParameterGroupNotFoundFault|RedshiftClusterSecurityGroupNotFoundFault|any, data: RedshiftRestoreFromClusterSnapshotResult|any) => void): void;
+      restoreFromClusterSnapshot(params: RedshiftRestoreFromClusterSnapshotMessage, callback: (err: RedshiftAccessToSnapshotDeniedFault|RedshiftClusterAlreadyExistsFault|RedshiftClusterSnapshotNotFoundFault|RedshiftClusterQuotaExceededFault|RedshiftInsufficientClusterCapacityFault|RedshiftInvalidClusterSnapshotStateFault|RedshiftInvalidRestoreFault|RedshiftNumberOfNodesQuotaExceededFault|RedshiftNumberOfNodesPerClusterLimitExceededFault|RedshiftInvalidVPCNetworkStateFault|RedshiftInvalidClusterSubnetGroupStateFault|RedshiftInvalidSubnet|RedshiftClusterSubnetGroupNotFoundFault|RedshiftUnauthorizedOperation|RedshiftHsmClientCertificateNotFoundFault|RedshiftHsmConfigurationNotFoundFault|RedshiftInvalidElasticIpFault|RedshiftClusterParameterGroupNotFoundFault|RedshiftClusterSecurityGroupNotFoundFault|RedshiftLimitExceededFault|any, data: RedshiftRestoreFromClusterSnapshotResult|any) => void): void;
       revokeClusterSecurityGroupIngress(params: RedshiftRevokeClusterSecurityGroupIngressMessage, callback: (err: RedshiftClusterSecurityGroupNotFoundFault|RedshiftAuthorizationNotFoundFault|RedshiftInvalidClusterSecurityGroupStateFault|any, data: RedshiftRevokeClusterSecurityGroupIngressResult|any) => void): void;
       revokeSnapshotAccess(params: RedshiftRevokeSnapshotAccessMessage, callback: (err: RedshiftAccessToSnapshotDeniedFault|RedshiftAuthorizationNotFoundFault|RedshiftClusterSnapshotNotFoundFault|any, data: RedshiftRevokeSnapshotAccessResult|any) => void): void;
       rotateEncryptionKey(params: RedshiftRotateEncryptionKeyMessage, callback: (err: RedshiftClusterNotFoundFault|RedshiftInvalidClusterStateFault|any, data: RedshiftRotateEncryptionKeyResult|any) => void): void;
@@ -178,6 +183,7 @@ declare module "aws-sdk" {
     export interface RedshiftClusterParameterGroupStatus {
         ParameterGroupName?: RedshiftString;
         ParameterApplyStatus?: RedshiftString;
+        ClusterParameterStatusList?: RedshiftClusterParameterStatusList;
     }
 
     export type RedshiftClusterParameterGroupStatusList = Array<RedshiftClusterParameterGroupStatus>;
@@ -186,6 +192,13 @@ declare module "aws-sdk" {
         ParameterGroups?: RedshiftParameterGroupList;
     }
 
+    export interface RedshiftClusterParameterStatus {
+        ParameterName?: RedshiftString;
+        ParameterApplyStatus?: RedshiftString;
+        ParameterApplyErrorDescription?: RedshiftString;
+    }
+
+    export type RedshiftClusterParameterStatusList = Array<RedshiftClusterParameterStatus>;
     export interface RedshiftClusterQuotaExceededFault {
     }
 
@@ -225,6 +238,7 @@ declare module "aws-sdk" {
     export interface RedshiftClusterSnapshotCopyStatus {
         DestinationRegion?: RedshiftString;
         RetentionPeriod?: RedshiftLong;
+        SnapshotCopyGrantName?: RedshiftString;
     }
 
     export interface RedshiftClusterSnapshotNotFoundFault {
@@ -365,6 +379,12 @@ declare module "aws-sdk" {
         Tags?: RedshiftTagList;
     }
 
+    export interface RedshiftCreateSnapshotCopyGrantMessage {
+        SnapshotCopyGrantName: RedshiftString;
+        KmsKeyId?: RedshiftString;
+        Tags?: RedshiftTagList;
+    }
+
     export interface RedshiftCreateTagsMessage {
         ResourceName: RedshiftString;
         Tags: RedshiftTagList;
@@ -409,6 +429,10 @@ declare module "aws-sdk" {
 
     export interface RedshiftDeleteHsmConfigurationMessage {
         HsmConfigurationIdentifier: RedshiftString;
+    }
+
+    export interface RedshiftDeleteSnapshotCopyGrantMessage {
+        SnapshotCopyGrantName: RedshiftString;
     }
 
     export interface RedshiftDeleteTagsMessage {
@@ -544,6 +568,14 @@ declare module "aws-sdk" {
         ClusterIdentifier: RedshiftString;
     }
 
+    export interface RedshiftDescribeSnapshotCopyGrantsMessage {
+        SnapshotCopyGrantName?: RedshiftString;
+        MaxRecords?: RedshiftIntegerOptional;
+        Marker?: RedshiftString;
+        TagKeys?: RedshiftTagKeyList;
+        TagValues?: RedshiftTagValueList;
+    }
+
     export interface RedshiftDescribeTagsMessage {
         ResourceName?: RedshiftString;
         ResourceType?: RedshiftString;
@@ -586,6 +618,7 @@ declare module "aws-sdk" {
         ClusterIdentifier: RedshiftString;
         DestinationRegion: RedshiftString;
         RetentionPeriod?: RedshiftIntegerOptional;
+        SnapshotCopyGrantName?: RedshiftString;
     }
 
     export interface RedshiftEndpoint {
@@ -758,6 +791,9 @@ declare module "aws-sdk" {
     export interface RedshiftInvalidS3KeyPrefixFault {
     }
 
+    export interface RedshiftInvalidSnapshotCopyGrantStateFault {
+    }
+
     export interface RedshiftInvalidSubnet {
     }
 
@@ -768,6 +804,9 @@ declare module "aws-sdk" {
     }
 
     export interface RedshiftInvalidVPCNetworkStateFault {
+    }
+
+    export interface RedshiftLimitExceededFault {
     }
 
     export interface RedshiftLoggingStatus {
@@ -851,10 +890,12 @@ declare module "aws-sdk" {
         Source?: RedshiftString;
         DataType?: RedshiftString;
         AllowedValues?: RedshiftString;
+        ApplyType?: RedshiftParameterApplyType;
         IsModifiable?: RedshiftBoolean;
         MinimumEngineVersion?: RedshiftString;
     }
 
+    export type RedshiftParameterApplyType = string;
     export type RedshiftParameterGroupList = Array<RedshiftClusterParameterGroup>;
     export type RedshiftParametersList = Array<RedshiftParameter>;
     export interface RedshiftPendingModifiedValues {
@@ -959,6 +1000,7 @@ declare module "aws-sdk" {
     export interface RedshiftResourceNotFoundFault {
     }
 
+    export type RedshiftRestorableNodeTypeList = Array<RedshiftString>;
     export interface RedshiftRestoreFromClusterSnapshotMessage {
         ClusterIdentifier: RedshiftString;
         SnapshotIdentifier: RedshiftString;
@@ -978,6 +1020,7 @@ declare module "aws-sdk" {
         PreferredMaintenanceWindow?: RedshiftString;
         AutomatedSnapshotRetentionPeriod?: RedshiftIntegerOptional;
         KmsKeyId?: RedshiftString;
+        NodeType?: RedshiftString;
     }
 
     export interface RedshiftRestoreStatus {
@@ -1043,6 +1086,7 @@ declare module "aws-sdk" {
         ElapsedTimeInSeconds?: RedshiftLong;
         SourceRegion?: RedshiftString;
         Tags?: RedshiftTagList;
+        RestorableNodeTypes?: RedshiftRestorableNodeTypeList;
     }
 
     export interface RedshiftSnapshotCopyAlreadyDisabledFault {
@@ -1052,6 +1096,27 @@ declare module "aws-sdk" {
     }
 
     export interface RedshiftSnapshotCopyDisabledFault {
+    }
+
+    export interface RedshiftSnapshotCopyGrant {
+        SnapshotCopyGrantName?: RedshiftString;
+        KmsKeyId?: RedshiftString;
+        Tags?: RedshiftTagList;
+    }
+
+    export interface RedshiftSnapshotCopyGrantAlreadyExistsFault {
+    }
+
+    export type RedshiftSnapshotCopyGrantList = Array<RedshiftSnapshotCopyGrant>;
+    export interface RedshiftSnapshotCopyGrantMessage {
+        Marker?: RedshiftString;
+        SnapshotCopyGrants?: RedshiftSnapshotCopyGrantList;
+    }
+
+    export interface RedshiftSnapshotCopyGrantNotFoundFault {
+    }
+
+    export interface RedshiftSnapshotCopyGrantQuotaExceededFault {
     }
 
     export type RedshiftSnapshotList = Array<RedshiftSnapshot>;
@@ -1122,6 +1187,9 @@ declare module "aws-sdk" {
     export interface RedshiftUnknownSnapshotCopyRegionFault {
     }
 
+    export interface RedshiftUnsupportedOperationFault {
+    }
+
     export interface RedshiftUnsupportedOptionFault {
     }
 
@@ -1174,6 +1242,10 @@ declare module "aws-sdk" {
 
     export interface RedshiftCreateHsmConfigurationResult {
         HsmConfiguration?: RedshiftHsmConfiguration;
+    }
+
+    export interface RedshiftCreateSnapshotCopyGrantResult {
+        SnapshotCopyGrant?: RedshiftSnapshotCopyGrant;
     }
 
     export interface RedshiftDeleteClusterResult {

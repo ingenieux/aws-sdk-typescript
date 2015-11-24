@@ -1,11 +1,14 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class CloudFormation {
       constructor(options?: any);
       cancelUpdateStack(params: CloudFormationCancelUpdateStackInput, callback: (err: any, data: any) => void): void;
       createStack(params: CloudFormationCreateStackInput, callback: (err: CloudFormationLimitExceededException|CloudFormationAlreadyExistsException|CloudFormationInsufficientCapabilitiesException|any, data: CloudFormationCreateStackOutput|any) => void): void;
       deleteStack(params: CloudFormationDeleteStackInput, callback: (err: any, data: any) => void): void;
+      describeAccountLimits(params: CloudFormationDescribeAccountLimitsInput, callback: (err: any, data: CloudFormationDescribeAccountLimitsOutput|any) => void): void;
       describeStackEvents(params: CloudFormationDescribeStackEventsInput, callback: (err: any, data: CloudFormationDescribeStackEventsOutput|any) => void): void;
       describeStackResource(params: CloudFormationDescribeStackResourceInput, callback: (err: any, data: CloudFormationDescribeStackResourceOutput|any) => void): void;
       describeStackResources(params: CloudFormationDescribeStackResourcesInput, callback: (err: any, data: CloudFormationDescribeStackResourcesOutput|any) => void): void;
@@ -22,6 +25,12 @@ declare module "aws-sdk" {
       validateTemplate(params: CloudFormationValidateTemplateInput, callback: (err: any, data: CloudFormationValidateTemplateOutput|any) => void): void;
     }
 
+    export interface CloudFormationAccountLimit {
+        Name?: CloudFormationLimitName;
+        Value?: CloudFormationLimitValue;
+    }
+
+    export type CloudFormationAccountLimitList = Array<CloudFormationAccountLimit>;
     export type CloudFormationAllowedValue = string;
     export type CloudFormationAllowedValues = Array<CloudFormationAllowedValue>;
     export interface CloudFormationAlreadyExistsException {
@@ -43,6 +52,7 @@ declare module "aws-sdk" {
         TimeoutInMinutes?: CloudFormationTimeoutMinutes;
         NotificationARNs?: CloudFormationNotificationARNs;
         Capabilities?: CloudFormationCapabilities;
+        ResourceTypes?: CloudFormationResourceTypes;
         OnFailure?: CloudFormationOnFailure;
         StackPolicyBody?: CloudFormationStackPolicyBody;
         StackPolicyURL?: CloudFormationStackPolicyURL;
@@ -59,6 +69,15 @@ declare module "aws-sdk" {
     }
 
     export type CloudFormationDeletionTime = number;
+    export interface CloudFormationDescribeAccountLimitsInput {
+        NextToken?: CloudFormationNextToken;
+    }
+
+    export interface CloudFormationDescribeAccountLimitsOutput {
+        AccountLimits?: CloudFormationAccountLimitList;
+        NextToken?: CloudFormationNextToken;
+    }
+
     export interface CloudFormationDescribeStackEventsInput {
         StackName?: CloudFormationStackName;
         NextToken?: CloudFormationNextToken;
@@ -138,6 +157,7 @@ declare module "aws-sdk" {
         Description?: CloudFormationDescription;
         Capabilities?: CloudFormationCapabilities;
         CapabilitiesReason?: CloudFormationCapabilitiesReason;
+        ResourceTypes?: CloudFormationResourceTypes;
         Version?: CloudFormationVersion;
         Metadata?: CloudFormationMetadata;
     }
@@ -149,6 +169,8 @@ declare module "aws-sdk" {
     export interface CloudFormationLimitExceededException {
     }
 
+    export type CloudFormationLimitName = string;
+    export type CloudFormationLimitValue = number;
     export interface CloudFormationListStackResourcesInput {
         StackName: CloudFormationStackName;
         NextToken?: CloudFormationNextToken;
@@ -216,6 +238,7 @@ declare module "aws-sdk" {
     export type CloudFormationResourceStatus = string;
     export type CloudFormationResourceStatusReason = string;
     export type CloudFormationResourceType = string;
+    export type CloudFormationResourceTypes = Array<CloudFormationResourceType>;
     export interface CloudFormationSetStackPolicyInput {
         StackName: CloudFormationStackName;
         StackPolicyBody?: CloudFormationStackPolicyBody;
@@ -349,6 +372,7 @@ declare module "aws-sdk" {
         StackPolicyDuringUpdateURL?: CloudFormationStackPolicyDuringUpdateURL;
         Parameters?: CloudFormationParameters;
         Capabilities?: CloudFormationCapabilities;
+        ResourceTypes?: CloudFormationResourceTypes;
         StackPolicyBody?: CloudFormationStackPolicyBody;
         StackPolicyURL?: CloudFormationStackPolicyURL;
         NotificationARNs?: CloudFormationNotificationARNs;

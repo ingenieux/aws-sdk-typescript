@@ -1,5 +1,7 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class STS {
       constructor(options?: any);
@@ -13,7 +15,7 @@ declare module "aws-sdk" {
 
     export interface STSAssumeRoleRequest {
         RoleArn: STSarnType;
-        RoleSessionName: STSuserNameType;
+        RoleSessionName: STSroleSessionNameType;
         Policy?: STSsessionPolicyDocumentType;
         DurationSeconds?: STSroleDurationSecondsType;
         ExternalId?: STSexternalIdType;
@@ -32,7 +34,7 @@ declare module "aws-sdk" {
         PrincipalArn: STSarnType;
         SAMLAssertion: STSSAMLAssertionType;
         Policy?: STSsessionPolicyDocumentType;
-        DurationSeconds?: STSdurationSecondsType;
+        DurationSeconds?: STSroleDurationSecondsType;
     }
 
     export interface STSAssumeRoleWithSAMLResponse {
@@ -48,11 +50,11 @@ declare module "aws-sdk" {
 
     export interface STSAssumeRoleWithWebIdentityRequest {
         RoleArn: STSarnType;
-        RoleSessionName: STSuserNameType;
+        RoleSessionName: STSroleSessionNameType;
         WebIdentityToken: STSclientTokenType;
         ProviderId?: STSurlType;
         Policy?: STSsessionPolicyDocumentType;
-        DurationSeconds?: STSdurationSecondsType;
+        DurationSeconds?: STSroleDurationSecondsType;
     }
 
     export interface STSAssumeRoleWithWebIdentityResponse {
@@ -165,6 +167,7 @@ declare module "aws-sdk" {
     export type STSnonNegativeIntegerType = number;
     export type STSpackedPolicyTooLargeMessage = string;
     export type STSroleDurationSecondsType = number;
+    export type STSroleSessionNameType = string; // pattern: "[\w+=,.@-]*"
     export type STSserialNumberType = string; // pattern: "[\w+=/:,.@-]*"
     export type STSsessionPolicyDocumentType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]+"
     export type STStokenCodeType = string; // pattern: "[\d]*"

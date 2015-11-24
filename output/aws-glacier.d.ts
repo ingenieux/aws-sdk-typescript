@@ -1,10 +1,15 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class Glacier {
       constructor(options?: any);
       abortMultipartUpload(params: GlacierAbortMultipartUploadInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): void;
+      abortVaultLock(params: GlacierAbortVaultLockInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): void;
+      addTagsToVault(params: GlacierAddTagsToVaultInput, callback: (err: GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierResourceNotFoundException|GlacierLimitExceededException|GlacierServiceUnavailableException|any, data: any) => void): void;
       completeMultipartUpload(params: GlacierCompleteMultipartUploadInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierArchiveCreationOutput|any) => void): void;
+      completeVaultLock(params: GlacierCompleteVaultLockInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): void;
       createVault(params: GlacierCreateVaultInput, callback: (err: GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|GlacierLimitExceededException|any, data: GlacierCreateVaultOutput|any) => void): void;
       deleteArchive(params: GlacierDeleteArchiveInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): void;
       deleteVault(params: GlacierDeleteVaultInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): void;
@@ -15,13 +20,17 @@ declare module "aws-sdk" {
       getDataRetrievalPolicy(params: GlacierGetDataRetrievalPolicyInput, callback: (err: GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierGetDataRetrievalPolicyOutput|any) => void): void;
       getJobOutput(params: GlacierGetJobOutputInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierGetJobOutputOutput|any) => void): void;
       getVaultAccessPolicy(params: GlacierGetVaultAccessPolicyInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierGetVaultAccessPolicyOutput|any) => void): void;
+      getVaultLock(params: GlacierGetVaultLockInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierGetVaultLockOutput|any) => void): void;
       getVaultNotifications(params: GlacierGetVaultNotificationsInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierGetVaultNotificationsOutput|any) => void): void;
       initiateJob(params: GlacierInitiateJobInput, callback: (err: GlacierResourceNotFoundException|GlacierPolicyEnforcedException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierInitiateJobOutput|any) => void): void;
       initiateMultipartUpload(params: GlacierInitiateMultipartUploadInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierInitiateMultipartUploadOutput|any) => void): void;
+      initiateVaultLock(params: GlacierInitiateVaultLockInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierInitiateVaultLockOutput|any) => void): void;
       listJobs(params: GlacierListJobsInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierListJobsOutput|any) => void): void;
       listMultipartUploads(params: GlacierListMultipartUploadsInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierListMultipartUploadsOutput|any) => void): void;
       listParts(params: GlacierListPartsInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierListPartsOutput|any) => void): void;
+      listTagsForVault(params: GlacierListTagsForVaultInput, callback: (err: GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierResourceNotFoundException|GlacierServiceUnavailableException|any, data: GlacierListTagsForVaultOutput|any) => void): void;
       listVaults(params: GlacierListVaultsInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierListVaultsOutput|any) => void): void;
+      removeTagsFromVault(params: GlacierRemoveTagsFromVaultInput, callback: (err: GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierResourceNotFoundException|GlacierServiceUnavailableException|any, data: any) => void): void;
       setDataRetrievalPolicy(params: GlacierSetDataRetrievalPolicyInput, callback: (err: GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): void;
       setVaultAccessPolicy(params: GlacierSetVaultAccessPolicyInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): void;
       setVaultNotifications(params: GlacierSetVaultNotificationsInput, callback: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): void;
@@ -35,7 +44,18 @@ declare module "aws-sdk" {
         uploadId: Glacierstring;
     }
 
+    export interface GlacierAbortVaultLockInput {
+        accountId: Glacierstring;
+        vaultName: Glacierstring;
+    }
+
     export type GlacierActionCode = string;
+    export interface GlacierAddTagsToVaultInput {
+        accountId: Glacierstring;
+        vaultName: Glacierstring;
+        Tags?: GlacierTagMap;
+    }
+
     export interface GlacierArchiveCreationOutput {
         location?: Glacierstring;
         checksum?: Glacierstring;
@@ -48,6 +68,12 @@ declare module "aws-sdk" {
         uploadId: Glacierstring;
         archiveSize?: Glacierstring;
         checksum?: Glacierstring;
+    }
+
+    export interface GlacierCompleteVaultLockInput {
+        accountId: Glacierstring;
+        vaultName: Glacierstring;
+        lockId: Glacierstring;
     }
 
     export interface GlacierCreateVaultInput {
@@ -145,6 +171,18 @@ declare module "aws-sdk" {
         policy?: GlacierVaultAccessPolicy;
     }
 
+    export interface GlacierGetVaultLockInput {
+        accountId: Glacierstring;
+        vaultName: Glacierstring;
+    }
+
+    export interface GlacierGetVaultLockOutput {
+        Policy?: Glacierstring;
+        State?: Glacierstring;
+        ExpirationDate?: Glacierstring;
+        CreationDate?: Glacierstring;
+    }
+
     export interface GlacierGetVaultNotificationsInput {
         accountId: Glacierstring;
         vaultName: Glacierstring;
@@ -195,6 +233,16 @@ declare module "aws-sdk" {
     export interface GlacierInitiateMultipartUploadOutput {
         location?: Glacierstring;
         uploadId?: Glacierstring;
+    }
+
+    export interface GlacierInitiateVaultLockInput {
+        accountId: Glacierstring;
+        vaultName: Glacierstring;
+        policy?: GlacierVaultLockPolicy;
+    }
+
+    export interface GlacierInitiateVaultLockOutput {
+        lockId?: Glacierstring;
     }
 
     export interface GlacierInvalidParameterValueException {
@@ -279,6 +327,15 @@ declare module "aws-sdk" {
         Marker?: Glacierstring;
     }
 
+    export interface GlacierListTagsForVaultInput {
+        accountId: Glacierstring;
+        vaultName: Glacierstring;
+    }
+
+    export interface GlacierListTagsForVaultOutput {
+        Tags?: GlacierTagMap;
+    }
+
     export interface GlacierListVaultsInput {
         accountId: Glacierstring;
         marker?: Glacierstring;
@@ -308,6 +365,12 @@ declare module "aws-sdk" {
         type?: Glacierstring;
         code?: Glacierstring;
         message?: Glacierstring;
+    }
+
+    export interface GlacierRemoveTagsFromVaultInput {
+        accountId: Glacierstring;
+        vaultName: Glacierstring;
+        TagKeys?: GlacierTagKeyList;
     }
 
     export interface GlacierRequestTimeoutException {
@@ -348,6 +411,10 @@ declare module "aws-sdk" {
     export type GlacierSize = number;
     export type GlacierStatusCode = string;
     export type GlacierStream = any; // not really - it was 'blob' instead - must fix this one
+    export type GlacierTagKey = string;
+    export type GlacierTagKeyList = Array<Glacierstring>;
+    export type GlacierTagMap = any; // not really - it was 'map' instead - must fix this one
+    export type GlacierTagValue = string;
     export interface GlacierUploadArchiveInput {
         vaultName: Glacierstring;
         accountId: Glacierstring;
@@ -383,6 +450,10 @@ declare module "aws-sdk" {
     }
 
     export type GlacierVaultList = Array<GlacierDescribeVaultOutput>;
+    export interface GlacierVaultLockPolicy {
+        Policy?: Glacierstring;
+    }
+
     export interface GlacierVaultNotificationConfig {
         SNSTopic?: Glacierstring;
         Events?: GlacierNotificationEventList;

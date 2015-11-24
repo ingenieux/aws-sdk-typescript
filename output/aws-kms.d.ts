@@ -1,34 +1,39 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class KMS {
       constructor(options?: any);
-      createAlias(params: KMSCreateAliasRequest, callback: (err: KMSDependencyTimeoutException|KMSAlreadyExistsException|KMSNotFoundException|KMSInvalidAliasNameException|KMSKMSInternalException|KMSLimitExceededException|any, data: any) => void): void;
-      createGrant(params: KMSCreateGrantRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSDependencyTimeoutException|KMSInvalidArnException|KMSKMSInternalException|KMSInvalidGrantTokenException|KMSLimitExceededException|any, data: KMSCreateGrantResponse|any) => void): void;
+      cancelKeyDeletion(params: KMSCancelKeyDeletionRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSCancelKeyDeletionResponse|any) => void): void;
+      createAlias(params: KMSCreateAliasRequest, callback: (err: KMSDependencyTimeoutException|KMSAlreadyExistsException|KMSNotFoundException|KMSInvalidAliasNameException|KMSKMSInternalException|KMSLimitExceededException|KMSKMSInvalidStateException|any, data: any) => void): void;
+      createGrant(params: KMSCreateGrantRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSDependencyTimeoutException|KMSInvalidArnException|KMSKMSInternalException|KMSInvalidGrantTokenException|KMSLimitExceededException|KMSKMSInvalidStateException|any, data: KMSCreateGrantResponse|any) => void): void;
       createKey(params: KMSCreateKeyRequest, callback: (err: KMSMalformedPolicyDocumentException|KMSDependencyTimeoutException|KMSInvalidArnException|KMSUnsupportedOperationException|KMSKMSInternalException|KMSLimitExceededException|any, data: KMSCreateKeyResponse|any) => void): void;
-      decrypt(params: KMSDecryptRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSInvalidCiphertextException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidGrantTokenException|KMSKMSInternalException|any, data: KMSDecryptResponse|any) => void): void;
-      deleteAlias(params: KMSDeleteAliasRequest, callback: (err: KMSDependencyTimeoutException|KMSNotFoundException|KMSKMSInternalException|any, data: any) => void): void;
+      decrypt(params: KMSDecryptRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSInvalidCiphertextException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidGrantTokenException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSDecryptResponse|any) => void): void;
+      deleteAlias(params: KMSDeleteAliasRequest, callback: (err: KMSDependencyTimeoutException|KMSNotFoundException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): void;
       describeKey(params: KMSDescribeKeyRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|any, data: KMSDescribeKeyResponse|any) => void): void;
-      disableKey(params: KMSDisableKeyRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|any, data: any) => void): void;
-      disableKeyRotation(params: KMSDisableKeyRotationRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|any, data: any) => void): void;
-      enableKey(params: KMSEnableKeyRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSLimitExceededException|any, data: any) => void): void;
-      enableKeyRotation(params: KMSEnableKeyRotationRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|any, data: any) => void): void;
-      encrypt(params: KMSEncryptRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidKeyUsageException|KMSInvalidGrantTokenException|KMSKMSInternalException|any, data: KMSEncryptResponse|any) => void): void;
-      generateDataKey(params: KMSGenerateDataKeyRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidKeyUsageException|KMSInvalidGrantTokenException|KMSKMSInternalException|any, data: KMSGenerateDataKeyResponse|any) => void): void;
-      generateDataKeyWithoutPlaintext(params: KMSGenerateDataKeyWithoutPlaintextRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidKeyUsageException|KMSInvalidGrantTokenException|KMSKMSInternalException|any, data: KMSGenerateDataKeyWithoutPlaintextResponse|any) => void): void;
+      disableKey(params: KMSDisableKeyRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): void;
+      disableKeyRotation(params: KMSDisableKeyRotationRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): void;
+      enableKey(params: KMSEnableKeyRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSLimitExceededException|KMSKMSInvalidStateException|any, data: any) => void): void;
+      enableKeyRotation(params: KMSEnableKeyRotationRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): void;
+      encrypt(params: KMSEncryptRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidKeyUsageException|KMSInvalidGrantTokenException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSEncryptResponse|any) => void): void;
+      generateDataKey(params: KMSGenerateDataKeyRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidKeyUsageException|KMSInvalidGrantTokenException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSGenerateDataKeyResponse|any) => void): void;
+      generateDataKeyWithoutPlaintext(params: KMSGenerateDataKeyWithoutPlaintextRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidKeyUsageException|KMSInvalidGrantTokenException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSGenerateDataKeyWithoutPlaintextResponse|any) => void): void;
       generateRandom(params: KMSGenerateRandomRequest, callback: (err: KMSDependencyTimeoutException|KMSKMSInternalException|any, data: KMSGenerateRandomResponse|any) => void): void;
-      getKeyPolicy(params: KMSGetKeyPolicyRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|any, data: KMSGetKeyPolicyResponse|any) => void): void;
-      getKeyRotationStatus(params: KMSGetKeyRotationStatusRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|any, data: KMSGetKeyRotationStatusResponse|any) => void): void;
+      getKeyPolicy(params: KMSGetKeyPolicyRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSGetKeyPolicyResponse|any) => void): void;
+      getKeyRotationStatus(params: KMSGetKeyRotationStatusRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSGetKeyRotationStatusResponse|any) => void): void;
       listAliases(params: KMSListAliasesRequest, callback: (err: KMSDependencyTimeoutException|KMSInvalidMarkerException|KMSKMSInternalException|any, data: KMSListAliasesResponse|any) => void): void;
-      listGrants(params: KMSListGrantsRequest, callback: (err: KMSDependencyTimeoutException|KMSInvalidMarkerException|KMSInvalidArnException|KMSKMSInternalException|any, data: KMSListGrantsResponse|any) => void): void;
-      listKeyPolicies(params: KMSListKeyPoliciesRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|any, data: KMSListKeyPoliciesResponse|any) => void): void;
+      listGrants(params: KMSListGrantsRequest, callback: (err: KMSNotFoundException|KMSDependencyTimeoutException|KMSInvalidMarkerException|KMSInvalidArnException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSListGrantsResponse|any) => void): void;
+      listKeyPolicies(params: KMSListKeyPoliciesRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSListKeyPoliciesResponse|any) => void): void;
       listKeys(params: KMSListKeysRequest, callback: (err: KMSDependencyTimeoutException|KMSKMSInternalException|any, data: KMSListKeysResponse|any) => void): void;
-      putKeyPolicy(params: KMSPutKeyPolicyRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSMalformedPolicyDocumentException|KMSDependencyTimeoutException|KMSInvalidArnException|KMSUnsupportedOperationException|KMSKMSInternalException|KMSLimitExceededException|any, data: any) => void): void;
-      reEncrypt(params: KMSReEncryptRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSInvalidCiphertextException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidKeyUsageException|KMSInvalidGrantTokenException|KMSKMSInternalException|any, data: KMSReEncryptResponse|any) => void): void;
-      retireGrant(params: KMSRetireGrantRequest, callback: (err: KMSInvalidGrantTokenException|KMSNotFoundException|KMSDependencyTimeoutException|KMSKMSInternalException|any, data: any) => void): void;
-      revokeGrant(params: KMSRevokeGrantRequest, callback: (err: KMSNotFoundException|KMSDependencyTimeoutException|KMSInvalidArnException|KMSKMSInternalException|any, data: any) => void): void;
-      updateAlias(params: KMSUpdateAliasRequest, callback: (err: KMSDependencyTimeoutException|KMSNotFoundException|KMSKMSInternalException|any, data: any) => void): void;
-      updateKeyDescription(params: KMSUpdateKeyDescriptionRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|any, data: any) => void): void;
+      listRetirableGrants(params: KMSListRetirableGrantsRequest, callback: (err: KMSDependencyTimeoutException|KMSInvalidMarkerException|KMSInvalidArnException|KMSNotFoundException|KMSKMSInternalException|any, data: KMSListGrantsResponse|any) => void): void;
+      putKeyPolicy(params: KMSPutKeyPolicyRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSMalformedPolicyDocumentException|KMSDependencyTimeoutException|KMSInvalidArnException|KMSUnsupportedOperationException|KMSKMSInternalException|KMSLimitExceededException|KMSKMSInvalidStateException|any, data: any) => void): void;
+      reEncrypt(params: KMSReEncryptRequest, callback: (err: KMSNotFoundException|KMSDisabledException|KMSInvalidCiphertextException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidKeyUsageException|KMSInvalidGrantTokenException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSReEncryptResponse|any) => void): void;
+      retireGrant(params: KMSRetireGrantRequest, callback: (err: KMSInvalidGrantTokenException|KMSInvalidGrantIdException|KMSNotFoundException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): void;
+      revokeGrant(params: KMSRevokeGrantRequest, callback: (err: KMSNotFoundException|KMSDependencyTimeoutException|KMSInvalidArnException|KMSInvalidGrantIdException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): void;
+      scheduleKeyDeletion(params: KMSScheduleKeyDeletionRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSScheduleKeyDeletionResponse|any) => void): void;
+      updateAlias(params: KMSUpdateAliasRequest, callback: (err: KMSDependencyTimeoutException|KMSNotFoundException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): void;
+      updateKeyDescription(params: KMSUpdateKeyDescriptionRequest, callback: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): void;
     }
 
     export type KMSAWSAccountIdType = string;
@@ -46,6 +51,14 @@ declare module "aws-sdk" {
 
     export type KMSArnType = string;
     export type KMSBooleanType = boolean;
+    export interface KMSCancelKeyDeletionRequest {
+        KeyId: KMSKeyIdType;
+    }
+
+    export interface KMSCancelKeyDeletionResponse {
+        KeyId?: KMSKeyIdType;
+    }
+
     export type KMSCiphertextType = any; // not really - it was 'blob' instead - must fix this one
     export interface KMSCreateAliasRequest {
         AliasName: KMSAliasNameType;
@@ -59,6 +72,7 @@ declare module "aws-sdk" {
         Operations?: KMSGrantOperationList;
         Constraints?: KMSGrantConstraints;
         GrantTokens?: KMSGrantTokenList;
+        Name?: KMSGrantNameType;
     }
 
     export interface KMSCreateGrantResponse {
@@ -99,6 +113,7 @@ declare module "aws-sdk" {
 
     export interface KMSDescribeKeyRequest {
         KeyId: KMSKeyIdType;
+        GrantTokens?: KMSGrantTokenList;
     }
 
     export interface KMSDescribeKeyResponse {
@@ -202,7 +217,10 @@ declare module "aws-sdk" {
     export type KMSGrantIdType = string;
     export type KMSGrantList = Array<KMSGrantListEntry>;
     export interface KMSGrantListEntry {
+        KeyId?: KMSKeyIdType;
         GrantId?: KMSGrantIdType;
+        Name?: KMSGrantNameType;
+        CreationDate?: KMSDateType;
         GranteePrincipal?: KMSPrincipalIdType;
         RetiringPrincipal?: KMSPrincipalIdType;
         IssuingAccount?: KMSPrincipalIdType;
@@ -210,6 +228,7 @@ declare module "aws-sdk" {
         Constraints?: KMSGrantConstraints;
     }
 
+    export type KMSGrantNameType = string; // pattern: "^[a-zA-Z0-9:/_-]+$"
     export type KMSGrantOperation = string;
     export type KMSGrantOperationList = Array<KMSGrantOperation>;
     export type KMSGrantTokenList = Array<KMSGrantTokenType>; // max: 10
@@ -223,6 +242,10 @@ declare module "aws-sdk" {
     }
 
     export interface KMSInvalidCiphertextException {
+        message?: KMSErrorMessageType;
+    }
+
+    export interface KMSInvalidGrantIdException {
         message?: KMSErrorMessageType;
     }
 
@@ -242,6 +265,10 @@ declare module "aws-sdk" {
         message?: KMSErrorMessageType;
     }
 
+    export interface KMSKMSInvalidStateException {
+        message?: KMSErrorMessageType;
+    }
+
     export type KMSKeyIdType = string;
     export type KMSKeyList = Array<KMSKeyListEntry>;
     export interface KMSKeyListEntry {
@@ -257,8 +284,11 @@ declare module "aws-sdk" {
         Enabled?: KMSBooleanType;
         Description?: KMSDescriptionType;
         KeyUsage?: KMSKeyUsageType;
+        KeyState?: KMSKeyState;
+        DeletionDate?: KMSDateType;
     }
 
+    export type KMSKeyState = string;
     export interface KMSKeyUnavailableException {
         message?: KMSErrorMessageType;
     }
@@ -281,9 +311,9 @@ declare module "aws-sdk" {
     }
 
     export interface KMSListGrantsRequest {
-        KeyId: KMSKeyIdType;
         Limit?: KMSLimitType;
         Marker?: KMSMarkerType;
+        KeyId: KMSKeyIdType;
     }
 
     export interface KMSListGrantsResponse {
@@ -315,6 +345,12 @@ declare module "aws-sdk" {
         Truncated?: KMSBooleanType;
     }
 
+    export interface KMSListRetirableGrantsRequest {
+        Limit?: KMSLimitType;
+        Marker?: KMSMarkerType;
+        RetiringPrincipal: KMSPrincipalIdType;
+    }
+
     export interface KMSMalformedPolicyDocumentException {
         message?: KMSErrorMessageType;
     }
@@ -325,6 +361,7 @@ declare module "aws-sdk" {
     }
 
     export type KMSNumberOfBytesType = number;
+    export type KMSPendingWindowInDaysType = number;
     export type KMSPlaintextType = any; // not really - it was 'blob' instead - must fix this one
     export type KMSPolicyNameList = Array<KMSPolicyNameType>;
     export type KMSPolicyNameType = string; // pattern: "[\w]+"
@@ -359,6 +396,16 @@ declare module "aws-sdk" {
     export interface KMSRevokeGrantRequest {
         KeyId: KMSKeyIdType;
         GrantId: KMSGrantIdType;
+    }
+
+    export interface KMSScheduleKeyDeletionRequest {
+        KeyId: KMSKeyIdType;
+        PendingWindowInDays?: KMSPendingWindowInDaysType;
+    }
+
+    export interface KMSScheduleKeyDeletionResponse {
+        KeyId?: KMSKeyIdType;
+        DeletionDate?: KMSDateType;
     }
 
     export interface KMSUnsupportedOperationException {

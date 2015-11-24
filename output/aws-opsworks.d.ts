@@ -1,5 +1,7 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class OpsWorks {
       constructor(options?: any);
@@ -19,13 +21,16 @@ declare module "aws-sdk" {
       deleteLayer(params: OpsWorksDeleteLayerRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
       deleteStack(params: OpsWorksDeleteStackRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
       deleteUserProfile(params: OpsWorksDeleteUserProfileRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      deregisterEcsCluster(params: OpsWorksDeregisterEcsClusterRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
       deregisterElasticIp(params: OpsWorksDeregisterElasticIpRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
       deregisterInstance(params: OpsWorksDeregisterInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
       deregisterRdsDbInstance(params: OpsWorksDeregisterRdsDbInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
       deregisterVolume(params: OpsWorksDeregisterVolumeRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      describeAgentVersions(params: OpsWorksDescribeAgentVersionsRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeAgentVersionsResult|any) => void): void;
       describeApps(params: OpsWorksDescribeAppsRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeAppsResult|any) => void): void;
       describeCommands(params: OpsWorksDescribeCommandsRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeCommandsResult|any) => void): void;
       describeDeployments(params: OpsWorksDescribeDeploymentsRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeDeploymentsResult|any) => void): void;
+      describeEcsClusters(params: OpsWorksDescribeEcsClustersRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeEcsClustersResult|any) => void): void;
       describeElasticIps(params: OpsWorksDescribeElasticIpsRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeElasticIpsResult|any) => void): void;
       describeElasticLoadBalancers(params: OpsWorksDescribeElasticLoadBalancersRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeElasticLoadBalancersResult|any) => void): void;
       describeInstances(params: OpsWorksDescribeInstancesRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksDescribeInstancesResult|any) => void): void;
@@ -47,6 +52,7 @@ declare module "aws-sdk" {
       getHostnameSuggestion(params: OpsWorksGetHostnameSuggestionRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksGetHostnameSuggestionResult|any) => void): void;
       grantAccess(params: OpsWorksGrantAccessRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksGrantAccessResult|any) => void): void;
       rebootInstance(params: OpsWorksRebootInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
+      registerEcsCluster(params: OpsWorksRegisterEcsClusterRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksRegisterEcsClusterResult|any) => void): void;
       registerElasticIp(params: OpsWorksRegisterElasticIpRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksRegisterElasticIpResult|any) => void): void;
       registerInstance(params: OpsWorksRegisterInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: OpsWorksRegisterInstanceResult|any) => void): void;
       registerRdsDbInstance(params: OpsWorksRegisterRdsDbInstanceRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
@@ -71,6 +77,12 @@ declare module "aws-sdk" {
       updateVolume(params: OpsWorksUpdateVolumeRequest, callback: (err: OpsWorksValidationException|OpsWorksResourceNotFoundException|any, data: any) => void): void;
     }
 
+    export interface OpsWorksAgentVersion {
+        Version?: OpsWorksString;
+        ConfigurationManager?: OpsWorksStackConfigurationManager;
+    }
+
+    export type OpsWorksAgentVersions = Array<OpsWorksAgentVersion>;
     export interface OpsWorksApp {
         AppId?: OpsWorksString;
         StackId?: OpsWorksString;
@@ -160,6 +172,7 @@ declare module "aws-sdk" {
         ClonePermissions?: OpsWorksBoolean;
         CloneAppIds?: OpsWorksStrings;
         DefaultRootDeviceType?: OpsWorksRootDeviceType;
+        AgentVersion?: OpsWorksString;
     }
 
     export interface OpsWorksCloneStackResult {
@@ -229,6 +242,7 @@ declare module "aws-sdk" {
         BlockDeviceMappings?: OpsWorksBlockDeviceMappings;
         InstallUpdatesOnBoot?: OpsWorksBoolean;
         EbsOptimized?: OpsWorksBoolean;
+        AgentVersion?: OpsWorksString;
     }
 
     export interface OpsWorksCreateInstanceResult {
@@ -242,6 +256,7 @@ declare module "aws-sdk" {
         Shortname: OpsWorksString;
         Attributes?: OpsWorksLayerAttributes;
         CustomInstanceProfileArn?: OpsWorksString;
+        CustomJson?: OpsWorksString;
         CustomSecurityGroupIds?: OpsWorksStrings;
         Packages?: OpsWorksStrings;
         VolumeConfigurations?: OpsWorksVolumeConfigurations;
@@ -277,6 +292,7 @@ declare module "aws-sdk" {
         CustomCookbooksSource?: OpsWorksSource;
         DefaultSshKeyName?: OpsWorksString;
         DefaultRootDeviceType?: OpsWorksRootDeviceType;
+        AgentVersion?: OpsWorksString;
     }
 
     export interface OpsWorksCreateStackResult {
@@ -348,6 +364,10 @@ declare module "aws-sdk" {
     export type OpsWorksDeploymentCommandArgs = any; // not really - it was 'map' instead - must fix this one
     export type OpsWorksDeploymentCommandName = string;
     export type OpsWorksDeployments = Array<OpsWorksDeployment>;
+    export interface OpsWorksDeregisterEcsClusterRequest {
+        EcsClusterArn: OpsWorksString;
+    }
+
     export interface OpsWorksDeregisterElasticIpRequest {
         ElasticIp: OpsWorksString;
     }
@@ -362,6 +382,15 @@ declare module "aws-sdk" {
 
     export interface OpsWorksDeregisterVolumeRequest {
         VolumeId: OpsWorksString;
+    }
+
+    export interface OpsWorksDescribeAgentVersionsRequest {
+        StackId?: OpsWorksString;
+        ConfigurationManager?: OpsWorksStackConfigurationManager;
+    }
+
+    export interface OpsWorksDescribeAgentVersionsResult {
+        AgentVersions?: OpsWorksAgentVersions;
     }
 
     export interface OpsWorksDescribeAppsRequest {
@@ -391,6 +420,18 @@ declare module "aws-sdk" {
 
     export interface OpsWorksDescribeDeploymentsResult {
         Deployments?: OpsWorksDeployments;
+    }
+
+    export interface OpsWorksDescribeEcsClustersRequest {
+        EcsClusterArns?: OpsWorksStrings;
+        StackId?: OpsWorksString;
+        NextToken?: OpsWorksString;
+        MaxResults?: OpsWorksInteger;
+    }
+
+    export interface OpsWorksDescribeEcsClustersResult {
+        EcsClusters?: OpsWorksEcsClusters;
+        NextToken?: OpsWorksString;
     }
 
     export interface OpsWorksDescribeElasticIpsRequest {
@@ -551,6 +592,14 @@ declare module "aws-sdk" {
         DeleteOnTermination?: OpsWorksBoolean;
     }
 
+    export interface OpsWorksEcsCluster {
+        EcsClusterArn?: OpsWorksString;
+        EcsClusterName?: OpsWorksString;
+        StackId?: OpsWorksString;
+        RegisteredAt?: OpsWorksDateTime;
+    }
+
+    export type OpsWorksEcsClusters = Array<OpsWorksEcsCluster>;
     export interface OpsWorksElasticIp {
         Ip?: OpsWorksString;
         Name?: OpsWorksString;
@@ -600,41 +649,45 @@ declare module "aws-sdk" {
 
     export type OpsWorksHour = string;
     export interface OpsWorksInstance {
-        InstanceId?: OpsWorksString;
-        Ec2InstanceId?: OpsWorksString;
-        VirtualizationType?: OpsWorksVirtualizationType;
-        Hostname?: OpsWorksString;
-        StackId?: OpsWorksString;
-        LayerIds?: OpsWorksStrings;
-        SecurityGroupIds?: OpsWorksStrings;
-        InstanceType?: OpsWorksString;
-        InstanceProfileArn?: OpsWorksString;
-        Status?: OpsWorksString;
-        Os?: OpsWorksString;
+        AgentVersion?: OpsWorksString;
         AmiId?: OpsWorksString;
-        AvailabilityZone?: OpsWorksString;
-        SubnetId?: OpsWorksString;
-        PublicDns?: OpsWorksString;
-        PrivateDns?: OpsWorksString;
-        PublicIp?: OpsWorksString;
-        PrivateIp?: OpsWorksString;
-        ElasticIp?: OpsWorksString;
-        AutoScalingType?: OpsWorksAutoScalingType;
-        SshKeyName?: OpsWorksString;
-        SshHostRsaKeyFingerprint?: OpsWorksString;
-        SshHostDsaKeyFingerprint?: OpsWorksString;
-        CreatedAt?: OpsWorksDateTime;
-        LastServiceErrorId?: OpsWorksString;
         Architecture?: OpsWorksArchitecture;
-        RootDeviceType?: OpsWorksRootDeviceType;
-        RootDeviceVolumeId?: OpsWorksString;
+        AutoScalingType?: OpsWorksAutoScalingType;
+        AvailabilityZone?: OpsWorksString;
         BlockDeviceMappings?: OpsWorksBlockDeviceMappings;
-        InstallUpdatesOnBoot?: OpsWorksBoolean;
+        CreatedAt?: OpsWorksDateTime;
         EbsOptimized?: OpsWorksBoolean;
+        Ec2InstanceId?: OpsWorksString;
+        EcsClusterArn?: OpsWorksString;
+        EcsContainerInstanceArn?: OpsWorksString;
+        ElasticIp?: OpsWorksString;
+        Hostname?: OpsWorksString;
+        InfrastructureClass?: OpsWorksString;
+        InstallUpdatesOnBoot?: OpsWorksBoolean;
+        InstanceId?: OpsWorksString;
+        InstanceProfileArn?: OpsWorksString;
+        InstanceType?: OpsWorksString;
+        LastServiceErrorId?: OpsWorksString;
+        LayerIds?: OpsWorksStrings;
+        Os?: OpsWorksString;
+        Platform?: OpsWorksString;
+        PrivateDns?: OpsWorksString;
+        PrivateIp?: OpsWorksString;
+        PublicDns?: OpsWorksString;
+        PublicIp?: OpsWorksString;
+        RegisteredBy?: OpsWorksString;
         ReportedAgentVersion?: OpsWorksString;
         ReportedOs?: OpsWorksReportedOs;
-        InfrastructureClass?: OpsWorksString;
-        RegisteredBy?: OpsWorksString;
+        RootDeviceType?: OpsWorksRootDeviceType;
+        RootDeviceVolumeId?: OpsWorksString;
+        SecurityGroupIds?: OpsWorksStrings;
+        SshHostDsaKeyFingerprint?: OpsWorksString;
+        SshHostRsaKeyFingerprint?: OpsWorksString;
+        SshKeyName?: OpsWorksString;
+        StackId?: OpsWorksString;
+        Status?: OpsWorksString;
+        SubnetId?: OpsWorksString;
+        VirtualizationType?: OpsWorksVirtualizationType;
     }
 
     export interface OpsWorksInstanceIdentity {
@@ -674,6 +727,7 @@ declare module "aws-sdk" {
         Shortname?: OpsWorksString;
         Attributes?: OpsWorksLayerAttributes;
         CustomInstanceProfileArn?: OpsWorksString;
+        CustomJson?: OpsWorksString;
         CustomSecurityGroupIds?: OpsWorksStrings;
         DefaultSecurityGroupNames?: OpsWorksStrings;
         Packages?: OpsWorksStrings;
@@ -756,6 +810,15 @@ declare module "aws-sdk" {
         Deploy?: OpsWorksStrings;
         Undeploy?: OpsWorksStrings;
         Shutdown?: OpsWorksStrings;
+    }
+
+    export interface OpsWorksRegisterEcsClusterRequest {
+        EcsClusterArn: OpsWorksString;
+        StackId: OpsWorksString;
+    }
+
+    export interface OpsWorksRegisterEcsClusterResult {
+        EcsClusterArn?: OpsWorksString;
     }
 
     export interface OpsWorksRegisterElasticIpRequest {
@@ -888,6 +951,7 @@ declare module "aws-sdk" {
         DefaultSshKeyName?: OpsWorksString;
         CreatedAt?: OpsWorksDateTime;
         DefaultRootDeviceType?: OpsWorksRootDeviceType;
+        AgentVersion?: OpsWorksString;
     }
 
     export type OpsWorksStackAttributes = any; // not really - it was 'map' instead - must fix this one
@@ -978,6 +1042,7 @@ declare module "aws-sdk" {
         Architecture?: OpsWorksArchitecture;
         InstallUpdatesOnBoot?: OpsWorksBoolean;
         EbsOptimized?: OpsWorksBoolean;
+        AgentVersion?: OpsWorksString;
     }
 
     export interface OpsWorksUpdateLayerRequest {
@@ -986,6 +1051,7 @@ declare module "aws-sdk" {
         Shortname?: OpsWorksString;
         Attributes?: OpsWorksLayerAttributes;
         CustomInstanceProfileArn?: OpsWorksString;
+        CustomJson?: OpsWorksString;
         CustomSecurityGroupIds?: OpsWorksStrings;
         Packages?: OpsWorksStrings;
         VolumeConfigurations?: OpsWorksVolumeConfigurations;
@@ -1026,6 +1092,7 @@ declare module "aws-sdk" {
         DefaultSshKeyName?: OpsWorksString;
         DefaultRootDeviceType?: OpsWorksRootDeviceType;
         UseOpsworksSecurityGroups?: OpsWorksBoolean;
+        AgentVersion?: OpsWorksString;
     }
 
     export interface OpsWorksUpdateUserProfileRequest {

@@ -1,5 +1,7 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class S3 {
       constructor(options?: any);
@@ -20,6 +22,7 @@ declare module "aws-sdk" {
       getBucketAcl(params: S3GetBucketAclRequest, callback: (err: any, data: S3GetBucketAclOutput|any) => void): void;
       getBucketCors(params: S3GetBucketCorsRequest, callback: (err: any, data: S3GetBucketCorsOutput|any) => void): void;
       getBucketLifecycle(params: S3GetBucketLifecycleRequest, callback: (err: any, data: S3GetBucketLifecycleOutput|any) => void): void;
+      getBucketLifecycleConfiguration(params: S3GetBucketLifecycleConfigurationRequest, callback: (err: any, data: S3GetBucketLifecycleConfigurationOutput|any) => void): void;
       getBucketLocation(params: S3GetBucketLocationRequest, callback: (err: any, data: S3GetBucketLocationOutput|any) => void): void;
       getBucketLogging(params: S3GetBucketLoggingRequest, callback: (err: any, data: S3GetBucketLoggingOutput|any) => void): void;
       getBucketNotification(params: S3GetBucketNotificationConfigurationRequest, callback: (err: any, data: S3NotificationConfigurationDeprecated|any) => void): void;
@@ -43,6 +46,7 @@ declare module "aws-sdk" {
       putBucketAcl(params: S3PutBucketAclRequest, callback: (err: any, data: any) => void): void;
       putBucketCors(params: S3PutBucketCorsRequest, callback: (err: any, data: any) => void): void;
       putBucketLifecycle(params: S3PutBucketLifecycleRequest, callback: (err: any, data: any) => void): void;
+      putBucketLifecycleConfiguration(params: S3PutBucketLifecycleConfigurationRequest, callback: (err: any, data: any) => void): void;
       putBucketLogging(params: S3PutBucketLoggingRequest, callback: (err: any, data: any) => void): void;
       putBucketNotification(params: S3PutBucketNotificationRequest, callback: (err: any, data: any) => void): void;
       putBucketNotificationConfiguration(params: S3PutBucketNotificationConfigurationRequest, callback: (err: any, data: any) => void): void;
@@ -92,6 +96,10 @@ declare module "aws-sdk" {
     }
 
     export type S3BucketCannedACL = string;
+    export interface S3BucketLifecycleConfiguration {
+        Rules: S3LifecycleRules;
+    }
+
     export type S3BucketLocationConstraint = string;
     export interface S3BucketLoggingStatus {
         LoggingEnabled?: S3LoggingEnabled;
@@ -102,13 +110,13 @@ declare module "aws-sdk" {
     export type S3BucketVersioningStatus = string;
     export type S3Buckets = Array<S3Bucket>;
     export interface S3CORSConfiguration {
-        CORSRules?: S3CORSRules;
+        CORSRules: S3CORSRules;
     }
 
     export interface S3CORSRule {
         AllowedHeaders?: S3AllowedHeaders;
-        AllowedMethods?: S3AllowedMethods;
-        AllowedOrigins?: S3AllowedOrigins;
+        AllowedMethods: S3AllowedMethods;
+        AllowedOrigins: S3AllowedOrigins;
         ExposeHeaders?: S3ExposeHeaders;
         MaxAgeSeconds?: S3MaxAgeSeconds;
     }
@@ -171,11 +179,13 @@ declare module "aws-sdk" {
     export type S3ContentLanguage = string;
     export type S3ContentLength = number;
     export type S3ContentMD5 = string;
+    export type S3ContentRange = string;
     export type S3ContentType = string;
     export interface S3CopyObjectOutput {
         CopyObjectResult?: S3CopyObjectResult;
         Expiration?: S3Expiration;
         CopySourceVersionId?: S3CopySourceVersionId;
+        VersionId?: S3ObjectVersionId;
         ServerSideEncryption?: S3ServerSideEncryption;
         SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
         SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
@@ -234,7 +244,7 @@ declare module "aws-sdk" {
     export type S3CopySourceIfUnmodifiedSince = number;
     export type S3CopySourceRange = string;
     export type S3CopySourceSSECustomerAlgorithm = string;
-    export type S3CopySourceSSECustomerKey = string;
+    export type S3CopySourceSSECustomerKey = any; // not really - it was 'blob' instead - must fix this one
     export type S3CopySourceSSECustomerKeyMD5 = string;
     export type S3CopySourceVersionId = string;
     export interface S3CreateBucketConfiguration {
@@ -377,6 +387,7 @@ declare module "aws-sdk" {
     export type S3Delimiter = string;
     export interface S3Destination {
         Bucket: S3BucketName;
+        StorageClass?: S3StorageClass;
     }
 
     export type S3DisplayName = string;
@@ -402,6 +413,14 @@ declare module "aws-sdk" {
     export type S3Expires = number;
     export type S3ExposeHeader = string;
     export type S3ExposeHeaders = Array<S3ExposeHeader>;
+    export interface S3FilterRule {
+        Name?: S3FilterRuleName;
+        Value?: S3FilterRuleValue;
+    }
+
+    export type S3FilterRuleList = Array<S3FilterRule>;
+    export type S3FilterRuleName = string;
+    export type S3FilterRuleValue = string;
     export interface S3GetBucketAclOutput {
         Owner?: S3Owner;
         Grants?: S3Grants;
@@ -416,6 +435,14 @@ declare module "aws-sdk" {
     }
 
     export interface S3GetBucketCorsRequest {
+        Bucket: S3BucketName;
+    }
+
+    export interface S3GetBucketLifecycleConfigurationOutput {
+        Rules?: S3LifecycleRules;
+    }
+
+    export interface S3GetBucketLifecycleConfigurationRequest {
         Bucket: S3BucketName;
     }
 
@@ -527,6 +554,7 @@ declare module "aws-sdk" {
         ContentDisposition?: S3ContentDisposition;
         ContentEncoding?: S3ContentEncoding;
         ContentLanguage?: S3ContentLanguage;
+        ContentRange?: S3ContentRange;
         ContentType?: S3ContentType;
         Expires?: S3Expires;
         WebsiteRedirectLocation?: S3WebsiteRedirectLocation;
@@ -535,6 +563,7 @@ declare module "aws-sdk" {
         SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
         SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
         SSEKMSKeyId?: S3SSEKMSKeyId;
+        StorageClass?: S3StorageClass;
         RequestCharged?: S3RequestCharged;
         ReplicationStatus?: S3ReplicationStatus;
     }
@@ -616,6 +645,7 @@ declare module "aws-sdk" {
         SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
         SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
         SSEKMSKeyId?: S3SSEKMSKeyId;
+        StorageClass?: S3StorageClass;
         RequestCharged?: S3RequestCharged;
         ReplicationStatus?: S3ReplicationStatus;
     }
@@ -662,6 +692,7 @@ declare module "aws-sdk" {
         Id?: S3NotificationId;
         LambdaFunctionArn: S3LambdaFunctionArn;
         Events: S3EventList;
+        Filter?: S3NotificationConfigurationFilter;
     }
 
     export type S3LambdaFunctionConfigurationList = Array<S3LambdaFunctionConfiguration>;
@@ -675,6 +706,17 @@ declare module "aws-sdk" {
         Days?: S3Days;
     }
 
+    export interface S3LifecycleRule {
+        Expiration?: S3LifecycleExpiration;
+        ID?: S3ID;
+        Prefix: S3Prefix;
+        Status: S3ExpirationStatus;
+        Transitions?: S3TransitionList;
+        NoncurrentVersionTransitions?: S3NoncurrentVersionTransitionList;
+        NoncurrentVersionExpiration?: S3NoncurrentVersionExpiration;
+    }
+
+    export type S3LifecycleRules = Array<S3LifecycleRule>;
     export interface S3ListBucketsOutput {
         Buckets?: S3Buckets;
         Owner?: S3Owner;
@@ -832,6 +874,7 @@ declare module "aws-sdk" {
         StorageClass?: S3TransitionStorageClass;
     }
 
+    export type S3NoncurrentVersionTransitionList = Array<S3NoncurrentVersionTransition>;
     export interface S3NotificationConfiguration {
         TopicConfigurations?: S3TopicConfigurationList;
         QueueConfigurations?: S3QueueConfigurationList;
@@ -842,6 +885,10 @@ declare module "aws-sdk" {
         TopicConfiguration?: S3TopicConfigurationDeprecated;
         QueueConfiguration?: S3QueueConfigurationDeprecated;
         CloudFunctionConfiguration?: S3CloudFunctionConfiguration;
+    }
+
+    export interface S3NotificationConfigurationFilter {
+        Key?: S3S3KeyFilter;
     }
 
     export type S3NotificationId = string;
@@ -918,8 +965,13 @@ declare module "aws-sdk" {
 
     export interface S3PutBucketCorsRequest {
         Bucket: S3BucketName;
-        CORSConfiguration?: S3CORSConfiguration;
+        CORSConfiguration: S3CORSConfiguration;
         ContentMD5?: S3ContentMD5;
+    }
+
+    export interface S3PutBucketLifecycleConfigurationRequest {
+        Bucket: S3BucketName;
+        LifecycleConfiguration?: S3BucketLifecycleConfiguration;
     }
 
     export interface S3PutBucketLifecycleRequest {
@@ -1044,6 +1096,7 @@ declare module "aws-sdk" {
         Id?: S3NotificationId;
         QueueArn: S3QueueArn;
         Events: S3EventList;
+        Filter?: S3NotificationConfigurationFilter;
     }
 
     export interface S3QueueConfigurationDeprecated {
@@ -1133,8 +1186,12 @@ declare module "aws-sdk" {
     }
 
     export type S3Rules = Array<S3Rule>;
+    export interface S3S3KeyFilter {
+        FilterRules?: S3FilterRuleList;
+    }
+
     export type S3SSECustomerAlgorithm = string;
-    export type S3SSECustomerKey = string;
+    export type S3SSECustomerKey = any; // not really - it was 'blob' instead - must fix this one
     export type S3SSECustomerKeyMD5 = string;
     export type S3SSEKMSKeyId = string;
     export type S3ServerSideEncryption = string;
@@ -1164,6 +1221,7 @@ declare module "aws-sdk" {
         Id?: S3NotificationId;
         TopicArn: S3TopicArn;
         Events: S3EventList;
+        Filter?: S3NotificationConfigurationFilter;
     }
 
     export interface S3TopicConfigurationDeprecated {
@@ -1180,6 +1238,7 @@ declare module "aws-sdk" {
         StorageClass?: S3TransitionStorageClass;
     }
 
+    export type S3TransitionList = Array<S3Transition>;
     export type S3TransitionStorageClass = string;
     export type S3Type = string;
     export type S3URI = string;

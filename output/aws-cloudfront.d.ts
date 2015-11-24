@@ -1,10 +1,12 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class CloudFront {
       constructor(options?: any);
       createCloudFrontOriginAccessIdentity(params: CloudFrontCreateCloudFrontOriginAccessIdentityRequest, callback: (err: CloudFrontCloudFrontOriginAccessIdentityAlreadyExists|CloudFrontMissingBody|CloudFrontTooManyCloudFrontOriginAccessIdentities|CloudFrontInvalidArgument|CloudFrontInconsistentQuantities|any, data: CloudFrontCreateCloudFrontOriginAccessIdentityResult|any) => void): void;
-      createDistribution(params: CloudFrontCreateDistributionRequest, callback: (err: CloudFrontCNAMEAlreadyExists|CloudFrontDistributionAlreadyExists|CloudFrontInvalidOrigin|CloudFrontInvalidOriginAccessIdentity|CloudFrontAccessDenied|CloudFrontTooManyTrustedSigners|CloudFrontTrustedSignerDoesNotExist|CloudFrontInvalidViewerCertificate|CloudFrontMissingBody|CloudFrontTooManyDistributionCNAMEs|CloudFrontTooManyDistributions|CloudFrontInvalidDefaultRootObject|CloudFrontInvalidRelativePath|CloudFrontInvalidErrorCode|CloudFrontInvalidResponseCode|CloudFrontInvalidArgument|CloudFrontInvalidRequiredProtocol|CloudFrontNoSuchOrigin|CloudFrontTooManyOrigins|CloudFrontTooManyCacheBehaviors|CloudFrontTooManyCookieNamesInWhiteList|CloudFrontInvalidForwardCookies|CloudFrontTooManyHeadersInForwardedValues|CloudFrontInvalidHeadersForS3Origin|CloudFrontInconsistentQuantities|CloudFrontTooManyCertificates|CloudFrontInvalidLocationCode|CloudFrontInvalidGeoRestrictionParameter|CloudFrontInvalidProtocolSettings|any, data: CloudFrontCreateDistributionResult|any) => void): void;
+      createDistribution(params: CloudFrontCreateDistributionRequest, callback: (err: CloudFrontCNAMEAlreadyExists|CloudFrontDistributionAlreadyExists|CloudFrontInvalidOrigin|CloudFrontInvalidOriginAccessIdentity|CloudFrontAccessDenied|CloudFrontTooManyTrustedSigners|CloudFrontTrustedSignerDoesNotExist|CloudFrontInvalidViewerCertificate|CloudFrontInvalidMinimumProtocolVersion|CloudFrontMissingBody|CloudFrontTooManyDistributionCNAMEs|CloudFrontTooManyDistributions|CloudFrontInvalidDefaultRootObject|CloudFrontInvalidRelativePath|CloudFrontInvalidErrorCode|CloudFrontInvalidResponseCode|CloudFrontInvalidArgument|CloudFrontInvalidRequiredProtocol|CloudFrontNoSuchOrigin|CloudFrontTooManyOrigins|CloudFrontTooManyCacheBehaviors|CloudFrontTooManyCookieNamesInWhiteList|CloudFrontInvalidForwardCookies|CloudFrontTooManyHeadersInForwardedValues|CloudFrontInvalidHeadersForS3Origin|CloudFrontInconsistentQuantities|CloudFrontTooManyCertificates|CloudFrontInvalidLocationCode|CloudFrontInvalidGeoRestrictionParameter|CloudFrontInvalidProtocolSettings|CloudFrontInvalidTTLOrder|CloudFrontInvalidWebACLId|any, data: CloudFrontCreateDistributionResult|any) => void): void;
       createInvalidation(params: CloudFrontCreateInvalidationRequest, callback: (err: CloudFrontAccessDenied|CloudFrontMissingBody|CloudFrontInvalidArgument|CloudFrontNoSuchDistribution|CloudFrontBatchTooLarge|CloudFrontTooManyInvalidationsInProgress|CloudFrontInconsistentQuantities|any, data: CloudFrontCreateInvalidationResult|any) => void): void;
       createStreamingDistribution(params: CloudFrontCreateStreamingDistributionRequest, callback: (err: CloudFrontCNAMEAlreadyExists|CloudFrontStreamingDistributionAlreadyExists|CloudFrontInvalidOrigin|CloudFrontInvalidOriginAccessIdentity|CloudFrontAccessDenied|CloudFrontTooManyTrustedSigners|CloudFrontTrustedSignerDoesNotExist|CloudFrontMissingBody|CloudFrontTooManyStreamingDistributionCNAMEs|CloudFrontTooManyStreamingDistributions|CloudFrontInvalidArgument|CloudFrontInconsistentQuantities|any, data: CloudFrontCreateStreamingDistributionResult|any) => void): void;
       deleteCloudFrontOriginAccessIdentity(params: CloudFrontDeleteCloudFrontOriginAccessIdentityRequest, callback: (err: CloudFrontAccessDenied|CloudFrontInvalidIfMatchVersion|CloudFrontNoSuchCloudFrontOriginAccessIdentity|CloudFrontPreconditionFailed|CloudFrontCloudFrontOriginAccessIdentityInUse|any, data: any) => void): void;
@@ -19,10 +21,11 @@ declare module "aws-sdk" {
       getStreamingDistributionConfig(params: CloudFrontGetStreamingDistributionConfigRequest, callback: (err: CloudFrontNoSuchStreamingDistribution|CloudFrontAccessDenied|any, data: CloudFrontGetStreamingDistributionConfigResult|any) => void): void;
       listCloudFrontOriginAccessIdentities(params: CloudFrontListCloudFrontOriginAccessIdentitiesRequest, callback: (err: CloudFrontInvalidArgument|any, data: CloudFrontListCloudFrontOriginAccessIdentitiesResult|any) => void): void;
       listDistributions(params: CloudFrontListDistributionsRequest, callback: (err: CloudFrontInvalidArgument|any, data: CloudFrontListDistributionsResult|any) => void): void;
+      listDistributionsByWebACLId(params: CloudFrontListDistributionsByWebACLIdRequest, callback: (err: CloudFrontInvalidArgument|CloudFrontInvalidWebACLId|any, data: CloudFrontListDistributionsByWebACLIdResult|any) => void): void;
       listInvalidations(params: CloudFrontListInvalidationsRequest, callback: (err: CloudFrontInvalidArgument|CloudFrontNoSuchDistribution|CloudFrontAccessDenied|any, data: CloudFrontListInvalidationsResult|any) => void): void;
       listStreamingDistributions(params: CloudFrontListStreamingDistributionsRequest, callback: (err: CloudFrontInvalidArgument|any, data: CloudFrontListStreamingDistributionsResult|any) => void): void;
       updateCloudFrontOriginAccessIdentity(params: CloudFrontUpdateCloudFrontOriginAccessIdentityRequest, callback: (err: CloudFrontAccessDenied|CloudFrontIllegalUpdate|CloudFrontInvalidIfMatchVersion|CloudFrontMissingBody|CloudFrontNoSuchCloudFrontOriginAccessIdentity|CloudFrontPreconditionFailed|CloudFrontInvalidArgument|CloudFrontInconsistentQuantities|any, data: CloudFrontUpdateCloudFrontOriginAccessIdentityResult|any) => void): void;
-      updateDistribution(params: CloudFrontUpdateDistributionRequest, callback: (err: CloudFrontAccessDenied|CloudFrontCNAMEAlreadyExists|CloudFrontIllegalUpdate|CloudFrontInvalidIfMatchVersion|CloudFrontMissingBody|CloudFrontNoSuchDistribution|CloudFrontPreconditionFailed|CloudFrontTooManyDistributionCNAMEs|CloudFrontInvalidDefaultRootObject|CloudFrontInvalidRelativePath|CloudFrontInvalidErrorCode|CloudFrontInvalidResponseCode|CloudFrontInvalidArgument|CloudFrontInvalidOriginAccessIdentity|CloudFrontTooManyTrustedSigners|CloudFrontTrustedSignerDoesNotExist|CloudFrontInvalidViewerCertificate|CloudFrontInvalidRequiredProtocol|CloudFrontNoSuchOrigin|CloudFrontTooManyOrigins|CloudFrontTooManyCacheBehaviors|CloudFrontTooManyCookieNamesInWhiteList|CloudFrontInvalidForwardCookies|CloudFrontTooManyHeadersInForwardedValues|CloudFrontInvalidHeadersForS3Origin|CloudFrontInconsistentQuantities|CloudFrontTooManyCertificates|CloudFrontInvalidLocationCode|CloudFrontInvalidGeoRestrictionParameter|any, data: CloudFrontUpdateDistributionResult|any) => void): void;
+      updateDistribution(params: CloudFrontUpdateDistributionRequest, callback: (err: CloudFrontAccessDenied|CloudFrontCNAMEAlreadyExists|CloudFrontIllegalUpdate|CloudFrontInvalidIfMatchVersion|CloudFrontMissingBody|CloudFrontNoSuchDistribution|CloudFrontPreconditionFailed|CloudFrontTooManyDistributionCNAMEs|CloudFrontInvalidDefaultRootObject|CloudFrontInvalidRelativePath|CloudFrontInvalidErrorCode|CloudFrontInvalidResponseCode|CloudFrontInvalidArgument|CloudFrontInvalidOriginAccessIdentity|CloudFrontTooManyTrustedSigners|CloudFrontTrustedSignerDoesNotExist|CloudFrontInvalidViewerCertificate|CloudFrontInvalidMinimumProtocolVersion|CloudFrontInvalidRequiredProtocol|CloudFrontNoSuchOrigin|CloudFrontTooManyOrigins|CloudFrontTooManyCacheBehaviors|CloudFrontTooManyCookieNamesInWhiteList|CloudFrontInvalidForwardCookies|CloudFrontTooManyHeadersInForwardedValues|CloudFrontInvalidHeadersForS3Origin|CloudFrontInconsistentQuantities|CloudFrontTooManyCertificates|CloudFrontInvalidLocationCode|CloudFrontInvalidGeoRestrictionParameter|CloudFrontInvalidTTLOrder|CloudFrontInvalidWebACLId|any, data: CloudFrontUpdateDistributionResult|any) => void): void;
       updateStreamingDistribution(params: CloudFrontUpdateStreamingDistributionRequest, callback: (err: CloudFrontAccessDenied|CloudFrontCNAMEAlreadyExists|CloudFrontIllegalUpdate|CloudFrontInvalidIfMatchVersion|CloudFrontMissingBody|CloudFrontNoSuchStreamingDistribution|CloudFrontPreconditionFailed|CloudFrontTooManyStreamingDistributionCNAMEs|CloudFrontInvalidArgument|CloudFrontInvalidOriginAccessIdentity|CloudFrontTooManyTrustedSigners|CloudFrontTrustedSignerDoesNotExist|CloudFrontInconsistentQuantities|any, data: CloudFrontUpdateStreamingDistributionResult|any) => void): void;
     }
 
@@ -66,6 +69,8 @@ declare module "aws-sdk" {
         MinTTL: CloudFrontlong;
         AllowedMethods?: CloudFrontAllowedMethods;
         SmoothStreaming?: CloudFrontboolean;
+        DefaultTTL?: CloudFrontlong;
+        MaxTTL?: CloudFrontlong;
     }
 
     export type CloudFrontCacheBehaviorList = Array<CloudFrontCacheBehavior>;
@@ -192,6 +197,8 @@ declare module "aws-sdk" {
         MinTTL: CloudFrontlong;
         AllowedMethods?: CloudFrontAllowedMethods;
         SmoothStreaming?: CloudFrontboolean;
+        DefaultTTL?: CloudFrontlong;
+        MaxTTL?: CloudFrontlong;
     }
 
     export interface CloudFrontDeleteCloudFrontOriginAccessIdentityRequest {
@@ -237,6 +244,7 @@ declare module "aws-sdk" {
         Enabled: CloudFrontboolean;
         ViewerCertificate?: CloudFrontViewerCertificate;
         Restrictions?: CloudFrontRestrictions;
+        WebACLId?: CloudFrontstring;
     }
 
     export interface CloudFrontDistributionList {
@@ -267,6 +275,7 @@ declare module "aws-sdk" {
         Enabled: CloudFrontboolean;
         ViewerCertificate: CloudFrontViewerCertificate;
         Restrictions: CloudFrontRestrictions;
+        WebACLId: CloudFrontstring;
     }
 
     export type CloudFrontDistributionSummaryList = Array<CloudFrontDistributionSummary>;
@@ -392,6 +401,10 @@ declare module "aws-sdk" {
         Message?: CloudFrontstring;
     }
 
+    export interface CloudFrontInvalidMinimumProtocolVersion {
+        Message?: CloudFrontstring;
+    }
+
     export interface CloudFrontInvalidOrigin {
         Message?: CloudFrontstring;
     }
@@ -416,7 +429,15 @@ declare module "aws-sdk" {
         Message?: CloudFrontstring;
     }
 
+    export interface CloudFrontInvalidTTLOrder {
+        Message?: CloudFrontstring;
+    }
+
     export interface CloudFrontInvalidViewerCertificate {
+        Message?: CloudFrontstring;
+    }
+
+    export interface CloudFrontInvalidWebACLId {
         Message?: CloudFrontstring;
     }
 
@@ -462,6 +483,16 @@ declare module "aws-sdk" {
 
     export interface CloudFrontListCloudFrontOriginAccessIdentitiesResult {
         CloudFrontOriginAccessIdentityList?: CloudFrontCloudFrontOriginAccessIdentityList;
+    }
+
+    export interface CloudFrontListDistributionsByWebACLIdRequest {
+        Marker?: CloudFrontstring;
+        MaxItems?: CloudFrontstring;
+        WebACLId: CloudFrontstring;
+    }
+
+    export interface CloudFrontListDistributionsByWebACLIdResult {
+        DistributionList?: CloudFrontDistributionList;
     }
 
     export interface CloudFrontListDistributionsRequest {

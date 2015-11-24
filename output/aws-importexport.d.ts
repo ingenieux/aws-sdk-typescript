@@ -1,5 +1,7 @@
 // DO NOT EDIT!
 //
+
+///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
     export class ImportExport {
       constructor(options?: any);
@@ -69,17 +71,17 @@ declare module "aws-sdk" {
     export type ImportExportGenericString = string;
     export interface ImportExportGetShippingLabelInput {
         jobIds: ImportExportJobIdList;
-        name?: ImportExportGenericString;
-        company?: ImportExportGenericString;
-        phoneNumber?: ImportExportGenericString;
-        country?: ImportExportGenericString;
-        stateOrProvince?: ImportExportGenericString;
-        city?: ImportExportGenericString;
-        postalCode?: ImportExportGenericString;
-        street1?: ImportExportGenericString;
-        street2?: ImportExportGenericString;
-        street3?: ImportExportGenericString;
-        APIVersion?: ImportExportGenericString;
+        name?: ImportExportname;
+        company?: ImportExportcompany;
+        phoneNumber?: ImportExportphoneNumber;
+        country?: ImportExportcountry;
+        stateOrProvince?: ImportExportstateOrProvince;
+        city?: ImportExportcity;
+        postalCode?: ImportExportpostalCode;
+        street1?: ImportExportstreet1;
+        street2?: ImportExportstreet2;
+        street3?: ImportExportstreet3;
+        APIVersion?: ImportExportAPIVersion;
     }
 
     export interface ImportExportGetShippingLabelOutput {
@@ -230,4 +232,14 @@ declare module "aws-sdk" {
 
     export type ImportExportValidateOnly = boolean;
     export type ImportExportWarningMessage = string;
+    export type ImportExportcity = string;
+    export type ImportExportcompany = string;
+    export type ImportExportcountry = string;
+    export type ImportExportname = string;
+    export type ImportExportphoneNumber = string;
+    export type ImportExportpostalCode = string;
+    export type ImportExportstateOrProvince = string;
+    export type ImportExportstreet1 = string;
+    export type ImportExportstreet2 = string;
+    export type ImportExportstreet3 = string;
 }
