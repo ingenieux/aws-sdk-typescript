@@ -1,0 +1,9 @@
+///<include href="aws-sdk-common.d.ts" />
+{{#each services}}
+///<include href="aws-{{this}}.d.ts" />"
+{{/each}}
+
+declare module "aws-sdk" {
+	
+}
+	

@@ -48,6 +48,14 @@ function copyCommonDefs() {
   fs.writeFileSync('output/aws-sdk-common.d.ts', content);
 }
 
+function generateModuleFile() {
+  var services = Object.keys(metadata)
+    .filter(name => !!metadata[name].input);
+  var result = new generator.AWSTypeGenerator().generateMainModule(services);
+  
+  fs.writeFileSync('output/aws-sdk.d.ts', result);
+}
+
 console.log(JSON.stringify(process.argv))
 
 sdkDir = (process.argv.length > 2) ? process.argv[-1 + process.argv.length] : "../aws-sdk-js/apis";
@@ -56,3 +64,4 @@ metadata = readMetadata();
 readServiceFiles();
 copyCommonDefs();
 generateServiceDefinitions();
+generateModuleFile();

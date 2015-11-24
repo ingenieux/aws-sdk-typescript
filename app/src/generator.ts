@@ -67,4 +67,9 @@ export class AWSTypeGenerator {
 
     return moduleTemplate(ctx)
   }
+  
+  generateMainModule(services:string[]) {
+    var template = this.fetchTemplate('aws-sdk');
+    return template({services:services});
+  }
 }
