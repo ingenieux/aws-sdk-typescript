@@ -13,10 +13,17 @@ var paths = {
 		src: ['test/**/*.ts'],
 		dest: 'app/build/test'
 	},
+	templates: {
+		src: 'app/src/**/*.handlebars'
+	},
 	output: 'output/**/*',
 	srcAndTests:[]
 };
-paths.srcAndTests = [].concat(paths.tscripts.src, paths.tests.src);
+paths.srcAndTests = [].concat(
+	paths.tscripts.src, 
+	paths.tests.src,
+	paths.templates.src
+	);
 
 gulp.task('default', ['watch']);
 
