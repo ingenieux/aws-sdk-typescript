@@ -3,10 +3,16 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class {{api.name}} {
+
+    export class {{api.name}} extends Service {
       constructor(options?: any);
 {{#each m.operations}}
-      {{{camelCase @key}}}({{#if this.input.shape}}params: {{../../api.name}}{{this.input.shape}}, {{/if}}callback: (err: {{#each this.errors}}{{../../api.name}}{{this.shape}}|{{/each}}any, data: {{#if this.output.shape}}{{../../api.name}}{{this.output.shape}}|{{/if}}any) => void): void;
+      {{{camelCase @key}}}(
+        {{~#if this.input.shape}}params: {{../../api.name}}{{this.input.shape}}, {{/if~}}
+        callback?: ( {{~null~}}
+            err: {{#each this.errors~}}{{../../api.name}}{{this.shape}}|{{/each}}any, {{null~}}
+            data: {{#if this.output.shape}}{{../../api.name}}{{this.output.shape}}|{{/if}}any) => void {{~null~}}
+      ): Request;
 {{/each}}
     }
 

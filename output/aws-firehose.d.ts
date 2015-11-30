@@ -3,15 +3,16 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class Firehose {
+
+    export class Firehose extends Service {
       constructor(options?: any);
-      createDeliveryStream(params: FirehoseCreateDeliveryStreamInput, callback: (err: FirehoseInvalidArgumentException|FirehoseLimitExceededException|FirehoseResourceInUseException|any, data: FirehoseCreateDeliveryStreamOutput|any) => void): void;
-      deleteDeliveryStream(params: FirehoseDeleteDeliveryStreamInput, callback: (err: FirehoseResourceInUseException|FirehoseResourceNotFoundException|any, data: FirehoseDeleteDeliveryStreamOutput|any) => void): void;
-      describeDeliveryStream(params: FirehoseDescribeDeliveryStreamInput, callback: (err: FirehoseResourceNotFoundException|any, data: FirehoseDescribeDeliveryStreamOutput|any) => void): void;
-      listDeliveryStreams(params: FirehoseListDeliveryStreamsInput, callback: (err: any, data: FirehoseListDeliveryStreamsOutput|any) => void): void;
-      putRecord(params: FirehosePutRecordInput, callback: (err: FirehoseResourceNotFoundException|FirehoseInvalidArgumentException|FirehoseServiceUnavailableException|any, data: FirehosePutRecordOutput|any) => void): void;
-      putRecordBatch(params: FirehosePutRecordBatchInput, callback: (err: FirehoseResourceNotFoundException|FirehoseInvalidArgumentException|FirehoseServiceUnavailableException|any, data: FirehosePutRecordBatchOutput|any) => void): void;
-      updateDestination(params: FirehoseUpdateDestinationInput, callback: (err: FirehoseInvalidArgumentException|FirehoseResourceInUseException|FirehoseResourceNotFoundException|FirehoseConcurrentModificationException|any, data: FirehoseUpdateDestinationOutput|any) => void): void;
+      createDeliveryStream(params: FirehoseCreateDeliveryStreamInput, callback?: (err: FirehoseInvalidArgumentException|FirehoseLimitExceededException|FirehoseResourceInUseException|any, data: FirehoseCreateDeliveryStreamOutput|any) => void): Request;
+      deleteDeliveryStream(params: FirehoseDeleteDeliveryStreamInput, callback?: (err: FirehoseResourceInUseException|FirehoseResourceNotFoundException|any, data: FirehoseDeleteDeliveryStreamOutput|any) => void): Request;
+      describeDeliveryStream(params: FirehoseDescribeDeliveryStreamInput, callback?: (err: FirehoseResourceNotFoundException|any, data: FirehoseDescribeDeliveryStreamOutput|any) => void): Request;
+      listDeliveryStreams(params: FirehoseListDeliveryStreamsInput, callback?: (err: any, data: FirehoseListDeliveryStreamsOutput|any) => void): Request;
+      putRecord(params: FirehosePutRecordInput, callback?: (err: FirehoseResourceNotFoundException|FirehoseInvalidArgumentException|FirehoseServiceUnavailableException|any, data: FirehosePutRecordOutput|any) => void): Request;
+      putRecordBatch(params: FirehosePutRecordBatchInput, callback?: (err: FirehoseResourceNotFoundException|FirehoseInvalidArgumentException|FirehoseServiceUnavailableException|any, data: FirehosePutRecordBatchOutput|any) => void): Request;
+      updateDestination(params: FirehoseUpdateDestinationInput, callback?: (err: FirehoseInvalidArgumentException|FirehoseResourceInUseException|FirehoseResourceNotFoundException|FirehoseConcurrentModificationException|any, data: FirehoseUpdateDestinationOutput|any) => void): Request;
     }
 
     export type FirehoseAWSKMSKeyARN = string; // pattern: "arn:.*"

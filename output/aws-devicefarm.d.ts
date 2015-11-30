@@ -3,39 +3,40 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class DeviceFarm {
+
+    export class DeviceFarm extends Service {
       constructor(options?: any);
-      createDevicePool(params: DeviceFarmCreateDevicePoolRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmCreateDevicePoolResult|any) => void): void;
-      createProject(params: DeviceFarmCreateProjectRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmCreateProjectResult|any) => void): void;
-      createUpload(params: DeviceFarmCreateUploadRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmCreateUploadResult|any) => void): void;
-      deleteDevicePool(params: DeviceFarmDeleteDevicePoolRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmDeleteDevicePoolResult|any) => void): void;
-      deleteProject(params: DeviceFarmDeleteProjectRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmDeleteProjectResult|any) => void): void;
-      deleteRun(params: DeviceFarmDeleteRunRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmDeleteRunResult|any) => void): void;
-      deleteUpload(params: DeviceFarmDeleteUploadRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmDeleteUploadResult|any) => void): void;
-      getAccountSettings(params: DeviceFarmGetAccountSettingsRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetAccountSettingsResult|any) => void): void;
-      getDevice(params: DeviceFarmGetDeviceRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetDeviceResult|any) => void): void;
-      getDevicePool(params: DeviceFarmGetDevicePoolRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetDevicePoolResult|any) => void): void;
-      getDevicePoolCompatibility(params: DeviceFarmGetDevicePoolCompatibilityRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetDevicePoolCompatibilityResult|any) => void): void;
-      getJob(params: DeviceFarmGetJobRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetJobResult|any) => void): void;
-      getProject(params: DeviceFarmGetProjectRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetProjectResult|any) => void): void;
-      getRun(params: DeviceFarmGetRunRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetRunResult|any) => void): void;
-      getSuite(params: DeviceFarmGetSuiteRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetSuiteResult|any) => void): void;
-      getTest(params: DeviceFarmGetTestRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetTestResult|any) => void): void;
-      getUpload(params: DeviceFarmGetUploadRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetUploadResult|any) => void): void;
-      listArtifacts(params: DeviceFarmListArtifactsRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListArtifactsResult|any) => void): void;
-      listDevicePools(params: DeviceFarmListDevicePoolsRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListDevicePoolsResult|any) => void): void;
-      listDevices(params: DeviceFarmListDevicesRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListDevicesResult|any) => void): void;
-      listJobs(params: DeviceFarmListJobsRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListJobsResult|any) => void): void;
-      listProjects(params: DeviceFarmListProjectsRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListProjectsResult|any) => void): void;
-      listRuns(params: DeviceFarmListRunsRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListRunsResult|any) => void): void;
-      listSamples(params: DeviceFarmListSamplesRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListSamplesResult|any) => void): void;
-      listSuites(params: DeviceFarmListSuitesRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListSuitesResult|any) => void): void;
-      listTests(params: DeviceFarmListTestsRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListTestsResult|any) => void): void;
-      listUniqueProblems(params: DeviceFarmListUniqueProblemsRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListUniqueProblemsResult|any) => void): void;
-      listUploads(params: DeviceFarmListUploadsRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListUploadsResult|any) => void): void;
-      scheduleRun(params: DeviceFarmScheduleRunRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmIdempotencyException|DeviceFarmServiceAccountException|any, data: DeviceFarmScheduleRunResult|any) => void): void;
-      updateDevicePool(params: DeviceFarmUpdateDevicePoolRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmUpdateDevicePoolResult|any) => void): void;
-      updateProject(params: DeviceFarmUpdateProjectRequest, callback: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmUpdateProjectResult|any) => void): void;
+      createDevicePool(params: DeviceFarmCreateDevicePoolRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmCreateDevicePoolResult|any) => void): Request;
+      createProject(params: DeviceFarmCreateProjectRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmCreateProjectResult|any) => void): Request;
+      createUpload(params: DeviceFarmCreateUploadRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmCreateUploadResult|any) => void): Request;
+      deleteDevicePool(params: DeviceFarmDeleteDevicePoolRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmDeleteDevicePoolResult|any) => void): Request;
+      deleteProject(params: DeviceFarmDeleteProjectRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmDeleteProjectResult|any) => void): Request;
+      deleteRun(params: DeviceFarmDeleteRunRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmDeleteRunResult|any) => void): Request;
+      deleteUpload(params: DeviceFarmDeleteUploadRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmDeleteUploadResult|any) => void): Request;
+      getAccountSettings(params: DeviceFarmGetAccountSettingsRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetAccountSettingsResult|any) => void): Request;
+      getDevice(params: DeviceFarmGetDeviceRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetDeviceResult|any) => void): Request;
+      getDevicePool(params: DeviceFarmGetDevicePoolRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetDevicePoolResult|any) => void): Request;
+      getDevicePoolCompatibility(params: DeviceFarmGetDevicePoolCompatibilityRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetDevicePoolCompatibilityResult|any) => void): Request;
+      getJob(params: DeviceFarmGetJobRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetJobResult|any) => void): Request;
+      getProject(params: DeviceFarmGetProjectRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetProjectResult|any) => void): Request;
+      getRun(params: DeviceFarmGetRunRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetRunResult|any) => void): Request;
+      getSuite(params: DeviceFarmGetSuiteRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetSuiteResult|any) => void): Request;
+      getTest(params: DeviceFarmGetTestRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetTestResult|any) => void): Request;
+      getUpload(params: DeviceFarmGetUploadRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmGetUploadResult|any) => void): Request;
+      listArtifacts(params: DeviceFarmListArtifactsRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListArtifactsResult|any) => void): Request;
+      listDevicePools(params: DeviceFarmListDevicePoolsRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListDevicePoolsResult|any) => void): Request;
+      listDevices(params: DeviceFarmListDevicesRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListDevicesResult|any) => void): Request;
+      listJobs(params: DeviceFarmListJobsRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListJobsResult|any) => void): Request;
+      listProjects(params: DeviceFarmListProjectsRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListProjectsResult|any) => void): Request;
+      listRuns(params: DeviceFarmListRunsRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListRunsResult|any) => void): Request;
+      listSamples(params: DeviceFarmListSamplesRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListSamplesResult|any) => void): Request;
+      listSuites(params: DeviceFarmListSuitesRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListSuitesResult|any) => void): Request;
+      listTests(params: DeviceFarmListTestsRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListTestsResult|any) => void): Request;
+      listUniqueProblems(params: DeviceFarmListUniqueProblemsRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListUniqueProblemsResult|any) => void): Request;
+      listUploads(params: DeviceFarmListUploadsRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmListUploadsResult|any) => void): Request;
+      scheduleRun(params: DeviceFarmScheduleRunRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmIdempotencyException|DeviceFarmServiceAccountException|any, data: DeviceFarmScheduleRunResult|any) => void): Request;
+      updateDevicePool(params: DeviceFarmUpdateDevicePoolRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmUpdateDevicePoolResult|any) => void): Request;
+      updateProject(params: DeviceFarmUpdateProjectRequest, callback?: (err: DeviceFarmArgumentException|DeviceFarmNotFoundException|DeviceFarmLimitExceededException|DeviceFarmServiceAccountException|any, data: DeviceFarmUpdateProjectResult|any) => void): Request;
     }
 
     export type DeviceFarmAWSAccountNumber = string;
@@ -196,7 +197,7 @@ declare module "aws-sdk" {
 
     export interface DeviceFarmGetDevicePoolCompatibilityRequest {
         devicePoolArn: DeviceFarmAmazonResourceName;
-        appArn: DeviceFarmAmazonResourceName;
+        appArn?: DeviceFarmAmazonResourceName;
         testType?: DeviceFarmTestType;
     }
 
@@ -509,7 +510,7 @@ declare module "aws-sdk" {
 
     export interface DeviceFarmScheduleRunRequest {
         projectArn: DeviceFarmAmazonResourceName;
-        appArn: DeviceFarmAmazonResourceName;
+        appArn?: DeviceFarmAmazonResourceName;
         devicePoolArn: DeviceFarmAmazonResourceName;
         name?: DeviceFarmName;
         test: DeviceFarmScheduleRunTest;

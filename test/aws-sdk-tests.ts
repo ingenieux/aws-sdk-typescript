@@ -12,6 +12,30 @@ creds = new AWS.Credentials(str, str);
 creds = new AWS.Credentials(str, str, str);
 str = creds.accessKeyId;
 
+/*
+ * Base service class
+ */
+var service = new AWS.SQS();
+service.makeRequest('POST', {param1:'foobar'}, (err, data) => {});
+service.makeUnauthenticatedRequest('POST', {param1:'foobar'}, (err, data) => {});
+service.setupRequestListeners();
+service.makeRequest('state', {param1:'foobar'}, (err, data) => {});
+
+/*
+ * Request class
+ */
+
+var request = new AWS.Request(service, 'POST', {param1: 'foobar'});
+request.send();
+request.send((err, data) => null);
+request.abort();
+if (request.isPageable()) {
+	request.eachPage((err, data, done) => done());
+}
+
+request = new AWS.S3().putObject({Bucket: 'bucket', Key: 'key'});
+request.on('complete', response => console.log(response)); 
+request.send();
 
 /*
  * SQS 

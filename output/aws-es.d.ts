@@ -3,18 +3,19 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class ES {
+
+    export class ES extends Service {
       constructor(options?: any);
-      addTags(params: ESAddTagsRequest, callback: (err: ESBaseException|ESLimitExceededException|ESValidationException|ESInternalException|any, data: any) => void): void;
-      createElasticsearchDomain(params: ESCreateElasticsearchDomainRequest, callback: (err: ESBaseException|ESDisabledOperationException|ESInternalException|ESInvalidTypeException|ESLimitExceededException|ESResourceAlreadyExistsException|ESValidationException|any, data: ESCreateElasticsearchDomainResponse|any) => void): void;
-      deleteElasticsearchDomain(params: ESDeleteElasticsearchDomainRequest, callback: (err: ESBaseException|ESInternalException|ESResourceNotFoundException|ESValidationException|any, data: ESDeleteElasticsearchDomainResponse|any) => void): void;
-      describeElasticsearchDomain(params: ESDescribeElasticsearchDomainRequest, callback: (err: ESBaseException|ESInternalException|ESResourceNotFoundException|ESValidationException|any, data: ESDescribeElasticsearchDomainResponse|any) => void): void;
-      describeElasticsearchDomainConfig(params: ESDescribeElasticsearchDomainConfigRequest, callback: (err: ESBaseException|ESInternalException|ESResourceNotFoundException|ESValidationException|any, data: ESDescribeElasticsearchDomainConfigResponse|any) => void): void;
-      describeElasticsearchDomains(params: ESDescribeElasticsearchDomainsRequest, callback: (err: ESBaseException|ESInternalException|ESValidationException|any, data: ESDescribeElasticsearchDomainsResponse|any) => void): void;
-      listDomainNames(callback: (err: ESBaseException|ESValidationException|any, data: ESListDomainNamesResponse|any) => void): void;
-      listTags(params: ESListTagsRequest, callback: (err: ESBaseException|ESResourceNotFoundException|ESValidationException|ESInternalException|any, data: ESListTagsResponse|any) => void): void;
-      removeTags(params: ESRemoveTagsRequest, callback: (err: ESBaseException|ESValidationException|ESInternalException|any, data: any) => void): void;
-      updateElasticsearchDomainConfig(params: ESUpdateElasticsearchDomainConfigRequest, callback: (err: ESBaseException|ESInternalException|ESInvalidTypeException|ESLimitExceededException|ESResourceNotFoundException|ESValidationException|any, data: ESUpdateElasticsearchDomainConfigResponse|any) => void): void;
+      addTags(params: ESAddTagsRequest, callback?: (err: ESBaseException|ESLimitExceededException|ESValidationException|ESInternalException|any, data: any) => void): Request;
+      createElasticsearchDomain(params: ESCreateElasticsearchDomainRequest, callback?: (err: ESBaseException|ESDisabledOperationException|ESInternalException|ESInvalidTypeException|ESLimitExceededException|ESResourceAlreadyExistsException|ESValidationException|any, data: ESCreateElasticsearchDomainResponse|any) => void): Request;
+      deleteElasticsearchDomain(params: ESDeleteElasticsearchDomainRequest, callback?: (err: ESBaseException|ESInternalException|ESResourceNotFoundException|ESValidationException|any, data: ESDeleteElasticsearchDomainResponse|any) => void): Request;
+      describeElasticsearchDomain(params: ESDescribeElasticsearchDomainRequest, callback?: (err: ESBaseException|ESInternalException|ESResourceNotFoundException|ESValidationException|any, data: ESDescribeElasticsearchDomainResponse|any) => void): Request;
+      describeElasticsearchDomainConfig(params: ESDescribeElasticsearchDomainConfigRequest, callback?: (err: ESBaseException|ESInternalException|ESResourceNotFoundException|ESValidationException|any, data: ESDescribeElasticsearchDomainConfigResponse|any) => void): Request;
+      describeElasticsearchDomains(params: ESDescribeElasticsearchDomainsRequest, callback?: (err: ESBaseException|ESInternalException|ESValidationException|any, data: ESDescribeElasticsearchDomainsResponse|any) => void): Request;
+      listDomainNames(callback?: (err: ESBaseException|ESValidationException|any, data: ESListDomainNamesResponse|any) => void): Request;
+      listTags(params: ESListTagsRequest, callback?: (err: ESBaseException|ESResourceNotFoundException|ESValidationException|ESInternalException|any, data: ESListTagsResponse|any) => void): Request;
+      removeTags(params: ESRemoveTagsRequest, callback?: (err: ESBaseException|ESValidationException|ESInternalException|any, data: any) => void): Request;
+      updateElasticsearchDomainConfig(params: ESUpdateElasticsearchDomainConfigRequest, callback?: (err: ESBaseException|ESInternalException|ESInvalidTypeException|ESLimitExceededException|ESResourceNotFoundException|ESValidationException|any, data: ESUpdateElasticsearchDomainConfigResponse|any) => void): Request;
     }
 
     export type ESARN = string;

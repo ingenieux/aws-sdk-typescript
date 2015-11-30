@@ -3,21 +3,22 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class DynamoDB {
+
+    export class DynamoDB extends Service {
       constructor(options?: any);
-      batchGetItem(params: DynamoDBBatchGetItemInput, callback: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBBatchGetItemOutput|any) => void): void;
-      batchWriteItem(params: DynamoDBBatchWriteItemInput, callback: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBBatchWriteItemOutput|any) => void): void;
-      createTable(params: DynamoDBCreateTableInput, callback: (err: DynamoDBResourceInUseException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBCreateTableOutput|any) => void): void;
-      deleteItem(params: DynamoDBDeleteItemInput, callback: (err: DynamoDBConditionalCheckFailedException|DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBDeleteItemOutput|any) => void): void;
-      deleteTable(params: DynamoDBDeleteTableInput, callback: (err: DynamoDBResourceInUseException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBDeleteTableOutput|any) => void): void;
-      describeTable(params: DynamoDBDescribeTableInput, callback: (err: DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBDescribeTableOutput|any) => void): void;
-      getItem(params: DynamoDBGetItemInput, callback: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBGetItemOutput|any) => void): void;
-      listTables(params: DynamoDBListTablesInput, callback: (err: DynamoDBInternalServerError|any, data: DynamoDBListTablesOutput|any) => void): void;
-      putItem(params: DynamoDBPutItemInput, callback: (err: DynamoDBConditionalCheckFailedException|DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBPutItemOutput|any) => void): void;
-      query(params: DynamoDBQueryInput, callback: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBQueryOutput|any) => void): void;
-      scan(params: DynamoDBScanInput, callback: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBScanOutput|any) => void): void;
-      updateItem(params: DynamoDBUpdateItemInput, callback: (err: DynamoDBConditionalCheckFailedException|DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBUpdateItemOutput|any) => void): void;
-      updateTable(params: DynamoDBUpdateTableInput, callback: (err: DynamoDBResourceInUseException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBUpdateTableOutput|any) => void): void;
+      batchGetItem(params: DynamoDBBatchGetItemInput, callback?: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBBatchGetItemOutput|any) => void): Request;
+      batchWriteItem(params: DynamoDBBatchWriteItemInput, callback?: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBBatchWriteItemOutput|any) => void): Request;
+      createTable(params: DynamoDBCreateTableInput, callback?: (err: DynamoDBResourceInUseException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBCreateTableOutput|any) => void): Request;
+      deleteItem(params: DynamoDBDeleteItemInput, callback?: (err: DynamoDBConditionalCheckFailedException|DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBDeleteItemOutput|any) => void): Request;
+      deleteTable(params: DynamoDBDeleteTableInput, callback?: (err: DynamoDBResourceInUseException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBDeleteTableOutput|any) => void): Request;
+      describeTable(params: DynamoDBDescribeTableInput, callback?: (err: DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBDescribeTableOutput|any) => void): Request;
+      getItem(params: DynamoDBGetItemInput, callback?: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBGetItemOutput|any) => void): Request;
+      listTables(params: DynamoDBListTablesInput, callback?: (err: DynamoDBInternalServerError|any, data: DynamoDBListTablesOutput|any) => void): Request;
+      putItem(params: DynamoDBPutItemInput, callback?: (err: DynamoDBConditionalCheckFailedException|DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBPutItemOutput|any) => void): Request;
+      query(params: DynamoDBQueryInput, callback?: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBQueryOutput|any) => void): Request;
+      scan(params: DynamoDBScanInput, callback?: (err: DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBInternalServerError|any, data: DynamoDBScanOutput|any) => void): Request;
+      updateItem(params: DynamoDBUpdateItemInput, callback?: (err: DynamoDBConditionalCheckFailedException|DynamoDBProvisionedThroughputExceededException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBUpdateItemOutput|any) => void): Request;
+      updateTable(params: DynamoDBUpdateTableInput, callback?: (err: DynamoDBResourceInUseException|DynamoDBResourceNotFoundException|DynamoDBLimitExceededException|DynamoDBInternalServerError|any, data: DynamoDBUpdateTableOutput|any) => void): Request;
     }
 
     export type DynamoDBAttributeAction = string;

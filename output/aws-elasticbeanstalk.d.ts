@@ -3,40 +3,42 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class ElasticBeanstalk {
+
+    export class ElasticBeanstalk extends Service {
       constructor(options?: any);
-      abortEnvironmentUpdate(params: ElasticBeanstalkAbortEnvironmentUpdateMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: any) => void): void;
-      checkDNSAvailability(params: ElasticBeanstalkCheckDNSAvailabilityMessage, callback: (err: any, data: ElasticBeanstalkCheckDNSAvailabilityResultMessage|any) => void): void;
-      createApplication(params: ElasticBeanstalkCreateApplicationMessage, callback: (err: ElasticBeanstalkTooManyApplicationsException|any, data: ElasticBeanstalkApplicationDescriptionMessage|any) => void): void;
-      createApplicationVersion(params: ElasticBeanstalkCreateApplicationVersionMessage, callback: (err: ElasticBeanstalkTooManyApplicationsException|ElasticBeanstalkTooManyApplicationVersionsException|ElasticBeanstalkInsufficientPrivilegesException|ElasticBeanstalkS3LocationNotInServiceRegionException|any, data: ElasticBeanstalkApplicationVersionDescriptionMessage|any) => void): void;
-      createConfigurationTemplate(params: ElasticBeanstalkCreateConfigurationTemplateMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|ElasticBeanstalkTooManyConfigurationTemplatesException|any, data: ElasticBeanstalkConfigurationSettingsDescription|any) => void): void;
-      createEnvironment(params: ElasticBeanstalkCreateEnvironmentMessage, callback: (err: ElasticBeanstalkTooManyEnvironmentsException|ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkEnvironmentDescription|any) => void): void;
-      createStorageLocation(callback: (err: ElasticBeanstalkTooManyBucketsException|ElasticBeanstalkS3SubscriptionRequiredException|ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkCreateStorageLocationResultMessage|any) => void): void;
-      deleteApplication(params: ElasticBeanstalkDeleteApplicationMessage, callback: (err: ElasticBeanstalkOperationInProgressException|any, data: any) => void): void;
-      deleteApplicationVersion(params: ElasticBeanstalkDeleteApplicationVersionMessage, callback: (err: ElasticBeanstalkSourceBundleDeletionException|ElasticBeanstalkInsufficientPrivilegesException|ElasticBeanstalkOperationInProgressException|ElasticBeanstalkS3LocationNotInServiceRegionException|any, data: any) => void): void;
-      deleteConfigurationTemplate(params: ElasticBeanstalkDeleteConfigurationTemplateMessage, callback: (err: ElasticBeanstalkOperationInProgressException|any, data: any) => void): void;
-      deleteEnvironmentConfiguration(params: ElasticBeanstalkDeleteEnvironmentConfigurationMessage, callback: (err: any, data: any) => void): void;
-      describeApplicationVersions(params: ElasticBeanstalkDescribeApplicationVersionsMessage, callback: (err: any, data: ElasticBeanstalkApplicationVersionDescriptionsMessage|any) => void): void;
-      describeApplications(params: ElasticBeanstalkDescribeApplicationsMessage, callback: (err: any, data: ElasticBeanstalkApplicationDescriptionsMessage|any) => void): void;
-      describeConfigurationOptions(params: ElasticBeanstalkDescribeConfigurationOptionsMessage, callback: (err: any, data: ElasticBeanstalkConfigurationOptionsDescription|any) => void): void;
-      describeConfigurationSettings(params: ElasticBeanstalkDescribeConfigurationSettingsMessage, callback: (err: any, data: ElasticBeanstalkConfigurationSettingsDescriptions|any) => void): void;
-      describeEnvironmentHealth(params: ElasticBeanstalkDescribeEnvironmentHealthRequest, callback: (err: ElasticBeanstalkInvalidRequestException|ElasticBeanstalkElasticBeanstalkServiceException|any, data: ElasticBeanstalkDescribeEnvironmentHealthResult|any) => void): void;
-      describeEnvironmentResources(params: ElasticBeanstalkDescribeEnvironmentResourcesMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkEnvironmentResourceDescriptionsMessage|any) => void): void;
-      describeEnvironments(params: ElasticBeanstalkDescribeEnvironmentsMessage, callback: (err: any, data: ElasticBeanstalkEnvironmentDescriptionsMessage|any) => void): void;
-      describeEvents(params: ElasticBeanstalkDescribeEventsMessage, callback: (err: any, data: ElasticBeanstalkEventDescriptionsMessage|any) => void): void;
-      describeInstancesHealth(params: ElasticBeanstalkDescribeInstancesHealthRequest, callback: (err: ElasticBeanstalkInvalidRequestException|ElasticBeanstalkElasticBeanstalkServiceException|any, data: ElasticBeanstalkDescribeInstancesHealthResult|any) => void): void;
-      listAvailableSolutionStacks(callback: (err: any, data: ElasticBeanstalkListAvailableSolutionStacksResultMessage|any) => void): void;
-      rebuildEnvironment(params: ElasticBeanstalkRebuildEnvironmentMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: any) => void): void;
-      requestEnvironmentInfo(params: ElasticBeanstalkRequestEnvironmentInfoMessage, callback: (err: any, data: any) => void): void;
-      restartAppServer(params: ElasticBeanstalkRestartAppServerMessage, callback: (err: any, data: any) => void): void;
-      retrieveEnvironmentInfo(params: ElasticBeanstalkRetrieveEnvironmentInfoMessage, callback: (err: any, data: ElasticBeanstalkRetrieveEnvironmentInfoResultMessage|any) => void): void;
-      swapEnvironmentCNAMEs(params: ElasticBeanstalkSwapEnvironmentCNAMEsMessage, callback: (err: any, data: any) => void): void;
-      terminateEnvironment(params: ElasticBeanstalkTerminateEnvironmentMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkEnvironmentDescription|any) => void): void;
-      updateApplication(params: ElasticBeanstalkUpdateApplicationMessage, callback: (err: any, data: ElasticBeanstalkApplicationDescriptionMessage|any) => void): void;
-      updateApplicationVersion(params: ElasticBeanstalkUpdateApplicationVersionMessage, callback: (err: any, data: ElasticBeanstalkApplicationVersionDescriptionMessage|any) => void): void;
-      updateConfigurationTemplate(params: ElasticBeanstalkUpdateConfigurationTemplateMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkConfigurationSettingsDescription|any) => void): void;
-      updateEnvironment(params: ElasticBeanstalkUpdateEnvironmentMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkEnvironmentDescription|any) => void): void;
-      validateConfigurationSettings(params: ElasticBeanstalkValidateConfigurationSettingsMessage, callback: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkConfigurationSettingsValidationMessages|any) => void): void;
+      abortEnvironmentUpdate(params: ElasticBeanstalkAbortEnvironmentUpdateMessage, callback?: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: any) => void): Request;
+      checkDNSAvailability(params: ElasticBeanstalkCheckDNSAvailabilityMessage, callback?: (err: any, data: ElasticBeanstalkCheckDNSAvailabilityResultMessage|any) => void): Request;
+      composeEnvironments(params: ElasticBeanstalkComposeEnvironmentsMessage, callback?: (err: ElasticBeanstalkTooManyEnvironmentsException|ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkEnvironmentDescriptionsMessage|any) => void): Request;
+      createApplication(params: ElasticBeanstalkCreateApplicationMessage, callback?: (err: ElasticBeanstalkTooManyApplicationsException|any, data: ElasticBeanstalkApplicationDescriptionMessage|any) => void): Request;
+      createApplicationVersion(params: ElasticBeanstalkCreateApplicationVersionMessage, callback?: (err: ElasticBeanstalkTooManyApplicationsException|ElasticBeanstalkTooManyApplicationVersionsException|ElasticBeanstalkInsufficientPrivilegesException|ElasticBeanstalkS3LocationNotInServiceRegionException|any, data: ElasticBeanstalkApplicationVersionDescriptionMessage|any) => void): Request;
+      createConfigurationTemplate(params: ElasticBeanstalkCreateConfigurationTemplateMessage, callback?: (err: ElasticBeanstalkInsufficientPrivilegesException|ElasticBeanstalkTooManyConfigurationTemplatesException|any, data: ElasticBeanstalkConfigurationSettingsDescription|any) => void): Request;
+      createEnvironment(params: ElasticBeanstalkCreateEnvironmentMessage, callback?: (err: ElasticBeanstalkTooManyEnvironmentsException|ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkEnvironmentDescription|any) => void): Request;
+      createStorageLocation(callback?: (err: ElasticBeanstalkTooManyBucketsException|ElasticBeanstalkS3SubscriptionRequiredException|ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkCreateStorageLocationResultMessage|any) => void): Request;
+      deleteApplication(params: ElasticBeanstalkDeleteApplicationMessage, callback?: (err: ElasticBeanstalkOperationInProgressException|any, data: any) => void): Request;
+      deleteApplicationVersion(params: ElasticBeanstalkDeleteApplicationVersionMessage, callback?: (err: ElasticBeanstalkSourceBundleDeletionException|ElasticBeanstalkInsufficientPrivilegesException|ElasticBeanstalkOperationInProgressException|ElasticBeanstalkS3LocationNotInServiceRegionException|any, data: any) => void): Request;
+      deleteConfigurationTemplate(params: ElasticBeanstalkDeleteConfigurationTemplateMessage, callback?: (err: ElasticBeanstalkOperationInProgressException|any, data: any) => void): Request;
+      deleteEnvironmentConfiguration(params: ElasticBeanstalkDeleteEnvironmentConfigurationMessage, callback?: (err: any, data: any) => void): Request;
+      describeApplicationVersions(params: ElasticBeanstalkDescribeApplicationVersionsMessage, callback?: (err: any, data: ElasticBeanstalkApplicationVersionDescriptionsMessage|any) => void): Request;
+      describeApplications(params: ElasticBeanstalkDescribeApplicationsMessage, callback?: (err: any, data: ElasticBeanstalkApplicationDescriptionsMessage|any) => void): Request;
+      describeConfigurationOptions(params: ElasticBeanstalkDescribeConfigurationOptionsMessage, callback?: (err: any, data: ElasticBeanstalkConfigurationOptionsDescription|any) => void): Request;
+      describeConfigurationSettings(params: ElasticBeanstalkDescribeConfigurationSettingsMessage, callback?: (err: any, data: ElasticBeanstalkConfigurationSettingsDescriptions|any) => void): Request;
+      describeEnvironmentHealth(params: ElasticBeanstalkDescribeEnvironmentHealthRequest, callback?: (err: ElasticBeanstalkInvalidRequestException|ElasticBeanstalkElasticBeanstalkServiceException|any, data: ElasticBeanstalkDescribeEnvironmentHealthResult|any) => void): Request;
+      describeEnvironmentResources(params: ElasticBeanstalkDescribeEnvironmentResourcesMessage, callback?: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkEnvironmentResourceDescriptionsMessage|any) => void): Request;
+      describeEnvironments(params: ElasticBeanstalkDescribeEnvironmentsMessage, callback?: (err: any, data: ElasticBeanstalkEnvironmentDescriptionsMessage|any) => void): Request;
+      describeEvents(params: ElasticBeanstalkDescribeEventsMessage, callback?: (err: any, data: ElasticBeanstalkEventDescriptionsMessage|any) => void): Request;
+      describeInstancesHealth(params: ElasticBeanstalkDescribeInstancesHealthRequest, callback?: (err: ElasticBeanstalkInvalidRequestException|ElasticBeanstalkElasticBeanstalkServiceException|any, data: ElasticBeanstalkDescribeInstancesHealthResult|any) => void): Request;
+      listAvailableSolutionStacks(callback?: (err: any, data: ElasticBeanstalkListAvailableSolutionStacksResultMessage|any) => void): Request;
+      rebuildEnvironment(params: ElasticBeanstalkRebuildEnvironmentMessage, callback?: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: any) => void): Request;
+      requestEnvironmentInfo(params: ElasticBeanstalkRequestEnvironmentInfoMessage, callback?: (err: any, data: any) => void): Request;
+      restartAppServer(params: ElasticBeanstalkRestartAppServerMessage, callback?: (err: any, data: any) => void): Request;
+      retrieveEnvironmentInfo(params: ElasticBeanstalkRetrieveEnvironmentInfoMessage, callback?: (err: any, data: ElasticBeanstalkRetrieveEnvironmentInfoResultMessage|any) => void): Request;
+      swapEnvironmentCNAMEs(params: ElasticBeanstalkSwapEnvironmentCNAMEsMessage, callback?: (err: any, data: any) => void): Request;
+      terminateEnvironment(params: ElasticBeanstalkTerminateEnvironmentMessage, callback?: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkEnvironmentDescription|any) => void): Request;
+      updateApplication(params: ElasticBeanstalkUpdateApplicationMessage, callback?: (err: any, data: ElasticBeanstalkApplicationDescriptionMessage|any) => void): Request;
+      updateApplicationVersion(params: ElasticBeanstalkUpdateApplicationVersionMessage, callback?: (err: any, data: ElasticBeanstalkApplicationVersionDescriptionMessage|any) => void): Request;
+      updateConfigurationTemplate(params: ElasticBeanstalkUpdateConfigurationTemplateMessage, callback?: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkConfigurationSettingsDescription|any) => void): Request;
+      updateEnvironment(params: ElasticBeanstalkUpdateEnvironmentMessage, callback?: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkEnvironmentDescription|any) => void): Request;
+      validateConfigurationSettings(params: ElasticBeanstalkValidateConfigurationSettingsMessage, callback?: (err: ElasticBeanstalkInsufficientPrivilegesException|any, data: ElasticBeanstalkConfigurationSettingsValidationMessages|any) => void): Request;
     }
 
     export interface ElasticBeanstalkAbortEnvironmentUpdateMessage {
@@ -79,6 +81,7 @@ declare module "aws-sdk" {
         SourceBundle?: ElasticBeanstalkS3Location;
         DateCreated?: ElasticBeanstalkCreationDate;
         DateUpdated?: ElasticBeanstalkUpdateDate;
+        Status?: ElasticBeanstalkApplicationVersionStatus;
     }
 
     export type ElasticBeanstalkApplicationVersionDescriptionList = Array<ElasticBeanstalkApplicationVersionDescription>;
@@ -90,6 +93,8 @@ declare module "aws-sdk" {
         ApplicationVersions?: ElasticBeanstalkApplicationVersionDescriptionList;
     }
 
+    export type ElasticBeanstalkApplicationVersionProccess = boolean;
+    export type ElasticBeanstalkApplicationVersionStatus = string;
     export type ElasticBeanstalkAutoCreateApplication = boolean;
     export interface ElasticBeanstalkAutoScalingGroup {
         Name?: ElasticBeanstalkResourceId;
@@ -120,6 +125,12 @@ declare module "aws-sdk" {
     }
 
     export type ElasticBeanstalkCnameAvailability = boolean;
+    export interface ElasticBeanstalkComposeEnvironmentsMessage {
+        ApplicationName?: ElasticBeanstalkApplicationName;
+        GroupName?: ElasticBeanstalkGroupName;
+        VersionLabels?: ElasticBeanstalkVersionLabels;
+    }
+
     export type ElasticBeanstalkConfigurationDeploymentStatus = string;
     export type ElasticBeanstalkConfigurationOptionDefaultValue = string;
     export interface ElasticBeanstalkConfigurationOptionDescription {
@@ -190,6 +201,7 @@ declare module "aws-sdk" {
         Description?: ElasticBeanstalkDescription;
         SourceBundle?: ElasticBeanstalkS3Location;
         AutoCreateApplication?: ElasticBeanstalkAutoCreateApplication;
+        Process?: ElasticBeanstalkApplicationVersionProccess;
     }
 
     export interface ElasticBeanstalkCreateConfigurationTemplateMessage {
@@ -204,7 +216,8 @@ declare module "aws-sdk" {
 
     export interface ElasticBeanstalkCreateEnvironmentMessage {
         ApplicationName: ElasticBeanstalkApplicationName;
-        EnvironmentName: ElasticBeanstalkEnvironmentName;
+        EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        GroupName?: ElasticBeanstalkGroupName;
         Description?: ElasticBeanstalkDescription;
         CNAMEPrefix?: ElasticBeanstalkDNSCnamePrefix;
         Tier?: ElasticBeanstalkEnvironmentTier;
@@ -351,6 +364,7 @@ declare module "aws-sdk" {
         HealthStatus?: ElasticBeanstalkEnvironmentHealthStatus;
         Resources?: ElasticBeanstalkEnvironmentResourcesDescription;
         Tier?: ElasticBeanstalkEnvironmentTier;
+        EnvironmentLinks?: ElasticBeanstalkEnvironmentLinks;
     }
 
     export type ElasticBeanstalkEnvironmentDescriptionsList = Array<ElasticBeanstalkEnvironmentDescription>;
@@ -373,6 +387,12 @@ declare module "aws-sdk" {
 
     export type ElasticBeanstalkEnvironmentInfoDescriptionList = Array<ElasticBeanstalkEnvironmentInfoDescription>;
     export type ElasticBeanstalkEnvironmentInfoType = string;
+    export interface ElasticBeanstalkEnvironmentLink {
+        LinkName?: ElasticBeanstalkString;
+        EnvironmentName?: ElasticBeanstalkString;
+    }
+
+    export type ElasticBeanstalkEnvironmentLinks = Array<ElasticBeanstalkEnvironmentLink>;
     export type ElasticBeanstalkEnvironmentName = string;
     export type ElasticBeanstalkEnvironmentNamesList = Array<ElasticBeanstalkEnvironmentName>;
     export interface ElasticBeanstalkEnvironmentResourceDescription {
@@ -422,6 +442,8 @@ declare module "aws-sdk" {
     export type ElasticBeanstalkEventSeverity = string;
     export type ElasticBeanstalkExceptionMessage = string;
     export type ElasticBeanstalkFileTypeExtension = string;
+    export type ElasticBeanstalkForceTerminate = boolean;
+    export type ElasticBeanstalkGroupName = string;
     export type ElasticBeanstalkIncludeDeleted = boolean;
     export type ElasticBeanstalkIncludeDeletedBackTo = number;
     export interface ElasticBeanstalkInstance {
@@ -627,6 +649,7 @@ declare module "aws-sdk" {
         EnvironmentId?: ElasticBeanstalkEnvironmentId;
         EnvironmentName?: ElasticBeanstalkEnvironmentName;
         TerminateResources?: ElasticBeanstalkTerminateEnvironmentResources;
+        ForceTerminate?: ElasticBeanstalkForceTerminate;
     }
 
     export type ElasticBeanstalkTerminateEnvironmentResources = boolean;
@@ -674,8 +697,10 @@ declare module "aws-sdk" {
 
     export type ElasticBeanstalkUpdateDate = number;
     export interface ElasticBeanstalkUpdateEnvironmentMessage {
+        ApplicationName?: ElasticBeanstalkApplicationName;
         EnvironmentId?: ElasticBeanstalkEnvironmentId;
         EnvironmentName?: ElasticBeanstalkEnvironmentName;
+        GroupName?: ElasticBeanstalkGroupName;
         Description?: ElasticBeanstalkDescription;
         Tier?: ElasticBeanstalkEnvironmentTier;
         VersionLabel?: ElasticBeanstalkVersionLabel;
@@ -704,5 +729,6 @@ declare module "aws-sdk" {
     export type ElasticBeanstalkValidationMessagesList = Array<ElasticBeanstalkValidationMessage>;
     export type ElasticBeanstalkValidationSeverity = string;
     export type ElasticBeanstalkVersionLabel = string;
+    export type ElasticBeanstalkVersionLabels = Array<ElasticBeanstalkVersionLabel>;
     export type ElasticBeanstalkVersionLabelsList = Array<ElasticBeanstalkVersionLabel>;
 }

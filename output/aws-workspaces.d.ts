@@ -3,15 +3,16 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class WorkSpaces {
+
+    export class WorkSpaces extends Service {
       constructor(options?: any);
-      createWorkspaces(params: WorkSpacesCreateWorkspacesRequest, callback: (err: WorkSpacesResourceLimitExceededException|any, data: WorkSpacesCreateWorkspacesResult|any) => void): void;
-      describeWorkspaceBundles(params: WorkSpacesDescribeWorkspaceBundlesRequest, callback: (err: WorkSpacesInvalidParameterValuesException|any, data: WorkSpacesDescribeWorkspaceBundlesResult|any) => void): void;
-      describeWorkspaceDirectories(params: WorkSpacesDescribeWorkspaceDirectoriesRequest, callback: (err: WorkSpacesInvalidParameterValuesException|any, data: WorkSpacesDescribeWorkspaceDirectoriesResult|any) => void): void;
-      describeWorkspaces(params: WorkSpacesDescribeWorkspacesRequest, callback: (err: WorkSpacesInvalidParameterValuesException|WorkSpacesResourceUnavailableException|any, data: WorkSpacesDescribeWorkspacesResult|any) => void): void;
-      rebootWorkspaces(params: WorkSpacesRebootWorkspacesRequest, callback: (err: any, data: WorkSpacesRebootWorkspacesResult|any) => void): void;
-      rebuildWorkspaces(params: WorkSpacesRebuildWorkspacesRequest, callback: (err: any, data: WorkSpacesRebuildWorkspacesResult|any) => void): void;
-      terminateWorkspaces(params: WorkSpacesTerminateWorkspacesRequest, callback: (err: any, data: WorkSpacesTerminateWorkspacesResult|any) => void): void;
+      createWorkspaces(params: WorkSpacesCreateWorkspacesRequest, callback?: (err: WorkSpacesResourceLimitExceededException|any, data: WorkSpacesCreateWorkspacesResult|any) => void): Request;
+      describeWorkspaceBundles(params: WorkSpacesDescribeWorkspaceBundlesRequest, callback?: (err: WorkSpacesInvalidParameterValuesException|any, data: WorkSpacesDescribeWorkspaceBundlesResult|any) => void): Request;
+      describeWorkspaceDirectories(params: WorkSpacesDescribeWorkspaceDirectoriesRequest, callback?: (err: WorkSpacesInvalidParameterValuesException|any, data: WorkSpacesDescribeWorkspaceDirectoriesResult|any) => void): Request;
+      describeWorkspaces(params: WorkSpacesDescribeWorkspacesRequest, callback?: (err: WorkSpacesInvalidParameterValuesException|WorkSpacesResourceUnavailableException|any, data: WorkSpacesDescribeWorkspacesResult|any) => void): Request;
+      rebootWorkspaces(params: WorkSpacesRebootWorkspacesRequest, callback?: (err: any, data: WorkSpacesRebootWorkspacesResult|any) => void): Request;
+      rebuildWorkspaces(params: WorkSpacesRebuildWorkspacesRequest, callback?: (err: any, data: WorkSpacesRebuildWorkspacesResult|any) => void): Request;
+      terminateWorkspaces(params: WorkSpacesTerminateWorkspacesRequest, callback?: (err: any, data: WorkSpacesTerminateWorkspacesResult|any) => void): Request;
     }
 
     export type WorkSpacesARN = string; // pattern: "^arn:aws:[A-Za-z0-9][A-za-z0-9_/.-]{0,62}:[A-za-z0-9_/.-]{0,63}:[A-za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-za-z0-9_/.-]{0,127}$"

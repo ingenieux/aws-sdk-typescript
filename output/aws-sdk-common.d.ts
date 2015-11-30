@@ -107,5 +107,56 @@ declare module "aws-sdk" {
 		waitFor(state:string, params:Object, callback:(error?:Error, data?:any) => void): void;   
 	}
 	
+    export class Request extends EventEmitter {
+		constructor(service:Service, operation:string, params:Object);
+		
+		on(event: string, listener: Function):Request;
+		httpRequest: HttpRequest;
+		startTime: Date;
+		abort(): Request;
+		createReadStream(): ReadableStream;
+		eachItem(callback:Function): void;
+		eachPage(callback: (err:Error, data:any, done?:() => void) => boolean|void): void;
+		isPageable(): boolean;
+		send(callback?: (err:Error, data:any) => void): void;
+		
+    }
+	
+	export class HttpRequest {
+		body: string;
+		endpoint: Endpoint;
+		headers: {[index:string]: string};
+		method: string;
+		path: string;
+		pathName(): string;
+		search(): string;
+	}
+	
+	/*
+	 * Node-compatible interfaces
+	 */
+	class EventEmitter {
+		on(event: string, listener: Function):EventEmitter;
+	}
+	
+    export interface ReadableStream extends EventEmitter {
+        readable: boolean;
+        read(size?: number): any;
+        setEncoding(encoding: string): void;
+        pause(): void;
+        resume(): void;
+        pipe<T extends WritableStream>(destination: T, options?: { end?: boolean; }): T;
+        unpipe<T extends WritableStream>(destination?: T): void;
+        unshift(chunk: string): void;
+        unshift(chunk: Buffer): void;
+        wrap(oldStream: ReadableStream): ReadableStream;
+    }
+	
+    export interface WritableStream extends EventEmitter {
+        writable: boolean;
+        write: Function;
+        end: Function;
+    }
+
 }
 	

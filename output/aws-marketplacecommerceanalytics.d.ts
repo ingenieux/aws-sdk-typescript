@@ -3,9 +3,10 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class MarketplaceCommerceAnalytics {
+
+    export class MarketplaceCommerceAnalytics extends Service {
       constructor(options?: any);
-      generateDataSet(params: MarketplaceCommerceAnalyticsGenerateDataSetRequest, callback: (err: MarketplaceCommerceAnalyticsMarketplaceCommerceAnalyticsException|any, data: MarketplaceCommerceAnalyticsGenerateDataSetResult|any) => void): void;
+      generateDataSet(params: MarketplaceCommerceAnalyticsGenerateDataSetRequest, callback?: (err: MarketplaceCommerceAnalyticsMarketplaceCommerceAnalyticsException|any, data: MarketplaceCommerceAnalyticsGenerateDataSetResult|any) => void): Request;
     }
 
     export type MarketplaceCommerceAnalyticsDataSetPublicationDate = number;

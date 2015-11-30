@@ -13,8 +13,17 @@ var paths = {
 		src: ['test/**/*.ts'],
 		dest: 'app/build/test'
 	},
-	output: 'output/**/*'
+	templates: {
+		src: 'app/src/**/*.handlebars'
+	},
+	output: 'output/**/*',
+	srcAndTests:[]
 };
+paths.srcAndTests = [].concat(
+	paths.tscripts.src, 
+	paths.tests.src,
+	paths.templates.src
+	);
 
 gulp.task('default', ['watch']);
 
@@ -26,16 +35,19 @@ gulp.task('run', shell.task([
 ]));
 
 gulp.task('buildrun', function (cb) {
-	runseq('build', 'run', cb);
+	runseq('build', 'run', 'compile:tests', cb);
 });
 
 // ** Watching ** //
-gulp.task('watch', function () {
-	gulp.watch(paths.tscripts.src, ['compile:typescript']);
+gulp.task('watch', ['build'], function () {
+	gulp.watch(paths.tscripts.src, ['build']);
 });
 
-gulp.task('watchrun', function () {
-	gulp.watch(paths.tscripts.src, runseq('compile:typescript', 'run'));
+gulp.task('watchrun', ['buildrun'], function () {
+	gulp.watch(paths.srcAndTests, ['buildrun'])
+	.on('change', function(event) {
+			console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+		});
 });
 
 // ** Compilation ** //

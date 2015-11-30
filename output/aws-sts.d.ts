@@ -3,14 +3,15 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class STS {
+
+    export class STS extends Service {
       constructor(options?: any);
-      assumeRole(params: STSAssumeRoleRequest, callback: (err: STSMalformedPolicyDocumentException|STSPackedPolicyTooLargeException|any, data: STSAssumeRoleResponse|any) => void): void;
-      assumeRoleWithSAML(params: STSAssumeRoleWithSAMLRequest, callback: (err: STSMalformedPolicyDocumentException|STSPackedPolicyTooLargeException|STSIDPRejectedClaimException|STSInvalidIdentityTokenException|STSExpiredTokenException|any, data: STSAssumeRoleWithSAMLResponse|any) => void): void;
-      assumeRoleWithWebIdentity(params: STSAssumeRoleWithWebIdentityRequest, callback: (err: STSMalformedPolicyDocumentException|STSPackedPolicyTooLargeException|STSIDPRejectedClaimException|STSIDPCommunicationErrorException|STSInvalidIdentityTokenException|STSExpiredTokenException|any, data: STSAssumeRoleWithWebIdentityResponse|any) => void): void;
-      decodeAuthorizationMessage(params: STSDecodeAuthorizationMessageRequest, callback: (err: STSInvalidAuthorizationMessageException|any, data: STSDecodeAuthorizationMessageResponse|any) => void): void;
-      getFederationToken(params: STSGetFederationTokenRequest, callback: (err: STSMalformedPolicyDocumentException|STSPackedPolicyTooLargeException|any, data: STSGetFederationTokenResponse|any) => void): void;
-      getSessionToken(params: STSGetSessionTokenRequest, callback: (err: any, data: STSGetSessionTokenResponse|any) => void): void;
+      assumeRole(params: STSAssumeRoleRequest, callback?: (err: STSMalformedPolicyDocumentException|STSPackedPolicyTooLargeException|any, data: STSAssumeRoleResponse|any) => void): Request;
+      assumeRoleWithSAML(params: STSAssumeRoleWithSAMLRequest, callback?: (err: STSMalformedPolicyDocumentException|STSPackedPolicyTooLargeException|STSIDPRejectedClaimException|STSInvalidIdentityTokenException|STSExpiredTokenException|any, data: STSAssumeRoleWithSAMLResponse|any) => void): Request;
+      assumeRoleWithWebIdentity(params: STSAssumeRoleWithWebIdentityRequest, callback?: (err: STSMalformedPolicyDocumentException|STSPackedPolicyTooLargeException|STSIDPRejectedClaimException|STSIDPCommunicationErrorException|STSInvalidIdentityTokenException|STSExpiredTokenException|any, data: STSAssumeRoleWithWebIdentityResponse|any) => void): Request;
+      decodeAuthorizationMessage(params: STSDecodeAuthorizationMessageRequest, callback?: (err: STSInvalidAuthorizationMessageException|any, data: STSDecodeAuthorizationMessageResponse|any) => void): Request;
+      getFederationToken(params: STSGetFederationTokenRequest, callback?: (err: STSMalformedPolicyDocumentException|STSPackedPolicyTooLargeException|any, data: STSGetFederationTokenResponse|any) => void): Request;
+      getSessionToken(params: STSGetSessionTokenRequest, callback?: (err: any, data: STSGetSessionTokenResponse|any) => void): Request;
     }
 
     export interface STSAssumeRoleRequest {

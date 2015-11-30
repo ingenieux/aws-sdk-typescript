@@ -3,23 +3,24 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class Kinesis {
+
+    export class Kinesis extends Service {
       constructor(options?: any);
-      addTagsToStream(params: KinesisAddTagsToStreamInput, callback: (err: KinesisResourceNotFoundException|KinesisResourceInUseException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: any) => void): void;
-      createStream(params: KinesisCreateStreamInput, callback: (err: KinesisResourceInUseException|KinesisLimitExceededException|KinesisInvalidArgumentException|any, data: any) => void): void;
-      decreaseStreamRetentionPeriod(params: KinesisDecreaseStreamRetentionPeriodInput, callback: (err: KinesisResourceInUseException|KinesisResourceNotFoundException|KinesisLimitExceededException|KinesisInvalidArgumentException|any, data: any) => void): void;
-      deleteStream(params: KinesisDeleteStreamInput, callback: (err: KinesisResourceNotFoundException|KinesisLimitExceededException|any, data: any) => void): void;
-      describeStream(params: KinesisDescribeStreamInput, callback: (err: KinesisResourceNotFoundException|KinesisLimitExceededException|any, data: KinesisDescribeStreamOutput|any) => void): void;
-      getRecords(params: KinesisGetRecordsInput, callback: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisProvisionedThroughputExceededException|KinesisExpiredIteratorException|any, data: KinesisGetRecordsOutput|any) => void): void;
-      getShardIterator(params: KinesisGetShardIteratorInput, callback: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisProvisionedThroughputExceededException|any, data: KinesisGetShardIteratorOutput|any) => void): void;
-      increaseStreamRetentionPeriod(params: KinesisIncreaseStreamRetentionPeriodInput, callback: (err: KinesisResourceInUseException|KinesisResourceNotFoundException|KinesisLimitExceededException|KinesisInvalidArgumentException|any, data: any) => void): void;
-      listStreams(params: KinesisListStreamsInput, callback: (err: KinesisLimitExceededException|any, data: KinesisListStreamsOutput|any) => void): void;
-      listTagsForStream(params: KinesisListTagsForStreamInput, callback: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: KinesisListTagsForStreamOutput|any) => void): void;
-      mergeShards(params: KinesisMergeShardsInput, callback: (err: KinesisResourceNotFoundException|KinesisResourceInUseException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: any) => void): void;
-      putRecord(params: KinesisPutRecordInput, callback: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisProvisionedThroughputExceededException|any, data: KinesisPutRecordOutput|any) => void): void;
-      putRecords(params: KinesisPutRecordsInput, callback: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisProvisionedThroughputExceededException|any, data: KinesisPutRecordsOutput|any) => void): void;
-      removeTagsFromStream(params: KinesisRemoveTagsFromStreamInput, callback: (err: KinesisResourceNotFoundException|KinesisResourceInUseException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: any) => void): void;
-      splitShard(params: KinesisSplitShardInput, callback: (err: KinesisResourceNotFoundException|KinesisResourceInUseException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: any) => void): void;
+      addTagsToStream(params: KinesisAddTagsToStreamInput, callback?: (err: KinesisResourceNotFoundException|KinesisResourceInUseException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: any) => void): Request;
+      createStream(params: KinesisCreateStreamInput, callback?: (err: KinesisResourceInUseException|KinesisLimitExceededException|KinesisInvalidArgumentException|any, data: any) => void): Request;
+      decreaseStreamRetentionPeriod(params: KinesisDecreaseStreamRetentionPeriodInput, callback?: (err: KinesisResourceInUseException|KinesisResourceNotFoundException|KinesisLimitExceededException|KinesisInvalidArgumentException|any, data: any) => void): Request;
+      deleteStream(params: KinesisDeleteStreamInput, callback?: (err: KinesisResourceNotFoundException|KinesisLimitExceededException|any, data: any) => void): Request;
+      describeStream(params: KinesisDescribeStreamInput, callback?: (err: KinesisResourceNotFoundException|KinesisLimitExceededException|any, data: KinesisDescribeStreamOutput|any) => void): Request;
+      getRecords(params: KinesisGetRecordsInput, callback?: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisProvisionedThroughputExceededException|KinesisExpiredIteratorException|any, data: KinesisGetRecordsOutput|any) => void): Request;
+      getShardIterator(params: KinesisGetShardIteratorInput, callback?: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisProvisionedThroughputExceededException|any, data: KinesisGetShardIteratorOutput|any) => void): Request;
+      increaseStreamRetentionPeriod(params: KinesisIncreaseStreamRetentionPeriodInput, callback?: (err: KinesisResourceInUseException|KinesisResourceNotFoundException|KinesisLimitExceededException|KinesisInvalidArgumentException|any, data: any) => void): Request;
+      listStreams(params: KinesisListStreamsInput, callback?: (err: KinesisLimitExceededException|any, data: KinesisListStreamsOutput|any) => void): Request;
+      listTagsForStream(params: KinesisListTagsForStreamInput, callback?: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: KinesisListTagsForStreamOutput|any) => void): Request;
+      mergeShards(params: KinesisMergeShardsInput, callback?: (err: KinesisResourceNotFoundException|KinesisResourceInUseException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: any) => void): Request;
+      putRecord(params: KinesisPutRecordInput, callback?: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisProvisionedThroughputExceededException|any, data: KinesisPutRecordOutput|any) => void): Request;
+      putRecords(params: KinesisPutRecordsInput, callback?: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisProvisionedThroughputExceededException|any, data: KinesisPutRecordsOutput|any) => void): Request;
+      removeTagsFromStream(params: KinesisRemoveTagsFromStreamInput, callback?: (err: KinesisResourceNotFoundException|KinesisResourceInUseException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: any) => void): Request;
+      splitShard(params: KinesisSplitShardInput, callback?: (err: KinesisResourceNotFoundException|KinesisResourceInUseException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: any) => void): Request;
     }
 
     export interface KinesisAddTagsToStreamInput {

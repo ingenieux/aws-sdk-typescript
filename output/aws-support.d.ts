@@ -3,22 +3,23 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class Support {
+
+    export class Support extends Service {
       constructor(options?: any);
-      addAttachmentsToSet(params: SupportAddAttachmentsToSetRequest, callback: (err: SupportInternalServerError|SupportAttachmentSetIdNotFound|SupportAttachmentSetExpired|SupportAttachmentSetSizeLimitExceeded|SupportAttachmentLimitExceeded|any, data: SupportAddAttachmentsToSetResponse|any) => void): void;
-      addCommunicationToCase(params: SupportAddCommunicationToCaseRequest, callback: (err: SupportInternalServerError|SupportCaseIdNotFound|SupportAttachmentSetIdNotFound|SupportAttachmentSetExpired|any, data: SupportAddCommunicationToCaseResponse|any) => void): void;
-      createCase(params: SupportCreateCaseRequest, callback: (err: SupportInternalServerError|SupportCaseCreationLimitExceeded|SupportAttachmentSetIdNotFound|SupportAttachmentSetExpired|any, data: SupportCreateCaseResponse|any) => void): void;
-      describeAttachment(params: SupportDescribeAttachmentRequest, callback: (err: SupportInternalServerError|SupportDescribeAttachmentLimitExceeded|SupportAttachmentIdNotFound|any, data: SupportDescribeAttachmentResponse|any) => void): void;
-      describeCases(params: SupportDescribeCasesRequest, callback: (err: SupportInternalServerError|SupportCaseIdNotFound|any, data: SupportDescribeCasesResponse|any) => void): void;
-      describeCommunications(params: SupportDescribeCommunicationsRequest, callback: (err: SupportInternalServerError|SupportCaseIdNotFound|any, data: SupportDescribeCommunicationsResponse|any) => void): void;
-      describeServices(params: SupportDescribeServicesRequest, callback: (err: SupportInternalServerError|any, data: SupportDescribeServicesResponse|any) => void): void;
-      describeSeverityLevels(params: SupportDescribeSeverityLevelsRequest, callback: (err: SupportInternalServerError|any, data: SupportDescribeSeverityLevelsResponse|any) => void): void;
-      describeTrustedAdvisorCheckRefreshStatuses(params: SupportDescribeTrustedAdvisorCheckRefreshStatusesRequest, callback: (err: SupportInternalServerError|any, data: SupportDescribeTrustedAdvisorCheckRefreshStatusesResponse|any) => void): void;
-      describeTrustedAdvisorCheckResult(params: SupportDescribeTrustedAdvisorCheckResultRequest, callback: (err: SupportInternalServerError|any, data: SupportDescribeTrustedAdvisorCheckResultResponse|any) => void): void;
-      describeTrustedAdvisorCheckSummaries(params: SupportDescribeTrustedAdvisorCheckSummariesRequest, callback: (err: SupportInternalServerError|any, data: SupportDescribeTrustedAdvisorCheckSummariesResponse|any) => void): void;
-      describeTrustedAdvisorChecks(params: SupportDescribeTrustedAdvisorChecksRequest, callback: (err: SupportInternalServerError|any, data: SupportDescribeTrustedAdvisorChecksResponse|any) => void): void;
-      refreshTrustedAdvisorCheck(params: SupportRefreshTrustedAdvisorCheckRequest, callback: (err: SupportInternalServerError|any, data: SupportRefreshTrustedAdvisorCheckResponse|any) => void): void;
-      resolveCase(params: SupportResolveCaseRequest, callback: (err: SupportInternalServerError|SupportCaseIdNotFound|any, data: SupportResolveCaseResponse|any) => void): void;
+      addAttachmentsToSet(params: SupportAddAttachmentsToSetRequest, callback?: (err: SupportInternalServerError|SupportAttachmentSetIdNotFound|SupportAttachmentSetExpired|SupportAttachmentSetSizeLimitExceeded|SupportAttachmentLimitExceeded|any, data: SupportAddAttachmentsToSetResponse|any) => void): Request;
+      addCommunicationToCase(params: SupportAddCommunicationToCaseRequest, callback?: (err: SupportInternalServerError|SupportCaseIdNotFound|SupportAttachmentSetIdNotFound|SupportAttachmentSetExpired|any, data: SupportAddCommunicationToCaseResponse|any) => void): Request;
+      createCase(params: SupportCreateCaseRequest, callback?: (err: SupportInternalServerError|SupportCaseCreationLimitExceeded|SupportAttachmentSetIdNotFound|SupportAttachmentSetExpired|any, data: SupportCreateCaseResponse|any) => void): Request;
+      describeAttachment(params: SupportDescribeAttachmentRequest, callback?: (err: SupportInternalServerError|SupportDescribeAttachmentLimitExceeded|SupportAttachmentIdNotFound|any, data: SupportDescribeAttachmentResponse|any) => void): Request;
+      describeCases(params: SupportDescribeCasesRequest, callback?: (err: SupportInternalServerError|SupportCaseIdNotFound|any, data: SupportDescribeCasesResponse|any) => void): Request;
+      describeCommunications(params: SupportDescribeCommunicationsRequest, callback?: (err: SupportInternalServerError|SupportCaseIdNotFound|any, data: SupportDescribeCommunicationsResponse|any) => void): Request;
+      describeServices(params: SupportDescribeServicesRequest, callback?: (err: SupportInternalServerError|any, data: SupportDescribeServicesResponse|any) => void): Request;
+      describeSeverityLevels(params: SupportDescribeSeverityLevelsRequest, callback?: (err: SupportInternalServerError|any, data: SupportDescribeSeverityLevelsResponse|any) => void): Request;
+      describeTrustedAdvisorCheckRefreshStatuses(params: SupportDescribeTrustedAdvisorCheckRefreshStatusesRequest, callback?: (err: SupportInternalServerError|any, data: SupportDescribeTrustedAdvisorCheckRefreshStatusesResponse|any) => void): Request;
+      describeTrustedAdvisorCheckResult(params: SupportDescribeTrustedAdvisorCheckResultRequest, callback?: (err: SupportInternalServerError|any, data: SupportDescribeTrustedAdvisorCheckResultResponse|any) => void): Request;
+      describeTrustedAdvisorCheckSummaries(params: SupportDescribeTrustedAdvisorCheckSummariesRequest, callback?: (err: SupportInternalServerError|any, data: SupportDescribeTrustedAdvisorCheckSummariesResponse|any) => void): Request;
+      describeTrustedAdvisorChecks(params: SupportDescribeTrustedAdvisorChecksRequest, callback?: (err: SupportInternalServerError|any, data: SupportDescribeTrustedAdvisorChecksResponse|any) => void): Request;
+      refreshTrustedAdvisorCheck(params: SupportRefreshTrustedAdvisorCheckRequest, callback?: (err: SupportInternalServerError|any, data: SupportRefreshTrustedAdvisorCheckResponse|any) => void): Request;
+      resolveCase(params: SupportResolveCaseRequest, callback?: (err: SupportInternalServerError|SupportCaseIdNotFound|any, data: SupportResolveCaseResponse|any) => void): Request;
     }
 
     export interface SupportAddAttachmentsToSetRequest {
