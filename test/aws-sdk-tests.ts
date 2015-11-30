@@ -12,7 +12,15 @@ creds = new AWS.Credentials(str, str);
 creds = new AWS.Credentials(str, str, str);
 str = creds.accessKeyId;
 
-
+/*
+ * Base service class
+ */
+var service = new AWS.SQS();
+service.makeRequest('POST', {param1:'foobar'}, (err, data) => {});
+service.makeUnauthenticatedRequest('POST', {param1:'foobar'}, (err, data) => {});
+service.setupRequestListeners();
+service.makeRequest('state', {param1:'foobar'}, (err, data) => {});
+ 
 /*
  * SQS 
  */
