@@ -116,9 +116,9 @@ declare module "aws-sdk" {
 		abort(): Request;
 		createReadStream(): ReadableStream;
 		eachItem(callback:Function): void;
-		eachPage(callback: (err:Error, data:any, done?:() => void) => boolean): void;
+		eachPage(callback: (err:Error, data:any, done?:() => void) => boolean|void): void;
 		isPageable(): boolean;
-		send(callback: (err:Error, data:any) => void): void;
+		send(callback?: (err:Error, data:any) => void): void;
 		
     }
 	

@@ -9,10 +9,10 @@ declare module "aws-sdk" {
 {{#each m.operations}}
       {{{camelCase @key}}}(
         {{~#if this.input.shape}}params: {{../../api.name}}{{this.input.shape}}, {{/if~}}
-        callback: ( {{~null~}}
+        callback?: ( {{~null~}}
             err: {{#each this.errors~}}{{../../api.name}}{{this.shape}}|{{/each}}any, {{null~}}
-            data: {{#if this.output.shape}}{{../../api.name}}{{this.output.shape}}|{{/if}}any) => void {{null~}}
-      ): void;
+            data: {{#if this.output.shape}}{{../../api.name}}{{this.output.shape}}|{{/if}}any) => void {{~null~}}
+      ): Request;
 {{/each}}
     }
 
