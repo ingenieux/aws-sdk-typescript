@@ -26,16 +26,16 @@ gulp.task('run', shell.task([
 ]));
 
 gulp.task('buildrun', function (cb) {
-	runseq('build', 'run', cb);
+	runseq('build', 'run', 'compile:tests', cb);
 });
 
 // ** Watching ** //
 gulp.task('watch', function () {
-	gulp.watch(paths.tscripts.src, ['compile:typescript']);
+	gulp.watch(paths.tscripts.src, ['build']);
 });
 
 gulp.task('watchrun', function () {
-	gulp.watch(paths.tscripts.src, runseq('compile:typescript', 'run'));
+	gulp.watch(paths.tscripts.src, runseq('buildrun'));
 });
 
 // ** Compilation ** //
