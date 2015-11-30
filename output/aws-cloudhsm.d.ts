@@ -3,25 +3,26 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class CloudHSM {
+
+    export class CloudHSM extends Service {
       constructor(options?: any);
-      createHapg(params: CloudHSMCreateHapgRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMCreateHapgResponse|any) => void): void;
-      createHsm(params: CloudHSMCreateHsmRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMCreateHsmResponse|any) => void): void;
-      createLunaClient(params: CloudHSMCreateLunaClientRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMCreateLunaClientResponse|any) => void): void;
-      deleteHapg(params: CloudHSMDeleteHapgRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDeleteHapgResponse|any) => void): void;
-      deleteHsm(params: CloudHSMDeleteHsmRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDeleteHsmResponse|any) => void): void;
-      deleteLunaClient(params: CloudHSMDeleteLunaClientRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDeleteLunaClientResponse|any) => void): void;
-      describeHapg(params: CloudHSMDescribeHapgRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDescribeHapgResponse|any) => void): void;
-      describeHsm(params: CloudHSMDescribeHsmRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDescribeHsmResponse|any) => void): void;
-      describeLunaClient(params: CloudHSMDescribeLunaClientRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDescribeLunaClientResponse|any) => void): void;
-      getConfig(params: CloudHSMGetConfigRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMGetConfigResponse|any) => void): void;
-      listAvailableZones(params: CloudHSMListAvailableZonesRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMListAvailableZonesResponse|any) => void): void;
-      listHapgs(params: CloudHSMListHapgsRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMListHapgsResponse|any) => void): void;
-      listHsms(params: CloudHSMListHsmsRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMListHsmsResponse|any) => void): void;
-      listLunaClients(params: CloudHSMListLunaClientsRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMListLunaClientsResponse|any) => void): void;
-      modifyHapg(params: CloudHSMModifyHapgRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMModifyHapgResponse|any) => void): void;
-      modifyHsm(params: CloudHSMModifyHsmRequest, callback: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMModifyHsmResponse|any) => void): void;
-      modifyLunaClient(params: CloudHSMModifyLunaClientRequest, callback: (err: CloudHSMCloudHsmServiceException|any, data: CloudHSMModifyLunaClientResponse|any) => void): void;
+      createHapg(params: CloudHSMCreateHapgRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMCreateHapgResponse|any) => void): Request;
+      createHsm(params: CloudHSMCreateHsmRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMCreateHsmResponse|any) => void): Request;
+      createLunaClient(params: CloudHSMCreateLunaClientRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMCreateLunaClientResponse|any) => void): Request;
+      deleteHapg(params: CloudHSMDeleteHapgRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDeleteHapgResponse|any) => void): Request;
+      deleteHsm(params: CloudHSMDeleteHsmRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDeleteHsmResponse|any) => void): Request;
+      deleteLunaClient(params: CloudHSMDeleteLunaClientRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDeleteLunaClientResponse|any) => void): Request;
+      describeHapg(params: CloudHSMDescribeHapgRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDescribeHapgResponse|any) => void): Request;
+      describeHsm(params: CloudHSMDescribeHsmRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDescribeHsmResponse|any) => void): Request;
+      describeLunaClient(params: CloudHSMDescribeLunaClientRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMDescribeLunaClientResponse|any) => void): Request;
+      getConfig(params: CloudHSMGetConfigRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMGetConfigResponse|any) => void): Request;
+      listAvailableZones(params: CloudHSMListAvailableZonesRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMListAvailableZonesResponse|any) => void): Request;
+      listHapgs(params: CloudHSMListHapgsRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMListHapgsResponse|any) => void): Request;
+      listHsms(params: CloudHSMListHsmsRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMListHsmsResponse|any) => void): Request;
+      listLunaClients(params: CloudHSMListLunaClientsRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMListLunaClientsResponse|any) => void): Request;
+      modifyHapg(params: CloudHSMModifyHapgRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMModifyHapgResponse|any) => void): Request;
+      modifyHsm(params: CloudHSMModifyHsmRequest, callback?: (err: CloudHSMCloudHsmServiceException|CloudHSMCloudHsmInternalException|CloudHSMInvalidRequestException|any, data: CloudHSMModifyHsmResponse|any) => void): Request;
+      modifyLunaClient(params: CloudHSMModifyLunaClientRequest, callback?: (err: CloudHSMCloudHsmServiceException|any, data: CloudHSMModifyLunaClientResponse|any) => void): Request;
     }
 
     export type CloudHSMAZ = string; // pattern: "[a-zA-Z0-9\-]*"

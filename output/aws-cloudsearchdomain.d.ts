@@ -3,11 +3,12 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class CloudSearchDomain {
+
+    export class CloudSearchDomain extends Service {
       constructor(options?: any);
-      search(params: CloudSearchDomainSearchRequest, callback: (err: CloudSearchDomainSearchException|any, data: CloudSearchDomainSearchResponse|any) => void): void;
-      suggest(params: CloudSearchDomainSuggestRequest, callback: (err: CloudSearchDomainSearchException|any, data: CloudSearchDomainSuggestResponse|any) => void): void;
-      uploadDocuments(params: CloudSearchDomainUploadDocumentsRequest, callback: (err: CloudSearchDomainDocumentServiceException|any, data: CloudSearchDomainUploadDocumentsResponse|any) => void): void;
+      search(params: CloudSearchDomainSearchRequest, callback?: (err: CloudSearchDomainSearchException|any, data: CloudSearchDomainSearchResponse|any) => void): Request;
+      suggest(params: CloudSearchDomainSuggestRequest, callback?: (err: CloudSearchDomainSearchException|any, data: CloudSearchDomainSuggestResponse|any) => void): Request;
+      uploadDocuments(params: CloudSearchDomainUploadDocumentsRequest, callback?: (err: CloudSearchDomainDocumentServiceException|any, data: CloudSearchDomainUploadDocumentsResponse|any) => void): Request;
     }
 
     export type CloudSearchDomainAdds = number;

@@ -3,35 +3,36 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class ECS {
+
+    export class ECS extends Service {
       constructor(options?: any);
-      createCluster(params: ECSCreateClusterRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSCreateClusterResponse|any) => void): void;
-      createService(params: ECSCreateServiceRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSCreateServiceResponse|any) => void): void;
-      deleteCluster(params: ECSDeleteClusterRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|ECSClusterContainsContainerInstancesException|ECSClusterContainsServicesException|any, data: ECSDeleteClusterResponse|any) => void): void;
-      deleteService(params: ECSDeleteServiceRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|ECSServiceNotFoundException|any, data: ECSDeleteServiceResponse|any) => void): void;
-      deregisterContainerInstance(params: ECSDeregisterContainerInstanceRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSDeregisterContainerInstanceResponse|any) => void): void;
-      deregisterTaskDefinition(params: ECSDeregisterTaskDefinitionRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSDeregisterTaskDefinitionResponse|any) => void): void;
-      describeClusters(params: ECSDescribeClustersRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSDescribeClustersResponse|any) => void): void;
-      describeContainerInstances(params: ECSDescribeContainerInstancesRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSDescribeContainerInstancesResponse|any) => void): void;
-      describeServices(params: ECSDescribeServicesRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSDescribeServicesResponse|any) => void): void;
-      describeTaskDefinition(params: ECSDescribeTaskDefinitionRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSDescribeTaskDefinitionResponse|any) => void): void;
-      describeTasks(params: ECSDescribeTasksRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSDescribeTasksResponse|any) => void): void;
-      discoverPollEndpoint(params: ECSDiscoverPollEndpointRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSDiscoverPollEndpointResponse|any) => void): void;
-      listClusters(params: ECSListClustersRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSListClustersResponse|any) => void): void;
-      listContainerInstances(params: ECSListContainerInstancesRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSListContainerInstancesResponse|any) => void): void;
-      listServices(params: ECSListServicesRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSListServicesResponse|any) => void): void;
-      listTaskDefinitionFamilies(params: ECSListTaskDefinitionFamiliesRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSListTaskDefinitionFamiliesResponse|any) => void): void;
-      listTaskDefinitions(params: ECSListTaskDefinitionsRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSListTaskDefinitionsResponse|any) => void): void;
-      listTasks(params: ECSListTasksRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|ECSServiceNotFoundException|any, data: ECSListTasksResponse|any) => void): void;
-      registerContainerInstance(params: ECSRegisterContainerInstanceRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSRegisterContainerInstanceResponse|any) => void): void;
-      registerTaskDefinition(params: ECSRegisterTaskDefinitionRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSRegisterTaskDefinitionResponse|any) => void): void;
-      runTask(params: ECSRunTaskRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSRunTaskResponse|any) => void): void;
-      startTask(params: ECSStartTaskRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSStartTaskResponse|any) => void): void;
-      stopTask(params: ECSStopTaskRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSStopTaskResponse|any) => void): void;
-      submitContainerStateChange(params: ECSSubmitContainerStateChangeRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSSubmitContainerStateChangeResponse|any) => void): void;
-      submitTaskStateChange(params: ECSSubmitTaskStateChangeRequest, callback: (err: ECSServerException|ECSClientException|any, data: ECSSubmitTaskStateChangeResponse|any) => void): void;
-      updateContainerAgent(params: ECSUpdateContainerAgentRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|ECSUpdateInProgressException|ECSNoUpdateAvailableException|ECSMissingVersionException|any, data: ECSUpdateContainerAgentResponse|any) => void): void;
-      updateService(params: ECSUpdateServiceRequest, callback: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|ECSServiceNotFoundException|ECSServiceNotActiveException|any, data: ECSUpdateServiceResponse|any) => void): void;
+      createCluster(params: ECSCreateClusterRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSCreateClusterResponse|any) => void): Request;
+      createService(params: ECSCreateServiceRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSCreateServiceResponse|any) => void): Request;
+      deleteCluster(params: ECSDeleteClusterRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|ECSClusterContainsContainerInstancesException|ECSClusterContainsServicesException|any, data: ECSDeleteClusterResponse|any) => void): Request;
+      deleteService(params: ECSDeleteServiceRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|ECSServiceNotFoundException|any, data: ECSDeleteServiceResponse|any) => void): Request;
+      deregisterContainerInstance(params: ECSDeregisterContainerInstanceRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSDeregisterContainerInstanceResponse|any) => void): Request;
+      deregisterTaskDefinition(params: ECSDeregisterTaskDefinitionRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSDeregisterTaskDefinitionResponse|any) => void): Request;
+      describeClusters(params: ECSDescribeClustersRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSDescribeClustersResponse|any) => void): Request;
+      describeContainerInstances(params: ECSDescribeContainerInstancesRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSDescribeContainerInstancesResponse|any) => void): Request;
+      describeServices(params: ECSDescribeServicesRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSDescribeServicesResponse|any) => void): Request;
+      describeTaskDefinition(params: ECSDescribeTaskDefinitionRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSDescribeTaskDefinitionResponse|any) => void): Request;
+      describeTasks(params: ECSDescribeTasksRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSDescribeTasksResponse|any) => void): Request;
+      discoverPollEndpoint(params: ECSDiscoverPollEndpointRequest, callback?: (err: ECSServerException|ECSClientException|any, data: ECSDiscoverPollEndpointResponse|any) => void): Request;
+      listClusters(params: ECSListClustersRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSListClustersResponse|any) => void): Request;
+      listContainerInstances(params: ECSListContainerInstancesRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSListContainerInstancesResponse|any) => void): Request;
+      listServices(params: ECSListServicesRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSListServicesResponse|any) => void): Request;
+      listTaskDefinitionFamilies(params: ECSListTaskDefinitionFamiliesRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSListTaskDefinitionFamiliesResponse|any) => void): Request;
+      listTaskDefinitions(params: ECSListTaskDefinitionsRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSListTaskDefinitionsResponse|any) => void): Request;
+      listTasks(params: ECSListTasksRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|ECSServiceNotFoundException|any, data: ECSListTasksResponse|any) => void): Request;
+      registerContainerInstance(params: ECSRegisterContainerInstanceRequest, callback?: (err: ECSServerException|ECSClientException|any, data: ECSRegisterContainerInstanceResponse|any) => void): Request;
+      registerTaskDefinition(params: ECSRegisterTaskDefinitionRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|any, data: ECSRegisterTaskDefinitionResponse|any) => void): Request;
+      runTask(params: ECSRunTaskRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSRunTaskResponse|any) => void): Request;
+      startTask(params: ECSStartTaskRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSStartTaskResponse|any) => void): Request;
+      stopTask(params: ECSStopTaskRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|any, data: ECSStopTaskResponse|any) => void): Request;
+      submitContainerStateChange(params: ECSSubmitContainerStateChangeRequest, callback?: (err: ECSServerException|ECSClientException|any, data: ECSSubmitContainerStateChangeResponse|any) => void): Request;
+      submitTaskStateChange(params: ECSSubmitTaskStateChangeRequest, callback?: (err: ECSServerException|ECSClientException|any, data: ECSSubmitTaskStateChangeResponse|any) => void): Request;
+      updateContainerAgent(params: ECSUpdateContainerAgentRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|ECSUpdateInProgressException|ECSNoUpdateAvailableException|ECSMissingVersionException|any, data: ECSUpdateContainerAgentResponse|any) => void): Request;
+      updateService(params: ECSUpdateServiceRequest, callback?: (err: ECSServerException|ECSClientException|ECSInvalidParameterException|ECSClusterNotFoundException|ECSServiceNotFoundException|ECSServiceNotActiveException|any, data: ECSUpdateServiceResponse|any) => void): Request;
     }
 
     export type ECSAgentUpdateStatus = string;
@@ -498,6 +499,7 @@ declare module "aws-sdk" {
     export interface ECSStopTaskRequest {
         cluster?: ECSString;
         task: ECSString;
+        reason?: ECSString;
     }
 
     export interface ECSStopTaskResponse {
@@ -541,6 +543,10 @@ declare module "aws-sdk" {
         desiredStatus?: ECSString;
         containers?: ECSContainers;
         startedBy?: ECSString;
+        stoppedReason?: ECSString;
+        createdAt?: ECSTimestamp;
+        startedAt?: ECSTimestamp;
+        stoppedAt?: ECSTimestamp;
     }
 
     export interface ECSTaskDefinition {

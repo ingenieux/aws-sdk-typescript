@@ -3,25 +3,26 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class SQS {
+
+    export class SQS extends Service {
       constructor(options?: any);
-      addPermission(params: SQSAddPermissionRequest, callback: (err: SQSOverLimit|any, data: any) => void): void;
-      changeMessageVisibility(params: SQSChangeMessageVisibilityRequest, callback: (err: SQSMessageNotInflight|SQSReceiptHandleIsInvalid|any, data: any) => void): void;
-      changeMessageVisibilityBatch(params: SQSChangeMessageVisibilityBatchRequest, callback: (err: SQSTooManyEntriesInBatchRequest|SQSEmptyBatchRequest|SQSBatchEntryIdsNotDistinct|SQSInvalidBatchEntryId|any, data: SQSChangeMessageVisibilityBatchResult|any) => void): void;
-      createQueue(params: SQSCreateQueueRequest, callback: (err: SQSQueueDeletedRecently|SQSQueueNameExists|any, data: SQSCreateQueueResult|any) => void): void;
-      deleteMessage(params: SQSDeleteMessageRequest, callback: (err: SQSInvalidIdFormat|SQSReceiptHandleIsInvalid|any, data: any) => void): void;
-      deleteMessageBatch(params: SQSDeleteMessageBatchRequest, callback: (err: SQSTooManyEntriesInBatchRequest|SQSEmptyBatchRequest|SQSBatchEntryIdsNotDistinct|SQSInvalidBatchEntryId|any, data: SQSDeleteMessageBatchResult|any) => void): void;
-      deleteQueue(params: SQSDeleteQueueRequest, callback: (err: any, data: any) => void): void;
-      getQueueAttributes(params: SQSGetQueueAttributesRequest, callback: (err: SQSInvalidAttributeName|any, data: SQSGetQueueAttributesResult|any) => void): void;
-      getQueueUrl(params: SQSGetQueueUrlRequest, callback: (err: SQSQueueDoesNotExist|any, data: SQSGetQueueUrlResult|any) => void): void;
-      listDeadLetterSourceQueues(params: SQSListDeadLetterSourceQueuesRequest, callback: (err: SQSQueueDoesNotExist|any, data: SQSListDeadLetterSourceQueuesResult|any) => void): void;
-      listQueues(params: SQSListQueuesRequest, callback: (err: any, data: SQSListQueuesResult|any) => void): void;
-      purgeQueue(params: SQSPurgeQueueRequest, callback: (err: SQSQueueDoesNotExist|SQSPurgeQueueInProgress|any, data: any) => void): void;
-      receiveMessage(params: SQSReceiveMessageRequest, callback: (err: SQSOverLimit|any, data: SQSReceiveMessageResult|any) => void): void;
-      removePermission(params: SQSRemovePermissionRequest, callback: (err: any, data: any) => void): void;
-      sendMessage(params: SQSSendMessageRequest, callback: (err: SQSInvalidMessageContents|SQSUnsupportedOperation|any, data: SQSSendMessageResult|any) => void): void;
-      sendMessageBatch(params: SQSSendMessageBatchRequest, callback: (err: SQSTooManyEntriesInBatchRequest|SQSEmptyBatchRequest|SQSBatchEntryIdsNotDistinct|SQSBatchRequestTooLong|SQSInvalidBatchEntryId|SQSUnsupportedOperation|any, data: SQSSendMessageBatchResult|any) => void): void;
-      setQueueAttributes(params: SQSSetQueueAttributesRequest, callback: (err: SQSInvalidAttributeName|any, data: any) => void): void;
+      addPermission(params: SQSAddPermissionRequest, callback?: (err: SQSOverLimit|any, data: any) => void): Request;
+      changeMessageVisibility(params: SQSChangeMessageVisibilityRequest, callback?: (err: SQSMessageNotInflight|SQSReceiptHandleIsInvalid|any, data: any) => void): Request;
+      changeMessageVisibilityBatch(params: SQSChangeMessageVisibilityBatchRequest, callback?: (err: SQSTooManyEntriesInBatchRequest|SQSEmptyBatchRequest|SQSBatchEntryIdsNotDistinct|SQSInvalidBatchEntryId|any, data: SQSChangeMessageVisibilityBatchResult|any) => void): Request;
+      createQueue(params: SQSCreateQueueRequest, callback?: (err: SQSQueueDeletedRecently|SQSQueueNameExists|any, data: SQSCreateQueueResult|any) => void): Request;
+      deleteMessage(params: SQSDeleteMessageRequest, callback?: (err: SQSInvalidIdFormat|SQSReceiptHandleIsInvalid|any, data: any) => void): Request;
+      deleteMessageBatch(params: SQSDeleteMessageBatchRequest, callback?: (err: SQSTooManyEntriesInBatchRequest|SQSEmptyBatchRequest|SQSBatchEntryIdsNotDistinct|SQSInvalidBatchEntryId|any, data: SQSDeleteMessageBatchResult|any) => void): Request;
+      deleteQueue(params: SQSDeleteQueueRequest, callback?: (err: any, data: any) => void): Request;
+      getQueueAttributes(params: SQSGetQueueAttributesRequest, callback?: (err: SQSInvalidAttributeName|any, data: SQSGetQueueAttributesResult|any) => void): Request;
+      getQueueUrl(params: SQSGetQueueUrlRequest, callback?: (err: SQSQueueDoesNotExist|any, data: SQSGetQueueUrlResult|any) => void): Request;
+      listDeadLetterSourceQueues(params: SQSListDeadLetterSourceQueuesRequest, callback?: (err: SQSQueueDoesNotExist|any, data: SQSListDeadLetterSourceQueuesResult|any) => void): Request;
+      listQueues(params: SQSListQueuesRequest, callback?: (err: any, data: SQSListQueuesResult|any) => void): Request;
+      purgeQueue(params: SQSPurgeQueueRequest, callback?: (err: SQSQueueDoesNotExist|SQSPurgeQueueInProgress|any, data: any) => void): Request;
+      receiveMessage(params: SQSReceiveMessageRequest, callback?: (err: SQSOverLimit|any, data: SQSReceiveMessageResult|any) => void): Request;
+      removePermission(params: SQSRemovePermissionRequest, callback?: (err: any, data: any) => void): Request;
+      sendMessage(params: SQSSendMessageRequest, callback?: (err: SQSInvalidMessageContents|SQSUnsupportedOperation|any, data: SQSSendMessageResult|any) => void): Request;
+      sendMessageBatch(params: SQSSendMessageBatchRequest, callback?: (err: SQSTooManyEntriesInBatchRequest|SQSEmptyBatchRequest|SQSBatchEntryIdsNotDistinct|SQSBatchRequestTooLong|SQSInvalidBatchEntryId|SQSUnsupportedOperation|any, data: SQSSendMessageBatchResult|any) => void): Request;
+      setQueueAttributes(params: SQSSetQueueAttributesRequest, callback?: (err: SQSInvalidAttributeName|any, data: any) => void): Request;
     }
 
     export type SQSAWSAccountIdList = Array<SQSString>;

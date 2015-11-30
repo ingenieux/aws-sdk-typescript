@@ -3,39 +3,40 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class SWF {
+
+    export class SWF extends Service {
       constructor(options?: any);
-      countClosedWorkflowExecutions(params: SWFCountClosedWorkflowExecutionsInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionCount|any) => void): void;
-      countOpenWorkflowExecutions(params: SWFCountOpenWorkflowExecutionsInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionCount|any) => void): void;
-      countPendingActivityTasks(params: SWFCountPendingActivityTasksInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFPendingTaskCount|any) => void): void;
-      countPendingDecisionTasks(params: SWFCountPendingDecisionTasksInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFPendingTaskCount|any) => void): void;
-      deprecateActivityType(params: SWFDeprecateActivityTypeInput, callback: (err: SWFUnknownResourceFault|SWFTypeDeprecatedFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
-      deprecateDomain(params: SWFDeprecateDomainInput, callback: (err: SWFUnknownResourceFault|SWFDomainDeprecatedFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
-      deprecateWorkflowType(params: SWFDeprecateWorkflowTypeInput, callback: (err: SWFUnknownResourceFault|SWFTypeDeprecatedFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
-      describeActivityType(params: SWFDescribeActivityTypeInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFActivityTypeDetail|any) => void): void;
-      describeDomain(params: SWFDescribeDomainInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFDomainDetail|any) => void): void;
-      describeWorkflowExecution(params: SWFDescribeWorkflowExecutionInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionDetail|any) => void): void;
-      describeWorkflowType(params: SWFDescribeWorkflowTypeInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowTypeDetail|any) => void): void;
-      getWorkflowExecutionHistory(params: SWFGetWorkflowExecutionHistoryInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFHistory|any) => void): void;
-      listActivityTypes(params: SWFListActivityTypesInput, callback: (err: SWFOperationNotPermittedFault|SWFUnknownResourceFault|any, data: SWFActivityTypeInfos|any) => void): void;
-      listClosedWorkflowExecutions(params: SWFListClosedWorkflowExecutionsInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionInfos|any) => void): void;
-      listDomains(params: SWFListDomainsInput, callback: (err: SWFOperationNotPermittedFault|any, data: SWFDomainInfos|any) => void): void;
-      listOpenWorkflowExecutions(params: SWFListOpenWorkflowExecutionsInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionInfos|any) => void): void;
-      listWorkflowTypes(params: SWFListWorkflowTypesInput, callback: (err: SWFOperationNotPermittedFault|SWFUnknownResourceFault|any, data: SWFWorkflowTypeInfos|any) => void): void;
-      pollForActivityTask(params: SWFPollForActivityTaskInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|SWFLimitExceededFault|any, data: SWFActivityTask|any) => void): void;
-      pollForDecisionTask(params: SWFPollForDecisionTaskInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|SWFLimitExceededFault|any, data: SWFDecisionTask|any) => void): void;
-      recordActivityTaskHeartbeat(params: SWFRecordActivityTaskHeartbeatInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFActivityTaskStatus|any) => void): void;
-      registerActivityType(params: SWFRegisterActivityTypeInput, callback: (err: SWFTypeAlreadyExistsFault|SWFLimitExceededFault|SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
-      registerDomain(params: SWFRegisterDomainInput, callback: (err: SWFDomainAlreadyExistsFault|SWFLimitExceededFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
-      registerWorkflowType(params: SWFRegisterWorkflowTypeInput, callback: (err: SWFTypeAlreadyExistsFault|SWFLimitExceededFault|SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
-      requestCancelWorkflowExecution(params: SWFRequestCancelWorkflowExecutionInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
-      respondActivityTaskCanceled(params: SWFRespondActivityTaskCanceledInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
-      respondActivityTaskCompleted(params: SWFRespondActivityTaskCompletedInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
-      respondActivityTaskFailed(params: SWFRespondActivityTaskFailedInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
-      respondDecisionTaskCompleted(params: SWFRespondDecisionTaskCompletedInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
-      signalWorkflowExecution(params: SWFSignalWorkflowExecutionInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
-      startWorkflowExecution(params: SWFStartWorkflowExecutionInput, callback: (err: SWFUnknownResourceFault|SWFTypeDeprecatedFault|SWFWorkflowExecutionAlreadyStartedFault|SWFLimitExceededFault|SWFOperationNotPermittedFault|SWFDefaultUndefinedFault|any, data: SWFRun|any) => void): void;
-      terminateWorkflowExecution(params: SWFTerminateWorkflowExecutionInput, callback: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): void;
+      countClosedWorkflowExecutions(params: SWFCountClosedWorkflowExecutionsInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionCount|any) => void): Request;
+      countOpenWorkflowExecutions(params: SWFCountOpenWorkflowExecutionsInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionCount|any) => void): Request;
+      countPendingActivityTasks(params: SWFCountPendingActivityTasksInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFPendingTaskCount|any) => void): Request;
+      countPendingDecisionTasks(params: SWFCountPendingDecisionTasksInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFPendingTaskCount|any) => void): Request;
+      deprecateActivityType(params: SWFDeprecateActivityTypeInput, callback?: (err: SWFUnknownResourceFault|SWFTypeDeprecatedFault|SWFOperationNotPermittedFault|any, data: any) => void): Request;
+      deprecateDomain(params: SWFDeprecateDomainInput, callback?: (err: SWFUnknownResourceFault|SWFDomainDeprecatedFault|SWFOperationNotPermittedFault|any, data: any) => void): Request;
+      deprecateWorkflowType(params: SWFDeprecateWorkflowTypeInput, callback?: (err: SWFUnknownResourceFault|SWFTypeDeprecatedFault|SWFOperationNotPermittedFault|any, data: any) => void): Request;
+      describeActivityType(params: SWFDescribeActivityTypeInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFActivityTypeDetail|any) => void): Request;
+      describeDomain(params: SWFDescribeDomainInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFDomainDetail|any) => void): Request;
+      describeWorkflowExecution(params: SWFDescribeWorkflowExecutionInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionDetail|any) => void): Request;
+      describeWorkflowType(params: SWFDescribeWorkflowTypeInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowTypeDetail|any) => void): Request;
+      getWorkflowExecutionHistory(params: SWFGetWorkflowExecutionHistoryInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFHistory|any) => void): Request;
+      listActivityTypes(params: SWFListActivityTypesInput, callback?: (err: SWFOperationNotPermittedFault|SWFUnknownResourceFault|any, data: SWFActivityTypeInfos|any) => void): Request;
+      listClosedWorkflowExecutions(params: SWFListClosedWorkflowExecutionsInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionInfos|any) => void): Request;
+      listDomains(params: SWFListDomainsInput, callback?: (err: SWFOperationNotPermittedFault|any, data: SWFDomainInfos|any) => void): Request;
+      listOpenWorkflowExecutions(params: SWFListOpenWorkflowExecutionsInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFWorkflowExecutionInfos|any) => void): Request;
+      listWorkflowTypes(params: SWFListWorkflowTypesInput, callback?: (err: SWFOperationNotPermittedFault|SWFUnknownResourceFault|any, data: SWFWorkflowTypeInfos|any) => void): Request;
+      pollForActivityTask(params: SWFPollForActivityTaskInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|SWFLimitExceededFault|any, data: SWFActivityTask|any) => void): Request;
+      pollForDecisionTask(params: SWFPollForDecisionTaskInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|SWFLimitExceededFault|any, data: SWFDecisionTask|any) => void): Request;
+      recordActivityTaskHeartbeat(params: SWFRecordActivityTaskHeartbeatInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: SWFActivityTaskStatus|any) => void): Request;
+      registerActivityType(params: SWFRegisterActivityTypeInput, callback?: (err: SWFTypeAlreadyExistsFault|SWFLimitExceededFault|SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): Request;
+      registerDomain(params: SWFRegisterDomainInput, callback?: (err: SWFDomainAlreadyExistsFault|SWFLimitExceededFault|SWFOperationNotPermittedFault|any, data: any) => void): Request;
+      registerWorkflowType(params: SWFRegisterWorkflowTypeInput, callback?: (err: SWFTypeAlreadyExistsFault|SWFLimitExceededFault|SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): Request;
+      requestCancelWorkflowExecution(params: SWFRequestCancelWorkflowExecutionInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): Request;
+      respondActivityTaskCanceled(params: SWFRespondActivityTaskCanceledInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): Request;
+      respondActivityTaskCompleted(params: SWFRespondActivityTaskCompletedInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): Request;
+      respondActivityTaskFailed(params: SWFRespondActivityTaskFailedInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): Request;
+      respondDecisionTaskCompleted(params: SWFRespondDecisionTaskCompletedInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): Request;
+      signalWorkflowExecution(params: SWFSignalWorkflowExecutionInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): Request;
+      startWorkflowExecution(params: SWFStartWorkflowExecutionInput, callback?: (err: SWFUnknownResourceFault|SWFTypeDeprecatedFault|SWFWorkflowExecutionAlreadyStartedFault|SWFLimitExceededFault|SWFOperationNotPermittedFault|SWFDefaultUndefinedFault|any, data: SWFRun|any) => void): Request;
+      terminateWorkflowExecution(params: SWFTerminateWorkflowExecutionInput, callback?: (err: SWFUnknownResourceFault|SWFOperationNotPermittedFault|any, data: any) => void): Request;
     }
 
     export type SWFActivityId = string;

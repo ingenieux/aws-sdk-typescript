@@ -3,191 +3,199 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class EC2 {
+
+    export class EC2 extends Service {
       constructor(options?: any);
-      acceptVpcPeeringConnection(params: EC2AcceptVpcPeeringConnectionRequest, callback: (err: any, data: EC2AcceptVpcPeeringConnectionResult|any) => void): void;
-      allocateAddress(params: EC2AllocateAddressRequest, callback: (err: any, data: EC2AllocateAddressResult|any) => void): void;
-      assignPrivateIpAddresses(params: EC2AssignPrivateIpAddressesRequest, callback: (err: any, data: any) => void): void;
-      associateAddress(params: EC2AssociateAddressRequest, callback: (err: any, data: EC2AssociateAddressResult|any) => void): void;
-      associateDhcpOptions(params: EC2AssociateDhcpOptionsRequest, callback: (err: any, data: any) => void): void;
-      associateRouteTable(params: EC2AssociateRouteTableRequest, callback: (err: any, data: EC2AssociateRouteTableResult|any) => void): void;
-      attachClassicLinkVpc(params: EC2AttachClassicLinkVpcRequest, callback: (err: any, data: EC2AttachClassicLinkVpcResult|any) => void): void;
-      attachInternetGateway(params: EC2AttachInternetGatewayRequest, callback: (err: any, data: any) => void): void;
-      attachNetworkInterface(params: EC2AttachNetworkInterfaceRequest, callback: (err: any, data: EC2AttachNetworkInterfaceResult|any) => void): void;
-      attachVolume(params: EC2AttachVolumeRequest, callback: (err: any, data: EC2VolumeAttachment|any) => void): void;
-      attachVpnGateway(params: EC2AttachVpnGatewayRequest, callback: (err: any, data: EC2AttachVpnGatewayResult|any) => void): void;
-      authorizeSecurityGroupEgress(params: EC2AuthorizeSecurityGroupEgressRequest, callback: (err: any, data: any) => void): void;
-      authorizeSecurityGroupIngress(params: EC2AuthorizeSecurityGroupIngressRequest, callback: (err: any, data: any) => void): void;
-      bundleInstance(params: EC2BundleInstanceRequest, callback: (err: any, data: EC2BundleInstanceResult|any) => void): void;
-      cancelBundleTask(params: EC2CancelBundleTaskRequest, callback: (err: any, data: EC2CancelBundleTaskResult|any) => void): void;
-      cancelConversionTask(params: EC2CancelConversionRequest, callback: (err: any, data: any) => void): void;
-      cancelExportTask(params: EC2CancelExportTaskRequest, callback: (err: any, data: any) => void): void;
-      cancelImportTask(params: EC2CancelImportTaskRequest, callback: (err: any, data: EC2CancelImportTaskResult|any) => void): void;
-      cancelReservedInstancesListing(params: EC2CancelReservedInstancesListingRequest, callback: (err: any, data: EC2CancelReservedInstancesListingResult|any) => void): void;
-      cancelSpotFleetRequests(params: EC2CancelSpotFleetRequestsRequest, callback: (err: any, data: EC2CancelSpotFleetRequestsResponse|any) => void): void;
-      cancelSpotInstanceRequests(params: EC2CancelSpotInstanceRequestsRequest, callback: (err: any, data: EC2CancelSpotInstanceRequestsResult|any) => void): void;
-      confirmProductInstance(params: EC2ConfirmProductInstanceRequest, callback: (err: any, data: EC2ConfirmProductInstanceResult|any) => void): void;
-      copyImage(params: EC2CopyImageRequest, callback: (err: any, data: EC2CopyImageResult|any) => void): void;
-      copySnapshot(params: EC2CopySnapshotRequest, callback: (err: any, data: EC2CopySnapshotResult|any) => void): void;
-      createCustomerGateway(params: EC2CreateCustomerGatewayRequest, callback: (err: any, data: EC2CreateCustomerGatewayResult|any) => void): void;
-      createDhcpOptions(params: EC2CreateDhcpOptionsRequest, callback: (err: any, data: EC2CreateDhcpOptionsResult|any) => void): void;
-      createFlowLogs(params: EC2CreateFlowLogsRequest, callback: (err: any, data: EC2CreateFlowLogsResult|any) => void): void;
-      createImage(params: EC2CreateImageRequest, callback: (err: any, data: EC2CreateImageResult|any) => void): void;
-      createInstanceExportTask(params: EC2CreateInstanceExportTaskRequest, callback: (err: any, data: EC2CreateInstanceExportTaskResult|any) => void): void;
-      createInternetGateway(params: EC2CreateInternetGatewayRequest, callback: (err: any, data: EC2CreateInternetGatewayResult|any) => void): void;
-      createKeyPair(params: EC2CreateKeyPairRequest, callback: (err: any, data: EC2KeyPair|any) => void): void;
-      createNetworkAcl(params: EC2CreateNetworkAclRequest, callback: (err: any, data: EC2CreateNetworkAclResult|any) => void): void;
-      createNetworkAclEntry(params: EC2CreateNetworkAclEntryRequest, callback: (err: any, data: any) => void): void;
-      createNetworkInterface(params: EC2CreateNetworkInterfaceRequest, callback: (err: any, data: EC2CreateNetworkInterfaceResult|any) => void): void;
-      createPlacementGroup(params: EC2CreatePlacementGroupRequest, callback: (err: any, data: any) => void): void;
-      createReservedInstancesListing(params: EC2CreateReservedInstancesListingRequest, callback: (err: any, data: EC2CreateReservedInstancesListingResult|any) => void): void;
-      createRoute(params: EC2CreateRouteRequest, callback: (err: any, data: EC2CreateRouteResult|any) => void): void;
-      createRouteTable(params: EC2CreateRouteTableRequest, callback: (err: any, data: EC2CreateRouteTableResult|any) => void): void;
-      createSecurityGroup(params: EC2CreateSecurityGroupRequest, callback: (err: any, data: EC2CreateSecurityGroupResult|any) => void): void;
-      createSnapshot(params: EC2CreateSnapshotRequest, callback: (err: any, data: EC2Snapshot|any) => void): void;
-      createSpotDatafeedSubscription(params: EC2CreateSpotDatafeedSubscriptionRequest, callback: (err: any, data: EC2CreateSpotDatafeedSubscriptionResult|any) => void): void;
-      createSubnet(params: EC2CreateSubnetRequest, callback: (err: any, data: EC2CreateSubnetResult|any) => void): void;
-      createTags(params: EC2CreateTagsRequest, callback: (err: any, data: any) => void): void;
-      createVolume(params: EC2CreateVolumeRequest, callback: (err: any, data: EC2Volume|any) => void): void;
-      createVpc(params: EC2CreateVpcRequest, callback: (err: any, data: EC2CreateVpcResult|any) => void): void;
-      createVpcEndpoint(params: EC2CreateVpcEndpointRequest, callback: (err: any, data: EC2CreateVpcEndpointResult|any) => void): void;
-      createVpcPeeringConnection(params: EC2CreateVpcPeeringConnectionRequest, callback: (err: any, data: EC2CreateVpcPeeringConnectionResult|any) => void): void;
-      createVpnConnection(params: EC2CreateVpnConnectionRequest, callback: (err: any, data: EC2CreateVpnConnectionResult|any) => void): void;
-      createVpnConnectionRoute(params: EC2CreateVpnConnectionRouteRequest, callback: (err: any, data: any) => void): void;
-      createVpnGateway(params: EC2CreateVpnGatewayRequest, callback: (err: any, data: EC2CreateVpnGatewayResult|any) => void): void;
-      deleteCustomerGateway(params: EC2DeleteCustomerGatewayRequest, callback: (err: any, data: any) => void): void;
-      deleteDhcpOptions(params: EC2DeleteDhcpOptionsRequest, callback: (err: any, data: any) => void): void;
-      deleteFlowLogs(params: EC2DeleteFlowLogsRequest, callback: (err: any, data: EC2DeleteFlowLogsResult|any) => void): void;
-      deleteInternetGateway(params: EC2DeleteInternetGatewayRequest, callback: (err: any, data: any) => void): void;
-      deleteKeyPair(params: EC2DeleteKeyPairRequest, callback: (err: any, data: any) => void): void;
-      deleteNetworkAcl(params: EC2DeleteNetworkAclRequest, callback: (err: any, data: any) => void): void;
-      deleteNetworkAclEntry(params: EC2DeleteNetworkAclEntryRequest, callback: (err: any, data: any) => void): void;
-      deleteNetworkInterface(params: EC2DeleteNetworkInterfaceRequest, callback: (err: any, data: any) => void): void;
-      deletePlacementGroup(params: EC2DeletePlacementGroupRequest, callback: (err: any, data: any) => void): void;
-      deleteRoute(params: EC2DeleteRouteRequest, callback: (err: any, data: any) => void): void;
-      deleteRouteTable(params: EC2DeleteRouteTableRequest, callback: (err: any, data: any) => void): void;
-      deleteSecurityGroup(params: EC2DeleteSecurityGroupRequest, callback: (err: any, data: any) => void): void;
-      deleteSnapshot(params: EC2DeleteSnapshotRequest, callback: (err: any, data: any) => void): void;
-      deleteSpotDatafeedSubscription(params: EC2DeleteSpotDatafeedSubscriptionRequest, callback: (err: any, data: any) => void): void;
-      deleteSubnet(params: EC2DeleteSubnetRequest, callback: (err: any, data: any) => void): void;
-      deleteTags(params: EC2DeleteTagsRequest, callback: (err: any, data: any) => void): void;
-      deleteVolume(params: EC2DeleteVolumeRequest, callback: (err: any, data: any) => void): void;
-      deleteVpc(params: EC2DeleteVpcRequest, callback: (err: any, data: any) => void): void;
-      deleteVpcEndpoints(params: EC2DeleteVpcEndpointsRequest, callback: (err: any, data: EC2DeleteVpcEndpointsResult|any) => void): void;
-      deleteVpcPeeringConnection(params: EC2DeleteVpcPeeringConnectionRequest, callback: (err: any, data: EC2DeleteVpcPeeringConnectionResult|any) => void): void;
-      deleteVpnConnection(params: EC2DeleteVpnConnectionRequest, callback: (err: any, data: any) => void): void;
-      deleteVpnConnectionRoute(params: EC2DeleteVpnConnectionRouteRequest, callback: (err: any, data: any) => void): void;
-      deleteVpnGateway(params: EC2DeleteVpnGatewayRequest, callback: (err: any, data: any) => void): void;
-      deregisterImage(params: EC2DeregisterImageRequest, callback: (err: any, data: any) => void): void;
-      describeAccountAttributes(params: EC2DescribeAccountAttributesRequest, callback: (err: any, data: EC2DescribeAccountAttributesResult|any) => void): void;
-      describeAddresses(params: EC2DescribeAddressesRequest, callback: (err: any, data: EC2DescribeAddressesResult|any) => void): void;
-      describeAvailabilityZones(params: EC2DescribeAvailabilityZonesRequest, callback: (err: any, data: EC2DescribeAvailabilityZonesResult|any) => void): void;
-      describeBundleTasks(params: EC2DescribeBundleTasksRequest, callback: (err: any, data: EC2DescribeBundleTasksResult|any) => void): void;
-      describeClassicLinkInstances(params: EC2DescribeClassicLinkInstancesRequest, callback: (err: any, data: EC2DescribeClassicLinkInstancesResult|any) => void): void;
-      describeConversionTasks(params: EC2DescribeConversionTasksRequest, callback: (err: any, data: EC2DescribeConversionTasksResult|any) => void): void;
-      describeCustomerGateways(params: EC2DescribeCustomerGatewaysRequest, callback: (err: any, data: EC2DescribeCustomerGatewaysResult|any) => void): void;
-      describeDhcpOptions(params: EC2DescribeDhcpOptionsRequest, callback: (err: any, data: EC2DescribeDhcpOptionsResult|any) => void): void;
-      describeExportTasks(params: EC2DescribeExportTasksRequest, callback: (err: any, data: EC2DescribeExportTasksResult|any) => void): void;
-      describeFlowLogs(params: EC2DescribeFlowLogsRequest, callback: (err: any, data: EC2DescribeFlowLogsResult|any) => void): void;
-      describeImageAttribute(params: EC2DescribeImageAttributeRequest, callback: (err: any, data: EC2ImageAttribute|any) => void): void;
-      describeImages(params: EC2DescribeImagesRequest, callback: (err: any, data: EC2DescribeImagesResult|any) => void): void;
-      describeImportImageTasks(params: EC2DescribeImportImageTasksRequest, callback: (err: any, data: EC2DescribeImportImageTasksResult|any) => void): void;
-      describeImportSnapshotTasks(params: EC2DescribeImportSnapshotTasksRequest, callback: (err: any, data: EC2DescribeImportSnapshotTasksResult|any) => void): void;
-      describeInstanceAttribute(params: EC2DescribeInstanceAttributeRequest, callback: (err: any, data: EC2InstanceAttribute|any) => void): void;
-      describeInstanceStatus(params: EC2DescribeInstanceStatusRequest, callback: (err: any, data: EC2DescribeInstanceStatusResult|any) => void): void;
-      describeInstances(params: EC2DescribeInstancesRequest, callback: (err: any, data: EC2DescribeInstancesResult|any) => void): void;
-      describeInternetGateways(params: EC2DescribeInternetGatewaysRequest, callback: (err: any, data: EC2DescribeInternetGatewaysResult|any) => void): void;
-      describeKeyPairs(params: EC2DescribeKeyPairsRequest, callback: (err: any, data: EC2DescribeKeyPairsResult|any) => void): void;
-      describeMovingAddresses(params: EC2DescribeMovingAddressesRequest, callback: (err: any, data: EC2DescribeMovingAddressesResult|any) => void): void;
-      describeNetworkAcls(params: EC2DescribeNetworkAclsRequest, callback: (err: any, data: EC2DescribeNetworkAclsResult|any) => void): void;
-      describeNetworkInterfaceAttribute(params: EC2DescribeNetworkInterfaceAttributeRequest, callback: (err: any, data: EC2DescribeNetworkInterfaceAttributeResult|any) => void): void;
-      describeNetworkInterfaces(params: EC2DescribeNetworkInterfacesRequest, callback: (err: any, data: EC2DescribeNetworkInterfacesResult|any) => void): void;
-      describePlacementGroups(params: EC2DescribePlacementGroupsRequest, callback: (err: any, data: EC2DescribePlacementGroupsResult|any) => void): void;
-      describePrefixLists(params: EC2DescribePrefixListsRequest, callback: (err: any, data: EC2DescribePrefixListsResult|any) => void): void;
-      describeRegions(params: EC2DescribeRegionsRequest, callback: (err: any, data: EC2DescribeRegionsResult|any) => void): void;
-      describeReservedInstances(params: EC2DescribeReservedInstancesRequest, callback: (err: any, data: EC2DescribeReservedInstancesResult|any) => void): void;
-      describeReservedInstancesListings(params: EC2DescribeReservedInstancesListingsRequest, callback: (err: any, data: EC2DescribeReservedInstancesListingsResult|any) => void): void;
-      describeReservedInstancesModifications(params: EC2DescribeReservedInstancesModificationsRequest, callback: (err: any, data: EC2DescribeReservedInstancesModificationsResult|any) => void): void;
-      describeReservedInstancesOfferings(params: EC2DescribeReservedInstancesOfferingsRequest, callback: (err: any, data: EC2DescribeReservedInstancesOfferingsResult|any) => void): void;
-      describeRouteTables(params: EC2DescribeRouteTablesRequest, callback: (err: any, data: EC2DescribeRouteTablesResult|any) => void): void;
-      describeSecurityGroups(params: EC2DescribeSecurityGroupsRequest, callback: (err: any, data: EC2DescribeSecurityGroupsResult|any) => void): void;
-      describeSnapshotAttribute(params: EC2DescribeSnapshotAttributeRequest, callback: (err: any, data: EC2DescribeSnapshotAttributeResult|any) => void): void;
-      describeSnapshots(params: EC2DescribeSnapshotsRequest, callback: (err: any, data: EC2DescribeSnapshotsResult|any) => void): void;
-      describeSpotDatafeedSubscription(params: EC2DescribeSpotDatafeedSubscriptionRequest, callback: (err: any, data: EC2DescribeSpotDatafeedSubscriptionResult|any) => void): void;
-      describeSpotFleetInstances(params: EC2DescribeSpotFleetInstancesRequest, callback: (err: any, data: EC2DescribeSpotFleetInstancesResponse|any) => void): void;
-      describeSpotFleetRequestHistory(params: EC2DescribeSpotFleetRequestHistoryRequest, callback: (err: any, data: EC2DescribeSpotFleetRequestHistoryResponse|any) => void): void;
-      describeSpotFleetRequests(params: EC2DescribeSpotFleetRequestsRequest, callback: (err: any, data: EC2DescribeSpotFleetRequestsResponse|any) => void): void;
-      describeSpotInstanceRequests(params: EC2DescribeSpotInstanceRequestsRequest, callback: (err: any, data: EC2DescribeSpotInstanceRequestsResult|any) => void): void;
-      describeSpotPriceHistory(params: EC2DescribeSpotPriceHistoryRequest, callback: (err: any, data: EC2DescribeSpotPriceHistoryResult|any) => void): void;
-      describeSubnets(params: EC2DescribeSubnetsRequest, callback: (err: any, data: EC2DescribeSubnetsResult|any) => void): void;
-      describeTags(params: EC2DescribeTagsRequest, callback: (err: any, data: EC2DescribeTagsResult|any) => void): void;
-      describeVolumeAttribute(params: EC2DescribeVolumeAttributeRequest, callback: (err: any, data: EC2DescribeVolumeAttributeResult|any) => void): void;
-      describeVolumeStatus(params: EC2DescribeVolumeStatusRequest, callback: (err: any, data: EC2DescribeVolumeStatusResult|any) => void): void;
-      describeVolumes(params: EC2DescribeVolumesRequest, callback: (err: any, data: EC2DescribeVolumesResult|any) => void): void;
-      describeVpcAttribute(params: EC2DescribeVpcAttributeRequest, callback: (err: any, data: EC2DescribeVpcAttributeResult|any) => void): void;
-      describeVpcClassicLink(params: EC2DescribeVpcClassicLinkRequest, callback: (err: any, data: EC2DescribeVpcClassicLinkResult|any) => void): void;
-      describeVpcEndpointServices(params: EC2DescribeVpcEndpointServicesRequest, callback: (err: any, data: EC2DescribeVpcEndpointServicesResult|any) => void): void;
-      describeVpcEndpoints(params: EC2DescribeVpcEndpointsRequest, callback: (err: any, data: EC2DescribeVpcEndpointsResult|any) => void): void;
-      describeVpcPeeringConnections(params: EC2DescribeVpcPeeringConnectionsRequest, callback: (err: any, data: EC2DescribeVpcPeeringConnectionsResult|any) => void): void;
-      describeVpcs(params: EC2DescribeVpcsRequest, callback: (err: any, data: EC2DescribeVpcsResult|any) => void): void;
-      describeVpnConnections(params: EC2DescribeVpnConnectionsRequest, callback: (err: any, data: EC2DescribeVpnConnectionsResult|any) => void): void;
-      describeVpnGateways(params: EC2DescribeVpnGatewaysRequest, callback: (err: any, data: EC2DescribeVpnGatewaysResult|any) => void): void;
-      detachClassicLinkVpc(params: EC2DetachClassicLinkVpcRequest, callback: (err: any, data: EC2DetachClassicLinkVpcResult|any) => void): void;
-      detachInternetGateway(params: EC2DetachInternetGatewayRequest, callback: (err: any, data: any) => void): void;
-      detachNetworkInterface(params: EC2DetachNetworkInterfaceRequest, callback: (err: any, data: any) => void): void;
-      detachVolume(params: EC2DetachVolumeRequest, callback: (err: any, data: EC2VolumeAttachment|any) => void): void;
-      detachVpnGateway(params: EC2DetachVpnGatewayRequest, callback: (err: any, data: any) => void): void;
-      disableVgwRoutePropagation(params: EC2DisableVgwRoutePropagationRequest, callback: (err: any, data: any) => void): void;
-      disableVpcClassicLink(params: EC2DisableVpcClassicLinkRequest, callback: (err: any, data: EC2DisableVpcClassicLinkResult|any) => void): void;
-      disassociateAddress(params: EC2DisassociateAddressRequest, callback: (err: any, data: any) => void): void;
-      disassociateRouteTable(params: EC2DisassociateRouteTableRequest, callback: (err: any, data: any) => void): void;
-      enableVgwRoutePropagation(params: EC2EnableVgwRoutePropagationRequest, callback: (err: any, data: any) => void): void;
-      enableVolumeIO(params: EC2EnableVolumeIORequest, callback: (err: any, data: any) => void): void;
-      enableVpcClassicLink(params: EC2EnableVpcClassicLinkRequest, callback: (err: any, data: EC2EnableVpcClassicLinkResult|any) => void): void;
-      getConsoleOutput(params: EC2GetConsoleOutputRequest, callback: (err: any, data: EC2GetConsoleOutputResult|any) => void): void;
-      getPasswordData(params: EC2GetPasswordDataRequest, callback: (err: any, data: EC2GetPasswordDataResult|any) => void): void;
-      importImage(params: EC2ImportImageRequest, callback: (err: any, data: EC2ImportImageResult|any) => void): void;
-      importInstance(params: EC2ImportInstanceRequest, callback: (err: any, data: EC2ImportInstanceResult|any) => void): void;
-      importKeyPair(params: EC2ImportKeyPairRequest, callback: (err: any, data: EC2ImportKeyPairResult|any) => void): void;
-      importSnapshot(params: EC2ImportSnapshotRequest, callback: (err: any, data: EC2ImportSnapshotResult|any) => void): void;
-      importVolume(params: EC2ImportVolumeRequest, callback: (err: any, data: EC2ImportVolumeResult|any) => void): void;
-      modifyImageAttribute(params: EC2ModifyImageAttributeRequest, callback: (err: any, data: any) => void): void;
-      modifyInstanceAttribute(params: EC2ModifyInstanceAttributeRequest, callback: (err: any, data: any) => void): void;
-      modifyNetworkInterfaceAttribute(params: EC2ModifyNetworkInterfaceAttributeRequest, callback: (err: any, data: any) => void): void;
-      modifyReservedInstances(params: EC2ModifyReservedInstancesRequest, callback: (err: any, data: EC2ModifyReservedInstancesResult|any) => void): void;
-      modifySnapshotAttribute(params: EC2ModifySnapshotAttributeRequest, callback: (err: any, data: any) => void): void;
-      modifySpotFleetRequest(params: EC2ModifySpotFleetRequestRequest, callback: (err: any, data: EC2ModifySpotFleetRequestResponse|any) => void): void;
-      modifySubnetAttribute(params: EC2ModifySubnetAttributeRequest, callback: (err: any, data: any) => void): void;
-      modifyVolumeAttribute(params: EC2ModifyVolumeAttributeRequest, callback: (err: any, data: any) => void): void;
-      modifyVpcAttribute(params: EC2ModifyVpcAttributeRequest, callback: (err: any, data: any) => void): void;
-      modifyVpcEndpoint(params: EC2ModifyVpcEndpointRequest, callback: (err: any, data: EC2ModifyVpcEndpointResult|any) => void): void;
-      monitorInstances(params: EC2MonitorInstancesRequest, callback: (err: any, data: EC2MonitorInstancesResult|any) => void): void;
-      moveAddressToVpc(params: EC2MoveAddressToVpcRequest, callback: (err: any, data: EC2MoveAddressToVpcResult|any) => void): void;
-      purchaseReservedInstancesOffering(params: EC2PurchaseReservedInstancesOfferingRequest, callback: (err: any, data: EC2PurchaseReservedInstancesOfferingResult|any) => void): void;
-      rebootInstances(params: EC2RebootInstancesRequest, callback: (err: any, data: any) => void): void;
-      registerImage(params: EC2RegisterImageRequest, callback: (err: any, data: EC2RegisterImageResult|any) => void): void;
-      rejectVpcPeeringConnection(params: EC2RejectVpcPeeringConnectionRequest, callback: (err: any, data: EC2RejectVpcPeeringConnectionResult|any) => void): void;
-      releaseAddress(params: EC2ReleaseAddressRequest, callback: (err: any, data: any) => void): void;
-      replaceNetworkAclAssociation(params: EC2ReplaceNetworkAclAssociationRequest, callback: (err: any, data: EC2ReplaceNetworkAclAssociationResult|any) => void): void;
-      replaceNetworkAclEntry(params: EC2ReplaceNetworkAclEntryRequest, callback: (err: any, data: any) => void): void;
-      replaceRoute(params: EC2ReplaceRouteRequest, callback: (err: any, data: any) => void): void;
-      replaceRouteTableAssociation(params: EC2ReplaceRouteTableAssociationRequest, callback: (err: any, data: EC2ReplaceRouteTableAssociationResult|any) => void): void;
-      reportInstanceStatus(params: EC2ReportInstanceStatusRequest, callback: (err: any, data: any) => void): void;
-      requestSpotFleet(params: EC2RequestSpotFleetRequest, callback: (err: any, data: EC2RequestSpotFleetResponse|any) => void): void;
-      requestSpotInstances(params: EC2RequestSpotInstancesRequest, callback: (err: any, data: EC2RequestSpotInstancesResult|any) => void): void;
-      resetImageAttribute(params: EC2ResetImageAttributeRequest, callback: (err: any, data: any) => void): void;
-      resetInstanceAttribute(params: EC2ResetInstanceAttributeRequest, callback: (err: any, data: any) => void): void;
-      resetNetworkInterfaceAttribute(params: EC2ResetNetworkInterfaceAttributeRequest, callback: (err: any, data: any) => void): void;
-      resetSnapshotAttribute(params: EC2ResetSnapshotAttributeRequest, callback: (err: any, data: any) => void): void;
-      restoreAddressToClassic(params: EC2RestoreAddressToClassicRequest, callback: (err: any, data: EC2RestoreAddressToClassicResult|any) => void): void;
-      revokeSecurityGroupEgress(params: EC2RevokeSecurityGroupEgressRequest, callback: (err: any, data: any) => void): void;
-      revokeSecurityGroupIngress(params: EC2RevokeSecurityGroupIngressRequest, callback: (err: any, data: any) => void): void;
-      runInstances(params: EC2RunInstancesRequest, callback: (err: any, data: EC2Reservation|any) => void): void;
-      startInstances(params: EC2StartInstancesRequest, callback: (err: any, data: EC2StartInstancesResult|any) => void): void;
-      stopInstances(params: EC2StopInstancesRequest, callback: (err: any, data: EC2StopInstancesResult|any) => void): void;
-      terminateInstances(params: EC2TerminateInstancesRequest, callback: (err: any, data: EC2TerminateInstancesResult|any) => void): void;
-      unassignPrivateIpAddresses(params: EC2UnassignPrivateIpAddressesRequest, callback: (err: any, data: any) => void): void;
-      unmonitorInstances(params: EC2UnmonitorInstancesRequest, callback: (err: any, data: EC2UnmonitorInstancesResult|any) => void): void;
+      acceptVpcPeeringConnection(params: EC2AcceptVpcPeeringConnectionRequest, callback?: (err: any, data: EC2AcceptVpcPeeringConnectionResult|any) => void): Request;
+      allocateAddress(params: EC2AllocateAddressRequest, callback?: (err: any, data: EC2AllocateAddressResult|any) => void): Request;
+      allocateHosts(params: EC2AllocateHostsRequest, callback?: (err: any, data: EC2AllocateHostsResult|any) => void): Request;
+      assignPrivateIpAddresses(params: EC2AssignPrivateIpAddressesRequest, callback?: (err: any, data: any) => void): Request;
+      associateAddress(params: EC2AssociateAddressRequest, callback?: (err: any, data: EC2AssociateAddressResult|any) => void): Request;
+      associateDhcpOptions(params: EC2AssociateDhcpOptionsRequest, callback?: (err: any, data: any) => void): Request;
+      associateRouteTable(params: EC2AssociateRouteTableRequest, callback?: (err: any, data: EC2AssociateRouteTableResult|any) => void): Request;
+      attachClassicLinkVpc(params: EC2AttachClassicLinkVpcRequest, callback?: (err: any, data: EC2AttachClassicLinkVpcResult|any) => void): Request;
+      attachInternetGateway(params: EC2AttachInternetGatewayRequest, callback?: (err: any, data: any) => void): Request;
+      attachNetworkInterface(params: EC2AttachNetworkInterfaceRequest, callback?: (err: any, data: EC2AttachNetworkInterfaceResult|any) => void): Request;
+      attachVolume(params: EC2AttachVolumeRequest, callback?: (err: any, data: EC2VolumeAttachment|any) => void): Request;
+      attachVpnGateway(params: EC2AttachVpnGatewayRequest, callback?: (err: any, data: EC2AttachVpnGatewayResult|any) => void): Request;
+      authorizeSecurityGroupEgress(params: EC2AuthorizeSecurityGroupEgressRequest, callback?: (err: any, data: any) => void): Request;
+      authorizeSecurityGroupIngress(params: EC2AuthorizeSecurityGroupIngressRequest, callback?: (err: any, data: any) => void): Request;
+      bundleInstance(params: EC2BundleInstanceRequest, callback?: (err: any, data: EC2BundleInstanceResult|any) => void): Request;
+      cancelBundleTask(params: EC2CancelBundleTaskRequest, callback?: (err: any, data: EC2CancelBundleTaskResult|any) => void): Request;
+      cancelConversionTask(params: EC2CancelConversionRequest, callback?: (err: any, data: any) => void): Request;
+      cancelExportTask(params: EC2CancelExportTaskRequest, callback?: (err: any, data: any) => void): Request;
+      cancelImportTask(params: EC2CancelImportTaskRequest, callback?: (err: any, data: EC2CancelImportTaskResult|any) => void): Request;
+      cancelReservedInstancesListing(params: EC2CancelReservedInstancesListingRequest, callback?: (err: any, data: EC2CancelReservedInstancesListingResult|any) => void): Request;
+      cancelSpotFleetRequests(params: EC2CancelSpotFleetRequestsRequest, callback?: (err: any, data: EC2CancelSpotFleetRequestsResponse|any) => void): Request;
+      cancelSpotInstanceRequests(params: EC2CancelSpotInstanceRequestsRequest, callback?: (err: any, data: EC2CancelSpotInstanceRequestsResult|any) => void): Request;
+      confirmProductInstance(params: EC2ConfirmProductInstanceRequest, callback?: (err: any, data: EC2ConfirmProductInstanceResult|any) => void): Request;
+      copyImage(params: EC2CopyImageRequest, callback?: (err: any, data: EC2CopyImageResult|any) => void): Request;
+      copySnapshot(params: EC2CopySnapshotRequest, callback?: (err: any, data: EC2CopySnapshotResult|any) => void): Request;
+      createCustomerGateway(params: EC2CreateCustomerGatewayRequest, callback?: (err: any, data: EC2CreateCustomerGatewayResult|any) => void): Request;
+      createDhcpOptions(params: EC2CreateDhcpOptionsRequest, callback?: (err: any, data: EC2CreateDhcpOptionsResult|any) => void): Request;
+      createFlowLogs(params: EC2CreateFlowLogsRequest, callback?: (err: any, data: EC2CreateFlowLogsResult|any) => void): Request;
+      createImage(params: EC2CreateImageRequest, callback?: (err: any, data: EC2CreateImageResult|any) => void): Request;
+      createInstanceExportTask(params: EC2CreateInstanceExportTaskRequest, callback?: (err: any, data: EC2CreateInstanceExportTaskResult|any) => void): Request;
+      createInternetGateway(params: EC2CreateInternetGatewayRequest, callback?: (err: any, data: EC2CreateInternetGatewayResult|any) => void): Request;
+      createKeyPair(params: EC2CreateKeyPairRequest, callback?: (err: any, data: EC2KeyPair|any) => void): Request;
+      createNetworkAcl(params: EC2CreateNetworkAclRequest, callback?: (err: any, data: EC2CreateNetworkAclResult|any) => void): Request;
+      createNetworkAclEntry(params: EC2CreateNetworkAclEntryRequest, callback?: (err: any, data: any) => void): Request;
+      createNetworkInterface(params: EC2CreateNetworkInterfaceRequest, callback?: (err: any, data: EC2CreateNetworkInterfaceResult|any) => void): Request;
+      createPlacementGroup(params: EC2CreatePlacementGroupRequest, callback?: (err: any, data: any) => void): Request;
+      createReservedInstancesListing(params: EC2CreateReservedInstancesListingRequest, callback?: (err: any, data: EC2CreateReservedInstancesListingResult|any) => void): Request;
+      createRoute(params: EC2CreateRouteRequest, callback?: (err: any, data: EC2CreateRouteResult|any) => void): Request;
+      createRouteTable(params: EC2CreateRouteTableRequest, callback?: (err: any, data: EC2CreateRouteTableResult|any) => void): Request;
+      createSecurityGroup(params: EC2CreateSecurityGroupRequest, callback?: (err: any, data: EC2CreateSecurityGroupResult|any) => void): Request;
+      createSnapshot(params: EC2CreateSnapshotRequest, callback?: (err: any, data: EC2Snapshot|any) => void): Request;
+      createSpotDatafeedSubscription(params: EC2CreateSpotDatafeedSubscriptionRequest, callback?: (err: any, data: EC2CreateSpotDatafeedSubscriptionResult|any) => void): Request;
+      createSubnet(params: EC2CreateSubnetRequest, callback?: (err: any, data: EC2CreateSubnetResult|any) => void): Request;
+      createTags(params: EC2CreateTagsRequest, callback?: (err: any, data: any) => void): Request;
+      createVolume(params: EC2CreateVolumeRequest, callback?: (err: any, data: EC2Volume|any) => void): Request;
+      createVpc(params: EC2CreateVpcRequest, callback?: (err: any, data: EC2CreateVpcResult|any) => void): Request;
+      createVpcEndpoint(params: EC2CreateVpcEndpointRequest, callback?: (err: any, data: EC2CreateVpcEndpointResult|any) => void): Request;
+      createVpcPeeringConnection(params: EC2CreateVpcPeeringConnectionRequest, callback?: (err: any, data: EC2CreateVpcPeeringConnectionResult|any) => void): Request;
+      createVpnConnection(params: EC2CreateVpnConnectionRequest, callback?: (err: any, data: EC2CreateVpnConnectionResult|any) => void): Request;
+      createVpnConnectionRoute(params: EC2CreateVpnConnectionRouteRequest, callback?: (err: any, data: any) => void): Request;
+      createVpnGateway(params: EC2CreateVpnGatewayRequest, callback?: (err: any, data: EC2CreateVpnGatewayResult|any) => void): Request;
+      deleteCustomerGateway(params: EC2DeleteCustomerGatewayRequest, callback?: (err: any, data: any) => void): Request;
+      deleteDhcpOptions(params: EC2DeleteDhcpOptionsRequest, callback?: (err: any, data: any) => void): Request;
+      deleteFlowLogs(params: EC2DeleteFlowLogsRequest, callback?: (err: any, data: EC2DeleteFlowLogsResult|any) => void): Request;
+      deleteInternetGateway(params: EC2DeleteInternetGatewayRequest, callback?: (err: any, data: any) => void): Request;
+      deleteKeyPair(params: EC2DeleteKeyPairRequest, callback?: (err: any, data: any) => void): Request;
+      deleteNetworkAcl(params: EC2DeleteNetworkAclRequest, callback?: (err: any, data: any) => void): Request;
+      deleteNetworkAclEntry(params: EC2DeleteNetworkAclEntryRequest, callback?: (err: any, data: any) => void): Request;
+      deleteNetworkInterface(params: EC2DeleteNetworkInterfaceRequest, callback?: (err: any, data: any) => void): Request;
+      deletePlacementGroup(params: EC2DeletePlacementGroupRequest, callback?: (err: any, data: any) => void): Request;
+      deleteRoute(params: EC2DeleteRouteRequest, callback?: (err: any, data: any) => void): Request;
+      deleteRouteTable(params: EC2DeleteRouteTableRequest, callback?: (err: any, data: any) => void): Request;
+      deleteSecurityGroup(params: EC2DeleteSecurityGroupRequest, callback?: (err: any, data: any) => void): Request;
+      deleteSnapshot(params: EC2DeleteSnapshotRequest, callback?: (err: any, data: any) => void): Request;
+      deleteSpotDatafeedSubscription(params: EC2DeleteSpotDatafeedSubscriptionRequest, callback?: (err: any, data: any) => void): Request;
+      deleteSubnet(params: EC2DeleteSubnetRequest, callback?: (err: any, data: any) => void): Request;
+      deleteTags(params: EC2DeleteTagsRequest, callback?: (err: any, data: any) => void): Request;
+      deleteVolume(params: EC2DeleteVolumeRequest, callback?: (err: any, data: any) => void): Request;
+      deleteVpc(params: EC2DeleteVpcRequest, callback?: (err: any, data: any) => void): Request;
+      deleteVpcEndpoints(params: EC2DeleteVpcEndpointsRequest, callback?: (err: any, data: EC2DeleteVpcEndpointsResult|any) => void): Request;
+      deleteVpcPeeringConnection(params: EC2DeleteVpcPeeringConnectionRequest, callback?: (err: any, data: EC2DeleteVpcPeeringConnectionResult|any) => void): Request;
+      deleteVpnConnection(params: EC2DeleteVpnConnectionRequest, callback?: (err: any, data: any) => void): Request;
+      deleteVpnConnectionRoute(params: EC2DeleteVpnConnectionRouteRequest, callback?: (err: any, data: any) => void): Request;
+      deleteVpnGateway(params: EC2DeleteVpnGatewayRequest, callback?: (err: any, data: any) => void): Request;
+      deregisterImage(params: EC2DeregisterImageRequest, callback?: (err: any, data: any) => void): Request;
+      describeAccountAttributes(params: EC2DescribeAccountAttributesRequest, callback?: (err: any, data: EC2DescribeAccountAttributesResult|any) => void): Request;
+      describeAddresses(params: EC2DescribeAddressesRequest, callback?: (err: any, data: EC2DescribeAddressesResult|any) => void): Request;
+      describeAvailabilityZones(params: EC2DescribeAvailabilityZonesRequest, callback?: (err: any, data: EC2DescribeAvailabilityZonesResult|any) => void): Request;
+      describeBundleTasks(params: EC2DescribeBundleTasksRequest, callback?: (err: any, data: EC2DescribeBundleTasksResult|any) => void): Request;
+      describeClassicLinkInstances(params: EC2DescribeClassicLinkInstancesRequest, callback?: (err: any, data: EC2DescribeClassicLinkInstancesResult|any) => void): Request;
+      describeConversionTasks(params: EC2DescribeConversionTasksRequest, callback?: (err: any, data: EC2DescribeConversionTasksResult|any) => void): Request;
+      describeCustomerGateways(params: EC2DescribeCustomerGatewaysRequest, callback?: (err: any, data: EC2DescribeCustomerGatewaysResult|any) => void): Request;
+      describeDhcpOptions(params: EC2DescribeDhcpOptionsRequest, callback?: (err: any, data: EC2DescribeDhcpOptionsResult|any) => void): Request;
+      describeExportTasks(params: EC2DescribeExportTasksRequest, callback?: (err: any, data: EC2DescribeExportTasksResult|any) => void): Request;
+      describeFlowLogs(params: EC2DescribeFlowLogsRequest, callback?: (err: any, data: EC2DescribeFlowLogsResult|any) => void): Request;
+      describeHosts(params: EC2DescribeHostsRequest, callback?: (err: any, data: EC2DescribeHostsResult|any) => void): Request;
+      describeIdFormat(params: EC2DescribeIdFormatRequest, callback?: (err: any, data: EC2DescribeIdFormatResult|any) => void): Request;
+      describeImageAttribute(params: EC2DescribeImageAttributeRequest, callback?: (err: any, data: EC2ImageAttribute|any) => void): Request;
+      describeImages(params: EC2DescribeImagesRequest, callback?: (err: any, data: EC2DescribeImagesResult|any) => void): Request;
+      describeImportImageTasks(params: EC2DescribeImportImageTasksRequest, callback?: (err: any, data: EC2DescribeImportImageTasksResult|any) => void): Request;
+      describeImportSnapshotTasks(params: EC2DescribeImportSnapshotTasksRequest, callback?: (err: any, data: EC2DescribeImportSnapshotTasksResult|any) => void): Request;
+      describeInstanceAttribute(params: EC2DescribeInstanceAttributeRequest, callback?: (err: any, data: EC2InstanceAttribute|any) => void): Request;
+      describeInstanceStatus(params: EC2DescribeInstanceStatusRequest, callback?: (err: any, data: EC2DescribeInstanceStatusResult|any) => void): Request;
+      describeInstances(params: EC2DescribeInstancesRequest, callback?: (err: any, data: EC2DescribeInstancesResult|any) => void): Request;
+      describeInternetGateways(params: EC2DescribeInternetGatewaysRequest, callback?: (err: any, data: EC2DescribeInternetGatewaysResult|any) => void): Request;
+      describeKeyPairs(params: EC2DescribeKeyPairsRequest, callback?: (err: any, data: EC2DescribeKeyPairsResult|any) => void): Request;
+      describeMovingAddresses(params: EC2DescribeMovingAddressesRequest, callback?: (err: any, data: EC2DescribeMovingAddressesResult|any) => void): Request;
+      describeNetworkAcls(params: EC2DescribeNetworkAclsRequest, callback?: (err: any, data: EC2DescribeNetworkAclsResult|any) => void): Request;
+      describeNetworkInterfaceAttribute(params: EC2DescribeNetworkInterfaceAttributeRequest, callback?: (err: any, data: EC2DescribeNetworkInterfaceAttributeResult|any) => void): Request;
+      describeNetworkInterfaces(params: EC2DescribeNetworkInterfacesRequest, callback?: (err: any, data: EC2DescribeNetworkInterfacesResult|any) => void): Request;
+      describePlacementGroups(params: EC2DescribePlacementGroupsRequest, callback?: (err: any, data: EC2DescribePlacementGroupsResult|any) => void): Request;
+      describePrefixLists(params: EC2DescribePrefixListsRequest, callback?: (err: any, data: EC2DescribePrefixListsResult|any) => void): Request;
+      describeRegions(params: EC2DescribeRegionsRequest, callback?: (err: any, data: EC2DescribeRegionsResult|any) => void): Request;
+      describeReservedInstances(params: EC2DescribeReservedInstancesRequest, callback?: (err: any, data: EC2DescribeReservedInstancesResult|any) => void): Request;
+      describeReservedInstancesListings(params: EC2DescribeReservedInstancesListingsRequest, callback?: (err: any, data: EC2DescribeReservedInstancesListingsResult|any) => void): Request;
+      describeReservedInstancesModifications(params: EC2DescribeReservedInstancesModificationsRequest, callback?: (err: any, data: EC2DescribeReservedInstancesModificationsResult|any) => void): Request;
+      describeReservedInstancesOfferings(params: EC2DescribeReservedInstancesOfferingsRequest, callback?: (err: any, data: EC2DescribeReservedInstancesOfferingsResult|any) => void): Request;
+      describeRouteTables(params: EC2DescribeRouteTablesRequest, callback?: (err: any, data: EC2DescribeRouteTablesResult|any) => void): Request;
+      describeSecurityGroups(params: EC2DescribeSecurityGroupsRequest, callback?: (err: any, data: EC2DescribeSecurityGroupsResult|any) => void): Request;
+      describeSnapshotAttribute(params: EC2DescribeSnapshotAttributeRequest, callback?: (err: any, data: EC2DescribeSnapshotAttributeResult|any) => void): Request;
+      describeSnapshots(params: EC2DescribeSnapshotsRequest, callback?: (err: any, data: EC2DescribeSnapshotsResult|any) => void): Request;
+      describeSpotDatafeedSubscription(params: EC2DescribeSpotDatafeedSubscriptionRequest, callback?: (err: any, data: EC2DescribeSpotDatafeedSubscriptionResult|any) => void): Request;
+      describeSpotFleetInstances(params: EC2DescribeSpotFleetInstancesRequest, callback?: (err: any, data: EC2DescribeSpotFleetInstancesResponse|any) => void): Request;
+      describeSpotFleetRequestHistory(params: EC2DescribeSpotFleetRequestHistoryRequest, callback?: (err: any, data: EC2DescribeSpotFleetRequestHistoryResponse|any) => void): Request;
+      describeSpotFleetRequests(params: EC2DescribeSpotFleetRequestsRequest, callback?: (err: any, data: EC2DescribeSpotFleetRequestsResponse|any) => void): Request;
+      describeSpotInstanceRequests(params: EC2DescribeSpotInstanceRequestsRequest, callback?: (err: any, data: EC2DescribeSpotInstanceRequestsResult|any) => void): Request;
+      describeSpotPriceHistory(params: EC2DescribeSpotPriceHistoryRequest, callback?: (err: any, data: EC2DescribeSpotPriceHistoryResult|any) => void): Request;
+      describeSubnets(params: EC2DescribeSubnetsRequest, callback?: (err: any, data: EC2DescribeSubnetsResult|any) => void): Request;
+      describeTags(params: EC2DescribeTagsRequest, callback?: (err: any, data: EC2DescribeTagsResult|any) => void): Request;
+      describeVolumeAttribute(params: EC2DescribeVolumeAttributeRequest, callback?: (err: any, data: EC2DescribeVolumeAttributeResult|any) => void): Request;
+      describeVolumeStatus(params: EC2DescribeVolumeStatusRequest, callback?: (err: any, data: EC2DescribeVolumeStatusResult|any) => void): Request;
+      describeVolumes(params: EC2DescribeVolumesRequest, callback?: (err: any, data: EC2DescribeVolumesResult|any) => void): Request;
+      describeVpcAttribute(params: EC2DescribeVpcAttributeRequest, callback?: (err: any, data: EC2DescribeVpcAttributeResult|any) => void): Request;
+      describeVpcClassicLink(params: EC2DescribeVpcClassicLinkRequest, callback?: (err: any, data: EC2DescribeVpcClassicLinkResult|any) => void): Request;
+      describeVpcEndpointServices(params: EC2DescribeVpcEndpointServicesRequest, callback?: (err: any, data: EC2DescribeVpcEndpointServicesResult|any) => void): Request;
+      describeVpcEndpoints(params: EC2DescribeVpcEndpointsRequest, callback?: (err: any, data: EC2DescribeVpcEndpointsResult|any) => void): Request;
+      describeVpcPeeringConnections(params: EC2DescribeVpcPeeringConnectionsRequest, callback?: (err: any, data: EC2DescribeVpcPeeringConnectionsResult|any) => void): Request;
+      describeVpcs(params: EC2DescribeVpcsRequest, callback?: (err: any, data: EC2DescribeVpcsResult|any) => void): Request;
+      describeVpnConnections(params: EC2DescribeVpnConnectionsRequest, callback?: (err: any, data: EC2DescribeVpnConnectionsResult|any) => void): Request;
+      describeVpnGateways(params: EC2DescribeVpnGatewaysRequest, callback?: (err: any, data: EC2DescribeVpnGatewaysResult|any) => void): Request;
+      detachClassicLinkVpc(params: EC2DetachClassicLinkVpcRequest, callback?: (err: any, data: EC2DetachClassicLinkVpcResult|any) => void): Request;
+      detachInternetGateway(params: EC2DetachInternetGatewayRequest, callback?: (err: any, data: any) => void): Request;
+      detachNetworkInterface(params: EC2DetachNetworkInterfaceRequest, callback?: (err: any, data: any) => void): Request;
+      detachVolume(params: EC2DetachVolumeRequest, callback?: (err: any, data: EC2VolumeAttachment|any) => void): Request;
+      detachVpnGateway(params: EC2DetachVpnGatewayRequest, callback?: (err: any, data: any) => void): Request;
+      disableVgwRoutePropagation(params: EC2DisableVgwRoutePropagationRequest, callback?: (err: any, data: any) => void): Request;
+      disableVpcClassicLink(params: EC2DisableVpcClassicLinkRequest, callback?: (err: any, data: EC2DisableVpcClassicLinkResult|any) => void): Request;
+      disassociateAddress(params: EC2DisassociateAddressRequest, callback?: (err: any, data: any) => void): Request;
+      disassociateRouteTable(params: EC2DisassociateRouteTableRequest, callback?: (err: any, data: any) => void): Request;
+      enableVgwRoutePropagation(params: EC2EnableVgwRoutePropagationRequest, callback?: (err: any, data: any) => void): Request;
+      enableVolumeIO(params: EC2EnableVolumeIORequest, callback?: (err: any, data: any) => void): Request;
+      enableVpcClassicLink(params: EC2EnableVpcClassicLinkRequest, callback?: (err: any, data: EC2EnableVpcClassicLinkResult|any) => void): Request;
+      getConsoleOutput(params: EC2GetConsoleOutputRequest, callback?: (err: any, data: EC2GetConsoleOutputResult|any) => void): Request;
+      getPasswordData(params: EC2GetPasswordDataRequest, callback?: (err: any, data: EC2GetPasswordDataResult|any) => void): Request;
+      importImage(params: EC2ImportImageRequest, callback?: (err: any, data: EC2ImportImageResult|any) => void): Request;
+      importInstance(params: EC2ImportInstanceRequest, callback?: (err: any, data: EC2ImportInstanceResult|any) => void): Request;
+      importKeyPair(params: EC2ImportKeyPairRequest, callback?: (err: any, data: EC2ImportKeyPairResult|any) => void): Request;
+      importSnapshot(params: EC2ImportSnapshotRequest, callback?: (err: any, data: EC2ImportSnapshotResult|any) => void): Request;
+      importVolume(params: EC2ImportVolumeRequest, callback?: (err: any, data: EC2ImportVolumeResult|any) => void): Request;
+      modifyHosts(params: EC2ModifyHostsRequest, callback?: (err: any, data: EC2ModifyHostsResult|any) => void): Request;
+      modifyIdFormat(params: EC2ModifyIdFormatRequest, callback?: (err: any, data: any) => void): Request;
+      modifyImageAttribute(params: EC2ModifyImageAttributeRequest, callback?: (err: any, data: any) => void): Request;
+      modifyInstanceAttribute(params: EC2ModifyInstanceAttributeRequest, callback?: (err: any, data: any) => void): Request;
+      modifyInstancePlacement(params: EC2ModifyInstancePlacementRequest, callback?: (err: any, data: EC2ModifyInstancePlacementResult|any) => void): Request;
+      modifyNetworkInterfaceAttribute(params: EC2ModifyNetworkInterfaceAttributeRequest, callback?: (err: any, data: any) => void): Request;
+      modifyReservedInstances(params: EC2ModifyReservedInstancesRequest, callback?: (err: any, data: EC2ModifyReservedInstancesResult|any) => void): Request;
+      modifySnapshotAttribute(params: EC2ModifySnapshotAttributeRequest, callback?: (err: any, data: any) => void): Request;
+      modifySpotFleetRequest(params: EC2ModifySpotFleetRequestRequest, callback?: (err: any, data: EC2ModifySpotFleetRequestResponse|any) => void): Request;
+      modifySubnetAttribute(params: EC2ModifySubnetAttributeRequest, callback?: (err: any, data: any) => void): Request;
+      modifyVolumeAttribute(params: EC2ModifyVolumeAttributeRequest, callback?: (err: any, data: any) => void): Request;
+      modifyVpcAttribute(params: EC2ModifyVpcAttributeRequest, callback?: (err: any, data: any) => void): Request;
+      modifyVpcEndpoint(params: EC2ModifyVpcEndpointRequest, callback?: (err: any, data: EC2ModifyVpcEndpointResult|any) => void): Request;
+      monitorInstances(params: EC2MonitorInstancesRequest, callback?: (err: any, data: EC2MonitorInstancesResult|any) => void): Request;
+      moveAddressToVpc(params: EC2MoveAddressToVpcRequest, callback?: (err: any, data: EC2MoveAddressToVpcResult|any) => void): Request;
+      purchaseReservedInstancesOffering(params: EC2PurchaseReservedInstancesOfferingRequest, callback?: (err: any, data: EC2PurchaseReservedInstancesOfferingResult|any) => void): Request;
+      rebootInstances(params: EC2RebootInstancesRequest, callback?: (err: any, data: any) => void): Request;
+      registerImage(params: EC2RegisterImageRequest, callback?: (err: any, data: EC2RegisterImageResult|any) => void): Request;
+      rejectVpcPeeringConnection(params: EC2RejectVpcPeeringConnectionRequest, callback?: (err: any, data: EC2RejectVpcPeeringConnectionResult|any) => void): Request;
+      releaseAddress(params: EC2ReleaseAddressRequest, callback?: (err: any, data: any) => void): Request;
+      releaseHosts(params: EC2ReleaseHostsRequest, callback?: (err: any, data: EC2ReleaseHostsResult|any) => void): Request;
+      replaceNetworkAclAssociation(params: EC2ReplaceNetworkAclAssociationRequest, callback?: (err: any, data: EC2ReplaceNetworkAclAssociationResult|any) => void): Request;
+      replaceNetworkAclEntry(params: EC2ReplaceNetworkAclEntryRequest, callback?: (err: any, data: any) => void): Request;
+      replaceRoute(params: EC2ReplaceRouteRequest, callback?: (err: any, data: any) => void): Request;
+      replaceRouteTableAssociation(params: EC2ReplaceRouteTableAssociationRequest, callback?: (err: any, data: EC2ReplaceRouteTableAssociationResult|any) => void): Request;
+      reportInstanceStatus(params: EC2ReportInstanceStatusRequest, callback?: (err: any, data: any) => void): Request;
+      requestSpotFleet(params: EC2RequestSpotFleetRequest, callback?: (err: any, data: EC2RequestSpotFleetResponse|any) => void): Request;
+      requestSpotInstances(params: EC2RequestSpotInstancesRequest, callback?: (err: any, data: EC2RequestSpotInstancesResult|any) => void): Request;
+      resetImageAttribute(params: EC2ResetImageAttributeRequest, callback?: (err: any, data: any) => void): Request;
+      resetInstanceAttribute(params: EC2ResetInstanceAttributeRequest, callback?: (err: any, data: any) => void): Request;
+      resetNetworkInterfaceAttribute(params: EC2ResetNetworkInterfaceAttributeRequest, callback?: (err: any, data: any) => void): Request;
+      resetSnapshotAttribute(params: EC2ResetSnapshotAttributeRequest, callback?: (err: any, data: any) => void): Request;
+      restoreAddressToClassic(params: EC2RestoreAddressToClassicRequest, callback?: (err: any, data: EC2RestoreAddressToClassicResult|any) => void): Request;
+      revokeSecurityGroupEgress(params: EC2RevokeSecurityGroupEgressRequest, callback?: (err: any, data: any) => void): Request;
+      revokeSecurityGroupIngress(params: EC2RevokeSecurityGroupIngressRequest, callback?: (err: any, data: any) => void): Request;
+      runInstances(params: EC2RunInstancesRequest, callback?: (err: any, data: EC2Reservation|any) => void): Request;
+      startInstances(params: EC2StartInstancesRequest, callback?: (err: any, data: EC2StartInstancesResult|any) => void): Request;
+      stopInstances(params: EC2StopInstancesRequest, callback?: (err: any, data: EC2StopInstancesResult|any) => void): Request;
+      terminateInstances(params: EC2TerminateInstancesRequest, callback?: (err: any, data: EC2TerminateInstancesResult|any) => void): Request;
+      unassignPrivateIpAddresses(params: EC2UnassignPrivateIpAddressesRequest, callback?: (err: any, data: any) => void): Request;
+      unmonitorInstances(params: EC2UnmonitorInstancesRequest, callback?: (err: any, data: EC2UnmonitorInstancesResult|any) => void): Request;
     }
 
     export interface EC2AcceptVpcPeeringConnectionRequest {
@@ -231,6 +239,7 @@ declare module "aws-sdk" {
     }
 
     export type EC2AddressList = Array<EC2Address>;
+    export type EC2Affinity = string;
     export interface EC2AllocateAddressRequest {
         DryRun?: EC2Boolean;
         Domain?: EC2DomainType;
@@ -242,7 +251,20 @@ declare module "aws-sdk" {
         AllocationId?: EC2String;
     }
 
+    export interface EC2AllocateHostsRequest {
+        AutoPlacement?: EC2AutoPlacement;
+        ClientToken?: EC2String;
+        InstanceType: EC2String;
+        Quantity: EC2Integer;
+        AvailabilityZone: EC2String;
+    }
+
+    export interface EC2AllocateHostsResult {
+        HostIds?: EC2ResponseHostIdList;
+    }
+
     export type EC2AllocationIdList = Array<EC2String>;
+    export type EC2AllocationState = string;
     export type EC2AllocationStrategy = string;
     export type EC2ArchitectureValues = string;
     export interface EC2AssignPrivateIpAddressesRequest {
@@ -361,6 +383,7 @@ declare module "aws-sdk" {
         IpPermissions?: EC2IpPermissionList;
     }
 
+    export type EC2AutoPlacement = string;
     export interface EC2AvailabilityZone {
         ZoneName?: EC2String;
         State?: EC2AvailabilityZoneState;
@@ -375,7 +398,18 @@ declare module "aws-sdk" {
 
     export type EC2AvailabilityZoneMessageList = Array<EC2AvailabilityZoneMessage>;
     export type EC2AvailabilityZoneState = string;
+    export interface EC2AvailableCapacity {
+        AvailableInstanceCapacity?: EC2AvailableInstanceCapacityList;
+        AvailableVCpus?: EC2Integer;
+    }
+
+    export type EC2AvailableInstanceCapacityList = Array<EC2InstanceCapacity>;
     export type EC2BatchState = string;
+    export type EC2Blob = any; // not really - it was 'blob' instead - must fix this one
+    export interface EC2BlobAttributeValue {
+        Value?: EC2Blob;
+    }
+
     export interface EC2BlockDeviceMapping {
         VirtualName?: EC2String;
         DeviceName?: EC2String;
@@ -1095,6 +1129,26 @@ declare module "aws-sdk" {
         NextToken?: EC2String;
     }
 
+    export interface EC2DescribeHostsRequest {
+        HostIds?: EC2RequestHostIdList;
+        NextToken?: EC2String;
+        MaxResults?: EC2Integer;
+        Filter?: EC2FilterList;
+    }
+
+    export interface EC2DescribeHostsResult {
+        Hosts?: EC2HostList;
+        NextToken?: EC2String;
+    }
+
+    export interface EC2DescribeIdFormatRequest {
+        Resource?: EC2String;
+    }
+
+    export interface EC2DescribeIdFormatResult {
+        Statuses?: EC2IdFormatList;
+    }
+
     export interface EC2DescribeImageAttributeRequest {
         DryRun?: EC2Boolean;
         ImageId: EC2String;
@@ -1640,6 +1694,7 @@ declare module "aws-sdk" {
     }
 
     export type EC2DhcpConfigurationList = Array<EC2DhcpConfiguration>;
+    export type EC2DhcpConfigurationValueList = Array<EC2AttributeValue>;
     export interface EC2DhcpOptions {
         DhcpOptionsId?: EC2String;
         DhcpConfigurations?: EC2DhcpConfigurationList;
@@ -1837,6 +1892,33 @@ declare module "aws-sdk" {
     }
 
     export type EC2HistoryRecords = Array<EC2HistoryRecord>;
+    export interface EC2Host {
+        HostId?: EC2String;
+        AutoPlacement?: EC2AutoPlacement;
+        HostReservationId?: EC2String;
+        ClientToken?: EC2String;
+        HostProperties?: EC2HostProperties;
+        State?: EC2AllocationState;
+        AvailabilityZone?: EC2String;
+        Instances?: EC2HostInstanceList;
+        AvailableCapacity?: EC2AvailableCapacity;
+    }
+
+    export interface EC2HostInstance {
+        InstanceId?: EC2String;
+        InstanceType?: EC2String;
+    }
+
+    export type EC2HostInstanceList = Array<EC2HostInstance>;
+    export type EC2HostList = Array<EC2Host>;
+    export interface EC2HostProperties {
+        Sockets?: EC2Integer;
+        Cores?: EC2Integer;
+        TotalVCpus?: EC2Integer;
+        InstanceType?: EC2String;
+    }
+
+    export type EC2HostTenancy = string;
     export type EC2HypervisorType = string;
     export interface EC2IamInstanceProfile {
         Arn?: EC2String;
@@ -1853,6 +1935,13 @@ declare module "aws-sdk" {
         Code?: EC2Integer;
     }
 
+    export interface EC2IdFormat {
+        Resource?: EC2String;
+        UseLongIds?: EC2Boolean;
+        Deadline?: EC2DateTime;
+    }
+
+    export type EC2IdFormatList = Array<EC2IdFormat>;
     export interface EC2Image {
         ImageId?: EC2String;
         ImageLocation?: EC2String;
@@ -2117,6 +2206,12 @@ declare module "aws-sdk" {
     }
 
     export type EC2InstanceBlockDeviceMappingSpecificationList = Array<EC2InstanceBlockDeviceMappingSpecification>;
+    export interface EC2InstanceCapacity {
+        InstanceType?: EC2String;
+        AvailableCapacity?: EC2Integer;
+        TotalCapacity?: EC2Integer;
+    }
+
     export interface EC2InstanceCount {
         State?: EC2ListingState;
         InstanceCount?: EC2Integer;
@@ -2311,6 +2406,21 @@ declare module "aws-sdk" {
     export type EC2ListingState = string;
     export type EC2ListingStatus = string;
     export type EC2Long = number;
+    export interface EC2ModifyHostsRequest {
+        HostIds: EC2RequestHostIdList;
+        AutoPlacement: EC2AutoPlacement;
+    }
+
+    export interface EC2ModifyHostsResult {
+        Successful?: EC2ResponseHostIdList;
+        Unsuccessful?: EC2UnsuccessfulItemList;
+    }
+
+    export interface EC2ModifyIdFormatRequest {
+        Resource: EC2String;
+        UseLongIds: EC2Boolean;
+    }
+
     export interface EC2ModifyImageAttributeRequest {
         DryRun?: EC2Boolean;
         ImageId: EC2String;
@@ -2340,6 +2450,17 @@ declare module "aws-sdk" {
         Groups?: EC2GroupIdStringList;
         EbsOptimized?: EC2AttributeBooleanValue;
         SriovNetSupport?: EC2AttributeValue;
+    }
+
+    export interface EC2ModifyInstancePlacementRequest {
+        InstanceId: EC2String;
+        Tenancy?: EC2HostTenancy;
+        Affinity?: EC2Affinity;
+        HostId?: EC2String;
+    }
+
+    export interface EC2ModifyInstancePlacementResult {
+        Return?: EC2Boolean;
     }
 
     export interface EC2ModifyNetworkInterfaceAttributeRequest {
@@ -2526,6 +2647,12 @@ declare module "aws-sdk" {
 
     export type EC2NetworkInterfacePrivateIpAddressList = Array<EC2NetworkInterfacePrivateIpAddress>;
     export type EC2NetworkInterfaceStatus = string;
+    export interface EC2NewDhcpConfiguration {
+        Key?: EC2String;
+        Values?: EC2ValueStringList;
+    }
+
+    export type EC2NewDhcpConfigurationList = Array<EC2NewDhcpConfiguration>;
     export type EC2OfferingTypeValues = string;
     export type EC2OperationType = string;
     export type EC2OwnerStringList = Array<EC2String>;
@@ -2534,6 +2661,8 @@ declare module "aws-sdk" {
         AvailabilityZone?: EC2String;
         GroupName?: EC2String;
         Tenancy?: EC2Tenancy;
+        HostId?: EC2String;
+        Affinity?: EC2String;
     }
 
     export interface EC2PlacementGroup {
@@ -2672,6 +2801,15 @@ declare module "aws-sdk" {
         AllocationId?: EC2String;
     }
 
+    export interface EC2ReleaseHostsRequest {
+        HostIds: EC2RequestHostIdList;
+    }
+
+    export interface EC2ReleaseHostsResult {
+        Successful?: EC2ResponseHostIdList;
+        Unsuccessful?: EC2UnsuccessfulItemList;
+    }
+
     export interface EC2ReplaceNetworkAclAssociationRequest {
         DryRun?: EC2Boolean;
         AssociationId: EC2String;
@@ -2726,6 +2864,7 @@ declare module "aws-sdk" {
     }
 
     export type EC2ReportStatusType = string;
+    export type EC2RequestHostIdList = Array<EC2String>;
     export interface EC2RequestSpotFleetRequest {
         DryRun?: EC2Boolean;
         SpotFleetRequestConfig: EC2SpotFleetRequestConfigData;
@@ -2751,6 +2890,25 @@ declare module "aws-sdk" {
 
     export interface EC2RequestSpotInstancesResult {
         SpotInstanceRequests?: EC2SpotInstanceRequestList;
+    }
+
+    export interface EC2RequestSpotLaunchSpecification {
+        ImageId?: EC2String;
+        KeyName?: EC2String;
+        SecurityGroups?: EC2ValueStringList;
+        UserData?: EC2String;
+        AddressingType?: EC2String;
+        InstanceType?: EC2InstanceType;
+        Placement?: EC2SpotPlacement;
+        KernelId?: EC2String;
+        RamdiskId?: EC2String;
+        BlockDeviceMappings?: EC2BlockDeviceMappingList;
+        SubnetId?: EC2String;
+        NetworkInterfaces?: EC2InstanceNetworkInterfaceSpecificationList;
+        IamInstanceProfile?: EC2IamInstanceProfileSpecification;
+        EbsOptimized?: EC2Boolean;
+        Monitoring?: EC2RunInstancesMonitoringEnabled;
+        SecurityGroupIds?: EC2ValueStringList;
     }
 
     export interface EC2Reservation {
@@ -2881,6 +3039,7 @@ declare module "aws-sdk" {
 
     export type EC2ResourceIdList = Array<EC2String>;
     export type EC2ResourceType = string;
+    export type EC2ResponseHostIdList = Array<EC2String>;
     export type EC2RestorableByStringList = Array<EC2String>;
     export interface EC2RestoreAddressToClassicRequest {
         DryRun?: EC2Boolean;
@@ -3252,8 +3411,8 @@ declare module "aws-sdk" {
     }
 
     export interface EC2UnsuccessfulItem {
-        ResourceId?: EC2String;
         Error: EC2UnsuccessfulItemError;
+        ResourceId?: EC2String;
     }
 
     export interface EC2UnsuccessfulItemError {
@@ -3261,6 +3420,7 @@ declare module "aws-sdk" {
         Message: EC2String;
     }
 
+    export type EC2UnsuccessfulItemList = Array<EC2UnsuccessfulItem>;
     export type EC2UnsuccessfulItemSet = Array<EC2UnsuccessfulItem>;
     export interface EC2UserBucket {
         S3Bucket?: EC2String;
@@ -3475,35 +3635,4 @@ declare module "aws-sdk" {
     export type EC2VpnStaticRouteList = Array<EC2VpnStaticRoute>;
     export type EC2VpnStaticRouteSource = string;
     export type EC2ZoneNameStringList = Array<EC2String>;
-    export type EC2NewDhcpConfigurationList = Array<EC2NewDhcpConfiguration>;
-    export interface EC2NewDhcpConfiguration {
-        Key?: EC2String;
-        Values?: EC2ValueStringList;
-    }
-
-    export type EC2DhcpConfigurationValueList = Array<EC2AttributeValue>;
-    export type EC2Blob = any; // not really - it was 'blob' instead - must fix this one
-    export interface EC2BlobAttributeValue {
-        Value?: EC2Blob;
-    }
-
-    export interface EC2RequestSpotLaunchSpecification {
-        ImageId?: EC2String;
-        KeyName?: EC2String;
-        SecurityGroups?: EC2ValueStringList;
-        UserData?: EC2String;
-        AddressingType?: EC2String;
-        InstanceType?: EC2InstanceType;
-        Placement?: EC2SpotPlacement;
-        KernelId?: EC2String;
-        RamdiskId?: EC2String;
-        BlockDeviceMappings?: EC2BlockDeviceMappingList;
-        SubnetId?: EC2String;
-        NetworkInterfaces?: EC2InstanceNetworkInterfaceSpecificationList;
-        IamInstanceProfile?: EC2IamInstanceProfileSpecification;
-        EbsOptimized?: EC2Boolean;
-        Monitoring?: EC2RunInstancesMonitoringEnabled;
-        SecurityGroupIds?: EC2ValueStringList;
-    }
-
 }

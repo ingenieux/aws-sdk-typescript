@@ -3,27 +3,28 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class DirectConnect {
+
+    export class DirectConnect extends Service {
       constructor(options?: any);
-      allocateConnectionOnInterconnect(params: DirectConnectAllocateConnectionOnInterconnectRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnection|any) => void): void;
-      allocatePrivateVirtualInterface(params: DirectConnectAllocatePrivateVirtualInterfaceRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterface|any) => void): void;
-      allocatePublicVirtualInterface(params: DirectConnectAllocatePublicVirtualInterfaceRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterface|any) => void): void;
-      confirmConnection(params: DirectConnectConfirmConnectionRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConfirmConnectionResponse|any) => void): void;
-      confirmPrivateVirtualInterface(params: DirectConnectConfirmPrivateVirtualInterfaceRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConfirmPrivateVirtualInterfaceResponse|any) => void): void;
-      confirmPublicVirtualInterface(params: DirectConnectConfirmPublicVirtualInterfaceRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConfirmPublicVirtualInterfaceResponse|any) => void): void;
-      createConnection(params: DirectConnectCreateConnectionRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnection|any) => void): void;
-      createInterconnect(params: DirectConnectCreateInterconnectRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectInterconnect|any) => void): void;
-      createPrivateVirtualInterface(params: DirectConnectCreatePrivateVirtualInterfaceRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterface|any) => void): void;
-      createPublicVirtualInterface(params: DirectConnectCreatePublicVirtualInterfaceRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterface|any) => void): void;
-      deleteConnection(params: DirectConnectDeleteConnectionRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnection|any) => void): void;
-      deleteInterconnect(params: DirectConnectDeleteInterconnectRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectDeleteInterconnectResponse|any) => void): void;
-      deleteVirtualInterface(params: DirectConnectDeleteVirtualInterfaceRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectDeleteVirtualInterfaceResponse|any) => void): void;
-      describeConnections(params: DirectConnectDescribeConnectionsRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnections|any) => void): void;
-      describeConnectionsOnInterconnect(params: DirectConnectDescribeConnectionsOnInterconnectRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnections|any) => void): void;
-      describeInterconnects(params: DirectConnectDescribeInterconnectsRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectInterconnects|any) => void): void;
-      describeLocations(callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectLocations|any) => void): void;
-      describeVirtualGateways(callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualGateways|any) => void): void;
-      describeVirtualInterfaces(params: DirectConnectDescribeVirtualInterfacesRequest, callback: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterfaces|any) => void): void;
+      allocateConnectionOnInterconnect(params: DirectConnectAllocateConnectionOnInterconnectRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnection|any) => void): Request;
+      allocatePrivateVirtualInterface(params: DirectConnectAllocatePrivateVirtualInterfaceRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterface|any) => void): Request;
+      allocatePublicVirtualInterface(params: DirectConnectAllocatePublicVirtualInterfaceRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterface|any) => void): Request;
+      confirmConnection(params: DirectConnectConfirmConnectionRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConfirmConnectionResponse|any) => void): Request;
+      confirmPrivateVirtualInterface(params: DirectConnectConfirmPrivateVirtualInterfaceRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConfirmPrivateVirtualInterfaceResponse|any) => void): Request;
+      confirmPublicVirtualInterface(params: DirectConnectConfirmPublicVirtualInterfaceRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConfirmPublicVirtualInterfaceResponse|any) => void): Request;
+      createConnection(params: DirectConnectCreateConnectionRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnection|any) => void): Request;
+      createInterconnect(params: DirectConnectCreateInterconnectRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectInterconnect|any) => void): Request;
+      createPrivateVirtualInterface(params: DirectConnectCreatePrivateVirtualInterfaceRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterface|any) => void): Request;
+      createPublicVirtualInterface(params: DirectConnectCreatePublicVirtualInterfaceRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterface|any) => void): Request;
+      deleteConnection(params: DirectConnectDeleteConnectionRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnection|any) => void): Request;
+      deleteInterconnect(params: DirectConnectDeleteInterconnectRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectDeleteInterconnectResponse|any) => void): Request;
+      deleteVirtualInterface(params: DirectConnectDeleteVirtualInterfaceRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectDeleteVirtualInterfaceResponse|any) => void): Request;
+      describeConnections(params: DirectConnectDescribeConnectionsRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnections|any) => void): Request;
+      describeConnectionsOnInterconnect(params: DirectConnectDescribeConnectionsOnInterconnectRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnections|any) => void): Request;
+      describeInterconnects(params: DirectConnectDescribeInterconnectsRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectInterconnects|any) => void): Request;
+      describeLocations(callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectLocations|any) => void): Request;
+      describeVirtualGateways(callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualGateways|any) => void): Request;
+      describeVirtualInterfaces(params: DirectConnectDescribeVirtualInterfacesRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterfaces|any) => void): Request;
     }
 
     export type DirectConnectASN = number;

@@ -3,19 +3,20 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class Lambda {
+
+    export class Lambda extends Service {
       constructor(options?: any);
-      addEventSource(params: LambdaAddEventSourceRequest, callback: (err: LambdaServiceException|LambdaInvalidParameterValueException|any, data: LambdaEventSourceConfiguration|any) => void): void;
-      deleteFunction(params: LambdaDeleteFunctionRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|any, data: any) => void): void;
-      getEventSource(params: LambdaGetEventSourceRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidParameterValueException|any, data: LambdaEventSourceConfiguration|any) => void): void;
-      getFunction(params: LambdaGetFunctionRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|any, data: LambdaGetFunctionResponse|any) => void): void;
-      getFunctionConfiguration(params: LambdaGetFunctionConfigurationRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|any, data: LambdaFunctionConfiguration|any) => void): void;
-      invokeAsync(params: LambdaInvokeAsyncRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidRequestContentException|any, data: LambdaInvokeAsyncResponse|any) => void): void;
-      listEventSources(params: LambdaListEventSourcesRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidParameterValueException|any, data: LambdaListEventSourcesResponse|any) => void): void;
-      listFunctions(params: LambdaListFunctionsRequest, callback: (err: LambdaServiceException|any, data: LambdaListFunctionsResponse|any) => void): void;
-      removeEventSource(params: LambdaRemoveEventSourceRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidParameterValueException|any, data: any) => void): void;
-      updateFunctionConfiguration(params: LambdaUpdateFunctionConfigurationRequest, callback: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidParameterValueException|any, data: LambdaFunctionConfiguration|any) => void): void;
-      uploadFunction(params: LambdaUploadFunctionRequest, callback: (err: LambdaServiceException|LambdaInvalidParameterValueException|LambdaResourceNotFoundException|any, data: LambdaFunctionConfiguration|any) => void): void;
+      addEventSource(params: LambdaAddEventSourceRequest, callback?: (err: LambdaServiceException|LambdaInvalidParameterValueException|any, data: LambdaEventSourceConfiguration|any) => void): Request;
+      deleteFunction(params: LambdaDeleteFunctionRequest, callback?: (err: LambdaServiceException|LambdaResourceNotFoundException|any, data: any) => void): Request;
+      getEventSource(params: LambdaGetEventSourceRequest, callback?: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidParameterValueException|any, data: LambdaEventSourceConfiguration|any) => void): Request;
+      getFunction(params: LambdaGetFunctionRequest, callback?: (err: LambdaServiceException|LambdaResourceNotFoundException|any, data: LambdaGetFunctionResponse|any) => void): Request;
+      getFunctionConfiguration(params: LambdaGetFunctionConfigurationRequest, callback?: (err: LambdaServiceException|LambdaResourceNotFoundException|any, data: LambdaFunctionConfiguration|any) => void): Request;
+      invokeAsync(params: LambdaInvokeAsyncRequest, callback?: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidRequestContentException|any, data: LambdaInvokeAsyncResponse|any) => void): Request;
+      listEventSources(params: LambdaListEventSourcesRequest, callback?: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidParameterValueException|any, data: LambdaListEventSourcesResponse|any) => void): Request;
+      listFunctions(params: LambdaListFunctionsRequest, callback?: (err: LambdaServiceException|any, data: LambdaListFunctionsResponse|any) => void): Request;
+      removeEventSource(params: LambdaRemoveEventSourceRequest, callback?: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidParameterValueException|any, data: any) => void): Request;
+      updateFunctionConfiguration(params: LambdaUpdateFunctionConfigurationRequest, callback?: (err: LambdaServiceException|LambdaResourceNotFoundException|LambdaInvalidParameterValueException|any, data: LambdaFunctionConfiguration|any) => void): Request;
+      uploadFunction(params: LambdaUploadFunctionRequest, callback?: (err: LambdaServiceException|LambdaInvalidParameterValueException|LambdaResourceNotFoundException|any, data: LambdaFunctionConfiguration|any) => void): Request;
     }
 
     export interface LambdaAddEventSourceRequest {

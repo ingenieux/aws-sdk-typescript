@@ -3,24 +3,25 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class SSM {
+
+    export class SSM extends Service {
       constructor(options?: any);
-      cancelCommand(params: SSMCancelCommandRequest, callback: (err: SSMInvalidCommandId|SSMInvalidInstanceId|SSMDuplicateInstanceId|any, data: SSMCancelCommandResult|any) => void): void;
-      createAssociation(params: SSMCreateAssociationRequest, callback: (err: SSMAssociationAlreadyExists|SSMAssociationLimitExceeded|SSMInternalServerError|SSMInvalidDocument|SSMInvalidInstanceId|SSMUnsupportedPlatformType|SSMInvalidParameters|any, data: SSMCreateAssociationResult|any) => void): void;
-      createAssociationBatch(params: SSMCreateAssociationBatchRequest, callback: (err: SSMInternalServerError|SSMInvalidDocument|SSMInvalidInstanceId|SSMInvalidParameters|SSMDuplicateInstanceId|SSMAssociationLimitExceeded|SSMUnsupportedPlatformType|any, data: SSMCreateAssociationBatchResult|any) => void): void;
-      createDocument(params: SSMCreateDocumentRequest, callback: (err: SSMDocumentAlreadyExists|SSMMaxDocumentSizeExceeded|SSMInternalServerError|SSMInvalidDocumentContent|SSMDocumentLimitExceeded|any, data: SSMCreateDocumentResult|any) => void): void;
-      deleteAssociation(params: SSMDeleteAssociationRequest, callback: (err: SSMAssociationDoesNotExist|SSMInternalServerError|SSMInvalidDocument|SSMInvalidInstanceId|SSMTooManyUpdates|any, data: SSMDeleteAssociationResult|any) => void): void;
-      deleteDocument(params: SSMDeleteDocumentRequest, callback: (err: SSMInternalServerError|SSMInvalidDocument|SSMAssociatedInstances|any, data: SSMDeleteDocumentResult|any) => void): void;
-      describeAssociation(params: SSMDescribeAssociationRequest, callback: (err: SSMAssociationDoesNotExist|SSMInternalServerError|SSMInvalidDocument|SSMInvalidInstanceId|any, data: SSMDescribeAssociationResult|any) => void): void;
-      describeDocument(params: SSMDescribeDocumentRequest, callback: (err: SSMInternalServerError|SSMInvalidDocument|any, data: SSMDescribeDocumentResult|any) => void): void;
-      describeInstanceInformation(params: SSMDescribeInstanceInformationRequest, callback: (err: SSMInternalServerError|SSMInvalidInstanceId|SSMInvalidNextToken|SSMInvalidInstanceInformationFilterValue|SSMInvalidFilterKey|any, data: SSMDescribeInstanceInformationResult|any) => void): void;
-      getDocument(params: SSMGetDocumentRequest, callback: (err: SSMInternalServerError|SSMInvalidDocument|any, data: SSMGetDocumentResult|any) => void): void;
-      listAssociations(params: SSMListAssociationsRequest, callback: (err: SSMInternalServerError|SSMInvalidNextToken|any, data: SSMListAssociationsResult|any) => void): void;
-      listCommandInvocations(params: SSMListCommandInvocationsRequest, callback: (err: SSMInvalidCommandId|SSMInvalidInstanceId|SSMInvalidFilterKey|SSMInvalidNextToken|any, data: SSMListCommandInvocationsResult|any) => void): void;
-      listCommands(params: SSMListCommandsRequest, callback: (err: SSMInvalidCommandId|SSMInvalidInstanceId|SSMInvalidFilterKey|SSMInvalidNextToken|any, data: SSMListCommandsResult|any) => void): void;
-      listDocuments(params: SSMListDocumentsRequest, callback: (err: SSMInternalServerError|SSMInvalidNextToken|SSMInvalidFilterKey|any, data: SSMListDocumentsResult|any) => void): void;
-      sendCommand(params: SSMSendCommandRequest, callback: (err: SSMDuplicateInstanceId|SSMInvalidInstanceId|SSMInvalidDocument|SSMInvalidOutputFolder|SSMInvalidParameters|SSMUnsupportedPlatformType|any, data: SSMSendCommandResult|any) => void): void;
-      updateAssociationStatus(params: SSMUpdateAssociationStatusRequest, callback: (err: SSMInternalServerError|SSMInvalidInstanceId|SSMInvalidDocument|SSMAssociationDoesNotExist|SSMStatusUnchanged|SSMTooManyUpdates|any, data: SSMUpdateAssociationStatusResult|any) => void): void;
+      cancelCommand(params: SSMCancelCommandRequest, callback?: (err: SSMInvalidCommandId|SSMInvalidInstanceId|SSMDuplicateInstanceId|any, data: SSMCancelCommandResult|any) => void): Request;
+      createAssociation(params: SSMCreateAssociationRequest, callback?: (err: SSMAssociationAlreadyExists|SSMAssociationLimitExceeded|SSMInternalServerError|SSMInvalidDocument|SSMInvalidInstanceId|SSMUnsupportedPlatformType|SSMInvalidParameters|any, data: SSMCreateAssociationResult|any) => void): Request;
+      createAssociationBatch(params: SSMCreateAssociationBatchRequest, callback?: (err: SSMInternalServerError|SSMInvalidDocument|SSMInvalidInstanceId|SSMInvalidParameters|SSMDuplicateInstanceId|SSMAssociationLimitExceeded|SSMUnsupportedPlatformType|any, data: SSMCreateAssociationBatchResult|any) => void): Request;
+      createDocument(params: SSMCreateDocumentRequest, callback?: (err: SSMDocumentAlreadyExists|SSMMaxDocumentSizeExceeded|SSMInternalServerError|SSMInvalidDocumentContent|SSMDocumentLimitExceeded|any, data: SSMCreateDocumentResult|any) => void): Request;
+      deleteAssociation(params: SSMDeleteAssociationRequest, callback?: (err: SSMAssociationDoesNotExist|SSMInternalServerError|SSMInvalidDocument|SSMInvalidInstanceId|SSMTooManyUpdates|any, data: SSMDeleteAssociationResult|any) => void): Request;
+      deleteDocument(params: SSMDeleteDocumentRequest, callback?: (err: SSMInternalServerError|SSMInvalidDocument|SSMAssociatedInstances|any, data: SSMDeleteDocumentResult|any) => void): Request;
+      describeAssociation(params: SSMDescribeAssociationRequest, callback?: (err: SSMAssociationDoesNotExist|SSMInternalServerError|SSMInvalidDocument|SSMInvalidInstanceId|any, data: SSMDescribeAssociationResult|any) => void): Request;
+      describeDocument(params: SSMDescribeDocumentRequest, callback?: (err: SSMInternalServerError|SSMInvalidDocument|any, data: SSMDescribeDocumentResult|any) => void): Request;
+      describeInstanceInformation(params: SSMDescribeInstanceInformationRequest, callback?: (err: SSMInternalServerError|SSMInvalidInstanceId|SSMInvalidNextToken|SSMInvalidInstanceInformationFilterValue|SSMInvalidFilterKey|any, data: SSMDescribeInstanceInformationResult|any) => void): Request;
+      getDocument(params: SSMGetDocumentRequest, callback?: (err: SSMInternalServerError|SSMInvalidDocument|any, data: SSMGetDocumentResult|any) => void): Request;
+      listAssociations(params: SSMListAssociationsRequest, callback?: (err: SSMInternalServerError|SSMInvalidNextToken|any, data: SSMListAssociationsResult|any) => void): Request;
+      listCommandInvocations(params: SSMListCommandInvocationsRequest, callback?: (err: SSMInvalidCommandId|SSMInvalidInstanceId|SSMInvalidFilterKey|SSMInvalidNextToken|any, data: SSMListCommandInvocationsResult|any) => void): Request;
+      listCommands(params: SSMListCommandsRequest, callback?: (err: SSMInvalidCommandId|SSMInvalidInstanceId|SSMInvalidFilterKey|SSMInvalidNextToken|any, data: SSMListCommandsResult|any) => void): Request;
+      listDocuments(params: SSMListDocumentsRequest, callback?: (err: SSMInternalServerError|SSMInvalidNextToken|SSMInvalidFilterKey|any, data: SSMListDocumentsResult|any) => void): Request;
+      sendCommand(params: SSMSendCommandRequest, callback?: (err: SSMDuplicateInstanceId|SSMInvalidInstanceId|SSMInvalidDocument|SSMInvalidOutputFolder|SSMInvalidParameters|SSMUnsupportedPlatformType|any, data: SSMSendCommandResult|any) => void): Request;
+      updateAssociationStatus(params: SSMUpdateAssociationStatusRequest, callback?: (err: SSMInternalServerError|SSMInvalidInstanceId|SSMInvalidDocument|SSMAssociationDoesNotExist|SSMStatusUnchanged|SSMTooManyUpdates|any, data: SSMUpdateAssociationStatusResult|any) => void): Request;
     }
 
     export interface SSMAssociatedInstances {

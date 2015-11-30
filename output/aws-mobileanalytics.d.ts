@@ -3,9 +3,10 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class MobileAnalytics {
+
+    export class MobileAnalytics extends Service {
       constructor(options?: any);
-      putEvents(params: MobileAnalyticsPutEventsInput, callback: (err: MobileAnalyticsBadRequestException|any, data: any) => void): void;
+      putEvents(params: MobileAnalyticsPutEventsInput, callback?: (err: MobileAnalyticsBadRequestException|any, data: any) => void): Request;
     }
 
     export interface MobileAnalyticsBadRequestException {

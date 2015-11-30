@@ -3,26 +3,27 @@
 
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
-    export class CloudFormation {
+
+    export class CloudFormation extends Service {
       constructor(options?: any);
-      cancelUpdateStack(params: CloudFormationCancelUpdateStackInput, callback: (err: any, data: any) => void): void;
-      createStack(params: CloudFormationCreateStackInput, callback: (err: CloudFormationLimitExceededException|CloudFormationAlreadyExistsException|CloudFormationInsufficientCapabilitiesException|any, data: CloudFormationCreateStackOutput|any) => void): void;
-      deleteStack(params: CloudFormationDeleteStackInput, callback: (err: any, data: any) => void): void;
-      describeAccountLimits(params: CloudFormationDescribeAccountLimitsInput, callback: (err: any, data: CloudFormationDescribeAccountLimitsOutput|any) => void): void;
-      describeStackEvents(params: CloudFormationDescribeStackEventsInput, callback: (err: any, data: CloudFormationDescribeStackEventsOutput|any) => void): void;
-      describeStackResource(params: CloudFormationDescribeStackResourceInput, callback: (err: any, data: CloudFormationDescribeStackResourceOutput|any) => void): void;
-      describeStackResources(params: CloudFormationDescribeStackResourcesInput, callback: (err: any, data: CloudFormationDescribeStackResourcesOutput|any) => void): void;
-      describeStacks(params: CloudFormationDescribeStacksInput, callback: (err: any, data: CloudFormationDescribeStacksOutput|any) => void): void;
-      estimateTemplateCost(params: CloudFormationEstimateTemplateCostInput, callback: (err: any, data: CloudFormationEstimateTemplateCostOutput|any) => void): void;
-      getStackPolicy(params: CloudFormationGetStackPolicyInput, callback: (err: any, data: CloudFormationGetStackPolicyOutput|any) => void): void;
-      getTemplate(params: CloudFormationGetTemplateInput, callback: (err: any, data: CloudFormationGetTemplateOutput|any) => void): void;
-      getTemplateSummary(params: CloudFormationGetTemplateSummaryInput, callback: (err: any, data: CloudFormationGetTemplateSummaryOutput|any) => void): void;
-      listStackResources(params: CloudFormationListStackResourcesInput, callback: (err: any, data: CloudFormationListStackResourcesOutput|any) => void): void;
-      listStacks(params: CloudFormationListStacksInput, callback: (err: any, data: CloudFormationListStacksOutput|any) => void): void;
-      setStackPolicy(params: CloudFormationSetStackPolicyInput, callback: (err: any, data: any) => void): void;
-      signalResource(params: CloudFormationSignalResourceInput, callback: (err: any, data: any) => void): void;
-      updateStack(params: CloudFormationUpdateStackInput, callback: (err: CloudFormationInsufficientCapabilitiesException|any, data: CloudFormationUpdateStackOutput|any) => void): void;
-      validateTemplate(params: CloudFormationValidateTemplateInput, callback: (err: any, data: CloudFormationValidateTemplateOutput|any) => void): void;
+      cancelUpdateStack(params: CloudFormationCancelUpdateStackInput, callback?: (err: any, data: any) => void): Request;
+      createStack(params: CloudFormationCreateStackInput, callback?: (err: CloudFormationLimitExceededException|CloudFormationAlreadyExistsException|CloudFormationInsufficientCapabilitiesException|any, data: CloudFormationCreateStackOutput|any) => void): Request;
+      deleteStack(params: CloudFormationDeleteStackInput, callback?: (err: any, data: any) => void): Request;
+      describeAccountLimits(params: CloudFormationDescribeAccountLimitsInput, callback?: (err: any, data: CloudFormationDescribeAccountLimitsOutput|any) => void): Request;
+      describeStackEvents(params: CloudFormationDescribeStackEventsInput, callback?: (err: any, data: CloudFormationDescribeStackEventsOutput|any) => void): Request;
+      describeStackResource(params: CloudFormationDescribeStackResourceInput, callback?: (err: any, data: CloudFormationDescribeStackResourceOutput|any) => void): Request;
+      describeStackResources(params: CloudFormationDescribeStackResourcesInput, callback?: (err: any, data: CloudFormationDescribeStackResourcesOutput|any) => void): Request;
+      describeStacks(params: CloudFormationDescribeStacksInput, callback?: (err: any, data: CloudFormationDescribeStacksOutput|any) => void): Request;
+      estimateTemplateCost(params: CloudFormationEstimateTemplateCostInput, callback?: (err: any, data: CloudFormationEstimateTemplateCostOutput|any) => void): Request;
+      getStackPolicy(params: CloudFormationGetStackPolicyInput, callback?: (err: any, data: CloudFormationGetStackPolicyOutput|any) => void): Request;
+      getTemplate(params: CloudFormationGetTemplateInput, callback?: (err: any, data: CloudFormationGetTemplateOutput|any) => void): Request;
+      getTemplateSummary(params: CloudFormationGetTemplateSummaryInput, callback?: (err: any, data: CloudFormationGetTemplateSummaryOutput|any) => void): Request;
+      listStackResources(params: CloudFormationListStackResourcesInput, callback?: (err: any, data: CloudFormationListStackResourcesOutput|any) => void): Request;
+      listStacks(params: CloudFormationListStacksInput, callback?: (err: any, data: CloudFormationListStacksOutput|any) => void): Request;
+      setStackPolicy(params: CloudFormationSetStackPolicyInput, callback?: (err: any, data: any) => void): Request;
+      signalResource(params: CloudFormationSignalResourceInput, callback?: (err: any, data: any) => void): Request;
+      updateStack(params: CloudFormationUpdateStackInput, callback?: (err: CloudFormationInsufficientCapabilitiesException|any, data: CloudFormationUpdateStackOutput|any) => void): Request;
+      validateTemplate(params: CloudFormationValidateTemplateInput, callback?: (err: any, data: CloudFormationValidateTemplateOutput|any) => void): Request;
     }
 
     export interface CloudFormationAccountLimit {
