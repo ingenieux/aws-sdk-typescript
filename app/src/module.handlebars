@@ -8,15 +8,19 @@ declare module "aws-sdk" {
       constructor(options?: any);
 {{#each m.operations}}
       {{{camelCase @key}}}(
-        {{~#if this.input.shape}}params: {{../../api.name}}{{this.input.shape}}, {{/if~}}
+        {{~#if this.input.shape}}params: {{../../api.name}}.{{this.input.shape}}, {{/if~}}
         callback?: ( {{~null~}}
-            err: {{#each this.errors~}}{{../../api.name}}{{this.shape}}|{{/each}}any, {{null~}}
-            data: {{#if this.output.shape}}{{../../api.name}}{{this.output.shape}}|{{/if}}any) => void {{~null~}}
+            err: {{#each this.errors~}}{{../../api.name}}.{{this.shape}}|{{/each}}any, {{null~}}
+            data: {{#if this.output.shape}}{{../../api.name}}.{{this.output.shape}}|{{/if}}any) => void {{~null~}}
       ): Request;
 {{/each}}
     }
+    
+    export module {{api.name}} {
 
 {{#each m.shapes}}
 {{{dumpShape this}}}
 {{/each}}
+
+    }
 }

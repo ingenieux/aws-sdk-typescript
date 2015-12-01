@@ -20,24 +20,24 @@ export class AWSTypeGenerator {
 
     var m: meta.Descriptor = JSON.parse(content.toString())
 
-    var prefix = "    "
+    var prefix = "        "
 
     handlebars.registerHelper("dumpShape", function(context, options) {
       var result = ""
       if ("string" === context.type) {
-        result = `${prefix}export type ${api.name}${options.data.key} = string;`
+        result = `${prefix}export type ${options.data.key} = string;`
 
         if (context.pattern) {
           result += ` // pattern: "${context.pattern}"`
         }
       } else if ("long" === context.type || "integer" === context.type || "timestamp" === context.type || "double" === context.type || "float" === context.type) {
-        result = `${prefix}export type ${api.name}${options.data.key} = number;`
+        result = `${prefix}export type ${options.data.key} = number;`
       } else if ("boolean" === context.type) {
-        result = `${prefix}export type ${api.name}${options.data.key} = boolean;`
+        result = `${prefix}export type ${options.data.key} = boolean;`
       } else if ("map" === context.type || "blob" === context.type) {
-        result = `${prefix}export type ${api.name}${options.data.key} = any; // not really - it was '${context.type}' instead - must fix this one`
+        result = `${prefix}export type ${options.data.key} = any; // not really - it was '${context.type}' instead - must fix this one`
       } else if ("list" === context.type) {
-        result = `${prefix}export type ${api.name}${options.data.key} = Array<${api.name}${context.member.shape}>;`
+        result = `${prefix}export type ${options.data.key} = Array<${context.member.shape}>;`
 
         if (context.max) {
           result += ` // max: ${context.max}`
