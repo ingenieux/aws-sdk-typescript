@@ -6,7 +6,8 @@
   "dependencies": {
     "aws-sdk": "^2.1.31",
     "glob": "^5.0.10",
-    "handlebars": "^3.0.3"
+    "handlebars": "^3.0.3",
+    "source-map-support": "^0.4.0"
   },
   "devDependencies": {
     "del": "^2.1.0",

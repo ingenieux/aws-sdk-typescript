@@ -5,25 +5,30 @@ import meta = require("./meta");
 import fs = require("fs");
 import path = require("path");
 import glob = require("glob");
+
+require('source-map-support').install();
   
 var sdkDir:string;
 var metadata:{[serviceName:string]:meta.ServiceInfo}; 
 
 function readMetadata():{[serviceName:string]:meta.ServiceInfo} {
   return JSON.parse(fs.readFileSync(path.join(sdkDir, "metadata.json")).toString());
-};
+}
 
 function readServiceFiles() {
   Object.keys(metadata).forEach((serviceName) => {
+    var serviceInfo = metadata[serviceName];
     var expr = path.join(sdkDir, `${serviceName}-*.normal.json`)
   
     var result = glob.sync(expr)
   
-    if (result) {
-      metadata[serviceName].input = result[0]
-      metadata[serviceName].output = `output/aws-${serviceName}.d.ts`
+    if (result  && result.length > 0) {
+      serviceInfo.input = result[0]
+      serviceInfo.output = `output/aws-${serviceName}.d.ts`
   
-      console.log(serviceName + ": " + JSON.stringify(metadata[serviceName], null, 2));
+      console.log(serviceName + ": " + JSON.stringify(serviceInfo, null, 2));
+      var content = fs.readFileSync(serviceInfo.input).toString();
+      serviceInfo.descriptor = JSON.parse(content);
     }
   });
 }
@@ -34,10 +39,9 @@ function generateServiceDefinitions() {
       return;
     }
   
-    console.log(`Generating ${metadata[serviceName].output} from ${metadata[serviceName].input}`)
+    console.log(`Generating ${metadata[serviceName].output}`)
   
-    var content = fs.readFileSync(metadata[serviceName].input);
-    var result = new generator.AWSTypeGenerator().executeOn(metadata[serviceName], content);
+    var result = new generator.AWSTypeGenerator().generateServiceDefinitions(metadata[serviceName]);
   
     fs.writeFileSync(metadata[serviceName].output, result);
   });
