@@ -6,666 +6,561 @@ declare module "aws-sdk" {
 
     export class Route53 extends Service {
       constructor(options?: any);
-      associateVPCWithHostedZone(params: Route53AssociateVPCWithHostedZoneRequest, callback?: (err: Route53NoSuchHostedZone|Route53InvalidVPCId|Route53InvalidInput|Route53PublicZoneVPCAssociation|Route53ConflictingDomainExists|any, data: Route53AssociateVPCWithHostedZoneResponse|any) => void): Request;
-      changeResourceRecordSets(params: Route53ChangeResourceRecordSetsRequest, callback?: (err: Route53NoSuchHostedZone|Route53NoSuchHealthCheck|Route53InvalidChangeBatch|Route53InvalidInput|Route53PriorRequestNotComplete|any, data: Route53ChangeResourceRecordSetsResponse|any) => void): Request;
-      changeTagsForResource(params: Route53ChangeTagsForResourceRequest, callback?: (err: Route53InvalidInput|Route53NoSuchHealthCheck|Route53NoSuchHostedZone|Route53PriorRequestNotComplete|Route53ThrottlingException|any, data: Route53ChangeTagsForResourceResponse|any) => void): Request;
-      createHealthCheck(params: Route53CreateHealthCheckRequest, callback?: (err: Route53TooManyHealthChecks|Route53HealthCheckAlreadyExists|Route53InvalidInput|any, data: Route53CreateHealthCheckResponse|any) => void): Request;
-      createHostedZone(params: Route53CreateHostedZoneRequest, callback?: (err: Route53InvalidDomainName|Route53HostedZoneAlreadyExists|Route53TooManyHostedZones|Route53InvalidVPCId|Route53InvalidInput|Route53DelegationSetNotAvailable|Route53ConflictingDomainExists|Route53NoSuchDelegationSet|Route53DelegationSetNotReusable|any, data: Route53CreateHostedZoneResponse|any) => void): Request;
-      createReusableDelegationSet(params: Route53CreateReusableDelegationSetRequest, callback?: (err: Route53DelegationSetAlreadyCreated|Route53LimitsExceeded|Route53HostedZoneNotFound|Route53InvalidArgument|Route53InvalidInput|Route53DelegationSetNotAvailable|Route53DelegationSetAlreadyReusable|any, data: Route53CreateReusableDelegationSetResponse|any) => void): Request;
-      deleteHealthCheck(params: Route53DeleteHealthCheckRequest, callback?: (err: Route53NoSuchHealthCheck|Route53HealthCheckInUse|Route53InvalidInput|any, data: Route53DeleteHealthCheckResponse|any) => void): Request;
-      deleteHostedZone(params: Route53DeleteHostedZoneRequest, callback?: (err: Route53NoSuchHostedZone|Route53HostedZoneNotEmpty|Route53PriorRequestNotComplete|Route53InvalidInput|any, data: Route53DeleteHostedZoneResponse|any) => void): Request;
-      deleteReusableDelegationSet(params: Route53DeleteReusableDelegationSetRequest, callback?: (err: Route53NoSuchDelegationSet|Route53DelegationSetInUse|Route53DelegationSetNotReusable|Route53InvalidInput|any, data: Route53DeleteReusableDelegationSetResponse|any) => void): Request;
-      disassociateVPCFromHostedZone(params: Route53DisassociateVPCFromHostedZoneRequest, callback?: (err: Route53NoSuchHostedZone|Route53InvalidVPCId|Route53VPCAssociationNotFound|Route53LastVPCAssociation|Route53InvalidInput|any, data: Route53DisassociateVPCFromHostedZoneResponse|any) => void): Request;
-      getChange(params: Route53GetChangeRequest, callback?: (err: Route53NoSuchChange|Route53InvalidInput|any, data: Route53GetChangeResponse|any) => void): Request;
-      getCheckerIpRanges(params: Route53GetCheckerIpRangesRequest, callback?: (err: any, data: Route53GetCheckerIpRangesResponse|any) => void): Request;
-      getGeoLocation(params: Route53GetGeoLocationRequest, callback?: (err: Route53NoSuchGeoLocation|Route53InvalidInput|any, data: Route53GetGeoLocationResponse|any) => void): Request;
-      getHealthCheck(params: Route53GetHealthCheckRequest, callback?: (err: Route53NoSuchHealthCheck|Route53InvalidInput|Route53IncompatibleVersion|any, data: Route53GetHealthCheckResponse|any) => void): Request;
-      getHealthCheckCount(params: Route53GetHealthCheckCountRequest, callback?: (err: any, data: Route53GetHealthCheckCountResponse|any) => void): Request;
-      getHealthCheckLastFailureReason(params: Route53GetHealthCheckLastFailureReasonRequest, callback?: (err: Route53NoSuchHealthCheck|any, data: Route53GetHealthCheckLastFailureReasonResponse|any) => void): Request;
-      getHealthCheckStatus(params: Route53GetHealthCheckStatusRequest, callback?: (err: Route53NoSuchHealthCheck|any, data: Route53GetHealthCheckStatusResponse|any) => void): Request;
-      getHostedZone(params: Route53GetHostedZoneRequest, callback?: (err: Route53NoSuchHostedZone|Route53InvalidInput|any, data: Route53GetHostedZoneResponse|any) => void): Request;
-      getHostedZoneCount(params: Route53GetHostedZoneCountRequest, callback?: (err: Route53InvalidInput|any, data: Route53GetHostedZoneCountResponse|any) => void): Request;
-      getReusableDelegationSet(params: Route53GetReusableDelegationSetRequest, callback?: (err: Route53NoSuchDelegationSet|Route53DelegationSetNotReusable|Route53InvalidInput|any, data: Route53GetReusableDelegationSetResponse|any) => void): Request;
-      listGeoLocations(params: Route53ListGeoLocationsRequest, callback?: (err: Route53InvalidInput|any, data: Route53ListGeoLocationsResponse|any) => void): Request;
-      listHealthChecks(params: Route53ListHealthChecksRequest, callback?: (err: Route53InvalidInput|Route53IncompatibleVersion|any, data: Route53ListHealthChecksResponse|any) => void): Request;
-      listHostedZones(params: Route53ListHostedZonesRequest, callback?: (err: Route53InvalidInput|Route53NoSuchDelegationSet|Route53DelegationSetNotReusable|any, data: Route53ListHostedZonesResponse|any) => void): Request;
-      listHostedZonesByName(params: Route53ListHostedZonesByNameRequest, callback?: (err: Route53InvalidInput|Route53InvalidDomainName|any, data: Route53ListHostedZonesByNameResponse|any) => void): Request;
-      listResourceRecordSets(params: Route53ListResourceRecordSetsRequest, callback?: (err: Route53NoSuchHostedZone|Route53InvalidInput|any, data: Route53ListResourceRecordSetsResponse|any) => void): Request;
-      listReusableDelegationSets(params: Route53ListReusableDelegationSetsRequest, callback?: (err: Route53InvalidInput|any, data: Route53ListReusableDelegationSetsResponse|any) => void): Request;
-      listTagsForResource(params: Route53ListTagsForResourceRequest, callback?: (err: Route53InvalidInput|Route53NoSuchHealthCheck|Route53NoSuchHostedZone|Route53PriorRequestNotComplete|Route53ThrottlingException|any, data: Route53ListTagsForResourceResponse|any) => void): Request;
-      listTagsForResources(params: Route53ListTagsForResourcesRequest, callback?: (err: Route53InvalidInput|Route53NoSuchHealthCheck|Route53NoSuchHostedZone|Route53PriorRequestNotComplete|Route53ThrottlingException|any, data: Route53ListTagsForResourcesResponse|any) => void): Request;
-      updateHealthCheck(params: Route53UpdateHealthCheckRequest, callback?: (err: Route53NoSuchHealthCheck|Route53InvalidInput|Route53HealthCheckVersionMismatch|any, data: Route53UpdateHealthCheckResponse|any) => void): Request;
-      updateHostedZoneComment(params: Route53UpdateHostedZoneCommentRequest, callback?: (err: Route53NoSuchHostedZone|Route53InvalidInput|any, data: Route53UpdateHostedZoneCommentResponse|any) => void): Request;
-    }
-
-    export type Route53AliasHealthEnabled = boolean;
-    export interface Route53AliasTarget {
-        HostedZoneId: Route53ResourceId;
-        DNSName: Route53DNSName;
-        EvaluateTargetHealth: Route53AliasHealthEnabled;
-    }
-
-    export type Route53AssociateVPCComment = string;
-    export interface Route53AssociateVPCWithHostedZoneRequest {
-        HostedZoneId: Route53ResourceId;
-        VPC: Route53VPC;
-        Comment?: Route53AssociateVPCComment;
-    }
-
-    export interface Route53AssociateVPCWithHostedZoneResponse {
-        ChangeInfo: Route53ChangeInfo;
-    }
-
-    export interface Route53Change {
-        Action: Route53ChangeAction;
-        ResourceRecordSet: Route53ResourceRecordSet;
-    }
-
-    export type Route53ChangeAction = string;
-    export interface Route53ChangeBatch {
-        Comment?: Route53ResourceDescription;
-        Changes: Route53Changes;
-    }
-
-    export interface Route53ChangeInfo {
-        Id: Route53ResourceId;
-        Status: Route53ChangeStatus;
-        SubmittedAt: Route53TimeStamp;
-        Comment?: Route53ResourceDescription;
-    }
-
-    export interface Route53ChangeResourceRecordSetsRequest {
-        HostedZoneId: Route53ResourceId;
-        ChangeBatch: Route53ChangeBatch;
-    }
-
-    export interface Route53ChangeResourceRecordSetsResponse {
-        ChangeInfo: Route53ChangeInfo;
-    }
-
-    export type Route53ChangeStatus = string;
-    export interface Route53ChangeTagsForResourceRequest {
-        ResourceType: Route53TagResourceType;
-        ResourceId: Route53TagResourceId;
-        AddTags?: Route53TagList;
-        RemoveTagKeys?: Route53TagKeyList;
-    }
-
-    export interface Route53ChangeTagsForResourceResponse {
-    }
-
-    export type Route53Changes = Array<Route53Change>;
-    export type Route53CheckerIpRanges = Array<Route53IPAddressCidr>;
-    export type Route53ChildHealthCheckList = Array<Route53HealthCheckId>; // max: 256
-    export interface Route53ConflictingDomainExists {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53CreateHealthCheckRequest {
-        CallerReference: Route53HealthCheckNonce;
-        HealthCheckConfig: Route53HealthCheckConfig;
-    }
-
-    export interface Route53CreateHealthCheckResponse {
-        HealthCheck: Route53HealthCheck;
-        Location: Route53ResourceURI;
-    }
-
-    export interface Route53CreateHostedZoneRequest {
-        Name: Route53DNSName;
-        VPC?: Route53VPC;
-        CallerReference: Route53Nonce;
-        HostedZoneConfig?: Route53HostedZoneConfig;
-        DelegationSetId?: Route53ResourceId;
-    }
-
-    export interface Route53CreateHostedZoneResponse {
-        HostedZone: Route53HostedZone;
-        ChangeInfo: Route53ChangeInfo;
-        DelegationSet: Route53DelegationSet;
-        VPC?: Route53VPC;
-        Location: Route53ResourceURI;
-    }
-
-    export interface Route53CreateReusableDelegationSetRequest {
-        CallerReference: Route53Nonce;
-        HostedZoneId?: Route53ResourceId;
-    }
-
-    export interface Route53CreateReusableDelegationSetResponse {
-        DelegationSet: Route53DelegationSet;
-        Location: Route53ResourceURI;
-    }
-
-    export type Route53DNSName = string;
-    export interface Route53DelegationSet {
-        Id?: Route53ResourceId;
-        CallerReference?: Route53Nonce;
-        NameServers: Route53DelegationSetNameServers;
-    }
-
-    export interface Route53DelegationSetAlreadyCreated {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53DelegationSetAlreadyReusable {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53DelegationSetInUse {
-        message?: Route53ErrorMessage;
-    }
-
-    export type Route53DelegationSetNameServers = Array<Route53DNSName>;
-    export interface Route53DelegationSetNotAvailable {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53DelegationSetNotReusable {
-        message?: Route53ErrorMessage;
-    }
-
-    export type Route53DelegationSets = Array<Route53DelegationSet>;
-    export interface Route53DeleteHealthCheckRequest {
-        HealthCheckId: Route53HealthCheckId;
-    }
-
-    export interface Route53DeleteHealthCheckResponse {
-    }
-
-    export interface Route53DeleteHostedZoneRequest {
-        Id: Route53ResourceId;
-    }
-
-    export interface Route53DeleteHostedZoneResponse {
-        ChangeInfo: Route53ChangeInfo;
-    }
-
-    export interface Route53DeleteReusableDelegationSetRequest {
-        Id: Route53ResourceId;
-    }
-
-    export interface Route53DeleteReusableDelegationSetResponse {
-    }
-
-    export type Route53DisassociateVPCComment = string;
-    export interface Route53DisassociateVPCFromHostedZoneRequest {
-        HostedZoneId: Route53ResourceId;
-        VPC: Route53VPC;
-        Comment?: Route53DisassociateVPCComment;
-    }
-
-    export interface Route53DisassociateVPCFromHostedZoneResponse {
-        ChangeInfo: Route53ChangeInfo;
-    }
-
-    export type Route53ErrorMessage = string;
-    export type Route53ErrorMessages = Array<Route53ErrorMessage>;
-    export type Route53FailureThreshold = number;
-    export type Route53FullyQualifiedDomainName = string;
-    export interface Route53GeoLocation {
-        ContinentCode?: Route53GeoLocationContinentCode;
-        CountryCode?: Route53GeoLocationCountryCode;
-        SubdivisionCode?: Route53GeoLocationSubdivisionCode;
-    }
-
-    export type Route53GeoLocationContinentCode = string;
-    export type Route53GeoLocationContinentName = string;
-    export type Route53GeoLocationCountryCode = string;
-    export type Route53GeoLocationCountryName = string;
-    export interface Route53GeoLocationDetails {
-        ContinentCode?: Route53GeoLocationContinentCode;
-        ContinentName?: Route53GeoLocationContinentName;
-        CountryCode?: Route53GeoLocationCountryCode;
-        CountryName?: Route53GeoLocationCountryName;
-        SubdivisionCode?: Route53GeoLocationSubdivisionCode;
-        SubdivisionName?: Route53GeoLocationSubdivisionName;
-    }
-
-    export type Route53GeoLocationDetailsList = Array<Route53GeoLocationDetails>;
-    export type Route53GeoLocationSubdivisionCode = string;
-    export type Route53GeoLocationSubdivisionName = string;
-    export interface Route53GetChangeRequest {
-        Id: Route53ResourceId;
-    }
-
-    export interface Route53GetChangeResponse {
-        ChangeInfo: Route53ChangeInfo;
-    }
-
-    export interface Route53GetCheckerIpRangesRequest {
-    }
-
-    export interface Route53GetCheckerIpRangesResponse {
-        CheckerIpRanges: Route53CheckerIpRanges;
-    }
-
-    export interface Route53GetGeoLocationRequest {
-        ContinentCode?: Route53GeoLocationContinentCode;
-        CountryCode?: Route53GeoLocationCountryCode;
-        SubdivisionCode?: Route53GeoLocationSubdivisionCode;
-    }
-
-    export interface Route53GetGeoLocationResponse {
-        GeoLocationDetails: Route53GeoLocationDetails;
-    }
-
-    export interface Route53GetHealthCheckCountRequest {
-    }
-
-    export interface Route53GetHealthCheckCountResponse {
-        HealthCheckCount: Route53HealthCheckCount;
-    }
-
-    export interface Route53GetHealthCheckLastFailureReasonRequest {
-        HealthCheckId: Route53HealthCheckId;
-    }
-
-    export interface Route53GetHealthCheckLastFailureReasonResponse {
-        HealthCheckObservations: Route53HealthCheckObservations;
-    }
-
-    export interface Route53GetHealthCheckRequest {
-        HealthCheckId: Route53HealthCheckId;
-    }
-
-    export interface Route53GetHealthCheckResponse {
-        HealthCheck: Route53HealthCheck;
-    }
-
-    export interface Route53GetHealthCheckStatusRequest {
-        HealthCheckId: Route53HealthCheckId;
-    }
-
-    export interface Route53GetHealthCheckStatusResponse {
-        HealthCheckObservations: Route53HealthCheckObservations;
-    }
-
-    export interface Route53GetHostedZoneCountRequest {
-    }
-
-    export interface Route53GetHostedZoneCountResponse {
-        HostedZoneCount: Route53HostedZoneCount;
-    }
-
-    export interface Route53GetHostedZoneRequest {
-        Id: Route53ResourceId;
-    }
-
-    export interface Route53GetHostedZoneResponse {
-        HostedZone: Route53HostedZone;
-        DelegationSet?: Route53DelegationSet;
-        VPCs?: Route53VPCs;
-    }
-
-    export interface Route53GetReusableDelegationSetRequest {
-        Id: Route53ResourceId;
-    }
-
-    export interface Route53GetReusableDelegationSetResponse {
-        DelegationSet: Route53DelegationSet;
-    }
-
-    export interface Route53HealthCheck {
-        Id: Route53HealthCheckId;
-        CallerReference: Route53HealthCheckNonce;
-        HealthCheckConfig: Route53HealthCheckConfig;
-        HealthCheckVersion: Route53HealthCheckVersion;
-    }
+      associateVPCWithHostedZone(params: Route53.AssociateVPCWithHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.InvalidInput|Route53.PublicZoneVPCAssociation|Route53.ConflictingDomainExists|any, data: Route53.AssociateVPCWithHostedZoneResponse|any) => void): Request;
+      changeResourceRecordSets(params: Route53.ChangeResourceRecordSetsRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.NoSuchHealthCheck|Route53.InvalidChangeBatch|Route53.InvalidInput|Route53.PriorRequestNotComplete|any, data: Route53.ChangeResourceRecordSetsResponse|any) => void): Request;
+      changeTagsForResource(params: Route53.ChangeTagsForResourceRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchHealthCheck|Route53.NoSuchHostedZone|Route53.PriorRequestNotComplete|Route53.ThrottlingException|any, data: Route53.ChangeTagsForResourceResponse|any) => void): Request;
+      createHealthCheck(params: Route53.CreateHealthCheckRequest, callback?: (err: Route53.TooManyHealthChecks|Route53.HealthCheckAlreadyExists|Route53.InvalidInput|any, data: Route53.CreateHealthCheckResponse|any) => void): Request;
+      createHostedZone(params: Route53.CreateHostedZoneRequest, callback?: (err: Route53.InvalidDomainName|Route53.HostedZoneAlreadyExists|Route53.TooManyHostedZones|Route53.InvalidVPCId|Route53.InvalidInput|Route53.DelegationSetNotAvailable|Route53.ConflictingDomainExists|Route53.NoSuchDelegationSet|Route53.DelegationSetNotReusable|any, data: Route53.CreateHostedZoneResponse|any) => void): Request;
+      createReusableDelegationSet(params: Route53.CreateReusableDelegationSetRequest, callback?: (err: Route53.DelegationSetAlreadyCreated|Route53.LimitsExceeded|Route53.HostedZoneNotFound|Route53.InvalidArgument|Route53.InvalidInput|Route53.DelegationSetNotAvailable|Route53.DelegationSetAlreadyReusable|any, data: Route53.CreateReusableDelegationSetResponse|any) => void): Request;
+      deleteHealthCheck(params: Route53.DeleteHealthCheckRequest, callback?: (err: Route53.NoSuchHealthCheck|Route53.HealthCheckInUse|Route53.InvalidInput|any, data: Route53.DeleteHealthCheckResponse|any) => void): Request;
+      deleteHostedZone(params: Route53.DeleteHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.HostedZoneNotEmpty|Route53.PriorRequestNotComplete|Route53.InvalidInput|any, data: Route53.DeleteHostedZoneResponse|any) => void): Request;
+      deleteReusableDelegationSet(params: Route53.DeleteReusableDelegationSetRequest, callback?: (err: Route53.NoSuchDelegationSet|Route53.DelegationSetInUse|Route53.DelegationSetNotReusable|Route53.InvalidInput|any, data: Route53.DeleteReusableDelegationSetResponse|any) => void): Request;
+      disassociateVPCFromHostedZone(params: Route53.DisassociateVPCFromHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.VPCAssociationNotFound|Route53.LastVPCAssociation|Route53.InvalidInput|any, data: Route53.DisassociateVPCFromHostedZoneResponse|any) => void): Request;
+      getChange(params: Route53.GetChangeRequest, callback?: (err: Route53.NoSuchChange|Route53.InvalidInput|any, data: Route53.GetChangeResponse|any) => void): Request;
+      getCheckerIpRanges(params: Route53.GetCheckerIpRangesRequest, callback?: (err: any, data: Route53.GetCheckerIpRangesResponse|any) => void): Request;
+      getGeoLocation(params: Route53.GetGeoLocationRequest, callback?: (err: Route53.NoSuchGeoLocation|Route53.InvalidInput|any, data: Route53.GetGeoLocationResponse|any) => void): Request;
+      getHealthCheck(params: Route53.GetHealthCheckRequest, callback?: (err: Route53.NoSuchHealthCheck|Route53.InvalidInput|Route53.IncompatibleVersion|any, data: Route53.GetHealthCheckResponse|any) => void): Request;
+      getHealthCheckCount(params: Route53.GetHealthCheckCountRequest, callback?: (err: any, data: Route53.GetHealthCheckCountResponse|any) => void): Request;
+      getHealthCheckLastFailureReason(params: Route53.GetHealthCheckLastFailureReasonRequest, callback?: (err: Route53.NoSuchHealthCheck|any, data: Route53.GetHealthCheckLastFailureReasonResponse|any) => void): Request;
+      getHealthCheckStatus(params: Route53.GetHealthCheckStatusRequest, callback?: (err: Route53.NoSuchHealthCheck|any, data: Route53.GetHealthCheckStatusResponse|any) => void): Request;
+      getHostedZone(params: Route53.GetHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.GetHostedZoneResponse|any) => void): Request;
+      getHostedZoneCount(params: Route53.GetHostedZoneCountRequest, callback?: (err: Route53.InvalidInput|any, data: Route53.GetHostedZoneCountResponse|any) => void): Request;
+      getReusableDelegationSet(params: Route53.GetReusableDelegationSetRequest, callback?: (err: Route53.NoSuchDelegationSet|Route53.DelegationSetNotReusable|Route53.InvalidInput|any, data: Route53.GetReusableDelegationSetResponse|any) => void): Request;
+      listGeoLocations(params: Route53.ListGeoLocationsRequest, callback?: (err: Route53.InvalidInput|any, data: Route53.ListGeoLocationsResponse|any) => void): Request;
+      listHealthChecks(params: Route53.ListHealthChecksRequest, callback?: (err: Route53.InvalidInput|Route53.IncompatibleVersion|any, data: Route53.ListHealthChecksResponse|any) => void): Request;
+      listHostedZones(params: Route53.ListHostedZonesRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchDelegationSet|Route53.DelegationSetNotReusable|any, data: Route53.ListHostedZonesResponse|any) => void): Request;
+      listHostedZonesByName(params: Route53.ListHostedZonesByNameRequest, callback?: (err: Route53.InvalidInput|Route53.InvalidDomainName|any, data: Route53.ListHostedZonesByNameResponse|any) => void): Request;
+      listResourceRecordSets(params: Route53.ListResourceRecordSetsRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.ListResourceRecordSetsResponse|any) => void): Request;
+      listReusableDelegationSets(params: Route53.ListReusableDelegationSetsRequest, callback?: (err: Route53.InvalidInput|any, data: Route53.ListReusableDelegationSetsResponse|any) => void): Request;
+      listTagsForResource(params: Route53.ListTagsForResourceRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchHealthCheck|Route53.NoSuchHostedZone|Route53.PriorRequestNotComplete|Route53.ThrottlingException|any, data: Route53.ListTagsForResourceResponse|any) => void): Request;
+      listTagsForResources(params: Route53.ListTagsForResourcesRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchHealthCheck|Route53.NoSuchHostedZone|Route53.PriorRequestNotComplete|Route53.ThrottlingException|any, data: Route53.ListTagsForResourcesResponse|any) => void): Request;
+      updateHealthCheck(params: Route53.UpdateHealthCheckRequest, callback?: (err: Route53.NoSuchHealthCheck|Route53.InvalidInput|Route53.HealthCheckVersionMismatch|any, data: Route53.UpdateHealthCheckResponse|any) => void): Request;
+      updateHostedZoneComment(params: Route53.UpdateHostedZoneCommentRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.UpdateHostedZoneCommentResponse|any) => void): Request;
+    }
+    
+    export module Route53 {
+        export type AliasHealthEnabled = boolean;
+        export type AssociateVPCComment = string;
+        export type ChangeAction = string;
+        export type ChangeStatus = string;
+        export type Changes = Change[];    // min: 1
+        export type CheckerIpRanges = IPAddressCidr[];
+        export type ChildHealthCheckList = HealthCheckId[];    // max: 256
+        export type DNSName = string;    // max: 1024
+        export type DelegationSetNameServers = DNSName[];    // min: 1
+        export type DelegationSets = DelegationSet[];
+        export type DisassociateVPCComment = string;
+        export type ErrorMessage = string;
+        export type ErrorMessages = ErrorMessage[];
+        export type FailureThreshold = number;    // max: 10, min: 1
+        export type FullyQualifiedDomainName = string;    // max: 255
+        export type GeoLocationContinentCode = string;    // max: 2, min: 2
+        export type GeoLocationContinentName = string;    // max: 32, min: 1
+        export type GeoLocationCountryCode = string;    // max: 2, min: 1
+        export type GeoLocationCountryName = string;    // max: 64, min: 1
+        export type GeoLocationDetailsList = GeoLocationDetails[];
+        export type GeoLocationSubdivisionCode = string;    // max: 3, min: 1
+        export type GeoLocationSubdivisionName = string;    // max: 64, min: 1
+        export type HealthCheckCount = number;
+        export type HealthCheckId = string;    // max: 64
+        export type HealthCheckNonce = string;    // max: 64, min: 1
+        export type HealthCheckObservations = HealthCheckObservation[];
+        export type HealthCheckType = string;
+        export type HealthCheckVersion = number;    // min: 1
+        export type HealthChecks = HealthCheck[];
+        export type HealthThreshold = number;    // max: 256
+        export type HostedZoneCount = number;
+        export type HostedZoneRRSetCount = number;
+        export type HostedZones = HostedZone[];
+        export type IPAddress = string;    // pattern: &quot;^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$&quot;, max: 15
+        export type IPAddressCidr = string;
+        export type Inverted = boolean;
+        export type IsPrivateZone = boolean;
+        export type MeasureLatency = boolean;
+        export type Nonce = string;    // max: 128, min: 1
+        export type PageMarker = string;    // max: 64
+        export type PageMaxItems = string;
+        export type PageTruncated = boolean;
+        export type Port = number;    // max: 65535, min: 1
+        export type RData = string;    // max: 4000
+        export type RRType = string;
+        export type RequestInterval = number;    // max: 30, min: 10
+        export type ResourceDescription = string;    // max: 256
+        export type ResourceId = string;    // max: 32
+        export type ResourcePath = string;    // max: 255
+        export type ResourceRecordSetFailover = string;
+        export type ResourceRecordSetIdentifier = string;    // max: 128, min: 1
+        export type ResourceRecordSetRegion = string;    // max: 64, min: 1
+        export type ResourceRecordSetWeight = number;    // max: 255
+        export type ResourceRecordSets = ResourceRecordSet[];
+        export type ResourceRecords = ResourceRecord[];    // min: 1
+        export type ResourceTagSetList = ResourceTagSet[];
+        export type ResourceURI = string;    // max: 1024
+        export type SearchString = string;    // max: 255
+        export type Status = string;
+        export type TTL = number;    // max: 2147483647
+        export type TagKey = string;    // max: 128
+        export type TagKeyList = TagKey[];    // max: 10, min: 1
+        export type TagList = Tag[];    // max: 10, min: 1
+        export type TagResourceId = string;    // max: 64
+        export type TagResourceIdList = TagResourceId[];    // max: 10, min: 1
+        export type TagResourceType = string;
+        export type TagValue = string;    // max: 256
+        export type TimeStamp = number;
+        export type VPCId = string;    // max: 1024
+        export type VPCRegion = string;    // max: 64, min: 1
+        export type VPCs = VPC[];    // min: 1
+
+        export interface AliasTarget {
+            HostedZoneId: ResourceId;            
+            DNSName: DNSName;            
+            EvaluateTargetHealth: AliasHealthEnabled;            
+        }
+        export interface AssociateVPCWithHostedZoneRequest {
+            HostedZoneId: ResourceId;            
+            VPC: VPC;            
+            Comment?: AssociateVPCComment;            
+        }
+        export interface AssociateVPCWithHostedZoneResponse {
+            ChangeInfo: ChangeInfo;            
+        }
+        export interface Change {
+            Action: ChangeAction;            
+            ResourceRecordSet: ResourceRecordSet;            
+        }
+        export interface ChangeBatch {
+            Comment?: ResourceDescription;            
+            Changes: Changes;            
+        }
+        export interface ChangeInfo {
+            Id: ResourceId;            
+            Status: ChangeStatus;            
+            SubmittedAt: TimeStamp;            
+            Comment?: ResourceDescription;            
+        }
+        export interface ChangeResourceRecordSetsRequest {
+            HostedZoneId: ResourceId;            
+            ChangeBatch: ChangeBatch;            
+        }
+        export interface ChangeResourceRecordSetsResponse {
+            ChangeInfo: ChangeInfo;            
+        }
+        export interface ChangeTagsForResourceRequest {
+            ResourceType: TagResourceType;            
+            ResourceId: TagResourceId;            
+            AddTags?: TagList;            
+            RemoveTagKeys?: TagKeyList;            
+        }
+        export interface ChangeTagsForResourceResponse {
+        }
+        export interface ConflictingDomainExists {
+            message?: ErrorMessage;            
+        }
+        export interface CreateHealthCheckRequest {
+            CallerReference: HealthCheckNonce;            
+            HealthCheckConfig: HealthCheckConfig;            
+        }
+        export interface CreateHealthCheckResponse {
+            HealthCheck: HealthCheck;            
+            Location: ResourceURI;            
+        }
+        export interface CreateHostedZoneRequest {
+            Name: DNSName;            
+            VPC?: VPC;            
+            CallerReference: Nonce;            
+            HostedZoneConfig?: HostedZoneConfig;            
+            DelegationSetId?: ResourceId;            
+        }
+        export interface CreateHostedZoneResponse {
+            HostedZone: HostedZone;            
+            ChangeInfo: ChangeInfo;            
+            DelegationSet: DelegationSet;            
+            VPC?: VPC;            
+            Location: ResourceURI;            
+        }
+        export interface CreateReusableDelegationSetRequest {
+            CallerReference: Nonce;            
+            HostedZoneId?: ResourceId;            
+        }
+        export interface CreateReusableDelegationSetResponse {
+            DelegationSet: DelegationSet;            
+            Location: ResourceURI;            
+        }
+        export interface DelegationSet {
+            Id?: ResourceId;            
+            CallerReference?: Nonce;            
+            NameServers: DelegationSetNameServers;            
+        }
+        export interface DelegationSetAlreadyCreated {
+            message?: ErrorMessage;            
+        }
+        export interface DelegationSetAlreadyReusable {
+            message?: ErrorMessage;            
+        }
+        export interface DelegationSetInUse {
+            message?: ErrorMessage;            
+        }
+        export interface DelegationSetNotAvailable {
+            message?: ErrorMessage;            
+        }
+        export interface DelegationSetNotReusable {
+            message?: ErrorMessage;            
+        }
+        export interface DeleteHealthCheckRequest {
+            HealthCheckId: HealthCheckId;            
+        }
+        export interface DeleteHealthCheckResponse {
+        }
+        export interface DeleteHostedZoneRequest {
+            Id: ResourceId;            
+        }
+        export interface DeleteHostedZoneResponse {
+            ChangeInfo: ChangeInfo;            
+        }
+        export interface DeleteReusableDelegationSetRequest {
+            Id: ResourceId;            
+        }
+        export interface DeleteReusableDelegationSetResponse {
+        }
+        export interface DisassociateVPCFromHostedZoneRequest {
+            HostedZoneId: ResourceId;            
+            VPC: VPC;            
+            Comment?: DisassociateVPCComment;            
+        }
+        export interface DisassociateVPCFromHostedZoneResponse {
+            ChangeInfo: ChangeInfo;            
+        }
+        export interface GeoLocation {
+            ContinentCode?: GeoLocationContinentCode;            
+            CountryCode?: GeoLocationCountryCode;            
+            SubdivisionCode?: GeoLocationSubdivisionCode;            
+        }
+        export interface GeoLocationDetails {
+            ContinentCode?: GeoLocationContinentCode;            
+            ContinentName?: GeoLocationContinentName;            
+            CountryCode?: GeoLocationCountryCode;            
+            CountryName?: GeoLocationCountryName;            
+            SubdivisionCode?: GeoLocationSubdivisionCode;            
+            SubdivisionName?: GeoLocationSubdivisionName;            
+        }
+        export interface GetChangeRequest {
+            Id: ResourceId;            
+        }
+        export interface GetChangeResponse {
+            ChangeInfo: ChangeInfo;            
+        }
+        export interface GetCheckerIpRangesRequest {
+        }
+        export interface GetCheckerIpRangesResponse {
+            CheckerIpRanges: CheckerIpRanges;            
+        }
+        export interface GetGeoLocationRequest {
+            ContinentCode?: GeoLocationContinentCode;            
+            CountryCode?: GeoLocationCountryCode;            
+            SubdivisionCode?: GeoLocationSubdivisionCode;            
+        }
+        export interface GetGeoLocationResponse {
+            GeoLocationDetails: GeoLocationDetails;            
+        }
+        export interface GetHealthCheckCountRequest {
+        }
+        export interface GetHealthCheckCountResponse {
+            HealthCheckCount: HealthCheckCount;            
+        }
+        export interface GetHealthCheckLastFailureReasonRequest {
+            HealthCheckId: HealthCheckId;            
+        }
+        export interface GetHealthCheckLastFailureReasonResponse {
+            HealthCheckObservations: HealthCheckObservations;            
+        }
+        export interface GetHealthCheckRequest {
+            HealthCheckId: HealthCheckId;            
+        }
+        export interface GetHealthCheckResponse {
+            HealthCheck: HealthCheck;            
+        }
+        export interface GetHealthCheckStatusRequest {
+            HealthCheckId: HealthCheckId;            
+        }
+        export interface GetHealthCheckStatusResponse {
+            HealthCheckObservations: HealthCheckObservations;            
+        }
+        export interface GetHostedZoneCountRequest {
+        }
+        export interface GetHostedZoneCountResponse {
+            HostedZoneCount: HostedZoneCount;            
+        }
+        export interface GetHostedZoneRequest {
+            Id: ResourceId;            
+        }
+        export interface GetHostedZoneResponse {
+            HostedZone: HostedZone;            
+            DelegationSet?: DelegationSet;            
+            VPCs?: VPCs;            
+        }
+        export interface GetReusableDelegationSetRequest {
+            Id: ResourceId;            
+        }
+        export interface GetReusableDelegationSetResponse {
+            DelegationSet: DelegationSet;            
+        }
+        export interface HealthCheck {
+            Id: HealthCheckId;            
+            CallerReference: HealthCheckNonce;            
+            HealthCheckConfig: HealthCheckConfig;            
+            HealthCheckVersion: HealthCheckVersion;            
+        }
+        export interface HealthCheckAlreadyExists {
+            message?: ErrorMessage;            
+        }
+        export interface HealthCheckConfig {
+            IPAddress?: IPAddress;            
+            Port?: Port;            
+            Type: HealthCheckType;            
+            ResourcePath?: ResourcePath;            
+            FullyQualifiedDomainName?: FullyQualifiedDomainName;            
+            SearchString?: SearchString;            
+            RequestInterval?: RequestInterval;            
+            FailureThreshold?: FailureThreshold;            
+            MeasureLatency?: MeasureLatency;            
+            Inverted?: Inverted;            
+            HealthThreshold?: HealthThreshold;            
+            ChildHealthChecks?: ChildHealthCheckList;            
+        }
+        export interface HealthCheckInUse {
+            message?: ErrorMessage;            
+        }
+        export interface HealthCheckObservation {
+            IPAddress?: IPAddress;            
+            StatusReport?: StatusReport;            
+        }
+        export interface HealthCheckVersionMismatch {
+            message?: ErrorMessage;            
+        }
+        export interface HostedZone {
+            Id: ResourceId;            
+            Name: DNSName;            
+            CallerReference: Nonce;            
+            Config?: HostedZoneConfig;            
+            ResourceRecordSetCount?: HostedZoneRRSetCount;            
+        }
+        export interface HostedZoneAlreadyExists {
+            message?: ErrorMessage;            
+        }
+        export interface HostedZoneConfig {
+            Comment?: ResourceDescription;            
+            PrivateZone?: IsPrivateZone;            
+        }
+        export interface HostedZoneNotEmpty {
+            message?: ErrorMessage;            
+        }
+        export interface HostedZoneNotFound {
+            message?: ErrorMessage;            
+        }
+        export interface IncompatibleVersion {
+            message?: ErrorMessage;            
+        }
+        export interface InvalidArgument {
+            message?: ErrorMessage;            
+        }
+        export interface InvalidChangeBatch {
+            messages?: ErrorMessages;            
+        }
+        export interface InvalidDomainName {
+            message?: ErrorMessage;            
+        }
+        export interface InvalidInput {
+            message?: ErrorMessage;            
+        }
+        export interface InvalidVPCId {
+            message?: ErrorMessage;            
+        }
+        export interface LastVPCAssociation {
+            message?: ErrorMessage;            
+        }
+        export interface LimitsExceeded {
+            message?: ErrorMessage;            
+        }
+        export interface ListGeoLocationsRequest {
+            StartContinentCode?: GeoLocationContinentCode;            
+            StartCountryCode?: GeoLocationCountryCode;            
+            StartSubdivisionCode?: GeoLocationSubdivisionCode;            
+            MaxItems?: PageMaxItems;            
+        }
+        export interface ListGeoLocationsResponse {
+            GeoLocationDetailsList: GeoLocationDetailsList;            
+            IsTruncated: PageTruncated;            
+            NextContinentCode?: GeoLocationContinentCode;            
+            NextCountryCode?: GeoLocationCountryCode;            
+            NextSubdivisionCode?: GeoLocationSubdivisionCode;            
+            MaxItems: PageMaxItems;            
+        }
+        export interface ListHealthChecksRequest {
+            Marker?: PageMarker;            
+            MaxItems?: PageMaxItems;            
+        }
+        export interface ListHealthChecksResponse {
+            HealthChecks: HealthChecks;            
+            Marker: PageMarker;            
+            IsTruncated: PageTruncated;            
+            NextMarker?: PageMarker;            
+            MaxItems: PageMaxItems;            
+        }
+        export interface ListHostedZonesByNameRequest {
+            DNSName?: DNSName;            
+            HostedZoneId?: ResourceId;            
+            MaxItems?: PageMaxItems;            
+        }
+        export interface ListHostedZonesByNameResponse {
+            HostedZones: HostedZones;            
+            DNSName?: DNSName;            
+            HostedZoneId?: ResourceId;            
+            IsTruncated: PageTruncated;            
+            NextDNSName?: DNSName;            
+            NextHostedZoneId?: ResourceId;            
+            MaxItems: PageMaxItems;            
+        }
+        export interface ListHostedZonesRequest {
+            Marker?: PageMarker;            
+            MaxItems?: PageMaxItems;            
+            DelegationSetId?: ResourceId;            
+        }
+        export interface ListHostedZonesResponse {
+            HostedZones: HostedZones;            
+            Marker: PageMarker;            
+            IsTruncated: PageTruncated;            
+            NextMarker?: PageMarker;            
+            MaxItems: PageMaxItems;            
+        }
+        export interface ListResourceRecordSetsRequest {
+            HostedZoneId: ResourceId;            
+            StartRecordName?: DNSName;            
+            StartRecordType?: RRType;            
+            StartRecordIdentifier?: ResourceRecordSetIdentifier;            
+            MaxItems?: PageMaxItems;            
+        }
+        export interface ListResourceRecordSetsResponse {
+            ResourceRecordSets: ResourceRecordSets;            
+            IsTruncated: PageTruncated;            
+            NextRecordName?: DNSName;            
+            NextRecordType?: RRType;            
+            NextRecordIdentifier?: ResourceRecordSetIdentifier;            
+            MaxItems: PageMaxItems;            
+        }
+        export interface ListReusableDelegationSetsRequest {
+            Marker?: PageMarker;            
+            MaxItems?: PageMaxItems;            
+        }
+        export interface ListReusableDelegationSetsResponse {
+            DelegationSets: DelegationSets;            
+            Marker: PageMarker;            
+            IsTruncated: PageTruncated;            
+            NextMarker?: PageMarker;            
+            MaxItems: PageMaxItems;            
+        }
+        export interface ListTagsForResourceRequest {
+            ResourceType: TagResourceType;            
+            ResourceId: TagResourceId;            
+        }
+        export interface ListTagsForResourceResponse {
+            ResourceTagSet: ResourceTagSet;            
+        }
+        export interface ListTagsForResourcesRequest {
+            ResourceType: TagResourceType;            
+            ResourceIds: TagResourceIdList;            
+        }
+        export interface ListTagsForResourcesResponse {
+            ResourceTagSets: ResourceTagSetList;            
+        }
+        export interface NoSuchChange {
+            message?: ErrorMessage;            
+        }
+        export interface NoSuchDelegationSet {
+            message?: ErrorMessage;            
+        }
+        export interface NoSuchGeoLocation {
+            message?: ErrorMessage;            
+        }
+        export interface NoSuchHealthCheck {
+            message?: ErrorMessage;            
+        }
+        export interface NoSuchHostedZone {
+            message?: ErrorMessage;            
+        }
+        export interface PriorRequestNotComplete {
+            message?: ErrorMessage;            
+        }
+        export interface PublicZoneVPCAssociation {
+            message?: ErrorMessage;            
+        }
+        export interface ResourceRecord {
+            Value: RData;            
+        }
+        export interface ResourceRecordSet {
+            Name: DNSName;            
+            Type: RRType;            
+            SetIdentifier?: ResourceRecordSetIdentifier;            
+            Weight?: ResourceRecordSetWeight;            
+            Region?: ResourceRecordSetRegion;            
+            GeoLocation?: GeoLocation;            
+            Failover?: ResourceRecordSetFailover;            
+            TTL?: TTL;            
+            ResourceRecords?: ResourceRecords;            
+            AliasTarget?: AliasTarget;            
+            HealthCheckId?: HealthCheckId;            
+        }
+        export interface ResourceTagSet {
+            ResourceType?: TagResourceType;            
+            ResourceId?: TagResourceId;            
+            Tags?: TagList;            
+        }
+        export interface StatusReport {
+            Status?: Status;            
+            CheckedTime?: TimeStamp;            
+        }
+        export interface Tag {
+            Key?: TagKey;            
+            Value?: TagValue;            
+        }
+        export interface ThrottlingException {
+            message?: ErrorMessage;            
+        }
+        export interface TooManyHealthChecks {
+            message?: ErrorMessage;            
+        }
+        export interface TooManyHostedZones {
+            message?: ErrorMessage;            
+        }
+        export interface UpdateHealthCheckRequest {
+            HealthCheckId: HealthCheckId;            
+            HealthCheckVersion?: HealthCheckVersion;            
+            IPAddress?: IPAddress;            
+            Port?: Port;            
+            ResourcePath?: ResourcePath;            
+            FullyQualifiedDomainName?: FullyQualifiedDomainName;            
+            SearchString?: SearchString;            
+            FailureThreshold?: FailureThreshold;            
+            Inverted?: Inverted;            
+            HealthThreshold?: HealthThreshold;            
+            ChildHealthChecks?: ChildHealthCheckList;            
+        }
+        export interface UpdateHealthCheckResponse {
+            HealthCheck: HealthCheck;            
+        }
+        export interface UpdateHostedZoneCommentRequest {
+            Id: ResourceId;            
+            Comment?: ResourceDescription;            
+        }
+        export interface UpdateHostedZoneCommentResponse {
+            HostedZone: HostedZone;            
+        }
+        export interface VPC {
+            VPCRegion?: VPCRegion;            
+            VPCId?: VPCId;            
+        }
+        export interface VPCAssociationNotFound {
+            message?: ErrorMessage;            
+        }
 
-    export interface Route53HealthCheckAlreadyExists {
-        message?: Route53ErrorMessage;
     }
-
-    export interface Route53HealthCheckConfig {
-        IPAddress?: Route53IPAddress;
-        Port?: Route53Port;
-        Type: Route53HealthCheckType;
-        ResourcePath?: Route53ResourcePath;
-        FullyQualifiedDomainName?: Route53FullyQualifiedDomainName;
-        SearchString?: Route53SearchString;
-        RequestInterval?: Route53RequestInterval;
-        FailureThreshold?: Route53FailureThreshold;
-        MeasureLatency?: Route53MeasureLatency;
-        Inverted?: Route53Inverted;
-        HealthThreshold?: Route53HealthThreshold;
-        ChildHealthChecks?: Route53ChildHealthCheckList;
-    }
-
-    export type Route53HealthCheckCount = number;
-    export type Route53HealthCheckId = string;
-    export interface Route53HealthCheckInUse {
-        message?: Route53ErrorMessage;
-    }
-
-    export type Route53HealthCheckNonce = string;
-    export interface Route53HealthCheckObservation {
-        IPAddress?: Route53IPAddress;
-        StatusReport?: Route53StatusReport;
-    }
-
-    export type Route53HealthCheckObservations = Array<Route53HealthCheckObservation>;
-    export type Route53HealthCheckType = string;
-    export type Route53HealthCheckVersion = number;
-    export interface Route53HealthCheckVersionMismatch {
-        message?: Route53ErrorMessage;
-    }
-
-    export type Route53HealthChecks = Array<Route53HealthCheck>;
-    export type Route53HealthThreshold = number;
-    export interface Route53HostedZone {
-        Id: Route53ResourceId;
-        Name: Route53DNSName;
-        CallerReference: Route53Nonce;
-        Config?: Route53HostedZoneConfig;
-        ResourceRecordSetCount?: Route53HostedZoneRRSetCount;
-    }
-
-    export interface Route53HostedZoneAlreadyExists {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53HostedZoneConfig {
-        Comment?: Route53ResourceDescription;
-        PrivateZone?: Route53IsPrivateZone;
-    }
-
-    export type Route53HostedZoneCount = number;
-    export interface Route53HostedZoneNotEmpty {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53HostedZoneNotFound {
-        message?: Route53ErrorMessage;
-    }
-
-    export type Route53HostedZoneRRSetCount = number;
-    export type Route53HostedZones = Array<Route53HostedZone>;
-    export type Route53IPAddress = string; // pattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"
-    export type Route53IPAddressCidr = string;
-    export interface Route53IncompatibleVersion {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53InvalidArgument {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53InvalidChangeBatch {
-        messages?: Route53ErrorMessages;
-    }
-
-    export interface Route53InvalidDomainName {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53InvalidInput {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53InvalidVPCId {
-        message?: Route53ErrorMessage;
-    }
-
-    export type Route53Inverted = boolean;
-    export type Route53IsPrivateZone = boolean;
-    export interface Route53LastVPCAssociation {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53LimitsExceeded {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53ListGeoLocationsRequest {
-        StartContinentCode?: Route53GeoLocationContinentCode;
-        StartCountryCode?: Route53GeoLocationCountryCode;
-        StartSubdivisionCode?: Route53GeoLocationSubdivisionCode;
-        MaxItems?: Route53PageMaxItems;
-    }
-
-    export interface Route53ListGeoLocationsResponse {
-        GeoLocationDetailsList: Route53GeoLocationDetailsList;
-        IsTruncated: Route53PageTruncated;
-        NextContinentCode?: Route53GeoLocationContinentCode;
-        NextCountryCode?: Route53GeoLocationCountryCode;
-        NextSubdivisionCode?: Route53GeoLocationSubdivisionCode;
-        MaxItems: Route53PageMaxItems;
-    }
-
-    export interface Route53ListHealthChecksRequest {
-        Marker?: Route53PageMarker;
-        MaxItems?: Route53PageMaxItems;
-    }
-
-    export interface Route53ListHealthChecksResponse {
-        HealthChecks: Route53HealthChecks;
-        Marker: Route53PageMarker;
-        IsTruncated: Route53PageTruncated;
-        NextMarker?: Route53PageMarker;
-        MaxItems: Route53PageMaxItems;
-    }
-
-    export interface Route53ListHostedZonesByNameRequest {
-        DNSName?: Route53DNSName;
-        HostedZoneId?: Route53ResourceId;
-        MaxItems?: Route53PageMaxItems;
-    }
-
-    export interface Route53ListHostedZonesByNameResponse {
-        HostedZones: Route53HostedZones;
-        DNSName?: Route53DNSName;
-        HostedZoneId?: Route53ResourceId;
-        IsTruncated: Route53PageTruncated;
-        NextDNSName?: Route53DNSName;
-        NextHostedZoneId?: Route53ResourceId;
-        MaxItems: Route53PageMaxItems;
-    }
-
-    export interface Route53ListHostedZonesRequest {
-        Marker?: Route53PageMarker;
-        MaxItems?: Route53PageMaxItems;
-        DelegationSetId?: Route53ResourceId;
-    }
-
-    export interface Route53ListHostedZonesResponse {
-        HostedZones: Route53HostedZones;
-        Marker: Route53PageMarker;
-        IsTruncated: Route53PageTruncated;
-        NextMarker?: Route53PageMarker;
-        MaxItems: Route53PageMaxItems;
-    }
-
-    export interface Route53ListResourceRecordSetsRequest {
-        HostedZoneId: Route53ResourceId;
-        StartRecordName?: Route53DNSName;
-        StartRecordType?: Route53RRType;
-        StartRecordIdentifier?: Route53ResourceRecordSetIdentifier;
-        MaxItems?: Route53PageMaxItems;
-    }
-
-    export interface Route53ListResourceRecordSetsResponse {
-        ResourceRecordSets: Route53ResourceRecordSets;
-        IsTruncated: Route53PageTruncated;
-        NextRecordName?: Route53DNSName;
-        NextRecordType?: Route53RRType;
-        NextRecordIdentifier?: Route53ResourceRecordSetIdentifier;
-        MaxItems: Route53PageMaxItems;
-    }
-
-    export interface Route53ListReusableDelegationSetsRequest {
-        Marker?: Route53PageMarker;
-        MaxItems?: Route53PageMaxItems;
-    }
-
-    export interface Route53ListReusableDelegationSetsResponse {
-        DelegationSets: Route53DelegationSets;
-        Marker: Route53PageMarker;
-        IsTruncated: Route53PageTruncated;
-        NextMarker?: Route53PageMarker;
-        MaxItems: Route53PageMaxItems;
-    }
-
-    export interface Route53ListTagsForResourceRequest {
-        ResourceType: Route53TagResourceType;
-        ResourceId: Route53TagResourceId;
-    }
-
-    export interface Route53ListTagsForResourceResponse {
-        ResourceTagSet: Route53ResourceTagSet;
-    }
-
-    export interface Route53ListTagsForResourcesRequest {
-        ResourceType: Route53TagResourceType;
-        ResourceIds: Route53TagResourceIdList;
-    }
-
-    export interface Route53ListTagsForResourcesResponse {
-        ResourceTagSets: Route53ResourceTagSetList;
-    }
-
-    export type Route53MeasureLatency = boolean;
-    export interface Route53NoSuchChange {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53NoSuchDelegationSet {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53NoSuchGeoLocation {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53NoSuchHealthCheck {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53NoSuchHostedZone {
-        message?: Route53ErrorMessage;
-    }
-
-    export type Route53Nonce = string;
-    export type Route53PageMarker = string;
-    export type Route53PageMaxItems = string;
-    export type Route53PageTruncated = boolean;
-    export type Route53Port = number;
-    export interface Route53PriorRequestNotComplete {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53PublicZoneVPCAssociation {
-        message?: Route53ErrorMessage;
-    }
-
-    export type Route53RData = string;
-    export type Route53RRType = string;
-    export type Route53RequestInterval = number;
-    export type Route53ResourceDescription = string;
-    export type Route53ResourceId = string;
-    export type Route53ResourcePath = string;
-    export interface Route53ResourceRecord {
-        Value: Route53RData;
-    }
-
-    export interface Route53ResourceRecordSet {
-        Name: Route53DNSName;
-        Type: Route53RRType;
-        SetIdentifier?: Route53ResourceRecordSetIdentifier;
-        Weight?: Route53ResourceRecordSetWeight;
-        Region?: Route53ResourceRecordSetRegion;
-        GeoLocation?: Route53GeoLocation;
-        Failover?: Route53ResourceRecordSetFailover;
-        TTL?: Route53TTL;
-        ResourceRecords?: Route53ResourceRecords;
-        AliasTarget?: Route53AliasTarget;
-        HealthCheckId?: Route53HealthCheckId;
-    }
-
-    export type Route53ResourceRecordSetFailover = string;
-    export type Route53ResourceRecordSetIdentifier = string;
-    export type Route53ResourceRecordSetRegion = string;
-    export type Route53ResourceRecordSetWeight = number;
-    export type Route53ResourceRecordSets = Array<Route53ResourceRecordSet>;
-    export type Route53ResourceRecords = Array<Route53ResourceRecord>;
-    export interface Route53ResourceTagSet {
-        ResourceType?: Route53TagResourceType;
-        ResourceId?: Route53TagResourceId;
-        Tags?: Route53TagList;
-    }
-
-    export type Route53ResourceTagSetList = Array<Route53ResourceTagSet>;
-    export type Route53ResourceURI = string;
-    export type Route53SearchString = string;
-    export type Route53Status = string;
-    export interface Route53StatusReport {
-        Status?: Route53Status;
-        CheckedTime?: Route53TimeStamp;
-    }
-
-    export type Route53TTL = number;
-    export interface Route53Tag {
-        Key?: Route53TagKey;
-        Value?: Route53TagValue;
-    }
-
-    export type Route53TagKey = string;
-    export type Route53TagKeyList = Array<Route53TagKey>; // max: 10
-    export type Route53TagList = Array<Route53Tag>; // max: 10
-    export type Route53TagResourceId = string;
-    export type Route53TagResourceIdList = Array<Route53TagResourceId>; // max: 10
-    export type Route53TagResourceType = string;
-    export type Route53TagValue = string;
-    export interface Route53ThrottlingException {
-        message?: Route53ErrorMessage;
-    }
-
-    export type Route53TimeStamp = number;
-    export interface Route53TooManyHealthChecks {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53TooManyHostedZones {
-        message?: Route53ErrorMessage;
-    }
-
-    export interface Route53UpdateHealthCheckRequest {
-        HealthCheckId: Route53HealthCheckId;
-        HealthCheckVersion?: Route53HealthCheckVersion;
-        IPAddress?: Route53IPAddress;
-        Port?: Route53Port;
-        ResourcePath?: Route53ResourcePath;
-        FullyQualifiedDomainName?: Route53FullyQualifiedDomainName;
-        SearchString?: Route53SearchString;
-        FailureThreshold?: Route53FailureThreshold;
-        Inverted?: Route53Inverted;
-        HealthThreshold?: Route53HealthThreshold;
-        ChildHealthChecks?: Route53ChildHealthCheckList;
-    }
-
-    export interface Route53UpdateHealthCheckResponse {
-        HealthCheck: Route53HealthCheck;
-    }
-
-    export interface Route53UpdateHostedZoneCommentRequest {
-        Id: Route53ResourceId;
-        Comment?: Route53ResourceDescription;
-    }
-
-    export interface Route53UpdateHostedZoneCommentResponse {
-        HostedZone: Route53HostedZone;
-    }
-
-    export interface Route53VPC {
-        VPCRegion?: Route53VPCRegion;
-        VPCId?: Route53VPCId;
-    }
-
-    export interface Route53VPCAssociationNotFound {
-        message?: Route53ErrorMessage;
-    }
-
-    export type Route53VPCId = string;
-    export type Route53VPCRegion = string;
-    export type Route53VPCs = Array<Route53VPC>;
 }

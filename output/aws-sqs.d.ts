@@ -6,287 +6,239 @@ declare module "aws-sdk" {
 
     export class SQS extends Service {
       constructor(options?: any);
-      addPermission(params: SQSAddPermissionRequest, callback?: (err: SQSOverLimit|any, data: any) => void): Request;
-      changeMessageVisibility(params: SQSChangeMessageVisibilityRequest, callback?: (err: SQSMessageNotInflight|SQSReceiptHandleIsInvalid|any, data: any) => void): Request;
-      changeMessageVisibilityBatch(params: SQSChangeMessageVisibilityBatchRequest, callback?: (err: SQSTooManyEntriesInBatchRequest|SQSEmptyBatchRequest|SQSBatchEntryIdsNotDistinct|SQSInvalidBatchEntryId|any, data: SQSChangeMessageVisibilityBatchResult|any) => void): Request;
-      createQueue(params: SQSCreateQueueRequest, callback?: (err: SQSQueueDeletedRecently|SQSQueueNameExists|any, data: SQSCreateQueueResult|any) => void): Request;
-      deleteMessage(params: SQSDeleteMessageRequest, callback?: (err: SQSInvalidIdFormat|SQSReceiptHandleIsInvalid|any, data: any) => void): Request;
-      deleteMessageBatch(params: SQSDeleteMessageBatchRequest, callback?: (err: SQSTooManyEntriesInBatchRequest|SQSEmptyBatchRequest|SQSBatchEntryIdsNotDistinct|SQSInvalidBatchEntryId|any, data: SQSDeleteMessageBatchResult|any) => void): Request;
-      deleteQueue(params: SQSDeleteQueueRequest, callback?: (err: any, data: any) => void): Request;
-      getQueueAttributes(params: SQSGetQueueAttributesRequest, callback?: (err: SQSInvalidAttributeName|any, data: SQSGetQueueAttributesResult|any) => void): Request;
-      getQueueUrl(params: SQSGetQueueUrlRequest, callback?: (err: SQSQueueDoesNotExist|any, data: SQSGetQueueUrlResult|any) => void): Request;
-      listDeadLetterSourceQueues(params: SQSListDeadLetterSourceQueuesRequest, callback?: (err: SQSQueueDoesNotExist|any, data: SQSListDeadLetterSourceQueuesResult|any) => void): Request;
-      listQueues(params: SQSListQueuesRequest, callback?: (err: any, data: SQSListQueuesResult|any) => void): Request;
-      purgeQueue(params: SQSPurgeQueueRequest, callback?: (err: SQSQueueDoesNotExist|SQSPurgeQueueInProgress|any, data: any) => void): Request;
-      receiveMessage(params: SQSReceiveMessageRequest, callback?: (err: SQSOverLimit|any, data: SQSReceiveMessageResult|any) => void): Request;
-      removePermission(params: SQSRemovePermissionRequest, callback?: (err: any, data: any) => void): Request;
-      sendMessage(params: SQSSendMessageRequest, callback?: (err: SQSInvalidMessageContents|SQSUnsupportedOperation|any, data: SQSSendMessageResult|any) => void): Request;
-      sendMessageBatch(params: SQSSendMessageBatchRequest, callback?: (err: SQSTooManyEntriesInBatchRequest|SQSEmptyBatchRequest|SQSBatchEntryIdsNotDistinct|SQSBatchRequestTooLong|SQSInvalidBatchEntryId|SQSUnsupportedOperation|any, data: SQSSendMessageBatchResult|any) => void): Request;
-      setQueueAttributes(params: SQSSetQueueAttributesRequest, callback?: (err: SQSInvalidAttributeName|any, data: any) => void): Request;
+      addPermission(params: SQS.AddPermissionRequest, callback?: (err: SQS.OverLimit|any, data: any) => void): Request;
+      changeMessageVisibility(params: SQS.ChangeMessageVisibilityRequest, callback?: (err: SQS.MessageNotInflight|SQS.ReceiptHandleIsInvalid|any, data: any) => void): Request;
+      changeMessageVisibilityBatch(params: SQS.ChangeMessageVisibilityBatchRequest, callback?: (err: SQS.TooManyEntriesInBatchRequest|SQS.EmptyBatchRequest|SQS.BatchEntryIdsNotDistinct|SQS.InvalidBatchEntryId|any, data: SQS.ChangeMessageVisibilityBatchResult|any) => void): Request;
+      createQueue(params: SQS.CreateQueueRequest, callback?: (err: SQS.QueueDeletedRecently|SQS.QueueNameExists|any, data: SQS.CreateQueueResult|any) => void): Request;
+      deleteMessage(params: SQS.DeleteMessageRequest, callback?: (err: SQS.InvalidIdFormat|SQS.ReceiptHandleIsInvalid|any, data: any) => void): Request;
+      deleteMessageBatch(params: SQS.DeleteMessageBatchRequest, callback?: (err: SQS.TooManyEntriesInBatchRequest|SQS.EmptyBatchRequest|SQS.BatchEntryIdsNotDistinct|SQS.InvalidBatchEntryId|any, data: SQS.DeleteMessageBatchResult|any) => void): Request;
+      deleteQueue(params: SQS.DeleteQueueRequest, callback?: (err: any, data: any) => void): Request;
+      getQueueAttributes(params: SQS.GetQueueAttributesRequest, callback?: (err: SQS.InvalidAttributeName|any, data: SQS.GetQueueAttributesResult|any) => void): Request;
+      getQueueUrl(params: SQS.GetQueueUrlRequest, callback?: (err: SQS.QueueDoesNotExist|any, data: SQS.GetQueueUrlResult|any) => void): Request;
+      listDeadLetterSourceQueues(params: SQS.ListDeadLetterSourceQueuesRequest, callback?: (err: SQS.QueueDoesNotExist|any, data: SQS.ListDeadLetterSourceQueuesResult|any) => void): Request;
+      listQueues(params: SQS.ListQueuesRequest, callback?: (err: any, data: SQS.ListQueuesResult|any) => void): Request;
+      purgeQueue(params: SQS.PurgeQueueRequest, callback?: (err: SQS.QueueDoesNotExist|SQS.PurgeQueueInProgress|any, data: any) => void): Request;
+      receiveMessage(params: SQS.ReceiveMessageRequest, callback?: (err: SQS.OverLimit|any, data: SQS.ReceiveMessageResult|any) => void): Request;
+      removePermission(params: SQS.RemovePermissionRequest, callback?: (err: any, data: any) => void): Request;
+      sendMessage(params: SQS.SendMessageRequest, callback?: (err: SQS.InvalidMessageContents|SQS.UnsupportedOperation|any, data: SQS.SendMessageResult|any) => void): Request;
+      sendMessageBatch(params: SQS.SendMessageBatchRequest, callback?: (err: SQS.TooManyEntriesInBatchRequest|SQS.EmptyBatchRequest|SQS.BatchEntryIdsNotDistinct|SQS.BatchRequestTooLong|SQS.InvalidBatchEntryId|SQS.UnsupportedOperation|any, data: SQS.SendMessageBatchResult|any) => void): Request;
+      setQueueAttributes(params: SQS.SetQueueAttributesRequest, callback?: (err: SQS.InvalidAttributeName|any, data: any) => void): Request;
     }
+    
+    export module SQS {
+        export type AWSAccountIdList = String[];
+        export type ActionNameList = String[];
+        export type AttributeMap = {[key:string]: String};
+        export type AttributeNameList = QueueAttributeName[];
+        export type BatchResultErrorEntryList = BatchResultErrorEntry[];
+        export type Binary = any;    // type: blob
+        export type BinaryList = Binary[];
+        export type Boolean = boolean;
+        export type ChangeMessageVisibilityBatchRequestEntryList = ChangeMessageVisibilityBatchRequestEntry[];
+        export type ChangeMessageVisibilityBatchResultEntryList = ChangeMessageVisibilityBatchResultEntry[];
+        export type DeleteMessageBatchRequestEntryList = DeleteMessageBatchRequestEntry[];
+        export type DeleteMessageBatchResultEntryList = DeleteMessageBatchResultEntry[];
+        export type Integer = number;
+        export type MessageAttributeMap = {[key:string]: MessageAttributeValue};
+        export type MessageAttributeName = string;
+        export type MessageAttributeNameList = MessageAttributeName[];
+        export type MessageList = Message[];
+        export type QueueAttributeName = string;
+        export type QueueUrlList = String[];
+        export type SendMessageBatchRequestEntryList = SendMessageBatchRequestEntry[];
+        export type SendMessageBatchResultEntryList = SendMessageBatchResultEntry[];
+        export type String = string;
+        export type StringList = String[];
 
-    export type SQSAWSAccountIdList = Array<SQSString>;
-    export type SQSActionNameList = Array<SQSString>;
-    export interface SQSAddPermissionRequest {
-        QueueUrl: SQSString;
-        Label: SQSString;
-        AWSAccountIds: SQSAWSAccountIdList;
-        Actions: SQSActionNameList;
+        export interface AddPermissionRequest {
+            QueueUrl: String;            
+            Label: String;            
+            AWSAccountIds: AWSAccountIdList;            
+            Actions: ActionNameList;            
+        }
+        export interface BatchEntryIdsNotDistinct {
+        }
+        export interface BatchRequestTooLong {
+        }
+        export interface BatchResultErrorEntry {
+            Id: String;            
+            SenderFault: Boolean;            
+            Code: String;            
+            Message?: String;            
+        }
+        export interface ChangeMessageVisibilityBatchRequest {
+            QueueUrl: String;            
+            Entries: ChangeMessageVisibilityBatchRequestEntryList;            
+        }
+        export interface ChangeMessageVisibilityBatchRequestEntry {
+            Id: String;            
+            ReceiptHandle: String;            
+            VisibilityTimeout?: Integer;            
+        }
+        export interface ChangeMessageVisibilityBatchResult {
+            Successful: ChangeMessageVisibilityBatchResultEntryList;            
+            Failed: BatchResultErrorEntryList;            
+        }
+        export interface ChangeMessageVisibilityBatchResultEntry {
+            Id: String;            
+        }
+        export interface ChangeMessageVisibilityRequest {
+            QueueUrl: String;            
+            ReceiptHandle: String;            
+            VisibilityTimeout: Integer;            
+        }
+        export interface CreateQueueRequest {
+            QueueName: String;            
+            Attributes?: AttributeMap;            
+        }
+        export interface CreateQueueResult {
+            QueueUrl?: String;            
+        }
+        export interface DeleteMessageBatchRequest {
+            QueueUrl: String;            
+            Entries: DeleteMessageBatchRequestEntryList;            
+        }
+        export interface DeleteMessageBatchRequestEntry {
+            Id: String;            
+            ReceiptHandle: String;            
+        }
+        export interface DeleteMessageBatchResult {
+            Successful: DeleteMessageBatchResultEntryList;            
+            Failed: BatchResultErrorEntryList;            
+        }
+        export interface DeleteMessageBatchResultEntry {
+            Id: String;            
+        }
+        export interface DeleteMessageRequest {
+            QueueUrl: String;            
+            ReceiptHandle: String;            
+        }
+        export interface DeleteQueueRequest {
+            QueueUrl: String;            
+        }
+        export interface EmptyBatchRequest {
+        }
+        export interface GetQueueAttributesRequest {
+            QueueUrl: String;            
+            AttributeNames?: AttributeNameList;            
+        }
+        export interface GetQueueAttributesResult {
+            Attributes?: AttributeMap;            
+        }
+        export interface GetQueueUrlRequest {
+            QueueName: String;            
+            QueueOwnerAWSAccountId?: String;            
+        }
+        export interface GetQueueUrlResult {
+            QueueUrl?: String;            
+        }
+        export interface InvalidAttributeName {
+        }
+        export interface InvalidBatchEntryId {
+        }
+        export interface InvalidIdFormat {
+        }
+        export interface InvalidMessageContents {
+        }
+        export interface ListDeadLetterSourceQueuesRequest {
+            QueueUrl: String;            
+        }
+        export interface ListDeadLetterSourceQueuesResult {
+            queueUrls: QueueUrlList;            
+        }
+        export interface ListQueuesRequest {
+            QueueNamePrefix?: String;            
+        }
+        export interface ListQueuesResult {
+            QueueUrls?: QueueUrlList;            
+        }
+        export interface Message {
+            MessageId?: String;            
+            ReceiptHandle?: String;            
+            MD5OfBody?: String;            
+            Body?: String;            
+            Attributes?: AttributeMap;            
+            MD5OfMessageAttributes?: String;            
+            MessageAttributes?: MessageAttributeMap;            
+        }
+        export interface MessageAttributeValue {
+            StringValue?: String;            
+            BinaryValue?: Binary;            
+            StringListValues?: StringList;            
+            BinaryListValues?: BinaryList;            
+            DataType: String;            
+        }
+        export interface MessageNotInflight {
+        }
+        export interface OverLimit {
+        }
+        export interface PurgeQueueInProgress {
+        }
+        export interface PurgeQueueRequest {
+            QueueUrl: String;            
+        }
+        export interface QueueDeletedRecently {
+        }
+        export interface QueueDoesNotExist {
+        }
+        export interface QueueNameExists {
+        }
+        export interface ReceiptHandleIsInvalid {
+        }
+        export interface ReceiveMessageRequest {
+            QueueUrl: String;            
+            AttributeNames?: AttributeNameList;            
+            MessageAttributeNames?: MessageAttributeNameList;            
+            MaxNumberOfMessages?: Integer;            
+            VisibilityTimeout?: Integer;            
+            WaitTimeSeconds?: Integer;            
+        }
+        export interface ReceiveMessageResult {
+            Messages?: MessageList;            
+        }
+        export interface RemovePermissionRequest {
+            QueueUrl: String;            
+            Label: String;            
+        }
+        export interface SendMessageBatchRequest {
+            QueueUrl: String;            
+            Entries: SendMessageBatchRequestEntryList;            
+        }
+        export interface SendMessageBatchRequestEntry {
+            Id: String;            
+            MessageBody: String;            
+            DelaySeconds?: Integer;            
+            MessageAttributes?: MessageAttributeMap;            
+        }
+        export interface SendMessageBatchResult {
+            Successful: SendMessageBatchResultEntryList;            
+            Failed: BatchResultErrorEntryList;            
+        }
+        export interface SendMessageBatchResultEntry {
+            Id: String;            
+            MessageId: String;            
+            MD5OfMessageBody: String;            
+            MD5OfMessageAttributes?: String;            
+        }
+        export interface SendMessageRequest {
+            QueueUrl: String;            
+            MessageBody: String;            
+            DelaySeconds?: Integer;            
+            MessageAttributes?: MessageAttributeMap;            
+        }
+        export interface SendMessageResult {
+            MD5OfMessageBody?: String;            
+            MD5OfMessageAttributes?: String;            
+            MessageId?: String;            
+        }
+        export interface SetQueueAttributesRequest {
+            QueueUrl: String;            
+            Attributes: AttributeMap;            
+        }
+        export interface TooManyEntriesInBatchRequest {
+        }
+        export interface UnsupportedOperation {
+        }
+
     }
-
-    export type SQSAttributeMap = any; // not really - it was 'map' instead - must fix this one
-    export type SQSAttributeNameList = Array<SQSQueueAttributeName>;
-    export interface SQSBatchEntryIdsNotDistinct {
-    }
-
-    export interface SQSBatchRequestTooLong {
-    }
-
-    export interface SQSBatchResultErrorEntry {
-        Id: SQSString;
-        SenderFault: SQSBoolean;
-        Code: SQSString;
-        Message?: SQSString;
-    }
-
-    export type SQSBatchResultErrorEntryList = Array<SQSBatchResultErrorEntry>;
-    export type SQSBinary = any; // not really - it was 'blob' instead - must fix this one
-    export type SQSBinaryList = Array<SQSBinary>;
-    export type SQSBoolean = boolean;
-    export interface SQSChangeMessageVisibilityBatchRequest {
-        QueueUrl: SQSString;
-        Entries: SQSChangeMessageVisibilityBatchRequestEntryList;
-    }
-
-    export interface SQSChangeMessageVisibilityBatchRequestEntry {
-        Id: SQSString;
-        ReceiptHandle: SQSString;
-        VisibilityTimeout?: SQSInteger;
-    }
-
-    export type SQSChangeMessageVisibilityBatchRequestEntryList = Array<SQSChangeMessageVisibilityBatchRequestEntry>;
-    export interface SQSChangeMessageVisibilityBatchResult {
-        Successful: SQSChangeMessageVisibilityBatchResultEntryList;
-        Failed: SQSBatchResultErrorEntryList;
-    }
-
-    export interface SQSChangeMessageVisibilityBatchResultEntry {
-        Id: SQSString;
-    }
-
-    export type SQSChangeMessageVisibilityBatchResultEntryList = Array<SQSChangeMessageVisibilityBatchResultEntry>;
-    export interface SQSChangeMessageVisibilityRequest {
-        QueueUrl: SQSString;
-        ReceiptHandle: SQSString;
-        VisibilityTimeout: SQSInteger;
-    }
-
-    export interface SQSCreateQueueRequest {
-        QueueName: SQSString;
-        Attributes?: SQSAttributeMap;
-    }
-
-    export interface SQSCreateQueueResult {
-        QueueUrl?: SQSString;
-    }
-
-    export interface SQSDeleteMessageBatchRequest {
-        QueueUrl: SQSString;
-        Entries: SQSDeleteMessageBatchRequestEntryList;
-    }
-
-    export interface SQSDeleteMessageBatchRequestEntry {
-        Id: SQSString;
-        ReceiptHandle: SQSString;
-    }
-
-    export type SQSDeleteMessageBatchRequestEntryList = Array<SQSDeleteMessageBatchRequestEntry>;
-    export interface SQSDeleteMessageBatchResult {
-        Successful: SQSDeleteMessageBatchResultEntryList;
-        Failed: SQSBatchResultErrorEntryList;
-    }
-
-    export interface SQSDeleteMessageBatchResultEntry {
-        Id: SQSString;
-    }
-
-    export type SQSDeleteMessageBatchResultEntryList = Array<SQSDeleteMessageBatchResultEntry>;
-    export interface SQSDeleteMessageRequest {
-        QueueUrl: SQSString;
-        ReceiptHandle: SQSString;
-    }
-
-    export interface SQSDeleteQueueRequest {
-        QueueUrl: SQSString;
-    }
-
-    export interface SQSEmptyBatchRequest {
-    }
-
-    export interface SQSGetQueueAttributesRequest {
-        QueueUrl: SQSString;
-        AttributeNames?: SQSAttributeNameList;
-    }
-
-    export interface SQSGetQueueAttributesResult {
-        Attributes?: SQSAttributeMap;
-    }
-
-    export interface SQSGetQueueUrlRequest {
-        QueueName: SQSString;
-        QueueOwnerAWSAccountId?: SQSString;
-    }
-
-    export interface SQSGetQueueUrlResult {
-        QueueUrl?: SQSString;
-    }
-
-    export type SQSInteger = number;
-    export interface SQSInvalidAttributeName {
-    }
-
-    export interface SQSInvalidBatchEntryId {
-    }
-
-    export interface SQSInvalidIdFormat {
-    }
-
-    export interface SQSInvalidMessageContents {
-    }
-
-    export interface SQSListDeadLetterSourceQueuesRequest {
-        QueueUrl: SQSString;
-    }
-
-    export interface SQSListDeadLetterSourceQueuesResult {
-        queueUrls: SQSQueueUrlList;
-    }
-
-    export interface SQSListQueuesRequest {
-        QueueNamePrefix?: SQSString;
-    }
-
-    export interface SQSListQueuesResult {
-        QueueUrls?: SQSQueueUrlList;
-    }
-
-    export interface SQSMessage {
-        MessageId?: SQSString;
-        ReceiptHandle?: SQSString;
-        MD5OfBody?: SQSString;
-        Body?: SQSString;
-        Attributes?: SQSAttributeMap;
-        MD5OfMessageAttributes?: SQSString;
-        MessageAttributes?: SQSMessageAttributeMap;
-    }
-
-    export type SQSMessageAttributeMap = any; // not really - it was 'map' instead - must fix this one
-    export type SQSMessageAttributeName = string;
-    export type SQSMessageAttributeNameList = Array<SQSMessageAttributeName>;
-    export interface SQSMessageAttributeValue {
-        StringValue?: SQSString;
-        BinaryValue?: SQSBinary;
-        StringListValues?: SQSStringList;
-        BinaryListValues?: SQSBinaryList;
-        DataType: SQSString;
-    }
-
-    export type SQSMessageList = Array<SQSMessage>;
-    export interface SQSMessageNotInflight {
-    }
-
-    export interface SQSOverLimit {
-    }
-
-    export interface SQSPurgeQueueInProgress {
-    }
-
-    export interface SQSPurgeQueueRequest {
-        QueueUrl: SQSString;
-    }
-
-    export type SQSQueueAttributeName = string;
-    export interface SQSQueueDeletedRecently {
-    }
-
-    export interface SQSQueueDoesNotExist {
-    }
-
-    export interface SQSQueueNameExists {
-    }
-
-    export type SQSQueueUrlList = Array<SQSString>;
-    export interface SQSReceiptHandleIsInvalid {
-    }
-
-    export interface SQSReceiveMessageRequest {
-        QueueUrl: SQSString;
-        AttributeNames?: SQSAttributeNameList;
-        MessageAttributeNames?: SQSMessageAttributeNameList;
-        MaxNumberOfMessages?: SQSInteger;
-        VisibilityTimeout?: SQSInteger;
-        WaitTimeSeconds?: SQSInteger;
-    }
-
-    export interface SQSReceiveMessageResult {
-        Messages?: SQSMessageList;
-    }
-
-    export interface SQSRemovePermissionRequest {
-        QueueUrl: SQSString;
-        Label: SQSString;
-    }
-
-    export interface SQSSendMessageBatchRequest {
-        QueueUrl: SQSString;
-        Entries: SQSSendMessageBatchRequestEntryList;
-    }
-
-    export interface SQSSendMessageBatchRequestEntry {
-        Id: SQSString;
-        MessageBody: SQSString;
-        DelaySeconds?: SQSInteger;
-        MessageAttributes?: SQSMessageAttributeMap;
-    }
-
-    export type SQSSendMessageBatchRequestEntryList = Array<SQSSendMessageBatchRequestEntry>;
-    export interface SQSSendMessageBatchResult {
-        Successful: SQSSendMessageBatchResultEntryList;
-        Failed: SQSBatchResultErrorEntryList;
-    }
-
-    export interface SQSSendMessageBatchResultEntry {
-        Id: SQSString;
-        MessageId: SQSString;
-        MD5OfMessageBody: SQSString;
-        MD5OfMessageAttributes?: SQSString;
-    }
-
-    export type SQSSendMessageBatchResultEntryList = Array<SQSSendMessageBatchResultEntry>;
-    export interface SQSSendMessageRequest {
-        QueueUrl: SQSString;
-        MessageBody: SQSString;
-        DelaySeconds?: SQSInteger;
-        MessageAttributes?: SQSMessageAttributeMap;
-    }
-
-    export interface SQSSendMessageResult {
-        MD5OfMessageBody?: SQSString;
-        MD5OfMessageAttributes?: SQSString;
-        MessageId?: SQSString;
-    }
-
-    export interface SQSSetQueueAttributesRequest {
-        QueueUrl: SQSString;
-        Attributes: SQSAttributeMap;
-    }
-
-    export type SQSString = string;
-    export type SQSStringList = Array<SQSString>;
-    export interface SQSTooManyEntriesInBatchRequest {
-    }
-
-    export interface SQSUnsupportedOperation {
-    }
-
 }

@@ -6,1506 +6,1285 @@ declare module "aws-sdk" {
 
     export class IAM extends Service {
       constructor(options?: any);
-      addClientIDToOpenIDConnectProvider(params: IAMAddClientIDToOpenIDConnectProviderRequest, callback?: (err: IAMInvalidInputException|IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      addRoleToInstanceProfile(params: IAMAddRoleToInstanceProfileRequest, callback?: (err: IAMNoSuchEntityException|IAMEntityAlreadyExistsException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      addUserToGroup(params: IAMAddUserToGroupRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      attachGroupPolicy(params: IAMAttachGroupPolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMInvalidInputException|IAMServiceFailureException|any, data: any) => void): Request;
-      attachRolePolicy(params: IAMAttachRolePolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMInvalidInputException|IAMServiceFailureException|any, data: any) => void): Request;
-      attachUserPolicy(params: IAMAttachUserPolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMInvalidInputException|IAMServiceFailureException|any, data: any) => void): Request;
-      changePassword(params: IAMChangePasswordRequest, callback?: (err: IAMNoSuchEntityException|IAMInvalidUserTypeException|IAMLimitExceededException|IAMEntityTemporarilyUnmodifiableException|IAMPasswordPolicyViolationException|IAMServiceFailureException|any, data: any) => void): Request;
-      createAccessKey(params: IAMCreateAccessKeyRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: IAMCreateAccessKeyResponse|any) => void): Request;
-      createAccountAlias(params: IAMCreateAccountAliasRequest, callback?: (err: IAMEntityAlreadyExistsException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      createGroup(params: IAMCreateGroupRequest, callback?: (err: IAMLimitExceededException|IAMEntityAlreadyExistsException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMCreateGroupResponse|any) => void): Request;
-      createInstanceProfile(params: IAMCreateInstanceProfileRequest, callback?: (err: IAMEntityAlreadyExistsException|IAMLimitExceededException|IAMServiceFailureException|any, data: IAMCreateInstanceProfileResponse|any) => void): Request;
-      createLoginProfile(params: IAMCreateLoginProfileRequest, callback?: (err: IAMEntityAlreadyExistsException|IAMNoSuchEntityException|IAMPasswordPolicyViolationException|IAMLimitExceededException|IAMServiceFailureException|any, data: IAMCreateLoginProfileResponse|any) => void): Request;
-      createOpenIDConnectProvider(params: IAMCreateOpenIDConnectProviderRequest, callback?: (err: IAMInvalidInputException|IAMEntityAlreadyExistsException|IAMLimitExceededException|IAMServiceFailureException|any, data: IAMCreateOpenIDConnectProviderResponse|any) => void): Request;
-      createPolicy(params: IAMCreatePolicyRequest, callback?: (err: IAMInvalidInputException|IAMLimitExceededException|IAMEntityAlreadyExistsException|IAMMalformedPolicyDocumentException|IAMServiceFailureException|any, data: IAMCreatePolicyResponse|any) => void): Request;
-      createPolicyVersion(params: IAMCreatePolicyVersionRequest, callback?: (err: IAMNoSuchEntityException|IAMMalformedPolicyDocumentException|IAMInvalidInputException|IAMLimitExceededException|IAMServiceFailureException|any, data: IAMCreatePolicyVersionResponse|any) => void): Request;
-      createRole(params: IAMCreateRoleRequest, callback?: (err: IAMLimitExceededException|IAMEntityAlreadyExistsException|IAMMalformedPolicyDocumentException|IAMServiceFailureException|any, data: IAMCreateRoleResponse|any) => void): Request;
-      createSAMLProvider(params: IAMCreateSAMLProviderRequest, callback?: (err: IAMInvalidInputException|IAMEntityAlreadyExistsException|IAMLimitExceededException|IAMServiceFailureException|any, data: IAMCreateSAMLProviderResponse|any) => void): Request;
-      createUser(params: IAMCreateUserRequest, callback?: (err: IAMLimitExceededException|IAMEntityAlreadyExistsException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMCreateUserResponse|any) => void): Request;
-      createVirtualMFADevice(params: IAMCreateVirtualMFADeviceRequest, callback?: (err: IAMLimitExceededException|IAMEntityAlreadyExistsException|IAMServiceFailureException|any, data: IAMCreateVirtualMFADeviceResponse|any) => void): Request;
-      deactivateMFADevice(params: IAMDeactivateMFADeviceRequest, callback?: (err: IAMEntityTemporarilyUnmodifiableException|IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteAccessKey(params: IAMDeleteAccessKeyRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteAccountAlias(params: IAMDeleteAccountAliasRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteAccountPasswordPolicy(callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteGroup(params: IAMDeleteGroupRequest, callback?: (err: IAMNoSuchEntityException|IAMDeleteConflictException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteGroupPolicy(params: IAMDeleteGroupPolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteInstanceProfile(params: IAMDeleteInstanceProfileRequest, callback?: (err: IAMNoSuchEntityException|IAMDeleteConflictException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteLoginProfile(params: IAMDeleteLoginProfileRequest, callback?: (err: IAMEntityTemporarilyUnmodifiableException|IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteOpenIDConnectProvider(params: IAMDeleteOpenIDConnectProviderRequest, callback?: (err: IAMInvalidInputException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: any) => void): Request;
-      deletePolicy(params: IAMDeletePolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMInvalidInputException|IAMDeleteConflictException|IAMServiceFailureException|any, data: any) => void): Request;
-      deletePolicyVersion(params: IAMDeletePolicyVersionRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMInvalidInputException|IAMDeleteConflictException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteRole(params: IAMDeleteRoleRequest, callback?: (err: IAMNoSuchEntityException|IAMDeleteConflictException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteRolePolicy(params: IAMDeleteRolePolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteSAMLProvider(params: IAMDeleteSAMLProviderRequest, callback?: (err: IAMInvalidInputException|IAMLimitExceededException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteSSHPublicKey(params: IAMDeleteSSHPublicKeyRequest, callback?: (err: IAMNoSuchEntityException|any, data: any) => void): Request;
-      deleteServerCertificate(params: IAMDeleteServerCertificateRequest, callback?: (err: IAMNoSuchEntityException|IAMDeleteConflictException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteSigningCertificate(params: IAMDeleteSigningCertificateRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteUser(params: IAMDeleteUserRequest, callback?: (err: IAMLimitExceededException|IAMNoSuchEntityException|IAMDeleteConflictException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteUserPolicy(params: IAMDeleteUserPolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      deleteVirtualMFADevice(params: IAMDeleteVirtualMFADeviceRequest, callback?: (err: IAMNoSuchEntityException|IAMDeleteConflictException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      detachGroupPolicy(params: IAMDetachGroupPolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMInvalidInputException|IAMServiceFailureException|any, data: any) => void): Request;
-      detachRolePolicy(params: IAMDetachRolePolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMInvalidInputException|IAMServiceFailureException|any, data: any) => void): Request;
-      detachUserPolicy(params: IAMDetachUserPolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMInvalidInputException|IAMServiceFailureException|any, data: any) => void): Request;
-      enableMFADevice(params: IAMEnableMFADeviceRequest, callback?: (err: IAMEntityAlreadyExistsException|IAMEntityTemporarilyUnmodifiableException|IAMInvalidAuthenticationCodeException|IAMLimitExceededException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: any) => void): Request;
-      generateCredentialReport(callback?: (err: IAMLimitExceededException|IAMServiceFailureException|any, data: IAMGenerateCredentialReportResponse|any) => void): Request;
-      getAccessKeyLastUsed(params: IAMGetAccessKeyLastUsedRequest, callback?: (err: IAMNoSuchEntityException|any, data: IAMGetAccessKeyLastUsedResponse|any) => void): Request;
-      getAccountAuthorizationDetails(params: IAMGetAccountAuthorizationDetailsRequest, callback?: (err: IAMServiceFailureException|any, data: IAMGetAccountAuthorizationDetailsResponse|any) => void): Request;
-      getAccountPasswordPolicy(callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetAccountPasswordPolicyResponse|any) => void): Request;
-      getAccountSummary(callback?: (err: IAMServiceFailureException|any, data: IAMGetAccountSummaryResponse|any) => void): Request;
-      getContextKeysForCustomPolicy(params: IAMGetContextKeysForCustomPolicyRequest, callback?: (err: IAMInvalidInputException|any, data: IAMGetContextKeysForPolicyResponse|any) => void): Request;
-      getContextKeysForPrincipalPolicy(params: IAMGetContextKeysForPrincipalPolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMInvalidInputException|any, data: IAMGetContextKeysForPolicyResponse|any) => void): Request;
-      getCredentialReport(callback?: (err: IAMCredentialReportNotPresentException|IAMCredentialReportExpiredException|IAMCredentialReportNotReadyException|IAMServiceFailureException|any, data: IAMGetCredentialReportResponse|any) => void): Request;
-      getGroup(params: IAMGetGroupRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetGroupResponse|any) => void): Request;
-      getGroupPolicy(params: IAMGetGroupPolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetGroupPolicyResponse|any) => void): Request;
-      getInstanceProfile(params: IAMGetInstanceProfileRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetInstanceProfileResponse|any) => void): Request;
-      getLoginProfile(params: IAMGetLoginProfileRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetLoginProfileResponse|any) => void): Request;
-      getOpenIDConnectProvider(params: IAMGetOpenIDConnectProviderRequest, callback?: (err: IAMInvalidInputException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetOpenIDConnectProviderResponse|any) => void): Request;
-      getPolicy(params: IAMGetPolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMServiceFailureException|any, data: IAMGetPolicyResponse|any) => void): Request;
-      getPolicyVersion(params: IAMGetPolicyVersionRequest, callback?: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMServiceFailureException|any, data: IAMGetPolicyVersionResponse|any) => void): Request;
-      getRole(params: IAMGetRoleRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetRoleResponse|any) => void): Request;
-      getRolePolicy(params: IAMGetRolePolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetRolePolicyResponse|any) => void): Request;
-      getSAMLProvider(params: IAMGetSAMLProviderRequest, callback?: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMServiceFailureException|any, data: IAMGetSAMLProviderResponse|any) => void): Request;
-      getSSHPublicKey(params: IAMGetSSHPublicKeyRequest, callback?: (err: IAMNoSuchEntityException|IAMUnrecognizedPublicKeyEncodingException|any, data: IAMGetSSHPublicKeyResponse|any) => void): Request;
-      getServerCertificate(params: IAMGetServerCertificateRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetServerCertificateResponse|any) => void): Request;
-      getUser(params: IAMGetUserRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetUserResponse|any) => void): Request;
-      getUserPolicy(params: IAMGetUserPolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMGetUserPolicyResponse|any) => void): Request;
-      listAccessKeys(params: IAMListAccessKeysRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMListAccessKeysResponse|any) => void): Request;
-      listAccountAliases(params: IAMListAccountAliasesRequest, callback?: (err: IAMServiceFailureException|any, data: IAMListAccountAliasesResponse|any) => void): Request;
-      listAttachedGroupPolicies(params: IAMListAttachedGroupPoliciesRequest, callback?: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMServiceFailureException|any, data: IAMListAttachedGroupPoliciesResponse|any) => void): Request;
-      listAttachedRolePolicies(params: IAMListAttachedRolePoliciesRequest, callback?: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMServiceFailureException|any, data: IAMListAttachedRolePoliciesResponse|any) => void): Request;
-      listAttachedUserPolicies(params: IAMListAttachedUserPoliciesRequest, callback?: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMServiceFailureException|any, data: IAMListAttachedUserPoliciesResponse|any) => void): Request;
-      listEntitiesForPolicy(params: IAMListEntitiesForPolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMServiceFailureException|any, data: IAMListEntitiesForPolicyResponse|any) => void): Request;
-      listGroupPolicies(params: IAMListGroupPoliciesRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMListGroupPoliciesResponse|any) => void): Request;
-      listGroups(params: IAMListGroupsRequest, callback?: (err: IAMServiceFailureException|any, data: IAMListGroupsResponse|any) => void): Request;
-      listGroupsForUser(params: IAMListGroupsForUserRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMListGroupsForUserResponse|any) => void): Request;
-      listInstanceProfiles(params: IAMListInstanceProfilesRequest, callback?: (err: IAMServiceFailureException|any, data: IAMListInstanceProfilesResponse|any) => void): Request;
-      listInstanceProfilesForRole(params: IAMListInstanceProfilesForRoleRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMListInstanceProfilesForRoleResponse|any) => void): Request;
-      listMFADevices(params: IAMListMFADevicesRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMListMFADevicesResponse|any) => void): Request;
-      listOpenIDConnectProviders(params: IAMListOpenIDConnectProvidersRequest, callback?: (err: IAMServiceFailureException|any, data: IAMListOpenIDConnectProvidersResponse|any) => void): Request;
-      listPolicies(params: IAMListPoliciesRequest, callback?: (err: IAMServiceFailureException|any, data: IAMListPoliciesResponse|any) => void): Request;
-      listPolicyVersions(params: IAMListPolicyVersionsRequest, callback?: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMServiceFailureException|any, data: IAMListPolicyVersionsResponse|any) => void): Request;
-      listRolePolicies(params: IAMListRolePoliciesRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMListRolePoliciesResponse|any) => void): Request;
-      listRoles(params: IAMListRolesRequest, callback?: (err: IAMServiceFailureException|any, data: IAMListRolesResponse|any) => void): Request;
-      listSAMLProviders(params: IAMListSAMLProvidersRequest, callback?: (err: IAMServiceFailureException|any, data: IAMListSAMLProvidersResponse|any) => void): Request;
-      listSSHPublicKeys(params: IAMListSSHPublicKeysRequest, callback?: (err: IAMNoSuchEntityException|any, data: IAMListSSHPublicKeysResponse|any) => void): Request;
-      listServerCertificates(params: IAMListServerCertificatesRequest, callback?: (err: IAMServiceFailureException|any, data: IAMListServerCertificatesResponse|any) => void): Request;
-      listSigningCertificates(params: IAMListSigningCertificatesRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMListSigningCertificatesResponse|any) => void): Request;
-      listUserPolicies(params: IAMListUserPoliciesRequest, callback?: (err: IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMListUserPoliciesResponse|any) => void): Request;
-      listUsers(params: IAMListUsersRequest, callback?: (err: IAMServiceFailureException|any, data: IAMListUsersResponse|any) => void): Request;
-      listVirtualMFADevices(params: IAMListVirtualMFADevicesRequest, callback?: (err: any, data: IAMListVirtualMFADevicesResponse|any) => void): Request;
-      putGroupPolicy(params: IAMPutGroupPolicyRequest, callback?: (err: IAMLimitExceededException|IAMMalformedPolicyDocumentException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: any) => void): Request;
-      putRolePolicy(params: IAMPutRolePolicyRequest, callback?: (err: IAMLimitExceededException|IAMMalformedPolicyDocumentException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: any) => void): Request;
-      putUserPolicy(params: IAMPutUserPolicyRequest, callback?: (err: IAMLimitExceededException|IAMMalformedPolicyDocumentException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: any) => void): Request;
-      removeClientIDFromOpenIDConnectProvider(params: IAMRemoveClientIDFromOpenIDConnectProviderRequest, callback?: (err: IAMInvalidInputException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: any) => void): Request;
-      removeRoleFromInstanceProfile(params: IAMRemoveRoleFromInstanceProfileRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      removeUserFromGroup(params: IAMRemoveUserFromGroupRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      resyncMFADevice(params: IAMResyncMFADeviceRequest, callback?: (err: IAMInvalidAuthenticationCodeException|IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      setDefaultPolicyVersion(params: IAMSetDefaultPolicyVersionRequest, callback?: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      simulateCustomPolicy(params: IAMSimulateCustomPolicyRequest, callback?: (err: IAMInvalidInputException|IAMPolicyEvaluationException|any, data: IAMSimulatePolicyResponse|any) => void): Request;
-      simulatePrincipalPolicy(params: IAMSimulatePrincipalPolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMPolicyEvaluationException|any, data: IAMSimulatePolicyResponse|any) => void): Request;
-      updateAccessKey(params: IAMUpdateAccessKeyRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      updateAccountPasswordPolicy(params: IAMUpdateAccountPasswordPolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMMalformedPolicyDocumentException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      updateAssumeRolePolicy(params: IAMUpdateAssumeRolePolicyRequest, callback?: (err: IAMNoSuchEntityException|IAMMalformedPolicyDocumentException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      updateGroup(params: IAMUpdateGroupRequest, callback?: (err: IAMNoSuchEntityException|IAMEntityAlreadyExistsException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      updateLoginProfile(params: IAMUpdateLoginProfileRequest, callback?: (err: IAMEntityTemporarilyUnmodifiableException|IAMNoSuchEntityException|IAMPasswordPolicyViolationException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      updateOpenIDConnectProviderThumbprint(params: IAMUpdateOpenIDConnectProviderThumbprintRequest, callback?: (err: IAMInvalidInputException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: any) => void): Request;
-      updateSAMLProvider(params: IAMUpdateSAMLProviderRequest, callback?: (err: IAMNoSuchEntityException|IAMInvalidInputException|IAMLimitExceededException|IAMServiceFailureException|any, data: IAMUpdateSAMLProviderResponse|any) => void): Request;
-      updateSSHPublicKey(params: IAMUpdateSSHPublicKeyRequest, callback?: (err: IAMNoSuchEntityException|any, data: any) => void): Request;
-      updateServerCertificate(params: IAMUpdateServerCertificateRequest, callback?: (err: IAMNoSuchEntityException|IAMEntityAlreadyExistsException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      updateSigningCertificate(params: IAMUpdateSigningCertificateRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMServiceFailureException|any, data: any) => void): Request;
-      updateUser(params: IAMUpdateUserRequest, callback?: (err: IAMNoSuchEntityException|IAMLimitExceededException|IAMEntityAlreadyExistsException|IAMEntityTemporarilyUnmodifiableException|IAMServiceFailureException|any, data: any) => void): Request;
-      uploadSSHPublicKey(params: IAMUploadSSHPublicKeyRequest, callback?: (err: IAMLimitExceededException|IAMNoSuchEntityException|IAMInvalidPublicKeyException|IAMDuplicateSSHPublicKeyException|IAMUnrecognizedPublicKeyEncodingException|any, data: IAMUploadSSHPublicKeyResponse|any) => void): Request;
-      uploadServerCertificate(params: IAMUploadServerCertificateRequest, callback?: (err: IAMLimitExceededException|IAMEntityAlreadyExistsException|IAMMalformedCertificateException|IAMKeyPairMismatchException|IAMServiceFailureException|any, data: IAMUploadServerCertificateResponse|any) => void): Request;
-      uploadSigningCertificate(params: IAMUploadSigningCertificateRequest, callback?: (err: IAMLimitExceededException|IAMEntityAlreadyExistsException|IAMMalformedCertificateException|IAMInvalidCertificateException|IAMDuplicateCertificateException|IAMNoSuchEntityException|IAMServiceFailureException|any, data: IAMUploadSigningCertificateResponse|any) => void): Request;
-    }
-
-    export interface IAMAccessKey {
-        UserName: IAMuserNameType;
-        AccessKeyId: IAMaccessKeyIdType;
-        Status: IAMstatusType;
-        SecretAccessKey: IAMaccessKeySecretType;
-        CreateDate?: IAMdateType;
-    }
-
-    export interface IAMAccessKeyLastUsed {
-        LastUsedDate: IAMdateType;
-        ServiceName: IAMstringType;
-        Region: IAMstringType;
-    }
-
-    export interface IAMAccessKeyMetadata {
-        UserName?: IAMuserNameType;
-        AccessKeyId?: IAMaccessKeyIdType;
-        Status?: IAMstatusType;
-        CreateDate?: IAMdateType;
-    }
-
-    export type IAMActionNameListType = Array<IAMActionNameType>;
-    export type IAMActionNameType = string;
-    export interface IAMAddClientIDToOpenIDConnectProviderRequest {
-        OpenIDConnectProviderArn: IAMarnType;
-        ClientID: IAMclientIDType;
-    }
-
-    export interface IAMAddRoleToInstanceProfileRequest {
-        InstanceProfileName: IAMinstanceProfileNameType;
-        RoleName: IAMroleNameType;
-    }
-
-    export interface IAMAddUserToGroupRequest {
-        GroupName: IAMgroupNameType;
-        UserName: IAMexistingUserNameType;
-    }
-
-    export interface IAMAttachGroupPolicyRequest {
-        GroupName: IAMgroupNameType;
-        PolicyArn: IAMarnType;
-    }
-
-    export interface IAMAttachRolePolicyRequest {
-        RoleName: IAMroleNameType;
-        PolicyArn: IAMarnType;
-    }
-
-    export interface IAMAttachUserPolicyRequest {
-        UserName: IAMuserNameType;
-        PolicyArn: IAMarnType;
-    }
-
-    export interface IAMAttachedPolicy {
-        PolicyName?: IAMpolicyNameType;
-        PolicyArn?: IAMarnType;
-    }
-
-    export type IAMBootstrapDatum = any; // not really - it was 'blob' instead - must fix this one
-    export interface IAMChangePasswordRequest {
-        OldPassword: IAMpasswordType;
-        NewPassword: IAMpasswordType;
-    }
-
-    export type IAMColumnNumber = number;
-    export interface IAMContextEntry {
-        ContextKeyName?: IAMContextKeyNameType;
-        ContextKeyValues?: IAMContextKeyValueListType;
-        ContextKeyType?: IAMContextKeyTypeEnum;
-    }
-
-    export type IAMContextEntryListType = Array<IAMContextEntry>;
-    export type IAMContextKeyNameType = string;
-    export type IAMContextKeyNamesResultListType = Array<IAMContextKeyNameType>;
-    export type IAMContextKeyTypeEnum = string;
-    export type IAMContextKeyValueListType = Array<IAMContextKeyValueType>;
-    export type IAMContextKeyValueType = string;
-    export interface IAMCreateAccessKeyRequest {
-        UserName?: IAMexistingUserNameType;
-    }
-
-    export interface IAMCreateAccessKeyResponse {
-        AccessKey: IAMAccessKey;
-    }
-
-    export interface IAMCreateAccountAliasRequest {
-        AccountAlias: IAMaccountAliasType;
-    }
-
-    export interface IAMCreateGroupRequest {
-        Path?: IAMpathType;
-        GroupName: IAMgroupNameType;
-    }
-
-    export interface IAMCreateGroupResponse {
-        Group: IAMGroup;
-    }
-
-    export interface IAMCreateInstanceProfileRequest {
-        InstanceProfileName: IAMinstanceProfileNameType;
-        Path?: IAMpathType;
-    }
-
-    export interface IAMCreateInstanceProfileResponse {
-        InstanceProfile: IAMInstanceProfile;
-    }
-
-    export interface IAMCreateLoginProfileRequest {
-        UserName: IAMuserNameType;
-        Password: IAMpasswordType;
-        PasswordResetRequired?: IAMbooleanType;
-    }
-
-    export interface IAMCreateLoginProfileResponse {
-        LoginProfile: IAMLoginProfile;
-    }
-
-    export interface IAMCreateOpenIDConnectProviderRequest {
-        Url: IAMOpenIDConnectProviderUrlType;
-        ClientIDList?: IAMclientIDListType;
-        ThumbprintList: IAMthumbprintListType;
-    }
-
-    export interface IAMCreateOpenIDConnectProviderResponse {
-        OpenIDConnectProviderArn?: IAMarnType;
-    }
-
-    export interface IAMCreatePolicyRequest {
-        PolicyName: IAMpolicyNameType;
-        Path?: IAMpolicyPathType;
-        PolicyDocument: IAMpolicyDocumentType;
-        Description?: IAMpolicyDescriptionType;
-    }
-
-    export interface IAMCreatePolicyResponse {
-        Policy?: IAMPolicy;
-    }
-
-    export interface IAMCreatePolicyVersionRequest {
-        PolicyArn: IAMarnType;
-        PolicyDocument: IAMpolicyDocumentType;
-        SetAsDefault?: IAMbooleanType;
-    }
-
-    export interface IAMCreatePolicyVersionResponse {
-        PolicyVersion?: IAMPolicyVersion;
-    }
-
-    export interface IAMCreateRoleRequest {
-        Path?: IAMpathType;
-        RoleName: IAMroleNameType;
-        AssumeRolePolicyDocument: IAMpolicyDocumentType;
-    }
-
-    export interface IAMCreateRoleResponse {
-        Role: IAMRole;
-    }
-
-    export interface IAMCreateSAMLProviderRequest {
-        SAMLMetadataDocument: IAMSAMLMetadataDocumentType;
-        Name: IAMSAMLProviderNameType;
-    }
-
-    export interface IAMCreateSAMLProviderResponse {
-        SAMLProviderArn?: IAMarnType;
-    }
-
-    export interface IAMCreateUserRequest {
-        Path?: IAMpathType;
-        UserName: IAMuserNameType;
-    }
-
-    export interface IAMCreateUserResponse {
-        User?: IAMUser;
-    }
-
-    export interface IAMCreateVirtualMFADeviceRequest {
-        Path?: IAMpathType;
-        VirtualMFADeviceName: IAMvirtualMFADeviceName;
-    }
-
-    export interface IAMCreateVirtualMFADeviceResponse {
-        VirtualMFADevice: IAMVirtualMFADevice;
-    }
-
-    export interface IAMCredentialReportExpiredException {
-        message?: IAMcredentialReportExpiredExceptionMessage;
-    }
-
-    export interface IAMCredentialReportNotPresentException {
-        message?: IAMcredentialReportNotPresentExceptionMessage;
-    }
-
-    export interface IAMCredentialReportNotReadyException {
-        message?: IAMcredentialReportNotReadyExceptionMessage;
-    }
-
-    export interface IAMDeactivateMFADeviceRequest {
-        UserName: IAMexistingUserNameType;
-        SerialNumber: IAMserialNumberType;
-    }
-
-    export interface IAMDeleteAccessKeyRequest {
-        UserName?: IAMexistingUserNameType;
-        AccessKeyId: IAMaccessKeyIdType;
-    }
-
-    export interface IAMDeleteAccountAliasRequest {
-        AccountAlias: IAMaccountAliasType;
-    }
-
-    export interface IAMDeleteConflictException {
-        message?: IAMdeleteConflictMessage;
-    }
-
-    export interface IAMDeleteGroupPolicyRequest {
-        GroupName: IAMgroupNameType;
-        PolicyName: IAMpolicyNameType;
-    }
-
-    export interface IAMDeleteGroupRequest {
-        GroupName: IAMgroupNameType;
-    }
-
-    export interface IAMDeleteInstanceProfileRequest {
-        InstanceProfileName: IAMinstanceProfileNameType;
-    }
-
-    export interface IAMDeleteLoginProfileRequest {
-        UserName: IAMuserNameType;
-    }
-
-    export interface IAMDeleteOpenIDConnectProviderRequest {
-        OpenIDConnectProviderArn: IAMarnType;
-    }
-
-    export interface IAMDeletePolicyRequest {
-        PolicyArn: IAMarnType;
-    }
-
-    export interface IAMDeletePolicyVersionRequest {
-        PolicyArn: IAMarnType;
-        VersionId: IAMpolicyVersionIdType;
-    }
-
-    export interface IAMDeleteRolePolicyRequest {
-        RoleName: IAMroleNameType;
-        PolicyName: IAMpolicyNameType;
-    }
-
-    export interface IAMDeleteRoleRequest {
-        RoleName: IAMroleNameType;
-    }
-
-    export interface IAMDeleteSAMLProviderRequest {
-        SAMLProviderArn: IAMarnType;
-    }
-
-    export interface IAMDeleteSSHPublicKeyRequest {
-        UserName: IAMuserNameType;
-        SSHPublicKeyId: IAMpublicKeyIdType;
-    }
-
-    export interface IAMDeleteServerCertificateRequest {
-        ServerCertificateName: IAMserverCertificateNameType;
-    }
-
-    export interface IAMDeleteSigningCertificateRequest {
-        UserName?: IAMexistingUserNameType;
-        CertificateId: IAMcertificateIdType;
-    }
-
-    export interface IAMDeleteUserPolicyRequest {
-        UserName: IAMexistingUserNameType;
-        PolicyName: IAMpolicyNameType;
-    }
-
-    export interface IAMDeleteUserRequest {
-        UserName: IAMexistingUserNameType;
-    }
-
-    export interface IAMDeleteVirtualMFADeviceRequest {
-        SerialNumber: IAMserialNumberType;
-    }
-
-    export interface IAMDetachGroupPolicyRequest {
-        GroupName: IAMgroupNameType;
-        PolicyArn: IAMarnType;
-    }
-
-    export interface IAMDetachRolePolicyRequest {
-        RoleName: IAMroleNameType;
-        PolicyArn: IAMarnType;
-    }
-
-    export interface IAMDetachUserPolicyRequest {
-        UserName: IAMuserNameType;
-        PolicyArn: IAMarnType;
-    }
-
-    export interface IAMDuplicateCertificateException {
-        message?: IAMduplicateCertificateMessage;
-    }
-
-    export interface IAMDuplicateSSHPublicKeyException {
-        message?: IAMduplicateSSHPublicKeyMessage;
-    }
-
-    export interface IAMEnableMFADeviceRequest {
-        UserName: IAMexistingUserNameType;
-        SerialNumber: IAMserialNumberType;
-        AuthenticationCode1: IAMauthenticationCodeType;
-        AuthenticationCode2: IAMauthenticationCodeType;
-    }
-
-    export interface IAMEntityAlreadyExistsException {
-        message?: IAMentityAlreadyExistsMessage;
-    }
-
-    export interface IAMEntityTemporarilyUnmodifiableException {
-        message?: IAMentityTemporarilyUnmodifiableMessage;
-    }
-
-    export type IAMEntityType = string;
-    export type IAMEvalDecisionDetailsType = any; // not really - it was 'map' instead - must fix this one
-    export type IAMEvalDecisionSourceType = string;
-    export interface IAMEvaluationResult {
-        EvalActionName: IAMActionNameType;
-        EvalResourceName?: IAMResourceNameType;
-        EvalDecision: IAMPolicyEvaluationDecisionType;
-        MatchedStatements?: IAMStatementListType;
-        MissingContextValues?: IAMContextKeyNamesResultListType;
-        EvalDecisionDetails?: IAMEvalDecisionDetailsType;
-        ResourceSpecificResults?: IAMResourceSpecificResultListType;
-    }
-
-    export type IAMEvaluationResultsListType = Array<IAMEvaluationResult>;
-    export interface IAMGenerateCredentialReportResponse {
-        State?: IAMReportStateType;
-        Description?: IAMReportStateDescriptionType;
-    }
-
-    export interface IAMGetAccessKeyLastUsedRequest {
-        AccessKeyId: IAMaccessKeyIdType;
-    }
-
-    export interface IAMGetAccessKeyLastUsedResponse {
-        UserName?: IAMexistingUserNameType;
-        AccessKeyLastUsed?: IAMAccessKeyLastUsed;
-    }
-
-    export interface IAMGetAccountAuthorizationDetailsRequest {
-        Filter?: IAMentityListType;
-        MaxItems?: IAMmaxItemsType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMGetAccountAuthorizationDetailsResponse {
-        UserDetailList?: IAMuserDetailListType;
-        GroupDetailList?: IAMgroupDetailListType;
-        RoleDetailList?: IAMroleDetailListType;
-        Policies?: IAMManagedPolicyDetailListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMGetAccountPasswordPolicyResponse {
-        PasswordPolicy: IAMPasswordPolicy;
-    }
-
-    export interface IAMGetAccountSummaryResponse {
-        SummaryMap?: IAMsummaryMapType;
-    }
-
-    export interface IAMGetContextKeysForCustomPolicyRequest {
-        PolicyInputList: IAMSimulationPolicyListType;
-    }
-
-    export interface IAMGetContextKeysForPolicyResponse {
-        ContextKeyNames?: IAMContextKeyNamesResultListType;
-    }
-
-    export interface IAMGetContextKeysForPrincipalPolicyRequest {
-        PolicySourceArn: IAMarnType;
-        PolicyInputList?: IAMSimulationPolicyListType;
-    }
-
-    export interface IAMGetCredentialReportResponse {
-        Content?: IAMReportContentType;
-        ReportFormat?: IAMReportFormatType;
-        GeneratedTime?: IAMdateType;
-    }
-
-    export interface IAMGetGroupPolicyRequest {
-        GroupName: IAMgroupNameType;
-        PolicyName: IAMpolicyNameType;
-    }
-
-    export interface IAMGetGroupPolicyResponse {
-        GroupName: IAMgroupNameType;
-        PolicyName: IAMpolicyNameType;
-        PolicyDocument: IAMpolicyDocumentType;
-    }
-
-    export interface IAMGetGroupRequest {
-        GroupName: IAMgroupNameType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMGetGroupResponse {
-        Group: IAMGroup;
-        Users: IAMuserListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMGetInstanceProfileRequest {
-        InstanceProfileName: IAMinstanceProfileNameType;
-    }
-
-    export interface IAMGetInstanceProfileResponse {
-        InstanceProfile: IAMInstanceProfile;
-    }
-
-    export interface IAMGetLoginProfileRequest {
-        UserName: IAMuserNameType;
-    }
-
-    export interface IAMGetLoginProfileResponse {
-        LoginProfile: IAMLoginProfile;
-    }
-
-    export interface IAMGetOpenIDConnectProviderRequest {
-        OpenIDConnectProviderArn: IAMarnType;
-    }
-
-    export interface IAMGetOpenIDConnectProviderResponse {
-        Url?: IAMOpenIDConnectProviderUrlType;
-        ClientIDList?: IAMclientIDListType;
-        ThumbprintList?: IAMthumbprintListType;
-        CreateDate?: IAMdateType;
-    }
-
-    export interface IAMGetPolicyRequest {
-        PolicyArn: IAMarnType;
-    }
-
-    export interface IAMGetPolicyResponse {
-        Policy?: IAMPolicy;
-    }
-
-    export interface IAMGetPolicyVersionRequest {
-        PolicyArn: IAMarnType;
-        VersionId: IAMpolicyVersionIdType;
-    }
-
-    export interface IAMGetPolicyVersionResponse {
-        PolicyVersion?: IAMPolicyVersion;
-    }
-
-    export interface IAMGetRolePolicyRequest {
-        RoleName: IAMroleNameType;
-        PolicyName: IAMpolicyNameType;
-    }
-
-    export interface IAMGetRolePolicyResponse {
-        RoleName: IAMroleNameType;
-        PolicyName: IAMpolicyNameType;
-        PolicyDocument: IAMpolicyDocumentType;
-    }
-
-    export interface IAMGetRoleRequest {
-        RoleName: IAMroleNameType;
-    }
-
-    export interface IAMGetRoleResponse {
-        Role: IAMRole;
-    }
-
-    export interface IAMGetSAMLProviderRequest {
-        SAMLProviderArn: IAMarnType;
-    }
-
-    export interface IAMGetSAMLProviderResponse {
-        SAMLMetadataDocument?: IAMSAMLMetadataDocumentType;
-        CreateDate?: IAMdateType;
-        ValidUntil?: IAMdateType;
-    }
-
-    export interface IAMGetSSHPublicKeyRequest {
-        UserName: IAMuserNameType;
-        SSHPublicKeyId: IAMpublicKeyIdType;
-        Encoding: IAMencodingType;
-    }
-
-    export interface IAMGetSSHPublicKeyResponse {
-        SSHPublicKey?: IAMSSHPublicKey;
-    }
-
-    export interface IAMGetServerCertificateRequest {
-        ServerCertificateName: IAMserverCertificateNameType;
-    }
-
-    export interface IAMGetServerCertificateResponse {
-        ServerCertificate: IAMServerCertificate;
-    }
-
-    export interface IAMGetUserPolicyRequest {
-        UserName: IAMexistingUserNameType;
-        PolicyName: IAMpolicyNameType;
-    }
-
-    export interface IAMGetUserPolicyResponse {
-        UserName: IAMexistingUserNameType;
-        PolicyName: IAMpolicyNameType;
-        PolicyDocument: IAMpolicyDocumentType;
-    }
-
-    export interface IAMGetUserRequest {
-        UserName?: IAMexistingUserNameType;
-    }
-
-    export interface IAMGetUserResponse {
-        User: IAMUser;
-    }
-
-    export interface IAMGroup {
-        Path: IAMpathType;
-        GroupName: IAMgroupNameType;
-        GroupId: IAMidType;
-        Arn: IAMarnType;
-        CreateDate: IAMdateType;
-    }
-
-    export interface IAMGroupDetail {
-        Path?: IAMpathType;
-        GroupName?: IAMgroupNameType;
-        GroupId?: IAMidType;
-        Arn?: IAMarnType;
-        CreateDate?: IAMdateType;
-        GroupPolicyList?: IAMpolicyDetailListType;
-        AttachedManagedPolicies?: IAMattachedPoliciesListType;
-    }
-
-    export interface IAMInstanceProfile {
-        Path: IAMpathType;
-        InstanceProfileName: IAMinstanceProfileNameType;
-        InstanceProfileId: IAMidType;
-        Arn: IAMarnType;
-        CreateDate: IAMdateType;
-        Roles: IAMroleListType;
-    }
-
-    export interface IAMInvalidAuthenticationCodeException {
-        message?: IAMinvalidAuthenticationCodeMessage;
-    }
-
-    export interface IAMInvalidCertificateException {
-        message?: IAMinvalidCertificateMessage;
-    }
-
-    export interface IAMInvalidInputException {
-        message?: IAMinvalidInputMessage;
-    }
+      addClientIDToOpenIDConnectProvider(params: IAM.AddClientIDToOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      addRoleToInstanceProfile(params: IAM.AddRoleToInstanceProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      addUserToGroup(params: IAM.AddUserToGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      attachGroupPolicy(params: IAM.AttachGroupPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      attachRolePolicy(params: IAM.AttachRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      attachUserPolicy(params: IAM.AttachUserPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      changePassword(params: IAM.ChangePasswordRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidUserTypeException|IAM.LimitExceededException|IAM.EntityTemporarilyUnmodifiableException|IAM.PasswordPolicyViolationException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      createAccessKey(params: IAM.CreateAccessKeyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateAccessKeyResponse|any) => void): Request;
+      createAccountAlias(params: IAM.CreateAccountAliasRequest, callback?: (err: IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      createGroup(params: IAM.CreateGroupRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.CreateGroupResponse|any) => void): Request;
+      createInstanceProfile(params: IAM.CreateInstanceProfileRequest, callback?: (err: IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateInstanceProfileResponse|any) => void): Request;
+      createLoginProfile(params: IAM.CreateLoginProfileRequest, callback?: (err: IAM.EntityAlreadyExistsException|IAM.NoSuchEntityException|IAM.PasswordPolicyViolationException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateLoginProfileResponse|any) => void): Request;
+      createOpenIDConnectProvider(params: IAM.CreateOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateOpenIDConnectProviderResponse|any) => void): Request;
+      createPolicy(params: IAM.CreatePolicyRequest, callback?: (err: IAM.InvalidInputException|IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedPolicyDocumentException|IAM.ServiceFailureException|any, data: IAM.CreatePolicyResponse|any) => void): Request;
+      createPolicyVersion(params: IAM.CreatePolicyVersionRequest, callback?: (err: IAM.NoSuchEntityException|IAM.MalformedPolicyDocumentException|IAM.InvalidInputException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreatePolicyVersionResponse|any) => void): Request;
+      createRole(params: IAM.CreateRoleRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedPolicyDocumentException|IAM.ServiceFailureException|any, data: IAM.CreateRoleResponse|any) => void): Request;
+      createSAMLProvider(params: IAM.CreateSAMLProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateSAMLProviderResponse|any) => void): Request;
+      createUser(params: IAM.CreateUserRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.CreateUserResponse|any) => void): Request;
+      createVirtualMFADevice(params: IAM.CreateVirtualMFADeviceRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.ServiceFailureException|any, data: IAM.CreateVirtualMFADeviceResponse|any) => void): Request;
+      deactivateMFADevice(params: IAM.DeactivateMFADeviceRequest, callback?: (err: IAM.EntityTemporarilyUnmodifiableException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteAccessKey(params: IAM.DeleteAccessKeyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteAccountAlias(params: IAM.DeleteAccountAliasRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteAccountPasswordPolicy(callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteGroup(params: IAM.DeleteGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteGroupPolicy(params: IAM.DeleteGroupPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteInstanceProfile(params: IAM.DeleteInstanceProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteLoginProfile(params: IAM.DeleteLoginProfileRequest, callback?: (err: IAM.EntityTemporarilyUnmodifiableException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteOpenIDConnectProvider(params: IAM.DeleteOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deletePolicy(params: IAM.DeletePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.DeleteConflictException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deletePolicyVersion(params: IAM.DeletePolicyVersionRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.DeleteConflictException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteRole(params: IAM.DeleteRoleRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteRolePolicy(params: IAM.DeleteRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteSAMLProvider(params: IAM.DeleteSAMLProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteSSHPublicKey(params: IAM.DeleteSSHPublicKeyRequest, callback?: (err: IAM.NoSuchEntityException|any, data: any) => void): Request;
+      deleteServerCertificate(params: IAM.DeleteServerCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteSigningCertificate(params: IAM.DeleteSigningCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteUser(params: IAM.DeleteUserRequest, callback?: (err: IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteUserPolicy(params: IAM.DeleteUserPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      deleteVirtualMFADevice(params: IAM.DeleteVirtualMFADeviceRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      detachGroupPolicy(params: IAM.DetachGroupPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      detachRolePolicy(params: IAM.DetachRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      detachUserPolicy(params: IAM.DetachUserPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      enableMFADevice(params: IAM.EnableMFADeviceRequest, callback?: (err: IAM.EntityAlreadyExistsException|IAM.EntityTemporarilyUnmodifiableException|IAM.InvalidAuthenticationCodeException|IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      generateCredentialReport(callback?: (err: IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.GenerateCredentialReportResponse|any) => void): Request;
+      getAccessKeyLastUsed(params: IAM.GetAccessKeyLastUsedRequest, callback?: (err: IAM.NoSuchEntityException|any, data: IAM.GetAccessKeyLastUsedResponse|any) => void): Request;
+      getAccountAuthorizationDetails(params: IAM.GetAccountAuthorizationDetailsRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.GetAccountAuthorizationDetailsResponse|any) => void): Request;
+      getAccountPasswordPolicy(callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetAccountPasswordPolicyResponse|any) => void): Request;
+      getAccountSummary(callback?: (err: IAM.ServiceFailureException|any, data: IAM.GetAccountSummaryResponse|any) => void): Request;
+      getContextKeysForCustomPolicy(params: IAM.GetContextKeysForCustomPolicyRequest, callback?: (err: IAM.InvalidInputException|any, data: IAM.GetContextKeysForPolicyResponse|any) => void): Request;
+      getContextKeysForPrincipalPolicy(params: IAM.GetContextKeysForPrincipalPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|any, data: IAM.GetContextKeysForPolicyResponse|any) => void): Request;
+      getCredentialReport(callback?: (err: IAM.CredentialReportNotPresentException|IAM.CredentialReportExpiredException|IAM.CredentialReportNotReadyException|IAM.ServiceFailureException|any, data: IAM.GetCredentialReportResponse|any) => void): Request;
+      getGroup(params: IAM.GetGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetGroupResponse|any) => void): Request;
+      getGroupPolicy(params: IAM.GetGroupPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetGroupPolicyResponse|any) => void): Request;
+      getInstanceProfile(params: IAM.GetInstanceProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetInstanceProfileResponse|any) => void): Request;
+      getLoginProfile(params: IAM.GetLoginProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetLoginProfileResponse|any) => void): Request;
+      getOpenIDConnectProvider(params: IAM.GetOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetOpenIDConnectProviderResponse|any) => void): Request;
+      getPolicy(params: IAM.GetPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.GetPolicyResponse|any) => void): Request;
+      getPolicyVersion(params: IAM.GetPolicyVersionRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.GetPolicyVersionResponse|any) => void): Request;
+      getRole(params: IAM.GetRoleRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetRoleResponse|any) => void): Request;
+      getRolePolicy(params: IAM.GetRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetRolePolicyResponse|any) => void): Request;
+      getSAMLProvider(params: IAM.GetSAMLProviderRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.GetSAMLProviderResponse|any) => void): Request;
+      getSSHPublicKey(params: IAM.GetSSHPublicKeyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.UnrecognizedPublicKeyEncodingException|any, data: IAM.GetSSHPublicKeyResponse|any) => void): Request;
+      getServerCertificate(params: IAM.GetServerCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetServerCertificateResponse|any) => void): Request;
+      getUser(params: IAM.GetUserRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetUserResponse|any) => void): Request;
+      getUserPolicy(params: IAM.GetUserPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetUserPolicyResponse|any) => void): Request;
+      listAccessKeys(params: IAM.ListAccessKeysRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListAccessKeysResponse|any) => void): Request;
+      listAccountAliases(params: IAM.ListAccountAliasesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListAccountAliasesResponse|any) => void): Request;
+      listAttachedGroupPolicies(params: IAM.ListAttachedGroupPoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListAttachedGroupPoliciesResponse|any) => void): Request;
+      listAttachedRolePolicies(params: IAM.ListAttachedRolePoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListAttachedRolePoliciesResponse|any) => void): Request;
+      listAttachedUserPolicies(params: IAM.ListAttachedUserPoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListAttachedUserPoliciesResponse|any) => void): Request;
+      listEntitiesForPolicy(params: IAM.ListEntitiesForPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListEntitiesForPolicyResponse|any) => void): Request;
+      listGroupPolicies(params: IAM.ListGroupPoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListGroupPoliciesResponse|any) => void): Request;
+      listGroups(params: IAM.ListGroupsRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListGroupsResponse|any) => void): Request;
+      listGroupsForUser(params: IAM.ListGroupsForUserRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListGroupsForUserResponse|any) => void): Request;
+      listInstanceProfiles(params: IAM.ListInstanceProfilesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListInstanceProfilesResponse|any) => void): Request;
+      listInstanceProfilesForRole(params: IAM.ListInstanceProfilesForRoleRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListInstanceProfilesForRoleResponse|any) => void): Request;
+      listMFADevices(params: IAM.ListMFADevicesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListMFADevicesResponse|any) => void): Request;
+      listOpenIDConnectProviders(params: IAM.ListOpenIDConnectProvidersRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListOpenIDConnectProvidersResponse|any) => void): Request;
+      listPolicies(params: IAM.ListPoliciesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListPoliciesResponse|any) => void): Request;
+      listPolicyVersions(params: IAM.ListPolicyVersionsRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListPolicyVersionsResponse|any) => void): Request;
+      listRolePolicies(params: IAM.ListRolePoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListRolePoliciesResponse|any) => void): Request;
+      listRoles(params: IAM.ListRolesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListRolesResponse|any) => void): Request;
+      listSAMLProviders(params: IAM.ListSAMLProvidersRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListSAMLProvidersResponse|any) => void): Request;
+      listSSHPublicKeys(params: IAM.ListSSHPublicKeysRequest, callback?: (err: IAM.NoSuchEntityException|any, data: IAM.ListSSHPublicKeysResponse|any) => void): Request;
+      listServerCertificates(params: IAM.ListServerCertificatesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListServerCertificatesResponse|any) => void): Request;
+      listSigningCertificates(params: IAM.ListSigningCertificatesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListSigningCertificatesResponse|any) => void): Request;
+      listUserPolicies(params: IAM.ListUserPoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListUserPoliciesResponse|any) => void): Request;
+      listUsers(params: IAM.ListUsersRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListUsersResponse|any) => void): Request;
+      listVirtualMFADevices(params: IAM.ListVirtualMFADevicesRequest, callback?: (err: any, data: IAM.ListVirtualMFADevicesResponse|any) => void): Request;
+      putGroupPolicy(params: IAM.PutGroupPolicyRequest, callback?: (err: IAM.LimitExceededException|IAM.MalformedPolicyDocumentException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      putRolePolicy(params: IAM.PutRolePolicyRequest, callback?: (err: IAM.LimitExceededException|IAM.MalformedPolicyDocumentException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      putUserPolicy(params: IAM.PutUserPolicyRequest, callback?: (err: IAM.LimitExceededException|IAM.MalformedPolicyDocumentException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      removeClientIDFromOpenIDConnectProvider(params: IAM.RemoveClientIDFromOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      removeRoleFromInstanceProfile(params: IAM.RemoveRoleFromInstanceProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      removeUserFromGroup(params: IAM.RemoveUserFromGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      resyncMFADevice(params: IAM.ResyncMFADeviceRequest, callback?: (err: IAM.InvalidAuthenticationCodeException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      setDefaultPolicyVersion(params: IAM.SetDefaultPolicyVersionRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      simulateCustomPolicy(params: IAM.SimulateCustomPolicyRequest, callback?: (err: IAM.InvalidInputException|IAM.PolicyEvaluationException|any, data: IAM.SimulatePolicyResponse|any) => void): Request;
+      simulatePrincipalPolicy(params: IAM.SimulatePrincipalPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.PolicyEvaluationException|any, data: IAM.SimulatePolicyResponse|any) => void): Request;
+      updateAccessKey(params: IAM.UpdateAccessKeyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      updateAccountPasswordPolicy(params: IAM.UpdateAccountPasswordPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.MalformedPolicyDocumentException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      updateAssumeRolePolicy(params: IAM.UpdateAssumeRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.MalformedPolicyDocumentException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      updateGroup(params: IAM.UpdateGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      updateLoginProfile(params: IAM.UpdateLoginProfileRequest, callback?: (err: IAM.EntityTemporarilyUnmodifiableException|IAM.NoSuchEntityException|IAM.PasswordPolicyViolationException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      updateOpenIDConnectProviderThumbprint(params: IAM.UpdateOpenIDConnectProviderThumbprintRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      updateSAMLProvider(params: IAM.UpdateSAMLProviderRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.UpdateSAMLProviderResponse|any) => void): Request;
+      updateSSHPublicKey(params: IAM.UpdateSSHPublicKeyRequest, callback?: (err: IAM.NoSuchEntityException|any, data: any) => void): Request;
+      updateServerCertificate(params: IAM.UpdateServerCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      updateSigningCertificate(params: IAM.UpdateSigningCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      updateUser(params: IAM.UpdateUserRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.EntityTemporarilyUnmodifiableException|IAM.ServiceFailureException|any, data: any) => void): Request;
+      uploadSSHPublicKey(params: IAM.UploadSSHPublicKeyRequest, callback?: (err: IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.InvalidPublicKeyException|IAM.DuplicateSSHPublicKeyException|IAM.UnrecognizedPublicKeyEncodingException|any, data: IAM.UploadSSHPublicKeyResponse|any) => void): Request;
+      uploadServerCertificate(params: IAM.UploadServerCertificateRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedCertificateException|IAM.KeyPairMismatchException|IAM.ServiceFailureException|any, data: IAM.UploadServerCertificateResponse|any) => void): Request;
+      uploadSigningCertificate(params: IAM.UploadSigningCertificateRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedCertificateException|IAM.InvalidCertificateException|IAM.DuplicateCertificateException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.UploadSigningCertificateResponse|any) => void): Request;
+    }
+    
+    export module IAM {
+        export type ActionNameListType = ActionNameType[];
+        export type ActionNameType = string;    // max: 128, min: 3
+        export type BootstrapDatum = any;    // type: blob
+        export type ColumnNumber = number;
+        export type ContextEntryListType = ContextEntry[];
+        export type ContextKeyNameType = string;    // max: 256, min: 5
+        export type ContextKeyNamesResultListType = ContextKeyNameType[];
+        export type ContextKeyTypeEnum = string;
+        export type ContextKeyValueListType = ContextKeyValueType[];
+        export type ContextKeyValueType = string;
+        export type EntityType = string;
+        export type EvalDecisionDetailsType = {[key:string]: PolicyEvaluationDecisionType};
+        export type EvalDecisionSourceType = string;    // max: 256, min: 3
+        export type EvaluationResultsListType = EvaluationResult[];
+        export type LineNumber = number;
+        export type ManagedPolicyDetailListType = ManagedPolicyDetail[];
+        export type OpenIDConnectProviderListType = OpenIDConnectProviderListEntry[];
+        export type OpenIDConnectProviderUrlType = string;    // max: 255, min: 1
+        export type PolicyEvaluationDecisionType = string;
+        export type PolicyGroupListType = PolicyGroup[];
+        export type PolicyIdentifierType = string;
+        export type PolicyRoleListType = PolicyRole[];
+        export type PolicySourceType = string;
+        export type PolicyUserListType = PolicyUser[];
+        export type ReportContentType = any;    // type: blob
+        export type ReportFormatType = string;
+        export type ReportStateDescriptionType = string;
+        export type ReportStateType = string;
+        export type ResourceHandlingOptionType = string;    // max: 64, min: 1
+        export type ResourceNameListType = ResourceNameType[];
+        export type ResourceNameType = string;    // max: 2048, min: 1
+        export type ResourceSpecificResultListType = ResourceSpecificResult[];
+        export type SAMLMetadataDocumentType = string;    // max: 10000000, min: 1000
+        export type SAMLProviderListType = SAMLProviderListEntry[];
+        export type SAMLProviderNameType = string;    // pattern: &quot;[\w._-]+&quot;, max: 128, min: 1
+        export type SSHPublicKeyListType = SSHPublicKeyMetadata[];
+        export type SimulationPolicyListType = policyDocumentType[];
+        export type StatementListType = Statement[];
+        export type accessKeyIdType = string;    // pattern: &quot;[\w]+&quot;, max: 32, min: 16
+        export type accessKeyMetadataListType = AccessKeyMetadata[];
+        export type accessKeySecretType = string;
+        export type accountAliasListType = accountAliasType[];
+        export type accountAliasType = string;    // pattern: &quot;^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$&quot;, max: 63, min: 3
+        export type arnType = string;    // max: 2048, min: 20
+        export type assignmentStatusType = string;
+        export type attachedPoliciesListType = AttachedPolicy[];
+        export type attachmentCountType = number;
+        export type authenticationCodeType = string;    // pattern: &quot;[\d]+&quot;, max: 6, min: 6
+        export type booleanObjectType = boolean;
+        export type booleanType = boolean;
+        export type certificateBodyType = string;    // pattern: &quot;[\u0009\u000A\u000D\u0020-\u00FF]+&quot;, max: 16384, min: 1
+        export type certificateChainType = string;    // pattern: &quot;[\u0009\u000A\u000D\u0020-\u00FF]+&quot;, max: 2097152, min: 1
+        export type certificateIdType = string;    // pattern: &quot;[\w]+&quot;, max: 128, min: 24
+        export type certificateListType = SigningCertificate[];
+        export type clientIDListType = clientIDType[];
+        export type clientIDType = string;    // max: 255, min: 1
+        export type credentialReportExpiredExceptionMessage = string;
+        export type credentialReportNotPresentExceptionMessage = string;
+        export type credentialReportNotReadyExceptionMessage = string;
+        export type dateType = number;
+        export type deleteConflictMessage = string;
+        export type duplicateCertificateMessage = string;
+        export type duplicateSSHPublicKeyMessage = string;
+        export type encodingType = string;
+        export type entityAlreadyExistsMessage = string;
+        export type entityListType = EntityType[];
+        export type entityTemporarilyUnmodifiableMessage = string;
+        export type existingUserNameType = string;    // pattern: &quot;[\w+=,.@-]+&quot;, max: 128, min: 1
+        export type groupDetailListType = GroupDetail[];
+        export type groupListType = Group[];
+        export type groupNameListType = groupNameType[];
+        export type groupNameType = string;    // pattern: &quot;[\w+=,.@-]+&quot;, max: 128, min: 1
+        export type idType = string;    // pattern: &quot;[\w]+&quot;, max: 32, min: 16
+        export type instanceProfileListType = InstanceProfile[];
+        export type instanceProfileNameType = string;    // pattern: &quot;[\w+=,.@-]+&quot;, max: 128, min: 1
+        export type invalidAuthenticationCodeMessage = string;
+        export type invalidCertificateMessage = string;
+        export type invalidInputMessage = string;
+        export type invalidPublicKeyMessage = string;
+        export type invalidUserTypeMessage = string;
+        export type keyPairMismatchMessage = string;
+        export type limitExceededMessage = string;
+        export type malformedCertificateMessage = string;
+        export type malformedPolicyDocumentMessage = string;
+        export type markerType = string;    // pattern: &quot;[\u0020-\u00FF]+&quot;, max: 320, min: 1
+        export type maxItemsType = number;    // max: 1000, min: 1
+        export type maxPasswordAgeType = number;    // max: 1095, min: 1
+        export type mfaDeviceListType = MFADevice[];
+        export type minimumPasswordLengthType = number;    // max: 128, min: 6
+        export type noSuchEntityMessage = string;
+        export type passwordPolicyViolationMessage = string;
+        export type passwordReusePreventionType = number;    // max: 24, min: 1
+        export type passwordType = string;    // pattern: &quot;[\u0009\u000A\u000D\u0020-\u00FF]+&quot;, max: 128, min: 1
+        export type pathPrefixType = string;    // pattern: &quot;\u002F[\u0021-\u007F]*&quot;, max: 512, min: 1
+        export type pathType = string;    // pattern: &quot;(\u002F)|(\u002F[\u0021-\u007F]+\u002F)&quot;, max: 512, min: 1
+        export type policyDescriptionType = string;    // max: 1000
+        export type policyDetailListType = PolicyDetail[];
+        export type policyDocumentType = string;    // pattern: &quot;[\u0009\u000A\u000D\u0020-\u00FF]+&quot;, max: 131072, min: 1
+        export type policyDocumentVersionListType = PolicyVersion[];
+        export type policyEvaluationErrorMessage = string;
+        export type policyListType = Policy[];
+        export type policyNameListType = policyNameType[];
+        export type policyNameType = string;    // pattern: &quot;[\w+=,.@-]+&quot;, max: 128, min: 1
+        export type policyPathType = string;    // pattern: &quot;((/[A-Za-z0-9\.,\+@=_-]+)*)/&quot;
+        export type policyScopeType = string;
+        export type policyVersionIdType = string;    // pattern: &quot;v[1-9][0-9]*(\.[A-Za-z0-9-]*)?&quot;
+        export type privateKeyType = string;    // pattern: &quot;[\u0009\u000A\u000D\u0020-\u00FF]+&quot;, max: 16384, min: 1
+        export type publicKeyFingerprintType = string;    // pattern: &quot;[:\w]+&quot;, max: 48, min: 48
+        export type publicKeyIdType = string;    // pattern: &quot;[\w]+&quot;, max: 128, min: 20
+        export type publicKeyMaterialType = string;    // pattern: &quot;[\u0009\u000A\u000D\u0020-\u00FF]+&quot;, max: 16384, min: 1
+        export type roleDetailListType = RoleDetail[];
+        export type roleListType = Role[];
+        export type roleNameType = string;    // pattern: &quot;[\w+=,.@-]+&quot;, max: 64, min: 1
+        export type serialNumberType = string;    // pattern: &quot;[\w+=/:,.@-]+&quot;, max: 256, min: 9
+        export type serverCertificateMetadataListType = ServerCertificateMetadata[];
+        export type serverCertificateNameType = string;    // pattern: &quot;[\w+=,.@-]+&quot;, max: 128, min: 1
+        export type serviceFailureExceptionMessage = string;
+        export type statusType = string;
+        export type stringType = string;
+        export type summaryKeyType = string;
+        export type summaryMapType = {[key:string]: summaryValueType};
+        export type summaryValueType = number;
+        export type thumbprintListType = thumbprintType[];
+        export type thumbprintType = string;    // max: 40, min: 40
+        export type unrecognizedPublicKeyEncodingMessage = string;
+        export type userDetailListType = UserDetail[];
+        export type userListType = User[];
+        export type userNameType = string;    // pattern: &quot;[\w+=,.@-]+&quot;, max: 64, min: 1
+        export type virtualMFADeviceListType = VirtualMFADevice[];
+        export type virtualMFADeviceName = string;    // pattern: &quot;[\w+=,.@-]+&quot;, min: 1
+
+        export interface AccessKey {
+            UserName: userNameType;            
+            AccessKeyId: accessKeyIdType;            
+            Status: statusType;            
+            SecretAccessKey: accessKeySecretType;            
+            CreateDate?: dateType;            
+        }
+        export interface AccessKeyLastUsed {
+            LastUsedDate: dateType;            
+            ServiceName: stringType;            
+            Region: stringType;            
+        }
+        export interface AccessKeyMetadata {
+            UserName?: userNameType;            
+            AccessKeyId?: accessKeyIdType;            
+            Status?: statusType;            
+            CreateDate?: dateType;            
+        }
+        export interface AddClientIDToOpenIDConnectProviderRequest {
+            OpenIDConnectProviderArn: arnType;            
+            ClientID: clientIDType;            
+        }
+        export interface AddRoleToInstanceProfileRequest {
+            InstanceProfileName: instanceProfileNameType;            
+            RoleName: roleNameType;            
+        }
+        export interface AddUserToGroupRequest {
+            GroupName: groupNameType;            
+            UserName: existingUserNameType;            
+        }
+        export interface AttachGroupPolicyRequest {
+            GroupName: groupNameType;            
+            PolicyArn: arnType;            
+        }
+        export interface AttachRolePolicyRequest {
+            RoleName: roleNameType;            
+            PolicyArn: arnType;            
+        }
+        export interface AttachUserPolicyRequest {
+            UserName: userNameType;            
+            PolicyArn: arnType;            
+        }
+        export interface AttachedPolicy {
+            PolicyName?: policyNameType;            
+            PolicyArn?: arnType;            
+        }
+        export interface ChangePasswordRequest {
+            OldPassword: passwordType;            
+            NewPassword: passwordType;            
+        }
+        export interface ContextEntry {
+            ContextKeyName?: ContextKeyNameType;            
+            ContextKeyValues?: ContextKeyValueListType;            
+            ContextKeyType?: ContextKeyTypeEnum;            
+        }
+        export interface CreateAccessKeyRequest {
+            UserName?: existingUserNameType;            
+        }
+        export interface CreateAccessKeyResponse {
+            AccessKey: AccessKey;            
+        }
+        export interface CreateAccountAliasRequest {
+            AccountAlias: accountAliasType;            
+        }
+        export interface CreateGroupRequest {
+            Path?: pathType;            
+            GroupName: groupNameType;            
+        }
+        export interface CreateGroupResponse {
+            Group: Group;            
+        }
+        export interface CreateInstanceProfileRequest {
+            InstanceProfileName: instanceProfileNameType;            
+            Path?: pathType;            
+        }
+        export interface CreateInstanceProfileResponse {
+            InstanceProfile: InstanceProfile;            
+        }
+        export interface CreateLoginProfileRequest {
+            UserName: userNameType;            
+            Password: passwordType;            
+            PasswordResetRequired?: booleanType;            
+        }
+        export interface CreateLoginProfileResponse {
+            LoginProfile: LoginProfile;            
+        }
+        export interface CreateOpenIDConnectProviderRequest {
+            Url: OpenIDConnectProviderUrlType;            
+            ClientIDList?: clientIDListType;            
+            ThumbprintList: thumbprintListType;            
+        }
+        export interface CreateOpenIDConnectProviderResponse {
+            OpenIDConnectProviderArn?: arnType;            
+        }
+        export interface CreatePolicyRequest {
+            PolicyName: policyNameType;            
+            Path?: policyPathType;            
+            PolicyDocument: policyDocumentType;            
+            Description?: policyDescriptionType;            
+        }
+        export interface CreatePolicyResponse {
+            Policy?: Policy;            
+        }
+        export interface CreatePolicyVersionRequest {
+            PolicyArn: arnType;            
+            PolicyDocument: policyDocumentType;            
+            SetAsDefault?: booleanType;            
+        }
+        export interface CreatePolicyVersionResponse {
+            PolicyVersion?: PolicyVersion;            
+        }
+        export interface CreateRoleRequest {
+            Path?: pathType;            
+            RoleName: roleNameType;            
+            AssumeRolePolicyDocument: policyDocumentType;            
+        }
+        export interface CreateRoleResponse {
+            Role: Role;            
+        }
+        export interface CreateSAMLProviderRequest {
+            SAMLMetadataDocument: SAMLMetadataDocumentType;            
+            Name: SAMLProviderNameType;            
+        }
+        export interface CreateSAMLProviderResponse {
+            SAMLProviderArn?: arnType;            
+        }
+        export interface CreateUserRequest {
+            Path?: pathType;            
+            UserName: userNameType;            
+        }
+        export interface CreateUserResponse {
+            User?: User;            
+        }
+        export interface CreateVirtualMFADeviceRequest {
+            Path?: pathType;            
+            VirtualMFADeviceName: virtualMFADeviceName;            
+        }
+        export interface CreateVirtualMFADeviceResponse {
+            VirtualMFADevice: VirtualMFADevice;            
+        }
+        export interface CredentialReportExpiredException {
+            message?: credentialReportExpiredExceptionMessage;            
+        }
+        export interface CredentialReportNotPresentException {
+            message?: credentialReportNotPresentExceptionMessage;            
+        }
+        export interface CredentialReportNotReadyException {
+            message?: credentialReportNotReadyExceptionMessage;            
+        }
+        export interface DeactivateMFADeviceRequest {
+            UserName: existingUserNameType;            
+            SerialNumber: serialNumberType;            
+        }
+        export interface DeleteAccessKeyRequest {
+            UserName?: existingUserNameType;            
+            AccessKeyId: accessKeyIdType;            
+        }
+        export interface DeleteAccountAliasRequest {
+            AccountAlias: accountAliasType;            
+        }
+        export interface DeleteConflictException {
+            message?: deleteConflictMessage;            
+        }
+        export interface DeleteGroupPolicyRequest {
+            GroupName: groupNameType;            
+            PolicyName: policyNameType;            
+        }
+        export interface DeleteGroupRequest {
+            GroupName: groupNameType;            
+        }
+        export interface DeleteInstanceProfileRequest {
+            InstanceProfileName: instanceProfileNameType;            
+        }
+        export interface DeleteLoginProfileRequest {
+            UserName: userNameType;            
+        }
+        export interface DeleteOpenIDConnectProviderRequest {
+            OpenIDConnectProviderArn: arnType;            
+        }
+        export interface DeletePolicyRequest {
+            PolicyArn: arnType;            
+        }
+        export interface DeletePolicyVersionRequest {
+            PolicyArn: arnType;            
+            VersionId: policyVersionIdType;            
+        }
+        export interface DeleteRolePolicyRequest {
+            RoleName: roleNameType;            
+            PolicyName: policyNameType;            
+        }
+        export interface DeleteRoleRequest {
+            RoleName: roleNameType;            
+        }
+        export interface DeleteSAMLProviderRequest {
+            SAMLProviderArn: arnType;            
+        }
+        export interface DeleteSSHPublicKeyRequest {
+            UserName: userNameType;            
+            SSHPublicKeyId: publicKeyIdType;            
+        }
+        export interface DeleteServerCertificateRequest {
+            ServerCertificateName: serverCertificateNameType;            
+        }
+        export interface DeleteSigningCertificateRequest {
+            UserName?: existingUserNameType;            
+            CertificateId: certificateIdType;            
+        }
+        export interface DeleteUserPolicyRequest {
+            UserName: existingUserNameType;            
+            PolicyName: policyNameType;            
+        }
+        export interface DeleteUserRequest {
+            UserName: existingUserNameType;            
+        }
+        export interface DeleteVirtualMFADeviceRequest {
+            SerialNumber: serialNumberType;            
+        }
+        export interface DetachGroupPolicyRequest {
+            GroupName: groupNameType;            
+            PolicyArn: arnType;            
+        }
+        export interface DetachRolePolicyRequest {
+            RoleName: roleNameType;            
+            PolicyArn: arnType;            
+        }
+        export interface DetachUserPolicyRequest {
+            UserName: userNameType;            
+            PolicyArn: arnType;            
+        }
+        export interface DuplicateCertificateException {
+            message?: duplicateCertificateMessage;            
+        }
+        export interface DuplicateSSHPublicKeyException {
+            message?: duplicateSSHPublicKeyMessage;            
+        }
+        export interface EnableMFADeviceRequest {
+            UserName: existingUserNameType;            
+            SerialNumber: serialNumberType;            
+            AuthenticationCode1: authenticationCodeType;            
+            AuthenticationCode2: authenticationCodeType;            
+        }
+        export interface EntityAlreadyExistsException {
+            message?: entityAlreadyExistsMessage;            
+        }
+        export interface EntityTemporarilyUnmodifiableException {
+            message?: entityTemporarilyUnmodifiableMessage;            
+        }
+        export interface EvaluationResult {
+            EvalActionName: ActionNameType;            
+            EvalResourceName?: ResourceNameType;            
+            EvalDecision: PolicyEvaluationDecisionType;            
+            MatchedStatements?: StatementListType;            
+            MissingContextValues?: ContextKeyNamesResultListType;            
+            EvalDecisionDetails?: EvalDecisionDetailsType;            
+            ResourceSpecificResults?: ResourceSpecificResultListType;            
+        }
+        export interface GenerateCredentialReportResponse {
+            State?: ReportStateType;            
+            Description?: ReportStateDescriptionType;            
+        }
+        export interface GetAccessKeyLastUsedRequest {
+            AccessKeyId: accessKeyIdType;            
+        }
+        export interface GetAccessKeyLastUsedResponse {
+            UserName?: existingUserNameType;            
+            AccessKeyLastUsed?: AccessKeyLastUsed;            
+        }
+        export interface GetAccountAuthorizationDetailsRequest {
+            Filter?: entityListType;            
+            MaxItems?: maxItemsType;            
+            Marker?: markerType;            
+        }
+        export interface GetAccountAuthorizationDetailsResponse {
+            UserDetailList?: userDetailListType;            
+            GroupDetailList?: groupDetailListType;            
+            RoleDetailList?: roleDetailListType;            
+            Policies?: ManagedPolicyDetailListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface GetAccountPasswordPolicyResponse {
+            PasswordPolicy: PasswordPolicy;            
+        }
+        export interface GetAccountSummaryResponse {
+            SummaryMap?: summaryMapType;            
+        }
+        export interface GetContextKeysForCustomPolicyRequest {
+            PolicyInputList: SimulationPolicyListType;            
+        }
+        export interface GetContextKeysForPolicyResponse {
+            ContextKeyNames?: ContextKeyNamesResultListType;            
+        }
+        export interface GetContextKeysForPrincipalPolicyRequest {
+            PolicySourceArn: arnType;            
+            PolicyInputList?: SimulationPolicyListType;            
+        }
+        export interface GetCredentialReportResponse {
+            Content?: ReportContentType;            
+            ReportFormat?: ReportFormatType;            
+            GeneratedTime?: dateType;            
+        }
+        export interface GetGroupPolicyRequest {
+            GroupName: groupNameType;            
+            PolicyName: policyNameType;            
+        }
+        export interface GetGroupPolicyResponse {
+            GroupName: groupNameType;            
+            PolicyName: policyNameType;            
+            PolicyDocument: policyDocumentType;            
+        }
+        export interface GetGroupRequest {
+            GroupName: groupNameType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface GetGroupResponse {
+            Group: Group;            
+            Users: userListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface GetInstanceProfileRequest {
+            InstanceProfileName: instanceProfileNameType;            
+        }
+        export interface GetInstanceProfileResponse {
+            InstanceProfile: InstanceProfile;            
+        }
+        export interface GetLoginProfileRequest {
+            UserName: userNameType;            
+        }
+        export interface GetLoginProfileResponse {
+            LoginProfile: LoginProfile;            
+        }
+        export interface GetOpenIDConnectProviderRequest {
+            OpenIDConnectProviderArn: arnType;            
+        }
+        export interface GetOpenIDConnectProviderResponse {
+            Url?: OpenIDConnectProviderUrlType;            
+            ClientIDList?: clientIDListType;            
+            ThumbprintList?: thumbprintListType;            
+            CreateDate?: dateType;            
+        }
+        export interface GetPolicyRequest {
+            PolicyArn: arnType;            
+        }
+        export interface GetPolicyResponse {
+            Policy?: Policy;            
+        }
+        export interface GetPolicyVersionRequest {
+            PolicyArn: arnType;            
+            VersionId: policyVersionIdType;            
+        }
+        export interface GetPolicyVersionResponse {
+            PolicyVersion?: PolicyVersion;            
+        }
+        export interface GetRolePolicyRequest {
+            RoleName: roleNameType;            
+            PolicyName: policyNameType;            
+        }
+        export interface GetRolePolicyResponse {
+            RoleName: roleNameType;            
+            PolicyName: policyNameType;            
+            PolicyDocument: policyDocumentType;            
+        }
+        export interface GetRoleRequest {
+            RoleName: roleNameType;            
+        }
+        export interface GetRoleResponse {
+            Role: Role;            
+        }
+        export interface GetSAMLProviderRequest {
+            SAMLProviderArn: arnType;            
+        }
+        export interface GetSAMLProviderResponse {
+            SAMLMetadataDocument?: SAMLMetadataDocumentType;            
+            CreateDate?: dateType;            
+            ValidUntil?: dateType;            
+        }
+        export interface GetSSHPublicKeyRequest {
+            UserName: userNameType;            
+            SSHPublicKeyId: publicKeyIdType;            
+            Encoding: encodingType;            
+        }
+        export interface GetSSHPublicKeyResponse {
+            SSHPublicKey?: SSHPublicKey;            
+        }
+        export interface GetServerCertificateRequest {
+            ServerCertificateName: serverCertificateNameType;            
+        }
+        export interface GetServerCertificateResponse {
+            ServerCertificate: ServerCertificate;            
+        }
+        export interface GetUserPolicyRequest {
+            UserName: existingUserNameType;            
+            PolicyName: policyNameType;            
+        }
+        export interface GetUserPolicyResponse {
+            UserName: existingUserNameType;            
+            PolicyName: policyNameType;            
+            PolicyDocument: policyDocumentType;            
+        }
+        export interface GetUserRequest {
+            UserName?: existingUserNameType;            
+        }
+        export interface GetUserResponse {
+            User: User;            
+        }
+        export interface Group {
+            Path: pathType;            
+            GroupName: groupNameType;            
+            GroupId: idType;            
+            Arn: arnType;            
+            CreateDate: dateType;            
+        }
+        export interface GroupDetail {
+            Path?: pathType;            
+            GroupName?: groupNameType;            
+            GroupId?: idType;            
+            Arn?: arnType;            
+            CreateDate?: dateType;            
+            GroupPolicyList?: policyDetailListType;            
+            AttachedManagedPolicies?: attachedPoliciesListType;            
+        }
+        export interface InstanceProfile {
+            Path: pathType;            
+            InstanceProfileName: instanceProfileNameType;            
+            InstanceProfileId: idType;            
+            Arn: arnType;            
+            CreateDate: dateType;            
+            Roles: roleListType;            
+        }
+        export interface InvalidAuthenticationCodeException {
+            message?: invalidAuthenticationCodeMessage;            
+        }
+        export interface InvalidCertificateException {
+            message?: invalidCertificateMessage;            
+        }
+        export interface InvalidInputException {
+            message?: invalidInputMessage;            
+        }
+        export interface InvalidPublicKeyException {
+            message?: invalidPublicKeyMessage;            
+        }
+        export interface InvalidUserTypeException {
+            message?: invalidUserTypeMessage;            
+        }
+        export interface KeyPairMismatchException {
+            message?: keyPairMismatchMessage;            
+        }
+        export interface LimitExceededException {
+            message?: limitExceededMessage;            
+        }
+        export interface ListAccessKeysRequest {
+            UserName?: existingUserNameType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListAccessKeysResponse {
+            AccessKeyMetadata: accessKeyMetadataListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListAccountAliasesRequest {
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListAccountAliasesResponse {
+            AccountAliases: accountAliasListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListAttachedGroupPoliciesRequest {
+            GroupName: groupNameType;            
+            PathPrefix?: policyPathType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListAttachedGroupPoliciesResponse {
+            AttachedPolicies?: attachedPoliciesListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListAttachedRolePoliciesRequest {
+            RoleName: roleNameType;            
+            PathPrefix?: policyPathType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListAttachedRolePoliciesResponse {
+            AttachedPolicies?: attachedPoliciesListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListAttachedUserPoliciesRequest {
+            UserName: userNameType;            
+            PathPrefix?: policyPathType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListAttachedUserPoliciesResponse {
+            AttachedPolicies?: attachedPoliciesListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListEntitiesForPolicyRequest {
+            PolicyArn: arnType;            
+            EntityFilter?: EntityType;            
+            PathPrefix?: pathType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListEntitiesForPolicyResponse {
+            PolicyGroups?: PolicyGroupListType;            
+            PolicyUsers?: PolicyUserListType;            
+            PolicyRoles?: PolicyRoleListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListGroupPoliciesRequest {
+            GroupName: groupNameType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListGroupPoliciesResponse {
+            PolicyNames: policyNameListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListGroupsForUserRequest {
+            UserName: existingUserNameType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListGroupsForUserResponse {
+            Groups: groupListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListGroupsRequest {
+            PathPrefix?: pathPrefixType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListGroupsResponse {
+            Groups: groupListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListInstanceProfilesForRoleRequest {
+            RoleName: roleNameType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListInstanceProfilesForRoleResponse {
+            InstanceProfiles: instanceProfileListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListInstanceProfilesRequest {
+            PathPrefix?: pathPrefixType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListInstanceProfilesResponse {
+            InstanceProfiles: instanceProfileListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListMFADevicesRequest {
+            UserName?: existingUserNameType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListMFADevicesResponse {
+            MFADevices: mfaDeviceListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListOpenIDConnectProvidersRequest {
+        }
+        export interface ListOpenIDConnectProvidersResponse {
+            OpenIDConnectProviderList?: OpenIDConnectProviderListType;            
+        }
+        export interface ListPoliciesRequest {
+            Scope?: policyScopeType;            
+            OnlyAttached?: booleanType;            
+            PathPrefix?: policyPathType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListPoliciesResponse {
+            Policies?: policyListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListPolicyVersionsRequest {
+            PolicyArn: arnType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListPolicyVersionsResponse {
+            Versions?: policyDocumentVersionListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListRolePoliciesRequest {
+            RoleName: roleNameType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListRolePoliciesResponse {
+            PolicyNames: policyNameListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListRolesRequest {
+            PathPrefix?: pathPrefixType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListRolesResponse {
+            Roles: roleListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListSAMLProvidersRequest {
+        }
+        export interface ListSAMLProvidersResponse {
+            SAMLProviderList?: SAMLProviderListType;            
+        }
+        export interface ListSSHPublicKeysRequest {
+            UserName?: userNameType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListSSHPublicKeysResponse {
+            SSHPublicKeys?: SSHPublicKeyListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListServerCertificatesRequest {
+            PathPrefix?: pathPrefixType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListServerCertificatesResponse {
+            ServerCertificateMetadataList: serverCertificateMetadataListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListSigningCertificatesRequest {
+            UserName?: existingUserNameType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListSigningCertificatesResponse {
+            Certificates: certificateListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListUserPoliciesRequest {
+            UserName: existingUserNameType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListUserPoliciesResponse {
+            PolicyNames: policyNameListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListUsersRequest {
+            PathPrefix?: pathPrefixType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListUsersResponse {
+            Users: userListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface ListVirtualMFADevicesRequest {
+            AssignmentStatus?: assignmentStatusType;            
+            Marker?: markerType;            
+            MaxItems?: maxItemsType;            
+        }
+        export interface ListVirtualMFADevicesResponse {
+            VirtualMFADevices: virtualMFADeviceListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface LoginProfile {
+            UserName: userNameType;            
+            CreateDate: dateType;            
+            PasswordResetRequired?: booleanType;            
+        }
+        export interface MFADevice {
+            UserName: userNameType;            
+            SerialNumber: serialNumberType;            
+            EnableDate: dateType;            
+        }
+        export interface MalformedCertificateException {
+            message?: malformedCertificateMessage;            
+        }
+        export interface MalformedPolicyDocumentException {
+            message?: malformedPolicyDocumentMessage;            
+        }
+        export interface ManagedPolicyDetail {
+            PolicyName?: policyNameType;            
+            PolicyId?: idType;            
+            Arn?: arnType;            
+            Path?: policyPathType;            
+            DefaultVersionId?: policyVersionIdType;            
+            AttachmentCount?: attachmentCountType;            
+            IsAttachable?: booleanType;            
+            Description?: policyDescriptionType;            
+            CreateDate?: dateType;            
+            UpdateDate?: dateType;            
+            PolicyVersionList?: policyDocumentVersionListType;            
+        }
+        export interface NoSuchEntityException {
+            message?: noSuchEntityMessage;            
+        }
+        export interface OpenIDConnectProviderListEntry {
+            Arn?: arnType;            
+        }
+        export interface PasswordPolicy {
+            MinimumPasswordLength?: minimumPasswordLengthType;            
+            RequireSymbols?: booleanType;            
+            RequireNumbers?: booleanType;            
+            RequireUppercaseCharacters?: booleanType;            
+            RequireLowercaseCharacters?: booleanType;            
+            AllowUsersToChangePassword?: booleanType;            
+            ExpirePasswords?: booleanType;            
+            MaxPasswordAge?: maxPasswordAgeType;            
+            PasswordReusePrevention?: passwordReusePreventionType;            
+            HardExpiry?: booleanObjectType;            
+        }
+        export interface PasswordPolicyViolationException {
+            message?: passwordPolicyViolationMessage;            
+        }
+        export interface Policy {
+            PolicyName?: policyNameType;            
+            PolicyId?: idType;            
+            Arn?: arnType;            
+            Path?: policyPathType;            
+            DefaultVersionId?: policyVersionIdType;            
+            AttachmentCount?: attachmentCountType;            
+            IsAttachable?: booleanType;            
+            Description?: policyDescriptionType;            
+            CreateDate?: dateType;            
+            UpdateDate?: dateType;            
+        }
+        export interface PolicyDetail {
+            PolicyName?: policyNameType;            
+            PolicyDocument?: policyDocumentType;            
+        }
+        export interface PolicyEvaluationException {
+            message?: policyEvaluationErrorMessage;            
+        }
+        export interface PolicyGroup {
+            GroupName?: groupNameType;            
+        }
+        export interface PolicyRole {
+            RoleName?: roleNameType;            
+        }
+        export interface PolicyUser {
+            UserName?: userNameType;            
+        }
+        export interface PolicyVersion {
+            Document?: policyDocumentType;            
+            VersionId?: policyVersionIdType;            
+            IsDefaultVersion?: booleanType;            
+            CreateDate?: dateType;            
+        }
+        export interface Position {
+            Line?: LineNumber;            
+            Column?: ColumnNumber;            
+        }
+        export interface PutGroupPolicyRequest {
+            GroupName: groupNameType;            
+            PolicyName: policyNameType;            
+            PolicyDocument: policyDocumentType;            
+        }
+        export interface PutRolePolicyRequest {
+            RoleName: roleNameType;            
+            PolicyName: policyNameType;            
+            PolicyDocument: policyDocumentType;            
+        }
+        export interface PutUserPolicyRequest {
+            UserName: existingUserNameType;            
+            PolicyName: policyNameType;            
+            PolicyDocument: policyDocumentType;            
+        }
+        export interface RemoveClientIDFromOpenIDConnectProviderRequest {
+            OpenIDConnectProviderArn: arnType;            
+            ClientID: clientIDType;            
+        }
+        export interface RemoveRoleFromInstanceProfileRequest {
+            InstanceProfileName: instanceProfileNameType;            
+            RoleName: roleNameType;            
+        }
+        export interface RemoveUserFromGroupRequest {
+            GroupName: groupNameType;            
+            UserName: existingUserNameType;            
+        }
+        export interface ResourceSpecificResult {
+            EvalResourceName: ResourceNameType;            
+            EvalResourceDecision: PolicyEvaluationDecisionType;            
+            MatchedStatements?: StatementListType;            
+            MissingContextValues?: ContextKeyNamesResultListType;            
+            EvalDecisionDetails?: EvalDecisionDetailsType;            
+        }
+        export interface ResyncMFADeviceRequest {
+            UserName: existingUserNameType;            
+            SerialNumber: serialNumberType;            
+            AuthenticationCode1: authenticationCodeType;            
+            AuthenticationCode2: authenticationCodeType;            
+        }
+        export interface Role {
+            Path: pathType;            
+            RoleName: roleNameType;            
+            RoleId: idType;            
+            Arn: arnType;            
+            CreateDate: dateType;            
+            AssumeRolePolicyDocument?: policyDocumentType;            
+        }
+        export interface RoleDetail {
+            Path?: pathType;            
+            RoleName?: roleNameType;            
+            RoleId?: idType;            
+            Arn?: arnType;            
+            CreateDate?: dateType;            
+            AssumeRolePolicyDocument?: policyDocumentType;            
+            InstanceProfileList?: instanceProfileListType;            
+            RolePolicyList?: policyDetailListType;            
+            AttachedManagedPolicies?: attachedPoliciesListType;            
+        }
+        export interface SAMLProviderListEntry {
+            Arn?: arnType;            
+            ValidUntil?: dateType;            
+            CreateDate?: dateType;            
+        }
+        export interface SSHPublicKey {
+            UserName: userNameType;            
+            SSHPublicKeyId: publicKeyIdType;            
+            Fingerprint: publicKeyFingerprintType;            
+            SSHPublicKeyBody: publicKeyMaterialType;            
+            Status: statusType;            
+            UploadDate?: dateType;            
+        }
+        export interface SSHPublicKeyMetadata {
+            UserName: userNameType;            
+            SSHPublicKeyId: publicKeyIdType;            
+            Status: statusType;            
+            UploadDate: dateType;            
+        }
+        export interface ServerCertificate {
+            ServerCertificateMetadata: ServerCertificateMetadata;            
+            CertificateBody: certificateBodyType;            
+            CertificateChain?: certificateChainType;            
+        }
+        export interface ServerCertificateMetadata {
+            Path: pathType;            
+            ServerCertificateName: serverCertificateNameType;            
+            ServerCertificateId: idType;            
+            Arn: arnType;            
+            UploadDate?: dateType;            
+            Expiration?: dateType;            
+        }
+        export interface ServiceFailureException {
+            message?: serviceFailureExceptionMessage;            
+        }
+        export interface SetDefaultPolicyVersionRequest {
+            PolicyArn: arnType;            
+            VersionId: policyVersionIdType;            
+        }
+        export interface SigningCertificate {
+            UserName: userNameType;            
+            CertificateId: certificateIdType;            
+            CertificateBody: certificateBodyType;            
+            Status: statusType;            
+            UploadDate?: dateType;            
+        }
+        export interface SimulateCustomPolicyRequest {
+            PolicyInputList: SimulationPolicyListType;            
+            ActionNames: ActionNameListType;            
+            ResourceArns?: ResourceNameListType;            
+            ResourcePolicy?: policyDocumentType;            
+            ResourceOwner?: ResourceNameType;            
+            CallerArn?: ResourceNameType;            
+            ContextEntries?: ContextEntryListType;            
+            ResourceHandlingOption?: ResourceHandlingOptionType;            
+            MaxItems?: maxItemsType;            
+            Marker?: markerType;            
+        }
+        export interface SimulatePolicyResponse {
+            EvaluationResults?: EvaluationResultsListType;            
+            IsTruncated?: booleanType;            
+            Marker?: markerType;            
+        }
+        export interface SimulatePrincipalPolicyRequest {
+            PolicySourceArn: arnType;            
+            PolicyInputList?: SimulationPolicyListType;            
+            ActionNames: ActionNameListType;            
+            ResourceArns?: ResourceNameListType;            
+            ResourcePolicy?: policyDocumentType;            
+            ResourceOwner?: ResourceNameType;            
+            CallerArn?: ResourceNameType;            
+            ContextEntries?: ContextEntryListType;            
+            ResourceHandlingOption?: ResourceHandlingOptionType;            
+            MaxItems?: maxItemsType;            
+            Marker?: markerType;            
+        }
+        export interface Statement {
+            SourcePolicyId?: PolicyIdentifierType;            
+            SourcePolicyType?: PolicySourceType;            
+            StartPosition?: Position;            
+            EndPosition?: Position;            
+        }
+        export interface UnrecognizedPublicKeyEncodingException {
+            message?: unrecognizedPublicKeyEncodingMessage;            
+        }
+        export interface UpdateAccessKeyRequest {
+            UserName?: existingUserNameType;            
+            AccessKeyId: accessKeyIdType;            
+            Status: statusType;            
+        }
+        export interface UpdateAccountPasswordPolicyRequest {
+            MinimumPasswordLength?: minimumPasswordLengthType;            
+            RequireSymbols?: booleanType;            
+            RequireNumbers?: booleanType;            
+            RequireUppercaseCharacters?: booleanType;            
+            RequireLowercaseCharacters?: booleanType;            
+            AllowUsersToChangePassword?: booleanType;            
+            MaxPasswordAge?: maxPasswordAgeType;            
+            PasswordReusePrevention?: passwordReusePreventionType;            
+            HardExpiry?: booleanObjectType;            
+        }
+        export interface UpdateAssumeRolePolicyRequest {
+            RoleName: roleNameType;            
+            PolicyDocument: policyDocumentType;            
+        }
+        export interface UpdateGroupRequest {
+            GroupName: groupNameType;            
+            NewPath?: pathType;            
+            NewGroupName?: groupNameType;            
+        }
+        export interface UpdateLoginProfileRequest {
+            UserName: userNameType;            
+            Password?: passwordType;            
+            PasswordResetRequired?: booleanObjectType;            
+        }
+        export interface UpdateOpenIDConnectProviderThumbprintRequest {
+            OpenIDConnectProviderArn: arnType;            
+            ThumbprintList: thumbprintListType;            
+        }
+        export interface UpdateSAMLProviderRequest {
+            SAMLMetadataDocument: SAMLMetadataDocumentType;            
+            SAMLProviderArn: arnType;            
+        }
+        export interface UpdateSAMLProviderResponse {
+            SAMLProviderArn?: arnType;            
+        }
+        export interface UpdateSSHPublicKeyRequest {
+            UserName: userNameType;            
+            SSHPublicKeyId: publicKeyIdType;            
+            Status: statusType;            
+        }
+        export interface UpdateServerCertificateRequest {
+            ServerCertificateName: serverCertificateNameType;            
+            NewPath?: pathType;            
+            NewServerCertificateName?: serverCertificateNameType;            
+        }
+        export interface UpdateSigningCertificateRequest {
+            UserName?: existingUserNameType;            
+            CertificateId: certificateIdType;            
+            Status: statusType;            
+        }
+        export interface UpdateUserRequest {
+            UserName: existingUserNameType;            
+            NewPath?: pathType;            
+            NewUserName?: userNameType;            
+        }
+        export interface UploadSSHPublicKeyRequest {
+            UserName: userNameType;            
+            SSHPublicKeyBody: publicKeyMaterialType;            
+        }
+        export interface UploadSSHPublicKeyResponse {
+            SSHPublicKey?: SSHPublicKey;            
+        }
+        export interface UploadServerCertificateRequest {
+            Path?: pathType;            
+            ServerCertificateName: serverCertificateNameType;            
+            CertificateBody: certificateBodyType;            
+            PrivateKey: privateKeyType;            
+            CertificateChain?: certificateChainType;            
+        }
+        export interface UploadServerCertificateResponse {
+            ServerCertificateMetadata?: ServerCertificateMetadata;            
+        }
+        export interface UploadSigningCertificateRequest {
+            UserName?: existingUserNameType;            
+            CertificateBody: certificateBodyType;            
+        }
+        export interface UploadSigningCertificateResponse {
+            Certificate: SigningCertificate;            
+        }
+        export interface User {
+            Path: pathType;            
+            UserName: userNameType;            
+            UserId: idType;            
+            Arn: arnType;            
+            CreateDate: dateType;            
+            PasswordLastUsed?: dateType;            
+        }
+        export interface UserDetail {
+            Path?: pathType;            
+            UserName?: userNameType;            
+            UserId?: idType;            
+            Arn?: arnType;            
+            CreateDate?: dateType;            
+            UserPolicyList?: policyDetailListType;            
+            GroupList?: groupNameListType;            
+            AttachedManagedPolicies?: attachedPoliciesListType;            
+        }
+        export interface VirtualMFADevice {
+            SerialNumber: serialNumberType;            
+            Base32StringSeed?: BootstrapDatum;            
+            QRCodePNG?: BootstrapDatum;            
+            User?: User;            
+            EnableDate?: dateType;            
+        }
 
-    export interface IAMInvalidPublicKeyException {
-        message?: IAMinvalidPublicKeyMessage;
     }
-
-    export interface IAMInvalidUserTypeException {
-        message?: IAMinvalidUserTypeMessage;
-    }
-
-    export interface IAMKeyPairMismatchException {
-        message?: IAMkeyPairMismatchMessage;
-    }
-
-    export interface IAMLimitExceededException {
-        message?: IAMlimitExceededMessage;
-    }
-
-    export type IAMLineNumber = number;
-    export interface IAMListAccessKeysRequest {
-        UserName?: IAMexistingUserNameType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListAccessKeysResponse {
-        AccessKeyMetadata: IAMaccessKeyMetadataListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListAccountAliasesRequest {
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListAccountAliasesResponse {
-        AccountAliases: IAMaccountAliasListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListAttachedGroupPoliciesRequest {
-        GroupName: IAMgroupNameType;
-        PathPrefix?: IAMpolicyPathType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListAttachedGroupPoliciesResponse {
-        AttachedPolicies?: IAMattachedPoliciesListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListAttachedRolePoliciesRequest {
-        RoleName: IAMroleNameType;
-        PathPrefix?: IAMpolicyPathType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListAttachedRolePoliciesResponse {
-        AttachedPolicies?: IAMattachedPoliciesListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListAttachedUserPoliciesRequest {
-        UserName: IAMuserNameType;
-        PathPrefix?: IAMpolicyPathType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListAttachedUserPoliciesResponse {
-        AttachedPolicies?: IAMattachedPoliciesListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListEntitiesForPolicyRequest {
-        PolicyArn: IAMarnType;
-        EntityFilter?: IAMEntityType;
-        PathPrefix?: IAMpathType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListEntitiesForPolicyResponse {
-        PolicyGroups?: IAMPolicyGroupListType;
-        PolicyUsers?: IAMPolicyUserListType;
-        PolicyRoles?: IAMPolicyRoleListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListGroupPoliciesRequest {
-        GroupName: IAMgroupNameType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListGroupPoliciesResponse {
-        PolicyNames: IAMpolicyNameListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListGroupsForUserRequest {
-        UserName: IAMexistingUserNameType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListGroupsForUserResponse {
-        Groups: IAMgroupListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListGroupsRequest {
-        PathPrefix?: IAMpathPrefixType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListGroupsResponse {
-        Groups: IAMgroupListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListInstanceProfilesForRoleRequest {
-        RoleName: IAMroleNameType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListInstanceProfilesForRoleResponse {
-        InstanceProfiles: IAMinstanceProfileListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListInstanceProfilesRequest {
-        PathPrefix?: IAMpathPrefixType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListInstanceProfilesResponse {
-        InstanceProfiles: IAMinstanceProfileListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListMFADevicesRequest {
-        UserName?: IAMexistingUserNameType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListMFADevicesResponse {
-        MFADevices: IAMmfaDeviceListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListOpenIDConnectProvidersRequest {
-    }
-
-    export interface IAMListOpenIDConnectProvidersResponse {
-        OpenIDConnectProviderList?: IAMOpenIDConnectProviderListType;
-    }
-
-    export interface IAMListPoliciesRequest {
-        Scope?: IAMpolicyScopeType;
-        OnlyAttached?: IAMbooleanType;
-        PathPrefix?: IAMpolicyPathType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListPoliciesResponse {
-        Policies?: IAMpolicyListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListPolicyVersionsRequest {
-        PolicyArn: IAMarnType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListPolicyVersionsResponse {
-        Versions?: IAMpolicyDocumentVersionListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListRolePoliciesRequest {
-        RoleName: IAMroleNameType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListRolePoliciesResponse {
-        PolicyNames: IAMpolicyNameListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListRolesRequest {
-        PathPrefix?: IAMpathPrefixType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListRolesResponse {
-        Roles: IAMroleListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListSAMLProvidersRequest {
-    }
-
-    export interface IAMListSAMLProvidersResponse {
-        SAMLProviderList?: IAMSAMLProviderListType;
-    }
-
-    export interface IAMListSSHPublicKeysRequest {
-        UserName?: IAMuserNameType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListSSHPublicKeysResponse {
-        SSHPublicKeys?: IAMSSHPublicKeyListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListServerCertificatesRequest {
-        PathPrefix?: IAMpathPrefixType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListServerCertificatesResponse {
-        ServerCertificateMetadataList: IAMserverCertificateMetadataListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListSigningCertificatesRequest {
-        UserName?: IAMexistingUserNameType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListSigningCertificatesResponse {
-        Certificates: IAMcertificateListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListUserPoliciesRequest {
-        UserName: IAMexistingUserNameType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListUserPoliciesResponse {
-        PolicyNames: IAMpolicyNameListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListUsersRequest {
-        PathPrefix?: IAMpathPrefixType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListUsersResponse {
-        Users: IAMuserListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMListVirtualMFADevicesRequest {
-        AssignmentStatus?: IAMassignmentStatusType;
-        Marker?: IAMmarkerType;
-        MaxItems?: IAMmaxItemsType;
-    }
-
-    export interface IAMListVirtualMFADevicesResponse {
-        VirtualMFADevices: IAMvirtualMFADeviceListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMLoginProfile {
-        UserName: IAMuserNameType;
-        CreateDate: IAMdateType;
-        PasswordResetRequired?: IAMbooleanType;
-    }
-
-    export interface IAMMFADevice {
-        UserName: IAMuserNameType;
-        SerialNumber: IAMserialNumberType;
-        EnableDate: IAMdateType;
-    }
-
-    export interface IAMMalformedCertificateException {
-        message?: IAMmalformedCertificateMessage;
-    }
-
-    export interface IAMMalformedPolicyDocumentException {
-        message?: IAMmalformedPolicyDocumentMessage;
-    }
-
-    export interface IAMManagedPolicyDetail {
-        PolicyName?: IAMpolicyNameType;
-        PolicyId?: IAMidType;
-        Arn?: IAMarnType;
-        Path?: IAMpolicyPathType;
-        DefaultVersionId?: IAMpolicyVersionIdType;
-        AttachmentCount?: IAMattachmentCountType;
-        IsAttachable?: IAMbooleanType;
-        Description?: IAMpolicyDescriptionType;
-        CreateDate?: IAMdateType;
-        UpdateDate?: IAMdateType;
-        PolicyVersionList?: IAMpolicyDocumentVersionListType;
-    }
-
-    export type IAMManagedPolicyDetailListType = Array<IAMManagedPolicyDetail>;
-    export interface IAMNoSuchEntityException {
-        message?: IAMnoSuchEntityMessage;
-    }
-
-    export interface IAMOpenIDConnectProviderListEntry {
-        Arn?: IAMarnType;
-    }
-
-    export type IAMOpenIDConnectProviderListType = Array<IAMOpenIDConnectProviderListEntry>;
-    export type IAMOpenIDConnectProviderUrlType = string;
-    export interface IAMPasswordPolicy {
-        MinimumPasswordLength?: IAMminimumPasswordLengthType;
-        RequireSymbols?: IAMbooleanType;
-        RequireNumbers?: IAMbooleanType;
-        RequireUppercaseCharacters?: IAMbooleanType;
-        RequireLowercaseCharacters?: IAMbooleanType;
-        AllowUsersToChangePassword?: IAMbooleanType;
-        ExpirePasswords?: IAMbooleanType;
-        MaxPasswordAge?: IAMmaxPasswordAgeType;
-        PasswordReusePrevention?: IAMpasswordReusePreventionType;
-        HardExpiry?: IAMbooleanObjectType;
-    }
-
-    export interface IAMPasswordPolicyViolationException {
-        message?: IAMpasswordPolicyViolationMessage;
-    }
-
-    export interface IAMPolicy {
-        PolicyName?: IAMpolicyNameType;
-        PolicyId?: IAMidType;
-        Arn?: IAMarnType;
-        Path?: IAMpolicyPathType;
-        DefaultVersionId?: IAMpolicyVersionIdType;
-        AttachmentCount?: IAMattachmentCountType;
-        IsAttachable?: IAMbooleanType;
-        Description?: IAMpolicyDescriptionType;
-        CreateDate?: IAMdateType;
-        UpdateDate?: IAMdateType;
-    }
-
-    export interface IAMPolicyDetail {
-        PolicyName?: IAMpolicyNameType;
-        PolicyDocument?: IAMpolicyDocumentType;
-    }
-
-    export type IAMPolicyEvaluationDecisionType = string;
-    export interface IAMPolicyEvaluationException {
-        message?: IAMpolicyEvaluationErrorMessage;
-    }
-
-    export interface IAMPolicyGroup {
-        GroupName?: IAMgroupNameType;
-    }
-
-    export type IAMPolicyGroupListType = Array<IAMPolicyGroup>;
-    export type IAMPolicyIdentifierType = string;
-    export interface IAMPolicyRole {
-        RoleName?: IAMroleNameType;
-    }
-
-    export type IAMPolicyRoleListType = Array<IAMPolicyRole>;
-    export type IAMPolicySourceType = string;
-    export interface IAMPolicyUser {
-        UserName?: IAMuserNameType;
-    }
-
-    export type IAMPolicyUserListType = Array<IAMPolicyUser>;
-    export interface IAMPolicyVersion {
-        Document?: IAMpolicyDocumentType;
-        VersionId?: IAMpolicyVersionIdType;
-        IsDefaultVersion?: IAMbooleanType;
-        CreateDate?: IAMdateType;
-    }
-
-    export interface IAMPosition {
-        Line?: IAMLineNumber;
-        Column?: IAMColumnNumber;
-    }
-
-    export interface IAMPutGroupPolicyRequest {
-        GroupName: IAMgroupNameType;
-        PolicyName: IAMpolicyNameType;
-        PolicyDocument: IAMpolicyDocumentType;
-    }
-
-    export interface IAMPutRolePolicyRequest {
-        RoleName: IAMroleNameType;
-        PolicyName: IAMpolicyNameType;
-        PolicyDocument: IAMpolicyDocumentType;
-    }
-
-    export interface IAMPutUserPolicyRequest {
-        UserName: IAMexistingUserNameType;
-        PolicyName: IAMpolicyNameType;
-        PolicyDocument: IAMpolicyDocumentType;
-    }
-
-    export interface IAMRemoveClientIDFromOpenIDConnectProviderRequest {
-        OpenIDConnectProviderArn: IAMarnType;
-        ClientID: IAMclientIDType;
-    }
-
-    export interface IAMRemoveRoleFromInstanceProfileRequest {
-        InstanceProfileName: IAMinstanceProfileNameType;
-        RoleName: IAMroleNameType;
-    }
-
-    export interface IAMRemoveUserFromGroupRequest {
-        GroupName: IAMgroupNameType;
-        UserName: IAMexistingUserNameType;
-    }
-
-    export type IAMReportContentType = any; // not really - it was 'blob' instead - must fix this one
-    export type IAMReportFormatType = string;
-    export type IAMReportStateDescriptionType = string;
-    export type IAMReportStateType = string;
-    export type IAMResourceHandlingOptionType = string;
-    export type IAMResourceNameListType = Array<IAMResourceNameType>;
-    export type IAMResourceNameType = string;
-    export interface IAMResourceSpecificResult {
-        EvalResourceName: IAMResourceNameType;
-        EvalResourceDecision: IAMPolicyEvaluationDecisionType;
-        MatchedStatements?: IAMStatementListType;
-        MissingContextValues?: IAMContextKeyNamesResultListType;
-        EvalDecisionDetails?: IAMEvalDecisionDetailsType;
-    }
-
-    export type IAMResourceSpecificResultListType = Array<IAMResourceSpecificResult>;
-    export interface IAMResyncMFADeviceRequest {
-        UserName: IAMexistingUserNameType;
-        SerialNumber: IAMserialNumberType;
-        AuthenticationCode1: IAMauthenticationCodeType;
-        AuthenticationCode2: IAMauthenticationCodeType;
-    }
-
-    export interface IAMRole {
-        Path: IAMpathType;
-        RoleName: IAMroleNameType;
-        RoleId: IAMidType;
-        Arn: IAMarnType;
-        CreateDate: IAMdateType;
-        AssumeRolePolicyDocument?: IAMpolicyDocumentType;
-    }
-
-    export interface IAMRoleDetail {
-        Path?: IAMpathType;
-        RoleName?: IAMroleNameType;
-        RoleId?: IAMidType;
-        Arn?: IAMarnType;
-        CreateDate?: IAMdateType;
-        AssumeRolePolicyDocument?: IAMpolicyDocumentType;
-        InstanceProfileList?: IAMinstanceProfileListType;
-        RolePolicyList?: IAMpolicyDetailListType;
-        AttachedManagedPolicies?: IAMattachedPoliciesListType;
-    }
-
-    export type IAMSAMLMetadataDocumentType = string;
-    export interface IAMSAMLProviderListEntry {
-        Arn?: IAMarnType;
-        ValidUntil?: IAMdateType;
-        CreateDate?: IAMdateType;
-    }
-
-    export type IAMSAMLProviderListType = Array<IAMSAMLProviderListEntry>;
-    export type IAMSAMLProviderNameType = string; // pattern: "[\w._-]+"
-    export interface IAMSSHPublicKey {
-        UserName: IAMuserNameType;
-        SSHPublicKeyId: IAMpublicKeyIdType;
-        Fingerprint: IAMpublicKeyFingerprintType;
-        SSHPublicKeyBody: IAMpublicKeyMaterialType;
-        Status: IAMstatusType;
-        UploadDate?: IAMdateType;
-    }
-
-    export type IAMSSHPublicKeyListType = Array<IAMSSHPublicKeyMetadata>;
-    export interface IAMSSHPublicKeyMetadata {
-        UserName: IAMuserNameType;
-        SSHPublicKeyId: IAMpublicKeyIdType;
-        Status: IAMstatusType;
-        UploadDate: IAMdateType;
-    }
-
-    export interface IAMServerCertificate {
-        ServerCertificateMetadata: IAMServerCertificateMetadata;
-        CertificateBody: IAMcertificateBodyType;
-        CertificateChain?: IAMcertificateChainType;
-    }
-
-    export interface IAMServerCertificateMetadata {
-        Path: IAMpathType;
-        ServerCertificateName: IAMserverCertificateNameType;
-        ServerCertificateId: IAMidType;
-        Arn: IAMarnType;
-        UploadDate?: IAMdateType;
-        Expiration?: IAMdateType;
-    }
-
-    export interface IAMServiceFailureException {
-        message?: IAMserviceFailureExceptionMessage;
-    }
-
-    export interface IAMSetDefaultPolicyVersionRequest {
-        PolicyArn: IAMarnType;
-        VersionId: IAMpolicyVersionIdType;
-    }
-
-    export interface IAMSigningCertificate {
-        UserName: IAMuserNameType;
-        CertificateId: IAMcertificateIdType;
-        CertificateBody: IAMcertificateBodyType;
-        Status: IAMstatusType;
-        UploadDate?: IAMdateType;
-    }
-
-    export interface IAMSimulateCustomPolicyRequest {
-        PolicyInputList: IAMSimulationPolicyListType;
-        ActionNames: IAMActionNameListType;
-        ResourceArns?: IAMResourceNameListType;
-        ResourcePolicy?: IAMpolicyDocumentType;
-        ResourceOwner?: IAMResourceNameType;
-        CallerArn?: IAMResourceNameType;
-        ContextEntries?: IAMContextEntryListType;
-        ResourceHandlingOption?: IAMResourceHandlingOptionType;
-        MaxItems?: IAMmaxItemsType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMSimulatePolicyResponse {
-        EvaluationResults?: IAMEvaluationResultsListType;
-        IsTruncated?: IAMbooleanType;
-        Marker?: IAMmarkerType;
-    }
-
-    export interface IAMSimulatePrincipalPolicyRequest {
-        PolicySourceArn: IAMarnType;
-        PolicyInputList?: IAMSimulationPolicyListType;
-        ActionNames: IAMActionNameListType;
-        ResourceArns?: IAMResourceNameListType;
-        ResourcePolicy?: IAMpolicyDocumentType;
-        ResourceOwner?: IAMResourceNameType;
-        CallerArn?: IAMResourceNameType;
-        ContextEntries?: IAMContextEntryListType;
-        ResourceHandlingOption?: IAMResourceHandlingOptionType;
-        MaxItems?: IAMmaxItemsType;
-        Marker?: IAMmarkerType;
-    }
-
-    export type IAMSimulationPolicyListType = Array<IAMpolicyDocumentType>;
-    export interface IAMStatement {
-        SourcePolicyId?: IAMPolicyIdentifierType;
-        SourcePolicyType?: IAMPolicySourceType;
-        StartPosition?: IAMPosition;
-        EndPosition?: IAMPosition;
-    }
-
-    export type IAMStatementListType = Array<IAMStatement>;
-    export interface IAMUnrecognizedPublicKeyEncodingException {
-        message?: IAMunrecognizedPublicKeyEncodingMessage;
-    }
-
-    export interface IAMUpdateAccessKeyRequest {
-        UserName?: IAMexistingUserNameType;
-        AccessKeyId: IAMaccessKeyIdType;
-        Status: IAMstatusType;
-    }
-
-    export interface IAMUpdateAccountPasswordPolicyRequest {
-        MinimumPasswordLength?: IAMminimumPasswordLengthType;
-        RequireSymbols?: IAMbooleanType;
-        RequireNumbers?: IAMbooleanType;
-        RequireUppercaseCharacters?: IAMbooleanType;
-        RequireLowercaseCharacters?: IAMbooleanType;
-        AllowUsersToChangePassword?: IAMbooleanType;
-        MaxPasswordAge?: IAMmaxPasswordAgeType;
-        PasswordReusePrevention?: IAMpasswordReusePreventionType;
-        HardExpiry?: IAMbooleanObjectType;
-    }
-
-    export interface IAMUpdateAssumeRolePolicyRequest {
-        RoleName: IAMroleNameType;
-        PolicyDocument: IAMpolicyDocumentType;
-    }
-
-    export interface IAMUpdateGroupRequest {
-        GroupName: IAMgroupNameType;
-        NewPath?: IAMpathType;
-        NewGroupName?: IAMgroupNameType;
-    }
-
-    export interface IAMUpdateLoginProfileRequest {
-        UserName: IAMuserNameType;
-        Password?: IAMpasswordType;
-        PasswordResetRequired?: IAMbooleanObjectType;
-    }
-
-    export interface IAMUpdateOpenIDConnectProviderThumbprintRequest {
-        OpenIDConnectProviderArn: IAMarnType;
-        ThumbprintList: IAMthumbprintListType;
-    }
-
-    export interface IAMUpdateSAMLProviderRequest {
-        SAMLMetadataDocument: IAMSAMLMetadataDocumentType;
-        SAMLProviderArn: IAMarnType;
-    }
-
-    export interface IAMUpdateSAMLProviderResponse {
-        SAMLProviderArn?: IAMarnType;
-    }
-
-    export interface IAMUpdateSSHPublicKeyRequest {
-        UserName: IAMuserNameType;
-        SSHPublicKeyId: IAMpublicKeyIdType;
-        Status: IAMstatusType;
-    }
-
-    export interface IAMUpdateServerCertificateRequest {
-        ServerCertificateName: IAMserverCertificateNameType;
-        NewPath?: IAMpathType;
-        NewServerCertificateName?: IAMserverCertificateNameType;
-    }
-
-    export interface IAMUpdateSigningCertificateRequest {
-        UserName?: IAMexistingUserNameType;
-        CertificateId: IAMcertificateIdType;
-        Status: IAMstatusType;
-    }
-
-    export interface IAMUpdateUserRequest {
-        UserName: IAMexistingUserNameType;
-        NewPath?: IAMpathType;
-        NewUserName?: IAMuserNameType;
-    }
-
-    export interface IAMUploadSSHPublicKeyRequest {
-        UserName: IAMuserNameType;
-        SSHPublicKeyBody: IAMpublicKeyMaterialType;
-    }
-
-    export interface IAMUploadSSHPublicKeyResponse {
-        SSHPublicKey?: IAMSSHPublicKey;
-    }
-
-    export interface IAMUploadServerCertificateRequest {
-        Path?: IAMpathType;
-        ServerCertificateName: IAMserverCertificateNameType;
-        CertificateBody: IAMcertificateBodyType;
-        PrivateKey: IAMprivateKeyType;
-        CertificateChain?: IAMcertificateChainType;
-    }
-
-    export interface IAMUploadServerCertificateResponse {
-        ServerCertificateMetadata?: IAMServerCertificateMetadata;
-    }
-
-    export interface IAMUploadSigningCertificateRequest {
-        UserName?: IAMexistingUserNameType;
-        CertificateBody: IAMcertificateBodyType;
-    }
-
-    export interface IAMUploadSigningCertificateResponse {
-        Certificate: IAMSigningCertificate;
-    }
-
-    export interface IAMUser {
-        Path: IAMpathType;
-        UserName: IAMuserNameType;
-        UserId: IAMidType;
-        Arn: IAMarnType;
-        CreateDate: IAMdateType;
-        PasswordLastUsed?: IAMdateType;
-    }
-
-    export interface IAMUserDetail {
-        Path?: IAMpathType;
-        UserName?: IAMuserNameType;
-        UserId?: IAMidType;
-        Arn?: IAMarnType;
-        CreateDate?: IAMdateType;
-        UserPolicyList?: IAMpolicyDetailListType;
-        GroupList?: IAMgroupNameListType;
-        AttachedManagedPolicies?: IAMattachedPoliciesListType;
-    }
-
-    export interface IAMVirtualMFADevice {
-        SerialNumber: IAMserialNumberType;
-        Base32StringSeed?: IAMBootstrapDatum;
-        QRCodePNG?: IAMBootstrapDatum;
-        User?: IAMUser;
-        EnableDate?: IAMdateType;
-    }
-
-    export type IAMaccessKeyIdType = string; // pattern: "[\w]+"
-    export type IAMaccessKeyMetadataListType = Array<IAMAccessKeyMetadata>;
-    export type IAMaccessKeySecretType = string;
-    export type IAMaccountAliasListType = Array<IAMaccountAliasType>;
-    export type IAMaccountAliasType = string; // pattern: "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$"
-    export type IAMarnType = string;
-    export type IAMassignmentStatusType = string;
-    export type IAMattachedPoliciesListType = Array<IAMAttachedPolicy>;
-    export type IAMattachmentCountType = number;
-    export type IAMauthenticationCodeType = string; // pattern: "[\d]+"
-    export type IAMbooleanObjectType = boolean;
-    export type IAMbooleanType = boolean;
-    export type IAMcertificateBodyType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]+"
-    export type IAMcertificateChainType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]+"
-    export type IAMcertificateIdType = string; // pattern: "[\w]+"
-    export type IAMcertificateListType = Array<IAMSigningCertificate>;
-    export type IAMclientIDListType = Array<IAMclientIDType>;
-    export type IAMclientIDType = string;
-    export type IAMcredentialReportExpiredExceptionMessage = string;
-    export type IAMcredentialReportNotPresentExceptionMessage = string;
-    export type IAMcredentialReportNotReadyExceptionMessage = string;
-    export type IAMdateType = number;
-    export type IAMdeleteConflictMessage = string;
-    export type IAMduplicateCertificateMessage = string;
-    export type IAMduplicateSSHPublicKeyMessage = string;
-    export type IAMencodingType = string;
-    export type IAMentityAlreadyExistsMessage = string;
-    export type IAMentityListType = Array<IAMEntityType>;
-    export type IAMentityTemporarilyUnmodifiableMessage = string;
-    export type IAMexistingUserNameType = string; // pattern: "[\w+=,.@-]+"
-    export type IAMgroupDetailListType = Array<IAMGroupDetail>;
-    export type IAMgroupListType = Array<IAMGroup>;
-    export type IAMgroupNameListType = Array<IAMgroupNameType>;
-    export type IAMgroupNameType = string; // pattern: "[\w+=,.@-]+"
-    export type IAMidType = string; // pattern: "[\w]+"
-    export type IAMinstanceProfileListType = Array<IAMInstanceProfile>;
-    export type IAMinstanceProfileNameType = string; // pattern: "[\w+=,.@-]+"
-    export type IAMinvalidAuthenticationCodeMessage = string;
-    export type IAMinvalidCertificateMessage = string;
-    export type IAMinvalidInputMessage = string;
-    export type IAMinvalidPublicKeyMessage = string;
-    export type IAMinvalidUserTypeMessage = string;
-    export type IAMkeyPairMismatchMessage = string;
-    export type IAMlimitExceededMessage = string;
-    export type IAMmalformedCertificateMessage = string;
-    export type IAMmalformedPolicyDocumentMessage = string;
-    export type IAMmarkerType = string; // pattern: "[\u0020-\u00FF]+"
-    export type IAMmaxItemsType = number;
-    export type IAMmaxPasswordAgeType = number;
-    export type IAMmfaDeviceListType = Array<IAMMFADevice>;
-    export type IAMminimumPasswordLengthType = number;
-    export type IAMnoSuchEntityMessage = string;
-    export type IAMpasswordPolicyViolationMessage = string;
-    export type IAMpasswordReusePreventionType = number;
-    export type IAMpasswordType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]+"
-    export type IAMpathPrefixType = string; // pattern: "\u002F[\u0021-\u007F]*"
-    export type IAMpathType = string; // pattern: "(\u002F)|(\u002F[\u0021-\u007F]+\u002F)"
-    export type IAMpolicyDescriptionType = string;
-    export type IAMpolicyDetailListType = Array<IAMPolicyDetail>;
-    export type IAMpolicyDocumentType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]+"
-    export type IAMpolicyDocumentVersionListType = Array<IAMPolicyVersion>;
-    export type IAMpolicyEvaluationErrorMessage = string;
-    export type IAMpolicyListType = Array<IAMPolicy>;
-    export type IAMpolicyNameListType = Array<IAMpolicyNameType>;
-    export type IAMpolicyNameType = string; // pattern: "[\w+=,.@-]+"
-    export type IAMpolicyPathType = string; // pattern: "((/[A-Za-z0-9\.,\+@=_-]+)*)/"
-    export type IAMpolicyScopeType = string;
-    export type IAMpolicyVersionIdType = string; // pattern: "v[1-9][0-9]*(\.[A-Za-z0-9-]*)?"
-    export type IAMprivateKeyType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]+"
-    export type IAMpublicKeyFingerprintType = string; // pattern: "[:\w]+"
-    export type IAMpublicKeyIdType = string; // pattern: "[\w]+"
-    export type IAMpublicKeyMaterialType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]+"
-    export type IAMroleDetailListType = Array<IAMRoleDetail>;
-    export type IAMroleListType = Array<IAMRole>;
-    export type IAMroleNameType = string; // pattern: "[\w+=,.@-]+"
-    export type IAMserialNumberType = string; // pattern: "[\w+=/:,.@-]+"
-    export type IAMserverCertificateMetadataListType = Array<IAMServerCertificateMetadata>;
-    export type IAMserverCertificateNameType = string; // pattern: "[\w+=,.@-]+"
-    export type IAMserviceFailureExceptionMessage = string;
-    export type IAMstatusType = string;
-    export type IAMstringType = string;
-    export type IAMsummaryKeyType = string;
-    export type IAMsummaryMapType = any; // not really - it was 'map' instead - must fix this one
-    export type IAMsummaryValueType = number;
-    export type IAMthumbprintListType = Array<IAMthumbprintType>;
-    export type IAMthumbprintType = string;
-    export type IAMunrecognizedPublicKeyEncodingMessage = string;
-    export type IAMuserDetailListType = Array<IAMUserDetail>;
-    export type IAMuserListType = Array<IAMUser>;
-    export type IAMuserNameType = string; // pattern: "[\w+=,.@-]+"
-    export type IAMvirtualMFADeviceListType = Array<IAMVirtualMFADevice>;
-    export type IAMvirtualMFADeviceName = string; // pattern: "[\w+=,.@-]+"
 }

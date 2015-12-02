@@ -6,226 +6,201 @@ declare module "aws-sdk" {
 
     export class WorkSpaces extends Service {
       constructor(options?: any);
-      createWorkspaces(params: WorkSpacesCreateWorkspacesRequest, callback?: (err: WorkSpacesResourceLimitExceededException|any, data: WorkSpacesCreateWorkspacesResult|any) => void): Request;
-      describeWorkspaceBundles(params: WorkSpacesDescribeWorkspaceBundlesRequest, callback?: (err: WorkSpacesInvalidParameterValuesException|any, data: WorkSpacesDescribeWorkspaceBundlesResult|any) => void): Request;
-      describeWorkspaceDirectories(params: WorkSpacesDescribeWorkspaceDirectoriesRequest, callback?: (err: WorkSpacesInvalidParameterValuesException|any, data: WorkSpacesDescribeWorkspaceDirectoriesResult|any) => void): Request;
-      describeWorkspaces(params: WorkSpacesDescribeWorkspacesRequest, callback?: (err: WorkSpacesInvalidParameterValuesException|WorkSpacesResourceUnavailableException|any, data: WorkSpacesDescribeWorkspacesResult|any) => void): Request;
-      rebootWorkspaces(params: WorkSpacesRebootWorkspacesRequest, callback?: (err: any, data: WorkSpacesRebootWorkspacesResult|any) => void): Request;
-      rebuildWorkspaces(params: WorkSpacesRebuildWorkspacesRequest, callback?: (err: any, data: WorkSpacesRebuildWorkspacesResult|any) => void): Request;
-      terminateWorkspaces(params: WorkSpacesTerminateWorkspacesRequest, callback?: (err: any, data: WorkSpacesTerminateWorkspacesResult|any) => void): Request;
+      createWorkspaces(params: WorkSpaces.CreateWorkspacesRequest, callback?: (err: WorkSpaces.ResourceLimitExceededException|any, data: WorkSpaces.CreateWorkspacesResult|any) => void): Request;
+      describeWorkspaceBundles(params: WorkSpaces.DescribeWorkspaceBundlesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|any, data: WorkSpaces.DescribeWorkspaceBundlesResult|any) => void): Request;
+      describeWorkspaceDirectories(params: WorkSpaces.DescribeWorkspaceDirectoriesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|any, data: WorkSpaces.DescribeWorkspaceDirectoriesResult|any) => void): Request;
+      describeWorkspaces(params: WorkSpaces.DescribeWorkspacesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|WorkSpaces.ResourceUnavailableException|any, data: WorkSpaces.DescribeWorkspacesResult|any) => void): Request;
+      rebootWorkspaces(params: WorkSpaces.RebootWorkspacesRequest, callback?: (err: any, data: WorkSpaces.RebootWorkspacesResult|any) => void): Request;
+      rebuildWorkspaces(params: WorkSpaces.RebuildWorkspacesRequest, callback?: (err: any, data: WorkSpaces.RebuildWorkspacesResult|any) => void): Request;
+      terminateWorkspaces(params: WorkSpaces.TerminateWorkspacesRequest, callback?: (err: any, data: WorkSpaces.TerminateWorkspacesResult|any) => void): Request;
     }
+    
+    export module WorkSpaces {
+        export type ARN = string;    // pattern: &quot;^arn:aws:[A-Za-z0-9][A-za-z0-9_/.-]{0,62}:[A-za-z0-9_/.-]{0,63}:[A-za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-za-z0-9_/.-]{0,127}$&quot;
+        export type Alias = string;
+        export type BooleanObject = boolean;
+        export type BundleId = string;    // pattern: &quot;^wsb-[0-9a-z]{8,63}$&quot;
+        export type BundleIdList = BundleId[];    // max: 25, min: 1
+        export type BundleList = WorkspaceBundle[];
+        export type BundleOwner = string;
+        export type Compute = string;
+        export type ComputerName = string;
+        export type DefaultOu = string;
+        export type Description = string;
+        export type DirectoryId = string;    // pattern: &quot;^d-[0-9a-f]{8,63}$&quot;
+        export type DirectoryIdList = DirectoryId[];    // max: 25, min: 1
+        export type DirectoryList = WorkspaceDirectory[];
+        export type DirectoryName = string;
+        export type DnsIpAddresses = IpAddress[];
+        export type ErrorType = string;
+        export type ExceptionMessage = string;
+        export type FailedCreateWorkspaceRequests = FailedCreateWorkspaceRequest[];
+        export type FailedRebootWorkspaceRequests = FailedWorkspaceChangeRequest[];
+        export type FailedRebuildWorkspaceRequests = FailedWorkspaceChangeRequest[];
+        export type FailedTerminateWorkspaceRequests = FailedWorkspaceChangeRequest[];
+        export type IpAddress = string;
+        export type Limit = number;    // max: 25, min: 1
+        export type NonEmptyString = string;    // min: 1
+        export type PaginationToken = string;    // max: 63, min: 1
+        export type RebootWorkspaceRequests = RebootRequest[];    // max: 25, min: 1
+        export type RebuildWorkspaceRequests = RebuildRequest[];    // max: 1, min: 1
+        export type RegistrationCode = string;    // max: 20, min: 1
+        export type SecurityGroupId = string;    // pattern: &quot;^(sg-[0-9a-f]{8})$&quot;
+        export type SubnetId = string;    // pattern: &quot;^(subnet-[0-9a-f]{8})$&quot;
+        export type SubnetIds = SubnetId[];
+        export type TerminateWorkspaceRequests = TerminateRequest[];    // max: 25, min: 1
+        export type UserName = string;    // max: 63, min: 1
+        export type VolumeEncryptionKey = string;
+        export type WorkspaceDirectoryState = string;
+        export type WorkspaceDirectoryType = string;
+        export type WorkspaceErrorCode = string;
+        export type WorkspaceId = string;    // pattern: &quot;^ws-[0-9a-z]{8,63}$&quot;
+        export type WorkspaceIdList = WorkspaceId[];    // max: 25, min: 1
+        export type WorkspaceList = Workspace[];
+        export type WorkspaceRequestList = WorkspaceRequest[];    // max: 25, min: 1
+        export type WorkspaceState = string;
 
-    export type WorkSpacesARN = string; // pattern: "^arn:aws:[A-Za-z0-9][A-za-z0-9_/.-]{0,62}:[A-za-z0-9_/.-]{0,63}:[A-za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-za-z0-9_/.-]{0,127}$"
-    export type WorkSpacesAlias = string;
-    export type WorkSpacesBooleanObject = boolean;
-    export type WorkSpacesBundleId = string; // pattern: "^wsb-[0-9a-z]{8,63}$"
-    export type WorkSpacesBundleIdList = Array<WorkSpacesBundleId>; // max: 25
-    export type WorkSpacesBundleList = Array<WorkSpacesWorkspaceBundle>;
-    export type WorkSpacesBundleOwner = string;
-    export type WorkSpacesCompute = string;
-    export interface WorkSpacesComputeType {
-        Name?: WorkSpacesCompute;
+        export interface ComputeType {
+            Name?: Compute;            
+        }
+        export interface CreateWorkspacesRequest {
+            Workspaces: WorkspaceRequestList;            
+        }
+        export interface CreateWorkspacesResult {
+            FailedRequests?: FailedCreateWorkspaceRequests;            
+            PendingRequests?: WorkspaceList;            
+        }
+        export interface DefaultWorkspaceCreationProperties {
+            EnableWorkDocs?: BooleanObject;            
+            EnableInternetAccess?: BooleanObject;            
+            DefaultOu?: DefaultOu;            
+            CustomSecurityGroupId?: SecurityGroupId;            
+            UserEnabledAsLocalAdministrator?: BooleanObject;            
+        }
+        export interface DescribeWorkspaceBundlesRequest {
+            BundleIds?: BundleIdList;            
+            Owner?: BundleOwner;            
+            NextToken?: PaginationToken;            
+        }
+        export interface DescribeWorkspaceBundlesResult {
+            Bundles?: BundleList;            
+            NextToken?: PaginationToken;            
+        }
+        export interface DescribeWorkspaceDirectoriesRequest {
+            DirectoryIds?: DirectoryIdList;            
+            NextToken?: PaginationToken;            
+        }
+        export interface DescribeWorkspaceDirectoriesResult {
+            Directories?: DirectoryList;            
+            NextToken?: PaginationToken;            
+        }
+        export interface DescribeWorkspacesRequest {
+            WorkspaceIds?: WorkspaceIdList;            
+            DirectoryId?: DirectoryId;            
+            UserName?: UserName;            
+            BundleId?: BundleId;            
+            Limit?: Limit;            
+            NextToken?: PaginationToken;            
+        }
+        export interface DescribeWorkspacesResult {
+            Workspaces?: WorkspaceList;            
+            NextToken?: PaginationToken;            
+        }
+        export interface FailedCreateWorkspaceRequest {
+            WorkspaceRequest?: WorkspaceRequest;            
+            ErrorCode?: ErrorType;            
+            ErrorMessage?: Description;            
+        }
+        export interface FailedWorkspaceChangeRequest {
+            WorkspaceId?: WorkspaceId;            
+            ErrorCode?: ErrorType;            
+            ErrorMessage?: Description;            
+        }
+        export interface InvalidParameterValuesException {
+            message?: ExceptionMessage;            
+        }
+        export interface RebootRequest {
+            WorkspaceId: WorkspaceId;            
+        }
+        export interface RebootWorkspacesRequest {
+            RebootWorkspaceRequests: RebootWorkspaceRequests;            
+        }
+        export interface RebootWorkspacesResult {
+            FailedRequests?: FailedRebootWorkspaceRequests;            
+        }
+        export interface RebuildRequest {
+            WorkspaceId: WorkspaceId;            
+        }
+        export interface RebuildWorkspacesRequest {
+            RebuildWorkspaceRequests: RebuildWorkspaceRequests;            
+        }
+        export interface RebuildWorkspacesResult {
+            FailedRequests?: FailedRebuildWorkspaceRequests;            
+        }
+        export interface ResourceLimitExceededException {
+            message?: ExceptionMessage;            
+        }
+        export interface ResourceUnavailableException {
+            message?: ExceptionMessage;            
+            ResourceId?: NonEmptyString;            
+        }
+        export interface TerminateRequest {
+            WorkspaceId: WorkspaceId;            
+        }
+        export interface TerminateWorkspacesRequest {
+            TerminateWorkspaceRequests: TerminateWorkspaceRequests;            
+        }
+        export interface TerminateWorkspacesResult {
+            FailedRequests?: FailedTerminateWorkspaceRequests;            
+        }
+        export interface UserStorage {
+            Capacity?: NonEmptyString;            
+        }
+        export interface Workspace {
+            WorkspaceId?: WorkspaceId;            
+            DirectoryId?: DirectoryId;            
+            UserName?: UserName;            
+            IpAddress?: IpAddress;            
+            State?: WorkspaceState;            
+            BundleId?: BundleId;            
+            SubnetId?: SubnetId;            
+            ErrorMessage?: Description;            
+            ErrorCode?: WorkspaceErrorCode;            
+            ComputerName?: ComputerName;            
+            VolumeEncryptionKey?: VolumeEncryptionKey;            
+            UserVolumeEncryptionEnabled?: BooleanObject;            
+            RootVolumeEncryptionEnabled?: BooleanObject;            
+        }
+        export interface WorkspaceBundle {
+            BundleId?: BundleId;            
+            Name?: NonEmptyString;            
+            Owner?: BundleOwner;            
+            Description?: Description;            
+            UserStorage?: UserStorage;            
+            ComputeType?: ComputeType;            
+        }
+        export interface WorkspaceDirectory {
+            DirectoryId?: DirectoryId;            
+            Alias?: Alias;            
+            DirectoryName?: DirectoryName;            
+            RegistrationCode?: RegistrationCode;            
+            SubnetIds?: SubnetIds;            
+            DnsIpAddresses?: DnsIpAddresses;            
+            CustomerUserName?: UserName;            
+            IamRoleId?: ARN;            
+            DirectoryType?: WorkspaceDirectoryType;            
+            WorkspaceSecurityGroupId?: SecurityGroupId;            
+            State?: WorkspaceDirectoryState;            
+            WorkspaceCreationProperties?: DefaultWorkspaceCreationProperties;            
+        }
+        export interface WorkspaceRequest {
+            DirectoryId: DirectoryId;            
+            UserName: UserName;            
+            BundleId: BundleId;            
+            VolumeEncryptionKey?: VolumeEncryptionKey;            
+            UserVolumeEncryptionEnabled?: BooleanObject;            
+            RootVolumeEncryptionEnabled?: BooleanObject;            
+        }
+
     }
-
-    export type WorkSpacesComputerName = string;
-    export interface WorkSpacesCreateWorkspacesRequest {
-        Workspaces: WorkSpacesWorkspaceRequestList;
-    }
-
-    export interface WorkSpacesCreateWorkspacesResult {
-        FailedRequests?: WorkSpacesFailedCreateWorkspaceRequests;
-        PendingRequests?: WorkSpacesWorkspaceList;
-    }
-
-    export type WorkSpacesDefaultOu = string;
-    export interface WorkSpacesDefaultWorkspaceCreationProperties {
-        EnableWorkDocs?: WorkSpacesBooleanObject;
-        EnableInternetAccess?: WorkSpacesBooleanObject;
-        DefaultOu?: WorkSpacesDefaultOu;
-        CustomSecurityGroupId?: WorkSpacesSecurityGroupId;
-        UserEnabledAsLocalAdministrator?: WorkSpacesBooleanObject;
-    }
-
-    export interface WorkSpacesDescribeWorkspaceBundlesRequest {
-        BundleIds?: WorkSpacesBundleIdList;
-        Owner?: WorkSpacesBundleOwner;
-        NextToken?: WorkSpacesPaginationToken;
-    }
-
-    export interface WorkSpacesDescribeWorkspaceBundlesResult {
-        Bundles?: WorkSpacesBundleList;
-        NextToken?: WorkSpacesPaginationToken;
-    }
-
-    export interface WorkSpacesDescribeWorkspaceDirectoriesRequest {
-        DirectoryIds?: WorkSpacesDirectoryIdList;
-        NextToken?: WorkSpacesPaginationToken;
-    }
-
-    export interface WorkSpacesDescribeWorkspaceDirectoriesResult {
-        Directories?: WorkSpacesDirectoryList;
-        NextToken?: WorkSpacesPaginationToken;
-    }
-
-    export interface WorkSpacesDescribeWorkspacesRequest {
-        WorkspaceIds?: WorkSpacesWorkspaceIdList;
-        DirectoryId?: WorkSpacesDirectoryId;
-        UserName?: WorkSpacesUserName;
-        BundleId?: WorkSpacesBundleId;
-        Limit?: WorkSpacesLimit;
-        NextToken?: WorkSpacesPaginationToken;
-    }
-
-    export interface WorkSpacesDescribeWorkspacesResult {
-        Workspaces?: WorkSpacesWorkspaceList;
-        NextToken?: WorkSpacesPaginationToken;
-    }
-
-    export type WorkSpacesDescription = string;
-    export type WorkSpacesDirectoryId = string; // pattern: "^d-[0-9a-f]{8,63}$"
-    export type WorkSpacesDirectoryIdList = Array<WorkSpacesDirectoryId>; // max: 25
-    export type WorkSpacesDirectoryList = Array<WorkSpacesWorkspaceDirectory>;
-    export type WorkSpacesDirectoryName = string;
-    export type WorkSpacesDnsIpAddresses = Array<WorkSpacesIpAddress>;
-    export type WorkSpacesErrorType = string;
-    export type WorkSpacesExceptionMessage = string;
-    export interface WorkSpacesFailedCreateWorkspaceRequest {
-        WorkspaceRequest?: WorkSpacesWorkspaceRequest;
-        ErrorCode?: WorkSpacesErrorType;
-        ErrorMessage?: WorkSpacesDescription;
-    }
-
-    export type WorkSpacesFailedCreateWorkspaceRequests = Array<WorkSpacesFailedCreateWorkspaceRequest>;
-    export type WorkSpacesFailedRebootWorkspaceRequests = Array<WorkSpacesFailedWorkspaceChangeRequest>;
-    export type WorkSpacesFailedRebuildWorkspaceRequests = Array<WorkSpacesFailedWorkspaceChangeRequest>;
-    export type WorkSpacesFailedTerminateWorkspaceRequests = Array<WorkSpacesFailedWorkspaceChangeRequest>;
-    export interface WorkSpacesFailedWorkspaceChangeRequest {
-        WorkspaceId?: WorkSpacesWorkspaceId;
-        ErrorCode?: WorkSpacesErrorType;
-        ErrorMessage?: WorkSpacesDescription;
-    }
-
-    export interface WorkSpacesInvalidParameterValuesException {
-        message?: WorkSpacesExceptionMessage;
-    }
-
-    export type WorkSpacesIpAddress = string;
-    export type WorkSpacesLimit = number;
-    export type WorkSpacesNonEmptyString = string;
-    export type WorkSpacesPaginationToken = string;
-    export interface WorkSpacesRebootRequest {
-        WorkspaceId: WorkSpacesWorkspaceId;
-    }
-
-    export type WorkSpacesRebootWorkspaceRequests = Array<WorkSpacesRebootRequest>; // max: 25
-    export interface WorkSpacesRebootWorkspacesRequest {
-        RebootWorkspaceRequests: WorkSpacesRebootWorkspaceRequests;
-    }
-
-    export interface WorkSpacesRebootWorkspacesResult {
-        FailedRequests?: WorkSpacesFailedRebootWorkspaceRequests;
-    }
-
-    export interface WorkSpacesRebuildRequest {
-        WorkspaceId: WorkSpacesWorkspaceId;
-    }
-
-    export type WorkSpacesRebuildWorkspaceRequests = Array<WorkSpacesRebuildRequest>; // max: 1
-    export interface WorkSpacesRebuildWorkspacesRequest {
-        RebuildWorkspaceRequests: WorkSpacesRebuildWorkspaceRequests;
-    }
-
-    export interface WorkSpacesRebuildWorkspacesResult {
-        FailedRequests?: WorkSpacesFailedRebuildWorkspaceRequests;
-    }
-
-    export type WorkSpacesRegistrationCode = string;
-    export interface WorkSpacesResourceLimitExceededException {
-        message?: WorkSpacesExceptionMessage;
-    }
-
-    export interface WorkSpacesResourceUnavailableException {
-        message?: WorkSpacesExceptionMessage;
-        ResourceId?: WorkSpacesNonEmptyString;
-    }
-
-    export type WorkSpacesSecurityGroupId = string; // pattern: "^(sg-[0-9a-f]{8})$"
-    export type WorkSpacesSubnetId = string; // pattern: "^(subnet-[0-9a-f]{8})$"
-    export type WorkSpacesSubnetIds = Array<WorkSpacesSubnetId>;
-    export interface WorkSpacesTerminateRequest {
-        WorkspaceId: WorkSpacesWorkspaceId;
-    }
-
-    export type WorkSpacesTerminateWorkspaceRequests = Array<WorkSpacesTerminateRequest>; // max: 25
-    export interface WorkSpacesTerminateWorkspacesRequest {
-        TerminateWorkspaceRequests: WorkSpacesTerminateWorkspaceRequests;
-    }
-
-    export interface WorkSpacesTerminateWorkspacesResult {
-        FailedRequests?: WorkSpacesFailedTerminateWorkspaceRequests;
-    }
-
-    export type WorkSpacesUserName = string;
-    export interface WorkSpacesUserStorage {
-        Capacity?: WorkSpacesNonEmptyString;
-    }
-
-    export type WorkSpacesVolumeEncryptionKey = string;
-    export interface WorkSpacesWorkspace {
-        WorkspaceId?: WorkSpacesWorkspaceId;
-        DirectoryId?: WorkSpacesDirectoryId;
-        UserName?: WorkSpacesUserName;
-        IpAddress?: WorkSpacesIpAddress;
-        State?: WorkSpacesWorkspaceState;
-        BundleId?: WorkSpacesBundleId;
-        SubnetId?: WorkSpacesSubnetId;
-        ErrorMessage?: WorkSpacesDescription;
-        ErrorCode?: WorkSpacesWorkspaceErrorCode;
-        ComputerName?: WorkSpacesComputerName;
-        VolumeEncryptionKey?: WorkSpacesVolumeEncryptionKey;
-        UserVolumeEncryptionEnabled?: WorkSpacesBooleanObject;
-        RootVolumeEncryptionEnabled?: WorkSpacesBooleanObject;
-    }
-
-    export interface WorkSpacesWorkspaceBundle {
-        BundleId?: WorkSpacesBundleId;
-        Name?: WorkSpacesNonEmptyString;
-        Owner?: WorkSpacesBundleOwner;
-        Description?: WorkSpacesDescription;
-        UserStorage?: WorkSpacesUserStorage;
-        ComputeType?: WorkSpacesComputeType;
-    }
-
-    export interface WorkSpacesWorkspaceDirectory {
-        DirectoryId?: WorkSpacesDirectoryId;
-        Alias?: WorkSpacesAlias;
-        DirectoryName?: WorkSpacesDirectoryName;
-        RegistrationCode?: WorkSpacesRegistrationCode;
-        SubnetIds?: WorkSpacesSubnetIds;
-        DnsIpAddresses?: WorkSpacesDnsIpAddresses;
-        CustomerUserName?: WorkSpacesUserName;
-        IamRoleId?: WorkSpacesARN;
-        DirectoryType?: WorkSpacesWorkspaceDirectoryType;
-        WorkspaceSecurityGroupId?: WorkSpacesSecurityGroupId;
-        State?: WorkSpacesWorkspaceDirectoryState;
-        WorkspaceCreationProperties?: WorkSpacesDefaultWorkspaceCreationProperties;
-    }
-
-    export type WorkSpacesWorkspaceDirectoryState = string;
-    export type WorkSpacesWorkspaceDirectoryType = string;
-    export type WorkSpacesWorkspaceErrorCode = string;
-    export type WorkSpacesWorkspaceId = string; // pattern: "^ws-[0-9a-z]{8,63}$"
-    export type WorkSpacesWorkspaceIdList = Array<WorkSpacesWorkspaceId>; // max: 25
-    export type WorkSpacesWorkspaceList = Array<WorkSpacesWorkspace>;
-    export interface WorkSpacesWorkspaceRequest {
-        DirectoryId: WorkSpacesDirectoryId;
-        UserName: WorkSpacesUserName;
-        BundleId: WorkSpacesBundleId;
-        VolumeEncryptionKey?: WorkSpacesVolumeEncryptionKey;
-        UserVolumeEncryptionEnabled?: WorkSpacesBooleanObject;
-        RootVolumeEncryptionEnabled?: WorkSpacesBooleanObject;
-    }
-
-    export type WorkSpacesWorkspaceRequestList = Array<WorkSpacesWorkspaceRequest>; // max: 25
-    export type WorkSpacesWorkspaceState = string;
 }

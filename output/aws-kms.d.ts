@@ -6,421 +6,357 @@ declare module "aws-sdk" {
 
     export class KMS extends Service {
       constructor(options?: any);
-      cancelKeyDeletion(params: KMSCancelKeyDeletionRequest, callback?: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSCancelKeyDeletionResponse|any) => void): Request;
-      createAlias(params: KMSCreateAliasRequest, callback?: (err: KMSDependencyTimeoutException|KMSAlreadyExistsException|KMSNotFoundException|KMSInvalidAliasNameException|KMSKMSInternalException|KMSLimitExceededException|KMSKMSInvalidStateException|any, data: any) => void): Request;
-      createGrant(params: KMSCreateGrantRequest, callback?: (err: KMSNotFoundException|KMSDisabledException|KMSDependencyTimeoutException|KMSInvalidArnException|KMSKMSInternalException|KMSInvalidGrantTokenException|KMSLimitExceededException|KMSKMSInvalidStateException|any, data: KMSCreateGrantResponse|any) => void): Request;
-      createKey(params: KMSCreateKeyRequest, callback?: (err: KMSMalformedPolicyDocumentException|KMSDependencyTimeoutException|KMSInvalidArnException|KMSUnsupportedOperationException|KMSKMSInternalException|KMSLimitExceededException|any, data: KMSCreateKeyResponse|any) => void): Request;
-      decrypt(params: KMSDecryptRequest, callback?: (err: KMSNotFoundException|KMSDisabledException|KMSInvalidCiphertextException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidGrantTokenException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSDecryptResponse|any) => void): Request;
-      deleteAlias(params: KMSDeleteAliasRequest, callback?: (err: KMSDependencyTimeoutException|KMSNotFoundException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): Request;
-      describeKey(params: KMSDescribeKeyRequest, callback?: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|any, data: KMSDescribeKeyResponse|any) => void): Request;
-      disableKey(params: KMSDisableKeyRequest, callback?: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): Request;
-      disableKeyRotation(params: KMSDisableKeyRotationRequest, callback?: (err: KMSNotFoundException|KMSDisabledException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): Request;
-      enableKey(params: KMSEnableKeyRequest, callback?: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSLimitExceededException|KMSKMSInvalidStateException|any, data: any) => void): Request;
-      enableKeyRotation(params: KMSEnableKeyRotationRequest, callback?: (err: KMSNotFoundException|KMSDisabledException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): Request;
-      encrypt(params: KMSEncryptRequest, callback?: (err: KMSNotFoundException|KMSDisabledException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidKeyUsageException|KMSInvalidGrantTokenException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSEncryptResponse|any) => void): Request;
-      generateDataKey(params: KMSGenerateDataKeyRequest, callback?: (err: KMSNotFoundException|KMSDisabledException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidKeyUsageException|KMSInvalidGrantTokenException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSGenerateDataKeyResponse|any) => void): Request;
-      generateDataKeyWithoutPlaintext(params: KMSGenerateDataKeyWithoutPlaintextRequest, callback?: (err: KMSNotFoundException|KMSDisabledException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidKeyUsageException|KMSInvalidGrantTokenException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSGenerateDataKeyWithoutPlaintextResponse|any) => void): Request;
-      generateRandom(params: KMSGenerateRandomRequest, callback?: (err: KMSDependencyTimeoutException|KMSKMSInternalException|any, data: KMSGenerateRandomResponse|any) => void): Request;
-      getKeyPolicy(params: KMSGetKeyPolicyRequest, callback?: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSGetKeyPolicyResponse|any) => void): Request;
-      getKeyRotationStatus(params: KMSGetKeyRotationStatusRequest, callback?: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSGetKeyRotationStatusResponse|any) => void): Request;
-      listAliases(params: KMSListAliasesRequest, callback?: (err: KMSDependencyTimeoutException|KMSInvalidMarkerException|KMSKMSInternalException|any, data: KMSListAliasesResponse|any) => void): Request;
-      listGrants(params: KMSListGrantsRequest, callback?: (err: KMSNotFoundException|KMSDependencyTimeoutException|KMSInvalidMarkerException|KMSInvalidArnException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSListGrantsResponse|any) => void): Request;
-      listKeyPolicies(params: KMSListKeyPoliciesRequest, callback?: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSListKeyPoliciesResponse|any) => void): Request;
-      listKeys(params: KMSListKeysRequest, callback?: (err: KMSDependencyTimeoutException|KMSKMSInternalException|any, data: KMSListKeysResponse|any) => void): Request;
-      listRetirableGrants(params: KMSListRetirableGrantsRequest, callback?: (err: KMSDependencyTimeoutException|KMSInvalidMarkerException|KMSInvalidArnException|KMSNotFoundException|KMSKMSInternalException|any, data: KMSListGrantsResponse|any) => void): Request;
-      putKeyPolicy(params: KMSPutKeyPolicyRequest, callback?: (err: KMSNotFoundException|KMSInvalidArnException|KMSMalformedPolicyDocumentException|KMSDependencyTimeoutException|KMSInvalidArnException|KMSUnsupportedOperationException|KMSKMSInternalException|KMSLimitExceededException|KMSKMSInvalidStateException|any, data: any) => void): Request;
-      reEncrypt(params: KMSReEncryptRequest, callback?: (err: KMSNotFoundException|KMSDisabledException|KMSInvalidCiphertextException|KMSKeyUnavailableException|KMSDependencyTimeoutException|KMSInvalidKeyUsageException|KMSInvalidGrantTokenException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSReEncryptResponse|any) => void): Request;
-      retireGrant(params: KMSRetireGrantRequest, callback?: (err: KMSInvalidGrantTokenException|KMSInvalidGrantIdException|KMSNotFoundException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): Request;
-      revokeGrant(params: KMSRevokeGrantRequest, callback?: (err: KMSNotFoundException|KMSDependencyTimeoutException|KMSInvalidArnException|KMSInvalidGrantIdException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): Request;
-      scheduleKeyDeletion(params: KMSScheduleKeyDeletionRequest, callback?: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: KMSScheduleKeyDeletionResponse|any) => void): Request;
-      updateAlias(params: KMSUpdateAliasRequest, callback?: (err: KMSDependencyTimeoutException|KMSNotFoundException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): Request;
-      updateKeyDescription(params: KMSUpdateKeyDescriptionRequest, callback?: (err: KMSNotFoundException|KMSInvalidArnException|KMSDependencyTimeoutException|KMSKMSInternalException|KMSKMSInvalidStateException|any, data: any) => void): Request;
-    }
-
-    export type KMSAWSAccountIdType = string;
-    export type KMSAliasList = Array<KMSAliasListEntry>;
-    export interface KMSAliasListEntry {
-        AliasName?: KMSAliasNameType;
-        AliasArn?: KMSArnType;
-        TargetKeyId?: KMSKeyIdType;
-    }
-
-    export type KMSAliasNameType = string; // pattern: "^[a-zA-Z0-9:/_-]+$"
-    export interface KMSAlreadyExistsException {
-        message?: KMSErrorMessageType;
-    }
-
-    export type KMSArnType = string;
-    export type KMSBooleanType = boolean;
-    export interface KMSCancelKeyDeletionRequest {
-        KeyId: KMSKeyIdType;
-    }
-
-    export interface KMSCancelKeyDeletionResponse {
-        KeyId?: KMSKeyIdType;
-    }
-
-    export type KMSCiphertextType = any; // not really - it was 'blob' instead - must fix this one
-    export interface KMSCreateAliasRequest {
-        AliasName: KMSAliasNameType;
-        TargetKeyId: KMSKeyIdType;
-    }
-
-    export interface KMSCreateGrantRequest {
-        KeyId: KMSKeyIdType;
-        GranteePrincipal: KMSPrincipalIdType;
-        RetiringPrincipal?: KMSPrincipalIdType;
-        Operations?: KMSGrantOperationList;
-        Constraints?: KMSGrantConstraints;
-        GrantTokens?: KMSGrantTokenList;
-        Name?: KMSGrantNameType;
-    }
-
-    export interface KMSCreateGrantResponse {
-        GrantToken?: KMSGrantTokenType;
-        GrantId?: KMSGrantIdType;
-    }
-
-    export interface KMSCreateKeyRequest {
-        Policy?: KMSPolicyType;
-        Description?: KMSDescriptionType;
-        KeyUsage?: KMSKeyUsageType;
-    }
-
-    export interface KMSCreateKeyResponse {
-        KeyMetadata?: KMSKeyMetadata;
-    }
-
-    export type KMSDataKeySpec = string;
-    export type KMSDateType = number;
-    export interface KMSDecryptRequest {
-        CiphertextBlob: KMSCiphertextType;
-        EncryptionContext?: KMSEncryptionContextType;
-        GrantTokens?: KMSGrantTokenList;
-    }
-
-    export interface KMSDecryptResponse {
-        KeyId?: KMSKeyIdType;
-        Plaintext?: KMSPlaintextType;
-    }
-
-    export interface KMSDeleteAliasRequest {
-        AliasName: KMSAliasNameType;
-    }
-
-    export interface KMSDependencyTimeoutException {
-        message?: KMSErrorMessageType;
-    }
-
-    export interface KMSDescribeKeyRequest {
-        KeyId: KMSKeyIdType;
-        GrantTokens?: KMSGrantTokenList;
-    }
-
-    export interface KMSDescribeKeyResponse {
-        KeyMetadata?: KMSKeyMetadata;
-    }
-
-    export type KMSDescriptionType = string;
-    export interface KMSDisableKeyRequest {
-        KeyId: KMSKeyIdType;
-    }
-
-    export interface KMSDisableKeyRotationRequest {
-        KeyId: KMSKeyIdType;
-    }
-
-    export interface KMSDisabledException {
-        message?: KMSErrorMessageType;
-    }
-
-    export interface KMSEnableKeyRequest {
-        KeyId: KMSKeyIdType;
-    }
-
-    export interface KMSEnableKeyRotationRequest {
-        KeyId: KMSKeyIdType;
-    }
-
-    export interface KMSEncryptRequest {
-        KeyId: KMSKeyIdType;
-        Plaintext: KMSPlaintextType;
-        EncryptionContext?: KMSEncryptionContextType;
-        GrantTokens?: KMSGrantTokenList;
-    }
-
-    export interface KMSEncryptResponse {
-        CiphertextBlob?: KMSCiphertextType;
-        KeyId?: KMSKeyIdType;
-    }
-
-    export type KMSEncryptionContextKey = string;
-    export type KMSEncryptionContextType = any; // not really - it was 'map' instead - must fix this one
-    export type KMSEncryptionContextValue = string;
-    export type KMSErrorMessageType = string;
-    export interface KMSGenerateDataKeyRequest {
-        KeyId: KMSKeyIdType;
-        EncryptionContext?: KMSEncryptionContextType;
-        NumberOfBytes?: KMSNumberOfBytesType;
-        KeySpec?: KMSDataKeySpec;
-        GrantTokens?: KMSGrantTokenList;
-    }
-
-    export interface KMSGenerateDataKeyResponse {
-        CiphertextBlob?: KMSCiphertextType;
-        Plaintext?: KMSPlaintextType;
-        KeyId?: KMSKeyIdType;
-    }
-
-    export interface KMSGenerateDataKeyWithoutPlaintextRequest {
-        KeyId: KMSKeyIdType;
-        EncryptionContext?: KMSEncryptionContextType;
-        KeySpec?: KMSDataKeySpec;
-        NumberOfBytes?: KMSNumberOfBytesType;
-        GrantTokens?: KMSGrantTokenList;
-    }
-
-    export interface KMSGenerateDataKeyWithoutPlaintextResponse {
-        CiphertextBlob?: KMSCiphertextType;
-        KeyId?: KMSKeyIdType;
-    }
-
-    export interface KMSGenerateRandomRequest {
-        NumberOfBytes?: KMSNumberOfBytesType;
-    }
-
-    export interface KMSGenerateRandomResponse {
-        Plaintext?: KMSPlaintextType;
-    }
-
-    export interface KMSGetKeyPolicyRequest {
-        KeyId: KMSKeyIdType;
-        PolicyName: KMSPolicyNameType;
-    }
-
-    export interface KMSGetKeyPolicyResponse {
-        Policy?: KMSPolicyType;
-    }
-
-    export interface KMSGetKeyRotationStatusRequest {
-        KeyId: KMSKeyIdType;
-    }
-
-    export interface KMSGetKeyRotationStatusResponse {
-        KeyRotationEnabled?: KMSBooleanType;
-    }
-
-    export interface KMSGrantConstraints {
-        EncryptionContextSubset?: KMSEncryptionContextType;
-        EncryptionContextEquals?: KMSEncryptionContextType;
-    }
-
-    export type KMSGrantIdType = string;
-    export type KMSGrantList = Array<KMSGrantListEntry>;
-    export interface KMSGrantListEntry {
-        KeyId?: KMSKeyIdType;
-        GrantId?: KMSGrantIdType;
-        Name?: KMSGrantNameType;
-        CreationDate?: KMSDateType;
-        GranteePrincipal?: KMSPrincipalIdType;
-        RetiringPrincipal?: KMSPrincipalIdType;
-        IssuingAccount?: KMSPrincipalIdType;
-        Operations?: KMSGrantOperationList;
-        Constraints?: KMSGrantConstraints;
-    }
-
-    export type KMSGrantNameType = string; // pattern: "^[a-zA-Z0-9:/_-]+$"
-    export type KMSGrantOperation = string;
-    export type KMSGrantOperationList = Array<KMSGrantOperation>;
-    export type KMSGrantTokenList = Array<KMSGrantTokenType>; // max: 10
-    export type KMSGrantTokenType = string;
-    export interface KMSInvalidAliasNameException {
-        message?: KMSErrorMessageType;
-    }
-
-    export interface KMSInvalidArnException {
-        message?: KMSErrorMessageType;
-    }
-
-    export interface KMSInvalidCiphertextException {
-        message?: KMSErrorMessageType;
-    }
-
-    export interface KMSInvalidGrantIdException {
-        message?: KMSErrorMessageType;
-    }
-
-    export interface KMSInvalidGrantTokenException {
-        message?: KMSErrorMessageType;
-    }
-
-    export interface KMSInvalidKeyUsageException {
-        message?: KMSErrorMessageType;
-    }
-
-    export interface KMSInvalidMarkerException {
-        message?: KMSErrorMessageType;
-    }
-
-    export interface KMSKMSInternalException {
-        message?: KMSErrorMessageType;
-    }
-
-    export interface KMSKMSInvalidStateException {
-        message?: KMSErrorMessageType;
-    }
-
-    export type KMSKeyIdType = string;
-    export type KMSKeyList = Array<KMSKeyListEntry>;
-    export interface KMSKeyListEntry {
-        KeyId?: KMSKeyIdType;
-        KeyArn?: KMSArnType;
-    }
-
-    export interface KMSKeyMetadata {
-        AWSAccountId?: KMSAWSAccountIdType;
-        KeyId: KMSKeyIdType;
-        Arn?: KMSArnType;
-        CreationDate?: KMSDateType;
-        Enabled?: KMSBooleanType;
-        Description?: KMSDescriptionType;
-        KeyUsage?: KMSKeyUsageType;
-        KeyState?: KMSKeyState;
-        DeletionDate?: KMSDateType;
-    }
-
-    export type KMSKeyState = string;
-    export interface KMSKeyUnavailableException {
-        message?: KMSErrorMessageType;
-    }
-
-    export type KMSKeyUsageType = string;
-    export interface KMSLimitExceededException {
-        message?: KMSErrorMessageType;
-    }
-
-    export type KMSLimitType = number;
-    export interface KMSListAliasesRequest {
-        Limit?: KMSLimitType;
-        Marker?: KMSMarkerType;
-    }
-
-    export interface KMSListAliasesResponse {
-        Aliases?: KMSAliasList;
-        NextMarker?: KMSMarkerType;
-        Truncated?: KMSBooleanType;
-    }
-
-    export interface KMSListGrantsRequest {
-        Limit?: KMSLimitType;
-        Marker?: KMSMarkerType;
-        KeyId: KMSKeyIdType;
-    }
-
-    export interface KMSListGrantsResponse {
-        Grants?: KMSGrantList;
-        NextMarker?: KMSMarkerType;
-        Truncated?: KMSBooleanType;
-    }
-
-    export interface KMSListKeyPoliciesRequest {
-        KeyId: KMSKeyIdType;
-        Limit?: KMSLimitType;
-        Marker?: KMSMarkerType;
-    }
-
-    export interface KMSListKeyPoliciesResponse {
-        PolicyNames?: KMSPolicyNameList;
-        NextMarker?: KMSMarkerType;
-        Truncated?: KMSBooleanType;
-    }
-
-    export interface KMSListKeysRequest {
-        Limit?: KMSLimitType;
-        Marker?: KMSMarkerType;
-    }
-
-    export interface KMSListKeysResponse {
-        Keys?: KMSKeyList;
-        NextMarker?: KMSMarkerType;
-        Truncated?: KMSBooleanType;
-    }
-
-    export interface KMSListRetirableGrantsRequest {
-        Limit?: KMSLimitType;
-        Marker?: KMSMarkerType;
-        RetiringPrincipal: KMSPrincipalIdType;
-    }
-
-    export interface KMSMalformedPolicyDocumentException {
-        message?: KMSErrorMessageType;
-    }
-
-    export type KMSMarkerType = string; // pattern: "[\u0020-\u00FF]*"
-    export interface KMSNotFoundException {
-        message?: KMSErrorMessageType;
-    }
-
-    export type KMSNumberOfBytesType = number;
-    export type KMSPendingWindowInDaysType = number;
-    export type KMSPlaintextType = any; // not really - it was 'blob' instead - must fix this one
-    export type KMSPolicyNameList = Array<KMSPolicyNameType>;
-    export type KMSPolicyNameType = string; // pattern: "[\w]+"
-    export type KMSPolicyType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]+"
-    export type KMSPrincipalIdType = string;
-    export interface KMSPutKeyPolicyRequest {
-        KeyId: KMSKeyIdType;
-        PolicyName: KMSPolicyNameType;
-        Policy: KMSPolicyType;
-    }
+      cancelKeyDeletion(params: KMS.CancelKeyDeletionRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.CancelKeyDeletionResponse|any) => void): Request;
+      createAlias(params: KMS.CreateAliasRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.AlreadyExistsException|KMS.NotFoundException|KMS.InvalidAliasNameException|KMS.KMSInternalException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+      createGrant(params: KMS.CreateGrantRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.KMSInternalException|KMS.InvalidGrantTokenException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any, data: KMS.CreateGrantResponse|any) => void): Request;
+      createKey(params: KMS.CreateKeyRequest, callback?: (err: KMS.MalformedPolicyDocumentException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.UnsupportedOperationException|KMS.KMSInternalException|KMS.LimitExceededException|any, data: KMS.CreateKeyResponse|any) => void): Request;
+      decrypt(params: KMS.DecryptRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidCiphertextException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.DecryptResponse|any) => void): Request;
+      deleteAlias(params: KMS.DeleteAliasRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+      describeKey(params: KMS.DescribeKeyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|any, data: KMS.DescribeKeyResponse|any) => void): Request;
+      disableKey(params: KMS.DisableKeyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+      disableKeyRotation(params: KMS.DisableKeyRotationRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+      enableKey(params: KMS.EnableKeyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+      enableKeyRotation(params: KMS.EnableKeyRotationRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+      encrypt(params: KMS.EncryptRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.EncryptResponse|any) => void): Request;
+      generateDataKey(params: KMS.GenerateDataKeyRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.GenerateDataKeyResponse|any) => void): Request;
+      generateDataKeyWithoutPlaintext(params: KMS.GenerateDataKeyWithoutPlaintextRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.GenerateDataKeyWithoutPlaintextResponse|any) => void): Request;
+      generateRandom(params: KMS.GenerateRandomRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.KMSInternalException|any, data: KMS.GenerateRandomResponse|any) => void): Request;
+      getKeyPolicy(params: KMS.GetKeyPolicyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.GetKeyPolicyResponse|any) => void): Request;
+      getKeyRotationStatus(params: KMS.GetKeyRotationStatusRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.GetKeyRotationStatusResponse|any) => void): Request;
+      listAliases(params: KMS.ListAliasesRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.InvalidMarkerException|KMS.KMSInternalException|any, data: KMS.ListAliasesResponse|any) => void): Request;
+      listGrants(params: KMS.ListGrantsRequest, callback?: (err: KMS.NotFoundException|KMS.DependencyTimeoutException|KMS.InvalidMarkerException|KMS.InvalidArnException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.ListGrantsResponse|any) => void): Request;
+      listKeyPolicies(params: KMS.ListKeyPoliciesRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.ListKeyPoliciesResponse|any) => void): Request;
+      listKeys(params: KMS.ListKeysRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.KMSInternalException|any, data: KMS.ListKeysResponse|any) => void): Request;
+      listRetirableGrants(params: KMS.ListRetirableGrantsRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.InvalidMarkerException|KMS.InvalidArnException|KMS.NotFoundException|KMS.KMSInternalException|any, data: KMS.ListGrantsResponse|any) => void): Request;
+      putKeyPolicy(params: KMS.PutKeyPolicyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.MalformedPolicyDocumentException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.UnsupportedOperationException|KMS.KMSInternalException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+      reEncrypt(params: KMS.ReEncryptRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidCiphertextException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.ReEncryptResponse|any) => void): Request;
+      retireGrant(params: KMS.RetireGrantRequest, callback?: (err: KMS.InvalidGrantTokenException|KMS.InvalidGrantIdException|KMS.NotFoundException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+      revokeGrant(params: KMS.RevokeGrantRequest, callback?: (err: KMS.NotFoundException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.InvalidGrantIdException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+      scheduleKeyDeletion(params: KMS.ScheduleKeyDeletionRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.ScheduleKeyDeletionResponse|any) => void): Request;
+      updateAlias(params: KMS.UpdateAliasRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+      updateKeyDescription(params: KMS.UpdateKeyDescriptionRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+    }
+    
+    export module KMS {
+        export type AWSAccountIdType = string;
+        export type AliasList = AliasListEntry[];
+        export type AliasNameType = string;    // pattern: &quot;^[a-zA-Z0-9:/_-]+$&quot;, max: 256, min: 1
+        export type ArnType = string;    // max: 2048, min: 20
+        export type BooleanType = boolean;
+        export type CiphertextType = any;    // max: 6144, min: 1, type: blob
+        export type DataKeySpec = string;
+        export type DateType = number;
+        export type DescriptionType = string;    // max: 8192
+        export type EncryptionContextKey = string;
+        export type EncryptionContextType = {[key:string]: EncryptionContextValue};
+        export type EncryptionContextValue = string;
+        export type ErrorMessageType = string;
+        export type GrantIdType = string;    // max: 128, min: 1
+        export type GrantList = GrantListEntry[];
+        export type GrantNameType = string;    // pattern: &quot;^[a-zA-Z0-9:/_-]+$&quot;, max: 256, min: 1
+        export type GrantOperation = string;
+        export type GrantOperationList = GrantOperation[];
+        export type GrantTokenList = GrantTokenType[];    // max: 10
+        export type GrantTokenType = string;    // max: 8192, min: 1
+        export type KeyIdType = string;    // max: 256, min: 1
+        export type KeyList = KeyListEntry[];
+        export type KeyState = string;
+        export type KeyUsageType = string;
+        export type LimitType = number;    // max: 1000, min: 1
+        export type MarkerType = string;    // pattern: &quot;[\u0020-\u00FF]*&quot;, max: 320, min: 1
+        export type NumberOfBytesType = number;    // max: 1024, min: 1
+        export type PendingWindowInDaysType = number;    // max: 365, min: 1
+        export type PlaintextType = any;    // max: 4096, min: 1, type: blob
+        export type PolicyNameList = PolicyNameType[];
+        export type PolicyNameType = string;    // pattern: &quot;[\w]+&quot;, max: 128, min: 1
+        export type PolicyType = string;    // pattern: &quot;[\u0009\u000A\u000D\u0020-\u00FF]+&quot;, max: 131072, min: 1
+        export type PrincipalIdType = string;    // max: 256, min: 1
+
+        export interface AliasListEntry {
+            AliasName?: AliasNameType;            
+            AliasArn?: ArnType;            
+            TargetKeyId?: KeyIdType;            
+        }
+        export interface AlreadyExistsException {
+            message?: ErrorMessageType;            
+        }
+        export interface CancelKeyDeletionRequest {
+            KeyId: KeyIdType;            
+        }
+        export interface CancelKeyDeletionResponse {
+            KeyId?: KeyIdType;            
+        }
+        export interface CreateAliasRequest {
+            AliasName: AliasNameType;            
+            TargetKeyId: KeyIdType;            
+        }
+        export interface CreateGrantRequest {
+            KeyId: KeyIdType;            
+            GranteePrincipal: PrincipalIdType;            
+            RetiringPrincipal?: PrincipalIdType;            
+            Operations?: GrantOperationList;            
+            Constraints?: GrantConstraints;            
+            GrantTokens?: GrantTokenList;            
+            Name?: GrantNameType;            
+        }
+        export interface CreateGrantResponse {
+            GrantToken?: GrantTokenType;            
+            GrantId?: GrantIdType;            
+        }
+        export interface CreateKeyRequest {
+            Policy?: PolicyType;            
+            Description?: DescriptionType;            
+            KeyUsage?: KeyUsageType;            
+        }
+        export interface CreateKeyResponse {
+            KeyMetadata?: KeyMetadata;            
+        }
+        export interface DecryptRequest {
+            CiphertextBlob: CiphertextType;            
+            EncryptionContext?: EncryptionContextType;            
+            GrantTokens?: GrantTokenList;            
+        }
+        export interface DecryptResponse {
+            KeyId?: KeyIdType;            
+            Plaintext?: PlaintextType;            
+        }
+        export interface DeleteAliasRequest {
+            AliasName: AliasNameType;            
+        }
+        export interface DependencyTimeoutException {
+            message?: ErrorMessageType;            
+        }
+        export interface DescribeKeyRequest {
+            KeyId: KeyIdType;            
+            GrantTokens?: GrantTokenList;            
+        }
+        export interface DescribeKeyResponse {
+            KeyMetadata?: KeyMetadata;            
+        }
+        export interface DisableKeyRequest {
+            KeyId: KeyIdType;            
+        }
+        export interface DisableKeyRotationRequest {
+            KeyId: KeyIdType;            
+        }
+        export interface DisabledException {
+            message?: ErrorMessageType;            
+        }
+        export interface EnableKeyRequest {
+            KeyId: KeyIdType;            
+        }
+        export interface EnableKeyRotationRequest {
+            KeyId: KeyIdType;            
+        }
+        export interface EncryptRequest {
+            KeyId: KeyIdType;            
+            Plaintext: PlaintextType;            
+            EncryptionContext?: EncryptionContextType;            
+            GrantTokens?: GrantTokenList;            
+        }
+        export interface EncryptResponse {
+            CiphertextBlob?: CiphertextType;            
+            KeyId?: KeyIdType;            
+        }
+        export interface GenerateDataKeyRequest {
+            KeyId: KeyIdType;            
+            EncryptionContext?: EncryptionContextType;            
+            NumberOfBytes?: NumberOfBytesType;            
+            KeySpec?: DataKeySpec;            
+            GrantTokens?: GrantTokenList;            
+        }
+        export interface GenerateDataKeyResponse {
+            CiphertextBlob?: CiphertextType;            
+            Plaintext?: PlaintextType;            
+            KeyId?: KeyIdType;            
+        }
+        export interface GenerateDataKeyWithoutPlaintextRequest {
+            KeyId: KeyIdType;            
+            EncryptionContext?: EncryptionContextType;            
+            KeySpec?: DataKeySpec;            
+            NumberOfBytes?: NumberOfBytesType;            
+            GrantTokens?: GrantTokenList;            
+        }
+        export interface GenerateDataKeyWithoutPlaintextResponse {
+            CiphertextBlob?: CiphertextType;            
+            KeyId?: KeyIdType;            
+        }
+        export interface GenerateRandomRequest {
+            NumberOfBytes?: NumberOfBytesType;            
+        }
+        export interface GenerateRandomResponse {
+            Plaintext?: PlaintextType;            
+        }
+        export interface GetKeyPolicyRequest {
+            KeyId: KeyIdType;            
+            PolicyName: PolicyNameType;            
+        }
+        export interface GetKeyPolicyResponse {
+            Policy?: PolicyType;            
+        }
+        export interface GetKeyRotationStatusRequest {
+            KeyId: KeyIdType;            
+        }
+        export interface GetKeyRotationStatusResponse {
+            KeyRotationEnabled?: BooleanType;            
+        }
+        export interface GrantConstraints {
+            EncryptionContextSubset?: EncryptionContextType;            
+            EncryptionContextEquals?: EncryptionContextType;            
+        }
+        export interface GrantListEntry {
+            KeyId?: KeyIdType;            
+            GrantId?: GrantIdType;            
+            Name?: GrantNameType;            
+            CreationDate?: DateType;            
+            GranteePrincipal?: PrincipalIdType;            
+            RetiringPrincipal?: PrincipalIdType;            
+            IssuingAccount?: PrincipalIdType;            
+            Operations?: GrantOperationList;            
+            Constraints?: GrantConstraints;            
+        }
+        export interface InvalidAliasNameException {
+            message?: ErrorMessageType;            
+        }
+        export interface InvalidArnException {
+            message?: ErrorMessageType;            
+        }
+        export interface InvalidCiphertextException {
+            message?: ErrorMessageType;            
+        }
+        export interface InvalidGrantIdException {
+            message?: ErrorMessageType;            
+        }
+        export interface InvalidGrantTokenException {
+            message?: ErrorMessageType;            
+        }
+        export interface InvalidKeyUsageException {
+            message?: ErrorMessageType;            
+        }
+        export interface InvalidMarkerException {
+            message?: ErrorMessageType;            
+        }
+        export interface KMSInternalException {
+            message?: ErrorMessageType;            
+        }
+        export interface KMSInvalidStateException {
+            message?: ErrorMessageType;            
+        }
+        export interface KeyListEntry {
+            KeyId?: KeyIdType;            
+            KeyArn?: ArnType;            
+        }
+        export interface KeyMetadata {
+            AWSAccountId?: AWSAccountIdType;            
+            KeyId: KeyIdType;            
+            Arn?: ArnType;            
+            CreationDate?: DateType;            
+            Enabled?: BooleanType;            
+            Description?: DescriptionType;            
+            KeyUsage?: KeyUsageType;            
+            KeyState?: KeyState;            
+            DeletionDate?: DateType;            
+        }
+        export interface KeyUnavailableException {
+            message?: ErrorMessageType;            
+        }
+        export interface LimitExceededException {
+            message?: ErrorMessageType;            
+        }
+        export interface ListAliasesRequest {
+            Limit?: LimitType;            
+            Marker?: MarkerType;            
+        }
+        export interface ListAliasesResponse {
+            Aliases?: AliasList;            
+            NextMarker?: MarkerType;            
+            Truncated?: BooleanType;            
+        }
+        export interface ListGrantsRequest {
+            Limit?: LimitType;            
+            Marker?: MarkerType;            
+            KeyId: KeyIdType;            
+        }
+        export interface ListGrantsResponse {
+            Grants?: GrantList;            
+            NextMarker?: MarkerType;            
+            Truncated?: BooleanType;            
+        }
+        export interface ListKeyPoliciesRequest {
+            KeyId: KeyIdType;            
+            Limit?: LimitType;            
+            Marker?: MarkerType;            
+        }
+        export interface ListKeyPoliciesResponse {
+            PolicyNames?: PolicyNameList;            
+            NextMarker?: MarkerType;            
+            Truncated?: BooleanType;            
+        }
+        export interface ListKeysRequest {
+            Limit?: LimitType;            
+            Marker?: MarkerType;            
+        }
+        export interface ListKeysResponse {
+            Keys?: KeyList;            
+            NextMarker?: MarkerType;            
+            Truncated?: BooleanType;            
+        }
+        export interface ListRetirableGrantsRequest {
+            Limit?: LimitType;            
+            Marker?: MarkerType;            
+            RetiringPrincipal: PrincipalIdType;            
+        }
+        export interface MalformedPolicyDocumentException {
+            message?: ErrorMessageType;            
+        }
+        export interface NotFoundException {
+            message?: ErrorMessageType;            
+        }
+        export interface PutKeyPolicyRequest {
+            KeyId: KeyIdType;            
+            PolicyName: PolicyNameType;            
+            Policy: PolicyType;            
+        }
+        export interface ReEncryptRequest {
+            CiphertextBlob: CiphertextType;            
+            SourceEncryptionContext?: EncryptionContextType;            
+            DestinationKeyId: KeyIdType;            
+            DestinationEncryptionContext?: EncryptionContextType;            
+            GrantTokens?: GrantTokenList;            
+        }
+        export interface ReEncryptResponse {
+            CiphertextBlob?: CiphertextType;            
+            SourceKeyId?: KeyIdType;            
+            KeyId?: KeyIdType;            
+        }
+        export interface RetireGrantRequest {
+            GrantToken?: GrantTokenType;            
+            KeyId?: KeyIdType;            
+            GrantId?: GrantIdType;            
+        }
+        export interface RevokeGrantRequest {
+            KeyId: KeyIdType;            
+            GrantId: GrantIdType;            
+        }
+        export interface ScheduleKeyDeletionRequest {
+            KeyId: KeyIdType;            
+            PendingWindowInDays?: PendingWindowInDaysType;            
+        }
+        export interface ScheduleKeyDeletionResponse {
+            KeyId?: KeyIdType;            
+            DeletionDate?: DateType;            
+        }
+        export interface UnsupportedOperationException {
+            message?: ErrorMessageType;            
+        }
+        export interface UpdateAliasRequest {
+            AliasName: AliasNameType;            
+            TargetKeyId: KeyIdType;            
+        }
+        export interface UpdateKeyDescriptionRequest {
+            KeyId: KeyIdType;            
+            Description: DescriptionType;            
+        }
 
-    export interface KMSReEncryptRequest {
-        CiphertextBlob: KMSCiphertextType;
-        SourceEncryptionContext?: KMSEncryptionContextType;
-        DestinationKeyId: KMSKeyIdType;
-        DestinationEncryptionContext?: KMSEncryptionContextType;
-        GrantTokens?: KMSGrantTokenList;
     }
-
-    export interface KMSReEncryptResponse {
-        CiphertextBlob?: KMSCiphertextType;
-        SourceKeyId?: KMSKeyIdType;
-        KeyId?: KMSKeyIdType;
-    }
-
-    export interface KMSRetireGrantRequest {
-        GrantToken?: KMSGrantTokenType;
-        KeyId?: KMSKeyIdType;
-        GrantId?: KMSGrantIdType;
-    }
-
-    export interface KMSRevokeGrantRequest {
-        KeyId: KMSKeyIdType;
-        GrantId: KMSGrantIdType;
-    }
-
-    export interface KMSScheduleKeyDeletionRequest {
-        KeyId: KMSKeyIdType;
-        PendingWindowInDays?: KMSPendingWindowInDaysType;
-    }
-
-    export interface KMSScheduleKeyDeletionResponse {
-        KeyId?: KMSKeyIdType;
-        DeletionDate?: KMSDateType;
-    }
-
-    export interface KMSUnsupportedOperationException {
-        message?: KMSErrorMessageType;
-    }
-
-    export interface KMSUpdateAliasRequest {
-        AliasName: KMSAliasNameType;
-        TargetKeyId: KMSKeyIdType;
-    }
-
-    export interface KMSUpdateKeyDescriptionRequest {
-        KeyId: KMSKeyIdType;
-        Description: KMSDescriptionType;
-    }
-
 }

@@ -6,1109 +6,936 @@ declare module "aws-sdk" {
 
     export class RDS extends Service {
       constructor(options?: any);
-      addSourceIdentifierToSubscription(params: RDSAddSourceIdentifierToSubscriptionMessage, callback?: (err: RDSSubscriptionNotFoundFault|RDSSourceNotFoundFault|any, data: RDSAddSourceIdentifierToSubscriptionResult|any) => void): Request;
-      addTagsToResource(params: RDSAddTagsToResourceMessage, callback?: (err: RDSDBInstanceNotFoundFault|RDSDBSnapshotNotFoundFault|any, data: any) => void): Request;
-      authorizeDBSecurityGroupIngress(params: RDSAuthorizeDBSecurityGroupIngressMessage, callback?: (err: RDSDBSecurityGroupNotFoundFault|RDSInvalidDBSecurityGroupStateFault|RDSAuthorizationAlreadyExistsFault|RDSAuthorizationQuotaExceededFault|any, data: RDSAuthorizeDBSecurityGroupIngressResult|any) => void): Request;
-      copyDBSnapshot(params: RDSCopyDBSnapshotMessage, callback?: (err: RDSDBSnapshotAlreadyExistsFault|RDSDBSnapshotNotFoundFault|RDSInvalidDBSnapshotStateFault|RDSSnapshotQuotaExceededFault|any, data: RDSCopyDBSnapshotResult|any) => void): Request;
-      createDBInstance(params: RDSCreateDBInstanceMessage, callback?: (err: RDSDBInstanceAlreadyExistsFault|RDSInsufficientDBInstanceCapacityFault|RDSDBParameterGroupNotFoundFault|RDSDBSecurityGroupNotFoundFault|RDSInstanceQuotaExceededFault|RDSStorageQuotaExceededFault|RDSDBSubnetGroupNotFoundFault|RDSDBSubnetGroupDoesNotCoverEnoughAZs|RDSInvalidSubnet|RDSInvalidVPCNetworkStateFault|RDSProvisionedIopsNotAvailableInAZFault|RDSOptionGroupNotFoundFault|any, data: RDSCreateDBInstanceResult|any) => void): Request;
-      createDBInstanceReadReplica(params: RDSCreateDBInstanceReadReplicaMessage, callback?: (err: RDSDBInstanceAlreadyExistsFault|RDSInsufficientDBInstanceCapacityFault|RDSDBParameterGroupNotFoundFault|RDSDBSecurityGroupNotFoundFault|RDSInstanceQuotaExceededFault|RDSStorageQuotaExceededFault|RDSDBInstanceNotFoundFault|RDSInvalidDBInstanceStateFault|RDSDBSubnetGroupNotFoundFault|RDSDBSubnetGroupDoesNotCoverEnoughAZs|RDSInvalidSubnet|RDSInvalidVPCNetworkStateFault|RDSProvisionedIopsNotAvailableInAZFault|RDSOptionGroupNotFoundFault|any, data: RDSCreateDBInstanceReadReplicaResult|any) => void): Request;
-      createDBParameterGroup(params: RDSCreateDBParameterGroupMessage, callback?: (err: RDSDBParameterGroupQuotaExceededFault|RDSDBParameterGroupAlreadyExistsFault|any, data: RDSCreateDBParameterGroupResult|any) => void): Request;
-      createDBSecurityGroup(params: RDSCreateDBSecurityGroupMessage, callback?: (err: RDSDBSecurityGroupAlreadyExistsFault|RDSDBSecurityGroupQuotaExceededFault|RDSDBSecurityGroupNotSupportedFault|any, data: RDSCreateDBSecurityGroupResult|any) => void): Request;
-      createDBSnapshot(params: RDSCreateDBSnapshotMessage, callback?: (err: RDSDBSnapshotAlreadyExistsFault|RDSInvalidDBInstanceStateFault|RDSDBInstanceNotFoundFault|RDSSnapshotQuotaExceededFault|any, data: RDSCreateDBSnapshotResult|any) => void): Request;
-      createDBSubnetGroup(params: RDSCreateDBSubnetGroupMessage, callback?: (err: RDSDBSubnetGroupAlreadyExistsFault|RDSDBSubnetGroupQuotaExceededFault|RDSDBSubnetQuotaExceededFault|RDSDBSubnetGroupDoesNotCoverEnoughAZs|RDSInvalidSubnet|any, data: RDSCreateDBSubnetGroupResult|any) => void): Request;
-      createEventSubscription(params: RDSCreateEventSubscriptionMessage, callback?: (err: RDSEventSubscriptionQuotaExceededFault|RDSSubscriptionAlreadyExistFault|RDSSNSInvalidTopicFault|RDSSNSNoAuthorizationFault|RDSSNSTopicArnNotFoundFault|RDSSubscriptionCategoryNotFoundFault|RDSSourceNotFoundFault|any, data: RDSCreateEventSubscriptionResult|any) => void): Request;
-      createOptionGroup(params: RDSCreateOptionGroupMessage, callback?: (err: RDSOptionGroupAlreadyExistsFault|RDSOptionGroupQuotaExceededFault|any, data: RDSCreateOptionGroupResult|any) => void): Request;
-      deleteDBInstance(params: RDSDeleteDBInstanceMessage, callback?: (err: RDSDBInstanceNotFoundFault|RDSInvalidDBInstanceStateFault|RDSDBSnapshotAlreadyExistsFault|RDSSnapshotQuotaExceededFault|any, data: RDSDeleteDBInstanceResult|any) => void): Request;
-      deleteDBParameterGroup(params: RDSDeleteDBParameterGroupMessage, callback?: (err: RDSInvalidDBParameterGroupStateFault|RDSDBParameterGroupNotFoundFault|any, data: any) => void): Request;
-      deleteDBSecurityGroup(params: RDSDeleteDBSecurityGroupMessage, callback?: (err: RDSInvalidDBSecurityGroupStateFault|RDSDBSecurityGroupNotFoundFault|any, data: any) => void): Request;
-      deleteDBSnapshot(params: RDSDeleteDBSnapshotMessage, callback?: (err: RDSInvalidDBSnapshotStateFault|RDSDBSnapshotNotFoundFault|any, data: RDSDeleteDBSnapshotResult|any) => void): Request;
-      deleteDBSubnetGroup(params: RDSDeleteDBSubnetGroupMessage, callback?: (err: RDSInvalidDBSubnetGroupStateFault|RDSInvalidDBSubnetStateFault|RDSDBSubnetGroupNotFoundFault|any, data: any) => void): Request;
-      deleteEventSubscription(params: RDSDeleteEventSubscriptionMessage, callback?: (err: RDSSubscriptionNotFoundFault|RDSInvalidEventSubscriptionStateFault|any, data: RDSDeleteEventSubscriptionResult|any) => void): Request;
-      deleteOptionGroup(params: RDSDeleteOptionGroupMessage, callback?: (err: RDSOptionGroupNotFoundFault|RDSInvalidOptionGroupStateFault|any, data: any) => void): Request;
-      describeDBEngineVersions(params: RDSDescribeDBEngineVersionsMessage, callback?: (err: any, data: RDSDBEngineVersionMessage|any) => void): Request;
-      describeDBInstances(params: RDSDescribeDBInstancesMessage, callback?: (err: RDSDBInstanceNotFoundFault|any, data: RDSDBInstanceMessage|any) => void): Request;
-      describeDBParameterGroups(params: RDSDescribeDBParameterGroupsMessage, callback?: (err: RDSDBParameterGroupNotFoundFault|any, data: RDSDBParameterGroupsMessage|any) => void): Request;
-      describeDBParameters(params: RDSDescribeDBParametersMessage, callback?: (err: RDSDBParameterGroupNotFoundFault|any, data: RDSDBParameterGroupDetails|any) => void): Request;
-      describeDBSecurityGroups(params: RDSDescribeDBSecurityGroupsMessage, callback?: (err: RDSDBSecurityGroupNotFoundFault|any, data: RDSDBSecurityGroupMessage|any) => void): Request;
-      describeDBSnapshots(params: RDSDescribeDBSnapshotsMessage, callback?: (err: RDSDBSnapshotNotFoundFault|any, data: RDSDBSnapshotMessage|any) => void): Request;
-      describeDBSubnetGroups(params: RDSDescribeDBSubnetGroupsMessage, callback?: (err: RDSDBSubnetGroupNotFoundFault|any, data: RDSDBSubnetGroupMessage|any) => void): Request;
-      describeEngineDefaultParameters(params: RDSDescribeEngineDefaultParametersMessage, callback?: (err: any, data: RDSDescribeEngineDefaultParametersResult|any) => void): Request;
-      describeEventCategories(params: RDSDescribeEventCategoriesMessage, callback?: (err: any, data: RDSEventCategoriesMessage|any) => void): Request;
-      describeEventSubscriptions(params: RDSDescribeEventSubscriptionsMessage, callback?: (err: RDSSubscriptionNotFoundFault|any, data: RDSEventSubscriptionsMessage|any) => void): Request;
-      describeEvents(params: RDSDescribeEventsMessage, callback?: (err: any, data: RDSEventsMessage|any) => void): Request;
-      describeOptionGroupOptions(params: RDSDescribeOptionGroupOptionsMessage, callback?: (err: any, data: RDSOptionGroupOptionsMessage|any) => void): Request;
-      describeOptionGroups(params: RDSDescribeOptionGroupsMessage, callback?: (err: RDSOptionGroupNotFoundFault|any, data: RDSOptionGroups|any) => void): Request;
-      describeOrderableDBInstanceOptions(params: RDSDescribeOrderableDBInstanceOptionsMessage, callback?: (err: any, data: RDSOrderableDBInstanceOptionsMessage|any) => void): Request;
-      describeReservedDBInstances(params: RDSDescribeReservedDBInstancesMessage, callback?: (err: RDSReservedDBInstanceNotFoundFault|any, data: RDSReservedDBInstanceMessage|any) => void): Request;
-      describeReservedDBInstancesOfferings(params: RDSDescribeReservedDBInstancesOfferingsMessage, callback?: (err: RDSReservedDBInstancesOfferingNotFoundFault|any, data: RDSReservedDBInstancesOfferingMessage|any) => void): Request;
-      listTagsForResource(params: RDSListTagsForResourceMessage, callback?: (err: RDSDBInstanceNotFoundFault|RDSDBSnapshotNotFoundFault|any, data: RDSTagListMessage|any) => void): Request;
-      modifyDBInstance(params: RDSModifyDBInstanceMessage, callback?: (err: RDSInvalidDBInstanceStateFault|RDSInvalidDBSecurityGroupStateFault|RDSDBInstanceAlreadyExistsFault|RDSDBInstanceNotFoundFault|RDSDBSecurityGroupNotFoundFault|RDSDBParameterGroupNotFoundFault|RDSInsufficientDBInstanceCapacityFault|RDSStorageQuotaExceededFault|RDSInvalidVPCNetworkStateFault|RDSProvisionedIopsNotAvailableInAZFault|RDSOptionGroupNotFoundFault|RDSDBUpgradeDependencyFailureFault|any, data: RDSModifyDBInstanceResult|any) => void): Request;
-      modifyDBParameterGroup(params: RDSModifyDBParameterGroupMessage, callback?: (err: RDSDBParameterGroupNotFoundFault|RDSInvalidDBParameterGroupStateFault|any, data: RDSDBParameterGroupNameMessage|any) => void): Request;
-      modifyDBSubnetGroup(params: RDSModifyDBSubnetGroupMessage, callback?: (err: RDSDBSubnetGroupNotFoundFault|RDSDBSubnetQuotaExceededFault|RDSSubnetAlreadyInUse|RDSDBSubnetGroupDoesNotCoverEnoughAZs|RDSInvalidSubnet|any, data: RDSModifyDBSubnetGroupResult|any) => void): Request;
-      modifyEventSubscription(params: RDSModifyEventSubscriptionMessage, callback?: (err: RDSEventSubscriptionQuotaExceededFault|RDSSubscriptionNotFoundFault|RDSSNSInvalidTopicFault|RDSSNSNoAuthorizationFault|RDSSNSTopicArnNotFoundFault|RDSSubscriptionCategoryNotFoundFault|any, data: RDSModifyEventSubscriptionResult|any) => void): Request;
-      modifyOptionGroup(params: RDSModifyOptionGroupMessage, callback?: (err: RDSInvalidOptionGroupStateFault|RDSOptionGroupNotFoundFault|any, data: RDSModifyOptionGroupResult|any) => void): Request;
-      promoteReadReplica(params: RDSPromoteReadReplicaMessage, callback?: (err: RDSInvalidDBInstanceStateFault|RDSDBInstanceNotFoundFault|any, data: RDSPromoteReadReplicaResult|any) => void): Request;
-      purchaseReservedDBInstancesOffering(params: RDSPurchaseReservedDBInstancesOfferingMessage, callback?: (err: RDSReservedDBInstancesOfferingNotFoundFault|RDSReservedDBInstanceAlreadyExistsFault|RDSReservedDBInstanceQuotaExceededFault|any, data: RDSPurchaseReservedDBInstancesOfferingResult|any) => void): Request;
-      rebootDBInstance(params: RDSRebootDBInstanceMessage, callback?: (err: RDSInvalidDBInstanceStateFault|RDSDBInstanceNotFoundFault|any, data: RDSRebootDBInstanceResult|any) => void): Request;
-      removeSourceIdentifierFromSubscription(params: RDSRemoveSourceIdentifierFromSubscriptionMessage, callback?: (err: RDSSubscriptionNotFoundFault|RDSSourceNotFoundFault|any, data: RDSRemoveSourceIdentifierFromSubscriptionResult|any) => void): Request;
-      removeTagsFromResource(params: RDSRemoveTagsFromResourceMessage, callback?: (err: RDSDBInstanceNotFoundFault|RDSDBSnapshotNotFoundFault|any, data: any) => void): Request;
-      resetDBParameterGroup(params: RDSResetDBParameterGroupMessage, callback?: (err: RDSInvalidDBParameterGroupStateFault|RDSDBParameterGroupNotFoundFault|any, data: RDSDBParameterGroupNameMessage|any) => void): Request;
-      restoreDBInstanceFromDBSnapshot(params: RDSRestoreDBInstanceFromDBSnapshotMessage, callback?: (err: RDSDBInstanceAlreadyExistsFault|RDSDBSnapshotNotFoundFault|RDSInstanceQuotaExceededFault|RDSInsufficientDBInstanceCapacityFault|RDSInvalidDBSnapshotStateFault|RDSStorageQuotaExceededFault|RDSInvalidVPCNetworkStateFault|RDSInvalidRestoreFault|RDSDBSubnetGroupNotFoundFault|RDSDBSubnetGroupDoesNotCoverEnoughAZs|RDSInvalidSubnet|RDSProvisionedIopsNotAvailableInAZFault|RDSOptionGroupNotFoundFault|any, data: RDSRestoreDBInstanceFromDBSnapshotResult|any) => void): Request;
-      restoreDBInstanceToPointInTime(params: RDSRestoreDBInstanceToPointInTimeMessage, callback?: (err: RDSDBInstanceAlreadyExistsFault|RDSDBInstanceNotFoundFault|RDSInstanceQuotaExceededFault|RDSInsufficientDBInstanceCapacityFault|RDSInvalidDBInstanceStateFault|RDSPointInTimeRestoreNotEnabledFault|RDSStorageQuotaExceededFault|RDSInvalidVPCNetworkStateFault|RDSInvalidRestoreFault|RDSDBSubnetGroupNotFoundFault|RDSDBSubnetGroupDoesNotCoverEnoughAZs|RDSInvalidSubnet|RDSProvisionedIopsNotAvailableInAZFault|RDSOptionGroupNotFoundFault|any, data: RDSRestoreDBInstanceToPointInTimeResult|any) => void): Request;
-      revokeDBSecurityGroupIngress(params: RDSRevokeDBSecurityGroupIngressMessage, callback?: (err: RDSDBSecurityGroupNotFoundFault|RDSAuthorizationNotFoundFault|RDSInvalidDBSecurityGroupStateFault|any, data: RDSRevokeDBSecurityGroupIngressResult|any) => void): Request;
-    }
-
-    export interface RDSAddSourceIdentifierToSubscriptionMessage {
-        SubscriptionName: RDSString;
-        SourceIdentifier: RDSString;
-    }
-
-    export interface RDSAddTagsToResourceMessage {
-        ResourceName: RDSString;
-        Tags: RDSTagList;
-    }
-
-    export type RDSApplyMethod = string;
-    export interface RDSAuthorizationAlreadyExistsFault {
-    }
-
-    export interface RDSAuthorizationNotFoundFault {
-    }
-
-    export interface RDSAuthorizationQuotaExceededFault {
-    }
-
-    export interface RDSAuthorizeDBSecurityGroupIngressMessage {
-        DBSecurityGroupName: RDSString;
-        CIDRIP?: RDSString;
-        EC2SecurityGroupName?: RDSString;
-        EC2SecurityGroupId?: RDSString;
-        EC2SecurityGroupOwnerId?: RDSString;
-    }
-
-    export interface RDSAvailabilityZone {
-        Name?: RDSString;
-        ProvisionedIopsCapable?: RDSBoolean;
-    }
-
-    export type RDSAvailabilityZoneList = Array<RDSAvailabilityZone>;
-    export type RDSBoolean = boolean;
-    export type RDSBooleanOptional = boolean;
-    export interface RDSCharacterSet {
-        CharacterSetName?: RDSString;
-        CharacterSetDescription?: RDSString;
-    }
-
-    export interface RDSCopyDBSnapshotMessage {
-        SourceDBSnapshotIdentifier: RDSString;
-        TargetDBSnapshotIdentifier: RDSString;
-    }
-
-    export interface RDSCreateDBInstanceMessage {
-        DBName?: RDSString;
-        DBInstanceIdentifier: RDSString;
-        AllocatedStorage: RDSIntegerOptional;
-        DBInstanceClass: RDSString;
-        Engine: RDSString;
-        MasterUsername: RDSString;
-        MasterUserPassword: RDSString;
-        DBSecurityGroups?: RDSDBSecurityGroupNameList;
-        VpcSecurityGroupIds?: RDSVpcSecurityGroupIdList;
-        AvailabilityZone?: RDSString;
-        DBSubnetGroupName?: RDSString;
-        PreferredMaintenanceWindow?: RDSString;
-        DBParameterGroupName?: RDSString;
-        BackupRetentionPeriod?: RDSIntegerOptional;
-        PreferredBackupWindow?: RDSString;
-        Port?: RDSIntegerOptional;
-        MultiAZ?: RDSBooleanOptional;
-        EngineVersion?: RDSString;
-        AutoMinorVersionUpgrade?: RDSBooleanOptional;
-        LicenseModel?: RDSString;
-        Iops?: RDSIntegerOptional;
-        OptionGroupName?: RDSString;
-        CharacterSetName?: RDSString;
-        PubliclyAccessible?: RDSBooleanOptional;
-    }
-
-    export interface RDSCreateDBInstanceReadReplicaMessage {
-        DBInstanceIdentifier: RDSString;
-        SourceDBInstanceIdentifier: RDSString;
-        DBInstanceClass?: RDSString;
-        AvailabilityZone?: RDSString;
-        Port?: RDSIntegerOptional;
-        AutoMinorVersionUpgrade?: RDSBooleanOptional;
-        Iops?: RDSIntegerOptional;
-        OptionGroupName?: RDSString;
-        PubliclyAccessible?: RDSBooleanOptional;
-    }
-
-    export interface RDSCreateDBParameterGroupMessage {
-        DBParameterGroupName: RDSString;
-        DBParameterGroupFamily: RDSString;
-        Description: RDSString;
-    }
-
-    export interface RDSCreateDBSecurityGroupMessage {
-        DBSecurityGroupName: RDSString;
-        DBSecurityGroupDescription: RDSString;
-    }
-
-    export interface RDSCreateDBSnapshotMessage {
-        DBSnapshotIdentifier: RDSString;
-        DBInstanceIdentifier: RDSString;
-    }
-
-    export interface RDSCreateDBSubnetGroupMessage {
-        DBSubnetGroupName: RDSString;
-        DBSubnetGroupDescription: RDSString;
-        SubnetIds: RDSSubnetIdentifierList;
-    }
-
-    export interface RDSCreateEventSubscriptionMessage {
-        SubscriptionName: RDSString;
-        SnsTopicArn: RDSString;
-        SourceType?: RDSString;
-        EventCategories?: RDSEventCategoriesList;
-        SourceIds?: RDSSourceIdsList;
-        Enabled?: RDSBooleanOptional;
-    }
-
-    export interface RDSCreateOptionGroupMessage {
-        OptionGroupName: RDSString;
-        EngineName: RDSString;
-        MajorEngineVersion: RDSString;
-        OptionGroupDescription: RDSString;
-    }
-
-    export interface RDSDBEngineVersion {
-        Engine?: RDSString;
-        EngineVersion?: RDSString;
-        DBParameterGroupFamily?: RDSString;
-        DBEngineDescription?: RDSString;
-        DBEngineVersionDescription?: RDSString;
-        DefaultCharacterSet?: RDSCharacterSet;
-        SupportedCharacterSets?: RDSSupportedCharacterSetsList;
-    }
-
-    export type RDSDBEngineVersionList = Array<RDSDBEngineVersion>;
-    export interface RDSDBEngineVersionMessage {
-        Marker?: RDSString;
-        DBEngineVersions?: RDSDBEngineVersionList;
-    }
-
-    export interface RDSDBInstance {
-        DBInstanceIdentifier?: RDSString;
-        DBInstanceClass?: RDSString;
-        Engine?: RDSString;
-        DBInstanceStatus?: RDSString;
-        MasterUsername?: RDSString;
-        DBName?: RDSString;
-        Endpoint?: RDSEndpoint;
-        AllocatedStorage?: RDSInteger;
-        InstanceCreateTime?: RDSTStamp;
-        PreferredBackupWindow?: RDSString;
-        BackupRetentionPeriod?: RDSInteger;
-        DBSecurityGroups?: RDSDBSecurityGroupMembershipList;
-        VpcSecurityGroups?: RDSVpcSecurityGroupMembershipList;
-        DBParameterGroups?: RDSDBParameterGroupStatusList;
-        AvailabilityZone?: RDSString;
-        DBSubnetGroup?: RDSDBSubnetGroup;
-        PreferredMaintenanceWindow?: RDSString;
-        PendingModifiedValues?: RDSPendingModifiedValues;
-        LatestRestorableTime?: RDSTStamp;
-        MultiAZ?: RDSBoolean;
-        EngineVersion?: RDSString;
-        AutoMinorVersionUpgrade?: RDSBoolean;
-        ReadReplicaSourceDBInstanceIdentifier?: RDSString;
-        ReadReplicaDBInstanceIdentifiers?: RDSReadReplicaDBInstanceIdentifierList;
-        LicenseModel?: RDSString;
-        Iops?: RDSIntegerOptional;
-        OptionGroupMembership?: RDSOptionGroupMembership;
-        CharacterSetName?: RDSString;
-        SecondaryAvailabilityZone?: RDSString;
-        PubliclyAccessible?: RDSBoolean;
-    }
-
-    export interface RDSDBInstanceAlreadyExistsFault {
-    }
-
-    export type RDSDBInstanceList = Array<RDSDBInstance>;
-    export interface RDSDBInstanceMessage {
-        Marker?: RDSString;
-        DBInstances?: RDSDBInstanceList;
-    }
-
-    export interface RDSDBInstanceNotFoundFault {
-    }
-
-    export interface RDSDBParameterGroup {
-        DBParameterGroupName?: RDSString;
-        DBParameterGroupFamily?: RDSString;
-        Description?: RDSString;
-    }
-
-    export interface RDSDBParameterGroupAlreadyExistsFault {
-    }
-
-    export interface RDSDBParameterGroupDetails {
-        Parameters?: RDSParametersList;
-        Marker?: RDSString;
-    }
-
-    export type RDSDBParameterGroupList = Array<RDSDBParameterGroup>;
-    export interface RDSDBParameterGroupNameMessage {
-        DBParameterGroupName?: RDSString;
-    }
-
-    export interface RDSDBParameterGroupNotFoundFault {
-    }
-
-    export interface RDSDBParameterGroupQuotaExceededFault {
-    }
-
-    export interface RDSDBParameterGroupStatus {
-        DBParameterGroupName?: RDSString;
-        ParameterApplyStatus?: RDSString;
-    }
-
-    export type RDSDBParameterGroupStatusList = Array<RDSDBParameterGroupStatus>;
-    export interface RDSDBParameterGroupsMessage {
-        Marker?: RDSString;
-        DBParameterGroups?: RDSDBParameterGroupList;
-    }
-
-    export interface RDSDBSecurityGroup {
-        OwnerId?: RDSString;
-        DBSecurityGroupName?: RDSString;
-        DBSecurityGroupDescription?: RDSString;
-        VpcId?: RDSString;
-        EC2SecurityGroups?: RDSEC2SecurityGroupList;
-        IPRanges?: RDSIPRangeList;
-    }
-
-    export interface RDSDBSecurityGroupAlreadyExistsFault {
-    }
-
-    export interface RDSDBSecurityGroupMembership {
-        DBSecurityGroupName?: RDSString;
-        Status?: RDSString;
-    }
-
-    export type RDSDBSecurityGroupMembershipList = Array<RDSDBSecurityGroupMembership>;
-    export interface RDSDBSecurityGroupMessage {
-        Marker?: RDSString;
-        DBSecurityGroups?: RDSDBSecurityGroups;
-    }
-
-    export type RDSDBSecurityGroupNameList = Array<RDSString>;
-    export interface RDSDBSecurityGroupNotFoundFault {
-    }
-
-    export interface RDSDBSecurityGroupNotSupportedFault {
-    }
-
-    export interface RDSDBSecurityGroupQuotaExceededFault {
-    }
-
-    export type RDSDBSecurityGroups = Array<RDSDBSecurityGroup>;
-    export interface RDSDBSnapshot {
-        DBSnapshotIdentifier?: RDSString;
-        DBInstanceIdentifier?: RDSString;
-        SnapshotCreateTime?: RDSTStamp;
-        Engine?: RDSString;
-        AllocatedStorage?: RDSInteger;
-        Status?: RDSString;
-        Port?: RDSInteger;
-        AvailabilityZone?: RDSString;
-        VpcId?: RDSString;
-        InstanceCreateTime?: RDSTStamp;
-        MasterUsername?: RDSString;
-        EngineVersion?: RDSString;
-        LicenseModel?: RDSString;
-        SnapshotType?: RDSString;
-        Iops?: RDSIntegerOptional;
-    }
-
-    export interface RDSDBSnapshotAlreadyExistsFault {
-    }
-
-    export type RDSDBSnapshotList = Array<RDSDBSnapshot>;
-    export interface RDSDBSnapshotMessage {
-        Marker?: RDSString;
-        DBSnapshots?: RDSDBSnapshotList;
-    }
-
-    export interface RDSDBSnapshotNotFoundFault {
-    }
-
-    export interface RDSDBSubnetGroup {
-        DBSubnetGroupName?: RDSString;
-        DBSubnetGroupDescription?: RDSString;
-        VpcId?: RDSString;
-        SubnetGroupStatus?: RDSString;
-        Subnets?: RDSSubnetList;
-    }
-
-    export interface RDSDBSubnetGroupAlreadyExistsFault {
-    }
-
-    export interface RDSDBSubnetGroupDoesNotCoverEnoughAZs {
-    }
-
-    export interface RDSDBSubnetGroupMessage {
-        Marker?: RDSString;
-        DBSubnetGroups?: RDSDBSubnetGroups;
-    }
-
-    export interface RDSDBSubnetGroupNotFoundFault {
-    }
-
-    export interface RDSDBSubnetGroupQuotaExceededFault {
-    }
-
-    export type RDSDBSubnetGroups = Array<RDSDBSubnetGroup>;
-    export interface RDSDBSubnetQuotaExceededFault {
-    }
-
-    export interface RDSDBUpgradeDependencyFailureFault {
-    }
-
-    export interface RDSDeleteDBInstanceMessage {
-        DBInstanceIdentifier: RDSString;
-        SkipFinalSnapshot?: RDSBoolean;
-        FinalDBSnapshotIdentifier?: RDSString;
-    }
-
-    export interface RDSDeleteDBParameterGroupMessage {
-        DBParameterGroupName: RDSString;
-    }
-
-    export interface RDSDeleteDBSecurityGroupMessage {
-        DBSecurityGroupName: RDSString;
-    }
-
-    export interface RDSDeleteDBSnapshotMessage {
-        DBSnapshotIdentifier: RDSString;
-    }
-
-    export interface RDSDeleteDBSubnetGroupMessage {
-        DBSubnetGroupName: RDSString;
-    }
-
-    export interface RDSDeleteEventSubscriptionMessage {
-        SubscriptionName: RDSString;
-    }
-
-    export interface RDSDeleteOptionGroupMessage {
-        OptionGroupName: RDSString;
-    }
-
-    export interface RDSDescribeDBEngineVersionsMessage {
-        Engine?: RDSString;
-        EngineVersion?: RDSString;
-        DBParameterGroupFamily?: RDSString;
-        MaxRecords?: RDSIntegerOptional;
-        Marker?: RDSString;
-        DefaultOnly?: RDSBoolean;
-        ListSupportedCharacterSets?: RDSBooleanOptional;
-    }
-
-    export interface RDSDescribeDBInstancesMessage {
-        DBInstanceIdentifier?: RDSString;
-        MaxRecords?: RDSIntegerOptional;
-        Marker?: RDSString;
-    }
-
-    export interface RDSDescribeDBParameterGroupsMessage {
-        DBParameterGroupName?: RDSString;
-        MaxRecords?: RDSIntegerOptional;
-        Marker?: RDSString;
-    }
-
-    export interface RDSDescribeDBParametersMessage {
-        DBParameterGroupName: RDSString;
-        Source?: RDSString;
-        MaxRecords?: RDSIntegerOptional;
-        Marker?: RDSString;
-    }
-
-    export interface RDSDescribeDBSecurityGroupsMessage {
-        DBSecurityGroupName?: RDSString;
-        MaxRecords?: RDSIntegerOptional;
-        Marker?: RDSString;
-    }
-
-    export interface RDSDescribeDBSnapshotsMessage {
-        DBInstanceIdentifier?: RDSString;
-        DBSnapshotIdentifier?: RDSString;
-        SnapshotType?: RDSString;
-        MaxRecords?: RDSIntegerOptional;
-        Marker?: RDSString;
-    }
-
-    export interface RDSDescribeDBSubnetGroupsMessage {
-        DBSubnetGroupName?: RDSString;
-        MaxRecords?: RDSIntegerOptional;
-        Marker?: RDSString;
-    }
-
-    export interface RDSDescribeEngineDefaultParametersMessage {
-        DBParameterGroupFamily: RDSString;
-        MaxRecords?: RDSIntegerOptional;
-        Marker?: RDSString;
-    }
-
-    export interface RDSDescribeEventCategoriesMessage {
-        SourceType?: RDSString;
-    }
-
-    export interface RDSDescribeEventSubscriptionsMessage {
-        SubscriptionName?: RDSString;
-        MaxRecords?: RDSIntegerOptional;
-        Marker?: RDSString;
-    }
-
-    export interface RDSDescribeEventsMessage {
-        SourceIdentifier?: RDSString;
-        SourceType?: RDSSourceType;
-        StartTime?: RDSTStamp;
-        EndTime?: RDSTStamp;
-        Duration?: RDSIntegerOptional;
-        EventCategories?: RDSEventCategoriesList;
-        MaxRecords?: RDSIntegerOptional;
-        Marker?: RDSString;
-    }
-
-    export interface RDSDescribeOptionGroupOptionsMessage {
-        EngineName: RDSString;
-        MajorEngineVersion?: RDSString;
-        MaxRecords?: RDSIntegerOptional;
-        Marker?: RDSString;
-    }
-
-    export interface RDSDescribeOptionGroupsMessage {
-        OptionGroupName?: RDSString;
-        Marker?: RDSString;
-        MaxRecords?: RDSIntegerOptional;
-        EngineName?: RDSString;
-        MajorEngineVersion?: RDSString;
-    }
-
-    export interface RDSDescribeOrderableDBInstanceOptionsMessage {
-        Engine: RDSString;
-        EngineVersion?: RDSString;
-        DBInstanceClass?: RDSString;
-        LicenseModel?: RDSString;
-        Vpc?: RDSBooleanOptional;
-        MaxRecords?: RDSIntegerOptional;
-        Marker?: RDSString;
-    }
-
-    export interface RDSDescribeReservedDBInstancesMessage {
-        ReservedDBInstanceId?: RDSString;
-        ReservedDBInstancesOfferingId?: RDSString;
-        DBInstanceClass?: RDSString;
-        Duration?: RDSString;
-        ProductDescription?: RDSString;
-        OfferingType?: RDSString;
-        MultiAZ?: RDSBooleanOptional;
-        MaxRecords?: RDSIntegerOptional;
-        Marker?: RDSString;
-    }
-
-    export interface RDSDescribeReservedDBInstancesOfferingsMessage {
-        ReservedDBInstancesOfferingId?: RDSString;
-        DBInstanceClass?: RDSString;
-        Duration?: RDSString;
-        ProductDescription?: RDSString;
-        OfferingType?: RDSString;
-        MultiAZ?: RDSBooleanOptional;
-        MaxRecords?: RDSIntegerOptional;
-        Marker?: RDSString;
-    }
-
-    export type RDSDouble = number;
-    export interface RDSEC2SecurityGroup {
-        Status?: RDSString;
-        EC2SecurityGroupName?: RDSString;
-        EC2SecurityGroupId?: RDSString;
-        EC2SecurityGroupOwnerId?: RDSString;
-    }
-
-    export type RDSEC2SecurityGroupList = Array<RDSEC2SecurityGroup>;
-    export interface RDSEndpoint {
-        Address?: RDSString;
-        Port?: RDSInteger;
-    }
-
-    export interface RDSEngineDefaults {
-        DBParameterGroupFamily?: RDSString;
-        Marker?: RDSString;
-        Parameters?: RDSParametersList;
-    }
-
-    export interface RDSEvent {
-        SourceIdentifier?: RDSString;
-        SourceType?: RDSSourceType;
-        Message?: RDSString;
-        EventCategories?: RDSEventCategoriesList;
-        Date?: RDSTStamp;
-    }
-
-    export type RDSEventCategoriesList = Array<RDSString>;
-    export interface RDSEventCategoriesMap {
-        SourceType?: RDSString;
-        EventCategories?: RDSEventCategoriesList;
-    }
-
-    export type RDSEventCategoriesMapList = Array<RDSEventCategoriesMap>;
-    export interface RDSEventCategoriesMessage {
-        EventCategoriesMapList?: RDSEventCategoriesMapList;
-    }
-
-    export type RDSEventList = Array<RDSEvent>;
-    export interface RDSEventSubscription {
-        Id?: RDSString;
-        CustomerAwsId?: RDSString;
-        CustSubscriptionId?: RDSString;
-        SnsTopicArn?: RDSString;
-        Status?: RDSString;
-        SubscriptionCreationTime?: RDSString;
-        SourceType?: RDSString;
-        SourceIdsList?: RDSSourceIdsList;
-        EventCategoriesList?: RDSEventCategoriesList;
-        Enabled?: RDSBoolean;
-    }
-
-    export interface RDSEventSubscriptionQuotaExceededFault {
-    }
-
-    export type RDSEventSubscriptionsList = Array<RDSEventSubscription>;
-    export interface RDSEventSubscriptionsMessage {
-        Marker?: RDSString;
-        EventSubscriptionsList?: RDSEventSubscriptionsList;
-    }
-
-    export interface RDSEventsMessage {
-        Marker?: RDSString;
-        Events?: RDSEventList;
-    }
-
-    export interface RDSIPRange {
-        Status?: RDSString;
-        CIDRIP?: RDSString;
-    }
-
-    export type RDSIPRangeList = Array<RDSIPRange>;
-    export interface RDSInstanceQuotaExceededFault {
-    }
-
-    export interface RDSInsufficientDBInstanceCapacityFault {
-    }
-
-    export type RDSInteger = number;
-    export type RDSIntegerOptional = number;
-    export interface RDSInvalidDBInstanceStateFault {
-    }
-
-    export interface RDSInvalidDBParameterGroupStateFault {
-    }
+      addSourceIdentifierToSubscription(params: RDS.AddSourceIdentifierToSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault|RDS.SourceNotFoundFault|any, data: RDS.AddSourceIdentifierToSubscriptionResult|any) => void): Request;
+      addTagsToResource(params: RDS.AddTagsToResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: any) => void): Request;
+      authorizeDBSecurityGroupIngress(params: RDS.AuthorizeDBSecurityGroupIngressMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|RDS.AuthorizationAlreadyExistsFault|RDS.AuthorizationQuotaExceededFault|any, data: RDS.AuthorizeDBSecurityGroupIngressResult|any) => void): Request;
+      copyDBSnapshot(params: RDS.CopyDBSnapshotMessage, callback?: (err: RDS.DBSnapshotAlreadyExistsFault|RDS.DBSnapshotNotFoundFault|RDS.InvalidDBSnapshotStateFault|RDS.SnapshotQuotaExceededFault|any, data: RDS.CopyDBSnapshotResult|any) => void): Request;
+      createDBInstance(params: RDS.CreateDBInstanceMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.InsufficientDBInstanceCapacityFault|RDS.DBParameterGroupNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|any, data: RDS.CreateDBInstanceResult|any) => void): Request;
+      createDBInstanceReadReplica(params: RDS.CreateDBInstanceReadReplicaMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.InsufficientDBInstanceCapacityFault|RDS.DBParameterGroupNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBInstanceNotFoundFault|RDS.InvalidDBInstanceStateFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|any, data: RDS.CreateDBInstanceReadReplicaResult|any) => void): Request;
+      createDBParameterGroup(params: RDS.CreateDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupQuotaExceededFault|RDS.DBParameterGroupAlreadyExistsFault|any, data: RDS.CreateDBParameterGroupResult|any) => void): Request;
+      createDBSecurityGroup(params: RDS.CreateDBSecurityGroupMessage, callback?: (err: RDS.DBSecurityGroupAlreadyExistsFault|RDS.DBSecurityGroupQuotaExceededFault|RDS.DBSecurityGroupNotSupportedFault|any, data: RDS.CreateDBSecurityGroupResult|any) => void): Request;
+      createDBSnapshot(params: RDS.CreateDBSnapshotMessage, callback?: (err: RDS.DBSnapshotAlreadyExistsFault|RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|RDS.SnapshotQuotaExceededFault|any, data: RDS.CreateDBSnapshotResult|any) => void): Request;
+      createDBSubnetGroup(params: RDS.CreateDBSubnetGroupMessage, callback?: (err: RDS.DBSubnetGroupAlreadyExistsFault|RDS.DBSubnetGroupQuotaExceededFault|RDS.DBSubnetQuotaExceededFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|any, data: RDS.CreateDBSubnetGroupResult|any) => void): Request;
+      createEventSubscription(params: RDS.CreateEventSubscriptionMessage, callback?: (err: RDS.EventSubscriptionQuotaExceededFault|RDS.SubscriptionAlreadyExistFault|RDS.SNSInvalidTopicFault|RDS.SNSNoAuthorizationFault|RDS.SNSTopicArnNotFoundFault|RDS.SubscriptionCategoryNotFoundFault|RDS.SourceNotFoundFault|any, data: RDS.CreateEventSubscriptionResult|any) => void): Request;
+      createOptionGroup(params: RDS.CreateOptionGroupMessage, callback?: (err: RDS.OptionGroupAlreadyExistsFault|RDS.OptionGroupQuotaExceededFault|any, data: RDS.CreateOptionGroupResult|any) => void): Request;
+      deleteDBInstance(params: RDS.DeleteDBInstanceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.InvalidDBInstanceStateFault|RDS.DBSnapshotAlreadyExistsFault|RDS.SnapshotQuotaExceededFault|any, data: RDS.DeleteDBInstanceResult|any) => void): Request;
+      deleteDBParameterGroup(params: RDS.DeleteDBParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: any) => void): Request;
+      deleteDBSecurityGroup(params: RDS.DeleteDBSecurityGroupMessage, callback?: (err: RDS.InvalidDBSecurityGroupStateFault|RDS.DBSecurityGroupNotFoundFault|any, data: any) => void): Request;
+      deleteDBSnapshot(params: RDS.DeleteDBSnapshotMessage, callback?: (err: RDS.InvalidDBSnapshotStateFault|RDS.DBSnapshotNotFoundFault|any, data: RDS.DeleteDBSnapshotResult|any) => void): Request;
+      deleteDBSubnetGroup(params: RDS.DeleteDBSubnetGroupMessage, callback?: (err: RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidDBSubnetStateFault|RDS.DBSubnetGroupNotFoundFault|any, data: any) => void): Request;
+      deleteEventSubscription(params: RDS.DeleteEventSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault|RDS.InvalidEventSubscriptionStateFault|any, data: RDS.DeleteEventSubscriptionResult|any) => void): Request;
+      deleteOptionGroup(params: RDS.DeleteOptionGroupMessage, callback?: (err: RDS.OptionGroupNotFoundFault|RDS.InvalidOptionGroupStateFault|any, data: any) => void): Request;
+      describeDBEngineVersions(params: RDS.DescribeDBEngineVersionsMessage, callback?: (err: any, data: RDS.DBEngineVersionMessage|any) => void): Request;
+      describeDBInstances(params: RDS.DescribeDBInstancesMessage, callback?: (err: RDS.DBInstanceNotFoundFault|any, data: RDS.DBInstanceMessage|any) => void): Request;
+      describeDBParameterGroups(params: RDS.DescribeDBParameterGroupsMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBParameterGroupsMessage|any) => void): Request;
+      describeDBParameters(params: RDS.DescribeDBParametersMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBParameterGroupDetails|any) => void): Request;
+      describeDBSecurityGroups(params: RDS.DescribeDBSecurityGroupsMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault|any, data: RDS.DBSecurityGroupMessage|any) => void): Request;
+      describeDBSnapshots(params: RDS.DescribeDBSnapshotsMessage, callback?: (err: RDS.DBSnapshotNotFoundFault|any, data: RDS.DBSnapshotMessage|any) => void): Request;
+      describeDBSubnetGroups(params: RDS.DescribeDBSubnetGroupsMessage, callback?: (err: RDS.DBSubnetGroupNotFoundFault|any, data: RDS.DBSubnetGroupMessage|any) => void): Request;
+      describeEngineDefaultParameters(params: RDS.DescribeEngineDefaultParametersMessage, callback?: (err: any, data: RDS.DescribeEngineDefaultParametersResult|any) => void): Request;
+      describeEventCategories(params: RDS.DescribeEventCategoriesMessage, callback?: (err: any, data: RDS.EventCategoriesMessage|any) => void): Request;
+      describeEventSubscriptions(params: RDS.DescribeEventSubscriptionsMessage, callback?: (err: RDS.SubscriptionNotFoundFault|any, data: RDS.EventSubscriptionsMessage|any) => void): Request;
+      describeEvents(params: RDS.DescribeEventsMessage, callback?: (err: any, data: RDS.EventsMessage|any) => void): Request;
+      describeOptionGroupOptions(params: RDS.DescribeOptionGroupOptionsMessage, callback?: (err: any, data: RDS.OptionGroupOptionsMessage|any) => void): Request;
+      describeOptionGroups(params: RDS.DescribeOptionGroupsMessage, callback?: (err: RDS.OptionGroupNotFoundFault|any, data: RDS.OptionGroups|any) => void): Request;
+      describeOrderableDBInstanceOptions(params: RDS.DescribeOrderableDBInstanceOptionsMessage, callback?: (err: any, data: RDS.OrderableDBInstanceOptionsMessage|any) => void): Request;
+      describeReservedDBInstances(params: RDS.DescribeReservedDBInstancesMessage, callback?: (err: RDS.ReservedDBInstanceNotFoundFault|any, data: RDS.ReservedDBInstanceMessage|any) => void): Request;
+      describeReservedDBInstancesOfferings(params: RDS.DescribeReservedDBInstancesOfferingsMessage, callback?: (err: RDS.ReservedDBInstancesOfferingNotFoundFault|any, data: RDS.ReservedDBInstancesOfferingMessage|any) => void): Request;
+      listTagsForResource(params: RDS.ListTagsForResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: RDS.TagListMessage|any) => void): Request;
+      modifyDBInstance(params: RDS.ModifyDBInstanceMessage, callback?: (err: RDS.InvalidDBInstanceStateFault|RDS.InvalidDBSecurityGroupStateFault|RDS.DBInstanceAlreadyExistsFault|RDS.DBInstanceNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.DBParameterGroupNotFoundFault|RDS.InsufficientDBInstanceCapacityFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.DBUpgradeDependencyFailureFault|any, data: RDS.ModifyDBInstanceResult|any) => void): Request;
+      modifyDBParameterGroup(params: RDS.ModifyDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any, data: RDS.DBParameterGroupNameMessage|any) => void): Request;
+      modifyDBSubnetGroup(params: RDS.ModifyDBSubnetGroupMessage, callback?: (err: RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetQuotaExceededFault|RDS.SubnetAlreadyInUse|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|any, data: RDS.ModifyDBSubnetGroupResult|any) => void): Request;
+      modifyEventSubscription(params: RDS.ModifyEventSubscriptionMessage, callback?: (err: RDS.EventSubscriptionQuotaExceededFault|RDS.SubscriptionNotFoundFault|RDS.SNSInvalidTopicFault|RDS.SNSNoAuthorizationFault|RDS.SNSTopicArnNotFoundFault|RDS.SubscriptionCategoryNotFoundFault|any, data: RDS.ModifyEventSubscriptionResult|any) => void): Request;
+      modifyOptionGroup(params: RDS.ModifyOptionGroupMessage, callback?: (err: RDS.InvalidOptionGroupStateFault|RDS.OptionGroupNotFoundFault|any, data: RDS.ModifyOptionGroupResult|any) => void): Request;
+      promoteReadReplica(params: RDS.PromoteReadReplicaMessage, callback?: (err: RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|any, data: RDS.PromoteReadReplicaResult|any) => void): Request;
+      purchaseReservedDBInstancesOffering(params: RDS.PurchaseReservedDBInstancesOfferingMessage, callback?: (err: RDS.ReservedDBInstancesOfferingNotFoundFault|RDS.ReservedDBInstanceAlreadyExistsFault|RDS.ReservedDBInstanceQuotaExceededFault|any, data: RDS.PurchaseReservedDBInstancesOfferingResult|any) => void): Request;
+      rebootDBInstance(params: RDS.RebootDBInstanceMessage, callback?: (err: RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|any, data: RDS.RebootDBInstanceResult|any) => void): Request;
+      removeSourceIdentifierFromSubscription(params: RDS.RemoveSourceIdentifierFromSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault|RDS.SourceNotFoundFault|any, data: RDS.RemoveSourceIdentifierFromSubscriptionResult|any) => void): Request;
+      removeTagsFromResource(params: RDS.RemoveTagsFromResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: any) => void): Request;
+      resetDBParameterGroup(params: RDS.ResetDBParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBParameterGroupNameMessage|any) => void): Request;
+      restoreDBInstanceFromDBSnapshot(params: RDS.RestoreDBInstanceFromDBSnapshotMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.DBSnapshotNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.InsufficientDBInstanceCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|any, data: RDS.RestoreDBInstanceFromDBSnapshotResult|any) => void): Request;
+      restoreDBInstanceToPointInTime(params: RDS.RestoreDBInstanceToPointInTimeMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.DBInstanceNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.InsufficientDBInstanceCapacityFault|RDS.InvalidDBInstanceStateFault|RDS.PointInTimeRestoreNotEnabledFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|any, data: RDS.RestoreDBInstanceToPointInTimeResult|any) => void): Request;
+      revokeDBSecurityGroupIngress(params: RDS.RevokeDBSecurityGroupIngressMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault|RDS.AuthorizationNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|any, data: RDS.RevokeDBSecurityGroupIngressResult|any) => void): Request;
+    }
+    
+    export module RDS {
+        export type ApplyMethod = string;
+        export type AvailabilityZoneList = AvailabilityZone[];
+        export type Boolean = boolean;
+        export type BooleanOptional = boolean;
+        export type DBEngineVersionList = DBEngineVersion[];
+        export type DBInstanceList = DBInstance[];
+        export type DBParameterGroupList = DBParameterGroup[];
+        export type DBParameterGroupStatusList = DBParameterGroupStatus[];
+        export type DBSecurityGroupMembershipList = DBSecurityGroupMembership[];
+        export type DBSecurityGroupNameList = String[];
+        export type DBSecurityGroups = DBSecurityGroup[];
+        export type DBSnapshotList = DBSnapshot[];
+        export type DBSubnetGroups = DBSubnetGroup[];
+        export type Double = number;
+        export type EC2SecurityGroupList = EC2SecurityGroup[];
+        export type EventCategoriesList = String[];
+        export type EventCategoriesMapList = EventCategoriesMap[];
+        export type EventList = Event[];
+        export type EventSubscriptionsList = EventSubscription[];
+        export type IPRangeList = IPRange[];
+        export type Integer = number;
+        export type IntegerOptional = number;
+        export type KeyList = String[];
+        export type OptionConfigurationList = OptionConfiguration[];
+        export type OptionGroupOptionsList = OptionGroupOption[];
+        export type OptionGroupsList = OptionGroup[];
+        export type OptionNamesList = String[];
+        export type OptionsDependedOn = String[];
+        export type OptionsList = Option[];
+        export type OrderableDBInstanceOptionsList = OrderableDBInstanceOption[];
+        export type ParametersList = Parameter[];
+        export type ReadReplicaDBInstanceIdentifierList = String[];
+        export type RecurringChargeList = RecurringCharge[];
+        export type ReservedDBInstanceList = ReservedDBInstance[];
+        export type ReservedDBInstancesOfferingList = ReservedDBInstancesOffering[];
+        export type SourceIdsList = String[];
+        export type SourceType = string;
+        export type String = string;
+        export type SubnetIdentifierList = String[];
+        export type SubnetList = Subnet[];
+        export type SupportedCharacterSetsList = CharacterSet[];
+        export type TStamp = number;
+        export type TagList = Tag[];
+        export type VpcSecurityGroupIdList = String[];
+        export type VpcSecurityGroupMembershipList = VpcSecurityGroupMembership[];
+
+        export interface AddSourceIdentifierToSubscriptionMessage {
+            SubscriptionName: String;            
+            SourceIdentifier: String;            
+        }
+        export interface AddTagsToResourceMessage {
+            ResourceName: String;            
+            Tags: TagList;            
+        }
+        export interface AuthorizationAlreadyExistsFault {
+        }
+        export interface AuthorizationNotFoundFault {
+        }
+        export interface AuthorizationQuotaExceededFault {
+        }
+        export interface AuthorizeDBSecurityGroupIngressMessage {
+            DBSecurityGroupName: String;            
+            CIDRIP?: String;            
+            EC2SecurityGroupName?: String;            
+            EC2SecurityGroupId?: String;            
+            EC2SecurityGroupOwnerId?: String;            
+        }
+        export interface AvailabilityZone {
+            Name?: String;            
+            ProvisionedIopsCapable?: Boolean;            
+        }
+        export interface CharacterSet {
+            CharacterSetName?: String;            
+            CharacterSetDescription?: String;            
+        }
+        export interface CopyDBSnapshotMessage {
+            SourceDBSnapshotIdentifier: String;            
+            TargetDBSnapshotIdentifier: String;            
+        }
+        export interface CreateDBInstanceMessage {
+            DBName?: String;            
+            DBInstanceIdentifier: String;            
+            AllocatedStorage: IntegerOptional;            
+            DBInstanceClass: String;            
+            Engine: String;            
+            MasterUsername: String;            
+            MasterUserPassword: String;            
+            DBSecurityGroups?: DBSecurityGroupNameList;            
+            VpcSecurityGroupIds?: VpcSecurityGroupIdList;            
+            AvailabilityZone?: String;            
+            DBSubnetGroupName?: String;            
+            PreferredMaintenanceWindow?: String;            
+            DBParameterGroupName?: String;            
+            BackupRetentionPeriod?: IntegerOptional;            
+            PreferredBackupWindow?: String;            
+            Port?: IntegerOptional;            
+            MultiAZ?: BooleanOptional;            
+            EngineVersion?: String;            
+            AutoMinorVersionUpgrade?: BooleanOptional;            
+            LicenseModel?: String;            
+            Iops?: IntegerOptional;            
+            OptionGroupName?: String;            
+            CharacterSetName?: String;            
+            PubliclyAccessible?: BooleanOptional;            
+        }
+        export interface CreateDBInstanceReadReplicaMessage {
+            DBInstanceIdentifier: String;            
+            SourceDBInstanceIdentifier: String;            
+            DBInstanceClass?: String;            
+            AvailabilityZone?: String;            
+            Port?: IntegerOptional;            
+            AutoMinorVersionUpgrade?: BooleanOptional;            
+            Iops?: IntegerOptional;            
+            OptionGroupName?: String;            
+            PubliclyAccessible?: BooleanOptional;            
+        }
+        export interface CreateDBParameterGroupMessage {
+            DBParameterGroupName: String;            
+            DBParameterGroupFamily: String;            
+            Description: String;            
+        }
+        export interface CreateDBSecurityGroupMessage {
+            DBSecurityGroupName: String;            
+            DBSecurityGroupDescription: String;            
+        }
+        export interface CreateDBSnapshotMessage {
+            DBSnapshotIdentifier: String;            
+            DBInstanceIdentifier: String;            
+        }
+        export interface CreateDBSubnetGroupMessage {
+            DBSubnetGroupName: String;            
+            DBSubnetGroupDescription: String;            
+            SubnetIds: SubnetIdentifierList;            
+        }
+        export interface CreateEventSubscriptionMessage {
+            SubscriptionName: String;            
+            SnsTopicArn: String;            
+            SourceType?: String;            
+            EventCategories?: EventCategoriesList;            
+            SourceIds?: SourceIdsList;            
+            Enabled?: BooleanOptional;            
+        }
+        export interface CreateOptionGroupMessage {
+            OptionGroupName: String;            
+            EngineName: String;            
+            MajorEngineVersion: String;            
+            OptionGroupDescription: String;            
+        }
+        export interface DBEngineVersion {
+            Engine?: String;            
+            EngineVersion?: String;            
+            DBParameterGroupFamily?: String;            
+            DBEngineDescription?: String;            
+            DBEngineVersionDescription?: String;            
+            DefaultCharacterSet?: CharacterSet;            
+            SupportedCharacterSets?: SupportedCharacterSetsList;            
+        }
+        export interface DBEngineVersionMessage {
+            Marker?: String;            
+            DBEngineVersions?: DBEngineVersionList;            
+        }
+        export interface DBInstance {
+            DBInstanceIdentifier?: String;            
+            DBInstanceClass?: String;            
+            Engine?: String;            
+            DBInstanceStatus?: String;            
+            MasterUsername?: String;            
+            DBName?: String;            
+            Endpoint?: Endpoint;            
+            AllocatedStorage?: Integer;            
+            InstanceCreateTime?: TStamp;            
+            PreferredBackupWindow?: String;            
+            BackupRetentionPeriod?: Integer;            
+            DBSecurityGroups?: DBSecurityGroupMembershipList;            
+            VpcSecurityGroups?: VpcSecurityGroupMembershipList;            
+            DBParameterGroups?: DBParameterGroupStatusList;            
+            AvailabilityZone?: String;            
+            DBSubnetGroup?: DBSubnetGroup;            
+            PreferredMaintenanceWindow?: String;            
+            PendingModifiedValues?: PendingModifiedValues;            
+            LatestRestorableTime?: TStamp;            
+            MultiAZ?: Boolean;            
+            EngineVersion?: String;            
+            AutoMinorVersionUpgrade?: Boolean;            
+            ReadReplicaSourceDBInstanceIdentifier?: String;            
+            ReadReplicaDBInstanceIdentifiers?: ReadReplicaDBInstanceIdentifierList;            
+            LicenseModel?: String;            
+            Iops?: IntegerOptional;            
+            OptionGroupMembership?: OptionGroupMembership;            
+            CharacterSetName?: String;            
+            SecondaryAvailabilityZone?: String;            
+            PubliclyAccessible?: Boolean;            
+        }
+        export interface DBInstanceAlreadyExistsFault {
+        }
+        export interface DBInstanceMessage {
+            Marker?: String;            
+            DBInstances?: DBInstanceList;            
+        }
+        export interface DBInstanceNotFoundFault {
+        }
+        export interface DBParameterGroup {
+            DBParameterGroupName?: String;            
+            DBParameterGroupFamily?: String;            
+            Description?: String;            
+        }
+        export interface DBParameterGroupAlreadyExistsFault {
+        }
+        export interface DBParameterGroupDetails {
+            Parameters?: ParametersList;            
+            Marker?: String;            
+        }
+        export interface DBParameterGroupNameMessage {
+            DBParameterGroupName?: String;            
+        }
+        export interface DBParameterGroupNotFoundFault {
+        }
+        export interface DBParameterGroupQuotaExceededFault {
+        }
+        export interface DBParameterGroupStatus {
+            DBParameterGroupName?: String;            
+            ParameterApplyStatus?: String;            
+        }
+        export interface DBParameterGroupsMessage {
+            Marker?: String;            
+            DBParameterGroups?: DBParameterGroupList;            
+        }
+        export interface DBSecurityGroup {
+            OwnerId?: String;            
+            DBSecurityGroupName?: String;            
+            DBSecurityGroupDescription?: String;            
+            VpcId?: String;            
+            EC2SecurityGroups?: EC2SecurityGroupList;            
+            IPRanges?: IPRangeList;            
+        }
+        export interface DBSecurityGroupAlreadyExistsFault {
+        }
+        export interface DBSecurityGroupMembership {
+            DBSecurityGroupName?: String;            
+            Status?: String;            
+        }
+        export interface DBSecurityGroupMessage {
+            Marker?: String;            
+            DBSecurityGroups?: DBSecurityGroups;            
+        }
+        export interface DBSecurityGroupNotFoundFault {
+        }
+        export interface DBSecurityGroupNotSupportedFault {
+        }
+        export interface DBSecurityGroupQuotaExceededFault {
+        }
+        export interface DBSnapshot {
+            DBSnapshotIdentifier?: String;            
+            DBInstanceIdentifier?: String;            
+            SnapshotCreateTime?: TStamp;            
+            Engine?: String;            
+            AllocatedStorage?: Integer;            
+            Status?: String;            
+            Port?: Integer;            
+            AvailabilityZone?: String;            
+            VpcId?: String;            
+            InstanceCreateTime?: TStamp;            
+            MasterUsername?: String;            
+            EngineVersion?: String;            
+            LicenseModel?: String;            
+            SnapshotType?: String;            
+            Iops?: IntegerOptional;            
+        }
+        export interface DBSnapshotAlreadyExistsFault {
+        }
+        export interface DBSnapshotMessage {
+            Marker?: String;            
+            DBSnapshots?: DBSnapshotList;            
+        }
+        export interface DBSnapshotNotFoundFault {
+        }
+        export interface DBSubnetGroup {
+            DBSubnetGroupName?: String;            
+            DBSubnetGroupDescription?: String;            
+            VpcId?: String;            
+            SubnetGroupStatus?: String;            
+            Subnets?: SubnetList;            
+        }
+        export interface DBSubnetGroupAlreadyExistsFault {
+        }
+        export interface DBSubnetGroupDoesNotCoverEnoughAZs {
+        }
+        export interface DBSubnetGroupMessage {
+            Marker?: String;            
+            DBSubnetGroups?: DBSubnetGroups;            
+        }
+        export interface DBSubnetGroupNotFoundFault {
+        }
+        export interface DBSubnetGroupQuotaExceededFault {
+        }
+        export interface DBSubnetQuotaExceededFault {
+        }
+        export interface DBUpgradeDependencyFailureFault {
+        }
+        export interface DeleteDBInstanceMessage {
+            DBInstanceIdentifier: String;            
+            SkipFinalSnapshot?: Boolean;            
+            FinalDBSnapshotIdentifier?: String;            
+        }
+        export interface DeleteDBParameterGroupMessage {
+            DBParameterGroupName: String;            
+        }
+        export interface DeleteDBSecurityGroupMessage {
+            DBSecurityGroupName: String;            
+        }
+        export interface DeleteDBSnapshotMessage {
+            DBSnapshotIdentifier: String;            
+        }
+        export interface DeleteDBSubnetGroupMessage {
+            DBSubnetGroupName: String;            
+        }
+        export interface DeleteEventSubscriptionMessage {
+            SubscriptionName: String;            
+        }
+        export interface DeleteOptionGroupMessage {
+            OptionGroupName: String;            
+        }
+        export interface DescribeDBEngineVersionsMessage {
+            Engine?: String;            
+            EngineVersion?: String;            
+            DBParameterGroupFamily?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+            DefaultOnly?: Boolean;            
+            ListSupportedCharacterSets?: BooleanOptional;            
+        }
+        export interface DescribeDBInstancesMessage {
+            DBInstanceIdentifier?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeDBParameterGroupsMessage {
+            DBParameterGroupName?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeDBParametersMessage {
+            DBParameterGroupName: String;            
+            Source?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeDBSecurityGroupsMessage {
+            DBSecurityGroupName?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeDBSnapshotsMessage {
+            DBInstanceIdentifier?: String;            
+            DBSnapshotIdentifier?: String;            
+            SnapshotType?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeDBSubnetGroupsMessage {
+            DBSubnetGroupName?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeEngineDefaultParametersMessage {
+            DBParameterGroupFamily: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeEventCategoriesMessage {
+            SourceType?: String;            
+        }
+        export interface DescribeEventSubscriptionsMessage {
+            SubscriptionName?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeEventsMessage {
+            SourceIdentifier?: String;            
+            SourceType?: SourceType;            
+            StartTime?: TStamp;            
+            EndTime?: TStamp;            
+            Duration?: IntegerOptional;            
+            EventCategories?: EventCategoriesList;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeOptionGroupOptionsMessage {
+            EngineName: String;            
+            MajorEngineVersion?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeOptionGroupsMessage {
+            OptionGroupName?: String;            
+            Marker?: String;            
+            MaxRecords?: IntegerOptional;            
+            EngineName?: String;            
+            MajorEngineVersion?: String;            
+        }
+        export interface DescribeOrderableDBInstanceOptionsMessage {
+            Engine: String;            
+            EngineVersion?: String;            
+            DBInstanceClass?: String;            
+            LicenseModel?: String;            
+            Vpc?: BooleanOptional;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeReservedDBInstancesMessage {
+            ReservedDBInstanceId?: String;            
+            ReservedDBInstancesOfferingId?: String;            
+            DBInstanceClass?: String;            
+            Duration?: String;            
+            ProductDescription?: String;            
+            OfferingType?: String;            
+            MultiAZ?: BooleanOptional;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeReservedDBInstancesOfferingsMessage {
+            ReservedDBInstancesOfferingId?: String;            
+            DBInstanceClass?: String;            
+            Duration?: String;            
+            ProductDescription?: String;            
+            OfferingType?: String;            
+            MultiAZ?: BooleanOptional;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface EC2SecurityGroup {
+            Status?: String;            
+            EC2SecurityGroupName?: String;            
+            EC2SecurityGroupId?: String;            
+            EC2SecurityGroupOwnerId?: String;            
+        }
+        export interface Endpoint {
+            Address?: String;            
+            Port?: Integer;            
+        }
+        export interface EngineDefaults {
+            DBParameterGroupFamily?: String;            
+            Marker?: String;            
+            Parameters?: ParametersList;            
+        }
+        export interface Event {
+            SourceIdentifier?: String;            
+            SourceType?: SourceType;            
+            Message?: String;            
+            EventCategories?: EventCategoriesList;            
+            Date?: TStamp;            
+        }
+        export interface EventCategoriesMap {
+            SourceType?: String;            
+            EventCategories?: EventCategoriesList;            
+        }
+        export interface EventCategoriesMessage {
+            EventCategoriesMapList?: EventCategoriesMapList;            
+        }
+        export interface EventSubscription {
+            Id?: String;            
+            CustomerAwsId?: String;            
+            CustSubscriptionId?: String;            
+            SnsTopicArn?: String;            
+            Status?: String;            
+            SubscriptionCreationTime?: String;            
+            SourceType?: String;            
+            SourceIdsList?: SourceIdsList;            
+            EventCategoriesList?: EventCategoriesList;            
+            Enabled?: Boolean;            
+        }
+        export interface EventSubscriptionQuotaExceededFault {
+        }
+        export interface EventSubscriptionsMessage {
+            Marker?: String;            
+            EventSubscriptionsList?: EventSubscriptionsList;            
+        }
+        export interface EventsMessage {
+            Marker?: String;            
+            Events?: EventList;            
+        }
+        export interface IPRange {
+            Status?: String;            
+            CIDRIP?: String;            
+        }
+        export interface InstanceQuotaExceededFault {
+        }
+        export interface InsufficientDBInstanceCapacityFault {
+        }
+        export interface InvalidDBInstanceStateFault {
+        }
+        export interface InvalidDBParameterGroupStateFault {
+        }
+        export interface InvalidDBSecurityGroupStateFault {
+        }
+        export interface InvalidDBSnapshotStateFault {
+        }
+        export interface InvalidDBSubnetGroupStateFault {
+        }
+        export interface InvalidDBSubnetStateFault {
+        }
+        export interface InvalidEventSubscriptionStateFault {
+        }
+        export interface InvalidOptionGroupStateFault {
+        }
+        export interface InvalidRestoreFault {
+        }
+        export interface InvalidSubnet {
+        }
+        export interface InvalidVPCNetworkStateFault {
+        }
+        export interface ListTagsForResourceMessage {
+            ResourceName: String;            
+        }
+        export interface ModifyDBInstanceMessage {
+            DBInstanceIdentifier: String;            
+            AllocatedStorage?: IntegerOptional;            
+            DBInstanceClass?: String;            
+            DBSecurityGroups?: DBSecurityGroupNameList;            
+            VpcSecurityGroupIds?: VpcSecurityGroupIdList;            
+            ApplyImmediately?: Boolean;            
+            MasterUserPassword?: String;            
+            DBParameterGroupName?: String;            
+            BackupRetentionPeriod?: IntegerOptional;            
+            PreferredBackupWindow?: String;            
+            PreferredMaintenanceWindow?: String;            
+            MultiAZ?: BooleanOptional;            
+            EngineVersion?: String;            
+            AllowMajorVersionUpgrade?: Boolean;            
+            AutoMinorVersionUpgrade?: BooleanOptional;            
+            Iops?: IntegerOptional;            
+            OptionGroupName?: String;            
+            NewDBInstanceIdentifier?: String;            
+        }
+        export interface ModifyDBParameterGroupMessage {
+            DBParameterGroupName: String;            
+            Parameters: ParametersList;            
+        }
+        export interface ModifyDBSubnetGroupMessage {
+            DBSubnetGroupName: String;            
+            DBSubnetGroupDescription?: String;            
+            SubnetIds: SubnetIdentifierList;            
+        }
+        export interface ModifyEventSubscriptionMessage {
+            SubscriptionName: String;            
+            SnsTopicArn?: String;            
+            SourceType?: String;            
+            EventCategories?: EventCategoriesList;            
+            Enabled?: BooleanOptional;            
+        }
+        export interface ModifyOptionGroupMessage {
+            OptionGroupName: String;            
+            OptionsToInclude?: OptionConfigurationList;            
+            OptionsToRemove?: OptionNamesList;            
+            ApplyImmediately?: Boolean;            
+        }
+        export interface Option {
+            OptionName?: String;            
+            OptionDescription?: String;            
+            Port?: IntegerOptional;            
+            DBSecurityGroupMemberships?: DBSecurityGroupMembershipList;            
+            VpcSecurityGroupMemberships?: VpcSecurityGroupMembershipList;            
+        }
+        export interface OptionConfiguration {
+            OptionName: String;            
+            Port?: IntegerOptional;            
+            DBSecurityGroupMemberships?: DBSecurityGroupNameList;            
+            VpcSecurityGroupMemberships?: VpcSecurityGroupIdList;            
+        }
+        export interface OptionGroup {
+            OptionGroupName?: String;            
+            OptionGroupDescription?: String;            
+            EngineName?: String;            
+            MajorEngineVersion?: String;            
+            Options?: OptionsList;            
+            AllowsVpcAndNonVpcInstanceMemberships?: Boolean;            
+            VpcId?: String;            
+        }
+        export interface OptionGroupAlreadyExistsFault {
+        }
+        export interface OptionGroupMembership {
+            OptionGroupName?: String;            
+            Status?: String;            
+        }
+        export interface OptionGroupNotFoundFault {
+        }
+        export interface OptionGroupOption {
+            Name?: String;            
+            Description?: String;            
+            EngineName?: String;            
+            MajorEngineVersion?: String;            
+            MinimumRequiredMinorEngineVersion?: String;            
+            PortRequired?: Boolean;            
+            DefaultPort?: IntegerOptional;            
+            OptionsDependedOn?: OptionsDependedOn;            
+        }
+        export interface OptionGroupOptionsMessage {
+            OptionGroupOptions?: OptionGroupOptionsList;            
+            Marker?: String;            
+        }
+        export interface OptionGroupQuotaExceededFault {
+        }
+        export interface OptionGroups {
+            OptionGroupsList?: OptionGroupsList;            
+            Marker?: String;            
+        }
+        export interface OrderableDBInstanceOption {
+            Engine?: String;            
+            EngineVersion?: String;            
+            DBInstanceClass?: String;            
+            LicenseModel?: String;            
+            AvailabilityZones?: AvailabilityZoneList;            
+            MultiAZCapable?: Boolean;            
+            ReadReplicaCapable?: Boolean;            
+            Vpc?: Boolean;            
+        }
+        export interface OrderableDBInstanceOptionsMessage {
+            OrderableDBInstanceOptions?: OrderableDBInstanceOptionsList;            
+            Marker?: String;            
+        }
+        export interface Parameter {
+            ParameterName?: String;            
+            ParameterValue?: String;            
+            Description?: String;            
+            Source?: String;            
+            ApplyType?: String;            
+            DataType?: String;            
+            AllowedValues?: String;            
+            IsModifiable?: Boolean;            
+            MinimumEngineVersion?: String;            
+            ApplyMethod?: ApplyMethod;            
+        }
+        export interface PendingModifiedValues {
+            DBInstanceClass?: String;            
+            AllocatedStorage?: IntegerOptional;            
+            MasterUserPassword?: String;            
+            Port?: IntegerOptional;            
+            BackupRetentionPeriod?: IntegerOptional;            
+            MultiAZ?: BooleanOptional;            
+            EngineVersion?: String;            
+            Iops?: IntegerOptional;            
+            DBInstanceIdentifier?: String;            
+        }
+        export interface PointInTimeRestoreNotEnabledFault {
+        }
+        export interface PromoteReadReplicaMessage {
+            DBInstanceIdentifier: String;            
+            BackupRetentionPeriod?: IntegerOptional;            
+            PreferredBackupWindow?: String;            
+        }
+        export interface ProvisionedIopsNotAvailableInAZFault {
+        }
+        export interface PurchaseReservedDBInstancesOfferingMessage {
+            ReservedDBInstancesOfferingId: String;            
+            ReservedDBInstanceId?: String;            
+            DBInstanceCount?: IntegerOptional;            
+        }
+        export interface RebootDBInstanceMessage {
+            DBInstanceIdentifier: String;            
+            ForceFailover?: BooleanOptional;            
+        }
+        export interface RecurringCharge {
+            RecurringChargeAmount?: Double;            
+            RecurringChargeFrequency?: String;            
+        }
+        export interface RemoveSourceIdentifierFromSubscriptionMessage {
+            SubscriptionName: String;            
+            SourceIdentifier: String;            
+        }
+        export interface RemoveTagsFromResourceMessage {
+            ResourceName: String;            
+            TagKeys: KeyList;            
+        }
+        export interface ReservedDBInstance {
+            ReservedDBInstanceId?: String;            
+            ReservedDBInstancesOfferingId?: String;            
+            DBInstanceClass?: String;            
+            StartTime?: TStamp;            
+            Duration?: Integer;            
+            FixedPrice?: Double;            
+            UsagePrice?: Double;            
+            CurrencyCode?: String;            
+            DBInstanceCount?: Integer;            
+            ProductDescription?: String;            
+            OfferingType?: String;            
+            MultiAZ?: Boolean;            
+            State?: String;            
+            RecurringCharges?: RecurringChargeList;            
+        }
+        export interface ReservedDBInstanceAlreadyExistsFault {
+        }
+        export interface ReservedDBInstanceMessage {
+            Marker?: String;            
+            ReservedDBInstances?: ReservedDBInstanceList;            
+        }
+        export interface ReservedDBInstanceNotFoundFault {
+        }
+        export interface ReservedDBInstanceQuotaExceededFault {
+        }
+        export interface ReservedDBInstancesOffering {
+            ReservedDBInstancesOfferingId?: String;            
+            DBInstanceClass?: String;            
+            Duration?: Integer;            
+            FixedPrice?: Double;            
+            UsagePrice?: Double;            
+            CurrencyCode?: String;            
+            ProductDescription?: String;            
+            OfferingType?: String;            
+            MultiAZ?: Boolean;            
+            RecurringCharges?: RecurringChargeList;            
+        }
+        export interface ReservedDBInstancesOfferingMessage {
+            Marker?: String;            
+            ReservedDBInstancesOfferings?: ReservedDBInstancesOfferingList;            
+        }
+        export interface ReservedDBInstancesOfferingNotFoundFault {
+        }
+        export interface ResetDBParameterGroupMessage {
+            DBParameterGroupName: String;            
+            ResetAllParameters?: Boolean;            
+            Parameters?: ParametersList;            
+        }
+        export interface RestoreDBInstanceFromDBSnapshotMessage {
+            DBInstanceIdentifier: String;            
+            DBSnapshotIdentifier: String;            
+            DBInstanceClass?: String;            
+            Port?: IntegerOptional;            
+            AvailabilityZone?: String;            
+            DBSubnetGroupName?: String;            
+            MultiAZ?: BooleanOptional;            
+            PubliclyAccessible?: BooleanOptional;            
+            AutoMinorVersionUpgrade?: BooleanOptional;            
+            LicenseModel?: String;            
+            DBName?: String;            
+            Engine?: String;            
+            Iops?: IntegerOptional;            
+            OptionGroupName?: String;            
+        }
+        export interface RestoreDBInstanceToPointInTimeMessage {
+            SourceDBInstanceIdentifier: String;            
+            TargetDBInstanceIdentifier: String;            
+            RestoreTime?: TStamp;            
+            UseLatestRestorableTime?: Boolean;            
+            DBInstanceClass?: String;            
+            Port?: IntegerOptional;            
+            AvailabilityZone?: String;            
+            DBSubnetGroupName?: String;            
+            MultiAZ?: BooleanOptional;            
+            PubliclyAccessible?: BooleanOptional;            
+            AutoMinorVersionUpgrade?: BooleanOptional;            
+            LicenseModel?: String;            
+            DBName?: String;            
+            Engine?: String;            
+            Iops?: IntegerOptional;            
+            OptionGroupName?: String;            
+        }
+        export interface RevokeDBSecurityGroupIngressMessage {
+            DBSecurityGroupName: String;            
+            CIDRIP?: String;            
+            EC2SecurityGroupName?: String;            
+            EC2SecurityGroupId?: String;            
+            EC2SecurityGroupOwnerId?: String;            
+        }
+        export interface SNSInvalidTopicFault {
+        }
+        export interface SNSNoAuthorizationFault {
+        }
+        export interface SNSTopicArnNotFoundFault {
+        }
+        export interface SnapshotQuotaExceededFault {
+        }
+        export interface SourceNotFoundFault {
+        }
+        export interface StorageQuotaExceededFault {
+        }
+        export interface Subnet {
+            SubnetIdentifier?: String;            
+            SubnetAvailabilityZone?: AvailabilityZone;            
+            SubnetStatus?: String;            
+        }
+        export interface SubnetAlreadyInUse {
+        }
+        export interface SubscriptionAlreadyExistFault {
+        }
+        export interface SubscriptionCategoryNotFoundFault {
+        }
+        export interface SubscriptionNotFoundFault {
+        }
+        export interface Tag {
+            Key?: String;            
+            Value?: String;            
+        }
+        export interface TagListMessage {
+            TagList?: TagList;            
+        }
+        export interface VpcSecurityGroupMembership {
+            VpcSecurityGroupId?: String;            
+            Status?: String;            
+        }
+        export interface AddSourceIdentifierToSubscriptionResult {
+            EventSubscription?: EventSubscription;            
+        }
+        export interface AuthorizeDBSecurityGroupIngressResult {
+            DBSecurityGroup?: DBSecurityGroup;            
+        }
+        export interface CopyDBSnapshotResult {
+            DBSnapshot?: DBSnapshot;            
+        }
+        export interface CreateDBInstanceResult {
+            DBInstance?: DBInstance;            
+        }
+        export interface CreateDBInstanceReadReplicaResult {
+            DBInstance?: DBInstance;            
+        }
+        export interface CreateDBParameterGroupResult {
+            DBParameterGroup?: DBParameterGroup;            
+        }
+        export interface CreateDBSecurityGroupResult {
+            DBSecurityGroup?: DBSecurityGroup;            
+        }
+        export interface CreateDBSnapshotResult {
+            DBSnapshot?: DBSnapshot;            
+        }
+        export interface CreateDBSubnetGroupResult {
+            DBSubnetGroup?: DBSubnetGroup;            
+        }
+        export interface CreateEventSubscriptionResult {
+            EventSubscription?: EventSubscription;            
+        }
+        export interface CreateOptionGroupResult {
+            OptionGroup?: OptionGroup;            
+        }
+        export interface DeleteDBInstanceResult {
+            DBInstance?: DBInstance;            
+        }
+        export interface DeleteDBSnapshotResult {
+            DBSnapshot?: DBSnapshot;            
+        }
+        export interface DeleteEventSubscriptionResult {
+            EventSubscription?: EventSubscription;            
+        }
+        export interface DescribeEngineDefaultParametersResult {
+            EngineDefaults?: EngineDefaults;            
+        }
+        export interface ModifyDBInstanceResult {
+            DBInstance?: DBInstance;            
+        }
+        export interface ModifyDBSubnetGroupResult {
+            DBSubnetGroup?: DBSubnetGroup;            
+        }
+        export interface ModifyEventSubscriptionResult {
+            EventSubscription?: EventSubscription;            
+        }
+        export interface ModifyOptionGroupResult {
+            OptionGroup?: OptionGroup;            
+        }
+        export interface PromoteReadReplicaResult {
+            DBInstance?: DBInstance;            
+        }
+        export interface PurchaseReservedDBInstancesOfferingResult {
+            ReservedDBInstance?: ReservedDBInstance;            
+        }
+        export interface RebootDBInstanceResult {
+            DBInstance?: DBInstance;            
+        }
+        export interface RemoveSourceIdentifierFromSubscriptionResult {
+            EventSubscription?: EventSubscription;            
+        }
+        export interface RestoreDBInstanceFromDBSnapshotResult {
+            DBInstance?: DBInstance;            
+        }
+        export interface RestoreDBInstanceToPointInTimeResult {
+            DBInstance?: DBInstance;            
+        }
+        export interface RevokeDBSecurityGroupIngressResult {
+            DBSecurityGroup?: DBSecurityGroup;            
+        }
 
-    export interface RDSInvalidDBSecurityGroupStateFault {
     }
-
-    export interface RDSInvalidDBSnapshotStateFault {
-    }
-
-    export interface RDSInvalidDBSubnetGroupStateFault {
-    }
-
-    export interface RDSInvalidDBSubnetStateFault {
-    }
-
-    export interface RDSInvalidEventSubscriptionStateFault {
-    }
-
-    export interface RDSInvalidOptionGroupStateFault {
-    }
-
-    export interface RDSInvalidRestoreFault {
-    }
-
-    export interface RDSInvalidSubnet {
-    }
-
-    export interface RDSInvalidVPCNetworkStateFault {
-    }
-
-    export type RDSKeyList = Array<RDSString>;
-    export interface RDSListTagsForResourceMessage {
-        ResourceName: RDSString;
-    }
-
-    export interface RDSModifyDBInstanceMessage {
-        DBInstanceIdentifier: RDSString;
-        AllocatedStorage?: RDSIntegerOptional;
-        DBInstanceClass?: RDSString;
-        DBSecurityGroups?: RDSDBSecurityGroupNameList;
-        VpcSecurityGroupIds?: RDSVpcSecurityGroupIdList;
-        ApplyImmediately?: RDSBoolean;
-        MasterUserPassword?: RDSString;
-        DBParameterGroupName?: RDSString;
-        BackupRetentionPeriod?: RDSIntegerOptional;
-        PreferredBackupWindow?: RDSString;
-        PreferredMaintenanceWindow?: RDSString;
-        MultiAZ?: RDSBooleanOptional;
-        EngineVersion?: RDSString;
-        AllowMajorVersionUpgrade?: RDSBoolean;
-        AutoMinorVersionUpgrade?: RDSBooleanOptional;
-        Iops?: RDSIntegerOptional;
-        OptionGroupName?: RDSString;
-        NewDBInstanceIdentifier?: RDSString;
-    }
-
-    export interface RDSModifyDBParameterGroupMessage {
-        DBParameterGroupName: RDSString;
-        Parameters: RDSParametersList;
-    }
-
-    export interface RDSModifyDBSubnetGroupMessage {
-        DBSubnetGroupName: RDSString;
-        DBSubnetGroupDescription?: RDSString;
-        SubnetIds: RDSSubnetIdentifierList;
-    }
-
-    export interface RDSModifyEventSubscriptionMessage {
-        SubscriptionName: RDSString;
-        SnsTopicArn?: RDSString;
-        SourceType?: RDSString;
-        EventCategories?: RDSEventCategoriesList;
-        Enabled?: RDSBooleanOptional;
-    }
-
-    export interface RDSModifyOptionGroupMessage {
-        OptionGroupName: RDSString;
-        OptionsToInclude?: RDSOptionConfigurationList;
-        OptionsToRemove?: RDSOptionNamesList;
-        ApplyImmediately?: RDSBoolean;
-    }
-
-    export interface RDSOption {
-        OptionName?: RDSString;
-        OptionDescription?: RDSString;
-        Port?: RDSIntegerOptional;
-        DBSecurityGroupMemberships?: RDSDBSecurityGroupMembershipList;
-        VpcSecurityGroupMemberships?: RDSVpcSecurityGroupMembershipList;
-    }
-
-    export interface RDSOptionConfiguration {
-        OptionName: RDSString;
-        Port?: RDSIntegerOptional;
-        DBSecurityGroupMemberships?: RDSDBSecurityGroupNameList;
-        VpcSecurityGroupMemberships?: RDSVpcSecurityGroupIdList;
-    }
-
-    export type RDSOptionConfigurationList = Array<RDSOptionConfiguration>;
-    export interface RDSOptionGroup {
-        OptionGroupName?: RDSString;
-        OptionGroupDescription?: RDSString;
-        EngineName?: RDSString;
-        MajorEngineVersion?: RDSString;
-        Options?: RDSOptionsList;
-        AllowsVpcAndNonVpcInstanceMemberships?: RDSBoolean;
-        VpcId?: RDSString;
-    }
-
-    export interface RDSOptionGroupAlreadyExistsFault {
-    }
-
-    export interface RDSOptionGroupMembership {
-        OptionGroupName?: RDSString;
-        Status?: RDSString;
-    }
-
-    export interface RDSOptionGroupNotFoundFault {
-    }
-
-    export interface RDSOptionGroupOption {
-        Name?: RDSString;
-        Description?: RDSString;
-        EngineName?: RDSString;
-        MajorEngineVersion?: RDSString;
-        MinimumRequiredMinorEngineVersion?: RDSString;
-        PortRequired?: RDSBoolean;
-        DefaultPort?: RDSIntegerOptional;
-        OptionsDependedOn?: RDSOptionsDependedOn;
-    }
-
-    export type RDSOptionGroupOptionsList = Array<RDSOptionGroupOption>;
-    export interface RDSOptionGroupOptionsMessage {
-        OptionGroupOptions?: RDSOptionGroupOptionsList;
-        Marker?: RDSString;
-    }
-
-    export interface RDSOptionGroupQuotaExceededFault {
-    }
-
-    export interface RDSOptionGroups {
-        OptionGroupsList?: RDSOptionGroupsList;
-        Marker?: RDSString;
-    }
-
-    export type RDSOptionGroupsList = Array<RDSOptionGroup>;
-    export type RDSOptionNamesList = Array<RDSString>;
-    export type RDSOptionsDependedOn = Array<RDSString>;
-    export type RDSOptionsList = Array<RDSOption>;
-    export interface RDSOrderableDBInstanceOption {
-        Engine?: RDSString;
-        EngineVersion?: RDSString;
-        DBInstanceClass?: RDSString;
-        LicenseModel?: RDSString;
-        AvailabilityZones?: RDSAvailabilityZoneList;
-        MultiAZCapable?: RDSBoolean;
-        ReadReplicaCapable?: RDSBoolean;
-        Vpc?: RDSBoolean;
-    }
-
-    export type RDSOrderableDBInstanceOptionsList = Array<RDSOrderableDBInstanceOption>;
-    export interface RDSOrderableDBInstanceOptionsMessage {
-        OrderableDBInstanceOptions?: RDSOrderableDBInstanceOptionsList;
-        Marker?: RDSString;
-    }
-
-    export interface RDSParameter {
-        ParameterName?: RDSString;
-        ParameterValue?: RDSString;
-        Description?: RDSString;
-        Source?: RDSString;
-        ApplyType?: RDSString;
-        DataType?: RDSString;
-        AllowedValues?: RDSString;
-        IsModifiable?: RDSBoolean;
-        MinimumEngineVersion?: RDSString;
-        ApplyMethod?: RDSApplyMethod;
-    }
-
-    export type RDSParametersList = Array<RDSParameter>;
-    export interface RDSPendingModifiedValues {
-        DBInstanceClass?: RDSString;
-        AllocatedStorage?: RDSIntegerOptional;
-        MasterUserPassword?: RDSString;
-        Port?: RDSIntegerOptional;
-        BackupRetentionPeriod?: RDSIntegerOptional;
-        MultiAZ?: RDSBooleanOptional;
-        EngineVersion?: RDSString;
-        Iops?: RDSIntegerOptional;
-        DBInstanceIdentifier?: RDSString;
-    }
-
-    export interface RDSPointInTimeRestoreNotEnabledFault {
-    }
-
-    export interface RDSPromoteReadReplicaMessage {
-        DBInstanceIdentifier: RDSString;
-        BackupRetentionPeriod?: RDSIntegerOptional;
-        PreferredBackupWindow?: RDSString;
-    }
-
-    export interface RDSProvisionedIopsNotAvailableInAZFault {
-    }
-
-    export interface RDSPurchaseReservedDBInstancesOfferingMessage {
-        ReservedDBInstancesOfferingId: RDSString;
-        ReservedDBInstanceId?: RDSString;
-        DBInstanceCount?: RDSIntegerOptional;
-    }
-
-    export type RDSReadReplicaDBInstanceIdentifierList = Array<RDSString>;
-    export interface RDSRebootDBInstanceMessage {
-        DBInstanceIdentifier: RDSString;
-        ForceFailover?: RDSBooleanOptional;
-    }
-
-    export interface RDSRecurringCharge {
-        RecurringChargeAmount?: RDSDouble;
-        RecurringChargeFrequency?: RDSString;
-    }
-
-    export type RDSRecurringChargeList = Array<RDSRecurringCharge>;
-    export interface RDSRemoveSourceIdentifierFromSubscriptionMessage {
-        SubscriptionName: RDSString;
-        SourceIdentifier: RDSString;
-    }
-
-    export interface RDSRemoveTagsFromResourceMessage {
-        ResourceName: RDSString;
-        TagKeys: RDSKeyList;
-    }
-
-    export interface RDSReservedDBInstance {
-        ReservedDBInstanceId?: RDSString;
-        ReservedDBInstancesOfferingId?: RDSString;
-        DBInstanceClass?: RDSString;
-        StartTime?: RDSTStamp;
-        Duration?: RDSInteger;
-        FixedPrice?: RDSDouble;
-        UsagePrice?: RDSDouble;
-        CurrencyCode?: RDSString;
-        DBInstanceCount?: RDSInteger;
-        ProductDescription?: RDSString;
-        OfferingType?: RDSString;
-        MultiAZ?: RDSBoolean;
-        State?: RDSString;
-        RecurringCharges?: RDSRecurringChargeList;
-    }
-
-    export interface RDSReservedDBInstanceAlreadyExistsFault {
-    }
-
-    export type RDSReservedDBInstanceList = Array<RDSReservedDBInstance>;
-    export interface RDSReservedDBInstanceMessage {
-        Marker?: RDSString;
-        ReservedDBInstances?: RDSReservedDBInstanceList;
-    }
-
-    export interface RDSReservedDBInstanceNotFoundFault {
-    }
-
-    export interface RDSReservedDBInstanceQuotaExceededFault {
-    }
-
-    export interface RDSReservedDBInstancesOffering {
-        ReservedDBInstancesOfferingId?: RDSString;
-        DBInstanceClass?: RDSString;
-        Duration?: RDSInteger;
-        FixedPrice?: RDSDouble;
-        UsagePrice?: RDSDouble;
-        CurrencyCode?: RDSString;
-        ProductDescription?: RDSString;
-        OfferingType?: RDSString;
-        MultiAZ?: RDSBoolean;
-        RecurringCharges?: RDSRecurringChargeList;
-    }
-
-    export type RDSReservedDBInstancesOfferingList = Array<RDSReservedDBInstancesOffering>;
-    export interface RDSReservedDBInstancesOfferingMessage {
-        Marker?: RDSString;
-        ReservedDBInstancesOfferings?: RDSReservedDBInstancesOfferingList;
-    }
-
-    export interface RDSReservedDBInstancesOfferingNotFoundFault {
-    }
-
-    export interface RDSResetDBParameterGroupMessage {
-        DBParameterGroupName: RDSString;
-        ResetAllParameters?: RDSBoolean;
-        Parameters?: RDSParametersList;
-    }
-
-    export interface RDSRestoreDBInstanceFromDBSnapshotMessage {
-        DBInstanceIdentifier: RDSString;
-        DBSnapshotIdentifier: RDSString;
-        DBInstanceClass?: RDSString;
-        Port?: RDSIntegerOptional;
-        AvailabilityZone?: RDSString;
-        DBSubnetGroupName?: RDSString;
-        MultiAZ?: RDSBooleanOptional;
-        PubliclyAccessible?: RDSBooleanOptional;
-        AutoMinorVersionUpgrade?: RDSBooleanOptional;
-        LicenseModel?: RDSString;
-        DBName?: RDSString;
-        Engine?: RDSString;
-        Iops?: RDSIntegerOptional;
-        OptionGroupName?: RDSString;
-    }
-
-    export interface RDSRestoreDBInstanceToPointInTimeMessage {
-        SourceDBInstanceIdentifier: RDSString;
-        TargetDBInstanceIdentifier: RDSString;
-        RestoreTime?: RDSTStamp;
-        UseLatestRestorableTime?: RDSBoolean;
-        DBInstanceClass?: RDSString;
-        Port?: RDSIntegerOptional;
-        AvailabilityZone?: RDSString;
-        DBSubnetGroupName?: RDSString;
-        MultiAZ?: RDSBooleanOptional;
-        PubliclyAccessible?: RDSBooleanOptional;
-        AutoMinorVersionUpgrade?: RDSBooleanOptional;
-        LicenseModel?: RDSString;
-        DBName?: RDSString;
-        Engine?: RDSString;
-        Iops?: RDSIntegerOptional;
-        OptionGroupName?: RDSString;
-    }
-
-    export interface RDSRevokeDBSecurityGroupIngressMessage {
-        DBSecurityGroupName: RDSString;
-        CIDRIP?: RDSString;
-        EC2SecurityGroupName?: RDSString;
-        EC2SecurityGroupId?: RDSString;
-        EC2SecurityGroupOwnerId?: RDSString;
-    }
-
-    export interface RDSSNSInvalidTopicFault {
-    }
-
-    export interface RDSSNSNoAuthorizationFault {
-    }
-
-    export interface RDSSNSTopicArnNotFoundFault {
-    }
-
-    export interface RDSSnapshotQuotaExceededFault {
-    }
-
-    export type RDSSourceIdsList = Array<RDSString>;
-    export interface RDSSourceNotFoundFault {
-    }
-
-    export type RDSSourceType = string;
-    export interface RDSStorageQuotaExceededFault {
-    }
-
-    export type RDSString = string;
-    export interface RDSSubnet {
-        SubnetIdentifier?: RDSString;
-        SubnetAvailabilityZone?: RDSAvailabilityZone;
-        SubnetStatus?: RDSString;
-    }
-
-    export interface RDSSubnetAlreadyInUse {
-    }
-
-    export type RDSSubnetIdentifierList = Array<RDSString>;
-    export type RDSSubnetList = Array<RDSSubnet>;
-    export interface RDSSubscriptionAlreadyExistFault {
-    }
-
-    export interface RDSSubscriptionCategoryNotFoundFault {
-    }
-
-    export interface RDSSubscriptionNotFoundFault {
-    }
-
-    export type RDSSupportedCharacterSetsList = Array<RDSCharacterSet>;
-    export type RDSTStamp = number;
-    export interface RDSTag {
-        Key?: RDSString;
-        Value?: RDSString;
-    }
-
-    export type RDSTagList = Array<RDSTag>;
-    export interface RDSTagListMessage {
-        TagList?: RDSTagList;
-    }
-
-    export type RDSVpcSecurityGroupIdList = Array<RDSString>;
-    export interface RDSVpcSecurityGroupMembership {
-        VpcSecurityGroupId?: RDSString;
-        Status?: RDSString;
-    }
-
-    export type RDSVpcSecurityGroupMembershipList = Array<RDSVpcSecurityGroupMembership>;
-    export interface RDSAddSourceIdentifierToSubscriptionResult {
-        EventSubscription?: RDSEventSubscription;
-    }
-
-    export interface RDSAuthorizeDBSecurityGroupIngressResult {
-        DBSecurityGroup?: RDSDBSecurityGroup;
-    }
-
-    export interface RDSCopyDBSnapshotResult {
-        DBSnapshot?: RDSDBSnapshot;
-    }
-
-    export interface RDSCreateDBInstanceResult {
-        DBInstance?: RDSDBInstance;
-    }
-
-    export interface RDSCreateDBInstanceReadReplicaResult {
-        DBInstance?: RDSDBInstance;
-    }
-
-    export interface RDSCreateDBParameterGroupResult {
-        DBParameterGroup?: RDSDBParameterGroup;
-    }
-
-    export interface RDSCreateDBSecurityGroupResult {
-        DBSecurityGroup?: RDSDBSecurityGroup;
-    }
-
-    export interface RDSCreateDBSnapshotResult {
-        DBSnapshot?: RDSDBSnapshot;
-    }
-
-    export interface RDSCreateDBSubnetGroupResult {
-        DBSubnetGroup?: RDSDBSubnetGroup;
-    }
-
-    export interface RDSCreateEventSubscriptionResult {
-        EventSubscription?: RDSEventSubscription;
-    }
-
-    export interface RDSCreateOptionGroupResult {
-        OptionGroup?: RDSOptionGroup;
-    }
-
-    export interface RDSDeleteDBInstanceResult {
-        DBInstance?: RDSDBInstance;
-    }
-
-    export interface RDSDeleteDBSnapshotResult {
-        DBSnapshot?: RDSDBSnapshot;
-    }
-
-    export interface RDSDeleteEventSubscriptionResult {
-        EventSubscription?: RDSEventSubscription;
-    }
-
-    export interface RDSDescribeEngineDefaultParametersResult {
-        EngineDefaults?: RDSEngineDefaults;
-    }
-
-    export interface RDSModifyDBInstanceResult {
-        DBInstance?: RDSDBInstance;
-    }
-
-    export interface RDSModifyDBSubnetGroupResult {
-        DBSubnetGroup?: RDSDBSubnetGroup;
-    }
-
-    export interface RDSModifyEventSubscriptionResult {
-        EventSubscription?: RDSEventSubscription;
-    }
-
-    export interface RDSModifyOptionGroupResult {
-        OptionGroup?: RDSOptionGroup;
-    }
-
-    export interface RDSPromoteReadReplicaResult {
-        DBInstance?: RDSDBInstance;
-    }
-
-    export interface RDSPurchaseReservedDBInstancesOfferingResult {
-        ReservedDBInstance?: RDSReservedDBInstance;
-    }
-
-    export interface RDSRebootDBInstanceResult {
-        DBInstance?: RDSDBInstance;
-    }
-
-    export interface RDSRemoveSourceIdentifierFromSubscriptionResult {
-        EventSubscription?: RDSEventSubscription;
-    }
-
-    export interface RDSRestoreDBInstanceFromDBSnapshotResult {
-        DBInstance?: RDSDBInstance;
-    }
-
-    export interface RDSRestoreDBInstanceToPointInTimeResult {
-        DBInstance?: RDSDBInstance;
-    }
-
-    export interface RDSRevokeDBSecurityGroupIngressResult {
-        DBSecurityGroup?: RDSDBSecurityGroup;
-    }
-
 }
