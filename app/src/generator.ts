@@ -12,7 +12,6 @@ export class AWSTypeGenerator {
 
   generateServiceDefinitions(api: meta.ServiceInfo) {
     var moduleTemplate = this.fetchTemplate("module")
-    var structureTemplate = this.fetchTemplate("structure")
     
     this.cleanShapes(api.descriptor);
 

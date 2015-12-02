@@ -35,10 +35,7 @@ function readServiceFiles() {
 
 function generateServiceDefinitions() {
   Object.keys(metadata).forEach((serviceName) => {
-    if (!metadata[serviceName].input) {
-      return;
-    }
-  
+    
     console.log(`Generating ${metadata[serviceName].output}`)
   
     var result = new generator.AWSTypeGenerator().generateServiceDefinitions(metadata[serviceName]);
@@ -53,11 +50,21 @@ function copyCommonDefs() {
 }
 
 function generateModuleFile() {
-  var services = Object.keys(metadata)
-    .filter(name => !!metadata[name].input);
+  var services = Object.keys(metadata);
   var result = new generator.AWSTypeGenerator().generateMainModule(services);
   
   fs.writeFileSync('output/aws-sdk.d.ts', result);
+}
+
+function cleanDefinitions() {
+  var unrecognizedServices = Object.keys(metadata)
+    .filter(name => !metadata[name].descriptor);
+  
+  unrecognizedServices.forEach(name => {
+    console.log(`Ommitting service ${name} because the json definitions are missing`);
+    delete metadata[name];
+  });
+  
 }
 
 console.log(JSON.stringify(process.argv))
@@ -66,6 +73,7 @@ sdkDir = (process.argv.length > 2) ? process.argv[-1 + process.argv.length] : ".
 
 metadata = readMetadata();
 readServiceFiles();
+cleanDefinitions();
 copyCommonDefs();
 generateServiceDefinitions();
 generateModuleFile();
