@@ -16,17 +16,19 @@ function readMetadata():{[serviceName:string]:meta.ServiceInfo} {
 }
 
 function readServiceFiles() {
-  Object.keys(metadata).forEach((serviceName) => {
-    var serviceInfo = metadata[serviceName];
-    var expr = path.join(sdkDir, `${serviceName}-????-??-??.normal.json`)
+  Object.keys(metadata).forEach((shortName) => {
+    var serviceInfo = metadata[shortName];
+    serviceInfo.prefix = serviceInfo.prefix || shortName;
+     
+    var expr = path.join(sdkDir, `${serviceInfo.prefix}-????-??-??.normal.json`);
   
-    var result = glob.sync(expr)
+    var result = glob.sync(expr);
   
     if (result  && result.length > 0) {
       serviceInfo.input = result[result.length -1];   //most recent API version
-      serviceInfo.output = `output/aws-${serviceName}.d.ts`
+      serviceInfo.output = `output/aws-${serviceInfo.prefix}.d.ts`;
   
-      console.log(serviceName + ": " + JSON.stringify(serviceInfo, null, 2));
+      console.log(shortName + ": " + JSON.stringify(serviceInfo, null, 2));
       var content = fs.readFileSync(serviceInfo.input).toString();
       serviceInfo.descriptor = JSON.parse(content);
     }
@@ -50,7 +52,8 @@ function copyCommonDefs() {
 }
 
 function generateModuleFile() {
-  var services = Object.keys(metadata);
+  var services = Object.keys(metadata)
+    .map(shortName => metadata[shortName].prefix);
   var result = new generator.AWSTypeGenerator().generateMainModule(services);
   
   fs.writeFileSync('output/aws-sdk.d.ts', result);
