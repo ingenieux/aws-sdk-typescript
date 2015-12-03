@@ -6,1310 +6,1161 @@ declare module "aws-sdk" {
 
     export class S3 extends Service {
       constructor(options?: any);
-      abortMultipartUpload(params: S3AbortMultipartUploadRequest, callback?: (err: S3NoSuchUpload|any, data: S3AbortMultipartUploadOutput|any) => void): Request;
-      completeMultipartUpload(params: S3CompleteMultipartUploadRequest, callback?: (err: any, data: S3CompleteMultipartUploadOutput|any) => void): Request;
-      copyObject(params: S3CopyObjectRequest, callback?: (err: S3ObjectNotInActiveTierError|any, data: S3CopyObjectOutput|any) => void): Request;
-      createBucket(params: S3CreateBucketRequest, callback?: (err: S3BucketAlreadyExists|any, data: S3CreateBucketOutput|any) => void): Request;
-      createMultipartUpload(params: S3CreateMultipartUploadRequest, callback?: (err: any, data: S3CreateMultipartUploadOutput|any) => void): Request;
-      deleteBucket(params: S3DeleteBucketRequest, callback?: (err: any, data: any) => void): Request;
-      deleteBucketCors(params: S3DeleteBucketCorsRequest, callback?: (err: any, data: any) => void): Request;
-      deleteBucketLifecycle(params: S3DeleteBucketLifecycleRequest, callback?: (err: any, data: any) => void): Request;
-      deleteBucketPolicy(params: S3DeleteBucketPolicyRequest, callback?: (err: any, data: any) => void): Request;
-      deleteBucketReplication(params: S3DeleteBucketReplicationRequest, callback?: (err: any, data: any) => void): Request;
-      deleteBucketTagging(params: S3DeleteBucketTaggingRequest, callback?: (err: any, data: any) => void): Request;
-      deleteBucketWebsite(params: S3DeleteBucketWebsiteRequest, callback?: (err: any, data: any) => void): Request;
-      deleteObject(params: S3DeleteObjectRequest, callback?: (err: any, data: S3DeleteObjectOutput|any) => void): Request;
-      deleteObjects(params: S3DeleteObjectsRequest, callback?: (err: any, data: S3DeleteObjectsOutput|any) => void): Request;
-      getBucketAcl(params: S3GetBucketAclRequest, callback?: (err: any, data: S3GetBucketAclOutput|any) => void): Request;
-      getBucketCors(params: S3GetBucketCorsRequest, callback?: (err: any, data: S3GetBucketCorsOutput|any) => void): Request;
-      getBucketLifecycle(params: S3GetBucketLifecycleRequest, callback?: (err: any, data: S3GetBucketLifecycleOutput|any) => void): Request;
-      getBucketLifecycleConfiguration(params: S3GetBucketLifecycleConfigurationRequest, callback?: (err: any, data: S3GetBucketLifecycleConfigurationOutput|any) => void): Request;
-      getBucketLocation(params: S3GetBucketLocationRequest, callback?: (err: any, data: S3GetBucketLocationOutput|any) => void): Request;
-      getBucketLogging(params: S3GetBucketLoggingRequest, callback?: (err: any, data: S3GetBucketLoggingOutput|any) => void): Request;
-      getBucketNotification(params: S3GetBucketNotificationConfigurationRequest, callback?: (err: any, data: S3NotificationConfigurationDeprecated|any) => void): Request;
-      getBucketNotificationConfiguration(params: S3GetBucketNotificationConfigurationRequest, callback?: (err: any, data: S3NotificationConfiguration|any) => void): Request;
-      getBucketPolicy(params: S3GetBucketPolicyRequest, callback?: (err: any, data: S3GetBucketPolicyOutput|any) => void): Request;
-      getBucketReplication(params: S3GetBucketReplicationRequest, callback?: (err: any, data: S3GetBucketReplicationOutput|any) => void): Request;
-      getBucketRequestPayment(params: S3GetBucketRequestPaymentRequest, callback?: (err: any, data: S3GetBucketRequestPaymentOutput|any) => void): Request;
-      getBucketTagging(params: S3GetBucketTaggingRequest, callback?: (err: any, data: S3GetBucketTaggingOutput|any) => void): Request;
-      getBucketVersioning(params: S3GetBucketVersioningRequest, callback?: (err: any, data: S3GetBucketVersioningOutput|any) => void): Request;
-      getBucketWebsite(params: S3GetBucketWebsiteRequest, callback?: (err: any, data: S3GetBucketWebsiteOutput|any) => void): Request;
-      getObject(params: S3GetObjectRequest, callback?: (err: S3NoSuchKey|any, data: S3GetObjectOutput|any) => void): Request;
-      getObjectAcl(params: S3GetObjectAclRequest, callback?: (err: S3NoSuchKey|any, data: S3GetObjectAclOutput|any) => void): Request;
-      getObjectTorrent(params: S3GetObjectTorrentRequest, callback?: (err: any, data: S3GetObjectTorrentOutput|any) => void): Request;
-      headBucket(params: S3HeadBucketRequest, callback?: (err: S3NoSuchBucket|any, data: any) => void): Request;
-      headObject(params: S3HeadObjectRequest, callback?: (err: S3NoSuchKey|any, data: S3HeadObjectOutput|any) => void): Request;
-      listBuckets(callback?: (err: any, data: S3ListBucketsOutput|any) => void): Request;
-      listMultipartUploads(params: S3ListMultipartUploadsRequest, callback?: (err: any, data: S3ListMultipartUploadsOutput|any) => void): Request;
-      listObjectVersions(params: S3ListObjectVersionsRequest, callback?: (err: any, data: S3ListObjectVersionsOutput|any) => void): Request;
-      listObjects(params: S3ListObjectsRequest, callback?: (err: S3NoSuchBucket|any, data: S3ListObjectsOutput|any) => void): Request;
-      listParts(params: S3ListPartsRequest, callback?: (err: any, data: S3ListPartsOutput|any) => void): Request;
-      putBucketAcl(params: S3PutBucketAclRequest, callback?: (err: any, data: any) => void): Request;
-      putBucketCors(params: S3PutBucketCorsRequest, callback?: (err: any, data: any) => void): Request;
-      putBucketLifecycle(params: S3PutBucketLifecycleRequest, callback?: (err: any, data: any) => void): Request;
-      putBucketLifecycleConfiguration(params: S3PutBucketLifecycleConfigurationRequest, callback?: (err: any, data: any) => void): Request;
-      putBucketLogging(params: S3PutBucketLoggingRequest, callback?: (err: any, data: any) => void): Request;
-      putBucketNotification(params: S3PutBucketNotificationRequest, callback?: (err: any, data: any) => void): Request;
-      putBucketNotificationConfiguration(params: S3PutBucketNotificationConfigurationRequest, callback?: (err: any, data: any) => void): Request;
-      putBucketPolicy(params: S3PutBucketPolicyRequest, callback?: (err: any, data: any) => void): Request;
-      putBucketReplication(params: S3PutBucketReplicationRequest, callback?: (err: any, data: any) => void): Request;
-      putBucketRequestPayment(params: S3PutBucketRequestPaymentRequest, callback?: (err: any, data: any) => void): Request;
-      putBucketTagging(params: S3PutBucketTaggingRequest, callback?: (err: any, data: any) => void): Request;
-      putBucketVersioning(params: S3PutBucketVersioningRequest, callback?: (err: any, data: any) => void): Request;
-      putBucketWebsite(params: S3PutBucketWebsiteRequest, callback?: (err: any, data: any) => void): Request;
-      putObject(params: S3PutObjectRequest, callback?: (err: any, data: S3PutObjectOutput|any) => void): Request;
-      putObjectAcl(params: S3PutObjectAclRequest, callback?: (err: S3NoSuchKey|any, data: S3PutObjectAclOutput|any) => void): Request;
-      restoreObject(params: S3RestoreObjectRequest, callback?: (err: S3ObjectAlreadyInActiveTierError|any, data: S3RestoreObjectOutput|any) => void): Request;
-      uploadPart(params: S3UploadPartRequest, callback?: (err: any, data: S3UploadPartOutput|any) => void): Request;
-      uploadPartCopy(params: S3UploadPartCopyRequest, callback?: (err: any, data: S3UploadPartCopyOutput|any) => void): Request;
-    }
-
-    export interface S3AbortMultipartUploadOutput {
-        RequestCharged?: S3RequestCharged;
-    }
-
-    export interface S3AbortMultipartUploadRequest {
-        Bucket: S3BucketName;
-        Key: S3ObjectKey;
-        UploadId: S3MultipartUploadId;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export type S3AcceptRanges = string;
-    export interface S3AccessControlPolicy {
-        Grants?: S3Grants;
-        Owner?: S3Owner;
-    }
-
-    export type S3AllowedHeader = string;
-    export type S3AllowedHeaders = Array<S3AllowedHeader>;
-    export type S3AllowedMethod = string;
-    export type S3AllowedMethods = Array<S3AllowedMethod>;
-    export type S3AllowedOrigin = string;
-    export type S3AllowedOrigins = Array<S3AllowedOrigin>;
-    export type S3Body = any; // not really - it was 'blob' instead - must fix this one
-    export interface S3Bucket {
-        Name?: S3BucketName;
-        CreationDate?: S3CreationDate;
-    }
-
-    export interface S3BucketAlreadyExists {
-    }
-
-    export type S3BucketCannedACL = string;
-    export interface S3BucketLifecycleConfiguration {
-        Rules: S3LifecycleRules;
-    }
-
-    export type S3BucketLocationConstraint = string;
-    export interface S3BucketLoggingStatus {
-        LoggingEnabled?: S3LoggingEnabled;
-    }
-
-    export type S3BucketLogsPermission = string;
-    export type S3BucketName = string;
-    export type S3BucketVersioningStatus = string;
-    export type S3Buckets = Array<S3Bucket>;
-    export interface S3CORSConfiguration {
-        CORSRules: S3CORSRules;
-    }
-
-    export interface S3CORSRule {
-        AllowedHeaders?: S3AllowedHeaders;
-        AllowedMethods: S3AllowedMethods;
-        AllowedOrigins: S3AllowedOrigins;
-        ExposeHeaders?: S3ExposeHeaders;
-        MaxAgeSeconds?: S3MaxAgeSeconds;
-    }
-
-    export type S3CORSRules = Array<S3CORSRule>;
-    export type S3CacheControl = string;
-    export type S3CloudFunction = string;
-    export interface S3CloudFunctionConfiguration {
-        Id?: S3NotificationId;
-        Event?: S3Event;
-        Events?: S3EventList;
-        CloudFunction?: S3CloudFunction;
-        InvocationRole?: S3CloudFunctionInvocationRole;
-    }
-
-    export type S3CloudFunctionInvocationRole = string;
-    export type S3Code = string;
-    export interface S3CommonPrefix {
-        Prefix?: S3Prefix;
-    }
-
-    export type S3CommonPrefixList = Array<S3CommonPrefix>;
-    export interface S3CompleteMultipartUploadOutput {
-        Location?: S3Location;
-        Bucket?: S3BucketName;
-        Key?: S3ObjectKey;
-        Expiration?: S3Expiration;
-        ETag?: S3ETag;
-        ServerSideEncryption?: S3ServerSideEncryption;
-        VersionId?: S3ObjectVersionId;
-        SSEKMSKeyId?: S3SSEKMSKeyId;
-        RequestCharged?: S3RequestCharged;
-    }
-
-    export interface S3CompleteMultipartUploadRequest {
-        Bucket: S3BucketName;
-        Key: S3ObjectKey;
-        MultipartUpload?: S3CompletedMultipartUpload;
-        UploadId: S3MultipartUploadId;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export interface S3CompletedMultipartUpload {
-        Parts?: S3CompletedPartList;
-    }
-
-    export interface S3CompletedPart {
-        ETag?: S3ETag;
-        PartNumber?: S3PartNumber;
-    }
-
-    export type S3CompletedPartList = Array<S3CompletedPart>;
-    export interface S3Condition {
-        HttpErrorCodeReturnedEquals?: S3HttpErrorCodeReturnedEquals;
-        KeyPrefixEquals?: S3KeyPrefixEquals;
-    }
-
-    export type S3ContentDisposition = string;
-    export type S3ContentEncoding = string;
-    export type S3ContentLanguage = string;
-    export type S3ContentLength = number;
-    export type S3ContentMD5 = string;
-    export type S3ContentRange = string;
-    export type S3ContentType = string;
-    export interface S3CopyObjectOutput {
-        CopyObjectResult?: S3CopyObjectResult;
-        Expiration?: S3Expiration;
-        CopySourceVersionId?: S3CopySourceVersionId;
-        VersionId?: S3ObjectVersionId;
-        ServerSideEncryption?: S3ServerSideEncryption;
-        SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
-        SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
-        SSEKMSKeyId?: S3SSEKMSKeyId;
-        RequestCharged?: S3RequestCharged;
-    }
-
-    export interface S3CopyObjectRequest {
-        ACL?: S3ObjectCannedACL;
-        Bucket: S3BucketName;
-        CacheControl?: S3CacheControl;
-        ContentDisposition?: S3ContentDisposition;
-        ContentEncoding?: S3ContentEncoding;
-        ContentLanguage?: S3ContentLanguage;
-        ContentType?: S3ContentType;
-        CopySource: S3CopySource;
-        CopySourceIfMatch?: S3CopySourceIfMatch;
-        CopySourceIfModifiedSince?: S3CopySourceIfModifiedSince;
-        CopySourceIfNoneMatch?: S3CopySourceIfNoneMatch;
-        CopySourceIfUnmodifiedSince?: S3CopySourceIfUnmodifiedSince;
-        Expires?: S3Expires;
-        GrantFullControl?: S3GrantFullControl;
-        GrantRead?: S3GrantRead;
-        GrantReadACP?: S3GrantReadACP;
-        GrantWriteACP?: S3GrantWriteACP;
-        Key: S3ObjectKey;
-        Metadata?: S3Metadata;
-        MetadataDirective?: S3MetadataDirective;
-        ServerSideEncryption?: S3ServerSideEncryption;
-        StorageClass?: S3StorageClass;
-        WebsiteRedirectLocation?: S3WebsiteRedirectLocation;
-        SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
-        SSECustomerKey?: S3SSECustomerKey;
-        SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
-        SSEKMSKeyId?: S3SSEKMSKeyId;
-        CopySourceSSECustomerAlgorithm?: S3CopySourceSSECustomerAlgorithm;
-        CopySourceSSECustomerKey?: S3CopySourceSSECustomerKey;
-        CopySourceSSECustomerKeyMD5?: S3CopySourceSSECustomerKeyMD5;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export interface S3CopyObjectResult {
-        ETag?: S3ETag;
-        LastModified?: S3LastModified;
-    }
-
-    export interface S3CopyPartResult {
-        ETag?: S3ETag;
-        LastModified?: S3LastModified;
-    }
-
-    export type S3CopySource = string; // pattern: "\/.+\/.+"
-    export type S3CopySourceIfMatch = string;
-    export type S3CopySourceIfModifiedSince = number;
-    export type S3CopySourceIfNoneMatch = string;
-    export type S3CopySourceIfUnmodifiedSince = number;
-    export type S3CopySourceRange = string;
-    export type S3CopySourceSSECustomerAlgorithm = string;
-    export type S3CopySourceSSECustomerKey = any; // not really - it was 'blob' instead - must fix this one
-    export type S3CopySourceSSECustomerKeyMD5 = string;
-    export type S3CopySourceVersionId = string;
-    export interface S3CreateBucketConfiguration {
-        LocationConstraint?: S3BucketLocationConstraint;
-    }
-
-    export interface S3CreateBucketOutput {
-        Location?: S3Location;
-    }
-
-    export interface S3CreateBucketRequest {
-        ACL?: S3BucketCannedACL;
-        Bucket: S3BucketName;
-        CreateBucketConfiguration?: S3CreateBucketConfiguration;
-        GrantFullControl?: S3GrantFullControl;
-        GrantRead?: S3GrantRead;
-        GrantReadACP?: S3GrantReadACP;
-        GrantWrite?: S3GrantWrite;
-        GrantWriteACP?: S3GrantWriteACP;
-    }
-
-    export interface S3CreateMultipartUploadOutput {
-        Bucket?: S3BucketName;
-        Key?: S3ObjectKey;
-        UploadId?: S3MultipartUploadId;
-        ServerSideEncryption?: S3ServerSideEncryption;
-        SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
-        SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
-        SSEKMSKeyId?: S3SSEKMSKeyId;
-        RequestCharged?: S3RequestCharged;
-    }
-
-    export interface S3CreateMultipartUploadRequest {
-        ACL?: S3ObjectCannedACL;
-        Bucket: S3BucketName;
-        CacheControl?: S3CacheControl;
-        ContentDisposition?: S3ContentDisposition;
-        ContentEncoding?: S3ContentEncoding;
-        ContentLanguage?: S3ContentLanguage;
-        ContentType?: S3ContentType;
-        Expires?: S3Expires;
-        GrantFullControl?: S3GrantFullControl;
-        GrantRead?: S3GrantRead;
-        GrantReadACP?: S3GrantReadACP;
-        GrantWriteACP?: S3GrantWriteACP;
-        Key: S3ObjectKey;
-        Metadata?: S3Metadata;
-        ServerSideEncryption?: S3ServerSideEncryption;
-        StorageClass?: S3StorageClass;
-        WebsiteRedirectLocation?: S3WebsiteRedirectLocation;
-        SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
-        SSECustomerKey?: S3SSECustomerKey;
-        SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
-        SSEKMSKeyId?: S3SSEKMSKeyId;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export type S3CreationDate = number;
-    export type S3Date = number;
-    export type S3Days = number;
-    export interface S3Delete {
-        Objects: S3ObjectIdentifierList;
-        Quiet?: S3Quiet;
-    }
-
-    export interface S3DeleteBucketCorsRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3DeleteBucketLifecycleRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3DeleteBucketPolicyRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3DeleteBucketReplicationRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3DeleteBucketRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3DeleteBucketTaggingRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3DeleteBucketWebsiteRequest {
-        Bucket: S3BucketName;
-    }
-
-    export type S3DeleteMarker = boolean;
-    export interface S3DeleteMarkerEntry {
-        Owner?: S3Owner;
-        Key?: S3ObjectKey;
-        VersionId?: S3ObjectVersionId;
-        IsLatest?: S3IsLatest;
-        LastModified?: S3LastModified;
-    }
-
-    export type S3DeleteMarkerVersionId = string;
-    export type S3DeleteMarkers = Array<S3DeleteMarkerEntry>;
-    export interface S3DeleteObjectOutput {
-        DeleteMarker?: S3DeleteMarker;
-        VersionId?: S3ObjectVersionId;
-        RequestCharged?: S3RequestCharged;
-    }
-
-    export interface S3DeleteObjectRequest {
-        Bucket: S3BucketName;
-        Key: S3ObjectKey;
-        MFA?: S3MFA;
-        VersionId?: S3ObjectVersionId;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export interface S3DeleteObjectsOutput {
-        Deleted?: S3DeletedObjects;
-        RequestCharged?: S3RequestCharged;
-        Errors?: S3Errors;
-    }
-
-    export interface S3DeleteObjectsRequest {
-        Bucket: S3BucketName;
-        Delete: S3Delete;
-        MFA?: S3MFA;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export interface S3DeletedObject {
-        Key?: S3ObjectKey;
-        VersionId?: S3ObjectVersionId;
-        DeleteMarker?: S3DeleteMarker;
-        DeleteMarkerVersionId?: S3DeleteMarkerVersionId;
-    }
-
-    export type S3DeletedObjects = Array<S3DeletedObject>;
-    export type S3Delimiter = string;
-    export interface S3Destination {
-        Bucket: S3BucketName;
-        StorageClass?: S3StorageClass;
-    }
-
-    export type S3DisplayName = string;
-    export type S3ETag = string;
-    export type S3EmailAddress = string;
-    export type S3EncodingType = string;
-    export interface S3Error {
-        Key?: S3ObjectKey;
-        VersionId?: S3ObjectVersionId;
-        Code?: S3Code;
-        Message?: S3Message;
-    }
-
-    export interface S3ErrorDocument {
-        Key: S3ObjectKey;
-    }
-
-    export type S3Errors = Array<S3Error>;
-    export type S3Event = string;
-    export type S3EventList = Array<S3Event>;
-    export type S3Expiration = string;
-    export type S3ExpirationStatus = string;
-    export type S3Expires = number;
-    export type S3ExposeHeader = string;
-    export type S3ExposeHeaders = Array<S3ExposeHeader>;
-    export interface S3FilterRule {
-        Name?: S3FilterRuleName;
-        Value?: S3FilterRuleValue;
-    }
-
-    export type S3FilterRuleList = Array<S3FilterRule>;
-    export type S3FilterRuleName = string;
-    export type S3FilterRuleValue = string;
-    export interface S3GetBucketAclOutput {
-        Owner?: S3Owner;
-        Grants?: S3Grants;
-    }
-
-    export interface S3GetBucketAclRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3GetBucketCorsOutput {
-        CORSRules?: S3CORSRules;
-    }
-
-    export interface S3GetBucketCorsRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3GetBucketLifecycleConfigurationOutput {
-        Rules?: S3LifecycleRules;
-    }
-
-    export interface S3GetBucketLifecycleConfigurationRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3GetBucketLifecycleOutput {
-        Rules?: S3Rules;
-    }
-
-    export interface S3GetBucketLifecycleRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3GetBucketLocationOutput {
-        LocationConstraint?: S3BucketLocationConstraint;
-    }
-
-    export interface S3GetBucketLocationRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3GetBucketLoggingOutput {
-        LoggingEnabled?: S3LoggingEnabled;
-    }
-
-    export interface S3GetBucketLoggingRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3GetBucketNotificationConfigurationRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3GetBucketPolicyOutput {
-        Policy?: S3Policy;
-    }
-
-    export interface S3GetBucketPolicyRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3GetBucketReplicationOutput {
-        ReplicationConfiguration?: S3ReplicationConfiguration;
-    }
-
-    export interface S3GetBucketReplicationRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3GetBucketRequestPaymentOutput {
-        Payer?: S3Payer;
-    }
-
-    export interface S3GetBucketRequestPaymentRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3GetBucketTaggingOutput {
-        TagSet: S3TagSet;
-    }
-
-    export interface S3GetBucketTaggingRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3GetBucketVersioningOutput {
-        Status?: S3BucketVersioningStatus;
-        MFADelete?: S3MFADeleteStatus;
-    }
-
-    export interface S3GetBucketVersioningRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3GetBucketWebsiteOutput {
-        RedirectAllRequestsTo?: S3RedirectAllRequestsTo;
-        IndexDocument?: S3IndexDocument;
-        ErrorDocument?: S3ErrorDocument;
-        RoutingRules?: S3RoutingRules;
-    }
-
-    export interface S3GetBucketWebsiteRequest {
-        Bucket: S3BucketName;
-    }
-
-    export interface S3GetObjectAclOutput {
-        Owner?: S3Owner;
-        Grants?: S3Grants;
-        RequestCharged?: S3RequestCharged;
-    }
-
-    export interface S3GetObjectAclRequest {
-        Bucket: S3BucketName;
-        Key: S3ObjectKey;
-        VersionId?: S3ObjectVersionId;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export interface S3GetObjectOutput {
-        Body?: S3Body;
-        DeleteMarker?: S3DeleteMarker;
-        AcceptRanges?: S3AcceptRanges;
-        Expiration?: S3Expiration;
-        Restore?: S3Restore;
-        LastModified?: S3LastModified;
-        ContentLength?: S3ContentLength;
-        ETag?: S3ETag;
-        MissingMeta?: S3MissingMeta;
-        VersionId?: S3ObjectVersionId;
-        CacheControl?: S3CacheControl;
-        ContentDisposition?: S3ContentDisposition;
-        ContentEncoding?: S3ContentEncoding;
-        ContentLanguage?: S3ContentLanguage;
-        ContentRange?: S3ContentRange;
-        ContentType?: S3ContentType;
-        Expires?: S3Expires;
-        WebsiteRedirectLocation?: S3WebsiteRedirectLocation;
-        ServerSideEncryption?: S3ServerSideEncryption;
-        Metadata?: S3Metadata;
-        SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
-        SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
-        SSEKMSKeyId?: S3SSEKMSKeyId;
-        StorageClass?: S3StorageClass;
-        RequestCharged?: S3RequestCharged;
-        ReplicationStatus?: S3ReplicationStatus;
-    }
-
-    export interface S3GetObjectRequest {
-        Bucket: S3BucketName;
-        IfMatch?: S3IfMatch;
-        IfModifiedSince?: S3IfModifiedSince;
-        IfNoneMatch?: S3IfNoneMatch;
-        IfUnmodifiedSince?: S3IfUnmodifiedSince;
-        Key: S3ObjectKey;
-        Range?: S3Range;
-        ResponseCacheControl?: S3ResponseCacheControl;
-        ResponseContentDisposition?: S3ResponseContentDisposition;
-        ResponseContentEncoding?: S3ResponseContentEncoding;
-        ResponseContentLanguage?: S3ResponseContentLanguage;
-        ResponseContentType?: S3ResponseContentType;
-        ResponseExpires?: S3ResponseExpires;
-        VersionId?: S3ObjectVersionId;
-        SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
-        SSECustomerKey?: S3SSECustomerKey;
-        SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export interface S3GetObjectTorrentOutput {
-        Body?: S3Body;
-        RequestCharged?: S3RequestCharged;
-    }
-
-    export interface S3GetObjectTorrentRequest {
-        Bucket: S3BucketName;
-        Key: S3ObjectKey;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export interface S3Grant {
-        Grantee?: S3Grantee;
-        Permission?: S3Permission;
-    }
-
-    export type S3GrantFullControl = string;
-    export type S3GrantRead = string;
-    export type S3GrantReadACP = string;
-    export type S3GrantWrite = string;
-    export type S3GrantWriteACP = string;
-    export interface S3Grantee {
-        DisplayName?: S3DisplayName;
-        EmailAddress?: S3EmailAddress;
-        ID?: S3ID;
-        Type: S3Type;
-        URI?: S3URI;
-    }
+      abortMultipartUpload(params: S3.AbortMultipartUploadRequest, callback?: (err: S3.NoSuchUpload|any, data: S3.AbortMultipartUploadOutput|any) => void): Request;
+      completeMultipartUpload(params: S3.CompleteMultipartUploadRequest, callback?: (err: any, data: S3.CompleteMultipartUploadOutput|any) => void): Request;
+      copyObject(params: S3.CopyObjectRequest, callback?: (err: S3.ObjectNotInActiveTierError|any, data: S3.CopyObjectOutput|any) => void): Request;
+      createBucket(params: S3.CreateBucketRequest, callback?: (err: S3.BucketAlreadyExists|any, data: S3.CreateBucketOutput|any) => void): Request;
+      createMultipartUpload(params: S3.CreateMultipartUploadRequest, callback?: (err: any, data: S3.CreateMultipartUploadOutput|any) => void): Request;
+      deleteBucket(params: S3.DeleteBucketRequest, callback?: (err: any, data: any) => void): Request;
+      deleteBucketCors(params: S3.DeleteBucketCorsRequest, callback?: (err: any, data: any) => void): Request;
+      deleteBucketLifecycle(params: S3.DeleteBucketLifecycleRequest, callback?: (err: any, data: any) => void): Request;
+      deleteBucketPolicy(params: S3.DeleteBucketPolicyRequest, callback?: (err: any, data: any) => void): Request;
+      deleteBucketReplication(params: S3.DeleteBucketReplicationRequest, callback?: (err: any, data: any) => void): Request;
+      deleteBucketTagging(params: S3.DeleteBucketTaggingRequest, callback?: (err: any, data: any) => void): Request;
+      deleteBucketWebsite(params: S3.DeleteBucketWebsiteRequest, callback?: (err: any, data: any) => void): Request;
+      deleteObject(params: S3.DeleteObjectRequest, callback?: (err: any, data: S3.DeleteObjectOutput|any) => void): Request;
+      deleteObjects(params: S3.DeleteObjectsRequest, callback?: (err: any, data: S3.DeleteObjectsOutput|any) => void): Request;
+      getBucketAcl(params: S3.GetBucketAclRequest, callback?: (err: any, data: S3.GetBucketAclOutput|any) => void): Request;
+      getBucketCors(params: S3.GetBucketCorsRequest, callback?: (err: any, data: S3.GetBucketCorsOutput|any) => void): Request;
+      getBucketLifecycle(params: S3.GetBucketLifecycleRequest, callback?: (err: any, data: S3.GetBucketLifecycleOutput|any) => void): Request;
+      getBucketLifecycleConfiguration(params: S3.GetBucketLifecycleConfigurationRequest, callback?: (err: any, data: S3.GetBucketLifecycleConfigurationOutput|any) => void): Request;
+      getBucketLocation(params: S3.GetBucketLocationRequest, callback?: (err: any, data: S3.GetBucketLocationOutput|any) => void): Request;
+      getBucketLogging(params: S3.GetBucketLoggingRequest, callback?: (err: any, data: S3.GetBucketLoggingOutput|any) => void): Request;
+      getBucketNotification(params: S3.GetBucketNotificationConfigurationRequest, callback?: (err: any, data: S3.NotificationConfigurationDeprecated|any) => void): Request;
+      getBucketNotificationConfiguration(params: S3.GetBucketNotificationConfigurationRequest, callback?: (err: any, data: S3.NotificationConfiguration|any) => void): Request;
+      getBucketPolicy(params: S3.GetBucketPolicyRequest, callback?: (err: any, data: S3.GetBucketPolicyOutput|any) => void): Request;
+      getBucketReplication(params: S3.GetBucketReplicationRequest, callback?: (err: any, data: S3.GetBucketReplicationOutput|any) => void): Request;
+      getBucketRequestPayment(params: S3.GetBucketRequestPaymentRequest, callback?: (err: any, data: S3.GetBucketRequestPaymentOutput|any) => void): Request;
+      getBucketTagging(params: S3.GetBucketTaggingRequest, callback?: (err: any, data: S3.GetBucketTaggingOutput|any) => void): Request;
+      getBucketVersioning(params: S3.GetBucketVersioningRequest, callback?: (err: any, data: S3.GetBucketVersioningOutput|any) => void): Request;
+      getBucketWebsite(params: S3.GetBucketWebsiteRequest, callback?: (err: any, data: S3.GetBucketWebsiteOutput|any) => void): Request;
+      getObject(params: S3.GetObjectRequest, callback?: (err: S3.NoSuchKey|any, data: S3.GetObjectOutput|any) => void): Request;
+      getObjectAcl(params: S3.GetObjectAclRequest, callback?: (err: S3.NoSuchKey|any, data: S3.GetObjectAclOutput|any) => void): Request;
+      getObjectTorrent(params: S3.GetObjectTorrentRequest, callback?: (err: any, data: S3.GetObjectTorrentOutput|any) => void): Request;
+      headBucket(params: S3.HeadBucketRequest, callback?: (err: S3.NoSuchBucket|any, data: any) => void): Request;
+      headObject(params: S3.HeadObjectRequest, callback?: (err: S3.NoSuchKey|any, data: S3.HeadObjectOutput|any) => void): Request;
+      listBuckets(callback?: (err: any, data: S3.ListBucketsOutput|any) => void): Request;
+      listMultipartUploads(params: S3.ListMultipartUploadsRequest, callback?: (err: any, data: S3.ListMultipartUploadsOutput|any) => void): Request;
+      listObjectVersions(params: S3.ListObjectVersionsRequest, callback?: (err: any, data: S3.ListObjectVersionsOutput|any) => void): Request;
+      listObjects(params: S3.ListObjectsRequest, callback?: (err: S3.NoSuchBucket|any, data: S3.ListObjectsOutput|any) => void): Request;
+      listParts(params: S3.ListPartsRequest, callback?: (err: any, data: S3.ListPartsOutput|any) => void): Request;
+      putBucketAcl(params: S3.PutBucketAclRequest, callback?: (err: any, data: any) => void): Request;
+      putBucketCors(params: S3.PutBucketCorsRequest, callback?: (err: any, data: any) => void): Request;
+      putBucketLifecycle(params: S3.PutBucketLifecycleRequest, callback?: (err: any, data: any) => void): Request;
+      putBucketLifecycleConfiguration(params: S3.PutBucketLifecycleConfigurationRequest, callback?: (err: any, data: any) => void): Request;
+      putBucketLogging(params: S3.PutBucketLoggingRequest, callback?: (err: any, data: any) => void): Request;
+      putBucketNotification(params: S3.PutBucketNotificationRequest, callback?: (err: any, data: any) => void): Request;
+      putBucketNotificationConfiguration(params: S3.PutBucketNotificationConfigurationRequest, callback?: (err: any, data: any) => void): Request;
+      putBucketPolicy(params: S3.PutBucketPolicyRequest, callback?: (err: any, data: any) => void): Request;
+      putBucketReplication(params: S3.PutBucketReplicationRequest, callback?: (err: any, data: any) => void): Request;
+      putBucketRequestPayment(params: S3.PutBucketRequestPaymentRequest, callback?: (err: any, data: any) => void): Request;
+      putBucketTagging(params: S3.PutBucketTaggingRequest, callback?: (err: any, data: any) => void): Request;
+      putBucketVersioning(params: S3.PutBucketVersioningRequest, callback?: (err: any, data: any) => void): Request;
+      putBucketWebsite(params: S3.PutBucketWebsiteRequest, callback?: (err: any, data: any) => void): Request;
+      putObject(params: S3.PutObjectRequest, callback?: (err: any, data: S3.PutObjectOutput|any) => void): Request;
+      putObjectAcl(params: S3.PutObjectAclRequest, callback?: (err: S3.NoSuchKey|any, data: S3.PutObjectAclOutput|any) => void): Request;
+      restoreObject(params: S3.RestoreObjectRequest, callback?: (err: S3.ObjectAlreadyInActiveTierError|any, data: S3.RestoreObjectOutput|any) => void): Request;
+      uploadPart(params: S3.UploadPartRequest, callback?: (err: any, data: S3.UploadPartOutput|any) => void): Request;
+      uploadPartCopy(params: S3.UploadPartCopyRequest, callback?: (err: any, data: S3.UploadPartCopyOutput|any) => void): Request;
+    }
+    
+    export module S3 {
+        export type AcceptRanges = string;
+        export type AllowedHeader = string;
+        export type AllowedHeaders = AllowedHeader[];
+        export type AllowedMethod = string;
+        export type AllowedMethods = AllowedMethod[];
+        export type AllowedOrigin = string;
+        export type AllowedOrigins = AllowedOrigin[];
+        export type Body = any;    // type: blob
+        export type BucketCannedACL = string;
+        export type BucketLocationConstraint = string;
+        export type BucketLogsPermission = string;
+        export type BucketName = string;
+        export type BucketVersioningStatus = string;
+        export type Buckets = Bucket[];
+        export type CORSRules = CORSRule[];
+        export type CacheControl = string;
+        export type CloudFunction = string;
+        export type CloudFunctionInvocationRole = string;
+        export type Code = string;
+        export type CommonPrefixList = CommonPrefix[];
+        export type CompletedPartList = CompletedPart[];
+        export type ContentDisposition = string;
+        export type ContentEncoding = string;
+        export type ContentLanguage = string;
+        export type ContentLength = number;
+        export type ContentMD5 = string;
+        export type ContentRange = string;
+        export type ContentType = string;
+        export type CopySource = string;    // pattern: &quot;\/.+\/.+&quot;
+        export type CopySourceIfMatch = string;
+        export type CopySourceIfModifiedSince = number;
+        export type CopySourceIfNoneMatch = string;
+        export type CopySourceIfUnmodifiedSince = number;
+        export type CopySourceRange = string;
+        export type CopySourceSSECustomerAlgorithm = string;
+        export type CopySourceSSECustomerKey = any;    // type: blob
+        export type CopySourceSSECustomerKeyMD5 = string;
+        export type CopySourceVersionId = string;
+        export type CreationDate = number;
+        export type Date = number;
+        export type Days = number;
+        export type DeleteMarker = boolean;
+        export type DeleteMarkerVersionId = string;
+        export type DeleteMarkers = DeleteMarkerEntry[];
+        export type DeletedObjects = DeletedObject[];
+        export type Delimiter = string;
+        export type DisplayName = string;
+        export type ETag = string;
+        export type EmailAddress = string;
+        export type EncodingType = string;
+        export type Errors = Error[];
+        export type Event = string;
+        export type EventList = Event[];
+        export type Expiration = string;
+        export type ExpirationStatus = string;
+        export type Expires = number;
+        export type ExposeHeader = string;
+        export type ExposeHeaders = ExposeHeader[];
+        export type FilterRuleList = FilterRule[];
+        export type FilterRuleName = string;
+        export type FilterRuleValue = string;
+        export type GrantFullControl = string;
+        export type GrantRead = string;
+        export type GrantReadACP = string;
+        export type GrantWrite = string;
+        export type GrantWriteACP = string;
+        export type Grants = Grant[];
+        export type HostName = string;
+        export type HttpErrorCodeReturnedEquals = string;
+        export type HttpRedirectCode = string;
+        export type ID = string;
+        export type IfMatch = string;
+        export type IfModifiedSince = number;
+        export type IfNoneMatch = string;
+        export type IfUnmodifiedSince = number;
+        export type Initiated = number;
+        export type IsLatest = boolean;
+        export type IsTruncated = boolean;
+        export type KeyMarker = string;
+        export type KeyPrefixEquals = string;
+        export type LambdaFunctionArn = string;
+        export type LambdaFunctionConfigurationList = LambdaFunctionConfiguration[];
+        export type LastModified = number;
+        export type LifecycleRules = LifecycleRule[];
+        export type Location = string;
+        export type MFA = string;
+        export type MFADelete = string;
+        export type MFADeleteStatus = string;
+        export type Marker = string;
+        export type MaxAgeSeconds = number;
+        export type MaxKeys = number;
+        export type MaxParts = number;
+        export type MaxUploads = number;
+        export type Message = string;
+        export type Metadata = {[key:string]: MetadataValue};
+        export type MetadataDirective = string;
+        export type MetadataKey = string;
+        export type MetadataValue = string;
+        export type MissingMeta = number;
+        export type MultipartUploadId = string;
+        export type MultipartUploadList = MultipartUpload[];
+        export type NextKeyMarker = string;
+        export type NextMarker = string;
+        export type NextPartNumberMarker = number;
+        export type NextUploadIdMarker = string;
+        export type NextVersionIdMarker = string;
+        export type NoncurrentVersionTransitionList = NoncurrentVersionTransition[];
+        export type NotificationId = string;
+        export type ObjectCannedACL = string;
+        export type ObjectIdentifierList = ObjectIdentifier[];
+        export type ObjectKey = string;    // min: 1
+        export type ObjectList = Object[];
+        export type ObjectStorageClass = string;
+        export type ObjectVersionId = string;
+        export type ObjectVersionList = ObjectVersion[];
+        export type ObjectVersionStorageClass = string;
+        export type PartNumber = number;
+        export type PartNumberMarker = number;
+        export type Parts = Part[];
+        export type Payer = string;
+        export type Permission = string;
+        export type Policy = string;
+        export type Prefix = string;
+        export type Protocol = string;
+        export type QueueArn = string;
+        export type QueueConfigurationList = QueueConfiguration[];
+        export type Quiet = boolean;
+        export type Range = string;
+        export type ReplaceKeyPrefixWith = string;
+        export type ReplaceKeyWith = string;
+        export type ReplicationRuleStatus = string;
+        export type ReplicationRules = ReplicationRule[];
+        export type ReplicationStatus = string;
+        export type RequestCharged = string;
+        export type RequestPayer = string;
+        export type ResponseCacheControl = string;
+        export type ResponseContentDisposition = string;
+        export type ResponseContentEncoding = string;
+        export type ResponseContentLanguage = string;
+        export type ResponseContentType = string;
+        export type ResponseExpires = number;
+        export type Restore = string;
+        export type Role = string;
+        export type RoutingRules = RoutingRule[];
+        export type Rules = Rule[];
+        export type SSECustomerAlgorithm = string;
+        export type SSECustomerKey = any;    // type: blob
+        export type SSECustomerKeyMD5 = string;
+        export type SSEKMSKeyId = string;
+        export type ServerSideEncryption = string;
+        export type Size = number;
+        export type StorageClass = string;
+        export type Suffix = string;
+        export type TagSet = Tag[];
+        export type TargetBucket = string;
+        export type TargetGrants = TargetGrant[];
+        export type TargetPrefix = string;
+        export type TopicArn = string;
+        export type TopicConfigurationList = TopicConfiguration[];
+        export type TransitionList = Transition[];
+        export type TransitionStorageClass = string;
+        export type Type = string;
+        export type URI = string;
+        export type UploadIdMarker = string;
+        export type Value = string;
+        export type VersionIdMarker = string;
+        export type WebsiteRedirectLocation = string;
+
+        export interface AbortMultipartUploadOutput {
+            RequestCharged?: RequestCharged;            
+        }
+        export interface AbortMultipartUploadRequest {
+            Bucket: BucketName;            
+            Key: ObjectKey;            
+            UploadId: MultipartUploadId;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface AccessControlPolicy {
+            Grants?: Grants;            
+            Owner?: Owner;            
+        }
+        export interface Bucket {
+            Name?: BucketName;            
+            CreationDate?: CreationDate;            
+        }
+        export interface BucketAlreadyExists {
+        }
+        export interface BucketLifecycleConfiguration {
+            Rules: LifecycleRules;            
+        }
+        export interface BucketLoggingStatus {
+            LoggingEnabled?: LoggingEnabled;            
+        }
+        export interface CORSConfiguration {
+            CORSRules: CORSRules;            
+        }
+        export interface CORSRule {
+            AllowedHeaders?: AllowedHeaders;            
+            AllowedMethods: AllowedMethods;            
+            AllowedOrigins: AllowedOrigins;            
+            ExposeHeaders?: ExposeHeaders;            
+            MaxAgeSeconds?: MaxAgeSeconds;            
+        }
+        export interface CloudFunctionConfiguration {
+            Id?: NotificationId;            
+            Event?: Event;            
+            Events?: EventList;            
+            CloudFunction?: CloudFunction;            
+            InvocationRole?: CloudFunctionInvocationRole;            
+        }
+        export interface CommonPrefix {
+            Prefix?: Prefix;            
+        }
+        export interface CompleteMultipartUploadOutput {
+            Location?: Location;            
+            Bucket?: BucketName;            
+            Key?: ObjectKey;            
+            Expiration?: Expiration;            
+            ETag?: ETag;            
+            ServerSideEncryption?: ServerSideEncryption;            
+            VersionId?: ObjectVersionId;            
+            SSEKMSKeyId?: SSEKMSKeyId;            
+            RequestCharged?: RequestCharged;            
+        }
+        export interface CompleteMultipartUploadRequest {
+            Bucket: BucketName;            
+            Key: ObjectKey;            
+            MultipartUpload?: CompletedMultipartUpload;            
+            UploadId: MultipartUploadId;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface CompletedMultipartUpload {
+            Parts?: CompletedPartList;            
+        }
+        export interface CompletedPart {
+            ETag?: ETag;            
+            PartNumber?: PartNumber;            
+        }
+        export interface Condition {
+            HttpErrorCodeReturnedEquals?: HttpErrorCodeReturnedEquals;            
+            KeyPrefixEquals?: KeyPrefixEquals;            
+        }
+        export interface CopyObjectOutput {
+            CopyObjectResult?: CopyObjectResult;            
+            Expiration?: Expiration;            
+            CopySourceVersionId?: CopySourceVersionId;            
+            VersionId?: ObjectVersionId;            
+            ServerSideEncryption?: ServerSideEncryption;            
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
+            SSEKMSKeyId?: SSEKMSKeyId;            
+            RequestCharged?: RequestCharged;            
+        }
+        export interface CopyObjectRequest {
+            ACL?: ObjectCannedACL;            
+            Bucket: BucketName;            
+            CacheControl?: CacheControl;            
+            ContentDisposition?: ContentDisposition;            
+            ContentEncoding?: ContentEncoding;            
+            ContentLanguage?: ContentLanguage;            
+            ContentType?: ContentType;            
+            CopySource: CopySource;            
+            CopySourceIfMatch?: CopySourceIfMatch;            
+            CopySourceIfModifiedSince?: CopySourceIfModifiedSince;            
+            CopySourceIfNoneMatch?: CopySourceIfNoneMatch;            
+            CopySourceIfUnmodifiedSince?: CopySourceIfUnmodifiedSince;            
+            Expires?: Expires;            
+            GrantFullControl?: GrantFullControl;            
+            GrantRead?: GrantRead;            
+            GrantReadACP?: GrantReadACP;            
+            GrantWriteACP?: GrantWriteACP;            
+            Key: ObjectKey;            
+            Metadata?: Metadata;            
+            MetadataDirective?: MetadataDirective;            
+            ServerSideEncryption?: ServerSideEncryption;            
+            StorageClass?: StorageClass;            
+            WebsiteRedirectLocation?: WebsiteRedirectLocation;            
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
+            SSECustomerKey?: SSECustomerKey;            
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
+            SSEKMSKeyId?: SSEKMSKeyId;            
+            CopySourceSSECustomerAlgorithm?: CopySourceSSECustomerAlgorithm;            
+            CopySourceSSECustomerKey?: CopySourceSSECustomerKey;            
+            CopySourceSSECustomerKeyMD5?: CopySourceSSECustomerKeyMD5;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface CopyObjectResult {
+            ETag?: ETag;            
+            LastModified?: LastModified;            
+        }
+        export interface CopyPartResult {
+            ETag?: ETag;            
+            LastModified?: LastModified;            
+        }
+        export interface CreateBucketConfiguration {
+            LocationConstraint?: BucketLocationConstraint;            
+        }
+        export interface CreateBucketOutput {
+            Location?: Location;            
+        }
+        export interface CreateBucketRequest {
+            ACL?: BucketCannedACL;            
+            Bucket: BucketName;            
+            CreateBucketConfiguration?: CreateBucketConfiguration;            
+            GrantFullControl?: GrantFullControl;            
+            GrantRead?: GrantRead;            
+            GrantReadACP?: GrantReadACP;            
+            GrantWrite?: GrantWrite;            
+            GrantWriteACP?: GrantWriteACP;            
+        }
+        export interface CreateMultipartUploadOutput {
+            Bucket?: BucketName;            
+            Key?: ObjectKey;            
+            UploadId?: MultipartUploadId;            
+            ServerSideEncryption?: ServerSideEncryption;            
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
+            SSEKMSKeyId?: SSEKMSKeyId;            
+            RequestCharged?: RequestCharged;            
+        }
+        export interface CreateMultipartUploadRequest {
+            ACL?: ObjectCannedACL;            
+            Bucket: BucketName;            
+            CacheControl?: CacheControl;            
+            ContentDisposition?: ContentDisposition;            
+            ContentEncoding?: ContentEncoding;            
+            ContentLanguage?: ContentLanguage;            
+            ContentType?: ContentType;            
+            Expires?: Expires;            
+            GrantFullControl?: GrantFullControl;            
+            GrantRead?: GrantRead;            
+            GrantReadACP?: GrantReadACP;            
+            GrantWriteACP?: GrantWriteACP;            
+            Key: ObjectKey;            
+            Metadata?: Metadata;            
+            ServerSideEncryption?: ServerSideEncryption;            
+            StorageClass?: StorageClass;            
+            WebsiteRedirectLocation?: WebsiteRedirectLocation;            
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
+            SSECustomerKey?: SSECustomerKey;            
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
+            SSEKMSKeyId?: SSEKMSKeyId;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface Delete {
+            Objects: ObjectIdentifierList;            
+            Quiet?: Quiet;            
+        }
+        export interface DeleteBucketCorsRequest {
+            Bucket: BucketName;            
+        }
+        export interface DeleteBucketLifecycleRequest {
+            Bucket: BucketName;            
+        }
+        export interface DeleteBucketPolicyRequest {
+            Bucket: BucketName;            
+        }
+        export interface DeleteBucketReplicationRequest {
+            Bucket: BucketName;            
+        }
+        export interface DeleteBucketRequest {
+            Bucket: BucketName;            
+        }
+        export interface DeleteBucketTaggingRequest {
+            Bucket: BucketName;            
+        }
+        export interface DeleteBucketWebsiteRequest {
+            Bucket: BucketName;            
+        }
+        export interface DeleteMarkerEntry {
+            Owner?: Owner;            
+            Key?: ObjectKey;            
+            VersionId?: ObjectVersionId;            
+            IsLatest?: IsLatest;            
+            LastModified?: LastModified;            
+        }
+        export interface DeleteObjectOutput {
+            DeleteMarker?: DeleteMarker;            
+            VersionId?: ObjectVersionId;            
+            RequestCharged?: RequestCharged;            
+        }
+        export interface DeleteObjectRequest {
+            Bucket: BucketName;            
+            Key: ObjectKey;            
+            MFA?: MFA;            
+            VersionId?: ObjectVersionId;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface DeleteObjectsOutput {
+            Deleted?: DeletedObjects;            
+            RequestCharged?: RequestCharged;            
+            Errors?: Errors;            
+        }
+        export interface DeleteObjectsRequest {
+            Bucket: BucketName;            
+            Delete: Delete;            
+            MFA?: MFA;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface DeletedObject {
+            Key?: ObjectKey;            
+            VersionId?: ObjectVersionId;            
+            DeleteMarker?: DeleteMarker;            
+            DeleteMarkerVersionId?: DeleteMarkerVersionId;            
+        }
+        export interface Destination {
+            Bucket: BucketName;            
+            StorageClass?: StorageClass;            
+        }
+        export interface Error {
+            Key?: ObjectKey;            
+            VersionId?: ObjectVersionId;            
+            Code?: Code;            
+            Message?: Message;            
+        }
+        export interface ErrorDocument {
+            Key: ObjectKey;            
+        }
+        export interface FilterRule {
+            Name?: FilterRuleName;            
+            Value?: FilterRuleValue;            
+        }
+        export interface GetBucketAclOutput {
+            Owner?: Owner;            
+            Grants?: Grants;            
+        }
+        export interface GetBucketAclRequest {
+            Bucket: BucketName;            
+        }
+        export interface GetBucketCorsOutput {
+            CORSRules?: CORSRules;            
+        }
+        export interface GetBucketCorsRequest {
+            Bucket: BucketName;            
+        }
+        export interface GetBucketLifecycleConfigurationOutput {
+            Rules?: LifecycleRules;            
+        }
+        export interface GetBucketLifecycleConfigurationRequest {
+            Bucket: BucketName;            
+        }
+        export interface GetBucketLifecycleOutput {
+            Rules?: Rules;            
+        }
+        export interface GetBucketLifecycleRequest {
+            Bucket: BucketName;            
+        }
+        export interface GetBucketLocationOutput {
+            LocationConstraint?: BucketLocationConstraint;            
+        }
+        export interface GetBucketLocationRequest {
+            Bucket: BucketName;            
+        }
+        export interface GetBucketLoggingOutput {
+            LoggingEnabled?: LoggingEnabled;            
+        }
+        export interface GetBucketLoggingRequest {
+            Bucket: BucketName;            
+        }
+        export interface GetBucketNotificationConfigurationRequest {
+            Bucket: BucketName;            
+        }
+        export interface GetBucketPolicyOutput {
+            Policy?: Policy;            
+        }
+        export interface GetBucketPolicyRequest {
+            Bucket: BucketName;            
+        }
+        export interface GetBucketReplicationOutput {
+            ReplicationConfiguration?: ReplicationConfiguration;            
+        }
+        export interface GetBucketReplicationRequest {
+            Bucket: BucketName;            
+        }
+        export interface GetBucketRequestPaymentOutput {
+            Payer?: Payer;            
+        }
+        export interface GetBucketRequestPaymentRequest {
+            Bucket: BucketName;            
+        }
+        export interface GetBucketTaggingOutput {
+            TagSet: TagSet;            
+        }
+        export interface GetBucketTaggingRequest {
+            Bucket: BucketName;            
+        }
+        export interface GetBucketVersioningOutput {
+            Status?: BucketVersioningStatus;            
+            MFADelete?: MFADeleteStatus;            
+        }
+        export interface GetBucketVersioningRequest {
+            Bucket: BucketName;            
+        }
+        export interface GetBucketWebsiteOutput {
+            RedirectAllRequestsTo?: RedirectAllRequestsTo;            
+            IndexDocument?: IndexDocument;            
+            ErrorDocument?: ErrorDocument;            
+            RoutingRules?: RoutingRules;            
+        }
+        export interface GetBucketWebsiteRequest {
+            Bucket: BucketName;            
+        }
+        export interface GetObjectAclOutput {
+            Owner?: Owner;            
+            Grants?: Grants;            
+            RequestCharged?: RequestCharged;            
+        }
+        export interface GetObjectAclRequest {
+            Bucket: BucketName;            
+            Key: ObjectKey;            
+            VersionId?: ObjectVersionId;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface GetObjectOutput {
+            Body?: Body;            
+            DeleteMarker?: DeleteMarker;            
+            AcceptRanges?: AcceptRanges;            
+            Expiration?: Expiration;            
+            Restore?: Restore;            
+            LastModified?: LastModified;            
+            ContentLength?: ContentLength;            
+            ETag?: ETag;            
+            MissingMeta?: MissingMeta;            
+            VersionId?: ObjectVersionId;            
+            CacheControl?: CacheControl;            
+            ContentDisposition?: ContentDisposition;            
+            ContentEncoding?: ContentEncoding;            
+            ContentLanguage?: ContentLanguage;            
+            ContentRange?: ContentRange;            
+            ContentType?: ContentType;            
+            Expires?: Expires;            
+            WebsiteRedirectLocation?: WebsiteRedirectLocation;            
+            ServerSideEncryption?: ServerSideEncryption;            
+            Metadata?: Metadata;            
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
+            SSEKMSKeyId?: SSEKMSKeyId;            
+            StorageClass?: StorageClass;            
+            RequestCharged?: RequestCharged;            
+            ReplicationStatus?: ReplicationStatus;            
+        }
+        export interface GetObjectRequest {
+            Bucket: BucketName;            
+            IfMatch?: IfMatch;            
+            IfModifiedSince?: IfModifiedSince;            
+            IfNoneMatch?: IfNoneMatch;            
+            IfUnmodifiedSince?: IfUnmodifiedSince;            
+            Key: ObjectKey;            
+            Range?: Range;            
+            ResponseCacheControl?: ResponseCacheControl;            
+            ResponseContentDisposition?: ResponseContentDisposition;            
+            ResponseContentEncoding?: ResponseContentEncoding;            
+            ResponseContentLanguage?: ResponseContentLanguage;            
+            ResponseContentType?: ResponseContentType;            
+            ResponseExpires?: ResponseExpires;            
+            VersionId?: ObjectVersionId;            
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
+            SSECustomerKey?: SSECustomerKey;            
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface GetObjectTorrentOutput {
+            Body?: Body;            
+            RequestCharged?: RequestCharged;            
+        }
+        export interface GetObjectTorrentRequest {
+            Bucket: BucketName;            
+            Key: ObjectKey;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface Grant {
+            Grantee?: Grantee;            
+            Permission?: Permission;            
+        }
+        export interface Grantee {
+            DisplayName?: DisplayName;            
+            EmailAddress?: EmailAddress;            
+            ID?: ID;            
+            Type: Type;            
+            URI?: URI;            
+        }
+        export interface HeadBucketRequest {
+            Bucket: BucketName;            
+        }
+        export interface HeadObjectOutput {
+            DeleteMarker?: DeleteMarker;            
+            AcceptRanges?: AcceptRanges;            
+            Expiration?: Expiration;            
+            Restore?: Restore;            
+            LastModified?: LastModified;            
+            ContentLength?: ContentLength;            
+            ETag?: ETag;            
+            MissingMeta?: MissingMeta;            
+            VersionId?: ObjectVersionId;            
+            CacheControl?: CacheControl;            
+            ContentDisposition?: ContentDisposition;            
+            ContentEncoding?: ContentEncoding;            
+            ContentLanguage?: ContentLanguage;            
+            ContentType?: ContentType;            
+            Expires?: Expires;            
+            WebsiteRedirectLocation?: WebsiteRedirectLocation;            
+            ServerSideEncryption?: ServerSideEncryption;            
+            Metadata?: Metadata;            
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
+            SSEKMSKeyId?: SSEKMSKeyId;            
+            StorageClass?: StorageClass;            
+            RequestCharged?: RequestCharged;            
+            ReplicationStatus?: ReplicationStatus;            
+        }
+        export interface HeadObjectRequest {
+            Bucket: BucketName;            
+            IfMatch?: IfMatch;            
+            IfModifiedSince?: IfModifiedSince;            
+            IfNoneMatch?: IfNoneMatch;            
+            IfUnmodifiedSince?: IfUnmodifiedSince;            
+            Key: ObjectKey;            
+            Range?: Range;            
+            VersionId?: ObjectVersionId;            
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
+            SSECustomerKey?: SSECustomerKey;            
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface IndexDocument {
+            Suffix: Suffix;            
+        }
+        export interface Initiator {
+            ID?: ID;            
+            DisplayName?: DisplayName;            
+        }
+        export interface LambdaFunctionConfiguration {
+            Id?: NotificationId;            
+            LambdaFunctionArn: LambdaFunctionArn;            
+            Events: EventList;            
+            Filter?: NotificationConfigurationFilter;            
+        }
+        export interface LifecycleConfiguration {
+            Rules: Rules;            
+        }
+        export interface LifecycleExpiration {
+            Date?: Date;            
+            Days?: Days;            
+        }
+        export interface LifecycleRule {
+            Expiration?: LifecycleExpiration;            
+            ID?: ID;            
+            Prefix: Prefix;            
+            Status: ExpirationStatus;            
+            Transitions?: TransitionList;            
+            NoncurrentVersionTransitions?: NoncurrentVersionTransitionList;            
+            NoncurrentVersionExpiration?: NoncurrentVersionExpiration;            
+        }
+        export interface ListBucketsOutput {
+            Buckets?: Buckets;            
+            Owner?: Owner;            
+        }
+        export interface ListMultipartUploadsOutput {
+            Bucket?: BucketName;            
+            KeyMarker?: KeyMarker;            
+            UploadIdMarker?: UploadIdMarker;            
+            NextKeyMarker?: NextKeyMarker;            
+            Prefix?: Prefix;            
+            Delimiter?: Delimiter;            
+            NextUploadIdMarker?: NextUploadIdMarker;            
+            MaxUploads?: MaxUploads;            
+            IsTruncated?: IsTruncated;            
+            Uploads?: MultipartUploadList;            
+            CommonPrefixes?: CommonPrefixList;            
+            EncodingType?: EncodingType;            
+        }
+        export interface ListMultipartUploadsRequest {
+            Bucket: BucketName;            
+            Delimiter?: Delimiter;            
+            EncodingType?: EncodingType;            
+            KeyMarker?: KeyMarker;            
+            MaxUploads?: MaxUploads;            
+            Prefix?: Prefix;            
+            UploadIdMarker?: UploadIdMarker;            
+        }
+        export interface ListObjectVersionsOutput {
+            IsTruncated?: IsTruncated;            
+            KeyMarker?: KeyMarker;            
+            VersionIdMarker?: VersionIdMarker;            
+            NextKeyMarker?: NextKeyMarker;            
+            NextVersionIdMarker?: NextVersionIdMarker;            
+            Versions?: ObjectVersionList;            
+            DeleteMarkers?: DeleteMarkers;            
+            Name?: BucketName;            
+            Prefix?: Prefix;            
+            Delimiter?: Delimiter;            
+            MaxKeys?: MaxKeys;            
+            CommonPrefixes?: CommonPrefixList;            
+            EncodingType?: EncodingType;            
+        }
+        export interface ListObjectVersionsRequest {
+            Bucket: BucketName;            
+            Delimiter?: Delimiter;            
+            EncodingType?: EncodingType;            
+            KeyMarker?: KeyMarker;            
+            MaxKeys?: MaxKeys;            
+            Prefix?: Prefix;            
+            VersionIdMarker?: VersionIdMarker;            
+        }
+        export interface ListObjectsOutput {
+            IsTruncated?: IsTruncated;            
+            Marker?: Marker;            
+            NextMarker?: NextMarker;            
+            Contents?: ObjectList;            
+            Name?: BucketName;            
+            Prefix?: Prefix;            
+            Delimiter?: Delimiter;            
+            MaxKeys?: MaxKeys;            
+            CommonPrefixes?: CommonPrefixList;            
+            EncodingType?: EncodingType;            
+        }
+        export interface ListObjectsRequest {
+            Bucket: BucketName;            
+            Delimiter?: Delimiter;            
+            EncodingType?: EncodingType;            
+            Marker?: Marker;            
+            MaxKeys?: MaxKeys;            
+            Prefix?: Prefix;            
+        }
+        export interface ListPartsOutput {
+            Bucket?: BucketName;            
+            Key?: ObjectKey;            
+            UploadId?: MultipartUploadId;            
+            PartNumberMarker?: PartNumberMarker;            
+            NextPartNumberMarker?: NextPartNumberMarker;            
+            MaxParts?: MaxParts;            
+            IsTruncated?: IsTruncated;            
+            Parts?: Parts;            
+            Initiator?: Initiator;            
+            Owner?: Owner;            
+            StorageClass?: StorageClass;            
+            RequestCharged?: RequestCharged;            
+        }
+        export interface ListPartsRequest {
+            Bucket: BucketName;            
+            Key: ObjectKey;            
+            MaxParts?: MaxParts;            
+            PartNumberMarker?: PartNumberMarker;            
+            UploadId: MultipartUploadId;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface LoggingEnabled {
+            TargetBucket?: TargetBucket;            
+            TargetGrants?: TargetGrants;            
+            TargetPrefix?: TargetPrefix;            
+        }
+        export interface MultipartUpload {
+            UploadId?: MultipartUploadId;            
+            Key?: ObjectKey;            
+            Initiated?: Initiated;            
+            StorageClass?: StorageClass;            
+            Owner?: Owner;            
+            Initiator?: Initiator;            
+        }
+        export interface NoSuchBucket {
+        }
+        export interface NoSuchKey {
+        }
+        export interface NoSuchUpload {
+        }
+        export interface NoncurrentVersionExpiration {
+            NoncurrentDays?: Days;            
+        }
+        export interface NoncurrentVersionTransition {
+            NoncurrentDays?: Days;            
+            StorageClass?: TransitionStorageClass;            
+        }
+        export interface NotificationConfiguration {
+            TopicConfigurations?: TopicConfigurationList;            
+            QueueConfigurations?: QueueConfigurationList;            
+            LambdaFunctionConfigurations?: LambdaFunctionConfigurationList;            
+        }
+        export interface NotificationConfigurationDeprecated {
+            TopicConfiguration?: TopicConfigurationDeprecated;            
+            QueueConfiguration?: QueueConfigurationDeprecated;            
+            CloudFunctionConfiguration?: CloudFunctionConfiguration;            
+        }
+        export interface NotificationConfigurationFilter {
+            Key?: S3KeyFilter;            
+        }
+        export interface Object {
+            Key?: ObjectKey;            
+            LastModified?: LastModified;            
+            ETag?: ETag;            
+            Size?: Size;            
+            StorageClass?: ObjectStorageClass;            
+            Owner?: Owner;            
+        }
+        export interface ObjectAlreadyInActiveTierError {
+        }
+        export interface ObjectIdentifier {
+            Key: ObjectKey;            
+            VersionId?: ObjectVersionId;            
+        }
+        export interface ObjectNotInActiveTierError {
+        }
+        export interface ObjectVersion {
+            ETag?: ETag;            
+            Size?: Size;            
+            StorageClass?: ObjectVersionStorageClass;            
+            Key?: ObjectKey;            
+            VersionId?: ObjectVersionId;            
+            IsLatest?: IsLatest;            
+            LastModified?: LastModified;            
+            Owner?: Owner;            
+        }
+        export interface Owner {
+            DisplayName?: DisplayName;            
+            ID?: ID;            
+        }
+        export interface Part {
+            PartNumber?: PartNumber;            
+            LastModified?: LastModified;            
+            ETag?: ETag;            
+            Size?: Size;            
+        }
+        export interface PutBucketAclRequest {
+            ACL?: BucketCannedACL;            
+            AccessControlPolicy?: AccessControlPolicy;            
+            Bucket: BucketName;            
+            ContentMD5?: ContentMD5;            
+            GrantFullControl?: GrantFullControl;            
+            GrantRead?: GrantRead;            
+            GrantReadACP?: GrantReadACP;            
+            GrantWrite?: GrantWrite;            
+            GrantWriteACP?: GrantWriteACP;            
+        }
+        export interface PutBucketCorsRequest {
+            Bucket: BucketName;            
+            CORSConfiguration: CORSConfiguration;            
+            ContentMD5?: ContentMD5;            
+        }
+        export interface PutBucketLifecycleConfigurationRequest {
+            Bucket: BucketName;            
+            LifecycleConfiguration?: BucketLifecycleConfiguration;            
+        }
+        export interface PutBucketLifecycleRequest {
+            Bucket: BucketName;            
+            ContentMD5?: ContentMD5;            
+            LifecycleConfiguration?: LifecycleConfiguration;            
+        }
+        export interface PutBucketLoggingRequest {
+            Bucket: BucketName;            
+            BucketLoggingStatus: BucketLoggingStatus;            
+            ContentMD5?: ContentMD5;            
+        }
+        export interface PutBucketNotificationConfigurationRequest {
+            Bucket: BucketName;            
+            NotificationConfiguration: NotificationConfiguration;            
+        }
+        export interface PutBucketNotificationRequest {
+            Bucket: BucketName;            
+            ContentMD5?: ContentMD5;            
+            NotificationConfiguration: NotificationConfigurationDeprecated;            
+        }
+        export interface PutBucketPolicyRequest {
+            Bucket: BucketName;            
+            ContentMD5?: ContentMD5;            
+            Policy: Policy;            
+        }
+        export interface PutBucketReplicationRequest {
+            Bucket: BucketName;            
+            ContentMD5?: ContentMD5;            
+            ReplicationConfiguration: ReplicationConfiguration;            
+        }
+        export interface PutBucketRequestPaymentRequest {
+            Bucket: BucketName;            
+            ContentMD5?: ContentMD5;            
+            RequestPaymentConfiguration: RequestPaymentConfiguration;            
+        }
+        export interface PutBucketTaggingRequest {
+            Bucket: BucketName;            
+            ContentMD5?: ContentMD5;            
+            Tagging: Tagging;            
+        }
+        export interface PutBucketVersioningRequest {
+            Bucket: BucketName;            
+            ContentMD5?: ContentMD5;            
+            MFA?: MFA;            
+            VersioningConfiguration: VersioningConfiguration;            
+        }
+        export interface PutBucketWebsiteRequest {
+            Bucket: BucketName;            
+            ContentMD5?: ContentMD5;            
+            WebsiteConfiguration: WebsiteConfiguration;            
+        }
+        export interface PutObjectAclOutput {
+            RequestCharged?: RequestCharged;            
+        }
+        export interface PutObjectAclRequest {
+            ACL?: ObjectCannedACL;            
+            AccessControlPolicy?: AccessControlPolicy;            
+            Bucket: BucketName;            
+            ContentMD5?: ContentMD5;            
+            GrantFullControl?: GrantFullControl;            
+            GrantRead?: GrantRead;            
+            GrantReadACP?: GrantReadACP;            
+            GrantWrite?: GrantWrite;            
+            GrantWriteACP?: GrantWriteACP;            
+            Key: ObjectKey;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface PutObjectOutput {
+            Expiration?: Expiration;            
+            ETag?: ETag;            
+            ServerSideEncryption?: ServerSideEncryption;            
+            VersionId?: ObjectVersionId;            
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
+            SSEKMSKeyId?: SSEKMSKeyId;            
+            RequestCharged?: RequestCharged;            
+        }
+        export interface PutObjectRequest {
+            ACL?: ObjectCannedACL;            
+            Body?: Body;            
+            Bucket: BucketName;            
+            CacheControl?: CacheControl;            
+            ContentDisposition?: ContentDisposition;            
+            ContentEncoding?: ContentEncoding;            
+            ContentLanguage?: ContentLanguage;            
+            ContentLength?: ContentLength;            
+            ContentMD5?: ContentMD5;            
+            ContentType?: ContentType;            
+            Expires?: Expires;            
+            GrantFullControl?: GrantFullControl;            
+            GrantRead?: GrantRead;            
+            GrantReadACP?: GrantReadACP;            
+            GrantWriteACP?: GrantWriteACP;            
+            Key: ObjectKey;            
+            Metadata?: Metadata;            
+            ServerSideEncryption?: ServerSideEncryption;            
+            StorageClass?: StorageClass;            
+            WebsiteRedirectLocation?: WebsiteRedirectLocation;            
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
+            SSECustomerKey?: SSECustomerKey;            
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
+            SSEKMSKeyId?: SSEKMSKeyId;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface QueueConfiguration {
+            Id?: NotificationId;            
+            QueueArn: QueueArn;            
+            Events: EventList;            
+            Filter?: NotificationConfigurationFilter;            
+        }
+        export interface QueueConfigurationDeprecated {
+            Id?: NotificationId;            
+            Event?: Event;            
+            Events?: EventList;            
+            Queue?: QueueArn;            
+        }
+        export interface Redirect {
+            HostName?: HostName;            
+            HttpRedirectCode?: HttpRedirectCode;            
+            Protocol?: Protocol;            
+            ReplaceKeyPrefixWith?: ReplaceKeyPrefixWith;            
+            ReplaceKeyWith?: ReplaceKeyWith;            
+        }
+        export interface RedirectAllRequestsTo {
+            HostName: HostName;            
+            Protocol?: Protocol;            
+        }
+        export interface ReplicationConfiguration {
+            Role: Role;            
+            Rules: ReplicationRules;            
+        }
+        export interface ReplicationRule {
+            ID?: ID;            
+            Prefix: Prefix;            
+            Status: ReplicationRuleStatus;            
+            Destination: Destination;            
+        }
+        export interface RequestPaymentConfiguration {
+            Payer: Payer;            
+        }
+        export interface RestoreObjectOutput {
+            RequestCharged?: RequestCharged;            
+        }
+        export interface RestoreObjectRequest {
+            Bucket: BucketName;            
+            Key: ObjectKey;            
+            VersionId?: ObjectVersionId;            
+            RestoreRequest?: RestoreRequest;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface RestoreRequest {
+            Days: Days;            
+        }
+        export interface RoutingRule {
+            Condition?: Condition;            
+            Redirect: Redirect;            
+        }
+        export interface Rule {
+            Expiration?: LifecycleExpiration;            
+            ID?: ID;            
+            Prefix: Prefix;            
+            Status: ExpirationStatus;            
+            Transition?: Transition;            
+            NoncurrentVersionTransition?: NoncurrentVersionTransition;            
+            NoncurrentVersionExpiration?: NoncurrentVersionExpiration;            
+        }
+        export interface S3KeyFilter {
+            FilterRules?: FilterRuleList;            
+        }
+        export interface Tag {
+            Key: ObjectKey;            
+            Value: Value;            
+        }
+        export interface Tagging {
+            TagSet: TagSet;            
+        }
+        export interface TargetGrant {
+            Grantee?: Grantee;            
+            Permission?: BucketLogsPermission;            
+        }
+        export interface TopicConfiguration {
+            Id?: NotificationId;            
+            TopicArn: TopicArn;            
+            Events: EventList;            
+            Filter?: NotificationConfigurationFilter;            
+        }
+        export interface TopicConfigurationDeprecated {
+            Id?: NotificationId;            
+            Events?: EventList;            
+            Event?: Event;            
+            Topic?: TopicArn;            
+        }
+        export interface Transition {
+            Date?: Date;            
+            Days?: Days;            
+            StorageClass?: TransitionStorageClass;            
+        }
+        export interface UploadPartCopyOutput {
+            CopySourceVersionId?: CopySourceVersionId;            
+            CopyPartResult?: CopyPartResult;            
+            ServerSideEncryption?: ServerSideEncryption;            
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
+            SSEKMSKeyId?: SSEKMSKeyId;            
+            RequestCharged?: RequestCharged;            
+        }
+        export interface UploadPartCopyRequest {
+            Bucket: BucketName;            
+            CopySource: CopySource;            
+            CopySourceIfMatch?: CopySourceIfMatch;            
+            CopySourceIfModifiedSince?: CopySourceIfModifiedSince;            
+            CopySourceIfNoneMatch?: CopySourceIfNoneMatch;            
+            CopySourceIfUnmodifiedSince?: CopySourceIfUnmodifiedSince;            
+            CopySourceRange?: CopySourceRange;            
+            Key: ObjectKey;            
+            PartNumber: PartNumber;            
+            UploadId: MultipartUploadId;            
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
+            SSECustomerKey?: SSECustomerKey;            
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
+            CopySourceSSECustomerAlgorithm?: CopySourceSSECustomerAlgorithm;            
+            CopySourceSSECustomerKey?: CopySourceSSECustomerKey;            
+            CopySourceSSECustomerKeyMD5?: CopySourceSSECustomerKeyMD5;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface UploadPartOutput {
+            ServerSideEncryption?: ServerSideEncryption;            
+            ETag?: ETag;            
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
+            SSEKMSKeyId?: SSEKMSKeyId;            
+            RequestCharged?: RequestCharged;            
+        }
+        export interface UploadPartRequest {
+            Body?: Body;            
+            Bucket: BucketName;            
+            ContentLength?: ContentLength;            
+            ContentMD5?: ContentMD5;            
+            Key: ObjectKey;            
+            PartNumber: PartNumber;            
+            UploadId: MultipartUploadId;            
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
+            SSECustomerKey?: SSECustomerKey;            
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
+            RequestPayer?: RequestPayer;            
+        }
+        export interface VersioningConfiguration {
+            MFADelete?: MFADelete;            
+            Status?: BucketVersioningStatus;            
+        }
+        export interface WebsiteConfiguration {
+            ErrorDocument?: ErrorDocument;            
+            IndexDocument?: IndexDocument;            
+            RedirectAllRequestsTo?: RedirectAllRequestsTo;            
+            RoutingRules?: RoutingRules;            
+        }
 
-    export type S3Grants = Array<S3Grant>;
-    export interface S3HeadBucketRequest {
-        Bucket: S3BucketName;
     }
-
-    export interface S3HeadObjectOutput {
-        DeleteMarker?: S3DeleteMarker;
-        AcceptRanges?: S3AcceptRanges;
-        Expiration?: S3Expiration;
-        Restore?: S3Restore;
-        LastModified?: S3LastModified;
-        ContentLength?: S3ContentLength;
-        ETag?: S3ETag;
-        MissingMeta?: S3MissingMeta;
-        VersionId?: S3ObjectVersionId;
-        CacheControl?: S3CacheControl;
-        ContentDisposition?: S3ContentDisposition;
-        ContentEncoding?: S3ContentEncoding;
-        ContentLanguage?: S3ContentLanguage;
-        ContentType?: S3ContentType;
-        Expires?: S3Expires;
-        WebsiteRedirectLocation?: S3WebsiteRedirectLocation;
-        ServerSideEncryption?: S3ServerSideEncryption;
-        Metadata?: S3Metadata;
-        SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
-        SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
-        SSEKMSKeyId?: S3SSEKMSKeyId;
-        StorageClass?: S3StorageClass;
-        RequestCharged?: S3RequestCharged;
-        ReplicationStatus?: S3ReplicationStatus;
-    }
-
-    export interface S3HeadObjectRequest {
-        Bucket: S3BucketName;
-        IfMatch?: S3IfMatch;
-        IfModifiedSince?: S3IfModifiedSince;
-        IfNoneMatch?: S3IfNoneMatch;
-        IfUnmodifiedSince?: S3IfUnmodifiedSince;
-        Key: S3ObjectKey;
-        Range?: S3Range;
-        VersionId?: S3ObjectVersionId;
-        SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
-        SSECustomerKey?: S3SSECustomerKey;
-        SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export type S3HostName = string;
-    export type S3HttpErrorCodeReturnedEquals = string;
-    export type S3HttpRedirectCode = string;
-    export type S3ID = string;
-    export type S3IfMatch = string;
-    export type S3IfModifiedSince = number;
-    export type S3IfNoneMatch = string;
-    export type S3IfUnmodifiedSince = number;
-    export interface S3IndexDocument {
-        Suffix: S3Suffix;
-    }
-
-    export type S3Initiated = number;
-    export interface S3Initiator {
-        ID?: S3ID;
-        DisplayName?: S3DisplayName;
-    }
-
-    export type S3IsLatest = boolean;
-    export type S3IsTruncated = boolean;
-    export type S3KeyMarker = string;
-    export type S3KeyPrefixEquals = string;
-    export type S3LambdaFunctionArn = string;
-    export interface S3LambdaFunctionConfiguration {
-        Id?: S3NotificationId;
-        LambdaFunctionArn: S3LambdaFunctionArn;
-        Events: S3EventList;
-        Filter?: S3NotificationConfigurationFilter;
-    }
-
-    export type S3LambdaFunctionConfigurationList = Array<S3LambdaFunctionConfiguration>;
-    export type S3LastModified = number;
-    export interface S3LifecycleConfiguration {
-        Rules: S3Rules;
-    }
-
-    export interface S3LifecycleExpiration {
-        Date?: S3Date;
-        Days?: S3Days;
-    }
-
-    export interface S3LifecycleRule {
-        Expiration?: S3LifecycleExpiration;
-        ID?: S3ID;
-        Prefix: S3Prefix;
-        Status: S3ExpirationStatus;
-        Transitions?: S3TransitionList;
-        NoncurrentVersionTransitions?: S3NoncurrentVersionTransitionList;
-        NoncurrentVersionExpiration?: S3NoncurrentVersionExpiration;
-    }
-
-    export type S3LifecycleRules = Array<S3LifecycleRule>;
-    export interface S3ListBucketsOutput {
-        Buckets?: S3Buckets;
-        Owner?: S3Owner;
-    }
-
-    export interface S3ListMultipartUploadsOutput {
-        Bucket?: S3BucketName;
-        KeyMarker?: S3KeyMarker;
-        UploadIdMarker?: S3UploadIdMarker;
-        NextKeyMarker?: S3NextKeyMarker;
-        Prefix?: S3Prefix;
-        Delimiter?: S3Delimiter;
-        NextUploadIdMarker?: S3NextUploadIdMarker;
-        MaxUploads?: S3MaxUploads;
-        IsTruncated?: S3IsTruncated;
-        Uploads?: S3MultipartUploadList;
-        CommonPrefixes?: S3CommonPrefixList;
-        EncodingType?: S3EncodingType;
-    }
-
-    export interface S3ListMultipartUploadsRequest {
-        Bucket: S3BucketName;
-        Delimiter?: S3Delimiter;
-        EncodingType?: S3EncodingType;
-        KeyMarker?: S3KeyMarker;
-        MaxUploads?: S3MaxUploads;
-        Prefix?: S3Prefix;
-        UploadIdMarker?: S3UploadIdMarker;
-    }
-
-    export interface S3ListObjectVersionsOutput {
-        IsTruncated?: S3IsTruncated;
-        KeyMarker?: S3KeyMarker;
-        VersionIdMarker?: S3VersionIdMarker;
-        NextKeyMarker?: S3NextKeyMarker;
-        NextVersionIdMarker?: S3NextVersionIdMarker;
-        Versions?: S3ObjectVersionList;
-        DeleteMarkers?: S3DeleteMarkers;
-        Name?: S3BucketName;
-        Prefix?: S3Prefix;
-        Delimiter?: S3Delimiter;
-        MaxKeys?: S3MaxKeys;
-        CommonPrefixes?: S3CommonPrefixList;
-        EncodingType?: S3EncodingType;
-    }
-
-    export interface S3ListObjectVersionsRequest {
-        Bucket: S3BucketName;
-        Delimiter?: S3Delimiter;
-        EncodingType?: S3EncodingType;
-        KeyMarker?: S3KeyMarker;
-        MaxKeys?: S3MaxKeys;
-        Prefix?: S3Prefix;
-        VersionIdMarker?: S3VersionIdMarker;
-    }
-
-    export interface S3ListObjectsOutput {
-        IsTruncated?: S3IsTruncated;
-        Marker?: S3Marker;
-        NextMarker?: S3NextMarker;
-        Contents?: S3ObjectList;
-        Name?: S3BucketName;
-        Prefix?: S3Prefix;
-        Delimiter?: S3Delimiter;
-        MaxKeys?: S3MaxKeys;
-        CommonPrefixes?: S3CommonPrefixList;
-        EncodingType?: S3EncodingType;
-    }
-
-    export interface S3ListObjectsRequest {
-        Bucket: S3BucketName;
-        Delimiter?: S3Delimiter;
-        EncodingType?: S3EncodingType;
-        Marker?: S3Marker;
-        MaxKeys?: S3MaxKeys;
-        Prefix?: S3Prefix;
-    }
-
-    export interface S3ListPartsOutput {
-        Bucket?: S3BucketName;
-        Key?: S3ObjectKey;
-        UploadId?: S3MultipartUploadId;
-        PartNumberMarker?: S3PartNumberMarker;
-        NextPartNumberMarker?: S3NextPartNumberMarker;
-        MaxParts?: S3MaxParts;
-        IsTruncated?: S3IsTruncated;
-        Parts?: S3Parts;
-        Initiator?: S3Initiator;
-        Owner?: S3Owner;
-        StorageClass?: S3StorageClass;
-        RequestCharged?: S3RequestCharged;
-    }
-
-    export interface S3ListPartsRequest {
-        Bucket: S3BucketName;
-        Key: S3ObjectKey;
-        MaxParts?: S3MaxParts;
-        PartNumberMarker?: S3PartNumberMarker;
-        UploadId: S3MultipartUploadId;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export type S3Location = string;
-    export interface S3LoggingEnabled {
-        TargetBucket?: S3TargetBucket;
-        TargetGrants?: S3TargetGrants;
-        TargetPrefix?: S3TargetPrefix;
-    }
-
-    export type S3MFA = string;
-    export type S3MFADelete = string;
-    export type S3MFADeleteStatus = string;
-    export type S3Marker = string;
-    export type S3MaxAgeSeconds = number;
-    export type S3MaxKeys = number;
-    export type S3MaxParts = number;
-    export type S3MaxUploads = number;
-    export type S3Message = string;
-    export type S3Metadata = any; // not really - it was 'map' instead - must fix this one
-    export type S3MetadataDirective = string;
-    export type S3MetadataKey = string;
-    export type S3MetadataValue = string;
-    export type S3MissingMeta = number;
-    export interface S3MultipartUpload {
-        UploadId?: S3MultipartUploadId;
-        Key?: S3ObjectKey;
-        Initiated?: S3Initiated;
-        StorageClass?: S3StorageClass;
-        Owner?: S3Owner;
-        Initiator?: S3Initiator;
-    }
-
-    export type S3MultipartUploadId = string;
-    export type S3MultipartUploadList = Array<S3MultipartUpload>;
-    export type S3NextKeyMarker = string;
-    export type S3NextMarker = string;
-    export type S3NextPartNumberMarker = number;
-    export type S3NextUploadIdMarker = string;
-    export type S3NextVersionIdMarker = string;
-    export interface S3NoSuchBucket {
-    }
-
-    export interface S3NoSuchKey {
-    }
-
-    export interface S3NoSuchUpload {
-    }
-
-    export interface S3NoncurrentVersionExpiration {
-        NoncurrentDays?: S3Days;
-    }
-
-    export interface S3NoncurrentVersionTransition {
-        NoncurrentDays?: S3Days;
-        StorageClass?: S3TransitionStorageClass;
-    }
-
-    export type S3NoncurrentVersionTransitionList = Array<S3NoncurrentVersionTransition>;
-    export interface S3NotificationConfiguration {
-        TopicConfigurations?: S3TopicConfigurationList;
-        QueueConfigurations?: S3QueueConfigurationList;
-        LambdaFunctionConfigurations?: S3LambdaFunctionConfigurationList;
-    }
-
-    export interface S3NotificationConfigurationDeprecated {
-        TopicConfiguration?: S3TopicConfigurationDeprecated;
-        QueueConfiguration?: S3QueueConfigurationDeprecated;
-        CloudFunctionConfiguration?: S3CloudFunctionConfiguration;
-    }
-
-    export interface S3NotificationConfigurationFilter {
-        Key?: S3S3KeyFilter;
-    }
-
-    export type S3NotificationId = string;
-    export interface S3Object {
-        Key?: S3ObjectKey;
-        LastModified?: S3LastModified;
-        ETag?: S3ETag;
-        Size?: S3Size;
-        StorageClass?: S3ObjectStorageClass;
-        Owner?: S3Owner;
-    }
-
-    export interface S3ObjectAlreadyInActiveTierError {
-    }
-
-    export type S3ObjectCannedACL = string;
-    export interface S3ObjectIdentifier {
-        Key: S3ObjectKey;
-        VersionId?: S3ObjectVersionId;
-    }
-
-    export type S3ObjectIdentifierList = Array<S3ObjectIdentifier>;
-    export type S3ObjectKey = string;
-    export type S3ObjectList = Array<S3Object>;
-    export interface S3ObjectNotInActiveTierError {
-    }
-
-    export type S3ObjectStorageClass = string;
-    export interface S3ObjectVersion {
-        ETag?: S3ETag;
-        Size?: S3Size;
-        StorageClass?: S3ObjectVersionStorageClass;
-        Key?: S3ObjectKey;
-        VersionId?: S3ObjectVersionId;
-        IsLatest?: S3IsLatest;
-        LastModified?: S3LastModified;
-        Owner?: S3Owner;
-    }
-
-    export type S3ObjectVersionId = string;
-    export type S3ObjectVersionList = Array<S3ObjectVersion>;
-    export type S3ObjectVersionStorageClass = string;
-    export interface S3Owner {
-        DisplayName?: S3DisplayName;
-        ID?: S3ID;
-    }
-
-    export interface S3Part {
-        PartNumber?: S3PartNumber;
-        LastModified?: S3LastModified;
-        ETag?: S3ETag;
-        Size?: S3Size;
-    }
-
-    export type S3PartNumber = number;
-    export type S3PartNumberMarker = number;
-    export type S3Parts = Array<S3Part>;
-    export type S3Payer = string;
-    export type S3Permission = string;
-    export type S3Policy = string;
-    export type S3Prefix = string;
-    export type S3Protocol = string;
-    export interface S3PutBucketAclRequest {
-        ACL?: S3BucketCannedACL;
-        AccessControlPolicy?: S3AccessControlPolicy;
-        Bucket: S3BucketName;
-        ContentMD5?: S3ContentMD5;
-        GrantFullControl?: S3GrantFullControl;
-        GrantRead?: S3GrantRead;
-        GrantReadACP?: S3GrantReadACP;
-        GrantWrite?: S3GrantWrite;
-        GrantWriteACP?: S3GrantWriteACP;
-    }
-
-    export interface S3PutBucketCorsRequest {
-        Bucket: S3BucketName;
-        CORSConfiguration: S3CORSConfiguration;
-        ContentMD5?: S3ContentMD5;
-    }
-
-    export interface S3PutBucketLifecycleConfigurationRequest {
-        Bucket: S3BucketName;
-        LifecycleConfiguration?: S3BucketLifecycleConfiguration;
-    }
-
-    export interface S3PutBucketLifecycleRequest {
-        Bucket: S3BucketName;
-        ContentMD5?: S3ContentMD5;
-        LifecycleConfiguration?: S3LifecycleConfiguration;
-    }
-
-    export interface S3PutBucketLoggingRequest {
-        Bucket: S3BucketName;
-        BucketLoggingStatus: S3BucketLoggingStatus;
-        ContentMD5?: S3ContentMD5;
-    }
-
-    export interface S3PutBucketNotificationConfigurationRequest {
-        Bucket: S3BucketName;
-        NotificationConfiguration: S3NotificationConfiguration;
-    }
-
-    export interface S3PutBucketNotificationRequest {
-        Bucket: S3BucketName;
-        ContentMD5?: S3ContentMD5;
-        NotificationConfiguration: S3NotificationConfigurationDeprecated;
-    }
-
-    export interface S3PutBucketPolicyRequest {
-        Bucket: S3BucketName;
-        ContentMD5?: S3ContentMD5;
-        Policy: S3Policy;
-    }
-
-    export interface S3PutBucketReplicationRequest {
-        Bucket: S3BucketName;
-        ContentMD5?: S3ContentMD5;
-        ReplicationConfiguration: S3ReplicationConfiguration;
-    }
-
-    export interface S3PutBucketRequestPaymentRequest {
-        Bucket: S3BucketName;
-        ContentMD5?: S3ContentMD5;
-        RequestPaymentConfiguration: S3RequestPaymentConfiguration;
-    }
-
-    export interface S3PutBucketTaggingRequest {
-        Bucket: S3BucketName;
-        ContentMD5?: S3ContentMD5;
-        Tagging: S3Tagging;
-    }
-
-    export interface S3PutBucketVersioningRequest {
-        Bucket: S3BucketName;
-        ContentMD5?: S3ContentMD5;
-        MFA?: S3MFA;
-        VersioningConfiguration: S3VersioningConfiguration;
-    }
-
-    export interface S3PutBucketWebsiteRequest {
-        Bucket: S3BucketName;
-        ContentMD5?: S3ContentMD5;
-        WebsiteConfiguration: S3WebsiteConfiguration;
-    }
-
-    export interface S3PutObjectAclOutput {
-        RequestCharged?: S3RequestCharged;
-    }
-
-    export interface S3PutObjectAclRequest {
-        ACL?: S3ObjectCannedACL;
-        AccessControlPolicy?: S3AccessControlPolicy;
-        Bucket: S3BucketName;
-        ContentMD5?: S3ContentMD5;
-        GrantFullControl?: S3GrantFullControl;
-        GrantRead?: S3GrantRead;
-        GrantReadACP?: S3GrantReadACP;
-        GrantWrite?: S3GrantWrite;
-        GrantWriteACP?: S3GrantWriteACP;
-        Key: S3ObjectKey;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export interface S3PutObjectOutput {
-        Expiration?: S3Expiration;
-        ETag?: S3ETag;
-        ServerSideEncryption?: S3ServerSideEncryption;
-        VersionId?: S3ObjectVersionId;
-        SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
-        SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
-        SSEKMSKeyId?: S3SSEKMSKeyId;
-        RequestCharged?: S3RequestCharged;
-    }
-
-    export interface S3PutObjectRequest {
-        ACL?: S3ObjectCannedACL;
-        Body?: S3Body;
-        Bucket: S3BucketName;
-        CacheControl?: S3CacheControl;
-        ContentDisposition?: S3ContentDisposition;
-        ContentEncoding?: S3ContentEncoding;
-        ContentLanguage?: S3ContentLanguage;
-        ContentLength?: S3ContentLength;
-        ContentMD5?: S3ContentMD5;
-        ContentType?: S3ContentType;
-        Expires?: S3Expires;
-        GrantFullControl?: S3GrantFullControl;
-        GrantRead?: S3GrantRead;
-        GrantReadACP?: S3GrantReadACP;
-        GrantWriteACP?: S3GrantWriteACP;
-        Key: S3ObjectKey;
-        Metadata?: S3Metadata;
-        ServerSideEncryption?: S3ServerSideEncryption;
-        StorageClass?: S3StorageClass;
-        WebsiteRedirectLocation?: S3WebsiteRedirectLocation;
-        SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
-        SSECustomerKey?: S3SSECustomerKey;
-        SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
-        SSEKMSKeyId?: S3SSEKMSKeyId;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export type S3QueueArn = string;
-    export interface S3QueueConfiguration {
-        Id?: S3NotificationId;
-        QueueArn: S3QueueArn;
-        Events: S3EventList;
-        Filter?: S3NotificationConfigurationFilter;
-    }
-
-    export interface S3QueueConfigurationDeprecated {
-        Id?: S3NotificationId;
-        Event?: S3Event;
-        Events?: S3EventList;
-        Queue?: S3QueueArn;
-    }
-
-    export type S3QueueConfigurationList = Array<S3QueueConfiguration>;
-    export type S3Quiet = boolean;
-    export type S3Range = string;
-    export interface S3Redirect {
-        HostName?: S3HostName;
-        HttpRedirectCode?: S3HttpRedirectCode;
-        Protocol?: S3Protocol;
-        ReplaceKeyPrefixWith?: S3ReplaceKeyPrefixWith;
-        ReplaceKeyWith?: S3ReplaceKeyWith;
-    }
-
-    export interface S3RedirectAllRequestsTo {
-        HostName: S3HostName;
-        Protocol?: S3Protocol;
-    }
-
-    export type S3ReplaceKeyPrefixWith = string;
-    export type S3ReplaceKeyWith = string;
-    export interface S3ReplicationConfiguration {
-        Role: S3Role;
-        Rules: S3ReplicationRules;
-    }
-
-    export interface S3ReplicationRule {
-        ID?: S3ID;
-        Prefix: S3Prefix;
-        Status: S3ReplicationRuleStatus;
-        Destination: S3Destination;
-    }
-
-    export type S3ReplicationRuleStatus = string;
-    export type S3ReplicationRules = Array<S3ReplicationRule>;
-    export type S3ReplicationStatus = string;
-    export type S3RequestCharged = string;
-    export type S3RequestPayer = string;
-    export interface S3RequestPaymentConfiguration {
-        Payer: S3Payer;
-    }
-
-    export type S3ResponseCacheControl = string;
-    export type S3ResponseContentDisposition = string;
-    export type S3ResponseContentEncoding = string;
-    export type S3ResponseContentLanguage = string;
-    export type S3ResponseContentType = string;
-    export type S3ResponseExpires = number;
-    export type S3Restore = string;
-    export interface S3RestoreObjectOutput {
-        RequestCharged?: S3RequestCharged;
-    }
-
-    export interface S3RestoreObjectRequest {
-        Bucket: S3BucketName;
-        Key: S3ObjectKey;
-        VersionId?: S3ObjectVersionId;
-        RestoreRequest?: S3RestoreRequest;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export interface S3RestoreRequest {
-        Days: S3Days;
-    }
-
-    export type S3Role = string;
-    export interface S3RoutingRule {
-        Condition?: S3Condition;
-        Redirect: S3Redirect;
-    }
-
-    export type S3RoutingRules = Array<S3RoutingRule>;
-    export interface S3Rule {
-        Expiration?: S3LifecycleExpiration;
-        ID?: S3ID;
-        Prefix: S3Prefix;
-        Status: S3ExpirationStatus;
-        Transition?: S3Transition;
-        NoncurrentVersionTransition?: S3NoncurrentVersionTransition;
-        NoncurrentVersionExpiration?: S3NoncurrentVersionExpiration;
-    }
-
-    export type S3Rules = Array<S3Rule>;
-    export interface S3S3KeyFilter {
-        FilterRules?: S3FilterRuleList;
-    }
-
-    export type S3SSECustomerAlgorithm = string;
-    export type S3SSECustomerKey = any; // not really - it was 'blob' instead - must fix this one
-    export type S3SSECustomerKeyMD5 = string;
-    export type S3SSEKMSKeyId = string;
-    export type S3ServerSideEncryption = string;
-    export type S3Size = number;
-    export type S3StorageClass = string;
-    export type S3Suffix = string;
-    export interface S3Tag {
-        Key: S3ObjectKey;
-        Value: S3Value;
-    }
-
-    export type S3TagSet = Array<S3Tag>;
-    export interface S3Tagging {
-        TagSet: S3TagSet;
-    }
-
-    export type S3TargetBucket = string;
-    export interface S3TargetGrant {
-        Grantee?: S3Grantee;
-        Permission?: S3BucketLogsPermission;
-    }
-
-    export type S3TargetGrants = Array<S3TargetGrant>;
-    export type S3TargetPrefix = string;
-    export type S3TopicArn = string;
-    export interface S3TopicConfiguration {
-        Id?: S3NotificationId;
-        TopicArn: S3TopicArn;
-        Events: S3EventList;
-        Filter?: S3NotificationConfigurationFilter;
-    }
-
-    export interface S3TopicConfigurationDeprecated {
-        Id?: S3NotificationId;
-        Events?: S3EventList;
-        Event?: S3Event;
-        Topic?: S3TopicArn;
-    }
-
-    export type S3TopicConfigurationList = Array<S3TopicConfiguration>;
-    export interface S3Transition {
-        Date?: S3Date;
-        Days?: S3Days;
-        StorageClass?: S3TransitionStorageClass;
-    }
-
-    export type S3TransitionList = Array<S3Transition>;
-    export type S3TransitionStorageClass = string;
-    export type S3Type = string;
-    export type S3URI = string;
-    export type S3UploadIdMarker = string;
-    export interface S3UploadPartCopyOutput {
-        CopySourceVersionId?: S3CopySourceVersionId;
-        CopyPartResult?: S3CopyPartResult;
-        ServerSideEncryption?: S3ServerSideEncryption;
-        SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
-        SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
-        SSEKMSKeyId?: S3SSEKMSKeyId;
-        RequestCharged?: S3RequestCharged;
-    }
-
-    export interface S3UploadPartCopyRequest {
-        Bucket: S3BucketName;
-        CopySource: S3CopySource;
-        CopySourceIfMatch?: S3CopySourceIfMatch;
-        CopySourceIfModifiedSince?: S3CopySourceIfModifiedSince;
-        CopySourceIfNoneMatch?: S3CopySourceIfNoneMatch;
-        CopySourceIfUnmodifiedSince?: S3CopySourceIfUnmodifiedSince;
-        CopySourceRange?: S3CopySourceRange;
-        Key: S3ObjectKey;
-        PartNumber: S3PartNumber;
-        UploadId: S3MultipartUploadId;
-        SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
-        SSECustomerKey?: S3SSECustomerKey;
-        SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
-        CopySourceSSECustomerAlgorithm?: S3CopySourceSSECustomerAlgorithm;
-        CopySourceSSECustomerKey?: S3CopySourceSSECustomerKey;
-        CopySourceSSECustomerKeyMD5?: S3CopySourceSSECustomerKeyMD5;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export interface S3UploadPartOutput {
-        ServerSideEncryption?: S3ServerSideEncryption;
-        ETag?: S3ETag;
-        SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
-        SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
-        SSEKMSKeyId?: S3SSEKMSKeyId;
-        RequestCharged?: S3RequestCharged;
-    }
-
-    export interface S3UploadPartRequest {
-        Body?: S3Body;
-        Bucket: S3BucketName;
-        ContentLength?: S3ContentLength;
-        ContentMD5?: S3ContentMD5;
-        Key: S3ObjectKey;
-        PartNumber: S3PartNumber;
-        UploadId: S3MultipartUploadId;
-        SSECustomerAlgorithm?: S3SSECustomerAlgorithm;
-        SSECustomerKey?: S3SSECustomerKey;
-        SSECustomerKeyMD5?: S3SSECustomerKeyMD5;
-        RequestPayer?: S3RequestPayer;
-    }
-
-    export type S3Value = string;
-    export type S3VersionIdMarker = string;
-    export interface S3VersioningConfiguration {
-        MFADelete?: S3MFADelete;
-        Status?: S3BucketVersioningStatus;
-    }
-
-    export interface S3WebsiteConfiguration {
-        ErrorDocument?: S3ErrorDocument;
-        IndexDocument?: S3IndexDocument;
-        RedirectAllRequestsTo?: S3RedirectAllRequestsTo;
-        RoutingRules?: S3RoutingRules;
-    }
-
-    export type S3WebsiteRedirectLocation = string;
 }

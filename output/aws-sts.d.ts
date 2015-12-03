@@ -6,174 +6,156 @@ declare module "aws-sdk" {
 
     export class STS extends Service {
       constructor(options?: any);
-      assumeRole(params: STSAssumeRoleRequest, callback?: (err: STSMalformedPolicyDocumentException|STSPackedPolicyTooLargeException|any, data: STSAssumeRoleResponse|any) => void): Request;
-      assumeRoleWithSAML(params: STSAssumeRoleWithSAMLRequest, callback?: (err: STSMalformedPolicyDocumentException|STSPackedPolicyTooLargeException|STSIDPRejectedClaimException|STSInvalidIdentityTokenException|STSExpiredTokenException|any, data: STSAssumeRoleWithSAMLResponse|any) => void): Request;
-      assumeRoleWithWebIdentity(params: STSAssumeRoleWithWebIdentityRequest, callback?: (err: STSMalformedPolicyDocumentException|STSPackedPolicyTooLargeException|STSIDPRejectedClaimException|STSIDPCommunicationErrorException|STSInvalidIdentityTokenException|STSExpiredTokenException|any, data: STSAssumeRoleWithWebIdentityResponse|any) => void): Request;
-      decodeAuthorizationMessage(params: STSDecodeAuthorizationMessageRequest, callback?: (err: STSInvalidAuthorizationMessageException|any, data: STSDecodeAuthorizationMessageResponse|any) => void): Request;
-      getFederationToken(params: STSGetFederationTokenRequest, callback?: (err: STSMalformedPolicyDocumentException|STSPackedPolicyTooLargeException|any, data: STSGetFederationTokenResponse|any) => void): Request;
-      getSessionToken(params: STSGetSessionTokenRequest, callback?: (err: any, data: STSGetSessionTokenResponse|any) => void): Request;
+      assumeRole(params: STS.AssumeRoleRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|any, data: STS.AssumeRoleResponse|any) => void): Request;
+      assumeRoleWithSAML(params: STS.AssumeRoleWithSAMLRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.IDPRejectedClaimException|STS.InvalidIdentityTokenException|STS.ExpiredTokenException|any, data: STS.AssumeRoleWithSAMLResponse|any) => void): Request;
+      assumeRoleWithWebIdentity(params: STS.AssumeRoleWithWebIdentityRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.IDPRejectedClaimException|STS.IDPCommunicationErrorException|STS.InvalidIdentityTokenException|STS.ExpiredTokenException|any, data: STS.AssumeRoleWithWebIdentityResponse|any) => void): Request;
+      decodeAuthorizationMessage(params: STS.DecodeAuthorizationMessageRequest, callback?: (err: STS.InvalidAuthorizationMessageException|any, data: STS.DecodeAuthorizationMessageResponse|any) => void): Request;
+      getFederationToken(params: STS.GetFederationTokenRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|any, data: STS.GetFederationTokenResponse|any) => void): Request;
+      getSessionToken(params: STS.GetSessionTokenRequest, callback?: (err: any, data: STS.GetSessionTokenResponse|any) => void): Request;
     }
+    
+    export module STS {
+        export type Audience = string;
+        export type Issuer = string;
+        export type NameQualifier = string;
+        export type SAMLAssertionType = string;    // max: 50000, min: 4
+        export type Subject = string;
+        export type SubjectType = string;
+        export type accessKeyIdType = string;    // pattern: &quot;[\w]*&quot;, max: 32, min: 16
+        export type accessKeySecretType = string;
+        export type arnType = string;    // max: 2048, min: 20
+        export type assumedRoleIdType = string;    // pattern: &quot;[\w+=,.@:-]*&quot;, max: 96, min: 2
+        export type clientTokenType = string;    // max: 2048, min: 4
+        export type dateType = number;
+        export type decodedMessageType = string;
+        export type durationSecondsType = number;    // max: 129600, min: 900
+        export type encodedMessageType = string;    // max: 10240, min: 1
+        export type expiredIdentityTokenMessage = string;
+        export type externalIdType = string;    // pattern: &quot;[\w+=,.@:\/-]*&quot;, max: 1224, min: 2
+        export type federatedIdType = string;    // pattern: &quot;[\w+=,.@\:-]*&quot;, max: 96, min: 2
+        export type idpCommunicationErrorMessage = string;
+        export type idpRejectedClaimMessage = string;
+        export type invalidAuthorizationMessage = string;
+        export type invalidIdentityTokenMessage = string;
+        export type malformedPolicyDocumentMessage = string;
+        export type nonNegativeIntegerType = number;
+        export type packedPolicyTooLargeMessage = string;
+        export type roleDurationSecondsType = number;    // max: 3600, min: 900
+        export type roleSessionNameType = string;    // pattern: &quot;[\w+=,.@-]*&quot;, max: 64, min: 2
+        export type serialNumberType = string;    // pattern: &quot;[\w+=/:,.@-]*&quot;, max: 256, min: 9
+        export type sessionPolicyDocumentType = string;    // pattern: &quot;[\u0009\u000A\u000D\u0020-\u00FF]+&quot;, max: 2048, min: 1
+        export type tokenCodeType = string;    // pattern: &quot;[\d]*&quot;, max: 6, min: 6
+        export type tokenType = string;
+        export type urlType = string;    // max: 2048, min: 4
+        export type userNameType = string;    // pattern: &quot;[\w+=,.@-]*&quot;, max: 32, min: 2
+        export type webIdentitySubjectType = string;    // max: 255, min: 6
 
-    export interface STSAssumeRoleRequest {
-        RoleArn: STSarnType;
-        RoleSessionName: STSroleSessionNameType;
-        Policy?: STSsessionPolicyDocumentType;
-        DurationSeconds?: STSroleDurationSecondsType;
-        ExternalId?: STSexternalIdType;
-        SerialNumber?: STSserialNumberType;
-        TokenCode?: STStokenCodeType;
+        export interface AssumeRoleRequest {
+            RoleArn: arnType;            
+            RoleSessionName: roleSessionNameType;            
+            Policy?: sessionPolicyDocumentType;            
+            DurationSeconds?: roleDurationSecondsType;            
+            ExternalId?: externalIdType;            
+            SerialNumber?: serialNumberType;            
+            TokenCode?: tokenCodeType;            
+        }
+        export interface AssumeRoleResponse {
+            Credentials?: Credentials;            
+            AssumedRoleUser?: AssumedRoleUser;            
+            PackedPolicySize?: nonNegativeIntegerType;            
+        }
+        export interface AssumeRoleWithSAMLRequest {
+            RoleArn: arnType;            
+            PrincipalArn: arnType;            
+            SAMLAssertion: SAMLAssertionType;            
+            Policy?: sessionPolicyDocumentType;            
+            DurationSeconds?: roleDurationSecondsType;            
+        }
+        export interface AssumeRoleWithSAMLResponse {
+            Credentials?: Credentials;            
+            AssumedRoleUser?: AssumedRoleUser;            
+            PackedPolicySize?: nonNegativeIntegerType;            
+            Subject?: Subject;            
+            SubjectType?: SubjectType;            
+            Issuer?: Issuer;            
+            Audience?: Audience;            
+            NameQualifier?: NameQualifier;            
+        }
+        export interface AssumeRoleWithWebIdentityRequest {
+            RoleArn: arnType;            
+            RoleSessionName: roleSessionNameType;            
+            WebIdentityToken: clientTokenType;            
+            ProviderId?: urlType;            
+            Policy?: sessionPolicyDocumentType;            
+            DurationSeconds?: roleDurationSecondsType;            
+        }
+        export interface AssumeRoleWithWebIdentityResponse {
+            Credentials?: Credentials;            
+            SubjectFromWebIdentityToken?: webIdentitySubjectType;            
+            AssumedRoleUser?: AssumedRoleUser;            
+            PackedPolicySize?: nonNegativeIntegerType;            
+            Provider?: Issuer;            
+            Audience?: Audience;            
+        }
+        export interface AssumedRoleUser {
+            AssumedRoleId: assumedRoleIdType;            
+            Arn: arnType;            
+        }
+        export interface Credentials {
+            AccessKeyId: accessKeyIdType;            
+            SecretAccessKey: accessKeySecretType;            
+            SessionToken: tokenType;            
+            Expiration: dateType;            
+        }
+        export interface DecodeAuthorizationMessageRequest {
+            EncodedMessage: encodedMessageType;            
+        }
+        export interface DecodeAuthorizationMessageResponse {
+            DecodedMessage?: decodedMessageType;            
+        }
+        export interface ExpiredTokenException {
+            message?: expiredIdentityTokenMessage;            
+        }
+        export interface FederatedUser {
+            FederatedUserId: federatedIdType;            
+            Arn: arnType;            
+        }
+        export interface GetFederationTokenRequest {
+            Name: userNameType;            
+            Policy?: sessionPolicyDocumentType;            
+            DurationSeconds?: durationSecondsType;            
+        }
+        export interface GetFederationTokenResponse {
+            Credentials?: Credentials;            
+            FederatedUser?: FederatedUser;            
+            PackedPolicySize?: nonNegativeIntegerType;            
+        }
+        export interface GetSessionTokenRequest {
+            DurationSeconds?: durationSecondsType;            
+            SerialNumber?: serialNumberType;            
+            TokenCode?: tokenCodeType;            
+        }
+        export interface GetSessionTokenResponse {
+            Credentials?: Credentials;            
+        }
+        export interface IDPCommunicationErrorException {
+            message?: idpCommunicationErrorMessage;            
+        }
+        export interface IDPRejectedClaimException {
+            message?: idpRejectedClaimMessage;            
+        }
+        export interface InvalidAuthorizationMessageException {
+            message?: invalidAuthorizationMessage;            
+        }
+        export interface InvalidIdentityTokenException {
+            message?: invalidIdentityTokenMessage;            
+        }
+        export interface MalformedPolicyDocumentException {
+            message?: malformedPolicyDocumentMessage;            
+        }
+        export interface PackedPolicyTooLargeException {
+            message?: packedPolicyTooLargeMessage;            
+        }
+
     }
-
-    export interface STSAssumeRoleResponse {
-        Credentials?: STSCredentials;
-        AssumedRoleUser?: STSAssumedRoleUser;
-        PackedPolicySize?: STSnonNegativeIntegerType;
-    }
-
-    export interface STSAssumeRoleWithSAMLRequest {
-        RoleArn: STSarnType;
-        PrincipalArn: STSarnType;
-        SAMLAssertion: STSSAMLAssertionType;
-        Policy?: STSsessionPolicyDocumentType;
-        DurationSeconds?: STSroleDurationSecondsType;
-    }
-
-    export interface STSAssumeRoleWithSAMLResponse {
-        Credentials?: STSCredentials;
-        AssumedRoleUser?: STSAssumedRoleUser;
-        PackedPolicySize?: STSnonNegativeIntegerType;
-        Subject?: STSSubject;
-        SubjectType?: STSSubjectType;
-        Issuer?: STSIssuer;
-        Audience?: STSAudience;
-        NameQualifier?: STSNameQualifier;
-    }
-
-    export interface STSAssumeRoleWithWebIdentityRequest {
-        RoleArn: STSarnType;
-        RoleSessionName: STSroleSessionNameType;
-        WebIdentityToken: STSclientTokenType;
-        ProviderId?: STSurlType;
-        Policy?: STSsessionPolicyDocumentType;
-        DurationSeconds?: STSroleDurationSecondsType;
-    }
-
-    export interface STSAssumeRoleWithWebIdentityResponse {
-        Credentials?: STSCredentials;
-        SubjectFromWebIdentityToken?: STSwebIdentitySubjectType;
-        AssumedRoleUser?: STSAssumedRoleUser;
-        PackedPolicySize?: STSnonNegativeIntegerType;
-        Provider?: STSIssuer;
-        Audience?: STSAudience;
-    }
-
-    export interface STSAssumedRoleUser {
-        AssumedRoleId: STSassumedRoleIdType;
-        Arn: STSarnType;
-    }
-
-    export type STSAudience = string;
-    export interface STSCredentials {
-        AccessKeyId: STSaccessKeyIdType;
-        SecretAccessKey: STSaccessKeySecretType;
-        SessionToken: STStokenType;
-        Expiration: STSdateType;
-    }
-
-    export interface STSDecodeAuthorizationMessageRequest {
-        EncodedMessage: STSencodedMessageType;
-    }
-
-    export interface STSDecodeAuthorizationMessageResponse {
-        DecodedMessage?: STSdecodedMessageType;
-    }
-
-    export interface STSExpiredTokenException {
-        message?: STSexpiredIdentityTokenMessage;
-    }
-
-    export interface STSFederatedUser {
-        FederatedUserId: STSfederatedIdType;
-        Arn: STSarnType;
-    }
-
-    export interface STSGetFederationTokenRequest {
-        Name: STSuserNameType;
-        Policy?: STSsessionPolicyDocumentType;
-        DurationSeconds?: STSdurationSecondsType;
-    }
-
-    export interface STSGetFederationTokenResponse {
-        Credentials?: STSCredentials;
-        FederatedUser?: STSFederatedUser;
-        PackedPolicySize?: STSnonNegativeIntegerType;
-    }
-
-    export interface STSGetSessionTokenRequest {
-        DurationSeconds?: STSdurationSecondsType;
-        SerialNumber?: STSserialNumberType;
-        TokenCode?: STStokenCodeType;
-    }
-
-    export interface STSGetSessionTokenResponse {
-        Credentials?: STSCredentials;
-    }
-
-    export interface STSIDPCommunicationErrorException {
-        message?: STSidpCommunicationErrorMessage;
-    }
-
-    export interface STSIDPRejectedClaimException {
-        message?: STSidpRejectedClaimMessage;
-    }
-
-    export interface STSInvalidAuthorizationMessageException {
-        message?: STSinvalidAuthorizationMessage;
-    }
-
-    export interface STSInvalidIdentityTokenException {
-        message?: STSinvalidIdentityTokenMessage;
-    }
-
-    export type STSIssuer = string;
-    export interface STSMalformedPolicyDocumentException {
-        message?: STSmalformedPolicyDocumentMessage;
-    }
-
-    export type STSNameQualifier = string;
-    export interface STSPackedPolicyTooLargeException {
-        message?: STSpackedPolicyTooLargeMessage;
-    }
-
-    export type STSSAMLAssertionType = string;
-    export type STSSubject = string;
-    export type STSSubjectType = string;
-    export type STSaccessKeyIdType = string; // pattern: "[\w]*"
-    export type STSaccessKeySecretType = string;
-    export type STSarnType = string;
-    export type STSassumedRoleIdType = string; // pattern: "[\w+=,.@:-]*"
-    export type STSclientTokenType = string;
-    export type STSdateType = number;
-    export type STSdecodedMessageType = string;
-    export type STSdurationSecondsType = number;
-    export type STSencodedMessageType = string;
-    export type STSexpiredIdentityTokenMessage = string;
-    export type STSexternalIdType = string; // pattern: "[\w+=,.@:\/-]*"
-    export type STSfederatedIdType = string; // pattern: "[\w+=,.@\:-]*"
-    export type STSidpCommunicationErrorMessage = string;
-    export type STSidpRejectedClaimMessage = string;
-    export type STSinvalidAuthorizationMessage = string;
-    export type STSinvalidIdentityTokenMessage = string;
-    export type STSmalformedPolicyDocumentMessage = string;
-    export type STSnonNegativeIntegerType = number;
-    export type STSpackedPolicyTooLargeMessage = string;
-    export type STSroleDurationSecondsType = number;
-    export type STSroleSessionNameType = string; // pattern: "[\w+=,.@-]*"
-    export type STSserialNumberType = string; // pattern: "[\w+=/:,.@-]*"
-    export type STSsessionPolicyDocumentType = string; // pattern: "[\u0009\u000A\u000D\u0020-\u00FF]+"
-    export type STStokenCodeType = string; // pattern: "[\d]*"
-    export type STStokenType = string;
-    export type STSurlType = string;
-    export type STSuserNameType = string; // pattern: "[\w+=,.@-]*"
-    export type STSwebIdentitySubjectType = string;
 }

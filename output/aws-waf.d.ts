@@ -6,544 +6,455 @@ declare module "aws-sdk" {
 
     export class WAF extends Service {
       constructor(options?: any);
-      createByteMatchSet(params: WAFCreateByteMatchSetRequest, callback?: (err: WAFWAFDisallowedNameException|WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFInvalidParameterException|WAFWAFStaleDataException|WAFWAFLimitsExceededException|any, data: WAFCreateByteMatchSetResponse|any) => void): Request;
-      createIPSet(params: WAFCreateIPSetRequest, callback?: (err: WAFWAFStaleDataException|WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFDisallowedNameException|WAFWAFInvalidParameterException|WAFWAFLimitsExceededException|any, data: WAFCreateIPSetResponse|any) => void): Request;
-      createRule(params: WAFCreateRuleRequest, callback?: (err: WAFWAFStaleDataException|WAFWAFInternalErrorException|WAFWAFDisallowedNameException|WAFWAFInvalidParameterException|WAFWAFLimitsExceededException|any, data: WAFCreateRuleResponse|any) => void): Request;
-      createSqlInjectionMatchSet(params: WAFCreateSqlInjectionMatchSetRequest, callback?: (err: WAFWAFDisallowedNameException|WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFInvalidParameterException|WAFWAFStaleDataException|WAFWAFLimitsExceededException|any, data: WAFCreateSqlInjectionMatchSetResponse|any) => void): Request;
-      createWebACL(params: WAFCreateWebACLRequest, callback?: (err: WAFWAFStaleDataException|WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFDisallowedNameException|WAFWAFInvalidParameterException|WAFWAFLimitsExceededException|any, data: WAFCreateWebACLResponse|any) => void): Request;
-      deleteByteMatchSet(params: WAFDeleteByteMatchSetRequest, callback?: (err: WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFNonexistentItemException|WAFWAFReferencedItemException|WAFWAFStaleDataException|WAFWAFNonEmptyEntityException|any, data: WAFDeleteByteMatchSetResponse|any) => void): Request;
-      deleteIPSet(params: WAFDeleteIPSetRequest, callback?: (err: WAFWAFStaleDataException|WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFNonexistentItemException|WAFWAFReferencedItemException|WAFWAFNonEmptyEntityException|any, data: WAFDeleteIPSetResponse|any) => void): Request;
-      deleteRule(params: WAFDeleteRuleRequest, callback?: (err: WAFWAFStaleDataException|WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFNonexistentItemException|WAFWAFReferencedItemException|WAFWAFNonEmptyEntityException|any, data: WAFDeleteRuleResponse|any) => void): Request;
-      deleteSqlInjectionMatchSet(params: WAFDeleteSqlInjectionMatchSetRequest, callback?: (err: WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFNonexistentItemException|WAFWAFReferencedItemException|WAFWAFStaleDataException|WAFWAFNonEmptyEntityException|any, data: WAFDeleteSqlInjectionMatchSetResponse|any) => void): Request;
-      deleteWebACL(params: WAFDeleteWebACLRequest, callback?: (err: WAFWAFStaleDataException|WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFNonexistentItemException|WAFWAFReferencedItemException|WAFWAFNonEmptyEntityException|any, data: WAFDeleteWebACLResponse|any) => void): Request;
-      getByteMatchSet(params: WAFGetByteMatchSetRequest, callback?: (err: WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFNonexistentItemException|any, data: WAFGetByteMatchSetResponse|any) => void): Request;
-      getChangeToken(params: WAFGetChangeTokenRequest, callback?: (err: WAFWAFInternalErrorException|any, data: WAFGetChangeTokenResponse|any) => void): Request;
-      getChangeTokenStatus(params: WAFGetChangeTokenStatusRequest, callback?: (err: WAFWAFNonexistentItemException|WAFWAFInternalErrorException|any, data: WAFGetChangeTokenStatusResponse|any) => void): Request;
-      getIPSet(params: WAFGetIPSetRequest, callback?: (err: WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFNonexistentItemException|any, data: WAFGetIPSetResponse|any) => void): Request;
-      getRule(params: WAFGetRuleRequest, callback?: (err: WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFNonexistentItemException|any, data: WAFGetRuleResponse|any) => void): Request;
-      getSampledRequests(params: WAFGetSampledRequestsRequest, callback?: (err: WAFWAFNonexistentItemException|any, data: WAFGetSampledRequestsResponse|any) => void): Request;
-      getSqlInjectionMatchSet(params: WAFGetSqlInjectionMatchSetRequest, callback?: (err: WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFNonexistentItemException|any, data: WAFGetSqlInjectionMatchSetResponse|any) => void): Request;
-      getWebACL(params: WAFGetWebACLRequest, callback?: (err: WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFNonexistentItemException|any, data: WAFGetWebACLResponse|any) => void): Request;
-      listByteMatchSets(params: WAFListByteMatchSetsRequest, callback?: (err: WAFWAFInternalErrorException|WAFWAFInvalidAccountException|any, data: WAFListByteMatchSetsResponse|any) => void): Request;
-      listIPSets(params: WAFListIPSetsRequest, callback?: (err: WAFWAFInternalErrorException|WAFWAFInvalidAccountException|any, data: WAFListIPSetsResponse|any) => void): Request;
-      listRules(params: WAFListRulesRequest, callback?: (err: WAFWAFInternalErrorException|WAFWAFInvalidAccountException|any, data: WAFListRulesResponse|any) => void): Request;
-      listSqlInjectionMatchSets(params: WAFListSqlInjectionMatchSetsRequest, callback?: (err: WAFWAFInternalErrorException|WAFWAFInvalidAccountException|any, data: WAFListSqlInjectionMatchSetsResponse|any) => void): Request;
-      listWebACLs(params: WAFListWebACLsRequest, callback?: (err: WAFWAFInternalErrorException|WAFWAFInvalidAccountException|any, data: WAFListWebACLsResponse|any) => void): Request;
-      updateByteMatchSet(params: WAFUpdateByteMatchSetRequest, callback?: (err: WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFInvalidOperationException|WAFWAFInvalidParameterException|WAFWAFNonexistentContainerException|WAFWAFNonexistentItemException|WAFWAFStaleDataException|WAFWAFLimitsExceededException|any, data: WAFUpdateByteMatchSetResponse|any) => void): Request;
-      updateIPSet(params: WAFUpdateIPSetRequest, callback?: (err: WAFWAFStaleDataException|WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFInvalidOperationException|WAFWAFInvalidParameterException|WAFWAFNonexistentContainerException|WAFWAFNonexistentItemException|WAFWAFReferencedItemException|WAFWAFLimitsExceededException|any, data: WAFUpdateIPSetResponse|any) => void): Request;
-      updateRule(params: WAFUpdateRuleRequest, callback?: (err: WAFWAFStaleDataException|WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFInvalidOperationException|WAFWAFInvalidParameterException|WAFWAFNonexistentContainerException|WAFWAFNonexistentItemException|WAFWAFReferencedItemException|WAFWAFLimitsExceededException|any, data: WAFUpdateRuleResponse|any) => void): Request;
-      updateSqlInjectionMatchSet(params: WAFUpdateSqlInjectionMatchSetRequest, callback?: (err: WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFInvalidOperationException|WAFWAFInvalidParameterException|WAFWAFNonexistentContainerException|WAFWAFNonexistentItemException|WAFWAFStaleDataException|WAFWAFLimitsExceededException|any, data: WAFUpdateSqlInjectionMatchSetResponse|any) => void): Request;
-      updateWebACL(params: WAFUpdateWebACLRequest, callback?: (err: WAFWAFStaleDataException|WAFWAFInternalErrorException|WAFWAFInvalidAccountException|WAFWAFInvalidOperationException|WAFWAFInvalidParameterException|WAFWAFNonexistentContainerException|WAFWAFNonexistentItemException|WAFWAFReferencedItemException|WAFWAFLimitsExceededException|any, data: WAFUpdateWebACLResponse|any) => void): Request;
-    }
-
-    export type WAFAction = string;
-    export interface WAFActivatedRule {
-        Priority: WAFRulePriority;
-        RuleId: WAFResourceId;
-        Action: WAFWafAction;
-    }
-
-    export type WAFActivatedRules = Array<WAFActivatedRule>;
-    export interface WAFByteMatchSet {
-        ByteMatchSetId: WAFResourceId;
-        Name?: WAFResourceName;
-        ByteMatchTuples: WAFByteMatchTuples;
-    }
-
-    export type WAFByteMatchSetSummaries = Array<WAFByteMatchSetSummary>;
-    export interface WAFByteMatchSetSummary {
-        ByteMatchSetId: WAFResourceId;
-        Name: WAFResourceName;
-    }
-
-    export interface WAFByteMatchSetUpdate {
-        Action: WAFChangeAction;
-        ByteMatchTuple: WAFByteMatchTuple;
-    }
-
-    export type WAFByteMatchSetUpdates = Array<WAFByteMatchSetUpdate>;
-    export type WAFByteMatchTargetString = any; // not really - it was 'blob' instead - must fix this one
-    export interface WAFByteMatchTuple {
-        FieldToMatch: WAFFieldToMatch;
-        TargetString: WAFByteMatchTargetString;
-        TextTransformation: WAFTextTransformation;
-        PositionalConstraint: WAFPositionalConstraint;
-    }
-
-    export type WAFByteMatchTuples = Array<WAFByteMatchTuple>;
-    export type WAFChangeAction = string;
-    export type WAFChangeToken = string;
-    export type WAFChangeTokenStatus = string;
-    export type WAFCountry = string;
-    export interface WAFCreateByteMatchSetRequest {
-        Name: WAFResourceName;
-        ChangeToken: WAFChangeToken;
-    }
-
-    export interface WAFCreateByteMatchSetResponse {
-        ByteMatchSet?: WAFByteMatchSet;
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFCreateIPSetRequest {
-        Name: WAFResourceName;
-        ChangeToken: WAFChangeToken;
-    }
-
-    export interface WAFCreateIPSetResponse {
-        IPSet?: WAFIPSet;
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFCreateRuleRequest {
-        Name: WAFResourceName;
-        MetricName: WAFMetricName;
-        ChangeToken: WAFChangeToken;
-    }
-
-    export interface WAFCreateRuleResponse {
-        Rule?: WAFRule;
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFCreateSqlInjectionMatchSetRequest {
-        Name: WAFResourceName;
-        ChangeToken: WAFChangeToken;
-    }
-
-    export interface WAFCreateSqlInjectionMatchSetResponse {
-        SqlInjectionMatchSet?: WAFSqlInjectionMatchSet;
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFCreateWebACLRequest {
-        Name: WAFResourceName;
-        MetricName: WAFMetricName;
-        DefaultAction: WAFWafAction;
-        ChangeToken: WAFChangeToken;
-    }
-
-    export interface WAFCreateWebACLResponse {
-        WebACL?: WAFWebACL;
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFDeleteByteMatchSetRequest {
-        ByteMatchSetId: WAFResourceId;
-        ChangeToken: WAFChangeToken;
-    }
-
-    export interface WAFDeleteByteMatchSetResponse {
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFDeleteIPSetRequest {
-        IPSetId: WAFResourceId;
-        ChangeToken: WAFChangeToken;
-    }
-
-    export interface WAFDeleteIPSetResponse {
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFDeleteRuleRequest {
-        RuleId: WAFResourceId;
-        ChangeToken: WAFChangeToken;
-    }
-
-    export interface WAFDeleteRuleResponse {
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFDeleteSqlInjectionMatchSetRequest {
-        SqlInjectionMatchSetId: WAFResourceId;
-        ChangeToken: WAFChangeToken;
-    }
-
-    export interface WAFDeleteSqlInjectionMatchSetResponse {
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFDeleteWebACLRequest {
-        WebACLId: WAFResourceId;
-        ChangeToken: WAFChangeToken;
-    }
-
-    export interface WAFDeleteWebACLResponse {
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFFieldToMatch {
-        Type: WAFMatchFieldType;
-        Data?: WAFMatchFieldData;
-    }
-
-    export interface WAFGetByteMatchSetRequest {
-        ByteMatchSetId: WAFResourceId;
-    }
-
-    export interface WAFGetByteMatchSetResponse {
-        ByteMatchSet?: WAFByteMatchSet;
-    }
-
-    export interface WAFGetChangeTokenRequest {
-    }
-
-    export interface WAFGetChangeTokenResponse {
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFGetChangeTokenStatusRequest {
-        ChangeToken: WAFChangeToken;
-    }
-
-    export interface WAFGetChangeTokenStatusResponse {
-        ChangeTokenStatus?: WAFChangeTokenStatus;
-    }
-
-    export interface WAFGetIPSetRequest {
-        IPSetId: WAFResourceId;
-    }
-
-    export interface WAFGetIPSetResponse {
-        IPSet?: WAFIPSet;
-    }
-
-    export interface WAFGetRuleRequest {
-        RuleId: WAFResourceId;
-    }
-
-    export interface WAFGetRuleResponse {
-        Rule?: WAFRule;
-    }
-
-    export interface WAFGetSampledRequestsRequest {
-        WebAclId: WAFResourceId;
-        RuleId: WAFResourceId;
-        TimeWindow: WAFTimeWindow;
-        MaxItems: WAFListMaxItems;
-    }
-
-    export interface WAFGetSampledRequestsResponse {
-        SampledRequests?: WAFSampledHTTPRequests;
-        PopulationSize?: WAFPopulationSize;
-        TimeWindow?: WAFTimeWindow;
-    }
-
-    export interface WAFGetSqlInjectionMatchSetRequest {
-        SqlInjectionMatchSetId: WAFResourceId;
-    }
-
-    export interface WAFGetSqlInjectionMatchSetResponse {
-        SqlInjectionMatchSet?: WAFSqlInjectionMatchSet;
-    }
-
-    export interface WAFGetWebACLRequest {
-        WebACLId: WAFResourceId;
-    }
-
-    export interface WAFGetWebACLResponse {
-        WebACL?: WAFWebACL;
-    }
-
-    export interface WAFHTTPHeader {
-        Name?: WAFHeaderName;
-        Value?: WAFHeaderValue;
-    }
-
-    export type WAFHTTPHeaders = Array<WAFHTTPHeader>;
-    export type WAFHTTPMethod = string;
-    export interface WAFHTTPRequest {
-        ClientIP?: WAFIPString;
-        Country?: WAFCountry;
-        URI?: WAFURIString;
-        Method?: WAFHTTPMethod;
-        HTTPVersion?: WAFHTTPVersion;
-        Headers?: WAFHTTPHeaders;
-    }
-
-    export type WAFHTTPVersion = string;
-    export type WAFHeaderName = string;
-    export type WAFHeaderValue = string;
-    export interface WAFIPSet {
-        IPSetId: WAFResourceId;
-        Name?: WAFResourceName;
-        IPSetDescriptors: WAFIPSetDescriptors;
-    }
-
-    export interface WAFIPSetDescriptor {
-        Type: WAFIPSetDescriptorType;
-        Value: WAFIPSetDescriptorValue;
-    }
+      createByteMatchSet(params: WAF.CreateByteMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.CreateByteMatchSetResponse|any) => void): Request;
+      createIPSet(params: WAF.CreateIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateIPSetResponse|any) => void): Request;
+      createRule(params: WAF.CreateRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateRuleResponse|any) => void): Request;
+      createSqlInjectionMatchSet(params: WAF.CreateSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.CreateSqlInjectionMatchSetResponse|any) => void): Request;
+      createWebACL(params: WAF.CreateWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateWebACLResponse|any) => void): Request;
+      deleteByteMatchSet(params: WAF.DeleteByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteByteMatchSetResponse|any) => void): Request;
+      deleteIPSet(params: WAF.DeleteIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteIPSetResponse|any) => void): Request;
+      deleteRule(params: WAF.DeleteRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteRuleResponse|any) => void): Request;
+      deleteSqlInjectionMatchSet(params: WAF.DeleteSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteSqlInjectionMatchSetResponse|any) => void): Request;
+      deleteWebACL(params: WAF.DeleteWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteWebACLResponse|any) => void): Request;
+      getByteMatchSet(params: WAF.GetByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetByteMatchSetResponse|any) => void): Request;
+      getChangeToken(params: WAF.GetChangeTokenRequest, callback?: (err: WAF.WAFInternalErrorException|any, data: WAF.GetChangeTokenResponse|any) => void): Request;
+      getChangeTokenStatus(params: WAF.GetChangeTokenStatusRequest, callback?: (err: WAF.WAFNonexistentItemException|WAF.WAFInternalErrorException|any, data: WAF.GetChangeTokenStatusResponse|any) => void): Request;
+      getIPSet(params: WAF.GetIPSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetIPSetResponse|any) => void): Request;
+      getRule(params: WAF.GetRuleRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetRuleResponse|any) => void): Request;
+      getSampledRequests(params: WAF.GetSampledRequestsRequest, callback?: (err: WAF.WAFNonexistentItemException|any, data: WAF.GetSampledRequestsResponse|any) => void): Request;
+      getSqlInjectionMatchSet(params: WAF.GetSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetSqlInjectionMatchSetResponse|any) => void): Request;
+      getWebACL(params: WAF.GetWebACLRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetWebACLResponse|any) => void): Request;
+      listByteMatchSets(params: WAF.ListByteMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListByteMatchSetsResponse|any) => void): Request;
+      listIPSets(params: WAF.ListIPSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListIPSetsResponse|any) => void): Request;
+      listRules(params: WAF.ListRulesRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListRulesResponse|any) => void): Request;
+      listSqlInjectionMatchSets(params: WAF.ListSqlInjectionMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListSqlInjectionMatchSetsResponse|any) => void): Request;
+      listWebACLs(params: WAF.ListWebACLsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListWebACLsResponse|any) => void): Request;
+      updateByteMatchSet(params: WAF.UpdateByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateByteMatchSetResponse|any) => void): Request;
+      updateIPSet(params: WAF.UpdateIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateIPSetResponse|any) => void): Request;
+      updateRule(params: WAF.UpdateRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateRuleResponse|any) => void): Request;
+      updateSqlInjectionMatchSet(params: WAF.UpdateSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateSqlInjectionMatchSetResponse|any) => void): Request;
+      updateWebACL(params: WAF.UpdateWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateWebACLResponse|any) => void): Request;
+    }
+    
+    export module WAF {
+        export type Action = string;
+        export type ActivatedRules = ActivatedRule[];
+        export type ByteMatchSetSummaries = ByteMatchSetSummary[];
+        export type ByteMatchSetUpdates = ByteMatchSetUpdate[];
+        export type ByteMatchTargetString = any;    // type: blob
+        export type ByteMatchTuples = ByteMatchTuple[];
+        export type ChangeAction = string;
+        export type ChangeToken = string;
+        export type ChangeTokenStatus = string;
+        export type Country = string;
+        export type HTTPHeaders = HTTPHeader[];
+        export type HTTPMethod = string;
+        export type HTTPVersion = string;
+        export type HeaderName = string;
+        export type HeaderValue = string;
+        export type IPSetDescriptorType = string;
+        export type IPSetDescriptorValue = string;
+        export type IPSetDescriptors = IPSetDescriptor[];
+        export type IPSetSummaries = IPSetSummary[];
+        export type IPSetUpdates = IPSetUpdate[];
+        export type IPString = string;
+        export type ListMaxItems = number;    // max: 100, min: 1
+        export type MatchFieldData = string;
+        export type MatchFieldType = string;
+        export type MetricName = string;
+        export type Negated = boolean;
+        export type NextMarker = string;    // min: 1
+        export type PaginationLimit = number;    // max: 100, min: 1
+        export type ParameterExceptionField = string;
+        export type ParameterExceptionParameter = string;    // min: 1
+        export type PopulationSize = number;
+        export type PositionalConstraint = string;
+        export type PredicateDataId = string;
+        export type PredicateType = string;
+        export type Predicates = Predicate[];
+        export type ResourceId = string;    // max: 128, min: 1
+        export type ResourceName = string;    // max: 128, min: 1
+        export type RulePriority = number;
+        export type RuleSummaries = RuleSummary[];
+        export type RuleUpdates = RuleUpdate[];
+        export type SampleWeight = number;
+        export type SampledHTTPRequests = SampledHTTPRequest[];
+        export type SqlInjectionMatchSetSummaries = SqlInjectionMatchSetSummary[];
+        export type SqlInjectionMatchSetUpdates = SqlInjectionMatchSetUpdate[];
+        export type SqlInjectionMatchTuples = SqlInjectionMatchTuple[];
+        export type TextTransformation = string;
+        export type Timestamp = number;
+        export type URIString = string;
+        export type WafActionType = string;
+        export type WebACLSummaries = WebACLSummary[];
+        export type WebACLUpdates = WebACLUpdate[];
+        export type errorMessage = string;
+
+        export interface ActivatedRule {
+            Priority: RulePriority;            
+            RuleId: ResourceId;            
+            Action: WafAction;            
+        }
+        export interface ByteMatchSet {
+            ByteMatchSetId: ResourceId;            
+            Name?: ResourceName;            
+            ByteMatchTuples: ByteMatchTuples;            
+        }
+        export interface ByteMatchSetSummary {
+            ByteMatchSetId: ResourceId;            
+            Name: ResourceName;            
+        }
+        export interface ByteMatchSetUpdate {
+            Action: ChangeAction;            
+            ByteMatchTuple: ByteMatchTuple;            
+        }
+        export interface ByteMatchTuple {
+            FieldToMatch: FieldToMatch;            
+            TargetString: ByteMatchTargetString;            
+            TextTransformation: TextTransformation;            
+            PositionalConstraint: PositionalConstraint;            
+        }
+        export interface CreateByteMatchSetRequest {
+            Name: ResourceName;            
+            ChangeToken: ChangeToken;            
+        }
+        export interface CreateByteMatchSetResponse {
+            ByteMatchSet?: ByteMatchSet;            
+            ChangeToken?: ChangeToken;            
+        }
+        export interface CreateIPSetRequest {
+            Name: ResourceName;            
+            ChangeToken: ChangeToken;            
+        }
+        export interface CreateIPSetResponse {
+            IPSet?: IPSet;            
+            ChangeToken?: ChangeToken;            
+        }
+        export interface CreateRuleRequest {
+            Name: ResourceName;            
+            MetricName: MetricName;            
+            ChangeToken: ChangeToken;            
+        }
+        export interface CreateRuleResponse {
+            Rule?: Rule;            
+            ChangeToken?: ChangeToken;            
+        }
+        export interface CreateSqlInjectionMatchSetRequest {
+            Name: ResourceName;            
+            ChangeToken: ChangeToken;            
+        }
+        export interface CreateSqlInjectionMatchSetResponse {
+            SqlInjectionMatchSet?: SqlInjectionMatchSet;            
+            ChangeToken?: ChangeToken;            
+        }
+        export interface CreateWebACLRequest {
+            Name: ResourceName;            
+            MetricName: MetricName;            
+            DefaultAction: WafAction;            
+            ChangeToken: ChangeToken;            
+        }
+        export interface CreateWebACLResponse {
+            WebACL?: WebACL;            
+            ChangeToken?: ChangeToken;            
+        }
+        export interface DeleteByteMatchSetRequest {
+            ByteMatchSetId: ResourceId;            
+            ChangeToken: ChangeToken;            
+        }
+        export interface DeleteByteMatchSetResponse {
+            ChangeToken?: ChangeToken;            
+        }
+        export interface DeleteIPSetRequest {
+            IPSetId: ResourceId;            
+            ChangeToken: ChangeToken;            
+        }
+        export interface DeleteIPSetResponse {
+            ChangeToken?: ChangeToken;            
+        }
+        export interface DeleteRuleRequest {
+            RuleId: ResourceId;            
+            ChangeToken: ChangeToken;            
+        }
+        export interface DeleteRuleResponse {
+            ChangeToken?: ChangeToken;            
+        }
+        export interface DeleteSqlInjectionMatchSetRequest {
+            SqlInjectionMatchSetId: ResourceId;            
+            ChangeToken: ChangeToken;            
+        }
+        export interface DeleteSqlInjectionMatchSetResponse {
+            ChangeToken?: ChangeToken;            
+        }
+        export interface DeleteWebACLRequest {
+            WebACLId: ResourceId;            
+            ChangeToken: ChangeToken;            
+        }
+        export interface DeleteWebACLResponse {
+            ChangeToken?: ChangeToken;            
+        }
+        export interface FieldToMatch {
+            Type: MatchFieldType;            
+            Data?: MatchFieldData;            
+        }
+        export interface GetByteMatchSetRequest {
+            ByteMatchSetId: ResourceId;            
+        }
+        export interface GetByteMatchSetResponse {
+            ByteMatchSet?: ByteMatchSet;            
+        }
+        export interface GetChangeTokenRequest {
+        }
+        export interface GetChangeTokenResponse {
+            ChangeToken?: ChangeToken;            
+        }
+        export interface GetChangeTokenStatusRequest {
+            ChangeToken: ChangeToken;            
+        }
+        export interface GetChangeTokenStatusResponse {
+            ChangeTokenStatus?: ChangeTokenStatus;            
+        }
+        export interface GetIPSetRequest {
+            IPSetId: ResourceId;            
+        }
+        export interface GetIPSetResponse {
+            IPSet?: IPSet;            
+        }
+        export interface GetRuleRequest {
+            RuleId: ResourceId;            
+        }
+        export interface GetRuleResponse {
+            Rule?: Rule;            
+        }
+        export interface GetSampledRequestsRequest {
+            WebAclId: ResourceId;            
+            RuleId: ResourceId;            
+            TimeWindow: TimeWindow;            
+            MaxItems: ListMaxItems;            
+        }
+        export interface GetSampledRequestsResponse {
+            SampledRequests?: SampledHTTPRequests;            
+            PopulationSize?: PopulationSize;            
+            TimeWindow?: TimeWindow;            
+        }
+        export interface GetSqlInjectionMatchSetRequest {
+            SqlInjectionMatchSetId: ResourceId;            
+        }
+        export interface GetSqlInjectionMatchSetResponse {
+            SqlInjectionMatchSet?: SqlInjectionMatchSet;            
+        }
+        export interface GetWebACLRequest {
+            WebACLId: ResourceId;            
+        }
+        export interface GetWebACLResponse {
+            WebACL?: WebACL;            
+        }
+        export interface HTTPHeader {
+            Name?: HeaderName;            
+            Value?: HeaderValue;            
+        }
+        export interface HTTPRequest {
+            ClientIP?: IPString;            
+            Country?: Country;            
+            URI?: URIString;            
+            Method?: HTTPMethod;            
+            HTTPVersion?: HTTPVersion;            
+            Headers?: HTTPHeaders;            
+        }
+        export interface IPSet {
+            IPSetId: ResourceId;            
+            Name?: ResourceName;            
+            IPSetDescriptors: IPSetDescriptors;            
+        }
+        export interface IPSetDescriptor {
+            Type: IPSetDescriptorType;            
+            Value: IPSetDescriptorValue;            
+        }
+        export interface IPSetSummary {
+            IPSetId: ResourceId;            
+            Name: ResourceName;            
+        }
+        export interface IPSetUpdate {
+            Action: ChangeAction;            
+            IPSetDescriptor: IPSetDescriptor;            
+        }
+        export interface ListByteMatchSetsRequest {
+            NextMarker?: NextMarker;            
+            Limit: PaginationLimit;            
+        }
+        export interface ListByteMatchSetsResponse {
+            NextMarker?: NextMarker;            
+            ByteMatchSets?: ByteMatchSetSummaries;            
+        }
+        export interface ListIPSetsRequest {
+            NextMarker?: NextMarker;            
+            Limit: PaginationLimit;            
+        }
+        export interface ListIPSetsResponse {
+            NextMarker?: NextMarker;            
+            IPSets?: IPSetSummaries;            
+        }
+        export interface ListRulesRequest {
+            NextMarker?: NextMarker;            
+            Limit: PaginationLimit;            
+        }
+        export interface ListRulesResponse {
+            NextMarker?: NextMarker;            
+            Rules?: RuleSummaries;            
+        }
+        export interface ListSqlInjectionMatchSetsRequest {
+            NextMarker?: NextMarker;            
+            Limit: PaginationLimit;            
+        }
+        export interface ListSqlInjectionMatchSetsResponse {
+            NextMarker?: NextMarker;            
+            SqlInjectionMatchSets?: SqlInjectionMatchSetSummaries;            
+        }
+        export interface ListWebACLsRequest {
+            NextMarker?: NextMarker;            
+            Limit: PaginationLimit;            
+        }
+        export interface ListWebACLsResponse {
+            NextMarker?: NextMarker;            
+            WebACLs?: WebACLSummaries;            
+        }
+        export interface Predicate {
+            Negated: Negated;            
+            Type: PredicateType;            
+            DataId: PredicateDataId;            
+        }
+        export interface Rule {
+            RuleId: ResourceId;            
+            Name?: ResourceName;            
+            MetricName?: MetricName;            
+            Predicates: Predicates;            
+        }
+        export interface RuleSummary {
+            RuleId: ResourceId;            
+            Name: ResourceName;            
+        }
+        export interface RuleUpdate {
+            Action: ChangeAction;            
+            Predicate: Predicate;            
+        }
+        export interface SampledHTTPRequest {
+            Request: HTTPRequest;            
+            Weight: SampleWeight;            
+            Timestamp?: Timestamp;            
+            Action?: Action;            
+        }
+        export interface SqlInjectionMatchSet {
+            SqlInjectionMatchSetId: ResourceId;            
+            Name?: ResourceName;            
+            SqlInjectionMatchTuples: SqlInjectionMatchTuples;            
+        }
+        export interface SqlInjectionMatchSetSummary {
+            SqlInjectionMatchSetId: ResourceId;            
+            Name: ResourceName;            
+        }
+        export interface SqlInjectionMatchSetUpdate {
+            Action: ChangeAction;            
+            SqlInjectionMatchTuple: SqlInjectionMatchTuple;            
+        }
+        export interface SqlInjectionMatchTuple {
+            FieldToMatch: FieldToMatch;            
+            TextTransformation: TextTransformation;            
+        }
+        export interface TimeWindow {
+            StartTime: Timestamp;            
+            EndTime: Timestamp;            
+        }
+        export interface UpdateByteMatchSetRequest {
+            ByteMatchSetId: ResourceId;            
+            ChangeToken: ChangeToken;            
+            Updates: ByteMatchSetUpdates;            
+        }
+        export interface UpdateByteMatchSetResponse {
+            ChangeToken?: ChangeToken;            
+        }
+        export interface UpdateIPSetRequest {
+            IPSetId: ResourceId;            
+            ChangeToken: ChangeToken;            
+            Updates: IPSetUpdates;            
+        }
+        export interface UpdateIPSetResponse {
+            ChangeToken?: ChangeToken;            
+        }
+        export interface UpdateRuleRequest {
+            RuleId: ResourceId;            
+            ChangeToken: ChangeToken;            
+            Updates: RuleUpdates;            
+        }
+        export interface UpdateRuleResponse {
+            ChangeToken?: ChangeToken;            
+        }
+        export interface UpdateSqlInjectionMatchSetRequest {
+            SqlInjectionMatchSetId: ResourceId;            
+            ChangeToken: ChangeToken;            
+            Updates: SqlInjectionMatchSetUpdates;            
+        }
+        export interface UpdateSqlInjectionMatchSetResponse {
+            ChangeToken?: ChangeToken;            
+        }
+        export interface UpdateWebACLRequest {
+            WebACLId: ResourceId;            
+            ChangeToken: ChangeToken;            
+            Updates?: WebACLUpdates;            
+            DefaultAction?: WafAction;            
+        }
+        export interface UpdateWebACLResponse {
+            ChangeToken?: ChangeToken;            
+        }
+        export interface WAFDisallowedNameException {
+            message?: errorMessage;            
+        }
+        export interface WAFInternalErrorException {
+            message?: errorMessage;            
+        }
+        export interface WAFInvalidAccountException {
+        }
+        export interface WAFInvalidOperationException {
+            message?: errorMessage;            
+        }
+        export interface WAFInvalidParameterException {
+            field?: ParameterExceptionField;            
+            parameter?: ParameterExceptionParameter;            
+        }
+        export interface WAFLimitsExceededException {
+            message?: errorMessage;            
+        }
+        export interface WAFNonEmptyEntityException {
+            message?: errorMessage;            
+        }
+        export interface WAFNonexistentContainerException {
+            message?: errorMessage;            
+        }
+        export interface WAFNonexistentItemException {
+            message?: errorMessage;            
+        }
+        export interface WAFReferencedItemException {
+            message?: errorMessage;            
+        }
+        export interface WAFStaleDataException {
+            message?: errorMessage;            
+        }
+        export interface WafAction {
+            Type: WafActionType;            
+        }
+        export interface WebACL {
+            WebACLId: ResourceId;            
+            Name?: ResourceName;            
+            MetricName?: MetricName;            
+            DefaultAction: WafAction;            
+            Rules: ActivatedRules;            
+        }
+        export interface WebACLSummary {
+            WebACLId: ResourceId;            
+            Name: ResourceName;            
+        }
+        export interface WebACLUpdate {
+            Action: ChangeAction;            
+            ActivatedRule: ActivatedRule;            
+        }
 
-    export type WAFIPSetDescriptorType = string;
-    export type WAFIPSetDescriptorValue = string;
-    export type WAFIPSetDescriptors = Array<WAFIPSetDescriptor>;
-    export type WAFIPSetSummaries = Array<WAFIPSetSummary>;
-    export interface WAFIPSetSummary {
-        IPSetId: WAFResourceId;
-        Name: WAFResourceName;
     }
-
-    export interface WAFIPSetUpdate {
-        Action: WAFChangeAction;
-        IPSetDescriptor: WAFIPSetDescriptor;
-    }
-
-    export type WAFIPSetUpdates = Array<WAFIPSetUpdate>;
-    export type WAFIPString = string;
-    export interface WAFListByteMatchSetsRequest {
-        NextMarker?: WAFNextMarker;
-        Limit: WAFPaginationLimit;
-    }
-
-    export interface WAFListByteMatchSetsResponse {
-        NextMarker?: WAFNextMarker;
-        ByteMatchSets?: WAFByteMatchSetSummaries;
-    }
-
-    export interface WAFListIPSetsRequest {
-        NextMarker?: WAFNextMarker;
-        Limit: WAFPaginationLimit;
-    }
-
-    export interface WAFListIPSetsResponse {
-        NextMarker?: WAFNextMarker;
-        IPSets?: WAFIPSetSummaries;
-    }
-
-    export type WAFListMaxItems = number;
-    export interface WAFListRulesRequest {
-        NextMarker?: WAFNextMarker;
-        Limit: WAFPaginationLimit;
-    }
-
-    export interface WAFListRulesResponse {
-        NextMarker?: WAFNextMarker;
-        Rules?: WAFRuleSummaries;
-    }
-
-    export interface WAFListSqlInjectionMatchSetsRequest {
-        NextMarker?: WAFNextMarker;
-        Limit: WAFPaginationLimit;
-    }
-
-    export interface WAFListSqlInjectionMatchSetsResponse {
-        NextMarker?: WAFNextMarker;
-        SqlInjectionMatchSets?: WAFSqlInjectionMatchSetSummaries;
-    }
-
-    export interface WAFListWebACLsRequest {
-        NextMarker?: WAFNextMarker;
-        Limit: WAFPaginationLimit;
-    }
-
-    export interface WAFListWebACLsResponse {
-        NextMarker?: WAFNextMarker;
-        WebACLs?: WAFWebACLSummaries;
-    }
-
-    export type WAFMatchFieldData = string;
-    export type WAFMatchFieldType = string;
-    export type WAFMetricName = string;
-    export type WAFNegated = boolean;
-    export type WAFNextMarker = string;
-    export type WAFPaginationLimit = number;
-    export type WAFParameterExceptionField = string;
-    export type WAFParameterExceptionParameter = string;
-    export type WAFPopulationSize = number;
-    export type WAFPositionalConstraint = string;
-    export interface WAFPredicate {
-        Negated: WAFNegated;
-        Type: WAFPredicateType;
-        DataId: WAFPredicateDataId;
-    }
-
-    export type WAFPredicateDataId = string;
-    export type WAFPredicateType = string;
-    export type WAFPredicates = Array<WAFPredicate>;
-    export type WAFResourceId = string;
-    export type WAFResourceName = string;
-    export interface WAFRule {
-        RuleId: WAFResourceId;
-        Name?: WAFResourceName;
-        MetricName?: WAFMetricName;
-        Predicates: WAFPredicates;
-    }
-
-    export type WAFRulePriority = number;
-    export type WAFRuleSummaries = Array<WAFRuleSummary>;
-    export interface WAFRuleSummary {
-        RuleId: WAFResourceId;
-        Name: WAFResourceName;
-    }
-
-    export interface WAFRuleUpdate {
-        Action: WAFChangeAction;
-        Predicate: WAFPredicate;
-    }
-
-    export type WAFRuleUpdates = Array<WAFRuleUpdate>;
-    export type WAFSampleWeight = number;
-    export interface WAFSampledHTTPRequest {
-        Request: WAFHTTPRequest;
-        Weight: WAFSampleWeight;
-        Timestamp?: WAFTimestamp;
-        Action?: WAFAction;
-    }
-
-    export type WAFSampledHTTPRequests = Array<WAFSampledHTTPRequest>;
-    export interface WAFSqlInjectionMatchSet {
-        SqlInjectionMatchSetId: WAFResourceId;
-        Name?: WAFResourceName;
-        SqlInjectionMatchTuples: WAFSqlInjectionMatchTuples;
-    }
-
-    export type WAFSqlInjectionMatchSetSummaries = Array<WAFSqlInjectionMatchSetSummary>;
-    export interface WAFSqlInjectionMatchSetSummary {
-        SqlInjectionMatchSetId: WAFResourceId;
-        Name: WAFResourceName;
-    }
-
-    export interface WAFSqlInjectionMatchSetUpdate {
-        Action: WAFChangeAction;
-        SqlInjectionMatchTuple: WAFSqlInjectionMatchTuple;
-    }
-
-    export type WAFSqlInjectionMatchSetUpdates = Array<WAFSqlInjectionMatchSetUpdate>;
-    export interface WAFSqlInjectionMatchTuple {
-        FieldToMatch: WAFFieldToMatch;
-        TextTransformation: WAFTextTransformation;
-    }
-
-    export type WAFSqlInjectionMatchTuples = Array<WAFSqlInjectionMatchTuple>;
-    export type WAFTextTransformation = string;
-    export interface WAFTimeWindow {
-        StartTime: WAFTimestamp;
-        EndTime: WAFTimestamp;
-    }
-
-    export type WAFTimestamp = number;
-    export type WAFURIString = string;
-    export interface WAFUpdateByteMatchSetRequest {
-        ByteMatchSetId: WAFResourceId;
-        ChangeToken: WAFChangeToken;
-        Updates: WAFByteMatchSetUpdates;
-    }
-
-    export interface WAFUpdateByteMatchSetResponse {
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFUpdateIPSetRequest {
-        IPSetId: WAFResourceId;
-        ChangeToken: WAFChangeToken;
-        Updates: WAFIPSetUpdates;
-    }
-
-    export interface WAFUpdateIPSetResponse {
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFUpdateRuleRequest {
-        RuleId: WAFResourceId;
-        ChangeToken: WAFChangeToken;
-        Updates: WAFRuleUpdates;
-    }
-
-    export interface WAFUpdateRuleResponse {
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFUpdateSqlInjectionMatchSetRequest {
-        SqlInjectionMatchSetId: WAFResourceId;
-        ChangeToken: WAFChangeToken;
-        Updates: WAFSqlInjectionMatchSetUpdates;
-    }
-
-    export interface WAFUpdateSqlInjectionMatchSetResponse {
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFUpdateWebACLRequest {
-        WebACLId: WAFResourceId;
-        ChangeToken: WAFChangeToken;
-        Updates?: WAFWebACLUpdates;
-        DefaultAction?: WAFWafAction;
-    }
-
-    export interface WAFUpdateWebACLResponse {
-        ChangeToken?: WAFChangeToken;
-    }
-
-    export interface WAFWAFDisallowedNameException {
-        message?: WAFerrorMessage;
-    }
-
-    export interface WAFWAFInternalErrorException {
-        message?: WAFerrorMessage;
-    }
-
-    export interface WAFWAFInvalidAccountException {
-    }
-
-    export interface WAFWAFInvalidOperationException {
-        message?: WAFerrorMessage;
-    }
-
-    export interface WAFWAFInvalidParameterException {
-        field?: WAFParameterExceptionField;
-        parameter?: WAFParameterExceptionParameter;
-    }
-
-    export interface WAFWAFLimitsExceededException {
-        message?: WAFerrorMessage;
-    }
-
-    export interface WAFWAFNonEmptyEntityException {
-        message?: WAFerrorMessage;
-    }
-
-    export interface WAFWAFNonexistentContainerException {
-        message?: WAFerrorMessage;
-    }
-
-    export interface WAFWAFNonexistentItemException {
-        message?: WAFerrorMessage;
-    }
-
-    export interface WAFWAFReferencedItemException {
-        message?: WAFerrorMessage;
-    }
-
-    export interface WAFWAFStaleDataException {
-        message?: WAFerrorMessage;
-    }
-
-    export interface WAFWafAction {
-        Type: WAFWafActionType;
-    }
-
-    export type WAFWafActionType = string;
-    export interface WAFWebACL {
-        WebACLId: WAFResourceId;
-        Name?: WAFResourceName;
-        MetricName?: WAFMetricName;
-        DefaultAction: WAFWafAction;
-        Rules: WAFActivatedRules;
-    }
-
-    export type WAFWebACLSummaries = Array<WAFWebACLSummary>;
-    export interface WAFWebACLSummary {
-        WebACLId: WAFResourceId;
-        Name: WAFResourceName;
-    }
-
-    export interface WAFWebACLUpdate {
-        Action: WAFChangeAction;
-        ActivatedRule: WAFActivatedRule;
-    }
-
-    export type WAFWebACLUpdates = Array<WAFWebACLUpdate>;
-    export type WAFerrorMessage = string;
 }

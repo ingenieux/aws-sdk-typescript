@@ -6,281 +6,246 @@ declare module "aws-sdk" {
 
     export class DirectConnect extends Service {
       constructor(options?: any);
-      allocateConnectionOnInterconnect(params: DirectConnectAllocateConnectionOnInterconnectRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnection|any) => void): Request;
-      allocatePrivateVirtualInterface(params: DirectConnectAllocatePrivateVirtualInterfaceRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterface|any) => void): Request;
-      allocatePublicVirtualInterface(params: DirectConnectAllocatePublicVirtualInterfaceRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterface|any) => void): Request;
-      confirmConnection(params: DirectConnectConfirmConnectionRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConfirmConnectionResponse|any) => void): Request;
-      confirmPrivateVirtualInterface(params: DirectConnectConfirmPrivateVirtualInterfaceRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConfirmPrivateVirtualInterfaceResponse|any) => void): Request;
-      confirmPublicVirtualInterface(params: DirectConnectConfirmPublicVirtualInterfaceRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConfirmPublicVirtualInterfaceResponse|any) => void): Request;
-      createConnection(params: DirectConnectCreateConnectionRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnection|any) => void): Request;
-      createInterconnect(params: DirectConnectCreateInterconnectRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectInterconnect|any) => void): Request;
-      createPrivateVirtualInterface(params: DirectConnectCreatePrivateVirtualInterfaceRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterface|any) => void): Request;
-      createPublicVirtualInterface(params: DirectConnectCreatePublicVirtualInterfaceRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterface|any) => void): Request;
-      deleteConnection(params: DirectConnectDeleteConnectionRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnection|any) => void): Request;
-      deleteInterconnect(params: DirectConnectDeleteInterconnectRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectDeleteInterconnectResponse|any) => void): Request;
-      deleteVirtualInterface(params: DirectConnectDeleteVirtualInterfaceRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectDeleteVirtualInterfaceResponse|any) => void): Request;
-      describeConnections(params: DirectConnectDescribeConnectionsRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnections|any) => void): Request;
-      describeConnectionsOnInterconnect(params: DirectConnectDescribeConnectionsOnInterconnectRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectConnections|any) => void): Request;
-      describeInterconnects(params: DirectConnectDescribeInterconnectsRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectInterconnects|any) => void): Request;
-      describeLocations(callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectLocations|any) => void): Request;
-      describeVirtualGateways(callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualGateways|any) => void): Request;
-      describeVirtualInterfaces(params: DirectConnectDescribeVirtualInterfacesRequest, callback?: (err: DirectConnectDirectConnectServerException|DirectConnectDirectConnectClientException|any, data: DirectConnectVirtualInterfaces|any) => void): Request;
+      allocateConnectionOnInterconnect(params: DirectConnect.AllocateConnectionOnInterconnectRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connection|any) => void): Request;
+      allocatePrivateVirtualInterface(params: DirectConnect.AllocatePrivateVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterface|any) => void): Request;
+      allocatePublicVirtualInterface(params: DirectConnect.AllocatePublicVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterface|any) => void): Request;
+      confirmConnection(params: DirectConnect.ConfirmConnectionRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.ConfirmConnectionResponse|any) => void): Request;
+      confirmPrivateVirtualInterface(params: DirectConnect.ConfirmPrivateVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.ConfirmPrivateVirtualInterfaceResponse|any) => void): Request;
+      confirmPublicVirtualInterface(params: DirectConnect.ConfirmPublicVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.ConfirmPublicVirtualInterfaceResponse|any) => void): Request;
+      createConnection(params: DirectConnect.CreateConnectionRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connection|any) => void): Request;
+      createInterconnect(params: DirectConnect.CreateInterconnectRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Interconnect|any) => void): Request;
+      createPrivateVirtualInterface(params: DirectConnect.CreatePrivateVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterface|any) => void): Request;
+      createPublicVirtualInterface(params: DirectConnect.CreatePublicVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterface|any) => void): Request;
+      deleteConnection(params: DirectConnect.DeleteConnectionRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connection|any) => void): Request;
+      deleteInterconnect(params: DirectConnect.DeleteInterconnectRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.DeleteInterconnectResponse|any) => void): Request;
+      deleteVirtualInterface(params: DirectConnect.DeleteVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.DeleteVirtualInterfaceResponse|any) => void): Request;
+      describeConnections(params: DirectConnect.DescribeConnectionsRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connections|any) => void): Request;
+      describeConnectionsOnInterconnect(params: DirectConnect.DescribeConnectionsOnInterconnectRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connections|any) => void): Request;
+      describeInterconnects(params: DirectConnect.DescribeInterconnectsRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Interconnects|any) => void): Request;
+      describeLocations(callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Locations|any) => void): Request;
+      describeVirtualGateways(callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualGateways|any) => void): Request;
+      describeVirtualInterfaces(params: DirectConnect.DescribeVirtualInterfacesRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterfaces|any) => void): Request;
     }
+    
+    export module DirectConnect {
+        export type ASN = number;
+        export type AmazonAddress = string;
+        export type BGPAuthKey = string;
+        export type Bandwidth = string;
+        export type CIDR = string;
+        export type ConnectionId = string;
+        export type ConnectionList = Connection[];
+        export type ConnectionName = string;
+        export type ConnectionState = string;
+        export type CustomerAddress = string;
+        export type ErrorMessage = string;
+        export type InterconnectId = string;
+        export type InterconnectList = Interconnect[];
+        export type InterconnectName = string;
+        export type InterconnectState = string;
+        export type LocationCode = string;
+        export type LocationList = Location[];
+        export type LocationName = string;
+        export type OwnerAccount = string;
+        export type PartnerName = string;
+        export type Region = string;
+        export type RouteFilterPrefixList = RouteFilterPrefix[];
+        export type RouterConfig = string;
+        export type VLAN = number;
+        export type VirtualGatewayId = string;
+        export type VirtualGatewayList = VirtualGateway[];
+        export type VirtualGatewayState = string;
+        export type VirtualInterfaceId = string;
+        export type VirtualInterfaceList = VirtualInterface[];
+        export type VirtualInterfaceName = string;
+        export type VirtualInterfaceState = string;
+        export type VirtualInterfaceType = string;
 
-    export type DirectConnectASN = number;
-    export interface DirectConnectAllocateConnectionOnInterconnectRequest {
-        bandwidth: DirectConnectBandwidth;
-        connectionName: DirectConnectConnectionName;
-        ownerAccount: DirectConnectOwnerAccount;
-        interconnectId: DirectConnectInterconnectId;
-        vlan: DirectConnectVLAN;
+        export interface AllocateConnectionOnInterconnectRequest {
+            bandwidth: Bandwidth;            
+            connectionName: ConnectionName;            
+            ownerAccount: OwnerAccount;            
+            interconnectId: InterconnectId;            
+            vlan: VLAN;            
+        }
+        export interface AllocatePrivateVirtualInterfaceRequest {
+            connectionId: ConnectionId;            
+            ownerAccount: OwnerAccount;            
+            newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocation;            
+        }
+        export interface AllocatePublicVirtualInterfaceRequest {
+            connectionId: ConnectionId;            
+            ownerAccount: OwnerAccount;            
+            newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocation;            
+        }
+        export interface ConfirmConnectionRequest {
+            connectionId: ConnectionId;            
+        }
+        export interface ConfirmConnectionResponse {
+            connectionState?: ConnectionState;            
+        }
+        export interface ConfirmPrivateVirtualInterfaceRequest {
+            virtualInterfaceId: VirtualInterfaceId;            
+            virtualGatewayId: VirtualGatewayId;            
+        }
+        export interface ConfirmPrivateVirtualInterfaceResponse {
+            virtualInterfaceState?: VirtualInterfaceState;            
+        }
+        export interface ConfirmPublicVirtualInterfaceRequest {
+            virtualInterfaceId: VirtualInterfaceId;            
+        }
+        export interface ConfirmPublicVirtualInterfaceResponse {
+            virtualInterfaceState?: VirtualInterfaceState;            
+        }
+        export interface Connection {
+            ownerAccount?: OwnerAccount;            
+            connectionId?: ConnectionId;            
+            connectionName?: ConnectionName;            
+            connectionState?: ConnectionState;            
+            region?: Region;            
+            location?: LocationCode;            
+            bandwidth?: Bandwidth;            
+            vlan?: VLAN;            
+            partnerName?: PartnerName;            
+        }
+        export interface Connections {
+            connections?: ConnectionList;            
+        }
+        export interface CreateConnectionRequest {
+            location: LocationCode;            
+            bandwidth: Bandwidth;            
+            connectionName: ConnectionName;            
+        }
+        export interface CreateInterconnectRequest {
+            interconnectName: InterconnectName;            
+            bandwidth: Bandwidth;            
+            location: LocationCode;            
+        }
+        export interface CreatePrivateVirtualInterfaceRequest {
+            connectionId: ConnectionId;            
+            newPrivateVirtualInterface: NewPrivateVirtualInterface;            
+        }
+        export interface CreatePublicVirtualInterfaceRequest {
+            connectionId: ConnectionId;            
+            newPublicVirtualInterface: NewPublicVirtualInterface;            
+        }
+        export interface DeleteConnectionRequest {
+            connectionId: ConnectionId;            
+        }
+        export interface DeleteInterconnectRequest {
+            interconnectId: InterconnectId;            
+        }
+        export interface DeleteInterconnectResponse {
+            interconnectState?: InterconnectState;            
+        }
+        export interface DeleteVirtualInterfaceRequest {
+            virtualInterfaceId: VirtualInterfaceId;            
+        }
+        export interface DeleteVirtualInterfaceResponse {
+            virtualInterfaceState?: VirtualInterfaceState;            
+        }
+        export interface DescribeConnectionsOnInterconnectRequest {
+            interconnectId: InterconnectId;            
+        }
+        export interface DescribeConnectionsRequest {
+            connectionId?: ConnectionId;            
+        }
+        export interface DescribeInterconnectsRequest {
+            interconnectId?: InterconnectId;            
+        }
+        export interface DescribeVirtualInterfacesRequest {
+            connectionId?: ConnectionId;            
+            virtualInterfaceId?: VirtualInterfaceId;            
+        }
+        export interface DirectConnectClientException {
+            message?: ErrorMessage;            
+        }
+        export interface DirectConnectServerException {
+            message?: ErrorMessage;            
+        }
+        export interface Interconnect {
+            interconnectId?: InterconnectId;            
+            interconnectName?: InterconnectName;            
+            interconnectState?: InterconnectState;            
+            region?: Region;            
+            location?: LocationCode;            
+            bandwidth?: Bandwidth;            
+        }
+        export interface Interconnects {
+            interconnects?: InterconnectList;            
+        }
+        export interface Location {
+            locationCode?: LocationCode;            
+            locationName?: LocationName;            
+        }
+        export interface Locations {
+            locations?: LocationList;            
+        }
+        export interface NewPrivateVirtualInterface {
+            virtualInterfaceName: VirtualInterfaceName;            
+            vlan: VLAN;            
+            asn: ASN;            
+            authKey?: BGPAuthKey;            
+            amazonAddress?: AmazonAddress;            
+            customerAddress?: CustomerAddress;            
+            virtualGatewayId: VirtualGatewayId;            
+        }
+        export interface NewPrivateVirtualInterfaceAllocation {
+            virtualInterfaceName: VirtualInterfaceName;            
+            vlan: VLAN;            
+            asn: ASN;            
+            authKey?: BGPAuthKey;            
+            amazonAddress?: AmazonAddress;            
+            customerAddress?: CustomerAddress;            
+        }
+        export interface NewPublicVirtualInterface {
+            virtualInterfaceName: VirtualInterfaceName;            
+            vlan: VLAN;            
+            asn: ASN;            
+            authKey?: BGPAuthKey;            
+            amazonAddress: AmazonAddress;            
+            customerAddress: CustomerAddress;            
+            routeFilterPrefixes: RouteFilterPrefixList;            
+        }
+        export interface NewPublicVirtualInterfaceAllocation {
+            virtualInterfaceName: VirtualInterfaceName;            
+            vlan: VLAN;            
+            asn: ASN;            
+            authKey?: BGPAuthKey;            
+            amazonAddress: AmazonAddress;            
+            customerAddress: CustomerAddress;            
+            routeFilterPrefixes: RouteFilterPrefixList;            
+        }
+        export interface RouteFilterPrefix {
+            cidr?: CIDR;            
+        }
+        export interface VirtualGateway {
+            virtualGatewayId?: VirtualGatewayId;            
+            virtualGatewayState?: VirtualGatewayState;            
+        }
+        export interface VirtualGateways {
+            virtualGateways?: VirtualGatewayList;            
+        }
+        export interface VirtualInterface {
+            ownerAccount?: OwnerAccount;            
+            virtualInterfaceId?: VirtualInterfaceId;            
+            location?: LocationCode;            
+            connectionId?: ConnectionId;            
+            virtualInterfaceType?: VirtualInterfaceType;            
+            virtualInterfaceName?: VirtualInterfaceName;            
+            vlan?: VLAN;            
+            asn?: ASN;            
+            authKey?: BGPAuthKey;            
+            amazonAddress?: AmazonAddress;            
+            customerAddress?: CustomerAddress;            
+            virtualInterfaceState?: VirtualInterfaceState;            
+            customerRouterConfig?: RouterConfig;            
+            virtualGatewayId?: VirtualGatewayId;            
+            routeFilterPrefixes?: RouteFilterPrefixList;            
+        }
+        export interface VirtualInterfaces {
+            virtualInterfaces?: VirtualInterfaceList;            
+        }
+
     }
-
-    export interface DirectConnectAllocatePrivateVirtualInterfaceRequest {
-        connectionId: DirectConnectConnectionId;
-        ownerAccount: DirectConnectOwnerAccount;
-        newPrivateVirtualInterfaceAllocation: DirectConnectNewPrivateVirtualInterfaceAllocation;
-    }
-
-    export interface DirectConnectAllocatePublicVirtualInterfaceRequest {
-        connectionId: DirectConnectConnectionId;
-        ownerAccount: DirectConnectOwnerAccount;
-        newPublicVirtualInterfaceAllocation: DirectConnectNewPublicVirtualInterfaceAllocation;
-    }
-
-    export type DirectConnectAmazonAddress = string;
-    export type DirectConnectBGPAuthKey = string;
-    export type DirectConnectBandwidth = string;
-    export type DirectConnectCIDR = string;
-    export interface DirectConnectConfirmConnectionRequest {
-        connectionId: DirectConnectConnectionId;
-    }
-
-    export interface DirectConnectConfirmConnectionResponse {
-        connectionState?: DirectConnectConnectionState;
-    }
-
-    export interface DirectConnectConfirmPrivateVirtualInterfaceRequest {
-        virtualInterfaceId: DirectConnectVirtualInterfaceId;
-        virtualGatewayId: DirectConnectVirtualGatewayId;
-    }
-
-    export interface DirectConnectConfirmPrivateVirtualInterfaceResponse {
-        virtualInterfaceState?: DirectConnectVirtualInterfaceState;
-    }
-
-    export interface DirectConnectConfirmPublicVirtualInterfaceRequest {
-        virtualInterfaceId: DirectConnectVirtualInterfaceId;
-    }
-
-    export interface DirectConnectConfirmPublicVirtualInterfaceResponse {
-        virtualInterfaceState?: DirectConnectVirtualInterfaceState;
-    }
-
-    export interface DirectConnectConnection {
-        ownerAccount?: DirectConnectOwnerAccount;
-        connectionId?: DirectConnectConnectionId;
-        connectionName?: DirectConnectConnectionName;
-        connectionState?: DirectConnectConnectionState;
-        region?: DirectConnectRegion;
-        location?: DirectConnectLocationCode;
-        bandwidth?: DirectConnectBandwidth;
-        vlan?: DirectConnectVLAN;
-        partnerName?: DirectConnectPartnerName;
-    }
-
-    export type DirectConnectConnectionId = string;
-    export type DirectConnectConnectionList = Array<DirectConnectConnection>;
-    export type DirectConnectConnectionName = string;
-    export type DirectConnectConnectionState = string;
-    export interface DirectConnectConnections {
-        connections?: DirectConnectConnectionList;
-    }
-
-    export interface DirectConnectCreateConnectionRequest {
-        location: DirectConnectLocationCode;
-        bandwidth: DirectConnectBandwidth;
-        connectionName: DirectConnectConnectionName;
-    }
-
-    export interface DirectConnectCreateInterconnectRequest {
-        interconnectName: DirectConnectInterconnectName;
-        bandwidth: DirectConnectBandwidth;
-        location: DirectConnectLocationCode;
-    }
-
-    export interface DirectConnectCreatePrivateVirtualInterfaceRequest {
-        connectionId: DirectConnectConnectionId;
-        newPrivateVirtualInterface: DirectConnectNewPrivateVirtualInterface;
-    }
-
-    export interface DirectConnectCreatePublicVirtualInterfaceRequest {
-        connectionId: DirectConnectConnectionId;
-        newPublicVirtualInterface: DirectConnectNewPublicVirtualInterface;
-    }
-
-    export type DirectConnectCustomerAddress = string;
-    export interface DirectConnectDeleteConnectionRequest {
-        connectionId: DirectConnectConnectionId;
-    }
-
-    export interface DirectConnectDeleteInterconnectRequest {
-        interconnectId: DirectConnectInterconnectId;
-    }
-
-    export interface DirectConnectDeleteInterconnectResponse {
-        interconnectState?: DirectConnectInterconnectState;
-    }
-
-    export interface DirectConnectDeleteVirtualInterfaceRequest {
-        virtualInterfaceId: DirectConnectVirtualInterfaceId;
-    }
-
-    export interface DirectConnectDeleteVirtualInterfaceResponse {
-        virtualInterfaceState?: DirectConnectVirtualInterfaceState;
-    }
-
-    export interface DirectConnectDescribeConnectionsOnInterconnectRequest {
-        interconnectId: DirectConnectInterconnectId;
-    }
-
-    export interface DirectConnectDescribeConnectionsRequest {
-        connectionId?: DirectConnectConnectionId;
-    }
-
-    export interface DirectConnectDescribeInterconnectsRequest {
-        interconnectId?: DirectConnectInterconnectId;
-    }
-
-    export interface DirectConnectDescribeVirtualInterfacesRequest {
-        connectionId?: DirectConnectConnectionId;
-        virtualInterfaceId?: DirectConnectVirtualInterfaceId;
-    }
-
-    export interface DirectConnectDirectConnectClientException {
-        message?: DirectConnectErrorMessage;
-    }
-
-    export interface DirectConnectDirectConnectServerException {
-        message?: DirectConnectErrorMessage;
-    }
-
-    export type DirectConnectErrorMessage = string;
-    export interface DirectConnectInterconnect {
-        interconnectId?: DirectConnectInterconnectId;
-        interconnectName?: DirectConnectInterconnectName;
-        interconnectState?: DirectConnectInterconnectState;
-        region?: DirectConnectRegion;
-        location?: DirectConnectLocationCode;
-        bandwidth?: DirectConnectBandwidth;
-    }
-
-    export type DirectConnectInterconnectId = string;
-    export type DirectConnectInterconnectList = Array<DirectConnectInterconnect>;
-    export type DirectConnectInterconnectName = string;
-    export type DirectConnectInterconnectState = string;
-    export interface DirectConnectInterconnects {
-        interconnects?: DirectConnectInterconnectList;
-    }
-
-    export interface DirectConnectLocation {
-        locationCode?: DirectConnectLocationCode;
-        locationName?: DirectConnectLocationName;
-    }
-
-    export type DirectConnectLocationCode = string;
-    export type DirectConnectLocationList = Array<DirectConnectLocation>;
-    export type DirectConnectLocationName = string;
-    export interface DirectConnectLocations {
-        locations?: DirectConnectLocationList;
-    }
-
-    export interface DirectConnectNewPrivateVirtualInterface {
-        virtualInterfaceName: DirectConnectVirtualInterfaceName;
-        vlan: DirectConnectVLAN;
-        asn: DirectConnectASN;
-        authKey?: DirectConnectBGPAuthKey;
-        amazonAddress?: DirectConnectAmazonAddress;
-        customerAddress?: DirectConnectCustomerAddress;
-        virtualGatewayId: DirectConnectVirtualGatewayId;
-    }
-
-    export interface DirectConnectNewPrivateVirtualInterfaceAllocation {
-        virtualInterfaceName: DirectConnectVirtualInterfaceName;
-        vlan: DirectConnectVLAN;
-        asn: DirectConnectASN;
-        authKey?: DirectConnectBGPAuthKey;
-        amazonAddress?: DirectConnectAmazonAddress;
-        customerAddress?: DirectConnectCustomerAddress;
-    }
-
-    export interface DirectConnectNewPublicVirtualInterface {
-        virtualInterfaceName: DirectConnectVirtualInterfaceName;
-        vlan: DirectConnectVLAN;
-        asn: DirectConnectASN;
-        authKey?: DirectConnectBGPAuthKey;
-        amazonAddress: DirectConnectAmazonAddress;
-        customerAddress: DirectConnectCustomerAddress;
-        routeFilterPrefixes: DirectConnectRouteFilterPrefixList;
-    }
-
-    export interface DirectConnectNewPublicVirtualInterfaceAllocation {
-        virtualInterfaceName: DirectConnectVirtualInterfaceName;
-        vlan: DirectConnectVLAN;
-        asn: DirectConnectASN;
-        authKey?: DirectConnectBGPAuthKey;
-        amazonAddress: DirectConnectAmazonAddress;
-        customerAddress: DirectConnectCustomerAddress;
-        routeFilterPrefixes: DirectConnectRouteFilterPrefixList;
-    }
-
-    export type DirectConnectOwnerAccount = string;
-    export type DirectConnectPartnerName = string;
-    export type DirectConnectRegion = string;
-    export interface DirectConnectRouteFilterPrefix {
-        cidr?: DirectConnectCIDR;
-    }
-
-    export type DirectConnectRouteFilterPrefixList = Array<DirectConnectRouteFilterPrefix>;
-    export type DirectConnectRouterConfig = string;
-    export type DirectConnectVLAN = number;
-    export interface DirectConnectVirtualGateway {
-        virtualGatewayId?: DirectConnectVirtualGatewayId;
-        virtualGatewayState?: DirectConnectVirtualGatewayState;
-    }
-
-    export type DirectConnectVirtualGatewayId = string;
-    export type DirectConnectVirtualGatewayList = Array<DirectConnectVirtualGateway>;
-    export type DirectConnectVirtualGatewayState = string;
-    export interface DirectConnectVirtualGateways {
-        virtualGateways?: DirectConnectVirtualGatewayList;
-    }
-
-    export interface DirectConnectVirtualInterface {
-        ownerAccount?: DirectConnectOwnerAccount;
-        virtualInterfaceId?: DirectConnectVirtualInterfaceId;
-        location?: DirectConnectLocationCode;
-        connectionId?: DirectConnectConnectionId;
-        virtualInterfaceType?: DirectConnectVirtualInterfaceType;
-        virtualInterfaceName?: DirectConnectVirtualInterfaceName;
-        vlan?: DirectConnectVLAN;
-        asn?: DirectConnectASN;
-        authKey?: DirectConnectBGPAuthKey;
-        amazonAddress?: DirectConnectAmazonAddress;
-        customerAddress?: DirectConnectCustomerAddress;
-        virtualInterfaceState?: DirectConnectVirtualInterfaceState;
-        customerRouterConfig?: DirectConnectRouterConfig;
-        virtualGatewayId?: DirectConnectVirtualGatewayId;
-        routeFilterPrefixes?: DirectConnectRouteFilterPrefixList;
-    }
-
-    export type DirectConnectVirtualInterfaceId = string;
-    export type DirectConnectVirtualInterfaceList = Array<DirectConnectVirtualInterface>;
-    export type DirectConnectVirtualInterfaceName = string;
-    export type DirectConnectVirtualInterfaceState = string;
-    export type DirectConnectVirtualInterfaceType = string;
-    export interface DirectConnectVirtualInterfaces {
-        virtualInterfaces?: DirectConnectVirtualInterfaceList;
-    }
-
 }

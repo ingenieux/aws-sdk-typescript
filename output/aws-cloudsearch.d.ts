@@ -6,394 +6,328 @@ declare module "aws-sdk" {
 
     export class CloudSearch extends Service {
       constructor(options?: any);
-      createDomain(params: CloudSearchCreateDomainRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchLimitExceededException|any, data: CloudSearchCreateDomainResponse|any) => void): Request;
-      defineIndexField(params: CloudSearchDefineIndexFieldRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchLimitExceededException|CloudSearchInvalidTypeException|CloudSearchResourceNotFoundException|any, data: CloudSearchDefineIndexFieldResponse|any) => void): Request;
-      defineRankExpression(params: CloudSearchDefineRankExpressionRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchLimitExceededException|CloudSearchInvalidTypeException|CloudSearchResourceNotFoundException|any, data: CloudSearchDefineRankExpressionResponse|any) => void): Request;
-      deleteDomain(params: CloudSearchDeleteDomainRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|any, data: CloudSearchDeleteDomainResponse|any) => void): Request;
-      deleteIndexField(params: CloudSearchDeleteIndexFieldRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchInvalidTypeException|CloudSearchResourceNotFoundException|any, data: CloudSearchDeleteIndexFieldResponse|any) => void): Request;
-      deleteRankExpression(params: CloudSearchDeleteRankExpressionRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchInvalidTypeException|CloudSearchResourceNotFoundException|any, data: CloudSearchDeleteRankExpressionResponse|any) => void): Request;
-      describeAvailabilityOptions(params: CloudSearchDescribeAvailabilityOptionsRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchInvalidTypeException|CloudSearchLimitExceededException|CloudSearchResourceNotFoundException|CloudSearchDisabledOperationException|any, data: CloudSearchDescribeAvailabilityOptionsResponse|any) => void): Request;
-      describeDefaultSearchField(params: CloudSearchDescribeDefaultSearchFieldRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchResourceNotFoundException|any, data: CloudSearchDescribeDefaultSearchFieldResponse|any) => void): Request;
-      describeDomains(params: CloudSearchDescribeDomainsRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|any, data: CloudSearchDescribeDomainsResponse|any) => void): Request;
-      describeIndexFields(params: CloudSearchDescribeIndexFieldsRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchResourceNotFoundException|any, data: CloudSearchDescribeIndexFieldsResponse|any) => void): Request;
-      describeRankExpressions(params: CloudSearchDescribeRankExpressionsRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchResourceNotFoundException|any, data: CloudSearchDescribeRankExpressionsResponse|any) => void): Request;
-      describeServiceAccessPolicies(params: CloudSearchDescribeServiceAccessPoliciesRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchResourceNotFoundException|any, data: CloudSearchDescribeServiceAccessPoliciesResponse|any) => void): Request;
-      describeStemmingOptions(params: CloudSearchDescribeStemmingOptionsRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchResourceNotFoundException|any, data: CloudSearchDescribeStemmingOptionsResponse|any) => void): Request;
-      describeStopwordOptions(params: CloudSearchDescribeStopwordOptionsRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchResourceNotFoundException|any, data: CloudSearchDescribeStopwordOptionsResponse|any) => void): Request;
-      describeSynonymOptions(params: CloudSearchDescribeSynonymOptionsRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchResourceNotFoundException|any, data: CloudSearchDescribeSynonymOptionsResponse|any) => void): Request;
-      indexDocuments(params: CloudSearchIndexDocumentsRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchResourceNotFoundException|any, data: CloudSearchIndexDocumentsResponse|any) => void): Request;
-      updateAvailabilityOptions(params: CloudSearchUpdateAvailabilityOptionsRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchInvalidTypeException|CloudSearchLimitExceededException|CloudSearchResourceNotFoundException|CloudSearchDisabledOperationException|any, data: CloudSearchUpdateAvailabilityOptionsResponse|any) => void): Request;
-      updateDefaultSearchField(params: CloudSearchUpdateDefaultSearchFieldRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchInvalidTypeException|CloudSearchResourceNotFoundException|any, data: CloudSearchUpdateDefaultSearchFieldResponse|any) => void): Request;
-      updateServiceAccessPolicies(params: CloudSearchUpdateServiceAccessPoliciesRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchLimitExceededException|CloudSearchResourceNotFoundException|CloudSearchInvalidTypeException|any, data: CloudSearchUpdateServiceAccessPoliciesResponse|any) => void): Request;
-      updateStemmingOptions(params: CloudSearchUpdateStemmingOptionsRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchInvalidTypeException|CloudSearchLimitExceededException|CloudSearchResourceNotFoundException|any, data: CloudSearchUpdateStemmingOptionsResponse|any) => void): Request;
-      updateStopwordOptions(params: CloudSearchUpdateStopwordOptionsRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchInvalidTypeException|CloudSearchLimitExceededException|CloudSearchResourceNotFoundException|any, data: CloudSearchUpdateStopwordOptionsResponse|any) => void): Request;
-      updateSynonymOptions(params: CloudSearchUpdateSynonymOptionsRequest, callback?: (err: CloudSearchBaseException|CloudSearchInternalException|CloudSearchInvalidTypeException|CloudSearchLimitExceededException|CloudSearchResourceNotFoundException|any, data: CloudSearchUpdateSynonymOptionsResponse|any) => void): Request;
-    }
-
-    export interface CloudSearchAccessPoliciesStatus {
-        Options: CloudSearchPolicyDocument;
-        Status: CloudSearchOptionStatus;
-    }
-
-    export type CloudSearchArn = string;
-    export interface CloudSearchAvailabilityOptionsStatus {
-        Options: CloudSearchMultiAZ;
-        Status: CloudSearchOptionStatus;
-    }
-
-    export interface CloudSearchBaseException {
-        Code?: CloudSearchErrorCode;
-        Message?: CloudSearchErrorMessage;
-    }
-
-    export type CloudSearchBoolean = boolean;
-    export interface CloudSearchCreateDomainRequest {
-        DomainName: CloudSearchDomainName;
-    }
-
-    export interface CloudSearchCreateDomainResponse {
-        DomainStatus?: CloudSearchDomainStatus;
-    }
-
-    export interface CloudSearchDefaultSearchFieldStatus {
-        Options: CloudSearchFieldName;
-        Status: CloudSearchOptionStatus;
-    }
-
-    export interface CloudSearchDefineIndexFieldRequest {
-        DomainName: CloudSearchDomainName;
-        IndexField: CloudSearchIndexField;
-    }
-
-    export interface CloudSearchDefineIndexFieldResponse {
-        IndexField: CloudSearchIndexFieldStatus;
-    }
-
-    export interface CloudSearchDefineRankExpressionRequest {
-        DomainName: CloudSearchDomainName;
-        RankExpression: CloudSearchNamedRankExpression;
-    }
-
-    export interface CloudSearchDefineRankExpressionResponse {
-        RankExpression: CloudSearchRankExpressionStatus;
-    }
-
-    export interface CloudSearchDeleteDomainRequest {
-        DomainName: CloudSearchDomainName;
-    }
-
-    export interface CloudSearchDeleteDomainResponse {
-        DomainStatus?: CloudSearchDomainStatus;
-    }
-
-    export interface CloudSearchDeleteIndexFieldRequest {
-        DomainName: CloudSearchDomainName;
-        IndexFieldName: CloudSearchFieldName;
-    }
-
-    export interface CloudSearchDeleteIndexFieldResponse {
-        IndexField: CloudSearchIndexFieldStatus;
-    }
-
-    export interface CloudSearchDeleteRankExpressionRequest {
-        DomainName: CloudSearchDomainName;
-        RankName: CloudSearchFieldName;
-    }
-
-    export interface CloudSearchDeleteRankExpressionResponse {
-        RankExpression: CloudSearchRankExpressionStatus;
-    }
-
-    export interface CloudSearchDescribeAvailabilityOptionsRequest {
-        DomainName: CloudSearchDomainName;
-    }
-
-    export interface CloudSearchDescribeAvailabilityOptionsResponse {
-        AvailabilityOptions?: CloudSearchAvailabilityOptionsStatus;
-    }
-
-    export interface CloudSearchDescribeDefaultSearchFieldRequest {
-        DomainName: CloudSearchDomainName;
-    }
-
-    export interface CloudSearchDescribeDefaultSearchFieldResponse {
-        DefaultSearchField: CloudSearchDefaultSearchFieldStatus;
-    }
-
-    export interface CloudSearchDescribeDomainsRequest {
-        DomainNames?: CloudSearchDomainNameList;
-    }
-
-    export interface CloudSearchDescribeDomainsResponse {
-        DomainStatusList: CloudSearchDomainStatusList;
-    }
-
-    export interface CloudSearchDescribeIndexFieldsRequest {
-        DomainName: CloudSearchDomainName;
-        FieldNames?: CloudSearchFieldNameList;
-    }
-
-    export interface CloudSearchDescribeIndexFieldsResponse {
-        IndexFields: CloudSearchIndexFieldStatusList;
-    }
-
-    export interface CloudSearchDescribeRankExpressionsRequest {
-        DomainName: CloudSearchDomainName;
-        RankNames?: CloudSearchFieldNameList;
-    }
-
-    export interface CloudSearchDescribeRankExpressionsResponse {
-        RankExpressions: CloudSearchRankExpressionStatusList;
-    }
-
-    export interface CloudSearchDescribeServiceAccessPoliciesRequest {
-        DomainName: CloudSearchDomainName;
-    }
-
-    export interface CloudSearchDescribeServiceAccessPoliciesResponse {
-        AccessPolicies: CloudSearchAccessPoliciesStatus;
-    }
-
-    export interface CloudSearchDescribeStemmingOptionsRequest {
-        DomainName: CloudSearchDomainName;
-    }
-
-    export interface CloudSearchDescribeStemmingOptionsResponse {
-        Stems: CloudSearchStemmingOptionsStatus;
-    }
-
-    export interface CloudSearchDescribeStopwordOptionsRequest {
-        DomainName: CloudSearchDomainName;
-    }
-
-    export interface CloudSearchDescribeStopwordOptionsResponse {
-        Stopwords: CloudSearchStopwordOptionsStatus;
-    }
-
-    export interface CloudSearchDescribeSynonymOptionsRequest {
-        DomainName: CloudSearchDomainName;
-    }
-
-    export interface CloudSearchDescribeSynonymOptionsResponse {
-        Synonyms: CloudSearchSynonymOptionsStatus;
-    }
-
-    export interface CloudSearchDisabledOperationException {
-    }
-
-    export type CloudSearchDocumentCount = number;
-    export type CloudSearchDomainId = string;
-    export type CloudSearchDomainName = string; // pattern: "[a-z][a-z0-9\-]+"
-    export type CloudSearchDomainNameList = Array<CloudSearchDomainName>;
-    export interface CloudSearchDomainStatus {
-        DomainId: CloudSearchDomainId;
-        DomainName: CloudSearchDomainName;
-        Created?: CloudSearchBoolean;
-        Deleted?: CloudSearchBoolean;
-        NumSearchableDocs?: CloudSearchDocumentCount;
-        DocService?: CloudSearchServiceEndpoint;
-        SearchService?: CloudSearchServiceEndpoint;
-        RequiresIndexDocuments: CloudSearchBoolean;
-        Processing?: CloudSearchBoolean;
-        SearchInstanceType?: CloudSearchSearchInstanceType;
-        SearchPartitionCount?: CloudSearchPartitionCount;
-        SearchInstanceCount?: CloudSearchInstanceCount;
-    }
-
-    export type CloudSearchDomainStatusList = Array<CloudSearchDomainStatus>;
-    export type CloudSearchErrorCode = string;
-    export type CloudSearchErrorMessage = string;
-    export type CloudSearchFieldName = string; // pattern: "[a-z][a-z0-9_]*"
-    export type CloudSearchFieldNameList = Array<CloudSearchFieldName>;
-    export type CloudSearchFieldValue = string;
-    export interface CloudSearchIndexDocumentsRequest {
-        DomainName: CloudSearchDomainName;
-    }
-
-    export interface CloudSearchIndexDocumentsResponse {
-        FieldNames?: CloudSearchFieldNameList;
-    }
-
-    export interface CloudSearchIndexField {
-        IndexFieldName: CloudSearchFieldName;
-        IndexFieldType: CloudSearchIndexFieldType;
-        UIntOptions?: CloudSearchUIntOptions;
-        LiteralOptions?: CloudSearchLiteralOptions;
-        TextOptions?: CloudSearchTextOptions;
-        SourceAttributes?: CloudSearchSourceAttributeList;
-    }
-
-    export interface CloudSearchIndexFieldStatus {
-        Options: CloudSearchIndexField;
-        Status: CloudSearchOptionStatus;
-    }
-
-    export type CloudSearchIndexFieldStatusList = Array<CloudSearchIndexFieldStatus>;
-    export type CloudSearchIndexFieldType = string;
-    export type CloudSearchInstanceCount = number;
-    export interface CloudSearchInternalException {
-    }
-
-    export interface CloudSearchInvalidTypeException {
-    }
-
-    export type CloudSearchLanguage = string; // pattern: "[a-zA-Z]{2,8}(?:-[a-zA-Z]{2,8})*"
-    export interface CloudSearchLimitExceededException {
-    }
-
-    export interface CloudSearchLiteralOptions {
-        DefaultValue?: CloudSearchFieldValue;
-        SearchEnabled?: CloudSearchBoolean;
-        FacetEnabled?: CloudSearchBoolean;
-        ResultEnabled?: CloudSearchBoolean;
-    }
-
-    export type CloudSearchMultiAZ = boolean;
-    export interface CloudSearchNamedRankExpression {
-        RankName: CloudSearchFieldName;
-        RankExpression: CloudSearchRankExpression;
-    }
-
-    export type CloudSearchOptionState = string;
-    export interface CloudSearchOptionStatus {
-        CreationDate: CloudSearchUpdateTimestamp;
-        UpdateDate: CloudSearchUpdateTimestamp;
-        UpdateVersion?: CloudSearchUIntValue;
-        State: CloudSearchOptionState;
-        PendingDeletion?: CloudSearchBoolean;
-    }
-
-    export type CloudSearchPartitionCount = number;
-    export type CloudSearchPolicyDocument = string;
-    export type CloudSearchRankExpression = string;
-    export interface CloudSearchRankExpressionStatus {
-        Options: CloudSearchNamedRankExpression;
-        Status: CloudSearchOptionStatus;
-    }
-
-    export type CloudSearchRankExpressionStatusList = Array<CloudSearchRankExpressionStatus>;
-    export interface CloudSearchResourceNotFoundException {
-    }
-
-    export type CloudSearchSearchInstanceType = string;
-    export interface CloudSearchServiceEndpoint {
-        Arn?: CloudSearchArn;
-        Endpoint?: CloudSearchServiceUrl;
-    }
-
-    export type CloudSearchServiceUrl = string;
-    export interface CloudSearchSourceAttribute {
-        SourceDataFunction: CloudSearchSourceDataFunction;
-        SourceDataCopy?: CloudSearchSourceData;
-        SourceDataTrimTitle?: CloudSearchSourceDataTrimTitle;
-        SourceDataMap?: CloudSearchSourceDataMap;
-    }
-
-    export type CloudSearchSourceAttributeList = Array<CloudSearchSourceAttribute>;
-    export interface CloudSearchSourceData {
-        SourceName: CloudSearchFieldName;
-        DefaultValue?: CloudSearchFieldValue;
-    }
-
-    export type CloudSearchSourceDataFunction = string;
-    export interface CloudSearchSourceDataMap {
-        SourceName: CloudSearchFieldName;
-        DefaultValue?: CloudSearchFieldValue;
-        Cases?: CloudSearchStringCaseMap;
-    }
+      createDomain(params: CloudSearch.CreateDomainRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|any, data: CloudSearch.CreateDomainResponse|any) => void): Request;
+      defineIndexField(params: CloudSearch.DefineIndexFieldRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DefineIndexFieldResponse|any) => void): Request;
+      defineRankExpression(params: CloudSearch.DefineRankExpressionRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DefineRankExpressionResponse|any) => void): Request;
+      deleteDomain(params: CloudSearch.DeleteDomainRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|any, data: CloudSearch.DeleteDomainResponse|any) => void): Request;
+      deleteIndexField(params: CloudSearch.DeleteIndexFieldRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DeleteIndexFieldResponse|any) => void): Request;
+      deleteRankExpression(params: CloudSearch.DeleteRankExpressionRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DeleteRankExpressionResponse|any) => void): Request;
+      describeAvailabilityOptions(params: CloudSearch.DescribeAvailabilityOptionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.DisabledOperationException|any, data: CloudSearch.DescribeAvailabilityOptionsResponse|any) => void): Request;
+      describeDefaultSearchField(params: CloudSearch.DescribeDefaultSearchFieldRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeDefaultSearchFieldResponse|any) => void): Request;
+      describeDomains(params: CloudSearch.DescribeDomainsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|any, data: CloudSearch.DescribeDomainsResponse|any) => void): Request;
+      describeIndexFields(params: CloudSearch.DescribeIndexFieldsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeIndexFieldsResponse|any) => void): Request;
+      describeRankExpressions(params: CloudSearch.DescribeRankExpressionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeRankExpressionsResponse|any) => void): Request;
+      describeServiceAccessPolicies(params: CloudSearch.DescribeServiceAccessPoliciesRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeServiceAccessPoliciesResponse|any) => void): Request;
+      describeStemmingOptions(params: CloudSearch.DescribeStemmingOptionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeStemmingOptionsResponse|any) => void): Request;
+      describeStopwordOptions(params: CloudSearch.DescribeStopwordOptionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeStopwordOptionsResponse|any) => void): Request;
+      describeSynonymOptions(params: CloudSearch.DescribeSynonymOptionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeSynonymOptionsResponse|any) => void): Request;
+      indexDocuments(params: CloudSearch.IndexDocumentsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.IndexDocumentsResponse|any) => void): Request;
+      updateAvailabilityOptions(params: CloudSearch.UpdateAvailabilityOptionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.DisabledOperationException|any, data: CloudSearch.UpdateAvailabilityOptionsResponse|any) => void): Request;
+      updateDefaultSearchField(params: CloudSearch.UpdateDefaultSearchFieldRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.UpdateDefaultSearchFieldResponse|any) => void): Request;
+      updateServiceAccessPolicies(params: CloudSearch.UpdateServiceAccessPoliciesRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.InvalidTypeException|any, data: CloudSearch.UpdateServiceAccessPoliciesResponse|any) => void): Request;
+      updateStemmingOptions(params: CloudSearch.UpdateStemmingOptionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.UpdateStemmingOptionsResponse|any) => void): Request;
+      updateStopwordOptions(params: CloudSearch.UpdateStopwordOptionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.UpdateStopwordOptionsResponse|any) => void): Request;
+      updateSynonymOptions(params: CloudSearch.UpdateSynonymOptionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.UpdateSynonymOptionsResponse|any) => void): Request;
+    }
+    
+    export module CloudSearch {
+        export type Arn = string;
+        export type Boolean = boolean;
+        export type DocumentCount = number;
+        export type DomainId = string;    // max: 64, min: 1
+        export type DomainName = string;    // pattern: &quot;[a-z][a-z0-9\-]+&quot;, max: 28, min: 3
+        export type DomainNameList = DomainName[];
+        export type DomainStatusList = DomainStatus[];
+        export type ErrorCode = string;
+        export type ErrorMessage = string;
+        export type FieldName = string;    // pattern: &quot;[a-z][a-z0-9_]*&quot;, max: 64, min: 1
+        export type FieldNameList = FieldName[];
+        export type FieldValue = string;    // max: 1024
+        export type IndexFieldStatusList = IndexFieldStatus[];
+        export type IndexFieldType = string;
+        export type InstanceCount = number;    // min: 1
+        export type Language = string;    // pattern: &quot;[a-zA-Z]{2,8}(?:-[a-zA-Z]{2,8})*&quot;
+        export type MultiAZ = boolean;
+        export type OptionState = string;
+        export type PartitionCount = number;    // min: 1
+        export type PolicyDocument = string;
+        export type RankExpression = string;    // max: 10240, min: 1
+        export type RankExpressionStatusList = RankExpressionStatus[];
+        export type SearchInstanceType = string;
+        export type ServiceUrl = string;
+        export type SourceAttributeList = SourceAttribute[];
+        export type SourceDataFunction = string;
+        export type StemsDocument = string;
+        export type StopwordsDocument = string;
+        export type String = string;
+        export type StringCaseMap = {[key:string]: FieldValue};
+        export type SynonymsDocument = string;
+        export type UIntValue = number;
+        export type UpdateTimestamp = number;
+
+        export interface AccessPoliciesStatus {
+            Options: PolicyDocument;            
+            Status: OptionStatus;            
+        }
+        export interface AvailabilityOptionsStatus {
+            Options: MultiAZ;            
+            Status: OptionStatus;            
+        }
+        export interface BaseException {
+            Code?: ErrorCode;            
+            Message?: ErrorMessage;            
+        }
+        export interface CreateDomainRequest {
+            DomainName: DomainName;            
+        }
+        export interface CreateDomainResponse {
+            DomainStatus?: DomainStatus;            
+        }
+        export interface DefaultSearchFieldStatus {
+            Options: FieldName;            
+            Status: OptionStatus;            
+        }
+        export interface DefineIndexFieldRequest {
+            DomainName: DomainName;            
+            IndexField: IndexField;            
+        }
+        export interface DefineIndexFieldResponse {
+            IndexField: IndexFieldStatus;            
+        }
+        export interface DefineRankExpressionRequest {
+            DomainName: DomainName;            
+            RankExpression: NamedRankExpression;            
+        }
+        export interface DefineRankExpressionResponse {
+            RankExpression: RankExpressionStatus;            
+        }
+        export interface DeleteDomainRequest {
+            DomainName: DomainName;            
+        }
+        export interface DeleteDomainResponse {
+            DomainStatus?: DomainStatus;            
+        }
+        export interface DeleteIndexFieldRequest {
+            DomainName: DomainName;            
+            IndexFieldName: FieldName;            
+        }
+        export interface DeleteIndexFieldResponse {
+            IndexField: IndexFieldStatus;            
+        }
+        export interface DeleteRankExpressionRequest {
+            DomainName: DomainName;            
+            RankName: FieldName;            
+        }
+        export interface DeleteRankExpressionResponse {
+            RankExpression: RankExpressionStatus;            
+        }
+        export interface DescribeAvailabilityOptionsRequest {
+            DomainName: DomainName;            
+        }
+        export interface DescribeAvailabilityOptionsResponse {
+            AvailabilityOptions?: AvailabilityOptionsStatus;            
+        }
+        export interface DescribeDefaultSearchFieldRequest {
+            DomainName: DomainName;            
+        }
+        export interface DescribeDefaultSearchFieldResponse {
+            DefaultSearchField: DefaultSearchFieldStatus;            
+        }
+        export interface DescribeDomainsRequest {
+            DomainNames?: DomainNameList;            
+        }
+        export interface DescribeDomainsResponse {
+            DomainStatusList: DomainStatusList;            
+        }
+        export interface DescribeIndexFieldsRequest {
+            DomainName: DomainName;            
+            FieldNames?: FieldNameList;            
+        }
+        export interface DescribeIndexFieldsResponse {
+            IndexFields: IndexFieldStatusList;            
+        }
+        export interface DescribeRankExpressionsRequest {
+            DomainName: DomainName;            
+            RankNames?: FieldNameList;            
+        }
+        export interface DescribeRankExpressionsResponse {
+            RankExpressions: RankExpressionStatusList;            
+        }
+        export interface DescribeServiceAccessPoliciesRequest {
+            DomainName: DomainName;            
+        }
+        export interface DescribeServiceAccessPoliciesResponse {
+            AccessPolicies: AccessPoliciesStatus;            
+        }
+        export interface DescribeStemmingOptionsRequest {
+            DomainName: DomainName;            
+        }
+        export interface DescribeStemmingOptionsResponse {
+            Stems: StemmingOptionsStatus;            
+        }
+        export interface DescribeStopwordOptionsRequest {
+            DomainName: DomainName;            
+        }
+        export interface DescribeStopwordOptionsResponse {
+            Stopwords: StopwordOptionsStatus;            
+        }
+        export interface DescribeSynonymOptionsRequest {
+            DomainName: DomainName;            
+        }
+        export interface DescribeSynonymOptionsResponse {
+            Synonyms: SynonymOptionsStatus;            
+        }
+        export interface DisabledOperationException {
+        }
+        export interface DomainStatus {
+            DomainId: DomainId;            
+            DomainName: DomainName;            
+            Created?: Boolean;            
+            Deleted?: Boolean;            
+            NumSearchableDocs?: DocumentCount;            
+            DocService?: ServiceEndpoint;            
+            SearchService?: ServiceEndpoint;            
+            RequiresIndexDocuments: Boolean;            
+            Processing?: Boolean;            
+            SearchInstanceType?: SearchInstanceType;            
+            SearchPartitionCount?: PartitionCount;            
+            SearchInstanceCount?: InstanceCount;            
+        }
+        export interface IndexDocumentsRequest {
+            DomainName: DomainName;            
+        }
+        export interface IndexDocumentsResponse {
+            FieldNames?: FieldNameList;            
+        }
+        export interface IndexField {
+            IndexFieldName: FieldName;            
+            IndexFieldType: IndexFieldType;            
+            UIntOptions?: UIntOptions;            
+            LiteralOptions?: LiteralOptions;            
+            TextOptions?: TextOptions;            
+            SourceAttributes?: SourceAttributeList;            
+        }
+        export interface IndexFieldStatus {
+            Options: IndexField;            
+            Status: OptionStatus;            
+        }
+        export interface InternalException {
+        }
+        export interface InvalidTypeException {
+        }
+        export interface LimitExceededException {
+        }
+        export interface LiteralOptions {
+            DefaultValue?: FieldValue;            
+            SearchEnabled?: Boolean;            
+            FacetEnabled?: Boolean;            
+            ResultEnabled?: Boolean;            
+        }
+        export interface NamedRankExpression {
+            RankName: FieldName;            
+            RankExpression: RankExpression;            
+        }
+        export interface OptionStatus {
+            CreationDate: UpdateTimestamp;            
+            UpdateDate: UpdateTimestamp;            
+            UpdateVersion?: UIntValue;            
+            State: OptionState;            
+            PendingDeletion?: Boolean;            
+        }
+        export interface RankExpressionStatus {
+            Options: NamedRankExpression;            
+            Status: OptionStatus;            
+        }
+        export interface ResourceNotFoundException {
+        }
+        export interface ServiceEndpoint {
+            Arn?: Arn;            
+            Endpoint?: ServiceUrl;            
+        }
+        export interface SourceAttribute {
+            SourceDataFunction: SourceDataFunction;            
+            SourceDataCopy?: SourceData;            
+            SourceDataTrimTitle?: SourceDataTrimTitle;            
+            SourceDataMap?: SourceDataMap;            
+        }
+        export interface SourceData {
+            SourceName: FieldName;            
+            DefaultValue?: FieldValue;            
+        }
+        export interface SourceDataMap {
+            SourceName: FieldName;            
+            DefaultValue?: FieldValue;            
+            Cases?: StringCaseMap;            
+        }
+        export interface SourceDataTrimTitle {
+            SourceName: FieldName;            
+            DefaultValue?: FieldValue;            
+            Separator?: String;            
+            Language?: Language;            
+        }
+        export interface StemmingOptionsStatus {
+            Options: StemsDocument;            
+            Status: OptionStatus;            
+        }
+        export interface StopwordOptionsStatus {
+            Options: StopwordsDocument;            
+            Status: OptionStatus;            
+        }
+        export interface SynonymOptionsStatus {
+            Options: SynonymsDocument;            
+            Status: OptionStatus;            
+        }
+        export interface TextOptions {
+            DefaultValue?: FieldValue;            
+            FacetEnabled?: Boolean;            
+            ResultEnabled?: Boolean;            
+            TextProcessor?: FieldName;            
+        }
+        export interface UIntOptions {
+            DefaultValue?: UIntValue;            
+        }
+        export interface UpdateAvailabilityOptionsRequest {
+            DomainName: DomainName;            
+            MultiAZ: Boolean;            
+        }
+        export interface UpdateAvailabilityOptionsResponse {
+            AvailabilityOptions?: AvailabilityOptionsStatus;            
+        }
+        export interface UpdateDefaultSearchFieldRequest {
+            DomainName: DomainName;            
+            DefaultSearchField: String;            
+        }
+        export interface UpdateDefaultSearchFieldResponse {
+            DefaultSearchField: DefaultSearchFieldStatus;            
+        }
+        export interface UpdateServiceAccessPoliciesRequest {
+            DomainName: DomainName;            
+            AccessPolicies: PolicyDocument;            
+        }
+        export interface UpdateServiceAccessPoliciesResponse {
+            AccessPolicies: AccessPoliciesStatus;            
+        }
+        export interface UpdateStemmingOptionsRequest {
+            DomainName: DomainName;            
+            Stems: StemsDocument;            
+        }
+        export interface UpdateStemmingOptionsResponse {
+            Stems: StemmingOptionsStatus;            
+        }
+        export interface UpdateStopwordOptionsRequest {
+            DomainName: DomainName;            
+            Stopwords: StopwordsDocument;            
+        }
+        export interface UpdateStopwordOptionsResponse {
+            Stopwords: StopwordOptionsStatus;            
+        }
+        export interface UpdateSynonymOptionsRequest {
+            DomainName: DomainName;            
+            Synonyms: SynonymsDocument;            
+        }
+        export interface UpdateSynonymOptionsResponse {
+            Synonyms: SynonymOptionsStatus;            
+        }
 
-    export interface CloudSearchSourceDataTrimTitle {
-        SourceName: CloudSearchFieldName;
-        DefaultValue?: CloudSearchFieldValue;
-        Separator?: CloudSearchString;
-        Language?: CloudSearchLanguage;
     }
-
-    export interface CloudSearchStemmingOptionsStatus {
-        Options: CloudSearchStemsDocument;
-        Status: CloudSearchOptionStatus;
-    }
-
-    export type CloudSearchStemsDocument = string;
-    export interface CloudSearchStopwordOptionsStatus {
-        Options: CloudSearchStopwordsDocument;
-        Status: CloudSearchOptionStatus;
-    }
-
-    export type CloudSearchStopwordsDocument = string;
-    export type CloudSearchString = string;
-    export type CloudSearchStringCaseMap = any; // not really - it was 'map' instead - must fix this one
-    export interface CloudSearchSynonymOptionsStatus {
-        Options: CloudSearchSynonymsDocument;
-        Status: CloudSearchOptionStatus;
-    }
-
-    export type CloudSearchSynonymsDocument = string;
-    export interface CloudSearchTextOptions {
-        DefaultValue?: CloudSearchFieldValue;
-        FacetEnabled?: CloudSearchBoolean;
-        ResultEnabled?: CloudSearchBoolean;
-        TextProcessor?: CloudSearchFieldName;
-    }
-
-    export interface CloudSearchUIntOptions {
-        DefaultValue?: CloudSearchUIntValue;
-    }
-
-    export type CloudSearchUIntValue = number;
-    export interface CloudSearchUpdateAvailabilityOptionsRequest {
-        DomainName: CloudSearchDomainName;
-        MultiAZ: CloudSearchBoolean;
-    }
-
-    export interface CloudSearchUpdateAvailabilityOptionsResponse {
-        AvailabilityOptions?: CloudSearchAvailabilityOptionsStatus;
-    }
-
-    export interface CloudSearchUpdateDefaultSearchFieldRequest {
-        DomainName: CloudSearchDomainName;
-        DefaultSearchField: CloudSearchString;
-    }
-
-    export interface CloudSearchUpdateDefaultSearchFieldResponse {
-        DefaultSearchField: CloudSearchDefaultSearchFieldStatus;
-    }
-
-    export interface CloudSearchUpdateServiceAccessPoliciesRequest {
-        DomainName: CloudSearchDomainName;
-        AccessPolicies: CloudSearchPolicyDocument;
-    }
-
-    export interface CloudSearchUpdateServiceAccessPoliciesResponse {
-        AccessPolicies: CloudSearchAccessPoliciesStatus;
-    }
-
-    export interface CloudSearchUpdateStemmingOptionsRequest {
-        DomainName: CloudSearchDomainName;
-        Stems: CloudSearchStemsDocument;
-    }
-
-    export interface CloudSearchUpdateStemmingOptionsResponse {
-        Stems: CloudSearchStemmingOptionsStatus;
-    }
-
-    export interface CloudSearchUpdateStopwordOptionsRequest {
-        DomainName: CloudSearchDomainName;
-        Stopwords: CloudSearchStopwordsDocument;
-    }
-
-    export interface CloudSearchUpdateStopwordOptionsResponse {
-        Stopwords: CloudSearchStopwordOptionsStatus;
-    }
-
-    export interface CloudSearchUpdateSynonymOptionsRequest {
-        DomainName: CloudSearchDomainName;
-        Synonyms: CloudSearchSynonymsDocument;
-    }
-
-    export interface CloudSearchUpdateSynonymOptionsResponse {
-        Synonyms: CloudSearchSynonymOptionsStatus;
-    }
-
-    export type CloudSearchUpdateTimestamp = number;
 }

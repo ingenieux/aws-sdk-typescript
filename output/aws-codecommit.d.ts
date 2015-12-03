@@ -6,213 +6,173 @@ declare module "aws-sdk" {
 
     export class CodeCommit extends Service {
       constructor(options?: any);
-      batchGetRepositories(params: CodeCommitBatchGetRepositoriesInput, callback?: (err: CodeCommitRepositoryNamesRequiredException|CodeCommitMaximumRepositoryNamesExceededException|CodeCommitInvalidRepositoryNameException|CodeCommitEncryptionIntegrityChecksFailedException|CodeCommitEncryptionKeyAccessDeniedException|CodeCommitEncryptionKeyDisabledException|CodeCommitEncryptionKeyNotFoundException|CodeCommitEncryptionKeyUnavailableException|any, data: CodeCommitBatchGetRepositoriesOutput|any) => void): Request;
-      createBranch(params: CodeCommitCreateBranchInput, callback?: (err: CodeCommitRepositoryNameRequiredException|CodeCommitInvalidRepositoryNameException|CodeCommitRepositoryDoesNotExistException|CodeCommitBranchNameRequiredException|CodeCommitBranchNameExistsException|CodeCommitInvalidBranchNameException|CodeCommitCommitIdRequiredException|CodeCommitCommitDoesNotExistException|CodeCommitInvalidCommitIdException|CodeCommitEncryptionIntegrityChecksFailedException|CodeCommitEncryptionKeyAccessDeniedException|CodeCommitEncryptionKeyDisabledException|CodeCommitEncryptionKeyNotFoundException|CodeCommitEncryptionKeyUnavailableException|any, data: any) => void): Request;
-      createRepository(params: CodeCommitCreateRepositoryInput, callback?: (err: CodeCommitRepositoryNameExistsException|CodeCommitRepositoryNameRequiredException|CodeCommitInvalidRepositoryNameException|CodeCommitInvalidRepositoryDescriptionException|CodeCommitRepositoryLimitExceededException|CodeCommitEncryptionIntegrityChecksFailedException|CodeCommitEncryptionKeyAccessDeniedException|CodeCommitEncryptionKeyDisabledException|CodeCommitEncryptionKeyNotFoundException|CodeCommitEncryptionKeyUnavailableException|any, data: CodeCommitCreateRepositoryOutput|any) => void): Request;
-      deleteRepository(params: CodeCommitDeleteRepositoryInput, callback?: (err: CodeCommitRepositoryNameRequiredException|CodeCommitInvalidRepositoryNameException|CodeCommitEncryptionIntegrityChecksFailedException|CodeCommitEncryptionKeyAccessDeniedException|CodeCommitEncryptionKeyDisabledException|CodeCommitEncryptionKeyNotFoundException|CodeCommitEncryptionKeyUnavailableException|any, data: CodeCommitDeleteRepositoryOutput|any) => void): Request;
-      getBranch(params: CodeCommitGetBranchInput, callback?: (err: CodeCommitRepositoryNameRequiredException|CodeCommitRepositoryDoesNotExistException|CodeCommitInvalidRepositoryNameException|CodeCommitBranchNameRequiredException|CodeCommitInvalidBranchNameException|CodeCommitBranchDoesNotExistException|CodeCommitEncryptionIntegrityChecksFailedException|CodeCommitEncryptionKeyAccessDeniedException|CodeCommitEncryptionKeyDisabledException|CodeCommitEncryptionKeyNotFoundException|CodeCommitEncryptionKeyUnavailableException|any, data: CodeCommitGetBranchOutput|any) => void): Request;
-      getRepository(params: CodeCommitGetRepositoryInput, callback?: (err: CodeCommitRepositoryNameRequiredException|CodeCommitRepositoryDoesNotExistException|CodeCommitInvalidRepositoryNameException|CodeCommitEncryptionIntegrityChecksFailedException|CodeCommitEncryptionKeyAccessDeniedException|CodeCommitEncryptionKeyDisabledException|CodeCommitEncryptionKeyNotFoundException|CodeCommitEncryptionKeyUnavailableException|any, data: CodeCommitGetRepositoryOutput|any) => void): Request;
-      listBranches(params: CodeCommitListBranchesInput, callback?: (err: CodeCommitRepositoryNameRequiredException|CodeCommitRepositoryDoesNotExistException|CodeCommitInvalidRepositoryNameException|CodeCommitEncryptionIntegrityChecksFailedException|CodeCommitEncryptionKeyAccessDeniedException|CodeCommitEncryptionKeyDisabledException|CodeCommitEncryptionKeyNotFoundException|CodeCommitEncryptionKeyUnavailableException|CodeCommitInvalidContinuationTokenException|any, data: CodeCommitListBranchesOutput|any) => void): Request;
-      listRepositories(params: CodeCommitListRepositoriesInput, callback?: (err: CodeCommitInvalidSortByException|CodeCommitInvalidOrderException|CodeCommitInvalidContinuationTokenException|any, data: CodeCommitListRepositoriesOutput|any) => void): Request;
-      updateDefaultBranch(params: CodeCommitUpdateDefaultBranchInput, callback?: (err: CodeCommitRepositoryNameRequiredException|CodeCommitRepositoryDoesNotExistException|CodeCommitInvalidRepositoryNameException|CodeCommitBranchNameRequiredException|CodeCommitInvalidBranchNameException|CodeCommitBranchDoesNotExistException|CodeCommitEncryptionIntegrityChecksFailedException|CodeCommitEncryptionKeyAccessDeniedException|CodeCommitEncryptionKeyDisabledException|CodeCommitEncryptionKeyNotFoundException|CodeCommitEncryptionKeyUnavailableException|any, data: any) => void): Request;
-      updateRepositoryDescription(params: CodeCommitUpdateRepositoryDescriptionInput, callback?: (err: CodeCommitRepositoryNameRequiredException|CodeCommitRepositoryDoesNotExistException|CodeCommitInvalidRepositoryNameException|CodeCommitInvalidRepositoryDescriptionException|CodeCommitEncryptionIntegrityChecksFailedException|CodeCommitEncryptionKeyAccessDeniedException|CodeCommitEncryptionKeyDisabledException|CodeCommitEncryptionKeyNotFoundException|CodeCommitEncryptionKeyUnavailableException|any, data: any) => void): Request;
-      updateRepositoryName(params: CodeCommitUpdateRepositoryNameInput, callback?: (err: CodeCommitRepositoryDoesNotExistException|CodeCommitRepositoryNameExistsException|CodeCommitRepositoryNameRequiredException|CodeCommitInvalidRepositoryNameException|any, data: any) => void): Request;
+      batchGetRepositories(params: CodeCommit.BatchGetRepositoriesInput, callback?: (err: CodeCommit.RepositoryNamesRequiredException|CodeCommit.MaximumRepositoryNamesExceededException|CodeCommit.InvalidRepositoryNameException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any, data: CodeCommit.BatchGetRepositoriesOutput|any) => void): Request;
+      createBranch(params: CodeCommit.CreateBranchInput, callback?: (err: CodeCommit.RepositoryNameRequiredException|CodeCommit.InvalidRepositoryNameException|CodeCommit.RepositoryDoesNotExistException|CodeCommit.BranchNameRequiredException|CodeCommit.BranchNameExistsException|CodeCommit.InvalidBranchNameException|CodeCommit.CommitIdRequiredException|CodeCommit.CommitDoesNotExistException|CodeCommit.InvalidCommitIdException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any, data: any) => void): Request;
+      createRepository(params: CodeCommit.CreateRepositoryInput, callback?: (err: CodeCommit.RepositoryNameExistsException|CodeCommit.RepositoryNameRequiredException|CodeCommit.InvalidRepositoryNameException|CodeCommit.InvalidRepositoryDescriptionException|CodeCommit.RepositoryLimitExceededException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any, data: CodeCommit.CreateRepositoryOutput|any) => void): Request;
+      deleteRepository(params: CodeCommit.DeleteRepositoryInput, callback?: (err: CodeCommit.RepositoryNameRequiredException|CodeCommit.InvalidRepositoryNameException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any, data: CodeCommit.DeleteRepositoryOutput|any) => void): Request;
+      getBranch(params: CodeCommit.GetBranchInput, callback?: (err: CodeCommit.RepositoryNameRequiredException|CodeCommit.RepositoryDoesNotExistException|CodeCommit.InvalidRepositoryNameException|CodeCommit.BranchNameRequiredException|CodeCommit.InvalidBranchNameException|CodeCommit.BranchDoesNotExistException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any, data: CodeCommit.GetBranchOutput|any) => void): Request;
+      getRepository(params: CodeCommit.GetRepositoryInput, callback?: (err: CodeCommit.RepositoryNameRequiredException|CodeCommit.RepositoryDoesNotExistException|CodeCommit.InvalidRepositoryNameException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any, data: CodeCommit.GetRepositoryOutput|any) => void): Request;
+      listBranches(params: CodeCommit.ListBranchesInput, callback?: (err: CodeCommit.RepositoryNameRequiredException|CodeCommit.RepositoryDoesNotExistException|CodeCommit.InvalidRepositoryNameException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|CodeCommit.InvalidContinuationTokenException|any, data: CodeCommit.ListBranchesOutput|any) => void): Request;
+      listRepositories(params: CodeCommit.ListRepositoriesInput, callback?: (err: CodeCommit.InvalidSortByException|CodeCommit.InvalidOrderException|CodeCommit.InvalidContinuationTokenException|any, data: CodeCommit.ListRepositoriesOutput|any) => void): Request;
+      updateDefaultBranch(params: CodeCommit.UpdateDefaultBranchInput, callback?: (err: CodeCommit.RepositoryNameRequiredException|CodeCommit.RepositoryDoesNotExistException|CodeCommit.InvalidRepositoryNameException|CodeCommit.BranchNameRequiredException|CodeCommit.InvalidBranchNameException|CodeCommit.BranchDoesNotExistException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any, data: any) => void): Request;
+      updateRepositoryDescription(params: CodeCommit.UpdateRepositoryDescriptionInput, callback?: (err: CodeCommit.RepositoryNameRequiredException|CodeCommit.RepositoryDoesNotExistException|CodeCommit.InvalidRepositoryNameException|CodeCommit.InvalidRepositoryDescriptionException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any, data: any) => void): Request;
+      updateRepositoryName(params: CodeCommit.UpdateRepositoryNameInput, callback?: (err: CodeCommit.RepositoryDoesNotExistException|CodeCommit.RepositoryNameExistsException|CodeCommit.RepositoryNameRequiredException|CodeCommit.InvalidRepositoryNameException|any, data: any) => void): Request;
     }
+    
+    export module CodeCommit {
+        export type AccountId = string;
+        export type Arn = string;
+        export type BranchName = string;    // max: 100, min: 1
+        export type BranchNameList = BranchName[];
+        export type CloneUrlHttp = string;
+        export type CloneUrlSsh = string;
+        export type CommitId = string;
+        export type CreationDate = number;
+        export type LastModifiedDate = number;
+        export type NextToken = string;
+        export type OrderEnum = string;
+        export type RepositoryDescription = string;    // max: 1000
+        export type RepositoryId = string;
+        export type RepositoryMetadataList = RepositoryMetadata[];
+        export type RepositoryName = string;    // pattern: &quot;[\\w\\.-]+&quot;, max: 100, min: 1
+        export type RepositoryNameIdPairList = RepositoryNameIdPair[];
+        export type RepositoryNameList = RepositoryName[];
+        export type RepositoryNotFoundList = RepositoryName[];
+        export type SortByEnum = string;
 
-    export type CodeCommitAccountId = string;
-    export type CodeCommitArn = string;
-    export interface CodeCommitBatchGetRepositoriesInput {
-        repositoryNames: CodeCommitRepositoryNameList;
+        export interface BatchGetRepositoriesInput {
+            repositoryNames: RepositoryNameList;            
+        }
+        export interface BatchGetRepositoriesOutput {
+            repositories?: RepositoryMetadataList;            
+            repositoriesNotFound?: RepositoryNotFoundList;            
+        }
+        export interface BranchDoesNotExistException {
+        }
+        export interface BranchInfo {
+            branchName?: BranchName;            
+            commitId?: CommitId;            
+        }
+        export interface BranchNameExistsException {
+        }
+        export interface BranchNameRequiredException {
+        }
+        export interface CommitDoesNotExistException {
+        }
+        export interface CommitIdRequiredException {
+        }
+        export interface CreateBranchInput {
+            repositoryName: RepositoryName;            
+            branchName: BranchName;            
+            commitId: CommitId;            
+        }
+        export interface CreateRepositoryInput {
+            repositoryName: RepositoryName;            
+            repositoryDescription?: RepositoryDescription;            
+        }
+        export interface CreateRepositoryOutput {
+            repositoryMetadata?: RepositoryMetadata;            
+        }
+        export interface DeleteRepositoryInput {
+            repositoryName: RepositoryName;            
+        }
+        export interface DeleteRepositoryOutput {
+            repositoryId?: RepositoryId;            
+        }
+        export interface EncryptionIntegrityChecksFailedException {
+        }
+        export interface EncryptionKeyAccessDeniedException {
+        }
+        export interface EncryptionKeyDisabledException {
+        }
+        export interface EncryptionKeyNotFoundException {
+        }
+        export interface EncryptionKeyUnavailableException {
+        }
+        export interface GetBranchInput {
+            repositoryName?: RepositoryName;            
+            branchName?: BranchName;            
+        }
+        export interface GetBranchOutput {
+            branch?: BranchInfo;            
+        }
+        export interface GetRepositoryInput {
+            repositoryName: RepositoryName;            
+        }
+        export interface GetRepositoryOutput {
+            repositoryMetadata?: RepositoryMetadata;            
+        }
+        export interface InvalidBranchNameException {
+        }
+        export interface InvalidCommitIdException {
+        }
+        export interface InvalidContinuationTokenException {
+        }
+        export interface InvalidOrderException {
+        }
+        export interface InvalidRepositoryDescriptionException {
+        }
+        export interface InvalidRepositoryNameException {
+        }
+        export interface InvalidSortByException {
+        }
+        export interface ListBranchesInput {
+            repositoryName: RepositoryName;            
+            nextToken?: NextToken;            
+        }
+        export interface ListBranchesOutput {
+            branches?: BranchNameList;            
+            nextToken?: NextToken;            
+        }
+        export interface ListRepositoriesInput {
+            nextToken?: NextToken;            
+            sortBy?: SortByEnum;            
+            order?: OrderEnum;            
+        }
+        export interface ListRepositoriesOutput {
+            repositories?: RepositoryNameIdPairList;            
+            nextToken?: NextToken;            
+        }
+        export interface MaximumRepositoryNamesExceededException {
+        }
+        export interface RepositoryDoesNotExistException {
+        }
+        export interface RepositoryLimitExceededException {
+        }
+        export interface RepositoryMetadata {
+            accountId?: AccountId;            
+            repositoryId?: RepositoryId;            
+            repositoryName?: RepositoryName;            
+            repositoryDescription?: RepositoryDescription;            
+            defaultBranch?: BranchName;            
+            lastModifiedDate?: LastModifiedDate;            
+            creationDate?: CreationDate;            
+            cloneUrlHttp?: CloneUrlHttp;            
+            cloneUrlSsh?: CloneUrlSsh;            
+            Arn?: Arn;            
+        }
+        export interface RepositoryNameExistsException {
+        }
+        export interface RepositoryNameIdPair {
+            repositoryName?: RepositoryName;            
+            repositoryId?: RepositoryId;            
+        }
+        export interface RepositoryNameRequiredException {
+        }
+        export interface RepositoryNamesRequiredException {
+        }
+        export interface UpdateDefaultBranchInput {
+            repositoryName: RepositoryName;            
+            defaultBranchName: BranchName;            
+        }
+        export interface UpdateRepositoryDescriptionInput {
+            repositoryName: RepositoryName;            
+            repositoryDescription?: RepositoryDescription;            
+        }
+        export interface UpdateRepositoryNameInput {
+            oldName: RepositoryName;            
+            newName: RepositoryName;            
+        }
+
     }
-
-    export interface CodeCommitBatchGetRepositoriesOutput {
-        repositories?: CodeCommitRepositoryMetadataList;
-        repositoriesNotFound?: CodeCommitRepositoryNotFoundList;
-    }
-
-    export interface CodeCommitBranchDoesNotExistException {
-    }
-
-    export interface CodeCommitBranchInfo {
-        branchName?: CodeCommitBranchName;
-        commitId?: CodeCommitCommitId;
-    }
-
-    export type CodeCommitBranchName = string;
-    export interface CodeCommitBranchNameExistsException {
-    }
-
-    export type CodeCommitBranchNameList = Array<CodeCommitBranchName>;
-    export interface CodeCommitBranchNameRequiredException {
-    }
-
-    export type CodeCommitCloneUrlHttp = string;
-    export type CodeCommitCloneUrlSsh = string;
-    export interface CodeCommitCommitDoesNotExistException {
-    }
-
-    export type CodeCommitCommitId = string;
-    export interface CodeCommitCommitIdRequiredException {
-    }
-
-    export interface CodeCommitCreateBranchInput {
-        repositoryName: CodeCommitRepositoryName;
-        branchName: CodeCommitBranchName;
-        commitId: CodeCommitCommitId;
-    }
-
-    export interface CodeCommitCreateRepositoryInput {
-        repositoryName: CodeCommitRepositoryName;
-        repositoryDescription?: CodeCommitRepositoryDescription;
-    }
-
-    export interface CodeCommitCreateRepositoryOutput {
-        repositoryMetadata?: CodeCommitRepositoryMetadata;
-    }
-
-    export type CodeCommitCreationDate = number;
-    export interface CodeCommitDeleteRepositoryInput {
-        repositoryName: CodeCommitRepositoryName;
-    }
-
-    export interface CodeCommitDeleteRepositoryOutput {
-        repositoryId?: CodeCommitRepositoryId;
-    }
-
-    export interface CodeCommitEncryptionIntegrityChecksFailedException {
-    }
-
-    export interface CodeCommitEncryptionKeyAccessDeniedException {
-    }
-
-    export interface CodeCommitEncryptionKeyDisabledException {
-    }
-
-    export interface CodeCommitEncryptionKeyNotFoundException {
-    }
-
-    export interface CodeCommitEncryptionKeyUnavailableException {
-    }
-
-    export interface CodeCommitGetBranchInput {
-        repositoryName?: CodeCommitRepositoryName;
-        branchName?: CodeCommitBranchName;
-    }
-
-    export interface CodeCommitGetBranchOutput {
-        branch?: CodeCommitBranchInfo;
-    }
-
-    export interface CodeCommitGetRepositoryInput {
-        repositoryName: CodeCommitRepositoryName;
-    }
-
-    export interface CodeCommitGetRepositoryOutput {
-        repositoryMetadata?: CodeCommitRepositoryMetadata;
-    }
-
-    export interface CodeCommitInvalidBranchNameException {
-    }
-
-    export interface CodeCommitInvalidCommitIdException {
-    }
-
-    export interface CodeCommitInvalidContinuationTokenException {
-    }
-
-    export interface CodeCommitInvalidOrderException {
-    }
-
-    export interface CodeCommitInvalidRepositoryDescriptionException {
-    }
-
-    export interface CodeCommitInvalidRepositoryNameException {
-    }
-
-    export interface CodeCommitInvalidSortByException {
-    }
-
-    export type CodeCommitLastModifiedDate = number;
-    export interface CodeCommitListBranchesInput {
-        repositoryName: CodeCommitRepositoryName;
-        nextToken?: CodeCommitNextToken;
-    }
-
-    export interface CodeCommitListBranchesOutput {
-        branches?: CodeCommitBranchNameList;
-        nextToken?: CodeCommitNextToken;
-    }
-
-    export interface CodeCommitListRepositoriesInput {
-        nextToken?: CodeCommitNextToken;
-        sortBy?: CodeCommitSortByEnum;
-        order?: CodeCommitOrderEnum;
-    }
-
-    export interface CodeCommitListRepositoriesOutput {
-        repositories?: CodeCommitRepositoryNameIdPairList;
-        nextToken?: CodeCommitNextToken;
-    }
-
-    export interface CodeCommitMaximumRepositoryNamesExceededException {
-    }
-
-    export type CodeCommitNextToken = string;
-    export type CodeCommitOrderEnum = string;
-    export type CodeCommitRepositoryDescription = string;
-    export interface CodeCommitRepositoryDoesNotExistException {
-    }
-
-    export type CodeCommitRepositoryId = string;
-    export interface CodeCommitRepositoryLimitExceededException {
-    }
-
-    export interface CodeCommitRepositoryMetadata {
-        accountId?: CodeCommitAccountId;
-        repositoryId?: CodeCommitRepositoryId;
-        repositoryName?: CodeCommitRepositoryName;
-        repositoryDescription?: CodeCommitRepositoryDescription;
-        defaultBranch?: CodeCommitBranchName;
-        lastModifiedDate?: CodeCommitLastModifiedDate;
-        creationDate?: CodeCommitCreationDate;
-        cloneUrlHttp?: CodeCommitCloneUrlHttp;
-        cloneUrlSsh?: CodeCommitCloneUrlSsh;
-        Arn?: CodeCommitArn;
-    }
-
-    export type CodeCommitRepositoryMetadataList = Array<CodeCommitRepositoryMetadata>;
-    export type CodeCommitRepositoryName = string; // pattern: "[\\w\\.-]+"
-    export interface CodeCommitRepositoryNameExistsException {
-    }
-
-    export interface CodeCommitRepositoryNameIdPair {
-        repositoryName?: CodeCommitRepositoryName;
-        repositoryId?: CodeCommitRepositoryId;
-    }
-
-    export type CodeCommitRepositoryNameIdPairList = Array<CodeCommitRepositoryNameIdPair>;
-    export type CodeCommitRepositoryNameList = Array<CodeCommitRepositoryName>;
-    export interface CodeCommitRepositoryNameRequiredException {
-    }
-
-    export interface CodeCommitRepositoryNamesRequiredException {
-    }
-
-    export type CodeCommitRepositoryNotFoundList = Array<CodeCommitRepositoryName>;
-    export type CodeCommitSortByEnum = string;
-    export interface CodeCommitUpdateDefaultBranchInput {
-        repositoryName: CodeCommitRepositoryName;
-        defaultBranchName: CodeCommitBranchName;
-    }
-
-    export interface CodeCommitUpdateRepositoryDescriptionInput {
-        repositoryName: CodeCommitRepositoryName;
-        repositoryDescription?: CodeCommitRepositoryDescription;
-    }
-
-    export interface CodeCommitUpdateRepositoryNameInput {
-        oldName: CodeCommitRepositoryName;
-        newName: CodeCommitRepositoryName;
-    }
-
 }

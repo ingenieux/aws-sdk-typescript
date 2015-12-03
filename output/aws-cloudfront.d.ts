@@ -6,764 +6,633 @@ declare module "aws-sdk" {
 
     export class CloudFront extends Service {
       constructor(options?: any);
-      createCloudFrontOriginAccessIdentity(params: CloudFrontCreateCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFrontCloudFrontOriginAccessIdentityAlreadyExists|CloudFrontMissingBody|CloudFrontTooManyCloudFrontOriginAccessIdentities|CloudFrontInvalidArgument|CloudFrontInconsistentQuantities|any, data: CloudFrontCreateCloudFrontOriginAccessIdentityResult|any) => void): Request;
-      createDistribution(params: CloudFrontCreateDistributionRequest, callback?: (err: CloudFrontCNAMEAlreadyExists|CloudFrontDistributionAlreadyExists|CloudFrontInvalidOrigin|CloudFrontInvalidOriginAccessIdentity|CloudFrontAccessDenied|CloudFrontTooManyTrustedSigners|CloudFrontTrustedSignerDoesNotExist|CloudFrontInvalidViewerCertificate|CloudFrontInvalidMinimumProtocolVersion|CloudFrontMissingBody|CloudFrontTooManyDistributionCNAMEs|CloudFrontTooManyDistributions|CloudFrontInvalidDefaultRootObject|CloudFrontInvalidRelativePath|CloudFrontInvalidErrorCode|CloudFrontInvalidResponseCode|CloudFrontInvalidArgument|CloudFrontInvalidRequiredProtocol|CloudFrontNoSuchOrigin|CloudFrontTooManyOrigins|CloudFrontTooManyCacheBehaviors|CloudFrontTooManyCookieNamesInWhiteList|CloudFrontInvalidForwardCookies|CloudFrontTooManyHeadersInForwardedValues|CloudFrontInvalidHeadersForS3Origin|CloudFrontInconsistentQuantities|CloudFrontTooManyCertificates|CloudFrontInvalidLocationCode|CloudFrontInvalidGeoRestrictionParameter|CloudFrontInvalidProtocolSettings|CloudFrontInvalidTTLOrder|CloudFrontInvalidWebACLId|any, data: CloudFrontCreateDistributionResult|any) => void): Request;
-      createInvalidation(params: CloudFrontCreateInvalidationRequest, callback?: (err: CloudFrontAccessDenied|CloudFrontMissingBody|CloudFrontInvalidArgument|CloudFrontNoSuchDistribution|CloudFrontBatchTooLarge|CloudFrontTooManyInvalidationsInProgress|CloudFrontInconsistentQuantities|any, data: CloudFrontCreateInvalidationResult|any) => void): Request;
-      createStreamingDistribution(params: CloudFrontCreateStreamingDistributionRequest, callback?: (err: CloudFrontCNAMEAlreadyExists|CloudFrontStreamingDistributionAlreadyExists|CloudFrontInvalidOrigin|CloudFrontInvalidOriginAccessIdentity|CloudFrontAccessDenied|CloudFrontTooManyTrustedSigners|CloudFrontTrustedSignerDoesNotExist|CloudFrontMissingBody|CloudFrontTooManyStreamingDistributionCNAMEs|CloudFrontTooManyStreamingDistributions|CloudFrontInvalidArgument|CloudFrontInconsistentQuantities|any, data: CloudFrontCreateStreamingDistributionResult|any) => void): Request;
-      deleteCloudFrontOriginAccessIdentity(params: CloudFrontDeleteCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFrontAccessDenied|CloudFrontInvalidIfMatchVersion|CloudFrontNoSuchCloudFrontOriginAccessIdentity|CloudFrontPreconditionFailed|CloudFrontCloudFrontOriginAccessIdentityInUse|any, data: any) => void): Request;
-      deleteDistribution(params: CloudFrontDeleteDistributionRequest, callback?: (err: CloudFrontAccessDenied|CloudFrontDistributionNotDisabled|CloudFrontInvalidIfMatchVersion|CloudFrontNoSuchDistribution|CloudFrontPreconditionFailed|any, data: any) => void): Request;
-      deleteStreamingDistribution(params: CloudFrontDeleteStreamingDistributionRequest, callback?: (err: CloudFrontAccessDenied|CloudFrontStreamingDistributionNotDisabled|CloudFrontInvalidIfMatchVersion|CloudFrontNoSuchStreamingDistribution|CloudFrontPreconditionFailed|any, data: any) => void): Request;
-      getCloudFrontOriginAccessIdentity(params: CloudFrontGetCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFrontNoSuchCloudFrontOriginAccessIdentity|CloudFrontAccessDenied|any, data: CloudFrontGetCloudFrontOriginAccessIdentityResult|any) => void): Request;
-      getCloudFrontOriginAccessIdentityConfig(params: CloudFrontGetCloudFrontOriginAccessIdentityConfigRequest, callback?: (err: CloudFrontNoSuchCloudFrontOriginAccessIdentity|CloudFrontAccessDenied|any, data: CloudFrontGetCloudFrontOriginAccessIdentityConfigResult|any) => void): Request;
-      getDistribution(params: CloudFrontGetDistributionRequest, callback?: (err: CloudFrontNoSuchDistribution|CloudFrontAccessDenied|any, data: CloudFrontGetDistributionResult|any) => void): Request;
-      getDistributionConfig(params: CloudFrontGetDistributionConfigRequest, callback?: (err: CloudFrontNoSuchDistribution|CloudFrontAccessDenied|any, data: CloudFrontGetDistributionConfigResult|any) => void): Request;
-      getInvalidation(params: CloudFrontGetInvalidationRequest, callback?: (err: CloudFrontNoSuchInvalidation|CloudFrontNoSuchDistribution|CloudFrontAccessDenied|any, data: CloudFrontGetInvalidationResult|any) => void): Request;
-      getStreamingDistribution(params: CloudFrontGetStreamingDistributionRequest, callback?: (err: CloudFrontNoSuchStreamingDistribution|CloudFrontAccessDenied|any, data: CloudFrontGetStreamingDistributionResult|any) => void): Request;
-      getStreamingDistributionConfig(params: CloudFrontGetStreamingDistributionConfigRequest, callback?: (err: CloudFrontNoSuchStreamingDistribution|CloudFrontAccessDenied|any, data: CloudFrontGetStreamingDistributionConfigResult|any) => void): Request;
-      listCloudFrontOriginAccessIdentities(params: CloudFrontListCloudFrontOriginAccessIdentitiesRequest, callback?: (err: CloudFrontInvalidArgument|any, data: CloudFrontListCloudFrontOriginAccessIdentitiesResult|any) => void): Request;
-      listDistributions(params: CloudFrontListDistributionsRequest, callback?: (err: CloudFrontInvalidArgument|any, data: CloudFrontListDistributionsResult|any) => void): Request;
-      listDistributionsByWebACLId(params: CloudFrontListDistributionsByWebACLIdRequest, callback?: (err: CloudFrontInvalidArgument|CloudFrontInvalidWebACLId|any, data: CloudFrontListDistributionsByWebACLIdResult|any) => void): Request;
-      listInvalidations(params: CloudFrontListInvalidationsRequest, callback?: (err: CloudFrontInvalidArgument|CloudFrontNoSuchDistribution|CloudFrontAccessDenied|any, data: CloudFrontListInvalidationsResult|any) => void): Request;
-      listStreamingDistributions(params: CloudFrontListStreamingDistributionsRequest, callback?: (err: CloudFrontInvalidArgument|any, data: CloudFrontListStreamingDistributionsResult|any) => void): Request;
-      updateCloudFrontOriginAccessIdentity(params: CloudFrontUpdateCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFrontAccessDenied|CloudFrontIllegalUpdate|CloudFrontInvalidIfMatchVersion|CloudFrontMissingBody|CloudFrontNoSuchCloudFrontOriginAccessIdentity|CloudFrontPreconditionFailed|CloudFrontInvalidArgument|CloudFrontInconsistentQuantities|any, data: CloudFrontUpdateCloudFrontOriginAccessIdentityResult|any) => void): Request;
-      updateDistribution(params: CloudFrontUpdateDistributionRequest, callback?: (err: CloudFrontAccessDenied|CloudFrontCNAMEAlreadyExists|CloudFrontIllegalUpdate|CloudFrontInvalidIfMatchVersion|CloudFrontMissingBody|CloudFrontNoSuchDistribution|CloudFrontPreconditionFailed|CloudFrontTooManyDistributionCNAMEs|CloudFrontInvalidDefaultRootObject|CloudFrontInvalidRelativePath|CloudFrontInvalidErrorCode|CloudFrontInvalidResponseCode|CloudFrontInvalidArgument|CloudFrontInvalidOriginAccessIdentity|CloudFrontTooManyTrustedSigners|CloudFrontTrustedSignerDoesNotExist|CloudFrontInvalidViewerCertificate|CloudFrontInvalidMinimumProtocolVersion|CloudFrontInvalidRequiredProtocol|CloudFrontNoSuchOrigin|CloudFrontTooManyOrigins|CloudFrontTooManyCacheBehaviors|CloudFrontTooManyCookieNamesInWhiteList|CloudFrontInvalidForwardCookies|CloudFrontTooManyHeadersInForwardedValues|CloudFrontInvalidHeadersForS3Origin|CloudFrontInconsistentQuantities|CloudFrontTooManyCertificates|CloudFrontInvalidLocationCode|CloudFrontInvalidGeoRestrictionParameter|CloudFrontInvalidTTLOrder|CloudFrontInvalidWebACLId|any, data: CloudFrontUpdateDistributionResult|any) => void): Request;
-      updateStreamingDistribution(params: CloudFrontUpdateStreamingDistributionRequest, callback?: (err: CloudFrontAccessDenied|CloudFrontCNAMEAlreadyExists|CloudFrontIllegalUpdate|CloudFrontInvalidIfMatchVersion|CloudFrontMissingBody|CloudFrontNoSuchStreamingDistribution|CloudFrontPreconditionFailed|CloudFrontTooManyStreamingDistributionCNAMEs|CloudFrontInvalidArgument|CloudFrontInvalidOriginAccessIdentity|CloudFrontTooManyTrustedSigners|CloudFrontTrustedSignerDoesNotExist|CloudFrontInconsistentQuantities|any, data: CloudFrontUpdateStreamingDistributionResult|any) => void): Request;
-    }
-
-    export interface CloudFrontAccessDenied {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontActiveTrustedSigners {
-        Enabled: CloudFrontboolean;
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontSignerList;
-    }
-
-    export type CloudFrontAliasList = Array<CloudFrontstring>;
-    export interface CloudFrontAliases {
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontAliasList;
-    }
-
-    export interface CloudFrontAllowedMethods {
-        Quantity: CloudFrontinteger;
-        Items: CloudFrontMethodsList;
-        CachedMethods?: CloudFrontCachedMethods;
-    }
-
-    export type CloudFrontAwsAccountNumberList = Array<CloudFrontstring>;
-    export interface CloudFrontBatchTooLarge {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontCNAMEAlreadyExists {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontCacheBehavior {
-        PathPattern: CloudFrontstring;
-        TargetOriginId: CloudFrontstring;
-        ForwardedValues: CloudFrontForwardedValues;
-        TrustedSigners: CloudFrontTrustedSigners;
-        ViewerProtocolPolicy: CloudFrontViewerProtocolPolicy;
-        MinTTL: CloudFrontlong;
-        AllowedMethods?: CloudFrontAllowedMethods;
-        SmoothStreaming?: CloudFrontboolean;
-        DefaultTTL?: CloudFrontlong;
-        MaxTTL?: CloudFrontlong;
-    }
-
-    export type CloudFrontCacheBehaviorList = Array<CloudFrontCacheBehavior>;
-    export interface CloudFrontCacheBehaviors {
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontCacheBehaviorList;
-    }
-
-    export interface CloudFrontCachedMethods {
-        Quantity: CloudFrontinteger;
-        Items: CloudFrontMethodsList;
-    }
-
-    export interface CloudFrontCloudFrontOriginAccessIdentity {
-        Id: CloudFrontstring;
-        S3CanonicalUserId: CloudFrontstring;
-        CloudFrontOriginAccessIdentityConfig?: CloudFrontCloudFrontOriginAccessIdentityConfig;
-    }
-
-    export interface CloudFrontCloudFrontOriginAccessIdentityAlreadyExists {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontCloudFrontOriginAccessIdentityConfig {
-        CallerReference: CloudFrontstring;
-        Comment: CloudFrontstring;
-    }
-
-    export interface CloudFrontCloudFrontOriginAccessIdentityInUse {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontCloudFrontOriginAccessIdentityList {
-        Marker: CloudFrontstring;
-        NextMarker?: CloudFrontstring;
-        MaxItems: CloudFrontinteger;
-        IsTruncated: CloudFrontboolean;
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontCloudFrontOriginAccessIdentitySummaryList;
-    }
-
-    export interface CloudFrontCloudFrontOriginAccessIdentitySummary {
-        Id: CloudFrontstring;
-        S3CanonicalUserId: CloudFrontstring;
-        Comment: CloudFrontstring;
-    }
-
-    export type CloudFrontCloudFrontOriginAccessIdentitySummaryList = Array<CloudFrontCloudFrontOriginAccessIdentitySummary>;
-    export type CloudFrontCookieNameList = Array<CloudFrontstring>;
-    export interface CloudFrontCookieNames {
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontCookieNameList;
-    }
-
-    export interface CloudFrontCookiePreference {
-        Forward: CloudFrontItemSelection;
-        WhitelistedNames?: CloudFrontCookieNames;
-    }
-
-    export interface CloudFrontCreateCloudFrontOriginAccessIdentityRequest {
-        CloudFrontOriginAccessIdentityConfig: CloudFrontCloudFrontOriginAccessIdentityConfig;
-    }
-
-    export interface CloudFrontCreateCloudFrontOriginAccessIdentityResult {
-        CloudFrontOriginAccessIdentity?: CloudFrontCloudFrontOriginAccessIdentity;
-        Location?: CloudFrontstring;
-        ETag?: CloudFrontstring;
-    }
-
-    export interface CloudFrontCreateDistributionRequest {
-        DistributionConfig: CloudFrontDistributionConfig;
-    }
-
-    export interface CloudFrontCreateDistributionResult {
-        Distribution?: CloudFrontDistribution;
-        Location?: CloudFrontstring;
-        ETag?: CloudFrontstring;
-    }
-
-    export interface CloudFrontCreateInvalidationRequest {
-        DistributionId: CloudFrontstring;
-        InvalidationBatch: CloudFrontInvalidationBatch;
-    }
-
-    export interface CloudFrontCreateInvalidationResult {
-        Location?: CloudFrontstring;
-        Invalidation?: CloudFrontInvalidation;
-    }
-
-    export interface CloudFrontCreateStreamingDistributionRequest {
-        StreamingDistributionConfig: CloudFrontStreamingDistributionConfig;
-    }
-
-    export interface CloudFrontCreateStreamingDistributionResult {
-        StreamingDistribution?: CloudFrontStreamingDistribution;
-        Location?: CloudFrontstring;
-        ETag?: CloudFrontstring;
-    }
-
-    export interface CloudFrontCustomErrorResponse {
-        ErrorCode: CloudFrontinteger;
-        ResponsePagePath?: CloudFrontstring;
-        ResponseCode?: CloudFrontstring;
-        ErrorCachingMinTTL?: CloudFrontlong;
-    }
-
-    export type CloudFrontCustomErrorResponseList = Array<CloudFrontCustomErrorResponse>;
-    export interface CloudFrontCustomErrorResponses {
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontCustomErrorResponseList;
-    }
-
-    export interface CloudFrontCustomOriginConfig {
-        HTTPPort: CloudFrontinteger;
-        HTTPSPort: CloudFrontinteger;
-        OriginProtocolPolicy: CloudFrontOriginProtocolPolicy;
-    }
-
-    export interface CloudFrontDefaultCacheBehavior {
-        TargetOriginId: CloudFrontstring;
-        ForwardedValues: CloudFrontForwardedValues;
-        TrustedSigners: CloudFrontTrustedSigners;
-        ViewerProtocolPolicy: CloudFrontViewerProtocolPolicy;
-        MinTTL: CloudFrontlong;
-        AllowedMethods?: CloudFrontAllowedMethods;
-        SmoothStreaming?: CloudFrontboolean;
-        DefaultTTL?: CloudFrontlong;
-        MaxTTL?: CloudFrontlong;
-    }
-
-    export interface CloudFrontDeleteCloudFrontOriginAccessIdentityRequest {
-        Id: CloudFrontstring;
-        IfMatch?: CloudFrontstring;
-    }
-
-    export interface CloudFrontDeleteDistributionRequest {
-        Id: CloudFrontstring;
-        IfMatch?: CloudFrontstring;
-    }
-
-    export interface CloudFrontDeleteStreamingDistributionRequest {
-        Id: CloudFrontstring;
-        IfMatch?: CloudFrontstring;
-    }
-
-    export interface CloudFrontDistribution {
-        Id: CloudFrontstring;
-        Status: CloudFrontstring;
-        LastModifiedTime: CloudFronttimestamp;
-        InProgressInvalidationBatches: CloudFrontinteger;
-        DomainName: CloudFrontstring;
-        ActiveTrustedSigners: CloudFrontActiveTrustedSigners;
-        DistributionConfig: CloudFrontDistributionConfig;
-    }
-
-    export interface CloudFrontDistributionAlreadyExists {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontDistributionConfig {
-        CallerReference: CloudFrontstring;
-        Aliases?: CloudFrontAliases;
-        DefaultRootObject?: CloudFrontstring;
-        Origins: CloudFrontOrigins;
-        DefaultCacheBehavior: CloudFrontDefaultCacheBehavior;
-        CacheBehaviors?: CloudFrontCacheBehaviors;
-        CustomErrorResponses?: CloudFrontCustomErrorResponses;
-        Comment: CloudFrontstring;
-        Logging?: CloudFrontLoggingConfig;
-        PriceClass?: CloudFrontPriceClass;
-        Enabled: CloudFrontboolean;
-        ViewerCertificate?: CloudFrontViewerCertificate;
-        Restrictions?: CloudFrontRestrictions;
-        WebACLId?: CloudFrontstring;
-    }
-
-    export interface CloudFrontDistributionList {
-        Marker: CloudFrontstring;
-        NextMarker?: CloudFrontstring;
-        MaxItems: CloudFrontinteger;
-        IsTruncated: CloudFrontboolean;
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontDistributionSummaryList;
-    }
-
-    export interface CloudFrontDistributionNotDisabled {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontDistributionSummary {
-        Id: CloudFrontstring;
-        Status: CloudFrontstring;
-        LastModifiedTime: CloudFronttimestamp;
-        DomainName: CloudFrontstring;
-        Aliases: CloudFrontAliases;
-        Origins: CloudFrontOrigins;
-        DefaultCacheBehavior: CloudFrontDefaultCacheBehavior;
-        CacheBehaviors: CloudFrontCacheBehaviors;
-        CustomErrorResponses: CloudFrontCustomErrorResponses;
-        Comment: CloudFrontstring;
-        PriceClass: CloudFrontPriceClass;
-        Enabled: CloudFrontboolean;
-        ViewerCertificate: CloudFrontViewerCertificate;
-        Restrictions: CloudFrontRestrictions;
-        WebACLId: CloudFrontstring;
-    }
-
-    export type CloudFrontDistributionSummaryList = Array<CloudFrontDistributionSummary>;
-    export interface CloudFrontForwardedValues {
-        QueryString: CloudFrontboolean;
-        Cookies: CloudFrontCookiePreference;
-        Headers?: CloudFrontHeaders;
-    }
-
-    export interface CloudFrontGeoRestriction {
-        RestrictionType: CloudFrontGeoRestrictionType;
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontLocationList;
-    }
-
-    export type CloudFrontGeoRestrictionType = string;
-    export interface CloudFrontGetCloudFrontOriginAccessIdentityConfigRequest {
-        Id: CloudFrontstring;
-    }
-
-    export interface CloudFrontGetCloudFrontOriginAccessIdentityConfigResult {
-        CloudFrontOriginAccessIdentityConfig?: CloudFrontCloudFrontOriginAccessIdentityConfig;
-        ETag?: CloudFrontstring;
-    }
-
-    export interface CloudFrontGetCloudFrontOriginAccessIdentityRequest {
-        Id: CloudFrontstring;
-    }
-
-    export interface CloudFrontGetCloudFrontOriginAccessIdentityResult {
-        CloudFrontOriginAccessIdentity?: CloudFrontCloudFrontOriginAccessIdentity;
-        ETag?: CloudFrontstring;
-    }
-
-    export interface CloudFrontGetDistributionConfigRequest {
-        Id: CloudFrontstring;
-    }
-
-    export interface CloudFrontGetDistributionConfigResult {
-        DistributionConfig?: CloudFrontDistributionConfig;
-        ETag?: CloudFrontstring;
-    }
-
-    export interface CloudFrontGetDistributionRequest {
-        Id: CloudFrontstring;
-    }
-
-    export interface CloudFrontGetDistributionResult {
-        Distribution?: CloudFrontDistribution;
-        ETag?: CloudFrontstring;
-    }
-
-    export interface CloudFrontGetInvalidationRequest {
-        DistributionId: CloudFrontstring;
-        Id: CloudFrontstring;
-    }
-
-    export interface CloudFrontGetInvalidationResult {
-        Invalidation?: CloudFrontInvalidation;
-    }
-
-    export interface CloudFrontGetStreamingDistributionConfigRequest {
-        Id: CloudFrontstring;
-    }
-
-    export interface CloudFrontGetStreamingDistributionConfigResult {
-        StreamingDistributionConfig?: CloudFrontStreamingDistributionConfig;
-        ETag?: CloudFrontstring;
-    }
-
-    export interface CloudFrontGetStreamingDistributionRequest {
-        Id: CloudFrontstring;
-    }
-
-    export interface CloudFrontGetStreamingDistributionResult {
-        StreamingDistribution?: CloudFrontStreamingDistribution;
-        ETag?: CloudFrontstring;
-    }
-
-    export type CloudFrontHeaderList = Array<CloudFrontstring>;
-    export interface CloudFrontHeaders {
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontHeaderList;
-    }
-
-    export interface CloudFrontIllegalUpdate {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInconsistentQuantities {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidArgument {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidDefaultRootObject {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidErrorCode {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidForwardCookies {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidGeoRestrictionParameter {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidHeadersForS3Origin {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidIfMatchVersion {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidLocationCode {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidMinimumProtocolVersion {
-        Message?: CloudFrontstring;
-    }
+      createCloudFrontOriginAccessIdentity(params: CloudFront.CreateCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFront.CloudFrontOriginAccessIdentityAlreadyExists|CloudFront.MissingBody|CloudFront.TooManyCloudFrontOriginAccessIdentities|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|any, data: CloudFront.CreateCloudFrontOriginAccessIdentityResult|any) => void): Request;
+      createDistribution(params: CloudFront.CreateDistributionRequest, callback?: (err: CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|any, data: CloudFront.CreateDistributionResult|any) => void): Request;
+      createInvalidation(params: CloudFront.CreateInvalidationRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.MissingBody|CloudFront.InvalidArgument|CloudFront.NoSuchDistribution|CloudFront.BatchTooLarge|CloudFront.TooManyInvalidationsInProgress|CloudFront.InconsistentQuantities|any, data: CloudFront.CreateInvalidationResult|any) => void): Request;
+      createStreamingDistribution(params: CloudFront.CreateStreamingDistributionRequest, callback?: (err: CloudFront.CNAMEAlreadyExists|CloudFront.StreamingDistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.MissingBody|CloudFront.TooManyStreamingDistributionCNAMEs|CloudFront.TooManyStreamingDistributions|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|any, data: CloudFront.CreateStreamingDistributionResult|any) => void): Request;
+      deleteCloudFrontOriginAccessIdentity(params: CloudFront.DeleteCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.InvalidIfMatchVersion|CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.PreconditionFailed|CloudFront.CloudFrontOriginAccessIdentityInUse|any, data: any) => void): Request;
+      deleteDistribution(params: CloudFront.DeleteDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.DistributionNotDisabled|CloudFront.InvalidIfMatchVersion|CloudFront.NoSuchDistribution|CloudFront.PreconditionFailed|any, data: any) => void): Request;
+      deleteStreamingDistribution(params: CloudFront.DeleteStreamingDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.StreamingDistributionNotDisabled|CloudFront.InvalidIfMatchVersion|CloudFront.NoSuchStreamingDistribution|CloudFront.PreconditionFailed|any, data: any) => void): Request;
+      getCloudFrontOriginAccessIdentity(params: CloudFront.GetCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.AccessDenied|any, data: CloudFront.GetCloudFrontOriginAccessIdentityResult|any) => void): Request;
+      getCloudFrontOriginAccessIdentityConfig(params: CloudFront.GetCloudFrontOriginAccessIdentityConfigRequest, callback?: (err: CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.AccessDenied|any, data: CloudFront.GetCloudFrontOriginAccessIdentityConfigResult|any) => void): Request;
+      getDistribution(params: CloudFront.GetDistributionRequest, callback?: (err: CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetDistributionResult|any) => void): Request;
+      getDistributionConfig(params: CloudFront.GetDistributionConfigRequest, callback?: (err: CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetDistributionConfigResult|any) => void): Request;
+      getInvalidation(params: CloudFront.GetInvalidationRequest, callback?: (err: CloudFront.NoSuchInvalidation|CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetInvalidationResult|any) => void): Request;
+      getStreamingDistribution(params: CloudFront.GetStreamingDistributionRequest, callback?: (err: CloudFront.NoSuchStreamingDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetStreamingDistributionResult|any) => void): Request;
+      getStreamingDistributionConfig(params: CloudFront.GetStreamingDistributionConfigRequest, callback?: (err: CloudFront.NoSuchStreamingDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetStreamingDistributionConfigResult|any) => void): Request;
+      listCloudFrontOriginAccessIdentities(params: CloudFront.ListCloudFrontOriginAccessIdentitiesRequest, callback?: (err: CloudFront.InvalidArgument|any, data: CloudFront.ListCloudFrontOriginAccessIdentitiesResult|any) => void): Request;
+      listDistributions(params: CloudFront.ListDistributionsRequest, callback?: (err: CloudFront.InvalidArgument|any, data: CloudFront.ListDistributionsResult|any) => void): Request;
+      listDistributionsByWebACLId(params: CloudFront.ListDistributionsByWebACLIdRequest, callback?: (err: CloudFront.InvalidArgument|CloudFront.InvalidWebACLId|any, data: CloudFront.ListDistributionsByWebACLIdResult|any) => void): Request;
+      listInvalidations(params: CloudFront.ListInvalidationsRequest, callback?: (err: CloudFront.InvalidArgument|CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any, data: CloudFront.ListInvalidationsResult|any) => void): Request;
+      listStreamingDistributions(params: CloudFront.ListStreamingDistributionsRequest, callback?: (err: CloudFront.InvalidArgument|any, data: CloudFront.ListStreamingDistributionsResult|any) => void): Request;
+      updateCloudFrontOriginAccessIdentity(params: CloudFront.UpdateCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.PreconditionFailed|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|any, data: CloudFront.UpdateCloudFrontOriginAccessIdentityResult|any) => void): Request;
+      updateDistribution(params: CloudFront.UpdateDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.CNAMEAlreadyExists|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchDistribution|CloudFront.PreconditionFailed|CloudFront.TooManyDistributionCNAMEs|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidOriginAccessIdentity|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|any, data: CloudFront.UpdateDistributionResult|any) => void): Request;
+      updateStreamingDistribution(params: CloudFront.UpdateStreamingDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.CNAMEAlreadyExists|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchStreamingDistribution|CloudFront.PreconditionFailed|CloudFront.TooManyStreamingDistributionCNAMEs|CloudFront.InvalidArgument|CloudFront.InvalidOriginAccessIdentity|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InconsistentQuantities|any, data: CloudFront.UpdateStreamingDistributionResult|any) => void): Request;
+    }
+    
+    export module CloudFront {
+        export type AliasList = string[];
+        export type AwsAccountNumberList = string[];
+        export type CacheBehaviorList = CacheBehavior[];
+        export type CloudFrontOriginAccessIdentitySummaryList = CloudFrontOriginAccessIdentitySummary[];
+        export type CookieNameList = string[];
+        export type CustomErrorResponseList = CustomErrorResponse[];
+        export type DistributionSummaryList = DistributionSummary[];
+        export type GeoRestrictionType = string;
+        export type HeaderList = string[];
+        export type InvalidationSummaryList = InvalidationSummary[];
+        export type ItemSelection = string;
+        export type KeyPairIdList = string[];
+        export type LocationList = string[];
+        export type Method = string;
+        export type MethodsList = Method[];
+        export type MinimumProtocolVersion = string;
+        export type OriginList = Origin[];    // min: 1
+        export type OriginProtocolPolicy = string;
+        export type PathList = string[];
+        export type PriceClass = string;
+        export type SSLSupportMethod = string;
+        export type SignerList = Signer[];
+        export type StreamingDistributionSummaryList = StreamingDistributionSummary[];
+        export type ViewerProtocolPolicy = string;
+        export type integer = number;
+        export type long = number;
+        export type timestamp = number;
+
+        export interface AccessDenied {
+            Message?: string;            
+        }
+        export interface ActiveTrustedSigners {
+            Enabled: boolean;            
+            Quantity: integer;            
+            Items?: SignerList;            
+        }
+        export interface Aliases {
+            Quantity: integer;            
+            Items?: AliasList;            
+        }
+        export interface AllowedMethods {
+            Quantity: integer;            
+            Items: MethodsList;            
+            CachedMethods?: CachedMethods;            
+        }
+        export interface BatchTooLarge {
+            Message?: string;            
+        }
+        export interface CNAMEAlreadyExists {
+            Message?: string;            
+        }
+        export interface CacheBehavior {
+            PathPattern: string;            
+            TargetOriginId: string;            
+            ForwardedValues: ForwardedValues;            
+            TrustedSigners: TrustedSigners;            
+            ViewerProtocolPolicy: ViewerProtocolPolicy;            
+            MinTTL: long;            
+            AllowedMethods?: AllowedMethods;            
+            SmoothStreaming?: boolean;            
+            DefaultTTL?: long;            
+            MaxTTL?: long;            
+        }
+        export interface CacheBehaviors {
+            Quantity: integer;            
+            Items?: CacheBehaviorList;            
+        }
+        export interface CachedMethods {
+            Quantity: integer;            
+            Items: MethodsList;            
+        }
+        export interface CloudFrontOriginAccessIdentity {
+            Id: string;            
+            S3CanonicalUserId: string;            
+            CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig;            
+        }
+        export interface CloudFrontOriginAccessIdentityAlreadyExists {
+            Message?: string;            
+        }
+        export interface CloudFrontOriginAccessIdentityConfig {
+            CallerReference: string;            
+            Comment: string;            
+        }
+        export interface CloudFrontOriginAccessIdentityInUse {
+            Message?: string;            
+        }
+        export interface CloudFrontOriginAccessIdentityList {
+            Marker: string;            
+            NextMarker?: string;            
+            MaxItems: integer;            
+            IsTruncated: boolean;            
+            Quantity: integer;            
+            Items?: CloudFrontOriginAccessIdentitySummaryList;            
+        }
+        export interface CloudFrontOriginAccessIdentitySummary {
+            Id: string;            
+            S3CanonicalUserId: string;            
+            Comment: string;            
+        }
+        export interface CookieNames {
+            Quantity: integer;            
+            Items?: CookieNameList;            
+        }
+        export interface CookiePreference {
+            Forward: ItemSelection;            
+            WhitelistedNames?: CookieNames;            
+        }
+        export interface CreateCloudFrontOriginAccessIdentityRequest {
+            CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig;            
+        }
+        export interface CreateCloudFrontOriginAccessIdentityResult {
+            CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity;            
+            Location?: string;            
+            ETag?: string;            
+        }
+        export interface CreateDistributionRequest {
+            DistributionConfig: DistributionConfig;            
+        }
+        export interface CreateDistributionResult {
+            Distribution?: Distribution;            
+            Location?: string;            
+            ETag?: string;            
+        }
+        export interface CreateInvalidationRequest {
+            DistributionId: string;            
+            InvalidationBatch: InvalidationBatch;            
+        }
+        export interface CreateInvalidationResult {
+            Location?: string;            
+            Invalidation?: Invalidation;            
+        }
+        export interface CreateStreamingDistributionRequest {
+            StreamingDistributionConfig: StreamingDistributionConfig;            
+        }
+        export interface CreateStreamingDistributionResult {
+            StreamingDistribution?: StreamingDistribution;            
+            Location?: string;            
+            ETag?: string;            
+        }
+        export interface CustomErrorResponse {
+            ErrorCode: integer;            
+            ResponsePagePath?: string;            
+            ResponseCode?: string;            
+            ErrorCachingMinTTL?: long;            
+        }
+        export interface CustomErrorResponses {
+            Quantity: integer;            
+            Items?: CustomErrorResponseList;            
+        }
+        export interface CustomOriginConfig {
+            HTTPPort: integer;            
+            HTTPSPort: integer;            
+            OriginProtocolPolicy: OriginProtocolPolicy;            
+        }
+        export interface DefaultCacheBehavior {
+            TargetOriginId: string;            
+            ForwardedValues: ForwardedValues;            
+            TrustedSigners: TrustedSigners;            
+            ViewerProtocolPolicy: ViewerProtocolPolicy;            
+            MinTTL: long;            
+            AllowedMethods?: AllowedMethods;            
+            SmoothStreaming?: boolean;            
+            DefaultTTL?: long;            
+            MaxTTL?: long;            
+        }
+        export interface DeleteCloudFrontOriginAccessIdentityRequest {
+            Id: string;            
+            IfMatch?: string;            
+        }
+        export interface DeleteDistributionRequest {
+            Id: string;            
+            IfMatch?: string;            
+        }
+        export interface DeleteStreamingDistributionRequest {
+            Id: string;            
+            IfMatch?: string;            
+        }
+        export interface Distribution {
+            Id: string;            
+            Status: string;            
+            LastModifiedTime: timestamp;            
+            InProgressInvalidationBatches: integer;            
+            DomainName: string;            
+            ActiveTrustedSigners: ActiveTrustedSigners;            
+            DistributionConfig: DistributionConfig;            
+        }
+        export interface DistributionAlreadyExists {
+            Message?: string;            
+        }
+        export interface DistributionConfig {
+            CallerReference: string;            
+            Aliases?: Aliases;            
+            DefaultRootObject?: string;            
+            Origins: Origins;            
+            DefaultCacheBehavior: DefaultCacheBehavior;            
+            CacheBehaviors?: CacheBehaviors;            
+            CustomErrorResponses?: CustomErrorResponses;            
+            Comment: string;            
+            Logging?: LoggingConfig;            
+            PriceClass?: PriceClass;            
+            Enabled: boolean;            
+            ViewerCertificate?: ViewerCertificate;            
+            Restrictions?: Restrictions;            
+            WebACLId?: string;            
+        }
+        export interface DistributionList {
+            Marker: string;            
+            NextMarker?: string;            
+            MaxItems: integer;            
+            IsTruncated: boolean;            
+            Quantity: integer;            
+            Items?: DistributionSummaryList;            
+        }
+        export interface DistributionNotDisabled {
+            Message?: string;            
+        }
+        export interface DistributionSummary {
+            Id: string;            
+            Status: string;            
+            LastModifiedTime: timestamp;            
+            DomainName: string;            
+            Aliases: Aliases;            
+            Origins: Origins;            
+            DefaultCacheBehavior: DefaultCacheBehavior;            
+            CacheBehaviors: CacheBehaviors;            
+            CustomErrorResponses: CustomErrorResponses;            
+            Comment: string;            
+            PriceClass: PriceClass;            
+            Enabled: boolean;            
+            ViewerCertificate: ViewerCertificate;            
+            Restrictions: Restrictions;            
+            WebACLId: string;            
+        }
+        export interface ForwardedValues {
+            QueryString: boolean;            
+            Cookies: CookiePreference;            
+            Headers?: Headers;            
+        }
+        export interface GeoRestriction {
+            RestrictionType: GeoRestrictionType;            
+            Quantity: integer;            
+            Items?: LocationList;            
+        }
+        export interface GetCloudFrontOriginAccessIdentityConfigRequest {
+            Id: string;            
+        }
+        export interface GetCloudFrontOriginAccessIdentityConfigResult {
+            CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig;            
+            ETag?: string;            
+        }
+        export interface GetCloudFrontOriginAccessIdentityRequest {
+            Id: string;            
+        }
+        export interface GetCloudFrontOriginAccessIdentityResult {
+            CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity;            
+            ETag?: string;            
+        }
+        export interface GetDistributionConfigRequest {
+            Id: string;            
+        }
+        export interface GetDistributionConfigResult {
+            DistributionConfig?: DistributionConfig;            
+            ETag?: string;            
+        }
+        export interface GetDistributionRequest {
+            Id: string;            
+        }
+        export interface GetDistributionResult {
+            Distribution?: Distribution;            
+            ETag?: string;            
+        }
+        export interface GetInvalidationRequest {
+            DistributionId: string;            
+            Id: string;            
+        }
+        export interface GetInvalidationResult {
+            Invalidation?: Invalidation;            
+        }
+        export interface GetStreamingDistributionConfigRequest {
+            Id: string;            
+        }
+        export interface GetStreamingDistributionConfigResult {
+            StreamingDistributionConfig?: StreamingDistributionConfig;            
+            ETag?: string;            
+        }
+        export interface GetStreamingDistributionRequest {
+            Id: string;            
+        }
+        export interface GetStreamingDistributionResult {
+            StreamingDistribution?: StreamingDistribution;            
+            ETag?: string;            
+        }
+        export interface Headers {
+            Quantity: integer;            
+            Items?: HeaderList;            
+        }
+        export interface IllegalUpdate {
+            Message?: string;            
+        }
+        export interface InconsistentQuantities {
+            Message?: string;            
+        }
+        export interface InvalidArgument {
+            Message?: string;            
+        }
+        export interface InvalidDefaultRootObject {
+            Message?: string;            
+        }
+        export interface InvalidErrorCode {
+            Message?: string;            
+        }
+        export interface InvalidForwardCookies {
+            Message?: string;            
+        }
+        export interface InvalidGeoRestrictionParameter {
+            Message?: string;            
+        }
+        export interface InvalidHeadersForS3Origin {
+            Message?: string;            
+        }
+        export interface InvalidIfMatchVersion {
+            Message?: string;            
+        }
+        export interface InvalidLocationCode {
+            Message?: string;            
+        }
+        export interface InvalidMinimumProtocolVersion {
+            Message?: string;            
+        }
+        export interface InvalidOrigin {
+            Message?: string;            
+        }
+        export interface InvalidOriginAccessIdentity {
+            Message?: string;            
+        }
+        export interface InvalidProtocolSettings {
+            Message?: string;            
+        }
+        export interface InvalidRelativePath {
+            Message?: string;            
+        }
+        export interface InvalidRequiredProtocol {
+            Message?: string;            
+        }
+        export interface InvalidResponseCode {
+            Message?: string;            
+        }
+        export interface InvalidTTLOrder {
+            Message?: string;            
+        }
+        export interface InvalidViewerCertificate {
+            Message?: string;            
+        }
+        export interface InvalidWebACLId {
+            Message?: string;            
+        }
+        export interface Invalidation {
+            Id: string;            
+            Status: string;            
+            CreateTime: timestamp;            
+            InvalidationBatch: InvalidationBatch;            
+        }
+        export interface InvalidationBatch {
+            Paths: Paths;            
+            CallerReference: string;            
+        }
+        export interface InvalidationList {
+            Marker: string;            
+            NextMarker?: string;            
+            MaxItems: integer;            
+            IsTruncated: boolean;            
+            Quantity: integer;            
+            Items?: InvalidationSummaryList;            
+        }
+        export interface InvalidationSummary {
+            Id: string;            
+            CreateTime: timestamp;            
+            Status: string;            
+        }
+        export interface KeyPairIds {
+            Quantity: integer;            
+            Items?: KeyPairIdList;            
+        }
+        export interface ListCloudFrontOriginAccessIdentitiesRequest {
+            Marker?: string;            
+            MaxItems?: string;            
+        }
+        export interface ListCloudFrontOriginAccessIdentitiesResult {
+            CloudFrontOriginAccessIdentityList?: CloudFrontOriginAccessIdentityList;            
+        }
+        export interface ListDistributionsByWebACLIdRequest {
+            Marker?: string;            
+            MaxItems?: string;            
+            WebACLId: string;            
+        }
+        export interface ListDistributionsByWebACLIdResult {
+            DistributionList?: DistributionList;            
+        }
+        export interface ListDistributionsRequest {
+            Marker?: string;            
+            MaxItems?: string;            
+        }
+        export interface ListDistributionsResult {
+            DistributionList?: DistributionList;            
+        }
+        export interface ListInvalidationsRequest {
+            DistributionId: string;            
+            Marker?: string;            
+            MaxItems?: string;            
+        }
+        export interface ListInvalidationsResult {
+            InvalidationList?: InvalidationList;            
+        }
+        export interface ListStreamingDistributionsRequest {
+            Marker?: string;            
+            MaxItems?: string;            
+        }
+        export interface ListStreamingDistributionsResult {
+            StreamingDistributionList?: StreamingDistributionList;            
+        }
+        export interface LoggingConfig {
+            Enabled: boolean;            
+            IncludeCookies: boolean;            
+            Bucket: string;            
+            Prefix: string;            
+        }
+        export interface MissingBody {
+            Message?: string;            
+        }
+        export interface NoSuchCloudFrontOriginAccessIdentity {
+            Message?: string;            
+        }
+        export interface NoSuchDistribution {
+            Message?: string;            
+        }
+        export interface NoSuchInvalidation {
+            Message?: string;            
+        }
+        export interface NoSuchOrigin {
+            Message?: string;            
+        }
+        export interface NoSuchStreamingDistribution {
+            Message?: string;            
+        }
+        export interface Origin {
+            Id: string;            
+            DomainName: string;            
+            OriginPath?: string;            
+            S3OriginConfig?: S3OriginConfig;            
+            CustomOriginConfig?: CustomOriginConfig;            
+        }
+        export interface Origins {
+            Quantity: integer;            
+            Items?: OriginList;            
+        }
+        export interface Paths {
+            Quantity: integer;            
+            Items?: PathList;            
+        }
+        export interface PreconditionFailed {
+            Message?: string;            
+        }
+        export interface Restrictions {
+            GeoRestriction: GeoRestriction;            
+        }
+        export interface S3Origin {
+            DomainName: string;            
+            OriginAccessIdentity: string;            
+        }
+        export interface S3OriginConfig {
+            OriginAccessIdentity: string;            
+        }
+        export interface Signer {
+            AwsAccountNumber?: string;            
+            KeyPairIds?: KeyPairIds;            
+        }
+        export interface StreamingDistribution {
+            Id: string;            
+            Status: string;            
+            LastModifiedTime?: timestamp;            
+            DomainName: string;            
+            ActiveTrustedSigners: ActiveTrustedSigners;            
+            StreamingDistributionConfig: StreamingDistributionConfig;            
+        }
+        export interface StreamingDistributionAlreadyExists {
+            Message?: string;            
+        }
+        export interface StreamingDistributionConfig {
+            CallerReference: string;            
+            S3Origin: S3Origin;            
+            Aliases?: Aliases;            
+            Comment: string;            
+            Logging?: StreamingLoggingConfig;            
+            TrustedSigners: TrustedSigners;            
+            PriceClass?: PriceClass;            
+            Enabled: boolean;            
+        }
+        export interface StreamingDistributionList {
+            Marker: string;            
+            NextMarker?: string;            
+            MaxItems: integer;            
+            IsTruncated: boolean;            
+            Quantity: integer;            
+            Items?: StreamingDistributionSummaryList;            
+        }
+        export interface StreamingDistributionNotDisabled {
+            Message?: string;            
+        }
+        export interface StreamingDistributionSummary {
+            Id: string;            
+            Status: string;            
+            LastModifiedTime: timestamp;            
+            DomainName: string;            
+            S3Origin: S3Origin;            
+            Aliases: Aliases;            
+            TrustedSigners: TrustedSigners;            
+            Comment: string;            
+            PriceClass: PriceClass;            
+            Enabled: boolean;            
+        }
+        export interface StreamingLoggingConfig {
+            Enabled: boolean;            
+            Bucket: string;            
+            Prefix: string;            
+        }
+        export interface TooManyCacheBehaviors {
+            Message?: string;            
+        }
+        export interface TooManyCertificates {
+            Message?: string;            
+        }
+        export interface TooManyCloudFrontOriginAccessIdentities {
+            Message?: string;            
+        }
+        export interface TooManyCookieNamesInWhiteList {
+            Message?: string;            
+        }
+        export interface TooManyDistributionCNAMEs {
+            Message?: string;            
+        }
+        export interface TooManyDistributions {
+            Message?: string;            
+        }
+        export interface TooManyHeadersInForwardedValues {
+            Message?: string;            
+        }
+        export interface TooManyInvalidationsInProgress {
+            Message?: string;            
+        }
+        export interface TooManyOrigins {
+            Message?: string;            
+        }
+        export interface TooManyStreamingDistributionCNAMEs {
+            Message?: string;            
+        }
+        export interface TooManyStreamingDistributions {
+            Message?: string;            
+        }
+        export interface TooManyTrustedSigners {
+            Message?: string;            
+        }
+        export interface TrustedSignerDoesNotExist {
+            Message?: string;            
+        }
+        export interface TrustedSigners {
+            Enabled: boolean;            
+            Quantity: integer;            
+            Items?: AwsAccountNumberList;            
+        }
+        export interface UpdateCloudFrontOriginAccessIdentityRequest {
+            CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig;            
+            Id: string;            
+            IfMatch?: string;            
+        }
+        export interface UpdateCloudFrontOriginAccessIdentityResult {
+            CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity;            
+            ETag?: string;            
+        }
+        export interface UpdateDistributionRequest {
+            DistributionConfig: DistributionConfig;            
+            Id: string;            
+            IfMatch?: string;            
+        }
+        export interface UpdateDistributionResult {
+            Distribution?: Distribution;            
+            ETag?: string;            
+        }
+        export interface UpdateStreamingDistributionRequest {
+            StreamingDistributionConfig: StreamingDistributionConfig;            
+            Id: string;            
+            IfMatch?: string;            
+        }
+        export interface UpdateStreamingDistributionResult {
+            StreamingDistribution?: StreamingDistribution;            
+            ETag?: string;            
+        }
+        export interface ViewerCertificate {
+            IAMCertificateId?: string;            
+            CloudFrontDefaultCertificate?: boolean;            
+            SSLSupportMethod?: SSLSupportMethod;            
+            MinimumProtocolVersion?: MinimumProtocolVersion;            
+        }
 
-    export interface CloudFrontInvalidOrigin {
-        Message?: CloudFrontstring;
     }
-
-    export interface CloudFrontInvalidOriginAccessIdentity {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidProtocolSettings {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidRelativePath {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidRequiredProtocol {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidResponseCode {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidTTLOrder {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidViewerCertificate {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidWebACLId {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidation {
-        Id: CloudFrontstring;
-        Status: CloudFrontstring;
-        CreateTime: CloudFronttimestamp;
-        InvalidationBatch: CloudFrontInvalidationBatch;
-    }
-
-    export interface CloudFrontInvalidationBatch {
-        Paths: CloudFrontPaths;
-        CallerReference: CloudFrontstring;
-    }
-
-    export interface CloudFrontInvalidationList {
-        Marker: CloudFrontstring;
-        NextMarker?: CloudFrontstring;
-        MaxItems: CloudFrontinteger;
-        IsTruncated: CloudFrontboolean;
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontInvalidationSummaryList;
-    }
-
-    export interface CloudFrontInvalidationSummary {
-        Id: CloudFrontstring;
-        CreateTime: CloudFronttimestamp;
-        Status: CloudFrontstring;
-    }
-
-    export type CloudFrontInvalidationSummaryList = Array<CloudFrontInvalidationSummary>;
-    export type CloudFrontItemSelection = string;
-    export type CloudFrontKeyPairIdList = Array<CloudFrontstring>;
-    export interface CloudFrontKeyPairIds {
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontKeyPairIdList;
-    }
-
-    export interface CloudFrontListCloudFrontOriginAccessIdentitiesRequest {
-        Marker?: CloudFrontstring;
-        MaxItems?: CloudFrontstring;
-    }
-
-    export interface CloudFrontListCloudFrontOriginAccessIdentitiesResult {
-        CloudFrontOriginAccessIdentityList?: CloudFrontCloudFrontOriginAccessIdentityList;
-    }
-
-    export interface CloudFrontListDistributionsByWebACLIdRequest {
-        Marker?: CloudFrontstring;
-        MaxItems?: CloudFrontstring;
-        WebACLId: CloudFrontstring;
-    }
-
-    export interface CloudFrontListDistributionsByWebACLIdResult {
-        DistributionList?: CloudFrontDistributionList;
-    }
-
-    export interface CloudFrontListDistributionsRequest {
-        Marker?: CloudFrontstring;
-        MaxItems?: CloudFrontstring;
-    }
-
-    export interface CloudFrontListDistributionsResult {
-        DistributionList?: CloudFrontDistributionList;
-    }
-
-    export interface CloudFrontListInvalidationsRequest {
-        DistributionId: CloudFrontstring;
-        Marker?: CloudFrontstring;
-        MaxItems?: CloudFrontstring;
-    }
-
-    export interface CloudFrontListInvalidationsResult {
-        InvalidationList?: CloudFrontInvalidationList;
-    }
-
-    export interface CloudFrontListStreamingDistributionsRequest {
-        Marker?: CloudFrontstring;
-        MaxItems?: CloudFrontstring;
-    }
-
-    export interface CloudFrontListStreamingDistributionsResult {
-        StreamingDistributionList?: CloudFrontStreamingDistributionList;
-    }
-
-    export type CloudFrontLocationList = Array<CloudFrontstring>;
-    export interface CloudFrontLoggingConfig {
-        Enabled: CloudFrontboolean;
-        IncludeCookies: CloudFrontboolean;
-        Bucket: CloudFrontstring;
-        Prefix: CloudFrontstring;
-    }
-
-    export type CloudFrontMethod = string;
-    export type CloudFrontMethodsList = Array<CloudFrontMethod>;
-    export type CloudFrontMinimumProtocolVersion = string;
-    export interface CloudFrontMissingBody {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontNoSuchCloudFrontOriginAccessIdentity {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontNoSuchDistribution {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontNoSuchInvalidation {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontNoSuchOrigin {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontNoSuchStreamingDistribution {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontOrigin {
-        Id: CloudFrontstring;
-        DomainName: CloudFrontstring;
-        OriginPath?: CloudFrontstring;
-        S3OriginConfig?: CloudFrontS3OriginConfig;
-        CustomOriginConfig?: CloudFrontCustomOriginConfig;
-    }
-
-    export type CloudFrontOriginList = Array<CloudFrontOrigin>;
-    export type CloudFrontOriginProtocolPolicy = string;
-    export interface CloudFrontOrigins {
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontOriginList;
-    }
-
-    export type CloudFrontPathList = Array<CloudFrontstring>;
-    export interface CloudFrontPaths {
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontPathList;
-    }
-
-    export interface CloudFrontPreconditionFailed {
-        Message?: CloudFrontstring;
-    }
-
-    export type CloudFrontPriceClass = string;
-    export interface CloudFrontRestrictions {
-        GeoRestriction: CloudFrontGeoRestriction;
-    }
-
-    export interface CloudFrontS3Origin {
-        DomainName: CloudFrontstring;
-        OriginAccessIdentity: CloudFrontstring;
-    }
-
-    export interface CloudFrontS3OriginConfig {
-        OriginAccessIdentity: CloudFrontstring;
-    }
-
-    export type CloudFrontSSLSupportMethod = string;
-    export interface CloudFrontSigner {
-        AwsAccountNumber?: CloudFrontstring;
-        KeyPairIds?: CloudFrontKeyPairIds;
-    }
-
-    export type CloudFrontSignerList = Array<CloudFrontSigner>;
-    export interface CloudFrontStreamingDistribution {
-        Id: CloudFrontstring;
-        Status: CloudFrontstring;
-        LastModifiedTime?: CloudFronttimestamp;
-        DomainName: CloudFrontstring;
-        ActiveTrustedSigners: CloudFrontActiveTrustedSigners;
-        StreamingDistributionConfig: CloudFrontStreamingDistributionConfig;
-    }
-
-    export interface CloudFrontStreamingDistributionAlreadyExists {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontStreamingDistributionConfig {
-        CallerReference: CloudFrontstring;
-        S3Origin: CloudFrontS3Origin;
-        Aliases?: CloudFrontAliases;
-        Comment: CloudFrontstring;
-        Logging?: CloudFrontStreamingLoggingConfig;
-        TrustedSigners: CloudFrontTrustedSigners;
-        PriceClass?: CloudFrontPriceClass;
-        Enabled: CloudFrontboolean;
-    }
-
-    export interface CloudFrontStreamingDistributionList {
-        Marker: CloudFrontstring;
-        NextMarker?: CloudFrontstring;
-        MaxItems: CloudFrontinteger;
-        IsTruncated: CloudFrontboolean;
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontStreamingDistributionSummaryList;
-    }
-
-    export interface CloudFrontStreamingDistributionNotDisabled {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontStreamingDistributionSummary {
-        Id: CloudFrontstring;
-        Status: CloudFrontstring;
-        LastModifiedTime: CloudFronttimestamp;
-        DomainName: CloudFrontstring;
-        S3Origin: CloudFrontS3Origin;
-        Aliases: CloudFrontAliases;
-        TrustedSigners: CloudFrontTrustedSigners;
-        Comment: CloudFrontstring;
-        PriceClass: CloudFrontPriceClass;
-        Enabled: CloudFrontboolean;
-    }
-
-    export type CloudFrontStreamingDistributionSummaryList = Array<CloudFrontStreamingDistributionSummary>;
-    export interface CloudFrontStreamingLoggingConfig {
-        Enabled: CloudFrontboolean;
-        Bucket: CloudFrontstring;
-        Prefix: CloudFrontstring;
-    }
-
-    export interface CloudFrontTooManyCacheBehaviors {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontTooManyCertificates {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontTooManyCloudFrontOriginAccessIdentities {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontTooManyCookieNamesInWhiteList {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontTooManyDistributionCNAMEs {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontTooManyDistributions {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontTooManyHeadersInForwardedValues {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontTooManyInvalidationsInProgress {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontTooManyOrigins {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontTooManyStreamingDistributionCNAMEs {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontTooManyStreamingDistributions {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontTooManyTrustedSigners {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontTrustedSignerDoesNotExist {
-        Message?: CloudFrontstring;
-    }
-
-    export interface CloudFrontTrustedSigners {
-        Enabled: CloudFrontboolean;
-        Quantity: CloudFrontinteger;
-        Items?: CloudFrontAwsAccountNumberList;
-    }
-
-    export interface CloudFrontUpdateCloudFrontOriginAccessIdentityRequest {
-        CloudFrontOriginAccessIdentityConfig: CloudFrontCloudFrontOriginAccessIdentityConfig;
-        Id: CloudFrontstring;
-        IfMatch?: CloudFrontstring;
-    }
-
-    export interface CloudFrontUpdateCloudFrontOriginAccessIdentityResult {
-        CloudFrontOriginAccessIdentity?: CloudFrontCloudFrontOriginAccessIdentity;
-        ETag?: CloudFrontstring;
-    }
-
-    export interface CloudFrontUpdateDistributionRequest {
-        DistributionConfig: CloudFrontDistributionConfig;
-        Id: CloudFrontstring;
-        IfMatch?: CloudFrontstring;
-    }
-
-    export interface CloudFrontUpdateDistributionResult {
-        Distribution?: CloudFrontDistribution;
-        ETag?: CloudFrontstring;
-    }
-
-    export interface CloudFrontUpdateStreamingDistributionRequest {
-        StreamingDistributionConfig: CloudFrontStreamingDistributionConfig;
-        Id: CloudFrontstring;
-        IfMatch?: CloudFrontstring;
-    }
-
-    export interface CloudFrontUpdateStreamingDistributionResult {
-        StreamingDistribution?: CloudFrontStreamingDistribution;
-        ETag?: CloudFrontstring;
-    }
-
-    export interface CloudFrontViewerCertificate {
-        IAMCertificateId?: CloudFrontstring;
-        CloudFrontDefaultCertificate?: CloudFrontboolean;
-        SSLSupportMethod?: CloudFrontSSLSupportMethod;
-        MinimumProtocolVersion?: CloudFrontMinimumProtocolVersion;
-    }
-
-    export type CloudFrontViewerProtocolPolicy = string;
-    export type CloudFrontboolean = boolean;
-    export type CloudFrontinteger = number;
-    export type CloudFrontlong = number;
-    export type CloudFrontstring = string;
-    export type CloudFronttimestamp = number;
 }

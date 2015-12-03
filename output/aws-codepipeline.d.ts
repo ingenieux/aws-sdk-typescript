@@ -6,590 +6,501 @@ declare module "aws-sdk" {
 
     export class CodePipeline extends Service {
       constructor(options?: any);
-      acknowledgeJob(params: CodePipelineAcknowledgeJobInput, callback?: (err: CodePipelineValidationException|CodePipelineInvalidNonceException|CodePipelineJobNotFoundException|any, data: CodePipelineAcknowledgeJobOutput|any) => void): Request;
-      acknowledgeThirdPartyJob(params: CodePipelineAcknowledgeThirdPartyJobInput, callback?: (err: CodePipelineValidationException|CodePipelineInvalidNonceException|CodePipelineJobNotFoundException|CodePipelineInvalidClientTokenException|any, data: CodePipelineAcknowledgeThirdPartyJobOutput|any) => void): Request;
-      createCustomActionType(params: CodePipelineCreateCustomActionTypeInput, callback?: (err: CodePipelineValidationException|CodePipelineLimitExceededException|any, data: CodePipelineCreateCustomActionTypeOutput|any) => void): Request;
-      createPipeline(params: CodePipelineCreatePipelineInput, callback?: (err: CodePipelineValidationException|CodePipelinePipelineNameInUseException|CodePipelineInvalidStageDeclarationException|CodePipelineInvalidActionDeclarationException|CodePipelineInvalidBlockerDeclarationException|CodePipelineInvalidStructureException|CodePipelineLimitExceededException|any, data: CodePipelineCreatePipelineOutput|any) => void): Request;
-      deleteCustomActionType(params: CodePipelineDeleteCustomActionTypeInput, callback?: (err: CodePipelineValidationException|any, data: any) => void): Request;
-      deletePipeline(params: CodePipelineDeletePipelineInput, callback?: (err: CodePipelineValidationException|any, data: any) => void): Request;
-      disableStageTransition(params: CodePipelineDisableStageTransitionInput, callback?: (err: CodePipelineValidationException|CodePipelinePipelineNotFoundException|CodePipelineStageNotFoundException|any, data: any) => void): Request;
-      enableStageTransition(params: CodePipelineEnableStageTransitionInput, callback?: (err: CodePipelineValidationException|CodePipelinePipelineNotFoundException|CodePipelineStageNotFoundException|any, data: any) => void): Request;
-      getJobDetails(params: CodePipelineGetJobDetailsInput, callback?: (err: CodePipelineValidationException|CodePipelineJobNotFoundException|any, data: CodePipelineGetJobDetailsOutput|any) => void): Request;
-      getPipeline(params: CodePipelineGetPipelineInput, callback?: (err: CodePipelineValidationException|CodePipelinePipelineNotFoundException|CodePipelinePipelineVersionNotFoundException|any, data: CodePipelineGetPipelineOutput|any) => void): Request;
-      getPipelineState(params: CodePipelineGetPipelineStateInput, callback?: (err: CodePipelineValidationException|CodePipelinePipelineNotFoundException|any, data: CodePipelineGetPipelineStateOutput|any) => void): Request;
-      getThirdPartyJobDetails(params: CodePipelineGetThirdPartyJobDetailsInput, callback?: (err: CodePipelineJobNotFoundException|CodePipelineValidationException|CodePipelineInvalidClientTokenException|CodePipelineInvalidJobException|any, data: CodePipelineGetThirdPartyJobDetailsOutput|any) => void): Request;
-      listActionTypes(params: CodePipelineListActionTypesInput, callback?: (err: CodePipelineValidationException|CodePipelineInvalidNextTokenException|any, data: CodePipelineListActionTypesOutput|any) => void): Request;
-      listPipelines(params: CodePipelineListPipelinesInput, callback?: (err: CodePipelineInvalidNextTokenException|any, data: CodePipelineListPipelinesOutput|any) => void): Request;
-      pollForJobs(params: CodePipelinePollForJobsInput, callback?: (err: CodePipelineValidationException|CodePipelineActionTypeNotFoundException|any, data: CodePipelinePollForJobsOutput|any) => void): Request;
-      pollForThirdPartyJobs(params: CodePipelinePollForThirdPartyJobsInput, callback?: (err: CodePipelineActionTypeNotFoundException|CodePipelineValidationException|any, data: CodePipelinePollForThirdPartyJobsOutput|any) => void): Request;
-      putActionRevision(params: CodePipelinePutActionRevisionInput, callback?: (err: CodePipelinePipelineNotFoundException|CodePipelineStageNotFoundException|CodePipelineActionNotFoundException|CodePipelineValidationException|any, data: CodePipelinePutActionRevisionOutput|any) => void): Request;
-      putJobFailureResult(params: CodePipelinePutJobFailureResultInput, callback?: (err: CodePipelineValidationException|CodePipelineJobNotFoundException|CodePipelineInvalidJobStateException|any, data: any) => void): Request;
-      putJobSuccessResult(params: CodePipelinePutJobSuccessResultInput, callback?: (err: CodePipelineValidationException|CodePipelineJobNotFoundException|CodePipelineInvalidJobStateException|any, data: any) => void): Request;
-      putThirdPartyJobFailureResult(params: CodePipelinePutThirdPartyJobFailureResultInput, callback?: (err: CodePipelineValidationException|CodePipelineJobNotFoundException|CodePipelineInvalidJobStateException|CodePipelineInvalidClientTokenException|any, data: any) => void): Request;
-      putThirdPartyJobSuccessResult(params: CodePipelinePutThirdPartyJobSuccessResultInput, callback?: (err: CodePipelineValidationException|CodePipelineJobNotFoundException|CodePipelineInvalidJobStateException|CodePipelineInvalidClientTokenException|any, data: any) => void): Request;
-      startPipelineExecution(params: CodePipelineStartPipelineExecutionInput, callback?: (err: CodePipelineValidationException|CodePipelinePipelineNotFoundException|any, data: CodePipelineStartPipelineExecutionOutput|any) => void): Request;
-      updatePipeline(params: CodePipelineUpdatePipelineInput, callback?: (err: CodePipelineValidationException|CodePipelineInvalidStageDeclarationException|CodePipelineInvalidActionDeclarationException|CodePipelineInvalidBlockerDeclarationException|CodePipelineInvalidStructureException|any, data: CodePipelineUpdatePipelineOutput|any) => void): Request;
-    }
-
-    export interface CodePipelineAWSSessionCredentials {
-        accessKeyId: CodePipelineAccessKeyId;
-        secretAccessKey: CodePipelineSecretAccessKey;
-        sessionToken: CodePipelineSessionToken;
-    }
-
-    export type CodePipelineAccessKeyId = string;
-    export type CodePipelineAccountId = string; // pattern: "[0-9]{12}"
-    export interface CodePipelineAcknowledgeJobInput {
-        jobId: CodePipelineJobId;
-        nonce: CodePipelineNonce;
-    }
-
-    export interface CodePipelineAcknowledgeJobOutput {
-        status?: CodePipelineJobStatus;
-    }
-
-    export interface CodePipelineAcknowledgeThirdPartyJobInput {
-        jobId: CodePipelineThirdPartyJobId;
-        nonce: CodePipelineNonce;
-        clientToken: CodePipelineClientToken;
-    }
-
-    export interface CodePipelineAcknowledgeThirdPartyJobOutput {
-        status?: CodePipelineJobStatus;
-    }
-
-    export type CodePipelineActionCategory = string;
-    export interface CodePipelineActionConfiguration {
-        configuration?: CodePipelineActionConfigurationMap;
-    }
-
-    export type CodePipelineActionConfigurationKey = string;
-    export type CodePipelineActionConfigurationMap = any; // not really - it was 'map' instead - must fix this one
-    export interface CodePipelineActionConfigurationProperty {
-        name: CodePipelineActionConfigurationKey;
-        required: CodePipelineBoolean;
-        key: CodePipelineBoolean;
-        secret: CodePipelineBoolean;
-        queryable?: CodePipelineBoolean;
-        description?: CodePipelineDescription;
-        type?: CodePipelineActionConfigurationPropertyType;
-    }
-
-    export type CodePipelineActionConfigurationPropertyList = Array<CodePipelineActionConfigurationProperty>; // max: 10
-    export type CodePipelineActionConfigurationPropertyType = string;
-    export type CodePipelineActionConfigurationQueryableValue = string; // pattern: "[a-zA-Z0-9_-]+"
-    export type CodePipelineActionConfigurationValue = string;
-    export interface CodePipelineActionContext {
-        name?: CodePipelineActionName;
-    }
-
-    export interface CodePipelineActionDeclaration {
-        name: CodePipelineActionName;
-        actionTypeId: CodePipelineActionTypeId;
-        runOrder?: CodePipelineActionRunOrder;
-        configuration?: CodePipelineActionConfigurationMap;
-        outputArtifacts?: CodePipelineOutputArtifactList;
-        inputArtifacts?: CodePipelineInputArtifactList;
-        roleArn?: CodePipelineRoleArn;
-    }
-
-    export interface CodePipelineActionExecution {
-        status?: CodePipelineActionExecutionStatus;
-        summary?: CodePipelineExecutionSummary;
-        lastStatusChange?: CodePipelineTimestamp;
-        externalExecutionId?: CodePipelineExecutionId;
-        externalExecutionUrl?: CodePipelineUrl;
-        percentComplete?: CodePipelinePercentage;
-        errorDetails?: CodePipelineErrorDetails;
-    }
-
-    export type CodePipelineActionExecutionStatus = string;
-    export type CodePipelineActionName = string; // pattern: "[A-Za-z0-9.@\-_]+"
-    export interface CodePipelineActionNotFoundException {
-    }
-
-    export type CodePipelineActionOwner = string;
-    export type CodePipelineActionProvider = string; // pattern: "[0-9A-Za-z_-]+"
-    export interface CodePipelineActionRevision {
-        revisionId: CodePipelineRevisionId;
-        revisionChangeId?: CodePipelineRevisionChangeId;
-        created: CodePipelineTimestamp;
-    }
-
-    export type CodePipelineActionRunOrder = number;
-    export interface CodePipelineActionState {
-        actionName?: CodePipelineActionName;
-        currentRevision?: CodePipelineActionRevision;
-        latestExecution?: CodePipelineActionExecution;
-        entityUrl?: CodePipelineUrl;
-        revisionUrl?: CodePipelineUrl;
-    }
-
-    export type CodePipelineActionStateList = Array<CodePipelineActionState>;
-    export interface CodePipelineActionType {
-        id: CodePipelineActionTypeId;
-        settings?: CodePipelineActionTypeSettings;
-        actionConfigurationProperties?: CodePipelineActionConfigurationPropertyList;
-        inputArtifactDetails: CodePipelineArtifactDetails;
-        outputArtifactDetails: CodePipelineArtifactDetails;
-    }
-
-    export interface CodePipelineActionTypeId {
-        category: CodePipelineActionCategory;
-        owner: CodePipelineActionOwner;
-        provider: CodePipelineActionProvider;
-        version: CodePipelineVersion;
-    }
-
-    export type CodePipelineActionTypeList = Array<CodePipelineActionType>;
-    export interface CodePipelineActionTypeNotFoundException {
-    }
-
-    export interface CodePipelineActionTypeSettings {
-        thirdPartyConfigurationUrl?: CodePipelineUrl;
-        entityUrlTemplate?: CodePipelineUrlTemplate;
-        executionUrlTemplate?: CodePipelineUrlTemplate;
-        revisionUrlTemplate?: CodePipelineUrlTemplate;
-    }
-
-    export interface CodePipelineArtifact {
-        name?: CodePipelineArtifactName;
-        revision?: CodePipelineRevision;
-        location?: CodePipelineArtifactLocation;
-    }
-
-    export interface CodePipelineArtifactDetails {
-        minimumCount: CodePipelineMinimumArtifactCount;
-        maximumCount: CodePipelineMaximumArtifactCount;
-    }
-
-    export type CodePipelineArtifactList = Array<CodePipelineArtifact>;
-    export interface CodePipelineArtifactLocation {
-        type?: CodePipelineArtifactLocationType;
-        s3Location?: CodePipelineS3ArtifactLocation;
-    }
-
-    export type CodePipelineArtifactLocationType = string;
-    export type CodePipelineArtifactName = string; // pattern: "[a-zA-Z0-9_\-]+"
-    export interface CodePipelineArtifactStore {
-        type: CodePipelineArtifactStoreType;
-        location: CodePipelineArtifactStoreLocation;
-        encryptionKey?: CodePipelineEncryptionKey;
-    }
-
-    export type CodePipelineArtifactStoreLocation = string; // pattern: "[a-zA-Z0-9\-\.]+"
-    export type CodePipelineArtifactStoreType = string;
-    export interface CodePipelineBlockerDeclaration {
-        name: CodePipelineBlockerName;
-        type: CodePipelineBlockerType;
-    }
-
-    export type CodePipelineBlockerName = string;
-    export type CodePipelineBlockerType = string;
-    export type CodePipelineBoolean = boolean;
-    export type CodePipelineClientId = string; // pattern: "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
-    export type CodePipelineClientToken = string;
-    export type CodePipelineCode = string;
-    export type CodePipelineContinuationToken = string;
-    export interface CodePipelineCreateCustomActionTypeInput {
-        category: CodePipelineActionCategory;
-        provider: CodePipelineActionProvider;
-        version: CodePipelineVersion;
-        settings?: CodePipelineActionTypeSettings;
-        configurationProperties?: CodePipelineActionConfigurationPropertyList;
-        inputArtifactDetails: CodePipelineArtifactDetails;
-        outputArtifactDetails: CodePipelineArtifactDetails;
-    }
-
-    export interface CodePipelineCreateCustomActionTypeOutput {
-        actionType: CodePipelineActionType;
-    }
-
-    export interface CodePipelineCreatePipelineInput {
-        pipeline: CodePipelinePipelineDeclaration;
-    }
-
-    export interface CodePipelineCreatePipelineOutput {
-        pipeline?: CodePipelinePipelineDeclaration;
-    }
-
-    export interface CodePipelineCurrentRevision {
-        revision: CodePipelineRevision;
-        changeIdentifier: CodePipelineRevisionChangeIdentifier;
-    }
-
-    export interface CodePipelineDeleteCustomActionTypeInput {
-        category: CodePipelineActionCategory;
-        provider: CodePipelineActionProvider;
-        version: CodePipelineVersion;
-    }
-
-    export interface CodePipelineDeletePipelineInput {
-        name: CodePipelinePipelineName;
-    }
-
-    export type CodePipelineDescription = string;
-    export interface CodePipelineDisableStageTransitionInput {
-        pipelineName: CodePipelinePipelineName;
-        stageName: CodePipelineStageName;
-        transitionType: CodePipelineStageTransitionType;
-        reason: CodePipelineDisabledReason;
-    }
-
-    export type CodePipelineDisabledReason = string; // pattern: "[a-zA-Z0-9!@ \(\)\.\*\?\-]+"
-    export interface CodePipelineEnableStageTransitionInput {
-        pipelineName: CodePipelinePipelineName;
-        stageName: CodePipelineStageName;
-        transitionType: CodePipelineStageTransitionType;
-    }
-
-    export type CodePipelineEnabled = boolean;
-    export interface CodePipelineEncryptionKey {
-        id: CodePipelineEncryptionKeyId;
-        type: CodePipelineEncryptionKeyType;
-    }
-
-    export type CodePipelineEncryptionKeyId = string;
-    export type CodePipelineEncryptionKeyType = string;
-    export interface CodePipelineErrorDetails {
-        code?: CodePipelineCode;
-        message?: CodePipelineMessage;
-    }
-
-    export interface CodePipelineExecutionDetails {
-        summary?: CodePipelineExecutionSummary;
-        externalExecutionId?: CodePipelineExecutionId;
-        percentComplete?: CodePipelinePercentage;
-    }
-
-    export type CodePipelineExecutionId = string;
-    export type CodePipelineExecutionSummary = string;
-    export interface CodePipelineFailureDetails {
-        type: CodePipelineFailureType;
-        message: CodePipelineMessage;
-        externalExecutionId?: CodePipelineExecutionId;
-    }
-
-    export type CodePipelineFailureType = string;
-    export interface CodePipelineGetJobDetailsInput {
-        jobId: CodePipelineJobId;
-    }
-
-    export interface CodePipelineGetJobDetailsOutput {
-        jobDetails?: CodePipelineJobDetails;
-    }
-
-    export interface CodePipelineGetPipelineInput {
-        name: CodePipelinePipelineName;
-        version?: CodePipelinePipelineVersion;
-    }
-
-    export interface CodePipelineGetPipelineOutput {
-        pipeline?: CodePipelinePipelineDeclaration;
-    }
-
-    export interface CodePipelineGetPipelineStateInput {
-        name: CodePipelinePipelineName;
-    }
-
-    export interface CodePipelineGetPipelineStateOutput {
-        pipelineName?: CodePipelinePipelineName;
-        pipelineVersion?: CodePipelinePipelineVersion;
-        stageStates?: CodePipelineStageStateList;
-        created?: CodePipelineTimestamp;
-        updated?: CodePipelineTimestamp;
-    }
-
-    export interface CodePipelineGetThirdPartyJobDetailsInput {
-        jobId: CodePipelineThirdPartyJobId;
-        clientToken: CodePipelineClientToken;
-    }
-
-    export interface CodePipelineGetThirdPartyJobDetailsOutput {
-        jobDetails?: CodePipelineThirdPartyJobDetails;
-    }
-
-    export interface CodePipelineInputArtifact {
-        name: CodePipelineArtifactName;
-    }
-
-    export type CodePipelineInputArtifactList = Array<CodePipelineInputArtifact>;
-    export interface CodePipelineInvalidActionDeclarationException {
-    }
-
-    export interface CodePipelineInvalidBlockerDeclarationException {
-    }
+      acknowledgeJob(params: CodePipeline.AcknowledgeJobInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidNonceException|CodePipeline.JobNotFoundException|any, data: CodePipeline.AcknowledgeJobOutput|any) => void): Request;
+      acknowledgeThirdPartyJob(params: CodePipeline.AcknowledgeThirdPartyJobInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidNonceException|CodePipeline.JobNotFoundException|CodePipeline.InvalidClientTokenException|any, data: CodePipeline.AcknowledgeThirdPartyJobOutput|any) => void): Request;
+      createCustomActionType(params: CodePipeline.CreateCustomActionTypeInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.LimitExceededException|any, data: CodePipeline.CreateCustomActionTypeOutput|any) => void): Request;
+      createPipeline(params: CodePipeline.CreatePipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNameInUseException|CodePipeline.InvalidStageDeclarationException|CodePipeline.InvalidActionDeclarationException|CodePipeline.InvalidBlockerDeclarationException|CodePipeline.InvalidStructureException|CodePipeline.LimitExceededException|any, data: CodePipeline.CreatePipelineOutput|any) => void): Request;
+      deleteCustomActionType(params: CodePipeline.DeleteCustomActionTypeInput, callback?: (err: CodePipeline.ValidationException|any, data: any) => void): Request;
+      deletePipeline(params: CodePipeline.DeletePipelineInput, callback?: (err: CodePipeline.ValidationException|any, data: any) => void): Request;
+      disableStageTransition(params: CodePipeline.DisableStageTransitionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|any, data: any) => void): Request;
+      enableStageTransition(params: CodePipeline.EnableStageTransitionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|any, data: any) => void): Request;
+      getJobDetails(params: CodePipeline.GetJobDetailsInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|any, data: CodePipeline.GetJobDetailsOutput|any) => void): Request;
+      getPipeline(params: CodePipeline.GetPipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.PipelineVersionNotFoundException|any, data: CodePipeline.GetPipelineOutput|any) => void): Request;
+      getPipelineState(params: CodePipeline.GetPipelineStateInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|any, data: CodePipeline.GetPipelineStateOutput|any) => void): Request;
+      getThirdPartyJobDetails(params: CodePipeline.GetThirdPartyJobDetailsInput, callback?: (err: CodePipeline.JobNotFoundException|CodePipeline.ValidationException|CodePipeline.InvalidClientTokenException|CodePipeline.InvalidJobException|any, data: CodePipeline.GetThirdPartyJobDetailsOutput|any) => void): Request;
+      listActionTypes(params: CodePipeline.ListActionTypesInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidNextTokenException|any, data: CodePipeline.ListActionTypesOutput|any) => void): Request;
+      listPipelines(params: CodePipeline.ListPipelinesInput, callback?: (err: CodePipeline.InvalidNextTokenException|any, data: CodePipeline.ListPipelinesOutput|any) => void): Request;
+      pollForJobs(params: CodePipeline.PollForJobsInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.ActionTypeNotFoundException|any, data: CodePipeline.PollForJobsOutput|any) => void): Request;
+      pollForThirdPartyJobs(params: CodePipeline.PollForThirdPartyJobsInput, callback?: (err: CodePipeline.ActionTypeNotFoundException|CodePipeline.ValidationException|any, data: CodePipeline.PollForThirdPartyJobsOutput|any) => void): Request;
+      putActionRevision(params: CodePipeline.PutActionRevisionInput, callback?: (err: CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|CodePipeline.ActionNotFoundException|CodePipeline.ValidationException|any, data: CodePipeline.PutActionRevisionOutput|any) => void): Request;
+      putJobFailureResult(params: CodePipeline.PutJobFailureResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|any, data: any) => void): Request;
+      putJobSuccessResult(params: CodePipeline.PutJobSuccessResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|any, data: any) => void): Request;
+      putThirdPartyJobFailureResult(params: CodePipeline.PutThirdPartyJobFailureResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|CodePipeline.InvalidClientTokenException|any, data: any) => void): Request;
+      putThirdPartyJobSuccessResult(params: CodePipeline.PutThirdPartyJobSuccessResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|CodePipeline.InvalidClientTokenException|any, data: any) => void): Request;
+      startPipelineExecution(params: CodePipeline.StartPipelineExecutionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|any, data: CodePipeline.StartPipelineExecutionOutput|any) => void): Request;
+      updatePipeline(params: CodePipeline.UpdatePipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidStageDeclarationException|CodePipeline.InvalidActionDeclarationException|CodePipeline.InvalidBlockerDeclarationException|CodePipeline.InvalidStructureException|any, data: CodePipeline.UpdatePipelineOutput|any) => void): Request;
+    }
+    
+    export module CodePipeline {
+        export type AccessKeyId = string;
+        export type AccountId = string;    // pattern: &quot;[0-9]{12}&quot;
+        export type ActionCategory = string;
+        export type ActionConfigurationKey = string;    // max: 50, min: 1
+        export type ActionConfigurationMap = {[key:string]: ActionConfigurationValue};
+        export type ActionConfigurationPropertyList = ActionConfigurationProperty[];    // max: 10
+        export type ActionConfigurationPropertyType = string;
+        export type ActionConfigurationQueryableValue = string;    // pattern: &quot;[a-zA-Z0-9_-]+&quot;, max: 20, min: 1
+        export type ActionConfigurationValue = string;    // max: 250, min: 1
+        export type ActionExecutionStatus = string;
+        export type ActionName = string;    // pattern: &quot;[A-Za-z0-9.@\-_]+&quot;, max: 100, min: 1
+        export type ActionOwner = string;
+        export type ActionProvider = string;    // pattern: &quot;[0-9A-Za-z_-]+&quot;, max: 25, min: 1
+        export type ActionRunOrder = number;    // max: 999, min: 1
+        export type ActionStateList = ActionState[];
+        export type ActionTypeList = ActionType[];
+        export type ArtifactList = Artifact[];
+        export type ArtifactLocationType = string;
+        export type ArtifactName = string;    // pattern: &quot;[a-zA-Z0-9_\-]+&quot;, max: 100, min: 1
+        export type ArtifactStoreLocation = string;    // pattern: &quot;[a-zA-Z0-9\-\.]+&quot;, max: 63, min: 3
+        export type ArtifactStoreType = string;
+        export type BlockerName = string;    // max: 100, min: 1
+        export type BlockerType = string;
+        export type Boolean = boolean;
+        export type ClientId = string;    // pattern: &quot;[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}&quot;
+        export type ClientToken = string;
+        export type Code = string;
+        export type ContinuationToken = string;
+        export type Description = string;    // max: 2048, min: 1
+        export type DisabledReason = string;    // pattern: &quot;[a-zA-Z0-9!@ \(\)\.\*\?\-]+&quot;, max: 300, min: 1
+        export type Enabled = boolean;
+        export type EncryptionKeyId = string;    // max: 100, min: 1
+        export type EncryptionKeyType = string;
+        export type ExecutionId = string;
+        export type ExecutionSummary = string;
+        export type FailureType = string;
+        export type InputArtifactList = InputArtifact[];
+        export type JobId = string;    // pattern: &quot;[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}&quot;
+        export type JobList = Job[];
+        export type JobStatus = string;
+        export type LastChangedAt = number;
+        export type LastChangedBy = string;
+        export type MaxBatchSize = number;    // min: 1
+        export type MaximumArtifactCount = number;    // max: 5
+        export type Message = string;
+        export type MinimumArtifactCount = number;    // max: 5
+        export type NextToken = string;
+        export type Nonce = string;
+        export type OutputArtifactList = OutputArtifact[];
+        export type Percentage = number;    // max: 100
+        export type PipelineExecutionId = string;    // pattern: &quot;[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}&quot;
+        export type PipelineList = PipelineSummary[];
+        export type PipelineName = string;    // pattern: &quot;[A-Za-z0-9.@\-_]+&quot;, max: 100, min: 1
+        export type PipelineStageDeclarationList = StageDeclaration[];
+        export type PipelineVersion = number;    // min: 1
+        export type QueryParamMap = {[key:string]: ActionConfigurationQueryableValue};    // max: 1
+        export type Revision = string;
+        export type RevisionChangeId = string;
+        export type RevisionChangeIdentifier = string;
+        export type RevisionId = string;
+        export type RoleArn = string;    // pattern: &quot;arn:[^:]+:iam::[0-9]{12}:role/.*&quot;
+        export type S3BucketName = string;
+        export type S3ObjectKey = string;
+        export type SecretAccessKey = string;
+        export type SessionToken = string;
+        export type StageActionDeclarationList = ActionDeclaration[];
+        export type StageBlockerDeclarationList = BlockerDeclaration[];
+        export type StageName = string;    // pattern: &quot;[A-Za-z0-9.@\-_]+&quot;, max: 100, min: 1
+        export type StageStateList = StageState[];
+        export type StageTransitionType = string;
+        export type ThirdPartyJobId = string;    // max: 512, min: 1
+        export type ThirdPartyJobList = ThirdPartyJob[];
+        export type Timestamp = number;
+        export type Url = string;    // max: 2048, min: 1
+        export type UrlTemplate = string;    // max: 2048, min: 1
+        export type Version = string;    // pattern: &quot;[0-9A-Za-z_-]+&quot;, max: 9, min: 1
+
+        export interface AWSSessionCredentials {
+            accessKeyId: AccessKeyId;            
+            secretAccessKey: SecretAccessKey;            
+            sessionToken: SessionToken;            
+        }
+        export interface AcknowledgeJobInput {
+            jobId: JobId;            
+            nonce: Nonce;            
+        }
+        export interface AcknowledgeJobOutput {
+            status?: JobStatus;            
+        }
+        export interface AcknowledgeThirdPartyJobInput {
+            jobId: ThirdPartyJobId;            
+            nonce: Nonce;            
+            clientToken: ClientToken;            
+        }
+        export interface AcknowledgeThirdPartyJobOutput {
+            status?: JobStatus;            
+        }
+        export interface ActionConfiguration {
+            configuration?: ActionConfigurationMap;            
+        }
+        export interface ActionConfigurationProperty {
+            name: ActionConfigurationKey;            
+            required: Boolean;            
+            key: Boolean;            
+            secret: Boolean;            
+            queryable?: Boolean;            
+            description?: Description;            
+            type?: ActionConfigurationPropertyType;            
+        }
+        export interface ActionContext {
+            name?: ActionName;            
+        }
+        export interface ActionDeclaration {
+            name: ActionName;            
+            actionTypeId: ActionTypeId;            
+            runOrder?: ActionRunOrder;            
+            configuration?: ActionConfigurationMap;            
+            outputArtifacts?: OutputArtifactList;            
+            inputArtifacts?: InputArtifactList;            
+            roleArn?: RoleArn;            
+        }
+        export interface ActionExecution {
+            status?: ActionExecutionStatus;            
+            summary?: ExecutionSummary;            
+            lastStatusChange?: Timestamp;            
+            externalExecutionId?: ExecutionId;            
+            externalExecutionUrl?: Url;            
+            percentComplete?: Percentage;            
+            errorDetails?: ErrorDetails;            
+        }
+        export interface ActionNotFoundException {
+        }
+        export interface ActionRevision {
+            revisionId: RevisionId;            
+            revisionChangeId?: RevisionChangeId;            
+            created: Timestamp;            
+        }
+        export interface ActionState {
+            actionName?: ActionName;            
+            currentRevision?: ActionRevision;            
+            latestExecution?: ActionExecution;            
+            entityUrl?: Url;            
+            revisionUrl?: Url;            
+        }
+        export interface ActionType {
+            id: ActionTypeId;            
+            settings?: ActionTypeSettings;            
+            actionConfigurationProperties?: ActionConfigurationPropertyList;            
+            inputArtifactDetails: ArtifactDetails;            
+            outputArtifactDetails: ArtifactDetails;            
+        }
+        export interface ActionTypeId {
+            category: ActionCategory;            
+            owner: ActionOwner;            
+            provider: ActionProvider;            
+            version: Version;            
+        }
+        export interface ActionTypeNotFoundException {
+        }
+        export interface ActionTypeSettings {
+            thirdPartyConfigurationUrl?: Url;            
+            entityUrlTemplate?: UrlTemplate;            
+            executionUrlTemplate?: UrlTemplate;            
+            revisionUrlTemplate?: UrlTemplate;            
+        }
+        export interface Artifact {
+            name?: ArtifactName;            
+            revision?: Revision;            
+            location?: ArtifactLocation;            
+        }
+        export interface ArtifactDetails {
+            minimumCount: MinimumArtifactCount;            
+            maximumCount: MaximumArtifactCount;            
+        }
+        export interface ArtifactLocation {
+            type?: ArtifactLocationType;            
+            s3Location?: S3ArtifactLocation;            
+        }
+        export interface ArtifactStore {
+            type: ArtifactStoreType;            
+            location: ArtifactStoreLocation;            
+            encryptionKey?: EncryptionKey;            
+        }
+        export interface BlockerDeclaration {
+            name: BlockerName;            
+            type: BlockerType;            
+        }
+        export interface CreateCustomActionTypeInput {
+            category: ActionCategory;            
+            provider: ActionProvider;            
+            version: Version;            
+            settings?: ActionTypeSettings;            
+            configurationProperties?: ActionConfigurationPropertyList;            
+            inputArtifactDetails: ArtifactDetails;            
+            outputArtifactDetails: ArtifactDetails;            
+        }
+        export interface CreateCustomActionTypeOutput {
+            actionType: ActionType;            
+        }
+        export interface CreatePipelineInput {
+            pipeline: PipelineDeclaration;            
+        }
+        export interface CreatePipelineOutput {
+            pipeline?: PipelineDeclaration;            
+        }
+        export interface CurrentRevision {
+            revision: Revision;            
+            changeIdentifier: RevisionChangeIdentifier;            
+        }
+        export interface DeleteCustomActionTypeInput {
+            category: ActionCategory;            
+            provider: ActionProvider;            
+            version: Version;            
+        }
+        export interface DeletePipelineInput {
+            name: PipelineName;            
+        }
+        export interface DisableStageTransitionInput {
+            pipelineName: PipelineName;            
+            stageName: StageName;            
+            transitionType: StageTransitionType;            
+            reason: DisabledReason;            
+        }
+        export interface EnableStageTransitionInput {
+            pipelineName: PipelineName;            
+            stageName: StageName;            
+            transitionType: StageTransitionType;            
+        }
+        export interface EncryptionKey {
+            id: EncryptionKeyId;            
+            type: EncryptionKeyType;            
+        }
+        export interface ErrorDetails {
+            code?: Code;            
+            message?: Message;            
+        }
+        export interface ExecutionDetails {
+            summary?: ExecutionSummary;            
+            externalExecutionId?: ExecutionId;            
+            percentComplete?: Percentage;            
+        }
+        export interface FailureDetails {
+            type: FailureType;            
+            message: Message;            
+            externalExecutionId?: ExecutionId;            
+        }
+        export interface GetJobDetailsInput {
+            jobId: JobId;            
+        }
+        export interface GetJobDetailsOutput {
+            jobDetails?: JobDetails;            
+        }
+        export interface GetPipelineInput {
+            name: PipelineName;            
+            version?: PipelineVersion;            
+        }
+        export interface GetPipelineOutput {
+            pipeline?: PipelineDeclaration;            
+        }
+        export interface GetPipelineStateInput {
+            name: PipelineName;            
+        }
+        export interface GetPipelineStateOutput {
+            pipelineName?: PipelineName;            
+            pipelineVersion?: PipelineVersion;            
+            stageStates?: StageStateList;            
+            created?: Timestamp;            
+            updated?: Timestamp;            
+        }
+        export interface GetThirdPartyJobDetailsInput {
+            jobId: ThirdPartyJobId;            
+            clientToken: ClientToken;            
+        }
+        export interface GetThirdPartyJobDetailsOutput {
+            jobDetails?: ThirdPartyJobDetails;            
+        }
+        export interface InputArtifact {
+            name: ArtifactName;            
+        }
+        export interface InvalidActionDeclarationException {
+        }
+        export interface InvalidBlockerDeclarationException {
+        }
+        export interface InvalidClientTokenException {
+        }
+        export interface InvalidJobException {
+        }
+        export interface InvalidJobStateException {
+        }
+        export interface InvalidNextTokenException {
+        }
+        export interface InvalidNonceException {
+        }
+        export interface InvalidStageDeclarationException {
+        }
+        export interface InvalidStructureException {
+        }
+        export interface Job {
+            id?: JobId;            
+            data?: JobData;            
+            nonce?: Nonce;            
+            accountId?: AccountId;            
+        }
+        export interface JobData {
+            actionTypeId?: ActionTypeId;            
+            actionConfiguration?: ActionConfiguration;            
+            pipelineContext?: PipelineContext;            
+            inputArtifacts?: ArtifactList;            
+            outputArtifacts?: ArtifactList;            
+            artifactCredentials?: AWSSessionCredentials;            
+            continuationToken?: ContinuationToken;            
+            encryptionKey?: EncryptionKey;            
+        }
+        export interface JobDetails {
+            id?: JobId;            
+            data?: JobData;            
+            accountId?: AccountId;            
+        }
+        export interface JobNotFoundException {
+        }
+        export interface LimitExceededException {
+        }
+        export interface ListActionTypesInput {
+            actionOwnerFilter?: ActionOwner;            
+            nextToken?: NextToken;            
+        }
+        export interface ListActionTypesOutput {
+            actionTypes: ActionTypeList;            
+            nextToken?: NextToken;            
+        }
+        export interface ListPipelinesInput {
+            nextToken?: NextToken;            
+        }
+        export interface ListPipelinesOutput {
+            pipelines?: PipelineList;            
+            nextToken?: NextToken;            
+        }
+        export interface OutputArtifact {
+            name: ArtifactName;            
+        }
+        export interface PipelineContext {
+            pipelineName?: PipelineName;            
+            stage?: StageContext;            
+            action?: ActionContext;            
+        }
+        export interface PipelineDeclaration {
+            name: PipelineName;            
+            roleArn: RoleArn;            
+            artifactStore: ArtifactStore;            
+            stages: PipelineStageDeclarationList;            
+            version?: PipelineVersion;            
+        }
+        export interface PipelineNameInUseException {
+        }
+        export interface PipelineNotFoundException {
+        }
+        export interface PipelineSummary {
+            name?: PipelineName;            
+            version?: PipelineVersion;            
+            created?: Timestamp;            
+            updated?: Timestamp;            
+        }
+        export interface PipelineVersionNotFoundException {
+        }
+        export interface PollForJobsInput {
+            actionTypeId: ActionTypeId;            
+            maxBatchSize?: MaxBatchSize;            
+            queryParam?: QueryParamMap;            
+        }
+        export interface PollForJobsOutput {
+            jobs?: JobList;            
+        }
+        export interface PollForThirdPartyJobsInput {
+            actionTypeId: ActionTypeId;            
+            maxBatchSize?: MaxBatchSize;            
+        }
+        export interface PollForThirdPartyJobsOutput {
+            jobs?: ThirdPartyJobList;            
+        }
+        export interface PutActionRevisionInput {
+            pipelineName: PipelineName;            
+            stageName: StageName;            
+            actionName: ActionName;            
+            actionRevision: ActionRevision;            
+        }
+        export interface PutActionRevisionOutput {
+            newRevision?: Boolean;            
+            pipelineExecutionId?: PipelineExecutionId;            
+        }
+        export interface PutJobFailureResultInput {
+            jobId: JobId;            
+            failureDetails: FailureDetails;            
+        }
+        export interface PutJobSuccessResultInput {
+            jobId: JobId;            
+            currentRevision?: CurrentRevision;            
+            continuationToken?: ContinuationToken;            
+            executionDetails?: ExecutionDetails;            
+        }
+        export interface PutThirdPartyJobFailureResultInput {
+            jobId: ThirdPartyJobId;            
+            clientToken: ClientToken;            
+            failureDetails: FailureDetails;            
+        }
+        export interface PutThirdPartyJobSuccessResultInput {
+            jobId: ThirdPartyJobId;            
+            clientToken: ClientToken;            
+            currentRevision?: CurrentRevision;            
+            continuationToken?: ContinuationToken;            
+            executionDetails?: ExecutionDetails;            
+        }
+        export interface S3ArtifactLocation {
+            bucketName: S3BucketName;            
+            objectKey: S3ObjectKey;            
+        }
+        export interface StageContext {
+            name?: StageName;            
+        }
+        export interface StageDeclaration {
+            name: StageName;            
+            blockers?: StageBlockerDeclarationList;            
+            actions: StageActionDeclarationList;            
+        }
+        export interface StageNotFoundException {
+        }
+        export interface StageState {
+            stageName?: StageName;            
+            inboundTransitionState?: TransitionState;            
+            actionStates?: ActionStateList;            
+        }
+        export interface StartPipelineExecutionInput {
+            name: PipelineName;            
+        }
+        export interface StartPipelineExecutionOutput {
+            pipelineExecutionId?: PipelineExecutionId;            
+        }
+        export interface ThirdPartyJob {
+            clientId?: ClientId;            
+            jobId?: JobId;            
+        }
+        export interface ThirdPartyJobData {
+            actionTypeId?: ActionTypeId;            
+            actionConfiguration?: ActionConfiguration;            
+            pipelineContext?: PipelineContext;            
+            inputArtifacts?: ArtifactList;            
+            outputArtifacts?: ArtifactList;            
+            artifactCredentials?: AWSSessionCredentials;            
+            continuationToken?: ContinuationToken;            
+            encryptionKey?: EncryptionKey;            
+        }
+        export interface ThirdPartyJobDetails {
+            id?: ThirdPartyJobId;            
+            data?: ThirdPartyJobData;            
+            nonce?: Nonce;            
+        }
+        export interface TransitionState {
+            enabled?: Enabled;            
+            lastChangedBy?: LastChangedBy;            
+            lastChangedAt?: LastChangedAt;            
+            disabledReason?: DisabledReason;            
+        }
+        export interface UpdatePipelineInput {
+            pipeline: PipelineDeclaration;            
+        }
+        export interface UpdatePipelineOutput {
+            pipeline?: PipelineDeclaration;            
+        }
+        export interface ValidationException {
+        }
 
-    export interface CodePipelineInvalidClientTokenException {
     }
-
-    export interface CodePipelineInvalidJobException {
-    }
-
-    export interface CodePipelineInvalidJobStateException {
-    }
-
-    export interface CodePipelineInvalidNextTokenException {
-    }
-
-    export interface CodePipelineInvalidNonceException {
-    }
-
-    export interface CodePipelineInvalidStageDeclarationException {
-    }
-
-    export interface CodePipelineInvalidStructureException {
-    }
-
-    export interface CodePipelineJob {
-        id?: CodePipelineJobId;
-        data?: CodePipelineJobData;
-        nonce?: CodePipelineNonce;
-        accountId?: CodePipelineAccountId;
-    }
-
-    export interface CodePipelineJobData {
-        actionTypeId?: CodePipelineActionTypeId;
-        actionConfiguration?: CodePipelineActionConfiguration;
-        pipelineContext?: CodePipelinePipelineContext;
-        inputArtifacts?: CodePipelineArtifactList;
-        outputArtifacts?: CodePipelineArtifactList;
-        artifactCredentials?: CodePipelineAWSSessionCredentials;
-        continuationToken?: CodePipelineContinuationToken;
-        encryptionKey?: CodePipelineEncryptionKey;
-    }
-
-    export interface CodePipelineJobDetails {
-        id?: CodePipelineJobId;
-        data?: CodePipelineJobData;
-        accountId?: CodePipelineAccountId;
-    }
-
-    export type CodePipelineJobId = string; // pattern: "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
-    export type CodePipelineJobList = Array<CodePipelineJob>;
-    export interface CodePipelineJobNotFoundException {
-    }
-
-    export type CodePipelineJobStatus = string;
-    export type CodePipelineLastChangedAt = number;
-    export type CodePipelineLastChangedBy = string;
-    export interface CodePipelineLimitExceededException {
-    }
-
-    export interface CodePipelineListActionTypesInput {
-        actionOwnerFilter?: CodePipelineActionOwner;
-        nextToken?: CodePipelineNextToken;
-    }
-
-    export interface CodePipelineListActionTypesOutput {
-        actionTypes: CodePipelineActionTypeList;
-        nextToken?: CodePipelineNextToken;
-    }
-
-    export interface CodePipelineListPipelinesInput {
-        nextToken?: CodePipelineNextToken;
-    }
-
-    export interface CodePipelineListPipelinesOutput {
-        pipelines?: CodePipelinePipelineList;
-        nextToken?: CodePipelineNextToken;
-    }
-
-    export type CodePipelineMaxBatchSize = number;
-    export type CodePipelineMaximumArtifactCount = number;
-    export type CodePipelineMessage = string;
-    export type CodePipelineMinimumArtifactCount = number;
-    export type CodePipelineNextToken = string;
-    export type CodePipelineNonce = string;
-    export interface CodePipelineOutputArtifact {
-        name: CodePipelineArtifactName;
-    }
-
-    export type CodePipelineOutputArtifactList = Array<CodePipelineOutputArtifact>;
-    export type CodePipelinePercentage = number;
-    export interface CodePipelinePipelineContext {
-        pipelineName?: CodePipelinePipelineName;
-        stage?: CodePipelineStageContext;
-        action?: CodePipelineActionContext;
-    }
-
-    export interface CodePipelinePipelineDeclaration {
-        name: CodePipelinePipelineName;
-        roleArn: CodePipelineRoleArn;
-        artifactStore: CodePipelineArtifactStore;
-        stages: CodePipelinePipelineStageDeclarationList;
-        version?: CodePipelinePipelineVersion;
-    }
-
-    export type CodePipelinePipelineExecutionId = string; // pattern: "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
-    export type CodePipelinePipelineList = Array<CodePipelinePipelineSummary>;
-    export type CodePipelinePipelineName = string; // pattern: "[A-Za-z0-9.@\-_]+"
-    export interface CodePipelinePipelineNameInUseException {
-    }
-
-    export interface CodePipelinePipelineNotFoundException {
-    }
-
-    export type CodePipelinePipelineStageDeclarationList = Array<CodePipelineStageDeclaration>;
-    export interface CodePipelinePipelineSummary {
-        name?: CodePipelinePipelineName;
-        version?: CodePipelinePipelineVersion;
-        created?: CodePipelineTimestamp;
-        updated?: CodePipelineTimestamp;
-    }
-
-    export type CodePipelinePipelineVersion = number;
-    export interface CodePipelinePipelineVersionNotFoundException {
-    }
-
-    export interface CodePipelinePollForJobsInput {
-        actionTypeId: CodePipelineActionTypeId;
-        maxBatchSize?: CodePipelineMaxBatchSize;
-        queryParam?: CodePipelineQueryParamMap;
-    }
-
-    export interface CodePipelinePollForJobsOutput {
-        jobs?: CodePipelineJobList;
-    }
-
-    export interface CodePipelinePollForThirdPartyJobsInput {
-        actionTypeId: CodePipelineActionTypeId;
-        maxBatchSize?: CodePipelineMaxBatchSize;
-    }
-
-    export interface CodePipelinePollForThirdPartyJobsOutput {
-        jobs?: CodePipelineThirdPartyJobList;
-    }
-
-    export interface CodePipelinePutActionRevisionInput {
-        pipelineName: CodePipelinePipelineName;
-        stageName: CodePipelineStageName;
-        actionName: CodePipelineActionName;
-        actionRevision: CodePipelineActionRevision;
-    }
-
-    export interface CodePipelinePutActionRevisionOutput {
-        newRevision?: CodePipelineBoolean;
-        pipelineExecutionId?: CodePipelinePipelineExecutionId;
-    }
-
-    export interface CodePipelinePutJobFailureResultInput {
-        jobId: CodePipelineJobId;
-        failureDetails: CodePipelineFailureDetails;
-    }
-
-    export interface CodePipelinePutJobSuccessResultInput {
-        jobId: CodePipelineJobId;
-        currentRevision?: CodePipelineCurrentRevision;
-        continuationToken?: CodePipelineContinuationToken;
-        executionDetails?: CodePipelineExecutionDetails;
-    }
-
-    export interface CodePipelinePutThirdPartyJobFailureResultInput {
-        jobId: CodePipelineThirdPartyJobId;
-        clientToken: CodePipelineClientToken;
-        failureDetails: CodePipelineFailureDetails;
-    }
-
-    export interface CodePipelinePutThirdPartyJobSuccessResultInput {
-        jobId: CodePipelineThirdPartyJobId;
-        clientToken: CodePipelineClientToken;
-        currentRevision?: CodePipelineCurrentRevision;
-        continuationToken?: CodePipelineContinuationToken;
-        executionDetails?: CodePipelineExecutionDetails;
-    }
-
-    export type CodePipelineQueryParamMap = any; // not really - it was 'map' instead - must fix this one
-    export type CodePipelineRevision = string;
-    export type CodePipelineRevisionChangeId = string;
-    export type CodePipelineRevisionChangeIdentifier = string;
-    export type CodePipelineRevisionId = string;
-    export type CodePipelineRoleArn = string; // pattern: "arn:[^:]+:iam::[0-9]{12}:role/.*"
-    export interface CodePipelineS3ArtifactLocation {
-        bucketName: CodePipelineS3BucketName;
-        objectKey: CodePipelineS3ObjectKey;
-    }
-
-    export type CodePipelineS3BucketName = string;
-    export type CodePipelineS3ObjectKey = string;
-    export type CodePipelineSecretAccessKey = string;
-    export type CodePipelineSessionToken = string;
-    export type CodePipelineStageActionDeclarationList = Array<CodePipelineActionDeclaration>;
-    export type CodePipelineStageBlockerDeclarationList = Array<CodePipelineBlockerDeclaration>;
-    export interface CodePipelineStageContext {
-        name?: CodePipelineStageName;
-    }
-
-    export interface CodePipelineStageDeclaration {
-        name: CodePipelineStageName;
-        blockers?: CodePipelineStageBlockerDeclarationList;
-        actions: CodePipelineStageActionDeclarationList;
-    }
-
-    export type CodePipelineStageName = string; // pattern: "[A-Za-z0-9.@\-_]+"
-    export interface CodePipelineStageNotFoundException {
-    }
-
-    export interface CodePipelineStageState {
-        stageName?: CodePipelineStageName;
-        inboundTransitionState?: CodePipelineTransitionState;
-        actionStates?: CodePipelineActionStateList;
-    }
-
-    export type CodePipelineStageStateList = Array<CodePipelineStageState>;
-    export type CodePipelineStageTransitionType = string;
-    export interface CodePipelineStartPipelineExecutionInput {
-        name: CodePipelinePipelineName;
-    }
-
-    export interface CodePipelineStartPipelineExecutionOutput {
-        pipelineExecutionId?: CodePipelinePipelineExecutionId;
-    }
-
-    export interface CodePipelineThirdPartyJob {
-        clientId?: CodePipelineClientId;
-        jobId?: CodePipelineJobId;
-    }
-
-    export interface CodePipelineThirdPartyJobData {
-        actionTypeId?: CodePipelineActionTypeId;
-        actionConfiguration?: CodePipelineActionConfiguration;
-        pipelineContext?: CodePipelinePipelineContext;
-        inputArtifacts?: CodePipelineArtifactList;
-        outputArtifacts?: CodePipelineArtifactList;
-        artifactCredentials?: CodePipelineAWSSessionCredentials;
-        continuationToken?: CodePipelineContinuationToken;
-        encryptionKey?: CodePipelineEncryptionKey;
-    }
-
-    export interface CodePipelineThirdPartyJobDetails {
-        id?: CodePipelineThirdPartyJobId;
-        data?: CodePipelineThirdPartyJobData;
-        nonce?: CodePipelineNonce;
-    }
-
-    export type CodePipelineThirdPartyJobId = string;
-    export type CodePipelineThirdPartyJobList = Array<CodePipelineThirdPartyJob>;
-    export type CodePipelineTimestamp = number;
-    export interface CodePipelineTransitionState {
-        enabled?: CodePipelineEnabled;
-        lastChangedBy?: CodePipelineLastChangedBy;
-        lastChangedAt?: CodePipelineLastChangedAt;
-        disabledReason?: CodePipelineDisabledReason;
-    }
-
-    export interface CodePipelineUpdatePipelineInput {
-        pipeline: CodePipelinePipelineDeclaration;
-    }
-
-    export interface CodePipelineUpdatePipelineOutput {
-        pipeline?: CodePipelinePipelineDeclaration;
-    }
-
-    export type CodePipelineUrl = string;
-    export type CodePipelineUrlTemplate = string;
-    export interface CodePipelineValidationException {
-    }
-
-    export type CodePipelineVersion = string; // pattern: "[0-9A-Za-z_-]+"
 }

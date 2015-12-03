@@ -4,19 +4,32 @@
 ///<reference path="./aws-sdk-common.d.ts" />
 declare module "aws-sdk" {
 
-    export class {{api.name}} extends Service {
+    export class {{name}} extends Service {
       constructor(options?: any);
-{{#each m.operations}}
+{{#each descriptor.operations}}
       {{{camelCase @key}}}(
-        {{~#if this.input.shape}}params: {{../../api.name}}{{this.input.shape}}, {{/if~}}
+        {{~#if this.input.shape}}params: {{../../name}}.{{this.input.shape}}, {{/if~}}
         callback?: ( {{~null~}}
-            err: {{#each this.errors~}}{{../../api.name}}{{this.shape}}|{{/each}}any, {{null~}}
-            data: {{#if this.output.shape}}{{../../api.name}}{{this.output.shape}}|{{/if}}any) => void {{~null~}}
+            err: {{#each this.errors~}}{{../../name}}.{{this.shape}}|{{/each}}any, {{null~}}
+            data: {{#if this.output.shape}}{{../../name}}.{{this.output.shape}}|{{/if}}any) => void {{~null~}}
       ): Request;
 {{/each}}
     }
-
-{{#each m.shapes}}
-{{{dumpShape this}}}
+    
+    export module {{name}} {
+{{!-- Alias definitions --}}
+{{#each descriptor.aliases}}
+        export type {{name}} = {{type}};{{#if comment}}    // {{comment}}{{/if}}
 {{/each}}
+
+{{!-- Interface definitions --}}
+{{#each descriptor.structures}}
+        export interface {{name}} {
+{{#each members}}
+            {{@key}}{{this.required}}: {{this.shape}};            
+{{/each}}
+        }
+{{/each}}
+
+    }
 }

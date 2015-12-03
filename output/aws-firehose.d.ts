@@ -6,236 +6,206 @@ declare module "aws-sdk" {
 
     export class Firehose extends Service {
       constructor(options?: any);
-      createDeliveryStream(params: FirehoseCreateDeliveryStreamInput, callback?: (err: FirehoseInvalidArgumentException|FirehoseLimitExceededException|FirehoseResourceInUseException|any, data: FirehoseCreateDeliveryStreamOutput|any) => void): Request;
-      deleteDeliveryStream(params: FirehoseDeleteDeliveryStreamInput, callback?: (err: FirehoseResourceInUseException|FirehoseResourceNotFoundException|any, data: FirehoseDeleteDeliveryStreamOutput|any) => void): Request;
-      describeDeliveryStream(params: FirehoseDescribeDeliveryStreamInput, callback?: (err: FirehoseResourceNotFoundException|any, data: FirehoseDescribeDeliveryStreamOutput|any) => void): Request;
-      listDeliveryStreams(params: FirehoseListDeliveryStreamsInput, callback?: (err: any, data: FirehoseListDeliveryStreamsOutput|any) => void): Request;
-      putRecord(params: FirehosePutRecordInput, callback?: (err: FirehoseResourceNotFoundException|FirehoseInvalidArgumentException|FirehoseServiceUnavailableException|any, data: FirehosePutRecordOutput|any) => void): Request;
-      putRecordBatch(params: FirehosePutRecordBatchInput, callback?: (err: FirehoseResourceNotFoundException|FirehoseInvalidArgumentException|FirehoseServiceUnavailableException|any, data: FirehosePutRecordBatchOutput|any) => void): Request;
-      updateDestination(params: FirehoseUpdateDestinationInput, callback?: (err: FirehoseInvalidArgumentException|FirehoseResourceInUseException|FirehoseResourceNotFoundException|FirehoseConcurrentModificationException|any, data: FirehoseUpdateDestinationOutput|any) => void): Request;
+      createDeliveryStream(params: Firehose.CreateDeliveryStreamInput, callback?: (err: Firehose.InvalidArgumentException|Firehose.LimitExceededException|Firehose.ResourceInUseException|any, data: Firehose.CreateDeliveryStreamOutput|any) => void): Request;
+      deleteDeliveryStream(params: Firehose.DeleteDeliveryStreamInput, callback?: (err: Firehose.ResourceInUseException|Firehose.ResourceNotFoundException|any, data: Firehose.DeleteDeliveryStreamOutput|any) => void): Request;
+      describeDeliveryStream(params: Firehose.DescribeDeliveryStreamInput, callback?: (err: Firehose.ResourceNotFoundException|any, data: Firehose.DescribeDeliveryStreamOutput|any) => void): Request;
+      listDeliveryStreams(params: Firehose.ListDeliveryStreamsInput, callback?: (err: any, data: Firehose.ListDeliveryStreamsOutput|any) => void): Request;
+      putRecord(params: Firehose.PutRecordInput, callback?: (err: Firehose.ResourceNotFoundException|Firehose.InvalidArgumentException|Firehose.ServiceUnavailableException|any, data: Firehose.PutRecordOutput|any) => void): Request;
+      putRecordBatch(params: Firehose.PutRecordBatchInput, callback?: (err: Firehose.ResourceNotFoundException|Firehose.InvalidArgumentException|Firehose.ServiceUnavailableException|any, data: Firehose.PutRecordBatchOutput|any) => void): Request;
+      updateDestination(params: Firehose.UpdateDestinationInput, callback?: (err: Firehose.InvalidArgumentException|Firehose.ResourceInUseException|Firehose.ResourceNotFoundException|Firehose.ConcurrentModificationException|any, data: Firehose.UpdateDestinationOutput|any) => void): Request;
     }
+    
+    export module Firehose {
+        export type AWSKMSKeyARN = string;    // pattern: &quot;arn:.*&quot;, max: 512, min: 1
+        export type BooleanObject = boolean;
+        export type BucketARN = string;    // pattern: &quot;arn:.*&quot;, max: 2048, min: 1
+        export type ClusterJDBCURL = string;    // pattern: &quot;jdbc:(redshift|postgresql)://((?!-)[A-Za-z0-9-]{1,63}(?&lt;!-)\.)+redshift\.amazonaws\.com:\d{1,5}/[a-zA-Z0-9_$]+&quot;, min: 1
+        export type CompressionFormat = string;
+        export type CopyOptions = string;
+        export type Data = any;    // max: 1024000, type: blob
+        export type DataTableColumns = string;
+        export type DataTableName = string;    // min: 1
+        export type DeliveryStreamARN = string;
+        export type DeliveryStreamName = string;    // pattern: &quot;[a-zA-Z0-9_.-]+&quot;, max: 64, min: 1
+        export type DeliveryStreamNameList = DeliveryStreamName[];
+        export type DeliveryStreamStatus = string;
+        export type DeliveryStreamVersionId = string;    // pattern: &quot;[0-9]+&quot;, max: 50, min: 1
+        export type DescribeDeliveryStreamInputLimit = number;    // max: 10000, min: 1
+        export type DestinationDescriptionList = DestinationDescription[];
+        export type DestinationId = string;    // max: 100, min: 1
+        export type ErrorCode = string;
+        export type ErrorMessage = string;
+        export type IntervalInSeconds = number;    // max: 900, min: 60
+        export type ListDeliveryStreamsInputLimit = number;    // max: 10000, min: 1
+        export type NoEncryptionConfig = string;
+        export type NonNegativeIntegerObject = number;
+        export type Password = string;    // min: 6
+        export type Prefix = string;
+        export type PutRecordBatchRequestEntryList = Record[];    // max: 500, min: 1
+        export type PutRecordBatchResponseEntryList = PutRecordBatchResponseEntry[];    // max: 500, min: 1
+        export type PutResponseRecordId = string;    // min: 1
+        export type RoleARN = string;    // pattern: &quot;arn:.*&quot;, max: 512, min: 1
+        export type SizeInMBs = number;    // max: 128, min: 1
+        export type Timestamp = number;
+        export type Username = string;    // min: 1
 
-    export type FirehoseAWSKMSKeyARN = string; // pattern: "arn:.*"
-    export type FirehoseBooleanObject = boolean;
-    export type FirehoseBucketARN = string; // pattern: "arn:.*"
-    export interface FirehoseBufferingHints {
-        SizeInMBs?: FirehoseSizeInMBs;
-        IntervalInSeconds?: FirehoseIntervalInSeconds;
+        export interface BufferingHints {
+            SizeInMBs?: SizeInMBs;            
+            IntervalInSeconds?: IntervalInSeconds;            
+        }
+        export interface ConcurrentModificationException {
+            message?: ErrorMessage;            
+        }
+        export interface CopyCommand {
+            DataTableName: DataTableName;            
+            DataTableColumns?: DataTableColumns;            
+            CopyOptions?: CopyOptions;            
+        }
+        export interface CreateDeliveryStreamInput {
+            DeliveryStreamName: DeliveryStreamName;            
+            S3DestinationConfiguration?: S3DestinationConfiguration;            
+            RedshiftDestinationConfiguration?: RedshiftDestinationConfiguration;            
+        }
+        export interface CreateDeliveryStreamOutput {
+            DeliveryStreamARN?: DeliveryStreamARN;            
+        }
+        export interface DeleteDeliveryStreamInput {
+            DeliveryStreamName: DeliveryStreamName;            
+        }
+        export interface DeleteDeliveryStreamOutput {
+        }
+        export interface DeliveryStreamDescription {
+            DeliveryStreamName: DeliveryStreamName;            
+            DeliveryStreamARN: DeliveryStreamARN;            
+            DeliveryStreamStatus: DeliveryStreamStatus;            
+            VersionId: DeliveryStreamVersionId;            
+            CreateTimestamp?: Timestamp;            
+            LastUpdateTimestamp?: Timestamp;            
+            Destinations: DestinationDescriptionList;            
+            HasMoreDestinations: BooleanObject;            
+        }
+        export interface DescribeDeliveryStreamInput {
+            DeliveryStreamName: DeliveryStreamName;            
+            Limit?: DescribeDeliveryStreamInputLimit;            
+            ExclusiveStartDestinationId?: DestinationId;            
+        }
+        export interface DescribeDeliveryStreamOutput {
+            DeliveryStreamDescription: DeliveryStreamDescription;            
+        }
+        export interface DestinationDescription {
+            DestinationId: DestinationId;            
+            S3DestinationDescription?: S3DestinationDescription;            
+            RedshiftDestinationDescription?: RedshiftDestinationDescription;            
+        }
+        export interface EncryptionConfiguration {
+            NoEncryptionConfig?: NoEncryptionConfig;            
+            KMSEncryptionConfig?: KMSEncryptionConfig;            
+        }
+        export interface InvalidArgumentException {
+            message?: ErrorMessage;            
+        }
+        export interface KMSEncryptionConfig {
+            AWSKMSKeyARN: AWSKMSKeyARN;            
+        }
+        export interface LimitExceededException {
+            message?: ErrorMessage;            
+        }
+        export interface ListDeliveryStreamsInput {
+            Limit?: ListDeliveryStreamsInputLimit;            
+            ExclusiveStartDeliveryStreamName?: DeliveryStreamName;            
+        }
+        export interface ListDeliveryStreamsOutput {
+            DeliveryStreamNames: DeliveryStreamNameList;            
+            HasMoreDeliveryStreams: BooleanObject;            
+        }
+        export interface PutRecordBatchInput {
+            DeliveryStreamName: DeliveryStreamName;            
+            Records: PutRecordBatchRequestEntryList;            
+        }
+        export interface PutRecordBatchOutput {
+            FailedPutCount: NonNegativeIntegerObject;            
+            RequestResponses: PutRecordBatchResponseEntryList;            
+        }
+        export interface PutRecordBatchResponseEntry {
+            RecordId?: PutResponseRecordId;            
+            ErrorCode?: ErrorCode;            
+            ErrorMessage?: ErrorMessage;            
+        }
+        export interface PutRecordInput {
+            DeliveryStreamName: DeliveryStreamName;            
+            Record: Record;            
+        }
+        export interface PutRecordOutput {
+            RecordId: PutResponseRecordId;            
+        }
+        export interface Record {
+            Data: Data;            
+        }
+        export interface RedshiftDestinationConfiguration {
+            RoleARN: RoleARN;            
+            ClusterJDBCURL: ClusterJDBCURL;            
+            CopyCommand: CopyCommand;            
+            Username: Username;            
+            Password: Password;            
+            S3Configuration: S3DestinationConfiguration;            
+        }
+        export interface RedshiftDestinationDescription {
+            RoleARN: RoleARN;            
+            ClusterJDBCURL: ClusterJDBCURL;            
+            CopyCommand: CopyCommand;            
+            Username: Username;            
+            S3DestinationDescription: S3DestinationDescription;            
+        }
+        export interface RedshiftDestinationUpdate {
+            RoleARN?: RoleARN;            
+            ClusterJDBCURL?: ClusterJDBCURL;            
+            CopyCommand?: CopyCommand;            
+            Username?: Username;            
+            Password?: Password;            
+            S3Update?: S3DestinationUpdate;            
+        }
+        export interface ResourceInUseException {
+            message?: ErrorMessage;            
+        }
+        export interface ResourceNotFoundException {
+            message?: ErrorMessage;            
+        }
+        export interface S3DestinationConfiguration {
+            RoleARN: RoleARN;            
+            BucketARN: BucketARN;            
+            Prefix?: Prefix;            
+            BufferingHints?: BufferingHints;            
+            CompressionFormat?: CompressionFormat;            
+            EncryptionConfiguration?: EncryptionConfiguration;            
+        }
+        export interface S3DestinationDescription {
+            RoleARN: RoleARN;            
+            BucketARN: BucketARN;            
+            Prefix?: Prefix;            
+            BufferingHints: BufferingHints;            
+            CompressionFormat: CompressionFormat;            
+            EncryptionConfiguration: EncryptionConfiguration;            
+        }
+        export interface S3DestinationUpdate {
+            RoleARN?: RoleARN;            
+            BucketARN?: BucketARN;            
+            Prefix?: Prefix;            
+            BufferingHints?: BufferingHints;            
+            CompressionFormat?: CompressionFormat;            
+            EncryptionConfiguration?: EncryptionConfiguration;            
+        }
+        export interface ServiceUnavailableException {
+            message?: ErrorMessage;            
+        }
+        export interface UpdateDestinationInput {
+            DeliveryStreamName: DeliveryStreamName;            
+            CurrentDeliveryStreamVersionId: DeliveryStreamVersionId;            
+            DestinationId: DestinationId;            
+            S3DestinationUpdate?: S3DestinationUpdate;            
+            RedshiftDestinationUpdate?: RedshiftDestinationUpdate;            
+        }
+        export interface UpdateDestinationOutput {
+        }
+
     }
-
-    export type FirehoseClusterJDBCURL = string; // pattern: "jdbc:(redshift|postgresql)://((?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+redshift\.amazonaws\.com:\d{1,5}/[a-zA-Z0-9_$]+"
-    export type FirehoseCompressionFormat = string;
-    export interface FirehoseConcurrentModificationException {
-        message?: FirehoseErrorMessage;
-    }
-
-    export interface FirehoseCopyCommand {
-        DataTableName: FirehoseDataTableName;
-        DataTableColumns?: FirehoseDataTableColumns;
-        CopyOptions?: FirehoseCopyOptions;
-    }
-
-    export type FirehoseCopyOptions = string;
-    export interface FirehoseCreateDeliveryStreamInput {
-        DeliveryStreamName: FirehoseDeliveryStreamName;
-        S3DestinationConfiguration?: FirehoseS3DestinationConfiguration;
-        RedshiftDestinationConfiguration?: FirehoseRedshiftDestinationConfiguration;
-    }
-
-    export interface FirehoseCreateDeliveryStreamOutput {
-        DeliveryStreamARN?: FirehoseDeliveryStreamARN;
-    }
-
-    export type FirehoseData = any; // not really - it was 'blob' instead - must fix this one
-    export type FirehoseDataTableColumns = string;
-    export type FirehoseDataTableName = string;
-    export interface FirehoseDeleteDeliveryStreamInput {
-        DeliveryStreamName: FirehoseDeliveryStreamName;
-    }
-
-    export interface FirehoseDeleteDeliveryStreamOutput {
-    }
-
-    export type FirehoseDeliveryStreamARN = string;
-    export interface FirehoseDeliveryStreamDescription {
-        DeliveryStreamName: FirehoseDeliveryStreamName;
-        DeliveryStreamARN: FirehoseDeliveryStreamARN;
-        DeliveryStreamStatus: FirehoseDeliveryStreamStatus;
-        VersionId: FirehoseDeliveryStreamVersionId;
-        CreateTimestamp?: FirehoseTimestamp;
-        LastUpdateTimestamp?: FirehoseTimestamp;
-        Destinations: FirehoseDestinationDescriptionList;
-        HasMoreDestinations: FirehoseBooleanObject;
-    }
-
-    export type FirehoseDeliveryStreamName = string; // pattern: "[a-zA-Z0-9_.-]+"
-    export type FirehoseDeliveryStreamNameList = Array<FirehoseDeliveryStreamName>;
-    export type FirehoseDeliveryStreamStatus = string;
-    export type FirehoseDeliveryStreamVersionId = string; // pattern: "[0-9]+"
-    export interface FirehoseDescribeDeliveryStreamInput {
-        DeliveryStreamName: FirehoseDeliveryStreamName;
-        Limit?: FirehoseDescribeDeliveryStreamInputLimit;
-        ExclusiveStartDestinationId?: FirehoseDestinationId;
-    }
-
-    export type FirehoseDescribeDeliveryStreamInputLimit = number;
-    export interface FirehoseDescribeDeliveryStreamOutput {
-        DeliveryStreamDescription: FirehoseDeliveryStreamDescription;
-    }
-
-    export interface FirehoseDestinationDescription {
-        DestinationId: FirehoseDestinationId;
-        S3DestinationDescription?: FirehoseS3DestinationDescription;
-        RedshiftDestinationDescription?: FirehoseRedshiftDestinationDescription;
-    }
-
-    export type FirehoseDestinationDescriptionList = Array<FirehoseDestinationDescription>;
-    export type FirehoseDestinationId = string;
-    export interface FirehoseEncryptionConfiguration {
-        NoEncryptionConfig?: FirehoseNoEncryptionConfig;
-        KMSEncryptionConfig?: FirehoseKMSEncryptionConfig;
-    }
-
-    export type FirehoseErrorCode = string;
-    export type FirehoseErrorMessage = string;
-    export type FirehoseIntervalInSeconds = number;
-    export interface FirehoseInvalidArgumentException {
-        message?: FirehoseErrorMessage;
-    }
-
-    export interface FirehoseKMSEncryptionConfig {
-        AWSKMSKeyARN: FirehoseAWSKMSKeyARN;
-    }
-
-    export interface FirehoseLimitExceededException {
-        message?: FirehoseErrorMessage;
-    }
-
-    export interface FirehoseListDeliveryStreamsInput {
-        Limit?: FirehoseListDeliveryStreamsInputLimit;
-        ExclusiveStartDeliveryStreamName?: FirehoseDeliveryStreamName;
-    }
-
-    export type FirehoseListDeliveryStreamsInputLimit = number;
-    export interface FirehoseListDeliveryStreamsOutput {
-        DeliveryStreamNames: FirehoseDeliveryStreamNameList;
-        HasMoreDeliveryStreams: FirehoseBooleanObject;
-    }
-
-    export type FirehoseNoEncryptionConfig = string;
-    export type FirehoseNonNegativeIntegerObject = number;
-    export type FirehosePassword = string;
-    export type FirehosePrefix = string;
-    export interface FirehosePutRecordBatchInput {
-        DeliveryStreamName: FirehoseDeliveryStreamName;
-        Records: FirehosePutRecordBatchRequestEntryList;
-    }
-
-    export interface FirehosePutRecordBatchOutput {
-        FailedPutCount: FirehoseNonNegativeIntegerObject;
-        RequestResponses: FirehosePutRecordBatchResponseEntryList;
-    }
-
-    export type FirehosePutRecordBatchRequestEntryList = Array<FirehoseRecord>; // max: 500
-    export interface FirehosePutRecordBatchResponseEntry {
-        RecordId?: FirehosePutResponseRecordId;
-        ErrorCode?: FirehoseErrorCode;
-        ErrorMessage?: FirehoseErrorMessage;
-    }
-
-    export type FirehosePutRecordBatchResponseEntryList = Array<FirehosePutRecordBatchResponseEntry>; // max: 500
-    export interface FirehosePutRecordInput {
-        DeliveryStreamName: FirehoseDeliveryStreamName;
-        Record: FirehoseRecord;
-    }
-
-    export interface FirehosePutRecordOutput {
-        RecordId: FirehosePutResponseRecordId;
-    }
-
-    export type FirehosePutResponseRecordId = string;
-    export interface FirehoseRecord {
-        Data: FirehoseData;
-    }
-
-    export interface FirehoseRedshiftDestinationConfiguration {
-        RoleARN: FirehoseRoleARN;
-        ClusterJDBCURL: FirehoseClusterJDBCURL;
-        CopyCommand: FirehoseCopyCommand;
-        Username: FirehoseUsername;
-        Password: FirehosePassword;
-        S3Configuration: FirehoseS3DestinationConfiguration;
-    }
-
-    export interface FirehoseRedshiftDestinationDescription {
-        RoleARN: FirehoseRoleARN;
-        ClusterJDBCURL: FirehoseClusterJDBCURL;
-        CopyCommand: FirehoseCopyCommand;
-        Username: FirehoseUsername;
-        S3DestinationDescription: FirehoseS3DestinationDescription;
-    }
-
-    export interface FirehoseRedshiftDestinationUpdate {
-        RoleARN?: FirehoseRoleARN;
-        ClusterJDBCURL?: FirehoseClusterJDBCURL;
-        CopyCommand?: FirehoseCopyCommand;
-        Username?: FirehoseUsername;
-        Password?: FirehosePassword;
-        S3Update?: FirehoseS3DestinationUpdate;
-    }
-
-    export interface FirehoseResourceInUseException {
-        message?: FirehoseErrorMessage;
-    }
-
-    export interface FirehoseResourceNotFoundException {
-        message?: FirehoseErrorMessage;
-    }
-
-    export type FirehoseRoleARN = string; // pattern: "arn:.*"
-    export interface FirehoseS3DestinationConfiguration {
-        RoleARN: FirehoseRoleARN;
-        BucketARN: FirehoseBucketARN;
-        Prefix?: FirehosePrefix;
-        BufferingHints?: FirehoseBufferingHints;
-        CompressionFormat?: FirehoseCompressionFormat;
-        EncryptionConfiguration?: FirehoseEncryptionConfiguration;
-    }
-
-    export interface FirehoseS3DestinationDescription {
-        RoleARN: FirehoseRoleARN;
-        BucketARN: FirehoseBucketARN;
-        Prefix?: FirehosePrefix;
-        BufferingHints: FirehoseBufferingHints;
-        CompressionFormat: FirehoseCompressionFormat;
-        EncryptionConfiguration: FirehoseEncryptionConfiguration;
-    }
-
-    export interface FirehoseS3DestinationUpdate {
-        RoleARN?: FirehoseRoleARN;
-        BucketARN?: FirehoseBucketARN;
-        Prefix?: FirehosePrefix;
-        BufferingHints?: FirehoseBufferingHints;
-        CompressionFormat?: FirehoseCompressionFormat;
-        EncryptionConfiguration?: FirehoseEncryptionConfiguration;
-    }
-
-    export interface FirehoseServiceUnavailableException {
-        message?: FirehoseErrorMessage;
-    }
-
-    export type FirehoseSizeInMBs = number;
-    export type FirehoseTimestamp = number;
-    export interface FirehoseUpdateDestinationInput {
-        DeliveryStreamName: FirehoseDeliveryStreamName;
-        CurrentDeliveryStreamVersionId: FirehoseDeliveryStreamVersionId;
-        DestinationId: FirehoseDestinationId;
-        S3DestinationUpdate?: FirehoseS3DestinationUpdate;
-        RedshiftDestinationUpdate?: FirehoseRedshiftDestinationUpdate;
-    }
-
-    export interface FirehoseUpdateDestinationOutput {
-    }
-
-    export type FirehoseUsername = string;
 }

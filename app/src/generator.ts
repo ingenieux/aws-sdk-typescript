@@ -10,66 +10,93 @@ export class AWSTypeGenerator {
     return handlebars.compile(templateSource)
   }
 
-  executeOn(api: meta.ServiceInfo, content:string|Buffer) {
+  generateServiceDefinitions(api: meta.ServiceInfo) {
     var moduleTemplate = this.fetchTemplate("module")
-    var structureTemplate = this.fetchTemplate("structure")
+    
+    this.cleanShapes(api.descriptor);
 
     handlebars.registerHelper("camelCase", function(name) {
       return name.charAt(0).toLowerCase() + name.substring(1)
     })
 
-    var m: meta.Descriptor = JSON.parse(content.toString())
-
-    var prefix = "    "
-
-    handlebars.registerHelper("dumpShape", function(context, options) {
-      var result = ""
-      if ("string" === context.type) {
-        result = `${prefix}export type ${api.name}${options.data.key} = string;`
-
-        if (context.pattern) {
-          result += ` // pattern: "${context.pattern}"`
-        }
-      } else if ("long" === context.type || "integer" === context.type || "timestamp" === context.type || "double" === context.type || "float" === context.type) {
-        result = `${prefix}export type ${api.name}${options.data.key} = number;`
-      } else if ("boolean" === context.type) {
-        result = `${prefix}export type ${api.name}${options.data.key} = boolean;`
-      } else if ("map" === context.type || "blob" === context.type) {
-        result = `${prefix}export type ${api.name}${options.data.key} = any; // not really - it was '${context.type}' instead - must fix this one`
-      } else if ("list" === context.type) {
-        result = `${prefix}export type ${api.name}${options.data.key} = Array<${api.name}${context.member.shape}>;`
-
-        if (context.max) {
-          result += ` // max: ${context.max}`
-        }
-      } else if ("structure" === context.type) {
-        Object.keys(context.members).forEach(function(k) {
-          context.members[k].required = "?"
-        })
-
-        if (context.required) {
-          context.required.forEach(function(k) {
-            context.members[k].required = "";
-          })
-        }
-
-        result = structureTemplate({ c: context, name: options.data.key, api: api })
-      } else {
-        throw new Error(`Unknown type: ${context.type}`)
-      }
-      return result;
-    });
-
-    var ctx = {
-      m: m,
-      api: api
-    }
-
-    return moduleTemplate(ctx)
+    return moduleTemplate(api)
   }
   
   generateMainModule(services:string[]) {
     var template = this.fetchTemplate('aws-sdk');
     return template({services:services});
   }
+  
+  private getAlias(shape:meta.Shape): meta.Alias {
+    var alias:meta.Alias = {name: shape.name, type: shape.type};
+    
+    var comments:string[] = [];      
+    if (shape.pattern) {
+      comments.push(`pattern: "${shape.pattern}"`);
+    }
+    if (shape.max) {
+      comments.push(`max: ${shape.max}`);
+    }
+    if (shape.min) {
+      comments.push(`min: ${shape.min}`);
+    }
+    
+    if (shape.type.match(/long|integer|timestamp|double|float/)){
+      alias.type = 'number';
+    } 
+    else if (shape.type == 'map') {
+      if (shape.value) {
+        alias.type = `{[key:string]: ${shape.value.shape}}`
+      } else {
+        shape.type == 'any';
+        comments.push('type: map');
+      }
+    } 
+    else if (shape.type == 'blob') {
+      alias.type = 'any';
+      comments.push('type: ' + 'blob');
+    } 
+    else if (shape.type == 'list') {
+      alias.type = shape.member.shape + '[]';
+    }
+    
+    if (comments.length) {
+      alias.comment = comments.join(', ');
+    }
+    
+    return alias;
+  }
+  
+  private getStructure(shape:meta.Shape):meta.Shape {
+    Object.keys(shape.members).forEach(function(k) {
+      shape.members[k].required = "?";
+    })
+    
+    if (shape.required) {
+      shape.required.forEach(function(k) {
+        shape.members[k].required = "";
+      })
+    }
+    return shape;
+  }
+  
+  private cleanShapes(descriptor:meta.Descriptor) {
+    //set the name
+    Object.keys(descriptor.shapes)
+      .forEach(name => descriptor.shapes[name].name = name);
+    
+    //get aliases
+    descriptor.aliases = Object.keys(descriptor.shapes)
+      .map(name => descriptor.shapes[name])
+      .filter(shape => shape.type != 'structure')
+      .filter(shape => shape.name != 'string' && shape.name != 'boolean' && shape.name != 'number')  //exclude builtins
+      .map(this.getAlias);
+    
+    //Get structures
+    descriptor.structures = Object.keys(descriptor.shapes)
+      .map(name => descriptor.shapes[name])
+      .filter(shape => shape.type == 'structure')
+      .map(this.getStructure);
+  }
+  
 }

@@ -6,610 +6,514 @@ declare module "aws-sdk" {
 
     export class Iot extends Service {
       constructor(options?: any);
-      acceptCertificateTransfer(params: IotAcceptCertificateTransferRequest, callback?: (err: IotResourceNotFoundException|IotTransferAlreadyCompletedException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: any) => void): Request;
-      attachPrincipalPolicy(params: IotAttachPrincipalPolicyRequest, callback?: (err: IotResourceNotFoundException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|IotLimitExceededException|any, data: any) => void): Request;
-      attachThingPrincipal(params: IotAttachThingPrincipalRequest, callback?: (err: IotResourceNotFoundException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotAttachThingPrincipalResponse|any) => void): Request;
-      cancelCertificateTransfer(params: IotCancelCertificateTransferRequest, callback?: (err: IotResourceNotFoundException|IotTransferAlreadyCompletedException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: any) => void): Request;
-      createCertificateFromCsr(params: IotCreateCertificateFromCsrRequest, callback?: (err: IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotCreateCertificateFromCsrResponse|any) => void): Request;
-      createKeysAndCertificate(params: IotCreateKeysAndCertificateRequest, callback?: (err: IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotCreateKeysAndCertificateResponse|any) => void): Request;
-      createPolicy(params: IotCreatePolicyRequest, callback?: (err: IotResourceAlreadyExistsException|IotMalformedPolicyException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotCreatePolicyResponse|any) => void): Request;
-      createPolicyVersion(params: IotCreatePolicyVersionRequest, callback?: (err: IotResourceNotFoundException|IotMalformedPolicyException|IotVersionsLimitExceededException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotCreatePolicyVersionResponse|any) => void): Request;
-      createThing(params: IotCreateThingRequest, callback?: (err: IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|IotResourceAlreadyExistsException|any, data: IotCreateThingResponse|any) => void): Request;
-      createTopicRule(params: IotCreateTopicRuleRequest, callback?: (err: IotSqlParseException|IotInternalException|IotInvalidRequestException|IotResourceAlreadyExistsException|IotServiceUnavailableException|any, data: any) => void): Request;
-      deleteCertificate(params: IotDeleteCertificateRequest, callback?: (err: IotDeleteConflictException|IotResourceNotFoundException|IotCertificateStateException|any, data: any) => void): Request;
-      deletePolicy(params: IotDeletePolicyRequest, callback?: (err: IotDeleteConflictException|IotResourceNotFoundException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: any) => void): Request;
-      deletePolicyVersion(params: IotDeletePolicyVersionRequest, callback?: (err: IotDeleteConflictException|IotResourceNotFoundException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: any) => void): Request;
-      deleteThing(params: IotDeleteThingRequest, callback?: (err: IotResourceNotFoundException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotDeleteThingResponse|any) => void): Request;
-      deleteTopicRule(params: IotDeleteTopicRuleRequest, callback?: (err: IotInternalException|IotInvalidRequestException|IotServiceUnavailableException|IotUnauthorizedException|any, data: any) => void): Request;
-      describeCertificate(params: IotDescribeCertificateRequest, callback?: (err: IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|IotResourceNotFoundException|any, data: IotDescribeCertificateResponse|any) => void): Request;
-      describeEndpoint(params: IotDescribeEndpointRequest, callback?: (err: IotInternalFailureException|IotUnauthorizedException|any, data: IotDescribeEndpointResponse|any) => void): Request;
-      describeThing(params: IotDescribeThingRequest, callback?: (err: IotResourceNotFoundException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotDescribeThingResponse|any) => void): Request;
-      detachPrincipalPolicy(params: IotDetachPrincipalPolicyRequest, callback?: (err: IotResourceNotFoundException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: any) => void): Request;
-      detachThingPrincipal(params: IotDetachThingPrincipalRequest, callback?: (err: IotResourceNotFoundException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotDetachThingPrincipalResponse|any) => void): Request;
-      getLoggingOptions(params: IotGetLoggingOptionsRequest, callback?: (err: IotInternalException|IotInvalidRequestException|IotServiceUnavailableException|any, data: IotGetLoggingOptionsResponse|any) => void): Request;
-      getPolicy(params: IotGetPolicyRequest, callback?: (err: IotResourceNotFoundException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotGetPolicyResponse|any) => void): Request;
-      getPolicyVersion(params: IotGetPolicyVersionRequest, callback?: (err: IotResourceNotFoundException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotGetPolicyVersionResponse|any) => void): Request;
-      getTopicRule(params: IotGetTopicRuleRequest, callback?: (err: IotInternalException|IotInvalidRequestException|IotServiceUnavailableException|IotUnauthorizedException|any, data: IotGetTopicRuleResponse|any) => void): Request;
-      listCertificates(params: IotListCertificatesRequest, callback?: (err: IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotListCertificatesResponse|any) => void): Request;
-      listPolicies(params: IotListPoliciesRequest, callback?: (err: IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotListPoliciesResponse|any) => void): Request;
-      listPolicyVersions(params: IotListPolicyVersionsRequest, callback?: (err: IotResourceNotFoundException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotListPolicyVersionsResponse|any) => void): Request;
-      listPrincipalPolicies(params: IotListPrincipalPoliciesRequest, callback?: (err: IotResourceNotFoundException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotListPrincipalPoliciesResponse|any) => void): Request;
-      listPrincipalThings(params: IotListPrincipalThingsRequest, callback?: (err: IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotListPrincipalThingsResponse|any) => void): Request;
-      listThingPrincipals(params: IotListThingPrincipalsRequest, callback?: (err: IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotListThingPrincipalsResponse|any) => void): Request;
-      listThings(params: IotListThingsRequest, callback?: (err: IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotListThingsResponse|any) => void): Request;
-      listTopicRules(params: IotListTopicRulesRequest, callback?: (err: IotInternalException|IotInvalidRequestException|IotServiceUnavailableException|any, data: IotListTopicRulesResponse|any) => void): Request;
-      rejectCertificateTransfer(params: IotRejectCertificateTransferRequest, callback?: (err: IotResourceNotFoundException|IotTransferAlreadyCompletedException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: any) => void): Request;
-      replaceTopicRule(params: IotReplaceTopicRuleRequest, callback?: (err: IotSqlParseException|IotInternalException|IotInvalidRequestException|IotServiceUnavailableException|IotUnauthorizedException|any, data: any) => void): Request;
-      setDefaultPolicyVersion(params: IotSetDefaultPolicyVersionRequest, callback?: (err: IotResourceNotFoundException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: any) => void): Request;
-      setLoggingOptions(params: IotSetLoggingOptionsRequest, callback?: (err: IotInternalException|IotInvalidRequestException|IotServiceUnavailableException|any, data: any) => void): Request;
-      transferCertificate(params: IotTransferCertificateRequest, callback?: (err: IotInvalidRequestException|IotResourceNotFoundException|IotCertificateStateException|IotTransferConflictException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: IotTransferCertificateResponse|any) => void): Request;
-      updateCertificate(params: IotUpdateCertificateRequest, callback?: (err: IotResourceNotFoundException|IotCertificateStateException|IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|any, data: any) => void): Request;
-      updateThing(params: IotUpdateThingRequest, callback?: (err: IotInvalidRequestException|IotThrottlingException|IotUnauthorizedException|IotServiceUnavailableException|IotInternalFailureException|IotResourceNotFoundException|any, data: IotUpdateThingResponse|any) => void): Request;
-    }
-
-    export interface IotAcceptCertificateTransferRequest {
-        certificateId: IotCertificateId;
-        setAsActive?: IotSetAsActive;
-    }
-
-    export interface IotAction {
-        dynamoDB?: IotDynamoDBAction;
-        lambda?: IotLambdaAction;
-        sns?: IotSnsAction;
-        sqs?: IotSqsAction;
-        kinesis?: IotKinesisAction;
-        republish?: IotRepublishAction;
-        s3?: IotS3Action;
-        firehose?: IotFirehoseAction;
-    }
-
-    export type IotActionList = Array<IotAction>; // max: 10
-    export type IotAscendingOrder = boolean;
-    export interface IotAttachPrincipalPolicyRequest {
-        policyName: IotPolicyName;
-        principal: IotPrincipal;
-    }
-
-    export interface IotAttachThingPrincipalRequest {
-        thingName: IotThingName;
-        principal: IotPrincipal;
-    }
-
-    export interface IotAttachThingPrincipalResponse {
-    }
-
-    export type IotAttributeName = string; // pattern: "[a-zA-Z0-9_.,@/:#-]+"
-    export interface IotAttributePayload {
-        attributes?: IotAttributes;
-    }
-
-    export type IotAttributeValue = string; // pattern: "[a-zA-Z0-9_.,@/:#-]+"
-    export type IotAttributes = any; // not really - it was 'map' instead - must fix this one
-    export type IotAwsAccountId = string; // pattern: "[0-9]{12}"
-    export type IotAwsArn = string;
-    export type IotBucketName = string;
-    export interface IotCancelCertificateTransferRequest {
-        certificateId: IotCertificateId;
-    }
-
-    export interface IotCertificate {
-        certificateArn?: IotCertificateArn;
-        certificateId?: IotCertificateId;
-        status?: IotCertificateStatus;
-        creationDate?: IotDateType;
-    }
-
-    export type IotCertificateArn = string;
-    export interface IotCertificateDescription {
-        certificateArn?: IotCertificateArn;
-        certificateId?: IotCertificateId;
-        status?: IotCertificateStatus;
-        certificatePem?: IotCertificatePem;
-        ownedBy?: IotAwsAccountId;
-        creationDate?: IotDateType;
-        lastModifiedDate?: IotDateType;
-    }
-
-    export type IotCertificateId = string; // pattern: "(0x)?[a-fA-F0-9]+"
-    export type IotCertificatePem = string;
-    export type IotCertificateSigningRequest = string;
-    export interface IotCertificateStateException {
-        message?: IoterrorMessage;
-    }
-
-    export type IotCertificateStatus = string;
-    export type IotCertificates = Array<IotCertificate>;
-    export type IotClientId = string;
-    export interface IotCreateCertificateFromCsrRequest {
-        certificateSigningRequest: IotCertificateSigningRequest;
-        setAsActive?: IotSetAsActive;
-    }
-
-    export interface IotCreateCertificateFromCsrResponse {
-        certificateArn?: IotCertificateArn;
-        certificateId?: IotCertificateId;
-        certificatePem?: IotCertificatePem;
-    }
-
-    export interface IotCreateKeysAndCertificateRequest {
-        setAsActive?: IotSetAsActive;
-    }
-
-    export interface IotCreateKeysAndCertificateResponse {
-        certificateArn?: IotCertificateArn;
-        certificateId?: IotCertificateId;
-        certificatePem?: IotCertificatePem;
-        keyPair?: IotKeyPair;
-    }
-
-    export interface IotCreatePolicyRequest {
-        policyName: IotPolicyName;
-        policyDocument: IotPolicyDocument;
-    }
-
-    export interface IotCreatePolicyResponse {
-        policyName?: IotPolicyName;
-        policyArn?: IotPolicyArn;
-        policyDocument?: IotPolicyDocument;
-        policyVersionId?: IotPolicyVersionId;
-    }
-
-    export interface IotCreatePolicyVersionRequest {
-        policyName: IotPolicyName;
-        policyDocument: IotPolicyDocument;
-        setAsDefault?: IotSetAsDefault;
-    }
-
-    export interface IotCreatePolicyVersionResponse {
-        policyArn?: IotPolicyArn;
-        policyDocument?: IotPolicyDocument;
-        policyVersionId?: IotPolicyVersionId;
-        isDefaultVersion?: IotIsDefaultVersion;
-    }
-
-    export interface IotCreateThingRequest {
-        thingName: IotThingName;
-        attributePayload?: IotAttributePayload;
-    }
-
-    export interface IotCreateThingResponse {
-        thingName?: IotThingName;
-        thingArn?: IotThingArn;
-    }
-
-    export interface IotCreateTopicRuleRequest {
-        ruleName: IotRuleName;
-        topicRulePayload: IotTopicRulePayload;
-    }
-
-    export type IotCreatedAtDate = number;
-    export type IotDateType = number;
-    export interface IotDeleteCertificateRequest {
-        certificateId: IotCertificateId;
-    }
-
-    export interface IotDeleteConflictException {
-        message?: IoterrorMessage;
-    }
-
-    export interface IotDeletePolicyRequest {
-        policyName: IotPolicyName;
-    }
-
-    export interface IotDeletePolicyVersionRequest {
-        policyName: IotPolicyName;
-        policyVersionId: IotPolicyVersionId;
-    }
-
-    export interface IotDeleteThingRequest {
-        thingName: IotThingName;
-    }
-
-    export interface IotDeleteThingResponse {
-    }
-
-    export interface IotDeleteTopicRuleRequest {
-        ruleName: IotRuleName;
-    }
-
-    export type IotDeliveryStreamName = string;
-    export interface IotDescribeCertificateRequest {
-        certificateId: IotCertificateId;
-    }
-
-    export interface IotDescribeCertificateResponse {
-        certificateDescription?: IotCertificateDescription;
-    }
-
-    export interface IotDescribeEndpointRequest {
-    }
-
-    export interface IotDescribeEndpointResponse {
-        endpointAddress?: IotEndpointAddress;
-    }
-
-    export interface IotDescribeThingRequest {
-        thingName: IotThingName;
-    }
-
-    export interface IotDescribeThingResponse {
-        defaultClientId?: IotClientId;
-        thingName?: IotThingName;
-        attributes?: IotAttributes;
-    }
-
-    export type IotDescription = string;
-    export interface IotDetachPrincipalPolicyRequest {
-        policyName: IotPolicyName;
-        principal: IotPrincipal;
-    }
-
-    export interface IotDetachThingPrincipalRequest {
-        thingName: IotThingName;
-        principal: IotPrincipal;
-    }
-
-    export interface IotDetachThingPrincipalResponse {
-    }
-
-    export interface IotDynamoDBAction {
-        tableName: IotTableName;
-        roleArn: IotAwsArn;
-        hashKeyField: IotHashKeyField;
-        hashKeyValue: IotHashKeyValue;
-        rangeKeyField: IotRangeKeyField;
-        rangeKeyValue: IotRangeKeyValue;
-        payloadField?: IotPayloadField;
-    }
-
-    export type IotEndpointAddress = string;
-    export interface IotFirehoseAction {
-        roleArn: IotAwsArn;
-        deliveryStreamName: IotDeliveryStreamName;
-    }
-
-    export type IotFunctionArn = string;
-    export interface IotGetLoggingOptionsRequest {
-    }
-
-    export interface IotGetLoggingOptionsResponse {
-        roleArn?: IotAwsArn;
-        logLevel?: IotLogLevel;
-    }
-
-    export interface IotGetPolicyRequest {
-        policyName: IotPolicyName;
-    }
-
-    export interface IotGetPolicyResponse {
-        policyName?: IotPolicyName;
-        policyArn?: IotPolicyArn;
-        policyDocument?: IotPolicyDocument;
-        defaultVersionId?: IotPolicyVersionId;
-    }
-
-    export interface IotGetPolicyVersionRequest {
-        policyName: IotPolicyName;
-        policyVersionId: IotPolicyVersionId;
-    }
-
-    export interface IotGetPolicyVersionResponse {
-        policyArn?: IotPolicyArn;
-        policyName?: IotPolicyName;
-        policyDocument?: IotPolicyDocument;
-        policyVersionId?: IotPolicyVersionId;
-        isDefaultVersion?: IotIsDefaultVersion;
-    }
-
-    export interface IotGetTopicRuleRequest {
-        ruleName: IotRuleName;
-    }
-
-    export interface IotGetTopicRuleResponse {
-        rule?: IotTopicRule;
-    }
-
-    export type IotHashKeyField = string;
-    export type IotHashKeyValue = string;
-    export interface IotInternalException {
-        message?: IoterrorMessage;
-    }
-
-    export interface IotInternalFailureException {
-        message?: IoterrorMessage;
-    }
-
-    export interface IotInvalidRequestException {
-        message?: IoterrorMessage;
-    }
-
-    export type IotIsDefaultVersion = boolean;
-    export type IotIsDisabled = boolean;
-    export type IotKey = string;
-    export interface IotKeyPair {
-        PublicKey?: IotPublicKey;
-        PrivateKey?: IotPrivateKey;
-    }
-
-    export interface IotKinesisAction {
-        roleArn: IotAwsArn;
-        streamName: IotStreamName;
-        partitionKey?: IotPartitionKey;
-    }
-
-    export interface IotLambdaAction {
-        functionArn: IotFunctionArn;
-    }
-
-    export interface IotLimitExceededException {
-        message?: IoterrorMessage;
-    }
-
-    export interface IotListCertificatesRequest {
-        pageSize?: IotPageSize;
-        marker?: IotMarker;
-        ascendingOrder?: IotAscendingOrder;
-    }
-
-    export interface IotListCertificatesResponse {
-        certificates?: IotCertificates;
-        nextMarker?: IotMarker;
-    }
-
-    export interface IotListPoliciesRequest {
-        marker?: IotMarker;
-        pageSize?: IotPageSize;
-        ascendingOrder?: IotAscendingOrder;
-    }
-
-    export interface IotListPoliciesResponse {
-        policies?: IotPolicies;
-        nextMarker?: IotMarker;
-    }
-
-    export interface IotListPolicyVersionsRequest {
-        policyName: IotPolicyName;
-    }
-
-    export interface IotListPolicyVersionsResponse {
-        policyVersions?: IotPolicyVersions;
-    }
-
-    export interface IotListPrincipalPoliciesRequest {
-        principal: IotPrincipal;
-        marker?: IotMarker;
-        pageSize?: IotPageSize;
-        ascendingOrder?: IotAscendingOrder;
-    }
-
-    export interface IotListPrincipalPoliciesResponse {
-        policies?: IotPolicies;
-        nextMarker?: IotMarker;
-    }
-
-    export interface IotListPrincipalThingsRequest {
-        nextToken?: IotNextToken;
-        maxResults?: IotMaxResults;
-        principal: IotPrincipal;
-    }
-
-    export interface IotListPrincipalThingsResponse {
-        things?: IotThingNameList;
-        nextToken?: IotNextToken;
-    }
-
-    export interface IotListThingPrincipalsRequest {
-        thingName: IotThingName;
-    }
-
-    export interface IotListThingPrincipalsResponse {
-        principals?: IotPrincipals;
-    }
-
-    export interface IotListThingsRequest {
-        nextToken?: IotNextToken;
-        maxResults?: IotMaxResults;
-        attributeName?: IotAttributeName;
-        attributeValue?: IotAttributeValue;
-    }
-
-    export interface IotListThingsResponse {
-        things?: IotThingAttributeList;
-        nextToken?: IotNextToken;
-    }
-
-    export interface IotListTopicRulesRequest {
-        topic?: IotTopic;
-        maxResults?: IotMaxResults;
-        nextToken?: IotNextToken;
-        ruleDisabled?: IotIsDisabled;
-    }
-
-    export interface IotListTopicRulesResponse {
-        rules?: IotTopicRuleList;
-        nextToken?: IotNextToken;
-    }
-
-    export type IotLogLevel = string;
-    export interface IotLoggingOptionsPayload {
-        roleArn: IotAwsArn;
-        logLevel?: IotLogLevel;
-    }
-
-    export interface IotMalformedPolicyException {
-        message?: IoterrorMessage;
-    }
-
-    export type IotMarker = string;
-    export type IotMaxResults = number;
-    export type IotNextToken = string;
-    export type IotPageSize = number;
-    export type IotPartitionKey = string;
-    export type IotPayloadField = string;
-    export type IotPolicies = Array<IotPolicy>;
-    export interface IotPolicy {
-        policyName?: IotPolicyName;
-        policyArn?: IotPolicyArn;
-    }
-
-    export type IotPolicyArn = string;
-    export type IotPolicyDocument = string;
-    export type IotPolicyName = string; // pattern: "[\w+=,.@-]+"
-    export interface IotPolicyVersion {
-        versionId?: IotPolicyVersionId;
-        isDefaultVersion?: IotIsDefaultVersion;
-        createDate?: IotDateType;
-    }
-
-    export type IotPolicyVersionId = string; // pattern: "[0-9]+"
-    export type IotPolicyVersions = Array<IotPolicyVersion>;
-    export type IotPrincipal = string;
-    export type IotPrincipalArn = string;
-    export type IotPrincipals = Array<IotPrincipalArn>;
-    export type IotPrivateKey = string;
-    export type IotPublicKey = string;
-    export type IotQueueUrl = string;
-    export type IotRangeKeyField = string;
-    export type IotRangeKeyValue = string;
-    export interface IotRejectCertificateTransferRequest {
-        certificateId: IotCertificateId;
-    }
-
-    export interface IotReplaceTopicRuleRequest {
-        ruleName: IotRuleName;
-        topicRulePayload: IotTopicRulePayload;
-    }
-
-    export interface IotRepublishAction {
-        roleArn: IotAwsArn;
-        topic: IotTopicPattern;
-    }
-
-    export interface IotResourceAlreadyExistsException {
-        message?: IoterrorMessage;
-    }
-
-    export interface IotResourceNotFoundException {
-        message?: IoterrorMessage;
-    }
-
-    export type IotRuleName = string; // pattern: "^[a-zA-Z0-9_]+$"
-    export interface IotS3Action {
-        roleArn: IotAwsArn;
-        bucketName: IotBucketName;
-        key: IotKey;
-    }
-
-    export type IotSQL = string;
-    export interface IotServiceUnavailableException {
-        message?: IoterrorMessage;
-    }
-
-    export type IotSetAsActive = boolean;
-    export type IotSetAsDefault = boolean;
-    export interface IotSetDefaultPolicyVersionRequest {
-        policyName: IotPolicyName;
-        policyVersionId: IotPolicyVersionId;
-    }
-
-    export interface IotSetLoggingOptionsRequest {
-        loggingOptionsPayload?: IotLoggingOptionsPayload;
-    }
-
-    export interface IotSnsAction {
-        targetArn: IotAwsArn;
-        roleArn: IotAwsArn;
-    }
-
-    export interface IotSqlParseException {
-        message?: IoterrorMessage;
-    }
-
-    export interface IotSqsAction {
-        roleArn: IotAwsArn;
-        queueUrl: IotQueueUrl;
-        useBase64?: IotUseBase64;
-    }
-
-    export type IotStreamName = string;
-    export type IotTableName = string;
-    export type IotThingArn = string;
-    export interface IotThingAttribute {
-        thingName?: IotThingName;
-        attributes?: IotAttributes;
-    }
+      acceptCertificateTransfer(params: Iot.AcceptCertificateTransferRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.TransferAlreadyCompletedException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+      attachPrincipalPolicy(params: Iot.AttachPrincipalPolicyRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.LimitExceededException|any, data: any) => void): Request;
+      attachThingPrincipal(params: Iot.AttachThingPrincipalRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.AttachThingPrincipalResponse|any) => void): Request;
+      cancelCertificateTransfer(params: Iot.CancelCertificateTransferRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.TransferAlreadyCompletedException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+      createCertificateFromCsr(params: Iot.CreateCertificateFromCsrRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.CreateCertificateFromCsrResponse|any) => void): Request;
+      createKeysAndCertificate(params: Iot.CreateKeysAndCertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.CreateKeysAndCertificateResponse|any) => void): Request;
+      createPolicy(params: Iot.CreatePolicyRequest, callback?: (err: Iot.ResourceAlreadyExistsException|Iot.MalformedPolicyException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.CreatePolicyResponse|any) => void): Request;
+      createPolicyVersion(params: Iot.CreatePolicyVersionRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.MalformedPolicyException|Iot.VersionsLimitExceededException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.CreatePolicyVersionResponse|any) => void): Request;
+      createThing(params: Iot.CreateThingRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceAlreadyExistsException|any, data: Iot.CreateThingResponse|any) => void): Request;
+      createTopicRule(params: Iot.CreateTopicRuleRequest, callback?: (err: Iot.SqlParseException|Iot.InternalException|Iot.InvalidRequestException|Iot.ResourceAlreadyExistsException|Iot.ServiceUnavailableException|any, data: any) => void): Request;
+      deleteCertificate(params: Iot.DeleteCertificateRequest, callback?: (err: Iot.DeleteConflictException|Iot.ResourceNotFoundException|Iot.CertificateStateException|any, data: any) => void): Request;
+      deletePolicy(params: Iot.DeletePolicyRequest, callback?: (err: Iot.DeleteConflictException|Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+      deletePolicyVersion(params: Iot.DeletePolicyVersionRequest, callback?: (err: Iot.DeleteConflictException|Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+      deleteThing(params: Iot.DeleteThingRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DeleteThingResponse|any) => void): Request;
+      deleteTopicRule(params: Iot.DeleteTopicRuleRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: any) => void): Request;
+      describeCertificate(params: Iot.DescribeCertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.DescribeCertificateResponse|any) => void): Request;
+      describeEndpoint(params: Iot.DescribeEndpointRequest, callback?: (err: Iot.InternalFailureException|Iot.UnauthorizedException|any, data: Iot.DescribeEndpointResponse|any) => void): Request;
+      describeThing(params: Iot.DescribeThingRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DescribeThingResponse|any) => void): Request;
+      detachPrincipalPolicy(params: Iot.DetachPrincipalPolicyRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+      detachThingPrincipal(params: Iot.DetachThingPrincipalRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DetachThingPrincipalResponse|any) => void): Request;
+      getLoggingOptions(params: Iot.GetLoggingOptionsRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|any, data: Iot.GetLoggingOptionsResponse|any) => void): Request;
+      getPolicy(params: Iot.GetPolicyRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.GetPolicyResponse|any) => void): Request;
+      getPolicyVersion(params: Iot.GetPolicyVersionRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.GetPolicyVersionResponse|any) => void): Request;
+      getTopicRule(params: Iot.GetTopicRuleRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: Iot.GetTopicRuleResponse|any) => void): Request;
+      listCertificates(params: Iot.ListCertificatesRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListCertificatesResponse|any) => void): Request;
+      listPolicies(params: Iot.ListPoliciesRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPoliciesResponse|any) => void): Request;
+      listPolicyVersions(params: Iot.ListPolicyVersionsRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPolicyVersionsResponse|any) => void): Request;
+      listPrincipalPolicies(params: Iot.ListPrincipalPoliciesRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPrincipalPoliciesResponse|any) => void): Request;
+      listPrincipalThings(params: Iot.ListPrincipalThingsRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPrincipalThingsResponse|any) => void): Request;
+      listThingPrincipals(params: Iot.ListThingPrincipalsRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListThingPrincipalsResponse|any) => void): Request;
+      listThings(params: Iot.ListThingsRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListThingsResponse|any) => void): Request;
+      listTopicRules(params: Iot.ListTopicRulesRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|any, data: Iot.ListTopicRulesResponse|any) => void): Request;
+      rejectCertificateTransfer(params: Iot.RejectCertificateTransferRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.TransferAlreadyCompletedException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+      replaceTopicRule(params: Iot.ReplaceTopicRuleRequest, callback?: (err: Iot.SqlParseException|Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: any) => void): Request;
+      setDefaultPolicyVersion(params: Iot.SetDefaultPolicyVersionRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+      setLoggingOptions(params: Iot.SetLoggingOptionsRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|any, data: any) => void): Request;
+      transferCertificate(params: Iot.TransferCertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.ResourceNotFoundException|Iot.CertificateStateException|Iot.TransferConflictException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.TransferCertificateResponse|any) => void): Request;
+      updateCertificate(params: Iot.UpdateCertificateRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.CertificateStateException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+      updateThing(params: Iot.UpdateThingRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.UpdateThingResponse|any) => void): Request;
+    }
+    
+    export module Iot {
+        export type ActionList = Action[];    // max: 10
+        export type AscendingOrder = boolean;
+        export type AttributeName = string;    // pattern: &quot;[a-zA-Z0-9_.,@/:#-]+&quot;, max: 128
+        export type AttributeValue = string;    // pattern: &quot;[a-zA-Z0-9_.,@/:#-]+&quot;, max: 1024
+        export type Attributes = {[key:string]: AttributeValue};
+        export type AwsAccountId = string;    // pattern: &quot;[0-9]{12}&quot;
+        export type AwsArn = string;
+        export type BucketName = string;
+        export type CertificateArn = string;
+        export type CertificateId = string;    // pattern: &quot;(0x)?[a-fA-F0-9]+&quot;, max: 64, min: 64
+        export type CertificatePem = string;
+        export type CertificateSigningRequest = string;    // min: 1
+        export type CertificateStatus = string;
+        export type Certificates = Certificate[];
+        export type ClientId = string;
+        export type CreatedAtDate = number;
+        export type DateType = number;
+        export type DeliveryStreamName = string;
+        export type Description = string;
+        export type EndpointAddress = string;
+        export type FunctionArn = string;
+        export type HashKeyField = string;
+        export type HashKeyValue = string;
+        export type IsDefaultVersion = boolean;
+        export type IsDisabled = boolean;
+        export type Key = string;
+        export type LogLevel = string;
+        export type Marker = string;
+        export type MaxResults = number;    // max: 10000, min: 1
+        export type NextToken = string;
+        export type PageSize = number;    // max: 250, min: 1
+        export type PartitionKey = string;
+        export type PayloadField = string;
+        export type Policies = Policy[];
+        export type PolicyArn = string;
+        export type PolicyDocument = string;
+        export type PolicyName = string;    // pattern: &quot;[\w+=,.@-]+&quot;, max: 128, min: 1
+        export type PolicyVersionId = string;    // pattern: &quot;[0-9]+&quot;
+        export type PolicyVersions = PolicyVersion[];
+        export type Principal = string;
+        export type PrincipalArn = string;
+        export type Principals = PrincipalArn[];
+        export type PrivateKey = string;    // min: 1
+        export type PublicKey = string;    // min: 1
+        export type QueueUrl = string;
+        export type RangeKeyField = string;
+        export type RangeKeyValue = string;
+        export type RuleName = string;    // pattern: &quot;^[a-zA-Z0-9_]+$&quot;, max: 128, min: 1
+        export type SQL = string;
+        export type SetAsActive = boolean;
+        export type SetAsDefault = boolean;
+        export type StreamName = string;
+        export type TableName = string;
+        export type ThingArn = string;
+        export type ThingAttributeList = ThingAttribute[];
+        export type ThingName = string;    // pattern: &quot;[a-zA-Z0-9_-]+&quot;, max: 128, min: 1
+        export type ThingNameList = ThingName[];
+        export type Topic = string;
+        export type TopicPattern = string;
+        export type TopicRuleList = TopicRuleListItem[];
+        export type UseBase64 = boolean;
+        export type errorMessage = string;
+
+        export interface AcceptCertificateTransferRequest {
+            certificateId: CertificateId;            
+            setAsActive?: SetAsActive;            
+        }
+        export interface Action {
+            dynamoDB?: DynamoDBAction;            
+            lambda?: LambdaAction;            
+            sns?: SnsAction;            
+            sqs?: SqsAction;            
+            kinesis?: KinesisAction;            
+            republish?: RepublishAction;            
+            s3?: S3Action;            
+            firehose?: FirehoseAction;            
+        }
+        export interface AttachPrincipalPolicyRequest {
+            policyName: PolicyName;            
+            principal: Principal;            
+        }
+        export interface AttachThingPrincipalRequest {
+            thingName: ThingName;            
+            principal: Principal;            
+        }
+        export interface AttachThingPrincipalResponse {
+        }
+        export interface AttributePayload {
+            attributes?: Attributes;            
+        }
+        export interface CancelCertificateTransferRequest {
+            certificateId: CertificateId;            
+        }
+        export interface Certificate {
+            certificateArn?: CertificateArn;            
+            certificateId?: CertificateId;            
+            status?: CertificateStatus;            
+            creationDate?: DateType;            
+        }
+        export interface CertificateDescription {
+            certificateArn?: CertificateArn;            
+            certificateId?: CertificateId;            
+            status?: CertificateStatus;            
+            certificatePem?: CertificatePem;            
+            ownedBy?: AwsAccountId;            
+            creationDate?: DateType;            
+            lastModifiedDate?: DateType;            
+        }
+        export interface CertificateStateException {
+            message?: errorMessage;            
+        }
+        export interface CreateCertificateFromCsrRequest {
+            certificateSigningRequest: CertificateSigningRequest;            
+            setAsActive?: SetAsActive;            
+        }
+        export interface CreateCertificateFromCsrResponse {
+            certificateArn?: CertificateArn;            
+            certificateId?: CertificateId;            
+            certificatePem?: CertificatePem;            
+        }
+        export interface CreateKeysAndCertificateRequest {
+            setAsActive?: SetAsActive;            
+        }
+        export interface CreateKeysAndCertificateResponse {
+            certificateArn?: CertificateArn;            
+            certificateId?: CertificateId;            
+            certificatePem?: CertificatePem;            
+            keyPair?: KeyPair;            
+        }
+        export interface CreatePolicyRequest {
+            policyName: PolicyName;            
+            policyDocument: PolicyDocument;            
+        }
+        export interface CreatePolicyResponse {
+            policyName?: PolicyName;            
+            policyArn?: PolicyArn;            
+            policyDocument?: PolicyDocument;            
+            policyVersionId?: PolicyVersionId;            
+        }
+        export interface CreatePolicyVersionRequest {
+            policyName: PolicyName;            
+            policyDocument: PolicyDocument;            
+            setAsDefault?: SetAsDefault;            
+        }
+        export interface CreatePolicyVersionResponse {
+            policyArn?: PolicyArn;            
+            policyDocument?: PolicyDocument;            
+            policyVersionId?: PolicyVersionId;            
+            isDefaultVersion?: IsDefaultVersion;            
+        }
+        export interface CreateThingRequest {
+            thingName: ThingName;            
+            attributePayload?: AttributePayload;            
+        }
+        export interface CreateThingResponse {
+            thingName?: ThingName;            
+            thingArn?: ThingArn;            
+        }
+        export interface CreateTopicRuleRequest {
+            ruleName: RuleName;            
+            topicRulePayload: TopicRulePayload;            
+        }
+        export interface DeleteCertificateRequest {
+            certificateId: CertificateId;            
+        }
+        export interface DeleteConflictException {
+            message?: errorMessage;            
+        }
+        export interface DeletePolicyRequest {
+            policyName: PolicyName;            
+        }
+        export interface DeletePolicyVersionRequest {
+            policyName: PolicyName;            
+            policyVersionId: PolicyVersionId;            
+        }
+        export interface DeleteThingRequest {
+            thingName: ThingName;            
+        }
+        export interface DeleteThingResponse {
+        }
+        export interface DeleteTopicRuleRequest {
+            ruleName: RuleName;            
+        }
+        export interface DescribeCertificateRequest {
+            certificateId: CertificateId;            
+        }
+        export interface DescribeCertificateResponse {
+            certificateDescription?: CertificateDescription;            
+        }
+        export interface DescribeEndpointRequest {
+        }
+        export interface DescribeEndpointResponse {
+            endpointAddress?: EndpointAddress;            
+        }
+        export interface DescribeThingRequest {
+            thingName: ThingName;            
+        }
+        export interface DescribeThingResponse {
+            defaultClientId?: ClientId;            
+            thingName?: ThingName;            
+            attributes?: Attributes;            
+        }
+        export interface DetachPrincipalPolicyRequest {
+            policyName: PolicyName;            
+            principal: Principal;            
+        }
+        export interface DetachThingPrincipalRequest {
+            thingName: ThingName;            
+            principal: Principal;            
+        }
+        export interface DetachThingPrincipalResponse {
+        }
+        export interface DynamoDBAction {
+            tableName: TableName;            
+            roleArn: AwsArn;            
+            hashKeyField: HashKeyField;            
+            hashKeyValue: HashKeyValue;            
+            rangeKeyField: RangeKeyField;            
+            rangeKeyValue: RangeKeyValue;            
+            payloadField?: PayloadField;            
+        }
+        export interface FirehoseAction {
+            roleArn: AwsArn;            
+            deliveryStreamName: DeliveryStreamName;            
+        }
+        export interface GetLoggingOptionsRequest {
+        }
+        export interface GetLoggingOptionsResponse {
+            roleArn?: AwsArn;            
+            logLevel?: LogLevel;            
+        }
+        export interface GetPolicyRequest {
+            policyName: PolicyName;            
+        }
+        export interface GetPolicyResponse {
+            policyName?: PolicyName;            
+            policyArn?: PolicyArn;            
+            policyDocument?: PolicyDocument;            
+            defaultVersionId?: PolicyVersionId;            
+        }
+        export interface GetPolicyVersionRequest {
+            policyName: PolicyName;            
+            policyVersionId: PolicyVersionId;            
+        }
+        export interface GetPolicyVersionResponse {
+            policyArn?: PolicyArn;            
+            policyName?: PolicyName;            
+            policyDocument?: PolicyDocument;            
+            policyVersionId?: PolicyVersionId;            
+            isDefaultVersion?: IsDefaultVersion;            
+        }
+        export interface GetTopicRuleRequest {
+            ruleName: RuleName;            
+        }
+        export interface GetTopicRuleResponse {
+            rule?: TopicRule;            
+        }
+        export interface InternalException {
+            message?: errorMessage;            
+        }
+        export interface InternalFailureException {
+            message?: errorMessage;            
+        }
+        export interface InvalidRequestException {
+            message?: errorMessage;            
+        }
+        export interface KeyPair {
+            PublicKey?: PublicKey;            
+            PrivateKey?: PrivateKey;            
+        }
+        export interface KinesisAction {
+            roleArn: AwsArn;            
+            streamName: StreamName;            
+            partitionKey?: PartitionKey;            
+        }
+        export interface LambdaAction {
+            functionArn: FunctionArn;            
+        }
+        export interface LimitExceededException {
+            message?: errorMessage;            
+        }
+        export interface ListCertificatesRequest {
+            pageSize?: PageSize;            
+            marker?: Marker;            
+            ascendingOrder?: AscendingOrder;            
+        }
+        export interface ListCertificatesResponse {
+            certificates?: Certificates;            
+            nextMarker?: Marker;            
+        }
+        export interface ListPoliciesRequest {
+            marker?: Marker;            
+            pageSize?: PageSize;            
+            ascendingOrder?: AscendingOrder;            
+        }
+        export interface ListPoliciesResponse {
+            policies?: Policies;            
+            nextMarker?: Marker;            
+        }
+        export interface ListPolicyVersionsRequest {
+            policyName: PolicyName;            
+        }
+        export interface ListPolicyVersionsResponse {
+            policyVersions?: PolicyVersions;            
+        }
+        export interface ListPrincipalPoliciesRequest {
+            principal: Principal;            
+            marker?: Marker;            
+            pageSize?: PageSize;            
+            ascendingOrder?: AscendingOrder;            
+        }
+        export interface ListPrincipalPoliciesResponse {
+            policies?: Policies;            
+            nextMarker?: Marker;            
+        }
+        export interface ListPrincipalThingsRequest {
+            nextToken?: NextToken;            
+            maxResults?: MaxResults;            
+            principal: Principal;            
+        }
+        export interface ListPrincipalThingsResponse {
+            things?: ThingNameList;            
+            nextToken?: NextToken;            
+        }
+        export interface ListThingPrincipalsRequest {
+            thingName: ThingName;            
+        }
+        export interface ListThingPrincipalsResponse {
+            principals?: Principals;            
+        }
+        export interface ListThingsRequest {
+            nextToken?: NextToken;            
+            maxResults?: MaxResults;            
+            attributeName?: AttributeName;            
+            attributeValue?: AttributeValue;            
+        }
+        export interface ListThingsResponse {
+            things?: ThingAttributeList;            
+            nextToken?: NextToken;            
+        }
+        export interface ListTopicRulesRequest {
+            topic?: Topic;            
+            maxResults?: MaxResults;            
+            nextToken?: NextToken;            
+            ruleDisabled?: IsDisabled;            
+        }
+        export interface ListTopicRulesResponse {
+            rules?: TopicRuleList;            
+            nextToken?: NextToken;            
+        }
+        export interface LoggingOptionsPayload {
+            roleArn: AwsArn;            
+            logLevel?: LogLevel;            
+        }
+        export interface MalformedPolicyException {
+            message?: errorMessage;            
+        }
+        export interface Policy {
+            policyName?: PolicyName;            
+            policyArn?: PolicyArn;            
+        }
+        export interface PolicyVersion {
+            versionId?: PolicyVersionId;            
+            isDefaultVersion?: IsDefaultVersion;            
+            createDate?: DateType;            
+        }
+        export interface RejectCertificateTransferRequest {
+            certificateId: CertificateId;            
+        }
+        export interface ReplaceTopicRuleRequest {
+            ruleName: RuleName;            
+            topicRulePayload: TopicRulePayload;            
+        }
+        export interface RepublishAction {
+            roleArn: AwsArn;            
+            topic: TopicPattern;            
+        }
+        export interface ResourceAlreadyExistsException {
+            message?: errorMessage;            
+        }
+        export interface ResourceNotFoundException {
+            message?: errorMessage;            
+        }
+        export interface S3Action {
+            roleArn: AwsArn;            
+            bucketName: BucketName;            
+            key: Key;            
+        }
+        export interface ServiceUnavailableException {
+            message?: errorMessage;            
+        }
+        export interface SetDefaultPolicyVersionRequest {
+            policyName: PolicyName;            
+            policyVersionId: PolicyVersionId;            
+        }
+        export interface SetLoggingOptionsRequest {
+            loggingOptionsPayload?: LoggingOptionsPayload;            
+        }
+        export interface SnsAction {
+            targetArn: AwsArn;            
+            roleArn: AwsArn;            
+        }
+        export interface SqlParseException {
+            message?: errorMessage;            
+        }
+        export interface SqsAction {
+            roleArn: AwsArn;            
+            queueUrl: QueueUrl;            
+            useBase64?: UseBase64;            
+        }
+        export interface ThingAttribute {
+            thingName?: ThingName;            
+            attributes?: Attributes;            
+        }
+        export interface ThrottlingException {
+            message?: errorMessage;            
+        }
+        export interface TopicRule {
+            ruleName?: RuleName;            
+            sql?: SQL;            
+            description?: Description;            
+            createdAt?: CreatedAtDate;            
+            actions?: ActionList;            
+            ruleDisabled?: IsDisabled;            
+        }
+        export interface TopicRuleListItem {
+            ruleName?: RuleName;            
+            topicPattern?: TopicPattern;            
+            createdAt?: CreatedAtDate;            
+            ruleDisabled?: IsDisabled;            
+        }
+        export interface TopicRulePayload {
+            sql: SQL;            
+            description?: Description;            
+            actions: ActionList;            
+            ruleDisabled?: IsDisabled;            
+        }
+        export interface TransferAlreadyCompletedException {
+            message?: errorMessage;            
+        }
+        export interface TransferCertificateRequest {
+            certificateId: CertificateId;            
+            targetAwsAccount: AwsAccountId;            
+        }
+        export interface TransferCertificateResponse {
+            transferredCertificateArn?: CertificateArn;            
+        }
+        export interface TransferConflictException {
+            message?: errorMessage;            
+        }
+        export interface UnauthorizedException {
+            message?: errorMessage;            
+        }
+        export interface UpdateCertificateRequest {
+            certificateId: CertificateId;            
+            newStatus: CertificateStatus;            
+        }
+        export interface UpdateThingRequest {
+            thingName: ThingName;            
+            attributePayload: AttributePayload;            
+        }
+        export interface UpdateThingResponse {
+        }
+        export interface VersionsLimitExceededException {
+            message?: errorMessage;            
+        }
 
-    export type IotThingAttributeList = Array<IotThingAttribute>;
-    export type IotThingName = string; // pattern: "[a-zA-Z0-9_-]+"
-    export type IotThingNameList = Array<IotThingName>;
-    export interface IotThrottlingException {
-        message?: IoterrorMessage;
     }
-
-    export type IotTopic = string;
-    export type IotTopicPattern = string;
-    export interface IotTopicRule {
-        ruleName?: IotRuleName;
-        sql?: IotSQL;
-        description?: IotDescription;
-        createdAt?: IotCreatedAtDate;
-        actions?: IotActionList;
-        ruleDisabled?: IotIsDisabled;
-    }
-
-    export type IotTopicRuleList = Array<IotTopicRuleListItem>;
-    export interface IotTopicRuleListItem {
-        ruleName?: IotRuleName;
-        topicPattern?: IotTopicPattern;
-        createdAt?: IotCreatedAtDate;
-        ruleDisabled?: IotIsDisabled;
-    }
-
-    export interface IotTopicRulePayload {
-        sql: IotSQL;
-        description?: IotDescription;
-        actions: IotActionList;
-        ruleDisabled?: IotIsDisabled;
-    }
-
-    export interface IotTransferAlreadyCompletedException {
-        message?: IoterrorMessage;
-    }
-
-    export interface IotTransferCertificateRequest {
-        certificateId: IotCertificateId;
-        targetAwsAccount: IotAwsAccountId;
-    }
-
-    export interface IotTransferCertificateResponse {
-        transferredCertificateArn?: IotCertificateArn;
-    }
-
-    export interface IotTransferConflictException {
-        message?: IoterrorMessage;
-    }
-
-    export interface IotUnauthorizedException {
-        message?: IoterrorMessage;
-    }
-
-    export interface IotUpdateCertificateRequest {
-        certificateId: IotCertificateId;
-        newStatus: IotCertificateStatus;
-    }
-
-    export interface IotUpdateThingRequest {
-        thingName: IotThingName;
-        attributePayload: IotAttributePayload;
-    }
-
-    export interface IotUpdateThingResponse {
-    }
-
-    export type IotUseBase64 = boolean;
-    export interface IotVersionsLimitExceededException {
-        message?: IoterrorMessage;
-    }
-
-    export type IoterrorMessage = string;
 }

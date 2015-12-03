@@ -6,43 +6,43 @@ declare module "aws-sdk" {
 
     export class MobileAnalytics extends Service {
       constructor(options?: any);
-      putEvents(params: MobileAnalyticsPutEventsInput, callback?: (err: MobileAnalyticsBadRequestException|any, data: any) => void): Request;
+      putEvents(params: MobileAnalytics.PutEventsInput, callback?: (err: MobileAnalytics.BadRequestException|any, data: any) => void): Request;
     }
+    
+    export module MobileAnalytics {
+        export type Double = number;
+        export type EventListDefinition = Event[];
+        export type ISO8601Timestamp = string;
+        export type Long = number;
+        export type MapOfStringToNumber = {[key:string]: Double};    // max: 50
+        export type MapOfStringToString = {[key:string]: String0to1000Chars};    // max: 50
+        export type String = string;
+        export type String0to1000Chars = string;    // max: 1000
+        export type String10Chars = string;    // max: 10, min: 1
+        export type String50Chars = string;    // max: 50, min: 1
 
-    export interface MobileAnalyticsBadRequestException {
-        message?: MobileAnalyticsString;
+        export interface BadRequestException {
+            message?: String;            
+        }
+        export interface Event {
+            eventType: String50Chars;            
+            timestamp: ISO8601Timestamp;            
+            session?: Session;            
+            version?: String10Chars;            
+            attributes?: MapOfStringToString;            
+            metrics?: MapOfStringToNumber;            
+        }
+        export interface PutEventsInput {
+            events: EventListDefinition;            
+            clientContext: String;            
+            clientContextEncoding?: String;            
+        }
+        export interface Session {
+            id?: String50Chars;            
+            duration?: Long;            
+            startTimestamp?: ISO8601Timestamp;            
+            stopTimestamp?: ISO8601Timestamp;            
+        }
+
     }
-
-    export type MobileAnalyticsDouble = number;
-    export interface MobileAnalyticsEvent {
-        eventType: MobileAnalyticsString50Chars;
-        timestamp: MobileAnalyticsISO8601Timestamp;
-        session?: MobileAnalyticsSession;
-        version?: MobileAnalyticsString10Chars;
-        attributes?: MobileAnalyticsMapOfStringToString;
-        metrics?: MobileAnalyticsMapOfStringToNumber;
-    }
-
-    export type MobileAnalyticsEventListDefinition = Array<MobileAnalyticsEvent>;
-    export type MobileAnalyticsISO8601Timestamp = string;
-    export type MobileAnalyticsLong = number;
-    export type MobileAnalyticsMapOfStringToNumber = any; // not really - it was 'map' instead - must fix this one
-    export type MobileAnalyticsMapOfStringToString = any; // not really - it was 'map' instead - must fix this one
-    export interface MobileAnalyticsPutEventsInput {
-        events: MobileAnalyticsEventListDefinition;
-        clientContext: MobileAnalyticsString;
-        clientContextEncoding?: MobileAnalyticsString;
-    }
-
-    export interface MobileAnalyticsSession {
-        id?: MobileAnalyticsString50Chars;
-        duration?: MobileAnalyticsLong;
-        startTimestamp?: MobileAnalyticsISO8601Timestamp;
-        stopTimestamp?: MobileAnalyticsISO8601Timestamp;
-    }
-
-    export type MobileAnalyticsString = string;
-    export type MobileAnalyticsString0to1000Chars = string;
-    export type MobileAnalyticsString10Chars = string;
-    export type MobileAnalyticsString50Chars = string;
 }

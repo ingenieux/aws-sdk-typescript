@@ -6,338 +6,294 @@ declare module "aws-sdk" {
 
     export class Route53Domains extends Service {
       constructor(options?: any);
-      checkDomainAvailability(params: Route53DomainsCheckDomainAvailabilityRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsUnsupportedTLD|any, data: Route53DomainsCheckDomainAvailabilityResponse|any) => void): Request;
-      deleteTagsForDomain(params: Route53DomainsDeleteTagsForDomainRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsOperationLimitExceeded|Route53DomainsUnsupportedTLD|any, data: Route53DomainsDeleteTagsForDomainResponse|any) => void): Request;
-      disableDomainAutoRenew(params: Route53DomainsDisableDomainAutoRenewRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsUnsupportedTLD|any, data: Route53DomainsDisableDomainAutoRenewResponse|any) => void): Request;
-      disableDomainTransferLock(params: Route53DomainsDisableDomainTransferLockRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsDuplicateRequest|Route53DomainsTLDRulesViolation|Route53DomainsOperationLimitExceeded|Route53DomainsUnsupportedTLD|any, data: Route53DomainsDisableDomainTransferLockResponse|any) => void): Request;
-      enableDomainAutoRenew(params: Route53DomainsEnableDomainAutoRenewRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsUnsupportedTLD|any, data: Route53DomainsEnableDomainAutoRenewResponse|any) => void): Request;
-      enableDomainTransferLock(params: Route53DomainsEnableDomainTransferLockRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsDuplicateRequest|Route53DomainsTLDRulesViolation|Route53DomainsOperationLimitExceeded|Route53DomainsUnsupportedTLD|any, data: Route53DomainsEnableDomainTransferLockResponse|any) => void): Request;
-      getDomainDetail(params: Route53DomainsGetDomainDetailRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsUnsupportedTLD|any, data: Route53DomainsGetDomainDetailResponse|any) => void): Request;
-      getOperationDetail(params: Route53DomainsGetOperationDetailRequest, callback?: (err: Route53DomainsInvalidInput|any, data: Route53DomainsGetOperationDetailResponse|any) => void): Request;
-      listDomains(params: Route53DomainsListDomainsRequest, callback?: (err: Route53DomainsInvalidInput|any, data: Route53DomainsListDomainsResponse|any) => void): Request;
-      listOperations(params: Route53DomainsListOperationsRequest, callback?: (err: Route53DomainsInvalidInput|any, data: Route53DomainsListOperationsResponse|any) => void): Request;
-      listTagsForDomain(params: Route53DomainsListTagsForDomainRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsOperationLimitExceeded|Route53DomainsUnsupportedTLD|any, data: Route53DomainsListTagsForDomainResponse|any) => void): Request;
-      registerDomain(params: Route53DomainsRegisterDomainRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsUnsupportedTLD|Route53DomainsDuplicateRequest|Route53DomainsTLDRulesViolation|Route53DomainsDomainLimitExceeded|Route53DomainsOperationLimitExceeded|any, data: Route53DomainsRegisterDomainResponse|any) => void): Request;
-      retrieveDomainAuthCode(params: Route53DomainsRetrieveDomainAuthCodeRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsUnsupportedTLD|any, data: Route53DomainsRetrieveDomainAuthCodeResponse|any) => void): Request;
-      transferDomain(params: Route53DomainsTransferDomainRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsUnsupportedTLD|Route53DomainsDuplicateRequest|Route53DomainsTLDRulesViolation|Route53DomainsDomainLimitExceeded|Route53DomainsOperationLimitExceeded|any, data: Route53DomainsTransferDomainResponse|any) => void): Request;
-      updateDomainContact(params: Route53DomainsUpdateDomainContactRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsDuplicateRequest|Route53DomainsTLDRulesViolation|Route53DomainsOperationLimitExceeded|Route53DomainsUnsupportedTLD|any, data: Route53DomainsUpdateDomainContactResponse|any) => void): Request;
-      updateDomainContactPrivacy(params: Route53DomainsUpdateDomainContactPrivacyRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsDuplicateRequest|Route53DomainsTLDRulesViolation|Route53DomainsOperationLimitExceeded|Route53DomainsUnsupportedTLD|any, data: Route53DomainsUpdateDomainContactPrivacyResponse|any) => void): Request;
-      updateDomainNameservers(params: Route53DomainsUpdateDomainNameserversRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsDuplicateRequest|Route53DomainsTLDRulesViolation|Route53DomainsOperationLimitExceeded|Route53DomainsUnsupportedTLD|any, data: Route53DomainsUpdateDomainNameserversResponse|any) => void): Request;
-      updateTagsForDomain(params: Route53DomainsUpdateTagsForDomainRequest, callback?: (err: Route53DomainsInvalidInput|Route53DomainsOperationLimitExceeded|Route53DomainsUnsupportedTLD|any, data: Route53DomainsUpdateTagsForDomainResponse|any) => void): Request;
+      checkDomainAvailability(params: Route53Domains.CheckDomainAvailabilityRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.CheckDomainAvailabilityResponse|any) => void): Request;
+      deleteTagsForDomain(params: Route53Domains.DeleteTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DeleteTagsForDomainResponse|any) => void): Request;
+      disableDomainAutoRenew(params: Route53Domains.DisableDomainAutoRenewRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DisableDomainAutoRenewResponse|any) => void): Request;
+      disableDomainTransferLock(params: Route53Domains.DisableDomainTransferLockRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DisableDomainTransferLockResponse|any) => void): Request;
+      enableDomainAutoRenew(params: Route53Domains.EnableDomainAutoRenewRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.EnableDomainAutoRenewResponse|any) => void): Request;
+      enableDomainTransferLock(params: Route53Domains.EnableDomainTransferLockRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.EnableDomainTransferLockResponse|any) => void): Request;
+      getDomainDetail(params: Route53Domains.GetDomainDetailRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.GetDomainDetailResponse|any) => void): Request;
+      getOperationDetail(params: Route53Domains.GetOperationDetailRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.GetOperationDetailResponse|any) => void): Request;
+      listDomains(params: Route53Domains.ListDomainsRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.ListDomainsResponse|any) => void): Request;
+      listOperations(params: Route53Domains.ListOperationsRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.ListOperationsResponse|any) => void): Request;
+      listTagsForDomain(params: Route53Domains.ListTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.ListTagsForDomainResponse|any) => void): Request;
+      registerDomain(params: Route53Domains.RegisterDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any, data: Route53Domains.RegisterDomainResponse|any) => void): Request;
+      retrieveDomainAuthCode(params: Route53Domains.RetrieveDomainAuthCodeRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.RetrieveDomainAuthCodeResponse|any) => void): Request;
+      transferDomain(params: Route53Domains.TransferDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any, data: Route53Domains.TransferDomainResponse|any) => void): Request;
+      updateDomainContact(params: Route53Domains.UpdateDomainContactRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainContactResponse|any) => void): Request;
+      updateDomainContactPrivacy(params: Route53Domains.UpdateDomainContactPrivacyRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainContactPrivacyResponse|any) => void): Request;
+      updateDomainNameservers(params: Route53Domains.UpdateDomainNameserversRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainNameserversResponse|any) => void): Request;
+      updateTagsForDomain(params: Route53Domains.UpdateTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateTagsForDomainResponse|any) => void): Request;
     }
+    
+    export module Route53Domains {
+        export type AddressLine = string;    // max: 255
+        export type Boolean = boolean;
+        export type City = string;    // max: 255
+        export type ContactName = string;    // max: 255
+        export type ContactNumber = string;    // max: 30
+        export type ContactType = string;
+        export type CountryCode = string;
+        export type DNSSec = string;
+        export type DomainAuthCode = string;    // max: 1024
+        export type DomainAvailability = string;
+        export type DomainName = string;    // pattern: &quot;[a-zA-Z0-9_\-.]*&quot;, max: 255
+        export type DomainStatus = string;
+        export type DomainStatusList = DomainStatus[];
+        export type DomainSummaryList = DomainSummary[];
+        export type DurationInYears = number;    // max: 10, min: 1
+        export type Email = string;    // max: 254
+        export type ErrorMessage = string;
+        export type ExtraParamList = ExtraParam[];
+        export type ExtraParamName = string;
+        export type ExtraParamValue = string;    // max: 2048
+        export type FIAuthKey = string;
+        export type GlueIp = string;    // max: 45
+        export type GlueIpList = GlueIp[];
+        export type HostName = string;    // pattern: &quot;[a-zA-Z0-9_\-.]*&quot;, max: 255
+        export type LangCode = string;    // max: 3
+        export type NameserverList = Nameserver[];
+        export type OperationId = string;    // max: 255
+        export type OperationStatus = string;
+        export type OperationSummaryList = OperationSummary[];
+        export type OperationType = string;
+        export type PageMarker = string;    // max: 4096
+        export type PageMaxItems = number;    // max: 100
+        export type RegistrarName = string;
+        export type RegistrarUrl = string;
+        export type RegistrarWhoIsServer = string;
+        export type RegistryDomainId = string;
+        export type Reseller = string;
+        export type State = string;    // max: 255
+        export type TagKey = string;
+        export type TagKeyList = TagKey[];
+        export type TagList = Tag[];
+        export type TagValue = string;
+        export type Timestamp = number;
+        export type ZipCode = string;    // max: 255
 
-    export type Route53DomainsAddressLine = string;
-    export type Route53DomainsBoolean = boolean;
-    export interface Route53DomainsCheckDomainAvailabilityRequest {
-        DomainName: Route53DomainsDomainName;
-        IdnLangCode?: Route53DomainsLangCode;
+        export interface CheckDomainAvailabilityRequest {
+            DomainName: DomainName;            
+            IdnLangCode?: LangCode;            
+        }
+        export interface CheckDomainAvailabilityResponse {
+            Availability: DomainAvailability;            
+        }
+        export interface ContactDetail {
+            FirstName?: ContactName;            
+            LastName?: ContactName;            
+            ContactType?: ContactType;            
+            OrganizationName?: ContactName;            
+            AddressLine1?: AddressLine;            
+            AddressLine2?: AddressLine;            
+            City?: City;            
+            State?: State;            
+            CountryCode?: CountryCode;            
+            ZipCode?: ZipCode;            
+            PhoneNumber?: ContactNumber;            
+            Email?: Email;            
+            Fax?: ContactNumber;            
+            ExtraParams?: ExtraParamList;            
+        }
+        export interface DeleteTagsForDomainRequest {
+            DomainName: DomainName;            
+            TagsToDelete: TagKeyList;            
+        }
+        export interface DeleteTagsForDomainResponse {
+        }
+        export interface DisableDomainAutoRenewRequest {
+            DomainName: DomainName;            
+        }
+        export interface DisableDomainAutoRenewResponse {
+        }
+        export interface DisableDomainTransferLockRequest {
+            DomainName: DomainName;            
+        }
+        export interface DisableDomainTransferLockResponse {
+            OperationId: OperationId;            
+        }
+        export interface DomainLimitExceeded {
+            message?: ErrorMessage;            
+        }
+        export interface DomainSummary {
+            DomainName: DomainName;            
+            AutoRenew?: Boolean;            
+            TransferLock?: Boolean;            
+            Expiry?: Timestamp;            
+        }
+        export interface DuplicateRequest {
+            message?: ErrorMessage;            
+        }
+        export interface EnableDomainAutoRenewRequest {
+            DomainName: DomainName;            
+        }
+        export interface EnableDomainAutoRenewResponse {
+        }
+        export interface EnableDomainTransferLockRequest {
+            DomainName: DomainName;            
+        }
+        export interface EnableDomainTransferLockResponse {
+            OperationId: OperationId;            
+        }
+        export interface ExtraParam {
+            Name: ExtraParamName;            
+            Value: ExtraParamValue;            
+        }
+        export interface GetDomainDetailRequest {
+            DomainName: DomainName;            
+        }
+        export interface GetDomainDetailResponse {
+            DomainName: DomainName;            
+            Nameservers: NameserverList;            
+            AutoRenew?: Boolean;            
+            AdminContact: ContactDetail;            
+            RegistrantContact: ContactDetail;            
+            TechContact: ContactDetail;            
+            AdminPrivacy?: Boolean;            
+            RegistrantPrivacy?: Boolean;            
+            TechPrivacy?: Boolean;            
+            RegistrarName?: RegistrarName;            
+            WhoIsServer?: RegistrarWhoIsServer;            
+            RegistrarUrl?: RegistrarUrl;            
+            AbuseContactEmail?: Email;            
+            AbuseContactPhone?: ContactNumber;            
+            RegistryDomainId?: RegistryDomainId;            
+            CreationDate?: Timestamp;            
+            UpdatedDate?: Timestamp;            
+            ExpirationDate?: Timestamp;            
+            Reseller?: Reseller;            
+            DnsSec?: DNSSec;            
+            StatusList?: DomainStatusList;            
+        }
+        export interface GetOperationDetailRequest {
+            OperationId: OperationId;            
+        }
+        export interface GetOperationDetailResponse {
+            OperationId?: OperationId;            
+            Status?: OperationStatus;            
+            Message?: ErrorMessage;            
+            DomainName?: DomainName;            
+            Type?: OperationType;            
+            SubmittedDate?: Timestamp;            
+        }
+        export interface InvalidInput {
+            message?: ErrorMessage;            
+        }
+        export interface ListDomainsRequest {
+            Marker?: PageMarker;            
+            MaxItems?: PageMaxItems;            
+        }
+        export interface ListDomainsResponse {
+            Domains: DomainSummaryList;            
+            NextPageMarker?: PageMarker;            
+        }
+        export interface ListOperationsRequest {
+            Marker?: PageMarker;            
+            MaxItems?: PageMaxItems;            
+        }
+        export interface ListOperationsResponse {
+            Operations: OperationSummaryList;            
+            NextPageMarker?: PageMarker;            
+        }
+        export interface ListTagsForDomainRequest {
+            DomainName: DomainName;            
+        }
+        export interface ListTagsForDomainResponse {
+            TagList: TagList;            
+        }
+        export interface Nameserver {
+            Name: HostName;            
+            GlueIps?: GlueIpList;            
+        }
+        export interface OperationLimitExceeded {
+            message?: ErrorMessage;            
+        }
+        export interface OperationSummary {
+            OperationId: OperationId;            
+            Status: OperationStatus;            
+            Type: OperationType;            
+            SubmittedDate: Timestamp;            
+        }
+        export interface RegisterDomainRequest {
+            DomainName: DomainName;            
+            IdnLangCode?: LangCode;            
+            DurationInYears: DurationInYears;            
+            AutoRenew?: Boolean;            
+            AdminContact: ContactDetail;            
+            RegistrantContact: ContactDetail;            
+            TechContact: ContactDetail;            
+            PrivacyProtectAdminContact?: Boolean;            
+            PrivacyProtectRegistrantContact?: Boolean;            
+            PrivacyProtectTechContact?: Boolean;            
+        }
+        export interface RegisterDomainResponse {
+            OperationId: OperationId;            
+        }
+        export interface RetrieveDomainAuthCodeRequest {
+            DomainName: DomainName;            
+        }
+        export interface RetrieveDomainAuthCodeResponse {
+            AuthCode: DomainAuthCode;            
+        }
+        export interface TLDRulesViolation {
+            message?: ErrorMessage;            
+        }
+        export interface Tag {
+            Key?: TagKey;            
+            Value?: TagValue;            
+        }
+        export interface TransferDomainRequest {
+            DomainName: DomainName;            
+            IdnLangCode?: LangCode;            
+            DurationInYears: DurationInYears;            
+            Nameservers?: NameserverList;            
+            AuthCode?: DomainAuthCode;            
+            AutoRenew?: Boolean;            
+            AdminContact: ContactDetail;            
+            RegistrantContact: ContactDetail;            
+            TechContact: ContactDetail;            
+            PrivacyProtectAdminContact?: Boolean;            
+            PrivacyProtectRegistrantContact?: Boolean;            
+            PrivacyProtectTechContact?: Boolean;            
+        }
+        export interface TransferDomainResponse {
+            OperationId: OperationId;            
+        }
+        export interface UnsupportedTLD {
+            message?: ErrorMessage;            
+        }
+        export interface UpdateDomainContactPrivacyRequest {
+            DomainName: DomainName;            
+            AdminPrivacy?: Boolean;            
+            RegistrantPrivacy?: Boolean;            
+            TechPrivacy?: Boolean;            
+        }
+        export interface UpdateDomainContactPrivacyResponse {
+            OperationId: OperationId;            
+        }
+        export interface UpdateDomainContactRequest {
+            DomainName: DomainName;            
+            AdminContact?: ContactDetail;            
+            RegistrantContact?: ContactDetail;            
+            TechContact?: ContactDetail;            
+        }
+        export interface UpdateDomainContactResponse {
+            OperationId: OperationId;            
+        }
+        export interface UpdateDomainNameserversRequest {
+            DomainName: DomainName;            
+            FIAuthKey?: FIAuthKey;            
+            Nameservers: NameserverList;            
+        }
+        export interface UpdateDomainNameserversResponse {
+            OperationId: OperationId;            
+        }
+        export interface UpdateTagsForDomainRequest {
+            DomainName: DomainName;            
+            TagsToUpdate?: TagList;            
+        }
+        export interface UpdateTagsForDomainResponse {
+        }
+
     }
-
-    export interface Route53DomainsCheckDomainAvailabilityResponse {
-        Availability: Route53DomainsDomainAvailability;
-    }
-
-    export type Route53DomainsCity = string;
-    export interface Route53DomainsContactDetail {
-        FirstName?: Route53DomainsContactName;
-        LastName?: Route53DomainsContactName;
-        ContactType?: Route53DomainsContactType;
-        OrganizationName?: Route53DomainsContactName;
-        AddressLine1?: Route53DomainsAddressLine;
-        AddressLine2?: Route53DomainsAddressLine;
-        City?: Route53DomainsCity;
-        State?: Route53DomainsState;
-        CountryCode?: Route53DomainsCountryCode;
-        ZipCode?: Route53DomainsZipCode;
-        PhoneNumber?: Route53DomainsContactNumber;
-        Email?: Route53DomainsEmail;
-        Fax?: Route53DomainsContactNumber;
-        ExtraParams?: Route53DomainsExtraParamList;
-    }
-
-    export type Route53DomainsContactName = string;
-    export type Route53DomainsContactNumber = string;
-    export type Route53DomainsContactType = string;
-    export type Route53DomainsCountryCode = string;
-    export type Route53DomainsDNSSec = string;
-    export interface Route53DomainsDeleteTagsForDomainRequest {
-        DomainName: Route53DomainsDomainName;
-        TagsToDelete: Route53DomainsTagKeyList;
-    }
-
-    export interface Route53DomainsDeleteTagsForDomainResponse {
-    }
-
-    export interface Route53DomainsDisableDomainAutoRenewRequest {
-        DomainName: Route53DomainsDomainName;
-    }
-
-    export interface Route53DomainsDisableDomainAutoRenewResponse {
-    }
-
-    export interface Route53DomainsDisableDomainTransferLockRequest {
-        DomainName: Route53DomainsDomainName;
-    }
-
-    export interface Route53DomainsDisableDomainTransferLockResponse {
-        OperationId: Route53DomainsOperationId;
-    }
-
-    export type Route53DomainsDomainAuthCode = string;
-    export type Route53DomainsDomainAvailability = string;
-    export interface Route53DomainsDomainLimitExceeded {
-        message?: Route53DomainsErrorMessage;
-    }
-
-    export type Route53DomainsDomainName = string; // pattern: "[a-zA-Z0-9_\-.]*"
-    export type Route53DomainsDomainStatus = string;
-    export type Route53DomainsDomainStatusList = Array<Route53DomainsDomainStatus>;
-    export interface Route53DomainsDomainSummary {
-        DomainName: Route53DomainsDomainName;
-        AutoRenew?: Route53DomainsBoolean;
-        TransferLock?: Route53DomainsBoolean;
-        Expiry?: Route53DomainsTimestamp;
-    }
-
-    export type Route53DomainsDomainSummaryList = Array<Route53DomainsDomainSummary>;
-    export interface Route53DomainsDuplicateRequest {
-        message?: Route53DomainsErrorMessage;
-    }
-
-    export type Route53DomainsDurationInYears = number;
-    export type Route53DomainsEmail = string;
-    export interface Route53DomainsEnableDomainAutoRenewRequest {
-        DomainName: Route53DomainsDomainName;
-    }
-
-    export interface Route53DomainsEnableDomainAutoRenewResponse {
-    }
-
-    export interface Route53DomainsEnableDomainTransferLockRequest {
-        DomainName: Route53DomainsDomainName;
-    }
-
-    export interface Route53DomainsEnableDomainTransferLockResponse {
-        OperationId: Route53DomainsOperationId;
-    }
-
-    export type Route53DomainsErrorMessage = string;
-    export interface Route53DomainsExtraParam {
-        Name: Route53DomainsExtraParamName;
-        Value: Route53DomainsExtraParamValue;
-    }
-
-    export type Route53DomainsExtraParamList = Array<Route53DomainsExtraParam>;
-    export type Route53DomainsExtraParamName = string;
-    export type Route53DomainsExtraParamValue = string;
-    export type Route53DomainsFIAuthKey = string;
-    export interface Route53DomainsGetDomainDetailRequest {
-        DomainName: Route53DomainsDomainName;
-    }
-
-    export interface Route53DomainsGetDomainDetailResponse {
-        DomainName: Route53DomainsDomainName;
-        Nameservers: Route53DomainsNameserverList;
-        AutoRenew?: Route53DomainsBoolean;
-        AdminContact: Route53DomainsContactDetail;
-        RegistrantContact: Route53DomainsContactDetail;
-        TechContact: Route53DomainsContactDetail;
-        AdminPrivacy?: Route53DomainsBoolean;
-        RegistrantPrivacy?: Route53DomainsBoolean;
-        TechPrivacy?: Route53DomainsBoolean;
-        RegistrarName?: Route53DomainsRegistrarName;
-        WhoIsServer?: Route53DomainsRegistrarWhoIsServer;
-        RegistrarUrl?: Route53DomainsRegistrarUrl;
-        AbuseContactEmail?: Route53DomainsEmail;
-        AbuseContactPhone?: Route53DomainsContactNumber;
-        RegistryDomainId?: Route53DomainsRegistryDomainId;
-        CreationDate?: Route53DomainsTimestamp;
-        UpdatedDate?: Route53DomainsTimestamp;
-        ExpirationDate?: Route53DomainsTimestamp;
-        Reseller?: Route53DomainsReseller;
-        DnsSec?: Route53DomainsDNSSec;
-        StatusList?: Route53DomainsDomainStatusList;
-    }
-
-    export interface Route53DomainsGetOperationDetailRequest {
-        OperationId: Route53DomainsOperationId;
-    }
-
-    export interface Route53DomainsGetOperationDetailResponse {
-        OperationId?: Route53DomainsOperationId;
-        Status?: Route53DomainsOperationStatus;
-        Message?: Route53DomainsErrorMessage;
-        DomainName?: Route53DomainsDomainName;
-        Type?: Route53DomainsOperationType;
-        SubmittedDate?: Route53DomainsTimestamp;
-    }
-
-    export type Route53DomainsGlueIp = string;
-    export type Route53DomainsGlueIpList = Array<Route53DomainsGlueIp>;
-    export type Route53DomainsHostName = string; // pattern: "[a-zA-Z0-9_\-.]*"
-    export interface Route53DomainsInvalidInput {
-        message?: Route53DomainsErrorMessage;
-    }
-
-    export type Route53DomainsLangCode = string;
-    export interface Route53DomainsListDomainsRequest {
-        Marker?: Route53DomainsPageMarker;
-        MaxItems?: Route53DomainsPageMaxItems;
-    }
-
-    export interface Route53DomainsListDomainsResponse {
-        Domains: Route53DomainsDomainSummaryList;
-        NextPageMarker?: Route53DomainsPageMarker;
-    }
-
-    export interface Route53DomainsListOperationsRequest {
-        Marker?: Route53DomainsPageMarker;
-        MaxItems?: Route53DomainsPageMaxItems;
-    }
-
-    export interface Route53DomainsListOperationsResponse {
-        Operations: Route53DomainsOperationSummaryList;
-        NextPageMarker?: Route53DomainsPageMarker;
-    }
-
-    export interface Route53DomainsListTagsForDomainRequest {
-        DomainName: Route53DomainsDomainName;
-    }
-
-    export interface Route53DomainsListTagsForDomainResponse {
-        TagList: Route53DomainsTagList;
-    }
-
-    export interface Route53DomainsNameserver {
-        Name: Route53DomainsHostName;
-        GlueIps?: Route53DomainsGlueIpList;
-    }
-
-    export type Route53DomainsNameserverList = Array<Route53DomainsNameserver>;
-    export type Route53DomainsOperationId = string;
-    export interface Route53DomainsOperationLimitExceeded {
-        message?: Route53DomainsErrorMessage;
-    }
-
-    export type Route53DomainsOperationStatus = string;
-    export interface Route53DomainsOperationSummary {
-        OperationId: Route53DomainsOperationId;
-        Status: Route53DomainsOperationStatus;
-        Type: Route53DomainsOperationType;
-        SubmittedDate: Route53DomainsTimestamp;
-    }
-
-    export type Route53DomainsOperationSummaryList = Array<Route53DomainsOperationSummary>;
-    export type Route53DomainsOperationType = string;
-    export type Route53DomainsPageMarker = string;
-    export type Route53DomainsPageMaxItems = number;
-    export interface Route53DomainsRegisterDomainRequest {
-        DomainName: Route53DomainsDomainName;
-        IdnLangCode?: Route53DomainsLangCode;
-        DurationInYears: Route53DomainsDurationInYears;
-        AutoRenew?: Route53DomainsBoolean;
-        AdminContact: Route53DomainsContactDetail;
-        RegistrantContact: Route53DomainsContactDetail;
-        TechContact: Route53DomainsContactDetail;
-        PrivacyProtectAdminContact?: Route53DomainsBoolean;
-        PrivacyProtectRegistrantContact?: Route53DomainsBoolean;
-        PrivacyProtectTechContact?: Route53DomainsBoolean;
-    }
-
-    export interface Route53DomainsRegisterDomainResponse {
-        OperationId: Route53DomainsOperationId;
-    }
-
-    export type Route53DomainsRegistrarName = string;
-    export type Route53DomainsRegistrarUrl = string;
-    export type Route53DomainsRegistrarWhoIsServer = string;
-    export type Route53DomainsRegistryDomainId = string;
-    export type Route53DomainsReseller = string;
-    export interface Route53DomainsRetrieveDomainAuthCodeRequest {
-        DomainName: Route53DomainsDomainName;
-    }
-
-    export interface Route53DomainsRetrieveDomainAuthCodeResponse {
-        AuthCode: Route53DomainsDomainAuthCode;
-    }
-
-    export type Route53DomainsState = string;
-    export interface Route53DomainsTLDRulesViolation {
-        message?: Route53DomainsErrorMessage;
-    }
-
-    export interface Route53DomainsTag {
-        Key?: Route53DomainsTagKey;
-        Value?: Route53DomainsTagValue;
-    }
-
-    export type Route53DomainsTagKey = string;
-    export type Route53DomainsTagKeyList = Array<Route53DomainsTagKey>;
-    export type Route53DomainsTagList = Array<Route53DomainsTag>;
-    export type Route53DomainsTagValue = string;
-    export type Route53DomainsTimestamp = number;
-    export interface Route53DomainsTransferDomainRequest {
-        DomainName: Route53DomainsDomainName;
-        IdnLangCode?: Route53DomainsLangCode;
-        DurationInYears: Route53DomainsDurationInYears;
-        Nameservers?: Route53DomainsNameserverList;
-        AuthCode?: Route53DomainsDomainAuthCode;
-        AutoRenew?: Route53DomainsBoolean;
-        AdminContact: Route53DomainsContactDetail;
-        RegistrantContact: Route53DomainsContactDetail;
-        TechContact: Route53DomainsContactDetail;
-        PrivacyProtectAdminContact?: Route53DomainsBoolean;
-        PrivacyProtectRegistrantContact?: Route53DomainsBoolean;
-        PrivacyProtectTechContact?: Route53DomainsBoolean;
-    }
-
-    export interface Route53DomainsTransferDomainResponse {
-        OperationId: Route53DomainsOperationId;
-    }
-
-    export interface Route53DomainsUnsupportedTLD {
-        message?: Route53DomainsErrorMessage;
-    }
-
-    export interface Route53DomainsUpdateDomainContactPrivacyRequest {
-        DomainName: Route53DomainsDomainName;
-        AdminPrivacy?: Route53DomainsBoolean;
-        RegistrantPrivacy?: Route53DomainsBoolean;
-        TechPrivacy?: Route53DomainsBoolean;
-    }
-
-    export interface Route53DomainsUpdateDomainContactPrivacyResponse {
-        OperationId: Route53DomainsOperationId;
-    }
-
-    export interface Route53DomainsUpdateDomainContactRequest {
-        DomainName: Route53DomainsDomainName;
-        AdminContact?: Route53DomainsContactDetail;
-        RegistrantContact?: Route53DomainsContactDetail;
-        TechContact?: Route53DomainsContactDetail;
-    }
-
-    export interface Route53DomainsUpdateDomainContactResponse {
-        OperationId: Route53DomainsOperationId;
-    }
-
-    export interface Route53DomainsUpdateDomainNameserversRequest {
-        DomainName: Route53DomainsDomainName;
-        FIAuthKey?: Route53DomainsFIAuthKey;
-        Nameservers: Route53DomainsNameserverList;
-    }
-
-    export interface Route53DomainsUpdateDomainNameserversResponse {
-        OperationId: Route53DomainsOperationId;
-    }
-
-    export interface Route53DomainsUpdateTagsForDomainRequest {
-        DomainName: Route53DomainsDomainName;
-        TagsToUpdate?: Route53DomainsTagList;
-    }
-
-    export interface Route53DomainsUpdateTagsForDomainResponse {
-    }
-
-    export type Route53DomainsZipCode = string;
 }

@@ -4,6 +4,7 @@ export interface ServiceInfo {
   prefix?:string;
   input?:string;
   output?:string;
+  descriptor?:Descriptor;
 }
 
 export interface Descriptor {
@@ -12,6 +13,14 @@ export interface Descriptor {
   documentation: string
   operations: OperationMap
   shapes: ShapeMap
+  aliases: Alias[]
+  structures: Shape[]
+}
+
+export interface Alias {
+  name: string;
+  type: string;
+  comment?: string;
 }
 
 export interface ShapeMap {
@@ -25,10 +34,17 @@ export interface Shape {
   members?: MemberMap
   exception?: boolean
   documentation?: string
+  name?: string
+  min?: number
+  max?: number
+  key?: {shape: string}
+  value?: {shape: string}
+  member?: {shape: string}
 }
 
 export interface Member {
   shape: string
+  required?: string
 }
 
 export interface MemberMap {

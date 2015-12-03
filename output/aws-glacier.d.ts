@@ -6,462 +6,398 @@ declare module "aws-sdk" {
 
     export class Glacier extends Service {
       constructor(options?: any);
-      abortMultipartUpload(params: GlacierAbortMultipartUploadInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): Request;
-      abortVaultLock(params: GlacierAbortVaultLockInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): Request;
-      addTagsToVault(params: GlacierAddTagsToVaultInput, callback?: (err: GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierResourceNotFoundException|GlacierLimitExceededException|GlacierServiceUnavailableException|any, data: any) => void): Request;
-      completeMultipartUpload(params: GlacierCompleteMultipartUploadInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierArchiveCreationOutput|any) => void): Request;
-      completeVaultLock(params: GlacierCompleteVaultLockInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): Request;
-      createVault(params: GlacierCreateVaultInput, callback?: (err: GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|GlacierLimitExceededException|any, data: GlacierCreateVaultOutput|any) => void): Request;
-      deleteArchive(params: GlacierDeleteArchiveInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): Request;
-      deleteVault(params: GlacierDeleteVaultInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): Request;
-      deleteVaultAccessPolicy(params: GlacierDeleteVaultAccessPolicyInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): Request;
-      deleteVaultNotifications(params: GlacierDeleteVaultNotificationsInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): Request;
-      describeJob(params: GlacierDescribeJobInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierGlacierJobDescription|any) => void): Request;
-      describeVault(params: GlacierDescribeVaultInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierDescribeVaultOutput|any) => void): Request;
-      getDataRetrievalPolicy(params: GlacierGetDataRetrievalPolicyInput, callback?: (err: GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierGetDataRetrievalPolicyOutput|any) => void): Request;
-      getJobOutput(params: GlacierGetJobOutputInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierGetJobOutputOutput|any) => void): Request;
-      getVaultAccessPolicy(params: GlacierGetVaultAccessPolicyInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierGetVaultAccessPolicyOutput|any) => void): Request;
-      getVaultLock(params: GlacierGetVaultLockInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierGetVaultLockOutput|any) => void): Request;
-      getVaultNotifications(params: GlacierGetVaultNotificationsInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierGetVaultNotificationsOutput|any) => void): Request;
-      initiateJob(params: GlacierInitiateJobInput, callback?: (err: GlacierResourceNotFoundException|GlacierPolicyEnforcedException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierInitiateJobOutput|any) => void): Request;
-      initiateMultipartUpload(params: GlacierInitiateMultipartUploadInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierInitiateMultipartUploadOutput|any) => void): Request;
-      initiateVaultLock(params: GlacierInitiateVaultLockInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierInitiateVaultLockOutput|any) => void): Request;
-      listJobs(params: GlacierListJobsInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierListJobsOutput|any) => void): Request;
-      listMultipartUploads(params: GlacierListMultipartUploadsInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierListMultipartUploadsOutput|any) => void): Request;
-      listParts(params: GlacierListPartsInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierListPartsOutput|any) => void): Request;
-      listTagsForVault(params: GlacierListTagsForVaultInput, callback?: (err: GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierResourceNotFoundException|GlacierServiceUnavailableException|any, data: GlacierListTagsForVaultOutput|any) => void): Request;
-      listVaults(params: GlacierListVaultsInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: GlacierListVaultsOutput|any) => void): Request;
-      removeTagsFromVault(params: GlacierRemoveTagsFromVaultInput, callback?: (err: GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierResourceNotFoundException|GlacierServiceUnavailableException|any, data: any) => void): Request;
-      setDataRetrievalPolicy(params: GlacierSetDataRetrievalPolicyInput, callback?: (err: GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): Request;
-      setVaultAccessPolicy(params: GlacierSetVaultAccessPolicyInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): Request;
-      setVaultNotifications(params: GlacierSetVaultNotificationsInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierServiceUnavailableException|any, data: any) => void): Request;
-      uploadArchive(params: GlacierUploadArchiveInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierRequestTimeoutException|GlacierServiceUnavailableException|any, data: GlacierArchiveCreationOutput|any) => void): Request;
-      uploadMultipartPart(params: GlacierUploadMultipartPartInput, callback?: (err: GlacierResourceNotFoundException|GlacierInvalidParameterValueException|GlacierMissingParameterValueException|GlacierRequestTimeoutException|GlacierServiceUnavailableException|any, data: GlacierUploadMultipartPartOutput|any) => void): Request;
-    }
-
-    export interface GlacierAbortMultipartUploadInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        uploadId: Glacierstring;
-    }
-
-    export interface GlacierAbortVaultLockInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-    }
-
-    export type GlacierActionCode = string;
-    export interface GlacierAddTagsToVaultInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        Tags?: GlacierTagMap;
-    }
-
-    export interface GlacierArchiveCreationOutput {
-        location?: Glacierstring;
-        checksum?: Glacierstring;
-        archiveId?: Glacierstring;
-    }
-
-    export interface GlacierCompleteMultipartUploadInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        uploadId: Glacierstring;
-        archiveSize?: Glacierstring;
-        checksum?: Glacierstring;
-    }
-
-    export interface GlacierCompleteVaultLockInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        lockId: Glacierstring;
-    }
-
-    export interface GlacierCreateVaultInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-    }
-
-    export interface GlacierCreateVaultOutput {
-        location?: Glacierstring;
-    }
-
-    export interface GlacierDataRetrievalPolicy {
-        Rules?: GlacierDataRetrievalRulesList;
-    }
-
-    export interface GlacierDataRetrievalRule {
-        Strategy?: Glacierstring;
-        BytesPerHour?: GlacierNullableLong;
-    }
-
-    export type GlacierDataRetrievalRulesList = Array<GlacierDataRetrievalRule>;
-    export type GlacierDateTime = string;
-    export interface GlacierDeleteArchiveInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        archiveId: Glacierstring;
-    }
-
-    export interface GlacierDeleteVaultAccessPolicyInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-    }
-
-    export interface GlacierDeleteVaultInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-    }
-
-    export interface GlacierDeleteVaultNotificationsInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-    }
-
-    export interface GlacierDescribeJobInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        jobId: Glacierstring;
-    }
-
-    export interface GlacierDescribeVaultInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-    }
-
-    export interface GlacierDescribeVaultOutput {
-        VaultARN?: Glacierstring;
-        VaultName?: Glacierstring;
-        CreationDate?: Glacierstring;
-        LastInventoryDate?: Glacierstring;
-        NumberOfArchives?: Glacierlong;
-        SizeInBytes?: Glacierlong;
-    }
-
-    export interface GlacierGetDataRetrievalPolicyInput {
-        accountId: Glacierstring;
-    }
-
-    export interface GlacierGetDataRetrievalPolicyOutput {
-        Policy?: GlacierDataRetrievalPolicy;
-    }
-
-    export interface GlacierGetJobOutputInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        jobId: Glacierstring;
-        range?: Glacierstring;
-    }
-
-    export interface GlacierGetJobOutputOutput {
-        body?: GlacierStream;
-        checksum?: Glacierstring;
-        status?: Glacierhttpstatus;
-        contentRange?: Glacierstring;
-        acceptRanges?: Glacierstring;
-        contentType?: Glacierstring;
-        archiveDescription?: Glacierstring;
-    }
-
-    export interface GlacierGetVaultAccessPolicyInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-    }
-
-    export interface GlacierGetVaultAccessPolicyOutput {
-        policy?: GlacierVaultAccessPolicy;
-    }
-
-    export interface GlacierGetVaultLockInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-    }
-
-    export interface GlacierGetVaultLockOutput {
-        Policy?: Glacierstring;
-        State?: Glacierstring;
-        ExpirationDate?: Glacierstring;
-        CreationDate?: Glacierstring;
-    }
-
-    export interface GlacierGetVaultNotificationsInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-    }
-
-    export interface GlacierGetVaultNotificationsOutput {
-        vaultNotificationConfig?: GlacierVaultNotificationConfig;
-    }
-
-    export interface GlacierGlacierJobDescription {
-        JobId?: Glacierstring;
-        JobDescription?: Glacierstring;
-        Action?: GlacierActionCode;
-        ArchiveId?: Glacierstring;
-        VaultARN?: Glacierstring;
-        CreationDate?: Glacierstring;
-        Completed?: Glacierboolean;
-        StatusCode?: GlacierStatusCode;
-        StatusMessage?: Glacierstring;
-        ArchiveSizeInBytes?: GlacierSize;
-        InventorySizeInBytes?: GlacierSize;
-        SNSTopic?: Glacierstring;
-        CompletionDate?: Glacierstring;
-        SHA256TreeHash?: Glacierstring;
-        ArchiveSHA256TreeHash?: Glacierstring;
-        RetrievalByteRange?: Glacierstring;
-        InventoryRetrievalParameters?: GlacierInventoryRetrievalJobDescription;
-    }
-
-    export interface GlacierInitiateJobInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        jobParameters?: GlacierJobParameters;
-    }
-
-    export interface GlacierInitiateJobOutput {
-        location?: Glacierstring;
-        jobId?: Glacierstring;
-    }
-
-    export interface GlacierInitiateMultipartUploadInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        archiveDescription?: Glacierstring;
-        partSize?: Glacierstring;
-    }
-
-    export interface GlacierInitiateMultipartUploadOutput {
-        location?: Glacierstring;
-        uploadId?: Glacierstring;
-    }
-
-    export interface GlacierInitiateVaultLockInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        policy?: GlacierVaultLockPolicy;
-    }
-
-    export interface GlacierInitiateVaultLockOutput {
-        lockId?: Glacierstring;
-    }
-
-    export interface GlacierInvalidParameterValueException {
-        type?: Glacierstring;
-        code?: Glacierstring;
-        message?: Glacierstring;
-    }
-
-    export interface GlacierInventoryRetrievalJobDescription {
-        Format?: Glacierstring;
-        StartDate?: GlacierDateTime;
-        EndDate?: GlacierDateTime;
-        Limit?: Glacierstring;
-        Marker?: Glacierstring;
-    }
-
-    export interface GlacierInventoryRetrievalJobInput {
-        StartDate?: Glacierstring;
-        EndDate?: Glacierstring;
-        Limit?: Glacierstring;
-        Marker?: Glacierstring;
-    }
-
-    export type GlacierJobList = Array<GlacierGlacierJobDescription>;
-    export interface GlacierJobParameters {
-        Format?: Glacierstring;
-        Type?: Glacierstring;
-        ArchiveId?: Glacierstring;
-        Description?: Glacierstring;
-        SNSTopic?: Glacierstring;
-        RetrievalByteRange?: Glacierstring;
-        InventoryRetrievalParameters?: GlacierInventoryRetrievalJobInput;
-    }
-
-    export interface GlacierLimitExceededException {
-        type?: Glacierstring;
-        code?: Glacierstring;
-        message?: Glacierstring;
-    }
-
-    export interface GlacierListJobsInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        limit?: Glacierstring;
-        marker?: Glacierstring;
-        statuscode?: Glacierstring;
-        completed?: Glacierstring;
-    }
-
-    export interface GlacierListJobsOutput {
-        JobList?: GlacierJobList;
-        Marker?: Glacierstring;
-    }
-
-    export interface GlacierListMultipartUploadsInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        marker?: Glacierstring;
-        limit?: Glacierstring;
-    }
-
-    export interface GlacierListMultipartUploadsOutput {
-        UploadsList?: GlacierUploadsList;
-        Marker?: Glacierstring;
-    }
-
-    export interface GlacierListPartsInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        uploadId: Glacierstring;
-        marker?: Glacierstring;
-        limit?: Glacierstring;
-    }
-
-    export interface GlacierListPartsOutput {
-        MultipartUploadId?: Glacierstring;
-        VaultARN?: Glacierstring;
-        ArchiveDescription?: Glacierstring;
-        PartSizeInBytes?: Glacierlong;
-        CreationDate?: Glacierstring;
-        Parts?: GlacierPartList;
-        Marker?: Glacierstring;
-    }
-
-    export interface GlacierListTagsForVaultInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-    }
-
-    export interface GlacierListTagsForVaultOutput {
-        Tags?: GlacierTagMap;
-    }
-
-    export interface GlacierListVaultsInput {
-        accountId: Glacierstring;
-        marker?: Glacierstring;
-        limit?: Glacierstring;
-    }
-
-    export interface GlacierListVaultsOutput {
-        VaultList?: GlacierVaultList;
-        Marker?: Glacierstring;
-    }
+      abortMultipartUpload(params: Glacier.AbortMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+      abortVaultLock(params: Glacier.AbortVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+      addTagsToVault(params: Glacier.AddTagsToVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.LimitExceededException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+      completeMultipartUpload(params: Glacier.CompleteMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ArchiveCreationOutput|any) => void): Request;
+      completeVaultLock(params: Glacier.CompleteVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+      createVault(params: Glacier.CreateVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|Glacier.LimitExceededException|any, data: Glacier.CreateVaultOutput|any) => void): Request;
+      deleteArchive(params: Glacier.DeleteArchiveInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+      deleteVault(params: Glacier.DeleteVaultInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+      deleteVaultAccessPolicy(params: Glacier.DeleteVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+      deleteVaultNotifications(params: Glacier.DeleteVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+      describeJob(params: Glacier.DescribeJobInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GlacierJobDescription|any) => void): Request;
+      describeVault(params: Glacier.DescribeVaultInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.DescribeVaultOutput|any) => void): Request;
+      getDataRetrievalPolicy(params: Glacier.GetDataRetrievalPolicyInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetDataRetrievalPolicyOutput|any) => void): Request;
+      getJobOutput(params: Glacier.GetJobOutputInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetJobOutputOutput|any) => void): Request;
+      getVaultAccessPolicy(params: Glacier.GetVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetVaultAccessPolicyOutput|any) => void): Request;
+      getVaultLock(params: Glacier.GetVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetVaultLockOutput|any) => void): Request;
+      getVaultNotifications(params: Glacier.GetVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetVaultNotificationsOutput|any) => void): Request;
+      initiateJob(params: Glacier.InitiateJobInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.PolicyEnforcedException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.InitiateJobOutput|any) => void): Request;
+      initiateMultipartUpload(params: Glacier.InitiateMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.InitiateMultipartUploadOutput|any) => void): Request;
+      initiateVaultLock(params: Glacier.InitiateVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.InitiateVaultLockOutput|any) => void): Request;
+      listJobs(params: Glacier.ListJobsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListJobsOutput|any) => void): Request;
+      listMultipartUploads(params: Glacier.ListMultipartUploadsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListMultipartUploadsOutput|any) => void): Request;
+      listParts(params: Glacier.ListPartsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListPartsOutput|any) => void): Request;
+      listTagsForVault(params: Glacier.ListTagsForVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.ServiceUnavailableException|any, data: Glacier.ListTagsForVaultOutput|any) => void): Request;
+      listVaults(params: Glacier.ListVaultsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListVaultsOutput|any) => void): Request;
+      removeTagsFromVault(params: Glacier.RemoveTagsFromVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+      setDataRetrievalPolicy(params: Glacier.SetDataRetrievalPolicyInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+      setVaultAccessPolicy(params: Glacier.SetVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+      setVaultNotifications(params: Glacier.SetVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+      uploadArchive(params: Glacier.UploadArchiveInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.RequestTimeoutException|Glacier.ServiceUnavailableException|any, data: Glacier.ArchiveCreationOutput|any) => void): Request;
+      uploadMultipartPart(params: Glacier.UploadMultipartPartInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.RequestTimeoutException|Glacier.ServiceUnavailableException|any, data: Glacier.UploadMultipartPartOutput|any) => void): Request;
+    }
+    
+    export module Glacier {
+        export type ActionCode = string;
+        export type DataRetrievalRulesList = DataRetrievalRule[];
+        export type DateTime = string;
+        export type JobList = GlacierJobDescription[];
+        export type NotificationEventList = string[];
+        export type NullableLong = number;
+        export type PartList = PartListElement[];
+        export type Size = number;
+        export type StatusCode = string;
+        export type Stream = any;    // type: blob
+        export type TagKey = string;
+        export type TagKeyList = string[];
+        export type TagMap = {[key:string]: TagValue};
+        export type TagValue = string;
+        export type UploadsList = UploadListElement[];
+        export type VaultList = DescribeVaultOutput[];
+        export type httpstatus = number;
+        export type long = number;
+
+        export interface AbortMultipartUploadInput {
+            accountId: string;            
+            vaultName: string;            
+            uploadId: string;            
+        }
+        export interface AbortVaultLockInput {
+            accountId: string;            
+            vaultName: string;            
+        }
+        export interface AddTagsToVaultInput {
+            accountId: string;            
+            vaultName: string;            
+            Tags?: TagMap;            
+        }
+        export interface ArchiveCreationOutput {
+            location?: string;            
+            checksum?: string;            
+            archiveId?: string;            
+        }
+        export interface CompleteMultipartUploadInput {
+            accountId: string;            
+            vaultName: string;            
+            uploadId: string;            
+            archiveSize?: string;            
+            checksum?: string;            
+        }
+        export interface CompleteVaultLockInput {
+            accountId: string;            
+            vaultName: string;            
+            lockId: string;            
+        }
+        export interface CreateVaultInput {
+            accountId: string;            
+            vaultName: string;            
+        }
+        export interface CreateVaultOutput {
+            location?: string;            
+        }
+        export interface DataRetrievalPolicy {
+            Rules?: DataRetrievalRulesList;            
+        }
+        export interface DataRetrievalRule {
+            Strategy?: string;            
+            BytesPerHour?: NullableLong;            
+        }
+        export interface DeleteArchiveInput {
+            accountId: string;            
+            vaultName: string;            
+            archiveId: string;            
+        }
+        export interface DeleteVaultAccessPolicyInput {
+            accountId: string;            
+            vaultName: string;            
+        }
+        export interface DeleteVaultInput {
+            accountId: string;            
+            vaultName: string;            
+        }
+        export interface DeleteVaultNotificationsInput {
+            accountId: string;            
+            vaultName: string;            
+        }
+        export interface DescribeJobInput {
+            accountId: string;            
+            vaultName: string;            
+            jobId: string;            
+        }
+        export interface DescribeVaultInput {
+            accountId: string;            
+            vaultName: string;            
+        }
+        export interface DescribeVaultOutput {
+            VaultARN?: string;            
+            VaultName?: string;            
+            CreationDate?: string;            
+            LastInventoryDate?: string;            
+            NumberOfArchives?: long;            
+            SizeInBytes?: long;            
+        }
+        export interface GetDataRetrievalPolicyInput {
+            accountId: string;            
+        }
+        export interface GetDataRetrievalPolicyOutput {
+            Policy?: DataRetrievalPolicy;            
+        }
+        export interface GetJobOutputInput {
+            accountId: string;            
+            vaultName: string;            
+            jobId: string;            
+            range?: string;            
+        }
+        export interface GetJobOutputOutput {
+            body?: Stream;            
+            checksum?: string;            
+            status?: httpstatus;            
+            contentRange?: string;            
+            acceptRanges?: string;            
+            contentType?: string;            
+            archiveDescription?: string;            
+        }
+        export interface GetVaultAccessPolicyInput {
+            accountId: string;            
+            vaultName: string;            
+        }
+        export interface GetVaultAccessPolicyOutput {
+            policy?: VaultAccessPolicy;            
+        }
+        export interface GetVaultLockInput {
+            accountId: string;            
+            vaultName: string;            
+        }
+        export interface GetVaultLockOutput {
+            Policy?: string;            
+            State?: string;            
+            ExpirationDate?: string;            
+            CreationDate?: string;            
+        }
+        export interface GetVaultNotificationsInput {
+            accountId: string;            
+            vaultName: string;            
+        }
+        export interface GetVaultNotificationsOutput {
+            vaultNotificationConfig?: VaultNotificationConfig;            
+        }
+        export interface GlacierJobDescription {
+            JobId?: string;            
+            JobDescription?: string;            
+            Action?: ActionCode;            
+            ArchiveId?: string;            
+            VaultARN?: string;            
+            CreationDate?: string;            
+            Completed?: boolean;            
+            StatusCode?: StatusCode;            
+            StatusMessage?: string;            
+            ArchiveSizeInBytes?: Size;            
+            InventorySizeInBytes?: Size;            
+            SNSTopic?: string;            
+            CompletionDate?: string;            
+            SHA256TreeHash?: string;            
+            ArchiveSHA256TreeHash?: string;            
+            RetrievalByteRange?: string;            
+            InventoryRetrievalParameters?: InventoryRetrievalJobDescription;            
+        }
+        export interface InitiateJobInput {
+            accountId: string;            
+            vaultName: string;            
+            jobParameters?: JobParameters;            
+        }
+        export interface InitiateJobOutput {
+            location?: string;            
+            jobId?: string;            
+        }
+        export interface InitiateMultipartUploadInput {
+            accountId: string;            
+            vaultName: string;            
+            archiveDescription?: string;            
+            partSize?: string;            
+        }
+        export interface InitiateMultipartUploadOutput {
+            location?: string;            
+            uploadId?: string;            
+        }
+        export interface InitiateVaultLockInput {
+            accountId: string;            
+            vaultName: string;            
+            policy?: VaultLockPolicy;            
+        }
+        export interface InitiateVaultLockOutput {
+            lockId?: string;            
+        }
+        export interface InvalidParameterValueException {
+            type?: string;            
+            code?: string;            
+            message?: string;            
+        }
+        export interface InventoryRetrievalJobDescription {
+            Format?: string;            
+            StartDate?: DateTime;            
+            EndDate?: DateTime;            
+            Limit?: string;            
+            Marker?: string;            
+        }
+        export interface InventoryRetrievalJobInput {
+            StartDate?: string;            
+            EndDate?: string;            
+            Limit?: string;            
+            Marker?: string;            
+        }
+        export interface JobParameters {
+            Format?: string;            
+            Type?: string;            
+            ArchiveId?: string;            
+            Description?: string;            
+            SNSTopic?: string;            
+            RetrievalByteRange?: string;            
+            InventoryRetrievalParameters?: InventoryRetrievalJobInput;            
+        }
+        export interface LimitExceededException {
+            type?: string;            
+            code?: string;            
+            message?: string;            
+        }
+        export interface ListJobsInput {
+            accountId: string;            
+            vaultName: string;            
+            limit?: string;            
+            marker?: string;            
+            statuscode?: string;            
+            completed?: string;            
+        }
+        export interface ListJobsOutput {
+            JobList?: JobList;            
+            Marker?: string;            
+        }
+        export interface ListMultipartUploadsInput {
+            accountId: string;            
+            vaultName: string;            
+            marker?: string;            
+            limit?: string;            
+        }
+        export interface ListMultipartUploadsOutput {
+            UploadsList?: UploadsList;            
+            Marker?: string;            
+        }
+        export interface ListPartsInput {
+            accountId: string;            
+            vaultName: string;            
+            uploadId: string;            
+            marker?: string;            
+            limit?: string;            
+        }
+        export interface ListPartsOutput {
+            MultipartUploadId?: string;            
+            VaultARN?: string;            
+            ArchiveDescription?: string;            
+            PartSizeInBytes?: long;            
+            CreationDate?: string;            
+            Parts?: PartList;            
+            Marker?: string;            
+        }
+        export interface ListTagsForVaultInput {
+            accountId: string;            
+            vaultName: string;            
+        }
+        export interface ListTagsForVaultOutput {
+            Tags?: TagMap;            
+        }
+        export interface ListVaultsInput {
+            accountId: string;            
+            marker?: string;            
+            limit?: string;            
+        }
+        export interface ListVaultsOutput {
+            VaultList?: VaultList;            
+            Marker?: string;            
+        }
+        export interface MissingParameterValueException {
+            type?: string;            
+            code?: string;            
+            message?: string;            
+        }
+        export interface PartListElement {
+            RangeInBytes?: string;            
+            SHA256TreeHash?: string;            
+        }
+        export interface PolicyEnforcedException {
+            type?: string;            
+            code?: string;            
+            message?: string;            
+        }
+        export interface RemoveTagsFromVaultInput {
+            accountId: string;            
+            vaultName: string;            
+            TagKeys?: TagKeyList;            
+        }
+        export interface RequestTimeoutException {
+            type?: string;            
+            code?: string;            
+            message?: string;            
+        }
+        export interface ResourceNotFoundException {
+            type?: string;            
+            code?: string;            
+            message?: string;            
+        }
+        export interface ServiceUnavailableException {
+            type?: string;            
+            code?: string;            
+            message?: string;            
+        }
+        export interface SetDataRetrievalPolicyInput {
+            accountId: string;            
+            Policy?: DataRetrievalPolicy;            
+        }
+        export interface SetVaultAccessPolicyInput {
+            accountId: string;            
+            vaultName: string;            
+            policy?: VaultAccessPolicy;            
+        }
+        export interface SetVaultNotificationsInput {
+            accountId: string;            
+            vaultName: string;            
+            vaultNotificationConfig?: VaultNotificationConfig;            
+        }
+        export interface UploadArchiveInput {
+            vaultName: string;            
+            accountId: string;            
+            archiveDescription?: string;            
+            checksum?: string;            
+            body?: Stream;            
+        }
+        export interface UploadListElement {
+            MultipartUploadId?: string;            
+            VaultARN?: string;            
+            ArchiveDescription?: string;            
+            PartSizeInBytes?: long;            
+            CreationDate?: string;            
+        }
+        export interface UploadMultipartPartInput {
+            accountId: string;            
+            vaultName: string;            
+            uploadId: string;            
+            checksum?: string;            
+            range?: string;            
+            body?: Stream;            
+        }
+        export interface UploadMultipartPartOutput {
+            checksum?: string;            
+        }
+        export interface VaultAccessPolicy {
+            Policy?: string;            
+        }
+        export interface VaultLockPolicy {
+            Policy?: string;            
+        }
+        export interface VaultNotificationConfig {
+            SNSTopic?: string;            
+            Events?: NotificationEventList;            
+        }
 
-    export interface GlacierMissingParameterValueException {
-        type?: Glacierstring;
-        code?: Glacierstring;
-        message?: Glacierstring;
     }
-
-    export type GlacierNotificationEventList = Array<Glacierstring>;
-    export type GlacierNullableLong = number;
-    export type GlacierPartList = Array<GlacierPartListElement>;
-    export interface GlacierPartListElement {
-        RangeInBytes?: Glacierstring;
-        SHA256TreeHash?: Glacierstring;
-    }
-
-    export interface GlacierPolicyEnforcedException {
-        type?: Glacierstring;
-        code?: Glacierstring;
-        message?: Glacierstring;
-    }
-
-    export interface GlacierRemoveTagsFromVaultInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        TagKeys?: GlacierTagKeyList;
-    }
-
-    export interface GlacierRequestTimeoutException {
-        type?: Glacierstring;
-        code?: Glacierstring;
-        message?: Glacierstring;
-    }
-
-    export interface GlacierResourceNotFoundException {
-        type?: Glacierstring;
-        code?: Glacierstring;
-        message?: Glacierstring;
-    }
-
-    export interface GlacierServiceUnavailableException {
-        type?: Glacierstring;
-        code?: Glacierstring;
-        message?: Glacierstring;
-    }
-
-    export interface GlacierSetDataRetrievalPolicyInput {
-        accountId: Glacierstring;
-        Policy?: GlacierDataRetrievalPolicy;
-    }
-
-    export interface GlacierSetVaultAccessPolicyInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        policy?: GlacierVaultAccessPolicy;
-    }
-
-    export interface GlacierSetVaultNotificationsInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        vaultNotificationConfig?: GlacierVaultNotificationConfig;
-    }
-
-    export type GlacierSize = number;
-    export type GlacierStatusCode = string;
-    export type GlacierStream = any; // not really - it was 'blob' instead - must fix this one
-    export type GlacierTagKey = string;
-    export type GlacierTagKeyList = Array<Glacierstring>;
-    export type GlacierTagMap = any; // not really - it was 'map' instead - must fix this one
-    export type GlacierTagValue = string;
-    export interface GlacierUploadArchiveInput {
-        vaultName: Glacierstring;
-        accountId: Glacierstring;
-        archiveDescription?: Glacierstring;
-        checksum?: Glacierstring;
-        body?: GlacierStream;
-    }
-
-    export interface GlacierUploadListElement {
-        MultipartUploadId?: Glacierstring;
-        VaultARN?: Glacierstring;
-        ArchiveDescription?: Glacierstring;
-        PartSizeInBytes?: Glacierlong;
-        CreationDate?: Glacierstring;
-    }
-
-    export interface GlacierUploadMultipartPartInput {
-        accountId: Glacierstring;
-        vaultName: Glacierstring;
-        uploadId: Glacierstring;
-        checksum?: Glacierstring;
-        range?: Glacierstring;
-        body?: GlacierStream;
-    }
-
-    export interface GlacierUploadMultipartPartOutput {
-        checksum?: Glacierstring;
-    }
-
-    export type GlacierUploadsList = Array<GlacierUploadListElement>;
-    export interface GlacierVaultAccessPolicy {
-        Policy?: Glacierstring;
-    }
-
-    export type GlacierVaultList = Array<GlacierDescribeVaultOutput>;
-    export interface GlacierVaultLockPolicy {
-        Policy?: Glacierstring;
-    }
-
-    export interface GlacierVaultNotificationConfig {
-        SNSTopic?: Glacierstring;
-        Events?: GlacierNotificationEventList;
-    }
-
-    export type Glacierboolean = boolean;
-    export type Glacierhttpstatus = number;
-    export type Glacierlong = number;
-    export type Glacierstring = string;
 }

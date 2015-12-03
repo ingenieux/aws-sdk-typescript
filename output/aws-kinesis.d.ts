@@ -6,245 +6,213 @@ declare module "aws-sdk" {
 
     export class Kinesis extends Service {
       constructor(options?: any);
-      addTagsToStream(params: KinesisAddTagsToStreamInput, callback?: (err: KinesisResourceNotFoundException|KinesisResourceInUseException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: any) => void): Request;
-      createStream(params: KinesisCreateStreamInput, callback?: (err: KinesisResourceInUseException|KinesisLimitExceededException|KinesisInvalidArgumentException|any, data: any) => void): Request;
-      decreaseStreamRetentionPeriod(params: KinesisDecreaseStreamRetentionPeriodInput, callback?: (err: KinesisResourceInUseException|KinesisResourceNotFoundException|KinesisLimitExceededException|KinesisInvalidArgumentException|any, data: any) => void): Request;
-      deleteStream(params: KinesisDeleteStreamInput, callback?: (err: KinesisResourceNotFoundException|KinesisLimitExceededException|any, data: any) => void): Request;
-      describeStream(params: KinesisDescribeStreamInput, callback?: (err: KinesisResourceNotFoundException|KinesisLimitExceededException|any, data: KinesisDescribeStreamOutput|any) => void): Request;
-      getRecords(params: KinesisGetRecordsInput, callback?: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisProvisionedThroughputExceededException|KinesisExpiredIteratorException|any, data: KinesisGetRecordsOutput|any) => void): Request;
-      getShardIterator(params: KinesisGetShardIteratorInput, callback?: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisProvisionedThroughputExceededException|any, data: KinesisGetShardIteratorOutput|any) => void): Request;
-      increaseStreamRetentionPeriod(params: KinesisIncreaseStreamRetentionPeriodInput, callback?: (err: KinesisResourceInUseException|KinesisResourceNotFoundException|KinesisLimitExceededException|KinesisInvalidArgumentException|any, data: any) => void): Request;
-      listStreams(params: KinesisListStreamsInput, callback?: (err: KinesisLimitExceededException|any, data: KinesisListStreamsOutput|any) => void): Request;
-      listTagsForStream(params: KinesisListTagsForStreamInput, callback?: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: KinesisListTagsForStreamOutput|any) => void): Request;
-      mergeShards(params: KinesisMergeShardsInput, callback?: (err: KinesisResourceNotFoundException|KinesisResourceInUseException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: any) => void): Request;
-      putRecord(params: KinesisPutRecordInput, callback?: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisProvisionedThroughputExceededException|any, data: KinesisPutRecordOutput|any) => void): Request;
-      putRecords(params: KinesisPutRecordsInput, callback?: (err: KinesisResourceNotFoundException|KinesisInvalidArgumentException|KinesisProvisionedThroughputExceededException|any, data: KinesisPutRecordsOutput|any) => void): Request;
-      removeTagsFromStream(params: KinesisRemoveTagsFromStreamInput, callback?: (err: KinesisResourceNotFoundException|KinesisResourceInUseException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: any) => void): Request;
-      splitShard(params: KinesisSplitShardInput, callback?: (err: KinesisResourceNotFoundException|KinesisResourceInUseException|KinesisInvalidArgumentException|KinesisLimitExceededException|any, data: any) => void): Request;
+      addTagsToStream(params: Kinesis.AddTagsToStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request;
+      createStream(params: Kinesis.CreateStreamInput, callback?: (err: Kinesis.ResourceInUseException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any, data: any) => void): Request;
+      decreaseStreamRetentionPeriod(params: Kinesis.DecreaseStreamRetentionPeriodInput, callback?: (err: Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any, data: any) => void): Request;
+      deleteStream(params: Kinesis.DeleteStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|any, data: any) => void): Request;
+      describeStream(params: Kinesis.DescribeStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|any, data: Kinesis.DescribeStreamOutput|any) => void): Request;
+      getRecords(params: Kinesis.GetRecordsInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|Kinesis.ExpiredIteratorException|any, data: Kinesis.GetRecordsOutput|any) => void): Request;
+      getShardIterator(params: Kinesis.GetShardIteratorInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any, data: Kinesis.GetShardIteratorOutput|any) => void): Request;
+      increaseStreamRetentionPeriod(params: Kinesis.IncreaseStreamRetentionPeriodInput, callback?: (err: Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any, data: any) => void): Request;
+      listStreams(params: Kinesis.ListStreamsInput, callback?: (err: Kinesis.LimitExceededException|any, data: Kinesis.ListStreamsOutput|any) => void): Request;
+      listTagsForStream(params: Kinesis.ListTagsForStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: Kinesis.ListTagsForStreamOutput|any) => void): Request;
+      mergeShards(params: Kinesis.MergeShardsInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request;
+      putRecord(params: Kinesis.PutRecordInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any, data: Kinesis.PutRecordOutput|any) => void): Request;
+      putRecords(params: Kinesis.PutRecordsInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any, data: Kinesis.PutRecordsOutput|any) => void): Request;
+      removeTagsFromStream(params: Kinesis.RemoveTagsFromStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request;
+      splitShard(params: Kinesis.SplitShardInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request;
     }
+    
+    export module Kinesis {
+        export type ApproximateArrivalTimestamp = number;
+        export type BooleanObject = boolean;
+        export type Data = any;    // max: 1048576, type: blob
+        export type DescribeStreamInputLimit = number;    // max: 10000, min: 1
+        export type ErrorCode = string;
+        export type ErrorMessage = string;
+        export type GetRecordsInputLimit = number;    // max: 10000, min: 1
+        export type HashKey = string;    // pattern: &quot;0|([1-9]\d{0,38})&quot;
+        export type ListStreamsInputLimit = number;    // max: 10000, min: 1
+        export type ListTagsForStreamInputLimit = number;    // max: 10, min: 1
+        export type MillisBehindLatest = number;
+        export type PartitionKey = string;    // max: 256, min: 1
+        export type PositiveIntegerObject = number;    // max: 100000, min: 1
+        export type PutRecordsRequestEntryList = PutRecordsRequestEntry[];    // max: 500, min: 1
+        export type PutRecordsResultEntryList = PutRecordsResultEntry[];    // max: 500, min: 1
+        export type RecordList = Record[];
+        export type RetentionPeriodHours = number;    // max: 168, min: 24
+        export type SequenceNumber = string;    // pattern: &quot;0|([1-9]\d{0,128})&quot;
+        export type ShardId = string;    // pattern: &quot;[a-zA-Z0-9_.-]+&quot;, max: 128, min: 1
+        export type ShardIterator = string;    // max: 512, min: 1
+        export type ShardIteratorType = string;
+        export type ShardList = Shard[];
+        export type StreamARN = string;
+        export type StreamName = string;    // pattern: &quot;[a-zA-Z0-9_.-]+&quot;, max: 128, min: 1
+        export type StreamNameList = StreamName[];
+        export type StreamStatus = string;
+        export type TagKey = string;    // max: 128, min: 1
+        export type TagKeyList = TagKey[];    // max: 10, min: 1
+        export type TagList = Tag[];
+        export type TagMap = {[key:string]: TagValue};    // max: 10, min: 1
+        export type TagValue = string;    // max: 256
 
-    export interface KinesisAddTagsToStreamInput {
-        StreamName: KinesisStreamName;
-        Tags: KinesisTagMap;
+        export interface AddTagsToStreamInput {
+            StreamName: StreamName;            
+            Tags: TagMap;            
+        }
+        export interface CreateStreamInput {
+            StreamName: StreamName;            
+            ShardCount: PositiveIntegerObject;            
+        }
+        export interface DecreaseStreamRetentionPeriodInput {
+            StreamName: StreamName;            
+            RetentionPeriodHours: RetentionPeriodHours;            
+        }
+        export interface DeleteStreamInput {
+            StreamName: StreamName;            
+        }
+        export interface DescribeStreamInput {
+            StreamName: StreamName;            
+            Limit?: DescribeStreamInputLimit;            
+            ExclusiveStartShardId?: ShardId;            
+        }
+        export interface DescribeStreamOutput {
+            StreamDescription: StreamDescription;            
+        }
+        export interface ExpiredIteratorException {
+            message?: ErrorMessage;            
+        }
+        export interface GetRecordsInput {
+            ShardIterator: ShardIterator;            
+            Limit?: GetRecordsInputLimit;            
+        }
+        export interface GetRecordsOutput {
+            Records: RecordList;            
+            NextShardIterator?: ShardIterator;            
+            MillisBehindLatest?: MillisBehindLatest;            
+        }
+        export interface GetShardIteratorInput {
+            StreamName: StreamName;            
+            ShardId: ShardId;            
+            ShardIteratorType: ShardIteratorType;            
+            StartingSequenceNumber?: SequenceNumber;            
+        }
+        export interface GetShardIteratorOutput {
+            ShardIterator?: ShardIterator;            
+        }
+        export interface HashKeyRange {
+            StartingHashKey: HashKey;            
+            EndingHashKey: HashKey;            
+        }
+        export interface IncreaseStreamRetentionPeriodInput {
+            StreamName: StreamName;            
+            RetentionPeriodHours: RetentionPeriodHours;            
+        }
+        export interface InvalidArgumentException {
+            message?: ErrorMessage;            
+        }
+        export interface LimitExceededException {
+            message?: ErrorMessage;            
+        }
+        export interface ListStreamsInput {
+            Limit?: ListStreamsInputLimit;            
+            ExclusiveStartStreamName?: StreamName;            
+        }
+        export interface ListStreamsOutput {
+            StreamNames: StreamNameList;            
+            HasMoreStreams: BooleanObject;            
+        }
+        export interface ListTagsForStreamInput {
+            StreamName: StreamName;            
+            ExclusiveStartTagKey?: TagKey;            
+            Limit?: ListTagsForStreamInputLimit;            
+        }
+        export interface ListTagsForStreamOutput {
+            Tags: TagList;            
+            HasMoreTags: BooleanObject;            
+        }
+        export interface MergeShardsInput {
+            StreamName: StreamName;            
+            ShardToMerge: ShardId;            
+            AdjacentShardToMerge: ShardId;            
+        }
+        export interface ProvisionedThroughputExceededException {
+            message?: ErrorMessage;            
+        }
+        export interface PutRecordInput {
+            StreamName: StreamName;            
+            Data: Data;            
+            PartitionKey: PartitionKey;            
+            ExplicitHashKey?: HashKey;            
+            SequenceNumberForOrdering?: SequenceNumber;            
+        }
+        export interface PutRecordOutput {
+            ShardId: ShardId;            
+            SequenceNumber: SequenceNumber;            
+        }
+        export interface PutRecordsInput {
+            Records: PutRecordsRequestEntryList;            
+            StreamName: StreamName;            
+        }
+        export interface PutRecordsOutput {
+            FailedRecordCount?: PositiveIntegerObject;            
+            Records: PutRecordsResultEntryList;            
+        }
+        export interface PutRecordsRequestEntry {
+            Data: Data;            
+            ExplicitHashKey?: HashKey;            
+            PartitionKey: PartitionKey;            
+        }
+        export interface PutRecordsResultEntry {
+            SequenceNumber?: SequenceNumber;            
+            ShardId?: ShardId;            
+            ErrorCode?: ErrorCode;            
+            ErrorMessage?: ErrorMessage;            
+        }
+        export interface Record {
+            SequenceNumber: SequenceNumber;            
+            ApproximateArrivalTimestamp?: ApproximateArrivalTimestamp;            
+            Data: Data;            
+            PartitionKey: PartitionKey;            
+        }
+        export interface RemoveTagsFromStreamInput {
+            StreamName: StreamName;            
+            TagKeys: TagKeyList;            
+        }
+        export interface ResourceInUseException {
+            message?: ErrorMessage;            
+        }
+        export interface ResourceNotFoundException {
+            message?: ErrorMessage;            
+        }
+        export interface SequenceNumberRange {
+            StartingSequenceNumber: SequenceNumber;            
+            EndingSequenceNumber?: SequenceNumber;            
+        }
+        export interface Shard {
+            ShardId: ShardId;            
+            ParentShardId?: ShardId;            
+            AdjacentParentShardId?: ShardId;            
+            HashKeyRange: HashKeyRange;            
+            SequenceNumberRange: SequenceNumberRange;            
+        }
+        export interface SplitShardInput {
+            StreamName: StreamName;            
+            ShardToSplit: ShardId;            
+            NewStartingHashKey: HashKey;            
+        }
+        export interface StreamDescription {
+            StreamName: StreamName;            
+            StreamARN: StreamARN;            
+            StreamStatus: StreamStatus;            
+            Shards: ShardList;            
+            HasMoreShards: BooleanObject;            
+            RetentionPeriodHours: RetentionPeriodHours;            
+        }
+        export interface Tag {
+            Key: TagKey;            
+            Value?: TagValue;            
+        }
+
     }
-
-    export type KinesisApproximateArrivalTimestamp = number;
-    export type KinesisBooleanObject = boolean;
-    export interface KinesisCreateStreamInput {
-        StreamName: KinesisStreamName;
-        ShardCount: KinesisPositiveIntegerObject;
-    }
-
-    export type KinesisData = any; // not really - it was 'blob' instead - must fix this one
-    export interface KinesisDecreaseStreamRetentionPeriodInput {
-        StreamName: KinesisStreamName;
-        RetentionPeriodHours: KinesisRetentionPeriodHours;
-    }
-
-    export interface KinesisDeleteStreamInput {
-        StreamName: KinesisStreamName;
-    }
-
-    export interface KinesisDescribeStreamInput {
-        StreamName: KinesisStreamName;
-        Limit?: KinesisDescribeStreamInputLimit;
-        ExclusiveStartShardId?: KinesisShardId;
-    }
-
-    export type KinesisDescribeStreamInputLimit = number;
-    export interface KinesisDescribeStreamOutput {
-        StreamDescription: KinesisStreamDescription;
-    }
-
-    export type KinesisErrorCode = string;
-    export type KinesisErrorMessage = string;
-    export interface KinesisExpiredIteratorException {
-        message?: KinesisErrorMessage;
-    }
-
-    export interface KinesisGetRecordsInput {
-        ShardIterator: KinesisShardIterator;
-        Limit?: KinesisGetRecordsInputLimit;
-    }
-
-    export type KinesisGetRecordsInputLimit = number;
-    export interface KinesisGetRecordsOutput {
-        Records: KinesisRecordList;
-        NextShardIterator?: KinesisShardIterator;
-        MillisBehindLatest?: KinesisMillisBehindLatest;
-    }
-
-    export interface KinesisGetShardIteratorInput {
-        StreamName: KinesisStreamName;
-        ShardId: KinesisShardId;
-        ShardIteratorType: KinesisShardIteratorType;
-        StartingSequenceNumber?: KinesisSequenceNumber;
-    }
-
-    export interface KinesisGetShardIteratorOutput {
-        ShardIterator?: KinesisShardIterator;
-    }
-
-    export type KinesisHashKey = string; // pattern: "0|([1-9]\d{0,38})"
-    export interface KinesisHashKeyRange {
-        StartingHashKey: KinesisHashKey;
-        EndingHashKey: KinesisHashKey;
-    }
-
-    export interface KinesisIncreaseStreamRetentionPeriodInput {
-        StreamName: KinesisStreamName;
-        RetentionPeriodHours: KinesisRetentionPeriodHours;
-    }
-
-    export interface KinesisInvalidArgumentException {
-        message?: KinesisErrorMessage;
-    }
-
-    export interface KinesisLimitExceededException {
-        message?: KinesisErrorMessage;
-    }
-
-    export interface KinesisListStreamsInput {
-        Limit?: KinesisListStreamsInputLimit;
-        ExclusiveStartStreamName?: KinesisStreamName;
-    }
-
-    export type KinesisListStreamsInputLimit = number;
-    export interface KinesisListStreamsOutput {
-        StreamNames: KinesisStreamNameList;
-        HasMoreStreams: KinesisBooleanObject;
-    }
-
-    export interface KinesisListTagsForStreamInput {
-        StreamName: KinesisStreamName;
-        ExclusiveStartTagKey?: KinesisTagKey;
-        Limit?: KinesisListTagsForStreamInputLimit;
-    }
-
-    export type KinesisListTagsForStreamInputLimit = number;
-    export interface KinesisListTagsForStreamOutput {
-        Tags: KinesisTagList;
-        HasMoreTags: KinesisBooleanObject;
-    }
-
-    export interface KinesisMergeShardsInput {
-        StreamName: KinesisStreamName;
-        ShardToMerge: KinesisShardId;
-        AdjacentShardToMerge: KinesisShardId;
-    }
-
-    export type KinesisMillisBehindLatest = number;
-    export type KinesisPartitionKey = string;
-    export type KinesisPositiveIntegerObject = number;
-    export interface KinesisProvisionedThroughputExceededException {
-        message?: KinesisErrorMessage;
-    }
-
-    export interface KinesisPutRecordInput {
-        StreamName: KinesisStreamName;
-        Data: KinesisData;
-        PartitionKey: KinesisPartitionKey;
-        ExplicitHashKey?: KinesisHashKey;
-        SequenceNumberForOrdering?: KinesisSequenceNumber;
-    }
-
-    export interface KinesisPutRecordOutput {
-        ShardId: KinesisShardId;
-        SequenceNumber: KinesisSequenceNumber;
-    }
-
-    export interface KinesisPutRecordsInput {
-        Records: KinesisPutRecordsRequestEntryList;
-        StreamName: KinesisStreamName;
-    }
-
-    export interface KinesisPutRecordsOutput {
-        FailedRecordCount?: KinesisPositiveIntegerObject;
-        Records: KinesisPutRecordsResultEntryList;
-    }
-
-    export interface KinesisPutRecordsRequestEntry {
-        Data: KinesisData;
-        ExplicitHashKey?: KinesisHashKey;
-        PartitionKey: KinesisPartitionKey;
-    }
-
-    export type KinesisPutRecordsRequestEntryList = Array<KinesisPutRecordsRequestEntry>; // max: 500
-    export interface KinesisPutRecordsResultEntry {
-        SequenceNumber?: KinesisSequenceNumber;
-        ShardId?: KinesisShardId;
-        ErrorCode?: KinesisErrorCode;
-        ErrorMessage?: KinesisErrorMessage;
-    }
-
-    export type KinesisPutRecordsResultEntryList = Array<KinesisPutRecordsResultEntry>; // max: 500
-    export interface KinesisRecord {
-        SequenceNumber: KinesisSequenceNumber;
-        ApproximateArrivalTimestamp?: KinesisApproximateArrivalTimestamp;
-        Data: KinesisData;
-        PartitionKey: KinesisPartitionKey;
-    }
-
-    export type KinesisRecordList = Array<KinesisRecord>;
-    export interface KinesisRemoveTagsFromStreamInput {
-        StreamName: KinesisStreamName;
-        TagKeys: KinesisTagKeyList;
-    }
-
-    export interface KinesisResourceInUseException {
-        message?: KinesisErrorMessage;
-    }
-
-    export interface KinesisResourceNotFoundException {
-        message?: KinesisErrorMessage;
-    }
-
-    export type KinesisRetentionPeriodHours = number;
-    export type KinesisSequenceNumber = string; // pattern: "0|([1-9]\d{0,128})"
-    export interface KinesisSequenceNumberRange {
-        StartingSequenceNumber: KinesisSequenceNumber;
-        EndingSequenceNumber?: KinesisSequenceNumber;
-    }
-
-    export interface KinesisShard {
-        ShardId: KinesisShardId;
-        ParentShardId?: KinesisShardId;
-        AdjacentParentShardId?: KinesisShardId;
-        HashKeyRange: KinesisHashKeyRange;
-        SequenceNumberRange: KinesisSequenceNumberRange;
-    }
-
-    export type KinesisShardId = string; // pattern: "[a-zA-Z0-9_.-]+"
-    export type KinesisShardIterator = string;
-    export type KinesisShardIteratorType = string;
-    export type KinesisShardList = Array<KinesisShard>;
-    export interface KinesisSplitShardInput {
-        StreamName: KinesisStreamName;
-        ShardToSplit: KinesisShardId;
-        NewStartingHashKey: KinesisHashKey;
-    }
-
-    export type KinesisStreamARN = string;
-    export interface KinesisStreamDescription {
-        StreamName: KinesisStreamName;
-        StreamARN: KinesisStreamARN;
-        StreamStatus: KinesisStreamStatus;
-        Shards: KinesisShardList;
-        HasMoreShards: KinesisBooleanObject;
-        RetentionPeriodHours: KinesisRetentionPeriodHours;
-    }
-
-    export type KinesisStreamName = string; // pattern: "[a-zA-Z0-9_.-]+"
-    export type KinesisStreamNameList = Array<KinesisStreamName>;
-    export type KinesisStreamStatus = string;
-    export interface KinesisTag {
-        Key: KinesisTagKey;
-        Value?: KinesisTagValue;
-    }
-
-    export type KinesisTagKey = string;
-    export type KinesisTagKeyList = Array<KinesisTagKey>; // max: 10
-    export type KinesisTagList = Array<KinesisTag>;
-    export type KinesisTagMap = any; // not really - it was 'map' instead - must fix this one
-    export type KinesisTagValue = string;
 }

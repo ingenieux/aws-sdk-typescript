@@ -6,893 +6,756 @@ declare module "aws-sdk" {
 
     export class ElastiCache extends Service {
       constructor(options?: any);
-      addTagsToResource(params: ElastiCacheAddTagsToResourceMessage, callback?: (err: ElastiCacheCacheClusterNotFoundFault|ElastiCacheSnapshotNotFoundFault|ElastiCacheTagQuotaPerResourceExceeded|ElastiCacheInvalidARNFault|any, data: ElastiCacheTagListMessage|any) => void): Request;
-      authorizeCacheSecurityGroupIngress(params: ElastiCacheAuthorizeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCacheCacheSecurityGroupNotFoundFault|ElastiCacheInvalidCacheSecurityGroupStateFault|ElastiCacheAuthorizationAlreadyExistsFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheAuthorizeCacheSecurityGroupIngressResult|any) => void): Request;
-      copySnapshot(params: ElastiCacheCopySnapshotMessage, callback?: (err: ElastiCacheSnapshotAlreadyExistsFault|ElastiCacheSnapshotNotFoundFault|ElastiCacheSnapshotQuotaExceededFault|ElastiCacheInvalidSnapshotStateFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheCopySnapshotResult|any) => void): Request;
-      createCacheCluster(params: ElastiCacheCreateCacheClusterMessage, callback?: (err: ElastiCacheReplicationGroupNotFoundFault|ElastiCacheInvalidReplicationGroupStateFault|ElastiCacheCacheClusterAlreadyExistsFault|ElastiCacheInsufficientCacheClusterCapacityFault|ElastiCacheCacheSecurityGroupNotFoundFault|ElastiCacheCacheSubnetGroupNotFoundFault|ElastiCacheClusterQuotaForCustomerExceededFault|ElastiCacheNodeQuotaForClusterExceededFault|ElastiCacheNodeQuotaForCustomerExceededFault|ElastiCacheCacheParameterGroupNotFoundFault|ElastiCacheInvalidVPCNetworkStateFault|ElastiCacheTagQuotaPerResourceExceeded|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheCreateCacheClusterResult|any) => void): Request;
-      createCacheParameterGroup(params: ElastiCacheCreateCacheParameterGroupMessage, callback?: (err: ElastiCacheCacheParameterGroupQuotaExceededFault|ElastiCacheCacheParameterGroupAlreadyExistsFault|ElastiCacheInvalidCacheParameterGroupStateFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheCreateCacheParameterGroupResult|any) => void): Request;
-      createCacheSecurityGroup(params: ElastiCacheCreateCacheSecurityGroupMessage, callback?: (err: ElastiCacheCacheSecurityGroupAlreadyExistsFault|ElastiCacheCacheSecurityGroupQuotaExceededFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheCreateCacheSecurityGroupResult|any) => void): Request;
-      createCacheSubnetGroup(params: ElastiCacheCreateCacheSubnetGroupMessage, callback?: (err: ElastiCacheCacheSubnetGroupAlreadyExistsFault|ElastiCacheCacheSubnetGroupQuotaExceededFault|ElastiCacheCacheSubnetQuotaExceededFault|ElastiCacheInvalidSubnet|any, data: ElastiCacheCreateCacheSubnetGroupResult|any) => void): Request;
-      createReplicationGroup(params: ElastiCacheCreateReplicationGroupMessage, callback?: (err: ElastiCacheCacheClusterNotFoundFault|ElastiCacheInvalidCacheClusterStateFault|ElastiCacheReplicationGroupAlreadyExistsFault|ElastiCacheInsufficientCacheClusterCapacityFault|ElastiCacheCacheSecurityGroupNotFoundFault|ElastiCacheCacheSubnetGroupNotFoundFault|ElastiCacheClusterQuotaForCustomerExceededFault|ElastiCacheNodeQuotaForClusterExceededFault|ElastiCacheNodeQuotaForCustomerExceededFault|ElastiCacheCacheParameterGroupNotFoundFault|ElastiCacheInvalidVPCNetworkStateFault|ElastiCacheTagQuotaPerResourceExceeded|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheCreateReplicationGroupResult|any) => void): Request;
-      createSnapshot(params: ElastiCacheCreateSnapshotMessage, callback?: (err: ElastiCacheSnapshotAlreadyExistsFault|ElastiCacheCacheClusterNotFoundFault|ElastiCacheInvalidCacheClusterStateFault|ElastiCacheSnapshotQuotaExceededFault|ElastiCacheSnapshotFeatureNotSupportedFault|ElastiCacheInvalidParameterCombinationException|ElastiCacheInvalidParameterValueException|any, data: ElastiCacheCreateSnapshotResult|any) => void): Request;
-      deleteCacheCluster(params: ElastiCacheDeleteCacheClusterMessage, callback?: (err: ElastiCacheCacheClusterNotFoundFault|ElastiCacheInvalidCacheClusterStateFault|ElastiCacheSnapshotAlreadyExistsFault|ElastiCacheSnapshotFeatureNotSupportedFault|ElastiCacheSnapshotQuotaExceededFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheDeleteCacheClusterResult|any) => void): Request;
-      deleteCacheParameterGroup(params: ElastiCacheDeleteCacheParameterGroupMessage, callback?: (err: ElastiCacheInvalidCacheParameterGroupStateFault|ElastiCacheCacheParameterGroupNotFoundFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: any) => void): Request;
-      deleteCacheSecurityGroup(params: ElastiCacheDeleteCacheSecurityGroupMessage, callback?: (err: ElastiCacheInvalidCacheSecurityGroupStateFault|ElastiCacheCacheSecurityGroupNotFoundFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: any) => void): Request;
-      deleteCacheSubnetGroup(params: ElastiCacheDeleteCacheSubnetGroupMessage, callback?: (err: ElastiCacheCacheSubnetGroupInUse|ElastiCacheCacheSubnetGroupNotFoundFault|any, data: any) => void): Request;
-      deleteReplicationGroup(params: ElastiCacheDeleteReplicationGroupMessage, callback?: (err: ElastiCacheReplicationGroupNotFoundFault|ElastiCacheInvalidReplicationGroupStateFault|ElastiCacheSnapshotAlreadyExistsFault|ElastiCacheSnapshotFeatureNotSupportedFault|ElastiCacheSnapshotQuotaExceededFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheDeleteReplicationGroupResult|any) => void): Request;
-      deleteSnapshot(params: ElastiCacheDeleteSnapshotMessage, callback?: (err: ElastiCacheSnapshotNotFoundFault|ElastiCacheInvalidSnapshotStateFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheDeleteSnapshotResult|any) => void): Request;
-      describeCacheClusters(params: ElastiCacheDescribeCacheClustersMessage, callback?: (err: ElastiCacheCacheClusterNotFoundFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheCacheClusterMessage|any) => void): Request;
-      describeCacheEngineVersions(params: ElastiCacheDescribeCacheEngineVersionsMessage, callback?: (err: any, data: ElastiCacheCacheEngineVersionMessage|any) => void): Request;
-      describeCacheParameterGroups(params: ElastiCacheDescribeCacheParameterGroupsMessage, callback?: (err: ElastiCacheCacheParameterGroupNotFoundFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheCacheParameterGroupsMessage|any) => void): Request;
-      describeCacheParameters(params: ElastiCacheDescribeCacheParametersMessage, callback?: (err: ElastiCacheCacheParameterGroupNotFoundFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheCacheParameterGroupDetails|any) => void): Request;
-      describeCacheSecurityGroups(params: ElastiCacheDescribeCacheSecurityGroupsMessage, callback?: (err: ElastiCacheCacheSecurityGroupNotFoundFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheCacheSecurityGroupMessage|any) => void): Request;
-      describeCacheSubnetGroups(params: ElastiCacheDescribeCacheSubnetGroupsMessage, callback?: (err: ElastiCacheCacheSubnetGroupNotFoundFault|any, data: ElastiCacheCacheSubnetGroupMessage|any) => void): Request;
-      describeEngineDefaultParameters(params: ElastiCacheDescribeEngineDefaultParametersMessage, callback?: (err: ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheDescribeEngineDefaultParametersResult|any) => void): Request;
-      describeEvents(params: ElastiCacheDescribeEventsMessage, callback?: (err: ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheEventsMessage|any) => void): Request;
-      describeReplicationGroups(params: ElastiCacheDescribeReplicationGroupsMessage, callback?: (err: ElastiCacheReplicationGroupNotFoundFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheReplicationGroupMessage|any) => void): Request;
-      describeReservedCacheNodes(params: ElastiCacheDescribeReservedCacheNodesMessage, callback?: (err: ElastiCacheReservedCacheNodeNotFoundFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheReservedCacheNodeMessage|any) => void): Request;
-      describeReservedCacheNodesOfferings(params: ElastiCacheDescribeReservedCacheNodesOfferingsMessage, callback?: (err: ElastiCacheReservedCacheNodesOfferingNotFoundFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheReservedCacheNodesOfferingMessage|any) => void): Request;
-      describeSnapshots(params: ElastiCacheDescribeSnapshotsMessage, callback?: (err: ElastiCacheCacheClusterNotFoundFault|ElastiCacheSnapshotNotFoundFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheDescribeSnapshotsListMessage|any) => void): Request;
-      listTagsForResource(params: ElastiCacheListTagsForResourceMessage, callback?: (err: ElastiCacheCacheClusterNotFoundFault|ElastiCacheSnapshotNotFoundFault|ElastiCacheInvalidARNFault|any, data: ElastiCacheTagListMessage|any) => void): Request;
-      modifyCacheCluster(params: ElastiCacheModifyCacheClusterMessage, callback?: (err: ElastiCacheInvalidCacheClusterStateFault|ElastiCacheInvalidCacheSecurityGroupStateFault|ElastiCacheInsufficientCacheClusterCapacityFault|ElastiCacheCacheClusterNotFoundFault|ElastiCacheNodeQuotaForClusterExceededFault|ElastiCacheNodeQuotaForCustomerExceededFault|ElastiCacheCacheSecurityGroupNotFoundFault|ElastiCacheCacheParameterGroupNotFoundFault|ElastiCacheInvalidVPCNetworkStateFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheModifyCacheClusterResult|any) => void): Request;
-      modifyCacheParameterGroup(params: ElastiCacheModifyCacheParameterGroupMessage, callback?: (err: ElastiCacheCacheParameterGroupNotFoundFault|ElastiCacheInvalidCacheParameterGroupStateFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheCacheParameterGroupNameMessage|any) => void): Request;
-      modifyCacheSubnetGroup(params: ElastiCacheModifyCacheSubnetGroupMessage, callback?: (err: ElastiCacheCacheSubnetGroupNotFoundFault|ElastiCacheCacheSubnetQuotaExceededFault|ElastiCacheSubnetInUse|ElastiCacheInvalidSubnet|any, data: ElastiCacheModifyCacheSubnetGroupResult|any) => void): Request;
-      modifyReplicationGroup(params: ElastiCacheModifyReplicationGroupMessage, callback?: (err: ElastiCacheReplicationGroupNotFoundFault|ElastiCacheInvalidReplicationGroupStateFault|ElastiCacheInvalidCacheClusterStateFault|ElastiCacheInvalidCacheSecurityGroupStateFault|ElastiCacheInsufficientCacheClusterCapacityFault|ElastiCacheCacheClusterNotFoundFault|ElastiCacheNodeQuotaForClusterExceededFault|ElastiCacheNodeQuotaForCustomerExceededFault|ElastiCacheCacheSecurityGroupNotFoundFault|ElastiCacheCacheParameterGroupNotFoundFault|ElastiCacheInvalidVPCNetworkStateFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheModifyReplicationGroupResult|any) => void): Request;
-      purchaseReservedCacheNodesOffering(params: ElastiCachePurchaseReservedCacheNodesOfferingMessage, callback?: (err: ElastiCacheReservedCacheNodesOfferingNotFoundFault|ElastiCacheReservedCacheNodeAlreadyExistsFault|ElastiCacheReservedCacheNodeQuotaExceededFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCachePurchaseReservedCacheNodesOfferingResult|any) => void): Request;
-      rebootCacheCluster(params: ElastiCacheRebootCacheClusterMessage, callback?: (err: ElastiCacheInvalidCacheClusterStateFault|ElastiCacheCacheClusterNotFoundFault|any, data: ElastiCacheRebootCacheClusterResult|any) => void): Request;
-      removeTagsFromResource(params: ElastiCacheRemoveTagsFromResourceMessage, callback?: (err: ElastiCacheCacheClusterNotFoundFault|ElastiCacheSnapshotNotFoundFault|ElastiCacheInvalidARNFault|ElastiCacheTagNotFoundFault|any, data: ElastiCacheTagListMessage|any) => void): Request;
-      resetCacheParameterGroup(params: ElastiCacheResetCacheParameterGroupMessage, callback?: (err: ElastiCacheInvalidCacheParameterGroupStateFault|ElastiCacheCacheParameterGroupNotFoundFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheCacheParameterGroupNameMessage|any) => void): Request;
-      revokeCacheSecurityGroupIngress(params: ElastiCacheRevokeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCacheCacheSecurityGroupNotFoundFault|ElastiCacheAuthorizationNotFoundFault|ElastiCacheInvalidCacheSecurityGroupStateFault|ElastiCacheInvalidParameterValueException|ElastiCacheInvalidParameterCombinationException|any, data: ElastiCacheRevokeCacheSecurityGroupIngressResult|any) => void): Request;
-    }
-
-    export type ElastiCacheAZMode = string;
-    export interface ElastiCacheAddTagsToResourceMessage {
-        ResourceName: ElastiCacheString;
-        Tags: ElastiCacheTagList;
-    }
-
-    export interface ElastiCacheAuthorizationAlreadyExistsFault {
-    }
-
-    export interface ElastiCacheAuthorizationNotFoundFault {
-    }
-
-    export interface ElastiCacheAuthorizeCacheSecurityGroupIngressMessage {
-        CacheSecurityGroupName: ElastiCacheString;
-        EC2SecurityGroupName: ElastiCacheString;
-        EC2SecurityGroupOwnerId: ElastiCacheString;
-    }
-
-    export type ElastiCacheAutomaticFailoverStatus = string;
-    export interface ElastiCacheAvailabilityZone {
-        Name?: ElastiCacheString;
-    }
-
-    export type ElastiCacheAvailabilityZonesList = Array<ElastiCacheString>;
-    export type ElastiCacheAwsQueryErrorMessage = string;
-    export type ElastiCacheBoolean = boolean;
-    export type ElastiCacheBooleanOptional = boolean;
-    export interface ElastiCacheCacheCluster {
-        CacheClusterId?: ElastiCacheString;
-        ConfigurationEndpoint?: ElastiCacheEndpoint;
-        ClientDownloadLandingPage?: ElastiCacheString;
-        CacheNodeType?: ElastiCacheString;
-        Engine?: ElastiCacheString;
-        EngineVersion?: ElastiCacheString;
-        CacheClusterStatus?: ElastiCacheString;
-        NumCacheNodes?: ElastiCacheIntegerOptional;
-        PreferredAvailabilityZone?: ElastiCacheString;
-        CacheClusterCreateTime?: ElastiCacheTStamp;
-        PreferredMaintenanceWindow?: ElastiCacheString;
-        PendingModifiedValues?: ElastiCachePendingModifiedValues;
-        NotificationConfiguration?: ElastiCacheNotificationConfiguration;
-        CacheSecurityGroups?: ElastiCacheCacheSecurityGroupMembershipList;
-        CacheParameterGroup?: ElastiCacheCacheParameterGroupStatus;
-        CacheSubnetGroupName?: ElastiCacheString;
-        CacheNodes?: ElastiCacheCacheNodeList;
-        AutoMinorVersionUpgrade?: ElastiCacheBoolean;
-        SecurityGroups?: ElastiCacheSecurityGroupMembershipList;
-        ReplicationGroupId?: ElastiCacheString;
-        SnapshotRetentionLimit?: ElastiCacheIntegerOptional;
-        SnapshotWindow?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheCacheClusterAlreadyExistsFault {
-    }
-
-    export type ElastiCacheCacheClusterList = Array<ElastiCacheCacheCluster>;
-    export interface ElastiCacheCacheClusterMessage {
-        Marker?: ElastiCacheString;
-        CacheClusters?: ElastiCacheCacheClusterList;
-    }
-
-    export interface ElastiCacheCacheClusterNotFoundFault {
-    }
-
-    export interface ElastiCacheCacheEngineVersion {
-        Engine?: ElastiCacheString;
-        EngineVersion?: ElastiCacheString;
-        CacheParameterGroupFamily?: ElastiCacheString;
-        CacheEngineDescription?: ElastiCacheString;
-        CacheEngineVersionDescription?: ElastiCacheString;
-    }
-
-    export type ElastiCacheCacheEngineVersionList = Array<ElastiCacheCacheEngineVersion>;
-    export interface ElastiCacheCacheEngineVersionMessage {
-        Marker?: ElastiCacheString;
-        CacheEngineVersions?: ElastiCacheCacheEngineVersionList;
-    }
-
-    export interface ElastiCacheCacheNode {
-        CacheNodeId?: ElastiCacheString;
-        CacheNodeStatus?: ElastiCacheString;
-        CacheNodeCreateTime?: ElastiCacheTStamp;
-        Endpoint?: ElastiCacheEndpoint;
-        ParameterGroupStatus?: ElastiCacheString;
-        SourceCacheNodeId?: ElastiCacheString;
-        CustomerAvailabilityZone?: ElastiCacheString;
-    }
-
-    export type ElastiCacheCacheNodeIdsList = Array<ElastiCacheString>;
-    export type ElastiCacheCacheNodeList = Array<ElastiCacheCacheNode>;
-    export interface ElastiCacheCacheNodeTypeSpecificParameter {
-        ParameterName?: ElastiCacheString;
-        Description?: ElastiCacheString;
-        Source?: ElastiCacheString;
-        DataType?: ElastiCacheString;
-        AllowedValues?: ElastiCacheString;
-        IsModifiable?: ElastiCacheBoolean;
-        MinimumEngineVersion?: ElastiCacheString;
-        CacheNodeTypeSpecificValues?: ElastiCacheCacheNodeTypeSpecificValueList;
-    }
-
-    export type ElastiCacheCacheNodeTypeSpecificParametersList = Array<ElastiCacheCacheNodeTypeSpecificParameter>;
-    export interface ElastiCacheCacheNodeTypeSpecificValue {
-        CacheNodeType?: ElastiCacheString;
-        Value?: ElastiCacheString;
-    }
-
-    export type ElastiCacheCacheNodeTypeSpecificValueList = Array<ElastiCacheCacheNodeTypeSpecificValue>;
-    export interface ElastiCacheCacheParameterGroup {
-        CacheParameterGroupName?: ElastiCacheString;
-        CacheParameterGroupFamily?: ElastiCacheString;
-        Description?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheCacheParameterGroupAlreadyExistsFault {
-    }
-
-    export interface ElastiCacheCacheParameterGroupDetails {
-        Marker?: ElastiCacheString;
-        Parameters?: ElastiCacheParametersList;
-        CacheNodeTypeSpecificParameters?: ElastiCacheCacheNodeTypeSpecificParametersList;
-    }
-
-    export type ElastiCacheCacheParameterGroupList = Array<ElastiCacheCacheParameterGroup>;
-    export interface ElastiCacheCacheParameterGroupNameMessage {
-        CacheParameterGroupName?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheCacheParameterGroupNotFoundFault {
-    }
-
-    export interface ElastiCacheCacheParameterGroupQuotaExceededFault {
-    }
-
-    export interface ElastiCacheCacheParameterGroupStatus {
-        CacheParameterGroupName?: ElastiCacheString;
-        ParameterApplyStatus?: ElastiCacheString;
-        CacheNodeIdsToReboot?: ElastiCacheCacheNodeIdsList;
-    }
-
-    export interface ElastiCacheCacheParameterGroupsMessage {
-        Marker?: ElastiCacheString;
-        CacheParameterGroups?: ElastiCacheCacheParameterGroupList;
-    }
-
-    export interface ElastiCacheCacheSecurityGroup {
-        OwnerId?: ElastiCacheString;
-        CacheSecurityGroupName?: ElastiCacheString;
-        Description?: ElastiCacheString;
-        EC2SecurityGroups?: ElastiCacheEC2SecurityGroupList;
-    }
-
-    export interface ElastiCacheCacheSecurityGroupAlreadyExistsFault {
-    }
-
-    export interface ElastiCacheCacheSecurityGroupMembership {
-        CacheSecurityGroupName?: ElastiCacheString;
-        Status?: ElastiCacheString;
-    }
-
-    export type ElastiCacheCacheSecurityGroupMembershipList = Array<ElastiCacheCacheSecurityGroupMembership>;
-    export interface ElastiCacheCacheSecurityGroupMessage {
-        Marker?: ElastiCacheString;
-        CacheSecurityGroups?: ElastiCacheCacheSecurityGroups;
-    }
-
-    export type ElastiCacheCacheSecurityGroupNameList = Array<ElastiCacheString>;
-    export interface ElastiCacheCacheSecurityGroupNotFoundFault {
-    }
-
-    export interface ElastiCacheCacheSecurityGroupQuotaExceededFault {
-    }
-
-    export type ElastiCacheCacheSecurityGroups = Array<ElastiCacheCacheSecurityGroup>;
-    export interface ElastiCacheCacheSubnetGroup {
-        CacheSubnetGroupName?: ElastiCacheString;
-        CacheSubnetGroupDescription?: ElastiCacheString;
-        VpcId?: ElastiCacheString;
-        Subnets?: ElastiCacheSubnetList;
-    }
-
-    export interface ElastiCacheCacheSubnetGroupAlreadyExistsFault {
-    }
-
-    export interface ElastiCacheCacheSubnetGroupInUse {
-    }
-
-    export interface ElastiCacheCacheSubnetGroupMessage {
-        Marker?: ElastiCacheString;
-        CacheSubnetGroups?: ElastiCacheCacheSubnetGroups;
-    }
-
-    export interface ElastiCacheCacheSubnetGroupNotFoundFault {
-    }
-
-    export interface ElastiCacheCacheSubnetGroupQuotaExceededFault {
-    }
-
-    export type ElastiCacheCacheSubnetGroups = Array<ElastiCacheCacheSubnetGroup>;
-    export interface ElastiCacheCacheSubnetQuotaExceededFault {
-    }
-
-    export type ElastiCacheClusterIdList = Array<ElastiCacheString>;
-    export interface ElastiCacheClusterQuotaForCustomerExceededFault {
-    }
-
-    export interface ElastiCacheCopySnapshotMessage {
-        SourceSnapshotName: ElastiCacheString;
-        TargetSnapshotName: ElastiCacheString;
-    }
-
-    export interface ElastiCacheCreateCacheClusterMessage {
-        CacheClusterId: ElastiCacheString;
-        ReplicationGroupId?: ElastiCacheString;
-        AZMode?: ElastiCacheAZMode;
-        PreferredAvailabilityZone?: ElastiCacheString;
-        PreferredAvailabilityZones?: ElastiCachePreferredAvailabilityZoneList;
-        NumCacheNodes?: ElastiCacheIntegerOptional;
-        CacheNodeType?: ElastiCacheString;
-        Engine?: ElastiCacheString;
-        EngineVersion?: ElastiCacheString;
-        CacheParameterGroupName?: ElastiCacheString;
-        CacheSubnetGroupName?: ElastiCacheString;
-        CacheSecurityGroupNames?: ElastiCacheCacheSecurityGroupNameList;
-        SecurityGroupIds?: ElastiCacheSecurityGroupIdsList;
-        Tags?: ElastiCacheTagList;
-        SnapshotArns?: ElastiCacheSnapshotArnsList;
-        SnapshotName?: ElastiCacheString;
-        PreferredMaintenanceWindow?: ElastiCacheString;
-        Port?: ElastiCacheIntegerOptional;
-        NotificationTopicArn?: ElastiCacheString;
-        AutoMinorVersionUpgrade?: ElastiCacheBooleanOptional;
-        SnapshotRetentionLimit?: ElastiCacheIntegerOptional;
-        SnapshotWindow?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheCreateCacheParameterGroupMessage {
-        CacheParameterGroupName: ElastiCacheString;
-        CacheParameterGroupFamily: ElastiCacheString;
-        Description: ElastiCacheString;
-    }
-
-    export interface ElastiCacheCreateCacheSecurityGroupMessage {
-        CacheSecurityGroupName: ElastiCacheString;
-        Description: ElastiCacheString;
-    }
-
-    export interface ElastiCacheCreateCacheSubnetGroupMessage {
-        CacheSubnetGroupName: ElastiCacheString;
-        CacheSubnetGroupDescription: ElastiCacheString;
-        SubnetIds: ElastiCacheSubnetIdentifierList;
-    }
-
-    export interface ElastiCacheCreateReplicationGroupMessage {
-        ReplicationGroupId: ElastiCacheString;
-        ReplicationGroupDescription: ElastiCacheString;
-        PrimaryClusterId?: ElastiCacheString;
-        AutomaticFailoverEnabled?: ElastiCacheBooleanOptional;
-        NumCacheClusters?: ElastiCacheIntegerOptional;
-        PreferredCacheClusterAZs?: ElastiCacheAvailabilityZonesList;
-        CacheNodeType?: ElastiCacheString;
-        Engine?: ElastiCacheString;
-        EngineVersion?: ElastiCacheString;
-        CacheParameterGroupName?: ElastiCacheString;
-        CacheSubnetGroupName?: ElastiCacheString;
-        CacheSecurityGroupNames?: ElastiCacheCacheSecurityGroupNameList;
-        SecurityGroupIds?: ElastiCacheSecurityGroupIdsList;
-        Tags?: ElastiCacheTagList;
-        SnapshotArns?: ElastiCacheSnapshotArnsList;
-        SnapshotName?: ElastiCacheString;
-        PreferredMaintenanceWindow?: ElastiCacheString;
-        Port?: ElastiCacheIntegerOptional;
-        NotificationTopicArn?: ElastiCacheString;
-        AutoMinorVersionUpgrade?: ElastiCacheBooleanOptional;
-        SnapshotRetentionLimit?: ElastiCacheIntegerOptional;
-        SnapshotWindow?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheCreateSnapshotMessage {
-        CacheClusterId: ElastiCacheString;
-        SnapshotName: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDeleteCacheClusterMessage {
-        CacheClusterId: ElastiCacheString;
-        FinalSnapshotIdentifier?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDeleteCacheParameterGroupMessage {
-        CacheParameterGroupName: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDeleteCacheSecurityGroupMessage {
-        CacheSecurityGroupName: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDeleteCacheSubnetGroupMessage {
-        CacheSubnetGroupName: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDeleteReplicationGroupMessage {
-        ReplicationGroupId: ElastiCacheString;
-        RetainPrimaryCluster?: ElastiCacheBooleanOptional;
-        FinalSnapshotIdentifier?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDeleteSnapshotMessage {
-        SnapshotName: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDescribeCacheClustersMessage {
-        CacheClusterId?: ElastiCacheString;
-        MaxRecords?: ElastiCacheIntegerOptional;
-        Marker?: ElastiCacheString;
-        ShowCacheNodeInfo?: ElastiCacheBooleanOptional;
-    }
-
-    export interface ElastiCacheDescribeCacheEngineVersionsMessage {
-        Engine?: ElastiCacheString;
-        EngineVersion?: ElastiCacheString;
-        CacheParameterGroupFamily?: ElastiCacheString;
-        MaxRecords?: ElastiCacheIntegerOptional;
-        Marker?: ElastiCacheString;
-        DefaultOnly?: ElastiCacheBoolean;
-    }
-
-    export interface ElastiCacheDescribeCacheParameterGroupsMessage {
-        CacheParameterGroupName?: ElastiCacheString;
-        MaxRecords?: ElastiCacheIntegerOptional;
-        Marker?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDescribeCacheParametersMessage {
-        CacheParameterGroupName: ElastiCacheString;
-        Source?: ElastiCacheString;
-        MaxRecords?: ElastiCacheIntegerOptional;
-        Marker?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDescribeCacheSecurityGroupsMessage {
-        CacheSecurityGroupName?: ElastiCacheString;
-        MaxRecords?: ElastiCacheIntegerOptional;
-        Marker?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDescribeCacheSubnetGroupsMessage {
-        CacheSubnetGroupName?: ElastiCacheString;
-        MaxRecords?: ElastiCacheIntegerOptional;
-        Marker?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDescribeEngineDefaultParametersMessage {
-        CacheParameterGroupFamily: ElastiCacheString;
-        MaxRecords?: ElastiCacheIntegerOptional;
-        Marker?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDescribeEventsMessage {
-        SourceIdentifier?: ElastiCacheString;
-        SourceType?: ElastiCacheSourceType;
-        StartTime?: ElastiCacheTStamp;
-        EndTime?: ElastiCacheTStamp;
-        Duration?: ElastiCacheIntegerOptional;
-        MaxRecords?: ElastiCacheIntegerOptional;
-        Marker?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDescribeReplicationGroupsMessage {
-        ReplicationGroupId?: ElastiCacheString;
-        MaxRecords?: ElastiCacheIntegerOptional;
-        Marker?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDescribeReservedCacheNodesMessage {
-        ReservedCacheNodeId?: ElastiCacheString;
-        ReservedCacheNodesOfferingId?: ElastiCacheString;
-        CacheNodeType?: ElastiCacheString;
-        Duration?: ElastiCacheString;
-        ProductDescription?: ElastiCacheString;
-        OfferingType?: ElastiCacheString;
-        MaxRecords?: ElastiCacheIntegerOptional;
-        Marker?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDescribeReservedCacheNodesOfferingsMessage {
-        ReservedCacheNodesOfferingId?: ElastiCacheString;
-        CacheNodeType?: ElastiCacheString;
-        Duration?: ElastiCacheString;
-        ProductDescription?: ElastiCacheString;
-        OfferingType?: ElastiCacheString;
-        MaxRecords?: ElastiCacheIntegerOptional;
-        Marker?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheDescribeSnapshotsListMessage {
-        Marker?: ElastiCacheString;
-        Snapshots?: ElastiCacheSnapshotList;
-    }
-
-    export interface ElastiCacheDescribeSnapshotsMessage {
-        CacheClusterId?: ElastiCacheString;
-        SnapshotName?: ElastiCacheString;
-        SnapshotSource?: ElastiCacheString;
-        Marker?: ElastiCacheString;
-        MaxRecords?: ElastiCacheIntegerOptional;
-    }
-
-    export type ElastiCacheDouble = number;
-    export interface ElastiCacheEC2SecurityGroup {
-        Status?: ElastiCacheString;
-        EC2SecurityGroupName?: ElastiCacheString;
-        EC2SecurityGroupOwnerId?: ElastiCacheString;
-    }
-
-    export type ElastiCacheEC2SecurityGroupList = Array<ElastiCacheEC2SecurityGroup>;
-    export interface ElastiCacheEndpoint {
-        Address?: ElastiCacheString;
-        Port?: ElastiCacheInteger;
-    }
-
-    export interface ElastiCacheEngineDefaults {
-        CacheParameterGroupFamily?: ElastiCacheString;
-        Marker?: ElastiCacheString;
-        Parameters?: ElastiCacheParametersList;
-        CacheNodeTypeSpecificParameters?: ElastiCacheCacheNodeTypeSpecificParametersList;
-    }
-
-    export interface ElastiCacheEvent {
-        SourceIdentifier?: ElastiCacheString;
-        SourceType?: ElastiCacheSourceType;
-        Message?: ElastiCacheString;
-        Date?: ElastiCacheTStamp;
-    }
-
-    export type ElastiCacheEventList = Array<ElastiCacheEvent>;
-    export interface ElastiCacheEventsMessage {
-        Marker?: ElastiCacheString;
-        Events?: ElastiCacheEventList;
-    }
-
-    export interface ElastiCacheInsufficientCacheClusterCapacityFault {
-    }
-
-    export type ElastiCacheInteger = number;
-    export type ElastiCacheIntegerOptional = number;
-    export interface ElastiCacheInvalidARNFault {
-    }
-
-    export interface ElastiCacheInvalidCacheClusterStateFault {
-    }
+      addTagsToResource(params: ElastiCache.AddTagsToResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidARNFault|any, data: ElastiCache.TagListMessage|any) => void): Request;
+      authorizeCacheSecurityGroupIngress(params: ElastiCache.AuthorizeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.AuthorizationAlreadyExistsFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.AuthorizeCacheSecurityGroupIngressResult|any) => void): Request;
+      copySnapshot(params: ElastiCache.CopySnapshotMessage, callback?: (err: ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CopySnapshotResult|any) => void): Request;
+      createCacheCluster(params: ElastiCache.CreateCacheClusterMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.CacheClusterAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheClusterResult|any) => void): Request;
+      createCacheParameterGroup(params: ElastiCache.CreateCacheParameterGroupMessage, callback?: (err: ElastiCache.CacheParameterGroupQuotaExceededFault|ElastiCache.CacheParameterGroupAlreadyExistsFault|ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheParameterGroupResult|any) => void): Request;
+      createCacheSecurityGroup(params: ElastiCache.CreateCacheSecurityGroupMessage, callback?: (err: ElastiCache.CacheSecurityGroupAlreadyExistsFault|ElastiCache.CacheSecurityGroupQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheSecurityGroupResult|any) => void): Request;
+      createCacheSubnetGroup(params: ElastiCache.CreateCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupAlreadyExistsFault|ElastiCache.CacheSubnetGroupQuotaExceededFault|ElastiCache.CacheSubnetQuotaExceededFault|ElastiCache.InvalidSubnet|any, data: ElastiCache.CreateCacheSubnetGroupResult|any) => void): Request;
+      createReplicationGroup(params: ElastiCache.CreateReplicationGroupMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.ReplicationGroupAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateReplicationGroupResult|any) => void): Request;
+      createSnapshot(params: ElastiCache.CreateSnapshotMessage, callback?: (err: ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any, data: ElastiCache.CreateSnapshotResult|any) => void): Request;
+      deleteCacheCluster(params: ElastiCache.DeleteCacheClusterMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteCacheClusterResult|any) => void): Request;
+      deleteCacheParameterGroup(params: ElastiCache.DeleteCacheParameterGroupMessage, callback?: (err: ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: any) => void): Request;
+      deleteCacheSecurityGroup(params: ElastiCache.DeleteCacheSecurityGroupMessage, callback?: (err: ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: any) => void): Request;
+      deleteCacheSubnetGroup(params: ElastiCache.DeleteCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupInUse|ElastiCache.CacheSubnetGroupNotFoundFault|any, data: any) => void): Request;
+      deleteReplicationGroup(params: ElastiCache.DeleteReplicationGroupMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteReplicationGroupResult|any) => void): Request;
+      deleteSnapshot(params: ElastiCache.DeleteSnapshotMessage, callback?: (err: ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteSnapshotResult|any) => void): Request;
+      describeCacheClusters(params: ElastiCache.DescribeCacheClustersMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheClusterMessage|any) => void): Request;
+      describeCacheEngineVersions(params: ElastiCache.DescribeCacheEngineVersionsMessage, callback?: (err: any, data: ElastiCache.CacheEngineVersionMessage|any) => void): Request;
+      describeCacheParameterGroups(params: ElastiCache.DescribeCacheParameterGroupsMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupsMessage|any) => void): Request;
+      describeCacheParameters(params: ElastiCache.DescribeCacheParametersMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupDetails|any) => void): Request;
+      describeCacheSecurityGroups(params: ElastiCache.DescribeCacheSecurityGroupsMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheSecurityGroupMessage|any) => void): Request;
+      describeCacheSubnetGroups(params: ElastiCache.DescribeCacheSubnetGroupsMessage, callback?: (err: ElastiCache.CacheSubnetGroupNotFoundFault|any, data: ElastiCache.CacheSubnetGroupMessage|any) => void): Request;
+      describeEngineDefaultParameters(params: ElastiCache.DescribeEngineDefaultParametersMessage, callback?: (err: ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DescribeEngineDefaultParametersResult|any) => void): Request;
+      describeEvents(params: ElastiCache.DescribeEventsMessage, callback?: (err: ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.EventsMessage|any) => void): Request;
+      describeReplicationGroups(params: ElastiCache.DescribeReplicationGroupsMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReplicationGroupMessage|any) => void): Request;
+      describeReservedCacheNodes(params: ElastiCache.DescribeReservedCacheNodesMessage, callback?: (err: ElastiCache.ReservedCacheNodeNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReservedCacheNodeMessage|any) => void): Request;
+      describeReservedCacheNodesOfferings(params: ElastiCache.DescribeReservedCacheNodesOfferingsMessage, callback?: (err: ElastiCache.ReservedCacheNodesOfferingNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReservedCacheNodesOfferingMessage|any) => void): Request;
+      describeSnapshots(params: ElastiCache.DescribeSnapshotsMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DescribeSnapshotsListMessage|any) => void): Request;
+      listTagsForResource(params: ElastiCache.ListTagsForResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|any, data: ElastiCache.TagListMessage|any) => void): Request;
+      modifyCacheCluster(params: ElastiCache.ModifyCacheClusterMessage, callback?: (err: ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ModifyCacheClusterResult|any) => void): Request;
+      modifyCacheParameterGroup(params: ElastiCache.ModifyCacheParameterGroupMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupNameMessage|any) => void): Request;
+      modifyCacheSubnetGroup(params: ElastiCache.ModifyCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.CacheSubnetQuotaExceededFault|ElastiCache.SubnetInUse|ElastiCache.InvalidSubnet|any, data: ElastiCache.ModifyCacheSubnetGroupResult|any) => void): Request;
+      modifyReplicationGroup(params: ElastiCache.ModifyReplicationGroupMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ModifyReplicationGroupResult|any) => void): Request;
+      purchaseReservedCacheNodesOffering(params: ElastiCache.PurchaseReservedCacheNodesOfferingMessage, callback?: (err: ElastiCache.ReservedCacheNodesOfferingNotFoundFault|ElastiCache.ReservedCacheNodeAlreadyExistsFault|ElastiCache.ReservedCacheNodeQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.PurchaseReservedCacheNodesOfferingResult|any) => void): Request;
+      rebootCacheCluster(params: ElastiCache.RebootCacheClusterMessage, callback?: (err: ElastiCache.InvalidCacheClusterStateFault|ElastiCache.CacheClusterNotFoundFault|any, data: ElastiCache.RebootCacheClusterResult|any) => void): Request;
+      removeTagsFromResource(params: ElastiCache.RemoveTagsFromResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|ElastiCache.TagNotFoundFault|any, data: ElastiCache.TagListMessage|any) => void): Request;
+      resetCacheParameterGroup(params: ElastiCache.ResetCacheParameterGroupMessage, callback?: (err: ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupNameMessage|any) => void): Request;
+      revokeCacheSecurityGroupIngress(params: ElastiCache.RevokeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.AuthorizationNotFoundFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.RevokeCacheSecurityGroupIngressResult|any) => void): Request;
+    }
+    
+    export module ElastiCache {
+        export type AZMode = string;
+        export type AutomaticFailoverStatus = string;
+        export type AvailabilityZonesList = String[];
+        export type AwsQueryErrorMessage = string;
+        export type Boolean = boolean;
+        export type BooleanOptional = boolean;
+        export type CacheClusterList = CacheCluster[];
+        export type CacheEngineVersionList = CacheEngineVersion[];
+        export type CacheNodeIdsList = String[];
+        export type CacheNodeList = CacheNode[];
+        export type CacheNodeTypeSpecificParametersList = CacheNodeTypeSpecificParameter[];
+        export type CacheNodeTypeSpecificValueList = CacheNodeTypeSpecificValue[];
+        export type CacheParameterGroupList = CacheParameterGroup[];
+        export type CacheSecurityGroupMembershipList = CacheSecurityGroupMembership[];
+        export type CacheSecurityGroupNameList = String[];
+        export type CacheSecurityGroups = CacheSecurityGroup[];
+        export type CacheSubnetGroups = CacheSubnetGroup[];
+        export type ClusterIdList = String[];
+        export type Double = number;
+        export type EC2SecurityGroupList = EC2SecurityGroup[];
+        export type EventList = Event[];
+        export type Integer = number;
+        export type IntegerOptional = number;
+        export type KeyList = String[];
+        export type NodeGroupList = NodeGroup[];
+        export type NodeGroupMemberList = NodeGroupMember[];
+        export type NodeSnapshotList = NodeSnapshot[];
+        export type ParameterNameValueList = ParameterNameValue[];
+        export type ParametersList = Parameter[];
+        export type PendingAutomaticFailoverStatus = string;
+        export type PreferredAvailabilityZoneList = String[];
+        export type RecurringChargeList = RecurringCharge[];
+        export type ReplicationGroupList = ReplicationGroup[];
+        export type ReservedCacheNodeList = ReservedCacheNode[];
+        export type ReservedCacheNodesOfferingList = ReservedCacheNodesOffering[];
+        export type SecurityGroupIdsList = String[];
+        export type SecurityGroupMembershipList = SecurityGroupMembership[];
+        export type SnapshotArnsList = String[];
+        export type SnapshotList = Snapshot[];
+        export type SourceType = string;
+        export type String = string;
+        export type SubnetIdentifierList = String[];
+        export type SubnetList = Subnet[];
+        export type TStamp = number;
+        export type TagList = Tag[];
+
+        export interface AddTagsToResourceMessage {
+            ResourceName: String;            
+            Tags: TagList;            
+        }
+        export interface AuthorizationAlreadyExistsFault {
+        }
+        export interface AuthorizationNotFoundFault {
+        }
+        export interface AuthorizeCacheSecurityGroupIngressMessage {
+            CacheSecurityGroupName: String;            
+            EC2SecurityGroupName: String;            
+            EC2SecurityGroupOwnerId: String;            
+        }
+        export interface AvailabilityZone {
+            Name?: String;            
+        }
+        export interface CacheCluster {
+            CacheClusterId?: String;            
+            ConfigurationEndpoint?: Endpoint;            
+            ClientDownloadLandingPage?: String;            
+            CacheNodeType?: String;            
+            Engine?: String;            
+            EngineVersion?: String;            
+            CacheClusterStatus?: String;            
+            NumCacheNodes?: IntegerOptional;            
+            PreferredAvailabilityZone?: String;            
+            CacheClusterCreateTime?: TStamp;            
+            PreferredMaintenanceWindow?: String;            
+            PendingModifiedValues?: PendingModifiedValues;            
+            NotificationConfiguration?: NotificationConfiguration;            
+            CacheSecurityGroups?: CacheSecurityGroupMembershipList;            
+            CacheParameterGroup?: CacheParameterGroupStatus;            
+            CacheSubnetGroupName?: String;            
+            CacheNodes?: CacheNodeList;            
+            AutoMinorVersionUpgrade?: Boolean;            
+            SecurityGroups?: SecurityGroupMembershipList;            
+            ReplicationGroupId?: String;            
+            SnapshotRetentionLimit?: IntegerOptional;            
+            SnapshotWindow?: String;            
+        }
+        export interface CacheClusterAlreadyExistsFault {
+        }
+        export interface CacheClusterMessage {
+            Marker?: String;            
+            CacheClusters?: CacheClusterList;            
+        }
+        export interface CacheClusterNotFoundFault {
+        }
+        export interface CacheEngineVersion {
+            Engine?: String;            
+            EngineVersion?: String;            
+            CacheParameterGroupFamily?: String;            
+            CacheEngineDescription?: String;            
+            CacheEngineVersionDescription?: String;            
+        }
+        export interface CacheEngineVersionMessage {
+            Marker?: String;            
+            CacheEngineVersions?: CacheEngineVersionList;            
+        }
+        export interface CacheNode {
+            CacheNodeId?: String;            
+            CacheNodeStatus?: String;            
+            CacheNodeCreateTime?: TStamp;            
+            Endpoint?: Endpoint;            
+            ParameterGroupStatus?: String;            
+            SourceCacheNodeId?: String;            
+            CustomerAvailabilityZone?: String;            
+        }
+        export interface CacheNodeTypeSpecificParameter {
+            ParameterName?: String;            
+            Description?: String;            
+            Source?: String;            
+            DataType?: String;            
+            AllowedValues?: String;            
+            IsModifiable?: Boolean;            
+            MinimumEngineVersion?: String;            
+            CacheNodeTypeSpecificValues?: CacheNodeTypeSpecificValueList;            
+        }
+        export interface CacheNodeTypeSpecificValue {
+            CacheNodeType?: String;            
+            Value?: String;            
+        }
+        export interface CacheParameterGroup {
+            CacheParameterGroupName?: String;            
+            CacheParameterGroupFamily?: String;            
+            Description?: String;            
+        }
+        export interface CacheParameterGroupAlreadyExistsFault {
+        }
+        export interface CacheParameterGroupDetails {
+            Marker?: String;            
+            Parameters?: ParametersList;            
+            CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParametersList;            
+        }
+        export interface CacheParameterGroupNameMessage {
+            CacheParameterGroupName?: String;            
+        }
+        export interface CacheParameterGroupNotFoundFault {
+        }
+        export interface CacheParameterGroupQuotaExceededFault {
+        }
+        export interface CacheParameterGroupStatus {
+            CacheParameterGroupName?: String;            
+            ParameterApplyStatus?: String;            
+            CacheNodeIdsToReboot?: CacheNodeIdsList;            
+        }
+        export interface CacheParameterGroupsMessage {
+            Marker?: String;            
+            CacheParameterGroups?: CacheParameterGroupList;            
+        }
+        export interface CacheSecurityGroup {
+            OwnerId?: String;            
+            CacheSecurityGroupName?: String;            
+            Description?: String;            
+            EC2SecurityGroups?: EC2SecurityGroupList;            
+        }
+        export interface CacheSecurityGroupAlreadyExistsFault {
+        }
+        export interface CacheSecurityGroupMembership {
+            CacheSecurityGroupName?: String;            
+            Status?: String;            
+        }
+        export interface CacheSecurityGroupMessage {
+            Marker?: String;            
+            CacheSecurityGroups?: CacheSecurityGroups;            
+        }
+        export interface CacheSecurityGroupNotFoundFault {
+        }
+        export interface CacheSecurityGroupQuotaExceededFault {
+        }
+        export interface CacheSubnetGroup {
+            CacheSubnetGroupName?: String;            
+            CacheSubnetGroupDescription?: String;            
+            VpcId?: String;            
+            Subnets?: SubnetList;            
+        }
+        export interface CacheSubnetGroupAlreadyExistsFault {
+        }
+        export interface CacheSubnetGroupInUse {
+        }
+        export interface CacheSubnetGroupMessage {
+            Marker?: String;            
+            CacheSubnetGroups?: CacheSubnetGroups;            
+        }
+        export interface CacheSubnetGroupNotFoundFault {
+        }
+        export interface CacheSubnetGroupQuotaExceededFault {
+        }
+        export interface CacheSubnetQuotaExceededFault {
+        }
+        export interface ClusterQuotaForCustomerExceededFault {
+        }
+        export interface CopySnapshotMessage {
+            SourceSnapshotName: String;            
+            TargetSnapshotName: String;            
+        }
+        export interface CreateCacheClusterMessage {
+            CacheClusterId: String;            
+            ReplicationGroupId?: String;            
+            AZMode?: AZMode;            
+            PreferredAvailabilityZone?: String;            
+            PreferredAvailabilityZones?: PreferredAvailabilityZoneList;            
+            NumCacheNodes?: IntegerOptional;            
+            CacheNodeType?: String;            
+            Engine?: String;            
+            EngineVersion?: String;            
+            CacheParameterGroupName?: String;            
+            CacheSubnetGroupName?: String;            
+            CacheSecurityGroupNames?: CacheSecurityGroupNameList;            
+            SecurityGroupIds?: SecurityGroupIdsList;            
+            Tags?: TagList;            
+            SnapshotArns?: SnapshotArnsList;            
+            SnapshotName?: String;            
+            PreferredMaintenanceWindow?: String;            
+            Port?: IntegerOptional;            
+            NotificationTopicArn?: String;            
+            AutoMinorVersionUpgrade?: BooleanOptional;            
+            SnapshotRetentionLimit?: IntegerOptional;            
+            SnapshotWindow?: String;            
+        }
+        export interface CreateCacheParameterGroupMessage {
+            CacheParameterGroupName: String;            
+            CacheParameterGroupFamily: String;            
+            Description: String;            
+        }
+        export interface CreateCacheSecurityGroupMessage {
+            CacheSecurityGroupName: String;            
+            Description: String;            
+        }
+        export interface CreateCacheSubnetGroupMessage {
+            CacheSubnetGroupName: String;            
+            CacheSubnetGroupDescription: String;            
+            SubnetIds: SubnetIdentifierList;            
+        }
+        export interface CreateReplicationGroupMessage {
+            ReplicationGroupId: String;            
+            ReplicationGroupDescription: String;            
+            PrimaryClusterId?: String;            
+            AutomaticFailoverEnabled?: BooleanOptional;            
+            NumCacheClusters?: IntegerOptional;            
+            PreferredCacheClusterAZs?: AvailabilityZonesList;            
+            CacheNodeType?: String;            
+            Engine?: String;            
+            EngineVersion?: String;            
+            CacheParameterGroupName?: String;            
+            CacheSubnetGroupName?: String;            
+            CacheSecurityGroupNames?: CacheSecurityGroupNameList;            
+            SecurityGroupIds?: SecurityGroupIdsList;            
+            Tags?: TagList;            
+            SnapshotArns?: SnapshotArnsList;            
+            SnapshotName?: String;            
+            PreferredMaintenanceWindow?: String;            
+            Port?: IntegerOptional;            
+            NotificationTopicArn?: String;            
+            AutoMinorVersionUpgrade?: BooleanOptional;            
+            SnapshotRetentionLimit?: IntegerOptional;            
+            SnapshotWindow?: String;            
+        }
+        export interface CreateSnapshotMessage {
+            CacheClusterId: String;            
+            SnapshotName: String;            
+        }
+        export interface DeleteCacheClusterMessage {
+            CacheClusterId: String;            
+            FinalSnapshotIdentifier?: String;            
+        }
+        export interface DeleteCacheParameterGroupMessage {
+            CacheParameterGroupName: String;            
+        }
+        export interface DeleteCacheSecurityGroupMessage {
+            CacheSecurityGroupName: String;            
+        }
+        export interface DeleteCacheSubnetGroupMessage {
+            CacheSubnetGroupName: String;            
+        }
+        export interface DeleteReplicationGroupMessage {
+            ReplicationGroupId: String;            
+            RetainPrimaryCluster?: BooleanOptional;            
+            FinalSnapshotIdentifier?: String;            
+        }
+        export interface DeleteSnapshotMessage {
+            SnapshotName: String;            
+        }
+        export interface DescribeCacheClustersMessage {
+            CacheClusterId?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+            ShowCacheNodeInfo?: BooleanOptional;            
+        }
+        export interface DescribeCacheEngineVersionsMessage {
+            Engine?: String;            
+            EngineVersion?: String;            
+            CacheParameterGroupFamily?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+            DefaultOnly?: Boolean;            
+        }
+        export interface DescribeCacheParameterGroupsMessage {
+            CacheParameterGroupName?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeCacheParametersMessage {
+            CacheParameterGroupName: String;            
+            Source?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeCacheSecurityGroupsMessage {
+            CacheSecurityGroupName?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeCacheSubnetGroupsMessage {
+            CacheSubnetGroupName?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeEngineDefaultParametersMessage {
+            CacheParameterGroupFamily: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeEventsMessage {
+            SourceIdentifier?: String;            
+            SourceType?: SourceType;            
+            StartTime?: TStamp;            
+            EndTime?: TStamp;            
+            Duration?: IntegerOptional;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeReplicationGroupsMessage {
+            ReplicationGroupId?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeReservedCacheNodesMessage {
+            ReservedCacheNodeId?: String;            
+            ReservedCacheNodesOfferingId?: String;            
+            CacheNodeType?: String;            
+            Duration?: String;            
+            ProductDescription?: String;            
+            OfferingType?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeReservedCacheNodesOfferingsMessage {
+            ReservedCacheNodesOfferingId?: String;            
+            CacheNodeType?: String;            
+            Duration?: String;            
+            ProductDescription?: String;            
+            OfferingType?: String;            
+            MaxRecords?: IntegerOptional;            
+            Marker?: String;            
+        }
+        export interface DescribeSnapshotsListMessage {
+            Marker?: String;            
+            Snapshots?: SnapshotList;            
+        }
+        export interface DescribeSnapshotsMessage {
+            CacheClusterId?: String;            
+            SnapshotName?: String;            
+            SnapshotSource?: String;            
+            Marker?: String;            
+            MaxRecords?: IntegerOptional;            
+        }
+        export interface EC2SecurityGroup {
+            Status?: String;            
+            EC2SecurityGroupName?: String;            
+            EC2SecurityGroupOwnerId?: String;            
+        }
+        export interface Endpoint {
+            Address?: String;            
+            Port?: Integer;            
+        }
+        export interface EngineDefaults {
+            CacheParameterGroupFamily?: String;            
+            Marker?: String;            
+            Parameters?: ParametersList;            
+            CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParametersList;            
+        }
+        export interface Event {
+            SourceIdentifier?: String;            
+            SourceType?: SourceType;            
+            Message?: String;            
+            Date?: TStamp;            
+        }
+        export interface EventsMessage {
+            Marker?: String;            
+            Events?: EventList;            
+        }
+        export interface InsufficientCacheClusterCapacityFault {
+        }
+        export interface InvalidARNFault {
+        }
+        export interface InvalidCacheClusterStateFault {
+        }
+        export interface InvalidCacheParameterGroupStateFault {
+        }
+        export interface InvalidCacheSecurityGroupStateFault {
+        }
+        export interface InvalidParameterCombinationException {
+            message?: AwsQueryErrorMessage;            
+        }
+        export interface InvalidParameterValueException {
+            message?: AwsQueryErrorMessage;            
+        }
+        export interface InvalidReplicationGroupStateFault {
+        }
+        export interface InvalidSnapshotStateFault {
+        }
+        export interface InvalidSubnet {
+        }
+        export interface InvalidVPCNetworkStateFault {
+        }
+        export interface ListTagsForResourceMessage {
+            ResourceName: String;            
+        }
+        export interface ModifyCacheClusterMessage {
+            CacheClusterId: String;            
+            NumCacheNodes?: IntegerOptional;            
+            CacheNodeIdsToRemove?: CacheNodeIdsList;            
+            AZMode?: AZMode;            
+            NewAvailabilityZones?: PreferredAvailabilityZoneList;            
+            CacheSecurityGroupNames?: CacheSecurityGroupNameList;            
+            SecurityGroupIds?: SecurityGroupIdsList;            
+            PreferredMaintenanceWindow?: String;            
+            NotificationTopicArn?: String;            
+            CacheParameterGroupName?: String;            
+            NotificationTopicStatus?: String;            
+            ApplyImmediately?: Boolean;            
+            EngineVersion?: String;            
+            AutoMinorVersionUpgrade?: BooleanOptional;            
+            SnapshotRetentionLimit?: IntegerOptional;            
+            SnapshotWindow?: String;            
+        }
+        export interface ModifyCacheParameterGroupMessage {
+            CacheParameterGroupName: String;            
+            ParameterNameValues: ParameterNameValueList;            
+        }
+        export interface ModifyCacheSubnetGroupMessage {
+            CacheSubnetGroupName: String;            
+            CacheSubnetGroupDescription?: String;            
+            SubnetIds?: SubnetIdentifierList;            
+        }
+        export interface ModifyReplicationGroupMessage {
+            ReplicationGroupId: String;            
+            ReplicationGroupDescription?: String;            
+            PrimaryClusterId?: String;            
+            SnapshottingClusterId?: String;            
+            AutomaticFailoverEnabled?: BooleanOptional;            
+            CacheSecurityGroupNames?: CacheSecurityGroupNameList;            
+            SecurityGroupIds?: SecurityGroupIdsList;            
+            PreferredMaintenanceWindow?: String;            
+            NotificationTopicArn?: String;            
+            CacheParameterGroupName?: String;            
+            NotificationTopicStatus?: String;            
+            ApplyImmediately?: Boolean;            
+            EngineVersion?: String;            
+            AutoMinorVersionUpgrade?: BooleanOptional;            
+            SnapshotRetentionLimit?: IntegerOptional;            
+            SnapshotWindow?: String;            
+        }
+        export interface NodeGroup {
+            NodeGroupId?: String;            
+            Status?: String;            
+            PrimaryEndpoint?: Endpoint;            
+            NodeGroupMembers?: NodeGroupMemberList;            
+        }
+        export interface NodeGroupMember {
+            CacheClusterId?: String;            
+            CacheNodeId?: String;            
+            ReadEndpoint?: Endpoint;            
+            PreferredAvailabilityZone?: String;            
+            CurrentRole?: String;            
+        }
+        export interface NodeQuotaForClusterExceededFault {
+        }
+        export interface NodeQuotaForCustomerExceededFault {
+        }
+        export interface NodeSnapshot {
+            CacheNodeId?: String;            
+            CacheSize?: String;            
+            CacheNodeCreateTime?: TStamp;            
+            SnapshotCreateTime?: TStamp;            
+        }
+        export interface NotificationConfiguration {
+            TopicArn?: String;            
+            TopicStatus?: String;            
+        }
+        export interface Parameter {
+            ParameterName?: String;            
+            ParameterValue?: String;            
+            Description?: String;            
+            Source?: String;            
+            DataType?: String;            
+            AllowedValues?: String;            
+            IsModifiable?: Boolean;            
+            MinimumEngineVersion?: String;            
+        }
+        export interface ParameterNameValue {
+            ParameterName?: String;            
+            ParameterValue?: String;            
+        }
+        export interface PendingModifiedValues {
+            NumCacheNodes?: IntegerOptional;            
+            CacheNodeIdsToRemove?: CacheNodeIdsList;            
+            EngineVersion?: String;            
+        }
+        export interface PurchaseReservedCacheNodesOfferingMessage {
+            ReservedCacheNodesOfferingId: String;            
+            ReservedCacheNodeId?: String;            
+            CacheNodeCount?: IntegerOptional;            
+        }
+        export interface RebootCacheClusterMessage {
+            CacheClusterId: String;            
+            CacheNodeIdsToReboot: CacheNodeIdsList;            
+        }
+        export interface RecurringCharge {
+            RecurringChargeAmount?: Double;            
+            RecurringChargeFrequency?: String;            
+        }
+        export interface RemoveTagsFromResourceMessage {
+            ResourceName: String;            
+            TagKeys: KeyList;            
+        }
+        export interface ReplicationGroup {
+            ReplicationGroupId?: String;            
+            Description?: String;            
+            Status?: String;            
+            PendingModifiedValues?: ReplicationGroupPendingModifiedValues;            
+            MemberClusters?: ClusterIdList;            
+            NodeGroups?: NodeGroupList;            
+            SnapshottingClusterId?: String;            
+            AutomaticFailover?: AutomaticFailoverStatus;            
+        }
+        export interface ReplicationGroupAlreadyExistsFault {
+        }
+        export interface ReplicationGroupMessage {
+            Marker?: String;            
+            ReplicationGroups?: ReplicationGroupList;            
+        }
+        export interface ReplicationGroupNotFoundFault {
+        }
+        export interface ReplicationGroupPendingModifiedValues {
+            PrimaryClusterId?: String;            
+            AutomaticFailoverStatus?: PendingAutomaticFailoverStatus;            
+        }
+        export interface ReservedCacheNode {
+            ReservedCacheNodeId?: String;            
+            ReservedCacheNodesOfferingId?: String;            
+            CacheNodeType?: String;            
+            StartTime?: TStamp;            
+            Duration?: Integer;            
+            FixedPrice?: Double;            
+            UsagePrice?: Double;            
+            CacheNodeCount?: Integer;            
+            ProductDescription?: String;            
+            OfferingType?: String;            
+            State?: String;            
+            RecurringCharges?: RecurringChargeList;            
+        }
+        export interface ReservedCacheNodeAlreadyExistsFault {
+        }
+        export interface ReservedCacheNodeMessage {
+            Marker?: String;            
+            ReservedCacheNodes?: ReservedCacheNodeList;            
+        }
+        export interface ReservedCacheNodeNotFoundFault {
+        }
+        export interface ReservedCacheNodeQuotaExceededFault {
+        }
+        export interface ReservedCacheNodesOffering {
+            ReservedCacheNodesOfferingId?: String;            
+            CacheNodeType?: String;            
+            Duration?: Integer;            
+            FixedPrice?: Double;            
+            UsagePrice?: Double;            
+            ProductDescription?: String;            
+            OfferingType?: String;            
+            RecurringCharges?: RecurringChargeList;            
+        }
+        export interface ReservedCacheNodesOfferingMessage {
+            Marker?: String;            
+            ReservedCacheNodesOfferings?: ReservedCacheNodesOfferingList;            
+        }
+        export interface ReservedCacheNodesOfferingNotFoundFault {
+        }
+        export interface ResetCacheParameterGroupMessage {
+            CacheParameterGroupName: String;            
+            ResetAllParameters?: Boolean;            
+            ParameterNameValues: ParameterNameValueList;            
+        }
+        export interface RevokeCacheSecurityGroupIngressMessage {
+            CacheSecurityGroupName: String;            
+            EC2SecurityGroupName: String;            
+            EC2SecurityGroupOwnerId: String;            
+        }
+        export interface SecurityGroupMembership {
+            SecurityGroupId?: String;            
+            Status?: String;            
+        }
+        export interface Snapshot {
+            SnapshotName?: String;            
+            CacheClusterId?: String;            
+            SnapshotStatus?: String;            
+            SnapshotSource?: String;            
+            CacheNodeType?: String;            
+            Engine?: String;            
+            EngineVersion?: String;            
+            NumCacheNodes?: IntegerOptional;            
+            PreferredAvailabilityZone?: String;            
+            CacheClusterCreateTime?: TStamp;            
+            PreferredMaintenanceWindow?: String;            
+            TopicArn?: String;            
+            Port?: IntegerOptional;            
+            CacheParameterGroupName?: String;            
+            CacheSubnetGroupName?: String;            
+            VpcId?: String;            
+            AutoMinorVersionUpgrade?: Boolean;            
+            SnapshotRetentionLimit?: IntegerOptional;            
+            SnapshotWindow?: String;            
+            NodeSnapshots?: NodeSnapshotList;            
+        }
+        export interface SnapshotAlreadyExistsFault {
+        }
+        export interface SnapshotFeatureNotSupportedFault {
+        }
+        export interface SnapshotNotFoundFault {
+        }
+        export interface SnapshotQuotaExceededFault {
+        }
+        export interface Subnet {
+            SubnetIdentifier?: String;            
+            SubnetAvailabilityZone?: AvailabilityZone;            
+        }
+        export interface SubnetInUse {
+        }
+        export interface Tag {
+            Key?: String;            
+            Value?: String;            
+        }
+        export interface TagListMessage {
+            TagList?: TagList;            
+        }
+        export interface TagNotFoundFault {
+        }
+        export interface TagQuotaPerResourceExceeded {
+        }
+        export interface AuthorizeCacheSecurityGroupIngressResult {
+            CacheSecurityGroup?: CacheSecurityGroup;            
+        }
+        export interface CopySnapshotResult {
+            Snapshot?: Snapshot;            
+        }
+        export interface CreateCacheClusterResult {
+            CacheCluster?: CacheCluster;            
+        }
+        export interface CreateCacheParameterGroupResult {
+            CacheParameterGroup?: CacheParameterGroup;            
+        }
+        export interface CreateCacheSecurityGroupResult {
+            CacheSecurityGroup?: CacheSecurityGroup;            
+        }
+        export interface CreateCacheSubnetGroupResult {
+            CacheSubnetGroup?: CacheSubnetGroup;            
+        }
+        export interface CreateReplicationGroupResult {
+            ReplicationGroup?: ReplicationGroup;            
+        }
+        export interface CreateSnapshotResult {
+            Snapshot?: Snapshot;            
+        }
+        export interface DeleteCacheClusterResult {
+            CacheCluster?: CacheCluster;            
+        }
+        export interface DeleteReplicationGroupResult {
+            ReplicationGroup?: ReplicationGroup;            
+        }
+        export interface DeleteSnapshotResult {
+            Snapshot?: Snapshot;            
+        }
+        export interface DescribeEngineDefaultParametersResult {
+            EngineDefaults?: EngineDefaults;            
+        }
+        export interface ModifyCacheClusterResult {
+            CacheCluster?: CacheCluster;            
+        }
+        export interface ModifyCacheSubnetGroupResult {
+            CacheSubnetGroup?: CacheSubnetGroup;            
+        }
+        export interface ModifyReplicationGroupResult {
+            ReplicationGroup?: ReplicationGroup;            
+        }
+        export interface PurchaseReservedCacheNodesOfferingResult {
+            ReservedCacheNode?: ReservedCacheNode;            
+        }
+        export interface RebootCacheClusterResult {
+            CacheCluster?: CacheCluster;            
+        }
+        export interface RevokeCacheSecurityGroupIngressResult {
+            CacheSecurityGroup?: CacheSecurityGroup;            
+        }
 
-    export interface ElastiCacheInvalidCacheParameterGroupStateFault {
     }
-
-    export interface ElastiCacheInvalidCacheSecurityGroupStateFault {
-    }
-
-    export interface ElastiCacheInvalidParameterCombinationException {
-        message?: ElastiCacheAwsQueryErrorMessage;
-    }
-
-    export interface ElastiCacheInvalidParameterValueException {
-        message?: ElastiCacheAwsQueryErrorMessage;
-    }
-
-    export interface ElastiCacheInvalidReplicationGroupStateFault {
-    }
-
-    export interface ElastiCacheInvalidSnapshotStateFault {
-    }
-
-    export interface ElastiCacheInvalidSubnet {
-    }
-
-    export interface ElastiCacheInvalidVPCNetworkStateFault {
-    }
-
-    export type ElastiCacheKeyList = Array<ElastiCacheString>;
-    export interface ElastiCacheListTagsForResourceMessage {
-        ResourceName: ElastiCacheString;
-    }
-
-    export interface ElastiCacheModifyCacheClusterMessage {
-        CacheClusterId: ElastiCacheString;
-        NumCacheNodes?: ElastiCacheIntegerOptional;
-        CacheNodeIdsToRemove?: ElastiCacheCacheNodeIdsList;
-        AZMode?: ElastiCacheAZMode;
-        NewAvailabilityZones?: ElastiCachePreferredAvailabilityZoneList;
-        CacheSecurityGroupNames?: ElastiCacheCacheSecurityGroupNameList;
-        SecurityGroupIds?: ElastiCacheSecurityGroupIdsList;
-        PreferredMaintenanceWindow?: ElastiCacheString;
-        NotificationTopicArn?: ElastiCacheString;
-        CacheParameterGroupName?: ElastiCacheString;
-        NotificationTopicStatus?: ElastiCacheString;
-        ApplyImmediately?: ElastiCacheBoolean;
-        EngineVersion?: ElastiCacheString;
-        AutoMinorVersionUpgrade?: ElastiCacheBooleanOptional;
-        SnapshotRetentionLimit?: ElastiCacheIntegerOptional;
-        SnapshotWindow?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheModifyCacheParameterGroupMessage {
-        CacheParameterGroupName: ElastiCacheString;
-        ParameterNameValues: ElastiCacheParameterNameValueList;
-    }
-
-    export interface ElastiCacheModifyCacheSubnetGroupMessage {
-        CacheSubnetGroupName: ElastiCacheString;
-        CacheSubnetGroupDescription?: ElastiCacheString;
-        SubnetIds?: ElastiCacheSubnetIdentifierList;
-    }
-
-    export interface ElastiCacheModifyReplicationGroupMessage {
-        ReplicationGroupId: ElastiCacheString;
-        ReplicationGroupDescription?: ElastiCacheString;
-        PrimaryClusterId?: ElastiCacheString;
-        SnapshottingClusterId?: ElastiCacheString;
-        AutomaticFailoverEnabled?: ElastiCacheBooleanOptional;
-        CacheSecurityGroupNames?: ElastiCacheCacheSecurityGroupNameList;
-        SecurityGroupIds?: ElastiCacheSecurityGroupIdsList;
-        PreferredMaintenanceWindow?: ElastiCacheString;
-        NotificationTopicArn?: ElastiCacheString;
-        CacheParameterGroupName?: ElastiCacheString;
-        NotificationTopicStatus?: ElastiCacheString;
-        ApplyImmediately?: ElastiCacheBoolean;
-        EngineVersion?: ElastiCacheString;
-        AutoMinorVersionUpgrade?: ElastiCacheBooleanOptional;
-        SnapshotRetentionLimit?: ElastiCacheIntegerOptional;
-        SnapshotWindow?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheNodeGroup {
-        NodeGroupId?: ElastiCacheString;
-        Status?: ElastiCacheString;
-        PrimaryEndpoint?: ElastiCacheEndpoint;
-        NodeGroupMembers?: ElastiCacheNodeGroupMemberList;
-    }
-
-    export type ElastiCacheNodeGroupList = Array<ElastiCacheNodeGroup>;
-    export interface ElastiCacheNodeGroupMember {
-        CacheClusterId?: ElastiCacheString;
-        CacheNodeId?: ElastiCacheString;
-        ReadEndpoint?: ElastiCacheEndpoint;
-        PreferredAvailabilityZone?: ElastiCacheString;
-        CurrentRole?: ElastiCacheString;
-    }
-
-    export type ElastiCacheNodeGroupMemberList = Array<ElastiCacheNodeGroupMember>;
-    export interface ElastiCacheNodeQuotaForClusterExceededFault {
-    }
-
-    export interface ElastiCacheNodeQuotaForCustomerExceededFault {
-    }
-
-    export interface ElastiCacheNodeSnapshot {
-        CacheNodeId?: ElastiCacheString;
-        CacheSize?: ElastiCacheString;
-        CacheNodeCreateTime?: ElastiCacheTStamp;
-        SnapshotCreateTime?: ElastiCacheTStamp;
-    }
-
-    export type ElastiCacheNodeSnapshotList = Array<ElastiCacheNodeSnapshot>;
-    export interface ElastiCacheNotificationConfiguration {
-        TopicArn?: ElastiCacheString;
-        TopicStatus?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheParameter {
-        ParameterName?: ElastiCacheString;
-        ParameterValue?: ElastiCacheString;
-        Description?: ElastiCacheString;
-        Source?: ElastiCacheString;
-        DataType?: ElastiCacheString;
-        AllowedValues?: ElastiCacheString;
-        IsModifiable?: ElastiCacheBoolean;
-        MinimumEngineVersion?: ElastiCacheString;
-    }
-
-    export interface ElastiCacheParameterNameValue {
-        ParameterName?: ElastiCacheString;
-        ParameterValue?: ElastiCacheString;
-    }
-
-    export type ElastiCacheParameterNameValueList = Array<ElastiCacheParameterNameValue>;
-    export type ElastiCacheParametersList = Array<ElastiCacheParameter>;
-    export type ElastiCachePendingAutomaticFailoverStatus = string;
-    export interface ElastiCachePendingModifiedValues {
-        NumCacheNodes?: ElastiCacheIntegerOptional;
-        CacheNodeIdsToRemove?: ElastiCacheCacheNodeIdsList;
-        EngineVersion?: ElastiCacheString;
-    }
-
-    export type ElastiCachePreferredAvailabilityZoneList = Array<ElastiCacheString>;
-    export interface ElastiCachePurchaseReservedCacheNodesOfferingMessage {
-        ReservedCacheNodesOfferingId: ElastiCacheString;
-        ReservedCacheNodeId?: ElastiCacheString;
-        CacheNodeCount?: ElastiCacheIntegerOptional;
-    }
-
-    export interface ElastiCacheRebootCacheClusterMessage {
-        CacheClusterId: ElastiCacheString;
-        CacheNodeIdsToReboot: ElastiCacheCacheNodeIdsList;
-    }
-
-    export interface ElastiCacheRecurringCharge {
-        RecurringChargeAmount?: ElastiCacheDouble;
-        RecurringChargeFrequency?: ElastiCacheString;
-    }
-
-    export type ElastiCacheRecurringChargeList = Array<ElastiCacheRecurringCharge>;
-    export interface ElastiCacheRemoveTagsFromResourceMessage {
-        ResourceName: ElastiCacheString;
-        TagKeys: ElastiCacheKeyList;
-    }
-
-    export interface ElastiCacheReplicationGroup {
-        ReplicationGroupId?: ElastiCacheString;
-        Description?: ElastiCacheString;
-        Status?: ElastiCacheString;
-        PendingModifiedValues?: ElastiCacheReplicationGroupPendingModifiedValues;
-        MemberClusters?: ElastiCacheClusterIdList;
-        NodeGroups?: ElastiCacheNodeGroupList;
-        SnapshottingClusterId?: ElastiCacheString;
-        AutomaticFailover?: ElastiCacheAutomaticFailoverStatus;
-    }
-
-    export interface ElastiCacheReplicationGroupAlreadyExistsFault {
-    }
-
-    export type ElastiCacheReplicationGroupList = Array<ElastiCacheReplicationGroup>;
-    export interface ElastiCacheReplicationGroupMessage {
-        Marker?: ElastiCacheString;
-        ReplicationGroups?: ElastiCacheReplicationGroupList;
-    }
-
-    export interface ElastiCacheReplicationGroupNotFoundFault {
-    }
-
-    export interface ElastiCacheReplicationGroupPendingModifiedValues {
-        PrimaryClusterId?: ElastiCacheString;
-        AutomaticFailoverStatus?: ElastiCachePendingAutomaticFailoverStatus;
-    }
-
-    export interface ElastiCacheReservedCacheNode {
-        ReservedCacheNodeId?: ElastiCacheString;
-        ReservedCacheNodesOfferingId?: ElastiCacheString;
-        CacheNodeType?: ElastiCacheString;
-        StartTime?: ElastiCacheTStamp;
-        Duration?: ElastiCacheInteger;
-        FixedPrice?: ElastiCacheDouble;
-        UsagePrice?: ElastiCacheDouble;
-        CacheNodeCount?: ElastiCacheInteger;
-        ProductDescription?: ElastiCacheString;
-        OfferingType?: ElastiCacheString;
-        State?: ElastiCacheString;
-        RecurringCharges?: ElastiCacheRecurringChargeList;
-    }
-
-    export interface ElastiCacheReservedCacheNodeAlreadyExistsFault {
-    }
-
-    export type ElastiCacheReservedCacheNodeList = Array<ElastiCacheReservedCacheNode>;
-    export interface ElastiCacheReservedCacheNodeMessage {
-        Marker?: ElastiCacheString;
-        ReservedCacheNodes?: ElastiCacheReservedCacheNodeList;
-    }
-
-    export interface ElastiCacheReservedCacheNodeNotFoundFault {
-    }
-
-    export interface ElastiCacheReservedCacheNodeQuotaExceededFault {
-    }
-
-    export interface ElastiCacheReservedCacheNodesOffering {
-        ReservedCacheNodesOfferingId?: ElastiCacheString;
-        CacheNodeType?: ElastiCacheString;
-        Duration?: ElastiCacheInteger;
-        FixedPrice?: ElastiCacheDouble;
-        UsagePrice?: ElastiCacheDouble;
-        ProductDescription?: ElastiCacheString;
-        OfferingType?: ElastiCacheString;
-        RecurringCharges?: ElastiCacheRecurringChargeList;
-    }
-
-    export type ElastiCacheReservedCacheNodesOfferingList = Array<ElastiCacheReservedCacheNodesOffering>;
-    export interface ElastiCacheReservedCacheNodesOfferingMessage {
-        Marker?: ElastiCacheString;
-        ReservedCacheNodesOfferings?: ElastiCacheReservedCacheNodesOfferingList;
-    }
-
-    export interface ElastiCacheReservedCacheNodesOfferingNotFoundFault {
-    }
-
-    export interface ElastiCacheResetCacheParameterGroupMessage {
-        CacheParameterGroupName: ElastiCacheString;
-        ResetAllParameters?: ElastiCacheBoolean;
-        ParameterNameValues: ElastiCacheParameterNameValueList;
-    }
-
-    export interface ElastiCacheRevokeCacheSecurityGroupIngressMessage {
-        CacheSecurityGroupName: ElastiCacheString;
-        EC2SecurityGroupName: ElastiCacheString;
-        EC2SecurityGroupOwnerId: ElastiCacheString;
-    }
-
-    export type ElastiCacheSecurityGroupIdsList = Array<ElastiCacheString>;
-    export interface ElastiCacheSecurityGroupMembership {
-        SecurityGroupId?: ElastiCacheString;
-        Status?: ElastiCacheString;
-    }
-
-    export type ElastiCacheSecurityGroupMembershipList = Array<ElastiCacheSecurityGroupMembership>;
-    export interface ElastiCacheSnapshot {
-        SnapshotName?: ElastiCacheString;
-        CacheClusterId?: ElastiCacheString;
-        SnapshotStatus?: ElastiCacheString;
-        SnapshotSource?: ElastiCacheString;
-        CacheNodeType?: ElastiCacheString;
-        Engine?: ElastiCacheString;
-        EngineVersion?: ElastiCacheString;
-        NumCacheNodes?: ElastiCacheIntegerOptional;
-        PreferredAvailabilityZone?: ElastiCacheString;
-        CacheClusterCreateTime?: ElastiCacheTStamp;
-        PreferredMaintenanceWindow?: ElastiCacheString;
-        TopicArn?: ElastiCacheString;
-        Port?: ElastiCacheIntegerOptional;
-        CacheParameterGroupName?: ElastiCacheString;
-        CacheSubnetGroupName?: ElastiCacheString;
-        VpcId?: ElastiCacheString;
-        AutoMinorVersionUpgrade?: ElastiCacheBoolean;
-        SnapshotRetentionLimit?: ElastiCacheIntegerOptional;
-        SnapshotWindow?: ElastiCacheString;
-        NodeSnapshots?: ElastiCacheNodeSnapshotList;
-    }
-
-    export interface ElastiCacheSnapshotAlreadyExistsFault {
-    }
-
-    export type ElastiCacheSnapshotArnsList = Array<ElastiCacheString>;
-    export interface ElastiCacheSnapshotFeatureNotSupportedFault {
-    }
-
-    export type ElastiCacheSnapshotList = Array<ElastiCacheSnapshot>;
-    export interface ElastiCacheSnapshotNotFoundFault {
-    }
-
-    export interface ElastiCacheSnapshotQuotaExceededFault {
-    }
-
-    export type ElastiCacheSourceType = string;
-    export type ElastiCacheString = string;
-    export interface ElastiCacheSubnet {
-        SubnetIdentifier?: ElastiCacheString;
-        SubnetAvailabilityZone?: ElastiCacheAvailabilityZone;
-    }
-
-    export type ElastiCacheSubnetIdentifierList = Array<ElastiCacheString>;
-    export interface ElastiCacheSubnetInUse {
-    }
-
-    export type ElastiCacheSubnetList = Array<ElastiCacheSubnet>;
-    export type ElastiCacheTStamp = number;
-    export interface ElastiCacheTag {
-        Key?: ElastiCacheString;
-        Value?: ElastiCacheString;
-    }
-
-    export type ElastiCacheTagList = Array<ElastiCacheTag>;
-    export interface ElastiCacheTagListMessage {
-        TagList?: ElastiCacheTagList;
-    }
-
-    export interface ElastiCacheTagNotFoundFault {
-    }
-
-    export interface ElastiCacheTagQuotaPerResourceExceeded {
-    }
-
-    export interface ElastiCacheAuthorizeCacheSecurityGroupIngressResult {
-        CacheSecurityGroup?: ElastiCacheCacheSecurityGroup;
-    }
-
-    export interface ElastiCacheCopySnapshotResult {
-        Snapshot?: ElastiCacheSnapshot;
-    }
-
-    export interface ElastiCacheCreateCacheClusterResult {
-        CacheCluster?: ElastiCacheCacheCluster;
-    }
-
-    export interface ElastiCacheCreateCacheParameterGroupResult {
-        CacheParameterGroup?: ElastiCacheCacheParameterGroup;
-    }
-
-    export interface ElastiCacheCreateCacheSecurityGroupResult {
-        CacheSecurityGroup?: ElastiCacheCacheSecurityGroup;
-    }
-
-    export interface ElastiCacheCreateCacheSubnetGroupResult {
-        CacheSubnetGroup?: ElastiCacheCacheSubnetGroup;
-    }
-
-    export interface ElastiCacheCreateReplicationGroupResult {
-        ReplicationGroup?: ElastiCacheReplicationGroup;
-    }
-
-    export interface ElastiCacheCreateSnapshotResult {
-        Snapshot?: ElastiCacheSnapshot;
-    }
-
-    export interface ElastiCacheDeleteCacheClusterResult {
-        CacheCluster?: ElastiCacheCacheCluster;
-    }
-
-    export interface ElastiCacheDeleteReplicationGroupResult {
-        ReplicationGroup?: ElastiCacheReplicationGroup;
-    }
-
-    export interface ElastiCacheDeleteSnapshotResult {
-        Snapshot?: ElastiCacheSnapshot;
-    }
-
-    export interface ElastiCacheDescribeEngineDefaultParametersResult {
-        EngineDefaults?: ElastiCacheEngineDefaults;
-    }
-
-    export interface ElastiCacheModifyCacheClusterResult {
-        CacheCluster?: ElastiCacheCacheCluster;
-    }
-
-    export interface ElastiCacheModifyCacheSubnetGroupResult {
-        CacheSubnetGroup?: ElastiCacheCacheSubnetGroup;
-    }
-
-    export interface ElastiCacheModifyReplicationGroupResult {
-        ReplicationGroup?: ElastiCacheReplicationGroup;
-    }
-
-    export interface ElastiCachePurchaseReservedCacheNodesOfferingResult {
-        ReservedCacheNode?: ElastiCacheReservedCacheNode;
-    }
-
-    export interface ElastiCacheRebootCacheClusterResult {
-        CacheCluster?: ElastiCacheCacheCluster;
-    }
-
-    export interface ElastiCacheRevokeCacheSecurityGroupIngressResult {
-        CacheSecurityGroup?: ElastiCacheCacheSecurityGroup;
-    }
-
 }

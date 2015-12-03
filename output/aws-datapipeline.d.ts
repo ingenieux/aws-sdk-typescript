@@ -6,345 +6,291 @@ declare module "aws-sdk" {
 
     export class DataPipeline extends Service {
       constructor(options?: any);
-      activatePipeline(params: DataPipelineActivatePipelineInput, callback?: (err: DataPipelinePipelineNotFoundException|DataPipelinePipelineDeletedException|DataPipelineInternalServiceError|DataPipelineInvalidRequestException|any, data: DataPipelineActivatePipelineOutput|any) => void): Request;
-      addTags(params: DataPipelineAddTagsInput, callback?: (err: DataPipelineInternalServiceError|DataPipelineInvalidRequestException|DataPipelinePipelineNotFoundException|DataPipelinePipelineDeletedException|any, data: DataPipelineAddTagsOutput|any) => void): Request;
-      createPipeline(params: DataPipelineCreatePipelineInput, callback?: (err: DataPipelineInternalServiceError|DataPipelineInvalidRequestException|any, data: DataPipelineCreatePipelineOutput|any) => void): Request;
-      deactivatePipeline(params: DataPipelineDeactivatePipelineInput, callback?: (err: DataPipelinePipelineNotFoundException|DataPipelinePipelineDeletedException|DataPipelineInternalServiceError|DataPipelineInvalidRequestException|any, data: DataPipelineDeactivatePipelineOutput|any) => void): Request;
-      deletePipeline(params: DataPipelineDeletePipelineInput, callback?: (err: DataPipelinePipelineNotFoundException|DataPipelineInternalServiceError|DataPipelineInvalidRequestException|any, data: any) => void): Request;
-      describeObjects(params: DataPipelineDescribeObjectsInput, callback?: (err: DataPipelineInternalServiceError|DataPipelineInvalidRequestException|DataPipelinePipelineNotFoundException|DataPipelinePipelineDeletedException|any, data: DataPipelineDescribeObjectsOutput|any) => void): Request;
-      describePipelines(params: DataPipelineDescribePipelinesInput, callback?: (err: DataPipelinePipelineNotFoundException|DataPipelinePipelineDeletedException|DataPipelineInternalServiceError|DataPipelineInvalidRequestException|any, data: DataPipelineDescribePipelinesOutput|any) => void): Request;
-      evaluateExpression(params: DataPipelineEvaluateExpressionInput, callback?: (err: DataPipelineInternalServiceError|DataPipelineTaskNotFoundException|DataPipelineInvalidRequestException|DataPipelinePipelineNotFoundException|DataPipelinePipelineDeletedException|any, data: DataPipelineEvaluateExpressionOutput|any) => void): Request;
-      getPipelineDefinition(params: DataPipelineGetPipelineDefinitionInput, callback?: (err: DataPipelineInternalServiceError|DataPipelineInvalidRequestException|DataPipelinePipelineNotFoundException|DataPipelinePipelineDeletedException|any, data: DataPipelineGetPipelineDefinitionOutput|any) => void): Request;
-      listPipelines(params: DataPipelineListPipelinesInput, callback?: (err: DataPipelineInternalServiceError|DataPipelineInvalidRequestException|any, data: DataPipelineListPipelinesOutput|any) => void): Request;
-      pollForTask(params: DataPipelinePollForTaskInput, callback?: (err: DataPipelineInternalServiceError|DataPipelineInvalidRequestException|DataPipelineTaskNotFoundException|any, data: DataPipelinePollForTaskOutput|any) => void): Request;
-      putPipelineDefinition(params: DataPipelinePutPipelineDefinitionInput, callback?: (err: DataPipelineInternalServiceError|DataPipelineInvalidRequestException|DataPipelinePipelineNotFoundException|DataPipelinePipelineDeletedException|any, data: DataPipelinePutPipelineDefinitionOutput|any) => void): Request;
-      queryObjects(params: DataPipelineQueryObjectsInput, callback?: (err: DataPipelinePipelineNotFoundException|DataPipelinePipelineDeletedException|DataPipelineInternalServiceError|DataPipelineInvalidRequestException|any, data: DataPipelineQueryObjectsOutput|any) => void): Request;
-      removeTags(params: DataPipelineRemoveTagsInput, callback?: (err: DataPipelineInternalServiceError|DataPipelineInvalidRequestException|DataPipelinePipelineNotFoundException|DataPipelinePipelineDeletedException|any, data: DataPipelineRemoveTagsOutput|any) => void): Request;
-      reportTaskProgress(params: DataPipelineReportTaskProgressInput, callback?: (err: DataPipelineInternalServiceError|DataPipelineInvalidRequestException|DataPipelineTaskNotFoundException|DataPipelinePipelineNotFoundException|DataPipelinePipelineDeletedException|any, data: DataPipelineReportTaskProgressOutput|any) => void): Request;
-      reportTaskRunnerHeartbeat(params: DataPipelineReportTaskRunnerHeartbeatInput, callback?: (err: DataPipelineInternalServiceError|DataPipelineInvalidRequestException|any, data: DataPipelineReportTaskRunnerHeartbeatOutput|any) => void): Request;
-      setStatus(params: DataPipelineSetStatusInput, callback?: (err: DataPipelinePipelineNotFoundException|DataPipelinePipelineDeletedException|DataPipelineInternalServiceError|DataPipelineInvalidRequestException|any, data: any) => void): Request;
-      setTaskStatus(params: DataPipelineSetTaskStatusInput, callback?: (err: DataPipelineInternalServiceError|DataPipelineTaskNotFoundException|DataPipelineInvalidRequestException|DataPipelinePipelineNotFoundException|DataPipelinePipelineDeletedException|any, data: DataPipelineSetTaskStatusOutput|any) => void): Request;
-      validatePipelineDefinition(params: DataPipelineValidatePipelineDefinitionInput, callback?: (err: DataPipelineInternalServiceError|DataPipelineInvalidRequestException|DataPipelinePipelineNotFoundException|DataPipelinePipelineDeletedException|any, data: DataPipelineValidatePipelineDefinitionOutput|any) => void): Request;
+      activatePipeline(params: DataPipeline.ActivatePipelineInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.ActivatePipelineOutput|any) => void): Request;
+      addTags(params: DataPipeline.AddTagsInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.AddTagsOutput|any) => void): Request;
+      createPipeline(params: DataPipeline.CreatePipelineInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.CreatePipelineOutput|any) => void): Request;
+      deactivatePipeline(params: DataPipeline.DeactivatePipelineInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.DeactivatePipelineOutput|any) => void): Request;
+      deletePipeline(params: DataPipeline.DeletePipelineInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: any) => void): Request;
+      describeObjects(params: DataPipeline.DescribeObjectsInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.DescribeObjectsOutput|any) => void): Request;
+      describePipelines(params: DataPipeline.DescribePipelinesInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.DescribePipelinesOutput|any) => void): Request;
+      evaluateExpression(params: DataPipeline.EvaluateExpressionInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.TaskNotFoundException|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.EvaluateExpressionOutput|any) => void): Request;
+      getPipelineDefinition(params: DataPipeline.GetPipelineDefinitionInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.GetPipelineDefinitionOutput|any) => void): Request;
+      listPipelines(params: DataPipeline.ListPipelinesInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.ListPipelinesOutput|any) => void): Request;
+      pollForTask(params: DataPipeline.PollForTaskInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.TaskNotFoundException|any, data: DataPipeline.PollForTaskOutput|any) => void): Request;
+      putPipelineDefinition(params: DataPipeline.PutPipelineDefinitionInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.PutPipelineDefinitionOutput|any) => void): Request;
+      queryObjects(params: DataPipeline.QueryObjectsInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.QueryObjectsOutput|any) => void): Request;
+      removeTags(params: DataPipeline.RemoveTagsInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.RemoveTagsOutput|any) => void): Request;
+      reportTaskProgress(params: DataPipeline.ReportTaskProgressInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.TaskNotFoundException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.ReportTaskProgressOutput|any) => void): Request;
+      reportTaskRunnerHeartbeat(params: DataPipeline.ReportTaskRunnerHeartbeatInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.ReportTaskRunnerHeartbeatOutput|any) => void): Request;
+      setStatus(params: DataPipeline.SetStatusInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: any) => void): Request;
+      setTaskStatus(params: DataPipeline.SetTaskStatusInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.TaskNotFoundException|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.SetTaskStatusOutput|any) => void): Request;
+      validatePipelineDefinition(params: DataPipeline.ValidatePipelineDefinitionInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.ValidatePipelineDefinitionOutput|any) => void): Request;
     }
+    
+    export module DataPipeline {
+        export type OperatorType = string;
+        export type ParameterAttributeList = ParameterAttribute[];
+        export type ParameterObjectList = ParameterObject[];
+        export type ParameterValueList = ParameterValue[];
+        export type PipelineDescriptionList = PipelineDescription[];
+        export type PipelineObjectList = PipelineObject[];
+        export type PipelineObjectMap = {[key:string]: PipelineObject};
+        export type SelectorList = Selector[];
+        export type TaskStatus = string;
+        export type ValidationErrors = ValidationError[];
+        export type ValidationWarnings = ValidationWarning[];
+        export type attributeNameString = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 256, min: 1
+        export type attributeValueString = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 10240
+        export type cancelActive = boolean;
+        export type errorMessage = string;
+        export type fieldList = Field[];
+        export type fieldNameString = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 256, min: 1
+        export type fieldStringValue = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 10240
+        export type id = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 1024, min: 1
+        export type idList = id[];
+        export type int = number;
+        export type longString = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 20971520
+        export type pipelineList = PipelineIdName[];
+        export type stringList = string[];
+        export type tagKey = string;    // max: 128, min: 1
+        export type tagList = Tag[];    // max: 10
+        export type tagValue = string;    // max: 256
+        export type taskId = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 2048, min: 1
+        export type timestamp = number;
+        export type validationMessage = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 10000
+        export type validationMessages = validationMessage[];
 
-    export interface DataPipelineActivatePipelineInput {
-        pipelineId: DataPipelineid;
-        parameterValues?: DataPipelineParameterValueList;
-        startTimestamp?: DataPipelinetimestamp;
+        export interface ActivatePipelineInput {
+            pipelineId: id;            
+            parameterValues?: ParameterValueList;            
+            startTimestamp?: timestamp;            
+        }
+        export interface ActivatePipelineOutput {
+        }
+        export interface AddTagsInput {
+            pipelineId: id;            
+            tags: tagList;            
+        }
+        export interface AddTagsOutput {
+        }
+        export interface CreatePipelineInput {
+            name: id;            
+            uniqueId: id;            
+            description?: string;            
+            tags?: tagList;            
+        }
+        export interface CreatePipelineOutput {
+            pipelineId: id;            
+        }
+        export interface DeactivatePipelineInput {
+            pipelineId: id;            
+            cancelActive?: cancelActive;            
+        }
+        export interface DeactivatePipelineOutput {
+        }
+        export interface DeletePipelineInput {
+            pipelineId: id;            
+        }
+        export interface DescribeObjectsInput {
+            pipelineId: id;            
+            objectIds: idList;            
+            evaluateExpressions?: boolean;            
+            marker?: string;            
+        }
+        export interface DescribeObjectsOutput {
+            pipelineObjects: PipelineObjectList;            
+            marker?: string;            
+            hasMoreResults?: boolean;            
+        }
+        export interface DescribePipelinesInput {
+            pipelineIds: idList;            
+        }
+        export interface DescribePipelinesOutput {
+            pipelineDescriptionList: PipelineDescriptionList;            
+        }
+        export interface EvaluateExpressionInput {
+            pipelineId: id;            
+            objectId: id;            
+            expression: longString;            
+        }
+        export interface EvaluateExpressionOutput {
+            evaluatedExpression: longString;            
+        }
+        export interface Field {
+            key: fieldNameString;            
+            stringValue?: fieldStringValue;            
+            refValue?: fieldNameString;            
+        }
+        export interface GetPipelineDefinitionInput {
+            pipelineId: id;            
+            version?: string;            
+        }
+        export interface GetPipelineDefinitionOutput {
+            pipelineObjects?: PipelineObjectList;            
+            parameterObjects?: ParameterObjectList;            
+            parameterValues?: ParameterValueList;            
+        }
+        export interface InstanceIdentity {
+            document?: string;            
+            signature?: string;            
+        }
+        export interface InternalServiceError {
+            message?: errorMessage;            
+        }
+        export interface InvalidRequestException {
+            message?: errorMessage;            
+        }
+        export interface ListPipelinesInput {
+            marker?: string;            
+        }
+        export interface ListPipelinesOutput {
+            pipelineIdList: pipelineList;            
+            marker?: string;            
+            hasMoreResults?: boolean;            
+        }
+        export interface Operator {
+            type?: OperatorType;            
+            values?: stringList;            
+        }
+        export interface ParameterAttribute {
+            key: attributeNameString;            
+            stringValue: attributeValueString;            
+        }
+        export interface ParameterObject {
+            id: fieldNameString;            
+            attributes: ParameterAttributeList;            
+        }
+        export interface ParameterValue {
+            id: fieldNameString;            
+            stringValue: fieldStringValue;            
+        }
+        export interface PipelineDeletedException {
+            message?: errorMessage;            
+        }
+        export interface PipelineDescription {
+            pipelineId: id;            
+            name: id;            
+            fields: fieldList;            
+            description?: string;            
+            tags?: tagList;            
+        }
+        export interface PipelineIdName {
+            id?: id;            
+            name?: id;            
+        }
+        export interface PipelineNotFoundException {
+            message?: errorMessage;            
+        }
+        export interface PipelineObject {
+            id: id;            
+            name: id;            
+            fields: fieldList;            
+        }
+        export interface PollForTaskInput {
+            workerGroup: string;            
+            hostname?: id;            
+            instanceIdentity?: InstanceIdentity;            
+        }
+        export interface PollForTaskOutput {
+            taskObject?: TaskObject;            
+        }
+        export interface PutPipelineDefinitionInput {
+            pipelineId: id;            
+            pipelineObjects: PipelineObjectList;            
+            parameterObjects?: ParameterObjectList;            
+            parameterValues?: ParameterValueList;            
+        }
+        export interface PutPipelineDefinitionOutput {
+            validationErrors?: ValidationErrors;            
+            validationWarnings?: ValidationWarnings;            
+            errored: boolean;            
+        }
+        export interface Query {
+            selectors?: SelectorList;            
+        }
+        export interface QueryObjectsInput {
+            pipelineId: id;            
+            query?: Query;            
+            sphere: string;            
+            marker?: string;            
+            limit?: int;            
+        }
+        export interface QueryObjectsOutput {
+            ids?: idList;            
+            marker?: string;            
+            hasMoreResults?: boolean;            
+        }
+        export interface RemoveTagsInput {
+            pipelineId: id;            
+            tagKeys: stringList;            
+        }
+        export interface RemoveTagsOutput {
+        }
+        export interface ReportTaskProgressInput {
+            taskId: taskId;            
+            fields?: fieldList;            
+        }
+        export interface ReportTaskProgressOutput {
+            canceled: boolean;            
+        }
+        export interface ReportTaskRunnerHeartbeatInput {
+            taskrunnerId: id;            
+            workerGroup?: string;            
+            hostname?: id;            
+        }
+        export interface ReportTaskRunnerHeartbeatOutput {
+            terminate: boolean;            
+        }
+        export interface Selector {
+            fieldName?: string;            
+            operator?: Operator;            
+        }
+        export interface SetStatusInput {
+            pipelineId: id;            
+            objectIds: idList;            
+            status: string;            
+        }
+        export interface SetTaskStatusInput {
+            taskId: taskId;            
+            taskStatus: TaskStatus;            
+            errorId?: string;            
+            errorMessage?: errorMessage;            
+            errorStackTrace?: string;            
+        }
+        export interface SetTaskStatusOutput {
+        }
+        export interface Tag {
+            key: tagKey;            
+            value: tagValue;            
+        }
+        export interface TaskNotFoundException {
+            message?: errorMessage;            
+        }
+        export interface TaskObject {
+            taskId?: taskId;            
+            pipelineId?: id;            
+            attemptId?: id;            
+            objects?: PipelineObjectMap;            
+        }
+        export interface ValidatePipelineDefinitionInput {
+            pipelineId: id;            
+            pipelineObjects: PipelineObjectList;            
+            parameterObjects?: ParameterObjectList;            
+            parameterValues?: ParameterValueList;            
+        }
+        export interface ValidatePipelineDefinitionOutput {
+            validationErrors?: ValidationErrors;            
+            validationWarnings?: ValidationWarnings;            
+            errored: boolean;            
+        }
+        export interface ValidationError {
+            id?: id;            
+            errors?: validationMessages;            
+        }
+        export interface ValidationWarning {
+            id?: id;            
+            warnings?: validationMessages;            
+        }
+
     }
-
-    export interface DataPipelineActivatePipelineOutput {
-    }
-
-    export interface DataPipelineAddTagsInput {
-        pipelineId: DataPipelineid;
-        tags: DataPipelinetagList;
-    }
-
-    export interface DataPipelineAddTagsOutput {
-    }
-
-    export interface DataPipelineCreatePipelineInput {
-        name: DataPipelineid;
-        uniqueId: DataPipelineid;
-        description?: DataPipelinestring;
-        tags?: DataPipelinetagList;
-    }
-
-    export interface DataPipelineCreatePipelineOutput {
-        pipelineId: DataPipelineid;
-    }
-
-    export interface DataPipelineDeactivatePipelineInput {
-        pipelineId: DataPipelineid;
-        cancelActive?: DataPipelinecancelActive;
-    }
-
-    export interface DataPipelineDeactivatePipelineOutput {
-    }
-
-    export interface DataPipelineDeletePipelineInput {
-        pipelineId: DataPipelineid;
-    }
-
-    export interface DataPipelineDescribeObjectsInput {
-        pipelineId: DataPipelineid;
-        objectIds: DataPipelineidList;
-        evaluateExpressions?: DataPipelineboolean;
-        marker?: DataPipelinestring;
-    }
-
-    export interface DataPipelineDescribeObjectsOutput {
-        pipelineObjects: DataPipelinePipelineObjectList;
-        marker?: DataPipelinestring;
-        hasMoreResults?: DataPipelineboolean;
-    }
-
-    export interface DataPipelineDescribePipelinesInput {
-        pipelineIds: DataPipelineidList;
-    }
-
-    export interface DataPipelineDescribePipelinesOutput {
-        pipelineDescriptionList: DataPipelinePipelineDescriptionList;
-    }
-
-    export interface DataPipelineEvaluateExpressionInput {
-        pipelineId: DataPipelineid;
-        objectId: DataPipelineid;
-        expression: DataPipelinelongString;
-    }
-
-    export interface DataPipelineEvaluateExpressionOutput {
-        evaluatedExpression: DataPipelinelongString;
-    }
-
-    export interface DataPipelineField {
-        key: DataPipelinefieldNameString;
-        stringValue?: DataPipelinefieldStringValue;
-        refValue?: DataPipelinefieldNameString;
-    }
-
-    export interface DataPipelineGetPipelineDefinitionInput {
-        pipelineId: DataPipelineid;
-        version?: DataPipelinestring;
-    }
-
-    export interface DataPipelineGetPipelineDefinitionOutput {
-        pipelineObjects?: DataPipelinePipelineObjectList;
-        parameterObjects?: DataPipelineParameterObjectList;
-        parameterValues?: DataPipelineParameterValueList;
-    }
-
-    export interface DataPipelineInstanceIdentity {
-        document?: DataPipelinestring;
-        signature?: DataPipelinestring;
-    }
-
-    export interface DataPipelineInternalServiceError {
-        message?: DataPipelineerrorMessage;
-    }
-
-    export interface DataPipelineInvalidRequestException {
-        message?: DataPipelineerrorMessage;
-    }
-
-    export interface DataPipelineListPipelinesInput {
-        marker?: DataPipelinestring;
-    }
-
-    export interface DataPipelineListPipelinesOutput {
-        pipelineIdList: DataPipelinepipelineList;
-        marker?: DataPipelinestring;
-        hasMoreResults?: DataPipelineboolean;
-    }
-
-    export interface DataPipelineOperator {
-        type?: DataPipelineOperatorType;
-        values?: DataPipelinestringList;
-    }
-
-    export type DataPipelineOperatorType = string;
-    export interface DataPipelineParameterAttribute {
-        key: DataPipelineattributeNameString;
-        stringValue: DataPipelineattributeValueString;
-    }
-
-    export type DataPipelineParameterAttributeList = Array<DataPipelineParameterAttribute>;
-    export interface DataPipelineParameterObject {
-        id: DataPipelinefieldNameString;
-        attributes: DataPipelineParameterAttributeList;
-    }
-
-    export type DataPipelineParameterObjectList = Array<DataPipelineParameterObject>;
-    export interface DataPipelineParameterValue {
-        id: DataPipelinefieldNameString;
-        stringValue: DataPipelinefieldStringValue;
-    }
-
-    export type DataPipelineParameterValueList = Array<DataPipelineParameterValue>;
-    export interface DataPipelinePipelineDeletedException {
-        message?: DataPipelineerrorMessage;
-    }
-
-    export interface DataPipelinePipelineDescription {
-        pipelineId: DataPipelineid;
-        name: DataPipelineid;
-        fields: DataPipelinefieldList;
-        description?: DataPipelinestring;
-        tags?: DataPipelinetagList;
-    }
-
-    export type DataPipelinePipelineDescriptionList = Array<DataPipelinePipelineDescription>;
-    export interface DataPipelinePipelineIdName {
-        id?: DataPipelineid;
-        name?: DataPipelineid;
-    }
-
-    export interface DataPipelinePipelineNotFoundException {
-        message?: DataPipelineerrorMessage;
-    }
-
-    export interface DataPipelinePipelineObject {
-        id: DataPipelineid;
-        name: DataPipelineid;
-        fields: DataPipelinefieldList;
-    }
-
-    export type DataPipelinePipelineObjectList = Array<DataPipelinePipelineObject>;
-    export type DataPipelinePipelineObjectMap = any; // not really - it was 'map' instead - must fix this one
-    export interface DataPipelinePollForTaskInput {
-        workerGroup: DataPipelinestring;
-        hostname?: DataPipelineid;
-        instanceIdentity?: DataPipelineInstanceIdentity;
-    }
-
-    export interface DataPipelinePollForTaskOutput {
-        taskObject?: DataPipelineTaskObject;
-    }
-
-    export interface DataPipelinePutPipelineDefinitionInput {
-        pipelineId: DataPipelineid;
-        pipelineObjects: DataPipelinePipelineObjectList;
-        parameterObjects?: DataPipelineParameterObjectList;
-        parameterValues?: DataPipelineParameterValueList;
-    }
-
-    export interface DataPipelinePutPipelineDefinitionOutput {
-        validationErrors?: DataPipelineValidationErrors;
-        validationWarnings?: DataPipelineValidationWarnings;
-        errored: DataPipelineboolean;
-    }
-
-    export interface DataPipelineQuery {
-        selectors?: DataPipelineSelectorList;
-    }
-
-    export interface DataPipelineQueryObjectsInput {
-        pipelineId: DataPipelineid;
-        query?: DataPipelineQuery;
-        sphere: DataPipelinestring;
-        marker?: DataPipelinestring;
-        limit?: DataPipelineint;
-    }
-
-    export interface DataPipelineQueryObjectsOutput {
-        ids?: DataPipelineidList;
-        marker?: DataPipelinestring;
-        hasMoreResults?: DataPipelineboolean;
-    }
-
-    export interface DataPipelineRemoveTagsInput {
-        pipelineId: DataPipelineid;
-        tagKeys: DataPipelinestringList;
-    }
-
-    export interface DataPipelineRemoveTagsOutput {
-    }
-
-    export interface DataPipelineReportTaskProgressInput {
-        taskId: DataPipelinetaskId;
-        fields?: DataPipelinefieldList;
-    }
-
-    export interface DataPipelineReportTaskProgressOutput {
-        canceled: DataPipelineboolean;
-    }
-
-    export interface DataPipelineReportTaskRunnerHeartbeatInput {
-        taskrunnerId: DataPipelineid;
-        workerGroup?: DataPipelinestring;
-        hostname?: DataPipelineid;
-    }
-
-    export interface DataPipelineReportTaskRunnerHeartbeatOutput {
-        terminate: DataPipelineboolean;
-    }
-
-    export interface DataPipelineSelector {
-        fieldName?: DataPipelinestring;
-        operator?: DataPipelineOperator;
-    }
-
-    export type DataPipelineSelectorList = Array<DataPipelineSelector>;
-    export interface DataPipelineSetStatusInput {
-        pipelineId: DataPipelineid;
-        objectIds: DataPipelineidList;
-        status: DataPipelinestring;
-    }
-
-    export interface DataPipelineSetTaskStatusInput {
-        taskId: DataPipelinetaskId;
-        taskStatus: DataPipelineTaskStatus;
-        errorId?: DataPipelinestring;
-        errorMessage?: DataPipelineerrorMessage;
-        errorStackTrace?: DataPipelinestring;
-    }
-
-    export interface DataPipelineSetTaskStatusOutput {
-    }
-
-    export interface DataPipelineTag {
-        key: DataPipelinetagKey;
-        value: DataPipelinetagValue;
-    }
-
-    export interface DataPipelineTaskNotFoundException {
-        message?: DataPipelineerrorMessage;
-    }
-
-    export interface DataPipelineTaskObject {
-        taskId?: DataPipelinetaskId;
-        pipelineId?: DataPipelineid;
-        attemptId?: DataPipelineid;
-        objects?: DataPipelinePipelineObjectMap;
-    }
-
-    export type DataPipelineTaskStatus = string;
-    export interface DataPipelineValidatePipelineDefinitionInput {
-        pipelineId: DataPipelineid;
-        pipelineObjects: DataPipelinePipelineObjectList;
-        parameterObjects?: DataPipelineParameterObjectList;
-        parameterValues?: DataPipelineParameterValueList;
-    }
-
-    export interface DataPipelineValidatePipelineDefinitionOutput {
-        validationErrors?: DataPipelineValidationErrors;
-        validationWarnings?: DataPipelineValidationWarnings;
-        errored: DataPipelineboolean;
-    }
-
-    export interface DataPipelineValidationError {
-        id?: DataPipelineid;
-        errors?: DataPipelinevalidationMessages;
-    }
-
-    export type DataPipelineValidationErrors = Array<DataPipelineValidationError>;
-    export interface DataPipelineValidationWarning {
-        id?: DataPipelineid;
-        warnings?: DataPipelinevalidationMessages;
-    }
-
-    export type DataPipelineValidationWarnings = Array<DataPipelineValidationWarning>;
-    export type DataPipelineattributeNameString = string; // pattern: "[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*"
-    export type DataPipelineattributeValueString = string; // pattern: "[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*"
-    export type DataPipelineboolean = boolean;
-    export type DataPipelinecancelActive = boolean;
-    export type DataPipelineerrorMessage = string;
-    export type DataPipelinefieldList = Array<DataPipelineField>;
-    export type DataPipelinefieldNameString = string; // pattern: "[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*"
-    export type DataPipelinefieldStringValue = string; // pattern: "[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*"
-    export type DataPipelineid = string; // pattern: "[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*"
-    export type DataPipelineidList = Array<DataPipelineid>;
-    export type DataPipelineint = number;
-    export type DataPipelinelongString = string; // pattern: "[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*"
-    export type DataPipelinepipelineList = Array<DataPipelinePipelineIdName>;
-    export type DataPipelinestring = string; // pattern: "[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*"
-    export type DataPipelinestringList = Array<DataPipelinestring>;
-    export type DataPipelinetagKey = string;
-    export type DataPipelinetagList = Array<DataPipelineTag>; // max: 10
-    export type DataPipelinetagValue = string;
-    export type DataPipelinetaskId = string; // pattern: "[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*"
-    export type DataPipelinetimestamp = number;
-    export type DataPipelinevalidationMessage = string; // pattern: "[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*"
-    export type DataPipelinevalidationMessages = Array<DataPipelinevalidationMessage>;
 }

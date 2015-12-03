@@ -6,757 +6,656 @@ declare module "aws-sdk" {
 
     export class APIGateway extends Service {
       constructor(options?: any);
-      createApiKey(params: APIGatewayCreateApiKeyRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|APIGatewayLimitExceededException|APIGatewayBadRequestException|any, data: APIGatewayApiKey|any) => void): Request;
-      createBasePathMapping(params: APIGatewayCreateBasePathMappingRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayConflictException|APIGatewayBadRequestException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayBasePathMapping|any) => void): Request;
-      createDeployment(params: APIGatewayCreateDeploymentRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayBadRequestException|APIGatewayNotFoundException|APIGatewayConflictException|APIGatewayLimitExceededException|APIGatewayTooManyRequestsException|APIGatewayServiceUnavailableException|any, data: APIGatewayDeployment|any) => void): Request;
-      createDomainName(params: APIGatewayCreateDomainNameRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayDomainName|any) => void): Request;
-      createModel(params: APIGatewayCreateModelRequest, callback?: (err: APIGatewayBadRequestException|APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayConflictException|APIGatewayLimitExceededException|APIGatewayTooManyRequestsException|any, data: APIGatewayModel|any) => void): Request;
-      createResource(params: APIGatewayCreateResourceRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayConflictException|APIGatewayLimitExceededException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayResource|any) => void): Request;
-      createRestApi(params: APIGatewayCreateRestApiRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayLimitExceededException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayRestApi|any) => void): Request;
-      createStage(params: APIGatewayCreateStageRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayBadRequestException|APIGatewayNotFoundException|APIGatewayConflictException|APIGatewayLimitExceededException|APIGatewayTooManyRequestsException|any, data: APIGatewayStage|any) => void): Request;
-      deleteApiKey(params: APIGatewayDeleteApiKeyRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: any) => void): Request;
-      deleteBasePathMapping(params: APIGatewayDeleteBasePathMappingRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: any) => void): Request;
-      deleteClientCertificate(params: APIGatewayDeleteClientCertificateRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayTooManyRequestsException|APIGatewayBadRequestException|APIGatewayNotFoundException|any, data: any) => void): Request;
-      deleteDeployment(params: APIGatewayDeleteDeploymentRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: any) => void): Request;
-      deleteDomainName(params: APIGatewayDeleteDomainNameRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: any) => void): Request;
-      deleteIntegration(params: APIGatewayDeleteIntegrationRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: any) => void): Request;
-      deleteIntegrationResponse(params: APIGatewayDeleteIntegrationResponseRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: any) => void): Request;
-      deleteMethod(params: APIGatewayDeleteMethodRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: any) => void): Request;
-      deleteMethodResponse(params: APIGatewayDeleteMethodResponseRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: any) => void): Request;
-      deleteModel(params: APIGatewayDeleteModelRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|APIGatewayBadRequestException|APIGatewayConflictException|any, data: any) => void): Request;
-      deleteResource(params: APIGatewayDeleteResourceRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: any) => void): Request;
-      deleteRestApi(params: APIGatewayDeleteRestApiRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: any) => void): Request;
-      deleteStage(params: APIGatewayDeleteStageRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: any) => void): Request;
-      flushStageCache(params: APIGatewayFlushStageCacheRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: any) => void): Request;
-      generateClientCertificate(params: APIGatewayGenerateClientCertificateRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayTooManyRequestsException|APIGatewayLimitExceededException|any, data: APIGatewayClientCertificate|any) => void): Request;
-      getAccount(params: APIGatewayGetAccountRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayAccount|any) => void): Request;
-      getApiKey(params: APIGatewayGetApiKeyRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayApiKey|any) => void): Request;
-      getApiKeys(params: APIGatewayGetApiKeysRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayTooManyRequestsException|any, data: APIGatewayApiKeys|any) => void): Request;
-      getBasePathMapping(params: APIGatewayGetBasePathMappingRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayBasePathMapping|any) => void): Request;
-      getBasePathMappings(params: APIGatewayGetBasePathMappingsRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayBasePathMappings|any) => void): Request;
-      getClientCertificate(params: APIGatewayGetClientCertificateRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayClientCertificate|any) => void): Request;
-      getClientCertificates(params: APIGatewayGetClientCertificatesRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayTooManyRequestsException|any, data: APIGatewayClientCertificates|any) => void): Request;
-      getDeployment(params: APIGatewayGetDeploymentRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|APIGatewayServiceUnavailableException|any, data: APIGatewayDeployment|any) => void): Request;
-      getDeployments(params: APIGatewayGetDeploymentsRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayTooManyRequestsException|APIGatewayServiceUnavailableException|any, data: APIGatewayDeployments|any) => void): Request;
-      getDomainName(params: APIGatewayGetDomainNameRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayServiceUnavailableException|APIGatewayTooManyRequestsException|any, data: APIGatewayDomainName|any) => void): Request;
-      getDomainNames(params: APIGatewayGetDomainNamesRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayTooManyRequestsException|any, data: APIGatewayDomainNames|any) => void): Request;
-      getIntegration(params: APIGatewayGetIntegrationRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayIntegration|any) => void): Request;
-      getIntegrationResponse(params: APIGatewayGetIntegrationResponseRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayIntegrationResponse|any) => void): Request;
-      getMethod(params: APIGatewayGetMethodRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayMethod|any) => void): Request;
-      getMethodResponse(params: APIGatewayGetMethodResponseRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayMethodResponse|any) => void): Request;
-      getModel(params: APIGatewayGetModelRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayModel|any) => void): Request;
-      getModelTemplate(params: APIGatewayGetModelTemplateRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayTemplate|any) => void): Request;
-      getModels(params: APIGatewayGetModelsRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayModels|any) => void): Request;
-      getResource(params: APIGatewayGetResourceRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayResource|any) => void): Request;
-      getResources(params: APIGatewayGetResourcesRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayResources|any) => void): Request;
-      getRestApi(params: APIGatewayGetRestApiRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayRestApi|any) => void): Request;
-      getRestApis(params: APIGatewayGetRestApisRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayTooManyRequestsException|any, data: APIGatewayRestApis|any) => void): Request;
-      getSdk(params: APIGatewayGetSdkRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewaySdkResponse|any) => void): Request;
-      getStage(params: APIGatewayGetStageRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayStage|any) => void): Request;
-      getStages(params: APIGatewayGetStagesRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayStages|any) => void): Request;
-      putIntegration(params: APIGatewayPutIntegrationRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayBadRequestException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayIntegration|any) => void): Request;
-      putIntegrationResponse(params: APIGatewayPutIntegrationResponseRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayLimitExceededException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayIntegrationResponse|any) => void): Request;
-      putMethod(params: APIGatewayPutMethodRequest, callback?: (err: APIGatewayBadRequestException|APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayConflictException|APIGatewayLimitExceededException|APIGatewayTooManyRequestsException|any, data: APIGatewayMethod|any) => void): Request;
-      putMethodResponse(params: APIGatewayPutMethodResponseRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayConflictException|APIGatewayLimitExceededException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayMethodResponse|any) => void): Request;
-      testInvokeMethod(params: APIGatewayTestInvokeMethodRequest, callback?: (err: APIGatewayBadRequestException|APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayTestInvokeMethodResponse|any) => void): Request;
-      updateAccount(params: APIGatewayUpdateAccountRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayBadRequestException|APIGatewayNotFoundException|APIGatewayTooManyRequestsException|any, data: APIGatewayAccount|any) => void): Request;
-      updateApiKey(params: APIGatewayUpdateApiKeyRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayApiKey|any) => void): Request;
-      updateBasePathMapping(params: APIGatewayUpdateBasePathMappingRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayConflictException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayBasePathMapping|any) => void): Request;
-      updateClientCertificate(params: APIGatewayUpdateClientCertificateRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayTooManyRequestsException|APIGatewayBadRequestException|APIGatewayNotFoundException|any, data: APIGatewayClientCertificate|any) => void): Request;
-      updateDeployment(params: APIGatewayUpdateDeploymentRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|APIGatewayServiceUnavailableException|any, data: APIGatewayDeployment|any) => void): Request;
-      updateDomainName(params: APIGatewayUpdateDomainNameRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayDomainName|any) => void): Request;
-      updateIntegration(params: APIGatewayUpdateIntegrationRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayIntegration|any) => void): Request;
-      updateIntegrationResponse(params: APIGatewayUpdateIntegrationResponseRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayIntegrationResponse|any) => void): Request;
-      updateMethod(params: APIGatewayUpdateMethodRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayMethod|any) => void): Request;
-      updateMethodResponse(params: APIGatewayUpdateMethodResponseRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayConflictException|APIGatewayLimitExceededException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayMethodResponse|any) => void): Request;
-      updateModel(params: APIGatewayUpdateModelRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayModel|any) => void): Request;
-      updateResource(params: APIGatewayUpdateResourceRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayConflictException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayResource|any) => void): Request;
-      updateRestApi(params: APIGatewayUpdateRestApiRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayConflictException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayRestApi|any) => void): Request;
-      updateStage(params: APIGatewayUpdateStageRequest, callback?: (err: APIGatewayUnauthorizedException|APIGatewayNotFoundException|APIGatewayConflictException|APIGatewayBadRequestException|APIGatewayTooManyRequestsException|any, data: APIGatewayStage|any) => void): Request;
-    }
-
-    export interface APIGatewayAccount {
-        cloudwatchRoleArn?: APIGatewayString;
-        throttleSettings?: APIGatewayThrottleSettings;
-    }
-
-    export interface APIGatewayApiKey {
-        id?: APIGatewayString;
-        name?: APIGatewayString;
-        description?: APIGatewayString;
-        enabled?: APIGatewayBoolean;
-        stageKeys?: APIGatewayListOfString;
-        createdDate?: APIGatewayTimestamp;
-        lastUpdatedDate?: APIGatewayTimestamp;
-    }
-
-    export interface APIGatewayApiKeys {
-        position?: APIGatewayString;
-        items?: APIGatewayListOfApiKey;
-    }
-
-    export interface APIGatewayBadRequestException {
-        message?: APIGatewayString;
-    }
-
-    export interface APIGatewayBasePathMapping {
-        basePath?: APIGatewayString;
-        restApiId?: APIGatewayString;
-        stage?: APIGatewayString;
-    }
-
-    export interface APIGatewayBasePathMappings {
-        position?: APIGatewayString;
-        items?: APIGatewayListOfBasePathMapping;
-    }
-
-    export type APIGatewayBlob = any; // not really - it was 'blob' instead - must fix this one
-    export type APIGatewayBoolean = boolean;
-    export type APIGatewayCacheClusterSize = string;
-    export type APIGatewayCacheClusterStatus = string;
-    export interface APIGatewayClientCertificate {
-        clientCertificateId?: APIGatewayString;
-        description?: APIGatewayString;
-        pemEncodedCertificate?: APIGatewayString;
-        createdDate?: APIGatewayTimestamp;
-        expirationDate?: APIGatewayTimestamp;
-    }
-
-    export interface APIGatewayClientCertificates {
-        position?: APIGatewayString;
-        items?: APIGatewayListOfClientCertificate;
-    }
-
-    export interface APIGatewayConflictException {
-        message?: APIGatewayString;
-    }
-
-    export interface APIGatewayCreateApiKeyRequest {
-        name?: APIGatewayString;
-        description?: APIGatewayString;
-        enabled?: APIGatewayBoolean;
-        stageKeys?: APIGatewayListOfStageKeys;
-    }
-
-    export interface APIGatewayCreateBasePathMappingRequest {
-        domainName: APIGatewayString;
-        basePath?: APIGatewayString;
-        restApiId: APIGatewayString;
-        stage?: APIGatewayString;
-    }
-
-    export interface APIGatewayCreateDeploymentRequest {
-        restApiId: APIGatewayString;
-        stageName: APIGatewayString;
-        stageDescription?: APIGatewayString;
-        description?: APIGatewayString;
-        cacheClusterEnabled?: APIGatewayNullableBoolean;
-        cacheClusterSize?: APIGatewayCacheClusterSize;
-        variables?: APIGatewayMapOfStringToString;
-    }
-
-    export interface APIGatewayCreateDomainNameRequest {
-        domainName: APIGatewayString;
-        certificateName: APIGatewayString;
-        certificateBody: APIGatewayString;
-        certificatePrivateKey: APIGatewayString;
-        certificateChain: APIGatewayString;
-    }
-
-    export interface APIGatewayCreateModelRequest {
-        restApiId: APIGatewayString;
-        name: APIGatewayString;
-        description?: APIGatewayString;
-        schema?: APIGatewayString;
-        contentType: APIGatewayString;
-    }
-
-    export interface APIGatewayCreateResourceRequest {
-        restApiId: APIGatewayString;
-        parentId: APIGatewayString;
-        pathPart: APIGatewayString;
-    }
-
-    export interface APIGatewayCreateRestApiRequest {
-        name: APIGatewayString;
-        description?: APIGatewayString;
-        cloneFrom?: APIGatewayString;
-    }
-
-    export interface APIGatewayCreateStageRequest {
-        restApiId: APIGatewayString;
-        stageName: APIGatewayString;
-        deploymentId: APIGatewayString;
-        description?: APIGatewayString;
-        cacheClusterEnabled?: APIGatewayBoolean;
-        cacheClusterSize?: APIGatewayCacheClusterSize;
-        variables?: APIGatewayMapOfStringToString;
-    }
-
-    export interface APIGatewayDeleteApiKeyRequest {
-        apiKey: APIGatewayString;
-    }
-
-    export interface APIGatewayDeleteBasePathMappingRequest {
-        domainName: APIGatewayString;
-        basePath: APIGatewayString;
-    }
-
-    export interface APIGatewayDeleteClientCertificateRequest {
-        clientCertificateId: APIGatewayString;
-    }
-
-    export interface APIGatewayDeleteDeploymentRequest {
-        restApiId: APIGatewayString;
-        deploymentId: APIGatewayString;
-    }
-
-    export interface APIGatewayDeleteDomainNameRequest {
-        domainName: APIGatewayString;
-    }
-
-    export interface APIGatewayDeleteIntegrationRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-    }
-
-    export interface APIGatewayDeleteIntegrationResponseRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-        statusCode: APIGatewayStatusCode;
-    }
-
-    export interface APIGatewayDeleteMethodRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-    }
-
-    export interface APIGatewayDeleteMethodResponseRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-        statusCode: APIGatewayStatusCode;
-    }
-
-    export interface APIGatewayDeleteModelRequest {
-        restApiId: APIGatewayString;
-        modelName: APIGatewayString;
-    }
-
-    export interface APIGatewayDeleteResourceRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-    }
-
-    export interface APIGatewayDeleteRestApiRequest {
-        restApiId: APIGatewayString;
-    }
-
-    export interface APIGatewayDeleteStageRequest {
-        restApiId: APIGatewayString;
-        stageName: APIGatewayString;
-    }
-
-    export interface APIGatewayDeployment {
-        id?: APIGatewayString;
-        description?: APIGatewayString;
-        createdDate?: APIGatewayTimestamp;
-        apiSummary?: APIGatewayPathToMapOfMethodSnapshot;
-    }
-
-    export interface APIGatewayDeployments {
-        position?: APIGatewayString;
-        items?: APIGatewayListOfDeployment;
-    }
-
-    export interface APIGatewayDomainName {
-        domainName?: APIGatewayString;
-        certificateName?: APIGatewayString;
-        certificateUploadDate?: APIGatewayTimestamp;
-        distributionDomainName?: APIGatewayString;
-    }
-
-    export interface APIGatewayDomainNames {
-        position?: APIGatewayString;
-        items?: APIGatewayListOfDomainName;
-    }
-
-    export type APIGatewayDouble = number;
-    export interface APIGatewayFlushStageCacheRequest {
-        restApiId: APIGatewayString;
-        stageName: APIGatewayString;
-    }
-
-    export interface APIGatewayGenerateClientCertificateRequest {
-        description?: APIGatewayString;
-    }
-
-    export interface APIGatewayGetAccountRequest {
-    }
-
-    export interface APIGatewayGetApiKeyRequest {
-        apiKey: APIGatewayString;
-    }
-
-    export interface APIGatewayGetApiKeysRequest {
-        position?: APIGatewayString;
-        limit?: APIGatewayNullableInteger;
-    }
-
-    export interface APIGatewayGetBasePathMappingRequest {
-        domainName: APIGatewayString;
-        basePath: APIGatewayString;
-    }
-
-    export interface APIGatewayGetBasePathMappingsRequest {
-        domainName: APIGatewayString;
-        position?: APIGatewayString;
-        limit?: APIGatewayNullableInteger;
-    }
-
-    export interface APIGatewayGetClientCertificateRequest {
-        clientCertificateId: APIGatewayString;
-    }
-
-    export interface APIGatewayGetClientCertificatesRequest {
-        position?: APIGatewayString;
-        limit?: APIGatewayNullableInteger;
-    }
-
-    export interface APIGatewayGetDeploymentRequest {
-        restApiId: APIGatewayString;
-        deploymentId: APIGatewayString;
-    }
-
-    export interface APIGatewayGetDeploymentsRequest {
-        restApiId: APIGatewayString;
-        position?: APIGatewayString;
-        limit?: APIGatewayNullableInteger;
-    }
-
-    export interface APIGatewayGetDomainNameRequest {
-        domainName: APIGatewayString;
-    }
-
-    export interface APIGatewayGetDomainNamesRequest {
-        position?: APIGatewayString;
-        limit?: APIGatewayNullableInteger;
-    }
-
-    export interface APIGatewayGetIntegrationRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-    }
-
-    export interface APIGatewayGetIntegrationResponseRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-        statusCode: APIGatewayStatusCode;
-    }
-
-    export interface APIGatewayGetMethodRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-    }
-
-    export interface APIGatewayGetMethodResponseRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-        statusCode: APIGatewayStatusCode;
-    }
-
-    export interface APIGatewayGetModelRequest {
-        restApiId: APIGatewayString;
-        modelName: APIGatewayString;
-        flatten?: APIGatewayBoolean;
-    }
+      createApiKey(params: APIGateway.CreateApiKeyRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.BadRequestException|any, data: APIGateway.ApiKey|any) => void): Request;
+      createBasePathMapping(params: APIGateway.CreateBasePathMappingRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.BasePathMapping|any) => void): Request;
+      createDeployment(params: APIGateway.CreateDeploymentRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|APIGateway.ServiceUnavailableException|any, data: APIGateway.Deployment|any) => void): Request;
+      createDomainName(params: APIGateway.CreateDomainNameRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainName|any) => void): Request;
+      createModel(params: APIGateway.CreateModelRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any, data: APIGateway.Model|any) => void): Request;
+      createResource(params: APIGateway.CreateResourceRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Resource|any) => void): Request;
+      createRestApi(params: APIGateway.CreateRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.RestApi|any) => void): Request;
+      createStage(params: APIGateway.CreateStageRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any, data: APIGateway.Stage|any) => void): Request;
+      deleteApiKey(params: APIGateway.DeleteApiKeyRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
+      deleteBasePathMapping(params: APIGateway.DeleteBasePathMappingRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
+      deleteClientCertificate(params: APIGateway.DeleteClientCertificateRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.NotFoundException|any, data: any) => void): Request;
+      deleteDeployment(params: APIGateway.DeleteDeploymentRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
+      deleteDomainName(params: APIGateway.DeleteDomainNameRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
+      deleteIntegration(params: APIGateway.DeleteIntegrationRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
+      deleteIntegrationResponse(params: APIGateway.DeleteIntegrationResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
+      deleteMethod(params: APIGateway.DeleteMethodRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
+      deleteMethodResponse(params: APIGateway.DeleteMethodResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
+      deleteModel(params: APIGateway.DeleteModelRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.ConflictException|any, data: any) => void): Request;
+      deleteResource(params: APIGateway.DeleteResourceRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
+      deleteRestApi(params: APIGateway.DeleteRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
+      deleteStage(params: APIGateway.DeleteStageRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
+      flushStageCache(params: APIGateway.FlushStageCacheRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
+      generateClientCertificate(params: APIGateway.GenerateClientCertificateRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|any, data: APIGateway.ClientCertificate|any) => void): Request;
+      getAccount(params: APIGateway.GetAccountRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Account|any) => void): Request;
+      getApiKey(params: APIGateway.GetApiKeyRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.ApiKey|any) => void): Request;
+      getApiKeys(params: APIGateway.GetApiKeysRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|any, data: APIGateway.ApiKeys|any) => void): Request;
+      getBasePathMapping(params: APIGateway.GetBasePathMappingRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.BasePathMapping|any) => void): Request;
+      getBasePathMappings(params: APIGateway.GetBasePathMappingsRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.BasePathMappings|any) => void): Request;
+      getClientCertificate(params: APIGateway.GetClientCertificateRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.ClientCertificate|any) => void): Request;
+      getClientCertificates(params: APIGateway.GetClientCertificatesRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|any, data: APIGateway.ClientCertificates|any) => void): Request;
+      getDeployment(params: APIGateway.GetDeploymentRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.ServiceUnavailableException|any, data: APIGateway.Deployment|any) => void): Request;
+      getDeployments(params: APIGateway.GetDeploymentsRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.ServiceUnavailableException|any, data: APIGateway.Deployments|any) => void): Request;
+      getDomainName(params: APIGateway.GetDomainNameRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ServiceUnavailableException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainName|any) => void): Request;
+      getDomainNames(params: APIGateway.GetDomainNamesRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainNames|any) => void): Request;
+      getIntegration(params: APIGateway.GetIntegrationRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Integration|any) => void): Request;
+      getIntegrationResponse(params: APIGateway.GetIntegrationResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.IntegrationResponse|any) => void): Request;
+      getMethod(params: APIGateway.GetMethodRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Method|any) => void): Request;
+      getMethodResponse(params: APIGateway.GetMethodResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.MethodResponse|any) => void): Request;
+      getModel(params: APIGateway.GetModelRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Model|any) => void): Request;
+      getModelTemplate(params: APIGateway.GetModelTemplateRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Template|any) => void): Request;
+      getModels(params: APIGateway.GetModelsRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Models|any) => void): Request;
+      getResource(params: APIGateway.GetResourceRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Resource|any) => void): Request;
+      getResources(params: APIGateway.GetResourcesRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Resources|any) => void): Request;
+      getRestApi(params: APIGateway.GetRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.RestApi|any) => void): Request;
+      getRestApis(params: APIGateway.GetRestApisRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|any, data: APIGateway.RestApis|any) => void): Request;
+      getSdk(params: APIGateway.GetSdkRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.SdkResponse|any) => void): Request;
+      getStage(params: APIGateway.GetStageRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Stage|any) => void): Request;
+      getStages(params: APIGateway.GetStagesRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Stages|any) => void): Request;
+      putIntegration(params: APIGateway.PutIntegrationRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Integration|any) => void): Request;
+      putIntegrationResponse(params: APIGateway.PutIntegrationResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.IntegrationResponse|any) => void): Request;
+      putMethod(params: APIGateway.PutMethodRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any, data: APIGateway.Method|any) => void): Request;
+      putMethodResponse(params: APIGateway.PutMethodResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.MethodResponse|any) => void): Request;
+      testInvokeMethod(params: APIGateway.TestInvokeMethodRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.TestInvokeMethodResponse|any) => void): Request;
+      updateAccount(params: APIGateway.UpdateAccountRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Account|any) => void): Request;
+      updateApiKey(params: APIGateway.UpdateApiKeyRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.ApiKey|any) => void): Request;
+      updateBasePathMapping(params: APIGateway.UpdateBasePathMappingRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.BasePathMapping|any) => void): Request;
+      updateClientCertificate(params: APIGateway.UpdateClientCertificateRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.NotFoundException|any, data: APIGateway.ClientCertificate|any) => void): Request;
+      updateDeployment(params: APIGateway.UpdateDeploymentRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|APIGateway.ServiceUnavailableException|any, data: APIGateway.Deployment|any) => void): Request;
+      updateDomainName(params: APIGateway.UpdateDomainNameRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainName|any) => void): Request;
+      updateIntegration(params: APIGateway.UpdateIntegrationRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Integration|any) => void): Request;
+      updateIntegrationResponse(params: APIGateway.UpdateIntegrationResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.IntegrationResponse|any) => void): Request;
+      updateMethod(params: APIGateway.UpdateMethodRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Method|any) => void): Request;
+      updateMethodResponse(params: APIGateway.UpdateMethodResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.MethodResponse|any) => void): Request;
+      updateModel(params: APIGateway.UpdateModelRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Model|any) => void): Request;
+      updateResource(params: APIGateway.UpdateResourceRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Resource|any) => void): Request;
+      updateRestApi(params: APIGateway.UpdateRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.RestApi|any) => void): Request;
+      updateStage(params: APIGateway.UpdateStageRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Stage|any) => void): Request;
+    }
+    
+    export module APIGateway {
+        export type Blob = any;    // type: blob
+        export type Boolean = boolean;
+        export type CacheClusterSize = string;
+        export type CacheClusterStatus = string;
+        export type Double = number;
+        export type Integer = number;
+        export type IntegrationType = string;
+        export type ListOfApiKey = ApiKey[];
+        export type ListOfBasePathMapping = BasePathMapping[];
+        export type ListOfClientCertificate = ClientCertificate[];
+        export type ListOfDeployment = Deployment[];
+        export type ListOfDomainName = DomainName[];
+        export type ListOfModel = Model[];
+        export type ListOfPatchOperation = PatchOperation[];
+        export type ListOfResource = Resource[];
+        export type ListOfRestApi = RestApi[];
+        export type ListOfStage = Stage[];
+        export type ListOfStageKeys = StageKey[];
+        export type ListOfString = String[];
+        export type Long = number;
+        export type MapOfHeaderValues = {[key:string]: String};
+        export type MapOfIntegrationResponse = {[key:string]: IntegrationResponse};
+        export type MapOfMethod = {[key:string]: Method};
+        export type MapOfMethodResponse = {[key:string]: MethodResponse};
+        export type MapOfMethodSettings = {[key:string]: MethodSetting};
+        export type MapOfMethodSnapshot = {[key:string]: MethodSnapshot};
+        export type MapOfStringToBoolean = {[key:string]: NullableBoolean};
+        export type MapOfStringToString = {[key:string]: String};
+        export type NullableBoolean = boolean;
+        export type NullableInteger = number;
+        export type PathToMapOfMethodSnapshot = {[key:string]: MapOfMethodSnapshot};
+        export type StatusCode = string;    // pattern: &quot;[1-5]\d\d&quot;
+        export type String = string;
+        export type Timestamp = number;
+        export type op = string;
+
+        export interface Account {
+            cloudwatchRoleArn?: String;            
+            throttleSettings?: ThrottleSettings;            
+        }
+        export interface ApiKey {
+            id?: String;            
+            name?: String;            
+            description?: String;            
+            enabled?: Boolean;            
+            stageKeys?: ListOfString;            
+            createdDate?: Timestamp;            
+            lastUpdatedDate?: Timestamp;            
+        }
+        export interface ApiKeys {
+            position?: String;            
+            items?: ListOfApiKey;            
+        }
+        export interface BadRequestException {
+            message?: String;            
+        }
+        export interface BasePathMapping {
+            basePath?: String;            
+            restApiId?: String;            
+            stage?: String;            
+        }
+        export interface BasePathMappings {
+            position?: String;            
+            items?: ListOfBasePathMapping;            
+        }
+        export interface ClientCertificate {
+            clientCertificateId?: String;            
+            description?: String;            
+            pemEncodedCertificate?: String;            
+            createdDate?: Timestamp;            
+            expirationDate?: Timestamp;            
+        }
+        export interface ClientCertificates {
+            position?: String;            
+            items?: ListOfClientCertificate;            
+        }
+        export interface ConflictException {
+            message?: String;            
+        }
+        export interface CreateApiKeyRequest {
+            name?: String;            
+            description?: String;            
+            enabled?: Boolean;            
+            stageKeys?: ListOfStageKeys;            
+        }
+        export interface CreateBasePathMappingRequest {
+            domainName: String;            
+            basePath?: String;            
+            restApiId: String;            
+            stage?: String;            
+        }
+        export interface CreateDeploymentRequest {
+            restApiId: String;            
+            stageName: String;            
+            stageDescription?: String;            
+            description?: String;            
+            cacheClusterEnabled?: NullableBoolean;            
+            cacheClusterSize?: CacheClusterSize;            
+            variables?: MapOfStringToString;            
+        }
+        export interface CreateDomainNameRequest {
+            domainName: String;            
+            certificateName: String;            
+            certificateBody: String;            
+            certificatePrivateKey: String;            
+            certificateChain: String;            
+        }
+        export interface CreateModelRequest {
+            restApiId: String;            
+            name: String;            
+            description?: String;            
+            schema?: String;            
+            contentType: String;            
+        }
+        export interface CreateResourceRequest {
+            restApiId: String;            
+            parentId: String;            
+            pathPart: String;            
+        }
+        export interface CreateRestApiRequest {
+            name: String;            
+            description?: String;            
+            cloneFrom?: String;            
+        }
+        export interface CreateStageRequest {
+            restApiId: String;            
+            stageName: String;            
+            deploymentId: String;            
+            description?: String;            
+            cacheClusterEnabled?: Boolean;            
+            cacheClusterSize?: CacheClusterSize;            
+            variables?: MapOfStringToString;            
+        }
+        export interface DeleteApiKeyRequest {
+            apiKey: String;            
+        }
+        export interface DeleteBasePathMappingRequest {
+            domainName: String;            
+            basePath: String;            
+        }
+        export interface DeleteClientCertificateRequest {
+            clientCertificateId: String;            
+        }
+        export interface DeleteDeploymentRequest {
+            restApiId: String;            
+            deploymentId: String;            
+        }
+        export interface DeleteDomainNameRequest {
+            domainName: String;            
+        }
+        export interface DeleteIntegrationRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+        }
+        export interface DeleteIntegrationResponseRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+            statusCode: StatusCode;            
+        }
+        export interface DeleteMethodRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+        }
+        export interface DeleteMethodResponseRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+            statusCode: StatusCode;            
+        }
+        export interface DeleteModelRequest {
+            restApiId: String;            
+            modelName: String;            
+        }
+        export interface DeleteResourceRequest {
+            restApiId: String;            
+            resourceId: String;            
+        }
+        export interface DeleteRestApiRequest {
+            restApiId: String;            
+        }
+        export interface DeleteStageRequest {
+            restApiId: String;            
+            stageName: String;            
+        }
+        export interface Deployment {
+            id?: String;            
+            description?: String;            
+            createdDate?: Timestamp;            
+            apiSummary?: PathToMapOfMethodSnapshot;            
+        }
+        export interface Deployments {
+            position?: String;            
+            items?: ListOfDeployment;            
+        }
+        export interface DomainName {
+            domainName?: String;            
+            certificateName?: String;            
+            certificateUploadDate?: Timestamp;            
+            distributionDomainName?: String;            
+        }
+        export interface DomainNames {
+            position?: String;            
+            items?: ListOfDomainName;            
+        }
+        export interface FlushStageCacheRequest {
+            restApiId: String;            
+            stageName: String;            
+        }
+        export interface GenerateClientCertificateRequest {
+            description?: String;            
+        }
+        export interface GetAccountRequest {
+        }
+        export interface GetApiKeyRequest {
+            apiKey: String;            
+        }
+        export interface GetApiKeysRequest {
+            position?: String;            
+            limit?: NullableInteger;            
+        }
+        export interface GetBasePathMappingRequest {
+            domainName: String;            
+            basePath: String;            
+        }
+        export interface GetBasePathMappingsRequest {
+            domainName: String;            
+            position?: String;            
+            limit?: NullableInteger;            
+        }
+        export interface GetClientCertificateRequest {
+            clientCertificateId: String;            
+        }
+        export interface GetClientCertificatesRequest {
+            position?: String;            
+            limit?: NullableInteger;            
+        }
+        export interface GetDeploymentRequest {
+            restApiId: String;            
+            deploymentId: String;            
+        }
+        export interface GetDeploymentsRequest {
+            restApiId: String;            
+            position?: String;            
+            limit?: NullableInteger;            
+        }
+        export interface GetDomainNameRequest {
+            domainName: String;            
+        }
+        export interface GetDomainNamesRequest {
+            position?: String;            
+            limit?: NullableInteger;            
+        }
+        export interface GetIntegrationRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+        }
+        export interface GetIntegrationResponseRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+            statusCode: StatusCode;            
+        }
+        export interface GetMethodRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+        }
+        export interface GetMethodResponseRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+            statusCode: StatusCode;            
+        }
+        export interface GetModelRequest {
+            restApiId: String;            
+            modelName: String;            
+            flatten?: Boolean;            
+        }
+        export interface GetModelTemplateRequest {
+            restApiId: String;            
+            modelName: String;            
+        }
+        export interface GetModelsRequest {
+            restApiId: String;            
+            position?: String;            
+            limit?: NullableInteger;            
+        }
+        export interface GetResourceRequest {
+            restApiId: String;            
+            resourceId: String;            
+        }
+        export interface GetResourcesRequest {
+            restApiId: String;            
+            position?: String;            
+            limit?: NullableInteger;            
+        }
+        export interface GetRestApiRequest {
+            restApiId: String;            
+        }
+        export interface GetRestApisRequest {
+            position?: String;            
+            limit?: NullableInteger;            
+        }
+        export interface GetSdkRequest {
+            restApiId: String;            
+            stageName: String;            
+            sdkType: String;            
+            parameters?: MapOfStringToString;            
+        }
+        export interface GetStageRequest {
+            restApiId: String;            
+            stageName: String;            
+        }
+        export interface GetStagesRequest {
+            restApiId: String;            
+            deploymentId?: String;            
+        }
+        export interface Integration {
+            type?: IntegrationType;            
+            httpMethod?: String;            
+            uri?: String;            
+            credentials?: String;            
+            requestParameters?: MapOfStringToString;            
+            requestTemplates?: MapOfStringToString;            
+            cacheNamespace?: String;            
+            cacheKeyParameters?: ListOfString;            
+            integrationResponses?: MapOfIntegrationResponse;            
+        }
+        export interface IntegrationResponse {
+            statusCode?: StatusCode;            
+            selectionPattern?: String;            
+            responseParameters?: MapOfStringToString;            
+            responseTemplates?: MapOfStringToString;            
+        }
+        export interface LimitExceededException {
+            retryAfterSeconds?: String;            
+            message?: String;            
+        }
+        export interface Method {
+            httpMethod?: String;            
+            authorizationType?: String;            
+            apiKeyRequired?: NullableBoolean;            
+            requestParameters?: MapOfStringToBoolean;            
+            requestModels?: MapOfStringToString;            
+            methodResponses?: MapOfMethodResponse;            
+            methodIntegration?: Integration;            
+        }
+        export interface MethodResponse {
+            statusCode?: StatusCode;            
+            responseParameters?: MapOfStringToBoolean;            
+            responseModels?: MapOfStringToString;            
+        }
+        export interface MethodSetting {
+            metricsEnabled?: Boolean;            
+            loggingLevel?: String;            
+            dataTraceEnabled?: Boolean;            
+            throttlingBurstLimit?: Integer;            
+            throttlingRateLimit?: Double;            
+            cachingEnabled?: Boolean;            
+            cacheTtlInSeconds?: Integer;            
+            cacheDataEncrypted?: Boolean;            
+        }
+        export interface MethodSnapshot {
+            authorizationType?: String;            
+            apiKeyRequired?: Boolean;            
+        }
+        export interface Model {
+            id?: String;            
+            name?: String;            
+            description?: String;            
+            schema?: String;            
+            contentType?: String;            
+        }
+        export interface Models {
+            position?: String;            
+            items?: ListOfModel;            
+        }
+        export interface NotFoundException {
+            message?: String;            
+        }
+        export interface PatchOperation {
+            op?: op;            
+            path?: String;            
+            value?: String;            
+            from?: String;            
+        }
+        export interface PutIntegrationRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+            type: IntegrationType;            
+            integrationHttpMethod?: String;            
+            uri?: String;            
+            credentials?: String;            
+            requestParameters?: MapOfStringToString;            
+            requestTemplates?: MapOfStringToString;            
+            cacheNamespace?: String;            
+            cacheKeyParameters?: ListOfString;            
+        }
+        export interface PutIntegrationResponseRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+            statusCode: StatusCode;            
+            selectionPattern?: String;            
+            responseParameters?: MapOfStringToString;            
+            responseTemplates?: MapOfStringToString;            
+        }
+        export interface PutMethodRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+            authorizationType: String;            
+            apiKeyRequired?: Boolean;            
+            requestParameters?: MapOfStringToBoolean;            
+            requestModels?: MapOfStringToString;            
+        }
+        export interface PutMethodResponseRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+            statusCode: StatusCode;            
+            responseParameters?: MapOfStringToBoolean;            
+            responseModels?: MapOfStringToString;            
+        }
+        export interface Resource {
+            id?: String;            
+            parentId?: String;            
+            pathPart?: String;            
+            path?: String;            
+            resourceMethods?: MapOfMethod;            
+        }
+        export interface Resources {
+            position?: String;            
+            items?: ListOfResource;            
+        }
+        export interface RestApi {
+            id?: String;            
+            name?: String;            
+            description?: String;            
+            createdDate?: Timestamp;            
+        }
+        export interface RestApis {
+            position?: String;            
+            items?: ListOfRestApi;            
+        }
+        export interface SdkResponse {
+            contentType?: String;            
+            contentDisposition?: String;            
+            body?: Blob;            
+        }
+        export interface ServiceUnavailableException {
+            retryAfterSeconds?: String;            
+            message?: String;            
+        }
+        export interface Stage {
+            deploymentId?: String;            
+            clientCertificateId?: String;            
+            stageName?: String;            
+            description?: String;            
+            cacheClusterEnabled?: Boolean;            
+            cacheClusterSize?: CacheClusterSize;            
+            cacheClusterStatus?: CacheClusterStatus;            
+            methodSettings?: MapOfMethodSettings;            
+            variables?: MapOfStringToString;            
+            createdDate?: Timestamp;            
+            lastUpdatedDate?: Timestamp;            
+        }
+        export interface StageKey {
+            restApiId?: String;            
+            stageName?: String;            
+        }
+        export interface Stages {
+            item?: ListOfStage;            
+        }
+        export interface Template {
+            value?: String;            
+        }
+        export interface TestInvokeMethodRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+            pathWithQueryString?: String;            
+            body?: String;            
+            headers?: MapOfHeaderValues;            
+            clientCertificateId?: String;            
+            stageVariables?: MapOfStringToString;            
+        }
+        export interface TestInvokeMethodResponse {
+            status?: Integer;            
+            body?: String;            
+            headers?: MapOfHeaderValues;            
+            log?: String;            
+            latency?: Long;            
+        }
+        export interface ThrottleSettings {
+            burstLimit?: Integer;            
+            rateLimit?: Double;            
+        }
+        export interface TooManyRequestsException {
+            retryAfterSeconds?: String;            
+            message?: String;            
+        }
+        export interface UnauthorizedException {
+            message?: String;            
+        }
+        export interface UpdateAccountRequest {
+            patchOperations?: ListOfPatchOperation;            
+        }
+        export interface UpdateApiKeyRequest {
+            apiKey: String;            
+            patchOperations?: ListOfPatchOperation;            
+        }
+        export interface UpdateBasePathMappingRequest {
+            domainName: String;            
+            basePath: String;            
+            patchOperations?: ListOfPatchOperation;            
+        }
+        export interface UpdateClientCertificateRequest {
+            clientCertificateId: String;            
+            patchOperations?: ListOfPatchOperation;            
+        }
+        export interface UpdateDeploymentRequest {
+            restApiId: String;            
+            deploymentId: String;            
+            patchOperations?: ListOfPatchOperation;            
+        }
+        export interface UpdateDomainNameRequest {
+            domainName: String;            
+            patchOperations?: ListOfPatchOperation;            
+        }
+        export interface UpdateIntegrationRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+            patchOperations?: ListOfPatchOperation;            
+        }
+        export interface UpdateIntegrationResponseRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+            statusCode: StatusCode;            
+            patchOperations?: ListOfPatchOperation;            
+        }
+        export interface UpdateMethodRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+            patchOperations?: ListOfPatchOperation;            
+        }
+        export interface UpdateMethodResponseRequest {
+            restApiId: String;            
+            resourceId: String;            
+            httpMethod: String;            
+            statusCode: StatusCode;            
+            patchOperations?: ListOfPatchOperation;            
+        }
+        export interface UpdateModelRequest {
+            restApiId: String;            
+            modelName: String;            
+            patchOperations?: ListOfPatchOperation;            
+        }
+        export interface UpdateResourceRequest {
+            restApiId: String;            
+            resourceId: String;            
+            patchOperations?: ListOfPatchOperation;            
+        }
+        export interface UpdateRestApiRequest {
+            restApiId: String;            
+            patchOperations?: ListOfPatchOperation;            
+        }
+        export interface UpdateStageRequest {
+            restApiId: String;            
+            stageName: String;            
+            patchOperations?: ListOfPatchOperation;            
+        }
 
-    export interface APIGatewayGetModelTemplateRequest {
-        restApiId: APIGatewayString;
-        modelName: APIGatewayString;
     }
-
-    export interface APIGatewayGetModelsRequest {
-        restApiId: APIGatewayString;
-        position?: APIGatewayString;
-        limit?: APIGatewayNullableInteger;
-    }
-
-    export interface APIGatewayGetResourceRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-    }
-
-    export interface APIGatewayGetResourcesRequest {
-        restApiId: APIGatewayString;
-        position?: APIGatewayString;
-        limit?: APIGatewayNullableInteger;
-    }
-
-    export interface APIGatewayGetRestApiRequest {
-        restApiId: APIGatewayString;
-    }
-
-    export interface APIGatewayGetRestApisRequest {
-        position?: APIGatewayString;
-        limit?: APIGatewayNullableInteger;
-    }
-
-    export interface APIGatewayGetSdkRequest {
-        restApiId: APIGatewayString;
-        stageName: APIGatewayString;
-        sdkType: APIGatewayString;
-        parameters?: APIGatewayMapOfStringToString;
-    }
-
-    export interface APIGatewayGetStageRequest {
-        restApiId: APIGatewayString;
-        stageName: APIGatewayString;
-    }
-
-    export interface APIGatewayGetStagesRequest {
-        restApiId: APIGatewayString;
-        deploymentId?: APIGatewayString;
-    }
-
-    export type APIGatewayInteger = number;
-    export interface APIGatewayIntegration {
-        type?: APIGatewayIntegrationType;
-        httpMethod?: APIGatewayString;
-        uri?: APIGatewayString;
-        credentials?: APIGatewayString;
-        requestParameters?: APIGatewayMapOfStringToString;
-        requestTemplates?: APIGatewayMapOfStringToString;
-        cacheNamespace?: APIGatewayString;
-        cacheKeyParameters?: APIGatewayListOfString;
-        integrationResponses?: APIGatewayMapOfIntegrationResponse;
-    }
-
-    export interface APIGatewayIntegrationResponse {
-        statusCode?: APIGatewayStatusCode;
-        selectionPattern?: APIGatewayString;
-        responseParameters?: APIGatewayMapOfStringToString;
-        responseTemplates?: APIGatewayMapOfStringToString;
-    }
-
-    export type APIGatewayIntegrationType = string;
-    export interface APIGatewayLimitExceededException {
-        retryAfterSeconds?: APIGatewayString;
-        message?: APIGatewayString;
-    }
-
-    export type APIGatewayListOfApiKey = Array<APIGatewayApiKey>;
-    export type APIGatewayListOfBasePathMapping = Array<APIGatewayBasePathMapping>;
-    export type APIGatewayListOfClientCertificate = Array<APIGatewayClientCertificate>;
-    export type APIGatewayListOfDeployment = Array<APIGatewayDeployment>;
-    export type APIGatewayListOfDomainName = Array<APIGatewayDomainName>;
-    export type APIGatewayListOfModel = Array<APIGatewayModel>;
-    export type APIGatewayListOfPatchOperation = Array<APIGatewayPatchOperation>;
-    export type APIGatewayListOfResource = Array<APIGatewayResource>;
-    export type APIGatewayListOfRestApi = Array<APIGatewayRestApi>;
-    export type APIGatewayListOfStage = Array<APIGatewayStage>;
-    export type APIGatewayListOfStageKeys = Array<APIGatewayStageKey>;
-    export type APIGatewayListOfString = Array<APIGatewayString>;
-    export type APIGatewayLong = number;
-    export type APIGatewayMapOfHeaderValues = any; // not really - it was 'map' instead - must fix this one
-    export type APIGatewayMapOfIntegrationResponse = any; // not really - it was 'map' instead - must fix this one
-    export type APIGatewayMapOfMethod = any; // not really - it was 'map' instead - must fix this one
-    export type APIGatewayMapOfMethodResponse = any; // not really - it was 'map' instead - must fix this one
-    export type APIGatewayMapOfMethodSettings = any; // not really - it was 'map' instead - must fix this one
-    export type APIGatewayMapOfMethodSnapshot = any; // not really - it was 'map' instead - must fix this one
-    export type APIGatewayMapOfStringToBoolean = any; // not really - it was 'map' instead - must fix this one
-    export type APIGatewayMapOfStringToString = any; // not really - it was 'map' instead - must fix this one
-    export interface APIGatewayMethod {
-        httpMethod?: APIGatewayString;
-        authorizationType?: APIGatewayString;
-        apiKeyRequired?: APIGatewayNullableBoolean;
-        requestParameters?: APIGatewayMapOfStringToBoolean;
-        requestModels?: APIGatewayMapOfStringToString;
-        methodResponses?: APIGatewayMapOfMethodResponse;
-        methodIntegration?: APIGatewayIntegration;
-    }
-
-    export interface APIGatewayMethodResponse {
-        statusCode?: APIGatewayStatusCode;
-        responseParameters?: APIGatewayMapOfStringToBoolean;
-        responseModels?: APIGatewayMapOfStringToString;
-    }
-
-    export interface APIGatewayMethodSetting {
-        metricsEnabled?: APIGatewayBoolean;
-        loggingLevel?: APIGatewayString;
-        dataTraceEnabled?: APIGatewayBoolean;
-        throttlingBurstLimit?: APIGatewayInteger;
-        throttlingRateLimit?: APIGatewayDouble;
-        cachingEnabled?: APIGatewayBoolean;
-        cacheTtlInSeconds?: APIGatewayInteger;
-        cacheDataEncrypted?: APIGatewayBoolean;
-    }
-
-    export interface APIGatewayMethodSnapshot {
-        authorizationType?: APIGatewayString;
-        apiKeyRequired?: APIGatewayBoolean;
-    }
-
-    export interface APIGatewayModel {
-        id?: APIGatewayString;
-        name?: APIGatewayString;
-        description?: APIGatewayString;
-        schema?: APIGatewayString;
-        contentType?: APIGatewayString;
-    }
-
-    export interface APIGatewayModels {
-        position?: APIGatewayString;
-        items?: APIGatewayListOfModel;
-    }
-
-    export interface APIGatewayNotFoundException {
-        message?: APIGatewayString;
-    }
-
-    export type APIGatewayNullableBoolean = boolean;
-    export type APIGatewayNullableInteger = number;
-    export interface APIGatewayPatchOperation {
-        op?: APIGatewayop;
-        path?: APIGatewayString;
-        value?: APIGatewayString;
-        from?: APIGatewayString;
-    }
-
-    export type APIGatewayPathToMapOfMethodSnapshot = any; // not really - it was 'map' instead - must fix this one
-    export interface APIGatewayPutIntegrationRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-        type: APIGatewayIntegrationType;
-        integrationHttpMethod?: APIGatewayString;
-        uri?: APIGatewayString;
-        credentials?: APIGatewayString;
-        requestParameters?: APIGatewayMapOfStringToString;
-        requestTemplates?: APIGatewayMapOfStringToString;
-        cacheNamespace?: APIGatewayString;
-        cacheKeyParameters?: APIGatewayListOfString;
-    }
-
-    export interface APIGatewayPutIntegrationResponseRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-        statusCode: APIGatewayStatusCode;
-        selectionPattern?: APIGatewayString;
-        responseParameters?: APIGatewayMapOfStringToString;
-        responseTemplates?: APIGatewayMapOfStringToString;
-    }
-
-    export interface APIGatewayPutMethodRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-        authorizationType: APIGatewayString;
-        apiKeyRequired?: APIGatewayBoolean;
-        requestParameters?: APIGatewayMapOfStringToBoolean;
-        requestModels?: APIGatewayMapOfStringToString;
-    }
-
-    export interface APIGatewayPutMethodResponseRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-        statusCode: APIGatewayStatusCode;
-        responseParameters?: APIGatewayMapOfStringToBoolean;
-        responseModels?: APIGatewayMapOfStringToString;
-    }
-
-    export interface APIGatewayResource {
-        id?: APIGatewayString;
-        parentId?: APIGatewayString;
-        pathPart?: APIGatewayString;
-        path?: APIGatewayString;
-        resourceMethods?: APIGatewayMapOfMethod;
-    }
-
-    export interface APIGatewayResources {
-        position?: APIGatewayString;
-        items?: APIGatewayListOfResource;
-    }
-
-    export interface APIGatewayRestApi {
-        id?: APIGatewayString;
-        name?: APIGatewayString;
-        description?: APIGatewayString;
-        createdDate?: APIGatewayTimestamp;
-    }
-
-    export interface APIGatewayRestApis {
-        position?: APIGatewayString;
-        items?: APIGatewayListOfRestApi;
-    }
-
-    export interface APIGatewaySdkResponse {
-        contentType?: APIGatewayString;
-        contentDisposition?: APIGatewayString;
-        body?: APIGatewayBlob;
-    }
-
-    export interface APIGatewayServiceUnavailableException {
-        retryAfterSeconds?: APIGatewayString;
-        message?: APIGatewayString;
-    }
-
-    export interface APIGatewayStage {
-        deploymentId?: APIGatewayString;
-        clientCertificateId?: APIGatewayString;
-        stageName?: APIGatewayString;
-        description?: APIGatewayString;
-        cacheClusterEnabled?: APIGatewayBoolean;
-        cacheClusterSize?: APIGatewayCacheClusterSize;
-        cacheClusterStatus?: APIGatewayCacheClusterStatus;
-        methodSettings?: APIGatewayMapOfMethodSettings;
-        variables?: APIGatewayMapOfStringToString;
-        createdDate?: APIGatewayTimestamp;
-        lastUpdatedDate?: APIGatewayTimestamp;
-    }
-
-    export interface APIGatewayStageKey {
-        restApiId?: APIGatewayString;
-        stageName?: APIGatewayString;
-    }
-
-    export interface APIGatewayStages {
-        item?: APIGatewayListOfStage;
-    }
-
-    export type APIGatewayStatusCode = string; // pattern: "[1-5]\d\d"
-    export type APIGatewayString = string;
-    export interface APIGatewayTemplate {
-        value?: APIGatewayString;
-    }
-
-    export interface APIGatewayTestInvokeMethodRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-        pathWithQueryString?: APIGatewayString;
-        body?: APIGatewayString;
-        headers?: APIGatewayMapOfHeaderValues;
-        clientCertificateId?: APIGatewayString;
-        stageVariables?: APIGatewayMapOfStringToString;
-    }
-
-    export interface APIGatewayTestInvokeMethodResponse {
-        status?: APIGatewayInteger;
-        body?: APIGatewayString;
-        headers?: APIGatewayMapOfHeaderValues;
-        log?: APIGatewayString;
-        latency?: APIGatewayLong;
-    }
-
-    export interface APIGatewayThrottleSettings {
-        burstLimit?: APIGatewayInteger;
-        rateLimit?: APIGatewayDouble;
-    }
-
-    export type APIGatewayTimestamp = number;
-    export interface APIGatewayTooManyRequestsException {
-        retryAfterSeconds?: APIGatewayString;
-        message?: APIGatewayString;
-    }
-
-    export interface APIGatewayUnauthorizedException {
-        message?: APIGatewayString;
-    }
-
-    export interface APIGatewayUpdateAccountRequest {
-        patchOperations?: APIGatewayListOfPatchOperation;
-    }
-
-    export interface APIGatewayUpdateApiKeyRequest {
-        apiKey: APIGatewayString;
-        patchOperations?: APIGatewayListOfPatchOperation;
-    }
-
-    export interface APIGatewayUpdateBasePathMappingRequest {
-        domainName: APIGatewayString;
-        basePath: APIGatewayString;
-        patchOperations?: APIGatewayListOfPatchOperation;
-    }
-
-    export interface APIGatewayUpdateClientCertificateRequest {
-        clientCertificateId: APIGatewayString;
-        patchOperations?: APIGatewayListOfPatchOperation;
-    }
-
-    export interface APIGatewayUpdateDeploymentRequest {
-        restApiId: APIGatewayString;
-        deploymentId: APIGatewayString;
-        patchOperations?: APIGatewayListOfPatchOperation;
-    }
-
-    export interface APIGatewayUpdateDomainNameRequest {
-        domainName: APIGatewayString;
-        patchOperations?: APIGatewayListOfPatchOperation;
-    }
-
-    export interface APIGatewayUpdateIntegrationRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-        patchOperations?: APIGatewayListOfPatchOperation;
-    }
-
-    export interface APIGatewayUpdateIntegrationResponseRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-        statusCode: APIGatewayStatusCode;
-        patchOperations?: APIGatewayListOfPatchOperation;
-    }
-
-    export interface APIGatewayUpdateMethodRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-        patchOperations?: APIGatewayListOfPatchOperation;
-    }
-
-    export interface APIGatewayUpdateMethodResponseRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        httpMethod: APIGatewayString;
-        statusCode: APIGatewayStatusCode;
-        patchOperations?: APIGatewayListOfPatchOperation;
-    }
-
-    export interface APIGatewayUpdateModelRequest {
-        restApiId: APIGatewayString;
-        modelName: APIGatewayString;
-        patchOperations?: APIGatewayListOfPatchOperation;
-    }
-
-    export interface APIGatewayUpdateResourceRequest {
-        restApiId: APIGatewayString;
-        resourceId: APIGatewayString;
-        patchOperations?: APIGatewayListOfPatchOperation;
-    }
-
-    export interface APIGatewayUpdateRestApiRequest {
-        restApiId: APIGatewayString;
-        patchOperations?: APIGatewayListOfPatchOperation;
-    }
-
-    export interface APIGatewayUpdateStageRequest {
-        restApiId: APIGatewayString;
-        stageName: APIGatewayString;
-        patchOperations?: APIGatewayListOfPatchOperation;
-    }
-
-    export type APIGatewayop = string;
 }
