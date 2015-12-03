@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - AWS Identity and Access Management
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2010-05-08
+     * endpointPrefix: iam
+     * serviceAbbreviation: IAM
+     * signatureVersion: v4
+     * protocol: query
+     */
     export class IAM extends Service {
       constructor(options?: any);
       addClientIDToOpenIDConnectProvider(params: IAM.AddClientIDToOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;

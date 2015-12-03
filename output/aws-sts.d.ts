@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - AWS Security Token Service
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2011-06-15
+     * endpointPrefix: sts
+     * serviceAbbreviation: AWS STS
+     * signatureVersion: v4
+     * protocol: query
+     */
     export class STS extends Service {
       constructor(options?: any);
       assumeRole(params: STS.AssumeRoleRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|any, data: STS.AssumeRoleResponse|any) => void): Request;

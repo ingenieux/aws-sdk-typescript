@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - AWS CloudTrail
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2013-11-01
+     * endpointPrefix: cloudtrail
+     * serviceAbbreviation: CloudTrail
+     * signatureVersion: v4
+     * protocol: json
+     */
     export class CloudTrail extends Service {
       constructor(options?: any);
       addTags(params: CloudTrail.AddTagsRequest, callback?: (err: CloudTrail.ResourceNotFoundException|CloudTrail.CloudTrailARNInvalidException|CloudTrail.ResourceTypeNotSupportedException|CloudTrail.TagsLimitExceededException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidTagParameterException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.AddTagsResponse|any) => void): Request;

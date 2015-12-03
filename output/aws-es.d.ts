@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon Elasticsearch Service
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2015-01-01
+     * endpointPrefix: es
+     * serviceAbbreviation: 
+     * signatureVersion: v4
+     * protocol: rest-json
+     */
     export class ES extends Service {
       constructor(options?: any);
       addTags(params: ES.AddTagsRequest, callback?: (err: ES.BaseException|ES.LimitExceededException|ES.ValidationException|ES.InternalException|any, data: any) => void): Request;

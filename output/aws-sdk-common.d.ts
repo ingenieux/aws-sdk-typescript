@@ -1,3 +1,7 @@
+// Type definitions for aws-sdk
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 declare module "aws-sdk" {
 

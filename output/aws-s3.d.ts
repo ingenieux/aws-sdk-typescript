@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon Simple Storage Service
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2006-03-01
+     * endpointPrefix: s3
+     * serviceAbbreviation: Amazon S3
+     * signatureVersion: s3
+     * protocol: rest-xml
+     */
     export class S3 extends Service {
       constructor(options?: any);
       abortMultipartUpload(params: S3.AbortMultipartUploadRequest, callback?: (err: S3.NoSuchUpload|any, data: S3.AbortMultipartUploadOutput|any) => void): Request;

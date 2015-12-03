@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - AWS CodeCommit
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2015-04-13
+     * endpointPrefix: codecommit
+     * serviceAbbreviation: CodeCommit
+     * signatureVersion: v4
+     * protocol: json
+     */
     export class CodeCommit extends Service {
       constructor(options?: any);
       batchGetRepositories(params: CodeCommit.BatchGetRepositoriesInput, callback?: (err: CodeCommit.RepositoryNamesRequiredException|CodeCommit.MaximumRepositoryNamesExceededException|CodeCommit.InvalidRepositoryNameException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any, data: CodeCommit.BatchGetRepositoriesOutput|any) => void): Request;
