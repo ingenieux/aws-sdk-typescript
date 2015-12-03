@@ -18,12 +18,12 @@ function readMetadata():{[serviceName:string]:meta.ServiceInfo} {
 function readServiceFiles() {
   Object.keys(metadata).forEach((serviceName) => {
     var serviceInfo = metadata[serviceName];
-    var expr = path.join(sdkDir, `${serviceName}-*.normal.json`)
+    var expr = path.join(sdkDir, `${serviceName}-????-??-??.normal.json`)
   
     var result = glob.sync(expr)
   
     if (result  && result.length > 0) {
-      serviceInfo.input = result[0]
+      serviceInfo.input = result[result.length -1];   //most recent API version
       serviceInfo.output = `output/aws-${serviceName}.d.ts`
   
       console.log(serviceName + ": " + JSON.stringify(serviceInfo, null, 2));
