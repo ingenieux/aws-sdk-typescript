@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon WorkSpaces
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2015-04-08
+     * endpointPrefix: workspaces
+     * serviceAbbreviation: 
+     * signatureVersion: v4
+     * protocol: json
+     */
     export class WorkSpaces extends Service {
       constructor(options?: any);
       createWorkspaces(params: WorkSpaces.CreateWorkspacesRequest, callback?: (err: WorkSpaces.ResourceLimitExceededException|any, data: WorkSpaces.CreateWorkspacesResult|any) => void): Request;

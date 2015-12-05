@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon Elastic Transcoder
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2012-09-25
+     * endpointPrefix: elastictranscoder
+     * serviceAbbreviation: 
+     * signatureVersion: v4
+     * protocol: rest-json
+     */
     export class ElasticTranscoder extends Service {
       constructor(options?: any);
       cancelJob(params: ElasticTranscoder.CancelJobRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CancelJobResponse|any) => void): Request;

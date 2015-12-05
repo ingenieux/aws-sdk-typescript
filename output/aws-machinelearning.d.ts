@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon Machine Learning
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2014-12-12
+     * endpointPrefix: machinelearning
+     * serviceAbbreviation: 
+     * signatureVersion: v4
+     * protocol: json
+     */
     export class MachineLearning extends Service {
       constructor(options?: any);
       createBatchPrediction(params: MachineLearning.CreateBatchPredictionInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateBatchPredictionOutput|any) => void): Request;

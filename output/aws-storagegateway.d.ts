@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - AWS Storage Gateway
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2013-06-30
+     * endpointPrefix: storagegateway
+     * serviceAbbreviation: 
+     * signatureVersion: v4
+     * protocol: json
+     */
     export class StorageGateway extends Service {
       constructor(options?: any);
       activateGateway(params: StorageGateway.ActivateGatewayInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ActivateGatewayOutput|any) => void): Request;

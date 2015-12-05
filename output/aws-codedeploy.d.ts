@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - AWS CodeDeploy
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2014-10-06
+     * endpointPrefix: codedeploy
+     * serviceAbbreviation: codedeploy
+     * signatureVersion: v4
+     * protocol: json
+     */
     export class CodeDeploy extends Service {
       constructor(options?: any);
       addTagsToOnPremisesInstances(params: CodeDeploy.AddTagsToOnPremisesInstancesInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.TagRequiredException|CodeDeploy.InvalidTagException|CodeDeploy.TagLimitExceededException|CodeDeploy.InstanceLimitExceededException|CodeDeploy.InstanceNotRegisteredException|any, data: any) => void): Request;

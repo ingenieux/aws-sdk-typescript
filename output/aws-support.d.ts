@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - AWS Support
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2013-04-15
+     * endpointPrefix: support
+     * serviceAbbreviation: 
+     * signatureVersion: v4
+     * protocol: json
+     */
     export class Support extends Service {
       constructor(options?: any);
       addAttachmentsToSet(params: Support.AddAttachmentsToSetRequest, callback?: (err: Support.InternalServerError|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|Support.AttachmentSetSizeLimitExceeded|Support.AttachmentLimitExceeded|any, data: Support.AddAttachmentsToSetResponse|any) => void): Request;

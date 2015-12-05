@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon CloudHSM
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2014-05-30
+     * endpointPrefix: cloudhsm
+     * serviceAbbreviation: CloudHSM
+     * signatureVersion: v4
+     * protocol: json
+     */
     export class CloudHSM extends Service {
       constructor(options?: any);
       createHapg(params: CloudHSM.CreateHapgRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.CreateHapgResponse|any) => void): Request;

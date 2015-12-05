@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon Kinesis
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2013-12-02
+     * endpointPrefix: kinesis
+     * serviceAbbreviation: Kinesis
+     * signatureVersion: v4
+     * protocol: json
+     */
     export class Kinesis extends Service {
       constructor(options?: any);
       addTagsToStream(params: Kinesis.AddTagsToStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request;

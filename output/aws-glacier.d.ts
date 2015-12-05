@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon Glacier
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2012-06-01
+     * endpointPrefix: glacier
+     * serviceAbbreviation: 
+     * signatureVersion: v4
+     * protocol: rest-json
+     */
     export class Glacier extends Service {
       constructor(options?: any);
       abortMultipartUpload(params: Glacier.AbortMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;

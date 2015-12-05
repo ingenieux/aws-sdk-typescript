@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon Simple Workflow Service
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2012-01-25
+     * endpointPrefix: swf
+     * serviceAbbreviation: Amazon SWF
+     * signatureVersion: v4
+     * protocol: json
+     */
     export class SWF extends Service {
       constructor(options?: any);
       countClosedWorkflowExecutions(params: SWF.CountClosedWorkflowExecutionsInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowExecutionCount|any) => void): Request;

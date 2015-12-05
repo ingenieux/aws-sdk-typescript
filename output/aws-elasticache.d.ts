@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon ElastiCache
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2015-02-02
+     * endpointPrefix: elasticache
+     * serviceAbbreviation: 
+     * signatureVersion: v4
+     * protocol: query
+     */
     export class ElastiCache extends Service {
       constructor(options?: any);
       addTagsToResource(params: ElastiCache.AddTagsToResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidARNFault|any, data: ElastiCache.TagListMessage|any) => void): Request;

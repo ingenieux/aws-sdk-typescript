@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon Redshift
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2012-12-01
+     * endpointPrefix: redshift
+     * serviceAbbreviation: 
+     * signatureVersion: v4
+     * protocol: query
+     */
     export class Redshift extends Service {
       constructor(options?: any);
       authorizeClusterSecurityGroupIngress(params: Redshift.AuthorizeClusterSecurityGroupIngressMessage, callback?: (err: Redshift.ClusterSecurityGroupNotFoundFault|Redshift.InvalidClusterSecurityGroupStateFault|Redshift.AuthorizationAlreadyExistsFault|Redshift.AuthorizationQuotaExceededFault|any, data: Redshift.AuthorizeClusterSecurityGroupIngressResult|any) => void): Request;

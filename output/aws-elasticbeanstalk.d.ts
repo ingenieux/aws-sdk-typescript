@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - AWS Elastic Beanstalk
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2010-12-01
+     * endpointPrefix: elasticbeanstalk
+     * serviceAbbreviation: Elastic Beanstalk
+     * signatureVersion: v4
+     * protocol: query
+     */
     export class ElasticBeanstalk extends Service {
       constructor(options?: any);
       abortEnvironmentUpdate(params: ElasticBeanstalk.AbortEnvironmentUpdateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: any) => void): Request;

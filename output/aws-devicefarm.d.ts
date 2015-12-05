@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - AWS Device Farm
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2015-06-23
+     * endpointPrefix: devicefarm
+     * serviceAbbreviation: 
+     * signatureVersion: v4
+     * protocol: json
+     */
     export class DeviceFarm extends Service {
       constructor(options?: any);
       createDevicePool(params: DeviceFarm.CreateDevicePoolRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.CreateDevicePoolResult|any) => void): Request;

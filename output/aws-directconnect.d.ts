@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - AWS Direct Connect
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2012-10-25
+     * endpointPrefix: directconnect
+     * serviceAbbreviation: 
+     * signatureVersion: v4
+     * protocol: json
+     */
     export class DirectConnect extends Service {
       constructor(options?: any);
       allocateConnectionOnInterconnect(params: DirectConnect.AllocateConnectionOnInterconnectRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connection|any) => void): Request;

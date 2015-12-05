@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Auto Scaling
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2011-01-01
+     * endpointPrefix: autoscaling
+     * serviceAbbreviation: 
+     * signatureVersion: v4
+     * protocol: query
+     */
     export class AutoScaling extends Service {
       constructor(options?: any);
       attachInstances(params: AutoScaling.AttachInstancesQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request;

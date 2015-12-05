@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon CloudSearch Domain
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2013-01-01
+     * endpointPrefix: cloudsearchdomain
+     * serviceAbbreviation: 
+     * signatureVersion: v4
+     * protocol: rest-json
+     */
     export class CloudSearchDomain extends Service {
       constructor(options?: any);
       search(params: CloudSearchDomain.SearchRequest, callback?: (err: CloudSearchDomain.SearchException|any, data: CloudSearchDomain.SearchResponse|any) => void): Request;

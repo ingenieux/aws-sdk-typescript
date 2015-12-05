@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon EC2 Container Service
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2014-11-13
+     * endpointPrefix: ecs
+     * serviceAbbreviation: Amazon ECS
+     * signatureVersion: v4
+     * protocol: json
+     */
     export class ECS extends Service {
       constructor(options?: any);
       createCluster(params: ECS.CreateClusterRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.CreateClusterResponse|any) => void): Request;

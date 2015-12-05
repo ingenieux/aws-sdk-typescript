@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon Simple Notification Service
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2010-03-31
+     * endpointPrefix: sns
+     * serviceAbbreviation: Amazon SNS
+     * signatureVersion: v4
+     * protocol: query
+     */
     export class SNS extends Service {
       constructor(options?: any);
       addPermission(params: SNS.AddPermissionInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request;

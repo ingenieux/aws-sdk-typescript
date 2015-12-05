@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon Route 53 Domains
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2014-05-15
+     * endpointPrefix: route53domains
+     * serviceAbbreviation: 
+     * signatureVersion: v4
+     * protocol: json
+     */
     export class Route53Domains extends Service {
       constructor(options?: any);
       checkDomainAvailability(params: Route53Domains.CheckDomainAvailabilityRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.CheckDomainAvailabilityResponse|any) => void): Request;

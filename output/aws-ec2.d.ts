@@ -1,9 +1,19 @@
-// DO NOT EDIT!
-//
+// Type definitions for aws-sdk - Amazon Elastic Compute Cloud
+// Project: https://github.com/aws/aws-sdk-js
+// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
+// GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+
 declare module "aws-sdk" {
 
+    /* 
+     * apiVersion: 2015-10-01
+     * endpointPrefix: ec2
+     * serviceAbbreviation: Amazon EC2
+     * signatureVersion: v4
+     * protocol: ec2
+     */
     export class EC2 extends Service {
       constructor(options?: any);
       acceptVpcPeeringConnection(params: EC2.AcceptVpcPeeringConnectionRequest, callback?: (err: any, data: EC2.AcceptVpcPeeringConnectionResult|any) => void): Request;
