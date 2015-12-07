@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class IotData extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       deleteThingShadow(params: IotData.DeleteThingShadowRequest, callback?: (err: IotData.ResourceNotFoundException|IotData.InvalidRequestException|IotData.ThrottlingException|IotData.UnauthorizedException|IotData.ServiceUnavailableException|IotData.InternalFailureException|IotData.MethodNotAllowedException|IotData.UnsupportedDocumentEncodingException|any, data: IotData.DeleteThingShadowResponse|any) => void): Request;
       getThingShadow(params: IotData.GetThingShadowRequest, callback?: (err: IotData.InvalidRequestException|IotData.ResourceNotFoundException|IotData.ThrottlingException|IotData.UnauthorizedException|IotData.ServiceUnavailableException|IotData.InternalFailureException|IotData.MethodNotAllowedException|IotData.UnsupportedDocumentEncodingException|any, data: IotData.GetThingShadowResponse|any) => void): Request;
       publish(params: IotData.PublishRequest, callback?: (err: IotData.InternalFailureException|IotData.InvalidRequestException|IotData.UnauthorizedException|IotData.MethodNotAllowedException|any, data: any) => void): Request;

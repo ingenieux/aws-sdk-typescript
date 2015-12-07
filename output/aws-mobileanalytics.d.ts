@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class MobileAnalytics extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       putEvents(params: MobileAnalytics.PutEventsInput, callback?: (err: MobileAnalytics.BadRequestException|any, data: any) => void): Request;
     }
     

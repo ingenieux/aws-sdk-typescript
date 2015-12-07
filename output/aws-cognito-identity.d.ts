@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class CognitoIdentity extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       createIdentityPool(params: CognitoIdentity.CreateIdentityPoolInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.LimitExceededException|any, data: CognitoIdentity.IdentityPool|any) => void): Request;
       deleteIdentities(params: CognitoIdentity.DeleteIdentitiesInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.DeleteIdentitiesResponse|any) => void): Request;
       deleteIdentityPool(params: CognitoIdentity.DeleteIdentityPoolInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: any) => void): Request;

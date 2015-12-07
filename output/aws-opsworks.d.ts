@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class OpsWorks extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       assignInstance(params: OpsWorks.AssignInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
       assignVolume(params: OpsWorks.AssignVolumeRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
       associateElasticIp(params: OpsWorks.AssociateElasticIpRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;

@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class Glacier extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       abortMultipartUpload(params: Glacier.AbortMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
       abortVaultLock(params: Glacier.AbortVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
       addTagsToVault(params: Glacier.AddTagsToVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.LimitExceededException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;

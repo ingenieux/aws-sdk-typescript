@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class SNS extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       addPermission(params: SNS.AddPermissionInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request;
       confirmSubscription(params: SNS.ConfirmSubscriptionInput, callback?: (err: SNS.SubscriptionLimitExceededException|SNS.InvalidParameterException|SNS.NotFoundException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.ConfirmSubscriptionResponse|any) => void): Request;
       createPlatformApplication(params: SNS.CreatePlatformApplicationInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.CreatePlatformApplicationResponse|any) => void): Request;

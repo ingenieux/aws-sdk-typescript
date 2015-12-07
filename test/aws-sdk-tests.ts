@@ -21,6 +21,9 @@ service.makeUnauthenticatedRequest('POST', {param1:'foobar'}, (err, data) => {})
 service.setupRequestListeners();
 service.makeRequest('state', {param1:'foobar'}, (err, data) => {});
 
+var endpoint:AWS.Endpoint = service.endpoint;
+endpoint.host.toUpperCase() + endpoint.hostname.toUpperCase() + endpoint.href.toUpperCase() + endpoint.port.toFixed() + endpoint.protocol.toUpperCase();
+
 /*
  * Request class
  */

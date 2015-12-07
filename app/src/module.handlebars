@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class {{name}} extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
 {{#each descriptor.operations}}
       {{{camelCase @key}}}(
         {{~#if this.input.shape}}params: {{../../name}}.{{this.input.shape}}, {{/if~}}

@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class CloudHSM extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       createHapg(params: CloudHSM.CreateHapgRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.CreateHapgResponse|any) => void): Request;
       createHsm(params: CloudHSM.CreateHsmRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.CreateHsmResponse|any) => void): Request;
       createLunaClient(params: CloudHSM.CreateLunaClientRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.CreateLunaClientResponse|any) => void): Request;

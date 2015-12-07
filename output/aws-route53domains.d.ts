@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class Route53Domains extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       checkDomainAvailability(params: Route53Domains.CheckDomainAvailabilityRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.CheckDomainAvailabilityResponse|any) => void): Request;
       deleteTagsForDomain(params: Route53Domains.DeleteTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DeleteTagsForDomainResponse|any) => void): Request;
       disableDomainAutoRenew(params: Route53Domains.DisableDomainAutoRenewRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DisableDomainAutoRenewResponse|any) => void): Request;

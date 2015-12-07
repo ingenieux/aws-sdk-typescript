@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class CodeDeploy extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       addTagsToOnPremisesInstances(params: CodeDeploy.AddTagsToOnPremisesInstancesInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.TagRequiredException|CodeDeploy.InvalidTagException|CodeDeploy.TagLimitExceededException|CodeDeploy.InstanceLimitExceededException|CodeDeploy.InstanceNotRegisteredException|any, data: any) => void): Request;
       batchGetApplications(params: CodeDeploy.BatchGetApplicationsInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|any, data: CodeDeploy.BatchGetApplicationsOutput|any) => void): Request;
       batchGetDeployments(params: CodeDeploy.BatchGetDeploymentsInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.InvalidDeploymentIdException|any, data: CodeDeploy.BatchGetDeploymentsOutput|any) => void): Request;

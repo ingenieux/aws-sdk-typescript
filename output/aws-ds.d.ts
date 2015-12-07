@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class DirectoryService extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       connectDirectory(params: DirectoryService.ConnectDirectoryRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.ConnectDirectoryResult|any) => void): Request;
       createAlias(params: DirectoryService.CreateAliasRequest, callback?: (err: DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateAliasResult|any) => void): Request;
       createComputer(params: DirectoryService.CreateComputerRequest, callback?: (err: DirectoryService.AuthenticationFailedException|DirectoryService.DirectoryUnavailableException|DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateComputerResult|any) => void): Request;

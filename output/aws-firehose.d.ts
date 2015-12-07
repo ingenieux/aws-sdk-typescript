@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class Firehose extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       createDeliveryStream(params: Firehose.CreateDeliveryStreamInput, callback?: (err: Firehose.InvalidArgumentException|Firehose.LimitExceededException|Firehose.ResourceInUseException|any, data: Firehose.CreateDeliveryStreamOutput|any) => void): Request;
       deleteDeliveryStream(params: Firehose.DeleteDeliveryStreamInput, callback?: (err: Firehose.ResourceInUseException|Firehose.ResourceNotFoundException|any, data: Firehose.DeleteDeliveryStreamOutput|any) => void): Request;
       describeDeliveryStream(params: Firehose.DescribeDeliveryStreamInput, callback?: (err: Firehose.ResourceNotFoundException|any, data: Firehose.DescribeDeliveryStreamOutput|any) => void): Request;

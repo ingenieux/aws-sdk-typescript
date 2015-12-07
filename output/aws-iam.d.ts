@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class IAM extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       addClientIDToOpenIDConnectProvider(params: IAM.AddClientIDToOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
       addRoleToInstanceProfile(params: IAM.AddRoleToInstanceProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
       addUserToGroup(params: IAM.AddUserToGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;

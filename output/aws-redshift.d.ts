@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class Redshift extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       authorizeClusterSecurityGroupIngress(params: Redshift.AuthorizeClusterSecurityGroupIngressMessage, callback?: (err: Redshift.ClusterSecurityGroupNotFoundFault|Redshift.InvalidClusterSecurityGroupStateFault|Redshift.AuthorizationAlreadyExistsFault|Redshift.AuthorizationQuotaExceededFault|any, data: Redshift.AuthorizeClusterSecurityGroupIngressResult|any) => void): Request;
       authorizeSnapshotAccess(params: Redshift.AuthorizeSnapshotAccessMessage, callback?: (err: Redshift.ClusterSnapshotNotFoundFault|Redshift.AuthorizationAlreadyExistsFault|Redshift.AuthorizationQuotaExceededFault|any, data: Redshift.AuthorizeSnapshotAccessResult|any) => void): Request;
       copyClusterSnapshot(params: Redshift.CopyClusterSnapshotMessage, callback?: (err: Redshift.ClusterSnapshotAlreadyExistsFault|Redshift.ClusterSnapshotNotFoundFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.ClusterSnapshotQuotaExceededFault|any, data: Redshift.CopyClusterSnapshotResult|any) => void): Request;

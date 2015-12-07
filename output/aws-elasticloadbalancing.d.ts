@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class ELB extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       addTags(params: ELB.AddTagsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|any, data: ELB.AddTagsOutput|any) => void): Request;
       applySecurityGroupsToLoadBalancer(params: ELB.ApplySecurityGroupsToLoadBalancerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|ELB.InvalidSecurityGroupException|any, data: ELB.ApplySecurityGroupsToLoadBalancerOutput|any) => void): Request;
       attachLoadBalancerToSubnets(params: ELB.AttachLoadBalancerToSubnetsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|any, data: ELB.AttachLoadBalancerToSubnetsOutput|any) => void): Request;

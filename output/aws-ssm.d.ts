@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class SSM extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       cancelCommand(params: SSM.CancelCommandRequest, callback?: (err: SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.DuplicateInstanceId|any, data: SSM.CancelCommandResult|any) => void): Request;
       createAssociation(params: SSM.CreateAssociationRequest, callback?: (err: SSM.AssociationAlreadyExists|SSM.AssociationLimitExceeded|SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidInstanceId|SSM.UnsupportedPlatformType|SSM.InvalidParameters|any, data: SSM.CreateAssociationResult|any) => void): Request;
       createAssociationBatch(params: SSM.CreateAssociationBatchRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidInstanceId|SSM.InvalidParameters|SSM.DuplicateInstanceId|SSM.AssociationLimitExceeded|SSM.UnsupportedPlatformType|any, data: SSM.CreateAssociationBatchResult|any) => void): Request;

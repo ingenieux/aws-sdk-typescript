@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class EFS extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       createFileSystem(params: EFS.CreateFileSystemRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemAlreadyExists|EFS.FileSystemLimitExceeded|any, data: EFS.FileSystemDescription|any) => void): Request;
       createMountTarget(params: EFS.CreateMountTargetRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|EFS.IncorrectFileSystemLifeCycleState|EFS.MountTargetConflict|EFS.SubnetNotFound|EFS.NoFreeAddressesInSubnet|EFS.IpAddressInUse|EFS.NetworkInterfaceLimitExceeded|EFS.SecurityGroupLimitExceeded|EFS.SecurityGroupNotFound|EFS.UnsupportedAvailabilityZone|any, data: EFS.MountTargetDescription|any) => void): Request;
       createTags(params: EFS.CreateTagsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any, data: any) => void): Request;

@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class WAF extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       createByteMatchSet(params: WAF.CreateByteMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.CreateByteMatchSetResponse|any) => void): Request;
       createIPSet(params: WAF.CreateIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateIPSetResponse|any) => void): Request;
       createRule(params: WAF.CreateRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateRuleResponse|any) => void): Request;

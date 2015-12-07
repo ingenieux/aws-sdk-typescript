@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class Lambda extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       addPermission(params: Lambda.AddPermissionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.ResourceConflictException|Lambda.InvalidParameterValueException|Lambda.PolicyLengthExceededException|Lambda.TooManyRequestsException|any, data: Lambda.AddPermissionResponse|any) => void): Request;
       createAlias(params: Lambda.CreateAliasRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.ResourceConflictException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.AliasConfiguration|any) => void): Request;
       createEventSourceMapping(params: Lambda.CreateEventSourceMappingRequest, callback?: (err: Lambda.ServiceException|Lambda.InvalidParameterValueException|Lambda.ResourceConflictException|Lambda.TooManyRequestsException|any, data: Lambda.EventSourceMappingConfiguration|any) => void): Request;

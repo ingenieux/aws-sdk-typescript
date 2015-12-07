@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class ConfigService extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       deleteConfigRule(params: ConfigService.DeleteConfigRuleRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|any, data: any) => void): Request;
       deleteDeliveryChannel(params: ConfigService.DeleteDeliveryChannelRequest, callback?: (err: ConfigService.NoSuchDeliveryChannelException|ConfigService.LastDeliveryChannelDeleteFailedException|any, data: any) => void): Request;
       deliverConfigSnapshot(params: ConfigService.DeliverConfigSnapshotRequest, callback?: (err: ConfigService.NoSuchDeliveryChannelException|ConfigService.NoAvailableConfigurationRecorderException|ConfigService.NoRunningConfigurationRecorderException|any, data: ConfigService.DeliverConfigSnapshotResponse|any) => void): Request;

@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class ElasticTranscoder extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       cancelJob(params: ElasticTranscoder.CancelJobRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CancelJobResponse|any) => void): Request;
       createJob(params: ElasticTranscoder.CreateJobRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CreateJobResponse|any) => void): Request;
       createPipeline(params: ElasticTranscoder.CreatePipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CreatePipelineResponse|any) => void): Request;

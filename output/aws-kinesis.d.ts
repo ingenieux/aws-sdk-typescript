@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class Kinesis extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       addTagsToStream(params: Kinesis.AddTagsToStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request;
       createStream(params: Kinesis.CreateStreamInput, callback?: (err: Kinesis.ResourceInUseException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any, data: any) => void): Request;
       decreaseStreamRetentionPeriod(params: Kinesis.DecreaseStreamRetentionPeriodInput, callback?: (err: Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any, data: any) => void): Request;

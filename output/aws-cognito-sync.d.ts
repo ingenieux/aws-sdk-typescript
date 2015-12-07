@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class CognitoSync extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       bulkPublish(params: CognitoSync.BulkPublishRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.DuplicateRequestException|CognitoSync.AlreadyStreamedException|any, data: CognitoSync.BulkPublishResponse|any) => void): Request;
       deleteDataset(params: CognitoSync.DeleteDatasetRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|CognitoSync.ResourceConflictException|any, data: CognitoSync.DeleteDatasetResponse|any) => void): Request;
       describeDataset(params: CognitoSync.DescribeDatasetRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.DescribeDatasetResponse|any) => void): Request;

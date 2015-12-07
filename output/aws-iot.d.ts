@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class Iot extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       acceptCertificateTransfer(params: Iot.AcceptCertificateTransferRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.TransferAlreadyCompletedException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
       attachPrincipalPolicy(params: Iot.AttachPrincipalPolicyRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.LimitExceededException|any, data: any) => void): Request;
       attachThingPrincipal(params: Iot.AttachThingPrincipalRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.AttachThingPrincipalResponse|any) => void): Request;

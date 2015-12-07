@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class MachineLearning extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       createBatchPrediction(params: MachineLearning.CreateBatchPredictionInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateBatchPredictionOutput|any) => void): Request;
       createDataSourceFromRDS(params: MachineLearning.CreateDataSourceFromRDSInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateDataSourceFromRDSOutput|any) => void): Request;
       createDataSourceFromRedshift(params: MachineLearning.CreateDataSourceFromRedshiftInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateDataSourceFromRedshiftOutput|any) => void): Request;
