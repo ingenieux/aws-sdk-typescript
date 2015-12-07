@@ -12,6 +12,14 @@ declare module "aws-sdk" {
 	export class Credentials {
 		constructor(accessKeyId: string, secretAccessKey: string, sessionToken?: string);
 		accessKeyId: string;
+		expired: boolean;
+		expireTime: Date;
+		expiryWindow: number;
+		secretAccessKey: string;
+		sessionToken: string;
+		get(callback: (err?:Error) => void): void;
+		needsRefresh(): boolean;
+		refresh(callback: (err?:Error) => void): void;
 	}
 
 	export interface Logger {
