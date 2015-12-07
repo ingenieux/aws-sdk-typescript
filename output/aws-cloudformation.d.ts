@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class CloudFormation extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       cancelUpdateStack(params: CloudFormation.CancelUpdateStackInput, callback?: (err: any, data: any) => void): Request;
       createStack(params: CloudFormation.CreateStackInput, callback?: (err: CloudFormation.LimitExceededException|CloudFormation.AlreadyExistsException|CloudFormation.InsufficientCapabilitiesException|any, data: CloudFormation.CreateStackOutput|any) => void): Request;
       deleteStack(params: CloudFormation.DeleteStackInput, callback?: (err: any, data: any) => void): Request;

@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class SWF extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       countClosedWorkflowExecutions(params: SWF.CountClosedWorkflowExecutionsInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowExecutionCount|any) => void): Request;
       countOpenWorkflowExecutions(params: SWF.CountOpenWorkflowExecutionsInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowExecutionCount|any) => void): Request;
       countPendingActivityTasks(params: SWF.CountPendingActivityTasksInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.PendingTaskCount|any) => void): Request;

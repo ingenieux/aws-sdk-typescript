@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class MarketplaceCommerceAnalytics extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       generateDataSet(params: MarketplaceCommerceAnalytics.GenerateDataSetRequest, callback?: (err: MarketplaceCommerceAnalytics.MarketplaceCommerceAnalyticsException|any, data: MarketplaceCommerceAnalytics.GenerateDataSetResult|any) => void): Request;
     }
     

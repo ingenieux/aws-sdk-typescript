@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class RDS extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       addSourceIdentifierToSubscription(params: RDS.AddSourceIdentifierToSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault|RDS.SourceNotFoundFault|any, data: RDS.AddSourceIdentifierToSubscriptionResult|any) => void): Request;
       addTagsToResource(params: RDS.AddTagsToResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: any) => void): Request;
       applyPendingMaintenanceAction(params: RDS.ApplyPendingMaintenanceActionMessage, callback?: (err: RDS.ResourceNotFoundFault|any, data: RDS.ApplyPendingMaintenanceActionResult|any) => void): Request;

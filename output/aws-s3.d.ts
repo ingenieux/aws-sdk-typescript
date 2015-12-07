@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class S3 extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       abortMultipartUpload(params: S3.AbortMultipartUploadRequest, callback?: (err: S3.NoSuchUpload|any, data: S3.AbortMultipartUploadOutput|any) => void): Request;
       completeMultipartUpload(params: S3.CompleteMultipartUploadRequest, callback?: (err: any, data: S3.CompleteMultipartUploadOutput|any) => void): Request;
       copyObject(params: S3.CopyObjectRequest, callback?: (err: S3.ObjectNotInActiveTierError|any, data: S3.CopyObjectOutput|any) => void): Request;

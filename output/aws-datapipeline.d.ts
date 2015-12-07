@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class DataPipeline extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       activatePipeline(params: DataPipeline.ActivatePipelineInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.ActivatePipelineOutput|any) => void): Request;
       addTags(params: DataPipeline.AddTagsInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.AddTagsOutput|any) => void): Request;
       createPipeline(params: DataPipeline.CreatePipelineInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.CreatePipelineOutput|any) => void): Request;

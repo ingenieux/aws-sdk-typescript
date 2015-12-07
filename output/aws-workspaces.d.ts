@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class WorkSpaces extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       createWorkspaces(params: WorkSpaces.CreateWorkspacesRequest, callback?: (err: WorkSpaces.ResourceLimitExceededException|any, data: WorkSpaces.CreateWorkspacesResult|any) => void): Request;
       describeWorkspaceBundles(params: WorkSpaces.DescribeWorkspaceBundlesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|any, data: WorkSpaces.DescribeWorkspaceBundlesResult|any) => void): Request;
       describeWorkspaceDirectories(params: WorkSpaces.DescribeWorkspaceDirectoriesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|any, data: WorkSpaces.DescribeWorkspaceDirectoriesResult|any) => void): Request;

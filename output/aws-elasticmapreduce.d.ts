@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class EMR extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       addInstanceGroups(params: EMR.AddInstanceGroupsInput, callback?: (err: EMR.InternalServerError|any, data: EMR.AddInstanceGroupsOutput|any) => void): Request;
       addJobFlowSteps(params: EMR.AddJobFlowStepsInput, callback?: (err: EMR.InternalServerError|any, data: EMR.AddJobFlowStepsOutput|any) => void): Request;
       addTags(params: EMR.AddTagsInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.AddTagsOutput|any) => void): Request;

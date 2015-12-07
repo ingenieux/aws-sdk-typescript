@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class ECS extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       createCluster(params: ECS.CreateClusterRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.CreateClusterResponse|any) => void): Request;
       createService(params: ECS.CreateServiceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.CreateServiceResponse|any) => void): Request;
       deleteCluster(params: ECS.DeleteClusterRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ClusterContainsContainerInstancesException|ECS.ClusterContainsServicesException|any, data: ECS.DeleteClusterResponse|any) => void): Request;

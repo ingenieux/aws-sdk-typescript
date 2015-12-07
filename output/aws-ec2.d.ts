@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class EC2 extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       acceptVpcPeeringConnection(params: EC2.AcceptVpcPeeringConnectionRequest, callback?: (err: any, data: EC2.AcceptVpcPeeringConnectionResult|any) => void): Request;
       allocateAddress(params: EC2.AllocateAddressRequest, callback?: (err: any, data: EC2.AllocateAddressResult|any) => void): Request;
       allocateHosts(params: EC2.AllocateHostsRequest, callback?: (err: any, data: EC2.AllocateHostsResult|any) => void): Request;

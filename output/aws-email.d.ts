@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class SES extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       cloneReceiptRuleSet(params: SES.CloneReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException|SES.AlreadyExistsException|SES.LimitExceededException|any, data: SES.CloneReceiptRuleSetResponse|any) => void): Request;
       createReceiptFilter(params: SES.CreateReceiptFilterRequest, callback?: (err: SES.LimitExceededException|SES.AlreadyExistsException|any, data: SES.CreateReceiptFilterResponse|any) => void): Request;
       createReceiptRule(params: SES.CreateReceiptRuleRequest, callback?: (err: SES.InvalidSnsTopicException|SES.InvalidS3ConfigurationException|SES.InvalidLambdaFunctionException|SES.AlreadyExistsException|SES.RuleDoesNotExistException|SES.RuleSetDoesNotExistException|SES.LimitExceededException|any, data: SES.CreateReceiptRuleResponse|any) => void): Request;

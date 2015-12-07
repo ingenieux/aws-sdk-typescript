@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class SimpleDB extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       batchDeleteAttributes(params: SimpleDB.BatchDeleteAttributesRequest, callback?: (err: any, data: any) => void): Request;
       batchPutAttributes(params: SimpleDB.BatchPutAttributesRequest, callback?: (err: SimpleDB.DuplicateItemName|SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.NumberItemAttributesExceeded|SimpleDB.NumberDomainAttributesExceeded|SimpleDB.NumberDomainBytesExceeded|SimpleDB.NumberSubmittedItemsExceeded|SimpleDB.NumberSubmittedAttributesExceeded|any, data: any) => void): Request;
       createDomain(params: SimpleDB.CreateDomainRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NumberDomainsExceeded|any, data: any) => void): Request;

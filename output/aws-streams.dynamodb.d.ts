@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class DynamoDBStreams extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       describeStream(params: DynamoDBStreams.DescribeStreamInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|any, data: DynamoDBStreams.DescribeStreamOutput|any) => void): Request;
       getRecords(params: DynamoDBStreams.GetRecordsInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.LimitExceededException|DynamoDBStreams.InternalServerError|DynamoDBStreams.ExpiredIteratorException|DynamoDBStreams.TrimmedDataAccessException|any, data: DynamoDBStreams.GetRecordsOutput|any) => void): Request;
       getShardIterator(params: DynamoDBStreams.GetShardIteratorInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|DynamoDBStreams.TrimmedDataAccessException|any, data: DynamoDBStreams.GetShardIteratorOutput|any) => void): Request;

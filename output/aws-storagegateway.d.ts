@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class StorageGateway extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       activateGateway(params: StorageGateway.ActivateGatewayInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ActivateGatewayOutput|any) => void): Request;
       addCache(params: StorageGateway.AddCacheInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.AddCacheOutput|any) => void): Request;
       addTagsToResource(params: StorageGateway.AddTagsToResourceInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.AddTagsToResourceOutput|any) => void): Request;

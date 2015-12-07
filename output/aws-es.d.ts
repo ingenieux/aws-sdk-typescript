@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class ES extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       addTags(params: ES.AddTagsRequest, callback?: (err: ES.BaseException|ES.LimitExceededException|ES.ValidationException|ES.InternalException|any, data: any) => void): Request;
       createElasticsearchDomain(params: ES.CreateElasticsearchDomainRequest, callback?: (err: ES.BaseException|ES.DisabledOperationException|ES.InternalException|ES.InvalidTypeException|ES.LimitExceededException|ES.ResourceAlreadyExistsException|ES.ValidationException|any, data: ES.CreateElasticsearchDomainResponse|any) => void): Request;
       deleteElasticsearchDomain(params: ES.DeleteElasticsearchDomainRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any, data: ES.DeleteElasticsearchDomainResponse|any) => void): Request;

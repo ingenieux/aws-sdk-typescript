@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class CloudWatchLogs extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       cancelExportTask(params: CloudWatchLogs.CancelExportTaskRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.InvalidOperationException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
       createExportTask(params: CloudWatchLogs.CreateExportTaskRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ResourceAlreadyExistsException|any, data: CloudWatchLogs.CreateExportTaskResponse|any) => void): Request;
       createLogGroup(params: CloudWatchLogs.CreateLogGroupRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceAlreadyExistsException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;

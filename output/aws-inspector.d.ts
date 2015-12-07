@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class Inspector extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       addAttributesToFindings(params: Inspector.AddAttributesToFindingsRequest, callback?: (err: Inspector.InternalException|Inspector.InvalidInputException|Inspector.AccessDeniedException|Inspector.NoSuchEntityException|any, data: Inspector.AddAttributesToFindingsResponse|any) => void): Request;
       attachAssessmentAndRulesPackage(params: Inspector.AttachAssessmentAndRulesPackageRequest, callback?: (err: Inspector.InternalException|Inspector.InvalidInputException|Inspector.AccessDeniedException|Inspector.NoSuchEntityException|any, data: Inspector.AttachAssessmentAndRulesPackageResponse|any) => void): Request;
       createApplication(params: Inspector.CreateApplicationRequest, callback?: (err: Inspector.InternalException|Inspector.InvalidInputException|Inspector.AccessDeniedException|Inspector.NoSuchEntityException|any, data: Inspector.CreateApplicationResponse|any) => void): Request;

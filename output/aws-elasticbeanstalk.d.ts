@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class ElasticBeanstalk extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       abortEnvironmentUpdate(params: ElasticBeanstalk.AbortEnvironmentUpdateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: any) => void): Request;
       checkDNSAvailability(params: ElasticBeanstalk.CheckDNSAvailabilityMessage, callback?: (err: any, data: ElasticBeanstalk.CheckDNSAvailabilityResultMessage|any) => void): Request;
       composeEnvironments(params: ElasticBeanstalk.ComposeEnvironmentsMessage, callback?: (err: ElasticBeanstalk.TooManyEnvironmentsException|ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.EnvironmentDescriptionsMessage|any) => void): Request;

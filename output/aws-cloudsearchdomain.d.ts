@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class CloudSearchDomain extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       search(params: CloudSearchDomain.SearchRequest, callback?: (err: CloudSearchDomain.SearchException|any, data: CloudSearchDomain.SearchResponse|any) => void): Request;
       suggest(params: CloudSearchDomain.SuggestRequest, callback?: (err: CloudSearchDomain.SearchException|any, data: CloudSearchDomain.SuggestResponse|any) => void): Request;
       uploadDocuments(params: CloudSearchDomain.UploadDocumentsRequest, callback?: (err: CloudSearchDomain.DocumentServiceException|any, data: CloudSearchDomain.UploadDocumentsResponse|any) => void): Request;

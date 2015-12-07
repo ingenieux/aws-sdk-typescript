@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class CloudSearch extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       buildSuggesters(params: CloudSearch.BuildSuggestersRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.BuildSuggestersResponse|any) => void): Request;
       createDomain(params: CloudSearch.CreateDomainRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|any, data: CloudSearch.CreateDomainResponse|any) => void): Request;
       defineAnalysisScheme(params: CloudSearch.DefineAnalysisSchemeRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DefineAnalysisSchemeResponse|any) => void): Request;

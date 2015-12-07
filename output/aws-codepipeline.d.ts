@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class CodePipeline extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       acknowledgeJob(params: CodePipeline.AcknowledgeJobInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidNonceException|CodePipeline.JobNotFoundException|any, data: CodePipeline.AcknowledgeJobOutput|any) => void): Request;
       acknowledgeThirdPartyJob(params: CodePipeline.AcknowledgeThirdPartyJobInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidNonceException|CodePipeline.JobNotFoundException|CodePipeline.InvalidClientTokenException|any, data: CodePipeline.AcknowledgeThirdPartyJobOutput|any) => void): Request;
       createCustomActionType(params: CodePipeline.CreateCustomActionTypeInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.LimitExceededException|any, data: CodePipeline.CreateCustomActionTypeOutput|any) => void): Request;

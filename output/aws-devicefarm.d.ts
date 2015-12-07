@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class DeviceFarm extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       createDevicePool(params: DeviceFarm.CreateDevicePoolRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.CreateDevicePoolResult|any) => void): Request;
       createProject(params: DeviceFarm.CreateProjectRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.CreateProjectResult|any) => void): Request;
       createUpload(params: DeviceFarm.CreateUploadRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.CreateUploadResult|any) => void): Request;

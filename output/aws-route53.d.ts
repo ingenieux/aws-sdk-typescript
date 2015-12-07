@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class Route53 extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       associateVPCWithHostedZone(params: Route53.AssociateVPCWithHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.InvalidInput|Route53.PublicZoneVPCAssociation|Route53.ConflictingDomainExists|any, data: Route53.AssociateVPCWithHostedZoneResponse|any) => void): Request;
       changeResourceRecordSets(params: Route53.ChangeResourceRecordSetsRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.NoSuchHealthCheck|Route53.InvalidChangeBatch|Route53.InvalidInput|Route53.PriorRequestNotComplete|any, data: Route53.ChangeResourceRecordSetsResponse|any) => void): Request;
       changeTagsForResource(params: Route53.ChangeTagsForResourceRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchHealthCheck|Route53.NoSuchHostedZone|Route53.PriorRequestNotComplete|Route53.ThrottlingException|any, data: Route53.ChangeTagsForResourceResponse|any) => void): Request;

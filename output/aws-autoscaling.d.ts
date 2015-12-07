@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class AutoScaling extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       attachInstances(params: AutoScaling.AttachInstancesQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
       attachLoadBalancers(params: AutoScaling.AttachLoadBalancersType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.AttachLoadBalancersResultType|any) => void): Request;
       completeLifecycleAction(params: AutoScaling.CompleteLifecycleActionType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.CompleteLifecycleActionAnswer|any) => void): Request;

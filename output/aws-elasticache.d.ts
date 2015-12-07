@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class ElastiCache extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       addTagsToResource(params: ElastiCache.AddTagsToResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidARNFault|any, data: ElastiCache.TagListMessage|any) => void): Request;
       authorizeCacheSecurityGroupIngress(params: ElastiCache.AuthorizeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.AuthorizationAlreadyExistsFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.AuthorizeCacheSecurityGroupIngressResult|any) => void): Request;
       copySnapshot(params: ElastiCache.CopySnapshotMessage, callback?: (err: ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CopySnapshotResult|any) => void): Request;

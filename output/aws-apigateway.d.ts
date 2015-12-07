@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class APIGateway extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       createApiKey(params: APIGateway.CreateApiKeyRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.BadRequestException|any, data: APIGateway.ApiKey|any) => void): Request;
       createBasePathMapping(params: APIGateway.CreateBasePathMappingRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.BasePathMapping|any) => void): Request;
       createDeployment(params: APIGateway.CreateDeploymentRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|APIGateway.ServiceUnavailableException|any, data: APIGateway.Deployment|any) => void): Request;

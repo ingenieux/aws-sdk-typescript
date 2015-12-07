@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class STS extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       assumeRole(params: STS.AssumeRoleRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|any, data: STS.AssumeRoleResponse|any) => void): Request;
       assumeRoleWithSAML(params: STS.AssumeRoleWithSAMLRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.IDPRejectedClaimException|STS.InvalidIdentityTokenException|STS.ExpiredTokenException|any, data: STS.AssumeRoleWithSAMLResponse|any) => void): Request;
       assumeRoleWithWebIdentity(params: STS.AssumeRoleWithWebIdentityRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.IDPRejectedClaimException|STS.IDPCommunicationErrorException|STS.InvalidIdentityTokenException|STS.ExpiredTokenException|any, data: STS.AssumeRoleWithWebIdentityResponse|any) => void): Request;

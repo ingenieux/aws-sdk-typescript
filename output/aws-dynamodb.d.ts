@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class DynamoDB extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       batchGetItem(params: DynamoDB.BatchGetItemInput, callback?: (err: DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any, data: DynamoDB.BatchGetItemOutput|any) => void): Request;
       batchWriteItem(params: DynamoDB.BatchWriteItemInput, callback?: (err: DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.BatchWriteItemOutput|any) => void): Request;
       createTable(params: DynamoDB.CreateTableInput, callback?: (err: DynamoDB.ResourceInUseException|DynamoDB.LimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.CreateTableOutput|any) => void): Request;

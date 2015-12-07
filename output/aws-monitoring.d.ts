@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class CloudWatch extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       deleteAlarms(params: CloudWatch.DeleteAlarmsInput, callback?: (err: CloudWatch.ResourceNotFound|any, data: any) => void): Request;
       describeAlarmHistory(params: CloudWatch.DescribeAlarmHistoryInput, callback?: (err: CloudWatch.InvalidNextToken|any, data: CloudWatch.DescribeAlarmHistoryOutput|any) => void): Request;
       describeAlarms(params: CloudWatch.DescribeAlarmsInput, callback?: (err: CloudWatch.InvalidNextToken|any, data: CloudWatch.DescribeAlarmsOutput|any) => void): Request;

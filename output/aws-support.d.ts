@@ -16,6 +16,7 @@ declare module "aws-sdk" {
      */
     export class Support extends Service {
       constructor(options?: any);
+      endpoint: Endpoint;
       addAttachmentsToSet(params: Support.AddAttachmentsToSetRequest, callback?: (err: Support.InternalServerError|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|Support.AttachmentSetSizeLimitExceeded|Support.AttachmentLimitExceeded|any, data: Support.AddAttachmentsToSetResponse|any) => void): Request;
       addCommunicationToCase(params: Support.AddCommunicationToCaseRequest, callback?: (err: Support.InternalServerError|Support.CaseIdNotFound|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|any, data: Support.AddCommunicationToCaseResponse|any) => void): Request;
       createCase(params: Support.CreateCaseRequest, callback?: (err: Support.InternalServerError|Support.CaseCreationLimitExceeded|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|any, data: Support.CreateCaseResponse|any) => void): Request;
