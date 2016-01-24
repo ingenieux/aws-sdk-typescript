@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2012-08-10
      * endpointPrefix: streams.dynamodb
      * serviceAbbreviation: 
@@ -21,8 +21,9 @@ declare module "aws-sdk" {
       getRecords(params: DynamoDBStreams.GetRecordsInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.LimitExceededException|DynamoDBStreams.InternalServerError|DynamoDBStreams.ExpiredIteratorException|DynamoDBStreams.TrimmedDataAccessException|any, data: DynamoDBStreams.GetRecordsOutput|any) => void): Request;
       getShardIterator(params: DynamoDBStreams.GetShardIteratorInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|DynamoDBStreams.TrimmedDataAccessException|any, data: DynamoDBStreams.GetShardIteratorOutput|any) => void): Request;
       listStreams(params: DynamoDBStreams.ListStreamsInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|any, data: DynamoDBStreams.ListStreamsOutput|any) => void): Request;
+
     }
-    
+
     export module DynamoDBStreams {
         export type AttributeMap = {[key:string]: AttributeValue};
         export type AttributeName = string;    // max: 65535
@@ -58,110 +59,110 @@ declare module "aws-sdk" {
         export type TableName = string;    // pattern: &quot;[a-zA-Z0-9_.-]+&quot;, max: 255, min: 3
 
         export interface AttributeValue {
-            S?: StringAttributeValue;            
-            N?: NumberAttributeValue;            
-            B?: BinaryAttributeValue;            
-            SS?: StringSetAttributeValue;            
-            NS?: NumberSetAttributeValue;            
-            BS?: BinarySetAttributeValue;            
-            M?: MapAttributeValue;            
-            L?: ListAttributeValue;            
-            NULL?: NullAttributeValue;            
-            BOOL?: BooleanAttributeValue;            
+            S?: StringAttributeValue;
+            N?: NumberAttributeValue;
+            B?: BinaryAttributeValue;
+            SS?: StringSetAttributeValue;
+            NS?: NumberSetAttributeValue;
+            BS?: BinarySetAttributeValue;
+            M?: MapAttributeValue;
+            L?: ListAttributeValue;
+            NULL?: NullAttributeValue;
+            BOOL?: BooleanAttributeValue;
         }
         export interface DescribeStreamInput {
-            StreamArn: StreamArn;            
-            Limit?: PositiveIntegerObject;            
-            ExclusiveStartShardId?: ShardId;            
+            StreamArn: StreamArn;
+            Limit?: PositiveIntegerObject;
+            ExclusiveStartShardId?: ShardId;
         }
         export interface DescribeStreamOutput {
-            StreamDescription?: StreamDescription;            
+            StreamDescription?: StreamDescription;
         }
         export interface ExpiredIteratorException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface GetRecordsInput {
-            ShardIterator: ShardIterator;            
-            Limit?: PositiveIntegerObject;            
+            ShardIterator: ShardIterator;
+            Limit?: PositiveIntegerObject;
         }
         export interface GetRecordsOutput {
-            Records?: RecordList;            
-            NextShardIterator?: ShardIterator;            
+            Records?: RecordList;
+            NextShardIterator?: ShardIterator;
         }
         export interface GetShardIteratorInput {
-            StreamArn: StreamArn;            
-            ShardId: ShardId;            
-            ShardIteratorType: ShardIteratorType;            
-            SequenceNumber?: SequenceNumber;            
+            StreamArn: StreamArn;
+            ShardId: ShardId;
+            ShardIteratorType: ShardIteratorType;
+            SequenceNumber?: SequenceNumber;
         }
         export interface GetShardIteratorOutput {
-            ShardIterator?: ShardIterator;            
+            ShardIterator?: ShardIterator;
         }
         export interface InternalServerError {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface KeySchemaElement {
-            AttributeName: KeySchemaAttributeName;            
-            KeyType: KeyType;            
+            AttributeName: KeySchemaAttributeName;
+            KeyType: KeyType;
         }
         export interface LimitExceededException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ListStreamsInput {
-            TableName?: TableName;            
-            Limit?: PositiveIntegerObject;            
-            ExclusiveStartStreamArn?: StreamArn;            
+            TableName?: TableName;
+            Limit?: PositiveIntegerObject;
+            ExclusiveStartStreamArn?: StreamArn;
         }
         export interface ListStreamsOutput {
-            Streams?: StreamList;            
-            LastEvaluatedStreamArn?: StreamArn;            
+            Streams?: StreamList;
+            LastEvaluatedStreamArn?: StreamArn;
         }
         export interface Record {
-            eventID?: String;            
-            eventName?: OperationType;            
-            eventVersion?: String;            
-            eventSource?: String;            
-            awsRegion?: String;            
-            dynamodb?: StreamRecord;            
+            eventID?: String;
+            eventName?: OperationType;
+            eventVersion?: String;
+            eventSource?: String;
+            awsRegion?: String;
+            dynamodb?: StreamRecord;
         }
         export interface ResourceNotFoundException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface SequenceNumberRange {
-            StartingSequenceNumber?: SequenceNumber;            
-            EndingSequenceNumber?: SequenceNumber;            
+            StartingSequenceNumber?: SequenceNumber;
+            EndingSequenceNumber?: SequenceNumber;
         }
         export interface Shard {
-            ShardId?: ShardId;            
-            SequenceNumberRange?: SequenceNumberRange;            
-            ParentShardId?: ShardId;            
+            ShardId?: ShardId;
+            SequenceNumberRange?: SequenceNumberRange;
+            ParentShardId?: ShardId;
         }
         export interface Stream {
-            StreamArn?: StreamArn;            
-            TableName?: TableName;            
-            StreamLabel?: String;            
+            StreamArn?: StreamArn;
+            TableName?: TableName;
+            StreamLabel?: String;
         }
         export interface StreamDescription {
-            StreamArn?: StreamArn;            
-            StreamLabel?: String;            
-            StreamStatus?: StreamStatus;            
-            StreamViewType?: StreamViewType;            
-            CreationRequestDateTime?: Date;            
-            TableName?: TableName;            
-            KeySchema?: KeySchema;            
-            Shards?: ShardDescriptionList;            
-            LastEvaluatedShardId?: ShardId;            
+            StreamArn?: StreamArn;
+            StreamLabel?: String;
+            StreamStatus?: StreamStatus;
+            StreamViewType?: StreamViewType;
+            CreationRequestDateTime?: Date;
+            TableName?: TableName;
+            KeySchema?: KeySchema;
+            Shards?: ShardDescriptionList;
+            LastEvaluatedShardId?: ShardId;
         }
         export interface StreamRecord {
-            Keys?: AttributeMap;            
-            NewImage?: AttributeMap;            
-            OldImage?: AttributeMap;            
-            SequenceNumber?: SequenceNumber;            
-            SizeBytes?: PositiveLongObject;            
-            StreamViewType?: StreamViewType;            
+            Keys?: AttributeMap;
+            NewImage?: AttributeMap;
+            OldImage?: AttributeMap;
+            SequenceNumber?: SequenceNumber;
+            SizeBytes?: PositiveLongObject;
+            StreamViewType?: StreamViewType;
         }
         export interface TrimmedDataAccessException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
 
     }

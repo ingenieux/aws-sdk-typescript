@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-02-02
      * endpointPrefix: elasticache
      * serviceAbbreviation: 
@@ -54,8 +54,9 @@ declare module "aws-sdk" {
       removeTagsFromResource(params: ElastiCache.RemoveTagsFromResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|ElastiCache.TagNotFoundFault|any, data: ElastiCache.TagListMessage|any) => void): Request;
       resetCacheParameterGroup(params: ElastiCache.ResetCacheParameterGroupMessage, callback?: (err: ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupNameMessage|any) => void): Request;
       revokeCacheSecurityGroupIngress(params: ElastiCache.RevokeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.AuthorizationNotFoundFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.RevokeCacheSecurityGroupIngressResult|any) => void): Request;
+
     }
-    
+
     export module ElastiCache {
         export type AZMode = string;
         export type AutomaticFailoverStatus = string;
@@ -104,148 +105,148 @@ declare module "aws-sdk" {
         export type TagList = Tag[];
 
         export interface AddTagsToResourceMessage {
-            ResourceName: String;            
-            Tags: TagList;            
+            ResourceName: String;
+            Tags: TagList;
         }
         export interface AuthorizationAlreadyExistsFault {
         }
         export interface AuthorizationNotFoundFault {
         }
         export interface AuthorizeCacheSecurityGroupIngressMessage {
-            CacheSecurityGroupName: String;            
-            EC2SecurityGroupName: String;            
-            EC2SecurityGroupOwnerId: String;            
+            CacheSecurityGroupName: String;
+            EC2SecurityGroupName: String;
+            EC2SecurityGroupOwnerId: String;
         }
         export interface AvailabilityZone {
-            Name?: String;            
+            Name?: String;
         }
         export interface CacheCluster {
-            CacheClusterId?: String;            
-            ConfigurationEndpoint?: Endpoint;            
-            ClientDownloadLandingPage?: String;            
-            CacheNodeType?: String;            
-            Engine?: String;            
-            EngineVersion?: String;            
-            CacheClusterStatus?: String;            
-            NumCacheNodes?: IntegerOptional;            
-            PreferredAvailabilityZone?: String;            
-            CacheClusterCreateTime?: TStamp;            
-            PreferredMaintenanceWindow?: String;            
-            PendingModifiedValues?: PendingModifiedValues;            
-            NotificationConfiguration?: NotificationConfiguration;            
-            CacheSecurityGroups?: CacheSecurityGroupMembershipList;            
-            CacheParameterGroup?: CacheParameterGroupStatus;            
-            CacheSubnetGroupName?: String;            
-            CacheNodes?: CacheNodeList;            
-            AutoMinorVersionUpgrade?: Boolean;            
-            SecurityGroups?: SecurityGroupMembershipList;            
-            ReplicationGroupId?: String;            
-            SnapshotRetentionLimit?: IntegerOptional;            
-            SnapshotWindow?: String;            
+            CacheClusterId?: String;
+            ConfigurationEndpoint?: Endpoint;
+            ClientDownloadLandingPage?: String;
+            CacheNodeType?: String;
+            Engine?: String;
+            EngineVersion?: String;
+            CacheClusterStatus?: String;
+            NumCacheNodes?: IntegerOptional;
+            PreferredAvailabilityZone?: String;
+            CacheClusterCreateTime?: TStamp;
+            PreferredMaintenanceWindow?: String;
+            PendingModifiedValues?: PendingModifiedValues;
+            NotificationConfiguration?: NotificationConfiguration;
+            CacheSecurityGroups?: CacheSecurityGroupMembershipList;
+            CacheParameterGroup?: CacheParameterGroupStatus;
+            CacheSubnetGroupName?: String;
+            CacheNodes?: CacheNodeList;
+            AutoMinorVersionUpgrade?: Boolean;
+            SecurityGroups?: SecurityGroupMembershipList;
+            ReplicationGroupId?: String;
+            SnapshotRetentionLimit?: IntegerOptional;
+            SnapshotWindow?: String;
         }
         export interface CacheClusterAlreadyExistsFault {
         }
         export interface CacheClusterMessage {
-            Marker?: String;            
-            CacheClusters?: CacheClusterList;            
+            Marker?: String;
+            CacheClusters?: CacheClusterList;
         }
         export interface CacheClusterNotFoundFault {
         }
         export interface CacheEngineVersion {
-            Engine?: String;            
-            EngineVersion?: String;            
-            CacheParameterGroupFamily?: String;            
-            CacheEngineDescription?: String;            
-            CacheEngineVersionDescription?: String;            
+            Engine?: String;
+            EngineVersion?: String;
+            CacheParameterGroupFamily?: String;
+            CacheEngineDescription?: String;
+            CacheEngineVersionDescription?: String;
         }
         export interface CacheEngineVersionMessage {
-            Marker?: String;            
-            CacheEngineVersions?: CacheEngineVersionList;            
+            Marker?: String;
+            CacheEngineVersions?: CacheEngineVersionList;
         }
         export interface CacheNode {
-            CacheNodeId?: String;            
-            CacheNodeStatus?: String;            
-            CacheNodeCreateTime?: TStamp;            
-            Endpoint?: Endpoint;            
-            ParameterGroupStatus?: String;            
-            SourceCacheNodeId?: String;            
-            CustomerAvailabilityZone?: String;            
+            CacheNodeId?: String;
+            CacheNodeStatus?: String;
+            CacheNodeCreateTime?: TStamp;
+            Endpoint?: Endpoint;
+            ParameterGroupStatus?: String;
+            SourceCacheNodeId?: String;
+            CustomerAvailabilityZone?: String;
         }
         export interface CacheNodeTypeSpecificParameter {
-            ParameterName?: String;            
-            Description?: String;            
-            Source?: String;            
-            DataType?: String;            
-            AllowedValues?: String;            
-            IsModifiable?: Boolean;            
-            MinimumEngineVersion?: String;            
-            CacheNodeTypeSpecificValues?: CacheNodeTypeSpecificValueList;            
+            ParameterName?: String;
+            Description?: String;
+            Source?: String;
+            DataType?: String;
+            AllowedValues?: String;
+            IsModifiable?: Boolean;
+            MinimumEngineVersion?: String;
+            CacheNodeTypeSpecificValues?: CacheNodeTypeSpecificValueList;
         }
         export interface CacheNodeTypeSpecificValue {
-            CacheNodeType?: String;            
-            Value?: String;            
+            CacheNodeType?: String;
+            Value?: String;
         }
         export interface CacheParameterGroup {
-            CacheParameterGroupName?: String;            
-            CacheParameterGroupFamily?: String;            
-            Description?: String;            
+            CacheParameterGroupName?: String;
+            CacheParameterGroupFamily?: String;
+            Description?: String;
         }
         export interface CacheParameterGroupAlreadyExistsFault {
         }
         export interface CacheParameterGroupDetails {
-            Marker?: String;            
-            Parameters?: ParametersList;            
-            CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParametersList;            
+            Marker?: String;
+            Parameters?: ParametersList;
+            CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParametersList;
         }
         export interface CacheParameterGroupNameMessage {
-            CacheParameterGroupName?: String;            
+            CacheParameterGroupName?: String;
         }
         export interface CacheParameterGroupNotFoundFault {
         }
         export interface CacheParameterGroupQuotaExceededFault {
         }
         export interface CacheParameterGroupStatus {
-            CacheParameterGroupName?: String;            
-            ParameterApplyStatus?: String;            
-            CacheNodeIdsToReboot?: CacheNodeIdsList;            
+            CacheParameterGroupName?: String;
+            ParameterApplyStatus?: String;
+            CacheNodeIdsToReboot?: CacheNodeIdsList;
         }
         export interface CacheParameterGroupsMessage {
-            Marker?: String;            
-            CacheParameterGroups?: CacheParameterGroupList;            
+            Marker?: String;
+            CacheParameterGroups?: CacheParameterGroupList;
         }
         export interface CacheSecurityGroup {
-            OwnerId?: String;            
-            CacheSecurityGroupName?: String;            
-            Description?: String;            
-            EC2SecurityGroups?: EC2SecurityGroupList;            
+            OwnerId?: String;
+            CacheSecurityGroupName?: String;
+            Description?: String;
+            EC2SecurityGroups?: EC2SecurityGroupList;
         }
         export interface CacheSecurityGroupAlreadyExistsFault {
         }
         export interface CacheSecurityGroupMembership {
-            CacheSecurityGroupName?: String;            
-            Status?: String;            
+            CacheSecurityGroupName?: String;
+            Status?: String;
         }
         export interface CacheSecurityGroupMessage {
-            Marker?: String;            
-            CacheSecurityGroups?: CacheSecurityGroups;            
+            Marker?: String;
+            CacheSecurityGroups?: CacheSecurityGroups;
         }
         export interface CacheSecurityGroupNotFoundFault {
         }
         export interface CacheSecurityGroupQuotaExceededFault {
         }
         export interface CacheSubnetGroup {
-            CacheSubnetGroupName?: String;            
-            CacheSubnetGroupDescription?: String;            
-            VpcId?: String;            
-            Subnets?: SubnetList;            
+            CacheSubnetGroupName?: String;
+            CacheSubnetGroupDescription?: String;
+            VpcId?: String;
+            Subnets?: SubnetList;
         }
         export interface CacheSubnetGroupAlreadyExistsFault {
         }
         export interface CacheSubnetGroupInUse {
         }
         export interface CacheSubnetGroupMessage {
-            Marker?: String;            
-            CacheSubnetGroups?: CacheSubnetGroups;            
+            Marker?: String;
+            CacheSubnetGroups?: CacheSubnetGroups;
         }
         export interface CacheSubnetGroupNotFoundFault {
         }
@@ -256,204 +257,204 @@ declare module "aws-sdk" {
         export interface ClusterQuotaForCustomerExceededFault {
         }
         export interface CopySnapshotMessage {
-            SourceSnapshotName: String;            
-            TargetSnapshotName: String;            
+            SourceSnapshotName: String;
+            TargetSnapshotName: String;
         }
         export interface CreateCacheClusterMessage {
-            CacheClusterId: String;            
-            ReplicationGroupId?: String;            
-            AZMode?: AZMode;            
-            PreferredAvailabilityZone?: String;            
-            PreferredAvailabilityZones?: PreferredAvailabilityZoneList;            
-            NumCacheNodes?: IntegerOptional;            
-            CacheNodeType?: String;            
-            Engine?: String;            
-            EngineVersion?: String;            
-            CacheParameterGroupName?: String;            
-            CacheSubnetGroupName?: String;            
-            CacheSecurityGroupNames?: CacheSecurityGroupNameList;            
-            SecurityGroupIds?: SecurityGroupIdsList;            
-            Tags?: TagList;            
-            SnapshotArns?: SnapshotArnsList;            
-            SnapshotName?: String;            
-            PreferredMaintenanceWindow?: String;            
-            Port?: IntegerOptional;            
-            NotificationTopicArn?: String;            
-            AutoMinorVersionUpgrade?: BooleanOptional;            
-            SnapshotRetentionLimit?: IntegerOptional;            
-            SnapshotWindow?: String;            
+            CacheClusterId: String;
+            ReplicationGroupId?: String;
+            AZMode?: AZMode;
+            PreferredAvailabilityZone?: String;
+            PreferredAvailabilityZones?: PreferredAvailabilityZoneList;
+            NumCacheNodes?: IntegerOptional;
+            CacheNodeType?: String;
+            Engine?: String;
+            EngineVersion?: String;
+            CacheParameterGroupName?: String;
+            CacheSubnetGroupName?: String;
+            CacheSecurityGroupNames?: CacheSecurityGroupNameList;
+            SecurityGroupIds?: SecurityGroupIdsList;
+            Tags?: TagList;
+            SnapshotArns?: SnapshotArnsList;
+            SnapshotName?: String;
+            PreferredMaintenanceWindow?: String;
+            Port?: IntegerOptional;
+            NotificationTopicArn?: String;
+            AutoMinorVersionUpgrade?: BooleanOptional;
+            SnapshotRetentionLimit?: IntegerOptional;
+            SnapshotWindow?: String;
         }
         export interface CreateCacheParameterGroupMessage {
-            CacheParameterGroupName: String;            
-            CacheParameterGroupFamily: String;            
-            Description: String;            
+            CacheParameterGroupName: String;
+            CacheParameterGroupFamily: String;
+            Description: String;
         }
         export interface CreateCacheSecurityGroupMessage {
-            CacheSecurityGroupName: String;            
-            Description: String;            
+            CacheSecurityGroupName: String;
+            Description: String;
         }
         export interface CreateCacheSubnetGroupMessage {
-            CacheSubnetGroupName: String;            
-            CacheSubnetGroupDescription: String;            
-            SubnetIds: SubnetIdentifierList;            
+            CacheSubnetGroupName: String;
+            CacheSubnetGroupDescription: String;
+            SubnetIds: SubnetIdentifierList;
         }
         export interface CreateReplicationGroupMessage {
-            ReplicationGroupId: String;            
-            ReplicationGroupDescription: String;            
-            PrimaryClusterId?: String;            
-            AutomaticFailoverEnabled?: BooleanOptional;            
-            NumCacheClusters?: IntegerOptional;            
-            PreferredCacheClusterAZs?: AvailabilityZonesList;            
-            CacheNodeType?: String;            
-            Engine?: String;            
-            EngineVersion?: String;            
-            CacheParameterGroupName?: String;            
-            CacheSubnetGroupName?: String;            
-            CacheSecurityGroupNames?: CacheSecurityGroupNameList;            
-            SecurityGroupIds?: SecurityGroupIdsList;            
-            Tags?: TagList;            
-            SnapshotArns?: SnapshotArnsList;            
-            SnapshotName?: String;            
-            PreferredMaintenanceWindow?: String;            
-            Port?: IntegerOptional;            
-            NotificationTopicArn?: String;            
-            AutoMinorVersionUpgrade?: BooleanOptional;            
-            SnapshotRetentionLimit?: IntegerOptional;            
-            SnapshotWindow?: String;            
+            ReplicationGroupId: String;
+            ReplicationGroupDescription: String;
+            PrimaryClusterId?: String;
+            AutomaticFailoverEnabled?: BooleanOptional;
+            NumCacheClusters?: IntegerOptional;
+            PreferredCacheClusterAZs?: AvailabilityZonesList;
+            CacheNodeType?: String;
+            Engine?: String;
+            EngineVersion?: String;
+            CacheParameterGroupName?: String;
+            CacheSubnetGroupName?: String;
+            CacheSecurityGroupNames?: CacheSecurityGroupNameList;
+            SecurityGroupIds?: SecurityGroupIdsList;
+            Tags?: TagList;
+            SnapshotArns?: SnapshotArnsList;
+            SnapshotName?: String;
+            PreferredMaintenanceWindow?: String;
+            Port?: IntegerOptional;
+            NotificationTopicArn?: String;
+            AutoMinorVersionUpgrade?: BooleanOptional;
+            SnapshotRetentionLimit?: IntegerOptional;
+            SnapshotWindow?: String;
         }
         export interface CreateSnapshotMessage {
-            CacheClusterId: String;            
-            SnapshotName: String;            
+            CacheClusterId: String;
+            SnapshotName: String;
         }
         export interface DeleteCacheClusterMessage {
-            CacheClusterId: String;            
-            FinalSnapshotIdentifier?: String;            
+            CacheClusterId: String;
+            FinalSnapshotIdentifier?: String;
         }
         export interface DeleteCacheParameterGroupMessage {
-            CacheParameterGroupName: String;            
+            CacheParameterGroupName: String;
         }
         export interface DeleteCacheSecurityGroupMessage {
-            CacheSecurityGroupName: String;            
+            CacheSecurityGroupName: String;
         }
         export interface DeleteCacheSubnetGroupMessage {
-            CacheSubnetGroupName: String;            
+            CacheSubnetGroupName: String;
         }
         export interface DeleteReplicationGroupMessage {
-            ReplicationGroupId: String;            
-            RetainPrimaryCluster?: BooleanOptional;            
-            FinalSnapshotIdentifier?: String;            
+            ReplicationGroupId: String;
+            RetainPrimaryCluster?: BooleanOptional;
+            FinalSnapshotIdentifier?: String;
         }
         export interface DeleteSnapshotMessage {
-            SnapshotName: String;            
+            SnapshotName: String;
         }
         export interface DescribeCacheClustersMessage {
-            CacheClusterId?: String;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
-            ShowCacheNodeInfo?: BooleanOptional;            
+            CacheClusterId?: String;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
+            ShowCacheNodeInfo?: BooleanOptional;
         }
         export interface DescribeCacheEngineVersionsMessage {
-            Engine?: String;            
-            EngineVersion?: String;            
-            CacheParameterGroupFamily?: String;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
-            DefaultOnly?: Boolean;            
+            Engine?: String;
+            EngineVersion?: String;
+            CacheParameterGroupFamily?: String;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
+            DefaultOnly?: Boolean;
         }
         export interface DescribeCacheParameterGroupsMessage {
-            CacheParameterGroupName?: String;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            CacheParameterGroupName?: String;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeCacheParametersMessage {
-            CacheParameterGroupName: String;            
-            Source?: String;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            CacheParameterGroupName: String;
+            Source?: String;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeCacheSecurityGroupsMessage {
-            CacheSecurityGroupName?: String;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            CacheSecurityGroupName?: String;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeCacheSubnetGroupsMessage {
-            CacheSubnetGroupName?: String;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            CacheSubnetGroupName?: String;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeEngineDefaultParametersMessage {
-            CacheParameterGroupFamily: String;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            CacheParameterGroupFamily: String;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeEventsMessage {
-            SourceIdentifier?: String;            
-            SourceType?: SourceType;            
-            StartTime?: TStamp;            
-            EndTime?: TStamp;            
-            Duration?: IntegerOptional;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            SourceIdentifier?: String;
+            SourceType?: SourceType;
+            StartTime?: TStamp;
+            EndTime?: TStamp;
+            Duration?: IntegerOptional;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeReplicationGroupsMessage {
-            ReplicationGroupId?: String;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            ReplicationGroupId?: String;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeReservedCacheNodesMessage {
-            ReservedCacheNodeId?: String;            
-            ReservedCacheNodesOfferingId?: String;            
-            CacheNodeType?: String;            
-            Duration?: String;            
-            ProductDescription?: String;            
-            OfferingType?: String;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            ReservedCacheNodeId?: String;
+            ReservedCacheNodesOfferingId?: String;
+            CacheNodeType?: String;
+            Duration?: String;
+            ProductDescription?: String;
+            OfferingType?: String;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeReservedCacheNodesOfferingsMessage {
-            ReservedCacheNodesOfferingId?: String;            
-            CacheNodeType?: String;            
-            Duration?: String;            
-            ProductDescription?: String;            
-            OfferingType?: String;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            ReservedCacheNodesOfferingId?: String;
+            CacheNodeType?: String;
+            Duration?: String;
+            ProductDescription?: String;
+            OfferingType?: String;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeSnapshotsListMessage {
-            Marker?: String;            
-            Snapshots?: SnapshotList;            
+            Marker?: String;
+            Snapshots?: SnapshotList;
         }
         export interface DescribeSnapshotsMessage {
-            CacheClusterId?: String;            
-            SnapshotName?: String;            
-            SnapshotSource?: String;            
-            Marker?: String;            
-            MaxRecords?: IntegerOptional;            
+            CacheClusterId?: String;
+            SnapshotName?: String;
+            SnapshotSource?: String;
+            Marker?: String;
+            MaxRecords?: IntegerOptional;
         }
         export interface EC2SecurityGroup {
-            Status?: String;            
-            EC2SecurityGroupName?: String;            
-            EC2SecurityGroupOwnerId?: String;            
+            Status?: String;
+            EC2SecurityGroupName?: String;
+            EC2SecurityGroupOwnerId?: String;
         }
         export interface Endpoint {
-            Address?: String;            
-            Port?: Integer;            
+            Address?: String;
+            Port?: Integer;
         }
         export interface EngineDefaults {
-            CacheParameterGroupFamily?: String;            
-            Marker?: String;            
-            Parameters?: ParametersList;            
-            CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParametersList;            
+            CacheParameterGroupFamily?: String;
+            Marker?: String;
+            Parameters?: ParametersList;
+            CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParametersList;
         }
         export interface Event {
-            SourceIdentifier?: String;            
-            SourceType?: SourceType;            
-            Message?: String;            
-            Date?: TStamp;            
+            SourceIdentifier?: String;
+            SourceType?: SourceType;
+            Message?: String;
+            Date?: TStamp;
         }
         export interface EventsMessage {
-            Marker?: String;            
-            Events?: EventList;            
+            Marker?: String;
+            Events?: EventList;
         }
         export interface InsufficientCacheClusterCapacityFault {
         }
@@ -466,10 +467,10 @@ declare module "aws-sdk" {
         export interface InvalidCacheSecurityGroupStateFault {
         }
         export interface InvalidParameterCombinationException {
-            message?: AwsQueryErrorMessage;            
+            message?: AwsQueryErrorMessage;
         }
         export interface InvalidParameterValueException {
-            message?: AwsQueryErrorMessage;            
+            message?: AwsQueryErrorMessage;
         }
         export interface InvalidReplicationGroupStateFault {
         }
@@ -480,213 +481,213 @@ declare module "aws-sdk" {
         export interface InvalidVPCNetworkStateFault {
         }
         export interface ListTagsForResourceMessage {
-            ResourceName: String;            
+            ResourceName: String;
         }
         export interface ModifyCacheClusterMessage {
-            CacheClusterId: String;            
-            NumCacheNodes?: IntegerOptional;            
-            CacheNodeIdsToRemove?: CacheNodeIdsList;            
-            AZMode?: AZMode;            
-            NewAvailabilityZones?: PreferredAvailabilityZoneList;            
-            CacheSecurityGroupNames?: CacheSecurityGroupNameList;            
-            SecurityGroupIds?: SecurityGroupIdsList;            
-            PreferredMaintenanceWindow?: String;            
-            NotificationTopicArn?: String;            
-            CacheParameterGroupName?: String;            
-            NotificationTopicStatus?: String;            
-            ApplyImmediately?: Boolean;            
-            EngineVersion?: String;            
-            AutoMinorVersionUpgrade?: BooleanOptional;            
-            SnapshotRetentionLimit?: IntegerOptional;            
-            SnapshotWindow?: String;            
+            CacheClusterId: String;
+            NumCacheNodes?: IntegerOptional;
+            CacheNodeIdsToRemove?: CacheNodeIdsList;
+            AZMode?: AZMode;
+            NewAvailabilityZones?: PreferredAvailabilityZoneList;
+            CacheSecurityGroupNames?: CacheSecurityGroupNameList;
+            SecurityGroupIds?: SecurityGroupIdsList;
+            PreferredMaintenanceWindow?: String;
+            NotificationTopicArn?: String;
+            CacheParameterGroupName?: String;
+            NotificationTopicStatus?: String;
+            ApplyImmediately?: Boolean;
+            EngineVersion?: String;
+            AutoMinorVersionUpgrade?: BooleanOptional;
+            SnapshotRetentionLimit?: IntegerOptional;
+            SnapshotWindow?: String;
         }
         export interface ModifyCacheParameterGroupMessage {
-            CacheParameterGroupName: String;            
-            ParameterNameValues: ParameterNameValueList;            
+            CacheParameterGroupName: String;
+            ParameterNameValues: ParameterNameValueList;
         }
         export interface ModifyCacheSubnetGroupMessage {
-            CacheSubnetGroupName: String;            
-            CacheSubnetGroupDescription?: String;            
-            SubnetIds?: SubnetIdentifierList;            
+            CacheSubnetGroupName: String;
+            CacheSubnetGroupDescription?: String;
+            SubnetIds?: SubnetIdentifierList;
         }
         export interface ModifyReplicationGroupMessage {
-            ReplicationGroupId: String;            
-            ReplicationGroupDescription?: String;            
-            PrimaryClusterId?: String;            
-            SnapshottingClusterId?: String;            
-            AutomaticFailoverEnabled?: BooleanOptional;            
-            CacheSecurityGroupNames?: CacheSecurityGroupNameList;            
-            SecurityGroupIds?: SecurityGroupIdsList;            
-            PreferredMaintenanceWindow?: String;            
-            NotificationTopicArn?: String;            
-            CacheParameterGroupName?: String;            
-            NotificationTopicStatus?: String;            
-            ApplyImmediately?: Boolean;            
-            EngineVersion?: String;            
-            AutoMinorVersionUpgrade?: BooleanOptional;            
-            SnapshotRetentionLimit?: IntegerOptional;            
-            SnapshotWindow?: String;            
+            ReplicationGroupId: String;
+            ReplicationGroupDescription?: String;
+            PrimaryClusterId?: String;
+            SnapshottingClusterId?: String;
+            AutomaticFailoverEnabled?: BooleanOptional;
+            CacheSecurityGroupNames?: CacheSecurityGroupNameList;
+            SecurityGroupIds?: SecurityGroupIdsList;
+            PreferredMaintenanceWindow?: String;
+            NotificationTopicArn?: String;
+            CacheParameterGroupName?: String;
+            NotificationTopicStatus?: String;
+            ApplyImmediately?: Boolean;
+            EngineVersion?: String;
+            AutoMinorVersionUpgrade?: BooleanOptional;
+            SnapshotRetentionLimit?: IntegerOptional;
+            SnapshotWindow?: String;
         }
         export interface NodeGroup {
-            NodeGroupId?: String;            
-            Status?: String;            
-            PrimaryEndpoint?: Endpoint;            
-            NodeGroupMembers?: NodeGroupMemberList;            
+            NodeGroupId?: String;
+            Status?: String;
+            PrimaryEndpoint?: Endpoint;
+            NodeGroupMembers?: NodeGroupMemberList;
         }
         export interface NodeGroupMember {
-            CacheClusterId?: String;            
-            CacheNodeId?: String;            
-            ReadEndpoint?: Endpoint;            
-            PreferredAvailabilityZone?: String;            
-            CurrentRole?: String;            
+            CacheClusterId?: String;
+            CacheNodeId?: String;
+            ReadEndpoint?: Endpoint;
+            PreferredAvailabilityZone?: String;
+            CurrentRole?: String;
         }
         export interface NodeQuotaForClusterExceededFault {
         }
         export interface NodeQuotaForCustomerExceededFault {
         }
         export interface NodeSnapshot {
-            CacheNodeId?: String;            
-            CacheSize?: String;            
-            CacheNodeCreateTime?: TStamp;            
-            SnapshotCreateTime?: TStamp;            
+            CacheNodeId?: String;
+            CacheSize?: String;
+            CacheNodeCreateTime?: TStamp;
+            SnapshotCreateTime?: TStamp;
         }
         export interface NotificationConfiguration {
-            TopicArn?: String;            
-            TopicStatus?: String;            
+            TopicArn?: String;
+            TopicStatus?: String;
         }
         export interface Parameter {
-            ParameterName?: String;            
-            ParameterValue?: String;            
-            Description?: String;            
-            Source?: String;            
-            DataType?: String;            
-            AllowedValues?: String;            
-            IsModifiable?: Boolean;            
-            MinimumEngineVersion?: String;            
+            ParameterName?: String;
+            ParameterValue?: String;
+            Description?: String;
+            Source?: String;
+            DataType?: String;
+            AllowedValues?: String;
+            IsModifiable?: Boolean;
+            MinimumEngineVersion?: String;
         }
         export interface ParameterNameValue {
-            ParameterName?: String;            
-            ParameterValue?: String;            
+            ParameterName?: String;
+            ParameterValue?: String;
         }
         export interface PendingModifiedValues {
-            NumCacheNodes?: IntegerOptional;            
-            CacheNodeIdsToRemove?: CacheNodeIdsList;            
-            EngineVersion?: String;            
+            NumCacheNodes?: IntegerOptional;
+            CacheNodeIdsToRemove?: CacheNodeIdsList;
+            EngineVersion?: String;
         }
         export interface PurchaseReservedCacheNodesOfferingMessage {
-            ReservedCacheNodesOfferingId: String;            
-            ReservedCacheNodeId?: String;            
-            CacheNodeCount?: IntegerOptional;            
+            ReservedCacheNodesOfferingId: String;
+            ReservedCacheNodeId?: String;
+            CacheNodeCount?: IntegerOptional;
         }
         export interface RebootCacheClusterMessage {
-            CacheClusterId: String;            
-            CacheNodeIdsToReboot: CacheNodeIdsList;            
+            CacheClusterId: String;
+            CacheNodeIdsToReboot: CacheNodeIdsList;
         }
         export interface RecurringCharge {
-            RecurringChargeAmount?: Double;            
-            RecurringChargeFrequency?: String;            
+            RecurringChargeAmount?: Double;
+            RecurringChargeFrequency?: String;
         }
         export interface RemoveTagsFromResourceMessage {
-            ResourceName: String;            
-            TagKeys: KeyList;            
+            ResourceName: String;
+            TagKeys: KeyList;
         }
         export interface ReplicationGroup {
-            ReplicationGroupId?: String;            
-            Description?: String;            
-            Status?: String;            
-            PendingModifiedValues?: ReplicationGroupPendingModifiedValues;            
-            MemberClusters?: ClusterIdList;            
-            NodeGroups?: NodeGroupList;            
-            SnapshottingClusterId?: String;            
-            AutomaticFailover?: AutomaticFailoverStatus;            
+            ReplicationGroupId?: String;
+            Description?: String;
+            Status?: String;
+            PendingModifiedValues?: ReplicationGroupPendingModifiedValues;
+            MemberClusters?: ClusterIdList;
+            NodeGroups?: NodeGroupList;
+            SnapshottingClusterId?: String;
+            AutomaticFailover?: AutomaticFailoverStatus;
         }
         export interface ReplicationGroupAlreadyExistsFault {
         }
         export interface ReplicationGroupMessage {
-            Marker?: String;            
-            ReplicationGroups?: ReplicationGroupList;            
+            Marker?: String;
+            ReplicationGroups?: ReplicationGroupList;
         }
         export interface ReplicationGroupNotFoundFault {
         }
         export interface ReplicationGroupPendingModifiedValues {
-            PrimaryClusterId?: String;            
-            AutomaticFailoverStatus?: PendingAutomaticFailoverStatus;            
+            PrimaryClusterId?: String;
+            AutomaticFailoverStatus?: PendingAutomaticFailoverStatus;
         }
         export interface ReservedCacheNode {
-            ReservedCacheNodeId?: String;            
-            ReservedCacheNodesOfferingId?: String;            
-            CacheNodeType?: String;            
-            StartTime?: TStamp;            
-            Duration?: Integer;            
-            FixedPrice?: Double;            
-            UsagePrice?: Double;            
-            CacheNodeCount?: Integer;            
-            ProductDescription?: String;            
-            OfferingType?: String;            
-            State?: String;            
-            RecurringCharges?: RecurringChargeList;            
+            ReservedCacheNodeId?: String;
+            ReservedCacheNodesOfferingId?: String;
+            CacheNodeType?: String;
+            StartTime?: TStamp;
+            Duration?: Integer;
+            FixedPrice?: Double;
+            UsagePrice?: Double;
+            CacheNodeCount?: Integer;
+            ProductDescription?: String;
+            OfferingType?: String;
+            State?: String;
+            RecurringCharges?: RecurringChargeList;
         }
         export interface ReservedCacheNodeAlreadyExistsFault {
         }
         export interface ReservedCacheNodeMessage {
-            Marker?: String;            
-            ReservedCacheNodes?: ReservedCacheNodeList;            
+            Marker?: String;
+            ReservedCacheNodes?: ReservedCacheNodeList;
         }
         export interface ReservedCacheNodeNotFoundFault {
         }
         export interface ReservedCacheNodeQuotaExceededFault {
         }
         export interface ReservedCacheNodesOffering {
-            ReservedCacheNodesOfferingId?: String;            
-            CacheNodeType?: String;            
-            Duration?: Integer;            
-            FixedPrice?: Double;            
-            UsagePrice?: Double;            
-            ProductDescription?: String;            
-            OfferingType?: String;            
-            RecurringCharges?: RecurringChargeList;            
+            ReservedCacheNodesOfferingId?: String;
+            CacheNodeType?: String;
+            Duration?: Integer;
+            FixedPrice?: Double;
+            UsagePrice?: Double;
+            ProductDescription?: String;
+            OfferingType?: String;
+            RecurringCharges?: RecurringChargeList;
         }
         export interface ReservedCacheNodesOfferingMessage {
-            Marker?: String;            
-            ReservedCacheNodesOfferings?: ReservedCacheNodesOfferingList;            
+            Marker?: String;
+            ReservedCacheNodesOfferings?: ReservedCacheNodesOfferingList;
         }
         export interface ReservedCacheNodesOfferingNotFoundFault {
         }
         export interface ResetCacheParameterGroupMessage {
-            CacheParameterGroupName: String;            
-            ResetAllParameters?: Boolean;            
-            ParameterNameValues: ParameterNameValueList;            
+            CacheParameterGroupName: String;
+            ResetAllParameters?: Boolean;
+            ParameterNameValues: ParameterNameValueList;
         }
         export interface RevokeCacheSecurityGroupIngressMessage {
-            CacheSecurityGroupName: String;            
-            EC2SecurityGroupName: String;            
-            EC2SecurityGroupOwnerId: String;            
+            CacheSecurityGroupName: String;
+            EC2SecurityGroupName: String;
+            EC2SecurityGroupOwnerId: String;
         }
         export interface SecurityGroupMembership {
-            SecurityGroupId?: String;            
-            Status?: String;            
+            SecurityGroupId?: String;
+            Status?: String;
         }
         export interface Snapshot {
-            SnapshotName?: String;            
-            CacheClusterId?: String;            
-            SnapshotStatus?: String;            
-            SnapshotSource?: String;            
-            CacheNodeType?: String;            
-            Engine?: String;            
-            EngineVersion?: String;            
-            NumCacheNodes?: IntegerOptional;            
-            PreferredAvailabilityZone?: String;            
-            CacheClusterCreateTime?: TStamp;            
-            PreferredMaintenanceWindow?: String;            
-            TopicArn?: String;            
-            Port?: IntegerOptional;            
-            CacheParameterGroupName?: String;            
-            CacheSubnetGroupName?: String;            
-            VpcId?: String;            
-            AutoMinorVersionUpgrade?: Boolean;            
-            SnapshotRetentionLimit?: IntegerOptional;            
-            SnapshotWindow?: String;            
-            NodeSnapshots?: NodeSnapshotList;            
+            SnapshotName?: String;
+            CacheClusterId?: String;
+            SnapshotStatus?: String;
+            SnapshotSource?: String;
+            CacheNodeType?: String;
+            Engine?: String;
+            EngineVersion?: String;
+            NumCacheNodes?: IntegerOptional;
+            PreferredAvailabilityZone?: String;
+            CacheClusterCreateTime?: TStamp;
+            PreferredMaintenanceWindow?: String;
+            TopicArn?: String;
+            Port?: IntegerOptional;
+            CacheParameterGroupName?: String;
+            CacheSubnetGroupName?: String;
+            VpcId?: String;
+            AutoMinorVersionUpgrade?: Boolean;
+            SnapshotRetentionLimit?: IntegerOptional;
+            SnapshotWindow?: String;
+            NodeSnapshots?: NodeSnapshotList;
         }
         export interface SnapshotAlreadyExistsFault {
         }
@@ -697,75 +698,75 @@ declare module "aws-sdk" {
         export interface SnapshotQuotaExceededFault {
         }
         export interface Subnet {
-            SubnetIdentifier?: String;            
-            SubnetAvailabilityZone?: AvailabilityZone;            
+            SubnetIdentifier?: String;
+            SubnetAvailabilityZone?: AvailabilityZone;
         }
         export interface SubnetInUse {
         }
         export interface Tag {
-            Key?: String;            
-            Value?: String;            
+            Key?: String;
+            Value?: String;
         }
         export interface TagListMessage {
-            TagList?: TagList;            
+            TagList?: TagList;
         }
         export interface TagNotFoundFault {
         }
         export interface TagQuotaPerResourceExceeded {
         }
         export interface AuthorizeCacheSecurityGroupIngressResult {
-            CacheSecurityGroup?: CacheSecurityGroup;            
+            CacheSecurityGroup?: CacheSecurityGroup;
         }
         export interface CopySnapshotResult {
-            Snapshot?: Snapshot;            
+            Snapshot?: Snapshot;
         }
         export interface CreateCacheClusterResult {
-            CacheCluster?: CacheCluster;            
+            CacheCluster?: CacheCluster;
         }
         export interface CreateCacheParameterGroupResult {
-            CacheParameterGroup?: CacheParameterGroup;            
+            CacheParameterGroup?: CacheParameterGroup;
         }
         export interface CreateCacheSecurityGroupResult {
-            CacheSecurityGroup?: CacheSecurityGroup;            
+            CacheSecurityGroup?: CacheSecurityGroup;
         }
         export interface CreateCacheSubnetGroupResult {
-            CacheSubnetGroup?: CacheSubnetGroup;            
+            CacheSubnetGroup?: CacheSubnetGroup;
         }
         export interface CreateReplicationGroupResult {
-            ReplicationGroup?: ReplicationGroup;            
+            ReplicationGroup?: ReplicationGroup;
         }
         export interface CreateSnapshotResult {
-            Snapshot?: Snapshot;            
+            Snapshot?: Snapshot;
         }
         export interface DeleteCacheClusterResult {
-            CacheCluster?: CacheCluster;            
+            CacheCluster?: CacheCluster;
         }
         export interface DeleteReplicationGroupResult {
-            ReplicationGroup?: ReplicationGroup;            
+            ReplicationGroup?: ReplicationGroup;
         }
         export interface DeleteSnapshotResult {
-            Snapshot?: Snapshot;            
+            Snapshot?: Snapshot;
         }
         export interface DescribeEngineDefaultParametersResult {
-            EngineDefaults?: EngineDefaults;            
+            EngineDefaults?: EngineDefaults;
         }
         export interface ModifyCacheClusterResult {
-            CacheCluster?: CacheCluster;            
+            CacheCluster?: CacheCluster;
         }
         export interface ModifyCacheSubnetGroupResult {
-            CacheSubnetGroup?: CacheSubnetGroup;            
+            CacheSubnetGroup?: CacheSubnetGroup;
         }
         export interface ModifyReplicationGroupResult {
-            ReplicationGroup?: ReplicationGroup;            
+            ReplicationGroup?: ReplicationGroup;
         }
         export interface PurchaseReservedCacheNodesOfferingResult {
-            ReservedCacheNode?: ReservedCacheNode;            
+            ReservedCacheNode?: ReservedCacheNode;
         }
         export interface RebootCacheClusterResult {
-            CacheCluster?: CacheCluster;            
+            CacheCluster?: CacheCluster;
         }
         export interface RevokeCacheSecurityGroupIngressResult {
-            CacheSecurityGroup?: CacheSecurityGroup;            
+            CacheSecurityGroup?: CacheSecurityGroup;
         }
 
     }

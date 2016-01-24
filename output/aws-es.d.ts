@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-01-01
      * endpointPrefix: es
      * serviceAbbreviation: 
@@ -27,8 +27,9 @@ declare module "aws-sdk" {
       listTags(params: ES.ListTagsRequest, callback?: (err: ES.BaseException|ES.ResourceNotFoundException|ES.ValidationException|ES.InternalException|any, data: ES.ListTagsResponse|any) => void): Request;
       removeTags(params: ES.RemoveTagsRequest, callback?: (err: ES.BaseException|ES.ValidationException|ES.InternalException|any, data: any) => void): Request;
       updateElasticsearchDomainConfig(params: ES.UpdateElasticsearchDomainConfigRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.InvalidTypeException|ES.LimitExceededException|ES.ResourceNotFoundException|ES.ValidationException|any, data: ES.UpdateElasticsearchDomainConfigResponse|any) => void): Request;
+
     }
-    
+
     export module ES {
         export type ARN = string;
         export type AdvancedOptions = {[key:string]: String};
@@ -54,102 +55,102 @@ declare module "aws-sdk" {
         export type VolumeType = string;
 
         export interface AccessPoliciesStatus {
-            Options: PolicyDocument;            
-            Status: OptionStatus;            
+            Options: PolicyDocument;
+            Status: OptionStatus;
         }
         export interface AddTagsRequest {
-            ARN: ARN;            
-            TagList: TagList;            
+            ARN: ARN;
+            TagList: TagList;
         }
         export interface AdvancedOptionsStatus {
-            Options: AdvancedOptions;            
-            Status: OptionStatus;            
+            Options: AdvancedOptions;
+            Status: OptionStatus;
         }
         export interface BaseException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface CreateElasticsearchDomainRequest {
-            DomainName: DomainName;            
-            ElasticsearchClusterConfig?: ElasticsearchClusterConfig;            
-            EBSOptions?: EBSOptions;            
-            AccessPolicies?: PolicyDocument;            
-            SnapshotOptions?: SnapshotOptions;            
-            AdvancedOptions?: AdvancedOptions;            
+            DomainName: DomainName;
+            ElasticsearchClusterConfig?: ElasticsearchClusterConfig;
+            EBSOptions?: EBSOptions;
+            AccessPolicies?: PolicyDocument;
+            SnapshotOptions?: SnapshotOptions;
+            AdvancedOptions?: AdvancedOptions;
         }
         export interface CreateElasticsearchDomainResponse {
-            DomainStatus?: ElasticsearchDomainStatus;            
+            DomainStatus?: ElasticsearchDomainStatus;
         }
         export interface DeleteElasticsearchDomainRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface DeleteElasticsearchDomainResponse {
-            DomainStatus?: ElasticsearchDomainStatus;            
+            DomainStatus?: ElasticsearchDomainStatus;
         }
         export interface DescribeElasticsearchDomainConfigRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface DescribeElasticsearchDomainConfigResponse {
-            DomainConfig: ElasticsearchDomainConfig;            
+            DomainConfig: ElasticsearchDomainConfig;
         }
         export interface DescribeElasticsearchDomainRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface DescribeElasticsearchDomainResponse {
-            DomainStatus: ElasticsearchDomainStatus;            
+            DomainStatus: ElasticsearchDomainStatus;
         }
         export interface DescribeElasticsearchDomainsRequest {
-            DomainNames: DomainNameList;            
+            DomainNames: DomainNameList;
         }
         export interface DescribeElasticsearchDomainsResponse {
-            DomainStatusList: ElasticsearchDomainStatusList;            
+            DomainStatusList: ElasticsearchDomainStatusList;
         }
         export interface DisabledOperationException {
         }
         export interface DomainInfo {
-            DomainName?: DomainName;            
+            DomainName?: DomainName;
         }
         export interface EBSOptions {
-            EBSEnabled?: Boolean;            
-            VolumeType?: VolumeType;            
-            VolumeSize?: IntegerClass;            
-            Iops?: IntegerClass;            
+            EBSEnabled?: Boolean;
+            VolumeType?: VolumeType;
+            VolumeSize?: IntegerClass;
+            Iops?: IntegerClass;
         }
         export interface EBSOptionsStatus {
-            Options: EBSOptions;            
-            Status: OptionStatus;            
+            Options: EBSOptions;
+            Status: OptionStatus;
         }
         export interface ElasticsearchClusterConfig {
-            InstanceType?: ESPartitionInstanceType;            
-            InstanceCount?: IntegerClass;            
-            DedicatedMasterEnabled?: Boolean;            
-            ZoneAwarenessEnabled?: Boolean;            
-            DedicatedMasterType?: ESPartitionInstanceType;            
-            DedicatedMasterCount?: IntegerClass;            
+            InstanceType?: ESPartitionInstanceType;
+            InstanceCount?: IntegerClass;
+            DedicatedMasterEnabled?: Boolean;
+            ZoneAwarenessEnabled?: Boolean;
+            DedicatedMasterType?: ESPartitionInstanceType;
+            DedicatedMasterCount?: IntegerClass;
         }
         export interface ElasticsearchClusterConfigStatus {
-            Options: ElasticsearchClusterConfig;            
-            Status: OptionStatus;            
+            Options: ElasticsearchClusterConfig;
+            Status: OptionStatus;
         }
         export interface ElasticsearchDomainConfig {
-            ElasticsearchClusterConfig?: ElasticsearchClusterConfigStatus;            
-            EBSOptions?: EBSOptionsStatus;            
-            AccessPolicies?: AccessPoliciesStatus;            
-            SnapshotOptions?: SnapshotOptionsStatus;            
-            AdvancedOptions?: AdvancedOptionsStatus;            
+            ElasticsearchClusterConfig?: ElasticsearchClusterConfigStatus;
+            EBSOptions?: EBSOptionsStatus;
+            AccessPolicies?: AccessPoliciesStatus;
+            SnapshotOptions?: SnapshotOptionsStatus;
+            AdvancedOptions?: AdvancedOptionsStatus;
         }
         export interface ElasticsearchDomainStatus {
-            DomainId: DomainId;            
-            DomainName: DomainName;            
-            ARN: ARN;            
-            Created?: Boolean;            
-            Deleted?: Boolean;            
-            Endpoint?: ServiceUrl;            
-            Processing?: Boolean;            
-            ElasticsearchClusterConfig: ElasticsearchClusterConfig;            
-            EBSOptions?: EBSOptions;            
-            AccessPolicies?: PolicyDocument;            
-            SnapshotOptions?: SnapshotOptions;            
-            AdvancedOptions?: AdvancedOptions;            
+            DomainId: DomainId;
+            DomainName: DomainName;
+            ARN: ARN;
+            Created?: Boolean;
+            Deleted?: Boolean;
+            Endpoint?: ServiceUrl;
+            Processing?: Boolean;
+            ElasticsearchClusterConfig: ElasticsearchClusterConfig;
+            EBSOptions?: EBSOptions;
+            AccessPolicies?: PolicyDocument;
+            SnapshotOptions?: SnapshotOptions;
+            AdvancedOptions?: AdvancedOptions;
         }
         export interface InternalException {
         }
@@ -158,50 +159,50 @@ declare module "aws-sdk" {
         export interface LimitExceededException {
         }
         export interface ListDomainNamesResponse {
-            DomainNames?: DomainInfoList;            
+            DomainNames?: DomainInfoList;
         }
         export interface ListTagsRequest {
-            ARN: ARN;            
+            ARN: ARN;
         }
         export interface ListTagsResponse {
-            TagList?: TagList;            
+            TagList?: TagList;
         }
         export interface OptionStatus {
-            CreationDate: UpdateTimestamp;            
-            UpdateDate: UpdateTimestamp;            
-            UpdateVersion?: UIntValue;            
-            State: OptionState;            
-            PendingDeletion?: Boolean;            
+            CreationDate: UpdateTimestamp;
+            UpdateDate: UpdateTimestamp;
+            UpdateVersion?: UIntValue;
+            State: OptionState;
+            PendingDeletion?: Boolean;
         }
         export interface RemoveTagsRequest {
-            ARN: ARN;            
-            TagKeys: StringList;            
+            ARN: ARN;
+            TagKeys: StringList;
         }
         export interface ResourceAlreadyExistsException {
         }
         export interface ResourceNotFoundException {
         }
         export interface SnapshotOptions {
-            AutomatedSnapshotStartHour?: IntegerClass;            
+            AutomatedSnapshotStartHour?: IntegerClass;
         }
         export interface SnapshotOptionsStatus {
-            Options: SnapshotOptions;            
-            Status: OptionStatus;            
+            Options: SnapshotOptions;
+            Status: OptionStatus;
         }
         export interface Tag {
-            Key: TagKey;            
-            Value: TagValue;            
+            Key: TagKey;
+            Value: TagValue;
         }
         export interface UpdateElasticsearchDomainConfigRequest {
-            DomainName: DomainName;            
-            ElasticsearchClusterConfig?: ElasticsearchClusterConfig;            
-            EBSOptions?: EBSOptions;            
-            SnapshotOptions?: SnapshotOptions;            
-            AdvancedOptions?: AdvancedOptions;            
-            AccessPolicies?: PolicyDocument;            
+            DomainName: DomainName;
+            ElasticsearchClusterConfig?: ElasticsearchClusterConfig;
+            EBSOptions?: EBSOptions;
+            SnapshotOptions?: SnapshotOptions;
+            AdvancedOptions?: AdvancedOptions;
+            AccessPolicies?: PolicyDocument;
         }
         export interface UpdateElasticsearchDomainConfigResponse {
-            DomainConfig: ElasticsearchDomainConfig;            
+            DomainConfig: ElasticsearchDomainConfig;
         }
         export interface ValidationException {
         }

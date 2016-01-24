@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2012-11-05
      * endpointPrefix: sqs
      * serviceAbbreviation: Amazon SQS
@@ -34,8 +34,25 @@ declare module "aws-sdk" {
       sendMessage(params: SQS.SendMessageRequest, callback?: (err: SQS.InvalidMessageContents|SQS.UnsupportedOperation|any, data: SQS.SendMessageResult|any) => void): Request;
       sendMessageBatch(params: SQS.SendMessageBatchRequest, callback?: (err: SQS.TooManyEntriesInBatchRequest|SQS.EmptyBatchRequest|SQS.BatchEntryIdsNotDistinct|SQS.BatchRequestTooLong|SQS.InvalidBatchEntryId|SQS.UnsupportedOperation|any, data: SQS.SendMessageBatchResult|any) => void): Request;
       setQueueAttributes(params: SQS.SetQueueAttributesRequest, callback?: (err: SQS.InvalidAttributeName|any, data: any) => void): Request;
+
+      // Found on JS Sources - Sorry for the inconvenience :)
+      setupRequestListeners(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      verifySendMessageChecksum(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      verifySendMessageBatchChecksum(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      verifyReceiveMessageChecksum(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      throwInvalidChecksumError(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      isChecksumValid(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      calculateChecksum(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      buildEndpoint(...args: any[]): any
     }
-    
+
     export module SQS {
         export type AWSAccountIdList = String[];
         export type ActionNameList = String[];
@@ -62,86 +79,86 @@ declare module "aws-sdk" {
         export type StringList = String[];
 
         export interface AddPermissionRequest {
-            QueueUrl: String;            
-            Label: String;            
-            AWSAccountIds: AWSAccountIdList;            
-            Actions: ActionNameList;            
+            QueueUrl: String;
+            Label: String;
+            AWSAccountIds: AWSAccountIdList;
+            Actions: ActionNameList;
         }
         export interface BatchEntryIdsNotDistinct {
         }
         export interface BatchRequestTooLong {
         }
         export interface BatchResultErrorEntry {
-            Id: String;            
-            SenderFault: Boolean;            
-            Code: String;            
-            Message?: String;            
+            Id: String;
+            SenderFault: Boolean;
+            Code: String;
+            Message?: String;
         }
         export interface ChangeMessageVisibilityBatchRequest {
-            QueueUrl: String;            
-            Entries: ChangeMessageVisibilityBatchRequestEntryList;            
+            QueueUrl: String;
+            Entries: ChangeMessageVisibilityBatchRequestEntryList;
         }
         export interface ChangeMessageVisibilityBatchRequestEntry {
-            Id: String;            
-            ReceiptHandle: String;            
-            VisibilityTimeout?: Integer;            
+            Id: String;
+            ReceiptHandle: String;
+            VisibilityTimeout?: Integer;
         }
         export interface ChangeMessageVisibilityBatchResult {
-            Successful: ChangeMessageVisibilityBatchResultEntryList;            
-            Failed: BatchResultErrorEntryList;            
+            Successful: ChangeMessageVisibilityBatchResultEntryList;
+            Failed: BatchResultErrorEntryList;
         }
         export interface ChangeMessageVisibilityBatchResultEntry {
-            Id: String;            
+            Id: String;
         }
         export interface ChangeMessageVisibilityRequest {
-            QueueUrl: String;            
-            ReceiptHandle: String;            
-            VisibilityTimeout: Integer;            
+            QueueUrl: String;
+            ReceiptHandle: String;
+            VisibilityTimeout: Integer;
         }
         export interface CreateQueueRequest {
-            QueueName: String;            
-            Attributes?: AttributeMap;            
+            QueueName: String;
+            Attributes?: AttributeMap;
         }
         export interface CreateQueueResult {
-            QueueUrl?: String;            
+            QueueUrl?: String;
         }
         export interface DeleteMessageBatchRequest {
-            QueueUrl: String;            
-            Entries: DeleteMessageBatchRequestEntryList;            
+            QueueUrl: String;
+            Entries: DeleteMessageBatchRequestEntryList;
         }
         export interface DeleteMessageBatchRequestEntry {
-            Id: String;            
-            ReceiptHandle: String;            
+            Id: String;
+            ReceiptHandle: String;
         }
         export interface DeleteMessageBatchResult {
-            Successful: DeleteMessageBatchResultEntryList;            
-            Failed: BatchResultErrorEntryList;            
+            Successful: DeleteMessageBatchResultEntryList;
+            Failed: BatchResultErrorEntryList;
         }
         export interface DeleteMessageBatchResultEntry {
-            Id: String;            
+            Id: String;
         }
         export interface DeleteMessageRequest {
-            QueueUrl: String;            
-            ReceiptHandle: String;            
+            QueueUrl: String;
+            ReceiptHandle: String;
         }
         export interface DeleteQueueRequest {
-            QueueUrl: String;            
+            QueueUrl: String;
         }
         export interface EmptyBatchRequest {
         }
         export interface GetQueueAttributesRequest {
-            QueueUrl: String;            
-            AttributeNames?: AttributeNameList;            
+            QueueUrl: String;
+            AttributeNames?: AttributeNameList;
         }
         export interface GetQueueAttributesResult {
-            Attributes?: AttributeMap;            
+            Attributes?: AttributeMap;
         }
         export interface GetQueueUrlRequest {
-            QueueName: String;            
-            QueueOwnerAWSAccountId?: String;            
+            QueueName: String;
+            QueueOwnerAWSAccountId?: String;
         }
         export interface GetQueueUrlResult {
-            QueueUrl?: String;            
+            QueueUrl?: String;
         }
         export interface InvalidAttributeName {
         }
@@ -152,32 +169,32 @@ declare module "aws-sdk" {
         export interface InvalidMessageContents {
         }
         export interface ListDeadLetterSourceQueuesRequest {
-            QueueUrl: String;            
+            QueueUrl: String;
         }
         export interface ListDeadLetterSourceQueuesResult {
-            queueUrls: QueueUrlList;            
+            queueUrls: QueueUrlList;
         }
         export interface ListQueuesRequest {
-            QueueNamePrefix?: String;            
+            QueueNamePrefix?: String;
         }
         export interface ListQueuesResult {
-            QueueUrls?: QueueUrlList;            
+            QueueUrls?: QueueUrlList;
         }
         export interface Message {
-            MessageId?: String;            
-            ReceiptHandle?: String;            
-            MD5OfBody?: String;            
-            Body?: String;            
-            Attributes?: AttributeMap;            
-            MD5OfMessageAttributes?: String;            
-            MessageAttributes?: MessageAttributeMap;            
+            MessageId?: String;
+            ReceiptHandle?: String;
+            MD5OfBody?: String;
+            Body?: String;
+            Attributes?: AttributeMap;
+            MD5OfMessageAttributes?: String;
+            MessageAttributes?: MessageAttributeMap;
         }
         export interface MessageAttributeValue {
-            StringValue?: String;            
-            BinaryValue?: Binary;            
-            StringListValues?: StringList;            
-            BinaryListValues?: BinaryList;            
-            DataType: String;            
+            StringValue?: String;
+            BinaryValue?: Binary;
+            StringListValues?: StringList;
+            BinaryListValues?: BinaryList;
+            DataType: String;
         }
         export interface MessageNotInflight {
         }
@@ -186,7 +203,7 @@ declare module "aws-sdk" {
         export interface PurgeQueueInProgress {
         }
         export interface PurgeQueueRequest {
-            QueueUrl: String;            
+            QueueUrl: String;
         }
         export interface QueueDeletedRecently {
         }
@@ -197,54 +214,54 @@ declare module "aws-sdk" {
         export interface ReceiptHandleIsInvalid {
         }
         export interface ReceiveMessageRequest {
-            QueueUrl: String;            
-            AttributeNames?: AttributeNameList;            
-            MessageAttributeNames?: MessageAttributeNameList;            
-            MaxNumberOfMessages?: Integer;            
-            VisibilityTimeout?: Integer;            
-            WaitTimeSeconds?: Integer;            
+            QueueUrl: String;
+            AttributeNames?: AttributeNameList;
+            MessageAttributeNames?: MessageAttributeNameList;
+            MaxNumberOfMessages?: Integer;
+            VisibilityTimeout?: Integer;
+            WaitTimeSeconds?: Integer;
         }
         export interface ReceiveMessageResult {
-            Messages?: MessageList;            
+            Messages?: MessageList;
         }
         export interface RemovePermissionRequest {
-            QueueUrl: String;            
-            Label: String;            
+            QueueUrl: String;
+            Label: String;
         }
         export interface SendMessageBatchRequest {
-            QueueUrl: String;            
-            Entries: SendMessageBatchRequestEntryList;            
+            QueueUrl: String;
+            Entries: SendMessageBatchRequestEntryList;
         }
         export interface SendMessageBatchRequestEntry {
-            Id: String;            
-            MessageBody: String;            
-            DelaySeconds?: Integer;            
-            MessageAttributes?: MessageAttributeMap;            
+            Id: String;
+            MessageBody: String;
+            DelaySeconds?: Integer;
+            MessageAttributes?: MessageAttributeMap;
         }
         export interface SendMessageBatchResult {
-            Successful: SendMessageBatchResultEntryList;            
-            Failed: BatchResultErrorEntryList;            
+            Successful: SendMessageBatchResultEntryList;
+            Failed: BatchResultErrorEntryList;
         }
         export interface SendMessageBatchResultEntry {
-            Id: String;            
-            MessageId: String;            
-            MD5OfMessageBody: String;            
-            MD5OfMessageAttributes?: String;            
+            Id: String;
+            MessageId: String;
+            MD5OfMessageBody: String;
+            MD5OfMessageAttributes?: String;
         }
         export interface SendMessageRequest {
-            QueueUrl: String;            
-            MessageBody: String;            
-            DelaySeconds?: Integer;            
-            MessageAttributes?: MessageAttributeMap;            
+            QueueUrl: String;
+            MessageBody: String;
+            DelaySeconds?: Integer;
+            MessageAttributes?: MessageAttributeMap;
         }
         export interface SendMessageResult {
-            MD5OfMessageBody?: String;            
-            MD5OfMessageAttributes?: String;            
-            MessageId?: String;            
+            MD5OfMessageBody?: String;
+            MD5OfMessageAttributes?: String;
+            MessageId?: String;
         }
         export interface SetQueueAttributesRequest {
-            QueueUrl: String;            
-            Attributes: AttributeMap;            
+            QueueUrl: String;
+            Attributes: AttributeMap;
         }
         export interface TooManyEntriesInBatchRequest {
         }

@@ -5,6 +5,8 @@ export interface ServiceInfo {
   input?:string;
   output?:string;
   descriptor?:Descriptor;
+
+  extraClientMethods?: string[];
 }
 
 export interface Descriptor {

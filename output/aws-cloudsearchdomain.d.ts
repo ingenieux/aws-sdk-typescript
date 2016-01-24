@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2013-01-01
      * endpointPrefix: cloudsearchdomain
      * serviceAbbreviation: 
@@ -20,8 +20,17 @@ declare module "aws-sdk" {
       search(params: CloudSearchDomain.SearchRequest, callback?: (err: CloudSearchDomain.SearchException|any, data: CloudSearchDomain.SearchResponse|any) => void): Request;
       suggest(params: CloudSearchDomain.SuggestRequest, callback?: (err: CloudSearchDomain.SearchException|any, data: CloudSearchDomain.SuggestResponse|any) => void): Request;
       uploadDocuments(params: CloudSearchDomain.UploadDocumentsRequest, callback?: (err: CloudSearchDomain.DocumentServiceException|any, data: CloudSearchDomain.UploadDocumentsResponse|any) => void): Request;
+
+      // Found on JS Sources - Sorry for the inconvenience :)
+      validateService(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      setupRequestListeners(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      validateCredentials(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      updateRegion(...args: any[]): any
     }
-    
+
     export module CloudSearchDomain {
         export type Adds = number;
         export type Blob = any;    // type: blob
@@ -55,90 +64,90 @@ declare module "aws-sdk" {
         export type SuggestionsSize = number;
 
         export interface Bucket {
-            value?: String;            
-            count?: Long;            
+            value?: String;
+            count?: Long;
         }
         export interface BucketInfo {
-            buckets?: BucketList;            
+            buckets?: BucketList;
         }
         export interface DocumentServiceException {
-            status?: String;            
-            message?: String;            
+            status?: String;
+            message?: String;
         }
         export interface DocumentServiceWarning {
-            message?: String;            
+            message?: String;
         }
         export interface Hit {
-            id?: String;            
-            fields?: Fields;            
-            exprs?: Exprs;            
-            highlights?: Highlights;            
+            id?: String;
+            fields?: Fields;
+            exprs?: Exprs;
+            highlights?: Highlights;
         }
         export interface Hits {
-            found?: Long;            
-            start?: Long;            
-            cursor?: String;            
-            hit?: HitList;            
+            found?: Long;
+            start?: Long;
+            cursor?: String;
+            hit?: HitList;
         }
         export interface SearchException {
-            message?: String;            
+            message?: String;
         }
         export interface SearchRequest {
-            cursor?: Cursor;            
-            expr?: Expr;            
-            facet?: Facet;            
-            filterQuery?: FilterQuery;            
-            highlight?: Highlight;            
-            partial?: Partial;            
-            query: Query;            
-            queryOptions?: QueryOptions;            
-            queryParser?: QueryParser;            
-            return?: Return;            
-            size?: Size;            
-            sort?: Sort;            
-            start?: Start;            
+            cursor?: Cursor;
+            expr?: Expr;
+            facet?: Facet;
+            filterQuery?: FilterQuery;
+            highlight?: Highlight;
+            partial?: Partial;
+            query: Query;
+            queryOptions?: QueryOptions;
+            queryParser?: QueryParser;
+            return?: Return;
+            size?: Size;
+            sort?: Sort;
+            start?: Start;
         }
         export interface SearchResponse {
-            status?: SearchStatus;            
-            hits?: Hits;            
-            facets?: Facets;            
+            status?: SearchStatus;
+            hits?: Hits;
+            facets?: Facets;
         }
         export interface SearchStatus {
-            timems?: Long;            
-            rid?: String;            
+            timems?: Long;
+            rid?: String;
         }
         export interface SuggestModel {
-            query?: String;            
-            found?: Long;            
-            suggestions?: Suggestions;            
+            query?: String;
+            found?: Long;
+            suggestions?: Suggestions;
         }
         export interface SuggestRequest {
-            query: Query;            
-            suggester: Suggester;            
-            size?: SuggestionsSize;            
+            query: Query;
+            suggester: Suggester;
+            size?: SuggestionsSize;
         }
         export interface SuggestResponse {
-            status?: SuggestStatus;            
-            suggest?: SuggestModel;            
+            status?: SuggestStatus;
+            suggest?: SuggestModel;
         }
         export interface SuggestStatus {
-            timems?: Long;            
-            rid?: String;            
+            timems?: Long;
+            rid?: String;
         }
         export interface SuggestionMatch {
-            suggestion?: String;            
-            score?: Long;            
-            id?: String;            
+            suggestion?: String;
+            score?: Long;
+            id?: String;
         }
         export interface UploadDocumentsRequest {
-            documents: Blob;            
-            contentType: ContentType;            
+            documents: Blob;
+            contentType: ContentType;
         }
         export interface UploadDocumentsResponse {
-            status?: String;            
-            adds?: Adds;            
-            deletes?: Deletes;            
-            warnings?: DocumentServiceWarnings;            
+            status?: String;
+            adds?: Adds;
+            deletes?: Deletes;
+            warnings?: DocumentServiceWarnings;
         }
 
     }

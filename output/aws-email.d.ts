@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2010-12-01
      * endpointPrefix: email
      * serviceAbbreviation: Amazon SES
@@ -56,8 +56,9 @@ declare module "aws-sdk" {
       verifyDomainIdentity(params: SES.VerifyDomainIdentityRequest, callback?: (err: any, data: SES.VerifyDomainIdentityResponse|any) => void): Request;
       verifyEmailAddress(params: SES.VerifyEmailAddressRequest, callback?: (err: any, data: any) => void): Request;
       verifyEmailIdentity(params: SES.VerifyEmailIdentityRequest, callback?: (err: any, data: SES.VerifyEmailIdentityResponse|any) => void): Request;
+
     }
-    
+
     export module SES {
         export type Address = string;
         export type AddressList = Address[];
@@ -129,399 +130,399 @@ declare module "aws-sdk" {
         export type VerificationTokenList = VerificationToken[];
 
         export interface AddHeaderAction {
-            HeaderName: HeaderName;            
-            HeaderValue: HeaderValue;            
+            HeaderName: HeaderName;
+            HeaderValue: HeaderValue;
         }
         export interface AlreadyExistsException {
-            Name?: RuleOrRuleSetName;            
+            Name?: RuleOrRuleSetName;
         }
         export interface Body {
-            Text?: Content;            
-            Html?: Content;            
+            Text?: Content;
+            Html?: Content;
         }
         export interface BounceAction {
-            TopicArn?: AmazonResourceName;            
-            SmtpReplyCode: BounceSmtpReplyCode;            
-            StatusCode?: BounceStatusCode;            
-            Message: BounceMessage;            
-            Sender: Address;            
+            TopicArn?: AmazonResourceName;
+            SmtpReplyCode: BounceSmtpReplyCode;
+            StatusCode?: BounceStatusCode;
+            Message: BounceMessage;
+            Sender: Address;
         }
         export interface BouncedRecipientInfo {
-            Recipient: Address;            
-            RecipientArn?: AmazonResourceName;            
-            BounceType?: BounceType;            
-            RecipientDsnFields?: RecipientDsnFields;            
+            Recipient: Address;
+            RecipientArn?: AmazonResourceName;
+            BounceType?: BounceType;
+            RecipientDsnFields?: RecipientDsnFields;
         }
         export interface CannotDeleteException {
-            Name?: RuleOrRuleSetName;            
+            Name?: RuleOrRuleSetName;
         }
         export interface CloneReceiptRuleSetRequest {
-            RuleSetName: ReceiptRuleSetName;            
-            OriginalRuleSetName: ReceiptRuleSetName;            
+            RuleSetName: ReceiptRuleSetName;
+            OriginalRuleSetName: ReceiptRuleSetName;
         }
         export interface CloneReceiptRuleSetResponse {
         }
         export interface Content {
-            Data: MessageData;            
-            Charset?: Charset;            
+            Data: MessageData;
+            Charset?: Charset;
         }
         export interface CreateReceiptFilterRequest {
-            Filter: ReceiptFilter;            
+            Filter: ReceiptFilter;
         }
         export interface CreateReceiptFilterResponse {
         }
         export interface CreateReceiptRuleRequest {
-            RuleSetName: ReceiptRuleSetName;            
-            After?: ReceiptRuleName;            
-            Rule: ReceiptRule;            
+            RuleSetName: ReceiptRuleSetName;
+            After?: ReceiptRuleName;
+            Rule: ReceiptRule;
         }
         export interface CreateReceiptRuleResponse {
         }
         export interface CreateReceiptRuleSetRequest {
-            RuleSetName: ReceiptRuleSetName;            
+            RuleSetName: ReceiptRuleSetName;
         }
         export interface CreateReceiptRuleSetResponse {
         }
         export interface DeleteIdentityPolicyRequest {
-            Identity: Identity;            
-            PolicyName: PolicyName;            
+            Identity: Identity;
+            PolicyName: PolicyName;
         }
         export interface DeleteIdentityPolicyResponse {
         }
         export interface DeleteIdentityRequest {
-            Identity: Identity;            
+            Identity: Identity;
         }
         export interface DeleteIdentityResponse {
         }
         export interface DeleteReceiptFilterRequest {
-            FilterName: ReceiptFilterName;            
+            FilterName: ReceiptFilterName;
         }
         export interface DeleteReceiptFilterResponse {
         }
         export interface DeleteReceiptRuleRequest {
-            RuleSetName: ReceiptRuleSetName;            
-            RuleName: ReceiptRuleName;            
+            RuleSetName: ReceiptRuleSetName;
+            RuleName: ReceiptRuleName;
         }
         export interface DeleteReceiptRuleResponse {
         }
         export interface DeleteReceiptRuleSetRequest {
-            RuleSetName: ReceiptRuleSetName;            
+            RuleSetName: ReceiptRuleSetName;
         }
         export interface DeleteReceiptRuleSetResponse {
         }
         export interface DeleteVerifiedEmailAddressRequest {
-            EmailAddress: Address;            
+            EmailAddress: Address;
         }
         export interface DescribeActiveReceiptRuleSetRequest {
         }
         export interface DescribeActiveReceiptRuleSetResponse {
-            Metadata?: ReceiptRuleSetMetadata;            
-            Rules?: ReceiptRulesList;            
+            Metadata?: ReceiptRuleSetMetadata;
+            Rules?: ReceiptRulesList;
         }
         export interface DescribeReceiptRuleRequest {
-            RuleSetName: ReceiptRuleSetName;            
-            RuleName: ReceiptRuleName;            
+            RuleSetName: ReceiptRuleSetName;
+            RuleName: ReceiptRuleName;
         }
         export interface DescribeReceiptRuleResponse {
-            Rule?: ReceiptRule;            
+            Rule?: ReceiptRule;
         }
         export interface DescribeReceiptRuleSetRequest {
-            RuleSetName: ReceiptRuleSetName;            
+            RuleSetName: ReceiptRuleSetName;
         }
         export interface DescribeReceiptRuleSetResponse {
-            Metadata?: ReceiptRuleSetMetadata;            
-            Rules?: ReceiptRulesList;            
+            Metadata?: ReceiptRuleSetMetadata;
+            Rules?: ReceiptRulesList;
         }
         export interface Destination {
-            ToAddresses?: AddressList;            
-            CcAddresses?: AddressList;            
-            BccAddresses?: AddressList;            
+            ToAddresses?: AddressList;
+            CcAddresses?: AddressList;
+            BccAddresses?: AddressList;
         }
         export interface ExtensionField {
-            Name: ExtensionFieldName;            
-            Value: ExtensionFieldValue;            
+            Name: ExtensionFieldName;
+            Value: ExtensionFieldValue;
         }
         export interface GetIdentityDkimAttributesRequest {
-            Identities: IdentityList;            
+            Identities: IdentityList;
         }
         export interface GetIdentityDkimAttributesResponse {
-            DkimAttributes: DkimAttributes;            
+            DkimAttributes: DkimAttributes;
         }
         export interface GetIdentityNotificationAttributesRequest {
-            Identities: IdentityList;            
+            Identities: IdentityList;
         }
         export interface GetIdentityNotificationAttributesResponse {
-            NotificationAttributes: NotificationAttributes;            
+            NotificationAttributes: NotificationAttributes;
         }
         export interface GetIdentityPoliciesRequest {
-            Identity: Identity;            
-            PolicyNames: PolicyNameList;            
+            Identity: Identity;
+            PolicyNames: PolicyNameList;
         }
         export interface GetIdentityPoliciesResponse {
-            Policies: PolicyMap;            
+            Policies: PolicyMap;
         }
         export interface GetIdentityVerificationAttributesRequest {
-            Identities: IdentityList;            
+            Identities: IdentityList;
         }
         export interface GetIdentityVerificationAttributesResponse {
-            VerificationAttributes: VerificationAttributes;            
+            VerificationAttributes: VerificationAttributes;
         }
         export interface GetSendQuotaResponse {
-            Max24HourSend?: Max24HourSend;            
-            MaxSendRate?: MaxSendRate;            
-            SentLast24Hours?: SentLast24Hours;            
+            Max24HourSend?: Max24HourSend;
+            MaxSendRate?: MaxSendRate;
+            SentLast24Hours?: SentLast24Hours;
         }
         export interface GetSendStatisticsResponse {
-            SendDataPoints?: SendDataPointList;            
+            SendDataPoints?: SendDataPointList;
         }
         export interface IdentityDkimAttributes {
-            DkimEnabled: Enabled;            
-            DkimVerificationStatus: VerificationStatus;            
-            DkimTokens?: VerificationTokenList;            
+            DkimEnabled: Enabled;
+            DkimVerificationStatus: VerificationStatus;
+            DkimTokens?: VerificationTokenList;
         }
         export interface IdentityNotificationAttributes {
-            BounceTopic: NotificationTopic;            
-            ComplaintTopic: NotificationTopic;            
-            DeliveryTopic: NotificationTopic;            
-            ForwardingEnabled: Enabled;            
+            BounceTopic: NotificationTopic;
+            ComplaintTopic: NotificationTopic;
+            DeliveryTopic: NotificationTopic;
+            ForwardingEnabled: Enabled;
         }
         export interface IdentityVerificationAttributes {
-            VerificationStatus: VerificationStatus;            
-            VerificationToken?: VerificationToken;            
+            VerificationStatus: VerificationStatus;
+            VerificationToken?: VerificationToken;
         }
         export interface InvalidLambdaFunctionException {
-            FunctionArn?: AmazonResourceName;            
+            FunctionArn?: AmazonResourceName;
         }
         export interface InvalidPolicyException {
         }
         export interface InvalidS3ConfigurationException {
-            Bucket?: S3BucketName;            
+            Bucket?: S3BucketName;
         }
         export interface InvalidSnsTopicException {
-            Topic?: AmazonResourceName;            
+            Topic?: AmazonResourceName;
         }
         export interface LambdaAction {
-            TopicArn?: AmazonResourceName;            
-            FunctionArn: AmazonResourceName;            
-            InvocationType?: InvocationType;            
+            TopicArn?: AmazonResourceName;
+            FunctionArn: AmazonResourceName;
+            InvocationType?: InvocationType;
         }
         export interface LimitExceededException {
         }
         export interface ListIdentitiesRequest {
-            IdentityType?: IdentityType;            
-            NextToken?: NextToken;            
-            MaxItems?: MaxItems;            
+            IdentityType?: IdentityType;
+            NextToken?: NextToken;
+            MaxItems?: MaxItems;
         }
         export interface ListIdentitiesResponse {
-            Identities: IdentityList;            
-            NextToken?: NextToken;            
+            Identities: IdentityList;
+            NextToken?: NextToken;
         }
         export interface ListIdentityPoliciesRequest {
-            Identity: Identity;            
+            Identity: Identity;
         }
         export interface ListIdentityPoliciesResponse {
-            PolicyNames: PolicyNameList;            
+            PolicyNames: PolicyNameList;
         }
         export interface ListReceiptFiltersRequest {
         }
         export interface ListReceiptFiltersResponse {
-            Filters?: ReceiptFilterList;            
+            Filters?: ReceiptFilterList;
         }
         export interface ListReceiptRuleSetsRequest {
-            NextToken?: NextToken;            
+            NextToken?: NextToken;
         }
         export interface ListReceiptRuleSetsResponse {
-            RuleSets?: ReceiptRuleSetsLists;            
-            NextToken?: NextToken;            
+            RuleSets?: ReceiptRuleSetsLists;
+            NextToken?: NextToken;
         }
         export interface ListVerifiedEmailAddressesResponse {
-            VerifiedEmailAddresses?: AddressList;            
+            VerifiedEmailAddresses?: AddressList;
         }
         export interface Message {
-            Subject: Content;            
-            Body: Body;            
+            Subject: Content;
+            Body: Body;
         }
         export interface MessageDsn {
-            ReportingMta: ReportingMta;            
-            ArrivalDate?: ArrivalDate;            
-            ExtensionFields?: ExtensionFieldList;            
+            ReportingMta: ReportingMta;
+            ArrivalDate?: ArrivalDate;
+            ExtensionFields?: ExtensionFieldList;
         }
         export interface MessageRejected {
         }
         export interface PutIdentityPolicyRequest {
-            Identity: Identity;            
-            PolicyName: PolicyName;            
-            Policy: Policy;            
+            Identity: Identity;
+            PolicyName: PolicyName;
+            Policy: Policy;
         }
         export interface PutIdentityPolicyResponse {
         }
         export interface RawMessage {
-            Data: RawMessageData;            
+            Data: RawMessageData;
         }
         export interface ReceiptAction {
-            S3Action?: S3Action;            
-            BounceAction?: BounceAction;            
-            WorkmailAction?: WorkmailAction;            
-            LambdaAction?: LambdaAction;            
-            StopAction?: StopAction;            
-            AddHeaderAction?: AddHeaderAction;            
-            SNSAction?: SNSAction;            
+            S3Action?: S3Action;
+            BounceAction?: BounceAction;
+            WorkmailAction?: WorkmailAction;
+            LambdaAction?: LambdaAction;
+            StopAction?: StopAction;
+            AddHeaderAction?: AddHeaderAction;
+            SNSAction?: SNSAction;
         }
         export interface ReceiptFilter {
-            Name: ReceiptFilterName;            
-            IpFilter: ReceiptIpFilter;            
+            Name: ReceiptFilterName;
+            IpFilter: ReceiptIpFilter;
         }
         export interface ReceiptIpFilter {
-            Policy: ReceiptFilterPolicy;            
-            Cidr: Cidr;            
+            Policy: ReceiptFilterPolicy;
+            Cidr: Cidr;
         }
         export interface ReceiptRule {
-            Name: ReceiptRuleName;            
-            Enabled?: Enabled;            
-            TlsPolicy?: TlsPolicy;            
-            Recipients?: RecipientsList;            
-            Actions?: ReceiptActionsList;            
-            ScanEnabled?: Enabled;            
+            Name: ReceiptRuleName;
+            Enabled?: Enabled;
+            TlsPolicy?: TlsPolicy;
+            Recipients?: RecipientsList;
+            Actions?: ReceiptActionsList;
+            ScanEnabled?: Enabled;
         }
         export interface ReceiptRuleSetMetadata {
-            Name?: ReceiptRuleSetName;            
-            CreatedTimestamp?: Timestamp;            
+            Name?: ReceiptRuleSetName;
+            CreatedTimestamp?: Timestamp;
         }
         export interface RecipientDsnFields {
-            FinalRecipient?: Address;            
-            Action: DsnAction;            
-            RemoteMta?: RemoteMta;            
-            Status: DsnStatus;            
-            DiagnosticCode?: DiagnosticCode;            
-            LastAttemptDate?: LastAttemptDate;            
-            ExtensionFields?: ExtensionFieldList;            
+            FinalRecipient?: Address;
+            Action: DsnAction;
+            RemoteMta?: RemoteMta;
+            Status: DsnStatus;
+            DiagnosticCode?: DiagnosticCode;
+            LastAttemptDate?: LastAttemptDate;
+            ExtensionFields?: ExtensionFieldList;
         }
         export interface ReorderReceiptRuleSetRequest {
-            RuleSetName: ReceiptRuleSetName;            
-            RuleNames: ReceiptRuleNamesList;            
+            RuleSetName: ReceiptRuleSetName;
+            RuleNames: ReceiptRuleNamesList;
         }
         export interface ReorderReceiptRuleSetResponse {
         }
         export interface RuleDoesNotExistException {
-            Name?: RuleOrRuleSetName;            
+            Name?: RuleOrRuleSetName;
         }
         export interface RuleSetDoesNotExistException {
-            Name?: RuleOrRuleSetName;            
+            Name?: RuleOrRuleSetName;
         }
         export interface S3Action {
-            TopicArn?: AmazonResourceName;            
-            BucketName: S3BucketName;            
-            ObjectKeyPrefix?: S3KeyPrefix;            
-            KmsKeyArn?: AmazonResourceName;            
+            TopicArn?: AmazonResourceName;
+            BucketName: S3BucketName;
+            ObjectKeyPrefix?: S3KeyPrefix;
+            KmsKeyArn?: AmazonResourceName;
         }
         export interface SNSAction {
-            TopicArn: AmazonResourceName;            
+            TopicArn: AmazonResourceName;
         }
         export interface SendBounceRequest {
-            OriginalMessageId: MessageId;            
-            BounceSender: Address;            
-            Explanation?: Explanation;            
-            MessageDsn?: MessageDsn;            
-            BouncedRecipientInfoList: BouncedRecipientInfoList;            
-            BounceSenderArn?: AmazonResourceName;            
+            OriginalMessageId: MessageId;
+            BounceSender: Address;
+            Explanation?: Explanation;
+            MessageDsn?: MessageDsn;
+            BouncedRecipientInfoList: BouncedRecipientInfoList;
+            BounceSenderArn?: AmazonResourceName;
         }
         export interface SendBounceResponse {
-            MessageId?: MessageId;            
+            MessageId?: MessageId;
         }
         export interface SendDataPoint {
-            Timestamp?: Timestamp;            
-            DeliveryAttempts?: Counter;            
-            Bounces?: Counter;            
-            Complaints?: Counter;            
-            Rejects?: Counter;            
+            Timestamp?: Timestamp;
+            DeliveryAttempts?: Counter;
+            Bounces?: Counter;
+            Complaints?: Counter;
+            Rejects?: Counter;
         }
         export interface SendEmailRequest {
-            Source: Address;            
-            Destination: Destination;            
-            Message: Message;            
-            ReplyToAddresses?: AddressList;            
-            ReturnPath?: Address;            
-            SourceArn?: AmazonResourceName;            
-            ReturnPathArn?: AmazonResourceName;            
+            Source: Address;
+            Destination: Destination;
+            Message: Message;
+            ReplyToAddresses?: AddressList;
+            ReturnPath?: Address;
+            SourceArn?: AmazonResourceName;
+            ReturnPathArn?: AmazonResourceName;
         }
         export interface SendEmailResponse {
-            MessageId: MessageId;            
+            MessageId: MessageId;
         }
         export interface SendRawEmailRequest {
-            Source?: Address;            
-            Destinations?: AddressList;            
-            RawMessage: RawMessage;            
-            FromArn?: AmazonResourceName;            
-            SourceArn?: AmazonResourceName;            
-            ReturnPathArn?: AmazonResourceName;            
+            Source?: Address;
+            Destinations?: AddressList;
+            RawMessage: RawMessage;
+            FromArn?: AmazonResourceName;
+            SourceArn?: AmazonResourceName;
+            ReturnPathArn?: AmazonResourceName;
         }
         export interface SendRawEmailResponse {
-            MessageId: MessageId;            
+            MessageId: MessageId;
         }
         export interface SetActiveReceiptRuleSetRequest {
-            RuleSetName?: ReceiptRuleSetName;            
+            RuleSetName?: ReceiptRuleSetName;
         }
         export interface SetActiveReceiptRuleSetResponse {
         }
         export interface SetIdentityDkimEnabledRequest {
-            Identity: Identity;            
-            DkimEnabled: Enabled;            
+            Identity: Identity;
+            DkimEnabled: Enabled;
         }
         export interface SetIdentityDkimEnabledResponse {
         }
         export interface SetIdentityFeedbackForwardingEnabledRequest {
-            Identity: Identity;            
-            ForwardingEnabled: Enabled;            
+            Identity: Identity;
+            ForwardingEnabled: Enabled;
         }
         export interface SetIdentityFeedbackForwardingEnabledResponse {
         }
         export interface SetIdentityNotificationTopicRequest {
-            Identity: Identity;            
-            NotificationType: NotificationType;            
-            SnsTopic?: NotificationTopic;            
+            Identity: Identity;
+            NotificationType: NotificationType;
+            SnsTopic?: NotificationTopic;
         }
         export interface SetIdentityNotificationTopicResponse {
         }
         export interface SetReceiptRulePositionRequest {
-            RuleSetName: ReceiptRuleSetName;            
-            RuleName: ReceiptRuleName;            
-            After?: ReceiptRuleName;            
+            RuleSetName: ReceiptRuleSetName;
+            RuleName: ReceiptRuleName;
+            After?: ReceiptRuleName;
         }
         export interface SetReceiptRulePositionResponse {
         }
         export interface StopAction {
-            Scope: StopScope;            
-            TopicArn?: AmazonResourceName;            
+            Scope: StopScope;
+            TopicArn?: AmazonResourceName;
         }
         export interface UpdateReceiptRuleRequest {
-            RuleSetName: ReceiptRuleSetName;            
-            Rule: ReceiptRule;            
+            RuleSetName: ReceiptRuleSetName;
+            Rule: ReceiptRule;
         }
         export interface UpdateReceiptRuleResponse {
         }
         export interface VerifyDomainDkimRequest {
-            Domain: Domain;            
+            Domain: Domain;
         }
         export interface VerifyDomainDkimResponse {
-            DkimTokens: VerificationTokenList;            
+            DkimTokens: VerificationTokenList;
         }
         export interface VerifyDomainIdentityRequest {
-            Domain: Domain;            
+            Domain: Domain;
         }
         export interface VerifyDomainIdentityResponse {
-            VerificationToken: VerificationToken;            
+            VerificationToken: VerificationToken;
         }
         export interface VerifyEmailAddressRequest {
-            EmailAddress: Address;            
+            EmailAddress: Address;
         }
         export interface VerifyEmailIdentityRequest {
-            EmailAddress: Address;            
+            EmailAddress: Address;
         }
         export interface VerifyEmailIdentityResponse {
         }
         export interface WorkmailAction {
-            TopicArn?: AmazonResourceName;            
-            OrganizationArn: AmazonResourceName;            
+            TopicArn?: AmazonResourceName;
+            OrganizationArn: AmazonResourceName;
         }
 
     }

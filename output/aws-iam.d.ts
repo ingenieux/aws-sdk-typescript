@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2010-05-08
      * endpointPrefix: iam
      * serviceAbbreviation: IAM
@@ -130,8 +130,9 @@ declare module "aws-sdk" {
       uploadSSHPublicKey(params: IAM.UploadSSHPublicKeyRequest, callback?: (err: IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.InvalidPublicKeyException|IAM.DuplicateSSHPublicKeyException|IAM.UnrecognizedPublicKeyEncodingException|any, data: IAM.UploadSSHPublicKeyResponse|any) => void): Request;
       uploadServerCertificate(params: IAM.UploadServerCertificateRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedCertificateException|IAM.KeyPairMismatchException|IAM.ServiceFailureException|any, data: IAM.UploadServerCertificateResponse|any) => void): Request;
       uploadSigningCertificate(params: IAM.UploadSigningCertificateRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedCertificateException|IAM.InvalidCertificateException|IAM.DuplicateCertificateException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.UploadSigningCertificateResponse|any) => void): Request;
+
     }
-    
+
     export module IAM {
         export type ActionNameListType = ActionNameType[];
         export type ActionNameType = string;    // max: 128, min: 3
@@ -265,1036 +266,1036 @@ declare module "aws-sdk" {
         export type virtualMFADeviceName = string;    // pattern: &quot;[\w+=,.@-]+&quot;, min: 1
 
         export interface AccessKey {
-            UserName: userNameType;            
-            AccessKeyId: accessKeyIdType;            
-            Status: statusType;            
-            SecretAccessKey: accessKeySecretType;            
-            CreateDate?: dateType;            
+            UserName: userNameType;
+            AccessKeyId: accessKeyIdType;
+            Status: statusType;
+            SecretAccessKey: accessKeySecretType;
+            CreateDate?: dateType;
         }
         export interface AccessKeyLastUsed {
-            LastUsedDate: dateType;            
-            ServiceName: stringType;            
-            Region: stringType;            
+            LastUsedDate: dateType;
+            ServiceName: stringType;
+            Region: stringType;
         }
         export interface AccessKeyMetadata {
-            UserName?: userNameType;            
-            AccessKeyId?: accessKeyIdType;            
-            Status?: statusType;            
-            CreateDate?: dateType;            
+            UserName?: userNameType;
+            AccessKeyId?: accessKeyIdType;
+            Status?: statusType;
+            CreateDate?: dateType;
         }
         export interface AddClientIDToOpenIDConnectProviderRequest {
-            OpenIDConnectProviderArn: arnType;            
-            ClientID: clientIDType;            
+            OpenIDConnectProviderArn: arnType;
+            ClientID: clientIDType;
         }
         export interface AddRoleToInstanceProfileRequest {
-            InstanceProfileName: instanceProfileNameType;            
-            RoleName: roleNameType;            
+            InstanceProfileName: instanceProfileNameType;
+            RoleName: roleNameType;
         }
         export interface AddUserToGroupRequest {
-            GroupName: groupNameType;            
-            UserName: existingUserNameType;            
+            GroupName: groupNameType;
+            UserName: existingUserNameType;
         }
         export interface AttachGroupPolicyRequest {
-            GroupName: groupNameType;            
-            PolicyArn: arnType;            
+            GroupName: groupNameType;
+            PolicyArn: arnType;
         }
         export interface AttachRolePolicyRequest {
-            RoleName: roleNameType;            
-            PolicyArn: arnType;            
+            RoleName: roleNameType;
+            PolicyArn: arnType;
         }
         export interface AttachUserPolicyRequest {
-            UserName: userNameType;            
-            PolicyArn: arnType;            
+            UserName: userNameType;
+            PolicyArn: arnType;
         }
         export interface AttachedPolicy {
-            PolicyName?: policyNameType;            
-            PolicyArn?: arnType;            
+            PolicyName?: policyNameType;
+            PolicyArn?: arnType;
         }
         export interface ChangePasswordRequest {
-            OldPassword: passwordType;            
-            NewPassword: passwordType;            
+            OldPassword: passwordType;
+            NewPassword: passwordType;
         }
         export interface ContextEntry {
-            ContextKeyName?: ContextKeyNameType;            
-            ContextKeyValues?: ContextKeyValueListType;            
-            ContextKeyType?: ContextKeyTypeEnum;            
+            ContextKeyName?: ContextKeyNameType;
+            ContextKeyValues?: ContextKeyValueListType;
+            ContextKeyType?: ContextKeyTypeEnum;
         }
         export interface CreateAccessKeyRequest {
-            UserName?: existingUserNameType;            
+            UserName?: existingUserNameType;
         }
         export interface CreateAccessKeyResponse {
-            AccessKey: AccessKey;            
+            AccessKey: AccessKey;
         }
         export interface CreateAccountAliasRequest {
-            AccountAlias: accountAliasType;            
+            AccountAlias: accountAliasType;
         }
         export interface CreateGroupRequest {
-            Path?: pathType;            
-            GroupName: groupNameType;            
+            Path?: pathType;
+            GroupName: groupNameType;
         }
         export interface CreateGroupResponse {
-            Group: Group;            
+            Group: Group;
         }
         export interface CreateInstanceProfileRequest {
-            InstanceProfileName: instanceProfileNameType;            
-            Path?: pathType;            
+            InstanceProfileName: instanceProfileNameType;
+            Path?: pathType;
         }
         export interface CreateInstanceProfileResponse {
-            InstanceProfile: InstanceProfile;            
+            InstanceProfile: InstanceProfile;
         }
         export interface CreateLoginProfileRequest {
-            UserName: userNameType;            
-            Password: passwordType;            
-            PasswordResetRequired?: booleanType;            
+            UserName: userNameType;
+            Password: passwordType;
+            PasswordResetRequired?: booleanType;
         }
         export interface CreateLoginProfileResponse {
-            LoginProfile: LoginProfile;            
+            LoginProfile: LoginProfile;
         }
         export interface CreateOpenIDConnectProviderRequest {
-            Url: OpenIDConnectProviderUrlType;            
-            ClientIDList?: clientIDListType;            
-            ThumbprintList: thumbprintListType;            
+            Url: OpenIDConnectProviderUrlType;
+            ClientIDList?: clientIDListType;
+            ThumbprintList: thumbprintListType;
         }
         export interface CreateOpenIDConnectProviderResponse {
-            OpenIDConnectProviderArn?: arnType;            
+            OpenIDConnectProviderArn?: arnType;
         }
         export interface CreatePolicyRequest {
-            PolicyName: policyNameType;            
-            Path?: policyPathType;            
-            PolicyDocument: policyDocumentType;            
-            Description?: policyDescriptionType;            
+            PolicyName: policyNameType;
+            Path?: policyPathType;
+            PolicyDocument: policyDocumentType;
+            Description?: policyDescriptionType;
         }
         export interface CreatePolicyResponse {
-            Policy?: Policy;            
+            Policy?: Policy;
         }
         export interface CreatePolicyVersionRequest {
-            PolicyArn: arnType;            
-            PolicyDocument: policyDocumentType;            
-            SetAsDefault?: booleanType;            
+            PolicyArn: arnType;
+            PolicyDocument: policyDocumentType;
+            SetAsDefault?: booleanType;
         }
         export interface CreatePolicyVersionResponse {
-            PolicyVersion?: PolicyVersion;            
+            PolicyVersion?: PolicyVersion;
         }
         export interface CreateRoleRequest {
-            Path?: pathType;            
-            RoleName: roleNameType;            
-            AssumeRolePolicyDocument: policyDocumentType;            
+            Path?: pathType;
+            RoleName: roleNameType;
+            AssumeRolePolicyDocument: policyDocumentType;
         }
         export interface CreateRoleResponse {
-            Role: Role;            
+            Role: Role;
         }
         export interface CreateSAMLProviderRequest {
-            SAMLMetadataDocument: SAMLMetadataDocumentType;            
-            Name: SAMLProviderNameType;            
+            SAMLMetadataDocument: SAMLMetadataDocumentType;
+            Name: SAMLProviderNameType;
         }
         export interface CreateSAMLProviderResponse {
-            SAMLProviderArn?: arnType;            
+            SAMLProviderArn?: arnType;
         }
         export interface CreateUserRequest {
-            Path?: pathType;            
-            UserName: userNameType;            
+            Path?: pathType;
+            UserName: userNameType;
         }
         export interface CreateUserResponse {
-            User?: User;            
+            User?: User;
         }
         export interface CreateVirtualMFADeviceRequest {
-            Path?: pathType;            
-            VirtualMFADeviceName: virtualMFADeviceName;            
+            Path?: pathType;
+            VirtualMFADeviceName: virtualMFADeviceName;
         }
         export interface CreateVirtualMFADeviceResponse {
-            VirtualMFADevice: VirtualMFADevice;            
+            VirtualMFADevice: VirtualMFADevice;
         }
         export interface CredentialReportExpiredException {
-            message?: credentialReportExpiredExceptionMessage;            
+            message?: credentialReportExpiredExceptionMessage;
         }
         export interface CredentialReportNotPresentException {
-            message?: credentialReportNotPresentExceptionMessage;            
+            message?: credentialReportNotPresentExceptionMessage;
         }
         export interface CredentialReportNotReadyException {
-            message?: credentialReportNotReadyExceptionMessage;            
+            message?: credentialReportNotReadyExceptionMessage;
         }
         export interface DeactivateMFADeviceRequest {
-            UserName: existingUserNameType;            
-            SerialNumber: serialNumberType;            
+            UserName: existingUserNameType;
+            SerialNumber: serialNumberType;
         }
         export interface DeleteAccessKeyRequest {
-            UserName?: existingUserNameType;            
-            AccessKeyId: accessKeyIdType;            
+            UserName?: existingUserNameType;
+            AccessKeyId: accessKeyIdType;
         }
         export interface DeleteAccountAliasRequest {
-            AccountAlias: accountAliasType;            
+            AccountAlias: accountAliasType;
         }
         export interface DeleteConflictException {
-            message?: deleteConflictMessage;            
+            message?: deleteConflictMessage;
         }
         export interface DeleteGroupPolicyRequest {
-            GroupName: groupNameType;            
-            PolicyName: policyNameType;            
+            GroupName: groupNameType;
+            PolicyName: policyNameType;
         }
         export interface DeleteGroupRequest {
-            GroupName: groupNameType;            
+            GroupName: groupNameType;
         }
         export interface DeleteInstanceProfileRequest {
-            InstanceProfileName: instanceProfileNameType;            
+            InstanceProfileName: instanceProfileNameType;
         }
         export interface DeleteLoginProfileRequest {
-            UserName: userNameType;            
+            UserName: userNameType;
         }
         export interface DeleteOpenIDConnectProviderRequest {
-            OpenIDConnectProviderArn: arnType;            
+            OpenIDConnectProviderArn: arnType;
         }
         export interface DeletePolicyRequest {
-            PolicyArn: arnType;            
+            PolicyArn: arnType;
         }
         export interface DeletePolicyVersionRequest {
-            PolicyArn: arnType;            
-            VersionId: policyVersionIdType;            
+            PolicyArn: arnType;
+            VersionId: policyVersionIdType;
         }
         export interface DeleteRolePolicyRequest {
-            RoleName: roleNameType;            
-            PolicyName: policyNameType;            
+            RoleName: roleNameType;
+            PolicyName: policyNameType;
         }
         export interface DeleteRoleRequest {
-            RoleName: roleNameType;            
+            RoleName: roleNameType;
         }
         export interface DeleteSAMLProviderRequest {
-            SAMLProviderArn: arnType;            
+            SAMLProviderArn: arnType;
         }
         export interface DeleteSSHPublicKeyRequest {
-            UserName: userNameType;            
-            SSHPublicKeyId: publicKeyIdType;            
+            UserName: userNameType;
+            SSHPublicKeyId: publicKeyIdType;
         }
         export interface DeleteServerCertificateRequest {
-            ServerCertificateName: serverCertificateNameType;            
+            ServerCertificateName: serverCertificateNameType;
         }
         export interface DeleteSigningCertificateRequest {
-            UserName?: existingUserNameType;            
-            CertificateId: certificateIdType;            
+            UserName?: existingUserNameType;
+            CertificateId: certificateIdType;
         }
         export interface DeleteUserPolicyRequest {
-            UserName: existingUserNameType;            
-            PolicyName: policyNameType;            
+            UserName: existingUserNameType;
+            PolicyName: policyNameType;
         }
         export interface DeleteUserRequest {
-            UserName: existingUserNameType;            
+            UserName: existingUserNameType;
         }
         export interface DeleteVirtualMFADeviceRequest {
-            SerialNumber: serialNumberType;            
+            SerialNumber: serialNumberType;
         }
         export interface DetachGroupPolicyRequest {
-            GroupName: groupNameType;            
-            PolicyArn: arnType;            
+            GroupName: groupNameType;
+            PolicyArn: arnType;
         }
         export interface DetachRolePolicyRequest {
-            RoleName: roleNameType;            
-            PolicyArn: arnType;            
+            RoleName: roleNameType;
+            PolicyArn: arnType;
         }
         export interface DetachUserPolicyRequest {
-            UserName: userNameType;            
-            PolicyArn: arnType;            
+            UserName: userNameType;
+            PolicyArn: arnType;
         }
         export interface DuplicateCertificateException {
-            message?: duplicateCertificateMessage;            
+            message?: duplicateCertificateMessage;
         }
         export interface DuplicateSSHPublicKeyException {
-            message?: duplicateSSHPublicKeyMessage;            
+            message?: duplicateSSHPublicKeyMessage;
         }
         export interface EnableMFADeviceRequest {
-            UserName: existingUserNameType;            
-            SerialNumber: serialNumberType;            
-            AuthenticationCode1: authenticationCodeType;            
-            AuthenticationCode2: authenticationCodeType;            
+            UserName: existingUserNameType;
+            SerialNumber: serialNumberType;
+            AuthenticationCode1: authenticationCodeType;
+            AuthenticationCode2: authenticationCodeType;
         }
         export interface EntityAlreadyExistsException {
-            message?: entityAlreadyExistsMessage;            
+            message?: entityAlreadyExistsMessage;
         }
         export interface EntityTemporarilyUnmodifiableException {
-            message?: entityTemporarilyUnmodifiableMessage;            
+            message?: entityTemporarilyUnmodifiableMessage;
         }
         export interface EvaluationResult {
-            EvalActionName: ActionNameType;            
-            EvalResourceName?: ResourceNameType;            
-            EvalDecision: PolicyEvaluationDecisionType;            
-            MatchedStatements?: StatementListType;            
-            MissingContextValues?: ContextKeyNamesResultListType;            
-            EvalDecisionDetails?: EvalDecisionDetailsType;            
-            ResourceSpecificResults?: ResourceSpecificResultListType;            
+            EvalActionName: ActionNameType;
+            EvalResourceName?: ResourceNameType;
+            EvalDecision: PolicyEvaluationDecisionType;
+            MatchedStatements?: StatementListType;
+            MissingContextValues?: ContextKeyNamesResultListType;
+            EvalDecisionDetails?: EvalDecisionDetailsType;
+            ResourceSpecificResults?: ResourceSpecificResultListType;
         }
         export interface GenerateCredentialReportResponse {
-            State?: ReportStateType;            
-            Description?: ReportStateDescriptionType;            
+            State?: ReportStateType;
+            Description?: ReportStateDescriptionType;
         }
         export interface GetAccessKeyLastUsedRequest {
-            AccessKeyId: accessKeyIdType;            
+            AccessKeyId: accessKeyIdType;
         }
         export interface GetAccessKeyLastUsedResponse {
-            UserName?: existingUserNameType;            
-            AccessKeyLastUsed?: AccessKeyLastUsed;            
+            UserName?: existingUserNameType;
+            AccessKeyLastUsed?: AccessKeyLastUsed;
         }
         export interface GetAccountAuthorizationDetailsRequest {
-            Filter?: entityListType;            
-            MaxItems?: maxItemsType;            
-            Marker?: markerType;            
+            Filter?: entityListType;
+            MaxItems?: maxItemsType;
+            Marker?: markerType;
         }
         export interface GetAccountAuthorizationDetailsResponse {
-            UserDetailList?: userDetailListType;            
-            GroupDetailList?: groupDetailListType;            
-            RoleDetailList?: roleDetailListType;            
-            Policies?: ManagedPolicyDetailListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            UserDetailList?: userDetailListType;
+            GroupDetailList?: groupDetailListType;
+            RoleDetailList?: roleDetailListType;
+            Policies?: ManagedPolicyDetailListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface GetAccountPasswordPolicyResponse {
-            PasswordPolicy: PasswordPolicy;            
+            PasswordPolicy: PasswordPolicy;
         }
         export interface GetAccountSummaryResponse {
-            SummaryMap?: summaryMapType;            
+            SummaryMap?: summaryMapType;
         }
         export interface GetContextKeysForCustomPolicyRequest {
-            PolicyInputList: SimulationPolicyListType;            
+            PolicyInputList: SimulationPolicyListType;
         }
         export interface GetContextKeysForPolicyResponse {
-            ContextKeyNames?: ContextKeyNamesResultListType;            
+            ContextKeyNames?: ContextKeyNamesResultListType;
         }
         export interface GetContextKeysForPrincipalPolicyRequest {
-            PolicySourceArn: arnType;            
-            PolicyInputList?: SimulationPolicyListType;            
+            PolicySourceArn: arnType;
+            PolicyInputList?: SimulationPolicyListType;
         }
         export interface GetCredentialReportResponse {
-            Content?: ReportContentType;            
-            ReportFormat?: ReportFormatType;            
-            GeneratedTime?: dateType;            
+            Content?: ReportContentType;
+            ReportFormat?: ReportFormatType;
+            GeneratedTime?: dateType;
         }
         export interface GetGroupPolicyRequest {
-            GroupName: groupNameType;            
-            PolicyName: policyNameType;            
+            GroupName: groupNameType;
+            PolicyName: policyNameType;
         }
         export interface GetGroupPolicyResponse {
-            GroupName: groupNameType;            
-            PolicyName: policyNameType;            
-            PolicyDocument: policyDocumentType;            
+            GroupName: groupNameType;
+            PolicyName: policyNameType;
+            PolicyDocument: policyDocumentType;
         }
         export interface GetGroupRequest {
-            GroupName: groupNameType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            GroupName: groupNameType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface GetGroupResponse {
-            Group: Group;            
-            Users: userListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            Group: Group;
+            Users: userListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface GetInstanceProfileRequest {
-            InstanceProfileName: instanceProfileNameType;            
+            InstanceProfileName: instanceProfileNameType;
         }
         export interface GetInstanceProfileResponse {
-            InstanceProfile: InstanceProfile;            
+            InstanceProfile: InstanceProfile;
         }
         export interface GetLoginProfileRequest {
-            UserName: userNameType;            
+            UserName: userNameType;
         }
         export interface GetLoginProfileResponse {
-            LoginProfile: LoginProfile;            
+            LoginProfile: LoginProfile;
         }
         export interface GetOpenIDConnectProviderRequest {
-            OpenIDConnectProviderArn: arnType;            
+            OpenIDConnectProviderArn: arnType;
         }
         export interface GetOpenIDConnectProviderResponse {
-            Url?: OpenIDConnectProviderUrlType;            
-            ClientIDList?: clientIDListType;            
-            ThumbprintList?: thumbprintListType;            
-            CreateDate?: dateType;            
+            Url?: OpenIDConnectProviderUrlType;
+            ClientIDList?: clientIDListType;
+            ThumbprintList?: thumbprintListType;
+            CreateDate?: dateType;
         }
         export interface GetPolicyRequest {
-            PolicyArn: arnType;            
+            PolicyArn: arnType;
         }
         export interface GetPolicyResponse {
-            Policy?: Policy;            
+            Policy?: Policy;
         }
         export interface GetPolicyVersionRequest {
-            PolicyArn: arnType;            
-            VersionId: policyVersionIdType;            
+            PolicyArn: arnType;
+            VersionId: policyVersionIdType;
         }
         export interface GetPolicyVersionResponse {
-            PolicyVersion?: PolicyVersion;            
+            PolicyVersion?: PolicyVersion;
         }
         export interface GetRolePolicyRequest {
-            RoleName: roleNameType;            
-            PolicyName: policyNameType;            
+            RoleName: roleNameType;
+            PolicyName: policyNameType;
         }
         export interface GetRolePolicyResponse {
-            RoleName: roleNameType;            
-            PolicyName: policyNameType;            
-            PolicyDocument: policyDocumentType;            
+            RoleName: roleNameType;
+            PolicyName: policyNameType;
+            PolicyDocument: policyDocumentType;
         }
         export interface GetRoleRequest {
-            RoleName: roleNameType;            
+            RoleName: roleNameType;
         }
         export interface GetRoleResponse {
-            Role: Role;            
+            Role: Role;
         }
         export interface GetSAMLProviderRequest {
-            SAMLProviderArn: arnType;            
+            SAMLProviderArn: arnType;
         }
         export interface GetSAMLProviderResponse {
-            SAMLMetadataDocument?: SAMLMetadataDocumentType;            
-            CreateDate?: dateType;            
-            ValidUntil?: dateType;            
+            SAMLMetadataDocument?: SAMLMetadataDocumentType;
+            CreateDate?: dateType;
+            ValidUntil?: dateType;
         }
         export interface GetSSHPublicKeyRequest {
-            UserName: userNameType;            
-            SSHPublicKeyId: publicKeyIdType;            
-            Encoding: encodingType;            
+            UserName: userNameType;
+            SSHPublicKeyId: publicKeyIdType;
+            Encoding: encodingType;
         }
         export interface GetSSHPublicKeyResponse {
-            SSHPublicKey?: SSHPublicKey;            
+            SSHPublicKey?: SSHPublicKey;
         }
         export interface GetServerCertificateRequest {
-            ServerCertificateName: serverCertificateNameType;            
+            ServerCertificateName: serverCertificateNameType;
         }
         export interface GetServerCertificateResponse {
-            ServerCertificate: ServerCertificate;            
+            ServerCertificate: ServerCertificate;
         }
         export interface GetUserPolicyRequest {
-            UserName: existingUserNameType;            
-            PolicyName: policyNameType;            
+            UserName: existingUserNameType;
+            PolicyName: policyNameType;
         }
         export interface GetUserPolicyResponse {
-            UserName: existingUserNameType;            
-            PolicyName: policyNameType;            
-            PolicyDocument: policyDocumentType;            
+            UserName: existingUserNameType;
+            PolicyName: policyNameType;
+            PolicyDocument: policyDocumentType;
         }
         export interface GetUserRequest {
-            UserName?: existingUserNameType;            
+            UserName?: existingUserNameType;
         }
         export interface GetUserResponse {
-            User: User;            
+            User: User;
         }
         export interface Group {
-            Path: pathType;            
-            GroupName: groupNameType;            
-            GroupId: idType;            
-            Arn: arnType;            
-            CreateDate: dateType;            
+            Path: pathType;
+            GroupName: groupNameType;
+            GroupId: idType;
+            Arn: arnType;
+            CreateDate: dateType;
         }
         export interface GroupDetail {
-            Path?: pathType;            
-            GroupName?: groupNameType;            
-            GroupId?: idType;            
-            Arn?: arnType;            
-            CreateDate?: dateType;            
-            GroupPolicyList?: policyDetailListType;            
-            AttachedManagedPolicies?: attachedPoliciesListType;            
+            Path?: pathType;
+            GroupName?: groupNameType;
+            GroupId?: idType;
+            Arn?: arnType;
+            CreateDate?: dateType;
+            GroupPolicyList?: policyDetailListType;
+            AttachedManagedPolicies?: attachedPoliciesListType;
         }
         export interface InstanceProfile {
-            Path: pathType;            
-            InstanceProfileName: instanceProfileNameType;            
-            InstanceProfileId: idType;            
-            Arn: arnType;            
-            CreateDate: dateType;            
-            Roles: roleListType;            
+            Path: pathType;
+            InstanceProfileName: instanceProfileNameType;
+            InstanceProfileId: idType;
+            Arn: arnType;
+            CreateDate: dateType;
+            Roles: roleListType;
         }
         export interface InvalidAuthenticationCodeException {
-            message?: invalidAuthenticationCodeMessage;            
+            message?: invalidAuthenticationCodeMessage;
         }
         export interface InvalidCertificateException {
-            message?: invalidCertificateMessage;            
+            message?: invalidCertificateMessage;
         }
         export interface InvalidInputException {
-            message?: invalidInputMessage;            
+            message?: invalidInputMessage;
         }
         export interface InvalidPublicKeyException {
-            message?: invalidPublicKeyMessage;            
+            message?: invalidPublicKeyMessage;
         }
         export interface InvalidUserTypeException {
-            message?: invalidUserTypeMessage;            
+            message?: invalidUserTypeMessage;
         }
         export interface KeyPairMismatchException {
-            message?: keyPairMismatchMessage;            
+            message?: keyPairMismatchMessage;
         }
         export interface LimitExceededException {
-            message?: limitExceededMessage;            
+            message?: limitExceededMessage;
         }
         export interface ListAccessKeysRequest {
-            UserName?: existingUserNameType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            UserName?: existingUserNameType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListAccessKeysResponse {
-            AccessKeyMetadata: accessKeyMetadataListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            AccessKeyMetadata: accessKeyMetadataListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListAccountAliasesRequest {
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListAccountAliasesResponse {
-            AccountAliases: accountAliasListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            AccountAliases: accountAliasListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListAttachedGroupPoliciesRequest {
-            GroupName: groupNameType;            
-            PathPrefix?: policyPathType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            GroupName: groupNameType;
+            PathPrefix?: policyPathType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListAttachedGroupPoliciesResponse {
-            AttachedPolicies?: attachedPoliciesListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            AttachedPolicies?: attachedPoliciesListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListAttachedRolePoliciesRequest {
-            RoleName: roleNameType;            
-            PathPrefix?: policyPathType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            RoleName: roleNameType;
+            PathPrefix?: policyPathType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListAttachedRolePoliciesResponse {
-            AttachedPolicies?: attachedPoliciesListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            AttachedPolicies?: attachedPoliciesListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListAttachedUserPoliciesRequest {
-            UserName: userNameType;            
-            PathPrefix?: policyPathType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            UserName: userNameType;
+            PathPrefix?: policyPathType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListAttachedUserPoliciesResponse {
-            AttachedPolicies?: attachedPoliciesListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            AttachedPolicies?: attachedPoliciesListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListEntitiesForPolicyRequest {
-            PolicyArn: arnType;            
-            EntityFilter?: EntityType;            
-            PathPrefix?: pathType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            PolicyArn: arnType;
+            EntityFilter?: EntityType;
+            PathPrefix?: pathType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListEntitiesForPolicyResponse {
-            PolicyGroups?: PolicyGroupListType;            
-            PolicyUsers?: PolicyUserListType;            
-            PolicyRoles?: PolicyRoleListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            PolicyGroups?: PolicyGroupListType;
+            PolicyUsers?: PolicyUserListType;
+            PolicyRoles?: PolicyRoleListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListGroupPoliciesRequest {
-            GroupName: groupNameType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            GroupName: groupNameType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListGroupPoliciesResponse {
-            PolicyNames: policyNameListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            PolicyNames: policyNameListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListGroupsForUserRequest {
-            UserName: existingUserNameType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            UserName: existingUserNameType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListGroupsForUserResponse {
-            Groups: groupListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            Groups: groupListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListGroupsRequest {
-            PathPrefix?: pathPrefixType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            PathPrefix?: pathPrefixType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListGroupsResponse {
-            Groups: groupListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            Groups: groupListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListInstanceProfilesForRoleRequest {
-            RoleName: roleNameType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            RoleName: roleNameType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListInstanceProfilesForRoleResponse {
-            InstanceProfiles: instanceProfileListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            InstanceProfiles: instanceProfileListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListInstanceProfilesRequest {
-            PathPrefix?: pathPrefixType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            PathPrefix?: pathPrefixType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListInstanceProfilesResponse {
-            InstanceProfiles: instanceProfileListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            InstanceProfiles: instanceProfileListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListMFADevicesRequest {
-            UserName?: existingUserNameType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            UserName?: existingUserNameType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListMFADevicesResponse {
-            MFADevices: mfaDeviceListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            MFADevices: mfaDeviceListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListOpenIDConnectProvidersRequest {
         }
         export interface ListOpenIDConnectProvidersResponse {
-            OpenIDConnectProviderList?: OpenIDConnectProviderListType;            
+            OpenIDConnectProviderList?: OpenIDConnectProviderListType;
         }
         export interface ListPoliciesRequest {
-            Scope?: policyScopeType;            
-            OnlyAttached?: booleanType;            
-            PathPrefix?: policyPathType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            Scope?: policyScopeType;
+            OnlyAttached?: booleanType;
+            PathPrefix?: policyPathType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListPoliciesResponse {
-            Policies?: policyListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            Policies?: policyListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListPolicyVersionsRequest {
-            PolicyArn: arnType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            PolicyArn: arnType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListPolicyVersionsResponse {
-            Versions?: policyDocumentVersionListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            Versions?: policyDocumentVersionListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListRolePoliciesRequest {
-            RoleName: roleNameType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            RoleName: roleNameType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListRolePoliciesResponse {
-            PolicyNames: policyNameListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            PolicyNames: policyNameListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListRolesRequest {
-            PathPrefix?: pathPrefixType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            PathPrefix?: pathPrefixType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListRolesResponse {
-            Roles: roleListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            Roles: roleListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListSAMLProvidersRequest {
         }
         export interface ListSAMLProvidersResponse {
-            SAMLProviderList?: SAMLProviderListType;            
+            SAMLProviderList?: SAMLProviderListType;
         }
         export interface ListSSHPublicKeysRequest {
-            UserName?: userNameType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            UserName?: userNameType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListSSHPublicKeysResponse {
-            SSHPublicKeys?: SSHPublicKeyListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            SSHPublicKeys?: SSHPublicKeyListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListServerCertificatesRequest {
-            PathPrefix?: pathPrefixType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            PathPrefix?: pathPrefixType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListServerCertificatesResponse {
-            ServerCertificateMetadataList: serverCertificateMetadataListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            ServerCertificateMetadataList: serverCertificateMetadataListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListSigningCertificatesRequest {
-            UserName?: existingUserNameType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            UserName?: existingUserNameType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListSigningCertificatesResponse {
-            Certificates: certificateListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            Certificates: certificateListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListUserPoliciesRequest {
-            UserName: existingUserNameType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            UserName: existingUserNameType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListUserPoliciesResponse {
-            PolicyNames: policyNameListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            PolicyNames: policyNameListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListUsersRequest {
-            PathPrefix?: pathPrefixType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            PathPrefix?: pathPrefixType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListUsersResponse {
-            Users: userListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            Users: userListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface ListVirtualMFADevicesRequest {
-            AssignmentStatus?: assignmentStatusType;            
-            Marker?: markerType;            
-            MaxItems?: maxItemsType;            
+            AssignmentStatus?: assignmentStatusType;
+            Marker?: markerType;
+            MaxItems?: maxItemsType;
         }
         export interface ListVirtualMFADevicesResponse {
-            VirtualMFADevices: virtualMFADeviceListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            VirtualMFADevices: virtualMFADeviceListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface LoginProfile {
-            UserName: userNameType;            
-            CreateDate: dateType;            
-            PasswordResetRequired?: booleanType;            
+            UserName: userNameType;
+            CreateDate: dateType;
+            PasswordResetRequired?: booleanType;
         }
         export interface MFADevice {
-            UserName: userNameType;            
-            SerialNumber: serialNumberType;            
-            EnableDate: dateType;            
+            UserName: userNameType;
+            SerialNumber: serialNumberType;
+            EnableDate: dateType;
         }
         export interface MalformedCertificateException {
-            message?: malformedCertificateMessage;            
+            message?: malformedCertificateMessage;
         }
         export interface MalformedPolicyDocumentException {
-            message?: malformedPolicyDocumentMessage;            
+            message?: malformedPolicyDocumentMessage;
         }
         export interface ManagedPolicyDetail {
-            PolicyName?: policyNameType;            
-            PolicyId?: idType;            
-            Arn?: arnType;            
-            Path?: policyPathType;            
-            DefaultVersionId?: policyVersionIdType;            
-            AttachmentCount?: attachmentCountType;            
-            IsAttachable?: booleanType;            
-            Description?: policyDescriptionType;            
-            CreateDate?: dateType;            
-            UpdateDate?: dateType;            
-            PolicyVersionList?: policyDocumentVersionListType;            
+            PolicyName?: policyNameType;
+            PolicyId?: idType;
+            Arn?: arnType;
+            Path?: policyPathType;
+            DefaultVersionId?: policyVersionIdType;
+            AttachmentCount?: attachmentCountType;
+            IsAttachable?: booleanType;
+            Description?: policyDescriptionType;
+            CreateDate?: dateType;
+            UpdateDate?: dateType;
+            PolicyVersionList?: policyDocumentVersionListType;
         }
         export interface NoSuchEntityException {
-            message?: noSuchEntityMessage;            
+            message?: noSuchEntityMessage;
         }
         export interface OpenIDConnectProviderListEntry {
-            Arn?: arnType;            
+            Arn?: arnType;
         }
         export interface PasswordPolicy {
-            MinimumPasswordLength?: minimumPasswordLengthType;            
-            RequireSymbols?: booleanType;            
-            RequireNumbers?: booleanType;            
-            RequireUppercaseCharacters?: booleanType;            
-            RequireLowercaseCharacters?: booleanType;            
-            AllowUsersToChangePassword?: booleanType;            
-            ExpirePasswords?: booleanType;            
-            MaxPasswordAge?: maxPasswordAgeType;            
-            PasswordReusePrevention?: passwordReusePreventionType;            
-            HardExpiry?: booleanObjectType;            
+            MinimumPasswordLength?: minimumPasswordLengthType;
+            RequireSymbols?: booleanType;
+            RequireNumbers?: booleanType;
+            RequireUppercaseCharacters?: booleanType;
+            RequireLowercaseCharacters?: booleanType;
+            AllowUsersToChangePassword?: booleanType;
+            ExpirePasswords?: booleanType;
+            MaxPasswordAge?: maxPasswordAgeType;
+            PasswordReusePrevention?: passwordReusePreventionType;
+            HardExpiry?: booleanObjectType;
         }
         export interface PasswordPolicyViolationException {
-            message?: passwordPolicyViolationMessage;            
+            message?: passwordPolicyViolationMessage;
         }
         export interface Policy {
-            PolicyName?: policyNameType;            
-            PolicyId?: idType;            
-            Arn?: arnType;            
-            Path?: policyPathType;            
-            DefaultVersionId?: policyVersionIdType;            
-            AttachmentCount?: attachmentCountType;            
-            IsAttachable?: booleanType;            
-            Description?: policyDescriptionType;            
-            CreateDate?: dateType;            
-            UpdateDate?: dateType;            
+            PolicyName?: policyNameType;
+            PolicyId?: idType;
+            Arn?: arnType;
+            Path?: policyPathType;
+            DefaultVersionId?: policyVersionIdType;
+            AttachmentCount?: attachmentCountType;
+            IsAttachable?: booleanType;
+            Description?: policyDescriptionType;
+            CreateDate?: dateType;
+            UpdateDate?: dateType;
         }
         export interface PolicyDetail {
-            PolicyName?: policyNameType;            
-            PolicyDocument?: policyDocumentType;            
+            PolicyName?: policyNameType;
+            PolicyDocument?: policyDocumentType;
         }
         export interface PolicyEvaluationException {
-            message?: policyEvaluationErrorMessage;            
+            message?: policyEvaluationErrorMessage;
         }
         export interface PolicyGroup {
-            GroupName?: groupNameType;            
+            GroupName?: groupNameType;
         }
         export interface PolicyRole {
-            RoleName?: roleNameType;            
+            RoleName?: roleNameType;
         }
         export interface PolicyUser {
-            UserName?: userNameType;            
+            UserName?: userNameType;
         }
         export interface PolicyVersion {
-            Document?: policyDocumentType;            
-            VersionId?: policyVersionIdType;            
-            IsDefaultVersion?: booleanType;            
-            CreateDate?: dateType;            
+            Document?: policyDocumentType;
+            VersionId?: policyVersionIdType;
+            IsDefaultVersion?: booleanType;
+            CreateDate?: dateType;
         }
         export interface Position {
-            Line?: LineNumber;            
-            Column?: ColumnNumber;            
+            Line?: LineNumber;
+            Column?: ColumnNumber;
         }
         export interface PutGroupPolicyRequest {
-            GroupName: groupNameType;            
-            PolicyName: policyNameType;            
-            PolicyDocument: policyDocumentType;            
+            GroupName: groupNameType;
+            PolicyName: policyNameType;
+            PolicyDocument: policyDocumentType;
         }
         export interface PutRolePolicyRequest {
-            RoleName: roleNameType;            
-            PolicyName: policyNameType;            
-            PolicyDocument: policyDocumentType;            
+            RoleName: roleNameType;
+            PolicyName: policyNameType;
+            PolicyDocument: policyDocumentType;
         }
         export interface PutUserPolicyRequest {
-            UserName: existingUserNameType;            
-            PolicyName: policyNameType;            
-            PolicyDocument: policyDocumentType;            
+            UserName: existingUserNameType;
+            PolicyName: policyNameType;
+            PolicyDocument: policyDocumentType;
         }
         export interface RemoveClientIDFromOpenIDConnectProviderRequest {
-            OpenIDConnectProviderArn: arnType;            
-            ClientID: clientIDType;            
+            OpenIDConnectProviderArn: arnType;
+            ClientID: clientIDType;
         }
         export interface RemoveRoleFromInstanceProfileRequest {
-            InstanceProfileName: instanceProfileNameType;            
-            RoleName: roleNameType;            
+            InstanceProfileName: instanceProfileNameType;
+            RoleName: roleNameType;
         }
         export interface RemoveUserFromGroupRequest {
-            GroupName: groupNameType;            
-            UserName: existingUserNameType;            
+            GroupName: groupNameType;
+            UserName: existingUserNameType;
         }
         export interface ResourceSpecificResult {
-            EvalResourceName: ResourceNameType;            
-            EvalResourceDecision: PolicyEvaluationDecisionType;            
-            MatchedStatements?: StatementListType;            
-            MissingContextValues?: ContextKeyNamesResultListType;            
-            EvalDecisionDetails?: EvalDecisionDetailsType;            
+            EvalResourceName: ResourceNameType;
+            EvalResourceDecision: PolicyEvaluationDecisionType;
+            MatchedStatements?: StatementListType;
+            MissingContextValues?: ContextKeyNamesResultListType;
+            EvalDecisionDetails?: EvalDecisionDetailsType;
         }
         export interface ResyncMFADeviceRequest {
-            UserName: existingUserNameType;            
-            SerialNumber: serialNumberType;            
-            AuthenticationCode1: authenticationCodeType;            
-            AuthenticationCode2: authenticationCodeType;            
+            UserName: existingUserNameType;
+            SerialNumber: serialNumberType;
+            AuthenticationCode1: authenticationCodeType;
+            AuthenticationCode2: authenticationCodeType;
         }
         export interface Role {
-            Path: pathType;            
-            RoleName: roleNameType;            
-            RoleId: idType;            
-            Arn: arnType;            
-            CreateDate: dateType;            
-            AssumeRolePolicyDocument?: policyDocumentType;            
+            Path: pathType;
+            RoleName: roleNameType;
+            RoleId: idType;
+            Arn: arnType;
+            CreateDate: dateType;
+            AssumeRolePolicyDocument?: policyDocumentType;
         }
         export interface RoleDetail {
-            Path?: pathType;            
-            RoleName?: roleNameType;            
-            RoleId?: idType;            
-            Arn?: arnType;            
-            CreateDate?: dateType;            
-            AssumeRolePolicyDocument?: policyDocumentType;            
-            InstanceProfileList?: instanceProfileListType;            
-            RolePolicyList?: policyDetailListType;            
-            AttachedManagedPolicies?: attachedPoliciesListType;            
+            Path?: pathType;
+            RoleName?: roleNameType;
+            RoleId?: idType;
+            Arn?: arnType;
+            CreateDate?: dateType;
+            AssumeRolePolicyDocument?: policyDocumentType;
+            InstanceProfileList?: instanceProfileListType;
+            RolePolicyList?: policyDetailListType;
+            AttachedManagedPolicies?: attachedPoliciesListType;
         }
         export interface SAMLProviderListEntry {
-            Arn?: arnType;            
-            ValidUntil?: dateType;            
-            CreateDate?: dateType;            
+            Arn?: arnType;
+            ValidUntil?: dateType;
+            CreateDate?: dateType;
         }
         export interface SSHPublicKey {
-            UserName: userNameType;            
-            SSHPublicKeyId: publicKeyIdType;            
-            Fingerprint: publicKeyFingerprintType;            
-            SSHPublicKeyBody: publicKeyMaterialType;            
-            Status: statusType;            
-            UploadDate?: dateType;            
+            UserName: userNameType;
+            SSHPublicKeyId: publicKeyIdType;
+            Fingerprint: publicKeyFingerprintType;
+            SSHPublicKeyBody: publicKeyMaterialType;
+            Status: statusType;
+            UploadDate?: dateType;
         }
         export interface SSHPublicKeyMetadata {
-            UserName: userNameType;            
-            SSHPublicKeyId: publicKeyIdType;            
-            Status: statusType;            
-            UploadDate: dateType;            
+            UserName: userNameType;
+            SSHPublicKeyId: publicKeyIdType;
+            Status: statusType;
+            UploadDate: dateType;
         }
         export interface ServerCertificate {
-            ServerCertificateMetadata: ServerCertificateMetadata;            
-            CertificateBody: certificateBodyType;            
-            CertificateChain?: certificateChainType;            
+            ServerCertificateMetadata: ServerCertificateMetadata;
+            CertificateBody: certificateBodyType;
+            CertificateChain?: certificateChainType;
         }
         export interface ServerCertificateMetadata {
-            Path: pathType;            
-            ServerCertificateName: serverCertificateNameType;            
-            ServerCertificateId: idType;            
-            Arn: arnType;            
-            UploadDate?: dateType;            
-            Expiration?: dateType;            
+            Path: pathType;
+            ServerCertificateName: serverCertificateNameType;
+            ServerCertificateId: idType;
+            Arn: arnType;
+            UploadDate?: dateType;
+            Expiration?: dateType;
         }
         export interface ServiceFailureException {
-            message?: serviceFailureExceptionMessage;            
+            message?: serviceFailureExceptionMessage;
         }
         export interface SetDefaultPolicyVersionRequest {
-            PolicyArn: arnType;            
-            VersionId: policyVersionIdType;            
+            PolicyArn: arnType;
+            VersionId: policyVersionIdType;
         }
         export interface SigningCertificate {
-            UserName: userNameType;            
-            CertificateId: certificateIdType;            
-            CertificateBody: certificateBodyType;            
-            Status: statusType;            
-            UploadDate?: dateType;            
+            UserName: userNameType;
+            CertificateId: certificateIdType;
+            CertificateBody: certificateBodyType;
+            Status: statusType;
+            UploadDate?: dateType;
         }
         export interface SimulateCustomPolicyRequest {
-            PolicyInputList: SimulationPolicyListType;            
-            ActionNames: ActionNameListType;            
-            ResourceArns?: ResourceNameListType;            
-            ResourcePolicy?: policyDocumentType;            
-            ResourceOwner?: ResourceNameType;            
-            CallerArn?: ResourceNameType;            
-            ContextEntries?: ContextEntryListType;            
-            ResourceHandlingOption?: ResourceHandlingOptionType;            
-            MaxItems?: maxItemsType;            
-            Marker?: markerType;            
+            PolicyInputList: SimulationPolicyListType;
+            ActionNames: ActionNameListType;
+            ResourceArns?: ResourceNameListType;
+            ResourcePolicy?: policyDocumentType;
+            ResourceOwner?: ResourceNameType;
+            CallerArn?: ResourceNameType;
+            ContextEntries?: ContextEntryListType;
+            ResourceHandlingOption?: ResourceHandlingOptionType;
+            MaxItems?: maxItemsType;
+            Marker?: markerType;
         }
         export interface SimulatePolicyResponse {
-            EvaluationResults?: EvaluationResultsListType;            
-            IsTruncated?: booleanType;            
-            Marker?: markerType;            
+            EvaluationResults?: EvaluationResultsListType;
+            IsTruncated?: booleanType;
+            Marker?: markerType;
         }
         export interface SimulatePrincipalPolicyRequest {
-            PolicySourceArn: arnType;            
-            PolicyInputList?: SimulationPolicyListType;            
-            ActionNames: ActionNameListType;            
-            ResourceArns?: ResourceNameListType;            
-            ResourcePolicy?: policyDocumentType;            
-            ResourceOwner?: ResourceNameType;            
-            CallerArn?: ResourceNameType;            
-            ContextEntries?: ContextEntryListType;            
-            ResourceHandlingOption?: ResourceHandlingOptionType;            
-            MaxItems?: maxItemsType;            
-            Marker?: markerType;            
+            PolicySourceArn: arnType;
+            PolicyInputList?: SimulationPolicyListType;
+            ActionNames: ActionNameListType;
+            ResourceArns?: ResourceNameListType;
+            ResourcePolicy?: policyDocumentType;
+            ResourceOwner?: ResourceNameType;
+            CallerArn?: ResourceNameType;
+            ContextEntries?: ContextEntryListType;
+            ResourceHandlingOption?: ResourceHandlingOptionType;
+            MaxItems?: maxItemsType;
+            Marker?: markerType;
         }
         export interface Statement {
-            SourcePolicyId?: PolicyIdentifierType;            
-            SourcePolicyType?: PolicySourceType;            
-            StartPosition?: Position;            
-            EndPosition?: Position;            
+            SourcePolicyId?: PolicyIdentifierType;
+            SourcePolicyType?: PolicySourceType;
+            StartPosition?: Position;
+            EndPosition?: Position;
         }
         export interface UnrecognizedPublicKeyEncodingException {
-            message?: unrecognizedPublicKeyEncodingMessage;            
+            message?: unrecognizedPublicKeyEncodingMessage;
         }
         export interface UpdateAccessKeyRequest {
-            UserName?: existingUserNameType;            
-            AccessKeyId: accessKeyIdType;            
-            Status: statusType;            
+            UserName?: existingUserNameType;
+            AccessKeyId: accessKeyIdType;
+            Status: statusType;
         }
         export interface UpdateAccountPasswordPolicyRequest {
-            MinimumPasswordLength?: minimumPasswordLengthType;            
-            RequireSymbols?: booleanType;            
-            RequireNumbers?: booleanType;            
-            RequireUppercaseCharacters?: booleanType;            
-            RequireLowercaseCharacters?: booleanType;            
-            AllowUsersToChangePassword?: booleanType;            
-            MaxPasswordAge?: maxPasswordAgeType;            
-            PasswordReusePrevention?: passwordReusePreventionType;            
-            HardExpiry?: booleanObjectType;            
+            MinimumPasswordLength?: minimumPasswordLengthType;
+            RequireSymbols?: booleanType;
+            RequireNumbers?: booleanType;
+            RequireUppercaseCharacters?: booleanType;
+            RequireLowercaseCharacters?: booleanType;
+            AllowUsersToChangePassword?: booleanType;
+            MaxPasswordAge?: maxPasswordAgeType;
+            PasswordReusePrevention?: passwordReusePreventionType;
+            HardExpiry?: booleanObjectType;
         }
         export interface UpdateAssumeRolePolicyRequest {
-            RoleName: roleNameType;            
-            PolicyDocument: policyDocumentType;            
+            RoleName: roleNameType;
+            PolicyDocument: policyDocumentType;
         }
         export interface UpdateGroupRequest {
-            GroupName: groupNameType;            
-            NewPath?: pathType;            
-            NewGroupName?: groupNameType;            
+            GroupName: groupNameType;
+            NewPath?: pathType;
+            NewGroupName?: groupNameType;
         }
         export interface UpdateLoginProfileRequest {
-            UserName: userNameType;            
-            Password?: passwordType;            
-            PasswordResetRequired?: booleanObjectType;            
+            UserName: userNameType;
+            Password?: passwordType;
+            PasswordResetRequired?: booleanObjectType;
         }
         export interface UpdateOpenIDConnectProviderThumbprintRequest {
-            OpenIDConnectProviderArn: arnType;            
-            ThumbprintList: thumbprintListType;            
+            OpenIDConnectProviderArn: arnType;
+            ThumbprintList: thumbprintListType;
         }
         export interface UpdateSAMLProviderRequest {
-            SAMLMetadataDocument: SAMLMetadataDocumentType;            
-            SAMLProviderArn: arnType;            
+            SAMLMetadataDocument: SAMLMetadataDocumentType;
+            SAMLProviderArn: arnType;
         }
         export interface UpdateSAMLProviderResponse {
-            SAMLProviderArn?: arnType;            
+            SAMLProviderArn?: arnType;
         }
         export interface UpdateSSHPublicKeyRequest {
-            UserName: userNameType;            
-            SSHPublicKeyId: publicKeyIdType;            
-            Status: statusType;            
+            UserName: userNameType;
+            SSHPublicKeyId: publicKeyIdType;
+            Status: statusType;
         }
         export interface UpdateServerCertificateRequest {
-            ServerCertificateName: serverCertificateNameType;            
-            NewPath?: pathType;            
-            NewServerCertificateName?: serverCertificateNameType;            
+            ServerCertificateName: serverCertificateNameType;
+            NewPath?: pathType;
+            NewServerCertificateName?: serverCertificateNameType;
         }
         export interface UpdateSigningCertificateRequest {
-            UserName?: existingUserNameType;            
-            CertificateId: certificateIdType;            
-            Status: statusType;            
+            UserName?: existingUserNameType;
+            CertificateId: certificateIdType;
+            Status: statusType;
         }
         export interface UpdateUserRequest {
-            UserName: existingUserNameType;            
-            NewPath?: pathType;            
-            NewUserName?: userNameType;            
+            UserName: existingUserNameType;
+            NewPath?: pathType;
+            NewUserName?: userNameType;
         }
         export interface UploadSSHPublicKeyRequest {
-            UserName: userNameType;            
-            SSHPublicKeyBody: publicKeyMaterialType;            
+            UserName: userNameType;
+            SSHPublicKeyBody: publicKeyMaterialType;
         }
         export interface UploadSSHPublicKeyResponse {
-            SSHPublicKey?: SSHPublicKey;            
+            SSHPublicKey?: SSHPublicKey;
         }
         export interface UploadServerCertificateRequest {
-            Path?: pathType;            
-            ServerCertificateName: serverCertificateNameType;            
-            CertificateBody: certificateBodyType;            
-            PrivateKey: privateKeyType;            
-            CertificateChain?: certificateChainType;            
+            Path?: pathType;
+            ServerCertificateName: serverCertificateNameType;
+            CertificateBody: certificateBodyType;
+            PrivateKey: privateKeyType;
+            CertificateChain?: certificateChainType;
         }
         export interface UploadServerCertificateResponse {
-            ServerCertificateMetadata?: ServerCertificateMetadata;            
+            ServerCertificateMetadata?: ServerCertificateMetadata;
         }
         export interface UploadSigningCertificateRequest {
-            UserName?: existingUserNameType;            
-            CertificateBody: certificateBodyType;            
+            UserName?: existingUserNameType;
+            CertificateBody: certificateBodyType;
         }
         export interface UploadSigningCertificateResponse {
-            Certificate: SigningCertificate;            
+            Certificate: SigningCertificate;
         }
         export interface User {
-            Path: pathType;            
-            UserName: userNameType;            
-            UserId: idType;            
-            Arn: arnType;            
-            CreateDate: dateType;            
-            PasswordLastUsed?: dateType;            
+            Path: pathType;
+            UserName: userNameType;
+            UserId: idType;
+            Arn: arnType;
+            CreateDate: dateType;
+            PasswordLastUsed?: dateType;
         }
         export interface UserDetail {
-            Path?: pathType;            
-            UserName?: userNameType;            
-            UserId?: idType;            
-            Arn?: arnType;            
-            CreateDate?: dateType;            
-            UserPolicyList?: policyDetailListType;            
-            GroupList?: groupNameListType;            
-            AttachedManagedPolicies?: attachedPoliciesListType;            
+            Path?: pathType;
+            UserName?: userNameType;
+            UserId?: idType;
+            Arn?: arnType;
+            CreateDate?: dateType;
+            UserPolicyList?: policyDetailListType;
+            GroupList?: groupNameListType;
+            AttachedManagedPolicies?: attachedPoliciesListType;
         }
         export interface VirtualMFADevice {
-            SerialNumber: serialNumberType;            
-            Base32StringSeed?: BootstrapDatum;            
-            QRCodePNG?: BootstrapDatum;            
-            User?: User;            
-            EnableDate?: dateType;            
+            SerialNumber: serialNumberType;
+            Base32StringSeed?: BootstrapDatum;
+            QRCodePNG?: BootstrapDatum;
+            User?: User;
+            EnableDate?: dateType;
         }
 
     }

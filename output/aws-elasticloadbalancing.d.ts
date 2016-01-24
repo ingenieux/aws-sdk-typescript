@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2012-06-01
      * endpointPrefix: elasticloadbalancing
      * serviceAbbreviation: 
@@ -45,8 +45,9 @@ declare module "aws-sdk" {
       setLoadBalancerListenerSSLCertificate(params: ELB.SetLoadBalancerListenerSSLCertificateInput, callback?: (err: ELB.CertificateNotFoundException|ELB.AccessPointNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerListenerSSLCertificateOutput|any) => void): Request;
       setLoadBalancerPoliciesForBackendServer(params: ELB.SetLoadBalancerPoliciesForBackendServerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerPoliciesForBackendServerOutput|any) => void): Request;
       setLoadBalancerPoliciesOfListener(params: ELB.SetLoadBalancerPoliciesOfListenerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerPoliciesOfListenerOutput|any) => void): Request;
+
     }
-    
+
     export module ELB {
         export type AccessLogEnabled = boolean;
         export type AccessLogInterval = number;
@@ -121,182 +122,182 @@ declare module "aws-sdk" {
         export type VPCId = string;
 
         export interface AccessLog {
-            Enabled: AccessLogEnabled;            
-            S3BucketName?: S3BucketName;            
-            EmitInterval?: AccessLogInterval;            
-            S3BucketPrefix?: AccessLogPrefix;            
+            Enabled: AccessLogEnabled;
+            S3BucketName?: S3BucketName;
+            EmitInterval?: AccessLogInterval;
+            S3BucketPrefix?: AccessLogPrefix;
         }
         export interface AccessPointNotFoundException {
         }
         export interface AddAvailabilityZonesInput {
-            LoadBalancerName: AccessPointName;            
-            AvailabilityZones: AvailabilityZones;            
+            LoadBalancerName: AccessPointName;
+            AvailabilityZones: AvailabilityZones;
         }
         export interface AddAvailabilityZonesOutput {
-            AvailabilityZones?: AvailabilityZones;            
+            AvailabilityZones?: AvailabilityZones;
         }
         export interface AddTagsInput {
-            LoadBalancerNames: LoadBalancerNames;            
-            Tags: TagList;            
+            LoadBalancerNames: LoadBalancerNames;
+            Tags: TagList;
         }
         export interface AddTagsOutput {
         }
         export interface AdditionalAttribute {
-            Key?: StringVal;            
-            Value?: StringVal;            
+            Key?: StringVal;
+            Value?: StringVal;
         }
         export interface AppCookieStickinessPolicy {
-            PolicyName?: PolicyName;            
-            CookieName?: CookieName;            
+            PolicyName?: PolicyName;
+            CookieName?: CookieName;
         }
         export interface ApplySecurityGroupsToLoadBalancerInput {
-            LoadBalancerName: AccessPointName;            
-            SecurityGroups: SecurityGroups;            
+            LoadBalancerName: AccessPointName;
+            SecurityGroups: SecurityGroups;
         }
         export interface ApplySecurityGroupsToLoadBalancerOutput {
-            SecurityGroups?: SecurityGroups;            
+            SecurityGroups?: SecurityGroups;
         }
         export interface AttachLoadBalancerToSubnetsInput {
-            LoadBalancerName: AccessPointName;            
-            Subnets: Subnets;            
+            LoadBalancerName: AccessPointName;
+            Subnets: Subnets;
         }
         export interface AttachLoadBalancerToSubnetsOutput {
-            Subnets?: Subnets;            
+            Subnets?: Subnets;
         }
         export interface BackendServerDescription {
-            InstancePort?: InstancePort;            
-            PolicyNames?: PolicyNames;            
+            InstancePort?: InstancePort;
+            PolicyNames?: PolicyNames;
         }
         export interface CertificateNotFoundException {
         }
         export interface ConfigureHealthCheckInput {
-            LoadBalancerName: AccessPointName;            
-            HealthCheck: HealthCheck;            
+            LoadBalancerName: AccessPointName;
+            HealthCheck: HealthCheck;
         }
         export interface ConfigureHealthCheckOutput {
-            HealthCheck?: HealthCheck;            
+            HealthCheck?: HealthCheck;
         }
         export interface ConnectionDraining {
-            Enabled: ConnectionDrainingEnabled;            
-            Timeout?: ConnectionDrainingTimeout;            
+            Enabled: ConnectionDrainingEnabled;
+            Timeout?: ConnectionDrainingTimeout;
         }
         export interface ConnectionSettings {
-            IdleTimeout: IdleTimeout;            
+            IdleTimeout: IdleTimeout;
         }
         export interface CreateAccessPointInput {
-            LoadBalancerName: AccessPointName;            
-            Listeners: Listeners;            
-            AvailabilityZones?: AvailabilityZones;            
-            Subnets?: Subnets;            
-            SecurityGroups?: SecurityGroups;            
-            Scheme?: LoadBalancerScheme;            
-            Tags?: TagList;            
+            LoadBalancerName: AccessPointName;
+            Listeners: Listeners;
+            AvailabilityZones?: AvailabilityZones;
+            Subnets?: Subnets;
+            SecurityGroups?: SecurityGroups;
+            Scheme?: LoadBalancerScheme;
+            Tags?: TagList;
         }
         export interface CreateAccessPointOutput {
-            DNSName?: DNSName;            
+            DNSName?: DNSName;
         }
         export interface CreateAppCookieStickinessPolicyInput {
-            LoadBalancerName: AccessPointName;            
-            PolicyName: PolicyName;            
-            CookieName: CookieName;            
+            LoadBalancerName: AccessPointName;
+            PolicyName: PolicyName;
+            CookieName: CookieName;
         }
         export interface CreateAppCookieStickinessPolicyOutput {
         }
         export interface CreateLBCookieStickinessPolicyInput {
-            LoadBalancerName: AccessPointName;            
-            PolicyName: PolicyName;            
-            CookieExpirationPeriod?: CookieExpirationPeriod;            
+            LoadBalancerName: AccessPointName;
+            PolicyName: PolicyName;
+            CookieExpirationPeriod?: CookieExpirationPeriod;
         }
         export interface CreateLBCookieStickinessPolicyOutput {
         }
         export interface CreateLoadBalancerListenerInput {
-            LoadBalancerName: AccessPointName;            
-            Listeners: Listeners;            
+            LoadBalancerName: AccessPointName;
+            Listeners: Listeners;
         }
         export interface CreateLoadBalancerListenerOutput {
         }
         export interface CreateLoadBalancerPolicyInput {
-            LoadBalancerName: AccessPointName;            
-            PolicyName: PolicyName;            
-            PolicyTypeName: PolicyTypeName;            
-            PolicyAttributes?: PolicyAttributes;            
+            LoadBalancerName: AccessPointName;
+            PolicyName: PolicyName;
+            PolicyTypeName: PolicyTypeName;
+            PolicyAttributes?: PolicyAttributes;
         }
         export interface CreateLoadBalancerPolicyOutput {
         }
         export interface CrossZoneLoadBalancing {
-            Enabled: CrossZoneLoadBalancingEnabled;            
+            Enabled: CrossZoneLoadBalancingEnabled;
         }
         export interface DeleteAccessPointInput {
-            LoadBalancerName: AccessPointName;            
+            LoadBalancerName: AccessPointName;
         }
         export interface DeleteAccessPointOutput {
         }
         export interface DeleteLoadBalancerListenerInput {
-            LoadBalancerName: AccessPointName;            
-            LoadBalancerPorts: Ports;            
+            LoadBalancerName: AccessPointName;
+            LoadBalancerPorts: Ports;
         }
         export interface DeleteLoadBalancerListenerOutput {
         }
         export interface DeleteLoadBalancerPolicyInput {
-            LoadBalancerName: AccessPointName;            
-            PolicyName: PolicyName;            
+            LoadBalancerName: AccessPointName;
+            PolicyName: PolicyName;
         }
         export interface DeleteLoadBalancerPolicyOutput {
         }
         export interface DeregisterEndPointsInput {
-            LoadBalancerName: AccessPointName;            
-            Instances: Instances;            
+            LoadBalancerName: AccessPointName;
+            Instances: Instances;
         }
         export interface DeregisterEndPointsOutput {
-            Instances?: Instances;            
+            Instances?: Instances;
         }
         export interface DescribeAccessPointsInput {
-            LoadBalancerNames?: LoadBalancerNames;            
-            Marker?: Marker;            
-            PageSize?: PageSize;            
+            LoadBalancerNames?: LoadBalancerNames;
+            Marker?: Marker;
+            PageSize?: PageSize;
         }
         export interface DescribeAccessPointsOutput {
-            LoadBalancerDescriptions?: LoadBalancerDescriptions;            
-            NextMarker?: Marker;            
+            LoadBalancerDescriptions?: LoadBalancerDescriptions;
+            NextMarker?: Marker;
         }
         export interface DescribeEndPointStateInput {
-            LoadBalancerName: AccessPointName;            
-            Instances?: Instances;            
+            LoadBalancerName: AccessPointName;
+            Instances?: Instances;
         }
         export interface DescribeEndPointStateOutput {
-            InstanceStates?: InstanceStates;            
+            InstanceStates?: InstanceStates;
         }
         export interface DescribeLoadBalancerAttributesInput {
-            LoadBalancerName: AccessPointName;            
+            LoadBalancerName: AccessPointName;
         }
         export interface DescribeLoadBalancerAttributesOutput {
-            LoadBalancerAttributes?: LoadBalancerAttributes;            
+            LoadBalancerAttributes?: LoadBalancerAttributes;
         }
         export interface DescribeLoadBalancerPoliciesInput {
-            LoadBalancerName?: AccessPointName;            
-            PolicyNames?: PolicyNames;            
+            LoadBalancerName?: AccessPointName;
+            PolicyNames?: PolicyNames;
         }
         export interface DescribeLoadBalancerPoliciesOutput {
-            PolicyDescriptions?: PolicyDescriptions;            
+            PolicyDescriptions?: PolicyDescriptions;
         }
         export interface DescribeLoadBalancerPolicyTypesInput {
-            PolicyTypeNames?: PolicyTypeNames;            
+            PolicyTypeNames?: PolicyTypeNames;
         }
         export interface DescribeLoadBalancerPolicyTypesOutput {
-            PolicyTypeDescriptions?: PolicyTypeDescriptions;            
+            PolicyTypeDescriptions?: PolicyTypeDescriptions;
         }
         export interface DescribeTagsInput {
-            LoadBalancerNames: LoadBalancerNamesMax20;            
+            LoadBalancerNames: LoadBalancerNamesMax20;
         }
         export interface DescribeTagsOutput {
-            TagDescriptions?: TagDescriptions;            
+            TagDescriptions?: TagDescriptions;
         }
         export interface DetachLoadBalancerFromSubnetsInput {
-            LoadBalancerName: AccessPointName;            
-            Subnets: Subnets;            
+            LoadBalancerName: AccessPointName;
+            Subnets: Subnets;
         }
         export interface DetachLoadBalancerFromSubnetsOutput {
-            Subnets?: Subnets;            
+            Subnets?: Subnets;
         }
         export interface DuplicateAccessPointNameException {
         }
@@ -307,20 +308,20 @@ declare module "aws-sdk" {
         export interface DuplicateTagKeysException {
         }
         export interface HealthCheck {
-            Target: HealthCheckTarget;            
-            Interval: HealthCheckInterval;            
-            Timeout: HealthCheckTimeout;            
-            UnhealthyThreshold: UnhealthyThreshold;            
-            HealthyThreshold: HealthyThreshold;            
+            Target: HealthCheckTarget;
+            Interval: HealthCheckInterval;
+            Timeout: HealthCheckTimeout;
+            UnhealthyThreshold: UnhealthyThreshold;
+            HealthyThreshold: HealthyThreshold;
         }
         export interface Instance {
-            InstanceId?: InstanceId;            
+            InstanceId?: InstanceId;
         }
         export interface InstanceState {
-            InstanceId?: InstanceId;            
-            State?: State;            
-            ReasonCode?: ReasonCode;            
-            Description?: Description;            
+            InstanceId?: InstanceId;
+            State?: State;
+            ReasonCode?: ReasonCode;
+            Description?: Description;
         }
         export interface InvalidConfigurationRequestException {
         }
@@ -333,148 +334,148 @@ declare module "aws-sdk" {
         export interface InvalidSubnetException {
         }
         export interface LBCookieStickinessPolicy {
-            PolicyName?: PolicyName;            
-            CookieExpirationPeriod?: CookieExpirationPeriod;            
+            PolicyName?: PolicyName;
+            CookieExpirationPeriod?: CookieExpirationPeriod;
         }
         export interface Listener {
-            Protocol: Protocol;            
-            LoadBalancerPort: AccessPointPort;            
-            InstanceProtocol?: Protocol;            
-            InstancePort: InstancePort;            
-            SSLCertificateId?: SSLCertificateId;            
+            Protocol: Protocol;
+            LoadBalancerPort: AccessPointPort;
+            InstanceProtocol?: Protocol;
+            InstancePort: InstancePort;
+            SSLCertificateId?: SSLCertificateId;
         }
         export interface ListenerDescription {
-            Listener?: Listener;            
-            PolicyNames?: PolicyNames;            
+            Listener?: Listener;
+            PolicyNames?: PolicyNames;
         }
         export interface ListenerNotFoundException {
         }
         export interface LoadBalancerAttributeNotFoundException {
         }
         export interface LoadBalancerAttributes {
-            CrossZoneLoadBalancing?: CrossZoneLoadBalancing;            
-            AccessLog?: AccessLog;            
-            ConnectionDraining?: ConnectionDraining;            
-            ConnectionSettings?: ConnectionSettings;            
-            AdditionalAttributes?: AdditionalAttributes;            
+            CrossZoneLoadBalancing?: CrossZoneLoadBalancing;
+            AccessLog?: AccessLog;
+            ConnectionDraining?: ConnectionDraining;
+            ConnectionSettings?: ConnectionSettings;
+            AdditionalAttributes?: AdditionalAttributes;
         }
         export interface LoadBalancerDescription {
-            LoadBalancerName?: AccessPointName;            
-            DNSName?: DNSName;            
-            CanonicalHostedZoneName?: DNSName;            
-            CanonicalHostedZoneNameID?: DNSName;            
-            ListenerDescriptions?: ListenerDescriptions;            
-            Policies?: Policies;            
-            BackendServerDescriptions?: BackendServerDescriptions;            
-            AvailabilityZones?: AvailabilityZones;            
-            Subnets?: Subnets;            
-            VPCId?: VPCId;            
-            Instances?: Instances;            
-            HealthCheck?: HealthCheck;            
-            SourceSecurityGroup?: SourceSecurityGroup;            
-            SecurityGroups?: SecurityGroups;            
-            CreatedTime?: CreatedTime;            
-            Scheme?: LoadBalancerScheme;            
+            LoadBalancerName?: AccessPointName;
+            DNSName?: DNSName;
+            CanonicalHostedZoneName?: DNSName;
+            CanonicalHostedZoneNameID?: DNSName;
+            ListenerDescriptions?: ListenerDescriptions;
+            Policies?: Policies;
+            BackendServerDescriptions?: BackendServerDescriptions;
+            AvailabilityZones?: AvailabilityZones;
+            Subnets?: Subnets;
+            VPCId?: VPCId;
+            Instances?: Instances;
+            HealthCheck?: HealthCheck;
+            SourceSecurityGroup?: SourceSecurityGroup;
+            SecurityGroups?: SecurityGroups;
+            CreatedTime?: CreatedTime;
+            Scheme?: LoadBalancerScheme;
         }
         export interface ModifyLoadBalancerAttributesInput {
-            LoadBalancerName: AccessPointName;            
-            LoadBalancerAttributes: LoadBalancerAttributes;            
+            LoadBalancerName: AccessPointName;
+            LoadBalancerAttributes: LoadBalancerAttributes;
         }
         export interface ModifyLoadBalancerAttributesOutput {
-            LoadBalancerName?: AccessPointName;            
-            LoadBalancerAttributes?: LoadBalancerAttributes;            
+            LoadBalancerName?: AccessPointName;
+            LoadBalancerAttributes?: LoadBalancerAttributes;
         }
         export interface Policies {
-            AppCookieStickinessPolicies?: AppCookieStickinessPolicies;            
-            LBCookieStickinessPolicies?: LBCookieStickinessPolicies;            
-            OtherPolicies?: PolicyNames;            
+            AppCookieStickinessPolicies?: AppCookieStickinessPolicies;
+            LBCookieStickinessPolicies?: LBCookieStickinessPolicies;
+            OtherPolicies?: PolicyNames;
         }
         export interface PolicyAttribute {
-            AttributeName?: AttributeName;            
-            AttributeValue?: AttributeValue;            
+            AttributeName?: AttributeName;
+            AttributeValue?: AttributeValue;
         }
         export interface PolicyAttributeDescription {
-            AttributeName?: AttributeName;            
-            AttributeValue?: AttributeValue;            
+            AttributeName?: AttributeName;
+            AttributeValue?: AttributeValue;
         }
         export interface PolicyAttributeTypeDescription {
-            AttributeName?: AttributeName;            
-            AttributeType?: AttributeType;            
-            Description?: Description;            
-            DefaultValue?: DefaultValue;            
-            Cardinality?: Cardinality;            
+            AttributeName?: AttributeName;
+            AttributeType?: AttributeType;
+            Description?: Description;
+            DefaultValue?: DefaultValue;
+            Cardinality?: Cardinality;
         }
         export interface PolicyDescription {
-            PolicyName?: PolicyName;            
-            PolicyTypeName?: PolicyTypeName;            
-            PolicyAttributeDescriptions?: PolicyAttributeDescriptions;            
+            PolicyName?: PolicyName;
+            PolicyTypeName?: PolicyTypeName;
+            PolicyAttributeDescriptions?: PolicyAttributeDescriptions;
         }
         export interface PolicyNotFoundException {
         }
         export interface PolicyTypeDescription {
-            PolicyTypeName?: PolicyTypeName;            
-            Description?: Description;            
-            PolicyAttributeTypeDescriptions?: PolicyAttributeTypeDescriptions;            
+            PolicyTypeName?: PolicyTypeName;
+            Description?: Description;
+            PolicyAttributeTypeDescriptions?: PolicyAttributeTypeDescriptions;
         }
         export interface PolicyTypeNotFoundException {
         }
         export interface RegisterEndPointsInput {
-            LoadBalancerName: AccessPointName;            
-            Instances: Instances;            
+            LoadBalancerName: AccessPointName;
+            Instances: Instances;
         }
         export interface RegisterEndPointsOutput {
-            Instances?: Instances;            
+            Instances?: Instances;
         }
         export interface RemoveAvailabilityZonesInput {
-            LoadBalancerName: AccessPointName;            
-            AvailabilityZones: AvailabilityZones;            
+            LoadBalancerName: AccessPointName;
+            AvailabilityZones: AvailabilityZones;
         }
         export interface RemoveAvailabilityZonesOutput {
-            AvailabilityZones?: AvailabilityZones;            
+            AvailabilityZones?: AvailabilityZones;
         }
         export interface RemoveTagsInput {
-            LoadBalancerNames: LoadBalancerNames;            
-            Tags: TagKeyList;            
+            LoadBalancerNames: LoadBalancerNames;
+            Tags: TagKeyList;
         }
         export interface RemoveTagsOutput {
         }
         export interface SetLoadBalancerListenerSSLCertificateInput {
-            LoadBalancerName: AccessPointName;            
-            LoadBalancerPort: AccessPointPort;            
-            SSLCertificateId: SSLCertificateId;            
+            LoadBalancerName: AccessPointName;
+            LoadBalancerPort: AccessPointPort;
+            SSLCertificateId: SSLCertificateId;
         }
         export interface SetLoadBalancerListenerSSLCertificateOutput {
         }
         export interface SetLoadBalancerPoliciesForBackendServerInput {
-            LoadBalancerName: AccessPointName;            
-            InstancePort: EndPointPort;            
-            PolicyNames: PolicyNames;            
+            LoadBalancerName: AccessPointName;
+            InstancePort: EndPointPort;
+            PolicyNames: PolicyNames;
         }
         export interface SetLoadBalancerPoliciesForBackendServerOutput {
         }
         export interface SetLoadBalancerPoliciesOfListenerInput {
-            LoadBalancerName: AccessPointName;            
-            LoadBalancerPort: AccessPointPort;            
-            PolicyNames: PolicyNames;            
+            LoadBalancerName: AccessPointName;
+            LoadBalancerPort: AccessPointPort;
+            PolicyNames: PolicyNames;
         }
         export interface SetLoadBalancerPoliciesOfListenerOutput {
         }
         export interface SourceSecurityGroup {
-            OwnerAlias?: SecurityGroupOwnerAlias;            
-            GroupName?: SecurityGroupName;            
+            OwnerAlias?: SecurityGroupOwnerAlias;
+            GroupName?: SecurityGroupName;
         }
         export interface SubnetNotFoundException {
         }
         export interface Tag {
-            Key: TagKey;            
-            Value?: TagValue;            
+            Key: TagKey;
+            Value?: TagValue;
         }
         export interface TagDescription {
-            LoadBalancerName?: AccessPointName;            
-            Tags?: TagList;            
+            LoadBalancerName?: AccessPointName;
+            Tags?: TagList;
         }
         export interface TagKeyOnly {
-            Key?: TagKey;            
+            Key?: TagKey;
         }
         export interface TooManyAccessPointsException {
         }

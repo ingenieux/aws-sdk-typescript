@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-03-31
      * endpointPrefix: lambda
      * serviceAbbreviation: 
@@ -41,8 +41,9 @@ declare module "aws-sdk" {
       updateEventSourceMapping(params: Lambda.UpdateEventSourceMappingRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|Lambda.ResourceConflictException|any, data: Lambda.EventSourceMappingConfiguration|any) => void): Request;
       updateFunctionCode(params: Lambda.UpdateFunctionCodeRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|Lambda.CodeStorageExceededException|any, data: Lambda.FunctionConfiguration|any) => void): Request;
       updateFunctionConfiguration(params: Lambda.UpdateFunctionConfigurationRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.FunctionConfiguration|any) => void): Request;
+
     }
-    
+
     export module Lambda {
         export type Action = string;    // pattern: &quot;(lambda:[*]|lambda:[a-zA-Z]+|[*])&quot;
         export type Alias = string;    // pattern: &quot;(?!^[0-9]+$)([a-zA-Z0-9-_]+)&quot;, max: 128, min: 1
@@ -83,254 +84,254 @@ declare module "aws-sdk" {
         export type Version = string;    // pattern: &quot;(\$LATEST|[0-9]+)&quot;, max: 1024, min: 1
 
         export interface AddPermissionRequest {
-            FunctionName: FunctionName;            
-            StatementId: StatementId;            
-            Action: Action;            
-            Principal: Principal;            
-            SourceArn?: Arn;            
-            SourceAccount?: SourceOwner;            
-            Qualifier?: Qualifier;            
+            FunctionName: FunctionName;
+            StatementId: StatementId;
+            Action: Action;
+            Principal: Principal;
+            SourceArn?: Arn;
+            SourceAccount?: SourceOwner;
+            Qualifier?: Qualifier;
         }
         export interface AddPermissionResponse {
-            Statement?: String;            
+            Statement?: String;
         }
         export interface AliasConfiguration {
-            AliasArn?: FunctionArn;            
-            Name?: Alias;            
-            FunctionVersion?: Version;            
-            Description?: Description;            
+            AliasArn?: FunctionArn;
+            Name?: Alias;
+            FunctionVersion?: Version;
+            Description?: Description;
         }
         export interface CodeStorageExceededException {
-            Type?: String;            
-            message?: String;            
+            Type?: String;
+            message?: String;
         }
         export interface CreateAliasRequest {
-            FunctionName: FunctionName;            
-            Name: Alias;            
-            FunctionVersion: Version;            
-            Description?: Description;            
+            FunctionName: FunctionName;
+            Name: Alias;
+            FunctionVersion: Version;
+            Description?: Description;
         }
         export interface CreateEventSourceMappingRequest {
-            EventSourceArn: Arn;            
-            FunctionName: FunctionName;            
-            Enabled?: Enabled;            
-            BatchSize?: BatchSize;            
-            StartingPosition: EventSourcePosition;            
+            EventSourceArn: Arn;
+            FunctionName: FunctionName;
+            Enabled?: Enabled;
+            BatchSize?: BatchSize;
+            StartingPosition: EventSourcePosition;
         }
         export interface CreateFunctionRequest {
-            FunctionName: FunctionName;            
-            Runtime: Runtime;            
-            Role: RoleArn;            
-            Handler: Handler;            
-            Code: FunctionCode;            
-            Description?: Description;            
-            Timeout?: Timeout;            
-            MemorySize?: MemorySize;            
-            Publish?: Boolean;            
+            FunctionName: FunctionName;
+            Runtime: Runtime;
+            Role: RoleArn;
+            Handler: Handler;
+            Code: FunctionCode;
+            Description?: Description;
+            Timeout?: Timeout;
+            MemorySize?: MemorySize;
+            Publish?: Boolean;
         }
         export interface DeleteAliasRequest {
-            FunctionName: FunctionName;            
-            Name: Alias;            
+            FunctionName: FunctionName;
+            Name: Alias;
         }
         export interface DeleteEventSourceMappingRequest {
-            UUID: String;            
+            UUID: String;
         }
         export interface DeleteFunctionRequest {
-            FunctionName: FunctionName;            
-            Qualifier?: Qualifier;            
+            FunctionName: FunctionName;
+            Qualifier?: Qualifier;
         }
         export interface EventSourceMappingConfiguration {
-            UUID?: String;            
-            BatchSize?: BatchSize;            
-            EventSourceArn?: Arn;            
-            FunctionArn?: FunctionArn;            
-            LastModified?: Date;            
-            LastProcessingResult?: String;            
-            State?: String;            
-            StateTransitionReason?: String;            
+            UUID?: String;
+            BatchSize?: BatchSize;
+            EventSourceArn?: Arn;
+            FunctionArn?: FunctionArn;
+            LastModified?: Date;
+            LastProcessingResult?: String;
+            State?: String;
+            StateTransitionReason?: String;
         }
         export interface FunctionCode {
-            ZipFile?: Blob;            
-            S3Bucket?: S3Bucket;            
-            S3Key?: S3Key;            
-            S3ObjectVersion?: S3ObjectVersion;            
+            ZipFile?: Blob;
+            S3Bucket?: S3Bucket;
+            S3Key?: S3Key;
+            S3ObjectVersion?: S3ObjectVersion;
         }
         export interface FunctionCodeLocation {
-            RepositoryType?: String;            
-            Location?: String;            
+            RepositoryType?: String;
+            Location?: String;
         }
         export interface FunctionConfiguration {
-            FunctionName?: FunctionName;            
-            FunctionArn?: FunctionArn;            
-            Runtime?: Runtime;            
-            Role?: RoleArn;            
-            Handler?: Handler;            
-            CodeSize?: Long;            
-            Description?: Description;            
-            Timeout?: Timeout;            
-            MemorySize?: MemorySize;            
-            LastModified?: Timestamp;            
-            CodeSha256?: String;            
-            Version?: Version;            
+            FunctionName?: FunctionName;
+            FunctionArn?: FunctionArn;
+            Runtime?: Runtime;
+            Role?: RoleArn;
+            Handler?: Handler;
+            CodeSize?: Long;
+            Description?: Description;
+            Timeout?: Timeout;
+            MemorySize?: MemorySize;
+            LastModified?: Timestamp;
+            CodeSha256?: String;
+            Version?: Version;
         }
         export interface GetAliasRequest {
-            FunctionName: FunctionName;            
-            Name: Alias;            
+            FunctionName: FunctionName;
+            Name: Alias;
         }
         export interface GetEventSourceMappingRequest {
-            UUID: String;            
+            UUID: String;
         }
         export interface GetFunctionConfigurationRequest {
-            FunctionName: FunctionName;            
-            Qualifier?: Qualifier;            
+            FunctionName: FunctionName;
+            Qualifier?: Qualifier;
         }
         export interface GetFunctionRequest {
-            FunctionName: FunctionName;            
-            Qualifier?: Qualifier;            
+            FunctionName: FunctionName;
+            Qualifier?: Qualifier;
         }
         export interface GetFunctionResponse {
-            Configuration?: FunctionConfiguration;            
-            Code?: FunctionCodeLocation;            
+            Configuration?: FunctionConfiguration;
+            Code?: FunctionCodeLocation;
         }
         export interface GetPolicyRequest {
-            FunctionName: FunctionName;            
-            Qualifier?: Qualifier;            
+            FunctionName: FunctionName;
+            Qualifier?: Qualifier;
         }
         export interface GetPolicyResponse {
-            Policy?: String;            
+            Policy?: String;
         }
         export interface InvalidParameterValueException {
-            Type?: String;            
-            message?: String;            
+            Type?: String;
+            message?: String;
         }
         export interface InvalidRequestContentException {
-            Type?: String;            
-            message?: String;            
+            Type?: String;
+            message?: String;
         }
         export interface InvocationRequest {
-            FunctionName: FunctionName;            
-            InvocationType?: InvocationType;            
-            LogType?: LogType;            
-            ClientContext?: String;            
-            Payload?: Blob;            
-            Qualifier?: Qualifier;            
+            FunctionName: FunctionName;
+            InvocationType?: InvocationType;
+            LogType?: LogType;
+            ClientContext?: String;
+            Payload?: Blob;
+            Qualifier?: Qualifier;
         }
         export interface InvocationResponse {
-            StatusCode?: Integer;            
-            FunctionError?: String;            
-            LogResult?: String;            
-            Payload?: Blob;            
+            StatusCode?: Integer;
+            FunctionError?: String;
+            LogResult?: String;
+            Payload?: Blob;
         }
         export interface InvokeAsyncRequest {
-            FunctionName: FunctionName;            
-            InvokeArgs: BlobStream;            
+            FunctionName: FunctionName;
+            InvokeArgs: BlobStream;
         }
         export interface InvokeAsyncResponse {
-            Status?: HttpStatus;            
+            Status?: HttpStatus;
         }
         export interface ListAliasesRequest {
-            FunctionName: FunctionName;            
-            FunctionVersion?: Version;            
-            Marker?: String;            
-            MaxItems?: MaxListItems;            
+            FunctionName: FunctionName;
+            FunctionVersion?: Version;
+            Marker?: String;
+            MaxItems?: MaxListItems;
         }
         export interface ListAliasesResponse {
-            NextMarker?: String;            
-            Aliases?: AliasList;            
+            NextMarker?: String;
+            Aliases?: AliasList;
         }
         export interface ListEventSourceMappingsRequest {
-            EventSourceArn?: Arn;            
-            FunctionName?: FunctionName;            
-            Marker?: String;            
-            MaxItems?: MaxListItems;            
+            EventSourceArn?: Arn;
+            FunctionName?: FunctionName;
+            Marker?: String;
+            MaxItems?: MaxListItems;
         }
         export interface ListEventSourceMappingsResponse {
-            NextMarker?: String;            
-            EventSourceMappings?: EventSourceMappingsList;            
+            NextMarker?: String;
+            EventSourceMappings?: EventSourceMappingsList;
         }
         export interface ListFunctionsRequest {
-            Marker?: String;            
-            MaxItems?: MaxListItems;            
+            Marker?: String;
+            MaxItems?: MaxListItems;
         }
         export interface ListFunctionsResponse {
-            NextMarker?: String;            
-            Functions?: FunctionList;            
+            NextMarker?: String;
+            Functions?: FunctionList;
         }
         export interface ListVersionsByFunctionRequest {
-            FunctionName: FunctionName;            
-            Marker?: String;            
-            MaxItems?: MaxListItems;            
+            FunctionName: FunctionName;
+            Marker?: String;
+            MaxItems?: MaxListItems;
         }
         export interface ListVersionsByFunctionResponse {
-            NextMarker?: String;            
-            Versions?: FunctionList;            
+            NextMarker?: String;
+            Versions?: FunctionList;
         }
         export interface PolicyLengthExceededException {
-            Type?: String;            
-            message?: String;            
+            Type?: String;
+            message?: String;
         }
         export interface PublishVersionRequest {
-            FunctionName: FunctionName;            
-            CodeSha256?: String;            
-            Description?: Description;            
+            FunctionName: FunctionName;
+            CodeSha256?: String;
+            Description?: Description;
         }
         export interface RemovePermissionRequest {
-            FunctionName: FunctionName;            
-            StatementId: StatementId;            
-            Qualifier?: Qualifier;            
+            FunctionName: FunctionName;
+            StatementId: StatementId;
+            Qualifier?: Qualifier;
         }
         export interface RequestTooLargeException {
-            Type?: String;            
-            message?: String;            
+            Type?: String;
+            message?: String;
         }
         export interface ResourceConflictException {
-            Type?: String;            
-            message?: String;            
+            Type?: String;
+            message?: String;
         }
         export interface ResourceNotFoundException {
-            Type?: String;            
-            Message?: String;            
+            Type?: String;
+            Message?: String;
         }
         export interface ServiceException {
-            Type?: String;            
-            Message?: String;            
+            Type?: String;
+            Message?: String;
         }
         export interface TooManyRequestsException {
-            retryAfterSeconds?: String;            
-            Type?: String;            
-            message?: String;            
+            retryAfterSeconds?: String;
+            Type?: String;
+            message?: String;
         }
         export interface UnsupportedMediaTypeException {
-            Type?: String;            
-            message?: String;            
+            Type?: String;
+            message?: String;
         }
         export interface UpdateAliasRequest {
-            FunctionName: FunctionName;            
-            Name: Alias;            
-            FunctionVersion?: Version;            
-            Description?: Description;            
+            FunctionName: FunctionName;
+            Name: Alias;
+            FunctionVersion?: Version;
+            Description?: Description;
         }
         export interface UpdateEventSourceMappingRequest {
-            UUID: String;            
-            FunctionName?: FunctionName;            
-            Enabled?: Enabled;            
-            BatchSize?: BatchSize;            
+            UUID: String;
+            FunctionName?: FunctionName;
+            Enabled?: Enabled;
+            BatchSize?: BatchSize;
         }
         export interface UpdateFunctionCodeRequest {
-            FunctionName: FunctionName;            
-            ZipFile?: Blob;            
-            S3Bucket?: S3Bucket;            
-            S3Key?: S3Key;            
-            S3ObjectVersion?: S3ObjectVersion;            
-            Publish?: Boolean;            
+            FunctionName: FunctionName;
+            ZipFile?: Blob;
+            S3Bucket?: S3Bucket;
+            S3Key?: S3Key;
+            S3ObjectVersion?: S3ObjectVersion;
+            Publish?: Boolean;
         }
         export interface UpdateFunctionConfigurationRequest {
-            FunctionName: FunctionName;            
-            Role?: RoleArn;            
-            Handler?: Handler;            
-            Description?: Description;            
-            Timeout?: Timeout;            
-            MemorySize?: MemorySize;            
+            FunctionName: FunctionName;
+            Role?: RoleArn;
+            Handler?: Handler;
+            Description?: Description;
+            Timeout?: Timeout;
+            MemorySize?: MemorySize;
         }
 
     }

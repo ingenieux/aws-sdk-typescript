@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2010-12-01
      * endpointPrefix: elasticbeanstalk
      * serviceAbbreviation: Elastic Beanstalk
@@ -50,8 +50,9 @@ declare module "aws-sdk" {
       updateConfigurationTemplate(params: ElasticBeanstalk.UpdateConfigurationTemplateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.ConfigurationSettingsDescription|any) => void): Request;
       updateEnvironment(params: ElasticBeanstalk.UpdateEnvironmentMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.EnvironmentDescription|any) => void): Request;
       validateConfigurationSettings(params: ElasticBeanstalk.ValidateConfigurationSettingsMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.ConfigurationSettingsValidationMessages|any) => void): Request;
+
     }
-    
+
     export module ElasticBeanstalk {
         export type AbortableOperationInProgress = boolean;
         export type ApplicationDescriptionList = ApplicationDescription[];
@@ -165,437 +166,437 @@ declare module "aws-sdk" {
         export type VersionLabelsList = VersionLabel[];
 
         export interface AbortEnvironmentUpdateMessage {
-            EnvironmentId?: EnvironmentId;            
-            EnvironmentName?: EnvironmentName;            
+            EnvironmentId?: EnvironmentId;
+            EnvironmentName?: EnvironmentName;
         }
         export interface ApplicationDescription {
-            ApplicationName?: ApplicationName;            
-            Description?: Description;            
-            DateCreated?: CreationDate;            
-            DateUpdated?: UpdateDate;            
-            Versions?: VersionLabelsList;            
-            ConfigurationTemplates?: ConfigurationTemplateNamesList;            
+            ApplicationName?: ApplicationName;
+            Description?: Description;
+            DateCreated?: CreationDate;
+            DateUpdated?: UpdateDate;
+            Versions?: VersionLabelsList;
+            ConfigurationTemplates?: ConfigurationTemplateNamesList;
         }
         export interface ApplicationDescriptionMessage {
-            Application?: ApplicationDescription;            
+            Application?: ApplicationDescription;
         }
         export interface ApplicationDescriptionsMessage {
-            Applications?: ApplicationDescriptionList;            
+            Applications?: ApplicationDescriptionList;
         }
         export interface ApplicationMetrics {
-            Duration?: NullableInteger;            
-            RequestCount?: RequestCount;            
-            StatusCodes?: StatusCodes;            
-            Latency?: Latency;            
+            Duration?: NullableInteger;
+            RequestCount?: RequestCount;
+            StatusCodes?: StatusCodes;
+            Latency?: Latency;
         }
         export interface ApplicationVersionDescription {
-            ApplicationName?: ApplicationName;            
-            Description?: Description;            
-            VersionLabel?: VersionLabel;            
-            SourceBundle?: S3Location;            
-            DateCreated?: CreationDate;            
-            DateUpdated?: UpdateDate;            
-            Status?: ApplicationVersionStatus;            
+            ApplicationName?: ApplicationName;
+            Description?: Description;
+            VersionLabel?: VersionLabel;
+            SourceBundle?: S3Location;
+            DateCreated?: CreationDate;
+            DateUpdated?: UpdateDate;
+            Status?: ApplicationVersionStatus;
         }
         export interface ApplicationVersionDescriptionMessage {
-            ApplicationVersion?: ApplicationVersionDescription;            
+            ApplicationVersion?: ApplicationVersionDescription;
         }
         export interface ApplicationVersionDescriptionsMessage {
-            ApplicationVersions?: ApplicationVersionDescriptionList;            
+            ApplicationVersions?: ApplicationVersionDescriptionList;
         }
         export interface AutoScalingGroup {
-            Name?: ResourceId;            
+            Name?: ResourceId;
         }
         export interface CPUUtilization {
-            User?: NullableDouble;            
-            Nice?: NullableDouble;            
-            System?: NullableDouble;            
-            Idle?: NullableDouble;            
-            IOWait?: NullableDouble;            
-            IRQ?: NullableDouble;            
-            SoftIRQ?: NullableDouble;            
+            User?: NullableDouble;
+            Nice?: NullableDouble;
+            System?: NullableDouble;
+            Idle?: NullableDouble;
+            IOWait?: NullableDouble;
+            IRQ?: NullableDouble;
+            SoftIRQ?: NullableDouble;
         }
         export interface CheckDNSAvailabilityMessage {
-            CNAMEPrefix: DNSCnamePrefix;            
+            CNAMEPrefix: DNSCnamePrefix;
         }
         export interface CheckDNSAvailabilityResultMessage {
-            Available?: CnameAvailability;            
-            FullyQualifiedCNAME?: DNSCname;            
+            Available?: CnameAvailability;
+            FullyQualifiedCNAME?: DNSCname;
         }
         export interface ComposeEnvironmentsMessage {
-            ApplicationName?: ApplicationName;            
-            GroupName?: GroupName;            
-            VersionLabels?: VersionLabels;            
+            ApplicationName?: ApplicationName;
+            GroupName?: GroupName;
+            VersionLabels?: VersionLabels;
         }
         export interface ConfigurationOptionDescription {
-            Namespace?: OptionNamespace;            
-            Name?: ConfigurationOptionName;            
-            DefaultValue?: ConfigurationOptionDefaultValue;            
-            ChangeSeverity?: ConfigurationOptionSeverity;            
-            UserDefined?: UserDefinedOption;            
-            ValueType?: ConfigurationOptionValueType;            
-            ValueOptions?: ConfigurationOptionPossibleValues;            
-            MinValue?: OptionRestrictionMinValue;            
-            MaxValue?: OptionRestrictionMaxValue;            
-            MaxLength?: OptionRestrictionMaxLength;            
-            Regex?: OptionRestrictionRegex;            
+            Namespace?: OptionNamespace;
+            Name?: ConfigurationOptionName;
+            DefaultValue?: ConfigurationOptionDefaultValue;
+            ChangeSeverity?: ConfigurationOptionSeverity;
+            UserDefined?: UserDefinedOption;
+            ValueType?: ConfigurationOptionValueType;
+            ValueOptions?: ConfigurationOptionPossibleValues;
+            MinValue?: OptionRestrictionMinValue;
+            MaxValue?: OptionRestrictionMaxValue;
+            MaxLength?: OptionRestrictionMaxLength;
+            Regex?: OptionRestrictionRegex;
         }
         export interface ConfigurationOptionSetting {
-            ResourceName?: ResourceName;            
-            Namespace?: OptionNamespace;            
-            OptionName?: ConfigurationOptionName;            
-            Value?: ConfigurationOptionValue;            
+            ResourceName?: ResourceName;
+            Namespace?: OptionNamespace;
+            OptionName?: ConfigurationOptionName;
+            Value?: ConfigurationOptionValue;
         }
         export interface ConfigurationOptionsDescription {
-            SolutionStackName?: SolutionStackName;            
-            Options?: ConfigurationOptionDescriptionsList;            
+            SolutionStackName?: SolutionStackName;
+            Options?: ConfigurationOptionDescriptionsList;
         }
         export interface ConfigurationSettingsDescription {
-            SolutionStackName?: SolutionStackName;            
-            ApplicationName?: ApplicationName;            
-            TemplateName?: ConfigurationTemplateName;            
-            Description?: Description;            
-            EnvironmentName?: EnvironmentName;            
-            DeploymentStatus?: ConfigurationDeploymentStatus;            
-            DateCreated?: CreationDate;            
-            DateUpdated?: UpdateDate;            
-            OptionSettings?: ConfigurationOptionSettingsList;            
+            SolutionStackName?: SolutionStackName;
+            ApplicationName?: ApplicationName;
+            TemplateName?: ConfigurationTemplateName;
+            Description?: Description;
+            EnvironmentName?: EnvironmentName;
+            DeploymentStatus?: ConfigurationDeploymentStatus;
+            DateCreated?: CreationDate;
+            DateUpdated?: UpdateDate;
+            OptionSettings?: ConfigurationOptionSettingsList;
         }
         export interface ConfigurationSettingsDescriptions {
-            ConfigurationSettings?: ConfigurationSettingsDescriptionList;            
+            ConfigurationSettings?: ConfigurationSettingsDescriptionList;
         }
         export interface ConfigurationSettingsValidationMessages {
-            Messages?: ValidationMessagesList;            
+            Messages?: ValidationMessagesList;
         }
         export interface CreateApplicationMessage {
-            ApplicationName: ApplicationName;            
-            Description?: Description;            
+            ApplicationName: ApplicationName;
+            Description?: Description;
         }
         export interface CreateApplicationVersionMessage {
-            ApplicationName: ApplicationName;            
-            VersionLabel: VersionLabel;            
-            Description?: Description;            
-            SourceBundle?: S3Location;            
-            AutoCreateApplication?: AutoCreateApplication;            
-            Process?: ApplicationVersionProccess;            
+            ApplicationName: ApplicationName;
+            VersionLabel: VersionLabel;
+            Description?: Description;
+            SourceBundle?: S3Location;
+            AutoCreateApplication?: AutoCreateApplication;
+            Process?: ApplicationVersionProccess;
         }
         export interface CreateConfigurationTemplateMessage {
-            ApplicationName: ApplicationName;            
-            TemplateName: ConfigurationTemplateName;            
-            SolutionStackName?: SolutionStackName;            
-            SourceConfiguration?: SourceConfiguration;            
-            EnvironmentId?: EnvironmentId;            
-            Description?: Description;            
-            OptionSettings?: ConfigurationOptionSettingsList;            
+            ApplicationName: ApplicationName;
+            TemplateName: ConfigurationTemplateName;
+            SolutionStackName?: SolutionStackName;
+            SourceConfiguration?: SourceConfiguration;
+            EnvironmentId?: EnvironmentId;
+            Description?: Description;
+            OptionSettings?: ConfigurationOptionSettingsList;
         }
         export interface CreateEnvironmentMessage {
-            ApplicationName: ApplicationName;            
-            EnvironmentName?: EnvironmentName;            
-            GroupName?: GroupName;            
-            Description?: Description;            
-            CNAMEPrefix?: DNSCnamePrefix;            
-            Tier?: EnvironmentTier;            
-            Tags?: Tags;            
-            VersionLabel?: VersionLabel;            
-            TemplateName?: ConfigurationTemplateName;            
-            SolutionStackName?: SolutionStackName;            
-            OptionSettings?: ConfigurationOptionSettingsList;            
-            OptionsToRemove?: OptionsSpecifierList;            
+            ApplicationName: ApplicationName;
+            EnvironmentName?: EnvironmentName;
+            GroupName?: GroupName;
+            Description?: Description;
+            CNAMEPrefix?: DNSCnamePrefix;
+            Tier?: EnvironmentTier;
+            Tags?: Tags;
+            VersionLabel?: VersionLabel;
+            TemplateName?: ConfigurationTemplateName;
+            SolutionStackName?: SolutionStackName;
+            OptionSettings?: ConfigurationOptionSettingsList;
+            OptionsToRemove?: OptionsSpecifierList;
         }
         export interface CreateStorageLocationResultMessage {
-            S3Bucket?: S3Bucket;            
+            S3Bucket?: S3Bucket;
         }
         export interface DeleteApplicationMessage {
-            ApplicationName: ApplicationName;            
-            TerminateEnvByForce?: TerminateEnvForce;            
+            ApplicationName: ApplicationName;
+            TerminateEnvByForce?: TerminateEnvForce;
         }
         export interface DeleteApplicationVersionMessage {
-            ApplicationName: ApplicationName;            
-            VersionLabel: VersionLabel;            
-            DeleteSourceBundle?: DeleteSourceBundle;            
+            ApplicationName: ApplicationName;
+            VersionLabel: VersionLabel;
+            DeleteSourceBundle?: DeleteSourceBundle;
         }
         export interface DeleteConfigurationTemplateMessage {
-            ApplicationName: ApplicationName;            
-            TemplateName: ConfigurationTemplateName;            
+            ApplicationName: ApplicationName;
+            TemplateName: ConfigurationTemplateName;
         }
         export interface DeleteEnvironmentConfigurationMessage {
-            ApplicationName: ApplicationName;            
-            EnvironmentName: EnvironmentName;            
+            ApplicationName: ApplicationName;
+            EnvironmentName: EnvironmentName;
         }
         export interface DescribeApplicationVersionsMessage {
-            ApplicationName?: ApplicationName;            
-            VersionLabels?: VersionLabelsList;            
+            ApplicationName?: ApplicationName;
+            VersionLabels?: VersionLabelsList;
         }
         export interface DescribeApplicationsMessage {
-            ApplicationNames?: ApplicationNamesList;            
+            ApplicationNames?: ApplicationNamesList;
         }
         export interface DescribeConfigurationOptionsMessage {
-            ApplicationName?: ApplicationName;            
-            TemplateName?: ConfigurationTemplateName;            
-            EnvironmentName?: EnvironmentName;            
-            SolutionStackName?: SolutionStackName;            
-            Options?: OptionsSpecifierList;            
+            ApplicationName?: ApplicationName;
+            TemplateName?: ConfigurationTemplateName;
+            EnvironmentName?: EnvironmentName;
+            SolutionStackName?: SolutionStackName;
+            Options?: OptionsSpecifierList;
         }
         export interface DescribeConfigurationSettingsMessage {
-            ApplicationName: ApplicationName;            
-            TemplateName?: ConfigurationTemplateName;            
-            EnvironmentName?: EnvironmentName;            
+            ApplicationName: ApplicationName;
+            TemplateName?: ConfigurationTemplateName;
+            EnvironmentName?: EnvironmentName;
         }
         export interface DescribeEnvironmentHealthRequest {
-            EnvironmentName?: EnvironmentName;            
-            EnvironmentId?: EnvironmentId;            
-            AttributeNames?: EnvironmentHealthAttributes;            
+            EnvironmentName?: EnvironmentName;
+            EnvironmentId?: EnvironmentId;
+            AttributeNames?: EnvironmentHealthAttributes;
         }
         export interface DescribeEnvironmentHealthResult {
-            EnvironmentName?: EnvironmentName;            
-            HealthStatus?: String;            
-            Status?: EnvironmentHealth;            
-            Color?: String;            
-            Causes?: Causes;            
-            ApplicationMetrics?: ApplicationMetrics;            
-            InstancesHealth?: InstanceHealthSummary;            
-            RefreshedAt?: RefreshedAt;            
+            EnvironmentName?: EnvironmentName;
+            HealthStatus?: String;
+            Status?: EnvironmentHealth;
+            Color?: String;
+            Causes?: Causes;
+            ApplicationMetrics?: ApplicationMetrics;
+            InstancesHealth?: InstanceHealthSummary;
+            RefreshedAt?: RefreshedAt;
         }
         export interface DescribeEnvironmentResourcesMessage {
-            EnvironmentId?: EnvironmentId;            
-            EnvironmentName?: EnvironmentName;            
+            EnvironmentId?: EnvironmentId;
+            EnvironmentName?: EnvironmentName;
         }
         export interface DescribeEnvironmentsMessage {
-            ApplicationName?: ApplicationName;            
-            VersionLabel?: VersionLabel;            
-            EnvironmentIds?: EnvironmentIdList;            
-            EnvironmentNames?: EnvironmentNamesList;            
-            IncludeDeleted?: IncludeDeleted;            
-            IncludedDeletedBackTo?: IncludeDeletedBackTo;            
+            ApplicationName?: ApplicationName;
+            VersionLabel?: VersionLabel;
+            EnvironmentIds?: EnvironmentIdList;
+            EnvironmentNames?: EnvironmentNamesList;
+            IncludeDeleted?: IncludeDeleted;
+            IncludedDeletedBackTo?: IncludeDeletedBackTo;
         }
         export interface DescribeEventsMessage {
-            ApplicationName?: ApplicationName;            
-            VersionLabel?: VersionLabel;            
-            TemplateName?: ConfigurationTemplateName;            
-            EnvironmentId?: EnvironmentId;            
-            EnvironmentName?: EnvironmentName;            
-            RequestId?: RequestId;            
-            Severity?: EventSeverity;            
-            StartTime?: TimeFilterStart;            
-            EndTime?: TimeFilterEnd;            
-            MaxRecords?: MaxRecords;            
-            NextToken?: Token;            
+            ApplicationName?: ApplicationName;
+            VersionLabel?: VersionLabel;
+            TemplateName?: ConfigurationTemplateName;
+            EnvironmentId?: EnvironmentId;
+            EnvironmentName?: EnvironmentName;
+            RequestId?: RequestId;
+            Severity?: EventSeverity;
+            StartTime?: TimeFilterStart;
+            EndTime?: TimeFilterEnd;
+            MaxRecords?: MaxRecords;
+            NextToken?: Token;
         }
         export interface DescribeInstancesHealthRequest {
-            EnvironmentName?: EnvironmentName;            
-            EnvironmentId?: EnvironmentId;            
-            AttributeNames?: InstancesHealthAttributes;            
-            NextToken?: NextToken;            
+            EnvironmentName?: EnvironmentName;
+            EnvironmentId?: EnvironmentId;
+            AttributeNames?: InstancesHealthAttributes;
+            NextToken?: NextToken;
         }
         export interface DescribeInstancesHealthResult {
-            InstanceHealthList?: InstanceHealthList;            
-            RefreshedAt?: RefreshedAt;            
-            NextToken?: NextToken;            
+            InstanceHealthList?: InstanceHealthList;
+            RefreshedAt?: RefreshedAt;
+            NextToken?: NextToken;
         }
         export interface ElasticBeanstalkServiceException {
-            message?: ExceptionMessage;            
+            message?: ExceptionMessage;
         }
         export interface EnvironmentDescription {
-            EnvironmentName?: EnvironmentName;            
-            EnvironmentId?: EnvironmentId;            
-            ApplicationName?: ApplicationName;            
-            VersionLabel?: VersionLabel;            
-            SolutionStackName?: SolutionStackName;            
-            TemplateName?: ConfigurationTemplateName;            
-            Description?: Description;            
-            EndpointURL?: EndpointURL;            
-            CNAME?: DNSCname;            
-            DateCreated?: CreationDate;            
-            DateUpdated?: UpdateDate;            
-            Status?: EnvironmentStatus;            
-            AbortableOperationInProgress?: AbortableOperationInProgress;            
-            Health?: EnvironmentHealth;            
-            HealthStatus?: EnvironmentHealthStatus;            
-            Resources?: EnvironmentResourcesDescription;            
-            Tier?: EnvironmentTier;            
-            EnvironmentLinks?: EnvironmentLinks;            
+            EnvironmentName?: EnvironmentName;
+            EnvironmentId?: EnvironmentId;
+            ApplicationName?: ApplicationName;
+            VersionLabel?: VersionLabel;
+            SolutionStackName?: SolutionStackName;
+            TemplateName?: ConfigurationTemplateName;
+            Description?: Description;
+            EndpointURL?: EndpointURL;
+            CNAME?: DNSCname;
+            DateCreated?: CreationDate;
+            DateUpdated?: UpdateDate;
+            Status?: EnvironmentStatus;
+            AbortableOperationInProgress?: AbortableOperationInProgress;
+            Health?: EnvironmentHealth;
+            HealthStatus?: EnvironmentHealthStatus;
+            Resources?: EnvironmentResourcesDescription;
+            Tier?: EnvironmentTier;
+            EnvironmentLinks?: EnvironmentLinks;
         }
         export interface EnvironmentDescriptionsMessage {
-            Environments?: EnvironmentDescriptionsList;            
+            Environments?: EnvironmentDescriptionsList;
         }
         export interface EnvironmentInfoDescription {
-            InfoType?: EnvironmentInfoType;            
-            Ec2InstanceId?: Ec2InstanceId;            
-            SampleTimestamp?: SampleTimestamp;            
-            Message?: Message;            
+            InfoType?: EnvironmentInfoType;
+            Ec2InstanceId?: Ec2InstanceId;
+            SampleTimestamp?: SampleTimestamp;
+            Message?: Message;
         }
         export interface EnvironmentLink {
-            LinkName?: String;            
-            EnvironmentName?: String;            
+            LinkName?: String;
+            EnvironmentName?: String;
         }
         export interface EnvironmentResourceDescription {
-            EnvironmentName?: EnvironmentName;            
-            AutoScalingGroups?: AutoScalingGroupList;            
-            Instances?: InstanceList;            
-            LaunchConfigurations?: LaunchConfigurationList;            
-            LoadBalancers?: LoadBalancerList;            
-            Triggers?: TriggerList;            
-            Queues?: QueueList;            
+            EnvironmentName?: EnvironmentName;
+            AutoScalingGroups?: AutoScalingGroupList;
+            Instances?: InstanceList;
+            LaunchConfigurations?: LaunchConfigurationList;
+            LoadBalancers?: LoadBalancerList;
+            Triggers?: TriggerList;
+            Queues?: QueueList;
         }
         export interface EnvironmentResourceDescriptionsMessage {
-            EnvironmentResources?: EnvironmentResourceDescription;            
+            EnvironmentResources?: EnvironmentResourceDescription;
         }
         export interface EnvironmentResourcesDescription {
-            LoadBalancer?: LoadBalancerDescription;            
+            LoadBalancer?: LoadBalancerDescription;
         }
         export interface EnvironmentTier {
-            Name?: String;            
-            Type?: String;            
-            Version?: String;            
+            Name?: String;
+            Type?: String;
+            Version?: String;
         }
         export interface EventDescription {
-            EventDate?: EventDate;            
-            Message?: EventMessage;            
-            ApplicationName?: ApplicationName;            
-            VersionLabel?: VersionLabel;            
-            TemplateName?: ConfigurationTemplateName;            
-            EnvironmentName?: EnvironmentName;            
-            RequestId?: RequestId;            
-            Severity?: EventSeverity;            
+            EventDate?: EventDate;
+            Message?: EventMessage;
+            ApplicationName?: ApplicationName;
+            VersionLabel?: VersionLabel;
+            TemplateName?: ConfigurationTemplateName;
+            EnvironmentName?: EnvironmentName;
+            RequestId?: RequestId;
+            Severity?: EventSeverity;
         }
         export interface EventDescriptionsMessage {
-            Events?: EventDescriptionList;            
-            NextToken?: Token;            
+            Events?: EventDescriptionList;
+            NextToken?: Token;
         }
         export interface Instance {
-            Id?: ResourceId;            
+            Id?: ResourceId;
         }
         export interface InstanceHealthSummary {
-            NoData?: NullableInteger;            
-            Unknown?: NullableInteger;            
-            Pending?: NullableInteger;            
-            Ok?: NullableInteger;            
-            Info?: NullableInteger;            
-            Warning?: NullableInteger;            
-            Degraded?: NullableInteger;            
-            Severe?: NullableInteger;            
+            NoData?: NullableInteger;
+            Unknown?: NullableInteger;
+            Pending?: NullableInteger;
+            Ok?: NullableInteger;
+            Info?: NullableInteger;
+            Warning?: NullableInteger;
+            Degraded?: NullableInteger;
+            Severe?: NullableInteger;
         }
         export interface InsufficientPrivilegesException {
         }
         export interface InvalidRequestException {
         }
         export interface Latency {
-            P999?: NullableDouble;            
-            P99?: NullableDouble;            
-            P95?: NullableDouble;            
-            P90?: NullableDouble;            
-            P85?: NullableDouble;            
-            P75?: NullableDouble;            
-            P50?: NullableDouble;            
-            P10?: NullableDouble;            
+            P999?: NullableDouble;
+            P99?: NullableDouble;
+            P95?: NullableDouble;
+            P90?: NullableDouble;
+            P85?: NullableDouble;
+            P75?: NullableDouble;
+            P50?: NullableDouble;
+            P10?: NullableDouble;
         }
         export interface LaunchConfiguration {
-            Name?: ResourceId;            
+            Name?: ResourceId;
         }
         export interface ListAvailableSolutionStacksResultMessage {
-            SolutionStacks?: AvailableSolutionStackNamesList;            
-            SolutionStackDetails?: AvailableSolutionStackDetailsList;            
+            SolutionStacks?: AvailableSolutionStackNamesList;
+            SolutionStackDetails?: AvailableSolutionStackDetailsList;
         }
         export interface Listener {
-            Protocol?: String;            
-            Port?: Integer;            
+            Protocol?: String;
+            Port?: Integer;
         }
         export interface LoadBalancer {
-            Name?: ResourceId;            
+            Name?: ResourceId;
         }
         export interface LoadBalancerDescription {
-            LoadBalancerName?: String;            
-            Domain?: String;            
-            Listeners?: LoadBalancerListenersDescription;            
+            LoadBalancerName?: String;
+            Domain?: String;
+            Listeners?: LoadBalancerListenersDescription;
         }
         export interface OperationInProgressException {
         }
         export interface OptionRestrictionRegex {
-            Pattern?: RegexPattern;            
-            Label?: RegexLabel;            
+            Pattern?: RegexPattern;
+            Label?: RegexLabel;
         }
         export interface OptionSpecification {
-            ResourceName?: ResourceName;            
-            Namespace?: OptionNamespace;            
-            OptionName?: ConfigurationOptionName;            
+            ResourceName?: ResourceName;
+            Namespace?: OptionNamespace;
+            OptionName?: ConfigurationOptionName;
         }
         export interface Queue {
-            Name?: String;            
-            URL?: String;            
+            Name?: String;
+            URL?: String;
         }
         export interface RebuildEnvironmentMessage {
-            EnvironmentId?: EnvironmentId;            
-            EnvironmentName?: EnvironmentName;            
+            EnvironmentId?: EnvironmentId;
+            EnvironmentName?: EnvironmentName;
         }
         export interface RequestEnvironmentInfoMessage {
-            EnvironmentId?: EnvironmentId;            
-            EnvironmentName?: EnvironmentName;            
-            InfoType: EnvironmentInfoType;            
+            EnvironmentId?: EnvironmentId;
+            EnvironmentName?: EnvironmentName;
+            InfoType: EnvironmentInfoType;
         }
         export interface RestartAppServerMessage {
-            EnvironmentId?: EnvironmentId;            
-            EnvironmentName?: EnvironmentName;            
+            EnvironmentId?: EnvironmentId;
+            EnvironmentName?: EnvironmentName;
         }
         export interface RetrieveEnvironmentInfoMessage {
-            EnvironmentId?: EnvironmentId;            
-            EnvironmentName?: EnvironmentName;            
-            InfoType: EnvironmentInfoType;            
+            EnvironmentId?: EnvironmentId;
+            EnvironmentName?: EnvironmentName;
+            InfoType: EnvironmentInfoType;
         }
         export interface RetrieveEnvironmentInfoResultMessage {
-            EnvironmentInfo?: EnvironmentInfoDescriptionList;            
+            EnvironmentInfo?: EnvironmentInfoDescriptionList;
         }
         export interface S3Location {
-            S3Bucket?: S3Bucket;            
-            S3Key?: S3Key;            
+            S3Bucket?: S3Bucket;
+            S3Key?: S3Key;
         }
         export interface S3LocationNotInServiceRegionException {
         }
         export interface S3SubscriptionRequiredException {
         }
         export interface SingleInstanceHealth {
-            InstanceId?: InstanceId;            
-            HealthStatus?: String;            
-            Color?: String;            
-            Causes?: Causes;            
-            LaunchedAt?: LaunchedAt;            
-            ApplicationMetrics?: ApplicationMetrics;            
-            System?: SystemStatus;            
+            InstanceId?: InstanceId;
+            HealthStatus?: String;
+            Color?: String;
+            Causes?: Causes;
+            LaunchedAt?: LaunchedAt;
+            ApplicationMetrics?: ApplicationMetrics;
+            System?: SystemStatus;
         }
         export interface SolutionStackDescription {
-            SolutionStackName?: SolutionStackName;            
-            PermittedFileTypes?: SolutionStackFileTypeList;            
+            SolutionStackName?: SolutionStackName;
+            PermittedFileTypes?: SolutionStackFileTypeList;
         }
         export interface SourceBundleDeletionException {
         }
         export interface SourceConfiguration {
-            ApplicationName?: ApplicationName;            
-            TemplateName?: ConfigurationTemplateName;            
+            ApplicationName?: ApplicationName;
+            TemplateName?: ConfigurationTemplateName;
         }
         export interface StatusCodes {
-            Status2xx?: NullableInteger;            
-            Status3xx?: NullableInteger;            
-            Status4xx?: NullableInteger;            
-            Status5xx?: NullableInteger;            
+            Status2xx?: NullableInteger;
+            Status3xx?: NullableInteger;
+            Status4xx?: NullableInteger;
+            Status5xx?: NullableInteger;
         }
         export interface SwapEnvironmentCNAMEsMessage {
-            SourceEnvironmentId?: EnvironmentId;            
-            SourceEnvironmentName?: EnvironmentName;            
-            DestinationEnvironmentId?: EnvironmentId;            
-            DestinationEnvironmentName?: EnvironmentName;            
+            SourceEnvironmentId?: EnvironmentId;
+            SourceEnvironmentName?: EnvironmentName;
+            DestinationEnvironmentId?: EnvironmentId;
+            DestinationEnvironmentName?: EnvironmentName;
         }
         export interface SystemStatus {
-            CPUUtilization?: CPUUtilization;            
-            LoadAverage?: LoadAverage;            
+            CPUUtilization?: CPUUtilization;
+            LoadAverage?: LoadAverage;
         }
         export interface Tag {
-            Key?: TagKey;            
-            Value?: TagValue;            
+            Key?: TagKey;
+            Value?: TagValue;
         }
         export interface TerminateEnvironmentMessage {
-            EnvironmentId?: EnvironmentId;            
-            EnvironmentName?: EnvironmentName;            
-            TerminateResources?: TerminateEnvironmentResources;            
-            ForceTerminate?: ForceTerminate;            
+            EnvironmentId?: EnvironmentId;
+            EnvironmentName?: EnvironmentName;
+            TerminateResources?: TerminateEnvironmentResources;
+            ForceTerminate?: ForceTerminate;
         }
         export interface TooManyApplicationVersionsException {
         }
@@ -608,48 +609,48 @@ declare module "aws-sdk" {
         export interface TooManyEnvironmentsException {
         }
         export interface Trigger {
-            Name?: ResourceId;            
+            Name?: ResourceId;
         }
         export interface UpdateApplicationMessage {
-            ApplicationName: ApplicationName;            
-            Description?: Description;            
+            ApplicationName: ApplicationName;
+            Description?: Description;
         }
         export interface UpdateApplicationVersionMessage {
-            ApplicationName: ApplicationName;            
-            VersionLabel: VersionLabel;            
-            Description?: Description;            
+            ApplicationName: ApplicationName;
+            VersionLabel: VersionLabel;
+            Description?: Description;
         }
         export interface UpdateConfigurationTemplateMessage {
-            ApplicationName: ApplicationName;            
-            TemplateName: ConfigurationTemplateName;            
-            Description?: Description;            
-            OptionSettings?: ConfigurationOptionSettingsList;            
-            OptionsToRemove?: OptionsSpecifierList;            
+            ApplicationName: ApplicationName;
+            TemplateName: ConfigurationTemplateName;
+            Description?: Description;
+            OptionSettings?: ConfigurationOptionSettingsList;
+            OptionsToRemove?: OptionsSpecifierList;
         }
         export interface UpdateEnvironmentMessage {
-            ApplicationName?: ApplicationName;            
-            EnvironmentId?: EnvironmentId;            
-            EnvironmentName?: EnvironmentName;            
-            GroupName?: GroupName;            
-            Description?: Description;            
-            Tier?: EnvironmentTier;            
-            VersionLabel?: VersionLabel;            
-            TemplateName?: ConfigurationTemplateName;            
-            SolutionStackName?: SolutionStackName;            
-            OptionSettings?: ConfigurationOptionSettingsList;            
-            OptionsToRemove?: OptionsSpecifierList;            
+            ApplicationName?: ApplicationName;
+            EnvironmentId?: EnvironmentId;
+            EnvironmentName?: EnvironmentName;
+            GroupName?: GroupName;
+            Description?: Description;
+            Tier?: EnvironmentTier;
+            VersionLabel?: VersionLabel;
+            TemplateName?: ConfigurationTemplateName;
+            SolutionStackName?: SolutionStackName;
+            OptionSettings?: ConfigurationOptionSettingsList;
+            OptionsToRemove?: OptionsSpecifierList;
         }
         export interface ValidateConfigurationSettingsMessage {
-            ApplicationName: ApplicationName;            
-            TemplateName?: ConfigurationTemplateName;            
-            EnvironmentName?: EnvironmentName;            
-            OptionSettings: ConfigurationOptionSettingsList;            
+            ApplicationName: ApplicationName;
+            TemplateName?: ConfigurationTemplateName;
+            EnvironmentName?: EnvironmentName;
+            OptionSettings: ConfigurationOptionSettingsList;
         }
         export interface ValidationMessage {
-            Message?: ValidationMessageString;            
-            Severity?: ValidationSeverity;            
-            Namespace?: OptionNamespace;            
-            OptionName?: ConfigurationOptionName;            
+            Message?: ValidationMessageString;
+            Severity?: ValidationSeverity;
+            Namespace?: OptionNamespace;
+            OptionName?: ConfigurationOptionName;
         }
 
     }

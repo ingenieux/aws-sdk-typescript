@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2014-06-30
      * endpointPrefix: cognito-identity
      * serviceAbbreviation: 
@@ -35,8 +35,15 @@ declare module "aws-sdk" {
       unlinkDeveloperIdentity(params: CognitoIdentity.UnlinkDeveloperIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: any) => void): Request;
       unlinkIdentity(params: CognitoIdentity.UnlinkIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ExternalServiceException|any, data: any) => void): Request;
       updateIdentityPool(params: CognitoIdentity.IdentityPool, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ConcurrentModificationException|any, data: CognitoIdentity.IdentityPool|any) => void): Request;
+
+      // Found on JS Sources - Sorry for the inconvenience :)
+      getOpenIdToken(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      getId(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      getCredentialsForIdentity(...args: any[]): any
     }
-    
+
     export module CognitoIdentity {
         export type ARNString = string;    // max: 2048, min: 20
         export type AccessKeyString = string;
@@ -73,183 +80,183 @@ declare module "aws-sdk" {
         export type UnprocessedIdentityIdList = UnprocessedIdentityId[];    // max: 60
 
         export interface ConcurrentModificationException {
-            message?: String;            
+            message?: String;
         }
         export interface CreateIdentityPoolInput {
-            IdentityPoolName: IdentityPoolName;            
-            AllowUnauthenticatedIdentities: IdentityPoolUnauthenticated;            
-            SupportedLoginProviders?: IdentityProviders;            
-            DeveloperProviderName?: DeveloperProviderName;            
-            OpenIdConnectProviderARNs?: OIDCProviderList;            
+            IdentityPoolName: IdentityPoolName;
+            AllowUnauthenticatedIdentities: IdentityPoolUnauthenticated;
+            SupportedLoginProviders?: IdentityProviders;
+            DeveloperProviderName?: DeveloperProviderName;
+            OpenIdConnectProviderARNs?: OIDCProviderList;
         }
         export interface Credentials {
-            AccessKeyId?: AccessKeyString;            
-            SecretKey?: SecretKeyString;            
-            SessionToken?: SessionTokenString;            
-            Expiration?: DateType;            
+            AccessKeyId?: AccessKeyString;
+            SecretKey?: SecretKeyString;
+            SessionToken?: SessionTokenString;
+            Expiration?: DateType;
         }
         export interface DeleteIdentitiesInput {
-            IdentityIdsToDelete: IdentityIdList;            
+            IdentityIdsToDelete: IdentityIdList;
         }
         export interface DeleteIdentitiesResponse {
-            UnprocessedIdentityIds?: UnprocessedIdentityIdList;            
+            UnprocessedIdentityIds?: UnprocessedIdentityIdList;
         }
         export interface DeleteIdentityPoolInput {
-            IdentityPoolId: IdentityPoolId;            
+            IdentityPoolId: IdentityPoolId;
         }
         export interface DescribeIdentityInput {
-            IdentityId: IdentityId;            
+            IdentityId: IdentityId;
         }
         export interface DescribeIdentityPoolInput {
-            IdentityPoolId: IdentityPoolId;            
+            IdentityPoolId: IdentityPoolId;
         }
         export interface DeveloperUserAlreadyRegisteredException {
-            message?: String;            
+            message?: String;
         }
         export interface ExternalServiceException {
-            message?: String;            
+            message?: String;
         }
         export interface GetCredentialsForIdentityInput {
-            IdentityId: IdentityId;            
-            Logins?: LoginsMap;            
+            IdentityId: IdentityId;
+            Logins?: LoginsMap;
         }
         export interface GetCredentialsForIdentityResponse {
-            IdentityId?: IdentityId;            
-            Credentials?: Credentials;            
+            IdentityId?: IdentityId;
+            Credentials?: Credentials;
         }
         export interface GetIdInput {
-            AccountId?: AccountId;            
-            IdentityPoolId: IdentityPoolId;            
-            Logins?: LoginsMap;            
+            AccountId?: AccountId;
+            IdentityPoolId: IdentityPoolId;
+            Logins?: LoginsMap;
         }
         export interface GetIdResponse {
-            IdentityId?: IdentityId;            
+            IdentityId?: IdentityId;
         }
         export interface GetIdentityPoolRolesInput {
-            IdentityPoolId: IdentityPoolId;            
+            IdentityPoolId: IdentityPoolId;
         }
         export interface GetIdentityPoolRolesResponse {
-            IdentityPoolId?: IdentityPoolId;            
-            Roles?: RolesMap;            
+            IdentityPoolId?: IdentityPoolId;
+            Roles?: RolesMap;
         }
         export interface GetOpenIdTokenForDeveloperIdentityInput {
-            IdentityPoolId: IdentityPoolId;            
-            IdentityId?: IdentityId;            
-            Logins: LoginsMap;            
-            TokenDuration?: TokenDuration;            
+            IdentityPoolId: IdentityPoolId;
+            IdentityId?: IdentityId;
+            Logins: LoginsMap;
+            TokenDuration?: TokenDuration;
         }
         export interface GetOpenIdTokenForDeveloperIdentityResponse {
-            IdentityId?: IdentityId;            
-            Token?: OIDCToken;            
+            IdentityId?: IdentityId;
+            Token?: OIDCToken;
         }
         export interface GetOpenIdTokenInput {
-            IdentityId: IdentityId;            
-            Logins?: LoginsMap;            
+            IdentityId: IdentityId;
+            Logins?: LoginsMap;
         }
         export interface GetOpenIdTokenResponse {
-            IdentityId?: IdentityId;            
-            Token?: OIDCToken;            
+            IdentityId?: IdentityId;
+            Token?: OIDCToken;
         }
         export interface IdentityDescription {
-            IdentityId?: IdentityId;            
-            Logins?: LoginsList;            
-            CreationDate?: DateType;            
-            LastModifiedDate?: DateType;            
+            IdentityId?: IdentityId;
+            Logins?: LoginsList;
+            CreationDate?: DateType;
+            LastModifiedDate?: DateType;
         }
         export interface IdentityPool {
-            IdentityPoolId: IdentityPoolId;            
-            IdentityPoolName: IdentityPoolName;            
-            AllowUnauthenticatedIdentities: IdentityPoolUnauthenticated;            
-            SupportedLoginProviders?: IdentityProviders;            
-            DeveloperProviderName?: DeveloperProviderName;            
-            OpenIdConnectProviderARNs?: OIDCProviderList;            
+            IdentityPoolId: IdentityPoolId;
+            IdentityPoolName: IdentityPoolName;
+            AllowUnauthenticatedIdentities: IdentityPoolUnauthenticated;
+            SupportedLoginProviders?: IdentityProviders;
+            DeveloperProviderName?: DeveloperProviderName;
+            OpenIdConnectProviderARNs?: OIDCProviderList;
         }
         export interface IdentityPoolShortDescription {
-            IdentityPoolId?: IdentityPoolId;            
-            IdentityPoolName?: IdentityPoolName;            
+            IdentityPoolId?: IdentityPoolId;
+            IdentityPoolName?: IdentityPoolName;
         }
         export interface InternalErrorException {
-            message?: String;            
+            message?: String;
         }
         export interface InvalidIdentityPoolConfigurationException {
-            message?: String;            
+            message?: String;
         }
         export interface InvalidParameterException {
-            message?: String;            
+            message?: String;
         }
         export interface LimitExceededException {
-            message?: String;            
+            message?: String;
         }
         export interface ListIdentitiesInput {
-            IdentityPoolId: IdentityPoolId;            
-            MaxResults: QueryLimit;            
-            NextToken?: PaginationKey;            
-            HideDisabled?: HideDisabled;            
+            IdentityPoolId: IdentityPoolId;
+            MaxResults: QueryLimit;
+            NextToken?: PaginationKey;
+            HideDisabled?: HideDisabled;
         }
         export interface ListIdentitiesResponse {
-            IdentityPoolId?: IdentityPoolId;            
-            Identities?: IdentitiesList;            
-            NextToken?: PaginationKey;            
+            IdentityPoolId?: IdentityPoolId;
+            Identities?: IdentitiesList;
+            NextToken?: PaginationKey;
         }
         export interface ListIdentityPoolsInput {
-            MaxResults: QueryLimit;            
-            NextToken?: PaginationKey;            
+            MaxResults: QueryLimit;
+            NextToken?: PaginationKey;
         }
         export interface ListIdentityPoolsResponse {
-            IdentityPools?: IdentityPoolsList;            
-            NextToken?: PaginationKey;            
+            IdentityPools?: IdentityPoolsList;
+            NextToken?: PaginationKey;
         }
         export interface LookupDeveloperIdentityInput {
-            IdentityPoolId: IdentityPoolId;            
-            IdentityId?: IdentityId;            
-            DeveloperUserIdentifier?: DeveloperUserIdentifier;            
-            MaxResults?: QueryLimit;            
-            NextToken?: PaginationKey;            
+            IdentityPoolId: IdentityPoolId;
+            IdentityId?: IdentityId;
+            DeveloperUserIdentifier?: DeveloperUserIdentifier;
+            MaxResults?: QueryLimit;
+            NextToken?: PaginationKey;
         }
         export interface LookupDeveloperIdentityResponse {
-            IdentityId?: IdentityId;            
-            DeveloperUserIdentifierList?: DeveloperUserIdentifierList;            
-            NextToken?: PaginationKey;            
+            IdentityId?: IdentityId;
+            DeveloperUserIdentifierList?: DeveloperUserIdentifierList;
+            NextToken?: PaginationKey;
         }
         export interface MergeDeveloperIdentitiesInput {
-            SourceUserIdentifier: DeveloperUserIdentifier;            
-            DestinationUserIdentifier: DeveloperUserIdentifier;            
-            DeveloperProviderName: DeveloperProviderName;            
-            IdentityPoolId: IdentityPoolId;            
+            SourceUserIdentifier: DeveloperUserIdentifier;
+            DestinationUserIdentifier: DeveloperUserIdentifier;
+            DeveloperProviderName: DeveloperProviderName;
+            IdentityPoolId: IdentityPoolId;
         }
         export interface MergeDeveloperIdentitiesResponse {
-            IdentityId?: IdentityId;            
+            IdentityId?: IdentityId;
         }
         export interface NotAuthorizedException {
-            message?: String;            
+            message?: String;
         }
         export interface ResourceConflictException {
-            message?: String;            
+            message?: String;
         }
         export interface ResourceNotFoundException {
-            message?: String;            
+            message?: String;
         }
         export interface SetIdentityPoolRolesInput {
-            IdentityPoolId: IdentityPoolId;            
-            Roles: RolesMap;            
+            IdentityPoolId: IdentityPoolId;
+            Roles: RolesMap;
         }
         export interface TooManyRequestsException {
-            message?: String;            
+            message?: String;
         }
         export interface UnlinkDeveloperIdentityInput {
-            IdentityId: IdentityId;            
-            IdentityPoolId: IdentityPoolId;            
-            DeveloperProviderName: DeveloperProviderName;            
-            DeveloperUserIdentifier: DeveloperUserIdentifier;            
+            IdentityId: IdentityId;
+            IdentityPoolId: IdentityPoolId;
+            DeveloperProviderName: DeveloperProviderName;
+            DeveloperUserIdentifier: DeveloperUserIdentifier;
         }
         export interface UnlinkIdentityInput {
-            IdentityId: IdentityId;            
-            Logins: LoginsMap;            
-            LoginsToRemove: LoginsList;            
+            IdentityId: IdentityId;
+            Logins: LoginsMap;
+            LoginsToRemove: LoginsList;
         }
         export interface UnprocessedIdentityId {
-            IdentityId?: IdentityId;            
-            ErrorCode?: ErrorCode;            
+            IdentityId?: IdentityId;
+            ErrorCode?: ErrorCode;
         }
 
     }

@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2010-05-15
      * endpointPrefix: cloudformation
      * serviceAbbreviation: 
@@ -18,6 +18,7 @@ declare module "aws-sdk" {
       constructor(options?: any);
       endpoint: Endpoint;
       cancelUpdateStack(params: CloudFormation.CancelUpdateStackInput, callback?: (err: any, data: any) => void): Request;
+      continueUpdateRollback(params: CloudFormation.ContinueUpdateRollbackInput, callback?: (err: any, data: CloudFormation.ContinueUpdateRollbackOutput|any) => void): Request;
       createStack(params: CloudFormation.CreateStackInput, callback?: (err: CloudFormation.LimitExceededException|CloudFormation.AlreadyExistsException|CloudFormation.InsufficientCapabilitiesException|any, data: CloudFormation.CreateStackOutput|any) => void): Request;
       deleteStack(params: CloudFormation.DeleteStackInput, callback?: (err: any, data: any) => void): Request;
       describeAccountLimits(params: CloudFormation.DescribeAccountLimitsInput, callback?: (err: any, data: CloudFormation.DescribeAccountLimitsOutput|any) => void): Request;
@@ -35,8 +36,9 @@ declare module "aws-sdk" {
       signalResource(params: CloudFormation.SignalResourceInput, callback?: (err: any, data: any) => void): Request;
       updateStack(params: CloudFormation.UpdateStackInput, callback?: (err: CloudFormation.InsufficientCapabilitiesException|any, data: CloudFormation.UpdateStackOutput|any) => void): Request;
       validateTemplate(params: CloudFormation.ValidateTemplateInput, callback?: (err: any, data: CloudFormation.ValidateTemplateOutput|any) => void): Request;
+
     }
-    
+
     export module CloudFormation {
         export type AccountLimitList = AccountLimit[];
         export type AllowedValue = string;
@@ -105,264 +107,269 @@ declare module "aws-sdk" {
         export type Version = string;
 
         export interface AccountLimit {
-            Name?: LimitName;            
-            Value?: LimitValue;            
+            Name?: LimitName;
+            Value?: LimitValue;
         }
         export interface AlreadyExistsException {
         }
         export interface CancelUpdateStackInput {
-            StackName: StackName;            
+            StackName: StackName;
+        }
+        export interface ContinueUpdateRollbackInput {
+            StackName: StackNameOrId;
+        }
+        export interface ContinueUpdateRollbackOutput {
         }
         export interface CreateStackInput {
-            StackName: StackName;            
-            TemplateBody?: TemplateBody;            
-            TemplateURL?: TemplateURL;            
-            Parameters?: Parameters;            
-            DisableRollback?: DisableRollback;            
-            TimeoutInMinutes?: TimeoutMinutes;            
-            NotificationARNs?: NotificationARNs;            
-            Capabilities?: Capabilities;            
-            ResourceTypes?: ResourceTypes;            
-            OnFailure?: OnFailure;            
-            StackPolicyBody?: StackPolicyBody;            
-            StackPolicyURL?: StackPolicyURL;            
-            Tags?: Tags;            
+            StackName: StackName;
+            TemplateBody?: TemplateBody;
+            TemplateURL?: TemplateURL;
+            Parameters?: Parameters;
+            DisableRollback?: DisableRollback;
+            TimeoutInMinutes?: TimeoutMinutes;
+            NotificationARNs?: NotificationARNs;
+            Capabilities?: Capabilities;
+            ResourceTypes?: ResourceTypes;
+            OnFailure?: OnFailure;
+            StackPolicyBody?: StackPolicyBody;
+            StackPolicyURL?: StackPolicyURL;
+            Tags?: Tags;
         }
         export interface CreateStackOutput {
-            StackId?: StackId;            
+            StackId?: StackId;
         }
         export interface DeleteStackInput {
-            StackName: StackName;            
+            StackName: StackName;
         }
         export interface DescribeAccountLimitsInput {
-            NextToken?: NextToken;            
+            NextToken?: NextToken;
         }
         export interface DescribeAccountLimitsOutput {
-            AccountLimits?: AccountLimitList;            
-            NextToken?: NextToken;            
+            AccountLimits?: AccountLimitList;
+            NextToken?: NextToken;
         }
         export interface DescribeStackEventsInput {
-            StackName?: StackName;            
-            NextToken?: NextToken;            
+            StackName?: StackName;
+            NextToken?: NextToken;
         }
         export interface DescribeStackEventsOutput {
-            StackEvents?: StackEvents;            
-            NextToken?: NextToken;            
+            StackEvents?: StackEvents;
+            NextToken?: NextToken;
         }
         export interface DescribeStackResourceInput {
-            StackName: StackName;            
-            LogicalResourceId: LogicalResourceId;            
+            StackName: StackName;
+            LogicalResourceId: LogicalResourceId;
         }
         export interface DescribeStackResourceOutput {
-            StackResourceDetail?: StackResourceDetail;            
+            StackResourceDetail?: StackResourceDetail;
         }
         export interface DescribeStackResourcesInput {
-            StackName?: StackName;            
-            LogicalResourceId?: LogicalResourceId;            
-            PhysicalResourceId?: PhysicalResourceId;            
+            StackName?: StackName;
+            LogicalResourceId?: LogicalResourceId;
+            PhysicalResourceId?: PhysicalResourceId;
         }
         export interface DescribeStackResourcesOutput {
-            StackResources?: StackResources;            
+            StackResources?: StackResources;
         }
         export interface DescribeStacksInput {
-            StackName?: StackName;            
-            NextToken?: NextToken;            
+            StackName?: StackName;
+            NextToken?: NextToken;
         }
         export interface DescribeStacksOutput {
-            Stacks?: Stacks;            
-            NextToken?: NextToken;            
+            Stacks?: Stacks;
+            NextToken?: NextToken;
         }
         export interface EstimateTemplateCostInput {
-            TemplateBody?: TemplateBody;            
-            TemplateURL?: TemplateURL;            
-            Parameters?: Parameters;            
+            TemplateBody?: TemplateBody;
+            TemplateURL?: TemplateURL;
+            Parameters?: Parameters;
         }
         export interface EstimateTemplateCostOutput {
-            Url?: Url;            
+            Url?: Url;
         }
         export interface GetStackPolicyInput {
-            StackName: StackName;            
+            StackName: StackName;
         }
         export interface GetStackPolicyOutput {
-            StackPolicyBody?: StackPolicyBody;            
+            StackPolicyBody?: StackPolicyBody;
         }
         export interface GetTemplateInput {
-            StackName: StackName;            
+            StackName: StackName;
         }
         export interface GetTemplateOutput {
-            TemplateBody?: TemplateBody;            
+            TemplateBody?: TemplateBody;
         }
         export interface GetTemplateSummaryInput {
-            TemplateBody?: TemplateBody;            
-            TemplateURL?: TemplateURL;            
-            StackName?: StackNameOrId;            
+            TemplateBody?: TemplateBody;
+            TemplateURL?: TemplateURL;
+            StackName?: StackNameOrId;
         }
         export interface GetTemplateSummaryOutput {
-            Parameters?: ParameterDeclarations;            
-            Description?: Description;            
-            Capabilities?: Capabilities;            
-            CapabilitiesReason?: CapabilitiesReason;            
-            ResourceTypes?: ResourceTypes;            
-            Version?: Version;            
-            Metadata?: Metadata;            
+            Parameters?: ParameterDeclarations;
+            Description?: Description;
+            Capabilities?: Capabilities;
+            CapabilitiesReason?: CapabilitiesReason;
+            ResourceTypes?: ResourceTypes;
+            Version?: Version;
+            Metadata?: Metadata;
         }
         export interface InsufficientCapabilitiesException {
         }
         export interface LimitExceededException {
         }
         export interface ListStackResourcesInput {
-            StackName: StackName;            
-            NextToken?: NextToken;            
+            StackName: StackName;
+            NextToken?: NextToken;
         }
         export interface ListStackResourcesOutput {
-            StackResourceSummaries?: StackResourceSummaries;            
-            NextToken?: NextToken;            
+            StackResourceSummaries?: StackResourceSummaries;
+            NextToken?: NextToken;
         }
         export interface ListStacksInput {
-            NextToken?: NextToken;            
-            StackStatusFilter?: StackStatusFilter;            
+            NextToken?: NextToken;
+            StackStatusFilter?: StackStatusFilter;
         }
         export interface ListStacksOutput {
-            StackSummaries?: StackSummaries;            
-            NextToken?: NextToken;            
+            StackSummaries?: StackSummaries;
+            NextToken?: NextToken;
         }
         export interface Output {
-            OutputKey?: OutputKey;            
-            OutputValue?: OutputValue;            
-            Description?: Description;            
+            OutputKey?: OutputKey;
+            OutputValue?: OutputValue;
+            Description?: Description;
         }
         export interface Parameter {
-            ParameterKey?: ParameterKey;            
-            ParameterValue?: ParameterValue;            
-            UsePreviousValue?: UsePreviousValue;            
+            ParameterKey?: ParameterKey;
+            ParameterValue?: ParameterValue;
+            UsePreviousValue?: UsePreviousValue;
         }
         export interface ParameterConstraints {
-            AllowedValues?: AllowedValues;            
+            AllowedValues?: AllowedValues;
         }
         export interface ParameterDeclaration {
-            ParameterKey?: ParameterKey;            
-            DefaultValue?: ParameterValue;            
-            ParameterType?: ParameterType;            
-            NoEcho?: NoEcho;            
-            Description?: Description;            
-            ParameterConstraints?: ParameterConstraints;            
+            ParameterKey?: ParameterKey;
+            DefaultValue?: ParameterValue;
+            ParameterType?: ParameterType;
+            NoEcho?: NoEcho;
+            Description?: Description;
+            ParameterConstraints?: ParameterConstraints;
         }
         export interface SetStackPolicyInput {
-            StackName: StackName;            
-            StackPolicyBody?: StackPolicyBody;            
-            StackPolicyURL?: StackPolicyURL;            
+            StackName: StackName;
+            StackPolicyBody?: StackPolicyBody;
+            StackPolicyURL?: StackPolicyURL;
         }
         export interface SignalResourceInput {
-            StackName: StackNameOrId;            
-            LogicalResourceId: LogicalResourceId;            
-            UniqueId: ResourceSignalUniqueId;            
-            Status: ResourceSignalStatus;            
+            StackName: StackNameOrId;
+            LogicalResourceId: LogicalResourceId;
+            UniqueId: ResourceSignalUniqueId;
+            Status: ResourceSignalStatus;
         }
         export interface Stack {
-            StackId?: StackId;            
-            StackName: StackName;            
-            Description?: Description;            
-            Parameters?: Parameters;            
-            CreationTime: CreationTime;            
-            LastUpdatedTime?: LastUpdatedTime;            
-            StackStatus: StackStatus;            
-            StackStatusReason?: StackStatusReason;            
-            DisableRollback?: DisableRollback;            
-            NotificationARNs?: NotificationARNs;            
-            TimeoutInMinutes?: TimeoutMinutes;            
-            Capabilities?: Capabilities;            
-            Outputs?: Outputs;            
-            Tags?: Tags;            
+            StackId?: StackId;
+            StackName: StackName;
+            Description?: Description;
+            Parameters?: Parameters;
+            CreationTime: CreationTime;
+            LastUpdatedTime?: LastUpdatedTime;
+            StackStatus: StackStatus;
+            StackStatusReason?: StackStatusReason;
+            DisableRollback?: DisableRollback;
+            NotificationARNs?: NotificationARNs;
+            TimeoutInMinutes?: TimeoutMinutes;
+            Capabilities?: Capabilities;
+            Outputs?: Outputs;
+            Tags?: Tags;
         }
         export interface StackEvent {
-            StackId: StackId;            
-            EventId: EventId;            
-            StackName: StackName;            
-            LogicalResourceId?: LogicalResourceId;            
-            PhysicalResourceId?: PhysicalResourceId;            
-            ResourceType?: ResourceType;            
-            Timestamp: Timestamp;            
-            ResourceStatus?: ResourceStatus;            
-            ResourceStatusReason?: ResourceStatusReason;            
-            ResourceProperties?: ResourceProperties;            
+            StackId: StackId;
+            EventId: EventId;
+            StackName: StackName;
+            LogicalResourceId?: LogicalResourceId;
+            PhysicalResourceId?: PhysicalResourceId;
+            ResourceType?: ResourceType;
+            Timestamp: Timestamp;
+            ResourceStatus?: ResourceStatus;
+            ResourceStatusReason?: ResourceStatusReason;
+            ResourceProperties?: ResourceProperties;
         }
         export interface StackResource {
-            StackName?: StackName;            
-            StackId?: StackId;            
-            LogicalResourceId: LogicalResourceId;            
-            PhysicalResourceId?: PhysicalResourceId;            
-            ResourceType: ResourceType;            
-            Timestamp: Timestamp;            
-            ResourceStatus: ResourceStatus;            
-            ResourceStatusReason?: ResourceStatusReason;            
-            Description?: Description;            
+            StackName?: StackName;
+            StackId?: StackId;
+            LogicalResourceId: LogicalResourceId;
+            PhysicalResourceId?: PhysicalResourceId;
+            ResourceType: ResourceType;
+            Timestamp: Timestamp;
+            ResourceStatus: ResourceStatus;
+            ResourceStatusReason?: ResourceStatusReason;
+            Description?: Description;
         }
         export interface StackResourceDetail {
-            StackName?: StackName;            
-            StackId?: StackId;            
-            LogicalResourceId: LogicalResourceId;            
-            PhysicalResourceId?: PhysicalResourceId;            
-            ResourceType: ResourceType;            
-            LastUpdatedTimestamp: Timestamp;            
-            ResourceStatus: ResourceStatus;            
-            ResourceStatusReason?: ResourceStatusReason;            
-            Description?: Description;            
-            Metadata?: Metadata;            
+            StackName?: StackName;
+            StackId?: StackId;
+            LogicalResourceId: LogicalResourceId;
+            PhysicalResourceId?: PhysicalResourceId;
+            ResourceType: ResourceType;
+            LastUpdatedTimestamp: Timestamp;
+            ResourceStatus: ResourceStatus;
+            ResourceStatusReason?: ResourceStatusReason;
+            Description?: Description;
+            Metadata?: Metadata;
         }
         export interface StackResourceSummary {
-            LogicalResourceId: LogicalResourceId;            
-            PhysicalResourceId?: PhysicalResourceId;            
-            ResourceType: ResourceType;            
-            LastUpdatedTimestamp: Timestamp;            
-            ResourceStatus: ResourceStatus;            
-            ResourceStatusReason?: ResourceStatusReason;            
+            LogicalResourceId: LogicalResourceId;
+            PhysicalResourceId?: PhysicalResourceId;
+            ResourceType: ResourceType;
+            LastUpdatedTimestamp: Timestamp;
+            ResourceStatus: ResourceStatus;
+            ResourceStatusReason?: ResourceStatusReason;
         }
         export interface StackSummary {
-            StackId?: StackId;            
-            StackName: StackName;            
-            TemplateDescription?: TemplateDescription;            
-            CreationTime: CreationTime;            
-            LastUpdatedTime?: LastUpdatedTime;            
-            DeletionTime?: DeletionTime;            
-            StackStatus: StackStatus;            
-            StackStatusReason?: StackStatusReason;            
+            StackId?: StackId;
+            StackName: StackName;
+            TemplateDescription?: TemplateDescription;
+            CreationTime: CreationTime;
+            LastUpdatedTime?: LastUpdatedTime;
+            DeletionTime?: DeletionTime;
+            StackStatus: StackStatus;
+            StackStatusReason?: StackStatusReason;
         }
         export interface Tag {
-            Key?: TagKey;            
-            Value?: TagValue;            
+            Key?: TagKey;
+            Value?: TagValue;
         }
         export interface TemplateParameter {
-            ParameterKey?: ParameterKey;            
-            DefaultValue?: ParameterValue;            
-            NoEcho?: NoEcho;            
-            Description?: Description;            
+            ParameterKey?: ParameterKey;
+            DefaultValue?: ParameterValue;
+            NoEcho?: NoEcho;
+            Description?: Description;
         }
         export interface UpdateStackInput {
-            StackName: StackName;            
-            TemplateBody?: TemplateBody;            
-            TemplateURL?: TemplateURL;            
-            UsePreviousTemplate?: UsePreviousTemplate;            
-            StackPolicyDuringUpdateBody?: StackPolicyDuringUpdateBody;            
-            StackPolicyDuringUpdateURL?: StackPolicyDuringUpdateURL;            
-            Parameters?: Parameters;            
-            Capabilities?: Capabilities;            
-            ResourceTypes?: ResourceTypes;            
-            StackPolicyBody?: StackPolicyBody;            
-            StackPolicyURL?: StackPolicyURL;            
-            NotificationARNs?: NotificationARNs;            
+            StackName: StackName;
+            TemplateBody?: TemplateBody;
+            TemplateURL?: TemplateURL;
+            UsePreviousTemplate?: UsePreviousTemplate;
+            StackPolicyDuringUpdateBody?: StackPolicyDuringUpdateBody;
+            StackPolicyDuringUpdateURL?: StackPolicyDuringUpdateURL;
+            Parameters?: Parameters;
+            Capabilities?: Capabilities;
+            ResourceTypes?: ResourceTypes;
+            StackPolicyBody?: StackPolicyBody;
+            StackPolicyURL?: StackPolicyURL;
+            NotificationARNs?: NotificationARNs;
         }
         export interface UpdateStackOutput {
-            StackId?: StackId;            
+            StackId?: StackId;
         }
         export interface ValidateTemplateInput {
-            TemplateBody?: TemplateBody;            
-            TemplateURL?: TemplateURL;            
+            TemplateBody?: TemplateBody;
+            TemplateURL?: TemplateURL;
         }
         export interface ValidateTemplateOutput {
-            Parameters?: TemplateParameters;            
-            Description?: Description;            
-            Capabilities?: Capabilities;            
-            CapabilitiesReason?: CapabilitiesReason;            
+            Parameters?: TemplateParameters;
+            Description?: Description;
+            Capabilities?: Capabilities;
+            CapabilitiesReason?: CapabilitiesReason;
         }
 
     }

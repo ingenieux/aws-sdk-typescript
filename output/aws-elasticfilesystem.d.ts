@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-02-01
      * endpointPrefix: elasticfilesystem
      * serviceAbbreviation: EFS
@@ -28,8 +28,9 @@ declare module "aws-sdk" {
       describeMountTargets(params: EFS.DescribeMountTargetsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|EFS.MountTargetNotFound|any, data: EFS.DescribeMountTargetsResponse|any) => void): Request;
       describeTags(params: EFS.DescribeTagsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any, data: EFS.DescribeTagsResponse|any) => void): Request;
       modifyMountTargetSecurityGroups(params: EFS.ModifyMountTargetSecurityGroupsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.MountTargetNotFound|EFS.IncorrectMountTargetState|EFS.SecurityGroupLimitExceeded|EFS.SecurityGroupNotFound|any, data: any) => void): Request;
+
     }
-    
+
     export module EFS {
         export type AwsAccountId = string;
         export type CreationToken = string;    // max: 64, min: 1
@@ -56,169 +57,169 @@ declare module "aws-sdk" {
         export type Timestamp = number;
 
         export interface BadRequest {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface CreateFileSystemRequest {
-            CreationToken: CreationToken;            
+            CreationToken: CreationToken;
         }
         export interface CreateMountTargetRequest {
-            FileSystemId: FileSystemId;            
-            SubnetId: SubnetId;            
-            IpAddress?: IpAddress;            
-            SecurityGroups?: SecurityGroups;            
+            FileSystemId: FileSystemId;
+            SubnetId: SubnetId;
+            IpAddress?: IpAddress;
+            SecurityGroups?: SecurityGroups;
         }
         export interface CreateTagsRequest {
-            FileSystemId: FileSystemId;            
-            Tags: Tags;            
+            FileSystemId: FileSystemId;
+            Tags: Tags;
         }
         export interface DeleteFileSystemRequest {
-            FileSystemId: FileSystemId;            
+            FileSystemId: FileSystemId;
         }
         export interface DeleteMountTargetRequest {
-            MountTargetId: MountTargetId;            
+            MountTargetId: MountTargetId;
         }
         export interface DeleteTagsRequest {
-            FileSystemId: FileSystemId;            
-            TagKeys: TagKeys;            
+            FileSystemId: FileSystemId;
+            TagKeys: TagKeys;
         }
         export interface DependencyTimeout {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface DescribeFileSystemsRequest {
-            MaxItems?: MaxItems;            
-            Marker?: Marker;            
-            CreationToken?: CreationToken;            
-            FileSystemId?: FileSystemId;            
+            MaxItems?: MaxItems;
+            Marker?: Marker;
+            CreationToken?: CreationToken;
+            FileSystemId?: FileSystemId;
         }
         export interface DescribeFileSystemsResponse {
-            Marker?: Marker;            
-            FileSystems?: FileSystemDescriptions;            
-            NextMarker?: Marker;            
+            Marker?: Marker;
+            FileSystems?: FileSystemDescriptions;
+            NextMarker?: Marker;
         }
         export interface DescribeMountTargetSecurityGroupsRequest {
-            MountTargetId: MountTargetId;            
+            MountTargetId: MountTargetId;
         }
         export interface DescribeMountTargetSecurityGroupsResponse {
-            SecurityGroups: SecurityGroups;            
+            SecurityGroups: SecurityGroups;
         }
         export interface DescribeMountTargetsRequest {
-            MaxItems?: MaxItems;            
-            Marker?: Marker;            
-            FileSystemId?: FileSystemId;            
-            MountTargetId?: MountTargetId;            
+            MaxItems?: MaxItems;
+            Marker?: Marker;
+            FileSystemId?: FileSystemId;
+            MountTargetId?: MountTargetId;
         }
         export interface DescribeMountTargetsResponse {
-            Marker?: Marker;            
-            MountTargets?: MountTargetDescriptions;            
-            NextMarker?: Marker;            
+            Marker?: Marker;
+            MountTargets?: MountTargetDescriptions;
+            NextMarker?: Marker;
         }
         export interface DescribeTagsRequest {
-            MaxItems?: MaxItems;            
-            Marker?: Marker;            
-            FileSystemId: FileSystemId;            
+            MaxItems?: MaxItems;
+            Marker?: Marker;
+            FileSystemId: FileSystemId;
         }
         export interface DescribeTagsResponse {
-            Marker?: Marker;            
-            Tags: Tags;            
-            NextMarker?: Marker;            
+            Marker?: Marker;
+            Tags: Tags;
+            NextMarker?: Marker;
         }
         export interface FileSystemAlreadyExists {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
-            FileSystemId: FileSystemId;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
+            FileSystemId: FileSystemId;
         }
         export interface FileSystemDescription {
-            OwnerId: AwsAccountId;            
-            CreationToken: CreationToken;            
-            FileSystemId: FileSystemId;            
-            CreationTime: Timestamp;            
-            LifeCycleState: LifeCycleState;            
-            Name?: TagValue;            
-            NumberOfMountTargets: MountTargetCount;            
-            SizeInBytes: FileSystemSize;            
+            OwnerId: AwsAccountId;
+            CreationToken: CreationToken;
+            FileSystemId: FileSystemId;
+            CreationTime: Timestamp;
+            LifeCycleState: LifeCycleState;
+            Name?: TagValue;
+            NumberOfMountTargets: MountTargetCount;
+            SizeInBytes: FileSystemSize;
         }
         export interface FileSystemInUse {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface FileSystemLimitExceeded {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface FileSystemNotFound {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface FileSystemSize {
-            Value: FileSystemSizeValue;            
-            Timestamp?: Timestamp;            
+            Value: FileSystemSizeValue;
+            Timestamp?: Timestamp;
         }
         export interface IncorrectFileSystemLifeCycleState {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface IncorrectMountTargetState {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface InternalServerError {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface IpAddressInUse {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface ModifyMountTargetSecurityGroupsRequest {
-            MountTargetId: MountTargetId;            
-            SecurityGroups?: SecurityGroups;            
+            MountTargetId: MountTargetId;
+            SecurityGroups?: SecurityGroups;
         }
         export interface MountTargetConflict {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface MountTargetDescription {
-            OwnerId?: AwsAccountId;            
-            MountTargetId: MountTargetId;            
-            FileSystemId: FileSystemId;            
-            SubnetId: SubnetId;            
-            LifeCycleState: LifeCycleState;            
-            IpAddress?: IpAddress;            
-            NetworkInterfaceId?: NetworkInterfaceId;            
+            OwnerId?: AwsAccountId;
+            MountTargetId: MountTargetId;
+            FileSystemId: FileSystemId;
+            SubnetId: SubnetId;
+            LifeCycleState: LifeCycleState;
+            IpAddress?: IpAddress;
+            NetworkInterfaceId?: NetworkInterfaceId;
         }
         export interface MountTargetNotFound {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface NetworkInterfaceLimitExceeded {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface NoFreeAddressesInSubnet {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface SecurityGroupLimitExceeded {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface SecurityGroupNotFound {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface SubnetNotFound {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface Tag {
-            Key: TagKey;            
-            Value: TagValue;            
+            Key: TagKey;
+            Value: TagValue;
         }
         export interface UnsupportedAvailabilityZone {
-            ErrorCode: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode: ErrorCode;
+            Message?: ErrorMessage;
         }
 
     }

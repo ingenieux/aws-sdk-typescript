@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-06-23
      * endpointPrefix: devicefarm
      * serviceAbbreviation: 
@@ -48,8 +48,9 @@ declare module "aws-sdk" {
       scheduleRun(params: DeviceFarm.ScheduleRunRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.IdempotencyException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ScheduleRunResult|any) => void): Request;
       updateDevicePool(params: DeviceFarm.UpdateDevicePoolRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.UpdateDevicePoolResult|any) => void): Request;
       updateProject(params: DeviceFarm.UpdateProjectRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.UpdateProjectResult|any) => void): Request;
+
     }
-    
+
     export module DeviceFarm {
         export type AWSAccountNumber = string;    // max: 16, min: 2
         export type AmazonResourceName = string;    // min: 32
@@ -71,13 +72,13 @@ declare module "aws-sdk" {
         export type Double = number;
         export type ExecutionResult = string;
         export type ExecutionStatus = string;
-        export type Filter = string;    // max: 1024
+        export type Filter = string;    // max: 8192
         export type IncompatibilityMessages = IncompatibilityMessage[];
         export type Integer = number;
         export type Jobs = Job[];
         export type Long = number;
         export type Message = string;    // max: 8192
-        export type Metadata = string;    // max: 1024
+        export type Metadata = string;    // max: 8192
         export type Name = string;    // max: 256
         export type PaginationToken = string;    // max: 1024, min: 4
         export type Problems = Problem[];
@@ -101,433 +102,433 @@ declare module "aws-sdk" {
         export type Uploads = Upload[];
 
         export interface AccountSettings {
-            awsAccountNumber?: AWSAccountNumber;            
-            unmeteredDevices?: PurchasedDevicesMap;            
+            awsAccountNumber?: AWSAccountNumber;
+            unmeteredDevices?: PurchasedDevicesMap;
         }
         export interface ArgumentException {
-            message?: Message;            
+            message?: Message;
         }
         export interface Artifact {
-            arn?: AmazonResourceName;            
-            name?: Name;            
-            type?: ArtifactType;            
-            extension?: String;            
-            url?: URL;            
+            arn?: AmazonResourceName;
+            name?: Name;
+            type?: ArtifactType;
+            extension?: String;
+            url?: URL;
         }
         export interface CPU {
-            frequency?: String;            
-            architecture?: String;            
-            clock?: Double;            
+            frequency?: String;
+            architecture?: String;
+            clock?: Double;
         }
         export interface Counters {
-            total?: Integer;            
-            passed?: Integer;            
-            failed?: Integer;            
-            warned?: Integer;            
-            errored?: Integer;            
-            stopped?: Integer;            
-            skipped?: Integer;            
+            total?: Integer;
+            passed?: Integer;
+            failed?: Integer;
+            warned?: Integer;
+            errored?: Integer;
+            stopped?: Integer;
+            skipped?: Integer;
         }
         export interface CreateDevicePoolRequest {
-            projectArn: AmazonResourceName;            
-            name: Name;            
-            description?: Message;            
-            rules: Rules;            
+            projectArn: AmazonResourceName;
+            name: Name;
+            description?: Message;
+            rules: Rules;
         }
         export interface CreateDevicePoolResult {
-            devicePool?: DevicePool;            
+            devicePool?: DevicePool;
         }
         export interface CreateProjectRequest {
-            name: Name;            
+            name: Name;
         }
         export interface CreateProjectResult {
-            project?: Project;            
+            project?: Project;
         }
         export interface CreateUploadRequest {
-            projectArn: AmazonResourceName;            
-            name: Name;            
-            type: UploadType;            
-            contentType?: ContentType;            
+            projectArn: AmazonResourceName;
+            name: Name;
+            type: UploadType;
+            contentType?: ContentType;
         }
         export interface CreateUploadResult {
-            upload?: Upload;            
+            upload?: Upload;
         }
         export interface DeleteDevicePoolRequest {
-            arn: AmazonResourceName;            
+            arn: AmazonResourceName;
         }
         export interface DeleteDevicePoolResult {
         }
         export interface DeleteProjectRequest {
-            arn: AmazonResourceName;            
+            arn: AmazonResourceName;
         }
         export interface DeleteProjectResult {
         }
         export interface DeleteRunRequest {
-            arn: AmazonResourceName;            
+            arn: AmazonResourceName;
         }
         export interface DeleteRunResult {
         }
         export interface DeleteUploadRequest {
-            arn: AmazonResourceName;            
+            arn: AmazonResourceName;
         }
         export interface DeleteUploadResult {
         }
         export interface Device {
-            arn?: AmazonResourceName;            
-            name?: Name;            
-            manufacturer?: String;            
-            model?: String;            
-            formFactor?: DeviceFormFactor;            
-            platform?: DevicePlatform;            
-            os?: String;            
-            cpu?: CPU;            
-            resolution?: Resolution;            
-            heapSize?: Long;            
-            memory?: Long;            
-            image?: String;            
-            carrier?: String;            
-            radio?: String;            
+            arn?: AmazonResourceName;
+            name?: Name;
+            manufacturer?: String;
+            model?: String;
+            formFactor?: DeviceFormFactor;
+            platform?: DevicePlatform;
+            os?: String;
+            cpu?: CPU;
+            resolution?: Resolution;
+            heapSize?: Long;
+            memory?: Long;
+            image?: String;
+            carrier?: String;
+            radio?: String;
         }
         export interface DeviceMinutes {
-            total?: Double;            
-            metered?: Double;            
-            unmetered?: Double;            
+            total?: Double;
+            metered?: Double;
+            unmetered?: Double;
         }
         export interface DevicePool {
-            arn?: AmazonResourceName;            
-            name?: Name;            
-            description?: Message;            
-            type?: DevicePoolType;            
-            rules?: Rules;            
+            arn?: AmazonResourceName;
+            name?: Name;
+            description?: Message;
+            type?: DevicePoolType;
+            rules?: Rules;
         }
         export interface DevicePoolCompatibilityResult {
-            device?: Device;            
-            compatible?: Boolean;            
-            incompatibilityMessages?: IncompatibilityMessages;            
+            device?: Device;
+            compatible?: Boolean;
+            incompatibilityMessages?: IncompatibilityMessages;
         }
         export interface GetAccountSettingsRequest {
         }
         export interface GetAccountSettingsResult {
-            accountSettings?: AccountSettings;            
+            accountSettings?: AccountSettings;
         }
         export interface GetDevicePoolCompatibilityRequest {
-            devicePoolArn: AmazonResourceName;            
-            appArn?: AmazonResourceName;            
-            testType?: TestType;            
+            devicePoolArn: AmazonResourceName;
+            appArn?: AmazonResourceName;
+            testType?: TestType;
         }
         export interface GetDevicePoolCompatibilityResult {
-            compatibleDevices?: DevicePoolCompatibilityResults;            
-            incompatibleDevices?: DevicePoolCompatibilityResults;            
+            compatibleDevices?: DevicePoolCompatibilityResults;
+            incompatibleDevices?: DevicePoolCompatibilityResults;
         }
         export interface GetDevicePoolRequest {
-            arn: AmazonResourceName;            
+            arn: AmazonResourceName;
         }
         export interface GetDevicePoolResult {
-            devicePool?: DevicePool;            
+            devicePool?: DevicePool;
         }
         export interface GetDeviceRequest {
-            arn: AmazonResourceName;            
+            arn: AmazonResourceName;
         }
         export interface GetDeviceResult {
-            device?: Device;            
+            device?: Device;
         }
         export interface GetJobRequest {
-            arn: AmazonResourceName;            
+            arn: AmazonResourceName;
         }
         export interface GetJobResult {
-            job?: Job;            
+            job?: Job;
         }
         export interface GetProjectRequest {
-            arn: AmazonResourceName;            
+            arn: AmazonResourceName;
         }
         export interface GetProjectResult {
-            project?: Project;            
+            project?: Project;
         }
         export interface GetRunRequest {
-            arn: AmazonResourceName;            
+            arn: AmazonResourceName;
         }
         export interface GetRunResult {
-            run?: Run;            
+            run?: Run;
         }
         export interface GetSuiteRequest {
-            arn: AmazonResourceName;            
+            arn: AmazonResourceName;
         }
         export interface GetSuiteResult {
-            suite?: Suite;            
+            suite?: Suite;
         }
         export interface GetTestRequest {
-            arn: AmazonResourceName;            
+            arn: AmazonResourceName;
         }
         export interface GetTestResult {
-            test?: Test;            
+            test?: Test;
         }
         export interface GetUploadRequest {
-            arn: AmazonResourceName;            
+            arn: AmazonResourceName;
         }
         export interface GetUploadResult {
-            upload?: Upload;            
+            upload?: Upload;
         }
         export interface IdempotencyException {
-            message?: Message;            
+            message?: Message;
         }
         export interface IncompatibilityMessage {
-            message?: Message;            
-            type?: DeviceAttribute;            
+            message?: Message;
+            type?: DeviceAttribute;
         }
         export interface Job {
-            arn?: AmazonResourceName;            
-            name?: Name;            
-            type?: TestType;            
-            created?: DateTime;            
-            status?: ExecutionStatus;            
-            result?: ExecutionResult;            
-            started?: DateTime;            
-            stopped?: DateTime;            
-            counters?: Counters;            
-            message?: Message;            
-            device?: Device;            
-            deviceMinutes?: DeviceMinutes;            
+            arn?: AmazonResourceName;
+            name?: Name;
+            type?: TestType;
+            created?: DateTime;
+            status?: ExecutionStatus;
+            result?: ExecutionResult;
+            started?: DateTime;
+            stopped?: DateTime;
+            counters?: Counters;
+            message?: Message;
+            device?: Device;
+            deviceMinutes?: DeviceMinutes;
         }
         export interface LimitExceededException {
-            message?: Message;            
+            message?: Message;
         }
         export interface ListArtifactsRequest {
-            arn: AmazonResourceName;            
-            type: ArtifactCategory;            
-            nextToken?: PaginationToken;            
+            arn: AmazonResourceName;
+            type: ArtifactCategory;
+            nextToken?: PaginationToken;
         }
         export interface ListArtifactsResult {
-            artifacts?: Artifacts;            
-            nextToken?: PaginationToken;            
+            artifacts?: Artifacts;
+            nextToken?: PaginationToken;
         }
         export interface ListDevicePoolsRequest {
-            arn: AmazonResourceName;            
-            type?: DevicePoolType;            
-            nextToken?: PaginationToken;            
+            arn: AmazonResourceName;
+            type?: DevicePoolType;
+            nextToken?: PaginationToken;
         }
         export interface ListDevicePoolsResult {
-            devicePools?: DevicePools;            
-            nextToken?: PaginationToken;            
+            devicePools?: DevicePools;
+            nextToken?: PaginationToken;
         }
         export interface ListDevicesRequest {
-            arn?: AmazonResourceName;            
-            nextToken?: PaginationToken;            
+            arn?: AmazonResourceName;
+            nextToken?: PaginationToken;
         }
         export interface ListDevicesResult {
-            devices?: Devices;            
-            nextToken?: PaginationToken;            
+            devices?: Devices;
+            nextToken?: PaginationToken;
         }
         export interface ListJobsRequest {
-            arn: AmazonResourceName;            
-            nextToken?: PaginationToken;            
+            arn: AmazonResourceName;
+            nextToken?: PaginationToken;
         }
         export interface ListJobsResult {
-            jobs?: Jobs;            
-            nextToken?: PaginationToken;            
+            jobs?: Jobs;
+            nextToken?: PaginationToken;
         }
         export interface ListProjectsRequest {
-            arn?: AmazonResourceName;            
-            nextToken?: PaginationToken;            
+            arn?: AmazonResourceName;
+            nextToken?: PaginationToken;
         }
         export interface ListProjectsResult {
-            projects?: Projects;            
-            nextToken?: PaginationToken;            
+            projects?: Projects;
+            nextToken?: PaginationToken;
         }
         export interface ListRunsRequest {
-            arn: AmazonResourceName;            
-            nextToken?: PaginationToken;            
+            arn: AmazonResourceName;
+            nextToken?: PaginationToken;
         }
         export interface ListRunsResult {
-            runs?: Runs;            
-            nextToken?: PaginationToken;            
+            runs?: Runs;
+            nextToken?: PaginationToken;
         }
         export interface ListSamplesRequest {
-            arn: AmazonResourceName;            
-            nextToken?: PaginationToken;            
+            arn: AmazonResourceName;
+            nextToken?: PaginationToken;
         }
         export interface ListSamplesResult {
-            samples?: Samples;            
-            nextToken?: PaginationToken;            
+            samples?: Samples;
+            nextToken?: PaginationToken;
         }
         export interface ListSuitesRequest {
-            arn: AmazonResourceName;            
-            nextToken?: PaginationToken;            
+            arn: AmazonResourceName;
+            nextToken?: PaginationToken;
         }
         export interface ListSuitesResult {
-            suites?: Suites;            
-            nextToken?: PaginationToken;            
+            suites?: Suites;
+            nextToken?: PaginationToken;
         }
         export interface ListTestsRequest {
-            arn: AmazonResourceName;            
-            nextToken?: PaginationToken;            
+            arn: AmazonResourceName;
+            nextToken?: PaginationToken;
         }
         export interface ListTestsResult {
-            tests?: Tests;            
-            nextToken?: PaginationToken;            
+            tests?: Tests;
+            nextToken?: PaginationToken;
         }
         export interface ListUniqueProblemsRequest {
-            arn: AmazonResourceName;            
-            nextToken?: PaginationToken;            
+            arn: AmazonResourceName;
+            nextToken?: PaginationToken;
         }
         export interface ListUniqueProblemsResult {
-            uniqueProblems?: UniqueProblemsByExecutionResultMap;            
-            nextToken?: PaginationToken;            
+            uniqueProblems?: UniqueProblemsByExecutionResultMap;
+            nextToken?: PaginationToken;
         }
         export interface ListUploadsRequest {
-            arn: AmazonResourceName;            
-            nextToken?: PaginationToken;            
+            arn: AmazonResourceName;
+            nextToken?: PaginationToken;
         }
         export interface ListUploadsResult {
-            uploads?: Uploads;            
-            nextToken?: PaginationToken;            
+            uploads?: Uploads;
+            nextToken?: PaginationToken;
         }
         export interface Location {
-            latitude: Double;            
-            longitude: Double;            
+            latitude: Double;
+            longitude: Double;
         }
         export interface NotFoundException {
-            message?: Message;            
+            message?: Message;
         }
         export interface Problem {
-            run?: ProblemDetail;            
-            job?: ProblemDetail;            
-            suite?: ProblemDetail;            
-            test?: ProblemDetail;            
-            device?: Device;            
-            result?: ExecutionResult;            
-            message?: Message;            
+            run?: ProblemDetail;
+            job?: ProblemDetail;
+            suite?: ProblemDetail;
+            test?: ProblemDetail;
+            device?: Device;
+            result?: ExecutionResult;
+            message?: Message;
         }
         export interface ProblemDetail {
-            arn?: AmazonResourceName;            
-            name?: Name;            
+            arn?: AmazonResourceName;
+            name?: Name;
         }
         export interface Project {
-            arn?: AmazonResourceName;            
-            name?: Name;            
-            created?: DateTime;            
+            arn?: AmazonResourceName;
+            name?: Name;
+            created?: DateTime;
         }
         export interface Radios {
-            wifi?: Boolean;            
-            bluetooth?: Boolean;            
-            nfc?: Boolean;            
-            gps?: Boolean;            
+            wifi?: Boolean;
+            bluetooth?: Boolean;
+            nfc?: Boolean;
+            gps?: Boolean;
         }
         export interface Resolution {
-            width?: Integer;            
-            height?: Integer;            
+            width?: Integer;
+            height?: Integer;
         }
         export interface Rule {
-            attribute?: DeviceAttribute;            
-            operator?: RuleOperator;            
-            value?: String;            
+            attribute?: DeviceAttribute;
+            operator?: RuleOperator;
+            value?: String;
         }
         export interface Run {
-            arn?: AmazonResourceName;            
-            name?: Name;            
-            type?: TestType;            
-            platform?: DevicePlatform;            
-            created?: DateTime;            
-            status?: ExecutionStatus;            
-            result?: ExecutionResult;            
-            started?: DateTime;            
-            stopped?: DateTime;            
-            counters?: Counters;            
-            message?: Message;            
-            totalJobs?: Integer;            
-            completedJobs?: Integer;            
-            billingMethod?: BillingMethod;            
-            deviceMinutes?: DeviceMinutes;            
+            arn?: AmazonResourceName;
+            name?: Name;
+            type?: TestType;
+            platform?: DevicePlatform;
+            created?: DateTime;
+            status?: ExecutionStatus;
+            result?: ExecutionResult;
+            started?: DateTime;
+            stopped?: DateTime;
+            counters?: Counters;
+            message?: Message;
+            totalJobs?: Integer;
+            completedJobs?: Integer;
+            billingMethod?: BillingMethod;
+            deviceMinutes?: DeviceMinutes;
         }
         export interface Sample {
-            arn?: AmazonResourceName;            
-            type?: SampleType;            
-            url?: URL;            
+            arn?: AmazonResourceName;
+            type?: SampleType;
+            url?: URL;
         }
         export interface ScheduleRunConfiguration {
-            extraDataPackageArn?: AmazonResourceName;            
-            networkProfileArn?: AmazonResourceName;            
-            locale?: String;            
-            location?: Location;            
-            radios?: Radios;            
-            auxiliaryApps?: AmazonResourceNames;            
-            billingMethod?: BillingMethod;            
+            extraDataPackageArn?: AmazonResourceName;
+            networkProfileArn?: AmazonResourceName;
+            locale?: String;
+            location?: Location;
+            radios?: Radios;
+            auxiliaryApps?: AmazonResourceNames;
+            billingMethod?: BillingMethod;
         }
         export interface ScheduleRunRequest {
-            projectArn: AmazonResourceName;            
-            appArn?: AmazonResourceName;            
-            devicePoolArn: AmazonResourceName;            
-            name?: Name;            
-            test: ScheduleRunTest;            
-            configuration?: ScheduleRunConfiguration;            
+            projectArn: AmazonResourceName;
+            appArn?: AmazonResourceName;
+            devicePoolArn: AmazonResourceName;
+            name?: Name;
+            test: ScheduleRunTest;
+            configuration?: ScheduleRunConfiguration;
         }
         export interface ScheduleRunResult {
-            run?: Run;            
+            run?: Run;
         }
         export interface ScheduleRunTest {
-            type: TestType;            
-            testPackageArn?: AmazonResourceName;            
-            filter?: Filter;            
-            parameters?: TestParameters;            
+            type: TestType;
+            testPackageArn?: AmazonResourceName;
+            filter?: Filter;
+            parameters?: TestParameters;
         }
         export interface ServiceAccountException {
-            message?: Message;            
+            message?: Message;
         }
         export interface Suite {
-            arn?: AmazonResourceName;            
-            name?: Name;            
-            type?: TestType;            
-            created?: DateTime;            
-            status?: ExecutionStatus;            
-            result?: ExecutionResult;            
-            started?: DateTime;            
-            stopped?: DateTime;            
-            counters?: Counters;            
-            message?: Message;            
-            deviceMinutes?: DeviceMinutes;            
+            arn?: AmazonResourceName;
+            name?: Name;
+            type?: TestType;
+            created?: DateTime;
+            status?: ExecutionStatus;
+            result?: ExecutionResult;
+            started?: DateTime;
+            stopped?: DateTime;
+            counters?: Counters;
+            message?: Message;
+            deviceMinutes?: DeviceMinutes;
         }
         export interface Test {
-            arn?: AmazonResourceName;            
-            name?: Name;            
-            type?: TestType;            
-            created?: DateTime;            
-            status?: ExecutionStatus;            
-            result?: ExecutionResult;            
-            started?: DateTime;            
-            stopped?: DateTime;            
-            counters?: Counters;            
-            message?: Message;            
-            deviceMinutes?: DeviceMinutes;            
+            arn?: AmazonResourceName;
+            name?: Name;
+            type?: TestType;
+            created?: DateTime;
+            status?: ExecutionStatus;
+            result?: ExecutionResult;
+            started?: DateTime;
+            stopped?: DateTime;
+            counters?: Counters;
+            message?: Message;
+            deviceMinutes?: DeviceMinutes;
         }
         export interface UniqueProblem {
-            message?: Message;            
-            problems?: Problems;            
+            message?: Message;
+            problems?: Problems;
         }
         export interface UpdateDevicePoolRequest {
-            arn: AmazonResourceName;            
-            name?: Name;            
-            description?: Message;            
-            rules?: Rules;            
+            arn: AmazonResourceName;
+            name?: Name;
+            description?: Message;
+            rules?: Rules;
         }
         export interface UpdateDevicePoolResult {
-            devicePool?: DevicePool;            
+            devicePool?: DevicePool;
         }
         export interface UpdateProjectRequest {
-            arn: AmazonResourceName;            
-            name?: Name;            
+            arn: AmazonResourceName;
+            name?: Name;
         }
         export interface UpdateProjectResult {
-            project?: Project;            
+            project?: Project;
         }
         export interface Upload {
-            arn?: AmazonResourceName;            
-            name?: Name;            
-            created?: DateTime;            
-            type?: UploadType;            
-            status?: UploadStatus;            
-            url?: URL;            
-            metadata?: Metadata;            
-            contentType?: ContentType;            
-            message?: Message;            
+            arn?: AmazonResourceName;
+            name?: Name;
+            created?: DateTime;
+            type?: UploadType;
+            status?: UploadStatus;
+            url?: URL;
+            metadata?: Metadata;
+            contentType?: ContentType;
+            message?: Message;
         }
 
     }

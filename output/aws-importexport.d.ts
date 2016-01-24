@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2010-06-01
      * endpointPrefix: importexport
      * serviceAbbreviation: 
@@ -23,8 +23,9 @@ declare module "aws-sdk" {
       getStatus(params: ImportExport.GetStatusInput, callback?: (err: ImportExport.InvalidJobIdException|ImportExport.ExpiredJobIdException|ImportExport.CanceledJobIdException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidVersionException|any, data: ImportExport.GetStatusOutput|any) => void): Request;
       listJobs(params: ImportExport.ListJobsInput, callback?: (err: ImportExport.InvalidParameterException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidVersionException|any, data: ImportExport.ListJobsOutput|any) => void): Request;
       updateJob(params: ImportExport.UpdateJobInput, callback?: (err: ImportExport.MissingParameterException|ImportExport.InvalidParameterException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidAddressException|ImportExport.InvalidManifestFieldException|ImportExport.InvalidJobIdException|ImportExport.MissingManifestFieldException|ImportExport.NoSuchBucketException|ImportExport.ExpiredJobIdException|ImportExport.CanceledJobIdException|ImportExport.MissingCustomsException|ImportExport.InvalidCustomsException|ImportExport.InvalidFileSystemException|ImportExport.MultipleRegionsException|ImportExport.BucketPermissionException|ImportExport.MalformedManifestException|ImportExport.UnableToUpdateJobIdException|ImportExport.InvalidVersionException|any, data: ImportExport.UpdateJobOutput|any) => void): Request;
+
     }
-    
+
     export module ImportExport {
         export type APIVersion = string;
         export type ArtifactList = Artifact[];
@@ -70,157 +71,157 @@ declare module "aws-sdk" {
         export type street3 = string;
 
         export interface Artifact {
-            Description?: Description;            
-            URL?: URL;            
+            Description?: Description;
+            URL?: URL;
         }
         export interface BucketPermissionException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface CancelJobInput {
-            JobId: JobId;            
-            APIVersion?: APIVersion;            
+            JobId: JobId;
+            APIVersion?: APIVersion;
         }
         export interface CancelJobOutput {
-            Success?: Success;            
+            Success?: Success;
         }
         export interface CanceledJobIdException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface CreateJobInput {
-            JobType: JobType;            
-            Manifest: Manifest;            
-            ManifestAddendum?: ManifestAddendum;            
-            ValidateOnly: ValidateOnly;            
-            APIVersion?: APIVersion;            
+            JobType: JobType;
+            Manifest: Manifest;
+            ManifestAddendum?: ManifestAddendum;
+            ValidateOnly: ValidateOnly;
+            APIVersion?: APIVersion;
         }
         export interface CreateJobOutput {
-            JobId?: JobId;            
-            JobType?: JobType;            
-            Signature?: Signature;            
-            SignatureFileContents?: SignatureFileContents;            
-            WarningMessage?: WarningMessage;            
-            ArtifactList?: ArtifactList;            
+            JobId?: JobId;
+            JobType?: JobType;
+            Signature?: Signature;
+            SignatureFileContents?: SignatureFileContents;
+            WarningMessage?: WarningMessage;
+            ArtifactList?: ArtifactList;
         }
         export interface CreateJobQuotaExceededException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ExpiredJobIdException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface GetShippingLabelInput {
-            jobIds: JobIdList;            
-            name?: name;            
-            company?: company;            
-            phoneNumber?: phoneNumber;            
-            country?: country;            
-            stateOrProvince?: stateOrProvince;            
-            city?: city;            
-            postalCode?: postalCode;            
-            street1?: street1;            
-            street2?: street2;            
-            street3?: street3;            
-            APIVersion?: APIVersion;            
+            jobIds: JobIdList;
+            name?: name;
+            company?: company;
+            phoneNumber?: phoneNumber;
+            country?: country;
+            stateOrProvince?: stateOrProvince;
+            city?: city;
+            postalCode?: postalCode;
+            street1?: street1;
+            street2?: street2;
+            street3?: street3;
+            APIVersion?: APIVersion;
         }
         export interface GetShippingLabelOutput {
-            ShippingLabelURL?: GenericString;            
-            Warning?: GenericString;            
+            ShippingLabelURL?: GenericString;
+            Warning?: GenericString;
         }
         export interface GetStatusInput {
-            JobId: JobId;            
-            APIVersion?: APIVersion;            
+            JobId: JobId;
+            APIVersion?: APIVersion;
         }
         export interface GetStatusOutput {
-            JobId?: JobId;            
-            JobType?: JobType;            
-            LocationCode?: LocationCode;            
-            LocationMessage?: LocationMessage;            
-            ProgressCode?: ProgressCode;            
-            ProgressMessage?: ProgressMessage;            
-            Carrier?: Carrier;            
-            TrackingNumber?: TrackingNumber;            
-            LogBucket?: LogBucket;            
-            LogKey?: LogKey;            
-            ErrorCount?: ErrorCount;            
-            Signature?: Signature;            
-            SignatureFileContents?: Signature;            
-            CurrentManifest?: CurrentManifest;            
-            CreationDate?: CreationDate;            
-            ArtifactList?: ArtifactList;            
+            JobId?: JobId;
+            JobType?: JobType;
+            LocationCode?: LocationCode;
+            LocationMessage?: LocationMessage;
+            ProgressCode?: ProgressCode;
+            ProgressMessage?: ProgressMessage;
+            Carrier?: Carrier;
+            TrackingNumber?: TrackingNumber;
+            LogBucket?: LogBucket;
+            LogKey?: LogKey;
+            ErrorCount?: ErrorCount;
+            Signature?: Signature;
+            SignatureFileContents?: Signature;
+            CurrentManifest?: CurrentManifest;
+            CreationDate?: CreationDate;
+            ArtifactList?: ArtifactList;
         }
         export interface InvalidAccessKeyIdException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface InvalidAddressException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface InvalidCustomsException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface InvalidFileSystemException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface InvalidJobIdException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface InvalidManifestFieldException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface InvalidParameterException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface InvalidVersionException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface Job {
-            JobId?: JobId;            
-            CreationDate?: CreationDate;            
-            IsCanceled?: IsCanceled;            
-            JobType?: JobType;            
+            JobId?: JobId;
+            CreationDate?: CreationDate;
+            IsCanceled?: IsCanceled;
+            JobType?: JobType;
         }
         export interface ListJobsInput {
-            MaxJobs?: MaxJobs;            
-            Marker?: Marker;            
-            APIVersion?: APIVersion;            
+            MaxJobs?: MaxJobs;
+            Marker?: Marker;
+            APIVersion?: APIVersion;
         }
         export interface ListJobsOutput {
-            Jobs?: JobsList;            
-            IsTruncated?: IsTruncated;            
+            Jobs?: JobsList;
+            IsTruncated?: IsTruncated;
         }
         export interface MalformedManifestException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface MissingCustomsException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface MissingManifestFieldException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface MissingParameterException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface MultipleRegionsException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface NoSuchBucketException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface UnableToCancelJobIdException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface UnableToUpdateJobIdException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface UpdateJobInput {
-            JobId: JobId;            
-            Manifest: Manifest;            
-            JobType: JobType;            
-            ValidateOnly: ValidateOnly;            
-            APIVersion?: APIVersion;            
+            JobId: JobId;
+            Manifest: Manifest;
+            JobType: JobType;
+            ValidateOnly: ValidateOnly;
+            APIVersion?: APIVersion;
         }
         export interface UpdateJobOutput {
-            Success?: Success;            
-            WarningMessage?: WarningMessage;            
-            ArtifactList?: ArtifactList;            
+            Success?: Success;
+            WarningMessage?: WarningMessage;
+            ArtifactList?: ArtifactList;
         }
 
     }

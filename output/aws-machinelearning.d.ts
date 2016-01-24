@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2014-12-12
      * endpointPrefix: machinelearning
      * serviceAbbreviation: 
@@ -42,8 +42,13 @@ declare module "aws-sdk" {
       updateDataSource(params: MachineLearning.UpdateDataSourceInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateDataSourceOutput|any) => void): Request;
       updateEvaluation(params: MachineLearning.UpdateEvaluationInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateEvaluationOutput|any) => void): Request;
       updateMLModel(params: MachineLearning.UpdateMLModelInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateMLModelOutput|any) => void): Request;
+
+      // Found on JS Sources - Sorry for the inconvenience :)
+      setupRequestListeners(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      buildEndpoint(...args: any[]): any
     }
-    
+
     export module MachineLearning {
         export type Algorithm = string;
         export type AwsUserArn = string;    // pattern: &quot;arn:aws:iam::[0-9]+:((user/.+)|(root))&quot;
@@ -113,444 +118,444 @@ declare module "aws-sdk" {
         export type floatLabel = number;
 
         export interface BatchPrediction {
-            BatchPredictionId?: EntityId;            
-            MLModelId?: EntityId;            
-            BatchPredictionDataSourceId?: EntityId;            
-            InputDataLocationS3?: S3Url;            
-            CreatedByIamUser?: AwsUserArn;            
-            CreatedAt?: EpochTime;            
-            LastUpdatedAt?: EpochTime;            
-            Name?: EntityName;            
-            Status?: EntityStatus;            
-            OutputUri?: S3Url;            
-            Message?: Message;            
+            BatchPredictionId?: EntityId;
+            MLModelId?: EntityId;
+            BatchPredictionDataSourceId?: EntityId;
+            InputDataLocationS3?: S3Url;
+            CreatedByIamUser?: AwsUserArn;
+            CreatedAt?: EpochTime;
+            LastUpdatedAt?: EpochTime;
+            Name?: EntityName;
+            Status?: EntityStatus;
+            OutputUri?: S3Url;
+            Message?: Message;
         }
         export interface CreateBatchPredictionInput {
-            BatchPredictionId: EntityId;            
-            BatchPredictionName?: EntityName;            
-            MLModelId: EntityId;            
-            BatchPredictionDataSourceId: EntityId;            
-            OutputUri: S3Url;            
+            BatchPredictionId: EntityId;
+            BatchPredictionName?: EntityName;
+            MLModelId: EntityId;
+            BatchPredictionDataSourceId: EntityId;
+            OutputUri: S3Url;
         }
         export interface CreateBatchPredictionOutput {
-            BatchPredictionId?: EntityId;            
+            BatchPredictionId?: EntityId;
         }
         export interface CreateDataSourceFromRDSInput {
-            DataSourceId: EntityId;            
-            DataSourceName?: EntityName;            
-            RDSData: RDSDataSpec;            
-            RoleARN: RoleARN;            
-            ComputeStatistics?: ComputeStatistics;            
+            DataSourceId: EntityId;
+            DataSourceName?: EntityName;
+            RDSData: RDSDataSpec;
+            RoleARN: RoleARN;
+            ComputeStatistics?: ComputeStatistics;
         }
         export interface CreateDataSourceFromRDSOutput {
-            DataSourceId?: EntityId;            
+            DataSourceId?: EntityId;
         }
         export interface CreateDataSourceFromRedshiftInput {
-            DataSourceId: EntityId;            
-            DataSourceName?: EntityName;            
-            DataSpec: RedshiftDataSpec;            
-            RoleARN: RoleARN;            
-            ComputeStatistics?: ComputeStatistics;            
+            DataSourceId: EntityId;
+            DataSourceName?: EntityName;
+            DataSpec: RedshiftDataSpec;
+            RoleARN: RoleARN;
+            ComputeStatistics?: ComputeStatistics;
         }
         export interface CreateDataSourceFromRedshiftOutput {
-            DataSourceId?: EntityId;            
+            DataSourceId?: EntityId;
         }
         export interface CreateDataSourceFromS3Input {
-            DataSourceId: EntityId;            
-            DataSourceName?: EntityName;            
-            DataSpec: S3DataSpec;            
-            ComputeStatistics?: ComputeStatistics;            
+            DataSourceId: EntityId;
+            DataSourceName?: EntityName;
+            DataSpec: S3DataSpec;
+            ComputeStatistics?: ComputeStatistics;
         }
         export interface CreateDataSourceFromS3Output {
-            DataSourceId?: EntityId;            
+            DataSourceId?: EntityId;
         }
         export interface CreateEvaluationInput {
-            EvaluationId: EntityId;            
-            EvaluationName?: EntityName;            
-            MLModelId: EntityId;            
-            EvaluationDataSourceId: EntityId;            
+            EvaluationId: EntityId;
+            EvaluationName?: EntityName;
+            MLModelId: EntityId;
+            EvaluationDataSourceId: EntityId;
         }
         export interface CreateEvaluationOutput {
-            EvaluationId?: EntityId;            
+            EvaluationId?: EntityId;
         }
         export interface CreateMLModelInput {
-            MLModelId: EntityId;            
-            MLModelName?: EntityName;            
-            MLModelType: MLModelType;            
-            Parameters?: TrainingParameters;            
-            TrainingDataSourceId: EntityId;            
-            Recipe?: Recipe;            
-            RecipeUri?: S3Url;            
+            MLModelId: EntityId;
+            MLModelName?: EntityName;
+            MLModelType: MLModelType;
+            Parameters?: TrainingParameters;
+            TrainingDataSourceId: EntityId;
+            Recipe?: Recipe;
+            RecipeUri?: S3Url;
         }
         export interface CreateMLModelOutput {
-            MLModelId?: EntityId;            
+            MLModelId?: EntityId;
         }
         export interface CreateRealtimeEndpointInput {
-            MLModelId: EntityId;            
+            MLModelId: EntityId;
         }
         export interface CreateRealtimeEndpointOutput {
-            MLModelId?: EntityId;            
-            RealtimeEndpointInfo?: RealtimeEndpointInfo;            
+            MLModelId?: EntityId;
+            RealtimeEndpointInfo?: RealtimeEndpointInfo;
         }
         export interface DataSource {
-            DataSourceId?: EntityId;            
-            DataLocationS3?: S3Url;            
-            DataRearrangement?: DataRearrangement;            
-            CreatedByIamUser?: AwsUserArn;            
-            CreatedAt?: EpochTime;            
-            LastUpdatedAt?: EpochTime;            
-            DataSizeInBytes?: LongType;            
-            NumberOfFiles?: LongType;            
-            Name?: EntityName;            
-            Status?: EntityStatus;            
-            Message?: Message;            
-            RedshiftMetadata?: RedshiftMetadata;            
-            RDSMetadata?: RDSMetadata;            
-            RoleARN?: RoleARN;            
-            ComputeStatistics?: ComputeStatistics;            
+            DataSourceId?: EntityId;
+            DataLocationS3?: S3Url;
+            DataRearrangement?: DataRearrangement;
+            CreatedByIamUser?: AwsUserArn;
+            CreatedAt?: EpochTime;
+            LastUpdatedAt?: EpochTime;
+            DataSizeInBytes?: LongType;
+            NumberOfFiles?: LongType;
+            Name?: EntityName;
+            Status?: EntityStatus;
+            Message?: Message;
+            RedshiftMetadata?: RedshiftMetadata;
+            RDSMetadata?: RDSMetadata;
+            RoleARN?: RoleARN;
+            ComputeStatistics?: ComputeStatistics;
         }
         export interface DeleteBatchPredictionInput {
-            BatchPredictionId: EntityId;            
+            BatchPredictionId: EntityId;
         }
         export interface DeleteBatchPredictionOutput {
-            BatchPredictionId?: EntityId;            
+            BatchPredictionId?: EntityId;
         }
         export interface DeleteDataSourceInput {
-            DataSourceId: EntityId;            
+            DataSourceId: EntityId;
         }
         export interface DeleteDataSourceOutput {
-            DataSourceId?: EntityId;            
+            DataSourceId?: EntityId;
         }
         export interface DeleteEvaluationInput {
-            EvaluationId: EntityId;            
+            EvaluationId: EntityId;
         }
         export interface DeleteEvaluationOutput {
-            EvaluationId?: EntityId;            
+            EvaluationId?: EntityId;
         }
         export interface DeleteMLModelInput {
-            MLModelId: EntityId;            
+            MLModelId: EntityId;
         }
         export interface DeleteMLModelOutput {
-            MLModelId?: EntityId;            
+            MLModelId?: EntityId;
         }
         export interface DeleteRealtimeEndpointInput {
-            MLModelId: EntityId;            
+            MLModelId: EntityId;
         }
         export interface DeleteRealtimeEndpointOutput {
-            MLModelId?: EntityId;            
-            RealtimeEndpointInfo?: RealtimeEndpointInfo;            
+            MLModelId?: EntityId;
+            RealtimeEndpointInfo?: RealtimeEndpointInfo;
         }
         export interface DescribeBatchPredictionsInput {
-            FilterVariable?: BatchPredictionFilterVariable;            
-            EQ?: ComparatorValue;            
-            GT?: ComparatorValue;            
-            LT?: ComparatorValue;            
-            GE?: ComparatorValue;            
-            LE?: ComparatorValue;            
-            NE?: ComparatorValue;            
-            Prefix?: ComparatorValue;            
-            SortOrder?: SortOrder;            
-            NextToken?: StringType;            
-            Limit?: PageLimit;            
+            FilterVariable?: BatchPredictionFilterVariable;
+            EQ?: ComparatorValue;
+            GT?: ComparatorValue;
+            LT?: ComparatorValue;
+            GE?: ComparatorValue;
+            LE?: ComparatorValue;
+            NE?: ComparatorValue;
+            Prefix?: ComparatorValue;
+            SortOrder?: SortOrder;
+            NextToken?: StringType;
+            Limit?: PageLimit;
         }
         export interface DescribeBatchPredictionsOutput {
-            Results?: BatchPredictions;            
-            NextToken?: StringType;            
+            Results?: BatchPredictions;
+            NextToken?: StringType;
         }
         export interface DescribeDataSourcesInput {
-            FilterVariable?: DataSourceFilterVariable;            
-            EQ?: ComparatorValue;            
-            GT?: ComparatorValue;            
-            LT?: ComparatorValue;            
-            GE?: ComparatorValue;            
-            LE?: ComparatorValue;            
-            NE?: ComparatorValue;            
-            Prefix?: ComparatorValue;            
-            SortOrder?: SortOrder;            
-            NextToken?: StringType;            
-            Limit?: PageLimit;            
+            FilterVariable?: DataSourceFilterVariable;
+            EQ?: ComparatorValue;
+            GT?: ComparatorValue;
+            LT?: ComparatorValue;
+            GE?: ComparatorValue;
+            LE?: ComparatorValue;
+            NE?: ComparatorValue;
+            Prefix?: ComparatorValue;
+            SortOrder?: SortOrder;
+            NextToken?: StringType;
+            Limit?: PageLimit;
         }
         export interface DescribeDataSourcesOutput {
-            Results?: DataSources;            
-            NextToken?: StringType;            
+            Results?: DataSources;
+            NextToken?: StringType;
         }
         export interface DescribeEvaluationsInput {
-            FilterVariable?: EvaluationFilterVariable;            
-            EQ?: ComparatorValue;            
-            GT?: ComparatorValue;            
-            LT?: ComparatorValue;            
-            GE?: ComparatorValue;            
-            LE?: ComparatorValue;            
-            NE?: ComparatorValue;            
-            Prefix?: ComparatorValue;            
-            SortOrder?: SortOrder;            
-            NextToken?: StringType;            
-            Limit?: PageLimit;            
+            FilterVariable?: EvaluationFilterVariable;
+            EQ?: ComparatorValue;
+            GT?: ComparatorValue;
+            LT?: ComparatorValue;
+            GE?: ComparatorValue;
+            LE?: ComparatorValue;
+            NE?: ComparatorValue;
+            Prefix?: ComparatorValue;
+            SortOrder?: SortOrder;
+            NextToken?: StringType;
+            Limit?: PageLimit;
         }
         export interface DescribeEvaluationsOutput {
-            Results?: Evaluations;            
-            NextToken?: StringType;            
+            Results?: Evaluations;
+            NextToken?: StringType;
         }
         export interface DescribeMLModelsInput {
-            FilterVariable?: MLModelFilterVariable;            
-            EQ?: ComparatorValue;            
-            GT?: ComparatorValue;            
-            LT?: ComparatorValue;            
-            GE?: ComparatorValue;            
-            LE?: ComparatorValue;            
-            NE?: ComparatorValue;            
-            Prefix?: ComparatorValue;            
-            SortOrder?: SortOrder;            
-            NextToken?: StringType;            
-            Limit?: PageLimit;            
+            FilterVariable?: MLModelFilterVariable;
+            EQ?: ComparatorValue;
+            GT?: ComparatorValue;
+            LT?: ComparatorValue;
+            GE?: ComparatorValue;
+            LE?: ComparatorValue;
+            NE?: ComparatorValue;
+            Prefix?: ComparatorValue;
+            SortOrder?: SortOrder;
+            NextToken?: StringType;
+            Limit?: PageLimit;
         }
         export interface DescribeMLModelsOutput {
-            Results?: MLModels;            
-            NextToken?: StringType;            
+            Results?: MLModels;
+            NextToken?: StringType;
         }
         export interface Evaluation {
-            EvaluationId?: EntityId;            
-            MLModelId?: EntityId;            
-            EvaluationDataSourceId?: EntityId;            
-            InputDataLocationS3?: S3Url;            
-            CreatedByIamUser?: AwsUserArn;            
-            CreatedAt?: EpochTime;            
-            LastUpdatedAt?: EpochTime;            
-            Name?: EntityName;            
-            Status?: EntityStatus;            
-            PerformanceMetrics?: PerformanceMetrics;            
-            Message?: Message;            
+            EvaluationId?: EntityId;
+            MLModelId?: EntityId;
+            EvaluationDataSourceId?: EntityId;
+            InputDataLocationS3?: S3Url;
+            CreatedByIamUser?: AwsUserArn;
+            CreatedAt?: EpochTime;
+            LastUpdatedAt?: EpochTime;
+            Name?: EntityName;
+            Status?: EntityStatus;
+            PerformanceMetrics?: PerformanceMetrics;
+            Message?: Message;
         }
         export interface GetBatchPredictionInput {
-            BatchPredictionId: EntityId;            
+            BatchPredictionId: EntityId;
         }
         export interface GetBatchPredictionOutput {
-            BatchPredictionId?: EntityId;            
-            MLModelId?: EntityId;            
-            BatchPredictionDataSourceId?: EntityId;            
-            InputDataLocationS3?: S3Url;            
-            CreatedByIamUser?: AwsUserArn;            
-            CreatedAt?: EpochTime;            
-            LastUpdatedAt?: EpochTime;            
-            Name?: EntityName;            
-            Status?: EntityStatus;            
-            OutputUri?: S3Url;            
-            LogUri?: PresignedS3Url;            
-            Message?: Message;            
+            BatchPredictionId?: EntityId;
+            MLModelId?: EntityId;
+            BatchPredictionDataSourceId?: EntityId;
+            InputDataLocationS3?: S3Url;
+            CreatedByIamUser?: AwsUserArn;
+            CreatedAt?: EpochTime;
+            LastUpdatedAt?: EpochTime;
+            Name?: EntityName;
+            Status?: EntityStatus;
+            OutputUri?: S3Url;
+            LogUri?: PresignedS3Url;
+            Message?: Message;
         }
         export interface GetDataSourceInput {
-            DataSourceId: EntityId;            
-            Verbose?: Verbose;            
+            DataSourceId: EntityId;
+            Verbose?: Verbose;
         }
         export interface GetDataSourceOutput {
-            DataSourceId?: EntityId;            
-            DataLocationS3?: S3Url;            
-            DataRearrangement?: DataRearrangement;            
-            CreatedByIamUser?: AwsUserArn;            
-            CreatedAt?: EpochTime;            
-            LastUpdatedAt?: EpochTime;            
-            DataSizeInBytes?: LongType;            
-            NumberOfFiles?: LongType;            
-            Name?: EntityName;            
-            Status?: EntityStatus;            
-            LogUri?: PresignedS3Url;            
-            Message?: Message;            
-            RedshiftMetadata?: RedshiftMetadata;            
-            RDSMetadata?: RDSMetadata;            
-            RoleARN?: RoleARN;            
-            ComputeStatistics?: ComputeStatistics;            
-            DataSourceSchema?: DataSchema;            
+            DataSourceId?: EntityId;
+            DataLocationS3?: S3Url;
+            DataRearrangement?: DataRearrangement;
+            CreatedByIamUser?: AwsUserArn;
+            CreatedAt?: EpochTime;
+            LastUpdatedAt?: EpochTime;
+            DataSizeInBytes?: LongType;
+            NumberOfFiles?: LongType;
+            Name?: EntityName;
+            Status?: EntityStatus;
+            LogUri?: PresignedS3Url;
+            Message?: Message;
+            RedshiftMetadata?: RedshiftMetadata;
+            RDSMetadata?: RDSMetadata;
+            RoleARN?: RoleARN;
+            ComputeStatistics?: ComputeStatistics;
+            DataSourceSchema?: DataSchema;
         }
         export interface GetEvaluationInput {
-            EvaluationId: EntityId;            
+            EvaluationId: EntityId;
         }
         export interface GetEvaluationOutput {
-            EvaluationId?: EntityId;            
-            MLModelId?: EntityId;            
-            EvaluationDataSourceId?: EntityId;            
-            InputDataLocationS3?: S3Url;            
-            CreatedByIamUser?: AwsUserArn;            
-            CreatedAt?: EpochTime;            
-            LastUpdatedAt?: EpochTime;            
-            Name?: EntityName;            
-            Status?: EntityStatus;            
-            PerformanceMetrics?: PerformanceMetrics;            
-            LogUri?: PresignedS3Url;            
-            Message?: Message;            
+            EvaluationId?: EntityId;
+            MLModelId?: EntityId;
+            EvaluationDataSourceId?: EntityId;
+            InputDataLocationS3?: S3Url;
+            CreatedByIamUser?: AwsUserArn;
+            CreatedAt?: EpochTime;
+            LastUpdatedAt?: EpochTime;
+            Name?: EntityName;
+            Status?: EntityStatus;
+            PerformanceMetrics?: PerformanceMetrics;
+            LogUri?: PresignedS3Url;
+            Message?: Message;
         }
         export interface GetMLModelInput {
-            MLModelId: EntityId;            
-            Verbose?: Verbose;            
+            MLModelId: EntityId;
+            Verbose?: Verbose;
         }
         export interface GetMLModelOutput {
-            MLModelId?: EntityId;            
-            TrainingDataSourceId?: EntityId;            
-            CreatedByIamUser?: AwsUserArn;            
-            CreatedAt?: EpochTime;            
-            LastUpdatedAt?: EpochTime;            
-            Name?: MLModelName;            
-            Status?: EntityStatus;            
-            SizeInBytes?: LongType;            
-            EndpointInfo?: RealtimeEndpointInfo;            
-            TrainingParameters?: TrainingParameters;            
-            InputDataLocationS3?: S3Url;            
-            MLModelType?: MLModelType;            
-            ScoreThreshold?: ScoreThreshold;            
-            ScoreThresholdLastUpdatedAt?: EpochTime;            
-            LogUri?: PresignedS3Url;            
-            Message?: Message;            
-            Recipe?: Recipe;            
-            Schema?: DataSchema;            
+            MLModelId?: EntityId;
+            TrainingDataSourceId?: EntityId;
+            CreatedByIamUser?: AwsUserArn;
+            CreatedAt?: EpochTime;
+            LastUpdatedAt?: EpochTime;
+            Name?: MLModelName;
+            Status?: EntityStatus;
+            SizeInBytes?: LongType;
+            EndpointInfo?: RealtimeEndpointInfo;
+            TrainingParameters?: TrainingParameters;
+            InputDataLocationS3?: S3Url;
+            MLModelType?: MLModelType;
+            ScoreThreshold?: ScoreThreshold;
+            ScoreThresholdLastUpdatedAt?: EpochTime;
+            LogUri?: PresignedS3Url;
+            Message?: Message;
+            Recipe?: Recipe;
+            Schema?: DataSchema;
         }
         export interface IdempotentParameterMismatchException {
-            message?: ErrorMessage;            
-            code?: ErrorCode;            
+            message?: ErrorMessage;
+            code?: ErrorCode;
         }
         export interface InternalServerException {
-            message?: ErrorMessage;            
-            code?: ErrorCode;            
+            message?: ErrorMessage;
+            code?: ErrorCode;
         }
         export interface InvalidInputException {
-            message?: ErrorMessage;            
-            code?: ErrorCode;            
+            message?: ErrorMessage;
+            code?: ErrorCode;
         }
         export interface LimitExceededException {
-            message?: ErrorMessage;            
-            code?: ErrorCode;            
+            message?: ErrorMessage;
+            code?: ErrorCode;
         }
         export interface MLModel {
-            MLModelId?: EntityId;            
-            TrainingDataSourceId?: EntityId;            
-            CreatedByIamUser?: AwsUserArn;            
-            CreatedAt?: EpochTime;            
-            LastUpdatedAt?: EpochTime;            
-            Name?: MLModelName;            
-            Status?: EntityStatus;            
-            SizeInBytes?: LongType;            
-            EndpointInfo?: RealtimeEndpointInfo;            
-            TrainingParameters?: TrainingParameters;            
-            InputDataLocationS3?: S3Url;            
-            Algorithm?: Algorithm;            
-            MLModelType?: MLModelType;            
-            ScoreThreshold?: ScoreThreshold;            
-            ScoreThresholdLastUpdatedAt?: EpochTime;            
-            Message?: Message;            
+            MLModelId?: EntityId;
+            TrainingDataSourceId?: EntityId;
+            CreatedByIamUser?: AwsUserArn;
+            CreatedAt?: EpochTime;
+            LastUpdatedAt?: EpochTime;
+            Name?: MLModelName;
+            Status?: EntityStatus;
+            SizeInBytes?: LongType;
+            EndpointInfo?: RealtimeEndpointInfo;
+            TrainingParameters?: TrainingParameters;
+            InputDataLocationS3?: S3Url;
+            Algorithm?: Algorithm;
+            MLModelType?: MLModelType;
+            ScoreThreshold?: ScoreThreshold;
+            ScoreThresholdLastUpdatedAt?: EpochTime;
+            Message?: Message;
         }
         export interface PerformanceMetrics {
-            Properties?: PerformanceMetricsProperties;            
+            Properties?: PerformanceMetricsProperties;
         }
         export interface PredictInput {
-            MLModelId: EntityId;            
-            Record: Record;            
-            PredictEndpoint: VipURL;            
+            MLModelId: EntityId;
+            Record: Record;
+            PredictEndpoint: VipURL;
         }
         export interface PredictOutput {
-            Prediction?: Prediction;            
+            Prediction?: Prediction;
         }
         export interface Prediction {
-            predictedLabel?: Label;            
-            predictedValue?: floatLabel;            
-            predictedScores?: ScoreValuePerLabelMap;            
-            details?: DetailsMap;            
+            predictedLabel?: Label;
+            predictedValue?: floatLabel;
+            predictedScores?: ScoreValuePerLabelMap;
+            details?: DetailsMap;
         }
         export interface PredictorNotMountedException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface RDSDataSpec {
-            DatabaseInformation: RDSDatabase;            
-            SelectSqlQuery: RDSSelectSqlQuery;            
-            DatabaseCredentials: RDSDatabaseCredentials;            
-            S3StagingLocation: S3Url;            
-            DataRearrangement?: DataRearrangement;            
-            DataSchema?: DataSchema;            
-            DataSchemaUri?: S3Url;            
-            ResourceRole: EDPResourceRole;            
-            ServiceRole: EDPServiceRole;            
-            SubnetId: EDPSubnetId;            
-            SecurityGroupIds: EDPSecurityGroupIds;            
+            DatabaseInformation: RDSDatabase;
+            SelectSqlQuery: RDSSelectSqlQuery;
+            DatabaseCredentials: RDSDatabaseCredentials;
+            S3StagingLocation: S3Url;
+            DataRearrangement?: DataRearrangement;
+            DataSchema?: DataSchema;
+            DataSchemaUri?: S3Url;
+            ResourceRole: EDPResourceRole;
+            ServiceRole: EDPServiceRole;
+            SubnetId: EDPSubnetId;
+            SecurityGroupIds: EDPSecurityGroupIds;
         }
         export interface RDSDatabase {
-            InstanceIdentifier: RDSInstanceIdentifier;            
-            DatabaseName: RDSDatabaseName;            
+            InstanceIdentifier: RDSInstanceIdentifier;
+            DatabaseName: RDSDatabaseName;
         }
         export interface RDSDatabaseCredentials {
-            Username: RDSDatabaseUsername;            
-            Password: RDSDatabasePassword;            
+            Username: RDSDatabaseUsername;
+            Password: RDSDatabasePassword;
         }
         export interface RDSMetadata {
-            Database?: RDSDatabase;            
-            DatabaseUserName?: RDSDatabaseUsername;            
-            SelectSqlQuery?: RDSSelectSqlQuery;            
-            ResourceRole?: EDPResourceRole;            
-            ServiceRole?: EDPServiceRole;            
-            DataPipelineId?: EDPPipelineId;            
+            Database?: RDSDatabase;
+            DatabaseUserName?: RDSDatabaseUsername;
+            SelectSqlQuery?: RDSSelectSqlQuery;
+            ResourceRole?: EDPResourceRole;
+            ServiceRole?: EDPServiceRole;
+            DataPipelineId?: EDPPipelineId;
         }
         export interface RealtimeEndpointInfo {
-            PeakRequestsPerSecond?: IntegerType;            
-            CreatedAt?: EpochTime;            
-            EndpointUrl?: VipURL;            
-            EndpointStatus?: RealtimeEndpointStatus;            
+            PeakRequestsPerSecond?: IntegerType;
+            CreatedAt?: EpochTime;
+            EndpointUrl?: VipURL;
+            EndpointStatus?: RealtimeEndpointStatus;
         }
         export interface RedshiftDataSpec {
-            DatabaseInformation: RedshiftDatabase;            
-            SelectSqlQuery: RedshiftSelectSqlQuery;            
-            DatabaseCredentials: RedshiftDatabaseCredentials;            
-            S3StagingLocation: S3Url;            
-            DataRearrangement?: DataRearrangement;            
-            DataSchema?: DataSchema;            
-            DataSchemaUri?: S3Url;            
+            DatabaseInformation: RedshiftDatabase;
+            SelectSqlQuery: RedshiftSelectSqlQuery;
+            DatabaseCredentials: RedshiftDatabaseCredentials;
+            S3StagingLocation: S3Url;
+            DataRearrangement?: DataRearrangement;
+            DataSchema?: DataSchema;
+            DataSchemaUri?: S3Url;
         }
         export interface RedshiftDatabase {
-            DatabaseName: RedshiftDatabaseName;            
-            ClusterIdentifier: RedshiftClusterIdentifier;            
+            DatabaseName: RedshiftDatabaseName;
+            ClusterIdentifier: RedshiftClusterIdentifier;
         }
         export interface RedshiftDatabaseCredentials {
-            Username: RedshiftDatabaseUsername;            
-            Password: RedshiftDatabasePassword;            
+            Username: RedshiftDatabaseUsername;
+            Password: RedshiftDatabasePassword;
         }
         export interface RedshiftMetadata {
-            RedshiftDatabase?: RedshiftDatabase;            
-            DatabaseUserName?: RedshiftDatabaseUsername;            
-            SelectSqlQuery?: RedshiftSelectSqlQuery;            
+            RedshiftDatabase?: RedshiftDatabase;
+            DatabaseUserName?: RedshiftDatabaseUsername;
+            SelectSqlQuery?: RedshiftSelectSqlQuery;
         }
         export interface ResourceNotFoundException {
-            message?: ErrorMessage;            
-            code?: ErrorCode;            
+            message?: ErrorMessage;
+            code?: ErrorCode;
         }
         export interface S3DataSpec {
-            DataLocationS3: S3Url;            
-            DataRearrangement?: DataRearrangement;            
-            DataSchema?: DataSchema;            
-            DataSchemaLocationS3?: S3Url;            
+            DataLocationS3: S3Url;
+            DataRearrangement?: DataRearrangement;
+            DataSchema?: DataSchema;
+            DataSchemaLocationS3?: S3Url;
         }
         export interface UpdateBatchPredictionInput {
-            BatchPredictionId: EntityId;            
-            BatchPredictionName: EntityName;            
+            BatchPredictionId: EntityId;
+            BatchPredictionName: EntityName;
         }
         export interface UpdateBatchPredictionOutput {
-            BatchPredictionId?: EntityId;            
+            BatchPredictionId?: EntityId;
         }
         export interface UpdateDataSourceInput {
-            DataSourceId: EntityId;            
-            DataSourceName: EntityName;            
+            DataSourceId: EntityId;
+            DataSourceName: EntityName;
         }
         export interface UpdateDataSourceOutput {
-            DataSourceId?: EntityId;            
+            DataSourceId?: EntityId;
         }
         export interface UpdateEvaluationInput {
-            EvaluationId: EntityId;            
-            EvaluationName: EntityName;            
+            EvaluationId: EntityId;
+            EvaluationName: EntityName;
         }
         export interface UpdateEvaluationOutput {
-            EvaluationId?: EntityId;            
+            EvaluationId?: EntityId;
         }
         export interface UpdateMLModelInput {
-            MLModelId: EntityId;            
-            MLModelName?: EntityName;            
-            ScoreThreshold?: ScoreThreshold;            
+            MLModelId: EntityId;
+            MLModelName?: EntityName;
+            ScoreThreshold?: ScoreThreshold;
         }
         export interface UpdateMLModelOutput {
-            MLModelId?: EntityId;            
+            MLModelId?: EntityId;
         }
 
     }

@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2013-01-01
      * endpointPrefix: cloudsearch
      * serviceAbbreviation: 
@@ -41,8 +41,9 @@ declare module "aws-sdk" {
       updateAvailabilityOptions(params: CloudSearch.UpdateAvailabilityOptionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.DisabledOperationException|any, data: CloudSearch.UpdateAvailabilityOptionsResponse|any) => void): Request;
       updateScalingParameters(params: CloudSearch.UpdateScalingParametersRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.InvalidTypeException|any, data: CloudSearch.UpdateScalingParametersResponse|any) => void): Request;
       updateServiceAccessPolicies(params: CloudSearch.UpdateServiceAccessPoliciesRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.InvalidTypeException|any, data: CloudSearch.UpdateServiceAccessPoliciesResponse|any) => void): Request;
+
     }
-    
+
     export module CloudSearch {
         export type APIVersion = string;
         export type ARN = string;
@@ -89,365 +90,365 @@ declare module "aws-sdk" {
         export type Word = string;    // pattern: &quot;[\S]+&quot;
 
         export interface AccessPoliciesStatus {
-            Options: PolicyDocument;            
-            Status: OptionStatus;            
+            Options: PolicyDocument;
+            Status: OptionStatus;
         }
         export interface AnalysisOptions {
-            Synonyms?: String;            
-            Stopwords?: String;            
-            StemmingDictionary?: String;            
-            JapaneseTokenizationDictionary?: String;            
-            AlgorithmicStemming?: AlgorithmicStemming;            
+            Synonyms?: String;
+            Stopwords?: String;
+            StemmingDictionary?: String;
+            JapaneseTokenizationDictionary?: String;
+            AlgorithmicStemming?: AlgorithmicStemming;
         }
         export interface AnalysisScheme {
-            AnalysisSchemeName: StandardName;            
-            AnalysisSchemeLanguage: AnalysisSchemeLanguage;            
-            AnalysisOptions?: AnalysisOptions;            
+            AnalysisSchemeName: StandardName;
+            AnalysisSchemeLanguage: AnalysisSchemeLanguage;
+            AnalysisOptions?: AnalysisOptions;
         }
         export interface AnalysisSchemeStatus {
-            Options: AnalysisScheme;            
-            Status: OptionStatus;            
+            Options: AnalysisScheme;
+            Status: OptionStatus;
         }
         export interface AvailabilityOptionsStatus {
-            Options: MultiAZ;            
-            Status: OptionStatus;            
+            Options: MultiAZ;
+            Status: OptionStatus;
         }
         export interface BaseException {
-            Code?: ErrorCode;            
-            Message?: ErrorMessage;            
+            Code?: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface BuildSuggestersRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface BuildSuggestersResponse {
-            FieldNames?: FieldNameList;            
+            FieldNames?: FieldNameList;
         }
         export interface CreateDomainRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface CreateDomainResponse {
-            DomainStatus?: DomainStatus;            
+            DomainStatus?: DomainStatus;
         }
         export interface DateArrayOptions {
-            DefaultValue?: FieldValue;            
-            SourceFields?: FieldNameCommaList;            
-            FacetEnabled?: Boolean;            
-            SearchEnabled?: Boolean;            
-            ReturnEnabled?: Boolean;            
+            DefaultValue?: FieldValue;
+            SourceFields?: FieldNameCommaList;
+            FacetEnabled?: Boolean;
+            SearchEnabled?: Boolean;
+            ReturnEnabled?: Boolean;
         }
         export interface DateOptions {
-            DefaultValue?: FieldValue;            
-            SourceField?: FieldName;            
-            FacetEnabled?: Boolean;            
-            SearchEnabled?: Boolean;            
-            ReturnEnabled?: Boolean;            
-            SortEnabled?: Boolean;            
+            DefaultValue?: FieldValue;
+            SourceField?: FieldName;
+            FacetEnabled?: Boolean;
+            SearchEnabled?: Boolean;
+            ReturnEnabled?: Boolean;
+            SortEnabled?: Boolean;
         }
         export interface DefineAnalysisSchemeRequest {
-            DomainName: DomainName;            
-            AnalysisScheme: AnalysisScheme;            
+            DomainName: DomainName;
+            AnalysisScheme: AnalysisScheme;
         }
         export interface DefineAnalysisSchemeResponse {
-            AnalysisScheme: AnalysisSchemeStatus;            
+            AnalysisScheme: AnalysisSchemeStatus;
         }
         export interface DefineExpressionRequest {
-            DomainName: DomainName;            
-            Expression: Expression;            
+            DomainName: DomainName;
+            Expression: Expression;
         }
         export interface DefineExpressionResponse {
-            Expression: ExpressionStatus;            
+            Expression: ExpressionStatus;
         }
         export interface DefineIndexFieldRequest {
-            DomainName: DomainName;            
-            IndexField: IndexField;            
+            DomainName: DomainName;
+            IndexField: IndexField;
         }
         export interface DefineIndexFieldResponse {
-            IndexField: IndexFieldStatus;            
+            IndexField: IndexFieldStatus;
         }
         export interface DefineSuggesterRequest {
-            DomainName: DomainName;            
-            Suggester: Suggester;            
+            DomainName: DomainName;
+            Suggester: Suggester;
         }
         export interface DefineSuggesterResponse {
-            Suggester: SuggesterStatus;            
+            Suggester: SuggesterStatus;
         }
         export interface DeleteAnalysisSchemeRequest {
-            DomainName: DomainName;            
-            AnalysisSchemeName: StandardName;            
+            DomainName: DomainName;
+            AnalysisSchemeName: StandardName;
         }
         export interface DeleteAnalysisSchemeResponse {
-            AnalysisScheme: AnalysisSchemeStatus;            
+            AnalysisScheme: AnalysisSchemeStatus;
         }
         export interface DeleteDomainRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface DeleteDomainResponse {
-            DomainStatus?: DomainStatus;            
+            DomainStatus?: DomainStatus;
         }
         export interface DeleteExpressionRequest {
-            DomainName: DomainName;            
-            ExpressionName: StandardName;            
+            DomainName: DomainName;
+            ExpressionName: StandardName;
         }
         export interface DeleteExpressionResponse {
-            Expression: ExpressionStatus;            
+            Expression: ExpressionStatus;
         }
         export interface DeleteIndexFieldRequest {
-            DomainName: DomainName;            
-            IndexFieldName: DynamicFieldName;            
+            DomainName: DomainName;
+            IndexFieldName: DynamicFieldName;
         }
         export interface DeleteIndexFieldResponse {
-            IndexField: IndexFieldStatus;            
+            IndexField: IndexFieldStatus;
         }
         export interface DeleteSuggesterRequest {
-            DomainName: DomainName;            
-            SuggesterName: StandardName;            
+            DomainName: DomainName;
+            SuggesterName: StandardName;
         }
         export interface DeleteSuggesterResponse {
-            Suggester: SuggesterStatus;            
+            Suggester: SuggesterStatus;
         }
         export interface DescribeAnalysisSchemesRequest {
-            DomainName: DomainName;            
-            AnalysisSchemeNames?: StandardNameList;            
-            Deployed?: Boolean;            
+            DomainName: DomainName;
+            AnalysisSchemeNames?: StandardNameList;
+            Deployed?: Boolean;
         }
         export interface DescribeAnalysisSchemesResponse {
-            AnalysisSchemes: AnalysisSchemeStatusList;            
+            AnalysisSchemes: AnalysisSchemeStatusList;
         }
         export interface DescribeAvailabilityOptionsRequest {
-            DomainName: DomainName;            
-            Deployed?: Boolean;            
+            DomainName: DomainName;
+            Deployed?: Boolean;
         }
         export interface DescribeAvailabilityOptionsResponse {
-            AvailabilityOptions?: AvailabilityOptionsStatus;            
+            AvailabilityOptions?: AvailabilityOptionsStatus;
         }
         export interface DescribeDomainsRequest {
-            DomainNames?: DomainNameList;            
+            DomainNames?: DomainNameList;
         }
         export interface DescribeDomainsResponse {
-            DomainStatusList: DomainStatusList;            
+            DomainStatusList: DomainStatusList;
         }
         export interface DescribeExpressionsRequest {
-            DomainName: DomainName;            
-            ExpressionNames?: StandardNameList;            
-            Deployed?: Boolean;            
+            DomainName: DomainName;
+            ExpressionNames?: StandardNameList;
+            Deployed?: Boolean;
         }
         export interface DescribeExpressionsResponse {
-            Expressions: ExpressionStatusList;            
+            Expressions: ExpressionStatusList;
         }
         export interface DescribeIndexFieldsRequest {
-            DomainName: DomainName;            
-            FieldNames?: DynamicFieldNameList;            
-            Deployed?: Boolean;            
+            DomainName: DomainName;
+            FieldNames?: DynamicFieldNameList;
+            Deployed?: Boolean;
         }
         export interface DescribeIndexFieldsResponse {
-            IndexFields: IndexFieldStatusList;            
+            IndexFields: IndexFieldStatusList;
         }
         export interface DescribeScalingParametersRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface DescribeScalingParametersResponse {
-            ScalingParameters: ScalingParametersStatus;            
+            ScalingParameters: ScalingParametersStatus;
         }
         export interface DescribeServiceAccessPoliciesRequest {
-            DomainName: DomainName;            
-            Deployed?: Boolean;            
+            DomainName: DomainName;
+            Deployed?: Boolean;
         }
         export interface DescribeServiceAccessPoliciesResponse {
-            AccessPolicies: AccessPoliciesStatus;            
+            AccessPolicies: AccessPoliciesStatus;
         }
         export interface DescribeSuggestersRequest {
-            DomainName: DomainName;            
-            SuggesterNames?: StandardNameList;            
-            Deployed?: Boolean;            
+            DomainName: DomainName;
+            SuggesterNames?: StandardNameList;
+            Deployed?: Boolean;
         }
         export interface DescribeSuggestersResponse {
-            Suggesters: SuggesterStatusList;            
+            Suggesters: SuggesterStatusList;
         }
         export interface DisabledOperationException {
         }
         export interface DocumentSuggesterOptions {
-            SourceField: FieldName;            
-            FuzzyMatching?: SuggesterFuzzyMatching;            
-            SortExpression?: String;            
+            SourceField: FieldName;
+            FuzzyMatching?: SuggesterFuzzyMatching;
+            SortExpression?: String;
         }
         export interface DomainStatus {
-            DomainId: DomainId;            
-            DomainName: DomainName;            
-            ARN?: ARN;            
-            Created?: Boolean;            
-            Deleted?: Boolean;            
-            DocService?: ServiceEndpoint;            
-            SearchService?: ServiceEndpoint;            
-            RequiresIndexDocuments: Boolean;            
-            Processing?: Boolean;            
-            SearchInstanceType?: SearchInstanceType;            
-            SearchPartitionCount?: PartitionCount;            
-            SearchInstanceCount?: InstanceCount;            
-            Limits?: Limits;            
+            DomainId: DomainId;
+            DomainName: DomainName;
+            ARN?: ARN;
+            Created?: Boolean;
+            Deleted?: Boolean;
+            DocService?: ServiceEndpoint;
+            SearchService?: ServiceEndpoint;
+            RequiresIndexDocuments: Boolean;
+            Processing?: Boolean;
+            SearchInstanceType?: SearchInstanceType;
+            SearchPartitionCount?: PartitionCount;
+            SearchInstanceCount?: InstanceCount;
+            Limits?: Limits;
         }
         export interface DoubleArrayOptions {
-            DefaultValue?: Double;            
-            SourceFields?: FieldNameCommaList;            
-            FacetEnabled?: Boolean;            
-            SearchEnabled?: Boolean;            
-            ReturnEnabled?: Boolean;            
+            DefaultValue?: Double;
+            SourceFields?: FieldNameCommaList;
+            FacetEnabled?: Boolean;
+            SearchEnabled?: Boolean;
+            ReturnEnabled?: Boolean;
         }
         export interface DoubleOptions {
-            DefaultValue?: Double;            
-            SourceField?: FieldName;            
-            FacetEnabled?: Boolean;            
-            SearchEnabled?: Boolean;            
-            ReturnEnabled?: Boolean;            
-            SortEnabled?: Boolean;            
+            DefaultValue?: Double;
+            SourceField?: FieldName;
+            FacetEnabled?: Boolean;
+            SearchEnabled?: Boolean;
+            ReturnEnabled?: Boolean;
+            SortEnabled?: Boolean;
         }
         export interface Expression {
-            ExpressionName: StandardName;            
-            ExpressionValue: ExpressionValue;            
+            ExpressionName: StandardName;
+            ExpressionValue: ExpressionValue;
         }
         export interface ExpressionStatus {
-            Options: Expression;            
-            Status: OptionStatus;            
+            Options: Expression;
+            Status: OptionStatus;
         }
         export interface IndexDocumentsRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface IndexDocumentsResponse {
-            FieldNames?: FieldNameList;            
+            FieldNames?: FieldNameList;
         }
         export interface IndexField {
-            IndexFieldName: DynamicFieldName;            
-            IndexFieldType: IndexFieldType;            
-            IntOptions?: IntOptions;            
-            DoubleOptions?: DoubleOptions;            
-            LiteralOptions?: LiteralOptions;            
-            TextOptions?: TextOptions;            
-            DateOptions?: DateOptions;            
-            LatLonOptions?: LatLonOptions;            
-            IntArrayOptions?: IntArrayOptions;            
-            DoubleArrayOptions?: DoubleArrayOptions;            
-            LiteralArrayOptions?: LiteralArrayOptions;            
-            TextArrayOptions?: TextArrayOptions;            
-            DateArrayOptions?: DateArrayOptions;            
+            IndexFieldName: DynamicFieldName;
+            IndexFieldType: IndexFieldType;
+            IntOptions?: IntOptions;
+            DoubleOptions?: DoubleOptions;
+            LiteralOptions?: LiteralOptions;
+            TextOptions?: TextOptions;
+            DateOptions?: DateOptions;
+            LatLonOptions?: LatLonOptions;
+            IntArrayOptions?: IntArrayOptions;
+            DoubleArrayOptions?: DoubleArrayOptions;
+            LiteralArrayOptions?: LiteralArrayOptions;
+            TextArrayOptions?: TextArrayOptions;
+            DateArrayOptions?: DateArrayOptions;
         }
         export interface IndexFieldStatus {
-            Options: IndexField;            
-            Status: OptionStatus;            
+            Options: IndexField;
+            Status: OptionStatus;
         }
         export interface IntArrayOptions {
-            DefaultValue?: Long;            
-            SourceFields?: FieldNameCommaList;            
-            FacetEnabled?: Boolean;            
-            SearchEnabled?: Boolean;            
-            ReturnEnabled?: Boolean;            
+            DefaultValue?: Long;
+            SourceFields?: FieldNameCommaList;
+            FacetEnabled?: Boolean;
+            SearchEnabled?: Boolean;
+            ReturnEnabled?: Boolean;
         }
         export interface IntOptions {
-            DefaultValue?: Long;            
-            SourceField?: FieldName;            
-            FacetEnabled?: Boolean;            
-            SearchEnabled?: Boolean;            
-            ReturnEnabled?: Boolean;            
-            SortEnabled?: Boolean;            
+            DefaultValue?: Long;
+            SourceField?: FieldName;
+            FacetEnabled?: Boolean;
+            SearchEnabled?: Boolean;
+            ReturnEnabled?: Boolean;
+            SortEnabled?: Boolean;
         }
         export interface InternalException {
         }
         export interface InvalidTypeException {
         }
         export interface LatLonOptions {
-            DefaultValue?: FieldValue;            
-            SourceField?: FieldName;            
-            FacetEnabled?: Boolean;            
-            SearchEnabled?: Boolean;            
-            ReturnEnabled?: Boolean;            
-            SortEnabled?: Boolean;            
+            DefaultValue?: FieldValue;
+            SourceField?: FieldName;
+            FacetEnabled?: Boolean;
+            SearchEnabled?: Boolean;
+            ReturnEnabled?: Boolean;
+            SortEnabled?: Boolean;
         }
         export interface LimitExceededException {
         }
         export interface Limits {
-            MaximumReplicationCount: MaximumReplicationCount;            
-            MaximumPartitionCount: MaximumPartitionCount;            
+            MaximumReplicationCount: MaximumReplicationCount;
+            MaximumPartitionCount: MaximumPartitionCount;
         }
         export interface ListDomainNamesResponse {
-            DomainNames?: DomainNameMap;            
+            DomainNames?: DomainNameMap;
         }
         export interface LiteralArrayOptions {
-            DefaultValue?: FieldValue;            
-            SourceFields?: FieldNameCommaList;            
-            FacetEnabled?: Boolean;            
-            SearchEnabled?: Boolean;            
-            ReturnEnabled?: Boolean;            
+            DefaultValue?: FieldValue;
+            SourceFields?: FieldNameCommaList;
+            FacetEnabled?: Boolean;
+            SearchEnabled?: Boolean;
+            ReturnEnabled?: Boolean;
         }
         export interface LiteralOptions {
-            DefaultValue?: FieldValue;            
-            SourceField?: FieldName;            
-            FacetEnabled?: Boolean;            
-            SearchEnabled?: Boolean;            
-            ReturnEnabled?: Boolean;            
-            SortEnabled?: Boolean;            
+            DefaultValue?: FieldValue;
+            SourceField?: FieldName;
+            FacetEnabled?: Boolean;
+            SearchEnabled?: Boolean;
+            ReturnEnabled?: Boolean;
+            SortEnabled?: Boolean;
         }
         export interface OptionStatus {
-            CreationDate: UpdateTimestamp;            
-            UpdateDate: UpdateTimestamp;            
-            UpdateVersion?: UIntValue;            
-            State: OptionState;            
-            PendingDeletion?: Boolean;            
+            CreationDate: UpdateTimestamp;
+            UpdateDate: UpdateTimestamp;
+            UpdateVersion?: UIntValue;
+            State: OptionState;
+            PendingDeletion?: Boolean;
         }
         export interface ResourceNotFoundException {
         }
         export interface ScalingParameters {
-            DesiredInstanceType?: PartitionInstanceType;            
-            DesiredReplicationCount?: UIntValue;            
-            DesiredPartitionCount?: UIntValue;            
+            DesiredInstanceType?: PartitionInstanceType;
+            DesiredReplicationCount?: UIntValue;
+            DesiredPartitionCount?: UIntValue;
         }
         export interface ScalingParametersStatus {
-            Options: ScalingParameters;            
-            Status: OptionStatus;            
+            Options: ScalingParameters;
+            Status: OptionStatus;
         }
         export interface ServiceEndpoint {
-            Endpoint?: ServiceUrl;            
+            Endpoint?: ServiceUrl;
         }
         export interface Suggester {
-            SuggesterName: StandardName;            
-            DocumentSuggesterOptions: DocumentSuggesterOptions;            
+            SuggesterName: StandardName;
+            DocumentSuggesterOptions: DocumentSuggesterOptions;
         }
         export interface SuggesterStatus {
-            Options: Suggester;            
-            Status: OptionStatus;            
+            Options: Suggester;
+            Status: OptionStatus;
         }
         export interface TextArrayOptions {
-            DefaultValue?: FieldValue;            
-            SourceFields?: FieldNameCommaList;            
-            ReturnEnabled?: Boolean;            
-            HighlightEnabled?: Boolean;            
-            AnalysisScheme?: Word;            
+            DefaultValue?: FieldValue;
+            SourceFields?: FieldNameCommaList;
+            ReturnEnabled?: Boolean;
+            HighlightEnabled?: Boolean;
+            AnalysisScheme?: Word;
         }
         export interface TextOptions {
-            DefaultValue?: FieldValue;            
-            SourceField?: FieldName;            
-            ReturnEnabled?: Boolean;            
-            SortEnabled?: Boolean;            
-            HighlightEnabled?: Boolean;            
-            AnalysisScheme?: Word;            
+            DefaultValue?: FieldValue;
+            SourceField?: FieldName;
+            ReturnEnabled?: Boolean;
+            SortEnabled?: Boolean;
+            HighlightEnabled?: Boolean;
+            AnalysisScheme?: Word;
         }
         export interface UpdateAvailabilityOptionsRequest {
-            DomainName: DomainName;            
-            MultiAZ: Boolean;            
+            DomainName: DomainName;
+            MultiAZ: Boolean;
         }
         export interface UpdateAvailabilityOptionsResponse {
-            AvailabilityOptions?: AvailabilityOptionsStatus;            
+            AvailabilityOptions?: AvailabilityOptionsStatus;
         }
         export interface UpdateScalingParametersRequest {
-            DomainName: DomainName;            
-            ScalingParameters: ScalingParameters;            
+            DomainName: DomainName;
+            ScalingParameters: ScalingParameters;
         }
         export interface UpdateScalingParametersResponse {
-            ScalingParameters: ScalingParametersStatus;            
+            ScalingParameters: ScalingParametersStatus;
         }
         export interface UpdateServiceAccessPoliciesRequest {
-            DomainName: DomainName;            
-            AccessPolicies: PolicyDocument;            
+            DomainName: DomainName;
+            AccessPolicies: PolicyDocument;
         }
         export interface UpdateServiceAccessPoliciesResponse {
-            AccessPolicies: AccessPoliciesStatus;            
+            AccessPolicies: AccessPoliciesStatus;
         }
 
     }

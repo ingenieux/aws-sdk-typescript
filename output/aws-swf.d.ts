@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2012-01-25
      * endpointPrefix: swf
      * serviceAbbreviation: Amazon SWF
@@ -48,8 +48,9 @@ declare module "aws-sdk" {
       signalWorkflowExecution(params: SWF.SignalWorkflowExecutionInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
       startWorkflowExecution(params: SWF.StartWorkflowExecutionInput, callback?: (err: SWF.UnknownResourceFault|SWF.TypeDeprecatedFault|SWF.WorkflowExecutionAlreadyStartedFault|SWF.LimitExceededFault|SWF.OperationNotPermittedFault|SWF.DefaultUndefinedFault|any, data: SWF.Run|any) => void): Request;
       terminateWorkflowExecution(params: SWF.TerminateWorkflowExecutionInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
+
     }
-    
+
     export module SWF {
         export type ActivityId = string;    // max: 256, min: 1
         export type ActivityTaskTimeoutType = string;
@@ -124,872 +125,872 @@ declare module "aws-sdk" {
         export type WorkflowTypeInfoList = WorkflowTypeInfo[];
 
         export interface ActivityTask {
-            taskToken: TaskToken;            
-            activityId: ActivityId;            
-            startedEventId: EventId;            
-            workflowExecution: WorkflowExecution;            
-            activityType: ActivityType;            
-            input?: Data;            
+            taskToken: TaskToken;
+            activityId: ActivityId;
+            startedEventId: EventId;
+            workflowExecution: WorkflowExecution;
+            activityType: ActivityType;
+            input?: Data;
         }
         export interface ActivityTaskCancelRequestedEventAttributes {
-            decisionTaskCompletedEventId: EventId;            
-            activityId: ActivityId;            
+            decisionTaskCompletedEventId: EventId;
+            activityId: ActivityId;
         }
         export interface ActivityTaskCanceledEventAttributes {
-            details?: Data;            
-            scheduledEventId: EventId;            
-            startedEventId: EventId;            
-            latestCancelRequestedEventId?: EventId;            
+            details?: Data;
+            scheduledEventId: EventId;
+            startedEventId: EventId;
+            latestCancelRequestedEventId?: EventId;
         }
         export interface ActivityTaskCompletedEventAttributes {
-            result?: Data;            
-            scheduledEventId: EventId;            
-            startedEventId: EventId;            
+            result?: Data;
+            scheduledEventId: EventId;
+            startedEventId: EventId;
         }
         export interface ActivityTaskFailedEventAttributes {
-            reason?: FailureReason;            
-            details?: Data;            
-            scheduledEventId: EventId;            
-            startedEventId: EventId;            
+            reason?: FailureReason;
+            details?: Data;
+            scheduledEventId: EventId;
+            startedEventId: EventId;
         }
         export interface ActivityTaskScheduledEventAttributes {
-            activityType: ActivityType;            
-            activityId: ActivityId;            
-            input?: Data;            
-            control?: Data;            
-            scheduleToStartTimeout?: DurationInSecondsOptional;            
-            scheduleToCloseTimeout?: DurationInSecondsOptional;            
-            startToCloseTimeout?: DurationInSecondsOptional;            
-            taskList: TaskList;            
-            taskPriority?: TaskPriority;            
-            decisionTaskCompletedEventId: EventId;            
-            heartbeatTimeout?: DurationInSecondsOptional;            
+            activityType: ActivityType;
+            activityId: ActivityId;
+            input?: Data;
+            control?: Data;
+            scheduleToStartTimeout?: DurationInSecondsOptional;
+            scheduleToCloseTimeout?: DurationInSecondsOptional;
+            startToCloseTimeout?: DurationInSecondsOptional;
+            taskList: TaskList;
+            taskPriority?: TaskPriority;
+            decisionTaskCompletedEventId: EventId;
+            heartbeatTimeout?: DurationInSecondsOptional;
         }
         export interface ActivityTaskStartedEventAttributes {
-            identity?: Identity;            
-            scheduledEventId: EventId;            
+            identity?: Identity;
+            scheduledEventId: EventId;
         }
         export interface ActivityTaskStatus {
-            cancelRequested: Canceled;            
+            cancelRequested: Canceled;
         }
         export interface ActivityTaskTimedOutEventAttributes {
-            timeoutType: ActivityTaskTimeoutType;            
-            scheduledEventId: EventId;            
-            startedEventId: EventId;            
-            details?: LimitedData;            
+            timeoutType: ActivityTaskTimeoutType;
+            scheduledEventId: EventId;
+            startedEventId: EventId;
+            details?: LimitedData;
         }
         export interface ActivityType {
-            name: Name;            
-            version: Version;            
+            name: Name;
+            version: Version;
         }
         export interface ActivityTypeConfiguration {
-            defaultTaskStartToCloseTimeout?: DurationInSecondsOptional;            
-            defaultTaskHeartbeatTimeout?: DurationInSecondsOptional;            
-            defaultTaskList?: TaskList;            
-            defaultTaskPriority?: TaskPriority;            
-            defaultTaskScheduleToStartTimeout?: DurationInSecondsOptional;            
-            defaultTaskScheduleToCloseTimeout?: DurationInSecondsOptional;            
+            defaultTaskStartToCloseTimeout?: DurationInSecondsOptional;
+            defaultTaskHeartbeatTimeout?: DurationInSecondsOptional;
+            defaultTaskList?: TaskList;
+            defaultTaskPriority?: TaskPriority;
+            defaultTaskScheduleToStartTimeout?: DurationInSecondsOptional;
+            defaultTaskScheduleToCloseTimeout?: DurationInSecondsOptional;
         }
         export interface ActivityTypeDetail {
-            typeInfo: ActivityTypeInfo;            
-            configuration: ActivityTypeConfiguration;            
+            typeInfo: ActivityTypeInfo;
+            configuration: ActivityTypeConfiguration;
         }
         export interface ActivityTypeInfo {
-            activityType: ActivityType;            
-            status: RegistrationStatus;            
-            description?: Description;            
-            creationDate: Timestamp;            
-            deprecationDate?: Timestamp;            
+            activityType: ActivityType;
+            status: RegistrationStatus;
+            description?: Description;
+            creationDate: Timestamp;
+            deprecationDate?: Timestamp;
         }
         export interface ActivityTypeInfos {
-            typeInfos: ActivityTypeInfoList;            
-            nextPageToken?: PageToken;            
+            typeInfos: ActivityTypeInfoList;
+            nextPageToken?: PageToken;
         }
         export interface CancelTimerDecisionAttributes {
-            timerId: TimerId;            
+            timerId: TimerId;
         }
         export interface CancelTimerFailedEventAttributes {
-            timerId: TimerId;            
-            cause: CancelTimerFailedCause;            
-            decisionTaskCompletedEventId: EventId;            
+            timerId: TimerId;
+            cause: CancelTimerFailedCause;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface CancelWorkflowExecutionDecisionAttributes {
-            details?: Data;            
+            details?: Data;
         }
         export interface CancelWorkflowExecutionFailedEventAttributes {
-            cause: CancelWorkflowExecutionFailedCause;            
-            decisionTaskCompletedEventId: EventId;            
+            cause: CancelWorkflowExecutionFailedCause;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface ChildWorkflowExecutionCanceledEventAttributes {
-            workflowExecution: WorkflowExecution;            
-            workflowType: WorkflowType;            
-            details?: Data;            
-            initiatedEventId: EventId;            
-            startedEventId: EventId;            
+            workflowExecution: WorkflowExecution;
+            workflowType: WorkflowType;
+            details?: Data;
+            initiatedEventId: EventId;
+            startedEventId: EventId;
         }
         export interface ChildWorkflowExecutionCompletedEventAttributes {
-            workflowExecution: WorkflowExecution;            
-            workflowType: WorkflowType;            
-            result?: Data;            
-            initiatedEventId: EventId;            
-            startedEventId: EventId;            
+            workflowExecution: WorkflowExecution;
+            workflowType: WorkflowType;
+            result?: Data;
+            initiatedEventId: EventId;
+            startedEventId: EventId;
         }
         export interface ChildWorkflowExecutionFailedEventAttributes {
-            workflowExecution: WorkflowExecution;            
-            workflowType: WorkflowType;            
-            reason?: FailureReason;            
-            details?: Data;            
-            initiatedEventId: EventId;            
-            startedEventId: EventId;            
+            workflowExecution: WorkflowExecution;
+            workflowType: WorkflowType;
+            reason?: FailureReason;
+            details?: Data;
+            initiatedEventId: EventId;
+            startedEventId: EventId;
         }
         export interface ChildWorkflowExecutionStartedEventAttributes {
-            workflowExecution: WorkflowExecution;            
-            workflowType: WorkflowType;            
-            initiatedEventId: EventId;            
+            workflowExecution: WorkflowExecution;
+            workflowType: WorkflowType;
+            initiatedEventId: EventId;
         }
         export interface ChildWorkflowExecutionTerminatedEventAttributes {
-            workflowExecution: WorkflowExecution;            
-            workflowType: WorkflowType;            
-            initiatedEventId: EventId;            
-            startedEventId: EventId;            
+            workflowExecution: WorkflowExecution;
+            workflowType: WorkflowType;
+            initiatedEventId: EventId;
+            startedEventId: EventId;
         }
         export interface ChildWorkflowExecutionTimedOutEventAttributes {
-            workflowExecution: WorkflowExecution;            
-            workflowType: WorkflowType;            
-            timeoutType: WorkflowExecutionTimeoutType;            
-            initiatedEventId: EventId;            
-            startedEventId: EventId;            
+            workflowExecution: WorkflowExecution;
+            workflowType: WorkflowType;
+            timeoutType: WorkflowExecutionTimeoutType;
+            initiatedEventId: EventId;
+            startedEventId: EventId;
         }
         export interface CloseStatusFilter {
-            status: CloseStatus;            
+            status: CloseStatus;
         }
         export interface CompleteWorkflowExecutionDecisionAttributes {
-            result?: Data;            
+            result?: Data;
         }
         export interface CompleteWorkflowExecutionFailedEventAttributes {
-            cause: CompleteWorkflowExecutionFailedCause;            
-            decisionTaskCompletedEventId: EventId;            
+            cause: CompleteWorkflowExecutionFailedCause;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface ContinueAsNewWorkflowExecutionDecisionAttributes {
-            input?: Data;            
-            executionStartToCloseTimeout?: DurationInSecondsOptional;            
-            taskList?: TaskList;            
-            taskPriority?: TaskPriority;            
-            taskStartToCloseTimeout?: DurationInSecondsOptional;            
-            childPolicy?: ChildPolicy;            
-            tagList?: TagList;            
-            workflowTypeVersion?: Version;            
-            lambdaRole?: Arn;            
+            input?: Data;
+            executionStartToCloseTimeout?: DurationInSecondsOptional;
+            taskList?: TaskList;
+            taskPriority?: TaskPriority;
+            taskStartToCloseTimeout?: DurationInSecondsOptional;
+            childPolicy?: ChildPolicy;
+            tagList?: TagList;
+            workflowTypeVersion?: Version;
+            lambdaRole?: Arn;
         }
         export interface ContinueAsNewWorkflowExecutionFailedEventAttributes {
-            cause: ContinueAsNewWorkflowExecutionFailedCause;            
-            decisionTaskCompletedEventId: EventId;            
+            cause: ContinueAsNewWorkflowExecutionFailedCause;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface CountClosedWorkflowExecutionsInput {
-            domain: DomainName;            
-            startTimeFilter?: ExecutionTimeFilter;            
-            closeTimeFilter?: ExecutionTimeFilter;            
-            executionFilter?: WorkflowExecutionFilter;            
-            typeFilter?: WorkflowTypeFilter;            
-            tagFilter?: TagFilter;            
-            closeStatusFilter?: CloseStatusFilter;            
+            domain: DomainName;
+            startTimeFilter?: ExecutionTimeFilter;
+            closeTimeFilter?: ExecutionTimeFilter;
+            executionFilter?: WorkflowExecutionFilter;
+            typeFilter?: WorkflowTypeFilter;
+            tagFilter?: TagFilter;
+            closeStatusFilter?: CloseStatusFilter;
         }
         export interface CountOpenWorkflowExecutionsInput {
-            domain: DomainName;            
-            startTimeFilter: ExecutionTimeFilter;            
-            typeFilter?: WorkflowTypeFilter;            
-            tagFilter?: TagFilter;            
-            executionFilter?: WorkflowExecutionFilter;            
+            domain: DomainName;
+            startTimeFilter: ExecutionTimeFilter;
+            typeFilter?: WorkflowTypeFilter;
+            tagFilter?: TagFilter;
+            executionFilter?: WorkflowExecutionFilter;
         }
         export interface CountPendingActivityTasksInput {
-            domain: DomainName;            
-            taskList: TaskList;            
+            domain: DomainName;
+            taskList: TaskList;
         }
         export interface CountPendingDecisionTasksInput {
-            domain: DomainName;            
-            taskList: TaskList;            
+            domain: DomainName;
+            taskList: TaskList;
         }
         export interface Decision {
-            decisionType: DecisionType;            
-            scheduleActivityTaskDecisionAttributes?: ScheduleActivityTaskDecisionAttributes;            
-            requestCancelActivityTaskDecisionAttributes?: RequestCancelActivityTaskDecisionAttributes;            
-            completeWorkflowExecutionDecisionAttributes?: CompleteWorkflowExecutionDecisionAttributes;            
-            failWorkflowExecutionDecisionAttributes?: FailWorkflowExecutionDecisionAttributes;            
-            cancelWorkflowExecutionDecisionAttributes?: CancelWorkflowExecutionDecisionAttributes;            
-            continueAsNewWorkflowExecutionDecisionAttributes?: ContinueAsNewWorkflowExecutionDecisionAttributes;            
-            recordMarkerDecisionAttributes?: RecordMarkerDecisionAttributes;            
-            startTimerDecisionAttributes?: StartTimerDecisionAttributes;            
-            cancelTimerDecisionAttributes?: CancelTimerDecisionAttributes;            
-            signalExternalWorkflowExecutionDecisionAttributes?: SignalExternalWorkflowExecutionDecisionAttributes;            
-            requestCancelExternalWorkflowExecutionDecisionAttributes?: RequestCancelExternalWorkflowExecutionDecisionAttributes;            
-            startChildWorkflowExecutionDecisionAttributes?: StartChildWorkflowExecutionDecisionAttributes;            
-            scheduleLambdaFunctionDecisionAttributes?: ScheduleLambdaFunctionDecisionAttributes;            
+            decisionType: DecisionType;
+            scheduleActivityTaskDecisionAttributes?: ScheduleActivityTaskDecisionAttributes;
+            requestCancelActivityTaskDecisionAttributes?: RequestCancelActivityTaskDecisionAttributes;
+            completeWorkflowExecutionDecisionAttributes?: CompleteWorkflowExecutionDecisionAttributes;
+            failWorkflowExecutionDecisionAttributes?: FailWorkflowExecutionDecisionAttributes;
+            cancelWorkflowExecutionDecisionAttributes?: CancelWorkflowExecutionDecisionAttributes;
+            continueAsNewWorkflowExecutionDecisionAttributes?: ContinueAsNewWorkflowExecutionDecisionAttributes;
+            recordMarkerDecisionAttributes?: RecordMarkerDecisionAttributes;
+            startTimerDecisionAttributes?: StartTimerDecisionAttributes;
+            cancelTimerDecisionAttributes?: CancelTimerDecisionAttributes;
+            signalExternalWorkflowExecutionDecisionAttributes?: SignalExternalWorkflowExecutionDecisionAttributes;
+            requestCancelExternalWorkflowExecutionDecisionAttributes?: RequestCancelExternalWorkflowExecutionDecisionAttributes;
+            startChildWorkflowExecutionDecisionAttributes?: StartChildWorkflowExecutionDecisionAttributes;
+            scheduleLambdaFunctionDecisionAttributes?: ScheduleLambdaFunctionDecisionAttributes;
         }
         export interface DecisionTask {
-            taskToken: TaskToken;            
-            startedEventId: EventId;            
-            workflowExecution: WorkflowExecution;            
-            workflowType: WorkflowType;            
-            events: HistoryEventList;            
-            nextPageToken?: PageToken;            
-            previousStartedEventId?: EventId;            
+            taskToken: TaskToken;
+            startedEventId: EventId;
+            workflowExecution: WorkflowExecution;
+            workflowType: WorkflowType;
+            events: HistoryEventList;
+            nextPageToken?: PageToken;
+            previousStartedEventId?: EventId;
         }
         export interface DecisionTaskCompletedEventAttributes {
-            executionContext?: Data;            
-            scheduledEventId: EventId;            
-            startedEventId: EventId;            
+            executionContext?: Data;
+            scheduledEventId: EventId;
+            startedEventId: EventId;
         }
         export interface DecisionTaskScheduledEventAttributes {
-            taskList: TaskList;            
-            taskPriority?: TaskPriority;            
-            startToCloseTimeout?: DurationInSecondsOptional;            
+            taskList: TaskList;
+            taskPriority?: TaskPriority;
+            startToCloseTimeout?: DurationInSecondsOptional;
         }
         export interface DecisionTaskStartedEventAttributes {
-            identity?: Identity;            
-            scheduledEventId: EventId;            
+            identity?: Identity;
+            scheduledEventId: EventId;
         }
         export interface DecisionTaskTimedOutEventAttributes {
-            timeoutType: DecisionTaskTimeoutType;            
-            scheduledEventId: EventId;            
-            startedEventId: EventId;            
+            timeoutType: DecisionTaskTimeoutType;
+            scheduledEventId: EventId;
+            startedEventId: EventId;
         }
         export interface DefaultUndefinedFault {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface DeprecateActivityTypeInput {
-            domain: DomainName;            
-            activityType: ActivityType;            
+            domain: DomainName;
+            activityType: ActivityType;
         }
         export interface DeprecateDomainInput {
-            name: DomainName;            
+            name: DomainName;
         }
         export interface DeprecateWorkflowTypeInput {
-            domain: DomainName;            
-            workflowType: WorkflowType;            
+            domain: DomainName;
+            workflowType: WorkflowType;
         }
         export interface DescribeActivityTypeInput {
-            domain: DomainName;            
-            activityType: ActivityType;            
+            domain: DomainName;
+            activityType: ActivityType;
         }
         export interface DescribeDomainInput {
-            name: DomainName;            
+            name: DomainName;
         }
         export interface DescribeWorkflowExecutionInput {
-            domain: DomainName;            
-            execution: WorkflowExecution;            
+            domain: DomainName;
+            execution: WorkflowExecution;
         }
         export interface DescribeWorkflowTypeInput {
-            domain: DomainName;            
-            workflowType: WorkflowType;            
+            domain: DomainName;
+            workflowType: WorkflowType;
         }
         export interface DomainAlreadyExistsFault {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface DomainConfiguration {
-            workflowExecutionRetentionPeriodInDays: DurationInDays;            
+            workflowExecutionRetentionPeriodInDays: DurationInDays;
         }
         export interface DomainDeprecatedFault {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface DomainDetail {
-            domainInfo: DomainInfo;            
-            configuration: DomainConfiguration;            
+            domainInfo: DomainInfo;
+            configuration: DomainConfiguration;
         }
         export interface DomainInfo {
-            name: DomainName;            
-            status: RegistrationStatus;            
-            description?: Description;            
+            name: DomainName;
+            status: RegistrationStatus;
+            description?: Description;
         }
         export interface DomainInfos {
-            domainInfos: DomainInfoList;            
-            nextPageToken?: PageToken;            
+            domainInfos: DomainInfoList;
+            nextPageToken?: PageToken;
         }
         export interface ExecutionTimeFilter {
-            oldestDate: Timestamp;            
-            latestDate?: Timestamp;            
+            oldestDate: Timestamp;
+            latestDate?: Timestamp;
         }
         export interface ExternalWorkflowExecutionCancelRequestedEventAttributes {
-            workflowExecution: WorkflowExecution;            
-            initiatedEventId: EventId;            
+            workflowExecution: WorkflowExecution;
+            initiatedEventId: EventId;
         }
         export interface ExternalWorkflowExecutionSignaledEventAttributes {
-            workflowExecution: WorkflowExecution;            
-            initiatedEventId: EventId;            
+            workflowExecution: WorkflowExecution;
+            initiatedEventId: EventId;
         }
         export interface FailWorkflowExecutionDecisionAttributes {
-            reason?: FailureReason;            
-            details?: Data;            
+            reason?: FailureReason;
+            details?: Data;
         }
         export interface FailWorkflowExecutionFailedEventAttributes {
-            cause: FailWorkflowExecutionFailedCause;            
-            decisionTaskCompletedEventId: EventId;            
+            cause: FailWorkflowExecutionFailedCause;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface GetWorkflowExecutionHistoryInput {
-            domain: DomainName;            
-            execution: WorkflowExecution;            
-            nextPageToken?: PageToken;            
-            maximumPageSize?: PageSize;            
-            reverseOrder?: ReverseOrder;            
+            domain: DomainName;
+            execution: WorkflowExecution;
+            nextPageToken?: PageToken;
+            maximumPageSize?: PageSize;
+            reverseOrder?: ReverseOrder;
         }
         export interface History {
-            events: HistoryEventList;            
-            nextPageToken?: PageToken;            
+            events: HistoryEventList;
+            nextPageToken?: PageToken;
         }
         export interface HistoryEvent {
-            eventTimestamp: Timestamp;            
-            eventType: EventType;            
-            eventId: EventId;            
-            workflowExecutionStartedEventAttributes?: WorkflowExecutionStartedEventAttributes;            
-            workflowExecutionCompletedEventAttributes?: WorkflowExecutionCompletedEventAttributes;            
-            completeWorkflowExecutionFailedEventAttributes?: CompleteWorkflowExecutionFailedEventAttributes;            
-            workflowExecutionFailedEventAttributes?: WorkflowExecutionFailedEventAttributes;            
-            failWorkflowExecutionFailedEventAttributes?: FailWorkflowExecutionFailedEventAttributes;            
-            workflowExecutionTimedOutEventAttributes?: WorkflowExecutionTimedOutEventAttributes;            
-            workflowExecutionCanceledEventAttributes?: WorkflowExecutionCanceledEventAttributes;            
-            cancelWorkflowExecutionFailedEventAttributes?: CancelWorkflowExecutionFailedEventAttributes;            
-            workflowExecutionContinuedAsNewEventAttributes?: WorkflowExecutionContinuedAsNewEventAttributes;            
-            continueAsNewWorkflowExecutionFailedEventAttributes?: ContinueAsNewWorkflowExecutionFailedEventAttributes;            
-            workflowExecutionTerminatedEventAttributes?: WorkflowExecutionTerminatedEventAttributes;            
-            workflowExecutionCancelRequestedEventAttributes?: WorkflowExecutionCancelRequestedEventAttributes;            
-            decisionTaskScheduledEventAttributes?: DecisionTaskScheduledEventAttributes;            
-            decisionTaskStartedEventAttributes?: DecisionTaskStartedEventAttributes;            
-            decisionTaskCompletedEventAttributes?: DecisionTaskCompletedEventAttributes;            
-            decisionTaskTimedOutEventAttributes?: DecisionTaskTimedOutEventAttributes;            
-            activityTaskScheduledEventAttributes?: ActivityTaskScheduledEventAttributes;            
-            activityTaskStartedEventAttributes?: ActivityTaskStartedEventAttributes;            
-            activityTaskCompletedEventAttributes?: ActivityTaskCompletedEventAttributes;            
-            activityTaskFailedEventAttributes?: ActivityTaskFailedEventAttributes;            
-            activityTaskTimedOutEventAttributes?: ActivityTaskTimedOutEventAttributes;            
-            activityTaskCanceledEventAttributes?: ActivityTaskCanceledEventAttributes;            
-            activityTaskCancelRequestedEventAttributes?: ActivityTaskCancelRequestedEventAttributes;            
-            workflowExecutionSignaledEventAttributes?: WorkflowExecutionSignaledEventAttributes;            
-            markerRecordedEventAttributes?: MarkerRecordedEventAttributes;            
-            recordMarkerFailedEventAttributes?: RecordMarkerFailedEventAttributes;            
-            timerStartedEventAttributes?: TimerStartedEventAttributes;            
-            timerFiredEventAttributes?: TimerFiredEventAttributes;            
-            timerCanceledEventAttributes?: TimerCanceledEventAttributes;            
-            startChildWorkflowExecutionInitiatedEventAttributes?: StartChildWorkflowExecutionInitiatedEventAttributes;            
-            childWorkflowExecutionStartedEventAttributes?: ChildWorkflowExecutionStartedEventAttributes;            
-            childWorkflowExecutionCompletedEventAttributes?: ChildWorkflowExecutionCompletedEventAttributes;            
-            childWorkflowExecutionFailedEventAttributes?: ChildWorkflowExecutionFailedEventAttributes;            
-            childWorkflowExecutionTimedOutEventAttributes?: ChildWorkflowExecutionTimedOutEventAttributes;            
-            childWorkflowExecutionCanceledEventAttributes?: ChildWorkflowExecutionCanceledEventAttributes;            
-            childWorkflowExecutionTerminatedEventAttributes?: ChildWorkflowExecutionTerminatedEventAttributes;            
-            signalExternalWorkflowExecutionInitiatedEventAttributes?: SignalExternalWorkflowExecutionInitiatedEventAttributes;            
-            externalWorkflowExecutionSignaledEventAttributes?: ExternalWorkflowExecutionSignaledEventAttributes;            
-            signalExternalWorkflowExecutionFailedEventAttributes?: SignalExternalWorkflowExecutionFailedEventAttributes;            
-            externalWorkflowExecutionCancelRequestedEventAttributes?: ExternalWorkflowExecutionCancelRequestedEventAttributes;            
-            requestCancelExternalWorkflowExecutionInitiatedEventAttributes?: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes;            
-            requestCancelExternalWorkflowExecutionFailedEventAttributes?: RequestCancelExternalWorkflowExecutionFailedEventAttributes;            
-            scheduleActivityTaskFailedEventAttributes?: ScheduleActivityTaskFailedEventAttributes;            
-            requestCancelActivityTaskFailedEventAttributes?: RequestCancelActivityTaskFailedEventAttributes;            
-            startTimerFailedEventAttributes?: StartTimerFailedEventAttributes;            
-            cancelTimerFailedEventAttributes?: CancelTimerFailedEventAttributes;            
-            startChildWorkflowExecutionFailedEventAttributes?: StartChildWorkflowExecutionFailedEventAttributes;            
-            lambdaFunctionScheduledEventAttributes?: LambdaFunctionScheduledEventAttributes;            
-            lambdaFunctionStartedEventAttributes?: LambdaFunctionStartedEventAttributes;            
-            lambdaFunctionCompletedEventAttributes?: LambdaFunctionCompletedEventAttributes;            
-            lambdaFunctionFailedEventAttributes?: LambdaFunctionFailedEventAttributes;            
-            lambdaFunctionTimedOutEventAttributes?: LambdaFunctionTimedOutEventAttributes;            
-            scheduleLambdaFunctionFailedEventAttributes?: ScheduleLambdaFunctionFailedEventAttributes;            
-            startLambdaFunctionFailedEventAttributes?: StartLambdaFunctionFailedEventAttributes;            
+            eventTimestamp: Timestamp;
+            eventType: EventType;
+            eventId: EventId;
+            workflowExecutionStartedEventAttributes?: WorkflowExecutionStartedEventAttributes;
+            workflowExecutionCompletedEventAttributes?: WorkflowExecutionCompletedEventAttributes;
+            completeWorkflowExecutionFailedEventAttributes?: CompleteWorkflowExecutionFailedEventAttributes;
+            workflowExecutionFailedEventAttributes?: WorkflowExecutionFailedEventAttributes;
+            failWorkflowExecutionFailedEventAttributes?: FailWorkflowExecutionFailedEventAttributes;
+            workflowExecutionTimedOutEventAttributes?: WorkflowExecutionTimedOutEventAttributes;
+            workflowExecutionCanceledEventAttributes?: WorkflowExecutionCanceledEventAttributes;
+            cancelWorkflowExecutionFailedEventAttributes?: CancelWorkflowExecutionFailedEventAttributes;
+            workflowExecutionContinuedAsNewEventAttributes?: WorkflowExecutionContinuedAsNewEventAttributes;
+            continueAsNewWorkflowExecutionFailedEventAttributes?: ContinueAsNewWorkflowExecutionFailedEventAttributes;
+            workflowExecutionTerminatedEventAttributes?: WorkflowExecutionTerminatedEventAttributes;
+            workflowExecutionCancelRequestedEventAttributes?: WorkflowExecutionCancelRequestedEventAttributes;
+            decisionTaskScheduledEventAttributes?: DecisionTaskScheduledEventAttributes;
+            decisionTaskStartedEventAttributes?: DecisionTaskStartedEventAttributes;
+            decisionTaskCompletedEventAttributes?: DecisionTaskCompletedEventAttributes;
+            decisionTaskTimedOutEventAttributes?: DecisionTaskTimedOutEventAttributes;
+            activityTaskScheduledEventAttributes?: ActivityTaskScheduledEventAttributes;
+            activityTaskStartedEventAttributes?: ActivityTaskStartedEventAttributes;
+            activityTaskCompletedEventAttributes?: ActivityTaskCompletedEventAttributes;
+            activityTaskFailedEventAttributes?: ActivityTaskFailedEventAttributes;
+            activityTaskTimedOutEventAttributes?: ActivityTaskTimedOutEventAttributes;
+            activityTaskCanceledEventAttributes?: ActivityTaskCanceledEventAttributes;
+            activityTaskCancelRequestedEventAttributes?: ActivityTaskCancelRequestedEventAttributes;
+            workflowExecutionSignaledEventAttributes?: WorkflowExecutionSignaledEventAttributes;
+            markerRecordedEventAttributes?: MarkerRecordedEventAttributes;
+            recordMarkerFailedEventAttributes?: RecordMarkerFailedEventAttributes;
+            timerStartedEventAttributes?: TimerStartedEventAttributes;
+            timerFiredEventAttributes?: TimerFiredEventAttributes;
+            timerCanceledEventAttributes?: TimerCanceledEventAttributes;
+            startChildWorkflowExecutionInitiatedEventAttributes?: StartChildWorkflowExecutionInitiatedEventAttributes;
+            childWorkflowExecutionStartedEventAttributes?: ChildWorkflowExecutionStartedEventAttributes;
+            childWorkflowExecutionCompletedEventAttributes?: ChildWorkflowExecutionCompletedEventAttributes;
+            childWorkflowExecutionFailedEventAttributes?: ChildWorkflowExecutionFailedEventAttributes;
+            childWorkflowExecutionTimedOutEventAttributes?: ChildWorkflowExecutionTimedOutEventAttributes;
+            childWorkflowExecutionCanceledEventAttributes?: ChildWorkflowExecutionCanceledEventAttributes;
+            childWorkflowExecutionTerminatedEventAttributes?: ChildWorkflowExecutionTerminatedEventAttributes;
+            signalExternalWorkflowExecutionInitiatedEventAttributes?: SignalExternalWorkflowExecutionInitiatedEventAttributes;
+            externalWorkflowExecutionSignaledEventAttributes?: ExternalWorkflowExecutionSignaledEventAttributes;
+            signalExternalWorkflowExecutionFailedEventAttributes?: SignalExternalWorkflowExecutionFailedEventAttributes;
+            externalWorkflowExecutionCancelRequestedEventAttributes?: ExternalWorkflowExecutionCancelRequestedEventAttributes;
+            requestCancelExternalWorkflowExecutionInitiatedEventAttributes?: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes;
+            requestCancelExternalWorkflowExecutionFailedEventAttributes?: RequestCancelExternalWorkflowExecutionFailedEventAttributes;
+            scheduleActivityTaskFailedEventAttributes?: ScheduleActivityTaskFailedEventAttributes;
+            requestCancelActivityTaskFailedEventAttributes?: RequestCancelActivityTaskFailedEventAttributes;
+            startTimerFailedEventAttributes?: StartTimerFailedEventAttributes;
+            cancelTimerFailedEventAttributes?: CancelTimerFailedEventAttributes;
+            startChildWorkflowExecutionFailedEventAttributes?: StartChildWorkflowExecutionFailedEventAttributes;
+            lambdaFunctionScheduledEventAttributes?: LambdaFunctionScheduledEventAttributes;
+            lambdaFunctionStartedEventAttributes?: LambdaFunctionStartedEventAttributes;
+            lambdaFunctionCompletedEventAttributes?: LambdaFunctionCompletedEventAttributes;
+            lambdaFunctionFailedEventAttributes?: LambdaFunctionFailedEventAttributes;
+            lambdaFunctionTimedOutEventAttributes?: LambdaFunctionTimedOutEventAttributes;
+            scheduleLambdaFunctionFailedEventAttributes?: ScheduleLambdaFunctionFailedEventAttributes;
+            startLambdaFunctionFailedEventAttributes?: StartLambdaFunctionFailedEventAttributes;
         }
         export interface LambdaFunctionCompletedEventAttributes {
-            scheduledEventId: EventId;            
-            startedEventId: EventId;            
-            result?: Data;            
+            scheduledEventId: EventId;
+            startedEventId: EventId;
+            result?: Data;
         }
         export interface LambdaFunctionFailedEventAttributes {
-            scheduledEventId: EventId;            
-            startedEventId: EventId;            
-            reason?: FailureReason;            
-            details?: Data;            
+            scheduledEventId: EventId;
+            startedEventId: EventId;
+            reason?: FailureReason;
+            details?: Data;
         }
         export interface LambdaFunctionScheduledEventAttributes {
-            id: FunctionId;            
-            name: FunctionName;            
-            input?: FunctionInput;            
-            startToCloseTimeout?: DurationInSecondsOptional;            
-            decisionTaskCompletedEventId: EventId;            
+            id: FunctionId;
+            name: FunctionName;
+            input?: FunctionInput;
+            startToCloseTimeout?: DurationInSecondsOptional;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface LambdaFunctionStartedEventAttributes {
-            scheduledEventId: EventId;            
+            scheduledEventId: EventId;
         }
         export interface LambdaFunctionTimedOutEventAttributes {
-            scheduledEventId: EventId;            
-            startedEventId: EventId;            
-            timeoutType?: LambdaFunctionTimeoutType;            
+            scheduledEventId: EventId;
+            startedEventId: EventId;
+            timeoutType?: LambdaFunctionTimeoutType;
         }
         export interface LimitExceededFault {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ListActivityTypesInput {
-            domain: DomainName;            
-            name?: Name;            
-            registrationStatus: RegistrationStatus;            
-            nextPageToken?: PageToken;            
-            maximumPageSize?: PageSize;            
-            reverseOrder?: ReverseOrder;            
+            domain: DomainName;
+            name?: Name;
+            registrationStatus: RegistrationStatus;
+            nextPageToken?: PageToken;
+            maximumPageSize?: PageSize;
+            reverseOrder?: ReverseOrder;
         }
         export interface ListClosedWorkflowExecutionsInput {
-            domain: DomainName;            
-            startTimeFilter?: ExecutionTimeFilter;            
-            closeTimeFilter?: ExecutionTimeFilter;            
-            executionFilter?: WorkflowExecutionFilter;            
-            closeStatusFilter?: CloseStatusFilter;            
-            typeFilter?: WorkflowTypeFilter;            
-            tagFilter?: TagFilter;            
-            nextPageToken?: PageToken;            
-            maximumPageSize?: PageSize;            
-            reverseOrder?: ReverseOrder;            
+            domain: DomainName;
+            startTimeFilter?: ExecutionTimeFilter;
+            closeTimeFilter?: ExecutionTimeFilter;
+            executionFilter?: WorkflowExecutionFilter;
+            closeStatusFilter?: CloseStatusFilter;
+            typeFilter?: WorkflowTypeFilter;
+            tagFilter?: TagFilter;
+            nextPageToken?: PageToken;
+            maximumPageSize?: PageSize;
+            reverseOrder?: ReverseOrder;
         }
         export interface ListDomainsInput {
-            nextPageToken?: PageToken;            
-            registrationStatus: RegistrationStatus;            
-            maximumPageSize?: PageSize;            
-            reverseOrder?: ReverseOrder;            
+            nextPageToken?: PageToken;
+            registrationStatus: RegistrationStatus;
+            maximumPageSize?: PageSize;
+            reverseOrder?: ReverseOrder;
         }
         export interface ListOpenWorkflowExecutionsInput {
-            domain: DomainName;            
-            startTimeFilter: ExecutionTimeFilter;            
-            typeFilter?: WorkflowTypeFilter;            
-            tagFilter?: TagFilter;            
-            nextPageToken?: PageToken;            
-            maximumPageSize?: PageSize;            
-            reverseOrder?: ReverseOrder;            
-            executionFilter?: WorkflowExecutionFilter;            
+            domain: DomainName;
+            startTimeFilter: ExecutionTimeFilter;
+            typeFilter?: WorkflowTypeFilter;
+            tagFilter?: TagFilter;
+            nextPageToken?: PageToken;
+            maximumPageSize?: PageSize;
+            reverseOrder?: ReverseOrder;
+            executionFilter?: WorkflowExecutionFilter;
         }
         export interface ListWorkflowTypesInput {
-            domain: DomainName;            
-            name?: Name;            
-            registrationStatus: RegistrationStatus;            
-            nextPageToken?: PageToken;            
-            maximumPageSize?: PageSize;            
-            reverseOrder?: ReverseOrder;            
+            domain: DomainName;
+            name?: Name;
+            registrationStatus: RegistrationStatus;
+            nextPageToken?: PageToken;
+            maximumPageSize?: PageSize;
+            reverseOrder?: ReverseOrder;
         }
         export interface MarkerRecordedEventAttributes {
-            markerName: MarkerName;            
-            details?: Data;            
-            decisionTaskCompletedEventId: EventId;            
+            markerName: MarkerName;
+            details?: Data;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface OperationNotPermittedFault {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface PendingTaskCount {
-            count: Count;            
-            truncated?: Truncated;            
+            count: Count;
+            truncated?: Truncated;
         }
         export interface PollForActivityTaskInput {
-            domain: DomainName;            
-            taskList: TaskList;            
-            identity?: Identity;            
+            domain: DomainName;
+            taskList: TaskList;
+            identity?: Identity;
         }
         export interface PollForDecisionTaskInput {
-            domain: DomainName;            
-            taskList: TaskList;            
-            identity?: Identity;            
-            nextPageToken?: PageToken;            
-            maximumPageSize?: PageSize;            
-            reverseOrder?: ReverseOrder;            
+            domain: DomainName;
+            taskList: TaskList;
+            identity?: Identity;
+            nextPageToken?: PageToken;
+            maximumPageSize?: PageSize;
+            reverseOrder?: ReverseOrder;
         }
         export interface RecordActivityTaskHeartbeatInput {
-            taskToken: TaskToken;            
-            details?: LimitedData;            
+            taskToken: TaskToken;
+            details?: LimitedData;
         }
         export interface RecordMarkerDecisionAttributes {
-            markerName: MarkerName;            
-            details?: Data;            
+            markerName: MarkerName;
+            details?: Data;
         }
         export interface RecordMarkerFailedEventAttributes {
-            markerName: MarkerName;            
-            cause: RecordMarkerFailedCause;            
-            decisionTaskCompletedEventId: EventId;            
+            markerName: MarkerName;
+            cause: RecordMarkerFailedCause;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface RegisterActivityTypeInput {
-            domain: DomainName;            
-            name: Name;            
-            version: Version;            
-            description?: Description;            
-            defaultTaskStartToCloseTimeout?: DurationInSecondsOptional;            
-            defaultTaskHeartbeatTimeout?: DurationInSecondsOptional;            
-            defaultTaskList?: TaskList;            
-            defaultTaskPriority?: TaskPriority;            
-            defaultTaskScheduleToStartTimeout?: DurationInSecondsOptional;            
-            defaultTaskScheduleToCloseTimeout?: DurationInSecondsOptional;            
+            domain: DomainName;
+            name: Name;
+            version: Version;
+            description?: Description;
+            defaultTaskStartToCloseTimeout?: DurationInSecondsOptional;
+            defaultTaskHeartbeatTimeout?: DurationInSecondsOptional;
+            defaultTaskList?: TaskList;
+            defaultTaskPriority?: TaskPriority;
+            defaultTaskScheduleToStartTimeout?: DurationInSecondsOptional;
+            defaultTaskScheduleToCloseTimeout?: DurationInSecondsOptional;
         }
         export interface RegisterDomainInput {
-            name: DomainName;            
-            description?: Description;            
-            workflowExecutionRetentionPeriodInDays: DurationInDays;            
+            name: DomainName;
+            description?: Description;
+            workflowExecutionRetentionPeriodInDays: DurationInDays;
         }
         export interface RegisterWorkflowTypeInput {
-            domain: DomainName;            
-            name: Name;            
-            version: Version;            
-            description?: Description;            
-            defaultTaskStartToCloseTimeout?: DurationInSecondsOptional;            
-            defaultExecutionStartToCloseTimeout?: DurationInSecondsOptional;            
-            defaultTaskList?: TaskList;            
-            defaultTaskPriority?: TaskPriority;            
-            defaultChildPolicy?: ChildPolicy;            
-            defaultLambdaRole?: Arn;            
+            domain: DomainName;
+            name: Name;
+            version: Version;
+            description?: Description;
+            defaultTaskStartToCloseTimeout?: DurationInSecondsOptional;
+            defaultExecutionStartToCloseTimeout?: DurationInSecondsOptional;
+            defaultTaskList?: TaskList;
+            defaultTaskPriority?: TaskPriority;
+            defaultChildPolicy?: ChildPolicy;
+            defaultLambdaRole?: Arn;
         }
         export interface RequestCancelActivityTaskDecisionAttributes {
-            activityId: ActivityId;            
+            activityId: ActivityId;
         }
         export interface RequestCancelActivityTaskFailedEventAttributes {
-            activityId: ActivityId;            
-            cause: RequestCancelActivityTaskFailedCause;            
-            decisionTaskCompletedEventId: EventId;            
+            activityId: ActivityId;
+            cause: RequestCancelActivityTaskFailedCause;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface RequestCancelExternalWorkflowExecutionDecisionAttributes {
-            workflowId: WorkflowId;            
-            runId?: RunIdOptional;            
-            control?: Data;            
+            workflowId: WorkflowId;
+            runId?: RunIdOptional;
+            control?: Data;
         }
         export interface RequestCancelExternalWorkflowExecutionFailedEventAttributes {
-            workflowId: WorkflowId;            
-            runId?: RunIdOptional;            
-            cause: RequestCancelExternalWorkflowExecutionFailedCause;            
-            initiatedEventId: EventId;            
-            decisionTaskCompletedEventId: EventId;            
-            control?: Data;            
+            workflowId: WorkflowId;
+            runId?: RunIdOptional;
+            cause: RequestCancelExternalWorkflowExecutionFailedCause;
+            initiatedEventId: EventId;
+            decisionTaskCompletedEventId: EventId;
+            control?: Data;
         }
         export interface RequestCancelExternalWorkflowExecutionInitiatedEventAttributes {
-            workflowId: WorkflowId;            
-            runId?: RunIdOptional;            
-            decisionTaskCompletedEventId: EventId;            
-            control?: Data;            
+            workflowId: WorkflowId;
+            runId?: RunIdOptional;
+            decisionTaskCompletedEventId: EventId;
+            control?: Data;
         }
         export interface RequestCancelWorkflowExecutionInput {
-            domain: DomainName;            
-            workflowId: WorkflowId;            
-            runId?: RunIdOptional;            
+            domain: DomainName;
+            workflowId: WorkflowId;
+            runId?: RunIdOptional;
         }
         export interface RespondActivityTaskCanceledInput {
-            taskToken: TaskToken;            
-            details?: Data;            
+            taskToken: TaskToken;
+            details?: Data;
         }
         export interface RespondActivityTaskCompletedInput {
-            taskToken: TaskToken;            
-            result?: Data;            
+            taskToken: TaskToken;
+            result?: Data;
         }
         export interface RespondActivityTaskFailedInput {
-            taskToken: TaskToken;            
-            reason?: FailureReason;            
-            details?: Data;            
+            taskToken: TaskToken;
+            reason?: FailureReason;
+            details?: Data;
         }
         export interface RespondDecisionTaskCompletedInput {
-            taskToken: TaskToken;            
-            decisions?: DecisionList;            
-            executionContext?: Data;            
+            taskToken: TaskToken;
+            decisions?: DecisionList;
+            executionContext?: Data;
         }
         export interface Run {
-            runId?: RunId;            
+            runId?: RunId;
         }
         export interface ScheduleActivityTaskDecisionAttributes {
-            activityType: ActivityType;            
-            activityId: ActivityId;            
-            control?: Data;            
-            input?: Data;            
-            scheduleToCloseTimeout?: DurationInSecondsOptional;            
-            taskList?: TaskList;            
-            taskPriority?: TaskPriority;            
-            scheduleToStartTimeout?: DurationInSecondsOptional;            
-            startToCloseTimeout?: DurationInSecondsOptional;            
-            heartbeatTimeout?: DurationInSecondsOptional;            
+            activityType: ActivityType;
+            activityId: ActivityId;
+            control?: Data;
+            input?: Data;
+            scheduleToCloseTimeout?: DurationInSecondsOptional;
+            taskList?: TaskList;
+            taskPriority?: TaskPriority;
+            scheduleToStartTimeout?: DurationInSecondsOptional;
+            startToCloseTimeout?: DurationInSecondsOptional;
+            heartbeatTimeout?: DurationInSecondsOptional;
         }
         export interface ScheduleActivityTaskFailedEventAttributes {
-            activityType: ActivityType;            
-            activityId: ActivityId;            
-            cause: ScheduleActivityTaskFailedCause;            
-            decisionTaskCompletedEventId: EventId;            
+            activityType: ActivityType;
+            activityId: ActivityId;
+            cause: ScheduleActivityTaskFailedCause;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface ScheduleLambdaFunctionDecisionAttributes {
-            id: FunctionId;            
-            name: FunctionName;            
-            input?: FunctionInput;            
-            startToCloseTimeout?: DurationInSecondsOptional;            
+            id: FunctionId;
+            name: FunctionName;
+            input?: FunctionInput;
+            startToCloseTimeout?: DurationInSecondsOptional;
         }
         export interface ScheduleLambdaFunctionFailedEventAttributes {
-            id: FunctionId;            
-            name: FunctionName;            
-            cause: ScheduleLambdaFunctionFailedCause;            
-            decisionTaskCompletedEventId: EventId;            
+            id: FunctionId;
+            name: FunctionName;
+            cause: ScheduleLambdaFunctionFailedCause;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface SignalExternalWorkflowExecutionDecisionAttributes {
-            workflowId: WorkflowId;            
-            runId?: RunIdOptional;            
-            signalName: SignalName;            
-            input?: Data;            
-            control?: Data;            
+            workflowId: WorkflowId;
+            runId?: RunIdOptional;
+            signalName: SignalName;
+            input?: Data;
+            control?: Data;
         }
         export interface SignalExternalWorkflowExecutionFailedEventAttributes {
-            workflowId: WorkflowId;            
-            runId?: RunIdOptional;            
-            cause: SignalExternalWorkflowExecutionFailedCause;            
-            initiatedEventId: EventId;            
-            decisionTaskCompletedEventId: EventId;            
-            control?: Data;            
+            workflowId: WorkflowId;
+            runId?: RunIdOptional;
+            cause: SignalExternalWorkflowExecutionFailedCause;
+            initiatedEventId: EventId;
+            decisionTaskCompletedEventId: EventId;
+            control?: Data;
         }
         export interface SignalExternalWorkflowExecutionInitiatedEventAttributes {
-            workflowId: WorkflowId;            
-            runId?: RunIdOptional;            
-            signalName: SignalName;            
-            input?: Data;            
-            decisionTaskCompletedEventId: EventId;            
-            control?: Data;            
+            workflowId: WorkflowId;
+            runId?: RunIdOptional;
+            signalName: SignalName;
+            input?: Data;
+            decisionTaskCompletedEventId: EventId;
+            control?: Data;
         }
         export interface SignalWorkflowExecutionInput {
-            domain: DomainName;            
-            workflowId: WorkflowId;            
-            runId?: RunIdOptional;            
-            signalName: SignalName;            
-            input?: Data;            
+            domain: DomainName;
+            workflowId: WorkflowId;
+            runId?: RunIdOptional;
+            signalName: SignalName;
+            input?: Data;
         }
         export interface StartChildWorkflowExecutionDecisionAttributes {
-            workflowType: WorkflowType;            
-            workflowId: WorkflowId;            
-            control?: Data;            
-            input?: Data;            
-            executionStartToCloseTimeout?: DurationInSecondsOptional;            
-            taskList?: TaskList;            
-            taskPriority?: TaskPriority;            
-            taskStartToCloseTimeout?: DurationInSecondsOptional;            
-            childPolicy?: ChildPolicy;            
-            tagList?: TagList;            
-            lambdaRole?: Arn;            
+            workflowType: WorkflowType;
+            workflowId: WorkflowId;
+            control?: Data;
+            input?: Data;
+            executionStartToCloseTimeout?: DurationInSecondsOptional;
+            taskList?: TaskList;
+            taskPriority?: TaskPriority;
+            taskStartToCloseTimeout?: DurationInSecondsOptional;
+            childPolicy?: ChildPolicy;
+            tagList?: TagList;
+            lambdaRole?: Arn;
         }
         export interface StartChildWorkflowExecutionFailedEventAttributes {
-            workflowType: WorkflowType;            
-            cause: StartChildWorkflowExecutionFailedCause;            
-            workflowId: WorkflowId;            
-            initiatedEventId: EventId;            
-            decisionTaskCompletedEventId: EventId;            
-            control?: Data;            
+            workflowType: WorkflowType;
+            cause: StartChildWorkflowExecutionFailedCause;
+            workflowId: WorkflowId;
+            initiatedEventId: EventId;
+            decisionTaskCompletedEventId: EventId;
+            control?: Data;
         }
         export interface StartChildWorkflowExecutionInitiatedEventAttributes {
-            workflowId: WorkflowId;            
-            workflowType: WorkflowType;            
-            control?: Data;            
-            input?: Data;            
-            executionStartToCloseTimeout?: DurationInSecondsOptional;            
-            taskList: TaskList;            
-            taskPriority?: TaskPriority;            
-            decisionTaskCompletedEventId: EventId;            
-            childPolicy: ChildPolicy;            
-            taskStartToCloseTimeout?: DurationInSecondsOptional;            
-            tagList?: TagList;            
-            lambdaRole?: Arn;            
+            workflowId: WorkflowId;
+            workflowType: WorkflowType;
+            control?: Data;
+            input?: Data;
+            executionStartToCloseTimeout?: DurationInSecondsOptional;
+            taskList: TaskList;
+            taskPriority?: TaskPriority;
+            decisionTaskCompletedEventId: EventId;
+            childPolicy: ChildPolicy;
+            taskStartToCloseTimeout?: DurationInSecondsOptional;
+            tagList?: TagList;
+            lambdaRole?: Arn;
         }
         export interface StartLambdaFunctionFailedEventAttributes {
-            scheduledEventId?: EventId;            
-            cause?: StartLambdaFunctionFailedCause;            
-            message?: CauseMessage;            
+            scheduledEventId?: EventId;
+            cause?: StartLambdaFunctionFailedCause;
+            message?: CauseMessage;
         }
         export interface StartTimerDecisionAttributes {
-            timerId: TimerId;            
-            control?: Data;            
-            startToFireTimeout: DurationInSeconds;            
+            timerId: TimerId;
+            control?: Data;
+            startToFireTimeout: DurationInSeconds;
         }
         export interface StartTimerFailedEventAttributes {
-            timerId: TimerId;            
-            cause: StartTimerFailedCause;            
-            decisionTaskCompletedEventId: EventId;            
+            timerId: TimerId;
+            cause: StartTimerFailedCause;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface StartWorkflowExecutionInput {
-            domain: DomainName;            
-            workflowId: WorkflowId;            
-            workflowType: WorkflowType;            
-            taskList?: TaskList;            
-            taskPriority?: TaskPriority;            
-            input?: Data;            
-            executionStartToCloseTimeout?: DurationInSecondsOptional;            
-            tagList?: TagList;            
-            taskStartToCloseTimeout?: DurationInSecondsOptional;            
-            childPolicy?: ChildPolicy;            
-            lambdaRole?: Arn;            
+            domain: DomainName;
+            workflowId: WorkflowId;
+            workflowType: WorkflowType;
+            taskList?: TaskList;
+            taskPriority?: TaskPriority;
+            input?: Data;
+            executionStartToCloseTimeout?: DurationInSecondsOptional;
+            tagList?: TagList;
+            taskStartToCloseTimeout?: DurationInSecondsOptional;
+            childPolicy?: ChildPolicy;
+            lambdaRole?: Arn;
         }
         export interface TagFilter {
-            tag: Tag;            
+            tag: Tag;
         }
         export interface TaskList {
-            name: Name;            
+            name: Name;
         }
         export interface TerminateWorkflowExecutionInput {
-            domain: DomainName;            
-            workflowId: WorkflowId;            
-            runId?: RunIdOptional;            
-            reason?: TerminateReason;            
-            details?: Data;            
-            childPolicy?: ChildPolicy;            
+            domain: DomainName;
+            workflowId: WorkflowId;
+            runId?: RunIdOptional;
+            reason?: TerminateReason;
+            details?: Data;
+            childPolicy?: ChildPolicy;
         }
         export interface TimerCanceledEventAttributes {
-            timerId: TimerId;            
-            startedEventId: EventId;            
-            decisionTaskCompletedEventId: EventId;            
+            timerId: TimerId;
+            startedEventId: EventId;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface TimerFiredEventAttributes {
-            timerId: TimerId;            
-            startedEventId: EventId;            
+            timerId: TimerId;
+            startedEventId: EventId;
         }
         export interface TimerStartedEventAttributes {
-            timerId: TimerId;            
-            control?: Data;            
-            startToFireTimeout: DurationInSeconds;            
-            decisionTaskCompletedEventId: EventId;            
+            timerId: TimerId;
+            control?: Data;
+            startToFireTimeout: DurationInSeconds;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface TypeAlreadyExistsFault {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface TypeDeprecatedFault {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface UnknownResourceFault {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface WorkflowExecution {
-            workflowId: WorkflowId;            
-            runId: RunId;            
+            workflowId: WorkflowId;
+            runId: RunId;
         }
         export interface WorkflowExecutionAlreadyStartedFault {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface WorkflowExecutionCancelRequestedEventAttributes {
-            externalWorkflowExecution?: WorkflowExecution;            
-            externalInitiatedEventId?: EventId;            
-            cause?: WorkflowExecutionCancelRequestedCause;            
+            externalWorkflowExecution?: WorkflowExecution;
+            externalInitiatedEventId?: EventId;
+            cause?: WorkflowExecutionCancelRequestedCause;
         }
         export interface WorkflowExecutionCanceledEventAttributes {
-            details?: Data;            
-            decisionTaskCompletedEventId: EventId;            
+            details?: Data;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface WorkflowExecutionCompletedEventAttributes {
-            result?: Data;            
-            decisionTaskCompletedEventId: EventId;            
+            result?: Data;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface WorkflowExecutionConfiguration {
-            taskStartToCloseTimeout: DurationInSeconds;            
-            executionStartToCloseTimeout: DurationInSeconds;            
-            taskList: TaskList;            
-            taskPriority?: TaskPriority;            
-            childPolicy: ChildPolicy;            
-            lambdaRole?: Arn;            
+            taskStartToCloseTimeout: DurationInSeconds;
+            executionStartToCloseTimeout: DurationInSeconds;
+            taskList: TaskList;
+            taskPriority?: TaskPriority;
+            childPolicy: ChildPolicy;
+            lambdaRole?: Arn;
         }
         export interface WorkflowExecutionContinuedAsNewEventAttributes {
-            input?: Data;            
-            decisionTaskCompletedEventId: EventId;            
-            newExecutionRunId: RunId;            
-            executionStartToCloseTimeout?: DurationInSecondsOptional;            
-            taskList: TaskList;            
-            taskPriority?: TaskPriority;            
-            taskStartToCloseTimeout?: DurationInSecondsOptional;            
-            childPolicy: ChildPolicy;            
-            tagList?: TagList;            
-            workflowType: WorkflowType;            
-            lambdaRole?: Arn;            
+            input?: Data;
+            decisionTaskCompletedEventId: EventId;
+            newExecutionRunId: RunId;
+            executionStartToCloseTimeout?: DurationInSecondsOptional;
+            taskList: TaskList;
+            taskPriority?: TaskPriority;
+            taskStartToCloseTimeout?: DurationInSecondsOptional;
+            childPolicy: ChildPolicy;
+            tagList?: TagList;
+            workflowType: WorkflowType;
+            lambdaRole?: Arn;
         }
         export interface WorkflowExecutionCount {
-            count: Count;            
-            truncated?: Truncated;            
+            count: Count;
+            truncated?: Truncated;
         }
         export interface WorkflowExecutionDetail {
-            executionInfo: WorkflowExecutionInfo;            
-            executionConfiguration: WorkflowExecutionConfiguration;            
-            openCounts: WorkflowExecutionOpenCounts;            
-            latestActivityTaskTimestamp?: Timestamp;            
-            latestExecutionContext?: Data;            
+            executionInfo: WorkflowExecutionInfo;
+            executionConfiguration: WorkflowExecutionConfiguration;
+            openCounts: WorkflowExecutionOpenCounts;
+            latestActivityTaskTimestamp?: Timestamp;
+            latestExecutionContext?: Data;
         }
         export interface WorkflowExecutionFailedEventAttributes {
-            reason?: FailureReason;            
-            details?: Data;            
-            decisionTaskCompletedEventId: EventId;            
+            reason?: FailureReason;
+            details?: Data;
+            decisionTaskCompletedEventId: EventId;
         }
         export interface WorkflowExecutionFilter {
-            workflowId: WorkflowId;            
+            workflowId: WorkflowId;
         }
         export interface WorkflowExecutionInfo {
-            execution: WorkflowExecution;            
-            workflowType: WorkflowType;            
-            startTimestamp: Timestamp;            
-            closeTimestamp?: Timestamp;            
-            executionStatus: ExecutionStatus;            
-            closeStatus?: CloseStatus;            
-            parent?: WorkflowExecution;            
-            tagList?: TagList;            
-            cancelRequested?: Canceled;            
+            execution: WorkflowExecution;
+            workflowType: WorkflowType;
+            startTimestamp: Timestamp;
+            closeTimestamp?: Timestamp;
+            executionStatus: ExecutionStatus;
+            closeStatus?: CloseStatus;
+            parent?: WorkflowExecution;
+            tagList?: TagList;
+            cancelRequested?: Canceled;
         }
         export interface WorkflowExecutionInfos {
-            executionInfos: WorkflowExecutionInfoList;            
-            nextPageToken?: PageToken;            
+            executionInfos: WorkflowExecutionInfoList;
+            nextPageToken?: PageToken;
         }
         export interface WorkflowExecutionOpenCounts {
-            openActivityTasks: Count;            
-            openDecisionTasks: OpenDecisionTasksCount;            
-            openTimers: Count;            
-            openChildWorkflowExecutions: Count;            
-            openLambdaFunctions?: Count;            
+            openActivityTasks: Count;
+            openDecisionTasks: OpenDecisionTasksCount;
+            openTimers: Count;
+            openChildWorkflowExecutions: Count;
+            openLambdaFunctions?: Count;
         }
         export interface WorkflowExecutionSignaledEventAttributes {
-            signalName: SignalName;            
-            input?: Data;            
-            externalWorkflowExecution?: WorkflowExecution;            
-            externalInitiatedEventId?: EventId;            
+            signalName: SignalName;
+            input?: Data;
+            externalWorkflowExecution?: WorkflowExecution;
+            externalInitiatedEventId?: EventId;
         }
         export interface WorkflowExecutionStartedEventAttributes {
-            input?: Data;            
-            executionStartToCloseTimeout?: DurationInSecondsOptional;            
-            taskStartToCloseTimeout?: DurationInSecondsOptional;            
-            childPolicy: ChildPolicy;            
-            taskList: TaskList;            
-            workflowType: WorkflowType;            
-            tagList?: TagList;            
-            taskPriority?: TaskPriority;            
-            continuedExecutionRunId?: RunIdOptional;            
-            parentWorkflowExecution?: WorkflowExecution;            
-            parentInitiatedEventId?: EventId;            
-            lambdaRole?: Arn;            
+            input?: Data;
+            executionStartToCloseTimeout?: DurationInSecondsOptional;
+            taskStartToCloseTimeout?: DurationInSecondsOptional;
+            childPolicy: ChildPolicy;
+            taskList: TaskList;
+            workflowType: WorkflowType;
+            tagList?: TagList;
+            taskPriority?: TaskPriority;
+            continuedExecutionRunId?: RunIdOptional;
+            parentWorkflowExecution?: WorkflowExecution;
+            parentInitiatedEventId?: EventId;
+            lambdaRole?: Arn;
         }
         export interface WorkflowExecutionTerminatedEventAttributes {
-            reason?: TerminateReason;            
-            details?: Data;            
-            childPolicy: ChildPolicy;            
-            cause?: WorkflowExecutionTerminatedCause;            
+            reason?: TerminateReason;
+            details?: Data;
+            childPolicy: ChildPolicy;
+            cause?: WorkflowExecutionTerminatedCause;
         }
         export interface WorkflowExecutionTimedOutEventAttributes {
-            timeoutType: WorkflowExecutionTimeoutType;            
-            childPolicy: ChildPolicy;            
+            timeoutType: WorkflowExecutionTimeoutType;
+            childPolicy: ChildPolicy;
         }
         export interface WorkflowType {
-            name: Name;            
-            version: Version;            
+            name: Name;
+            version: Version;
         }
         export interface WorkflowTypeConfiguration {
-            defaultTaskStartToCloseTimeout?: DurationInSecondsOptional;            
-            defaultExecutionStartToCloseTimeout?: DurationInSecondsOptional;            
-            defaultTaskList?: TaskList;            
-            defaultTaskPriority?: TaskPriority;            
-            defaultChildPolicy?: ChildPolicy;            
-            defaultLambdaRole?: Arn;            
+            defaultTaskStartToCloseTimeout?: DurationInSecondsOptional;
+            defaultExecutionStartToCloseTimeout?: DurationInSecondsOptional;
+            defaultTaskList?: TaskList;
+            defaultTaskPriority?: TaskPriority;
+            defaultChildPolicy?: ChildPolicy;
+            defaultLambdaRole?: Arn;
         }
         export interface WorkflowTypeDetail {
-            typeInfo: WorkflowTypeInfo;            
-            configuration: WorkflowTypeConfiguration;            
+            typeInfo: WorkflowTypeInfo;
+            configuration: WorkflowTypeConfiguration;
         }
         export interface WorkflowTypeFilter {
-            name: Name;            
-            version?: VersionOptional;            
+            name: Name;
+            version?: VersionOptional;
         }
         export interface WorkflowTypeInfo {
-            workflowType: WorkflowType;            
-            status: RegistrationStatus;            
-            description?: Description;            
-            creationDate: Timestamp;            
-            deprecationDate?: Timestamp;            
+            workflowType: WorkflowType;
+            status: RegistrationStatus;
+            description?: Description;
+            creationDate: Timestamp;
+            deprecationDate?: Timestamp;
         }
         export interface WorkflowTypeInfos {
-            typeInfos: WorkflowTypeInfoList;            
-            nextPageToken?: PageToken;            
+            typeInfos: WorkflowTypeInfoList;
+            nextPageToken?: PageToken;
         }
 
     }

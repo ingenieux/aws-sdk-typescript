@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2009-04-15
      * endpointPrefix: sdb
      * serviceAbbreviation: 
@@ -27,8 +27,9 @@ declare module "aws-sdk" {
       listDomains(params: SimpleDB.ListDomainsRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.InvalidNextToken|any, data: SimpleDB.ListDomainsResult|any) => void): Request;
       putAttributes(params: SimpleDB.PutAttributesRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.NumberDomainAttributesExceeded|SimpleDB.NumberDomainBytesExceeded|SimpleDB.NumberItemAttributesExceeded|SimpleDB.AttributeDoesNotExist|any, data: any) => void): Request;
       select(params: SimpleDB.SelectRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.InvalidNextToken|SimpleDB.InvalidNumberPredicates|SimpleDB.InvalidNumberValueTests|SimpleDB.InvalidQueryExpression|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.RequestTimeout|SimpleDB.TooManyRequestedAttributes|any, data: SimpleDB.SelectResult|any) => void): Request;
+
     }
-    
+
     export module SimpleDB {
         export type AttributeList = Attribute[];
         export type AttributeNameList = String[];
@@ -45,152 +46,152 @@ declare module "aws-sdk" {
         export type String = string;
 
         export interface Attribute {
-            Name: String;            
-            AlternateNameEncoding?: String;            
-            Value: String;            
-            AlternateValueEncoding?: String;            
+            Name: String;
+            AlternateNameEncoding?: String;
+            Value: String;
+            AlternateValueEncoding?: String;
         }
         export interface AttributeDoesNotExist {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface BatchDeleteAttributesRequest {
-            DomainName: String;            
-            Items: DeletableItemList;            
+            DomainName: String;
+            Items: DeletableItemList;
         }
         export interface BatchPutAttributesRequest {
-            DomainName: String;            
-            Items: ReplaceableItemList;            
+            DomainName: String;
+            Items: ReplaceableItemList;
         }
         export interface CreateDomainRequest {
-            DomainName: String;            
+            DomainName: String;
         }
         export interface DeletableAttribute {
-            Name: String;            
-            Value?: String;            
+            Name: String;
+            Value?: String;
         }
         export interface DeletableItem {
-            Name: String;            
-            Attributes?: DeletableAttributeList;            
+            Name: String;
+            Attributes?: DeletableAttributeList;
         }
         export interface DeleteAttributesRequest {
-            DomainName: String;            
-            ItemName: String;            
-            Attributes?: DeletableAttributeList;            
-            Expected?: UpdateCondition;            
+            DomainName: String;
+            ItemName: String;
+            Attributes?: DeletableAttributeList;
+            Expected?: UpdateCondition;
         }
         export interface DeleteDomainRequest {
-            DomainName: String;            
+            DomainName: String;
         }
         export interface DomainMetadataRequest {
-            DomainName: String;            
+            DomainName: String;
         }
         export interface DomainMetadataResult {
-            ItemCount?: Integer;            
-            ItemNamesSizeBytes?: Long;            
-            AttributeNameCount?: Integer;            
-            AttributeNamesSizeBytes?: Long;            
-            AttributeValueCount?: Integer;            
-            AttributeValuesSizeBytes?: Long;            
-            Timestamp?: Integer;            
+            ItemCount?: Integer;
+            ItemNamesSizeBytes?: Long;
+            AttributeNameCount?: Integer;
+            AttributeNamesSizeBytes?: Long;
+            AttributeValueCount?: Integer;
+            AttributeValuesSizeBytes?: Long;
+            Timestamp?: Integer;
         }
         export interface DuplicateItemName {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface GetAttributesRequest {
-            DomainName: String;            
-            ItemName: String;            
-            AttributeNames?: AttributeNameList;            
-            ConsistentRead?: Boolean;            
+            DomainName: String;
+            ItemName: String;
+            AttributeNames?: AttributeNameList;
+            ConsistentRead?: Boolean;
         }
         export interface GetAttributesResult {
-            Attributes?: AttributeList;            
+            Attributes?: AttributeList;
         }
         export interface InvalidNextToken {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface InvalidNumberPredicates {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface InvalidNumberValueTests {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface InvalidParameterValue {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface InvalidQueryExpression {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface Item {
-            Name: String;            
-            AlternateNameEncoding?: String;            
-            Attributes: AttributeList;            
+            Name: String;
+            AlternateNameEncoding?: String;
+            Attributes: AttributeList;
         }
         export interface ListDomainsRequest {
-            MaxNumberOfDomains?: Integer;            
-            NextToken?: String;            
+            MaxNumberOfDomains?: Integer;
+            NextToken?: String;
         }
         export interface ListDomainsResult {
-            DomainNames?: DomainNameList;            
-            NextToken?: String;            
+            DomainNames?: DomainNameList;
+            NextToken?: String;
         }
         export interface MissingParameter {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface NoSuchDomain {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface NumberDomainAttributesExceeded {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface NumberDomainBytesExceeded {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface NumberDomainsExceeded {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface NumberItemAttributesExceeded {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface NumberSubmittedAttributesExceeded {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface NumberSubmittedItemsExceeded {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface PutAttributesRequest {
-            DomainName: String;            
-            ItemName: String;            
-            Attributes: ReplaceableAttributeList;            
-            Expected?: UpdateCondition;            
+            DomainName: String;
+            ItemName: String;
+            Attributes: ReplaceableAttributeList;
+            Expected?: UpdateCondition;
         }
         export interface ReplaceableAttribute {
-            Name: String;            
-            Value: String;            
-            Replace?: Boolean;            
+            Name: String;
+            Value: String;
+            Replace?: Boolean;
         }
         export interface ReplaceableItem {
-            Name: String;            
-            Attributes: ReplaceableAttributeList;            
+            Name: String;
+            Attributes: ReplaceableAttributeList;
         }
         export interface RequestTimeout {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface SelectRequest {
-            SelectExpression: String;            
-            NextToken?: String;            
-            ConsistentRead?: Boolean;            
+            SelectExpression: String;
+            NextToken?: String;
+            ConsistentRead?: Boolean;
         }
         export interface SelectResult {
-            Items?: ItemList;            
-            NextToken?: String;            
+            Items?: ItemList;
+            NextToken?: String;
         }
         export interface TooManyRequestedAttributes {
-            BoxUsage?: Float;            
+            BoxUsage?: Float;
         }
         export interface UpdateCondition {
-            Name?: String;            
-            Value?: String;            
-            Exists?: Boolean;            
+            Name?: String;
+            Value?: String;
+            Exists?: Boolean;
         }
 
     }

@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2012-08-10
      * endpointPrefix: dynamodb
      * serviceAbbreviation: DynamoDB
@@ -30,8 +30,19 @@ declare module "aws-sdk" {
       scan(params: DynamoDB.ScanInput, callback?: (err: DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any, data: DynamoDB.ScanOutput|any) => void): Request;
       updateItem(params: DynamoDB.UpdateItemInput, callback?: (err: DynamoDB.ConditionalCheckFailedException|DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.UpdateItemOutput|any) => void): Request;
       updateTable(params: DynamoDB.UpdateTableInput, callback?: (err: DynamoDB.ResourceInUseException|DynamoDB.ResourceNotFoundException|DynamoDB.LimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.UpdateTableOutput|any) => void): Request;
+
+      // Found on JS Sources - Sorry for the inconvenience :)
+      setupRequestListeners(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      checkCrc32(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      crc32IsValid(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      defaultRetryCount(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      retryDelays(...args: any[]): any
     }
-    
+
     export module DynamoDB {
         export type AttributeAction = string;
         export type AttributeDefinitions = AttributeDefinition[];
@@ -118,351 +129,351 @@ declare module "aws-sdk" {
         export type WriteRequests = WriteRequest[];    // max: 25, min: 1
 
         export interface AttributeDefinition {
-            AttributeName: KeySchemaAttributeName;            
-            AttributeType: ScalarAttributeType;            
+            AttributeName: KeySchemaAttributeName;
+            AttributeType: ScalarAttributeType;
         }
         export interface AttributeValue {
-            S?: StringAttributeValue;            
-            N?: NumberAttributeValue;            
-            B?: BinaryAttributeValue;            
-            SS?: StringSetAttributeValue;            
-            NS?: NumberSetAttributeValue;            
-            BS?: BinarySetAttributeValue;            
-            M?: MapAttributeValue;            
-            L?: ListAttributeValue;            
-            NULL?: NullAttributeValue;            
-            BOOL?: BooleanAttributeValue;            
+            S?: StringAttributeValue;
+            N?: NumberAttributeValue;
+            B?: BinaryAttributeValue;
+            SS?: StringSetAttributeValue;
+            NS?: NumberSetAttributeValue;
+            BS?: BinarySetAttributeValue;
+            M?: MapAttributeValue;
+            L?: ListAttributeValue;
+            NULL?: NullAttributeValue;
+            BOOL?: BooleanAttributeValue;
         }
         export interface AttributeValueUpdate {
-            Value?: AttributeValue;            
-            Action?: AttributeAction;            
+            Value?: AttributeValue;
+            Action?: AttributeAction;
         }
         export interface BatchGetItemInput {
-            RequestItems: BatchGetRequestMap;            
-            ReturnConsumedCapacity?: ReturnConsumedCapacity;            
+            RequestItems: BatchGetRequestMap;
+            ReturnConsumedCapacity?: ReturnConsumedCapacity;
         }
         export interface BatchGetItemOutput {
-            Responses?: BatchGetResponseMap;            
-            UnprocessedKeys?: BatchGetRequestMap;            
-            ConsumedCapacity?: ConsumedCapacityMultiple;            
+            Responses?: BatchGetResponseMap;
+            UnprocessedKeys?: BatchGetRequestMap;
+            ConsumedCapacity?: ConsumedCapacityMultiple;
         }
         export interface BatchWriteItemInput {
-            RequestItems: BatchWriteItemRequestMap;            
-            ReturnConsumedCapacity?: ReturnConsumedCapacity;            
-            ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;            
+            RequestItems: BatchWriteItemRequestMap;
+            ReturnConsumedCapacity?: ReturnConsumedCapacity;
+            ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;
         }
         export interface BatchWriteItemOutput {
-            UnprocessedItems?: BatchWriteItemRequestMap;            
-            ItemCollectionMetrics?: ItemCollectionMetricsPerTable;            
-            ConsumedCapacity?: ConsumedCapacityMultiple;            
+            UnprocessedItems?: BatchWriteItemRequestMap;
+            ItemCollectionMetrics?: ItemCollectionMetricsPerTable;
+            ConsumedCapacity?: ConsumedCapacityMultiple;
         }
         export interface Capacity {
-            CapacityUnits?: ConsumedCapacityUnits;            
+            CapacityUnits?: ConsumedCapacityUnits;
         }
         export interface Condition {
-            AttributeValueList?: AttributeValueList;            
-            ComparisonOperator: ComparisonOperator;            
+            AttributeValueList?: AttributeValueList;
+            ComparisonOperator: ComparisonOperator;
         }
         export interface ConditionalCheckFailedException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ConsumedCapacity {
-            TableName?: TableName;            
-            CapacityUnits?: ConsumedCapacityUnits;            
-            Table?: Capacity;            
-            LocalSecondaryIndexes?: SecondaryIndexesCapacityMap;            
-            GlobalSecondaryIndexes?: SecondaryIndexesCapacityMap;            
+            TableName?: TableName;
+            CapacityUnits?: ConsumedCapacityUnits;
+            Table?: Capacity;
+            LocalSecondaryIndexes?: SecondaryIndexesCapacityMap;
+            GlobalSecondaryIndexes?: SecondaryIndexesCapacityMap;
         }
         export interface CreateGlobalSecondaryIndexAction {
-            IndexName: IndexName;            
-            KeySchema: KeySchema;            
-            Projection: Projection;            
-            ProvisionedThroughput: ProvisionedThroughput;            
+            IndexName: IndexName;
+            KeySchema: KeySchema;
+            Projection: Projection;
+            ProvisionedThroughput: ProvisionedThroughput;
         }
         export interface CreateTableInput {
-            AttributeDefinitions: AttributeDefinitions;            
-            TableName: TableName;            
-            KeySchema: KeySchema;            
-            LocalSecondaryIndexes?: LocalSecondaryIndexList;            
-            GlobalSecondaryIndexes?: GlobalSecondaryIndexList;            
-            ProvisionedThroughput: ProvisionedThroughput;            
-            StreamSpecification?: StreamSpecification;            
+            AttributeDefinitions: AttributeDefinitions;
+            TableName: TableName;
+            KeySchema: KeySchema;
+            LocalSecondaryIndexes?: LocalSecondaryIndexList;
+            GlobalSecondaryIndexes?: GlobalSecondaryIndexList;
+            ProvisionedThroughput: ProvisionedThroughput;
+            StreamSpecification?: StreamSpecification;
         }
         export interface CreateTableOutput {
-            TableDescription?: TableDescription;            
+            TableDescription?: TableDescription;
         }
         export interface DeleteGlobalSecondaryIndexAction {
-            IndexName: IndexName;            
+            IndexName: IndexName;
         }
         export interface DeleteItemInput {
-            TableName: TableName;            
-            Key: Key;            
-            Expected?: ExpectedAttributeMap;            
-            ConditionalOperator?: ConditionalOperator;            
-            ReturnValues?: ReturnValue;            
-            ReturnConsumedCapacity?: ReturnConsumedCapacity;            
-            ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;            
-            ConditionExpression?: ConditionExpression;            
-            ExpressionAttributeNames?: ExpressionAttributeNameMap;            
-            ExpressionAttributeValues?: ExpressionAttributeValueMap;            
+            TableName: TableName;
+            Key: Key;
+            Expected?: ExpectedAttributeMap;
+            ConditionalOperator?: ConditionalOperator;
+            ReturnValues?: ReturnValue;
+            ReturnConsumedCapacity?: ReturnConsumedCapacity;
+            ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;
+            ConditionExpression?: ConditionExpression;
+            ExpressionAttributeNames?: ExpressionAttributeNameMap;
+            ExpressionAttributeValues?: ExpressionAttributeValueMap;
         }
         export interface DeleteItemOutput {
-            Attributes?: AttributeMap;            
-            ConsumedCapacity?: ConsumedCapacity;            
-            ItemCollectionMetrics?: ItemCollectionMetrics;            
+            Attributes?: AttributeMap;
+            ConsumedCapacity?: ConsumedCapacity;
+            ItemCollectionMetrics?: ItemCollectionMetrics;
         }
         export interface DeleteRequest {
-            Key: Key;            
+            Key: Key;
         }
         export interface DeleteTableInput {
-            TableName: TableName;            
+            TableName: TableName;
         }
         export interface DeleteTableOutput {
-            TableDescription?: TableDescription;            
+            TableDescription?: TableDescription;
         }
         export interface DescribeTableInput {
-            TableName: TableName;            
+            TableName: TableName;
         }
         export interface DescribeTableOutput {
-            Table?: TableDescription;            
+            Table?: TableDescription;
         }
         export interface ExpectedAttributeValue {
-            Value?: AttributeValue;            
-            Exists?: BooleanObject;            
-            ComparisonOperator?: ComparisonOperator;            
-            AttributeValueList?: AttributeValueList;            
+            Value?: AttributeValue;
+            Exists?: BooleanObject;
+            ComparisonOperator?: ComparisonOperator;
+            AttributeValueList?: AttributeValueList;
         }
         export interface GetItemInput {
-            TableName: TableName;            
-            Key: Key;            
-            AttributesToGet?: AttributeNameList;            
-            ConsistentRead?: ConsistentRead;            
-            ReturnConsumedCapacity?: ReturnConsumedCapacity;            
-            ProjectionExpression?: ProjectionExpression;            
-            ExpressionAttributeNames?: ExpressionAttributeNameMap;            
+            TableName: TableName;
+            Key: Key;
+            AttributesToGet?: AttributeNameList;
+            ConsistentRead?: ConsistentRead;
+            ReturnConsumedCapacity?: ReturnConsumedCapacity;
+            ProjectionExpression?: ProjectionExpression;
+            ExpressionAttributeNames?: ExpressionAttributeNameMap;
         }
         export interface GetItemOutput {
-            Item?: AttributeMap;            
-            ConsumedCapacity?: ConsumedCapacity;            
+            Item?: AttributeMap;
+            ConsumedCapacity?: ConsumedCapacity;
         }
         export interface GlobalSecondaryIndex {
-            IndexName: IndexName;            
-            KeySchema: KeySchema;            
-            Projection: Projection;            
-            ProvisionedThroughput: ProvisionedThroughput;            
+            IndexName: IndexName;
+            KeySchema: KeySchema;
+            Projection: Projection;
+            ProvisionedThroughput: ProvisionedThroughput;
         }
         export interface GlobalSecondaryIndexDescription {
-            IndexName?: IndexName;            
-            KeySchema?: KeySchema;            
-            Projection?: Projection;            
-            IndexStatus?: IndexStatus;            
-            Backfilling?: Backfilling;            
-            ProvisionedThroughput?: ProvisionedThroughputDescription;            
-            IndexSizeBytes?: Long;            
-            ItemCount?: Long;            
-            IndexArn?: String;            
+            IndexName?: IndexName;
+            KeySchema?: KeySchema;
+            Projection?: Projection;
+            IndexStatus?: IndexStatus;
+            Backfilling?: Backfilling;
+            ProvisionedThroughput?: ProvisionedThroughputDescription;
+            IndexSizeBytes?: Long;
+            ItemCount?: Long;
+            IndexArn?: String;
         }
         export interface GlobalSecondaryIndexUpdate {
-            Update?: UpdateGlobalSecondaryIndexAction;            
-            Create?: CreateGlobalSecondaryIndexAction;            
-            Delete?: DeleteGlobalSecondaryIndexAction;            
+            Update?: UpdateGlobalSecondaryIndexAction;
+            Create?: CreateGlobalSecondaryIndexAction;
+            Delete?: DeleteGlobalSecondaryIndexAction;
         }
         export interface InternalServerError {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ItemCollectionMetrics {
-            ItemCollectionKey?: ItemCollectionKeyAttributeMap;            
-            SizeEstimateRangeGB?: ItemCollectionSizeEstimateRange;            
+            ItemCollectionKey?: ItemCollectionKeyAttributeMap;
+            SizeEstimateRangeGB?: ItemCollectionSizeEstimateRange;
         }
         export interface ItemCollectionSizeLimitExceededException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface KeySchemaElement {
-            AttributeName: KeySchemaAttributeName;            
-            KeyType: KeyType;            
+            AttributeName: KeySchemaAttributeName;
+            KeyType: KeyType;
         }
         export interface KeysAndAttributes {
-            Keys: KeyList;            
-            AttributesToGet?: AttributeNameList;            
-            ConsistentRead?: ConsistentRead;            
-            ProjectionExpression?: ProjectionExpression;            
-            ExpressionAttributeNames?: ExpressionAttributeNameMap;            
+            Keys: KeyList;
+            AttributesToGet?: AttributeNameList;
+            ConsistentRead?: ConsistentRead;
+            ProjectionExpression?: ProjectionExpression;
+            ExpressionAttributeNames?: ExpressionAttributeNameMap;
         }
         export interface LimitExceededException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ListTablesInput {
-            ExclusiveStartTableName?: TableName;            
-            Limit?: ListTablesInputLimit;            
+            ExclusiveStartTableName?: TableName;
+            Limit?: ListTablesInputLimit;
         }
         export interface ListTablesOutput {
-            TableNames?: TableNameList;            
-            LastEvaluatedTableName?: TableName;            
+            TableNames?: TableNameList;
+            LastEvaluatedTableName?: TableName;
         }
         export interface LocalSecondaryIndex {
-            IndexName: IndexName;            
-            KeySchema: KeySchema;            
-            Projection: Projection;            
+            IndexName: IndexName;
+            KeySchema: KeySchema;
+            Projection: Projection;
         }
         export interface LocalSecondaryIndexDescription {
-            IndexName?: IndexName;            
-            KeySchema?: KeySchema;            
-            Projection?: Projection;            
-            IndexSizeBytes?: Long;            
-            ItemCount?: Long;            
-            IndexArn?: String;            
+            IndexName?: IndexName;
+            KeySchema?: KeySchema;
+            Projection?: Projection;
+            IndexSizeBytes?: Long;
+            ItemCount?: Long;
+            IndexArn?: String;
         }
         export interface Projection {
-            ProjectionType?: ProjectionType;            
-            NonKeyAttributes?: NonKeyAttributeNameList;            
+            ProjectionType?: ProjectionType;
+            NonKeyAttributes?: NonKeyAttributeNameList;
         }
         export interface ProvisionedThroughput {
-            ReadCapacityUnits: PositiveLongObject;            
-            WriteCapacityUnits: PositiveLongObject;            
+            ReadCapacityUnits: PositiveLongObject;
+            WriteCapacityUnits: PositiveLongObject;
         }
         export interface ProvisionedThroughputDescription {
-            LastIncreaseDateTime?: Date;            
-            LastDecreaseDateTime?: Date;            
-            NumberOfDecreasesToday?: PositiveLongObject;            
-            ReadCapacityUnits?: PositiveLongObject;            
-            WriteCapacityUnits?: PositiveLongObject;            
+            LastIncreaseDateTime?: Date;
+            LastDecreaseDateTime?: Date;
+            NumberOfDecreasesToday?: PositiveLongObject;
+            ReadCapacityUnits?: PositiveLongObject;
+            WriteCapacityUnits?: PositiveLongObject;
         }
         export interface ProvisionedThroughputExceededException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface PutItemInput {
-            TableName: TableName;            
-            Item: PutItemInputAttributeMap;            
-            Expected?: ExpectedAttributeMap;            
-            ReturnValues?: ReturnValue;            
-            ReturnConsumedCapacity?: ReturnConsumedCapacity;            
-            ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;            
-            ConditionalOperator?: ConditionalOperator;            
-            ConditionExpression?: ConditionExpression;            
-            ExpressionAttributeNames?: ExpressionAttributeNameMap;            
-            ExpressionAttributeValues?: ExpressionAttributeValueMap;            
+            TableName: TableName;
+            Item: PutItemInputAttributeMap;
+            Expected?: ExpectedAttributeMap;
+            ReturnValues?: ReturnValue;
+            ReturnConsumedCapacity?: ReturnConsumedCapacity;
+            ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;
+            ConditionalOperator?: ConditionalOperator;
+            ConditionExpression?: ConditionExpression;
+            ExpressionAttributeNames?: ExpressionAttributeNameMap;
+            ExpressionAttributeValues?: ExpressionAttributeValueMap;
         }
         export interface PutItemOutput {
-            Attributes?: AttributeMap;            
-            ConsumedCapacity?: ConsumedCapacity;            
-            ItemCollectionMetrics?: ItemCollectionMetrics;            
+            Attributes?: AttributeMap;
+            ConsumedCapacity?: ConsumedCapacity;
+            ItemCollectionMetrics?: ItemCollectionMetrics;
         }
         export interface PutRequest {
-            Item: PutItemInputAttributeMap;            
+            Item: PutItemInputAttributeMap;
         }
         export interface QueryInput {
-            TableName: TableName;            
-            IndexName?: IndexName;            
-            Select?: Select;            
-            AttributesToGet?: AttributeNameList;            
-            Limit?: PositiveIntegerObject;            
-            ConsistentRead?: ConsistentRead;            
-            KeyConditions?: KeyConditions;            
-            QueryFilter?: FilterConditionMap;            
-            ConditionalOperator?: ConditionalOperator;            
-            ScanIndexForward?: BooleanObject;            
-            ExclusiveStartKey?: Key;            
-            ReturnConsumedCapacity?: ReturnConsumedCapacity;            
-            ProjectionExpression?: ProjectionExpression;            
-            FilterExpression?: ConditionExpression;            
-            KeyConditionExpression?: KeyExpression;            
-            ExpressionAttributeNames?: ExpressionAttributeNameMap;            
-            ExpressionAttributeValues?: ExpressionAttributeValueMap;            
+            TableName: TableName;
+            IndexName?: IndexName;
+            Select?: Select;
+            AttributesToGet?: AttributeNameList;
+            Limit?: PositiveIntegerObject;
+            ConsistentRead?: ConsistentRead;
+            KeyConditions?: KeyConditions;
+            QueryFilter?: FilterConditionMap;
+            ConditionalOperator?: ConditionalOperator;
+            ScanIndexForward?: BooleanObject;
+            ExclusiveStartKey?: Key;
+            ReturnConsumedCapacity?: ReturnConsumedCapacity;
+            ProjectionExpression?: ProjectionExpression;
+            FilterExpression?: ConditionExpression;
+            KeyConditionExpression?: KeyExpression;
+            ExpressionAttributeNames?: ExpressionAttributeNameMap;
+            ExpressionAttributeValues?: ExpressionAttributeValueMap;
         }
         export interface QueryOutput {
-            Items?: ItemList;            
-            Count?: Integer;            
-            ScannedCount?: Integer;            
-            LastEvaluatedKey?: Key;            
-            ConsumedCapacity?: ConsumedCapacity;            
+            Items?: ItemList;
+            Count?: Integer;
+            ScannedCount?: Integer;
+            LastEvaluatedKey?: Key;
+            ConsumedCapacity?: ConsumedCapacity;
         }
         export interface ResourceInUseException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ResourceNotFoundException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ScanInput {
-            TableName: TableName;            
-            IndexName?: IndexName;            
-            AttributesToGet?: AttributeNameList;            
-            Limit?: PositiveIntegerObject;            
-            Select?: Select;            
-            ScanFilter?: FilterConditionMap;            
-            ConditionalOperator?: ConditionalOperator;            
-            ExclusiveStartKey?: Key;            
-            ReturnConsumedCapacity?: ReturnConsumedCapacity;            
-            TotalSegments?: ScanTotalSegments;            
-            Segment?: ScanSegment;            
-            ProjectionExpression?: ProjectionExpression;            
-            FilterExpression?: ConditionExpression;            
-            ExpressionAttributeNames?: ExpressionAttributeNameMap;            
-            ExpressionAttributeValues?: ExpressionAttributeValueMap;            
-            ConsistentRead?: ConsistentRead;            
+            TableName: TableName;
+            IndexName?: IndexName;
+            AttributesToGet?: AttributeNameList;
+            Limit?: PositiveIntegerObject;
+            Select?: Select;
+            ScanFilter?: FilterConditionMap;
+            ConditionalOperator?: ConditionalOperator;
+            ExclusiveStartKey?: Key;
+            ReturnConsumedCapacity?: ReturnConsumedCapacity;
+            TotalSegments?: ScanTotalSegments;
+            Segment?: ScanSegment;
+            ProjectionExpression?: ProjectionExpression;
+            FilterExpression?: ConditionExpression;
+            ExpressionAttributeNames?: ExpressionAttributeNameMap;
+            ExpressionAttributeValues?: ExpressionAttributeValueMap;
+            ConsistentRead?: ConsistentRead;
         }
         export interface ScanOutput {
-            Items?: ItemList;            
-            Count?: Integer;            
-            ScannedCount?: Integer;            
-            LastEvaluatedKey?: Key;            
-            ConsumedCapacity?: ConsumedCapacity;            
+            Items?: ItemList;
+            Count?: Integer;
+            ScannedCount?: Integer;
+            LastEvaluatedKey?: Key;
+            ConsumedCapacity?: ConsumedCapacity;
         }
         export interface StreamSpecification {
-            StreamEnabled?: StreamEnabled;            
-            StreamViewType?: StreamViewType;            
+            StreamEnabled?: StreamEnabled;
+            StreamViewType?: StreamViewType;
         }
         export interface TableDescription {
-            AttributeDefinitions?: AttributeDefinitions;            
-            TableName?: TableName;            
-            KeySchema?: KeySchema;            
-            TableStatus?: TableStatus;            
-            CreationDateTime?: Date;            
-            ProvisionedThroughput?: ProvisionedThroughputDescription;            
-            TableSizeBytes?: Long;            
-            ItemCount?: Long;            
-            TableArn?: String;            
-            LocalSecondaryIndexes?: LocalSecondaryIndexDescriptionList;            
-            GlobalSecondaryIndexes?: GlobalSecondaryIndexDescriptionList;            
-            StreamSpecification?: StreamSpecification;            
-            LatestStreamLabel?: String;            
-            LatestStreamArn?: StreamArn;            
+            AttributeDefinitions?: AttributeDefinitions;
+            TableName?: TableName;
+            KeySchema?: KeySchema;
+            TableStatus?: TableStatus;
+            CreationDateTime?: Date;
+            ProvisionedThroughput?: ProvisionedThroughputDescription;
+            TableSizeBytes?: Long;
+            ItemCount?: Long;
+            TableArn?: String;
+            LocalSecondaryIndexes?: LocalSecondaryIndexDescriptionList;
+            GlobalSecondaryIndexes?: GlobalSecondaryIndexDescriptionList;
+            StreamSpecification?: StreamSpecification;
+            LatestStreamLabel?: String;
+            LatestStreamArn?: StreamArn;
         }
         export interface UpdateGlobalSecondaryIndexAction {
-            IndexName: IndexName;            
-            ProvisionedThroughput: ProvisionedThroughput;            
+            IndexName: IndexName;
+            ProvisionedThroughput: ProvisionedThroughput;
         }
         export interface UpdateItemInput {
-            TableName: TableName;            
-            Key: Key;            
-            AttributeUpdates?: AttributeUpdates;            
-            Expected?: ExpectedAttributeMap;            
-            ConditionalOperator?: ConditionalOperator;            
-            ReturnValues?: ReturnValue;            
-            ReturnConsumedCapacity?: ReturnConsumedCapacity;            
-            ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;            
-            UpdateExpression?: UpdateExpression;            
-            ConditionExpression?: ConditionExpression;            
-            ExpressionAttributeNames?: ExpressionAttributeNameMap;            
-            ExpressionAttributeValues?: ExpressionAttributeValueMap;            
+            TableName: TableName;
+            Key: Key;
+            AttributeUpdates?: AttributeUpdates;
+            Expected?: ExpectedAttributeMap;
+            ConditionalOperator?: ConditionalOperator;
+            ReturnValues?: ReturnValue;
+            ReturnConsumedCapacity?: ReturnConsumedCapacity;
+            ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;
+            UpdateExpression?: UpdateExpression;
+            ConditionExpression?: ConditionExpression;
+            ExpressionAttributeNames?: ExpressionAttributeNameMap;
+            ExpressionAttributeValues?: ExpressionAttributeValueMap;
         }
         export interface UpdateItemOutput {
-            Attributes?: AttributeMap;            
-            ConsumedCapacity?: ConsumedCapacity;            
-            ItemCollectionMetrics?: ItemCollectionMetrics;            
+            Attributes?: AttributeMap;
+            ConsumedCapacity?: ConsumedCapacity;
+            ItemCollectionMetrics?: ItemCollectionMetrics;
         }
         export interface UpdateTableInput {
-            AttributeDefinitions?: AttributeDefinitions;            
-            TableName: TableName;            
-            ProvisionedThroughput?: ProvisionedThroughput;            
-            GlobalSecondaryIndexUpdates?: GlobalSecondaryIndexUpdateList;            
-            StreamSpecification?: StreamSpecification;            
+            AttributeDefinitions?: AttributeDefinitions;
+            TableName: TableName;
+            ProvisionedThroughput?: ProvisionedThroughput;
+            GlobalSecondaryIndexUpdates?: GlobalSecondaryIndexUpdateList;
+            StreamSpecification?: StreamSpecification;
         }
         export interface UpdateTableOutput {
-            TableDescription?: TableDescription;            
+            TableDescription?: TableDescription;
         }
         export interface WriteRequest {
-            PutRequest?: PutRequest;            
-            DeleteRequest?: DeleteRequest;            
+            PutRequest?: PutRequest;
+            DeleteRequest?: DeleteRequest;
         }
 
     }

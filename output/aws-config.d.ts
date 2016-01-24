@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2014-11-12
      * endpointPrefix: config
      * serviceAbbreviation: Config Service
@@ -17,7 +17,7 @@ declare module "aws-sdk" {
     export class ConfigService extends Service {
       constructor(options?: any);
       endpoint: Endpoint;
-      deleteConfigRule(params: ConfigService.DeleteConfigRuleRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|any, data: any) => void): Request;
+      deleteConfigRule(params: ConfigService.DeleteConfigRuleRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|ConfigService.ResourceInUseException|any, data: any) => void): Request;
       deleteDeliveryChannel(params: ConfigService.DeleteDeliveryChannelRequest, callback?: (err: ConfigService.NoSuchDeliveryChannelException|ConfigService.LastDeliveryChannelDeleteFailedException|any, data: any) => void): Request;
       deliverConfigSnapshot(params: ConfigService.DeliverConfigSnapshotRequest, callback?: (err: ConfigService.NoSuchDeliveryChannelException|ConfigService.NoAvailableConfigurationRecorderException|ConfigService.NoRunningConfigurationRecorderException|any, data: ConfigService.DeliverConfigSnapshotResponse|any) => void): Request;
       describeComplianceByConfigRule(params: ConfigService.DescribeComplianceByConfigRuleRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.NoSuchConfigRuleException|any, data: ConfigService.DescribeComplianceByConfigRuleResponse|any) => void): Request;
@@ -34,14 +34,15 @@ declare module "aws-sdk" {
       getComplianceSummaryByResourceType(params: ConfigService.GetComplianceSummaryByResourceTypeRequest, callback?: (err: ConfigService.InvalidParameterValueException|any, data: ConfigService.GetComplianceSummaryByResourceTypeResponse|any) => void): Request;
       getResourceConfigHistory(params: ConfigService.GetResourceConfigHistoryRequest, callback?: (err: ConfigService.ValidationException|ConfigService.InvalidTimeRangeException|ConfigService.InvalidLimitException|ConfigService.InvalidNextTokenException|ConfigService.NoAvailableConfigurationRecorderException|ConfigService.ResourceNotDiscoveredException|any, data: ConfigService.GetResourceConfigHistoryResponse|any) => void): Request;
       listDiscoveredResources(params: ConfigService.ListDiscoveredResourcesRequest, callback?: (err: ConfigService.ValidationException|ConfigService.InvalidLimitException|ConfigService.InvalidNextTokenException|ConfigService.NoAvailableConfigurationRecorderException|any, data: ConfigService.ListDiscoveredResourcesResponse|any) => void): Request;
-      putConfigRule(params: ConfigService.PutConfigRuleRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.MaxNumberOfConfigRulesExceededException|ConfigService.ResourceInUseException|any, data: any) => void): Request;
+      putConfigRule(params: ConfigService.PutConfigRuleRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.MaxNumberOfConfigRulesExceededException|ConfigService.ResourceInUseException|ConfigService.InsufficientPermissionsException|any, data: any) => void): Request;
       putConfigurationRecorder(params: ConfigService.PutConfigurationRecorderRequest, callback?: (err: ConfigService.MaxNumberOfConfigurationRecordersExceededException|ConfigService.InvalidConfigurationRecorderNameException|ConfigService.InvalidRoleException|ConfigService.InvalidRecordingGroupException|any, data: any) => void): Request;
       putDeliveryChannel(params: ConfigService.PutDeliveryChannelRequest, callback?: (err: ConfigService.MaxNumberOfDeliveryChannelsExceededException|ConfigService.NoAvailableConfigurationRecorderException|ConfigService.InvalidDeliveryChannelNameException|ConfigService.NoSuchBucketException|ConfigService.InvalidS3KeyPrefixException|ConfigService.InvalidSNSTopicARNException|ConfigService.InsufficientDeliveryPolicyException|any, data: any) => void): Request;
       putEvaluations(params: ConfigService.PutEvaluationsRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.InvalidResultTokenException|ConfigService.NoSuchConfigRuleException|any, data: ConfigService.PutEvaluationsResponse|any) => void): Request;
       startConfigurationRecorder(params: ConfigService.StartConfigurationRecorderRequest, callback?: (err: ConfigService.NoSuchConfigurationRecorderException|ConfigService.NoAvailableDeliveryChannelException|any, data: any) => void): Request;
       stopConfigurationRecorder(params: ConfigService.StopConfigurationRecorderRequest, callback?: (err: ConfigService.NoSuchConfigurationRecorderException|any, data: any) => void): Request;
+
     }
-    
+
     export module ConfigService {
         export type ARN = string;
         export type AccountId = string;
@@ -80,6 +81,7 @@ declare module "aws-sdk" {
         export type EvaluationResults = EvaluationResult[];
         export type Evaluations = Evaluation[];    // max: 100
         export type EventSource = string;
+        export type IncludeGlobalResourceTypes = boolean;
         export type Integer = number;
         export type LaterTime = number;
         export type Limit = number;    // max: 100
@@ -114,253 +116,258 @@ declare module "aws-sdk" {
         export type Version = string;
 
         export interface Compliance {
-            ComplianceType?: ComplianceType;            
-            ComplianceContributorCount?: ComplianceContributorCount;            
+            ComplianceType?: ComplianceType;
+            ComplianceContributorCount?: ComplianceContributorCount;
         }
         export interface ComplianceByConfigRule {
-            ConfigRuleName?: StringWithCharLimit64;            
-            Compliance?: Compliance;            
+            ConfigRuleName?: StringWithCharLimit64;
+            Compliance?: Compliance;
         }
         export interface ComplianceByResource {
-            ResourceType?: StringWithCharLimit256;            
-            ResourceId?: StringWithCharLimit256;            
-            Compliance?: Compliance;            
+            ResourceType?: StringWithCharLimit256;
+            ResourceId?: StringWithCharLimit256;
+            Compliance?: Compliance;
         }
         export interface ComplianceContributorCount {
-            CappedCount?: Integer;            
-            CapExceeded?: Boolean;            
+            CappedCount?: Integer;
+            CapExceeded?: Boolean;
         }
         export interface ComplianceSummary {
-            CompliantResourceCount?: ComplianceContributorCount;            
-            NonCompliantResourceCount?: ComplianceContributorCount;            
-            ComplianceSummaryTimestamp?: Date;            
+            CompliantResourceCount?: ComplianceContributorCount;
+            NonCompliantResourceCount?: ComplianceContributorCount;
+            ComplianceSummaryTimestamp?: Date;
         }
         export interface ComplianceSummaryByResourceType {
-            ResourceType?: StringWithCharLimit256;            
-            ComplianceSummary?: ComplianceSummary;            
+            ResourceType?: StringWithCharLimit256;
+            ComplianceSummary?: ComplianceSummary;
         }
         export interface ConfigExportDeliveryInfo {
-            lastStatus?: DeliveryStatus;            
-            lastErrorCode?: String;            
-            lastErrorMessage?: String;            
-            lastAttemptTime?: Date;            
-            lastSuccessfulTime?: Date;            
-            nextDeliveryTime?: Date;            
+            lastStatus?: DeliveryStatus;
+            lastErrorCode?: String;
+            lastErrorMessage?: String;
+            lastAttemptTime?: Date;
+            lastSuccessfulTime?: Date;
+            nextDeliveryTime?: Date;
         }
         export interface ConfigRule {
-            ConfigRuleName?: StringWithCharLimit64;            
-            ConfigRuleArn?: String;            
-            ConfigRuleId?: String;            
-            Description?: EmptiableStringWithCharLimit256;            
-            Scope?: Scope;            
-            Source: Source;            
-            InputParameters?: StringWithCharLimit256;            
-            MaximumExecutionFrequency?: MaximumExecutionFrequency;            
-            ConfigRuleState?: ConfigRuleState;            
+            ConfigRuleName?: StringWithCharLimit64;
+            ConfigRuleArn?: String;
+            ConfigRuleId?: String;
+            Description?: EmptiableStringWithCharLimit256;
+            Scope?: Scope;
+            Source: Source;
+            InputParameters?: StringWithCharLimit256;
+            MaximumExecutionFrequency?: MaximumExecutionFrequency;
+            ConfigRuleState?: ConfigRuleState;
         }
         export interface ConfigRuleEvaluationStatus {
-            ConfigRuleName?: StringWithCharLimit64;            
-            ConfigRuleArn?: String;            
-            ConfigRuleId?: String;            
-            LastSuccessfulInvocationTime?: Date;            
-            LastFailedInvocationTime?: Date;            
-            FirstActivatedTime?: Date;            
-            LastErrorCode?: String;            
-            LastErrorMessage?: String;            
+            ConfigRuleName?: StringWithCharLimit64;
+            ConfigRuleArn?: String;
+            ConfigRuleId?: String;
+            LastSuccessfulInvocationTime?: Date;
+            LastFailedInvocationTime?: Date;
+            LastSuccessfulEvaluationTime?: Date;
+            LastFailedEvaluationTime?: Date;
+            FirstActivatedTime?: Date;
+            LastErrorCode?: String;
+            LastErrorMessage?: String;
+            FirstEvaluationStarted?: Boolean;
         }
         export interface ConfigSnapshotDeliveryProperties {
-            deliveryFrequency?: MaximumExecutionFrequency;            
+            deliveryFrequency?: MaximumExecutionFrequency;
         }
         export interface ConfigStreamDeliveryInfo {
-            lastStatus?: DeliveryStatus;            
-            lastErrorCode?: String;            
-            lastErrorMessage?: String;            
-            lastStatusChangeTime?: Date;            
+            lastStatus?: DeliveryStatus;
+            lastErrorCode?: String;
+            lastErrorMessage?: String;
+            lastStatusChangeTime?: Date;
         }
         export interface ConfigurationItem {
-            version?: Version;            
-            accountId?: AccountId;            
-            configurationItemCaptureTime?: ConfigurationItemCaptureTime;            
-            configurationItemStatus?: ConfigurationItemStatus;            
-            configurationStateId?: ConfigurationStateId;            
-            configurationItemMD5Hash?: ConfigurationItemMD5Hash;            
-            arn?: ARN;            
-            resourceType?: ResourceType;            
-            resourceId?: ResourceId;            
-            resourceName?: ResourceName;            
-            awsRegion?: AwsRegion;            
-            availabilityZone?: AvailabilityZone;            
-            resourceCreationTime?: ResourceCreationTime;            
-            tags?: Tags;            
-            relatedEvents?: RelatedEventList;            
-            relationships?: RelationshipList;            
-            configuration?: Configuration;            
+            version?: Version;
+            accountId?: AccountId;
+            configurationItemCaptureTime?: ConfigurationItemCaptureTime;
+            configurationItemStatus?: ConfigurationItemStatus;
+            configurationStateId?: ConfigurationStateId;
+            configurationItemMD5Hash?: ConfigurationItemMD5Hash;
+            arn?: ARN;
+            resourceType?: ResourceType;
+            resourceId?: ResourceId;
+            resourceName?: ResourceName;
+            awsRegion?: AwsRegion;
+            availabilityZone?: AvailabilityZone;
+            resourceCreationTime?: ResourceCreationTime;
+            tags?: Tags;
+            relatedEvents?: RelatedEventList;
+            relationships?: RelationshipList;
+            configuration?: Configuration;
         }
         export interface ConfigurationRecorder {
-            name?: RecorderName;            
-            roleARN?: String;            
-            recordingGroup?: RecordingGroup;            
+            name?: RecorderName;
+            roleARN?: String;
+            recordingGroup?: RecordingGroup;
         }
         export interface ConfigurationRecorderStatus {
-            name?: String;            
-            lastStartTime?: Date;            
-            lastStopTime?: Date;            
-            recording?: Boolean;            
-            lastStatus?: RecorderStatus;            
-            lastErrorCode?: String;            
-            lastErrorMessage?: String;            
-            lastStatusChangeTime?: Date;            
+            name?: String;
+            lastStartTime?: Date;
+            lastStopTime?: Date;
+            recording?: Boolean;
+            lastStatus?: RecorderStatus;
+            lastErrorCode?: String;
+            lastErrorMessage?: String;
+            lastStatusChangeTime?: Date;
         }
         export interface DeleteConfigRuleRequest {
-            ConfigRuleName: StringWithCharLimit64;            
+            ConfigRuleName: StringWithCharLimit64;
         }
         export interface DeleteDeliveryChannelRequest {
-            DeliveryChannelName: ChannelName;            
+            DeliveryChannelName: ChannelName;
         }
         export interface DeliverConfigSnapshotRequest {
-            deliveryChannelName: ChannelName;            
+            deliveryChannelName: ChannelName;
         }
         export interface DeliverConfigSnapshotResponse {
-            configSnapshotId?: String;            
+            configSnapshotId?: String;
         }
         export interface DeliveryChannel {
-            name?: ChannelName;            
-            s3BucketName?: String;            
-            s3KeyPrefix?: String;            
-            snsTopicARN?: String;            
-            configSnapshotDeliveryProperties?: ConfigSnapshotDeliveryProperties;            
+            name?: ChannelName;
+            s3BucketName?: String;
+            s3KeyPrefix?: String;
+            snsTopicARN?: String;
+            configSnapshotDeliveryProperties?: ConfigSnapshotDeliveryProperties;
         }
         export interface DeliveryChannelStatus {
-            name?: String;            
-            configSnapshotDeliveryInfo?: ConfigExportDeliveryInfo;            
-            configHistoryDeliveryInfo?: ConfigExportDeliveryInfo;            
-            configStreamDeliveryInfo?: ConfigStreamDeliveryInfo;            
+            name?: String;
+            configSnapshotDeliveryInfo?: ConfigExportDeliveryInfo;
+            configHistoryDeliveryInfo?: ConfigExportDeliveryInfo;
+            configStreamDeliveryInfo?: ConfigStreamDeliveryInfo;
         }
         export interface DescribeComplianceByConfigRuleRequest {
-            ConfigRuleNames?: ConfigRuleNames;            
-            ComplianceTypes?: ComplianceTypes;            
-            NextToken?: String;            
+            ConfigRuleNames?: ConfigRuleNames;
+            ComplianceTypes?: ComplianceTypes;
+            NextToken?: String;
         }
         export interface DescribeComplianceByConfigRuleResponse {
-            ComplianceByConfigRules?: ComplianceByConfigRules;            
-            NextToken?: String;            
+            ComplianceByConfigRules?: ComplianceByConfigRules;
+            NextToken?: String;
         }
         export interface DescribeComplianceByResourceRequest {
-            ResourceType?: StringWithCharLimit256;            
-            ResourceId?: StringWithCharLimit256;            
-            ComplianceTypes?: ComplianceTypes;            
-            Limit?: Limit;            
-            NextToken?: NextToken;            
+            ResourceType?: StringWithCharLimit256;
+            ResourceId?: StringWithCharLimit256;
+            ComplianceTypes?: ComplianceTypes;
+            Limit?: Limit;
+            NextToken?: NextToken;
         }
         export interface DescribeComplianceByResourceResponse {
-            ComplianceByResources?: ComplianceByResources;            
-            NextToken?: NextToken;            
+            ComplianceByResources?: ComplianceByResources;
+            NextToken?: NextToken;
         }
         export interface DescribeConfigRuleEvaluationStatusRequest {
-            ConfigRuleNames?: ConfigRuleNames;            
+            ConfigRuleNames?: ConfigRuleNames;
         }
         export interface DescribeConfigRuleEvaluationStatusResponse {
-            ConfigRulesEvaluationStatus?: ConfigRuleEvaluationStatusList;            
+            ConfigRulesEvaluationStatus?: ConfigRuleEvaluationStatusList;
         }
         export interface DescribeConfigRulesRequest {
-            ConfigRuleNames?: ConfigRuleNames;            
-            NextToken?: String;            
+            ConfigRuleNames?: ConfigRuleNames;
+            NextToken?: String;
         }
         export interface DescribeConfigRulesResponse {
-            ConfigRules?: ConfigRules;            
-            NextToken?: String;            
+            ConfigRules?: ConfigRules;
+            NextToken?: String;
         }
         export interface DescribeConfigurationRecorderStatusRequest {
-            ConfigurationRecorderNames?: ConfigurationRecorderNameList;            
+            ConfigurationRecorderNames?: ConfigurationRecorderNameList;
         }
         export interface DescribeConfigurationRecorderStatusResponse {
-            ConfigurationRecordersStatus?: ConfigurationRecorderStatusList;            
+            ConfigurationRecordersStatus?: ConfigurationRecorderStatusList;
         }
         export interface DescribeConfigurationRecordersRequest {
-            ConfigurationRecorderNames?: ConfigurationRecorderNameList;            
+            ConfigurationRecorderNames?: ConfigurationRecorderNameList;
         }
         export interface DescribeConfigurationRecordersResponse {
-            ConfigurationRecorders?: ConfigurationRecorderList;            
+            ConfigurationRecorders?: ConfigurationRecorderList;
         }
         export interface DescribeDeliveryChannelStatusRequest {
-            DeliveryChannelNames?: DeliveryChannelNameList;            
+            DeliveryChannelNames?: DeliveryChannelNameList;
         }
         export interface DescribeDeliveryChannelStatusResponse {
-            DeliveryChannelsStatus?: DeliveryChannelStatusList;            
+            DeliveryChannelsStatus?: DeliveryChannelStatusList;
         }
         export interface DescribeDeliveryChannelsRequest {
-            DeliveryChannelNames?: DeliveryChannelNameList;            
+            DeliveryChannelNames?: DeliveryChannelNameList;
         }
         export interface DescribeDeliveryChannelsResponse {
-            DeliveryChannels?: DeliveryChannelList;            
+            DeliveryChannels?: DeliveryChannelList;
         }
         export interface Evaluation {
-            ComplianceResourceType: StringWithCharLimit256;            
-            ComplianceResourceId: StringWithCharLimit256;            
-            ComplianceType: ComplianceType;            
-            Annotation?: StringWithCharLimit256;            
-            OrderingTimestamp: OrderingTimestamp;            
+            ComplianceResourceType: StringWithCharLimit256;
+            ComplianceResourceId: StringWithCharLimit256;
+            ComplianceType: ComplianceType;
+            Annotation?: StringWithCharLimit256;
+            OrderingTimestamp: OrderingTimestamp;
         }
         export interface EvaluationResult {
-            EvaluationResultIdentifier?: EvaluationResultIdentifier;            
-            ComplianceType?: ComplianceType;            
-            ResultRecordedTime?: Date;            
-            ConfigRuleInvokedTime?: Date;            
-            Annotation?: StringWithCharLimit256;            
-            ResultToken?: String;            
+            EvaluationResultIdentifier?: EvaluationResultIdentifier;
+            ComplianceType?: ComplianceType;
+            ResultRecordedTime?: Date;
+            ConfigRuleInvokedTime?: Date;
+            Annotation?: StringWithCharLimit256;
+            ResultToken?: String;
         }
         export interface EvaluationResultIdentifier {
-            EvaluationResultQualifier?: EvaluationResultQualifier;            
-            OrderingTimestamp?: Date;            
+            EvaluationResultQualifier?: EvaluationResultQualifier;
+            OrderingTimestamp?: Date;
         }
         export interface EvaluationResultQualifier {
-            ConfigRuleName?: StringWithCharLimit64;            
-            ResourceType?: StringWithCharLimit256;            
-            ResourceId?: StringWithCharLimit256;            
+            ConfigRuleName?: StringWithCharLimit64;
+            ResourceType?: StringWithCharLimit256;
+            ResourceId?: StringWithCharLimit256;
         }
         export interface GetComplianceDetailsByConfigRuleRequest {
-            ConfigRuleName: StringWithCharLimit64;            
-            ComplianceTypes?: ComplianceTypes;            
-            Limit?: Limit;            
-            NextToken?: NextToken;            
+            ConfigRuleName: StringWithCharLimit64;
+            ComplianceTypes?: ComplianceTypes;
+            Limit?: Limit;
+            NextToken?: NextToken;
         }
         export interface GetComplianceDetailsByConfigRuleResponse {
-            EvaluationResults?: EvaluationResults;            
-            NextToken?: NextToken;            
+            EvaluationResults?: EvaluationResults;
+            NextToken?: NextToken;
         }
         export interface GetComplianceDetailsByResourceRequest {
-            ResourceType: StringWithCharLimit256;            
-            ResourceId: StringWithCharLimit256;            
-            ComplianceTypes?: ComplianceTypes;            
-            NextToken?: String;            
+            ResourceType: StringWithCharLimit256;
+            ResourceId: StringWithCharLimit256;
+            ComplianceTypes?: ComplianceTypes;
+            NextToken?: String;
         }
         export interface GetComplianceDetailsByResourceResponse {
-            EvaluationResults?: EvaluationResults;            
-            NextToken?: String;            
+            EvaluationResults?: EvaluationResults;
+            NextToken?: String;
         }
         export interface GetComplianceSummaryByConfigRuleResponse {
-            ComplianceSummary?: ComplianceSummary;            
+            ComplianceSummary?: ComplianceSummary;
         }
         export interface GetComplianceSummaryByResourceTypeRequest {
-            ResourceTypes?: ResourceTypes;            
+            ResourceTypes?: ResourceTypes;
         }
         export interface GetComplianceSummaryByResourceTypeResponse {
-            ComplianceSummariesByResourceType?: ComplianceSummariesByResourceType;            
+            ComplianceSummariesByResourceType?: ComplianceSummariesByResourceType;
         }
         export interface GetResourceConfigHistoryRequest {
-            resourceType: ResourceType;            
-            resourceId: ResourceId;            
-            laterTime?: LaterTime;            
-            earlierTime?: EarlierTime;            
-            chronologicalOrder?: ChronologicalOrder;            
-            limit?: Limit;            
-            nextToken?: NextToken;            
+            resourceType: ResourceType;
+            resourceId: ResourceId;
+            laterTime?: LaterTime;
+            earlierTime?: EarlierTime;
+            chronologicalOrder?: ChronologicalOrder;
+            limit?: Limit;
+            nextToken?: NextToken;
         }
         export interface GetResourceConfigHistoryResponse {
-            configurationItems?: ConfigurationItemList;            
-            nextToken?: NextToken;            
+            configurationItems?: ConfigurationItemList;
+            nextToken?: NextToken;
         }
         export interface InsufficientDeliveryPolicyException {
+        }
+        export interface InsufficientPermissionsException {
         }
         export interface InvalidConfigurationRecorderNameException {
         }
@@ -387,16 +394,16 @@ declare module "aws-sdk" {
         export interface LastDeliveryChannelDeleteFailedException {
         }
         export interface ListDiscoveredResourcesRequest {
-            resourceType: ResourceType;            
-            resourceIds?: ResourceIdList;            
-            resourceName?: ResourceName;            
-            limit?: Limit;            
-            includeDeletedResources?: Boolean;            
-            nextToken?: NextToken;            
+            resourceType: ResourceType;
+            resourceIds?: ResourceIdList;
+            resourceName?: ResourceName;
+            limit?: Limit;
+            includeDeletedResources?: Boolean;
+            nextToken?: NextToken;
         }
         export interface ListDiscoveredResourcesResponse {
-            resourceIdentifiers?: ResourceIdentifierList;            
-            nextToken?: NextToken;            
+            resourceIdentifiers?: ResourceIdentifierList;
+            nextToken?: NextToken;
         }
         export interface MaxNumberOfConfigRulesExceededException {
         }
@@ -419,61 +426,62 @@ declare module "aws-sdk" {
         export interface NoSuchDeliveryChannelException {
         }
         export interface PutConfigRuleRequest {
-            ConfigRule: ConfigRule;            
+            ConfigRule: ConfigRule;
         }
         export interface PutConfigurationRecorderRequest {
-            ConfigurationRecorder: ConfigurationRecorder;            
+            ConfigurationRecorder: ConfigurationRecorder;
         }
         export interface PutDeliveryChannelRequest {
-            DeliveryChannel: DeliveryChannel;            
+            DeliveryChannel: DeliveryChannel;
         }
         export interface PutEvaluationsRequest {
-            Evaluations?: Evaluations;            
-            ResultToken: String;            
+            Evaluations?: Evaluations;
+            ResultToken: String;
         }
         export interface PutEvaluationsResponse {
-            FailedEvaluations?: Evaluations;            
+            FailedEvaluations?: Evaluations;
         }
         export interface RecordingGroup {
-            allSupported?: AllSupported;            
-            resourceTypes?: ResourceTypeList;            
+            allSupported?: AllSupported;
+            includeGlobalResourceTypes?: IncludeGlobalResourceTypes;
+            resourceTypes?: ResourceTypeList;
         }
         export interface Relationship {
-            resourceType?: ResourceType;            
-            resourceId?: ResourceId;            
-            resourceName?: ResourceName;            
-            relationshipName?: RelationshipName;            
+            resourceType?: ResourceType;
+            resourceId?: ResourceId;
+            resourceName?: ResourceName;
+            relationshipName?: RelationshipName;
         }
         export interface ResourceIdentifier {
-            resourceType?: ResourceType;            
-            resourceId?: ResourceId;            
-            resourceName?: ResourceName;            
-            resourceDeletionTime?: ResourceDeletionTime;            
+            resourceType?: ResourceType;
+            resourceId?: ResourceId;
+            resourceName?: ResourceName;
+            resourceDeletionTime?: ResourceDeletionTime;
         }
         export interface ResourceInUseException {
         }
         export interface ResourceNotDiscoveredException {
         }
         export interface Scope {
-            ComplianceResourceTypes?: ComplianceResourceTypes;            
-            TagKey?: StringWithCharLimit128;            
-            TagValue?: StringWithCharLimit256;            
-            ComplianceResourceId?: StringWithCharLimit256;            
+            ComplianceResourceTypes?: ComplianceResourceTypes;
+            TagKey?: StringWithCharLimit128;
+            TagValue?: StringWithCharLimit256;
+            ComplianceResourceId?: StringWithCharLimit256;
         }
         export interface Source {
-            Owner?: Owner;            
-            SourceIdentifier?: StringWithCharLimit256;            
-            SourceDetails?: SourceDetails;            
+            Owner?: Owner;
+            SourceIdentifier?: StringWithCharLimit256;
+            SourceDetails?: SourceDetails;
         }
         export interface SourceDetail {
-            EventSource?: EventSource;            
-            MessageType?: MessageType;            
+            EventSource?: EventSource;
+            MessageType?: MessageType;
         }
         export interface StartConfigurationRecorderRequest {
-            ConfigurationRecorderName: RecorderName;            
+            ConfigurationRecorderName: RecorderName;
         }
         export interface StopConfigurationRecorderRequest {
-            ConfigurationRecorderName: RecorderName;            
+            ConfigurationRecorderName: RecorderName;
         }
         export interface ValidationException {
         }

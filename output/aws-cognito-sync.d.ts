@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2014-06-30
      * endpointPrefix: cognito-sync
      * serviceAbbreviation: 
@@ -34,8 +34,9 @@ declare module "aws-sdk" {
       subscribeToDataset(params: CognitoSync.SubscribeToDatasetRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.InvalidConfigurationException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.SubscribeToDatasetResponse|any) => void): Request;
       unsubscribeFromDataset(params: CognitoSync.UnsubscribeFromDatasetRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.InvalidConfigurationException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.UnsubscribeFromDatasetResponse|any) => void): Request;
       updateRecords(params: CognitoSync.UpdateRecordsRequest, callback?: (err: CognitoSync.InvalidParameterException|CognitoSync.LimitExceededException|CognitoSync.NotAuthorizedException|CognitoSync.ResourceNotFoundException|CognitoSync.ResourceConflictException|CognitoSync.InvalidLambdaFunctionOutputException|CognitoSync.LambdaThrottledException|CognitoSync.TooManyRequestsException|CognitoSync.InternalErrorException|any, data: CognitoSync.UpdateRecordsResponse|any) => void): Request;
+
     }
-    
+
     export module CognitoSync {
         export type ApplicationArn = string;    // pattern: &quot;arn:aws:sns:[-0-9a-z]+:\d+:app/[A-Z_]+/[a-zA-Z0-9_.-]+&quot;
         export type ApplicationArnList = ApplicationArn[];
@@ -71,240 +72,240 @@ declare module "aws-sdk" {
         export type SyncSessionToken = string;
 
         export interface AlreadyStreamedException {
-            message: ExceptionMessage;            
+            message: ExceptionMessage;
         }
         export interface BulkPublishRequest {
-            IdentityPoolId: IdentityPoolId;            
+            IdentityPoolId: IdentityPoolId;
         }
         export interface BulkPublishResponse {
-            IdentityPoolId?: IdentityPoolId;            
+            IdentityPoolId?: IdentityPoolId;
         }
         export interface CognitoStreams {
-            StreamName?: StreamName;            
-            RoleArn?: AssumeRoleArn;            
-            StreamingStatus?: StreamingStatus;            
+            StreamName?: StreamName;
+            RoleArn?: AssumeRoleArn;
+            StreamingStatus?: StreamingStatus;
         }
         export interface ConcurrentModificationException {
-            message: String;            
+            message: String;
         }
         export interface Dataset {
-            IdentityId?: IdentityId;            
-            DatasetName?: DatasetName;            
-            CreationDate?: Date;            
-            LastModifiedDate?: Date;            
-            LastModifiedBy?: String;            
-            DataStorage?: Long;            
-            NumRecords?: Long;            
+            IdentityId?: IdentityId;
+            DatasetName?: DatasetName;
+            CreationDate?: Date;
+            LastModifiedDate?: Date;
+            LastModifiedBy?: String;
+            DataStorage?: Long;
+            NumRecords?: Long;
         }
         export interface DeleteDatasetRequest {
-            IdentityPoolId: IdentityPoolId;            
-            IdentityId: IdentityId;            
-            DatasetName: DatasetName;            
+            IdentityPoolId: IdentityPoolId;
+            IdentityId: IdentityId;
+            DatasetName: DatasetName;
         }
         export interface DeleteDatasetResponse {
-            Dataset?: Dataset;            
+            Dataset?: Dataset;
         }
         export interface DescribeDatasetRequest {
-            IdentityPoolId: IdentityPoolId;            
-            IdentityId: IdentityId;            
-            DatasetName: DatasetName;            
+            IdentityPoolId: IdentityPoolId;
+            IdentityId: IdentityId;
+            DatasetName: DatasetName;
         }
         export interface DescribeDatasetResponse {
-            Dataset?: Dataset;            
+            Dataset?: Dataset;
         }
         export interface DescribeIdentityPoolUsageRequest {
-            IdentityPoolId: IdentityPoolId;            
+            IdentityPoolId: IdentityPoolId;
         }
         export interface DescribeIdentityPoolUsageResponse {
-            IdentityPoolUsage?: IdentityPoolUsage;            
+            IdentityPoolUsage?: IdentityPoolUsage;
         }
         export interface DescribeIdentityUsageRequest {
-            IdentityPoolId: IdentityPoolId;            
-            IdentityId: IdentityId;            
+            IdentityPoolId: IdentityPoolId;
+            IdentityId: IdentityId;
         }
         export interface DescribeIdentityUsageResponse {
-            IdentityUsage?: IdentityUsage;            
+            IdentityUsage?: IdentityUsage;
         }
         export interface DuplicateRequestException {
-            message: ExceptionMessage;            
+            message: ExceptionMessage;
         }
         export interface GetBulkPublishDetailsRequest {
-            IdentityPoolId: IdentityPoolId;            
+            IdentityPoolId: IdentityPoolId;
         }
         export interface GetBulkPublishDetailsResponse {
-            IdentityPoolId?: IdentityPoolId;            
-            BulkPublishStartTime?: Date;            
-            BulkPublishCompleteTime?: Date;            
-            BulkPublishStatus?: BulkPublishStatus;            
-            FailureMessage?: String;            
+            IdentityPoolId?: IdentityPoolId;
+            BulkPublishStartTime?: Date;
+            BulkPublishCompleteTime?: Date;
+            BulkPublishStatus?: BulkPublishStatus;
+            FailureMessage?: String;
         }
         export interface GetCognitoEventsRequest {
-            IdentityPoolId: IdentityPoolId;            
+            IdentityPoolId: IdentityPoolId;
         }
         export interface GetCognitoEventsResponse {
-            Events?: Events;            
+            Events?: Events;
         }
         export interface GetIdentityPoolConfigurationRequest {
-            IdentityPoolId: IdentityPoolId;            
+            IdentityPoolId: IdentityPoolId;
         }
         export interface GetIdentityPoolConfigurationResponse {
-            IdentityPoolId?: IdentityPoolId;            
-            PushSync?: PushSync;            
-            CognitoStreams?: CognitoStreams;            
+            IdentityPoolId?: IdentityPoolId;
+            PushSync?: PushSync;
+            CognitoStreams?: CognitoStreams;
         }
         export interface IdentityPoolUsage {
-            IdentityPoolId?: IdentityPoolId;            
-            SyncSessionsCount?: Long;            
-            DataStorage?: Long;            
-            LastModifiedDate?: Date;            
+            IdentityPoolId?: IdentityPoolId;
+            SyncSessionsCount?: Long;
+            DataStorage?: Long;
+            LastModifiedDate?: Date;
         }
         export interface IdentityUsage {
-            IdentityId?: IdentityId;            
-            IdentityPoolId?: IdentityPoolId;            
-            LastModifiedDate?: Date;            
-            DatasetCount?: Integer;            
-            DataStorage?: Long;            
+            IdentityId?: IdentityId;
+            IdentityPoolId?: IdentityPoolId;
+            LastModifiedDate?: Date;
+            DatasetCount?: Integer;
+            DataStorage?: Long;
         }
         export interface InternalErrorException {
-            message: ExceptionMessage;            
+            message: ExceptionMessage;
         }
         export interface InvalidConfigurationException {
-            message: ExceptionMessage;            
+            message: ExceptionMessage;
         }
         export interface InvalidLambdaFunctionOutputException {
-            message: ExceptionMessage;            
+            message: ExceptionMessage;
         }
         export interface InvalidParameterException {
-            message: ExceptionMessage;            
+            message: ExceptionMessage;
         }
         export interface LambdaThrottledException {
-            message: ExceptionMessage;            
+            message: ExceptionMessage;
         }
         export interface LimitExceededException {
-            message: ExceptionMessage;            
+            message: ExceptionMessage;
         }
         export interface ListDatasetsRequest {
-            IdentityPoolId: IdentityPoolId;            
-            IdentityId: IdentityId;            
-            NextToken?: String;            
-            MaxResults?: IntegerString;            
+            IdentityPoolId: IdentityPoolId;
+            IdentityId: IdentityId;
+            NextToken?: String;
+            MaxResults?: IntegerString;
         }
         export interface ListDatasetsResponse {
-            Datasets?: DatasetList;            
-            Count?: Integer;            
-            NextToken?: String;            
+            Datasets?: DatasetList;
+            Count?: Integer;
+            NextToken?: String;
         }
         export interface ListIdentityPoolUsageRequest {
-            NextToken?: String;            
-            MaxResults?: IntegerString;            
+            NextToken?: String;
+            MaxResults?: IntegerString;
         }
         export interface ListIdentityPoolUsageResponse {
-            IdentityPoolUsages?: IdentityPoolUsageList;            
-            MaxResults?: Integer;            
-            Count?: Integer;            
-            NextToken?: String;            
+            IdentityPoolUsages?: IdentityPoolUsageList;
+            MaxResults?: Integer;
+            Count?: Integer;
+            NextToken?: String;
         }
         export interface ListRecordsRequest {
-            IdentityPoolId: IdentityPoolId;            
-            IdentityId: IdentityId;            
-            DatasetName: DatasetName;            
-            LastSyncCount?: Long;            
-            NextToken?: String;            
-            MaxResults?: IntegerString;            
-            SyncSessionToken?: SyncSessionToken;            
+            IdentityPoolId: IdentityPoolId;
+            IdentityId: IdentityId;
+            DatasetName: DatasetName;
+            LastSyncCount?: Long;
+            NextToken?: String;
+            MaxResults?: IntegerString;
+            SyncSessionToken?: SyncSessionToken;
         }
         export interface ListRecordsResponse {
-            Records?: RecordList;            
-            NextToken?: String;            
-            Count?: Integer;            
-            DatasetSyncCount?: Long;            
-            LastModifiedBy?: String;            
-            MergedDatasetNames?: MergedDatasetNameList;            
-            DatasetExists?: Boolean;            
-            DatasetDeletedAfterRequestedSyncCount?: Boolean;            
-            SyncSessionToken?: String;            
+            Records?: RecordList;
+            NextToken?: String;
+            Count?: Integer;
+            DatasetSyncCount?: Long;
+            LastModifiedBy?: String;
+            MergedDatasetNames?: MergedDatasetNameList;
+            DatasetExists?: Boolean;
+            DatasetDeletedAfterRequestedSyncCount?: Boolean;
+            SyncSessionToken?: String;
         }
         export interface NotAuthorizedException {
-            message: ExceptionMessage;            
+            message: ExceptionMessage;
         }
         export interface PushSync {
-            ApplicationArns?: ApplicationArnList;            
-            RoleArn?: AssumeRoleArn;            
+            ApplicationArns?: ApplicationArnList;
+            RoleArn?: AssumeRoleArn;
         }
         export interface Record {
-            Key?: RecordKey;            
-            Value?: RecordValue;            
-            SyncCount?: Long;            
-            LastModifiedDate?: Date;            
-            LastModifiedBy?: String;            
-            DeviceLastModifiedDate?: Date;            
+            Key?: RecordKey;
+            Value?: RecordValue;
+            SyncCount?: Long;
+            LastModifiedDate?: Date;
+            LastModifiedBy?: String;
+            DeviceLastModifiedDate?: Date;
         }
         export interface RecordPatch {
-            Op: Operation;            
-            Key: RecordKey;            
-            Value?: RecordValue;            
-            SyncCount: Long;            
-            DeviceLastModifiedDate?: Date;            
+            Op: Operation;
+            Key: RecordKey;
+            Value?: RecordValue;
+            SyncCount: Long;
+            DeviceLastModifiedDate?: Date;
         }
         export interface RegisterDeviceRequest {
-            IdentityPoolId: IdentityPoolId;            
-            IdentityId: IdentityId;            
-            Platform: Platform;            
-            Token: PushToken;            
+            IdentityPoolId: IdentityPoolId;
+            IdentityId: IdentityId;
+            Platform: Platform;
+            Token: PushToken;
         }
         export interface RegisterDeviceResponse {
-            DeviceId?: DeviceId;            
+            DeviceId?: DeviceId;
         }
         export interface ResourceConflictException {
-            message: ExceptionMessage;            
+            message: ExceptionMessage;
         }
         export interface ResourceNotFoundException {
-            message: ExceptionMessage;            
+            message: ExceptionMessage;
         }
         export interface SetCognitoEventsRequest {
-            IdentityPoolId: IdentityPoolId;            
-            Events: Events;            
+            IdentityPoolId: IdentityPoolId;
+            Events: Events;
         }
         export interface SetIdentityPoolConfigurationRequest {
-            IdentityPoolId: IdentityPoolId;            
-            PushSync?: PushSync;            
-            CognitoStreams?: CognitoStreams;            
+            IdentityPoolId: IdentityPoolId;
+            PushSync?: PushSync;
+            CognitoStreams?: CognitoStreams;
         }
         export interface SetIdentityPoolConfigurationResponse {
-            IdentityPoolId?: IdentityPoolId;            
-            PushSync?: PushSync;            
-            CognitoStreams?: CognitoStreams;            
+            IdentityPoolId?: IdentityPoolId;
+            PushSync?: PushSync;
+            CognitoStreams?: CognitoStreams;
         }
         export interface SubscribeToDatasetRequest {
-            IdentityPoolId: IdentityPoolId;            
-            IdentityId: IdentityId;            
-            DatasetName: DatasetName;            
-            DeviceId: DeviceId;            
+            IdentityPoolId: IdentityPoolId;
+            IdentityId: IdentityId;
+            DatasetName: DatasetName;
+            DeviceId: DeviceId;
         }
         export interface SubscribeToDatasetResponse {
         }
         export interface TooManyRequestsException {
-            message: ExceptionMessage;            
+            message: ExceptionMessage;
         }
         export interface UnsubscribeFromDatasetRequest {
-            IdentityPoolId: IdentityPoolId;            
-            IdentityId: IdentityId;            
-            DatasetName: DatasetName;            
-            DeviceId: DeviceId;            
+            IdentityPoolId: IdentityPoolId;
+            IdentityId: IdentityId;
+            DatasetName: DatasetName;
+            DeviceId: DeviceId;
         }
         export interface UnsubscribeFromDatasetResponse {
         }
         export interface UpdateRecordsRequest {
-            IdentityPoolId: IdentityPoolId;            
-            IdentityId: IdentityId;            
-            DatasetName: DatasetName;            
-            DeviceId?: DeviceId;            
-            RecordPatches?: RecordPatchList;            
-            SyncSessionToken: SyncSessionToken;            
-            ClientContext?: ClientContext;            
+            IdentityPoolId: IdentityPoolId;
+            IdentityId: IdentityId;
+            DatasetName: DatasetName;
+            DeviceId?: DeviceId;
+            RecordPatches?: RecordPatchList;
+            SyncSessionToken: SyncSessionToken;
+            ClientContext?: ClientContext;
         }
         export interface UpdateRecordsResponse {
-            Records?: RecordList;            
+            Records?: RecordList;
         }
 
     }

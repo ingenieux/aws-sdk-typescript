@@ -5,15 +5,20 @@
   "main": "app/build/app.js",
   "dependencies": {
     "aws-sdk": "^2.1.31",
+    "esprima": "^2.7.1",
     "glob": "^5.0.10",
     "handlebars": "^3.0.3",
     "source-map-support": "^0.4.0"
   },
   "devDependencies": {
+    "aws-sdk": ">=2.2.32",
     "del": "^2.1.0",
+    "escodegen": "^1.8.0",
+    "estraverse": "^4.1.1",
     "gulp": "^3.6.2",
     "gulp-shell": "^0.2.5",
     "gulp-tsc": "^0.9.0",
+    "jsstana": "^0.1.6",
     "run-sequence": "^0.3.6"
   },
   "scripts": {

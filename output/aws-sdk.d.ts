@@ -4,6 +4,7 @@
 // GENERATED CODE - DO NOT EDIT
 
 ///<reference path="./aws-sdk-common.d.ts" />
+///<reference path="./aws-acm.d.ts" />
 ///<reference path="./aws-apigateway.d.ts" />
 ///<reference path="./aws-autoscaling.d.ts" />
 ///<reference path="./aws-cloudformation.d.ts" />
@@ -13,6 +14,7 @@
 ///<reference path="./aws-cloudsearchdomain.d.ts" />
 ///<reference path="./aws-cloudtrail.d.ts" />
 ///<reference path="./aws-monitoring.d.ts" />
+///<reference path="./aws-events.d.ts" />
 ///<reference path="./aws-logs.d.ts" />
 ///<reference path="./aws-codecommit.d.ts" />
 ///<reference path="./aws-codedeploy.d.ts" />
@@ -27,6 +29,7 @@
 ///<reference path="./aws-dynamodb.d.ts" />
 ///<reference path="./aws-streams.dynamodb.d.ts" />
 ///<reference path="./aws-ec2.d.ts" />
+///<reference path="./aws-ecr.d.ts" />
 ///<reference path="./aws-ecs.d.ts" />
 ///<reference path="./aws-elasticfilesystem.d.ts" />
 ///<reference path="./aws-elasticache.d.ts" />

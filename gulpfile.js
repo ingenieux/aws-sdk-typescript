@@ -5,9 +5,9 @@ var runseq = require('run-sequence');
 var del  = require('del');
 
 var paths = {
-	tscripts : { 
+	tscripts : {
 		src : ['app/src/**/*.ts'],
-		dest : 'app/build' 
+		dest : 'app/build'
 	},
 	tests: {
 		src: ['test/**/*.ts'],
@@ -20,7 +20,7 @@ var paths = {
 	srcAndTests:[]
 };
 paths.srcAndTests = [].concat(
-	paths.tscripts.src, 
+	paths.tscripts.src,
 	paths.tests.src,
 	paths.templates.src
 	);
@@ -58,10 +58,7 @@ gulp.task('build', function(cb) {
 gulp.task('compile:typescript', function () {
 	return gulp
 	.src(paths.tscripts.src)
-	.pipe(tsc({
-		module: "commonjs",
-		emitError: false
-	}))
+	.pipe(tsc())
 	.pipe(gulp.dest(paths.tscripts.dest));
 });
 

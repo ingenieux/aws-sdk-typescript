@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-07-09
      * endpointPrefix: codepipeline
      * serviceAbbreviation: CodePipeline
@@ -40,8 +40,9 @@ declare module "aws-sdk" {
       putThirdPartyJobSuccessResult(params: CodePipeline.PutThirdPartyJobSuccessResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|CodePipeline.InvalidClientTokenException|any, data: any) => void): Request;
       startPipelineExecution(params: CodePipeline.StartPipelineExecutionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|any, data: CodePipeline.StartPipelineExecutionOutput|any) => void): Request;
       updatePipeline(params: CodePipeline.UpdatePipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidStageDeclarationException|CodePipeline.InvalidActionDeclarationException|CodePipeline.InvalidBlockerDeclarationException|CodePipeline.InvalidStructureException|any, data: CodePipeline.UpdatePipelineOutput|any) => void): Request;
+
     }
-    
+
     export module CodePipeline {
         export type AccessKeyId = string;
         export type AccountId = string;    // pattern: &quot;[0-9]{12}&quot;
@@ -121,206 +122,206 @@ declare module "aws-sdk" {
         export type Version = string;    // pattern: &quot;[0-9A-Za-z_-]+&quot;, max: 9, min: 1
 
         export interface AWSSessionCredentials {
-            accessKeyId: AccessKeyId;            
-            secretAccessKey: SecretAccessKey;            
-            sessionToken: SessionToken;            
+            accessKeyId: AccessKeyId;
+            secretAccessKey: SecretAccessKey;
+            sessionToken: SessionToken;
         }
         export interface AcknowledgeJobInput {
-            jobId: JobId;            
-            nonce: Nonce;            
+            jobId: JobId;
+            nonce: Nonce;
         }
         export interface AcknowledgeJobOutput {
-            status?: JobStatus;            
+            status?: JobStatus;
         }
         export interface AcknowledgeThirdPartyJobInput {
-            jobId: ThirdPartyJobId;            
-            nonce: Nonce;            
-            clientToken: ClientToken;            
+            jobId: ThirdPartyJobId;
+            nonce: Nonce;
+            clientToken: ClientToken;
         }
         export interface AcknowledgeThirdPartyJobOutput {
-            status?: JobStatus;            
+            status?: JobStatus;
         }
         export interface ActionConfiguration {
-            configuration?: ActionConfigurationMap;            
+            configuration?: ActionConfigurationMap;
         }
         export interface ActionConfigurationProperty {
-            name: ActionConfigurationKey;            
-            required: Boolean;            
-            key: Boolean;            
-            secret: Boolean;            
-            queryable?: Boolean;            
-            description?: Description;            
-            type?: ActionConfigurationPropertyType;            
+            name: ActionConfigurationKey;
+            required: Boolean;
+            key: Boolean;
+            secret: Boolean;
+            queryable?: Boolean;
+            description?: Description;
+            type?: ActionConfigurationPropertyType;
         }
         export interface ActionContext {
-            name?: ActionName;            
+            name?: ActionName;
         }
         export interface ActionDeclaration {
-            name: ActionName;            
-            actionTypeId: ActionTypeId;            
-            runOrder?: ActionRunOrder;            
-            configuration?: ActionConfigurationMap;            
-            outputArtifacts?: OutputArtifactList;            
-            inputArtifacts?: InputArtifactList;            
-            roleArn?: RoleArn;            
+            name: ActionName;
+            actionTypeId: ActionTypeId;
+            runOrder?: ActionRunOrder;
+            configuration?: ActionConfigurationMap;
+            outputArtifacts?: OutputArtifactList;
+            inputArtifacts?: InputArtifactList;
+            roleArn?: RoleArn;
         }
         export interface ActionExecution {
-            status?: ActionExecutionStatus;            
-            summary?: ExecutionSummary;            
-            lastStatusChange?: Timestamp;            
-            externalExecutionId?: ExecutionId;            
-            externalExecutionUrl?: Url;            
-            percentComplete?: Percentage;            
-            errorDetails?: ErrorDetails;            
+            status?: ActionExecutionStatus;
+            summary?: ExecutionSummary;
+            lastStatusChange?: Timestamp;
+            externalExecutionId?: ExecutionId;
+            externalExecutionUrl?: Url;
+            percentComplete?: Percentage;
+            errorDetails?: ErrorDetails;
         }
         export interface ActionNotFoundException {
         }
         export interface ActionRevision {
-            revisionId: RevisionId;            
-            revisionChangeId?: RevisionChangeId;            
-            created: Timestamp;            
+            revisionId: RevisionId;
+            revisionChangeId?: RevisionChangeId;
+            created: Timestamp;
         }
         export interface ActionState {
-            actionName?: ActionName;            
-            currentRevision?: ActionRevision;            
-            latestExecution?: ActionExecution;            
-            entityUrl?: Url;            
-            revisionUrl?: Url;            
+            actionName?: ActionName;
+            currentRevision?: ActionRevision;
+            latestExecution?: ActionExecution;
+            entityUrl?: Url;
+            revisionUrl?: Url;
         }
         export interface ActionType {
-            id: ActionTypeId;            
-            settings?: ActionTypeSettings;            
-            actionConfigurationProperties?: ActionConfigurationPropertyList;            
-            inputArtifactDetails: ArtifactDetails;            
-            outputArtifactDetails: ArtifactDetails;            
+            id: ActionTypeId;
+            settings?: ActionTypeSettings;
+            actionConfigurationProperties?: ActionConfigurationPropertyList;
+            inputArtifactDetails: ArtifactDetails;
+            outputArtifactDetails: ArtifactDetails;
         }
         export interface ActionTypeId {
-            category: ActionCategory;            
-            owner: ActionOwner;            
-            provider: ActionProvider;            
-            version: Version;            
+            category: ActionCategory;
+            owner: ActionOwner;
+            provider: ActionProvider;
+            version: Version;
         }
         export interface ActionTypeNotFoundException {
         }
         export interface ActionTypeSettings {
-            thirdPartyConfigurationUrl?: Url;            
-            entityUrlTemplate?: UrlTemplate;            
-            executionUrlTemplate?: UrlTemplate;            
-            revisionUrlTemplate?: UrlTemplate;            
+            thirdPartyConfigurationUrl?: Url;
+            entityUrlTemplate?: UrlTemplate;
+            executionUrlTemplate?: UrlTemplate;
+            revisionUrlTemplate?: UrlTemplate;
         }
         export interface Artifact {
-            name?: ArtifactName;            
-            revision?: Revision;            
-            location?: ArtifactLocation;            
+            name?: ArtifactName;
+            revision?: Revision;
+            location?: ArtifactLocation;
         }
         export interface ArtifactDetails {
-            minimumCount: MinimumArtifactCount;            
-            maximumCount: MaximumArtifactCount;            
+            minimumCount: MinimumArtifactCount;
+            maximumCount: MaximumArtifactCount;
         }
         export interface ArtifactLocation {
-            type?: ArtifactLocationType;            
-            s3Location?: S3ArtifactLocation;            
+            type?: ArtifactLocationType;
+            s3Location?: S3ArtifactLocation;
         }
         export interface ArtifactStore {
-            type: ArtifactStoreType;            
-            location: ArtifactStoreLocation;            
-            encryptionKey?: EncryptionKey;            
+            type: ArtifactStoreType;
+            location: ArtifactStoreLocation;
+            encryptionKey?: EncryptionKey;
         }
         export interface BlockerDeclaration {
-            name: BlockerName;            
-            type: BlockerType;            
+            name: BlockerName;
+            type: BlockerType;
         }
         export interface CreateCustomActionTypeInput {
-            category: ActionCategory;            
-            provider: ActionProvider;            
-            version: Version;            
-            settings?: ActionTypeSettings;            
-            configurationProperties?: ActionConfigurationPropertyList;            
-            inputArtifactDetails: ArtifactDetails;            
-            outputArtifactDetails: ArtifactDetails;            
+            category: ActionCategory;
+            provider: ActionProvider;
+            version: Version;
+            settings?: ActionTypeSettings;
+            configurationProperties?: ActionConfigurationPropertyList;
+            inputArtifactDetails: ArtifactDetails;
+            outputArtifactDetails: ArtifactDetails;
         }
         export interface CreateCustomActionTypeOutput {
-            actionType: ActionType;            
+            actionType: ActionType;
         }
         export interface CreatePipelineInput {
-            pipeline: PipelineDeclaration;            
+            pipeline: PipelineDeclaration;
         }
         export interface CreatePipelineOutput {
-            pipeline?: PipelineDeclaration;            
+            pipeline?: PipelineDeclaration;
         }
         export interface CurrentRevision {
-            revision: Revision;            
-            changeIdentifier: RevisionChangeIdentifier;            
+            revision: Revision;
+            changeIdentifier: RevisionChangeIdentifier;
         }
         export interface DeleteCustomActionTypeInput {
-            category: ActionCategory;            
-            provider: ActionProvider;            
-            version: Version;            
+            category: ActionCategory;
+            provider: ActionProvider;
+            version: Version;
         }
         export interface DeletePipelineInput {
-            name: PipelineName;            
+            name: PipelineName;
         }
         export interface DisableStageTransitionInput {
-            pipelineName: PipelineName;            
-            stageName: StageName;            
-            transitionType: StageTransitionType;            
-            reason: DisabledReason;            
+            pipelineName: PipelineName;
+            stageName: StageName;
+            transitionType: StageTransitionType;
+            reason: DisabledReason;
         }
         export interface EnableStageTransitionInput {
-            pipelineName: PipelineName;            
-            stageName: StageName;            
-            transitionType: StageTransitionType;            
+            pipelineName: PipelineName;
+            stageName: StageName;
+            transitionType: StageTransitionType;
         }
         export interface EncryptionKey {
-            id: EncryptionKeyId;            
-            type: EncryptionKeyType;            
+            id: EncryptionKeyId;
+            type: EncryptionKeyType;
         }
         export interface ErrorDetails {
-            code?: Code;            
-            message?: Message;            
+            code?: Code;
+            message?: Message;
         }
         export interface ExecutionDetails {
-            summary?: ExecutionSummary;            
-            externalExecutionId?: ExecutionId;            
-            percentComplete?: Percentage;            
+            summary?: ExecutionSummary;
+            externalExecutionId?: ExecutionId;
+            percentComplete?: Percentage;
         }
         export interface FailureDetails {
-            type: FailureType;            
-            message: Message;            
-            externalExecutionId?: ExecutionId;            
+            type: FailureType;
+            message: Message;
+            externalExecutionId?: ExecutionId;
         }
         export interface GetJobDetailsInput {
-            jobId: JobId;            
+            jobId: JobId;
         }
         export interface GetJobDetailsOutput {
-            jobDetails?: JobDetails;            
+            jobDetails?: JobDetails;
         }
         export interface GetPipelineInput {
-            name: PipelineName;            
-            version?: PipelineVersion;            
+            name: PipelineName;
+            version?: PipelineVersion;
         }
         export interface GetPipelineOutput {
-            pipeline?: PipelineDeclaration;            
+            pipeline?: PipelineDeclaration;
         }
         export interface GetPipelineStateInput {
-            name: PipelineName;            
+            name: PipelineName;
         }
         export interface GetPipelineStateOutput {
-            pipelineName?: PipelineName;            
-            pipelineVersion?: PipelineVersion;            
-            stageStates?: StageStateList;            
-            created?: Timestamp;            
-            updated?: Timestamp;            
+            pipelineName?: PipelineName;
+            pipelineVersion?: PipelineVersion;
+            stageStates?: StageStateList;
+            created?: Timestamp;
+            updated?: Timestamp;
         }
         export interface GetThirdPartyJobDetailsInput {
-            jobId: ThirdPartyJobId;            
-            clientToken: ClientToken;            
+            jobId: ThirdPartyJobId;
+            clientToken: ClientToken;
         }
         export interface GetThirdPartyJobDetailsOutput {
-            jobDetails?: ThirdPartyJobDetails;            
+            jobDetails?: ThirdPartyJobDetails;
         }
         export interface InputArtifact {
-            name: ArtifactName;            
+            name: ArtifactName;
         }
         export interface InvalidActionDeclarationException {
         }
@@ -341,174 +342,174 @@ declare module "aws-sdk" {
         export interface InvalidStructureException {
         }
         export interface Job {
-            id?: JobId;            
-            data?: JobData;            
-            nonce?: Nonce;            
-            accountId?: AccountId;            
+            id?: JobId;
+            data?: JobData;
+            nonce?: Nonce;
+            accountId?: AccountId;
         }
         export interface JobData {
-            actionTypeId?: ActionTypeId;            
-            actionConfiguration?: ActionConfiguration;            
-            pipelineContext?: PipelineContext;            
-            inputArtifacts?: ArtifactList;            
-            outputArtifacts?: ArtifactList;            
-            artifactCredentials?: AWSSessionCredentials;            
-            continuationToken?: ContinuationToken;            
-            encryptionKey?: EncryptionKey;            
+            actionTypeId?: ActionTypeId;
+            actionConfiguration?: ActionConfiguration;
+            pipelineContext?: PipelineContext;
+            inputArtifacts?: ArtifactList;
+            outputArtifacts?: ArtifactList;
+            artifactCredentials?: AWSSessionCredentials;
+            continuationToken?: ContinuationToken;
+            encryptionKey?: EncryptionKey;
         }
         export interface JobDetails {
-            id?: JobId;            
-            data?: JobData;            
-            accountId?: AccountId;            
+            id?: JobId;
+            data?: JobData;
+            accountId?: AccountId;
         }
         export interface JobNotFoundException {
         }
         export interface LimitExceededException {
         }
         export interface ListActionTypesInput {
-            actionOwnerFilter?: ActionOwner;            
-            nextToken?: NextToken;            
+            actionOwnerFilter?: ActionOwner;
+            nextToken?: NextToken;
         }
         export interface ListActionTypesOutput {
-            actionTypes: ActionTypeList;            
-            nextToken?: NextToken;            
+            actionTypes: ActionTypeList;
+            nextToken?: NextToken;
         }
         export interface ListPipelinesInput {
-            nextToken?: NextToken;            
+            nextToken?: NextToken;
         }
         export interface ListPipelinesOutput {
-            pipelines?: PipelineList;            
-            nextToken?: NextToken;            
+            pipelines?: PipelineList;
+            nextToken?: NextToken;
         }
         export interface OutputArtifact {
-            name: ArtifactName;            
+            name: ArtifactName;
         }
         export interface PipelineContext {
-            pipelineName?: PipelineName;            
-            stage?: StageContext;            
-            action?: ActionContext;            
+            pipelineName?: PipelineName;
+            stage?: StageContext;
+            action?: ActionContext;
         }
         export interface PipelineDeclaration {
-            name: PipelineName;            
-            roleArn: RoleArn;            
-            artifactStore: ArtifactStore;            
-            stages: PipelineStageDeclarationList;            
-            version?: PipelineVersion;            
+            name: PipelineName;
+            roleArn: RoleArn;
+            artifactStore: ArtifactStore;
+            stages: PipelineStageDeclarationList;
+            version?: PipelineVersion;
         }
         export interface PipelineNameInUseException {
         }
         export interface PipelineNotFoundException {
         }
         export interface PipelineSummary {
-            name?: PipelineName;            
-            version?: PipelineVersion;            
-            created?: Timestamp;            
-            updated?: Timestamp;            
+            name?: PipelineName;
+            version?: PipelineVersion;
+            created?: Timestamp;
+            updated?: Timestamp;
         }
         export interface PipelineVersionNotFoundException {
         }
         export interface PollForJobsInput {
-            actionTypeId: ActionTypeId;            
-            maxBatchSize?: MaxBatchSize;            
-            queryParam?: QueryParamMap;            
+            actionTypeId: ActionTypeId;
+            maxBatchSize?: MaxBatchSize;
+            queryParam?: QueryParamMap;
         }
         export interface PollForJobsOutput {
-            jobs?: JobList;            
+            jobs?: JobList;
         }
         export interface PollForThirdPartyJobsInput {
-            actionTypeId: ActionTypeId;            
-            maxBatchSize?: MaxBatchSize;            
+            actionTypeId: ActionTypeId;
+            maxBatchSize?: MaxBatchSize;
         }
         export interface PollForThirdPartyJobsOutput {
-            jobs?: ThirdPartyJobList;            
+            jobs?: ThirdPartyJobList;
         }
         export interface PutActionRevisionInput {
-            pipelineName: PipelineName;            
-            stageName: StageName;            
-            actionName: ActionName;            
-            actionRevision: ActionRevision;            
+            pipelineName: PipelineName;
+            stageName: StageName;
+            actionName: ActionName;
+            actionRevision: ActionRevision;
         }
         export interface PutActionRevisionOutput {
-            newRevision?: Boolean;            
-            pipelineExecutionId?: PipelineExecutionId;            
+            newRevision?: Boolean;
+            pipelineExecutionId?: PipelineExecutionId;
         }
         export interface PutJobFailureResultInput {
-            jobId: JobId;            
-            failureDetails: FailureDetails;            
+            jobId: JobId;
+            failureDetails: FailureDetails;
         }
         export interface PutJobSuccessResultInput {
-            jobId: JobId;            
-            currentRevision?: CurrentRevision;            
-            continuationToken?: ContinuationToken;            
-            executionDetails?: ExecutionDetails;            
+            jobId: JobId;
+            currentRevision?: CurrentRevision;
+            continuationToken?: ContinuationToken;
+            executionDetails?: ExecutionDetails;
         }
         export interface PutThirdPartyJobFailureResultInput {
-            jobId: ThirdPartyJobId;            
-            clientToken: ClientToken;            
-            failureDetails: FailureDetails;            
+            jobId: ThirdPartyJobId;
+            clientToken: ClientToken;
+            failureDetails: FailureDetails;
         }
         export interface PutThirdPartyJobSuccessResultInput {
-            jobId: ThirdPartyJobId;            
-            clientToken: ClientToken;            
-            currentRevision?: CurrentRevision;            
-            continuationToken?: ContinuationToken;            
-            executionDetails?: ExecutionDetails;            
+            jobId: ThirdPartyJobId;
+            clientToken: ClientToken;
+            currentRevision?: CurrentRevision;
+            continuationToken?: ContinuationToken;
+            executionDetails?: ExecutionDetails;
         }
         export interface S3ArtifactLocation {
-            bucketName: S3BucketName;            
-            objectKey: S3ObjectKey;            
+            bucketName: S3BucketName;
+            objectKey: S3ObjectKey;
         }
         export interface StageContext {
-            name?: StageName;            
+            name?: StageName;
         }
         export interface StageDeclaration {
-            name: StageName;            
-            blockers?: StageBlockerDeclarationList;            
-            actions: StageActionDeclarationList;            
+            name: StageName;
+            blockers?: StageBlockerDeclarationList;
+            actions: StageActionDeclarationList;
         }
         export interface StageNotFoundException {
         }
         export interface StageState {
-            stageName?: StageName;            
-            inboundTransitionState?: TransitionState;            
-            actionStates?: ActionStateList;            
+            stageName?: StageName;
+            inboundTransitionState?: TransitionState;
+            actionStates?: ActionStateList;
         }
         export interface StartPipelineExecutionInput {
-            name: PipelineName;            
+            name: PipelineName;
         }
         export interface StartPipelineExecutionOutput {
-            pipelineExecutionId?: PipelineExecutionId;            
+            pipelineExecutionId?: PipelineExecutionId;
         }
         export interface ThirdPartyJob {
-            clientId?: ClientId;            
-            jobId?: JobId;            
+            clientId?: ClientId;
+            jobId?: JobId;
         }
         export interface ThirdPartyJobData {
-            actionTypeId?: ActionTypeId;            
-            actionConfiguration?: ActionConfiguration;            
-            pipelineContext?: PipelineContext;            
-            inputArtifacts?: ArtifactList;            
-            outputArtifacts?: ArtifactList;            
-            artifactCredentials?: AWSSessionCredentials;            
-            continuationToken?: ContinuationToken;            
-            encryptionKey?: EncryptionKey;            
+            actionTypeId?: ActionTypeId;
+            actionConfiguration?: ActionConfiguration;
+            pipelineContext?: PipelineContext;
+            inputArtifacts?: ArtifactList;
+            outputArtifacts?: ArtifactList;
+            artifactCredentials?: AWSSessionCredentials;
+            continuationToken?: ContinuationToken;
+            encryptionKey?: EncryptionKey;
         }
         export interface ThirdPartyJobDetails {
-            id?: ThirdPartyJobId;            
-            data?: ThirdPartyJobData;            
-            nonce?: Nonce;            
+            id?: ThirdPartyJobId;
+            data?: ThirdPartyJobData;
+            nonce?: Nonce;
         }
         export interface TransitionState {
-            enabled?: Enabled;            
-            lastChangedBy?: LastChangedBy;            
-            lastChangedAt?: LastChangedAt;            
-            disabledReason?: DisabledReason;            
+            enabled?: Enabled;
+            lastChangedBy?: LastChangedBy;
+            lastChangedAt?: LastChangedAt;
+            disabledReason?: DisabledReason;
         }
         export interface UpdatePipelineInput {
-            pipeline: PipelineDeclaration;            
+            pipeline: PipelineDeclaration;
         }
         export interface UpdatePipelineOutput {
-            pipeline?: PipelineDeclaration;            
+            pipeline?: PipelineDeclaration;
         }
         export interface ValidationException {
         }

@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2011-06-15
      * endpointPrefix: sts
      * serviceAbbreviation: AWS STS
@@ -17,14 +17,21 @@ declare module "aws-sdk" {
     export class STS extends Service {
       constructor(options?: any);
       endpoint: Endpoint;
-      assumeRole(params: STS.AssumeRoleRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|any, data: STS.AssumeRoleResponse|any) => void): Request;
-      assumeRoleWithSAML(params: STS.AssumeRoleWithSAMLRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.IDPRejectedClaimException|STS.InvalidIdentityTokenException|STS.ExpiredTokenException|any, data: STS.AssumeRoleWithSAMLResponse|any) => void): Request;
-      assumeRoleWithWebIdentity(params: STS.AssumeRoleWithWebIdentityRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.IDPRejectedClaimException|STS.IDPCommunicationErrorException|STS.InvalidIdentityTokenException|STS.ExpiredTokenException|any, data: STS.AssumeRoleWithWebIdentityResponse|any) => void): Request;
+      assumeRole(params: STS.AssumeRoleRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.RegionDisabledException|any, data: STS.AssumeRoleResponse|any) => void): Request;
+      assumeRoleWithSAML(params: STS.AssumeRoleWithSAMLRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.IDPRejectedClaimException|STS.InvalidIdentityTokenException|STS.ExpiredTokenException|STS.RegionDisabledException|any, data: STS.AssumeRoleWithSAMLResponse|any) => void): Request;
+      assumeRoleWithWebIdentity(params: STS.AssumeRoleWithWebIdentityRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.IDPRejectedClaimException|STS.IDPCommunicationErrorException|STS.InvalidIdentityTokenException|STS.ExpiredTokenException|STS.RegionDisabledException|any, data: STS.AssumeRoleWithWebIdentityResponse|any) => void): Request;
       decodeAuthorizationMessage(params: STS.DecodeAuthorizationMessageRequest, callback?: (err: STS.InvalidAuthorizationMessageException|any, data: STS.DecodeAuthorizationMessageResponse|any) => void): Request;
-      getFederationToken(params: STS.GetFederationTokenRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|any, data: STS.GetFederationTokenResponse|any) => void): Request;
-      getSessionToken(params: STS.GetSessionTokenRequest, callback?: (err: any, data: STS.GetSessionTokenResponse|any) => void): Request;
+      getFederationToken(params: STS.GetFederationTokenRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.RegionDisabledException|any, data: STS.GetFederationTokenResponse|any) => void): Request;
+      getSessionToken(params: STS.GetSessionTokenRequest, callback?: (err: STS.RegionDisabledException|any, data: STS.GetSessionTokenResponse|any) => void): Request;
+
+      // Found on JS Sources - Sorry for the inconvenience :)
+      credentialsFrom(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      assumeRoleWithWebIdentity(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      assumeRoleWithSAML(...args: any[]): any
     }
-    
+
     export module STS {
         export type Audience = string;
         export type Issuer = string;
@@ -51,6 +58,7 @@ declare module "aws-sdk" {
         export type malformedPolicyDocumentMessage = string;
         export type nonNegativeIntegerType = number;
         export type packedPolicyTooLargeMessage = string;
+        export type regionDisabledMessage = string;
         export type roleDurationSecondsType = number;    // max: 3600, min: 900
         export type roleSessionNameType = string;    // pattern: &quot;[\w+=,.@-]*&quot;, max: 64, min: 2
         export type serialNumberType = string;    // pattern: &quot;[\w+=/:,.@-]*&quot;, max: 256, min: 9
@@ -62,110 +70,113 @@ declare module "aws-sdk" {
         export type webIdentitySubjectType = string;    // max: 255, min: 6
 
         export interface AssumeRoleRequest {
-            RoleArn: arnType;            
-            RoleSessionName: roleSessionNameType;            
-            Policy?: sessionPolicyDocumentType;            
-            DurationSeconds?: roleDurationSecondsType;            
-            ExternalId?: externalIdType;            
-            SerialNumber?: serialNumberType;            
-            TokenCode?: tokenCodeType;            
+            RoleArn: arnType;
+            RoleSessionName: roleSessionNameType;
+            Policy?: sessionPolicyDocumentType;
+            DurationSeconds?: roleDurationSecondsType;
+            ExternalId?: externalIdType;
+            SerialNumber?: serialNumberType;
+            TokenCode?: tokenCodeType;
         }
         export interface AssumeRoleResponse {
-            Credentials?: Credentials;            
-            AssumedRoleUser?: AssumedRoleUser;            
-            PackedPolicySize?: nonNegativeIntegerType;            
+            Credentials?: Credentials;
+            AssumedRoleUser?: AssumedRoleUser;
+            PackedPolicySize?: nonNegativeIntegerType;
         }
         export interface AssumeRoleWithSAMLRequest {
-            RoleArn: arnType;            
-            PrincipalArn: arnType;            
-            SAMLAssertion: SAMLAssertionType;            
-            Policy?: sessionPolicyDocumentType;            
-            DurationSeconds?: roleDurationSecondsType;            
+            RoleArn: arnType;
+            PrincipalArn: arnType;
+            SAMLAssertion: SAMLAssertionType;
+            Policy?: sessionPolicyDocumentType;
+            DurationSeconds?: roleDurationSecondsType;
         }
         export interface AssumeRoleWithSAMLResponse {
-            Credentials?: Credentials;            
-            AssumedRoleUser?: AssumedRoleUser;            
-            PackedPolicySize?: nonNegativeIntegerType;            
-            Subject?: Subject;            
-            SubjectType?: SubjectType;            
-            Issuer?: Issuer;            
-            Audience?: Audience;            
-            NameQualifier?: NameQualifier;            
+            Credentials?: Credentials;
+            AssumedRoleUser?: AssumedRoleUser;
+            PackedPolicySize?: nonNegativeIntegerType;
+            Subject?: Subject;
+            SubjectType?: SubjectType;
+            Issuer?: Issuer;
+            Audience?: Audience;
+            NameQualifier?: NameQualifier;
         }
         export interface AssumeRoleWithWebIdentityRequest {
-            RoleArn: arnType;            
-            RoleSessionName: roleSessionNameType;            
-            WebIdentityToken: clientTokenType;            
-            ProviderId?: urlType;            
-            Policy?: sessionPolicyDocumentType;            
-            DurationSeconds?: roleDurationSecondsType;            
+            RoleArn: arnType;
+            RoleSessionName: roleSessionNameType;
+            WebIdentityToken: clientTokenType;
+            ProviderId?: urlType;
+            Policy?: sessionPolicyDocumentType;
+            DurationSeconds?: roleDurationSecondsType;
         }
         export interface AssumeRoleWithWebIdentityResponse {
-            Credentials?: Credentials;            
-            SubjectFromWebIdentityToken?: webIdentitySubjectType;            
-            AssumedRoleUser?: AssumedRoleUser;            
-            PackedPolicySize?: nonNegativeIntegerType;            
-            Provider?: Issuer;            
-            Audience?: Audience;            
+            Credentials?: Credentials;
+            SubjectFromWebIdentityToken?: webIdentitySubjectType;
+            AssumedRoleUser?: AssumedRoleUser;
+            PackedPolicySize?: nonNegativeIntegerType;
+            Provider?: Issuer;
+            Audience?: Audience;
         }
         export interface AssumedRoleUser {
-            AssumedRoleId: assumedRoleIdType;            
-            Arn: arnType;            
+            AssumedRoleId: assumedRoleIdType;
+            Arn: arnType;
         }
         export interface Credentials {
-            AccessKeyId: accessKeyIdType;            
-            SecretAccessKey: accessKeySecretType;            
-            SessionToken: tokenType;            
-            Expiration: dateType;            
+            AccessKeyId: accessKeyIdType;
+            SecretAccessKey: accessKeySecretType;
+            SessionToken: tokenType;
+            Expiration: dateType;
         }
         export interface DecodeAuthorizationMessageRequest {
-            EncodedMessage: encodedMessageType;            
+            EncodedMessage: encodedMessageType;
         }
         export interface DecodeAuthorizationMessageResponse {
-            DecodedMessage?: decodedMessageType;            
+            DecodedMessage?: decodedMessageType;
         }
         export interface ExpiredTokenException {
-            message?: expiredIdentityTokenMessage;            
+            message?: expiredIdentityTokenMessage;
         }
         export interface FederatedUser {
-            FederatedUserId: federatedIdType;            
-            Arn: arnType;            
+            FederatedUserId: federatedIdType;
+            Arn: arnType;
         }
         export interface GetFederationTokenRequest {
-            Name: userNameType;            
-            Policy?: sessionPolicyDocumentType;            
-            DurationSeconds?: durationSecondsType;            
+            Name: userNameType;
+            Policy?: sessionPolicyDocumentType;
+            DurationSeconds?: durationSecondsType;
         }
         export interface GetFederationTokenResponse {
-            Credentials?: Credentials;            
-            FederatedUser?: FederatedUser;            
-            PackedPolicySize?: nonNegativeIntegerType;            
+            Credentials?: Credentials;
+            FederatedUser?: FederatedUser;
+            PackedPolicySize?: nonNegativeIntegerType;
         }
         export interface GetSessionTokenRequest {
-            DurationSeconds?: durationSecondsType;            
-            SerialNumber?: serialNumberType;            
-            TokenCode?: tokenCodeType;            
+            DurationSeconds?: durationSecondsType;
+            SerialNumber?: serialNumberType;
+            TokenCode?: tokenCodeType;
         }
         export interface GetSessionTokenResponse {
-            Credentials?: Credentials;            
+            Credentials?: Credentials;
         }
         export interface IDPCommunicationErrorException {
-            message?: idpCommunicationErrorMessage;            
+            message?: idpCommunicationErrorMessage;
         }
         export interface IDPRejectedClaimException {
-            message?: idpRejectedClaimMessage;            
+            message?: idpRejectedClaimMessage;
         }
         export interface InvalidAuthorizationMessageException {
-            message?: invalidAuthorizationMessage;            
+            message?: invalidAuthorizationMessage;
         }
         export interface InvalidIdentityTokenException {
-            message?: invalidIdentityTokenMessage;            
+            message?: invalidIdentityTokenMessage;
         }
         export interface MalformedPolicyDocumentException {
-            message?: malformedPolicyDocumentMessage;            
+            message?: malformedPolicyDocumentMessage;
         }
         export interface PackedPolicyTooLargeException {
-            message?: packedPolicyTooLargeMessage;            
+            message?: packedPolicyTooLargeMessage;
+        }
+        export interface RegionDisabledException {
+            message?: regionDisabledMessage;
         }
 
     }

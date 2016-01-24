@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-08-04
      * endpointPrefix: firehose
      * serviceAbbreviation: Firehose
@@ -24,8 +24,9 @@ declare module "aws-sdk" {
       putRecord(params: Firehose.PutRecordInput, callback?: (err: Firehose.ResourceNotFoundException|Firehose.InvalidArgumentException|Firehose.ServiceUnavailableException|any, data: Firehose.PutRecordOutput|any) => void): Request;
       putRecordBatch(params: Firehose.PutRecordBatchInput, callback?: (err: Firehose.ResourceNotFoundException|Firehose.InvalidArgumentException|Firehose.ServiceUnavailableException|any, data: Firehose.PutRecordBatchOutput|any) => void): Request;
       updateDestination(params: Firehose.UpdateDestinationInput, callback?: (err: Firehose.InvalidArgumentException|Firehose.ResourceInUseException|Firehose.ResourceNotFoundException|Firehose.ConcurrentModificationException|any, data: Firehose.UpdateDestinationOutput|any) => void): Request;
+
     }
-    
+
     export module Firehose {
         export type AWSKMSKeyARN = string;    // pattern: &quot;arn:.*&quot;, max: 512, min: 1
         export type BooleanObject = boolean;
@@ -61,159 +62,159 @@ declare module "aws-sdk" {
         export type Username = string;    // min: 1
 
         export interface BufferingHints {
-            SizeInMBs?: SizeInMBs;            
-            IntervalInSeconds?: IntervalInSeconds;            
+            SizeInMBs?: SizeInMBs;
+            IntervalInSeconds?: IntervalInSeconds;
         }
         export interface ConcurrentModificationException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface CopyCommand {
-            DataTableName: DataTableName;            
-            DataTableColumns?: DataTableColumns;            
-            CopyOptions?: CopyOptions;            
+            DataTableName: DataTableName;
+            DataTableColumns?: DataTableColumns;
+            CopyOptions?: CopyOptions;
         }
         export interface CreateDeliveryStreamInput {
-            DeliveryStreamName: DeliveryStreamName;            
-            S3DestinationConfiguration?: S3DestinationConfiguration;            
-            RedshiftDestinationConfiguration?: RedshiftDestinationConfiguration;            
+            DeliveryStreamName: DeliveryStreamName;
+            S3DestinationConfiguration?: S3DestinationConfiguration;
+            RedshiftDestinationConfiguration?: RedshiftDestinationConfiguration;
         }
         export interface CreateDeliveryStreamOutput {
-            DeliveryStreamARN?: DeliveryStreamARN;            
+            DeliveryStreamARN?: DeliveryStreamARN;
         }
         export interface DeleteDeliveryStreamInput {
-            DeliveryStreamName: DeliveryStreamName;            
+            DeliveryStreamName: DeliveryStreamName;
         }
         export interface DeleteDeliveryStreamOutput {
         }
         export interface DeliveryStreamDescription {
-            DeliveryStreamName: DeliveryStreamName;            
-            DeliveryStreamARN: DeliveryStreamARN;            
-            DeliveryStreamStatus: DeliveryStreamStatus;            
-            VersionId: DeliveryStreamVersionId;            
-            CreateTimestamp?: Timestamp;            
-            LastUpdateTimestamp?: Timestamp;            
-            Destinations: DestinationDescriptionList;            
-            HasMoreDestinations: BooleanObject;            
+            DeliveryStreamName: DeliveryStreamName;
+            DeliveryStreamARN: DeliveryStreamARN;
+            DeliveryStreamStatus: DeliveryStreamStatus;
+            VersionId: DeliveryStreamVersionId;
+            CreateTimestamp?: Timestamp;
+            LastUpdateTimestamp?: Timestamp;
+            Destinations: DestinationDescriptionList;
+            HasMoreDestinations: BooleanObject;
         }
         export interface DescribeDeliveryStreamInput {
-            DeliveryStreamName: DeliveryStreamName;            
-            Limit?: DescribeDeliveryStreamInputLimit;            
-            ExclusiveStartDestinationId?: DestinationId;            
+            DeliveryStreamName: DeliveryStreamName;
+            Limit?: DescribeDeliveryStreamInputLimit;
+            ExclusiveStartDestinationId?: DestinationId;
         }
         export interface DescribeDeliveryStreamOutput {
-            DeliveryStreamDescription: DeliveryStreamDescription;            
+            DeliveryStreamDescription: DeliveryStreamDescription;
         }
         export interface DestinationDescription {
-            DestinationId: DestinationId;            
-            S3DestinationDescription?: S3DestinationDescription;            
-            RedshiftDestinationDescription?: RedshiftDestinationDescription;            
+            DestinationId: DestinationId;
+            S3DestinationDescription?: S3DestinationDescription;
+            RedshiftDestinationDescription?: RedshiftDestinationDescription;
         }
         export interface EncryptionConfiguration {
-            NoEncryptionConfig?: NoEncryptionConfig;            
-            KMSEncryptionConfig?: KMSEncryptionConfig;            
+            NoEncryptionConfig?: NoEncryptionConfig;
+            KMSEncryptionConfig?: KMSEncryptionConfig;
         }
         export interface InvalidArgumentException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface KMSEncryptionConfig {
-            AWSKMSKeyARN: AWSKMSKeyARN;            
+            AWSKMSKeyARN: AWSKMSKeyARN;
         }
         export interface LimitExceededException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ListDeliveryStreamsInput {
-            Limit?: ListDeliveryStreamsInputLimit;            
-            ExclusiveStartDeliveryStreamName?: DeliveryStreamName;            
+            Limit?: ListDeliveryStreamsInputLimit;
+            ExclusiveStartDeliveryStreamName?: DeliveryStreamName;
         }
         export interface ListDeliveryStreamsOutput {
-            DeliveryStreamNames: DeliveryStreamNameList;            
-            HasMoreDeliveryStreams: BooleanObject;            
+            DeliveryStreamNames: DeliveryStreamNameList;
+            HasMoreDeliveryStreams: BooleanObject;
         }
         export interface PutRecordBatchInput {
-            DeliveryStreamName: DeliveryStreamName;            
-            Records: PutRecordBatchRequestEntryList;            
+            DeliveryStreamName: DeliveryStreamName;
+            Records: PutRecordBatchRequestEntryList;
         }
         export interface PutRecordBatchOutput {
-            FailedPutCount: NonNegativeIntegerObject;            
-            RequestResponses: PutRecordBatchResponseEntryList;            
+            FailedPutCount: NonNegativeIntegerObject;
+            RequestResponses: PutRecordBatchResponseEntryList;
         }
         export interface PutRecordBatchResponseEntry {
-            RecordId?: PutResponseRecordId;            
-            ErrorCode?: ErrorCode;            
-            ErrorMessage?: ErrorMessage;            
+            RecordId?: PutResponseRecordId;
+            ErrorCode?: ErrorCode;
+            ErrorMessage?: ErrorMessage;
         }
         export interface PutRecordInput {
-            DeliveryStreamName: DeliveryStreamName;            
-            Record: Record;            
+            DeliveryStreamName: DeliveryStreamName;
+            Record: Record;
         }
         export interface PutRecordOutput {
-            RecordId: PutResponseRecordId;            
+            RecordId: PutResponseRecordId;
         }
         export interface Record {
-            Data: Data;            
+            Data: Data;
         }
         export interface RedshiftDestinationConfiguration {
-            RoleARN: RoleARN;            
-            ClusterJDBCURL: ClusterJDBCURL;            
-            CopyCommand: CopyCommand;            
-            Username: Username;            
-            Password: Password;            
-            S3Configuration: S3DestinationConfiguration;            
+            RoleARN: RoleARN;
+            ClusterJDBCURL: ClusterJDBCURL;
+            CopyCommand: CopyCommand;
+            Username: Username;
+            Password: Password;
+            S3Configuration: S3DestinationConfiguration;
         }
         export interface RedshiftDestinationDescription {
-            RoleARN: RoleARN;            
-            ClusterJDBCURL: ClusterJDBCURL;            
-            CopyCommand: CopyCommand;            
-            Username: Username;            
-            S3DestinationDescription: S3DestinationDescription;            
+            RoleARN: RoleARN;
+            ClusterJDBCURL: ClusterJDBCURL;
+            CopyCommand: CopyCommand;
+            Username: Username;
+            S3DestinationDescription: S3DestinationDescription;
         }
         export interface RedshiftDestinationUpdate {
-            RoleARN?: RoleARN;            
-            ClusterJDBCURL?: ClusterJDBCURL;            
-            CopyCommand?: CopyCommand;            
-            Username?: Username;            
-            Password?: Password;            
-            S3Update?: S3DestinationUpdate;            
+            RoleARN?: RoleARN;
+            ClusterJDBCURL?: ClusterJDBCURL;
+            CopyCommand?: CopyCommand;
+            Username?: Username;
+            Password?: Password;
+            S3Update?: S3DestinationUpdate;
         }
         export interface ResourceInUseException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ResourceNotFoundException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface S3DestinationConfiguration {
-            RoleARN: RoleARN;            
-            BucketARN: BucketARN;            
-            Prefix?: Prefix;            
-            BufferingHints?: BufferingHints;            
-            CompressionFormat?: CompressionFormat;            
-            EncryptionConfiguration?: EncryptionConfiguration;            
+            RoleARN: RoleARN;
+            BucketARN: BucketARN;
+            Prefix?: Prefix;
+            BufferingHints?: BufferingHints;
+            CompressionFormat?: CompressionFormat;
+            EncryptionConfiguration?: EncryptionConfiguration;
         }
         export interface S3DestinationDescription {
-            RoleARN: RoleARN;            
-            BucketARN: BucketARN;            
-            Prefix?: Prefix;            
-            BufferingHints: BufferingHints;            
-            CompressionFormat: CompressionFormat;            
-            EncryptionConfiguration: EncryptionConfiguration;            
+            RoleARN: RoleARN;
+            BucketARN: BucketARN;
+            Prefix?: Prefix;
+            BufferingHints: BufferingHints;
+            CompressionFormat: CompressionFormat;
+            EncryptionConfiguration: EncryptionConfiguration;
         }
         export interface S3DestinationUpdate {
-            RoleARN?: RoleARN;            
-            BucketARN?: BucketARN;            
-            Prefix?: Prefix;            
-            BufferingHints?: BufferingHints;            
-            CompressionFormat?: CompressionFormat;            
-            EncryptionConfiguration?: EncryptionConfiguration;            
+            RoleARN?: RoleARN;
+            BucketARN?: BucketARN;
+            Prefix?: Prefix;
+            BufferingHints?: BufferingHints;
+            CompressionFormat?: CompressionFormat;
+            EncryptionConfiguration?: EncryptionConfiguration;
         }
         export interface ServiceUnavailableException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface UpdateDestinationInput {
-            DeliveryStreamName: DeliveryStreamName;            
-            CurrentDeliveryStreamVersionId: DeliveryStreamVersionId;            
-            DestinationId: DestinationId;            
-            S3DestinationUpdate?: S3DestinationUpdate;            
-            RedshiftDestinationUpdate?: RedshiftDestinationUpdate;            
+            DeliveryStreamName: DeliveryStreamName;
+            CurrentDeliveryStreamVersionId: DeliveryStreamVersionId;
+            DestinationId: DestinationId;
+            S3DestinationUpdate?: S3DestinationUpdate;
+            RedshiftDestinationUpdate?: RedshiftDestinationUpdate;
         }
         export interface UpdateDestinationOutput {
         }

@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2013-02-18
      * endpointPrefix: opsworks
      * serviceAbbreviation: 
@@ -87,8 +87,9 @@ declare module "aws-sdk" {
       updateStack(params: OpsWorks.UpdateStackRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
       updateUserProfile(params: OpsWorks.UpdateUserProfileRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
       updateVolume(params: OpsWorks.UpdateVolumeRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+
     }
-    
+
     export module OpsWorks {
         export type AgentVersions = AgentVersion[];
         export type AppAttributes = {[key:string]: String};
@@ -142,894 +143,894 @@ declare module "aws-sdk" {
         export type Volumes = Volume[];
 
         export interface AgentVersion {
-            Version?: String;            
-            ConfigurationManager?: StackConfigurationManager;            
+            Version?: String;
+            ConfigurationManager?: StackConfigurationManager;
         }
         export interface App {
-            AppId?: String;            
-            StackId?: String;            
-            Shortname?: String;            
-            Name?: String;            
-            Description?: String;            
-            DataSources?: DataSources;            
-            Type?: AppType;            
-            AppSource?: Source;            
-            Domains?: Strings;            
-            EnableSsl?: Boolean;            
-            SslConfiguration?: SslConfiguration;            
-            Attributes?: AppAttributes;            
-            CreatedAt?: String;            
-            Environment?: EnvironmentVariables;            
+            AppId?: String;
+            StackId?: String;
+            Shortname?: String;
+            Name?: String;
+            Description?: String;
+            DataSources?: DataSources;
+            Type?: AppType;
+            AppSource?: Source;
+            Domains?: Strings;
+            EnableSsl?: Boolean;
+            SslConfiguration?: SslConfiguration;
+            Attributes?: AppAttributes;
+            CreatedAt?: String;
+            Environment?: EnvironmentVariables;
         }
         export interface AssignInstanceRequest {
-            InstanceId: String;            
-            LayerIds: Strings;            
+            InstanceId: String;
+            LayerIds: Strings;
         }
         export interface AssignVolumeRequest {
-            VolumeId: String;            
-            InstanceId?: String;            
+            VolumeId: String;
+            InstanceId?: String;
         }
         export interface AssociateElasticIpRequest {
-            ElasticIp: String;            
-            InstanceId?: String;            
+            ElasticIp: String;
+            InstanceId?: String;
         }
         export interface AttachElasticLoadBalancerRequest {
-            ElasticLoadBalancerName: String;            
-            LayerId: String;            
+            ElasticLoadBalancerName: String;
+            LayerId: String;
         }
         export interface AutoScalingThresholds {
-            InstanceCount?: Integer;            
-            ThresholdsWaitTime?: Minute;            
-            IgnoreMetricsTime?: Minute;            
-            CpuThreshold?: Double;            
-            MemoryThreshold?: Double;            
-            LoadThreshold?: Double;            
-            Alarms?: Strings;            
+            InstanceCount?: Integer;
+            ThresholdsWaitTime?: Minute;
+            IgnoreMetricsTime?: Minute;
+            CpuThreshold?: Double;
+            MemoryThreshold?: Double;
+            LoadThreshold?: Double;
+            Alarms?: Strings;
         }
         export interface BlockDeviceMapping {
-            DeviceName?: String;            
-            NoDevice?: String;            
-            VirtualName?: String;            
-            Ebs?: EbsBlockDevice;            
+            DeviceName?: String;
+            NoDevice?: String;
+            VirtualName?: String;
+            Ebs?: EbsBlockDevice;
         }
         export interface ChefConfiguration {
-            ManageBerkshelf?: Boolean;            
-            BerkshelfVersion?: String;            
+            ManageBerkshelf?: Boolean;
+            BerkshelfVersion?: String;
         }
         export interface CloneStackRequest {
-            SourceStackId: String;            
-            Name?: String;            
-            Region?: String;            
-            VpcId?: String;            
-            Attributes?: StackAttributes;            
-            ServiceRoleArn: String;            
-            DefaultInstanceProfileArn?: String;            
-            DefaultOs?: String;            
-            HostnameTheme?: String;            
-            DefaultAvailabilityZone?: String;            
-            DefaultSubnetId?: String;            
-            CustomJson?: String;            
-            ConfigurationManager?: StackConfigurationManager;            
-            ChefConfiguration?: ChefConfiguration;            
-            UseCustomCookbooks?: Boolean;            
-            UseOpsworksSecurityGroups?: Boolean;            
-            CustomCookbooksSource?: Source;            
-            DefaultSshKeyName?: String;            
-            ClonePermissions?: Boolean;            
-            CloneAppIds?: Strings;            
-            DefaultRootDeviceType?: RootDeviceType;            
-            AgentVersion?: String;            
+            SourceStackId: String;
+            Name?: String;
+            Region?: String;
+            VpcId?: String;
+            Attributes?: StackAttributes;
+            ServiceRoleArn: String;
+            DefaultInstanceProfileArn?: String;
+            DefaultOs?: String;
+            HostnameTheme?: String;
+            DefaultAvailabilityZone?: String;
+            DefaultSubnetId?: String;
+            CustomJson?: String;
+            ConfigurationManager?: StackConfigurationManager;
+            ChefConfiguration?: ChefConfiguration;
+            UseCustomCookbooks?: Boolean;
+            UseOpsworksSecurityGroups?: Boolean;
+            CustomCookbooksSource?: Source;
+            DefaultSshKeyName?: String;
+            ClonePermissions?: Boolean;
+            CloneAppIds?: Strings;
+            DefaultRootDeviceType?: RootDeviceType;
+            AgentVersion?: String;
         }
         export interface CloneStackResult {
-            StackId?: String;            
+            StackId?: String;
         }
         export interface Command {
-            CommandId?: String;            
-            InstanceId?: String;            
-            DeploymentId?: String;            
-            CreatedAt?: DateTime;            
-            AcknowledgedAt?: DateTime;            
-            CompletedAt?: DateTime;            
-            Status?: String;            
-            ExitCode?: Integer;            
-            LogUrl?: String;            
-            Type?: String;            
+            CommandId?: String;
+            InstanceId?: String;
+            DeploymentId?: String;
+            CreatedAt?: DateTime;
+            AcknowledgedAt?: DateTime;
+            CompletedAt?: DateTime;
+            Status?: String;
+            ExitCode?: Integer;
+            LogUrl?: String;
+            Type?: String;
         }
         export interface CreateAppRequest {
-            StackId: String;            
-            Shortname?: String;            
-            Name: String;            
-            Description?: String;            
-            DataSources?: DataSources;            
-            Type: AppType;            
-            AppSource?: Source;            
-            Domains?: Strings;            
-            EnableSsl?: Boolean;            
-            SslConfiguration?: SslConfiguration;            
-            Attributes?: AppAttributes;            
-            Environment?: EnvironmentVariables;            
+            StackId: String;
+            Shortname?: String;
+            Name: String;
+            Description?: String;
+            DataSources?: DataSources;
+            Type: AppType;
+            AppSource?: Source;
+            Domains?: Strings;
+            EnableSsl?: Boolean;
+            SslConfiguration?: SslConfiguration;
+            Attributes?: AppAttributes;
+            Environment?: EnvironmentVariables;
         }
         export interface CreateAppResult {
-            AppId?: String;            
+            AppId?: String;
         }
         export interface CreateDeploymentRequest {
-            StackId: String;            
-            AppId?: String;            
-            InstanceIds?: Strings;            
-            Command: DeploymentCommand;            
-            Comment?: String;            
-            CustomJson?: String;            
+            StackId: String;
+            AppId?: String;
+            InstanceIds?: Strings;
+            Command: DeploymentCommand;
+            Comment?: String;
+            CustomJson?: String;
         }
         export interface CreateDeploymentResult {
-            DeploymentId?: String;            
+            DeploymentId?: String;
         }
         export interface CreateInstanceRequest {
-            StackId: String;            
-            LayerIds: Strings;            
-            InstanceType: String;            
-            AutoScalingType?: AutoScalingType;            
-            Hostname?: String;            
-            Os?: String;            
-            AmiId?: String;            
-            SshKeyName?: String;            
-            AvailabilityZone?: String;            
-            VirtualizationType?: String;            
-            SubnetId?: String;            
-            Architecture?: Architecture;            
-            RootDeviceType?: RootDeviceType;            
-            BlockDeviceMappings?: BlockDeviceMappings;            
-            InstallUpdatesOnBoot?: Boolean;            
-            EbsOptimized?: Boolean;            
-            AgentVersion?: String;            
+            StackId: String;
+            LayerIds: Strings;
+            InstanceType: String;
+            AutoScalingType?: AutoScalingType;
+            Hostname?: String;
+            Os?: String;
+            AmiId?: String;
+            SshKeyName?: String;
+            AvailabilityZone?: String;
+            VirtualizationType?: String;
+            SubnetId?: String;
+            Architecture?: Architecture;
+            RootDeviceType?: RootDeviceType;
+            BlockDeviceMappings?: BlockDeviceMappings;
+            InstallUpdatesOnBoot?: Boolean;
+            EbsOptimized?: Boolean;
+            AgentVersion?: String;
         }
         export interface CreateInstanceResult {
-            InstanceId?: String;            
+            InstanceId?: String;
         }
         export interface CreateLayerRequest {
-            StackId: String;            
-            Type: LayerType;            
-            Name: String;            
-            Shortname: String;            
-            Attributes?: LayerAttributes;            
-            CustomInstanceProfileArn?: String;            
-            CustomJson?: String;            
-            CustomSecurityGroupIds?: Strings;            
-            Packages?: Strings;            
-            VolumeConfigurations?: VolumeConfigurations;            
-            EnableAutoHealing?: Boolean;            
-            AutoAssignElasticIps?: Boolean;            
-            AutoAssignPublicIps?: Boolean;            
-            CustomRecipes?: Recipes;            
-            InstallUpdatesOnBoot?: Boolean;            
-            UseEbsOptimizedInstances?: Boolean;            
-            LifecycleEventConfiguration?: LifecycleEventConfiguration;            
+            StackId: String;
+            Type: LayerType;
+            Name: String;
+            Shortname: String;
+            Attributes?: LayerAttributes;
+            CustomInstanceProfileArn?: String;
+            CustomJson?: String;
+            CustomSecurityGroupIds?: Strings;
+            Packages?: Strings;
+            VolumeConfigurations?: VolumeConfigurations;
+            EnableAutoHealing?: Boolean;
+            AutoAssignElasticIps?: Boolean;
+            AutoAssignPublicIps?: Boolean;
+            CustomRecipes?: Recipes;
+            InstallUpdatesOnBoot?: Boolean;
+            UseEbsOptimizedInstances?: Boolean;
+            LifecycleEventConfiguration?: LifecycleEventConfiguration;
         }
         export interface CreateLayerResult {
-            LayerId?: String;            
+            LayerId?: String;
         }
         export interface CreateStackRequest {
-            Name: String;            
-            Region: String;            
-            VpcId?: String;            
-            Attributes?: StackAttributes;            
-            ServiceRoleArn: String;            
-            DefaultInstanceProfileArn: String;            
-            DefaultOs?: String;            
-            HostnameTheme?: String;            
-            DefaultAvailabilityZone?: String;            
-            DefaultSubnetId?: String;            
-            CustomJson?: String;            
-            ConfigurationManager?: StackConfigurationManager;            
-            ChefConfiguration?: ChefConfiguration;            
-            UseCustomCookbooks?: Boolean;            
-            UseOpsworksSecurityGroups?: Boolean;            
-            CustomCookbooksSource?: Source;            
-            DefaultSshKeyName?: String;            
-            DefaultRootDeviceType?: RootDeviceType;            
-            AgentVersion?: String;            
+            Name: String;
+            Region: String;
+            VpcId?: String;
+            Attributes?: StackAttributes;
+            ServiceRoleArn: String;
+            DefaultInstanceProfileArn: String;
+            DefaultOs?: String;
+            HostnameTheme?: String;
+            DefaultAvailabilityZone?: String;
+            DefaultSubnetId?: String;
+            CustomJson?: String;
+            ConfigurationManager?: StackConfigurationManager;
+            ChefConfiguration?: ChefConfiguration;
+            UseCustomCookbooks?: Boolean;
+            UseOpsworksSecurityGroups?: Boolean;
+            CustomCookbooksSource?: Source;
+            DefaultSshKeyName?: String;
+            DefaultRootDeviceType?: RootDeviceType;
+            AgentVersion?: String;
         }
         export interface CreateStackResult {
-            StackId?: String;            
+            StackId?: String;
         }
         export interface CreateUserProfileRequest {
-            IamUserArn: String;            
-            SshUsername?: String;            
-            SshPublicKey?: String;            
-            AllowSelfManagement?: Boolean;            
+            IamUserArn: String;
+            SshUsername?: String;
+            SshPublicKey?: String;
+            AllowSelfManagement?: Boolean;
         }
         export interface CreateUserProfileResult {
-            IamUserArn?: String;            
+            IamUserArn?: String;
         }
         export interface DataSource {
-            Type?: String;            
-            Arn?: String;            
-            DatabaseName?: String;            
+            Type?: String;
+            Arn?: String;
+            DatabaseName?: String;
         }
         export interface DeleteAppRequest {
-            AppId: String;            
+            AppId: String;
         }
         export interface DeleteInstanceRequest {
-            InstanceId: String;            
-            DeleteElasticIp?: Boolean;            
-            DeleteVolumes?: Boolean;            
+            InstanceId: String;
+            DeleteElasticIp?: Boolean;
+            DeleteVolumes?: Boolean;
         }
         export interface DeleteLayerRequest {
-            LayerId: String;            
+            LayerId: String;
         }
         export interface DeleteStackRequest {
-            StackId: String;            
+            StackId: String;
         }
         export interface DeleteUserProfileRequest {
-            IamUserArn: String;            
+            IamUserArn: String;
         }
         export interface Deployment {
-            DeploymentId?: String;            
-            StackId?: String;            
-            AppId?: String;            
-            CreatedAt?: DateTime;            
-            CompletedAt?: DateTime;            
-            Duration?: Integer;            
-            IamUserArn?: String;            
-            Comment?: String;            
-            Command?: DeploymentCommand;            
-            Status?: String;            
-            CustomJson?: String;            
-            InstanceIds?: Strings;            
+            DeploymentId?: String;
+            StackId?: String;
+            AppId?: String;
+            CreatedAt?: DateTime;
+            CompletedAt?: DateTime;
+            Duration?: Integer;
+            IamUserArn?: String;
+            Comment?: String;
+            Command?: DeploymentCommand;
+            Status?: String;
+            CustomJson?: String;
+            InstanceIds?: Strings;
         }
         export interface DeploymentCommand {
-            Name: DeploymentCommandName;            
-            Args?: DeploymentCommandArgs;            
+            Name: DeploymentCommandName;
+            Args?: DeploymentCommandArgs;
         }
         export interface DeregisterEcsClusterRequest {
-            EcsClusterArn: String;            
+            EcsClusterArn: String;
         }
         export interface DeregisterElasticIpRequest {
-            ElasticIp: String;            
+            ElasticIp: String;
         }
         export interface DeregisterInstanceRequest {
-            InstanceId: String;            
+            InstanceId: String;
         }
         export interface DeregisterRdsDbInstanceRequest {
-            RdsDbInstanceArn: String;            
+            RdsDbInstanceArn: String;
         }
         export interface DeregisterVolumeRequest {
-            VolumeId: String;            
+            VolumeId: String;
         }
         export interface DescribeAgentVersionsRequest {
-            StackId?: String;            
-            ConfigurationManager?: StackConfigurationManager;            
+            StackId?: String;
+            ConfigurationManager?: StackConfigurationManager;
         }
         export interface DescribeAgentVersionsResult {
-            AgentVersions?: AgentVersions;            
+            AgentVersions?: AgentVersions;
         }
         export interface DescribeAppsRequest {
-            StackId?: String;            
-            AppIds?: Strings;            
+            StackId?: String;
+            AppIds?: Strings;
         }
         export interface DescribeAppsResult {
-            Apps?: Apps;            
+            Apps?: Apps;
         }
         export interface DescribeCommandsRequest {
-            DeploymentId?: String;            
-            InstanceId?: String;            
-            CommandIds?: Strings;            
+            DeploymentId?: String;
+            InstanceId?: String;
+            CommandIds?: Strings;
         }
         export interface DescribeCommandsResult {
-            Commands?: Commands;            
+            Commands?: Commands;
         }
         export interface DescribeDeploymentsRequest {
-            StackId?: String;            
-            AppId?: String;            
-            DeploymentIds?: Strings;            
+            StackId?: String;
+            AppId?: String;
+            DeploymentIds?: Strings;
         }
         export interface DescribeDeploymentsResult {
-            Deployments?: Deployments;            
+            Deployments?: Deployments;
         }
         export interface DescribeEcsClustersRequest {
-            EcsClusterArns?: Strings;            
-            StackId?: String;            
-            NextToken?: String;            
-            MaxResults?: Integer;            
+            EcsClusterArns?: Strings;
+            StackId?: String;
+            NextToken?: String;
+            MaxResults?: Integer;
         }
         export interface DescribeEcsClustersResult {
-            EcsClusters?: EcsClusters;            
-            NextToken?: String;            
+            EcsClusters?: EcsClusters;
+            NextToken?: String;
         }
         export interface DescribeElasticIpsRequest {
-            InstanceId?: String;            
-            StackId?: String;            
-            Ips?: Strings;            
+            InstanceId?: String;
+            StackId?: String;
+            Ips?: Strings;
         }
         export interface DescribeElasticIpsResult {
-            ElasticIps?: ElasticIps;            
+            ElasticIps?: ElasticIps;
         }
         export interface DescribeElasticLoadBalancersRequest {
-            StackId?: String;            
-            LayerIds?: Strings;            
+            StackId?: String;
+            LayerIds?: Strings;
         }
         export interface DescribeElasticLoadBalancersResult {
-            ElasticLoadBalancers?: ElasticLoadBalancers;            
+            ElasticLoadBalancers?: ElasticLoadBalancers;
         }
         export interface DescribeInstancesRequest {
-            StackId?: String;            
-            LayerId?: String;            
-            InstanceIds?: Strings;            
+            StackId?: String;
+            LayerId?: String;
+            InstanceIds?: Strings;
         }
         export interface DescribeInstancesResult {
-            Instances?: Instances;            
+            Instances?: Instances;
         }
         export interface DescribeLayersRequest {
-            StackId?: String;            
-            LayerIds?: Strings;            
+            StackId?: String;
+            LayerIds?: Strings;
         }
         export interface DescribeLayersResult {
-            Layers?: Layers;            
+            Layers?: Layers;
         }
         export interface DescribeLoadBasedAutoScalingRequest {
-            LayerIds: Strings;            
+            LayerIds: Strings;
         }
         export interface DescribeLoadBasedAutoScalingResult {
-            LoadBasedAutoScalingConfigurations?: LoadBasedAutoScalingConfigurations;            
+            LoadBasedAutoScalingConfigurations?: LoadBasedAutoScalingConfigurations;
         }
         export interface DescribeMyUserProfileResult {
-            UserProfile?: SelfUserProfile;            
+            UserProfile?: SelfUserProfile;
         }
         export interface DescribePermissionsRequest {
-            IamUserArn?: String;            
-            StackId?: String;            
+            IamUserArn?: String;
+            StackId?: String;
         }
         export interface DescribePermissionsResult {
-            Permissions?: Permissions;            
+            Permissions?: Permissions;
         }
         export interface DescribeRaidArraysRequest {
-            InstanceId?: String;            
-            StackId?: String;            
-            RaidArrayIds?: Strings;            
+            InstanceId?: String;
+            StackId?: String;
+            RaidArrayIds?: Strings;
         }
         export interface DescribeRaidArraysResult {
-            RaidArrays?: RaidArrays;            
+            RaidArrays?: RaidArrays;
         }
         export interface DescribeRdsDbInstancesRequest {
-            StackId: String;            
-            RdsDbInstanceArns?: Strings;            
+            StackId: String;
+            RdsDbInstanceArns?: Strings;
         }
         export interface DescribeRdsDbInstancesResult {
-            RdsDbInstances?: RdsDbInstances;            
+            RdsDbInstances?: RdsDbInstances;
         }
         export interface DescribeServiceErrorsRequest {
-            StackId?: String;            
-            InstanceId?: String;            
-            ServiceErrorIds?: Strings;            
+            StackId?: String;
+            InstanceId?: String;
+            ServiceErrorIds?: Strings;
         }
         export interface DescribeServiceErrorsResult {
-            ServiceErrors?: ServiceErrors;            
+            ServiceErrors?: ServiceErrors;
         }
         export interface DescribeStackProvisioningParametersRequest {
-            StackId: String;            
+            StackId: String;
         }
         export interface DescribeStackProvisioningParametersResult {
-            AgentInstallerUrl?: String;            
-            Parameters?: Parameters;            
+            AgentInstallerUrl?: String;
+            Parameters?: Parameters;
         }
         export interface DescribeStackSummaryRequest {
-            StackId: String;            
+            StackId: String;
         }
         export interface DescribeStackSummaryResult {
-            StackSummary?: StackSummary;            
+            StackSummary?: StackSummary;
         }
         export interface DescribeStacksRequest {
-            StackIds?: Strings;            
+            StackIds?: Strings;
         }
         export interface DescribeStacksResult {
-            Stacks?: Stacks;            
+            Stacks?: Stacks;
         }
         export interface DescribeTimeBasedAutoScalingRequest {
-            InstanceIds: Strings;            
+            InstanceIds: Strings;
         }
         export interface DescribeTimeBasedAutoScalingResult {
-            TimeBasedAutoScalingConfigurations?: TimeBasedAutoScalingConfigurations;            
+            TimeBasedAutoScalingConfigurations?: TimeBasedAutoScalingConfigurations;
         }
         export interface DescribeUserProfilesRequest {
-            IamUserArns?: Strings;            
+            IamUserArns?: Strings;
         }
         export interface DescribeUserProfilesResult {
-            UserProfiles?: UserProfiles;            
+            UserProfiles?: UserProfiles;
         }
         export interface DescribeVolumesRequest {
-            InstanceId?: String;            
-            StackId?: String;            
-            RaidArrayId?: String;            
-            VolumeIds?: Strings;            
+            InstanceId?: String;
+            StackId?: String;
+            RaidArrayId?: String;
+            VolumeIds?: Strings;
         }
         export interface DescribeVolumesResult {
-            Volumes?: Volumes;            
+            Volumes?: Volumes;
         }
         export interface DetachElasticLoadBalancerRequest {
-            ElasticLoadBalancerName: String;            
-            LayerId: String;            
+            ElasticLoadBalancerName: String;
+            LayerId: String;
         }
         export interface DisassociateElasticIpRequest {
-            ElasticIp: String;            
+            ElasticIp: String;
         }
         export interface EbsBlockDevice {
-            SnapshotId?: String;            
-            Iops?: Integer;            
-            VolumeSize?: Integer;            
-            VolumeType?: VolumeType;            
-            DeleteOnTermination?: Boolean;            
+            SnapshotId?: String;
+            Iops?: Integer;
+            VolumeSize?: Integer;
+            VolumeType?: VolumeType;
+            DeleteOnTermination?: Boolean;
         }
         export interface EcsCluster {
-            EcsClusterArn?: String;            
-            EcsClusterName?: String;            
-            StackId?: String;            
-            RegisteredAt?: DateTime;            
+            EcsClusterArn?: String;
+            EcsClusterName?: String;
+            StackId?: String;
+            RegisteredAt?: DateTime;
         }
         export interface ElasticIp {
-            Ip?: String;            
-            Name?: String;            
-            Domain?: String;            
-            Region?: String;            
-            InstanceId?: String;            
+            Ip?: String;
+            Name?: String;
+            Domain?: String;
+            Region?: String;
+            InstanceId?: String;
         }
         export interface ElasticLoadBalancer {
-            ElasticLoadBalancerName?: String;            
-            Region?: String;            
-            DnsName?: String;            
-            StackId?: String;            
-            LayerId?: String;            
-            VpcId?: String;            
-            AvailabilityZones?: Strings;            
-            SubnetIds?: Strings;            
-            Ec2InstanceIds?: Strings;            
+            ElasticLoadBalancerName?: String;
+            Region?: String;
+            DnsName?: String;
+            StackId?: String;
+            LayerId?: String;
+            VpcId?: String;
+            AvailabilityZones?: Strings;
+            SubnetIds?: Strings;
+            Ec2InstanceIds?: Strings;
         }
         export interface EnvironmentVariable {
-            Key: String;            
-            Value: String;            
-            Secure?: Boolean;            
+            Key: String;
+            Value: String;
+            Secure?: Boolean;
         }
         export interface GetHostnameSuggestionRequest {
-            LayerId: String;            
+            LayerId: String;
         }
         export interface GetHostnameSuggestionResult {
-            LayerId?: String;            
-            Hostname?: String;            
+            LayerId?: String;
+            Hostname?: String;
         }
         export interface GrantAccessRequest {
-            InstanceId: String;            
-            ValidForInMinutes?: ValidForInMinutes;            
+            InstanceId: String;
+            ValidForInMinutes?: ValidForInMinutes;
         }
         export interface GrantAccessResult {
-            TemporaryCredential?: TemporaryCredential;            
+            TemporaryCredential?: TemporaryCredential;
         }
         export interface Instance {
-            AgentVersion?: String;            
-            AmiId?: String;            
-            Architecture?: Architecture;            
-            AutoScalingType?: AutoScalingType;            
-            AvailabilityZone?: String;            
-            BlockDeviceMappings?: BlockDeviceMappings;            
-            CreatedAt?: DateTime;            
-            EbsOptimized?: Boolean;            
-            Ec2InstanceId?: String;            
-            EcsClusterArn?: String;            
-            EcsContainerInstanceArn?: String;            
-            ElasticIp?: String;            
-            Hostname?: String;            
-            InfrastructureClass?: String;            
-            InstallUpdatesOnBoot?: Boolean;            
-            InstanceId?: String;            
-            InstanceProfileArn?: String;            
-            InstanceType?: String;            
-            LastServiceErrorId?: String;            
-            LayerIds?: Strings;            
-            Os?: String;            
-            Platform?: String;            
-            PrivateDns?: String;            
-            PrivateIp?: String;            
-            PublicDns?: String;            
-            PublicIp?: String;            
-            RegisteredBy?: String;            
-            ReportedAgentVersion?: String;            
-            ReportedOs?: ReportedOs;            
-            RootDeviceType?: RootDeviceType;            
-            RootDeviceVolumeId?: String;            
-            SecurityGroupIds?: Strings;            
-            SshHostDsaKeyFingerprint?: String;            
-            SshHostRsaKeyFingerprint?: String;            
-            SshKeyName?: String;            
-            StackId?: String;            
-            Status?: String;            
-            SubnetId?: String;            
-            VirtualizationType?: VirtualizationType;            
+            AgentVersion?: String;
+            AmiId?: String;
+            Architecture?: Architecture;
+            AutoScalingType?: AutoScalingType;
+            AvailabilityZone?: String;
+            BlockDeviceMappings?: BlockDeviceMappings;
+            CreatedAt?: DateTime;
+            EbsOptimized?: Boolean;
+            Ec2InstanceId?: String;
+            EcsClusterArn?: String;
+            EcsContainerInstanceArn?: String;
+            ElasticIp?: String;
+            Hostname?: String;
+            InfrastructureClass?: String;
+            InstallUpdatesOnBoot?: Boolean;
+            InstanceId?: String;
+            InstanceProfileArn?: String;
+            InstanceType?: String;
+            LastServiceErrorId?: String;
+            LayerIds?: Strings;
+            Os?: String;
+            Platform?: String;
+            PrivateDns?: String;
+            PrivateIp?: String;
+            PublicDns?: String;
+            PublicIp?: String;
+            RegisteredBy?: String;
+            ReportedAgentVersion?: String;
+            ReportedOs?: ReportedOs;
+            RootDeviceType?: RootDeviceType;
+            RootDeviceVolumeId?: String;
+            SecurityGroupIds?: Strings;
+            SshHostDsaKeyFingerprint?: String;
+            SshHostRsaKeyFingerprint?: String;
+            SshKeyName?: String;
+            StackId?: String;
+            Status?: String;
+            SubnetId?: String;
+            VirtualizationType?: VirtualizationType;
         }
         export interface InstanceIdentity {
-            Document?: String;            
-            Signature?: String;            
+            Document?: String;
+            Signature?: String;
         }
         export interface InstancesCount {
-            Assigning?: Integer;            
-            Booting?: Integer;            
-            ConnectionLost?: Integer;            
-            Deregistering?: Integer;            
-            Online?: Integer;            
-            Pending?: Integer;            
-            Rebooting?: Integer;            
-            Registered?: Integer;            
-            Registering?: Integer;            
-            Requested?: Integer;            
-            RunningSetup?: Integer;            
-            SetupFailed?: Integer;            
-            ShuttingDown?: Integer;            
-            StartFailed?: Integer;            
-            Stopped?: Integer;            
-            Stopping?: Integer;            
-            Terminated?: Integer;            
-            Terminating?: Integer;            
-            Unassigning?: Integer;            
+            Assigning?: Integer;
+            Booting?: Integer;
+            ConnectionLost?: Integer;
+            Deregistering?: Integer;
+            Online?: Integer;
+            Pending?: Integer;
+            Rebooting?: Integer;
+            Registered?: Integer;
+            Registering?: Integer;
+            Requested?: Integer;
+            RunningSetup?: Integer;
+            SetupFailed?: Integer;
+            ShuttingDown?: Integer;
+            StartFailed?: Integer;
+            Stopped?: Integer;
+            Stopping?: Integer;
+            Terminated?: Integer;
+            Terminating?: Integer;
+            Unassigning?: Integer;
         }
         export interface Layer {
-            StackId?: String;            
-            LayerId?: String;            
-            Type?: LayerType;            
-            Name?: String;            
-            Shortname?: String;            
-            Attributes?: LayerAttributes;            
-            CustomInstanceProfileArn?: String;            
-            CustomJson?: String;            
-            CustomSecurityGroupIds?: Strings;            
-            DefaultSecurityGroupNames?: Strings;            
-            Packages?: Strings;            
-            VolumeConfigurations?: VolumeConfigurations;            
-            EnableAutoHealing?: Boolean;            
-            AutoAssignElasticIps?: Boolean;            
-            AutoAssignPublicIps?: Boolean;            
-            DefaultRecipes?: Recipes;            
-            CustomRecipes?: Recipes;            
-            CreatedAt?: DateTime;            
-            InstallUpdatesOnBoot?: Boolean;            
-            UseEbsOptimizedInstances?: Boolean;            
-            LifecycleEventConfiguration?: LifecycleEventConfiguration;            
+            StackId?: String;
+            LayerId?: String;
+            Type?: LayerType;
+            Name?: String;
+            Shortname?: String;
+            Attributes?: LayerAttributes;
+            CustomInstanceProfileArn?: String;
+            CustomJson?: String;
+            CustomSecurityGroupIds?: Strings;
+            DefaultSecurityGroupNames?: Strings;
+            Packages?: Strings;
+            VolumeConfigurations?: VolumeConfigurations;
+            EnableAutoHealing?: Boolean;
+            AutoAssignElasticIps?: Boolean;
+            AutoAssignPublicIps?: Boolean;
+            DefaultRecipes?: Recipes;
+            CustomRecipes?: Recipes;
+            CreatedAt?: DateTime;
+            InstallUpdatesOnBoot?: Boolean;
+            UseEbsOptimizedInstances?: Boolean;
+            LifecycleEventConfiguration?: LifecycleEventConfiguration;
         }
         export interface LifecycleEventConfiguration {
-            Shutdown?: ShutdownEventConfiguration;            
+            Shutdown?: ShutdownEventConfiguration;
         }
         export interface LoadBasedAutoScalingConfiguration {
-            LayerId?: String;            
-            Enable?: Boolean;            
-            UpScaling?: AutoScalingThresholds;            
-            DownScaling?: AutoScalingThresholds;            
+            LayerId?: String;
+            Enable?: Boolean;
+            UpScaling?: AutoScalingThresholds;
+            DownScaling?: AutoScalingThresholds;
         }
         export interface Permission {
-            StackId?: String;            
-            IamUserArn?: String;            
-            AllowSsh?: Boolean;            
-            AllowSudo?: Boolean;            
-            Level?: String;            
+            StackId?: String;
+            IamUserArn?: String;
+            AllowSsh?: Boolean;
+            AllowSudo?: Boolean;
+            Level?: String;
         }
         export interface RaidArray {
-            RaidArrayId?: String;            
-            InstanceId?: String;            
-            Name?: String;            
-            RaidLevel?: Integer;            
-            NumberOfDisks?: Integer;            
-            Size?: Integer;            
-            Device?: String;            
-            MountPoint?: String;            
-            AvailabilityZone?: String;            
-            CreatedAt?: DateTime;            
-            StackId?: String;            
-            VolumeType?: String;            
-            Iops?: Integer;            
+            RaidArrayId?: String;
+            InstanceId?: String;
+            Name?: String;
+            RaidLevel?: Integer;
+            NumberOfDisks?: Integer;
+            Size?: Integer;
+            Device?: String;
+            MountPoint?: String;
+            AvailabilityZone?: String;
+            CreatedAt?: DateTime;
+            StackId?: String;
+            VolumeType?: String;
+            Iops?: Integer;
         }
         export interface RdsDbInstance {
-            RdsDbInstanceArn?: String;            
-            DbInstanceIdentifier?: String;            
-            DbUser?: String;            
-            DbPassword?: String;            
-            Region?: String;            
-            Address?: String;            
-            Engine?: String;            
-            StackId?: String;            
-            MissingOnRds?: Boolean;            
+            RdsDbInstanceArn?: String;
+            DbInstanceIdentifier?: String;
+            DbUser?: String;
+            DbPassword?: String;
+            Region?: String;
+            Address?: String;
+            Engine?: String;
+            StackId?: String;
+            MissingOnRds?: Boolean;
         }
         export interface RebootInstanceRequest {
-            InstanceId: String;            
+            InstanceId: String;
         }
         export interface Recipes {
-            Setup?: Strings;            
-            Configure?: Strings;            
-            Deploy?: Strings;            
-            Undeploy?: Strings;            
-            Shutdown?: Strings;            
+            Setup?: Strings;
+            Configure?: Strings;
+            Deploy?: Strings;
+            Undeploy?: Strings;
+            Shutdown?: Strings;
         }
         export interface RegisterEcsClusterRequest {
-            EcsClusterArn: String;            
-            StackId: String;            
+            EcsClusterArn: String;
+            StackId: String;
         }
         export interface RegisterEcsClusterResult {
-            EcsClusterArn?: String;            
+            EcsClusterArn?: String;
         }
         export interface RegisterElasticIpRequest {
-            ElasticIp: String;            
-            StackId: String;            
+            ElasticIp: String;
+            StackId: String;
         }
         export interface RegisterElasticIpResult {
-            ElasticIp?: String;            
+            ElasticIp?: String;
         }
         export interface RegisterInstanceRequest {
-            StackId: String;            
-            Hostname?: String;            
-            PublicIp?: String;            
-            PrivateIp?: String;            
-            RsaPublicKey?: String;            
-            RsaPublicKeyFingerprint?: String;            
-            InstanceIdentity?: InstanceIdentity;            
+            StackId: String;
+            Hostname?: String;
+            PublicIp?: String;
+            PrivateIp?: String;
+            RsaPublicKey?: String;
+            RsaPublicKeyFingerprint?: String;
+            InstanceIdentity?: InstanceIdentity;
         }
         export interface RegisterInstanceResult {
-            InstanceId?: String;            
+            InstanceId?: String;
         }
         export interface RegisterRdsDbInstanceRequest {
-            StackId: String;            
-            RdsDbInstanceArn: String;            
-            DbUser: String;            
-            DbPassword: String;            
+            StackId: String;
+            RdsDbInstanceArn: String;
+            DbUser: String;
+            DbPassword: String;
         }
         export interface RegisterVolumeRequest {
-            Ec2VolumeId?: String;            
-            StackId: String;            
+            Ec2VolumeId?: String;
+            StackId: String;
         }
         export interface RegisterVolumeResult {
-            VolumeId?: String;            
+            VolumeId?: String;
         }
         export interface ReportedOs {
-            Family?: String;            
-            Name?: String;            
-            Version?: String;            
+            Family?: String;
+            Name?: String;
+            Version?: String;
         }
         export interface ResourceNotFoundException {
-            message?: String;            
+            message?: String;
         }
         export interface SelfUserProfile {
-            IamUserArn?: String;            
-            Name?: String;            
-            SshUsername?: String;            
-            SshPublicKey?: String;            
+            IamUserArn?: String;
+            Name?: String;
+            SshUsername?: String;
+            SshPublicKey?: String;
         }
         export interface ServiceError {
-            ServiceErrorId?: String;            
-            StackId?: String;            
-            InstanceId?: String;            
-            Type?: String;            
-            Message?: String;            
-            CreatedAt?: DateTime;            
+            ServiceErrorId?: String;
+            StackId?: String;
+            InstanceId?: String;
+            Type?: String;
+            Message?: String;
+            CreatedAt?: DateTime;
         }
         export interface SetLoadBasedAutoScalingRequest {
-            LayerId: String;            
-            Enable?: Boolean;            
-            UpScaling?: AutoScalingThresholds;            
-            DownScaling?: AutoScalingThresholds;            
+            LayerId: String;
+            Enable?: Boolean;
+            UpScaling?: AutoScalingThresholds;
+            DownScaling?: AutoScalingThresholds;
         }
         export interface SetPermissionRequest {
-            StackId: String;            
-            IamUserArn: String;            
-            AllowSsh?: Boolean;            
-            AllowSudo?: Boolean;            
-            Level?: String;            
+            StackId: String;
+            IamUserArn: String;
+            AllowSsh?: Boolean;
+            AllowSudo?: Boolean;
+            Level?: String;
         }
         export interface SetTimeBasedAutoScalingRequest {
-            InstanceId: String;            
-            AutoScalingSchedule?: WeeklyAutoScalingSchedule;            
+            InstanceId: String;
+            AutoScalingSchedule?: WeeklyAutoScalingSchedule;
         }
         export interface ShutdownEventConfiguration {
-            ExecutionTimeout?: Integer;            
-            DelayUntilElbConnectionsDrained?: Boolean;            
+            ExecutionTimeout?: Integer;
+            DelayUntilElbConnectionsDrained?: Boolean;
         }
         export interface Source {
-            Type?: SourceType;            
-            Url?: String;            
-            Username?: String;            
-            Password?: String;            
-            SshKey?: String;            
-            Revision?: String;            
+            Type?: SourceType;
+            Url?: String;
+            Username?: String;
+            Password?: String;
+            SshKey?: String;
+            Revision?: String;
         }
         export interface SslConfiguration {
-            Certificate: String;            
-            PrivateKey: String;            
-            Chain?: String;            
+            Certificate: String;
+            PrivateKey: String;
+            Chain?: String;
         }
         export interface Stack {
-            StackId?: String;            
-            Name?: String;            
-            Arn?: String;            
-            Region?: String;            
-            VpcId?: String;            
-            Attributes?: StackAttributes;            
-            ServiceRoleArn?: String;            
-            DefaultInstanceProfileArn?: String;            
-            DefaultOs?: String;            
-            HostnameTheme?: String;            
-            DefaultAvailabilityZone?: String;            
-            DefaultSubnetId?: String;            
-            CustomJson?: String;            
-            ConfigurationManager?: StackConfigurationManager;            
-            ChefConfiguration?: ChefConfiguration;            
-            UseCustomCookbooks?: Boolean;            
-            UseOpsworksSecurityGroups?: Boolean;            
-            CustomCookbooksSource?: Source;            
-            DefaultSshKeyName?: String;            
-            CreatedAt?: DateTime;            
-            DefaultRootDeviceType?: RootDeviceType;            
-            AgentVersion?: String;            
+            StackId?: String;
+            Name?: String;
+            Arn?: String;
+            Region?: String;
+            VpcId?: String;
+            Attributes?: StackAttributes;
+            ServiceRoleArn?: String;
+            DefaultInstanceProfileArn?: String;
+            DefaultOs?: String;
+            HostnameTheme?: String;
+            DefaultAvailabilityZone?: String;
+            DefaultSubnetId?: String;
+            CustomJson?: String;
+            ConfigurationManager?: StackConfigurationManager;
+            ChefConfiguration?: ChefConfiguration;
+            UseCustomCookbooks?: Boolean;
+            UseOpsworksSecurityGroups?: Boolean;
+            CustomCookbooksSource?: Source;
+            DefaultSshKeyName?: String;
+            CreatedAt?: DateTime;
+            DefaultRootDeviceType?: RootDeviceType;
+            AgentVersion?: String;
         }
         export interface StackConfigurationManager {
-            Name?: String;            
-            Version?: String;            
+            Name?: String;
+            Version?: String;
         }
         export interface StackSummary {
-            StackId?: String;            
-            Name?: String;            
-            Arn?: String;            
-            LayersCount?: Integer;            
-            AppsCount?: Integer;            
-            InstancesCount?: InstancesCount;            
+            StackId?: String;
+            Name?: String;
+            Arn?: String;
+            LayersCount?: Integer;
+            AppsCount?: Integer;
+            InstancesCount?: InstancesCount;
         }
         export interface StartInstanceRequest {
-            InstanceId: String;            
+            InstanceId: String;
         }
         export interface StartStackRequest {
-            StackId: String;            
+            StackId: String;
         }
         export interface StopInstanceRequest {
-            InstanceId: String;            
+            InstanceId: String;
         }
         export interface StopStackRequest {
-            StackId: String;            
+            StackId: String;
         }
         export interface TemporaryCredential {
-            Username?: String;            
-            Password?: String;            
-            ValidForInMinutes?: Integer;            
-            InstanceId?: String;            
+            Username?: String;
+            Password?: String;
+            ValidForInMinutes?: Integer;
+            InstanceId?: String;
         }
         export interface TimeBasedAutoScalingConfiguration {
-            InstanceId?: String;            
-            AutoScalingSchedule?: WeeklyAutoScalingSchedule;            
+            InstanceId?: String;
+            AutoScalingSchedule?: WeeklyAutoScalingSchedule;
         }
         export interface UnassignInstanceRequest {
-            InstanceId: String;            
+            InstanceId: String;
         }
         export interface UnassignVolumeRequest {
-            VolumeId: String;            
+            VolumeId: String;
         }
         export interface UpdateAppRequest {
-            AppId: String;            
-            Name?: String;            
-            Description?: String;            
-            DataSources?: DataSources;            
-            Type?: AppType;            
-            AppSource?: Source;            
-            Domains?: Strings;            
-            EnableSsl?: Boolean;            
-            SslConfiguration?: SslConfiguration;            
-            Attributes?: AppAttributes;            
-            Environment?: EnvironmentVariables;            
+            AppId: String;
+            Name?: String;
+            Description?: String;
+            DataSources?: DataSources;
+            Type?: AppType;
+            AppSource?: Source;
+            Domains?: Strings;
+            EnableSsl?: Boolean;
+            SslConfiguration?: SslConfiguration;
+            Attributes?: AppAttributes;
+            Environment?: EnvironmentVariables;
         }
         export interface UpdateElasticIpRequest {
-            ElasticIp: String;            
-            Name?: String;            
+            ElasticIp: String;
+            Name?: String;
         }
         export interface UpdateInstanceRequest {
-            InstanceId: String;            
-            LayerIds?: Strings;            
-            InstanceType?: String;            
-            AutoScalingType?: AutoScalingType;            
-            Hostname?: String;            
-            Os?: String;            
-            AmiId?: String;            
-            SshKeyName?: String;            
-            Architecture?: Architecture;            
-            InstallUpdatesOnBoot?: Boolean;            
-            EbsOptimized?: Boolean;            
-            AgentVersion?: String;            
+            InstanceId: String;
+            LayerIds?: Strings;
+            InstanceType?: String;
+            AutoScalingType?: AutoScalingType;
+            Hostname?: String;
+            Os?: String;
+            AmiId?: String;
+            SshKeyName?: String;
+            Architecture?: Architecture;
+            InstallUpdatesOnBoot?: Boolean;
+            EbsOptimized?: Boolean;
+            AgentVersion?: String;
         }
         export interface UpdateLayerRequest {
-            LayerId: String;            
-            Name?: String;            
-            Shortname?: String;            
-            Attributes?: LayerAttributes;            
-            CustomInstanceProfileArn?: String;            
-            CustomJson?: String;            
-            CustomSecurityGroupIds?: Strings;            
-            Packages?: Strings;            
-            VolumeConfigurations?: VolumeConfigurations;            
-            EnableAutoHealing?: Boolean;            
-            AutoAssignElasticIps?: Boolean;            
-            AutoAssignPublicIps?: Boolean;            
-            CustomRecipes?: Recipes;            
-            InstallUpdatesOnBoot?: Boolean;            
-            UseEbsOptimizedInstances?: Boolean;            
-            LifecycleEventConfiguration?: LifecycleEventConfiguration;            
+            LayerId: String;
+            Name?: String;
+            Shortname?: String;
+            Attributes?: LayerAttributes;
+            CustomInstanceProfileArn?: String;
+            CustomJson?: String;
+            CustomSecurityGroupIds?: Strings;
+            Packages?: Strings;
+            VolumeConfigurations?: VolumeConfigurations;
+            EnableAutoHealing?: Boolean;
+            AutoAssignElasticIps?: Boolean;
+            AutoAssignPublicIps?: Boolean;
+            CustomRecipes?: Recipes;
+            InstallUpdatesOnBoot?: Boolean;
+            UseEbsOptimizedInstances?: Boolean;
+            LifecycleEventConfiguration?: LifecycleEventConfiguration;
         }
         export interface UpdateMyUserProfileRequest {
-            SshPublicKey?: String;            
+            SshPublicKey?: String;
         }
         export interface UpdateRdsDbInstanceRequest {
-            RdsDbInstanceArn: String;            
-            DbUser?: String;            
-            DbPassword?: String;            
+            RdsDbInstanceArn: String;
+            DbUser?: String;
+            DbPassword?: String;
         }
         export interface UpdateStackRequest {
-            StackId: String;            
-            Name?: String;            
-            Attributes?: StackAttributes;            
-            ServiceRoleArn?: String;            
-            DefaultInstanceProfileArn?: String;            
-            DefaultOs?: String;            
-            HostnameTheme?: String;            
-            DefaultAvailabilityZone?: String;            
-            DefaultSubnetId?: String;            
-            CustomJson?: String;            
-            ConfigurationManager?: StackConfigurationManager;            
-            ChefConfiguration?: ChefConfiguration;            
-            UseCustomCookbooks?: Boolean;            
-            CustomCookbooksSource?: Source;            
-            DefaultSshKeyName?: String;            
-            DefaultRootDeviceType?: RootDeviceType;            
-            UseOpsworksSecurityGroups?: Boolean;            
-            AgentVersion?: String;            
+            StackId: String;
+            Name?: String;
+            Attributes?: StackAttributes;
+            ServiceRoleArn?: String;
+            DefaultInstanceProfileArn?: String;
+            DefaultOs?: String;
+            HostnameTheme?: String;
+            DefaultAvailabilityZone?: String;
+            DefaultSubnetId?: String;
+            CustomJson?: String;
+            ConfigurationManager?: StackConfigurationManager;
+            ChefConfiguration?: ChefConfiguration;
+            UseCustomCookbooks?: Boolean;
+            CustomCookbooksSource?: Source;
+            DefaultSshKeyName?: String;
+            DefaultRootDeviceType?: RootDeviceType;
+            UseOpsworksSecurityGroups?: Boolean;
+            AgentVersion?: String;
         }
         export interface UpdateUserProfileRequest {
-            IamUserArn: String;            
-            SshUsername?: String;            
-            SshPublicKey?: String;            
-            AllowSelfManagement?: Boolean;            
+            IamUserArn: String;
+            SshUsername?: String;
+            SshPublicKey?: String;
+            AllowSelfManagement?: Boolean;
         }
         export interface UpdateVolumeRequest {
-            VolumeId: String;            
-            Name?: String;            
-            MountPoint?: String;            
+            VolumeId: String;
+            Name?: String;
+            MountPoint?: String;
         }
         export interface UserProfile {
-            IamUserArn?: String;            
-            Name?: String;            
-            SshUsername?: String;            
-            SshPublicKey?: String;            
-            AllowSelfManagement?: Boolean;            
+            IamUserArn?: String;
+            Name?: String;
+            SshUsername?: String;
+            SshPublicKey?: String;
+            AllowSelfManagement?: Boolean;
         }
         export interface ValidationException {
-            message?: String;            
+            message?: String;
         }
         export interface Volume {
-            VolumeId?: String;            
-            Ec2VolumeId?: String;            
-            Name?: String;            
-            RaidArrayId?: String;            
-            InstanceId?: String;            
-            Status?: String;            
-            Size?: Integer;            
-            Device?: String;            
-            MountPoint?: String;            
-            Region?: String;            
-            AvailabilityZone?: String;            
-            VolumeType?: String;            
-            Iops?: Integer;            
+            VolumeId?: String;
+            Ec2VolumeId?: String;
+            Name?: String;
+            RaidArrayId?: String;
+            InstanceId?: String;
+            Status?: String;
+            Size?: Integer;
+            Device?: String;
+            MountPoint?: String;
+            Region?: String;
+            AvailabilityZone?: String;
+            VolumeType?: String;
+            Iops?: Integer;
         }
         export interface VolumeConfiguration {
-            MountPoint: String;            
-            RaidLevel?: Integer;            
-            NumberOfDisks: Integer;            
-            Size: Integer;            
-            VolumeType?: String;            
-            Iops?: Integer;            
+            MountPoint: String;
+            RaidLevel?: Integer;
+            NumberOfDisks: Integer;
+            Size: Integer;
+            VolumeType?: String;
+            Iops?: Integer;
         }
         export interface WeeklyAutoScalingSchedule {
-            Monday?: DailyAutoScalingSchedule;            
-            Tuesday?: DailyAutoScalingSchedule;            
-            Wednesday?: DailyAutoScalingSchedule;            
-            Thursday?: DailyAutoScalingSchedule;            
-            Friday?: DailyAutoScalingSchedule;            
-            Saturday?: DailyAutoScalingSchedule;            
-            Sunday?: DailyAutoScalingSchedule;            
+            Monday?: DailyAutoScalingSchedule;
+            Tuesday?: DailyAutoScalingSchedule;
+            Wednesday?: DailyAutoScalingSchedule;
+            Thursday?: DailyAutoScalingSchedule;
+            Friday?: DailyAutoScalingSchedule;
+            Saturday?: DailyAutoScalingSchedule;
+            Sunday?: DailyAutoScalingSchedule;
         }
 
     }

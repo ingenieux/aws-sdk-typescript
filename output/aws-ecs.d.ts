@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2014-11-13
      * endpointPrefix: ecs
      * serviceAbbreviation: Amazon ECS
@@ -44,8 +44,9 @@ declare module "aws-sdk" {
       submitTaskStateChange(params: ECS.SubmitTaskStateChangeRequest, callback?: (err: ECS.ServerException|ECS.ClientException|any, data: ECS.SubmitTaskStateChangeResponse|any) => void): Request;
       updateContainerAgent(params: ECS.UpdateContainerAgentRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.UpdateInProgressException|ECS.NoUpdateAvailableException|ECS.MissingVersionException|any, data: ECS.UpdateContainerAgentResponse|any) => void): Request;
       updateService(params: ECS.UpdateServiceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ServiceNotFoundException|ECS.ServiceNotActiveException|any, data: ECS.UpdateServiceResponse|any) => void): Request;
+
     }
-    
+
     export module ECS {
         export type AgentUpdateStatus = string;
         export type Attributes = Attribute[];
@@ -89,20 +90,20 @@ declare module "aws-sdk" {
         export type VolumeList = Volume[];
 
         export interface Attribute {
-            name: String;            
-            value?: String;            
+            name: String;
+            value?: String;
         }
         export interface ClientException {
-            message?: String;            
+            message?: String;
         }
         export interface Cluster {
-            clusterArn?: String;            
-            clusterName?: String;            
-            status?: String;            
-            registeredContainerInstancesCount?: Integer;            
-            runningTasksCount?: Integer;            
-            pendingTasksCount?: Integer;            
-            activeServicesCount?: Integer;            
+            clusterArn?: String;
+            clusterName?: String;
+            status?: String;
+            registeredContainerInstancesCount?: Integer;
+            runningTasksCount?: Integer;
+            pendingTasksCount?: Integer;
+            activeServicesCount?: Integer;
         }
         export interface ClusterContainsContainerInstancesException {
         }
@@ -111,432 +112,439 @@ declare module "aws-sdk" {
         export interface ClusterNotFoundException {
         }
         export interface Container {
-            containerArn?: String;            
-            taskArn?: String;            
-            name?: String;            
-            lastStatus?: String;            
-            exitCode?: BoxedInteger;            
-            reason?: String;            
-            networkBindings?: NetworkBindings;            
+            containerArn?: String;
+            taskArn?: String;
+            name?: String;
+            lastStatus?: String;
+            exitCode?: BoxedInteger;
+            reason?: String;
+            networkBindings?: NetworkBindings;
         }
         export interface ContainerDefinition {
-            name?: String;            
-            image?: String;            
-            cpu?: Integer;            
-            memory?: Integer;            
-            links?: StringList;            
-            portMappings?: PortMappingList;            
-            essential?: BoxedBoolean;            
-            entryPoint?: StringList;            
-            command?: StringList;            
-            environment?: EnvironmentVariables;            
-            mountPoints?: MountPointList;            
-            volumesFrom?: VolumeFromList;            
-            hostname?: String;            
-            user?: String;            
-            workingDirectory?: String;            
-            disableNetworking?: BoxedBoolean;            
-            privileged?: BoxedBoolean;            
-            readonlyRootFilesystem?: BoxedBoolean;            
-            dnsServers?: StringList;            
-            dnsSearchDomains?: StringList;            
-            extraHosts?: HostEntryList;            
-            dockerSecurityOptions?: StringList;            
-            dockerLabels?: DockerLabelsMap;            
-            ulimits?: UlimitList;            
-            logConfiguration?: LogConfiguration;            
+            name?: String;
+            image?: String;
+            cpu?: Integer;
+            memory?: Integer;
+            links?: StringList;
+            portMappings?: PortMappingList;
+            essential?: BoxedBoolean;
+            entryPoint?: StringList;
+            command?: StringList;
+            environment?: EnvironmentVariables;
+            mountPoints?: MountPointList;
+            volumesFrom?: VolumeFromList;
+            hostname?: String;
+            user?: String;
+            workingDirectory?: String;
+            disableNetworking?: BoxedBoolean;
+            privileged?: BoxedBoolean;
+            readonlyRootFilesystem?: BoxedBoolean;
+            dnsServers?: StringList;
+            dnsSearchDomains?: StringList;
+            extraHosts?: HostEntryList;
+            dockerSecurityOptions?: StringList;
+            dockerLabels?: DockerLabelsMap;
+            ulimits?: UlimitList;
+            logConfiguration?: LogConfiguration;
         }
         export interface ContainerInstance {
-            containerInstanceArn?: String;            
-            ec2InstanceId?: String;            
-            versionInfo?: VersionInfo;            
-            remainingResources?: Resources;            
-            registeredResources?: Resources;            
-            status?: String;            
-            agentConnected?: Boolean;            
-            runningTasksCount?: Integer;            
-            pendingTasksCount?: Integer;            
-            agentUpdateStatus?: AgentUpdateStatus;            
-            attributes?: Attributes;            
+            containerInstanceArn?: String;
+            ec2InstanceId?: String;
+            versionInfo?: VersionInfo;
+            remainingResources?: Resources;
+            registeredResources?: Resources;
+            status?: String;
+            agentConnected?: Boolean;
+            runningTasksCount?: Integer;
+            pendingTasksCount?: Integer;
+            agentUpdateStatus?: AgentUpdateStatus;
+            attributes?: Attributes;
         }
         export interface ContainerOverride {
-            name?: String;            
-            command?: StringList;            
-            environment?: EnvironmentVariables;            
+            name?: String;
+            command?: StringList;
+            environment?: EnvironmentVariables;
         }
         export interface CreateClusterRequest {
-            clusterName?: String;            
+            clusterName?: String;
         }
         export interface CreateClusterResponse {
-            cluster?: Cluster;            
+            cluster?: Cluster;
         }
         export interface CreateServiceRequest {
-            cluster?: String;            
-            serviceName: String;            
-            taskDefinition: String;            
-            loadBalancers?: LoadBalancers;            
-            desiredCount: BoxedInteger;            
-            clientToken?: String;            
-            role?: String;            
+            cluster?: String;
+            serviceName: String;
+            taskDefinition: String;
+            loadBalancers?: LoadBalancers;
+            desiredCount: BoxedInteger;
+            clientToken?: String;
+            role?: String;
+            deploymentConfiguration?: DeploymentConfiguration;
         }
         export interface CreateServiceResponse {
-            service?: Service;            
+            service?: Service;
         }
         export interface DeleteClusterRequest {
-            cluster: String;            
+            cluster: String;
         }
         export interface DeleteClusterResponse {
-            cluster?: Cluster;            
+            cluster?: Cluster;
         }
         export interface DeleteServiceRequest {
-            cluster?: String;            
-            service: String;            
+            cluster?: String;
+            service: String;
         }
         export interface DeleteServiceResponse {
-            service?: Service;            
+            service?: Service;
         }
         export interface Deployment {
-            id?: String;            
-            status?: String;            
-            taskDefinition?: String;            
-            desiredCount?: Integer;            
-            pendingCount?: Integer;            
-            runningCount?: Integer;            
-            createdAt?: Timestamp;            
-            updatedAt?: Timestamp;            
+            id?: String;
+            status?: String;
+            taskDefinition?: String;
+            desiredCount?: Integer;
+            pendingCount?: Integer;
+            runningCount?: Integer;
+            createdAt?: Timestamp;
+            updatedAt?: Timestamp;
+        }
+        export interface DeploymentConfiguration {
+            maximumPercent?: BoxedInteger;
+            minimumHealthyPercent?: BoxedInteger;
         }
         export interface DeregisterContainerInstanceRequest {
-            cluster?: String;            
-            containerInstance: String;            
-            force?: BoxedBoolean;            
+            cluster?: String;
+            containerInstance: String;
+            force?: BoxedBoolean;
         }
         export interface DeregisterContainerInstanceResponse {
-            containerInstance?: ContainerInstance;            
+            containerInstance?: ContainerInstance;
         }
         export interface DeregisterTaskDefinitionRequest {
-            taskDefinition: String;            
+            taskDefinition: String;
         }
         export interface DeregisterTaskDefinitionResponse {
-            taskDefinition?: TaskDefinition;            
+            taskDefinition?: TaskDefinition;
         }
         export interface DescribeClustersRequest {
-            clusters?: StringList;            
+            clusters?: StringList;
         }
         export interface DescribeClustersResponse {
-            clusters?: Clusters;            
-            failures?: Failures;            
+            clusters?: Clusters;
+            failures?: Failures;
         }
         export interface DescribeContainerInstancesRequest {
-            cluster?: String;            
-            containerInstances: StringList;            
+            cluster?: String;
+            containerInstances: StringList;
         }
         export interface DescribeContainerInstancesResponse {
-            containerInstances?: ContainerInstances;            
-            failures?: Failures;            
+            containerInstances?: ContainerInstances;
+            failures?: Failures;
         }
         export interface DescribeServicesRequest {
-            cluster?: String;            
-            services: StringList;            
+            cluster?: String;
+            services: StringList;
         }
         export interface DescribeServicesResponse {
-            services?: Services;            
-            failures?: Failures;            
+            services?: Services;
+            failures?: Failures;
         }
         export interface DescribeTaskDefinitionRequest {
-            taskDefinition: String;            
+            taskDefinition: String;
         }
         export interface DescribeTaskDefinitionResponse {
-            taskDefinition?: TaskDefinition;            
+            taskDefinition?: TaskDefinition;
         }
         export interface DescribeTasksRequest {
-            cluster?: String;            
-            tasks: StringList;            
+            cluster?: String;
+            tasks: StringList;
         }
         export interface DescribeTasksResponse {
-            tasks?: Tasks;            
-            failures?: Failures;            
+            tasks?: Tasks;
+            failures?: Failures;
         }
         export interface DiscoverPollEndpointRequest {
-            containerInstance?: String;            
-            cluster?: String;            
+            containerInstance?: String;
+            cluster?: String;
         }
         export interface DiscoverPollEndpointResponse {
-            endpoint?: String;            
-            telemetryEndpoint?: String;            
+            endpoint?: String;
+            telemetryEndpoint?: String;
         }
         export interface Failure {
-            arn?: String;            
-            reason?: String;            
+            arn?: String;
+            reason?: String;
         }
         export interface HostEntry {
-            hostname: String;            
-            ipAddress: String;            
+            hostname: String;
+            ipAddress: String;
         }
         export interface HostVolumeProperties {
-            sourcePath?: String;            
+            sourcePath?: String;
         }
         export interface InvalidParameterException {
         }
         export interface KeyValuePair {
-            name?: String;            
-            value?: String;            
+            name?: String;
+            value?: String;
         }
         export interface ListClustersRequest {
-            nextToken?: String;            
-            maxResults?: BoxedInteger;            
+            nextToken?: String;
+            maxResults?: BoxedInteger;
         }
         export interface ListClustersResponse {
-            clusterArns?: StringList;            
-            nextToken?: String;            
+            clusterArns?: StringList;
+            nextToken?: String;
         }
         export interface ListContainerInstancesRequest {
-            cluster?: String;            
-            nextToken?: String;            
-            maxResults?: BoxedInteger;            
+            cluster?: String;
+            nextToken?: String;
+            maxResults?: BoxedInteger;
         }
         export interface ListContainerInstancesResponse {
-            containerInstanceArns?: StringList;            
-            nextToken?: String;            
+            containerInstanceArns?: StringList;
+            nextToken?: String;
         }
         export interface ListServicesRequest {
-            cluster?: String;            
-            nextToken?: String;            
-            maxResults?: BoxedInteger;            
+            cluster?: String;
+            nextToken?: String;
+            maxResults?: BoxedInteger;
         }
         export interface ListServicesResponse {
-            serviceArns?: StringList;            
-            nextToken?: String;            
+            serviceArns?: StringList;
+            nextToken?: String;
         }
         export interface ListTaskDefinitionFamiliesRequest {
-            familyPrefix?: String;            
-            nextToken?: String;            
-            maxResults?: BoxedInteger;            
+            familyPrefix?: String;
+            nextToken?: String;
+            maxResults?: BoxedInteger;
         }
         export interface ListTaskDefinitionFamiliesResponse {
-            families?: StringList;            
-            nextToken?: String;            
+            families?: StringList;
+            nextToken?: String;
         }
         export interface ListTaskDefinitionsRequest {
-            familyPrefix?: String;            
-            status?: TaskDefinitionStatus;            
-            sort?: SortOrder;            
-            nextToken?: String;            
-            maxResults?: BoxedInteger;            
+            familyPrefix?: String;
+            status?: TaskDefinitionStatus;
+            sort?: SortOrder;
+            nextToken?: String;
+            maxResults?: BoxedInteger;
         }
         export interface ListTaskDefinitionsResponse {
-            taskDefinitionArns?: StringList;            
-            nextToken?: String;            
+            taskDefinitionArns?: StringList;
+            nextToken?: String;
         }
         export interface ListTasksRequest {
-            cluster?: String;            
-            containerInstance?: String;            
-            family?: String;            
-            nextToken?: String;            
-            maxResults?: BoxedInteger;            
-            startedBy?: String;            
-            serviceName?: String;            
-            desiredStatus?: DesiredStatus;            
+            cluster?: String;
+            containerInstance?: String;
+            family?: String;
+            nextToken?: String;
+            maxResults?: BoxedInteger;
+            startedBy?: String;
+            serviceName?: String;
+            desiredStatus?: DesiredStatus;
         }
         export interface ListTasksResponse {
-            taskArns?: StringList;            
-            nextToken?: String;            
+            taskArns?: StringList;
+            nextToken?: String;
         }
         export interface LoadBalancer {
-            loadBalancerName?: String;            
-            containerName?: String;            
-            containerPort?: BoxedInteger;            
+            loadBalancerName?: String;
+            containerName?: String;
+            containerPort?: BoxedInteger;
         }
         export interface LogConfiguration {
-            logDriver: LogDriver;            
-            options?: LogConfigurationOptionsMap;            
+            logDriver: LogDriver;
+            options?: LogConfigurationOptionsMap;
         }
         export interface MissingVersionException {
         }
         export interface MountPoint {
-            sourceVolume?: String;            
-            containerPath?: String;            
-            readOnly?: BoxedBoolean;            
+            sourceVolume?: String;
+            containerPath?: String;
+            readOnly?: BoxedBoolean;
         }
         export interface NetworkBinding {
-            bindIP?: String;            
-            containerPort?: BoxedInteger;            
-            hostPort?: BoxedInteger;            
-            protocol?: TransportProtocol;            
+            bindIP?: String;
+            containerPort?: BoxedInteger;
+            hostPort?: BoxedInteger;
+            protocol?: TransportProtocol;
         }
         export interface NoUpdateAvailableException {
         }
         export interface PortMapping {
-            containerPort?: Integer;            
-            hostPort?: Integer;            
-            protocol?: TransportProtocol;            
+            containerPort?: Integer;
+            hostPort?: Integer;
+            protocol?: TransportProtocol;
         }
         export interface RegisterContainerInstanceRequest {
-            cluster?: String;            
-            instanceIdentityDocument?: String;            
-            instanceIdentityDocumentSignature?: String;            
-            totalResources?: Resources;            
-            versionInfo?: VersionInfo;            
-            containerInstanceArn?: String;            
-            attributes?: Attributes;            
+            cluster?: String;
+            instanceIdentityDocument?: String;
+            instanceIdentityDocumentSignature?: String;
+            totalResources?: Resources;
+            versionInfo?: VersionInfo;
+            containerInstanceArn?: String;
+            attributes?: Attributes;
         }
         export interface RegisterContainerInstanceResponse {
-            containerInstance?: ContainerInstance;            
+            containerInstance?: ContainerInstance;
         }
         export interface RegisterTaskDefinitionRequest {
-            family: String;            
-            containerDefinitions: ContainerDefinitions;            
-            volumes?: VolumeList;            
+            family: String;
+            containerDefinitions: ContainerDefinitions;
+            volumes?: VolumeList;
         }
         export interface RegisterTaskDefinitionResponse {
-            taskDefinition?: TaskDefinition;            
+            taskDefinition?: TaskDefinition;
         }
         export interface Resource {
-            name?: String;            
-            type?: String;            
-            doubleValue?: Double;            
-            longValue?: Long;            
-            integerValue?: Integer;            
-            stringSetValue?: StringList;            
+            name?: String;
+            type?: String;
+            doubleValue?: Double;
+            longValue?: Long;
+            integerValue?: Integer;
+            stringSetValue?: StringList;
         }
         export interface RunTaskRequest {
-            cluster?: String;            
-            taskDefinition: String;            
-            overrides?: TaskOverride;            
-            count?: BoxedInteger;            
-            startedBy?: String;            
+            cluster?: String;
+            taskDefinition: String;
+            overrides?: TaskOverride;
+            count?: BoxedInteger;
+            startedBy?: String;
         }
         export interface RunTaskResponse {
-            tasks?: Tasks;            
-            failures?: Failures;            
+            tasks?: Tasks;
+            failures?: Failures;
         }
         export interface ServerException {
-            message?: String;            
+            message?: String;
         }
         export interface Service {
-            serviceArn?: String;            
-            serviceName?: String;            
-            clusterArn?: String;            
-            loadBalancers?: LoadBalancers;            
-            status?: String;            
-            desiredCount?: Integer;            
-            runningCount?: Integer;            
-            pendingCount?: Integer;            
-            taskDefinition?: String;            
-            deployments?: Deployments;            
-            roleArn?: String;            
-            events?: ServiceEvents;            
+            serviceArn?: String;
+            serviceName?: String;
+            clusterArn?: String;
+            loadBalancers?: LoadBalancers;
+            status?: String;
+            desiredCount?: Integer;
+            runningCount?: Integer;
+            pendingCount?: Integer;
+            taskDefinition?: String;
+            deploymentConfiguration?: DeploymentConfiguration;
+            deployments?: Deployments;
+            roleArn?: String;
+            events?: ServiceEvents;
         }
         export interface ServiceEvent {
-            id?: String;            
-            createdAt?: Timestamp;            
-            message?: String;            
+            id?: String;
+            createdAt?: Timestamp;
+            message?: String;
         }
         export interface ServiceNotActiveException {
         }
         export interface ServiceNotFoundException {
         }
         export interface StartTaskRequest {
-            cluster?: String;            
-            taskDefinition: String;            
-            overrides?: TaskOverride;            
-            containerInstances: StringList;            
-            startedBy?: String;            
+            cluster?: String;
+            taskDefinition: String;
+            overrides?: TaskOverride;
+            containerInstances: StringList;
+            startedBy?: String;
         }
         export interface StartTaskResponse {
-            tasks?: Tasks;            
-            failures?: Failures;            
+            tasks?: Tasks;
+            failures?: Failures;
         }
         export interface StopTaskRequest {
-            cluster?: String;            
-            task: String;            
-            reason?: String;            
+            cluster?: String;
+            task: String;
+            reason?: String;
         }
         export interface StopTaskResponse {
-            task?: Task;            
+            task?: Task;
         }
         export interface SubmitContainerStateChangeRequest {
-            cluster?: String;            
-            task?: String;            
-            containerName?: String;            
-            status?: String;            
-            exitCode?: BoxedInteger;            
-            reason?: String;            
-            networkBindings?: NetworkBindings;            
+            cluster?: String;
+            task?: String;
+            containerName?: String;
+            status?: String;
+            exitCode?: BoxedInteger;
+            reason?: String;
+            networkBindings?: NetworkBindings;
         }
         export interface SubmitContainerStateChangeResponse {
-            acknowledgment?: String;            
+            acknowledgment?: String;
         }
         export interface SubmitTaskStateChangeRequest {
-            cluster?: String;            
-            task?: String;            
-            status?: String;            
-            reason?: String;            
+            cluster?: String;
+            task?: String;
+            status?: String;
+            reason?: String;
         }
         export interface SubmitTaskStateChangeResponse {
-            acknowledgment?: String;            
+            acknowledgment?: String;
         }
         export interface Task {
-            taskArn?: String;            
-            clusterArn?: String;            
-            taskDefinitionArn?: String;            
-            containerInstanceArn?: String;            
-            overrides?: TaskOverride;            
-            lastStatus?: String;            
-            desiredStatus?: String;            
-            containers?: Containers;            
-            startedBy?: String;            
-            stoppedReason?: String;            
-            createdAt?: Timestamp;            
-            startedAt?: Timestamp;            
-            stoppedAt?: Timestamp;            
+            taskArn?: String;
+            clusterArn?: String;
+            taskDefinitionArn?: String;
+            containerInstanceArn?: String;
+            overrides?: TaskOverride;
+            lastStatus?: String;
+            desiredStatus?: String;
+            containers?: Containers;
+            startedBy?: String;
+            stoppedReason?: String;
+            createdAt?: Timestamp;
+            startedAt?: Timestamp;
+            stoppedAt?: Timestamp;
         }
         export interface TaskDefinition {
-            taskDefinitionArn?: String;            
-            containerDefinitions?: ContainerDefinitions;            
-            family?: String;            
-            revision?: Integer;            
-            volumes?: VolumeList;            
-            status?: TaskDefinitionStatus;            
-            requiresAttributes?: RequiresAttributes;            
+            taskDefinitionArn?: String;
+            containerDefinitions?: ContainerDefinitions;
+            family?: String;
+            revision?: Integer;
+            volumes?: VolumeList;
+            status?: TaskDefinitionStatus;
+            requiresAttributes?: RequiresAttributes;
         }
         export interface TaskOverride {
-            containerOverrides?: ContainerOverrides;            
+            containerOverrides?: ContainerOverrides;
         }
         export interface Ulimit {
-            name: UlimitName;            
-            softLimit: Integer;            
-            hardLimit: Integer;            
+            name: UlimitName;
+            softLimit: Integer;
+            hardLimit: Integer;
         }
         export interface UpdateContainerAgentRequest {
-            cluster?: String;            
-            containerInstance: String;            
+            cluster?: String;
+            containerInstance: String;
         }
         export interface UpdateContainerAgentResponse {
-            containerInstance?: ContainerInstance;            
+            containerInstance?: ContainerInstance;
         }
         export interface UpdateInProgressException {
         }
         export interface UpdateServiceRequest {
-            cluster?: String;            
-            service: String;            
-            desiredCount?: BoxedInteger;            
-            taskDefinition?: String;            
+            cluster?: String;
+            service: String;
+            desiredCount?: BoxedInteger;
+            taskDefinition?: String;
+            deploymentConfiguration?: DeploymentConfiguration;
         }
         export interface UpdateServiceResponse {
-            service?: Service;            
+            service?: Service;
         }
         export interface VersionInfo {
-            agentVersion?: String;            
-            agentHash?: String;            
-            dockerVersion?: String;            
+            agentVersion?: String;
+            agentHash?: String;
+            dockerVersion?: String;
         }
         export interface Volume {
-            name?: String;            
-            host?: HostVolumeProperties;            
+            name?: String;
+            host?: HostVolumeProperties;
         }
         export interface VolumeFrom {
-            sourceContainer?: String;            
-            readOnly?: BoxedBoolean;            
+            sourceContainer?: String;
+            readOnly?: BoxedBoolean;
         }
 
     }

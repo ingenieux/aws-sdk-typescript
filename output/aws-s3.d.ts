@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2006-03-01
      * endpointPrefix: s3
      * serviceAbbreviation: Amazon S3
@@ -73,8 +73,53 @@ declare module "aws-sdk" {
       restoreObject(params: S3.RestoreObjectRequest, callback?: (err: S3.ObjectAlreadyInActiveTierError|any, data: S3.RestoreObjectOutput|any) => void): Request;
       uploadPart(params: S3.UploadPartRequest, callback?: (err: any, data: S3.UploadPartOutput|any) => void): Request;
       uploadPartCopy(params: S3.UploadPartCopyRequest, callback?: (err: any, data: S3.UploadPartCopyOutput|any) => void): Request;
+
+      // Found on JS Sources - Sorry for the inconvenience :)
+      validateService(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      setupRequestListeners(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      validateScheme(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      validateBucketEndpoint(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      populateURI(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      addExpect100Continue(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      addContentType(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      computableChecksumOperations(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      willComputeChecksums(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      computeContentMd5(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      computeSseCustomerKeyMd5(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      pathStyleBucketName(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      dnsCompatibleBucketName(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      successfulResponse(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      retryableError(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      extractData(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      extractError(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      getSignedUrl(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      prepareSignedUrl(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      noPresignedContentLength(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      createBucket(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      upload(...args: any[]): any
     }
-    
+
     export module S3 {
         export type AcceptRanges = string;
         export type AllowedHeader = string;
@@ -245,595 +290,595 @@ declare module "aws-sdk" {
         export type WebsiteRedirectLocation = string;
 
         export interface AbortMultipartUploadOutput {
-            RequestCharged?: RequestCharged;            
+            RequestCharged?: RequestCharged;
         }
         export interface AbortMultipartUploadRequest {
-            Bucket: BucketName;            
-            Key: ObjectKey;            
-            UploadId: MultipartUploadId;            
-            RequestPayer?: RequestPayer;            
+            Bucket: BucketName;
+            Key: ObjectKey;
+            UploadId: MultipartUploadId;
+            RequestPayer?: RequestPayer;
         }
         export interface AccessControlPolicy {
-            Grants?: Grants;            
-            Owner?: Owner;            
+            Grants?: Grants;
+            Owner?: Owner;
         }
         export interface Bucket {
-            Name?: BucketName;            
-            CreationDate?: CreationDate;            
+            Name?: BucketName;
+            CreationDate?: CreationDate;
         }
         export interface BucketAlreadyExists {
         }
         export interface BucketLifecycleConfiguration {
-            Rules: LifecycleRules;            
+            Rules: LifecycleRules;
         }
         export interface BucketLoggingStatus {
-            LoggingEnabled?: LoggingEnabled;            
+            LoggingEnabled?: LoggingEnabled;
         }
         export interface CORSConfiguration {
-            CORSRules: CORSRules;            
+            CORSRules: CORSRules;
         }
         export interface CORSRule {
-            AllowedHeaders?: AllowedHeaders;            
-            AllowedMethods: AllowedMethods;            
-            AllowedOrigins: AllowedOrigins;            
-            ExposeHeaders?: ExposeHeaders;            
-            MaxAgeSeconds?: MaxAgeSeconds;            
+            AllowedHeaders?: AllowedHeaders;
+            AllowedMethods: AllowedMethods;
+            AllowedOrigins: AllowedOrigins;
+            ExposeHeaders?: ExposeHeaders;
+            MaxAgeSeconds?: MaxAgeSeconds;
         }
         export interface CloudFunctionConfiguration {
-            Id?: NotificationId;            
-            Event?: Event;            
-            Events?: EventList;            
-            CloudFunction?: CloudFunction;            
-            InvocationRole?: CloudFunctionInvocationRole;            
+            Id?: NotificationId;
+            Event?: Event;
+            Events?: EventList;
+            CloudFunction?: CloudFunction;
+            InvocationRole?: CloudFunctionInvocationRole;
         }
         export interface CommonPrefix {
-            Prefix?: Prefix;            
+            Prefix?: Prefix;
         }
         export interface CompleteMultipartUploadOutput {
-            Location?: Location;            
-            Bucket?: BucketName;            
-            Key?: ObjectKey;            
-            Expiration?: Expiration;            
-            ETag?: ETag;            
-            ServerSideEncryption?: ServerSideEncryption;            
-            VersionId?: ObjectVersionId;            
-            SSEKMSKeyId?: SSEKMSKeyId;            
-            RequestCharged?: RequestCharged;            
+            Location?: Location;
+            Bucket?: BucketName;
+            Key?: ObjectKey;
+            Expiration?: Expiration;
+            ETag?: ETag;
+            ServerSideEncryption?: ServerSideEncryption;
+            VersionId?: ObjectVersionId;
+            SSEKMSKeyId?: SSEKMSKeyId;
+            RequestCharged?: RequestCharged;
         }
         export interface CompleteMultipartUploadRequest {
-            Bucket: BucketName;            
-            Key: ObjectKey;            
-            MultipartUpload?: CompletedMultipartUpload;            
-            UploadId: MultipartUploadId;            
-            RequestPayer?: RequestPayer;            
+            Bucket: BucketName;
+            Key: ObjectKey;
+            MultipartUpload?: CompletedMultipartUpload;
+            UploadId: MultipartUploadId;
+            RequestPayer?: RequestPayer;
         }
         export interface CompletedMultipartUpload {
-            Parts?: CompletedPartList;            
+            Parts?: CompletedPartList;
         }
         export interface CompletedPart {
-            ETag?: ETag;            
-            PartNumber?: PartNumber;            
+            ETag?: ETag;
+            PartNumber?: PartNumber;
         }
         export interface Condition {
-            HttpErrorCodeReturnedEquals?: HttpErrorCodeReturnedEquals;            
-            KeyPrefixEquals?: KeyPrefixEquals;            
+            HttpErrorCodeReturnedEquals?: HttpErrorCodeReturnedEquals;
+            KeyPrefixEquals?: KeyPrefixEquals;
         }
         export interface CopyObjectOutput {
-            CopyObjectResult?: CopyObjectResult;            
-            Expiration?: Expiration;            
-            CopySourceVersionId?: CopySourceVersionId;            
-            VersionId?: ObjectVersionId;            
-            ServerSideEncryption?: ServerSideEncryption;            
-            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
-            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
-            SSEKMSKeyId?: SSEKMSKeyId;            
-            RequestCharged?: RequestCharged;            
+            CopyObjectResult?: CopyObjectResult;
+            Expiration?: Expiration;
+            CopySourceVersionId?: CopySourceVersionId;
+            VersionId?: ObjectVersionId;
+            ServerSideEncryption?: ServerSideEncryption;
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;
+            SSEKMSKeyId?: SSEKMSKeyId;
+            RequestCharged?: RequestCharged;
         }
         export interface CopyObjectRequest {
-            ACL?: ObjectCannedACL;            
-            Bucket: BucketName;            
-            CacheControl?: CacheControl;            
-            ContentDisposition?: ContentDisposition;            
-            ContentEncoding?: ContentEncoding;            
-            ContentLanguage?: ContentLanguage;            
-            ContentType?: ContentType;            
-            CopySource: CopySource;            
-            CopySourceIfMatch?: CopySourceIfMatch;            
-            CopySourceIfModifiedSince?: CopySourceIfModifiedSince;            
-            CopySourceIfNoneMatch?: CopySourceIfNoneMatch;            
-            CopySourceIfUnmodifiedSince?: CopySourceIfUnmodifiedSince;            
-            Expires?: Expires;            
-            GrantFullControl?: GrantFullControl;            
-            GrantRead?: GrantRead;            
-            GrantReadACP?: GrantReadACP;            
-            GrantWriteACP?: GrantWriteACP;            
-            Key: ObjectKey;            
-            Metadata?: Metadata;            
-            MetadataDirective?: MetadataDirective;            
-            ServerSideEncryption?: ServerSideEncryption;            
-            StorageClass?: StorageClass;            
-            WebsiteRedirectLocation?: WebsiteRedirectLocation;            
-            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
-            SSECustomerKey?: SSECustomerKey;            
-            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
-            SSEKMSKeyId?: SSEKMSKeyId;            
-            CopySourceSSECustomerAlgorithm?: CopySourceSSECustomerAlgorithm;            
-            CopySourceSSECustomerKey?: CopySourceSSECustomerKey;            
-            CopySourceSSECustomerKeyMD5?: CopySourceSSECustomerKeyMD5;            
-            RequestPayer?: RequestPayer;            
+            ACL?: ObjectCannedACL;
+            Bucket: BucketName;
+            CacheControl?: CacheControl;
+            ContentDisposition?: ContentDisposition;
+            ContentEncoding?: ContentEncoding;
+            ContentLanguage?: ContentLanguage;
+            ContentType?: ContentType;
+            CopySource: CopySource;
+            CopySourceIfMatch?: CopySourceIfMatch;
+            CopySourceIfModifiedSince?: CopySourceIfModifiedSince;
+            CopySourceIfNoneMatch?: CopySourceIfNoneMatch;
+            CopySourceIfUnmodifiedSince?: CopySourceIfUnmodifiedSince;
+            Expires?: Expires;
+            GrantFullControl?: GrantFullControl;
+            GrantRead?: GrantRead;
+            GrantReadACP?: GrantReadACP;
+            GrantWriteACP?: GrantWriteACP;
+            Key: ObjectKey;
+            Metadata?: Metadata;
+            MetadataDirective?: MetadataDirective;
+            ServerSideEncryption?: ServerSideEncryption;
+            StorageClass?: StorageClass;
+            WebsiteRedirectLocation?: WebsiteRedirectLocation;
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;
+            SSECustomerKey?: SSECustomerKey;
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;
+            SSEKMSKeyId?: SSEKMSKeyId;
+            CopySourceSSECustomerAlgorithm?: CopySourceSSECustomerAlgorithm;
+            CopySourceSSECustomerKey?: CopySourceSSECustomerKey;
+            CopySourceSSECustomerKeyMD5?: CopySourceSSECustomerKeyMD5;
+            RequestPayer?: RequestPayer;
         }
         export interface CopyObjectResult {
-            ETag?: ETag;            
-            LastModified?: LastModified;            
+            ETag?: ETag;
+            LastModified?: LastModified;
         }
         export interface CopyPartResult {
-            ETag?: ETag;            
-            LastModified?: LastModified;            
+            ETag?: ETag;
+            LastModified?: LastModified;
         }
         export interface CreateBucketConfiguration {
-            LocationConstraint?: BucketLocationConstraint;            
+            LocationConstraint?: BucketLocationConstraint;
         }
         export interface CreateBucketOutput {
-            Location?: Location;            
+            Location?: Location;
         }
         export interface CreateBucketRequest {
-            ACL?: BucketCannedACL;            
-            Bucket: BucketName;            
-            CreateBucketConfiguration?: CreateBucketConfiguration;            
-            GrantFullControl?: GrantFullControl;            
-            GrantRead?: GrantRead;            
-            GrantReadACP?: GrantReadACP;            
-            GrantWrite?: GrantWrite;            
-            GrantWriteACP?: GrantWriteACP;            
+            ACL?: BucketCannedACL;
+            Bucket: BucketName;
+            CreateBucketConfiguration?: CreateBucketConfiguration;
+            GrantFullControl?: GrantFullControl;
+            GrantRead?: GrantRead;
+            GrantReadACP?: GrantReadACP;
+            GrantWrite?: GrantWrite;
+            GrantWriteACP?: GrantWriteACP;
         }
         export interface CreateMultipartUploadOutput {
-            Bucket?: BucketName;            
-            Key?: ObjectKey;            
-            UploadId?: MultipartUploadId;            
-            ServerSideEncryption?: ServerSideEncryption;            
-            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
-            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
-            SSEKMSKeyId?: SSEKMSKeyId;            
-            RequestCharged?: RequestCharged;            
+            Bucket?: BucketName;
+            Key?: ObjectKey;
+            UploadId?: MultipartUploadId;
+            ServerSideEncryption?: ServerSideEncryption;
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;
+            SSEKMSKeyId?: SSEKMSKeyId;
+            RequestCharged?: RequestCharged;
         }
         export interface CreateMultipartUploadRequest {
-            ACL?: ObjectCannedACL;            
-            Bucket: BucketName;            
-            CacheControl?: CacheControl;            
-            ContentDisposition?: ContentDisposition;            
-            ContentEncoding?: ContentEncoding;            
-            ContentLanguage?: ContentLanguage;            
-            ContentType?: ContentType;            
-            Expires?: Expires;            
-            GrantFullControl?: GrantFullControl;            
-            GrantRead?: GrantRead;            
-            GrantReadACP?: GrantReadACP;            
-            GrantWriteACP?: GrantWriteACP;            
-            Key: ObjectKey;            
-            Metadata?: Metadata;            
-            ServerSideEncryption?: ServerSideEncryption;            
-            StorageClass?: StorageClass;            
-            WebsiteRedirectLocation?: WebsiteRedirectLocation;            
-            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
-            SSECustomerKey?: SSECustomerKey;            
-            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
-            SSEKMSKeyId?: SSEKMSKeyId;            
-            RequestPayer?: RequestPayer;            
+            ACL?: ObjectCannedACL;
+            Bucket: BucketName;
+            CacheControl?: CacheControl;
+            ContentDisposition?: ContentDisposition;
+            ContentEncoding?: ContentEncoding;
+            ContentLanguage?: ContentLanguage;
+            ContentType?: ContentType;
+            Expires?: Expires;
+            GrantFullControl?: GrantFullControl;
+            GrantRead?: GrantRead;
+            GrantReadACP?: GrantReadACP;
+            GrantWriteACP?: GrantWriteACP;
+            Key: ObjectKey;
+            Metadata?: Metadata;
+            ServerSideEncryption?: ServerSideEncryption;
+            StorageClass?: StorageClass;
+            WebsiteRedirectLocation?: WebsiteRedirectLocation;
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;
+            SSECustomerKey?: SSECustomerKey;
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;
+            SSEKMSKeyId?: SSEKMSKeyId;
+            RequestPayer?: RequestPayer;
         }
         export interface Delete {
-            Objects: ObjectIdentifierList;            
-            Quiet?: Quiet;            
+            Objects: ObjectIdentifierList;
+            Quiet?: Quiet;
         }
         export interface DeleteBucketCorsRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface DeleteBucketLifecycleRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface DeleteBucketPolicyRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface DeleteBucketReplicationRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface DeleteBucketRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface DeleteBucketTaggingRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface DeleteBucketWebsiteRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface DeleteMarkerEntry {
-            Owner?: Owner;            
-            Key?: ObjectKey;            
-            VersionId?: ObjectVersionId;            
-            IsLatest?: IsLatest;            
-            LastModified?: LastModified;            
+            Owner?: Owner;
+            Key?: ObjectKey;
+            VersionId?: ObjectVersionId;
+            IsLatest?: IsLatest;
+            LastModified?: LastModified;
         }
         export interface DeleteObjectOutput {
-            DeleteMarker?: DeleteMarker;            
-            VersionId?: ObjectVersionId;            
-            RequestCharged?: RequestCharged;            
+            DeleteMarker?: DeleteMarker;
+            VersionId?: ObjectVersionId;
+            RequestCharged?: RequestCharged;
         }
         export interface DeleteObjectRequest {
-            Bucket: BucketName;            
-            Key: ObjectKey;            
-            MFA?: MFA;            
-            VersionId?: ObjectVersionId;            
-            RequestPayer?: RequestPayer;            
+            Bucket: BucketName;
+            Key: ObjectKey;
+            MFA?: MFA;
+            VersionId?: ObjectVersionId;
+            RequestPayer?: RequestPayer;
         }
         export interface DeleteObjectsOutput {
-            Deleted?: DeletedObjects;            
-            RequestCharged?: RequestCharged;            
-            Errors?: Errors;            
+            Deleted?: DeletedObjects;
+            RequestCharged?: RequestCharged;
+            Errors?: Errors;
         }
         export interface DeleteObjectsRequest {
-            Bucket: BucketName;            
-            Delete: Delete;            
-            MFA?: MFA;            
-            RequestPayer?: RequestPayer;            
+            Bucket: BucketName;
+            Delete: Delete;
+            MFA?: MFA;
+            RequestPayer?: RequestPayer;
         }
         export interface DeletedObject {
-            Key?: ObjectKey;            
-            VersionId?: ObjectVersionId;            
-            DeleteMarker?: DeleteMarker;            
-            DeleteMarkerVersionId?: DeleteMarkerVersionId;            
+            Key?: ObjectKey;
+            VersionId?: ObjectVersionId;
+            DeleteMarker?: DeleteMarker;
+            DeleteMarkerVersionId?: DeleteMarkerVersionId;
         }
         export interface Destination {
-            Bucket: BucketName;            
-            StorageClass?: StorageClass;            
+            Bucket: BucketName;
+            StorageClass?: StorageClass;
         }
         export interface Error {
-            Key?: ObjectKey;            
-            VersionId?: ObjectVersionId;            
-            Code?: Code;            
-            Message?: Message;            
+            Key?: ObjectKey;
+            VersionId?: ObjectVersionId;
+            Code?: Code;
+            Message?: Message;
         }
         export interface ErrorDocument {
-            Key: ObjectKey;            
+            Key: ObjectKey;
         }
         export interface FilterRule {
-            Name?: FilterRuleName;            
-            Value?: FilterRuleValue;            
+            Name?: FilterRuleName;
+            Value?: FilterRuleValue;
         }
         export interface GetBucketAclOutput {
-            Owner?: Owner;            
-            Grants?: Grants;            
+            Owner?: Owner;
+            Grants?: Grants;
         }
         export interface GetBucketAclRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface GetBucketCorsOutput {
-            CORSRules?: CORSRules;            
+            CORSRules?: CORSRules;
         }
         export interface GetBucketCorsRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface GetBucketLifecycleConfigurationOutput {
-            Rules?: LifecycleRules;            
+            Rules?: LifecycleRules;
         }
         export interface GetBucketLifecycleConfigurationRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface GetBucketLifecycleOutput {
-            Rules?: Rules;            
+            Rules?: Rules;
         }
         export interface GetBucketLifecycleRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface GetBucketLocationOutput {
-            LocationConstraint?: BucketLocationConstraint;            
+            LocationConstraint?: BucketLocationConstraint;
         }
         export interface GetBucketLocationRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface GetBucketLoggingOutput {
-            LoggingEnabled?: LoggingEnabled;            
+            LoggingEnabled?: LoggingEnabled;
         }
         export interface GetBucketLoggingRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface GetBucketNotificationConfigurationRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface GetBucketPolicyOutput {
-            Policy?: Policy;            
+            Policy?: Policy;
         }
         export interface GetBucketPolicyRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface GetBucketReplicationOutput {
-            ReplicationConfiguration?: ReplicationConfiguration;            
+            ReplicationConfiguration?: ReplicationConfiguration;
         }
         export interface GetBucketReplicationRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface GetBucketRequestPaymentOutput {
-            Payer?: Payer;            
+            Payer?: Payer;
         }
         export interface GetBucketRequestPaymentRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface GetBucketTaggingOutput {
-            TagSet: TagSet;            
+            TagSet: TagSet;
         }
         export interface GetBucketTaggingRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface GetBucketVersioningOutput {
-            Status?: BucketVersioningStatus;            
-            MFADelete?: MFADeleteStatus;            
+            Status?: BucketVersioningStatus;
+            MFADelete?: MFADeleteStatus;
         }
         export interface GetBucketVersioningRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface GetBucketWebsiteOutput {
-            RedirectAllRequestsTo?: RedirectAllRequestsTo;            
-            IndexDocument?: IndexDocument;            
-            ErrorDocument?: ErrorDocument;            
-            RoutingRules?: RoutingRules;            
+            RedirectAllRequestsTo?: RedirectAllRequestsTo;
+            IndexDocument?: IndexDocument;
+            ErrorDocument?: ErrorDocument;
+            RoutingRules?: RoutingRules;
         }
         export interface GetBucketWebsiteRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface GetObjectAclOutput {
-            Owner?: Owner;            
-            Grants?: Grants;            
-            RequestCharged?: RequestCharged;            
+            Owner?: Owner;
+            Grants?: Grants;
+            RequestCharged?: RequestCharged;
         }
         export interface GetObjectAclRequest {
-            Bucket: BucketName;            
-            Key: ObjectKey;            
-            VersionId?: ObjectVersionId;            
-            RequestPayer?: RequestPayer;            
+            Bucket: BucketName;
+            Key: ObjectKey;
+            VersionId?: ObjectVersionId;
+            RequestPayer?: RequestPayer;
         }
         export interface GetObjectOutput {
-            Body?: Body;            
-            DeleteMarker?: DeleteMarker;            
-            AcceptRanges?: AcceptRanges;            
-            Expiration?: Expiration;            
-            Restore?: Restore;            
-            LastModified?: LastModified;            
-            ContentLength?: ContentLength;            
-            ETag?: ETag;            
-            MissingMeta?: MissingMeta;            
-            VersionId?: ObjectVersionId;            
-            CacheControl?: CacheControl;            
-            ContentDisposition?: ContentDisposition;            
-            ContentEncoding?: ContentEncoding;            
-            ContentLanguage?: ContentLanguage;            
-            ContentRange?: ContentRange;            
-            ContentType?: ContentType;            
-            Expires?: Expires;            
-            WebsiteRedirectLocation?: WebsiteRedirectLocation;            
-            ServerSideEncryption?: ServerSideEncryption;            
-            Metadata?: Metadata;            
-            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
-            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
-            SSEKMSKeyId?: SSEKMSKeyId;            
-            StorageClass?: StorageClass;            
-            RequestCharged?: RequestCharged;            
-            ReplicationStatus?: ReplicationStatus;            
+            Body?: Body;
+            DeleteMarker?: DeleteMarker;
+            AcceptRanges?: AcceptRanges;
+            Expiration?: Expiration;
+            Restore?: Restore;
+            LastModified?: LastModified;
+            ContentLength?: ContentLength;
+            ETag?: ETag;
+            MissingMeta?: MissingMeta;
+            VersionId?: ObjectVersionId;
+            CacheControl?: CacheControl;
+            ContentDisposition?: ContentDisposition;
+            ContentEncoding?: ContentEncoding;
+            ContentLanguage?: ContentLanguage;
+            ContentRange?: ContentRange;
+            ContentType?: ContentType;
+            Expires?: Expires;
+            WebsiteRedirectLocation?: WebsiteRedirectLocation;
+            ServerSideEncryption?: ServerSideEncryption;
+            Metadata?: Metadata;
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;
+            SSEKMSKeyId?: SSEKMSKeyId;
+            StorageClass?: StorageClass;
+            RequestCharged?: RequestCharged;
+            ReplicationStatus?: ReplicationStatus;
         }
         export interface GetObjectRequest {
-            Bucket: BucketName;            
-            IfMatch?: IfMatch;            
-            IfModifiedSince?: IfModifiedSince;            
-            IfNoneMatch?: IfNoneMatch;            
-            IfUnmodifiedSince?: IfUnmodifiedSince;            
-            Key: ObjectKey;            
-            Range?: Range;            
-            ResponseCacheControl?: ResponseCacheControl;            
-            ResponseContentDisposition?: ResponseContentDisposition;            
-            ResponseContentEncoding?: ResponseContentEncoding;            
-            ResponseContentLanguage?: ResponseContentLanguage;            
-            ResponseContentType?: ResponseContentType;            
-            ResponseExpires?: ResponseExpires;            
-            VersionId?: ObjectVersionId;            
-            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
-            SSECustomerKey?: SSECustomerKey;            
-            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
-            RequestPayer?: RequestPayer;            
+            Bucket: BucketName;
+            IfMatch?: IfMatch;
+            IfModifiedSince?: IfModifiedSince;
+            IfNoneMatch?: IfNoneMatch;
+            IfUnmodifiedSince?: IfUnmodifiedSince;
+            Key: ObjectKey;
+            Range?: Range;
+            ResponseCacheControl?: ResponseCacheControl;
+            ResponseContentDisposition?: ResponseContentDisposition;
+            ResponseContentEncoding?: ResponseContentEncoding;
+            ResponseContentLanguage?: ResponseContentLanguage;
+            ResponseContentType?: ResponseContentType;
+            ResponseExpires?: ResponseExpires;
+            VersionId?: ObjectVersionId;
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;
+            SSECustomerKey?: SSECustomerKey;
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;
+            RequestPayer?: RequestPayer;
         }
         export interface GetObjectTorrentOutput {
-            Body?: Body;            
-            RequestCharged?: RequestCharged;            
+            Body?: Body;
+            RequestCharged?: RequestCharged;
         }
         export interface GetObjectTorrentRequest {
-            Bucket: BucketName;            
-            Key: ObjectKey;            
-            RequestPayer?: RequestPayer;            
+            Bucket: BucketName;
+            Key: ObjectKey;
+            RequestPayer?: RequestPayer;
         }
         export interface Grant {
-            Grantee?: Grantee;            
-            Permission?: Permission;            
+            Grantee?: Grantee;
+            Permission?: Permission;
         }
         export interface Grantee {
-            DisplayName?: DisplayName;            
-            EmailAddress?: EmailAddress;            
-            ID?: ID;            
-            Type: Type;            
-            URI?: URI;            
+            DisplayName?: DisplayName;
+            EmailAddress?: EmailAddress;
+            ID?: ID;
+            Type: Type;
+            URI?: URI;
         }
         export interface HeadBucketRequest {
-            Bucket: BucketName;            
+            Bucket: BucketName;
         }
         export interface HeadObjectOutput {
-            DeleteMarker?: DeleteMarker;            
-            AcceptRanges?: AcceptRanges;            
-            Expiration?: Expiration;            
-            Restore?: Restore;            
-            LastModified?: LastModified;            
-            ContentLength?: ContentLength;            
-            ETag?: ETag;            
-            MissingMeta?: MissingMeta;            
-            VersionId?: ObjectVersionId;            
-            CacheControl?: CacheControl;            
-            ContentDisposition?: ContentDisposition;            
-            ContentEncoding?: ContentEncoding;            
-            ContentLanguage?: ContentLanguage;            
-            ContentType?: ContentType;            
-            Expires?: Expires;            
-            WebsiteRedirectLocation?: WebsiteRedirectLocation;            
-            ServerSideEncryption?: ServerSideEncryption;            
-            Metadata?: Metadata;            
-            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
-            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
-            SSEKMSKeyId?: SSEKMSKeyId;            
-            StorageClass?: StorageClass;            
-            RequestCharged?: RequestCharged;            
-            ReplicationStatus?: ReplicationStatus;            
+            DeleteMarker?: DeleteMarker;
+            AcceptRanges?: AcceptRanges;
+            Expiration?: Expiration;
+            Restore?: Restore;
+            LastModified?: LastModified;
+            ContentLength?: ContentLength;
+            ETag?: ETag;
+            MissingMeta?: MissingMeta;
+            VersionId?: ObjectVersionId;
+            CacheControl?: CacheControl;
+            ContentDisposition?: ContentDisposition;
+            ContentEncoding?: ContentEncoding;
+            ContentLanguage?: ContentLanguage;
+            ContentType?: ContentType;
+            Expires?: Expires;
+            WebsiteRedirectLocation?: WebsiteRedirectLocation;
+            ServerSideEncryption?: ServerSideEncryption;
+            Metadata?: Metadata;
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;
+            SSEKMSKeyId?: SSEKMSKeyId;
+            StorageClass?: StorageClass;
+            RequestCharged?: RequestCharged;
+            ReplicationStatus?: ReplicationStatus;
         }
         export interface HeadObjectRequest {
-            Bucket: BucketName;            
-            IfMatch?: IfMatch;            
-            IfModifiedSince?: IfModifiedSince;            
-            IfNoneMatch?: IfNoneMatch;            
-            IfUnmodifiedSince?: IfUnmodifiedSince;            
-            Key: ObjectKey;            
-            Range?: Range;            
-            VersionId?: ObjectVersionId;            
-            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
-            SSECustomerKey?: SSECustomerKey;            
-            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
-            RequestPayer?: RequestPayer;            
+            Bucket: BucketName;
+            IfMatch?: IfMatch;
+            IfModifiedSince?: IfModifiedSince;
+            IfNoneMatch?: IfNoneMatch;
+            IfUnmodifiedSince?: IfUnmodifiedSince;
+            Key: ObjectKey;
+            Range?: Range;
+            VersionId?: ObjectVersionId;
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;
+            SSECustomerKey?: SSECustomerKey;
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;
+            RequestPayer?: RequestPayer;
         }
         export interface IndexDocument {
-            Suffix: Suffix;            
+            Suffix: Suffix;
         }
         export interface Initiator {
-            ID?: ID;            
-            DisplayName?: DisplayName;            
+            ID?: ID;
+            DisplayName?: DisplayName;
         }
         export interface LambdaFunctionConfiguration {
-            Id?: NotificationId;            
-            LambdaFunctionArn: LambdaFunctionArn;            
-            Events: EventList;            
-            Filter?: NotificationConfigurationFilter;            
+            Id?: NotificationId;
+            LambdaFunctionArn: LambdaFunctionArn;
+            Events: EventList;
+            Filter?: NotificationConfigurationFilter;
         }
         export interface LifecycleConfiguration {
-            Rules: Rules;            
+            Rules: Rules;
         }
         export interface LifecycleExpiration {
-            Date?: Date;            
-            Days?: Days;            
+            Date?: Date;
+            Days?: Days;
         }
         export interface LifecycleRule {
-            Expiration?: LifecycleExpiration;            
-            ID?: ID;            
-            Prefix: Prefix;            
-            Status: ExpirationStatus;            
-            Transitions?: TransitionList;            
-            NoncurrentVersionTransitions?: NoncurrentVersionTransitionList;            
-            NoncurrentVersionExpiration?: NoncurrentVersionExpiration;            
+            Expiration?: LifecycleExpiration;
+            ID?: ID;
+            Prefix: Prefix;
+            Status: ExpirationStatus;
+            Transitions?: TransitionList;
+            NoncurrentVersionTransitions?: NoncurrentVersionTransitionList;
+            NoncurrentVersionExpiration?: NoncurrentVersionExpiration;
         }
         export interface ListBucketsOutput {
-            Buckets?: Buckets;            
-            Owner?: Owner;            
+            Buckets?: Buckets;
+            Owner?: Owner;
         }
         export interface ListMultipartUploadsOutput {
-            Bucket?: BucketName;            
-            KeyMarker?: KeyMarker;            
-            UploadIdMarker?: UploadIdMarker;            
-            NextKeyMarker?: NextKeyMarker;            
-            Prefix?: Prefix;            
-            Delimiter?: Delimiter;            
-            NextUploadIdMarker?: NextUploadIdMarker;            
-            MaxUploads?: MaxUploads;            
-            IsTruncated?: IsTruncated;            
-            Uploads?: MultipartUploadList;            
-            CommonPrefixes?: CommonPrefixList;            
-            EncodingType?: EncodingType;            
+            Bucket?: BucketName;
+            KeyMarker?: KeyMarker;
+            UploadIdMarker?: UploadIdMarker;
+            NextKeyMarker?: NextKeyMarker;
+            Prefix?: Prefix;
+            Delimiter?: Delimiter;
+            NextUploadIdMarker?: NextUploadIdMarker;
+            MaxUploads?: MaxUploads;
+            IsTruncated?: IsTruncated;
+            Uploads?: MultipartUploadList;
+            CommonPrefixes?: CommonPrefixList;
+            EncodingType?: EncodingType;
         }
         export interface ListMultipartUploadsRequest {
-            Bucket: BucketName;            
-            Delimiter?: Delimiter;            
-            EncodingType?: EncodingType;            
-            KeyMarker?: KeyMarker;            
-            MaxUploads?: MaxUploads;            
-            Prefix?: Prefix;            
-            UploadIdMarker?: UploadIdMarker;            
+            Bucket: BucketName;
+            Delimiter?: Delimiter;
+            EncodingType?: EncodingType;
+            KeyMarker?: KeyMarker;
+            MaxUploads?: MaxUploads;
+            Prefix?: Prefix;
+            UploadIdMarker?: UploadIdMarker;
         }
         export interface ListObjectVersionsOutput {
-            IsTruncated?: IsTruncated;            
-            KeyMarker?: KeyMarker;            
-            VersionIdMarker?: VersionIdMarker;            
-            NextKeyMarker?: NextKeyMarker;            
-            NextVersionIdMarker?: NextVersionIdMarker;            
-            Versions?: ObjectVersionList;            
-            DeleteMarkers?: DeleteMarkers;            
-            Name?: BucketName;            
-            Prefix?: Prefix;            
-            Delimiter?: Delimiter;            
-            MaxKeys?: MaxKeys;            
-            CommonPrefixes?: CommonPrefixList;            
-            EncodingType?: EncodingType;            
+            IsTruncated?: IsTruncated;
+            KeyMarker?: KeyMarker;
+            VersionIdMarker?: VersionIdMarker;
+            NextKeyMarker?: NextKeyMarker;
+            NextVersionIdMarker?: NextVersionIdMarker;
+            Versions?: ObjectVersionList;
+            DeleteMarkers?: DeleteMarkers;
+            Name?: BucketName;
+            Prefix?: Prefix;
+            Delimiter?: Delimiter;
+            MaxKeys?: MaxKeys;
+            CommonPrefixes?: CommonPrefixList;
+            EncodingType?: EncodingType;
         }
         export interface ListObjectVersionsRequest {
-            Bucket: BucketName;            
-            Delimiter?: Delimiter;            
-            EncodingType?: EncodingType;            
-            KeyMarker?: KeyMarker;            
-            MaxKeys?: MaxKeys;            
-            Prefix?: Prefix;            
-            VersionIdMarker?: VersionIdMarker;            
+            Bucket: BucketName;
+            Delimiter?: Delimiter;
+            EncodingType?: EncodingType;
+            KeyMarker?: KeyMarker;
+            MaxKeys?: MaxKeys;
+            Prefix?: Prefix;
+            VersionIdMarker?: VersionIdMarker;
         }
         export interface ListObjectsOutput {
-            IsTruncated?: IsTruncated;            
-            Marker?: Marker;            
-            NextMarker?: NextMarker;            
-            Contents?: ObjectList;            
-            Name?: BucketName;            
-            Prefix?: Prefix;            
-            Delimiter?: Delimiter;            
-            MaxKeys?: MaxKeys;            
-            CommonPrefixes?: CommonPrefixList;            
-            EncodingType?: EncodingType;            
+            IsTruncated?: IsTruncated;
+            Marker?: Marker;
+            NextMarker?: NextMarker;
+            Contents?: ObjectList;
+            Name?: BucketName;
+            Prefix?: Prefix;
+            Delimiter?: Delimiter;
+            MaxKeys?: MaxKeys;
+            CommonPrefixes?: CommonPrefixList;
+            EncodingType?: EncodingType;
         }
         export interface ListObjectsRequest {
-            Bucket: BucketName;            
-            Delimiter?: Delimiter;            
-            EncodingType?: EncodingType;            
-            Marker?: Marker;            
-            MaxKeys?: MaxKeys;            
-            Prefix?: Prefix;            
+            Bucket: BucketName;
+            Delimiter?: Delimiter;
+            EncodingType?: EncodingType;
+            Marker?: Marker;
+            MaxKeys?: MaxKeys;
+            Prefix?: Prefix;
         }
         export interface ListPartsOutput {
-            Bucket?: BucketName;            
-            Key?: ObjectKey;            
-            UploadId?: MultipartUploadId;            
-            PartNumberMarker?: PartNumberMarker;            
-            NextPartNumberMarker?: NextPartNumberMarker;            
-            MaxParts?: MaxParts;            
-            IsTruncated?: IsTruncated;            
-            Parts?: Parts;            
-            Initiator?: Initiator;            
-            Owner?: Owner;            
-            StorageClass?: StorageClass;            
-            RequestCharged?: RequestCharged;            
+            Bucket?: BucketName;
+            Key?: ObjectKey;
+            UploadId?: MultipartUploadId;
+            PartNumberMarker?: PartNumberMarker;
+            NextPartNumberMarker?: NextPartNumberMarker;
+            MaxParts?: MaxParts;
+            IsTruncated?: IsTruncated;
+            Parts?: Parts;
+            Initiator?: Initiator;
+            Owner?: Owner;
+            StorageClass?: StorageClass;
+            RequestCharged?: RequestCharged;
         }
         export interface ListPartsRequest {
-            Bucket: BucketName;            
-            Key: ObjectKey;            
-            MaxParts?: MaxParts;            
-            PartNumberMarker?: PartNumberMarker;            
-            UploadId: MultipartUploadId;            
-            RequestPayer?: RequestPayer;            
+            Bucket: BucketName;
+            Key: ObjectKey;
+            MaxParts?: MaxParts;
+            PartNumberMarker?: PartNumberMarker;
+            UploadId: MultipartUploadId;
+            RequestPayer?: RequestPayer;
         }
         export interface LoggingEnabled {
-            TargetBucket?: TargetBucket;            
-            TargetGrants?: TargetGrants;            
-            TargetPrefix?: TargetPrefix;            
+            TargetBucket?: TargetBucket;
+            TargetGrants?: TargetGrants;
+            TargetPrefix?: TargetPrefix;
         }
         export interface MultipartUpload {
-            UploadId?: MultipartUploadId;            
-            Key?: ObjectKey;            
-            Initiated?: Initiated;            
-            StorageClass?: StorageClass;            
-            Owner?: Owner;            
-            Initiator?: Initiator;            
+            UploadId?: MultipartUploadId;
+            Key?: ObjectKey;
+            Initiated?: Initiated;
+            StorageClass?: StorageClass;
+            Owner?: Owner;
+            Initiator?: Initiator;
         }
         export interface NoSuchBucket {
         }
@@ -842,335 +887,335 @@ declare module "aws-sdk" {
         export interface NoSuchUpload {
         }
         export interface NoncurrentVersionExpiration {
-            NoncurrentDays?: Days;            
+            NoncurrentDays?: Days;
         }
         export interface NoncurrentVersionTransition {
-            NoncurrentDays?: Days;            
-            StorageClass?: TransitionStorageClass;            
+            NoncurrentDays?: Days;
+            StorageClass?: TransitionStorageClass;
         }
         export interface NotificationConfiguration {
-            TopicConfigurations?: TopicConfigurationList;            
-            QueueConfigurations?: QueueConfigurationList;            
-            LambdaFunctionConfigurations?: LambdaFunctionConfigurationList;            
+            TopicConfigurations?: TopicConfigurationList;
+            QueueConfigurations?: QueueConfigurationList;
+            LambdaFunctionConfigurations?: LambdaFunctionConfigurationList;
         }
         export interface NotificationConfigurationDeprecated {
-            TopicConfiguration?: TopicConfigurationDeprecated;            
-            QueueConfiguration?: QueueConfigurationDeprecated;            
-            CloudFunctionConfiguration?: CloudFunctionConfiguration;            
+            TopicConfiguration?: TopicConfigurationDeprecated;
+            QueueConfiguration?: QueueConfigurationDeprecated;
+            CloudFunctionConfiguration?: CloudFunctionConfiguration;
         }
         export interface NotificationConfigurationFilter {
-            Key?: S3KeyFilter;            
+            Key?: S3KeyFilter;
         }
         export interface Object {
-            Key?: ObjectKey;            
-            LastModified?: LastModified;            
-            ETag?: ETag;            
-            Size?: Size;            
-            StorageClass?: ObjectStorageClass;            
-            Owner?: Owner;            
+            Key?: ObjectKey;
+            LastModified?: LastModified;
+            ETag?: ETag;
+            Size?: Size;
+            StorageClass?: ObjectStorageClass;
+            Owner?: Owner;
         }
         export interface ObjectAlreadyInActiveTierError {
         }
         export interface ObjectIdentifier {
-            Key: ObjectKey;            
-            VersionId?: ObjectVersionId;            
+            Key: ObjectKey;
+            VersionId?: ObjectVersionId;
         }
         export interface ObjectNotInActiveTierError {
         }
         export interface ObjectVersion {
-            ETag?: ETag;            
-            Size?: Size;            
-            StorageClass?: ObjectVersionStorageClass;            
-            Key?: ObjectKey;            
-            VersionId?: ObjectVersionId;            
-            IsLatest?: IsLatest;            
-            LastModified?: LastModified;            
-            Owner?: Owner;            
+            ETag?: ETag;
+            Size?: Size;
+            StorageClass?: ObjectVersionStorageClass;
+            Key?: ObjectKey;
+            VersionId?: ObjectVersionId;
+            IsLatest?: IsLatest;
+            LastModified?: LastModified;
+            Owner?: Owner;
         }
         export interface Owner {
-            DisplayName?: DisplayName;            
-            ID?: ID;            
+            DisplayName?: DisplayName;
+            ID?: ID;
         }
         export interface Part {
-            PartNumber?: PartNumber;            
-            LastModified?: LastModified;            
-            ETag?: ETag;            
-            Size?: Size;            
+            PartNumber?: PartNumber;
+            LastModified?: LastModified;
+            ETag?: ETag;
+            Size?: Size;
         }
         export interface PutBucketAclRequest {
-            ACL?: BucketCannedACL;            
-            AccessControlPolicy?: AccessControlPolicy;            
-            Bucket: BucketName;            
-            ContentMD5?: ContentMD5;            
-            GrantFullControl?: GrantFullControl;            
-            GrantRead?: GrantRead;            
-            GrantReadACP?: GrantReadACP;            
-            GrantWrite?: GrantWrite;            
-            GrantWriteACP?: GrantWriteACP;            
+            ACL?: BucketCannedACL;
+            AccessControlPolicy?: AccessControlPolicy;
+            Bucket: BucketName;
+            ContentMD5?: ContentMD5;
+            GrantFullControl?: GrantFullControl;
+            GrantRead?: GrantRead;
+            GrantReadACP?: GrantReadACP;
+            GrantWrite?: GrantWrite;
+            GrantWriteACP?: GrantWriteACP;
         }
         export interface PutBucketCorsRequest {
-            Bucket: BucketName;            
-            CORSConfiguration: CORSConfiguration;            
-            ContentMD5?: ContentMD5;            
+            Bucket: BucketName;
+            CORSConfiguration: CORSConfiguration;
+            ContentMD5?: ContentMD5;
         }
         export interface PutBucketLifecycleConfigurationRequest {
-            Bucket: BucketName;            
-            LifecycleConfiguration?: BucketLifecycleConfiguration;            
+            Bucket: BucketName;
+            LifecycleConfiguration?: BucketLifecycleConfiguration;
         }
         export interface PutBucketLifecycleRequest {
-            Bucket: BucketName;            
-            ContentMD5?: ContentMD5;            
-            LifecycleConfiguration?: LifecycleConfiguration;            
+            Bucket: BucketName;
+            ContentMD5?: ContentMD5;
+            LifecycleConfiguration?: LifecycleConfiguration;
         }
         export interface PutBucketLoggingRequest {
-            Bucket: BucketName;            
-            BucketLoggingStatus: BucketLoggingStatus;            
-            ContentMD5?: ContentMD5;            
+            Bucket: BucketName;
+            BucketLoggingStatus: BucketLoggingStatus;
+            ContentMD5?: ContentMD5;
         }
         export interface PutBucketNotificationConfigurationRequest {
-            Bucket: BucketName;            
-            NotificationConfiguration: NotificationConfiguration;            
+            Bucket: BucketName;
+            NotificationConfiguration: NotificationConfiguration;
         }
         export interface PutBucketNotificationRequest {
-            Bucket: BucketName;            
-            ContentMD5?: ContentMD5;            
-            NotificationConfiguration: NotificationConfigurationDeprecated;            
+            Bucket: BucketName;
+            ContentMD5?: ContentMD5;
+            NotificationConfiguration: NotificationConfigurationDeprecated;
         }
         export interface PutBucketPolicyRequest {
-            Bucket: BucketName;            
-            ContentMD5?: ContentMD5;            
-            Policy: Policy;            
+            Bucket: BucketName;
+            ContentMD5?: ContentMD5;
+            Policy: Policy;
         }
         export interface PutBucketReplicationRequest {
-            Bucket: BucketName;            
-            ContentMD5?: ContentMD5;            
-            ReplicationConfiguration: ReplicationConfiguration;            
+            Bucket: BucketName;
+            ContentMD5?: ContentMD5;
+            ReplicationConfiguration: ReplicationConfiguration;
         }
         export interface PutBucketRequestPaymentRequest {
-            Bucket: BucketName;            
-            ContentMD5?: ContentMD5;            
-            RequestPaymentConfiguration: RequestPaymentConfiguration;            
+            Bucket: BucketName;
+            ContentMD5?: ContentMD5;
+            RequestPaymentConfiguration: RequestPaymentConfiguration;
         }
         export interface PutBucketTaggingRequest {
-            Bucket: BucketName;            
-            ContentMD5?: ContentMD5;            
-            Tagging: Tagging;            
+            Bucket: BucketName;
+            ContentMD5?: ContentMD5;
+            Tagging: Tagging;
         }
         export interface PutBucketVersioningRequest {
-            Bucket: BucketName;            
-            ContentMD5?: ContentMD5;            
-            MFA?: MFA;            
-            VersioningConfiguration: VersioningConfiguration;            
+            Bucket: BucketName;
+            ContentMD5?: ContentMD5;
+            MFA?: MFA;
+            VersioningConfiguration: VersioningConfiguration;
         }
         export interface PutBucketWebsiteRequest {
-            Bucket: BucketName;            
-            ContentMD5?: ContentMD5;            
-            WebsiteConfiguration: WebsiteConfiguration;            
+            Bucket: BucketName;
+            ContentMD5?: ContentMD5;
+            WebsiteConfiguration: WebsiteConfiguration;
         }
         export interface PutObjectAclOutput {
-            RequestCharged?: RequestCharged;            
+            RequestCharged?: RequestCharged;
         }
         export interface PutObjectAclRequest {
-            ACL?: ObjectCannedACL;            
-            AccessControlPolicy?: AccessControlPolicy;            
-            Bucket: BucketName;            
-            ContentMD5?: ContentMD5;            
-            GrantFullControl?: GrantFullControl;            
-            GrantRead?: GrantRead;            
-            GrantReadACP?: GrantReadACP;            
-            GrantWrite?: GrantWrite;            
-            GrantWriteACP?: GrantWriteACP;            
-            Key: ObjectKey;            
-            RequestPayer?: RequestPayer;            
+            ACL?: ObjectCannedACL;
+            AccessControlPolicy?: AccessControlPolicy;
+            Bucket: BucketName;
+            ContentMD5?: ContentMD5;
+            GrantFullControl?: GrantFullControl;
+            GrantRead?: GrantRead;
+            GrantReadACP?: GrantReadACP;
+            GrantWrite?: GrantWrite;
+            GrantWriteACP?: GrantWriteACP;
+            Key: ObjectKey;
+            RequestPayer?: RequestPayer;
         }
         export interface PutObjectOutput {
-            Expiration?: Expiration;            
-            ETag?: ETag;            
-            ServerSideEncryption?: ServerSideEncryption;            
-            VersionId?: ObjectVersionId;            
-            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
-            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
-            SSEKMSKeyId?: SSEKMSKeyId;            
-            RequestCharged?: RequestCharged;            
+            Expiration?: Expiration;
+            ETag?: ETag;
+            ServerSideEncryption?: ServerSideEncryption;
+            VersionId?: ObjectVersionId;
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;
+            SSEKMSKeyId?: SSEKMSKeyId;
+            RequestCharged?: RequestCharged;
         }
         export interface PutObjectRequest {
-            ACL?: ObjectCannedACL;            
-            Body?: Body;            
-            Bucket: BucketName;            
-            CacheControl?: CacheControl;            
-            ContentDisposition?: ContentDisposition;            
-            ContentEncoding?: ContentEncoding;            
-            ContentLanguage?: ContentLanguage;            
-            ContentLength?: ContentLength;            
-            ContentMD5?: ContentMD5;            
-            ContentType?: ContentType;            
-            Expires?: Expires;            
-            GrantFullControl?: GrantFullControl;            
-            GrantRead?: GrantRead;            
-            GrantReadACP?: GrantReadACP;            
-            GrantWriteACP?: GrantWriteACP;            
-            Key: ObjectKey;            
-            Metadata?: Metadata;            
-            ServerSideEncryption?: ServerSideEncryption;            
-            StorageClass?: StorageClass;            
-            WebsiteRedirectLocation?: WebsiteRedirectLocation;            
-            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
-            SSECustomerKey?: SSECustomerKey;            
-            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
-            SSEKMSKeyId?: SSEKMSKeyId;            
-            RequestPayer?: RequestPayer;            
+            ACL?: ObjectCannedACL;
+            Body?: Body;
+            Bucket: BucketName;
+            CacheControl?: CacheControl;
+            ContentDisposition?: ContentDisposition;
+            ContentEncoding?: ContentEncoding;
+            ContentLanguage?: ContentLanguage;
+            ContentLength?: ContentLength;
+            ContentMD5?: ContentMD5;
+            ContentType?: ContentType;
+            Expires?: Expires;
+            GrantFullControl?: GrantFullControl;
+            GrantRead?: GrantRead;
+            GrantReadACP?: GrantReadACP;
+            GrantWriteACP?: GrantWriteACP;
+            Key: ObjectKey;
+            Metadata?: Metadata;
+            ServerSideEncryption?: ServerSideEncryption;
+            StorageClass?: StorageClass;
+            WebsiteRedirectLocation?: WebsiteRedirectLocation;
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;
+            SSECustomerKey?: SSECustomerKey;
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;
+            SSEKMSKeyId?: SSEKMSKeyId;
+            RequestPayer?: RequestPayer;
         }
         export interface QueueConfiguration {
-            Id?: NotificationId;            
-            QueueArn: QueueArn;            
-            Events: EventList;            
-            Filter?: NotificationConfigurationFilter;            
+            Id?: NotificationId;
+            QueueArn: QueueArn;
+            Events: EventList;
+            Filter?: NotificationConfigurationFilter;
         }
         export interface QueueConfigurationDeprecated {
-            Id?: NotificationId;            
-            Event?: Event;            
-            Events?: EventList;            
-            Queue?: QueueArn;            
+            Id?: NotificationId;
+            Event?: Event;
+            Events?: EventList;
+            Queue?: QueueArn;
         }
         export interface Redirect {
-            HostName?: HostName;            
-            HttpRedirectCode?: HttpRedirectCode;            
-            Protocol?: Protocol;            
-            ReplaceKeyPrefixWith?: ReplaceKeyPrefixWith;            
-            ReplaceKeyWith?: ReplaceKeyWith;            
+            HostName?: HostName;
+            HttpRedirectCode?: HttpRedirectCode;
+            Protocol?: Protocol;
+            ReplaceKeyPrefixWith?: ReplaceKeyPrefixWith;
+            ReplaceKeyWith?: ReplaceKeyWith;
         }
         export interface RedirectAllRequestsTo {
-            HostName: HostName;            
-            Protocol?: Protocol;            
+            HostName: HostName;
+            Protocol?: Protocol;
         }
         export interface ReplicationConfiguration {
-            Role: Role;            
-            Rules: ReplicationRules;            
+            Role: Role;
+            Rules: ReplicationRules;
         }
         export interface ReplicationRule {
-            ID?: ID;            
-            Prefix: Prefix;            
-            Status: ReplicationRuleStatus;            
-            Destination: Destination;            
+            ID?: ID;
+            Prefix: Prefix;
+            Status: ReplicationRuleStatus;
+            Destination: Destination;
         }
         export interface RequestPaymentConfiguration {
-            Payer: Payer;            
+            Payer: Payer;
         }
         export interface RestoreObjectOutput {
-            RequestCharged?: RequestCharged;            
+            RequestCharged?: RequestCharged;
         }
         export interface RestoreObjectRequest {
-            Bucket: BucketName;            
-            Key: ObjectKey;            
-            VersionId?: ObjectVersionId;            
-            RestoreRequest?: RestoreRequest;            
-            RequestPayer?: RequestPayer;            
+            Bucket: BucketName;
+            Key: ObjectKey;
+            VersionId?: ObjectVersionId;
+            RestoreRequest?: RestoreRequest;
+            RequestPayer?: RequestPayer;
         }
         export interface RestoreRequest {
-            Days: Days;            
+            Days: Days;
         }
         export interface RoutingRule {
-            Condition?: Condition;            
-            Redirect: Redirect;            
+            Condition?: Condition;
+            Redirect: Redirect;
         }
         export interface Rule {
-            Expiration?: LifecycleExpiration;            
-            ID?: ID;            
-            Prefix: Prefix;            
-            Status: ExpirationStatus;            
-            Transition?: Transition;            
-            NoncurrentVersionTransition?: NoncurrentVersionTransition;            
-            NoncurrentVersionExpiration?: NoncurrentVersionExpiration;            
+            Expiration?: LifecycleExpiration;
+            ID?: ID;
+            Prefix: Prefix;
+            Status: ExpirationStatus;
+            Transition?: Transition;
+            NoncurrentVersionTransition?: NoncurrentVersionTransition;
+            NoncurrentVersionExpiration?: NoncurrentVersionExpiration;
         }
         export interface S3KeyFilter {
-            FilterRules?: FilterRuleList;            
+            FilterRules?: FilterRuleList;
         }
         export interface Tag {
-            Key: ObjectKey;            
-            Value: Value;            
+            Key: ObjectKey;
+            Value: Value;
         }
         export interface Tagging {
-            TagSet: TagSet;            
+            TagSet: TagSet;
         }
         export interface TargetGrant {
-            Grantee?: Grantee;            
-            Permission?: BucketLogsPermission;            
+            Grantee?: Grantee;
+            Permission?: BucketLogsPermission;
         }
         export interface TopicConfiguration {
-            Id?: NotificationId;            
-            TopicArn: TopicArn;            
-            Events: EventList;            
-            Filter?: NotificationConfigurationFilter;            
+            Id?: NotificationId;
+            TopicArn: TopicArn;
+            Events: EventList;
+            Filter?: NotificationConfigurationFilter;
         }
         export interface TopicConfigurationDeprecated {
-            Id?: NotificationId;            
-            Events?: EventList;            
-            Event?: Event;            
-            Topic?: TopicArn;            
+            Id?: NotificationId;
+            Events?: EventList;
+            Event?: Event;
+            Topic?: TopicArn;
         }
         export interface Transition {
-            Date?: Date;            
-            Days?: Days;            
-            StorageClass?: TransitionStorageClass;            
+            Date?: Date;
+            Days?: Days;
+            StorageClass?: TransitionStorageClass;
         }
         export interface UploadPartCopyOutput {
-            CopySourceVersionId?: CopySourceVersionId;            
-            CopyPartResult?: CopyPartResult;            
-            ServerSideEncryption?: ServerSideEncryption;            
-            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
-            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
-            SSEKMSKeyId?: SSEKMSKeyId;            
-            RequestCharged?: RequestCharged;            
+            CopySourceVersionId?: CopySourceVersionId;
+            CopyPartResult?: CopyPartResult;
+            ServerSideEncryption?: ServerSideEncryption;
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;
+            SSEKMSKeyId?: SSEKMSKeyId;
+            RequestCharged?: RequestCharged;
         }
         export interface UploadPartCopyRequest {
-            Bucket: BucketName;            
-            CopySource: CopySource;            
-            CopySourceIfMatch?: CopySourceIfMatch;            
-            CopySourceIfModifiedSince?: CopySourceIfModifiedSince;            
-            CopySourceIfNoneMatch?: CopySourceIfNoneMatch;            
-            CopySourceIfUnmodifiedSince?: CopySourceIfUnmodifiedSince;            
-            CopySourceRange?: CopySourceRange;            
-            Key: ObjectKey;            
-            PartNumber: PartNumber;            
-            UploadId: MultipartUploadId;            
-            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
-            SSECustomerKey?: SSECustomerKey;            
-            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
-            CopySourceSSECustomerAlgorithm?: CopySourceSSECustomerAlgorithm;            
-            CopySourceSSECustomerKey?: CopySourceSSECustomerKey;            
-            CopySourceSSECustomerKeyMD5?: CopySourceSSECustomerKeyMD5;            
-            RequestPayer?: RequestPayer;            
+            Bucket: BucketName;
+            CopySource: CopySource;
+            CopySourceIfMatch?: CopySourceIfMatch;
+            CopySourceIfModifiedSince?: CopySourceIfModifiedSince;
+            CopySourceIfNoneMatch?: CopySourceIfNoneMatch;
+            CopySourceIfUnmodifiedSince?: CopySourceIfUnmodifiedSince;
+            CopySourceRange?: CopySourceRange;
+            Key: ObjectKey;
+            PartNumber: PartNumber;
+            UploadId: MultipartUploadId;
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;
+            SSECustomerKey?: SSECustomerKey;
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;
+            CopySourceSSECustomerAlgorithm?: CopySourceSSECustomerAlgorithm;
+            CopySourceSSECustomerKey?: CopySourceSSECustomerKey;
+            CopySourceSSECustomerKeyMD5?: CopySourceSSECustomerKeyMD5;
+            RequestPayer?: RequestPayer;
         }
         export interface UploadPartOutput {
-            ServerSideEncryption?: ServerSideEncryption;            
-            ETag?: ETag;            
-            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
-            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
-            SSEKMSKeyId?: SSEKMSKeyId;            
-            RequestCharged?: RequestCharged;            
+            ServerSideEncryption?: ServerSideEncryption;
+            ETag?: ETag;
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;
+            SSEKMSKeyId?: SSEKMSKeyId;
+            RequestCharged?: RequestCharged;
         }
         export interface UploadPartRequest {
-            Body?: Body;            
-            Bucket: BucketName;            
-            ContentLength?: ContentLength;            
-            ContentMD5?: ContentMD5;            
-            Key: ObjectKey;            
-            PartNumber: PartNumber;            
-            UploadId: MultipartUploadId;            
-            SSECustomerAlgorithm?: SSECustomerAlgorithm;            
-            SSECustomerKey?: SSECustomerKey;            
-            SSECustomerKeyMD5?: SSECustomerKeyMD5;            
-            RequestPayer?: RequestPayer;            
+            Body?: Body;
+            Bucket: BucketName;
+            ContentLength?: ContentLength;
+            ContentMD5?: ContentMD5;
+            Key: ObjectKey;
+            PartNumber: PartNumber;
+            UploadId: MultipartUploadId;
+            SSECustomerAlgorithm?: SSECustomerAlgorithm;
+            SSECustomerKey?: SSECustomerKey;
+            SSECustomerKeyMD5?: SSECustomerKeyMD5;
+            RequestPayer?: RequestPayer;
         }
         export interface VersioningConfiguration {
-            MFADelete?: MFADelete;            
-            Status?: BucketVersioningStatus;            
+            MFADelete?: MFADelete;
+            Status?: BucketVersioningStatus;
         }
         export interface WebsiteConfiguration {
-            ErrorDocument?: ErrorDocument;            
-            IndexDocument?: IndexDocument;            
-            RedirectAllRequestsTo?: RedirectAllRequestsTo;            
-            RoutingRules?: RoutingRules;            
+            ErrorDocument?: ErrorDocument;
+            IndexDocument?: IndexDocument;
+            RedirectAllRequestsTo?: RedirectAllRequestsTo;
+            RoutingRules?: RoutingRules;
         }
 
     }

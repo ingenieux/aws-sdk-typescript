@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2014-11-06
      * endpointPrefix: ssm
      * serviceAbbreviation: Amazon SSM
@@ -33,8 +33,9 @@ declare module "aws-sdk" {
       listDocuments(params: SSM.ListDocumentsRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidNextToken|SSM.InvalidFilterKey|any, data: SSM.ListDocumentsResult|any) => void): Request;
       sendCommand(params: SSM.SendCommandRequest, callback?: (err: SSM.DuplicateInstanceId|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.InvalidOutputFolder|SSM.InvalidParameters|SSM.UnsupportedPlatformType|any, data: SSM.SendCommandResult|any) => void): Request;
       updateAssociationStatus(params: SSM.UpdateAssociationStatusRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.AssociationDoesNotExist|SSM.StatusUnchanged|SSM.TooManyUpdates|any, data: SSM.UpdateAssociationStatusResult|any) => void): Request;
+
     }
-    
+
     export module SSM {
         export type AssociationDescriptionList = AssociationDescription[];
         export type AssociationFilterKey = string;
@@ -106,283 +107,283 @@ declare module "aws-sdk" {
         export interface AssociatedInstances {
         }
         export interface Association {
-            Name?: DocumentName;            
-            InstanceId?: InstanceId;            
+            Name?: DocumentName;
+            InstanceId?: InstanceId;
         }
         export interface AssociationAlreadyExists {
         }
         export interface AssociationDescription {
-            Name?: DocumentName;            
-            InstanceId?: InstanceId;            
-            Date?: DateTime;            
-            Status?: AssociationStatus;            
-            Parameters?: Parameters;            
+            Name?: DocumentName;
+            InstanceId?: InstanceId;
+            Date?: DateTime;
+            Status?: AssociationStatus;
+            Parameters?: Parameters;
         }
         export interface AssociationDoesNotExist {
         }
         export interface AssociationFilter {
-            key: AssociationFilterKey;            
-            value: AssociationFilterValue;            
+            key: AssociationFilterKey;
+            value: AssociationFilterValue;
         }
         export interface AssociationLimitExceeded {
         }
         export interface AssociationStatus {
-            Date: DateTime;            
-            Name: AssociationStatusName;            
-            Message: StatusMessage;            
-            AdditionalInfo?: StatusAdditionalInfo;            
+            Date: DateTime;
+            Name: AssociationStatusName;
+            Message: StatusMessage;
+            AdditionalInfo?: StatusAdditionalInfo;
         }
         export interface CancelCommandRequest {
-            CommandId: CommandId;            
-            InstanceIds?: InstanceIdList;            
+            CommandId: CommandId;
+            InstanceIds?: InstanceIdList;
         }
         export interface CancelCommandResult {
         }
         export interface Command {
-            CommandId?: CommandId;            
-            DocumentName?: DocumentName;            
-            Comment?: Comment;            
-            ExpiresAfter?: DateTime;            
-            Parameters?: Parameters;            
-            InstanceIds?: InstanceIdList;            
-            RequestedDateTime?: DateTime;            
-            Status?: CommandStatus;            
-            OutputS3BucketName?: S3BucketName;            
-            OutputS3KeyPrefix?: S3KeyPrefix;            
+            CommandId?: CommandId;
+            DocumentName?: DocumentName;
+            Comment?: Comment;
+            ExpiresAfter?: DateTime;
+            Parameters?: Parameters;
+            InstanceIds?: InstanceIdList;
+            RequestedDateTime?: DateTime;
+            Status?: CommandStatus;
+            OutputS3BucketName?: S3BucketName;
+            OutputS3KeyPrefix?: S3KeyPrefix;
         }
         export interface CommandFilter {
-            key: CommandFilterKey;            
-            value: CommandFilterValue;            
+            key: CommandFilterKey;
+            value: CommandFilterValue;
         }
         export interface CommandInvocation {
-            CommandId?: CommandId;            
-            InstanceId?: InstanceId;            
-            Comment?: Comment;            
-            DocumentName?: DocumentName;            
-            RequestedDateTime?: DateTime;            
-            Status?: CommandInvocationStatus;            
-            TraceOutput?: InvocationTraceOutput;            
-            CommandPlugins?: CommandPluginList;            
+            CommandId?: CommandId;
+            InstanceId?: InstanceId;
+            Comment?: Comment;
+            DocumentName?: DocumentName;
+            RequestedDateTime?: DateTime;
+            Status?: CommandInvocationStatus;
+            TraceOutput?: InvocationTraceOutput;
+            CommandPlugins?: CommandPluginList;
         }
         export interface CommandPlugin {
-            Name?: CommandPluginName;            
-            Status?: CommandPluginStatus;            
-            ResponseCode?: ResponseCode;            
-            ResponseStartDateTime?: DateTime;            
-            ResponseFinishDateTime?: DateTime;            
-            Output?: CommandPluginOutput;            
-            OutputS3BucketName?: S3BucketName;            
-            OutputS3KeyPrefix?: S3KeyPrefix;            
+            Name?: CommandPluginName;
+            Status?: CommandPluginStatus;
+            ResponseCode?: ResponseCode;
+            ResponseStartDateTime?: DateTime;
+            ResponseFinishDateTime?: DateTime;
+            Output?: CommandPluginOutput;
+            OutputS3BucketName?: S3BucketName;
+            OutputS3KeyPrefix?: S3KeyPrefix;
         }
         export interface CreateAssociationBatchRequest {
-            Entries: CreateAssociationBatchRequestEntries;            
+            Entries: CreateAssociationBatchRequestEntries;
         }
         export interface CreateAssociationBatchRequestEntry {
-            Name?: DocumentName;            
-            InstanceId?: InstanceId;            
-            Parameters?: Parameters;            
+            Name?: DocumentName;
+            InstanceId?: InstanceId;
+            Parameters?: Parameters;
         }
         export interface CreateAssociationBatchResult {
-            Successful?: AssociationDescriptionList;            
-            Failed?: FailedCreateAssociationList;            
+            Successful?: AssociationDescriptionList;
+            Failed?: FailedCreateAssociationList;
         }
         export interface CreateAssociationRequest {
-            Name: DocumentName;            
-            InstanceId: InstanceId;            
-            Parameters?: Parameters;            
+            Name: DocumentName;
+            InstanceId: InstanceId;
+            Parameters?: Parameters;
         }
         export interface CreateAssociationResult {
-            AssociationDescription?: AssociationDescription;            
+            AssociationDescription?: AssociationDescription;
         }
         export interface CreateDocumentRequest {
-            Content: DocumentContent;            
-            Name: DocumentName;            
+            Content: DocumentContent;
+            Name: DocumentName;
         }
         export interface CreateDocumentResult {
-            DocumentDescription?: DocumentDescription;            
+            DocumentDescription?: DocumentDescription;
         }
         export interface DeleteAssociationRequest {
-            Name: DocumentName;            
-            InstanceId: InstanceId;            
+            Name: DocumentName;
+            InstanceId: InstanceId;
         }
         export interface DeleteAssociationResult {
         }
         export interface DeleteDocumentRequest {
-            Name: DocumentName;            
+            Name: DocumentName;
         }
         export interface DeleteDocumentResult {
         }
         export interface DescribeAssociationRequest {
-            Name: DocumentName;            
-            InstanceId: InstanceId;            
+            Name: DocumentName;
+            InstanceId: InstanceId;
         }
         export interface DescribeAssociationResult {
-            AssociationDescription?: AssociationDescription;            
+            AssociationDescription?: AssociationDescription;
         }
         export interface DescribeDocumentRequest {
-            Name: DocumentName;            
+            Name: DocumentName;
         }
         export interface DescribeDocumentResult {
-            Document?: DocumentDescription;            
+            Document?: DocumentDescription;
         }
         export interface DescribeInstanceInformationRequest {
-            InstanceInformationFilterList?: InstanceInformationFilterList;            
-            MaxResults?: MaxResultsEC2Compatible;            
-            NextToken?: NextToken;            
+            InstanceInformationFilterList?: InstanceInformationFilterList;
+            MaxResults?: MaxResultsEC2Compatible;
+            NextToken?: NextToken;
         }
         export interface DescribeInstanceInformationResult {
-            InstanceInformationList?: InstanceInformationList;            
-            NextToken?: NextToken;            
+            InstanceInformationList?: InstanceInformationList;
+            NextToken?: NextToken;
         }
         export interface DocumentAlreadyExists {
         }
         export interface DocumentDescription {
-            Sha1?: DocumentSha1;            
-            Name?: DocumentName;            
-            CreatedDate?: DateTime;            
-            Status?: DocumentStatus;            
-            Description?: DescriptionInDocument;            
-            Parameters?: DocumentParameterList;            
-            PlatformTypes?: PlatformTypeList;            
+            Sha1?: DocumentSha1;
+            Name?: DocumentName;
+            CreatedDate?: DateTime;
+            Status?: DocumentStatus;
+            Description?: DescriptionInDocument;
+            Parameters?: DocumentParameterList;
+            PlatformTypes?: PlatformTypeList;
         }
         export interface DocumentFilter {
-            key: DocumentFilterKey;            
-            value: DocumentFilterValue;            
+            key: DocumentFilterKey;
+            value: DocumentFilterValue;
         }
         export interface DocumentIdentifier {
-            Name?: DocumentName;            
-            PlatformTypes?: PlatformTypeList;            
+            Name?: DocumentName;
+            PlatformTypes?: PlatformTypeList;
         }
         export interface DocumentLimitExceeded {
         }
         export interface DocumentParameter {
-            Name?: DocumentParameterName;            
-            Type?: DocumentParameterType;            
-            Description?: DocumentParameterDescrption;            
-            DefaultValue?: DocumentParameterDefaultValue;            
+            Name?: DocumentParameterName;
+            Type?: DocumentParameterType;
+            Description?: DocumentParameterDescrption;
+            DefaultValue?: DocumentParameterDefaultValue;
         }
         export interface DuplicateInstanceId {
         }
         export interface FailedCreateAssociation {
-            Entry?: CreateAssociationBatchRequestEntry;            
-            Message?: BatchErrorMessage;            
-            Fault?: Fault;            
+            Entry?: CreateAssociationBatchRequestEntry;
+            Message?: BatchErrorMessage;
+            Fault?: Fault;
         }
         export interface GetDocumentRequest {
-            Name: DocumentName;            
+            Name: DocumentName;
         }
         export interface GetDocumentResult {
-            Name?: DocumentName;            
-            Content?: DocumentContent;            
+            Name?: DocumentName;
+            Content?: DocumentContent;
         }
         export interface InstanceInformation {
-            InstanceId?: InstanceId;            
-            PingStatus?: PingStatus;            
-            LastPingDateTime?: DateTime;            
-            AgentVersion?: Version;            
-            IsLatestVersion?: Boolean;            
-            PlatformType?: PlatformType;            
-            PlatformName?: String;            
-            PlatformVersion?: String;            
+            InstanceId?: InstanceId;
+            PingStatus?: PingStatus;
+            LastPingDateTime?: DateTime;
+            AgentVersion?: Version;
+            IsLatestVersion?: Boolean;
+            PlatformType?: PlatformType;
+            PlatformName?: String;
+            PlatformVersion?: String;
         }
         export interface InstanceInformationFilter {
-            key: InstanceInformationFilterKey;            
-            valueSet: InstanceInformationFilterValueSet;            
+            key: InstanceInformationFilterKey;
+            valueSet: InstanceInformationFilterValueSet;
         }
         export interface InternalServerError {
-            message?: String;            
+            message?: String;
         }
         export interface InvalidCommandId {
         }
         export interface InvalidDocument {
-            message?: String;            
+            message?: String;
         }
         export interface InvalidDocumentContent {
-            message?: String;            
+            message?: String;
         }
         export interface InvalidFilterKey {
         }
         export interface InvalidInstanceId {
         }
         export interface InvalidInstanceInformationFilterValue {
-            message?: String;            
+            message?: String;
         }
         export interface InvalidNextToken {
         }
         export interface InvalidOutputFolder {
         }
         export interface InvalidParameters {
-            message?: String;            
+            message?: String;
         }
         export interface ListAssociationsRequest {
-            AssociationFilterList: AssociationFilterList;            
-            MaxResults?: MaxResults;            
-            NextToken?: NextToken;            
+            AssociationFilterList: AssociationFilterList;
+            MaxResults?: MaxResults;
+            NextToken?: NextToken;
         }
         export interface ListAssociationsResult {
-            Associations?: AssociationList;            
-            NextToken?: NextToken;            
+            Associations?: AssociationList;
+            NextToken?: NextToken;
         }
         export interface ListCommandInvocationsRequest {
-            CommandId?: CommandId;            
-            InstanceId?: InstanceId;            
-            MaxResults?: CommandMaxResults;            
-            NextToken?: NextToken;            
-            Filters?: CommandFilterList;            
-            Details?: Boolean;            
+            CommandId?: CommandId;
+            InstanceId?: InstanceId;
+            MaxResults?: CommandMaxResults;
+            NextToken?: NextToken;
+            Filters?: CommandFilterList;
+            Details?: Boolean;
         }
         export interface ListCommandInvocationsResult {
-            CommandInvocations?: CommandInvocationList;            
-            NextToken?: NextToken;            
+            CommandInvocations?: CommandInvocationList;
+            NextToken?: NextToken;
         }
         export interface ListCommandsRequest {
-            CommandId?: CommandId;            
-            InstanceId?: InstanceId;            
-            MaxResults?: CommandMaxResults;            
-            NextToken?: NextToken;            
-            Filters?: CommandFilterList;            
+            CommandId?: CommandId;
+            InstanceId?: InstanceId;
+            MaxResults?: CommandMaxResults;
+            NextToken?: NextToken;
+            Filters?: CommandFilterList;
         }
         export interface ListCommandsResult {
-            Commands?: CommandList;            
-            NextToken?: NextToken;            
+            Commands?: CommandList;
+            NextToken?: NextToken;
         }
         export interface ListDocumentsRequest {
-            DocumentFilterList?: DocumentFilterList;            
-            MaxResults?: MaxResults;            
-            NextToken?: NextToken;            
+            DocumentFilterList?: DocumentFilterList;
+            MaxResults?: MaxResults;
+            NextToken?: NextToken;
         }
         export interface ListDocumentsResult {
-            DocumentIdentifiers?: DocumentIdentifierList;            
-            NextToken?: NextToken;            
+            DocumentIdentifiers?: DocumentIdentifierList;
+            NextToken?: NextToken;
         }
         export interface MaxDocumentSizeExceeded {
         }
         export interface SendCommandRequest {
-            InstanceIds: InstanceIdList;            
-            DocumentName: DocumentName;            
-            TimeoutSeconds?: TimeoutSeconds;            
-            Comment?: Comment;            
-            Parameters?: Parameters;            
-            OutputS3BucketName?: S3BucketName;            
-            OutputS3KeyPrefix?: S3KeyPrefix;            
+            InstanceIds: InstanceIdList;
+            DocumentName: DocumentName;
+            TimeoutSeconds?: TimeoutSeconds;
+            Comment?: Comment;
+            Parameters?: Parameters;
+            OutputS3BucketName?: S3BucketName;
+            OutputS3KeyPrefix?: S3KeyPrefix;
         }
         export interface SendCommandResult {
-            Command?: Command;            
+            Command?: Command;
         }
         export interface StatusUnchanged {
         }
         export interface TooManyUpdates {
         }
         export interface UnsupportedPlatformType {
-            message?: String;            
+            message?: String;
         }
         export interface UpdateAssociationStatusRequest {
-            Name: DocumentName;            
-            InstanceId: InstanceId;            
-            AssociationStatus: AssociationStatus;            
+            Name: DocumentName;
+            InstanceId: InstanceId;
+            AssociationStatus: AssociationStatus;
         }
         export interface UpdateAssociationStatusResult {
-            AssociationDescription?: AssociationDescription;            
+            AssociationDescription?: AssociationDescription;
         }
 
     }

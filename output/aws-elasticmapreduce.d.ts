@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2009-03-31
      * endpointPrefix: elasticmapreduce
      * serviceAbbreviation: Amazon EMR
@@ -34,8 +34,9 @@ declare module "aws-sdk" {
       setTerminationProtection(params: EMR.SetTerminationProtectionInput, callback?: (err: EMR.InternalServerError|any, data: any) => void): Request;
       setVisibleToAllUsers(params: EMR.SetVisibleToAllUsersInput, callback?: (err: EMR.InternalServerError|any, data: any) => void): Request;
       terminateJobFlows(params: EMR.TerminateJobFlowsInput, callback?: (err: EMR.InternalServerError|any, data: any) => void): Request;
+
     }
-    
+
     export module EMR {
         export type ActionOnFailure = string;
         export type ApplicationList = Application[];
@@ -98,422 +99,424 @@ declare module "aws-sdk" {
         export type XmlStringMaxLen256 = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 256
 
         export interface AddInstanceGroupsInput {
-            InstanceGroups: InstanceGroupConfigList;            
-            JobFlowId: XmlStringMaxLen256;            
+            InstanceGroups: InstanceGroupConfigList;
+            JobFlowId: XmlStringMaxLen256;
         }
         export interface AddInstanceGroupsOutput {
-            JobFlowId?: XmlStringMaxLen256;            
-            InstanceGroupIds?: InstanceGroupIdsList;            
+            JobFlowId?: XmlStringMaxLen256;
+            InstanceGroupIds?: InstanceGroupIdsList;
         }
         export interface AddJobFlowStepsInput {
-            JobFlowId: XmlStringMaxLen256;            
-            Steps: StepConfigList;            
+            JobFlowId: XmlStringMaxLen256;
+            Steps: StepConfigList;
         }
         export interface AddJobFlowStepsOutput {
-            StepIds?: StepIdsList;            
+            StepIds?: StepIdsList;
         }
         export interface AddTagsInput {
-            ResourceId: ResourceId;            
-            Tags: TagList;            
+            ResourceId: ResourceId;
+            Tags: TagList;
         }
         export interface AddTagsOutput {
         }
         export interface Application {
-            Name?: String;            
-            Version?: String;            
-            Args?: StringList;            
-            AdditionalInfo?: StringMap;            
+            Name?: String;
+            Version?: String;
+            Args?: StringList;
+            AdditionalInfo?: StringMap;
         }
         export interface BootstrapActionConfig {
-            Name: XmlStringMaxLen256;            
-            ScriptBootstrapAction: ScriptBootstrapActionConfig;            
+            Name: XmlStringMaxLen256;
+            ScriptBootstrapAction: ScriptBootstrapActionConfig;
         }
         export interface BootstrapActionDetail {
-            BootstrapActionConfig?: BootstrapActionConfig;            
+            BootstrapActionConfig?: BootstrapActionConfig;
         }
         export interface Cluster {
-            Id?: ClusterId;            
-            Name?: String;            
-            Status?: ClusterStatus;            
-            Ec2InstanceAttributes?: Ec2InstanceAttributes;            
-            LogUri?: String;            
-            RequestedAmiVersion?: String;            
-            RunningAmiVersion?: String;            
-            ReleaseLabel?: String;            
-            AutoTerminate?: Boolean;            
-            TerminationProtected?: Boolean;            
-            VisibleToAllUsers?: Boolean;            
-            Applications?: ApplicationList;            
-            Tags?: TagList;            
-            ServiceRole?: String;            
-            NormalizedInstanceHours?: Integer;            
-            MasterPublicDnsName?: String;            
-            Configurations?: ConfigurationList;            
+            Id?: ClusterId;
+            Name?: String;
+            Status?: ClusterStatus;
+            Ec2InstanceAttributes?: Ec2InstanceAttributes;
+            LogUri?: String;
+            RequestedAmiVersion?: String;
+            RunningAmiVersion?: String;
+            ReleaseLabel?: String;
+            AutoTerminate?: Boolean;
+            TerminationProtected?: Boolean;
+            VisibleToAllUsers?: Boolean;
+            Applications?: ApplicationList;
+            Tags?: TagList;
+            ServiceRole?: String;
+            NormalizedInstanceHours?: Integer;
+            MasterPublicDnsName?: String;
+            Configurations?: ConfigurationList;
         }
         export interface ClusterStateChangeReason {
-            Code?: ClusterStateChangeReasonCode;            
-            Message?: String;            
+            Code?: ClusterStateChangeReasonCode;
+            Message?: String;
         }
         export interface ClusterStatus {
-            State?: ClusterState;            
-            StateChangeReason?: ClusterStateChangeReason;            
-            Timeline?: ClusterTimeline;            
+            State?: ClusterState;
+            StateChangeReason?: ClusterStateChangeReason;
+            Timeline?: ClusterTimeline;
         }
         export interface ClusterSummary {
-            Id?: ClusterId;            
-            Name?: String;            
-            Status?: ClusterStatus;            
-            NormalizedInstanceHours?: Integer;            
+            Id?: ClusterId;
+            Name?: String;
+            Status?: ClusterStatus;
+            NormalizedInstanceHours?: Integer;
         }
         export interface ClusterTimeline {
-            CreationDateTime?: Date;            
-            ReadyDateTime?: Date;            
-            EndDateTime?: Date;            
+            CreationDateTime?: Date;
+            ReadyDateTime?: Date;
+            EndDateTime?: Date;
         }
         export interface Command {
-            Name?: String;            
-            ScriptPath?: String;            
-            Args?: StringList;            
+            Name?: String;
+            ScriptPath?: String;
+            Args?: StringList;
         }
         export interface Configuration {
-            Classification?: String;            
-            Configurations?: ConfigurationList;            
-            Properties?: StringMap;            
+            Classification?: String;
+            Configurations?: ConfigurationList;
+            Properties?: StringMap;
         }
         export interface DescribeClusterInput {
-            ClusterId: ClusterId;            
+            ClusterId: ClusterId;
         }
         export interface DescribeClusterOutput {
-            Cluster?: Cluster;            
+            Cluster?: Cluster;
         }
         export interface DescribeJobFlowsInput {
-            CreatedAfter?: Date;            
-            CreatedBefore?: Date;            
-            JobFlowIds?: XmlStringList;            
-            JobFlowStates?: JobFlowExecutionStateList;            
+            CreatedAfter?: Date;
+            CreatedBefore?: Date;
+            JobFlowIds?: XmlStringList;
+            JobFlowStates?: JobFlowExecutionStateList;
         }
         export interface DescribeJobFlowsOutput {
-            JobFlows?: JobFlowDetailList;            
+            JobFlows?: JobFlowDetailList;
         }
         export interface DescribeStepInput {
-            ClusterId: ClusterId;            
-            StepId: StepId;            
+            ClusterId: ClusterId;
+            StepId: StepId;
         }
         export interface DescribeStepOutput {
-            Step?: Step;            
+            Step?: Step;
         }
         export interface Ec2InstanceAttributes {
-            Ec2KeyName?: String;            
-            Ec2SubnetId?: String;            
-            Ec2AvailabilityZone?: String;            
-            IamInstanceProfile?: String;            
-            EmrManagedMasterSecurityGroup?: String;            
-            EmrManagedSlaveSecurityGroup?: String;            
-            AdditionalMasterSecurityGroups?: StringList;            
-            AdditionalSlaveSecurityGroups?: StringList;            
+            Ec2KeyName?: String;
+            Ec2SubnetId?: String;
+            Ec2AvailabilityZone?: String;
+            IamInstanceProfile?: String;
+            EmrManagedMasterSecurityGroup?: String;
+            EmrManagedSlaveSecurityGroup?: String;
+            ServiceAccessSecurityGroup?: String;
+            AdditionalMasterSecurityGroups?: StringList;
+            AdditionalSlaveSecurityGroups?: StringList;
         }
         export interface HadoopJarStepConfig {
-            Properties?: KeyValueList;            
-            Jar: XmlString;            
-            MainClass?: XmlString;            
-            Args?: XmlStringList;            
+            Properties?: KeyValueList;
+            Jar: XmlString;
+            MainClass?: XmlString;
+            Args?: XmlStringList;
         }
         export interface HadoopStepConfig {
-            Jar?: String;            
-            Properties?: StringMap;            
-            MainClass?: String;            
-            Args?: StringList;            
+            Jar?: String;
+            Properties?: StringMap;
+            MainClass?: String;
+            Args?: StringList;
         }
         export interface Instance {
-            Id?: InstanceId;            
-            Ec2InstanceId?: InstanceId;            
-            PublicDnsName?: String;            
-            PublicIpAddress?: String;            
-            PrivateDnsName?: String;            
-            PrivateIpAddress?: String;            
-            Status?: InstanceStatus;            
+            Id?: InstanceId;
+            Ec2InstanceId?: InstanceId;
+            PublicDnsName?: String;
+            PublicIpAddress?: String;
+            PrivateDnsName?: String;
+            PrivateIpAddress?: String;
+            Status?: InstanceStatus;
         }
         export interface InstanceGroup {
-            Id?: InstanceGroupId;            
-            Name?: String;            
-            Market?: MarketType;            
-            InstanceGroupType?: InstanceGroupType;            
-            BidPrice?: String;            
-            InstanceType?: InstanceType;            
-            RequestedInstanceCount?: Integer;            
-            RunningInstanceCount?: Integer;            
-            Status?: InstanceGroupStatus;            
-            Configurations?: ConfigurationList;            
+            Id?: InstanceGroupId;
+            Name?: String;
+            Market?: MarketType;
+            InstanceGroupType?: InstanceGroupType;
+            BidPrice?: String;
+            InstanceType?: InstanceType;
+            RequestedInstanceCount?: Integer;
+            RunningInstanceCount?: Integer;
+            Status?: InstanceGroupStatus;
+            Configurations?: ConfigurationList;
         }
         export interface InstanceGroupConfig {
-            Name?: XmlStringMaxLen256;            
-            Market?: MarketType;            
-            InstanceRole: InstanceRoleType;            
-            BidPrice?: XmlStringMaxLen256;            
-            InstanceType: InstanceType;            
-            InstanceCount: Integer;            
-            Configurations?: ConfigurationList;            
+            Name?: XmlStringMaxLen256;
+            Market?: MarketType;
+            InstanceRole: InstanceRoleType;
+            BidPrice?: XmlStringMaxLen256;
+            InstanceType: InstanceType;
+            InstanceCount: Integer;
+            Configurations?: ConfigurationList;
         }
         export interface InstanceGroupDetail {
-            InstanceGroupId?: XmlStringMaxLen256;            
-            Name?: XmlStringMaxLen256;            
-            Market: MarketType;            
-            InstanceRole: InstanceRoleType;            
-            BidPrice?: XmlStringMaxLen256;            
-            InstanceType: InstanceType;            
-            InstanceRequestCount: Integer;            
-            InstanceRunningCount: Integer;            
-            State: InstanceGroupState;            
-            LastStateChangeReason?: XmlString;            
-            CreationDateTime: Date;            
-            StartDateTime?: Date;            
-            ReadyDateTime?: Date;            
-            EndDateTime?: Date;            
+            InstanceGroupId?: XmlStringMaxLen256;
+            Name?: XmlStringMaxLen256;
+            Market: MarketType;
+            InstanceRole: InstanceRoleType;
+            BidPrice?: XmlStringMaxLen256;
+            InstanceType: InstanceType;
+            InstanceRequestCount: Integer;
+            InstanceRunningCount: Integer;
+            State: InstanceGroupState;
+            LastStateChangeReason?: XmlString;
+            CreationDateTime: Date;
+            StartDateTime?: Date;
+            ReadyDateTime?: Date;
+            EndDateTime?: Date;
         }
         export interface InstanceGroupModifyConfig {
-            InstanceGroupId: XmlStringMaxLen256;            
-            InstanceCount?: Integer;            
-            EC2InstanceIdsToTerminate?: EC2InstanceIdsToTerminateList;            
+            InstanceGroupId: XmlStringMaxLen256;
+            InstanceCount?: Integer;
+            EC2InstanceIdsToTerminate?: EC2InstanceIdsToTerminateList;
         }
         export interface InstanceGroupStateChangeReason {
-            Code?: InstanceGroupStateChangeReasonCode;            
-            Message?: String;            
+            Code?: InstanceGroupStateChangeReasonCode;
+            Message?: String;
         }
         export interface InstanceGroupStatus {
-            State?: InstanceGroupState;            
-            StateChangeReason?: InstanceGroupStateChangeReason;            
-            Timeline?: InstanceGroupTimeline;            
+            State?: InstanceGroupState;
+            StateChangeReason?: InstanceGroupStateChangeReason;
+            Timeline?: InstanceGroupTimeline;
         }
         export interface InstanceGroupTimeline {
-            CreationDateTime?: Date;            
-            ReadyDateTime?: Date;            
-            EndDateTime?: Date;            
+            CreationDateTime?: Date;
+            ReadyDateTime?: Date;
+            EndDateTime?: Date;
         }
         export interface InstanceStateChangeReason {
-            Code?: InstanceStateChangeReasonCode;            
-            Message?: String;            
+            Code?: InstanceStateChangeReasonCode;
+            Message?: String;
         }
         export interface InstanceStatus {
-            State?: InstanceState;            
-            StateChangeReason?: InstanceStateChangeReason;            
-            Timeline?: InstanceTimeline;            
+            State?: InstanceState;
+            StateChangeReason?: InstanceStateChangeReason;
+            Timeline?: InstanceTimeline;
         }
         export interface InstanceTimeline {
-            CreationDateTime?: Date;            
-            ReadyDateTime?: Date;            
-            EndDateTime?: Date;            
+            CreationDateTime?: Date;
+            ReadyDateTime?: Date;
+            EndDateTime?: Date;
         }
         export interface InternalServerError {
         }
         export interface InternalServerException {
-            Message?: ErrorMessage;            
+            Message?: ErrorMessage;
         }
         export interface InvalidRequestException {
-            ErrorCode?: ErrorCode;            
-            Message?: ErrorMessage;            
+            ErrorCode?: ErrorCode;
+            Message?: ErrorMessage;
         }
         export interface JobFlowDetail {
-            JobFlowId: XmlStringMaxLen256;            
-            Name: XmlStringMaxLen256;            
-            LogUri?: XmlString;            
-            AmiVersion?: XmlStringMaxLen256;            
-            ExecutionStatusDetail: JobFlowExecutionStatusDetail;            
-            Instances: JobFlowInstancesDetail;            
-            Steps?: StepDetailList;            
-            BootstrapActions?: BootstrapActionDetailList;            
-            SupportedProducts?: SupportedProductsList;            
-            VisibleToAllUsers?: Boolean;            
-            JobFlowRole?: XmlString;            
-            ServiceRole?: XmlString;            
+            JobFlowId: XmlStringMaxLen256;
+            Name: XmlStringMaxLen256;
+            LogUri?: XmlString;
+            AmiVersion?: XmlStringMaxLen256;
+            ExecutionStatusDetail: JobFlowExecutionStatusDetail;
+            Instances: JobFlowInstancesDetail;
+            Steps?: StepDetailList;
+            BootstrapActions?: BootstrapActionDetailList;
+            SupportedProducts?: SupportedProductsList;
+            VisibleToAllUsers?: Boolean;
+            JobFlowRole?: XmlString;
+            ServiceRole?: XmlString;
         }
         export interface JobFlowExecutionStatusDetail {
-            State: JobFlowExecutionState;            
-            CreationDateTime: Date;            
-            StartDateTime?: Date;            
-            ReadyDateTime?: Date;            
-            EndDateTime?: Date;            
-            LastStateChangeReason?: XmlString;            
+            State: JobFlowExecutionState;
+            CreationDateTime: Date;
+            StartDateTime?: Date;
+            ReadyDateTime?: Date;
+            EndDateTime?: Date;
+            LastStateChangeReason?: XmlString;
         }
         export interface JobFlowInstancesConfig {
-            MasterInstanceType?: InstanceType;            
-            SlaveInstanceType?: InstanceType;            
-            InstanceCount?: Integer;            
-            InstanceGroups?: InstanceGroupConfigList;            
-            Ec2KeyName?: XmlStringMaxLen256;            
-            Placement?: PlacementType;            
-            KeepJobFlowAliveWhenNoSteps?: Boolean;            
-            TerminationProtected?: Boolean;            
-            HadoopVersion?: XmlStringMaxLen256;            
-            Ec2SubnetId?: XmlStringMaxLen256;            
-            EmrManagedMasterSecurityGroup?: XmlStringMaxLen256;            
-            EmrManagedSlaveSecurityGroup?: XmlStringMaxLen256;            
-            AdditionalMasterSecurityGroups?: SecurityGroupsList;            
-            AdditionalSlaveSecurityGroups?: SecurityGroupsList;            
+            MasterInstanceType?: InstanceType;
+            SlaveInstanceType?: InstanceType;
+            InstanceCount?: Integer;
+            InstanceGroups?: InstanceGroupConfigList;
+            Ec2KeyName?: XmlStringMaxLen256;
+            Placement?: PlacementType;
+            KeepJobFlowAliveWhenNoSteps?: Boolean;
+            TerminationProtected?: Boolean;
+            HadoopVersion?: XmlStringMaxLen256;
+            Ec2SubnetId?: XmlStringMaxLen256;
+            EmrManagedMasterSecurityGroup?: XmlStringMaxLen256;
+            EmrManagedSlaveSecurityGroup?: XmlStringMaxLen256;
+            ServiceAccessSecurityGroup?: XmlStringMaxLen256;
+            AdditionalMasterSecurityGroups?: SecurityGroupsList;
+            AdditionalSlaveSecurityGroups?: SecurityGroupsList;
         }
         export interface JobFlowInstancesDetail {
-            MasterInstanceType: InstanceType;            
-            MasterPublicDnsName?: XmlString;            
-            MasterInstanceId?: XmlString;            
-            SlaveInstanceType: InstanceType;            
-            InstanceCount: Integer;            
-            InstanceGroups?: InstanceGroupDetailList;            
-            NormalizedInstanceHours?: Integer;            
-            Ec2KeyName?: XmlStringMaxLen256;            
-            Ec2SubnetId?: XmlStringMaxLen256;            
-            Placement?: PlacementType;            
-            KeepJobFlowAliveWhenNoSteps?: Boolean;            
-            TerminationProtected?: Boolean;            
-            HadoopVersion?: XmlStringMaxLen256;            
+            MasterInstanceType: InstanceType;
+            MasterPublicDnsName?: XmlString;
+            MasterInstanceId?: XmlString;
+            SlaveInstanceType: InstanceType;
+            InstanceCount: Integer;
+            InstanceGroups?: InstanceGroupDetailList;
+            NormalizedInstanceHours?: Integer;
+            Ec2KeyName?: XmlStringMaxLen256;
+            Ec2SubnetId?: XmlStringMaxLen256;
+            Placement?: PlacementType;
+            KeepJobFlowAliveWhenNoSteps?: Boolean;
+            TerminationProtected?: Boolean;
+            HadoopVersion?: XmlStringMaxLen256;
         }
         export interface KeyValue {
-            Key?: XmlString;            
-            Value?: XmlString;            
+            Key?: XmlString;
+            Value?: XmlString;
         }
         export interface ListBootstrapActionsInput {
-            ClusterId: ClusterId;            
-            Marker?: Marker;            
+            ClusterId: ClusterId;
+            Marker?: Marker;
         }
         export interface ListBootstrapActionsOutput {
-            BootstrapActions?: CommandList;            
-            Marker?: Marker;            
+            BootstrapActions?: CommandList;
+            Marker?: Marker;
         }
         export interface ListClustersInput {
-            CreatedAfter?: Date;            
-            CreatedBefore?: Date;            
-            ClusterStates?: ClusterStateList;            
-            Marker?: Marker;            
+            CreatedAfter?: Date;
+            CreatedBefore?: Date;
+            ClusterStates?: ClusterStateList;
+            Marker?: Marker;
         }
         export interface ListClustersOutput {
-            Clusters?: ClusterSummaryList;            
-            Marker?: Marker;            
+            Clusters?: ClusterSummaryList;
+            Marker?: Marker;
         }
         export interface ListInstanceGroupsInput {
-            ClusterId: ClusterId;            
-            Marker?: Marker;            
+            ClusterId: ClusterId;
+            Marker?: Marker;
         }
         export interface ListInstanceGroupsOutput {
-            InstanceGroups?: InstanceGroupList;            
-            Marker?: Marker;            
+            InstanceGroups?: InstanceGroupList;
+            Marker?: Marker;
         }
         export interface ListInstancesInput {
-            ClusterId: ClusterId;            
-            InstanceGroupId?: InstanceGroupId;            
-            InstanceGroupTypes?: InstanceGroupTypeList;            
-            Marker?: Marker;            
+            ClusterId: ClusterId;
+            InstanceGroupId?: InstanceGroupId;
+            InstanceGroupTypes?: InstanceGroupTypeList;
+            Marker?: Marker;
         }
         export interface ListInstancesOutput {
-            Instances?: InstanceList;            
-            Marker?: Marker;            
+            Instances?: InstanceList;
+            Marker?: Marker;
         }
         export interface ListStepsInput {
-            ClusterId: ClusterId;            
-            StepStates?: StepStateList;            
-            StepIds?: XmlStringList;            
-            Marker?: Marker;            
+            ClusterId: ClusterId;
+            StepStates?: StepStateList;
+            StepIds?: XmlStringList;
+            Marker?: Marker;
         }
         export interface ListStepsOutput {
-            Steps?: StepSummaryList;            
-            Marker?: Marker;            
+            Steps?: StepSummaryList;
+            Marker?: Marker;
         }
         export interface ModifyInstanceGroupsInput {
-            InstanceGroups?: InstanceGroupModifyConfigList;            
+            InstanceGroups?: InstanceGroupModifyConfigList;
         }
         export interface PlacementType {
-            AvailabilityZone: XmlString;            
+            AvailabilityZone: XmlString;
         }
         export interface RemoveTagsInput {
-            ResourceId: ResourceId;            
-            TagKeys: StringList;            
+            ResourceId: ResourceId;
+            TagKeys: StringList;
         }
         export interface RemoveTagsOutput {
         }
         export interface RunJobFlowInput {
-            Name: XmlStringMaxLen256;            
-            LogUri?: XmlString;            
-            AdditionalInfo?: XmlString;            
-            AmiVersion?: XmlStringMaxLen256;            
-            ReleaseLabel?: XmlStringMaxLen256;            
-            Instances: JobFlowInstancesConfig;            
-            Steps?: StepConfigList;            
-            BootstrapActions?: BootstrapActionConfigList;            
-            SupportedProducts?: SupportedProductsList;            
-            NewSupportedProducts?: NewSupportedProductsList;            
-            Applications?: ApplicationList;            
-            Configurations?: ConfigurationList;            
-            VisibleToAllUsers?: Boolean;            
-            JobFlowRole?: XmlString;            
-            ServiceRole?: XmlString;            
-            Tags?: TagList;            
+            Name: XmlStringMaxLen256;
+            LogUri?: XmlString;
+            AdditionalInfo?: XmlString;
+            AmiVersion?: XmlStringMaxLen256;
+            ReleaseLabel?: XmlStringMaxLen256;
+            Instances: JobFlowInstancesConfig;
+            Steps?: StepConfigList;
+            BootstrapActions?: BootstrapActionConfigList;
+            SupportedProducts?: SupportedProductsList;
+            NewSupportedProducts?: NewSupportedProductsList;
+            Applications?: ApplicationList;
+            Configurations?: ConfigurationList;
+            VisibleToAllUsers?: Boolean;
+            JobFlowRole?: XmlString;
+            ServiceRole?: XmlString;
+            Tags?: TagList;
         }
         export interface RunJobFlowOutput {
-            JobFlowId?: XmlStringMaxLen256;            
+            JobFlowId?: XmlStringMaxLen256;
         }
         export interface ScriptBootstrapActionConfig {
-            Path: XmlString;            
-            Args?: XmlStringList;            
+            Path: XmlString;
+            Args?: XmlStringList;
         }
         export interface SetTerminationProtectionInput {
-            JobFlowIds: XmlStringList;            
-            TerminationProtected: Boolean;            
+            JobFlowIds: XmlStringList;
+            TerminationProtected: Boolean;
         }
         export interface SetVisibleToAllUsersInput {
-            JobFlowIds: XmlStringList;            
-            VisibleToAllUsers: Boolean;            
+            JobFlowIds: XmlStringList;
+            VisibleToAllUsers: Boolean;
         }
         export interface Step {
-            Id?: StepId;            
-            Name?: String;            
-            Config?: HadoopStepConfig;            
-            ActionOnFailure?: ActionOnFailure;            
-            Status?: StepStatus;            
+            Id?: StepId;
+            Name?: String;
+            Config?: HadoopStepConfig;
+            ActionOnFailure?: ActionOnFailure;
+            Status?: StepStatus;
         }
         export interface StepConfig {
-            Name: XmlStringMaxLen256;            
-            ActionOnFailure?: ActionOnFailure;            
-            HadoopJarStep: HadoopJarStepConfig;            
+            Name: XmlStringMaxLen256;
+            ActionOnFailure?: ActionOnFailure;
+            HadoopJarStep: HadoopJarStepConfig;
         }
         export interface StepDetail {
-            StepConfig: StepConfig;            
-            ExecutionStatusDetail: StepExecutionStatusDetail;            
+            StepConfig: StepConfig;
+            ExecutionStatusDetail: StepExecutionStatusDetail;
         }
         export interface StepExecutionStatusDetail {
-            State: StepExecutionState;            
-            CreationDateTime: Date;            
-            StartDateTime?: Date;            
-            EndDateTime?: Date;            
-            LastStateChangeReason?: XmlString;            
+            State: StepExecutionState;
+            CreationDateTime: Date;
+            StartDateTime?: Date;
+            EndDateTime?: Date;
+            LastStateChangeReason?: XmlString;
         }
         export interface StepStateChangeReason {
-            Code?: StepStateChangeReasonCode;            
-            Message?: String;            
+            Code?: StepStateChangeReasonCode;
+            Message?: String;
         }
         export interface StepStatus {
-            State?: StepState;            
-            StateChangeReason?: StepStateChangeReason;            
-            Timeline?: StepTimeline;            
+            State?: StepState;
+            StateChangeReason?: StepStateChangeReason;
+            Timeline?: StepTimeline;
         }
         export interface StepSummary {
-            Id?: StepId;            
-            Name?: String;            
-            Config?: HadoopStepConfig;            
-            ActionOnFailure?: ActionOnFailure;            
-            Status?: StepStatus;            
+            Id?: StepId;
+            Name?: String;
+            Config?: HadoopStepConfig;
+            ActionOnFailure?: ActionOnFailure;
+            Status?: StepStatus;
         }
         export interface StepTimeline {
-            CreationDateTime?: Date;            
-            StartDateTime?: Date;            
-            EndDateTime?: Date;            
+            CreationDateTime?: Date;
+            StartDateTime?: Date;
+            EndDateTime?: Date;
         }
         export interface SupportedProductConfig {
-            Name?: XmlStringMaxLen256;            
-            Args?: XmlStringList;            
+            Name?: XmlStringMaxLen256;
+            Args?: XmlStringList;
         }
         export interface Tag {
-            Key?: String;            
-            Value?: String;            
+            Key?: String;
+            Value?: String;
         }
         export interface TerminateJobFlowsInput {
-            JobFlowIds: XmlStringList;            
+            JobFlowIds: XmlStringList;
         }
 
     }

@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-07-01
      * endpointPrefix: marketplacecommerceanalytics
      * serviceAbbreviation: 
@@ -18,8 +18,9 @@ declare module "aws-sdk" {
       constructor(options?: any);
       endpoint: Endpoint;
       generateDataSet(params: MarketplaceCommerceAnalytics.GenerateDataSetRequest, callback?: (err: MarketplaceCommerceAnalytics.MarketplaceCommerceAnalyticsException|any, data: MarketplaceCommerceAnalytics.GenerateDataSetResult|any) => void): Request;
+
     }
-    
+
     export module MarketplaceCommerceAnalytics {
         export type DataSetPublicationDate = number;
         export type DataSetRequestId = string;
@@ -31,18 +32,18 @@ declare module "aws-sdk" {
         export type SnsTopicArn = string;    // min: 1
 
         export interface GenerateDataSetRequest {
-            dataSetType: DataSetType;            
-            dataSetPublicationDate: DataSetPublicationDate;            
-            roleNameArn: RoleNameArn;            
-            destinationS3BucketName: DestinationS3BucketName;            
-            destinationS3Prefix?: DestinationS3Prefix;            
-            snsTopicArn: SnsTopicArn;            
+            dataSetType: DataSetType;
+            dataSetPublicationDate: DataSetPublicationDate;
+            roleNameArn: RoleNameArn;
+            destinationS3BucketName: DestinationS3BucketName;
+            destinationS3Prefix?: DestinationS3Prefix;
+            snsTopicArn: SnsTopicArn;
         }
         export interface GenerateDataSetResult {
-            dataSetRequestId?: DataSetRequestId;            
+            dataSetRequestId?: DataSetRequestId;
         }
         export interface MarketplaceCommerceAnalyticsException {
-            message?: ExceptionMessage;            
+            message?: ExceptionMessage;
         }
 
     }

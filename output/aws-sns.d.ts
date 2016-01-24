@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2010-03-31
      * endpointPrefix: sns
      * serviceAbbreviation: Amazon SNS
@@ -42,8 +42,9 @@ declare module "aws-sdk" {
       setTopicAttributes(params: SNS.SetTopicAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any, data: any) => void): Request;
       subscribe(params: SNS.SubscribeInput, callback?: (err: SNS.SubscriptionLimitExceededException|SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any, data: SNS.SubscribeResponse|any) => void): Request;
       unsubscribe(params: SNS.UnsubscribeInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request;
+
     }
-    
+
     export module SNS {
         export type ActionsList = action[];
         export type Binary = any;    // type: blob
@@ -77,205 +78,205 @@ declare module "aws-sdk" {
         export type topicName = string;
 
         export interface AddPermissionInput {
-            TopicArn: topicARN;            
-            Label: label;            
-            AWSAccountId: DelegatesList;            
-            ActionName: ActionsList;            
+            TopicArn: topicARN;
+            Label: label;
+            AWSAccountId: DelegatesList;
+            ActionName: ActionsList;
         }
         export interface AuthorizationErrorException {
-            message?: string;            
+            message?: string;
         }
         export interface ConfirmSubscriptionInput {
-            TopicArn: topicARN;            
-            Token: token;            
-            AuthenticateOnUnsubscribe?: authenticateOnUnsubscribe;            
+            TopicArn: topicARN;
+            Token: token;
+            AuthenticateOnUnsubscribe?: authenticateOnUnsubscribe;
         }
         export interface ConfirmSubscriptionResponse {
-            SubscriptionArn?: subscriptionARN;            
+            SubscriptionArn?: subscriptionARN;
         }
         export interface CreateEndpointResponse {
-            EndpointArn?: String;            
+            EndpointArn?: String;
         }
         export interface CreatePlatformApplicationInput {
-            Name: String;            
-            Platform: String;            
-            Attributes: MapStringToString;            
+            Name: String;
+            Platform: String;
+            Attributes: MapStringToString;
         }
         export interface CreatePlatformApplicationResponse {
-            PlatformApplicationArn?: String;            
+            PlatformApplicationArn?: String;
         }
         export interface CreatePlatformEndpointInput {
-            PlatformApplicationArn: String;            
-            Token: String;            
-            CustomUserData?: String;            
-            Attributes?: MapStringToString;            
+            PlatformApplicationArn: String;
+            Token: String;
+            CustomUserData?: String;
+            Attributes?: MapStringToString;
         }
         export interface CreateTopicInput {
-            Name: topicName;            
+            Name: topicName;
         }
         export interface CreateTopicResponse {
-            TopicArn?: topicARN;            
+            TopicArn?: topicARN;
         }
         export interface DeleteEndpointInput {
-            EndpointArn: String;            
+            EndpointArn: String;
         }
         export interface DeletePlatformApplicationInput {
-            PlatformApplicationArn: String;            
+            PlatformApplicationArn: String;
         }
         export interface DeleteTopicInput {
-            TopicArn: topicARN;            
+            TopicArn: topicARN;
         }
         export interface Endpoint {
-            EndpointArn?: String;            
-            Attributes?: MapStringToString;            
+            EndpointArn?: String;
+            Attributes?: MapStringToString;
         }
         export interface EndpointDisabledException {
-            message?: string;            
+            message?: string;
         }
         export interface GetEndpointAttributesInput {
-            EndpointArn: String;            
+            EndpointArn: String;
         }
         export interface GetEndpointAttributesResponse {
-            Attributes?: MapStringToString;            
+            Attributes?: MapStringToString;
         }
         export interface GetPlatformApplicationAttributesInput {
-            PlatformApplicationArn: String;            
+            PlatformApplicationArn: String;
         }
         export interface GetPlatformApplicationAttributesResponse {
-            Attributes?: MapStringToString;            
+            Attributes?: MapStringToString;
         }
         export interface GetSubscriptionAttributesInput {
-            SubscriptionArn: subscriptionARN;            
+            SubscriptionArn: subscriptionARN;
         }
         export interface GetSubscriptionAttributesResponse {
-            Attributes?: SubscriptionAttributesMap;            
+            Attributes?: SubscriptionAttributesMap;
         }
         export interface GetTopicAttributesInput {
-            TopicArn: topicARN;            
+            TopicArn: topicARN;
         }
         export interface GetTopicAttributesResponse {
-            Attributes?: TopicAttributesMap;            
+            Attributes?: TopicAttributesMap;
         }
         export interface InternalErrorException {
-            message?: string;            
+            message?: string;
         }
         export interface InvalidParameterException {
-            message?: string;            
+            message?: string;
         }
         export interface InvalidParameterValueException {
-            message?: string;            
+            message?: string;
         }
         export interface ListEndpointsByPlatformApplicationInput {
-            PlatformApplicationArn: String;            
-            NextToken?: String;            
+            PlatformApplicationArn: String;
+            NextToken?: String;
         }
         export interface ListEndpointsByPlatformApplicationResponse {
-            Endpoints?: ListOfEndpoints;            
-            NextToken?: String;            
+            Endpoints?: ListOfEndpoints;
+            NextToken?: String;
         }
         export interface ListPlatformApplicationsInput {
-            NextToken?: String;            
+            NextToken?: String;
         }
         export interface ListPlatformApplicationsResponse {
-            PlatformApplications?: ListOfPlatformApplications;            
-            NextToken?: String;            
+            PlatformApplications?: ListOfPlatformApplications;
+            NextToken?: String;
         }
         export interface ListSubscriptionsByTopicInput {
-            TopicArn: topicARN;            
-            NextToken?: nextToken;            
+            TopicArn: topicARN;
+            NextToken?: nextToken;
         }
         export interface ListSubscriptionsByTopicResponse {
-            Subscriptions?: SubscriptionsList;            
-            NextToken?: nextToken;            
+            Subscriptions?: SubscriptionsList;
+            NextToken?: nextToken;
         }
         export interface ListSubscriptionsInput {
-            NextToken?: nextToken;            
+            NextToken?: nextToken;
         }
         export interface ListSubscriptionsResponse {
-            Subscriptions?: SubscriptionsList;            
-            NextToken?: nextToken;            
+            Subscriptions?: SubscriptionsList;
+            NextToken?: nextToken;
         }
         export interface ListTopicsInput {
-            NextToken?: nextToken;            
+            NextToken?: nextToken;
         }
         export interface ListTopicsResponse {
-            Topics?: TopicsList;            
-            NextToken?: nextToken;            
+            Topics?: TopicsList;
+            NextToken?: nextToken;
         }
         export interface MessageAttributeValue {
-            DataType: String;            
-            StringValue?: String;            
-            BinaryValue?: Binary;            
+            DataType: String;
+            StringValue?: String;
+            BinaryValue?: Binary;
         }
         export interface NotFoundException {
-            message?: string;            
+            message?: string;
         }
         export interface PlatformApplication {
-            PlatformApplicationArn?: String;            
-            Attributes?: MapStringToString;            
+            PlatformApplicationArn?: String;
+            Attributes?: MapStringToString;
         }
         export interface PlatformApplicationDisabledException {
-            message?: string;            
+            message?: string;
         }
         export interface PublishInput {
-            TopicArn?: topicARN;            
-            TargetArn?: String;            
-            Message: message;            
-            Subject?: subject;            
-            MessageStructure?: messageStructure;            
-            MessageAttributes?: MessageAttributeMap;            
+            TopicArn?: topicARN;
+            TargetArn?: String;
+            Message: message;
+            Subject?: subject;
+            MessageStructure?: messageStructure;
+            MessageAttributes?: MessageAttributeMap;
         }
         export interface PublishResponse {
-            MessageId?: messageId;            
+            MessageId?: messageId;
         }
         export interface RemovePermissionInput {
-            TopicArn: topicARN;            
-            Label: label;            
+            TopicArn: topicARN;
+            Label: label;
         }
         export interface SetEndpointAttributesInput {
-            EndpointArn: String;            
-            Attributes: MapStringToString;            
+            EndpointArn: String;
+            Attributes: MapStringToString;
         }
         export interface SetPlatformApplicationAttributesInput {
-            PlatformApplicationArn: String;            
-            Attributes: MapStringToString;            
+            PlatformApplicationArn: String;
+            Attributes: MapStringToString;
         }
         export interface SetSubscriptionAttributesInput {
-            SubscriptionArn: subscriptionARN;            
-            AttributeName: attributeName;            
-            AttributeValue?: attributeValue;            
+            SubscriptionArn: subscriptionARN;
+            AttributeName: attributeName;
+            AttributeValue?: attributeValue;
         }
         export interface SetTopicAttributesInput {
-            TopicArn: topicARN;            
-            AttributeName: attributeName;            
-            AttributeValue?: attributeValue;            
+            TopicArn: topicARN;
+            AttributeName: attributeName;
+            AttributeValue?: attributeValue;
         }
         export interface SubscribeInput {
-            TopicArn: topicARN;            
-            Protocol: protocol;            
-            Endpoint?: endpoint;            
+            TopicArn: topicARN;
+            Protocol: protocol;
+            Endpoint?: endpoint;
         }
         export interface SubscribeResponse {
-            SubscriptionArn?: subscriptionARN;            
+            SubscriptionArn?: subscriptionARN;
         }
         export interface Subscription {
-            SubscriptionArn?: subscriptionARN;            
-            Owner?: account;            
-            Protocol?: protocol;            
-            Endpoint?: endpoint;            
-            TopicArn?: topicARN;            
+            SubscriptionArn?: subscriptionARN;
+            Owner?: account;
+            Protocol?: protocol;
+            Endpoint?: endpoint;
+            TopicArn?: topicARN;
         }
         export interface SubscriptionLimitExceededException {
-            message?: string;            
+            message?: string;
         }
         export interface Topic {
-            TopicArn?: topicARN;            
+            TopicArn?: topicARN;
         }
         export interface TopicLimitExceededException {
-            message?: string;            
+            message?: string;
         }
         export interface UnsubscribeInput {
-            SubscriptionArn: subscriptionARN;            
+            SubscriptionArn: subscriptionARN;
         }
 
     }

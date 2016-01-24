@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2014-03-28
      * endpointPrefix: logs
      * serviceAbbreviation: 
@@ -42,8 +42,9 @@ declare module "aws-sdk" {
       putRetentionPolicy(params: CloudWatchLogs.PutRetentionPolicyRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
       putSubscriptionFilter(params: CloudWatchLogs.PutSubscriptionFilterRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
       testMetricFilter(params: CloudWatchLogs.TestMetricFilterRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.TestMetricFilterResponse|any) => void): Request;
+
     }
-    
+
     export module CloudWatchLogs {
         export type AccessPolicy = string;    // min: 1
         export type Arn = string;
@@ -100,296 +101,296 @@ declare module "aws-sdk" {
         export type Value = string;
 
         export interface CancelExportTaskRequest {
-            taskId: ExportTaskId;            
+            taskId: ExportTaskId;
         }
         export interface CreateExportTaskRequest {
-            taskName?: ExportTaskName;            
-            logGroupName: LogGroupName;            
-            logStreamNamePrefix?: LogStreamName;            
-            from: Timestamp;            
-            to: Timestamp;            
-            destination: ExportDestinationBucket;            
-            destinationPrefix?: ExportDestinationPrefix;            
+            taskName?: ExportTaskName;
+            logGroupName: LogGroupName;
+            logStreamNamePrefix?: LogStreamName;
+            from: Timestamp;
+            to: Timestamp;
+            destination: ExportDestinationBucket;
+            destinationPrefix?: ExportDestinationPrefix;
         }
         export interface CreateExportTaskResponse {
-            taskId?: ExportTaskId;            
+            taskId?: ExportTaskId;
         }
         export interface CreateLogGroupRequest {
-            logGroupName: LogGroupName;            
+            logGroupName: LogGroupName;
         }
         export interface CreateLogStreamRequest {
-            logGroupName: LogGroupName;            
-            logStreamName: LogStreamName;            
+            logGroupName: LogGroupName;
+            logStreamName: LogStreamName;
         }
         export interface DataAlreadyAcceptedException {
-            expectedSequenceToken?: SequenceToken;            
+            expectedSequenceToken?: SequenceToken;
         }
         export interface DeleteDestinationRequest {
-            destinationName: DestinationName;            
+            destinationName: DestinationName;
         }
         export interface DeleteLogGroupRequest {
-            logGroupName: LogGroupName;            
+            logGroupName: LogGroupName;
         }
         export interface DeleteLogStreamRequest {
-            logGroupName: LogGroupName;            
-            logStreamName: LogStreamName;            
+            logGroupName: LogGroupName;
+            logStreamName: LogStreamName;
         }
         export interface DeleteMetricFilterRequest {
-            logGroupName: LogGroupName;            
-            filterName: FilterName;            
+            logGroupName: LogGroupName;
+            filterName: FilterName;
         }
         export interface DeleteRetentionPolicyRequest {
-            logGroupName: LogGroupName;            
+            logGroupName: LogGroupName;
         }
         export interface DeleteSubscriptionFilterRequest {
-            logGroupName: LogGroupName;            
-            filterName: FilterName;            
+            logGroupName: LogGroupName;
+            filterName: FilterName;
         }
         export interface DescribeDestinationsRequest {
-            DestinationNamePrefix?: DestinationName;            
-            nextToken?: NextToken;            
-            limit?: DescribeLimit;            
+            DestinationNamePrefix?: DestinationName;
+            nextToken?: NextToken;
+            limit?: DescribeLimit;
         }
         export interface DescribeDestinationsResponse {
-            destinations?: Destinations;            
-            nextToken?: NextToken;            
+            destinations?: Destinations;
+            nextToken?: NextToken;
         }
         export interface DescribeExportTasksRequest {
-            taskId?: ExportTaskId;            
-            statusCode?: ExportTaskStatusCode;            
-            nextToken?: NextToken;            
-            limit?: DescribeLimit;            
+            taskId?: ExportTaskId;
+            statusCode?: ExportTaskStatusCode;
+            nextToken?: NextToken;
+            limit?: DescribeLimit;
         }
         export interface DescribeExportTasksResponse {
-            exportTasks?: ExportTasks;            
-            nextToken?: NextToken;            
+            exportTasks?: ExportTasks;
+            nextToken?: NextToken;
         }
         export interface DescribeLogGroupsRequest {
-            logGroupNamePrefix?: LogGroupName;            
-            nextToken?: NextToken;            
-            limit?: DescribeLimit;            
+            logGroupNamePrefix?: LogGroupName;
+            nextToken?: NextToken;
+            limit?: DescribeLimit;
         }
         export interface DescribeLogGroupsResponse {
-            logGroups?: LogGroups;            
-            nextToken?: NextToken;            
+            logGroups?: LogGroups;
+            nextToken?: NextToken;
         }
         export interface DescribeLogStreamsRequest {
-            logGroupName: LogGroupName;            
-            logStreamNamePrefix?: LogStreamName;            
-            orderBy?: OrderBy;            
-            descending?: Descending;            
-            nextToken?: NextToken;            
-            limit?: DescribeLimit;            
+            logGroupName: LogGroupName;
+            logStreamNamePrefix?: LogStreamName;
+            orderBy?: OrderBy;
+            descending?: Descending;
+            nextToken?: NextToken;
+            limit?: DescribeLimit;
         }
         export interface DescribeLogStreamsResponse {
-            logStreams?: LogStreams;            
-            nextToken?: NextToken;            
+            logStreams?: LogStreams;
+            nextToken?: NextToken;
         }
         export interface DescribeMetricFiltersRequest {
-            logGroupName: LogGroupName;            
-            filterNamePrefix?: FilterName;            
-            nextToken?: NextToken;            
-            limit?: DescribeLimit;            
+            logGroupName: LogGroupName;
+            filterNamePrefix?: FilterName;
+            nextToken?: NextToken;
+            limit?: DescribeLimit;
         }
         export interface DescribeMetricFiltersResponse {
-            metricFilters?: MetricFilters;            
-            nextToken?: NextToken;            
+            metricFilters?: MetricFilters;
+            nextToken?: NextToken;
         }
         export interface DescribeSubscriptionFiltersRequest {
-            logGroupName: LogGroupName;            
-            filterNamePrefix?: FilterName;            
-            nextToken?: NextToken;            
-            limit?: DescribeLimit;            
+            logGroupName: LogGroupName;
+            filterNamePrefix?: FilterName;
+            nextToken?: NextToken;
+            limit?: DescribeLimit;
         }
         export interface DescribeSubscriptionFiltersResponse {
-            subscriptionFilters?: SubscriptionFilters;            
-            nextToken?: NextToken;            
+            subscriptionFilters?: SubscriptionFilters;
+            nextToken?: NextToken;
         }
         export interface Destination {
-            destinationName?: DestinationName;            
-            targetArn?: TargetArn;            
-            roleArn?: RoleArn;            
-            accessPolicy?: AccessPolicy;            
-            arn?: Arn;            
-            creationTime?: Timestamp;            
+            destinationName?: DestinationName;
+            targetArn?: TargetArn;
+            roleArn?: RoleArn;
+            accessPolicy?: AccessPolicy;
+            arn?: Arn;
+            creationTime?: Timestamp;
         }
         export interface ExportTask {
-            taskId?: ExportTaskId;            
-            taskName?: ExportTaskName;            
-            logGroupName?: LogGroupName;            
-            from?: Timestamp;            
-            to?: Timestamp;            
-            destination?: ExportDestinationBucket;            
-            destinationPrefix?: ExportDestinationPrefix;            
-            status?: ExportTaskStatus;            
-            executionInfo?: ExportTaskExecutionInfo;            
+            taskId?: ExportTaskId;
+            taskName?: ExportTaskName;
+            logGroupName?: LogGroupName;
+            from?: Timestamp;
+            to?: Timestamp;
+            destination?: ExportDestinationBucket;
+            destinationPrefix?: ExportDestinationPrefix;
+            status?: ExportTaskStatus;
+            executionInfo?: ExportTaskExecutionInfo;
         }
         export interface ExportTaskExecutionInfo {
-            creationTime?: Timestamp;            
-            completionTime?: Timestamp;            
+            creationTime?: Timestamp;
+            completionTime?: Timestamp;
         }
         export interface ExportTaskStatus {
-            code?: ExportTaskStatusCode;            
-            message?: ExportTaskStatusMessage;            
+            code?: ExportTaskStatusCode;
+            message?: ExportTaskStatusMessage;
         }
         export interface FilterLogEventsRequest {
-            logGroupName: LogGroupName;            
-            logStreamNames?: InputLogStreamNames;            
-            startTime?: Timestamp;            
-            endTime?: Timestamp;            
-            filterPattern?: FilterPattern;            
-            nextToken?: NextToken;            
-            limit?: EventsLimit;            
-            interleaved?: Interleaved;            
+            logGroupName: LogGroupName;
+            logStreamNames?: InputLogStreamNames;
+            startTime?: Timestamp;
+            endTime?: Timestamp;
+            filterPattern?: FilterPattern;
+            nextToken?: NextToken;
+            limit?: EventsLimit;
+            interleaved?: Interleaved;
         }
         export interface FilterLogEventsResponse {
-            events?: FilteredLogEvents;            
-            searchedLogStreams?: SearchedLogStreams;            
-            nextToken?: NextToken;            
+            events?: FilteredLogEvents;
+            searchedLogStreams?: SearchedLogStreams;
+            nextToken?: NextToken;
         }
         export interface FilteredLogEvent {
-            logStreamName?: LogStreamName;            
-            timestamp?: Timestamp;            
-            message?: EventMessage;            
-            ingestionTime?: Timestamp;            
-            eventId?: EventId;            
+            logStreamName?: LogStreamName;
+            timestamp?: Timestamp;
+            message?: EventMessage;
+            ingestionTime?: Timestamp;
+            eventId?: EventId;
         }
         export interface GetLogEventsRequest {
-            logGroupName: LogGroupName;            
-            logStreamName: LogStreamName;            
-            startTime?: Timestamp;            
-            endTime?: Timestamp;            
-            nextToken?: NextToken;            
-            limit?: EventsLimit;            
-            startFromHead?: StartFromHead;            
+            logGroupName: LogGroupName;
+            logStreamName: LogStreamName;
+            startTime?: Timestamp;
+            endTime?: Timestamp;
+            nextToken?: NextToken;
+            limit?: EventsLimit;
+            startFromHead?: StartFromHead;
         }
         export interface GetLogEventsResponse {
-            events?: OutputLogEvents;            
-            nextForwardToken?: NextToken;            
-            nextBackwardToken?: NextToken;            
+            events?: OutputLogEvents;
+            nextForwardToken?: NextToken;
+            nextBackwardToken?: NextToken;
         }
         export interface InputLogEvent {
-            timestamp: Timestamp;            
-            message: EventMessage;            
+            timestamp: Timestamp;
+            message: EventMessage;
         }
         export interface InvalidOperationException {
         }
         export interface InvalidParameterException {
         }
         export interface InvalidSequenceTokenException {
-            expectedSequenceToken?: SequenceToken;            
+            expectedSequenceToken?: SequenceToken;
         }
         export interface LimitExceededException {
         }
         export interface LogGroup {
-            logGroupName?: LogGroupName;            
-            creationTime?: Timestamp;            
-            retentionInDays?: Days;            
-            metricFilterCount?: FilterCount;            
-            arn?: Arn;            
-            storedBytes?: StoredBytes;            
+            logGroupName?: LogGroupName;
+            creationTime?: Timestamp;
+            retentionInDays?: Days;
+            metricFilterCount?: FilterCount;
+            arn?: Arn;
+            storedBytes?: StoredBytes;
         }
         export interface LogStream {
-            logStreamName?: LogStreamName;            
-            creationTime?: Timestamp;            
-            firstEventTimestamp?: Timestamp;            
-            lastEventTimestamp?: Timestamp;            
-            lastIngestionTime?: Timestamp;            
-            uploadSequenceToken?: SequenceToken;            
-            arn?: Arn;            
-            storedBytes?: StoredBytes;            
+            logStreamName?: LogStreamName;
+            creationTime?: Timestamp;
+            firstEventTimestamp?: Timestamp;
+            lastEventTimestamp?: Timestamp;
+            lastIngestionTime?: Timestamp;
+            uploadSequenceToken?: SequenceToken;
+            arn?: Arn;
+            storedBytes?: StoredBytes;
         }
         export interface MetricFilter {
-            filterName?: FilterName;            
-            filterPattern?: FilterPattern;            
-            metricTransformations?: MetricTransformations;            
-            creationTime?: Timestamp;            
+            filterName?: FilterName;
+            filterPattern?: FilterPattern;
+            metricTransformations?: MetricTransformations;
+            creationTime?: Timestamp;
         }
         export interface MetricFilterMatchRecord {
-            eventNumber?: EventNumber;            
-            eventMessage?: EventMessage;            
-            extractedValues?: ExtractedValues;            
+            eventNumber?: EventNumber;
+            eventMessage?: EventMessage;
+            extractedValues?: ExtractedValues;
         }
         export interface MetricTransformation {
-            metricName: MetricName;            
-            metricNamespace: MetricNamespace;            
-            metricValue: MetricValue;            
+            metricName: MetricName;
+            metricNamespace: MetricNamespace;
+            metricValue: MetricValue;
         }
         export interface OperationAbortedException {
         }
         export interface OutputLogEvent {
-            timestamp?: Timestamp;            
-            message?: EventMessage;            
-            ingestionTime?: Timestamp;            
+            timestamp?: Timestamp;
+            message?: EventMessage;
+            ingestionTime?: Timestamp;
         }
         export interface PutDestinationPolicyRequest {
-            destinationName: DestinationName;            
-            accessPolicy: AccessPolicy;            
+            destinationName: DestinationName;
+            accessPolicy: AccessPolicy;
         }
         export interface PutDestinationRequest {
-            destinationName: DestinationName;            
-            targetArn: TargetArn;            
-            roleArn: RoleArn;            
+            destinationName: DestinationName;
+            targetArn: TargetArn;
+            roleArn: RoleArn;
         }
         export interface PutDestinationResponse {
-            destination?: Destination;            
+            destination?: Destination;
         }
         export interface PutLogEventsRequest {
-            logGroupName: LogGroupName;            
-            logStreamName: LogStreamName;            
-            logEvents: InputLogEvents;            
-            sequenceToken?: SequenceToken;            
+            logGroupName: LogGroupName;
+            logStreamName: LogStreamName;
+            logEvents: InputLogEvents;
+            sequenceToken?: SequenceToken;
         }
         export interface PutLogEventsResponse {
-            nextSequenceToken?: SequenceToken;            
-            rejectedLogEventsInfo?: RejectedLogEventsInfo;            
+            nextSequenceToken?: SequenceToken;
+            rejectedLogEventsInfo?: RejectedLogEventsInfo;
         }
         export interface PutMetricFilterRequest {
-            logGroupName: LogGroupName;            
-            filterName: FilterName;            
-            filterPattern: FilterPattern;            
-            metricTransformations: MetricTransformations;            
+            logGroupName: LogGroupName;
+            filterName: FilterName;
+            filterPattern: FilterPattern;
+            metricTransformations: MetricTransformations;
         }
         export interface PutRetentionPolicyRequest {
-            logGroupName: LogGroupName;            
-            retentionInDays: Days;            
+            logGroupName: LogGroupName;
+            retentionInDays: Days;
         }
         export interface PutSubscriptionFilterRequest {
-            logGroupName: LogGroupName;            
-            filterName: FilterName;            
-            filterPattern: FilterPattern;            
-            destinationArn: DestinationArn;            
-            roleArn?: RoleArn;            
+            logGroupName: LogGroupName;
+            filterName: FilterName;
+            filterPattern: FilterPattern;
+            destinationArn: DestinationArn;
+            roleArn?: RoleArn;
         }
         export interface RejectedLogEventsInfo {
-            tooNewLogEventStartIndex?: LogEventIndex;            
-            tooOldLogEventEndIndex?: LogEventIndex;            
-            expiredLogEventEndIndex?: LogEventIndex;            
+            tooNewLogEventStartIndex?: LogEventIndex;
+            tooOldLogEventEndIndex?: LogEventIndex;
+            expiredLogEventEndIndex?: LogEventIndex;
         }
         export interface ResourceAlreadyExistsException {
         }
         export interface ResourceNotFoundException {
         }
         export interface SearchedLogStream {
-            logStreamName?: LogStreamName;            
-            searchedCompletely?: LogStreamSearchedCompletely;            
+            logStreamName?: LogStreamName;
+            searchedCompletely?: LogStreamSearchedCompletely;
         }
         export interface ServiceUnavailableException {
         }
         export interface SubscriptionFilter {
-            filterName?: FilterName;            
-            logGroupName?: LogGroupName;            
-            filterPattern?: FilterPattern;            
-            destinationArn?: DestinationArn;            
-            roleArn?: RoleArn;            
-            creationTime?: Timestamp;            
+            filterName?: FilterName;
+            logGroupName?: LogGroupName;
+            filterPattern?: FilterPattern;
+            destinationArn?: DestinationArn;
+            roleArn?: RoleArn;
+            creationTime?: Timestamp;
         }
         export interface TestMetricFilterRequest {
-            filterPattern: FilterPattern;            
-            logEventMessages: TestEventMessages;            
+            filterPattern: FilterPattern;
+            logEventMessages: TestEventMessages;
         }
         export interface TestMetricFilterResponse {
-            matches?: MetricFilterMatches;            
+            matches?: MetricFilterMatches;
         }
 
     }

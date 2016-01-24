@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-05-28
      * endpointPrefix: data.iot
      * serviceAbbreviation: 
@@ -21,8 +21,15 @@ declare module "aws-sdk" {
       getThingShadow(params: IotData.GetThingShadowRequest, callback?: (err: IotData.InvalidRequestException|IotData.ResourceNotFoundException|IotData.ThrottlingException|IotData.UnauthorizedException|IotData.ServiceUnavailableException|IotData.InternalFailureException|IotData.MethodNotAllowedException|IotData.UnsupportedDocumentEncodingException|any, data: IotData.GetThingShadowResponse|any) => void): Request;
       publish(params: IotData.PublishRequest, callback?: (err: IotData.InternalFailureException|IotData.InvalidRequestException|IotData.UnauthorizedException|IotData.MethodNotAllowedException|any, data: any) => void): Request;
       updateThingShadow(params: IotData.UpdateThingShadowRequest, callback?: (err: IotData.ConflictException|IotData.RequestEntityTooLargeException|IotData.InvalidRequestException|IotData.ThrottlingException|IotData.UnauthorizedException|IotData.ServiceUnavailableException|IotData.InternalFailureException|IotData.MethodNotAllowedException|IotData.UnsupportedDocumentEncodingException|any, data: IotData.UpdateThingShadowResponse|any) => void): Request;
+
+      // Found on JS Sources - Sorry for the inconvenience :)
+      validateService(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      setupRequestListeners(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      validateResponseBody(...args: any[]): any
     }
-    
+
     export module IotData {
         export type ErrorMessage = string;
         export type JsonDocument = any;    // type: blob
@@ -33,58 +40,58 @@ declare module "aws-sdk" {
         export type errorMessage = string;
 
         export interface ConflictException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface DeleteThingShadowRequest {
-            thingName: ThingName;            
+            thingName: ThingName;
         }
         export interface DeleteThingShadowResponse {
-            payload: JsonDocument;            
+            payload: JsonDocument;
         }
         export interface GetThingShadowRequest {
-            thingName: ThingName;            
+            thingName: ThingName;
         }
         export interface GetThingShadowResponse {
-            payload?: JsonDocument;            
+            payload?: JsonDocument;
         }
         export interface InternalFailureException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface InvalidRequestException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface MethodNotAllowedException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface PublishRequest {
-            topic: Topic;            
-            qos?: Qos;            
-            payload?: Payload;            
+            topic: Topic;
+            qos?: Qos;
+            payload?: Payload;
         }
         export interface RequestEntityTooLargeException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ResourceNotFoundException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface ServiceUnavailableException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface ThrottlingException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface UnauthorizedException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface UnsupportedDocumentEncodingException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface UpdateThingShadowRequest {
-            thingName: ThingName;            
-            payload: JsonDocument;            
+            thingName: ThingName;
+            payload: JsonDocument;
         }
         export interface UpdateThingShadowResponse {
-            payload?: JsonDocument;            
+            payload?: JsonDocument;
         }
 
     }

@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2011-01-01
      * endpointPrefix: autoscaling
      * serviceAbbreviation: 
@@ -62,11 +62,13 @@ declare module "aws-sdk" {
       resumeProcesses(params: AutoScaling.ScalingProcessQuery, callback?: (err: AutoScaling.ResourceInUseFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
       setDesiredCapacity(params: AutoScaling.SetDesiredCapacityType, callback?: (err: AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
       setInstanceHealth(params: AutoScaling.SetInstanceHealthQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+      setInstanceProtection(params: AutoScaling.SetInstanceProtectionQuery, callback?: (err: AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: AutoScaling.SetInstanceProtectionAnswer|any) => void): Request;
       suspendProcesses(params: AutoScaling.ScalingProcessQuery, callback?: (err: AutoScaling.ResourceInUseFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
       terminateInstanceInAutoScalingGroup(params: AutoScaling.TerminateInstanceInAutoScalingGroupType, callback?: (err: AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any, data: AutoScaling.ActivityType|any) => void): Request;
       updateAutoScalingGroup(params: AutoScaling.UpdateAutoScalingGroupType, callback?: (err: AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+
     }
-    
+
     export module AutoScaling {
         export type Activities = Activity[];
         export type ActivityIds = XmlString[];
@@ -99,7 +101,8 @@ declare module "aws-sdk" {
         export type HealthCheckGracePeriod = number;
         export type HeartbeatTimeout = number;
         export type HonorCooldown = boolean;
-        export type InstanceIds = XmlStringMaxLen16[];
+        export type InstanceIds = XmlStringMaxLen19[];
+        export type InstanceProtected = boolean;
         export type Instances = Instance[];
         export type LaunchConfigurationNames = ResourceName[];
         export type LaunchConfigurations = LaunchConfiguration[];
@@ -123,6 +126,8 @@ declare module "aws-sdk" {
         export type MonitoringEnabled = boolean;
         export type NoDevice = boolean;
         export type NotificationConfigurations = NotificationConfiguration[];
+        export type NumberOfAutoScalingGroups = number;
+        export type NumberOfLaunchConfigurations = number;
         export type PolicyIncrement = number;
         export type PolicyNames = ResourceName[];
         export type PolicyTypes = XmlStringMaxLen64[];
@@ -130,6 +135,7 @@ declare module "aws-sdk" {
         export type Processes = ProcessType[];
         export type Progress = number;
         export type PropagateAtLaunch = boolean;
+        export type ProtectedFromScaleIn = boolean;
         export type ResourceName = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 1600, min: 1
         export type ScalingActivityStatusCode = string;
         export type ScalingPolicies = ScalingPolicy[];
@@ -150,545 +156,559 @@ declare module "aws-sdk" {
         export type Values = XmlString[];
         export type XmlString = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;
         export type XmlStringMaxLen1023 = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 1023, min: 1
-        export type XmlStringMaxLen16 = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 16, min: 1
         export type XmlStringMaxLen1600 = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 1600, min: 1
+        export type XmlStringMaxLen19 = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 19, min: 1
         export type XmlStringMaxLen255 = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 255, min: 1
         export type XmlStringMaxLen32 = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 32, min: 1
         export type XmlStringMaxLen64 = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 64, min: 1
         export type XmlStringUserData = string;    // pattern: &quot;[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*&quot;, max: 21847
 
         export interface ActivitiesType {
-            Activities: Activities;            
-            NextToken?: XmlString;            
+            Activities: Activities;
+            NextToken?: XmlString;
         }
         export interface Activity {
-            ActivityId: XmlString;            
-            AutoScalingGroupName: XmlStringMaxLen255;            
-            Description?: XmlString;            
-            Cause: XmlStringMaxLen1023;            
-            StartTime: TimestampType;            
-            EndTime?: TimestampType;            
-            StatusCode: ScalingActivityStatusCode;            
-            StatusMessage?: XmlStringMaxLen255;            
-            Progress?: Progress;            
-            Details?: XmlString;            
+            ActivityId: XmlString;
+            AutoScalingGroupName: XmlStringMaxLen255;
+            Description?: XmlString;
+            Cause: XmlStringMaxLen1023;
+            StartTime: TimestampType;
+            EndTime?: TimestampType;
+            StatusCode: ScalingActivityStatusCode;
+            StatusMessage?: XmlStringMaxLen255;
+            Progress?: Progress;
+            Details?: XmlString;
         }
         export interface ActivityType {
-            Activity?: Activity;            
+            Activity?: Activity;
         }
         export interface AdjustmentType {
-            AdjustmentType?: XmlStringMaxLen255;            
+            AdjustmentType?: XmlStringMaxLen255;
         }
         export interface Alarm {
-            AlarmName?: XmlStringMaxLen255;            
-            AlarmARN?: ResourceName;            
+            AlarmName?: XmlStringMaxLen255;
+            AlarmARN?: ResourceName;
         }
         export interface AlreadyExistsFault {
-            message?: XmlStringMaxLen255;            
+            message?: XmlStringMaxLen255;
         }
         export interface AttachInstancesQuery {
-            InstanceIds?: InstanceIds;            
-            AutoScalingGroupName: ResourceName;            
+            InstanceIds?: InstanceIds;
+            AutoScalingGroupName: ResourceName;
         }
         export interface AttachLoadBalancersResultType {
         }
         export interface AttachLoadBalancersType {
-            AutoScalingGroupName?: ResourceName;            
-            LoadBalancerNames?: LoadBalancerNames;            
+            AutoScalingGroupName?: ResourceName;
+            LoadBalancerNames?: LoadBalancerNames;
         }
         export interface AutoScalingGroup {
-            AutoScalingGroupName: XmlStringMaxLen255;            
-            AutoScalingGroupARN?: ResourceName;            
-            LaunchConfigurationName: XmlStringMaxLen255;            
-            MinSize: AutoScalingGroupMinSize;            
-            MaxSize: AutoScalingGroupMaxSize;            
-            DesiredCapacity: AutoScalingGroupDesiredCapacity;            
-            DefaultCooldown: Cooldown;            
-            AvailabilityZones: AvailabilityZones;            
-            LoadBalancerNames?: LoadBalancerNames;            
-            HealthCheckType: XmlStringMaxLen32;            
-            HealthCheckGracePeriod?: HealthCheckGracePeriod;            
-            Instances?: Instances;            
-            CreatedTime: TimestampType;            
-            SuspendedProcesses?: SuspendedProcesses;            
-            PlacementGroup?: XmlStringMaxLen255;            
-            VPCZoneIdentifier?: XmlStringMaxLen255;            
-            EnabledMetrics?: EnabledMetrics;            
-            Status?: XmlStringMaxLen255;            
-            Tags?: TagDescriptionList;            
-            TerminationPolicies?: TerminationPolicies;            
+            AutoScalingGroupName: XmlStringMaxLen255;
+            AutoScalingGroupARN?: ResourceName;
+            LaunchConfigurationName?: XmlStringMaxLen255;
+            MinSize: AutoScalingGroupMinSize;
+            MaxSize: AutoScalingGroupMaxSize;
+            DesiredCapacity: AutoScalingGroupDesiredCapacity;
+            DefaultCooldown: Cooldown;
+            AvailabilityZones: AvailabilityZones;
+            LoadBalancerNames?: LoadBalancerNames;
+            HealthCheckType: XmlStringMaxLen32;
+            HealthCheckGracePeriod?: HealthCheckGracePeriod;
+            Instances?: Instances;
+            CreatedTime: TimestampType;
+            SuspendedProcesses?: SuspendedProcesses;
+            PlacementGroup?: XmlStringMaxLen255;
+            VPCZoneIdentifier?: XmlStringMaxLen255;
+            EnabledMetrics?: EnabledMetrics;
+            Status?: XmlStringMaxLen255;
+            Tags?: TagDescriptionList;
+            TerminationPolicies?: TerminationPolicies;
+            NewInstancesProtectedFromScaleIn?: InstanceProtected;
         }
         export interface AutoScalingGroupNamesType {
-            AutoScalingGroupNames?: AutoScalingGroupNames;            
-            NextToken?: XmlString;            
-            MaxRecords?: MaxRecords;            
+            AutoScalingGroupNames?: AutoScalingGroupNames;
+            NextToken?: XmlString;
+            MaxRecords?: MaxRecords;
         }
         export interface AutoScalingGroupsType {
-            AutoScalingGroups: AutoScalingGroups;            
-            NextToken?: XmlString;            
+            AutoScalingGroups: AutoScalingGroups;
+            NextToken?: XmlString;
         }
         export interface AutoScalingInstanceDetails {
-            InstanceId: XmlStringMaxLen16;            
-            AutoScalingGroupName: XmlStringMaxLen255;            
-            AvailabilityZone: XmlStringMaxLen255;            
-            LifecycleState: XmlStringMaxLen32;            
-            HealthStatus: XmlStringMaxLen32;            
-            LaunchConfigurationName: XmlStringMaxLen255;            
+            InstanceId: XmlStringMaxLen19;
+            AutoScalingGroupName: XmlStringMaxLen255;
+            AvailabilityZone: XmlStringMaxLen255;
+            LifecycleState: XmlStringMaxLen32;
+            HealthStatus: XmlStringMaxLen32;
+            LaunchConfigurationName: XmlStringMaxLen255;
+            ProtectedFromScaleIn: InstanceProtected;
         }
         export interface AutoScalingInstancesType {
-            AutoScalingInstances?: AutoScalingInstances;            
-            NextToken?: XmlString;            
+            AutoScalingInstances?: AutoScalingInstances;
+            NextToken?: XmlString;
         }
         export interface BlockDeviceMapping {
-            VirtualName?: XmlStringMaxLen255;            
-            DeviceName: XmlStringMaxLen255;            
-            Ebs?: Ebs;            
-            NoDevice?: NoDevice;            
+            VirtualName?: XmlStringMaxLen255;
+            DeviceName: XmlStringMaxLen255;
+            Ebs?: Ebs;
+            NoDevice?: NoDevice;
         }
         export interface CompleteLifecycleActionAnswer {
         }
         export interface CompleteLifecycleActionType {
-            LifecycleHookName: AsciiStringMaxLen255;            
-            AutoScalingGroupName: ResourceName;            
-            LifecycleActionToken: LifecycleActionToken;            
-            LifecycleActionResult: LifecycleActionResult;            
+            LifecycleHookName: AsciiStringMaxLen255;
+            AutoScalingGroupName: ResourceName;
+            LifecycleActionToken: LifecycleActionToken;
+            LifecycleActionResult: LifecycleActionResult;
         }
         export interface CreateAutoScalingGroupType {
-            AutoScalingGroupName: XmlStringMaxLen255;            
-            LaunchConfigurationName?: ResourceName;            
-            InstanceId?: XmlStringMaxLen16;            
-            MinSize: AutoScalingGroupMinSize;            
-            MaxSize: AutoScalingGroupMaxSize;            
-            DesiredCapacity?: AutoScalingGroupDesiredCapacity;            
-            DefaultCooldown?: Cooldown;            
-            AvailabilityZones?: AvailabilityZones;            
-            LoadBalancerNames?: LoadBalancerNames;            
-            HealthCheckType?: XmlStringMaxLen32;            
-            HealthCheckGracePeriod?: HealthCheckGracePeriod;            
-            PlacementGroup?: XmlStringMaxLen255;            
-            VPCZoneIdentifier?: XmlStringMaxLen255;            
-            TerminationPolicies?: TerminationPolicies;            
-            Tags?: Tags;            
+            AutoScalingGroupName: XmlStringMaxLen255;
+            LaunchConfigurationName?: ResourceName;
+            InstanceId?: XmlStringMaxLen19;
+            MinSize: AutoScalingGroupMinSize;
+            MaxSize: AutoScalingGroupMaxSize;
+            DesiredCapacity?: AutoScalingGroupDesiredCapacity;
+            DefaultCooldown?: Cooldown;
+            AvailabilityZones?: AvailabilityZones;
+            LoadBalancerNames?: LoadBalancerNames;
+            HealthCheckType?: XmlStringMaxLen32;
+            HealthCheckGracePeriod?: HealthCheckGracePeriod;
+            PlacementGroup?: XmlStringMaxLen255;
+            VPCZoneIdentifier?: XmlStringMaxLen255;
+            TerminationPolicies?: TerminationPolicies;
+            NewInstancesProtectedFromScaleIn?: InstanceProtected;
+            Tags?: Tags;
         }
         export interface CreateLaunchConfigurationType {
-            LaunchConfigurationName: XmlStringMaxLen255;            
-            ImageId?: XmlStringMaxLen255;            
-            KeyName?: XmlStringMaxLen255;            
-            SecurityGroups?: SecurityGroups;            
-            ClassicLinkVPCId?: XmlStringMaxLen255;            
-            ClassicLinkVPCSecurityGroups?: ClassicLinkVPCSecurityGroups;            
-            UserData?: XmlStringUserData;            
-            InstanceId?: XmlStringMaxLen16;            
-            InstanceType?: XmlStringMaxLen255;            
-            KernelId?: XmlStringMaxLen255;            
-            RamdiskId?: XmlStringMaxLen255;            
-            BlockDeviceMappings?: BlockDeviceMappings;            
-            InstanceMonitoring?: InstanceMonitoring;            
-            SpotPrice?: SpotPrice;            
-            IamInstanceProfile?: XmlStringMaxLen1600;            
-            EbsOptimized?: EbsOptimized;            
-            AssociatePublicIpAddress?: AssociatePublicIpAddress;            
-            PlacementTenancy?: XmlStringMaxLen64;            
+            LaunchConfigurationName: XmlStringMaxLen255;
+            ImageId?: XmlStringMaxLen255;
+            KeyName?: XmlStringMaxLen255;
+            SecurityGroups?: SecurityGroups;
+            ClassicLinkVPCId?: XmlStringMaxLen255;
+            ClassicLinkVPCSecurityGroups?: ClassicLinkVPCSecurityGroups;
+            UserData?: XmlStringUserData;
+            InstanceId?: XmlStringMaxLen19;
+            InstanceType?: XmlStringMaxLen255;
+            KernelId?: XmlStringMaxLen255;
+            RamdiskId?: XmlStringMaxLen255;
+            BlockDeviceMappings?: BlockDeviceMappings;
+            InstanceMonitoring?: InstanceMonitoring;
+            SpotPrice?: SpotPrice;
+            IamInstanceProfile?: XmlStringMaxLen1600;
+            EbsOptimized?: EbsOptimized;
+            AssociatePublicIpAddress?: AssociatePublicIpAddress;
+            PlacementTenancy?: XmlStringMaxLen64;
         }
         export interface CreateOrUpdateTagsType {
-            Tags: Tags;            
+            Tags: Tags;
         }
         export interface DeleteAutoScalingGroupType {
-            AutoScalingGroupName: ResourceName;            
-            ForceDelete?: ForceDelete;            
+            AutoScalingGroupName: ResourceName;
+            ForceDelete?: ForceDelete;
         }
         export interface DeleteLifecycleHookAnswer {
         }
         export interface DeleteLifecycleHookType {
-            LifecycleHookName: AsciiStringMaxLen255;            
-            AutoScalingGroupName: ResourceName;            
+            LifecycleHookName: AsciiStringMaxLen255;
+            AutoScalingGroupName: ResourceName;
         }
         export interface DeleteNotificationConfigurationType {
-            AutoScalingGroupName: ResourceName;            
-            TopicARN: ResourceName;            
+            AutoScalingGroupName: ResourceName;
+            TopicARN: ResourceName;
         }
         export interface DeletePolicyType {
-            AutoScalingGroupName?: ResourceName;            
-            PolicyName: ResourceName;            
+            AutoScalingGroupName?: ResourceName;
+            PolicyName: ResourceName;
         }
         export interface DeleteScheduledActionType {
-            AutoScalingGroupName?: ResourceName;            
-            ScheduledActionName: ResourceName;            
+            AutoScalingGroupName?: ResourceName;
+            ScheduledActionName: ResourceName;
         }
         export interface DeleteTagsType {
-            Tags: Tags;            
+            Tags: Tags;
         }
         export interface DescribeAccountLimitsAnswer {
-            MaxNumberOfAutoScalingGroups?: MaxNumberOfAutoScalingGroups;            
-            MaxNumberOfLaunchConfigurations?: MaxNumberOfLaunchConfigurations;            
+            MaxNumberOfAutoScalingGroups?: MaxNumberOfAutoScalingGroups;
+            MaxNumberOfLaunchConfigurations?: MaxNumberOfLaunchConfigurations;
+            NumberOfAutoScalingGroups?: NumberOfAutoScalingGroups;
+            NumberOfLaunchConfigurations?: NumberOfLaunchConfigurations;
         }
         export interface DescribeAdjustmentTypesAnswer {
-            AdjustmentTypes?: AdjustmentTypes;            
+            AdjustmentTypes?: AdjustmentTypes;
         }
         export interface DescribeAutoScalingInstancesType {
-            InstanceIds?: InstanceIds;            
-            MaxRecords?: MaxRecords;            
-            NextToken?: XmlString;            
+            InstanceIds?: InstanceIds;
+            MaxRecords?: MaxRecords;
+            NextToken?: XmlString;
         }
         export interface DescribeAutoScalingNotificationTypesAnswer {
-            AutoScalingNotificationTypes?: AutoScalingNotificationTypes;            
+            AutoScalingNotificationTypes?: AutoScalingNotificationTypes;
         }
         export interface DescribeLifecycleHookTypesAnswer {
-            LifecycleHookTypes?: AutoScalingNotificationTypes;            
+            LifecycleHookTypes?: AutoScalingNotificationTypes;
         }
         export interface DescribeLifecycleHooksAnswer {
-            LifecycleHooks?: LifecycleHooks;            
+            LifecycleHooks?: LifecycleHooks;
         }
         export interface DescribeLifecycleHooksType {
-            AutoScalingGroupName: ResourceName;            
-            LifecycleHookNames?: LifecycleHookNames;            
+            AutoScalingGroupName: ResourceName;
+            LifecycleHookNames?: LifecycleHookNames;
         }
         export interface DescribeLoadBalancersRequest {
-            AutoScalingGroupName: ResourceName;            
-            NextToken?: XmlString;            
-            MaxRecords?: MaxRecords;            
+            AutoScalingGroupName: ResourceName;
+            NextToken?: XmlString;
+            MaxRecords?: MaxRecords;
         }
         export interface DescribeLoadBalancersResponse {
-            LoadBalancers?: LoadBalancerStates;            
-            NextToken?: XmlString;            
+            LoadBalancers?: LoadBalancerStates;
+            NextToken?: XmlString;
         }
         export interface DescribeMetricCollectionTypesAnswer {
-            Metrics?: MetricCollectionTypes;            
-            Granularities?: MetricGranularityTypes;            
+            Metrics?: MetricCollectionTypes;
+            Granularities?: MetricGranularityTypes;
         }
         export interface DescribeNotificationConfigurationsAnswer {
-            NotificationConfigurations: NotificationConfigurations;            
-            NextToken?: XmlString;            
+            NotificationConfigurations: NotificationConfigurations;
+            NextToken?: XmlString;
         }
         export interface DescribeNotificationConfigurationsType {
-            AutoScalingGroupNames?: AutoScalingGroupNames;            
-            NextToken?: XmlString;            
-            MaxRecords?: MaxRecords;            
+            AutoScalingGroupNames?: AutoScalingGroupNames;
+            NextToken?: XmlString;
+            MaxRecords?: MaxRecords;
         }
         export interface DescribePoliciesType {
-            AutoScalingGroupName?: ResourceName;            
-            PolicyNames?: PolicyNames;            
-            PolicyTypes?: PolicyTypes;            
-            NextToken?: XmlString;            
-            MaxRecords?: MaxRecords;            
+            AutoScalingGroupName?: ResourceName;
+            PolicyNames?: PolicyNames;
+            PolicyTypes?: PolicyTypes;
+            NextToken?: XmlString;
+            MaxRecords?: MaxRecords;
         }
         export interface DescribeScalingActivitiesType {
-            ActivityIds?: ActivityIds;            
-            AutoScalingGroupName?: ResourceName;            
-            MaxRecords?: MaxRecords;            
-            NextToken?: XmlString;            
+            ActivityIds?: ActivityIds;
+            AutoScalingGroupName?: ResourceName;
+            MaxRecords?: MaxRecords;
+            NextToken?: XmlString;
         }
         export interface DescribeScheduledActionsType {
-            AutoScalingGroupName?: ResourceName;            
-            ScheduledActionNames?: ScheduledActionNames;            
-            StartTime?: TimestampType;            
-            EndTime?: TimestampType;            
-            NextToken?: XmlString;            
-            MaxRecords?: MaxRecords;            
+            AutoScalingGroupName?: ResourceName;
+            ScheduledActionNames?: ScheduledActionNames;
+            StartTime?: TimestampType;
+            EndTime?: TimestampType;
+            NextToken?: XmlString;
+            MaxRecords?: MaxRecords;
         }
         export interface DescribeTagsType {
-            Filters?: Filters;            
-            NextToken?: XmlString;            
-            MaxRecords?: MaxRecords;            
+            Filters?: Filters;
+            NextToken?: XmlString;
+            MaxRecords?: MaxRecords;
         }
         export interface DescribeTerminationPolicyTypesAnswer {
-            TerminationPolicyTypes?: TerminationPolicies;            
+            TerminationPolicyTypes?: TerminationPolicies;
         }
         export interface DetachInstancesAnswer {
-            Activities?: Activities;            
+            Activities?: Activities;
         }
         export interface DetachInstancesQuery {
-            InstanceIds?: InstanceIds;            
-            AutoScalingGroupName: ResourceName;            
-            ShouldDecrementDesiredCapacity: ShouldDecrementDesiredCapacity;            
+            InstanceIds?: InstanceIds;
+            AutoScalingGroupName: ResourceName;
+            ShouldDecrementDesiredCapacity: ShouldDecrementDesiredCapacity;
         }
         export interface DetachLoadBalancersResultType {
         }
         export interface DetachLoadBalancersType {
-            AutoScalingGroupName?: ResourceName;            
-            LoadBalancerNames?: LoadBalancerNames;            
+            AutoScalingGroupName?: ResourceName;
+            LoadBalancerNames?: LoadBalancerNames;
         }
         export interface DisableMetricsCollectionQuery {
-            AutoScalingGroupName: ResourceName;            
-            Metrics?: Metrics;            
+            AutoScalingGroupName: ResourceName;
+            Metrics?: Metrics;
         }
         export interface Ebs {
-            SnapshotId?: XmlStringMaxLen255;            
-            VolumeSize?: BlockDeviceEbsVolumeSize;            
-            VolumeType?: BlockDeviceEbsVolumeType;            
-            DeleteOnTermination?: BlockDeviceEbsDeleteOnTermination;            
-            Iops?: BlockDeviceEbsIops;            
-            Encrypted?: BlockDeviceEbsEncrypted;            
+            SnapshotId?: XmlStringMaxLen255;
+            VolumeSize?: BlockDeviceEbsVolumeSize;
+            VolumeType?: BlockDeviceEbsVolumeType;
+            DeleteOnTermination?: BlockDeviceEbsDeleteOnTermination;
+            Iops?: BlockDeviceEbsIops;
+            Encrypted?: BlockDeviceEbsEncrypted;
         }
         export interface EnableMetricsCollectionQuery {
-            AutoScalingGroupName: ResourceName;            
-            Metrics?: Metrics;            
-            Granularity: XmlStringMaxLen255;            
+            AutoScalingGroupName: ResourceName;
+            Metrics?: Metrics;
+            Granularity: XmlStringMaxLen255;
         }
         export interface EnabledMetric {
-            Metric?: XmlStringMaxLen255;            
-            Granularity?: XmlStringMaxLen255;            
+            Metric?: XmlStringMaxLen255;
+            Granularity?: XmlStringMaxLen255;
         }
         export interface EnterStandbyAnswer {
-            Activities?: Activities;            
+            Activities?: Activities;
         }
         export interface EnterStandbyQuery {
-            InstanceIds?: InstanceIds;            
-            AutoScalingGroupName: ResourceName;            
-            ShouldDecrementDesiredCapacity: ShouldDecrementDesiredCapacity;            
+            InstanceIds?: InstanceIds;
+            AutoScalingGroupName: ResourceName;
+            ShouldDecrementDesiredCapacity: ShouldDecrementDesiredCapacity;
         }
         export interface ExecutePolicyType {
-            AutoScalingGroupName?: ResourceName;            
-            PolicyName: ResourceName;            
-            HonorCooldown?: HonorCooldown;            
-            MetricValue?: MetricScale;            
-            BreachThreshold?: MetricScale;            
+            AutoScalingGroupName?: ResourceName;
+            PolicyName: ResourceName;
+            HonorCooldown?: HonorCooldown;
+            MetricValue?: MetricScale;
+            BreachThreshold?: MetricScale;
         }
         export interface ExitStandbyAnswer {
-            Activities?: Activities;            
+            Activities?: Activities;
         }
         export interface ExitStandbyQuery {
-            InstanceIds?: InstanceIds;            
-            AutoScalingGroupName: ResourceName;            
+            InstanceIds?: InstanceIds;
+            AutoScalingGroupName: ResourceName;
         }
         export interface Filter {
-            Name?: XmlString;            
-            Values?: Values;            
+            Name?: XmlString;
+            Values?: Values;
         }
         export interface Instance {
-            InstanceId: XmlStringMaxLen16;            
-            AvailabilityZone: XmlStringMaxLen255;            
-            LifecycleState: LifecycleState;            
-            HealthStatus: XmlStringMaxLen32;            
-            LaunchConfigurationName: XmlStringMaxLen255;            
+            InstanceId: XmlStringMaxLen19;
+            AvailabilityZone: XmlStringMaxLen255;
+            LifecycleState: LifecycleState;
+            HealthStatus: XmlStringMaxLen32;
+            LaunchConfigurationName: XmlStringMaxLen255;
+            ProtectedFromScaleIn: InstanceProtected;
         }
         export interface InstanceMonitoring {
-            Enabled?: MonitoringEnabled;            
+            Enabled?: MonitoringEnabled;
         }
         export interface InvalidNextToken {
-            message?: XmlStringMaxLen255;            
+            message?: XmlStringMaxLen255;
         }
         export interface LaunchConfiguration {
-            LaunchConfigurationName: XmlStringMaxLen255;            
-            LaunchConfigurationARN?: ResourceName;            
-            ImageId: XmlStringMaxLen255;            
-            KeyName?: XmlStringMaxLen255;            
-            SecurityGroups?: SecurityGroups;            
-            ClassicLinkVPCId?: XmlStringMaxLen255;            
-            ClassicLinkVPCSecurityGroups?: ClassicLinkVPCSecurityGroups;            
-            UserData?: XmlStringUserData;            
-            InstanceType: XmlStringMaxLen255;            
-            KernelId?: XmlStringMaxLen255;            
-            RamdiskId?: XmlStringMaxLen255;            
-            BlockDeviceMappings?: BlockDeviceMappings;            
-            InstanceMonitoring?: InstanceMonitoring;            
-            SpotPrice?: SpotPrice;            
-            IamInstanceProfile?: XmlStringMaxLen1600;            
-            CreatedTime: TimestampType;            
-            EbsOptimized?: EbsOptimized;            
-            AssociatePublicIpAddress?: AssociatePublicIpAddress;            
-            PlacementTenancy?: XmlStringMaxLen64;            
+            LaunchConfigurationName: XmlStringMaxLen255;
+            LaunchConfigurationARN?: ResourceName;
+            ImageId: XmlStringMaxLen255;
+            KeyName?: XmlStringMaxLen255;
+            SecurityGroups?: SecurityGroups;
+            ClassicLinkVPCId?: XmlStringMaxLen255;
+            ClassicLinkVPCSecurityGroups?: ClassicLinkVPCSecurityGroups;
+            UserData?: XmlStringUserData;
+            InstanceType: XmlStringMaxLen255;
+            KernelId?: XmlStringMaxLen255;
+            RamdiskId?: XmlStringMaxLen255;
+            BlockDeviceMappings?: BlockDeviceMappings;
+            InstanceMonitoring?: InstanceMonitoring;
+            SpotPrice?: SpotPrice;
+            IamInstanceProfile?: XmlStringMaxLen1600;
+            CreatedTime: TimestampType;
+            EbsOptimized?: EbsOptimized;
+            AssociatePublicIpAddress?: AssociatePublicIpAddress;
+            PlacementTenancy?: XmlStringMaxLen64;
         }
         export interface LaunchConfigurationNameType {
-            LaunchConfigurationName: ResourceName;            
+            LaunchConfigurationName: ResourceName;
         }
         export interface LaunchConfigurationNamesType {
-            LaunchConfigurationNames?: LaunchConfigurationNames;            
-            NextToken?: XmlString;            
-            MaxRecords?: MaxRecords;            
+            LaunchConfigurationNames?: LaunchConfigurationNames;
+            NextToken?: XmlString;
+            MaxRecords?: MaxRecords;
         }
         export interface LaunchConfigurationsType {
-            LaunchConfigurations: LaunchConfigurations;            
-            NextToken?: XmlString;            
+            LaunchConfigurations: LaunchConfigurations;
+            NextToken?: XmlString;
         }
         export interface LifecycleHook {
-            LifecycleHookName?: AsciiStringMaxLen255;            
-            AutoScalingGroupName?: ResourceName;            
-            LifecycleTransition?: LifecycleTransition;            
-            NotificationTargetARN?: ResourceName;            
-            RoleARN?: ResourceName;            
-            NotificationMetadata?: XmlStringMaxLen1023;            
-            HeartbeatTimeout?: HeartbeatTimeout;            
-            GlobalTimeout?: GlobalTimeout;            
-            DefaultResult?: LifecycleActionResult;            
+            LifecycleHookName?: AsciiStringMaxLen255;
+            AutoScalingGroupName?: ResourceName;
+            LifecycleTransition?: LifecycleTransition;
+            NotificationTargetARN?: ResourceName;
+            RoleARN?: ResourceName;
+            NotificationMetadata?: XmlStringMaxLen1023;
+            HeartbeatTimeout?: HeartbeatTimeout;
+            GlobalTimeout?: GlobalTimeout;
+            DefaultResult?: LifecycleActionResult;
         }
         export interface LimitExceededFault {
-            message?: XmlStringMaxLen255;            
+            message?: XmlStringMaxLen255;
         }
         export interface LoadBalancerState {
-            LoadBalancerName?: XmlStringMaxLen255;            
-            State?: XmlStringMaxLen255;            
+            LoadBalancerName?: XmlStringMaxLen255;
+            State?: XmlStringMaxLen255;
         }
         export interface MetricCollectionType {
-            Metric?: XmlStringMaxLen255;            
+            Metric?: XmlStringMaxLen255;
         }
         export interface MetricGranularityType {
-            Granularity?: XmlStringMaxLen255;            
+            Granularity?: XmlStringMaxLen255;
         }
         export interface NotificationConfiguration {
-            AutoScalingGroupName?: ResourceName;            
-            TopicARN?: ResourceName;            
-            NotificationType?: XmlStringMaxLen255;            
+            AutoScalingGroupName?: ResourceName;
+            TopicARN?: ResourceName;
+            NotificationType?: XmlStringMaxLen255;
         }
         export interface PoliciesType {
-            ScalingPolicies?: ScalingPolicies;            
-            NextToken?: XmlString;            
+            ScalingPolicies?: ScalingPolicies;
+            NextToken?: XmlString;
         }
         export interface PolicyARNType {
-            PolicyARN?: ResourceName;            
+            PolicyARN?: ResourceName;
         }
         export interface ProcessType {
-            ProcessName: XmlStringMaxLen255;            
+            ProcessName: XmlStringMaxLen255;
         }
         export interface ProcessesType {
-            Processes?: Processes;            
+            Processes?: Processes;
         }
         export interface PutLifecycleHookAnswer {
         }
         export interface PutLifecycleHookType {
-            LifecycleHookName: AsciiStringMaxLen255;            
-            AutoScalingGroupName: ResourceName;            
-            LifecycleTransition?: LifecycleTransition;            
-            RoleARN?: ResourceName;            
-            NotificationTargetARN?: ResourceName;            
-            NotificationMetadata?: XmlStringMaxLen1023;            
-            HeartbeatTimeout?: HeartbeatTimeout;            
-            DefaultResult?: LifecycleActionResult;            
+            LifecycleHookName: AsciiStringMaxLen255;
+            AutoScalingGroupName: ResourceName;
+            LifecycleTransition?: LifecycleTransition;
+            RoleARN?: ResourceName;
+            NotificationTargetARN?: ResourceName;
+            NotificationMetadata?: XmlStringMaxLen1023;
+            HeartbeatTimeout?: HeartbeatTimeout;
+            DefaultResult?: LifecycleActionResult;
         }
         export interface PutNotificationConfigurationType {
-            AutoScalingGroupName: ResourceName;            
-            TopicARN: ResourceName;            
-            NotificationTypes: AutoScalingNotificationTypes;            
+            AutoScalingGroupName: ResourceName;
+            TopicARN: ResourceName;
+            NotificationTypes: AutoScalingNotificationTypes;
         }
         export interface PutScalingPolicyType {
-            AutoScalingGroupName: ResourceName;            
-            PolicyName: XmlStringMaxLen255;            
-            PolicyType?: XmlStringMaxLen64;            
-            AdjustmentType: XmlStringMaxLen255;            
-            MinAdjustmentStep?: MinAdjustmentStep;            
-            MinAdjustmentMagnitude?: MinAdjustmentMagnitude;            
-            ScalingAdjustment?: PolicyIncrement;            
-            Cooldown?: Cooldown;            
-            MetricAggregationType?: XmlStringMaxLen32;            
-            StepAdjustments?: StepAdjustments;            
-            EstimatedInstanceWarmup?: EstimatedInstanceWarmup;            
+            AutoScalingGroupName: ResourceName;
+            PolicyName: XmlStringMaxLen255;
+            PolicyType?: XmlStringMaxLen64;
+            AdjustmentType: XmlStringMaxLen255;
+            MinAdjustmentStep?: MinAdjustmentStep;
+            MinAdjustmentMagnitude?: MinAdjustmentMagnitude;
+            ScalingAdjustment?: PolicyIncrement;
+            Cooldown?: Cooldown;
+            MetricAggregationType?: XmlStringMaxLen32;
+            StepAdjustments?: StepAdjustments;
+            EstimatedInstanceWarmup?: EstimatedInstanceWarmup;
         }
         export interface PutScheduledUpdateGroupActionType {
-            AutoScalingGroupName: ResourceName;            
-            ScheduledActionName: XmlStringMaxLen255;            
-            Time?: TimestampType;            
-            StartTime?: TimestampType;            
-            EndTime?: TimestampType;            
-            Recurrence?: XmlStringMaxLen255;            
-            MinSize?: AutoScalingGroupMinSize;            
-            MaxSize?: AutoScalingGroupMaxSize;            
-            DesiredCapacity?: AutoScalingGroupDesiredCapacity;            
+            AutoScalingGroupName: ResourceName;
+            ScheduledActionName: XmlStringMaxLen255;
+            Time?: TimestampType;
+            StartTime?: TimestampType;
+            EndTime?: TimestampType;
+            Recurrence?: XmlStringMaxLen255;
+            MinSize?: AutoScalingGroupMinSize;
+            MaxSize?: AutoScalingGroupMaxSize;
+            DesiredCapacity?: AutoScalingGroupDesiredCapacity;
         }
         export interface RecordLifecycleActionHeartbeatAnswer {
         }
         export interface RecordLifecycleActionHeartbeatType {
-            LifecycleHookName: AsciiStringMaxLen255;            
-            AutoScalingGroupName: ResourceName;            
-            LifecycleActionToken: LifecycleActionToken;            
+            LifecycleHookName: AsciiStringMaxLen255;
+            AutoScalingGroupName: ResourceName;
+            LifecycleActionToken: LifecycleActionToken;
         }
         export interface ResourceContentionFault {
-            message?: XmlStringMaxLen255;            
+            message?: XmlStringMaxLen255;
         }
         export interface ResourceInUseFault {
-            message?: XmlStringMaxLen255;            
+            message?: XmlStringMaxLen255;
         }
         export interface ScalingActivityInProgressFault {
-            message?: XmlStringMaxLen255;            
+            message?: XmlStringMaxLen255;
         }
         export interface ScalingPolicy {
-            AutoScalingGroupName?: XmlStringMaxLen255;            
-            PolicyName?: XmlStringMaxLen255;            
-            PolicyARN?: ResourceName;            
-            PolicyType?: XmlStringMaxLen64;            
-            AdjustmentType?: XmlStringMaxLen255;            
-            MinAdjustmentStep?: MinAdjustmentStep;            
-            MinAdjustmentMagnitude?: MinAdjustmentMagnitude;            
-            ScalingAdjustment?: PolicyIncrement;            
-            Cooldown?: Cooldown;            
-            StepAdjustments?: StepAdjustments;            
-            MetricAggregationType?: XmlStringMaxLen32;            
-            EstimatedInstanceWarmup?: EstimatedInstanceWarmup;            
-            Alarms?: Alarms;            
+            AutoScalingGroupName?: XmlStringMaxLen255;
+            PolicyName?: XmlStringMaxLen255;
+            PolicyARN?: ResourceName;
+            PolicyType?: XmlStringMaxLen64;
+            AdjustmentType?: XmlStringMaxLen255;
+            MinAdjustmentStep?: MinAdjustmentStep;
+            MinAdjustmentMagnitude?: MinAdjustmentMagnitude;
+            ScalingAdjustment?: PolicyIncrement;
+            Cooldown?: Cooldown;
+            StepAdjustments?: StepAdjustments;
+            MetricAggregationType?: XmlStringMaxLen32;
+            EstimatedInstanceWarmup?: EstimatedInstanceWarmup;
+            Alarms?: Alarms;
         }
         export interface ScalingProcessQuery {
-            AutoScalingGroupName: ResourceName;            
-            ScalingProcesses?: ProcessNames;            
+            AutoScalingGroupName: ResourceName;
+            ScalingProcesses?: ProcessNames;
         }
         export interface ScheduledActionsType {
-            ScheduledUpdateGroupActions?: ScheduledUpdateGroupActions;            
-            NextToken?: XmlString;            
+            ScheduledUpdateGroupActions?: ScheduledUpdateGroupActions;
+            NextToken?: XmlString;
         }
         export interface ScheduledUpdateGroupAction {
-            AutoScalingGroupName?: XmlStringMaxLen255;            
-            ScheduledActionName?: XmlStringMaxLen255;            
-            ScheduledActionARN?: ResourceName;            
-            Time?: TimestampType;            
-            StartTime?: TimestampType;            
-            EndTime?: TimestampType;            
-            Recurrence?: XmlStringMaxLen255;            
-            MinSize?: AutoScalingGroupMinSize;            
-            MaxSize?: AutoScalingGroupMaxSize;            
-            DesiredCapacity?: AutoScalingGroupDesiredCapacity;            
+            AutoScalingGroupName?: XmlStringMaxLen255;
+            ScheduledActionName?: XmlStringMaxLen255;
+            ScheduledActionARN?: ResourceName;
+            Time?: TimestampType;
+            StartTime?: TimestampType;
+            EndTime?: TimestampType;
+            Recurrence?: XmlStringMaxLen255;
+            MinSize?: AutoScalingGroupMinSize;
+            MaxSize?: AutoScalingGroupMaxSize;
+            DesiredCapacity?: AutoScalingGroupDesiredCapacity;
         }
         export interface SetDesiredCapacityType {
-            AutoScalingGroupName: ResourceName;            
-            DesiredCapacity: AutoScalingGroupDesiredCapacity;            
-            HonorCooldown?: HonorCooldown;            
+            AutoScalingGroupName: ResourceName;
+            DesiredCapacity: AutoScalingGroupDesiredCapacity;
+            HonorCooldown?: HonorCooldown;
         }
         export interface SetInstanceHealthQuery {
-            InstanceId: XmlStringMaxLen16;            
-            HealthStatus: XmlStringMaxLen32;            
-            ShouldRespectGracePeriod?: ShouldRespectGracePeriod;            
+            InstanceId: XmlStringMaxLen19;
+            HealthStatus: XmlStringMaxLen32;
+            ShouldRespectGracePeriod?: ShouldRespectGracePeriod;
+        }
+        export interface SetInstanceProtectionAnswer {
+        }
+        export interface SetInstanceProtectionQuery {
+            InstanceIds: InstanceIds;
+            AutoScalingGroupName: ResourceName;
+            ProtectedFromScaleIn: ProtectedFromScaleIn;
         }
         export interface StepAdjustment {
-            MetricIntervalLowerBound?: MetricScale;            
-            MetricIntervalUpperBound?: MetricScale;            
-            ScalingAdjustment: PolicyIncrement;            
+            MetricIntervalLowerBound?: MetricScale;
+            MetricIntervalUpperBound?: MetricScale;
+            ScalingAdjustment: PolicyIncrement;
         }
         export interface SuspendedProcess {
-            ProcessName?: XmlStringMaxLen255;            
-            SuspensionReason?: XmlStringMaxLen255;            
+            ProcessName?: XmlStringMaxLen255;
+            SuspensionReason?: XmlStringMaxLen255;
         }
         export interface Tag {
-            ResourceId?: XmlString;            
-            ResourceType?: XmlString;            
-            Key: TagKey;            
-            Value?: TagValue;            
-            PropagateAtLaunch?: PropagateAtLaunch;            
+            ResourceId?: XmlString;
+            ResourceType?: XmlString;
+            Key: TagKey;
+            Value?: TagValue;
+            PropagateAtLaunch?: PropagateAtLaunch;
         }
         export interface TagDescription {
-            ResourceId?: XmlString;            
-            ResourceType?: XmlString;            
-            Key?: TagKey;            
-            Value?: TagValue;            
-            PropagateAtLaunch?: PropagateAtLaunch;            
+            ResourceId?: XmlString;
+            ResourceType?: XmlString;
+            Key?: TagKey;
+            Value?: TagValue;
+            PropagateAtLaunch?: PropagateAtLaunch;
         }
         export interface TagsType {
-            Tags?: TagDescriptionList;            
-            NextToken?: XmlString;            
+            Tags?: TagDescriptionList;
+            NextToken?: XmlString;
         }
         export interface TerminateInstanceInAutoScalingGroupType {
-            InstanceId: XmlStringMaxLen16;            
-            ShouldDecrementDesiredCapacity: ShouldDecrementDesiredCapacity;            
+            InstanceId: XmlStringMaxLen19;
+            ShouldDecrementDesiredCapacity: ShouldDecrementDesiredCapacity;
         }
         export interface UpdateAutoScalingGroupType {
-            AutoScalingGroupName: ResourceName;            
-            LaunchConfigurationName?: ResourceName;            
-            MinSize?: AutoScalingGroupMinSize;            
-            MaxSize?: AutoScalingGroupMaxSize;            
-            DesiredCapacity?: AutoScalingGroupDesiredCapacity;            
-            DefaultCooldown?: Cooldown;            
-            AvailabilityZones?: AvailabilityZones;            
-            HealthCheckType?: XmlStringMaxLen32;            
-            HealthCheckGracePeriod?: HealthCheckGracePeriod;            
-            PlacementGroup?: XmlStringMaxLen255;            
-            VPCZoneIdentifier?: XmlStringMaxLen255;            
-            TerminationPolicies?: TerminationPolicies;            
+            AutoScalingGroupName: ResourceName;
+            LaunchConfigurationName?: ResourceName;
+            MinSize?: AutoScalingGroupMinSize;
+            MaxSize?: AutoScalingGroupMaxSize;
+            DesiredCapacity?: AutoScalingGroupDesiredCapacity;
+            DefaultCooldown?: Cooldown;
+            AvailabilityZones?: AvailabilityZones;
+            HealthCheckType?: XmlStringMaxLen32;
+            HealthCheckGracePeriod?: HealthCheckGracePeriod;
+            PlacementGroup?: XmlStringMaxLen255;
+            VPCZoneIdentifier?: XmlStringMaxLen255;
+            TerminationPolicies?: TerminationPolicies;
+            NewInstancesProtectedFromScaleIn?: InstanceProtected;
         }
 
     }

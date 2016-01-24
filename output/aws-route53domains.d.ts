@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2014-05-15
      * endpointPrefix: route53domains
      * serviceAbbreviation: 
@@ -35,8 +35,9 @@ declare module "aws-sdk" {
       updateDomainContactPrivacy(params: Route53Domains.UpdateDomainContactPrivacyRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainContactPrivacyResponse|any) => void): Request;
       updateDomainNameservers(params: Route53Domains.UpdateDomainNameserversRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainNameserversResponse|any) => void): Request;
       updateTagsForDomain(params: Route53Domains.UpdateTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateTagsForDomainResponse|any) => void): Request;
+
     }
-    
+
     export module Route53Domains {
         export type AddressLine = string;    // max: 255
         export type Boolean = boolean;
@@ -84,224 +85,224 @@ declare module "aws-sdk" {
         export type ZipCode = string;    // max: 255
 
         export interface CheckDomainAvailabilityRequest {
-            DomainName: DomainName;            
-            IdnLangCode?: LangCode;            
+            DomainName: DomainName;
+            IdnLangCode?: LangCode;
         }
         export interface CheckDomainAvailabilityResponse {
-            Availability: DomainAvailability;            
+            Availability: DomainAvailability;
         }
         export interface ContactDetail {
-            FirstName?: ContactName;            
-            LastName?: ContactName;            
-            ContactType?: ContactType;            
-            OrganizationName?: ContactName;            
-            AddressLine1?: AddressLine;            
-            AddressLine2?: AddressLine;            
-            City?: City;            
-            State?: State;            
-            CountryCode?: CountryCode;            
-            ZipCode?: ZipCode;            
-            PhoneNumber?: ContactNumber;            
-            Email?: Email;            
-            Fax?: ContactNumber;            
-            ExtraParams?: ExtraParamList;            
+            FirstName?: ContactName;
+            LastName?: ContactName;
+            ContactType?: ContactType;
+            OrganizationName?: ContactName;
+            AddressLine1?: AddressLine;
+            AddressLine2?: AddressLine;
+            City?: City;
+            State?: State;
+            CountryCode?: CountryCode;
+            ZipCode?: ZipCode;
+            PhoneNumber?: ContactNumber;
+            Email?: Email;
+            Fax?: ContactNumber;
+            ExtraParams?: ExtraParamList;
         }
         export interface DeleteTagsForDomainRequest {
-            DomainName: DomainName;            
-            TagsToDelete: TagKeyList;            
+            DomainName: DomainName;
+            TagsToDelete: TagKeyList;
         }
         export interface DeleteTagsForDomainResponse {
         }
         export interface DisableDomainAutoRenewRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface DisableDomainAutoRenewResponse {
         }
         export interface DisableDomainTransferLockRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface DisableDomainTransferLockResponse {
-            OperationId: OperationId;            
+            OperationId: OperationId;
         }
         export interface DomainLimitExceeded {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface DomainSummary {
-            DomainName: DomainName;            
-            AutoRenew?: Boolean;            
-            TransferLock?: Boolean;            
-            Expiry?: Timestamp;            
+            DomainName: DomainName;
+            AutoRenew?: Boolean;
+            TransferLock?: Boolean;
+            Expiry?: Timestamp;
         }
         export interface DuplicateRequest {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface EnableDomainAutoRenewRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface EnableDomainAutoRenewResponse {
         }
         export interface EnableDomainTransferLockRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface EnableDomainTransferLockResponse {
-            OperationId: OperationId;            
+            OperationId: OperationId;
         }
         export interface ExtraParam {
-            Name: ExtraParamName;            
-            Value: ExtraParamValue;            
+            Name: ExtraParamName;
+            Value: ExtraParamValue;
         }
         export interface GetDomainDetailRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface GetDomainDetailResponse {
-            DomainName: DomainName;            
-            Nameservers: NameserverList;            
-            AutoRenew?: Boolean;            
-            AdminContact: ContactDetail;            
-            RegistrantContact: ContactDetail;            
-            TechContact: ContactDetail;            
-            AdminPrivacy?: Boolean;            
-            RegistrantPrivacy?: Boolean;            
-            TechPrivacy?: Boolean;            
-            RegistrarName?: RegistrarName;            
-            WhoIsServer?: RegistrarWhoIsServer;            
-            RegistrarUrl?: RegistrarUrl;            
-            AbuseContactEmail?: Email;            
-            AbuseContactPhone?: ContactNumber;            
-            RegistryDomainId?: RegistryDomainId;            
-            CreationDate?: Timestamp;            
-            UpdatedDate?: Timestamp;            
-            ExpirationDate?: Timestamp;            
-            Reseller?: Reseller;            
-            DnsSec?: DNSSec;            
-            StatusList?: DomainStatusList;            
+            DomainName: DomainName;
+            Nameservers: NameserverList;
+            AutoRenew?: Boolean;
+            AdminContact: ContactDetail;
+            RegistrantContact: ContactDetail;
+            TechContact: ContactDetail;
+            AdminPrivacy?: Boolean;
+            RegistrantPrivacy?: Boolean;
+            TechPrivacy?: Boolean;
+            RegistrarName?: RegistrarName;
+            WhoIsServer?: RegistrarWhoIsServer;
+            RegistrarUrl?: RegistrarUrl;
+            AbuseContactEmail?: Email;
+            AbuseContactPhone?: ContactNumber;
+            RegistryDomainId?: RegistryDomainId;
+            CreationDate?: Timestamp;
+            UpdatedDate?: Timestamp;
+            ExpirationDate?: Timestamp;
+            Reseller?: Reseller;
+            DnsSec?: DNSSec;
+            StatusList?: DomainStatusList;
         }
         export interface GetOperationDetailRequest {
-            OperationId: OperationId;            
+            OperationId: OperationId;
         }
         export interface GetOperationDetailResponse {
-            OperationId?: OperationId;            
-            Status?: OperationStatus;            
-            Message?: ErrorMessage;            
-            DomainName?: DomainName;            
-            Type?: OperationType;            
-            SubmittedDate?: Timestamp;            
+            OperationId?: OperationId;
+            Status?: OperationStatus;
+            Message?: ErrorMessage;
+            DomainName?: DomainName;
+            Type?: OperationType;
+            SubmittedDate?: Timestamp;
         }
         export interface InvalidInput {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ListDomainsRequest {
-            Marker?: PageMarker;            
-            MaxItems?: PageMaxItems;            
+            Marker?: PageMarker;
+            MaxItems?: PageMaxItems;
         }
         export interface ListDomainsResponse {
-            Domains: DomainSummaryList;            
-            NextPageMarker?: PageMarker;            
+            Domains: DomainSummaryList;
+            NextPageMarker?: PageMarker;
         }
         export interface ListOperationsRequest {
-            Marker?: PageMarker;            
-            MaxItems?: PageMaxItems;            
+            Marker?: PageMarker;
+            MaxItems?: PageMaxItems;
         }
         export interface ListOperationsResponse {
-            Operations: OperationSummaryList;            
-            NextPageMarker?: PageMarker;            
+            Operations: OperationSummaryList;
+            NextPageMarker?: PageMarker;
         }
         export interface ListTagsForDomainRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface ListTagsForDomainResponse {
-            TagList: TagList;            
+            TagList: TagList;
         }
         export interface Nameserver {
-            Name: HostName;            
-            GlueIps?: GlueIpList;            
+            Name: HostName;
+            GlueIps?: GlueIpList;
         }
         export interface OperationLimitExceeded {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface OperationSummary {
-            OperationId: OperationId;            
-            Status: OperationStatus;            
-            Type: OperationType;            
-            SubmittedDate: Timestamp;            
+            OperationId: OperationId;
+            Status: OperationStatus;
+            Type: OperationType;
+            SubmittedDate: Timestamp;
         }
         export interface RegisterDomainRequest {
-            DomainName: DomainName;            
-            IdnLangCode?: LangCode;            
-            DurationInYears: DurationInYears;            
-            AutoRenew?: Boolean;            
-            AdminContact: ContactDetail;            
-            RegistrantContact: ContactDetail;            
-            TechContact: ContactDetail;            
-            PrivacyProtectAdminContact?: Boolean;            
-            PrivacyProtectRegistrantContact?: Boolean;            
-            PrivacyProtectTechContact?: Boolean;            
+            DomainName: DomainName;
+            IdnLangCode?: LangCode;
+            DurationInYears: DurationInYears;
+            AutoRenew?: Boolean;
+            AdminContact: ContactDetail;
+            RegistrantContact: ContactDetail;
+            TechContact: ContactDetail;
+            PrivacyProtectAdminContact?: Boolean;
+            PrivacyProtectRegistrantContact?: Boolean;
+            PrivacyProtectTechContact?: Boolean;
         }
         export interface RegisterDomainResponse {
-            OperationId: OperationId;            
+            OperationId: OperationId;
         }
         export interface RetrieveDomainAuthCodeRequest {
-            DomainName: DomainName;            
+            DomainName: DomainName;
         }
         export interface RetrieveDomainAuthCodeResponse {
-            AuthCode: DomainAuthCode;            
+            AuthCode: DomainAuthCode;
         }
         export interface TLDRulesViolation {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface Tag {
-            Key?: TagKey;            
-            Value?: TagValue;            
+            Key?: TagKey;
+            Value?: TagValue;
         }
         export interface TransferDomainRequest {
-            DomainName: DomainName;            
-            IdnLangCode?: LangCode;            
-            DurationInYears: DurationInYears;            
-            Nameservers?: NameserverList;            
-            AuthCode?: DomainAuthCode;            
-            AutoRenew?: Boolean;            
-            AdminContact: ContactDetail;            
-            RegistrantContact: ContactDetail;            
-            TechContact: ContactDetail;            
-            PrivacyProtectAdminContact?: Boolean;            
-            PrivacyProtectRegistrantContact?: Boolean;            
-            PrivacyProtectTechContact?: Boolean;            
+            DomainName: DomainName;
+            IdnLangCode?: LangCode;
+            DurationInYears: DurationInYears;
+            Nameservers?: NameserverList;
+            AuthCode?: DomainAuthCode;
+            AutoRenew?: Boolean;
+            AdminContact: ContactDetail;
+            RegistrantContact: ContactDetail;
+            TechContact: ContactDetail;
+            PrivacyProtectAdminContact?: Boolean;
+            PrivacyProtectRegistrantContact?: Boolean;
+            PrivacyProtectTechContact?: Boolean;
         }
         export interface TransferDomainResponse {
-            OperationId: OperationId;            
+            OperationId: OperationId;
         }
         export interface UnsupportedTLD {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface UpdateDomainContactPrivacyRequest {
-            DomainName: DomainName;            
-            AdminPrivacy?: Boolean;            
-            RegistrantPrivacy?: Boolean;            
-            TechPrivacy?: Boolean;            
+            DomainName: DomainName;
+            AdminPrivacy?: Boolean;
+            RegistrantPrivacy?: Boolean;
+            TechPrivacy?: Boolean;
         }
         export interface UpdateDomainContactPrivacyResponse {
-            OperationId: OperationId;            
+            OperationId: OperationId;
         }
         export interface UpdateDomainContactRequest {
-            DomainName: DomainName;            
-            AdminContact?: ContactDetail;            
-            RegistrantContact?: ContactDetail;            
-            TechContact?: ContactDetail;            
+            DomainName: DomainName;
+            AdminContact?: ContactDetail;
+            RegistrantContact?: ContactDetail;
+            TechContact?: ContactDetail;
         }
         export interface UpdateDomainContactResponse {
-            OperationId: OperationId;            
+            OperationId: OperationId;
         }
         export interface UpdateDomainNameserversRequest {
-            DomainName: DomainName;            
-            FIAuthKey?: FIAuthKey;            
-            Nameservers: NameserverList;            
+            DomainName: DomainName;
+            FIAuthKey?: FIAuthKey;
+            Nameservers: NameserverList;
         }
         export interface UpdateDomainNameserversResponse {
-            OperationId: OperationId;            
+            OperationId: OperationId;
         }
         export interface UpdateTagsForDomainRequest {
-            DomainName: DomainName;            
-            TagsToUpdate?: TagList;            
+            DomainName: DomainName;
+            TagsToUpdate?: TagList;
         }
         export interface UpdateTagsForDomainResponse {
         }

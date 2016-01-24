@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2014-10-31
      * endpointPrefix: rds
      * serviceAbbreviation: Amazon RDS
@@ -95,8 +95,9 @@ declare module "aws-sdk" {
       restoreDBInstanceFromDBSnapshot(params: RDS.RestoreDBInstanceFromDBSnapshotMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.DBSnapshotNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.InsufficientDBInstanceCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBSecurityGroupNotFoundFault|any, data: RDS.RestoreDBInstanceFromDBSnapshotResult|any) => void): Request;
       restoreDBInstanceToPointInTime(params: RDS.RestoreDBInstanceToPointInTimeMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.DBInstanceNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.InsufficientDBInstanceCapacityFault|RDS.InvalidDBInstanceStateFault|RDS.PointInTimeRestoreNotEnabledFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBSecurityGroupNotFoundFault|any, data: RDS.RestoreDBInstanceToPointInTimeResult|any) => void): Request;
       revokeDBSecurityGroupIngress(params: RDS.RevokeDBSecurityGroupIngressMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault|RDS.AuthorizationNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|any, data: RDS.RevokeDBSecurityGroupIngressResult|any) => void): Request;
+
     }
-    
+
     export module RDS {
         export type AccountQuotaList = AccountQuota[];
         export type ApplyMethod = string;
@@ -167,25 +168,31 @@ declare module "aws-sdk" {
         export type VpcSecurityGroupMembershipList = VpcSecurityGroupMembership[];
 
         export interface AccountAttributesMessage {
-            AccountQuotas?: AccountQuotaList;            
+            AccountQuotas?: AccountQuotaList;
         }
         export interface AccountQuota {
-            AccountQuotaName?: String;            
-            Used?: Long;            
-            Max?: Long;            
+            AccountQuotaName?: String;
+            Used?: Long;
+            Max?: Long;
         }
         export interface AddSourceIdentifierToSubscriptionMessage {
-            SubscriptionName: String;            
-            SourceIdentifier: String;            
+            SubscriptionName: String;
+            SourceIdentifier: String;
+        }
+        export interface AddSourceIdentifierToSubscriptionResult {
+            EventSubscription?: EventSubscription;
         }
         export interface AddTagsToResourceMessage {
-            ResourceName: String;            
-            Tags: TagList;            
+            ResourceName: String;
+            Tags: TagList;
         }
         export interface ApplyPendingMaintenanceActionMessage {
-            ResourceIdentifier: String;            
-            ApplyAction: String;            
-            OptInType: String;            
+            ResourceIdentifier: String;
+            ApplyAction: String;
+            OptInType: String;
+        }
+        export interface ApplyPendingMaintenanceActionResult {
+            ResourcePendingMaintenanceActions?: ResourcePendingMaintenanceActions;
         }
         export interface AuthorizationAlreadyExistsFault {
         }
@@ -194,374 +201,436 @@ declare module "aws-sdk" {
         export interface AuthorizationQuotaExceededFault {
         }
         export interface AuthorizeDBSecurityGroupIngressMessage {
-            DBSecurityGroupName: String;            
-            CIDRIP?: String;            
-            EC2SecurityGroupName?: String;            
-            EC2SecurityGroupId?: String;            
-            EC2SecurityGroupOwnerId?: String;            
+            DBSecurityGroupName: String;
+            CIDRIP?: String;
+            EC2SecurityGroupName?: String;
+            EC2SecurityGroupId?: String;
+            EC2SecurityGroupOwnerId?: String;
+        }
+        export interface AuthorizeDBSecurityGroupIngressResult {
+            DBSecurityGroup?: DBSecurityGroup;
         }
         export interface AvailabilityZone {
-            Name?: String;            
+            Name?: String;
         }
         export interface Certificate {
-            CertificateIdentifier?: String;            
-            CertificateType?: String;            
-            Thumbprint?: String;            
-            ValidFrom?: TStamp;            
-            ValidTill?: TStamp;            
+            CertificateIdentifier?: String;
+            CertificateType?: String;
+            Thumbprint?: String;
+            ValidFrom?: TStamp;
+            ValidTill?: TStamp;
         }
         export interface CertificateMessage {
-            Certificates?: CertificateList;            
-            Marker?: String;            
+            Certificates?: CertificateList;
+            Marker?: String;
         }
         export interface CertificateNotFoundFault {
         }
         export interface CharacterSet {
-            CharacterSetName?: String;            
-            CharacterSetDescription?: String;            
+            CharacterSetName?: String;
+            CharacterSetDescription?: String;
         }
         export interface CopyDBClusterSnapshotMessage {
-            SourceDBClusterSnapshotIdentifier: String;            
-            TargetDBClusterSnapshotIdentifier: String;            
-            Tags?: TagList;            
+            SourceDBClusterSnapshotIdentifier: String;
+            TargetDBClusterSnapshotIdentifier: String;
+            Tags?: TagList;
+        }
+        export interface CopyDBClusterSnapshotResult {
+            DBClusterSnapshot?: DBClusterSnapshot;
         }
         export interface CopyDBParameterGroupMessage {
-            SourceDBParameterGroupIdentifier: String;            
-            TargetDBParameterGroupIdentifier: String;            
-            TargetDBParameterGroupDescription: String;            
-            Tags?: TagList;            
+            SourceDBParameterGroupIdentifier: String;
+            TargetDBParameterGroupIdentifier: String;
+            TargetDBParameterGroupDescription: String;
+            Tags?: TagList;
+        }
+        export interface CopyDBParameterGroupResult {
+            DBParameterGroup?: DBParameterGroup;
         }
         export interface CopyDBSnapshotMessage {
-            SourceDBSnapshotIdentifier: String;            
-            TargetDBSnapshotIdentifier: String;            
-            Tags?: TagList;            
-            CopyTags?: BooleanOptional;            
+            SourceDBSnapshotIdentifier: String;
+            TargetDBSnapshotIdentifier: String;
+            Tags?: TagList;
+            CopyTags?: BooleanOptional;
+        }
+        export interface CopyDBSnapshotResult {
+            DBSnapshot?: DBSnapshot;
         }
         export interface CopyOptionGroupMessage {
-            SourceOptionGroupIdentifier: String;            
-            TargetOptionGroupIdentifier: String;            
-            TargetOptionGroupDescription: String;            
-            Tags?: TagList;            
+            SourceOptionGroupIdentifier: String;
+            TargetOptionGroupIdentifier: String;
+            TargetOptionGroupDescription: String;
+            Tags?: TagList;
+        }
+        export interface CopyOptionGroupResult {
+            OptionGroup?: OptionGroup;
         }
         export interface CreateDBClusterMessage {
-            AvailabilityZones?: AvailabilityZones;            
-            BackupRetentionPeriod?: IntegerOptional;            
-            CharacterSetName?: String;            
-            DatabaseName?: String;            
-            DBClusterIdentifier: String;            
-            DBClusterParameterGroupName?: String;            
-            VpcSecurityGroupIds?: VpcSecurityGroupIdList;            
-            DBSubnetGroupName?: String;            
-            Engine: String;            
-            EngineVersion?: String;            
-            Port?: IntegerOptional;            
-            MasterUsername: String;            
-            MasterUserPassword: String;            
-            OptionGroupName?: String;            
-            PreferredBackupWindow?: String;            
-            PreferredMaintenanceWindow?: String;            
-            Tags?: TagList;            
+            AvailabilityZones?: AvailabilityZones;
+            BackupRetentionPeriod?: IntegerOptional;
+            CharacterSetName?: String;
+            DatabaseName?: String;
+            DBClusterIdentifier: String;
+            DBClusterParameterGroupName?: String;
+            VpcSecurityGroupIds?: VpcSecurityGroupIdList;
+            DBSubnetGroupName?: String;
+            Engine: String;
+            EngineVersion?: String;
+            Port?: IntegerOptional;
+            MasterUsername: String;
+            MasterUserPassword: String;
+            OptionGroupName?: String;
+            PreferredBackupWindow?: String;
+            PreferredMaintenanceWindow?: String;
+            Tags?: TagList;
+            StorageEncrypted?: BooleanOptional;
+            KmsKeyId?: String;
         }
         export interface CreateDBClusterParameterGroupMessage {
-            DBClusterParameterGroupName: String;            
-            DBParameterGroupFamily: String;            
-            Description: String;            
-            Tags?: TagList;            
+            DBClusterParameterGroupName: String;
+            DBParameterGroupFamily: String;
+            Description: String;
+            Tags?: TagList;
+        }
+        export interface CreateDBClusterParameterGroupResult {
+            DBClusterParameterGroup?: DBClusterParameterGroup;
+        }
+        export interface CreateDBClusterResult {
+            DBCluster?: DBCluster;
         }
         export interface CreateDBClusterSnapshotMessage {
-            DBClusterSnapshotIdentifier: String;            
-            DBClusterIdentifier: String;            
-            Tags?: TagList;            
+            DBClusterSnapshotIdentifier: String;
+            DBClusterIdentifier: String;
+            Tags?: TagList;
+        }
+        export interface CreateDBClusterSnapshotResult {
+            DBClusterSnapshot?: DBClusterSnapshot;
         }
         export interface CreateDBInstanceMessage {
-            DBName?: String;            
-            DBInstanceIdentifier: String;            
-            AllocatedStorage?: IntegerOptional;            
-            DBInstanceClass: String;            
-            Engine: String;            
-            MasterUsername?: String;            
-            MasterUserPassword?: String;            
-            DBSecurityGroups?: DBSecurityGroupNameList;            
-            VpcSecurityGroupIds?: VpcSecurityGroupIdList;            
-            AvailabilityZone?: String;            
-            DBSubnetGroupName?: String;            
-            PreferredMaintenanceWindow?: String;            
-            DBParameterGroupName?: String;            
-            BackupRetentionPeriod?: IntegerOptional;            
-            PreferredBackupWindow?: String;            
-            Port?: IntegerOptional;            
-            MultiAZ?: BooleanOptional;            
-            EngineVersion?: String;            
-            AutoMinorVersionUpgrade?: BooleanOptional;            
-            LicenseModel?: String;            
-            Iops?: IntegerOptional;            
-            OptionGroupName?: String;            
-            CharacterSetName?: String;            
-            PubliclyAccessible?: BooleanOptional;            
-            Tags?: TagList;            
-            DBClusterIdentifier?: String;            
-            StorageType?: String;            
-            TdeCredentialArn?: String;            
-            TdeCredentialPassword?: String;            
-            StorageEncrypted?: BooleanOptional;            
-            KmsKeyId?: String;            
-            CopyTagsToSnapshot?: BooleanOptional;            
+            DBName?: String;
+            DBInstanceIdentifier: String;
+            AllocatedStorage?: IntegerOptional;
+            DBInstanceClass: String;
+            Engine: String;
+            MasterUsername?: String;
+            MasterUserPassword?: String;
+            DBSecurityGroups?: DBSecurityGroupNameList;
+            VpcSecurityGroupIds?: VpcSecurityGroupIdList;
+            AvailabilityZone?: String;
+            DBSubnetGroupName?: String;
+            PreferredMaintenanceWindow?: String;
+            DBParameterGroupName?: String;
+            BackupRetentionPeriod?: IntegerOptional;
+            PreferredBackupWindow?: String;
+            Port?: IntegerOptional;
+            MultiAZ?: BooleanOptional;
+            EngineVersion?: String;
+            AutoMinorVersionUpgrade?: BooleanOptional;
+            LicenseModel?: String;
+            Iops?: IntegerOptional;
+            OptionGroupName?: String;
+            CharacterSetName?: String;
+            PubliclyAccessible?: BooleanOptional;
+            Tags?: TagList;
+            DBClusterIdentifier?: String;
+            StorageType?: String;
+            TdeCredentialArn?: String;
+            TdeCredentialPassword?: String;
+            StorageEncrypted?: BooleanOptional;
+            KmsKeyId?: String;
+            CopyTagsToSnapshot?: BooleanOptional;
+            MonitoringInterval?: IntegerOptional;
+            MonitoringRoleArn?: String;
         }
         export interface CreateDBInstanceReadReplicaMessage {
-            DBInstanceIdentifier: String;            
-            SourceDBInstanceIdentifier: String;            
-            DBInstanceClass?: String;            
-            AvailabilityZone?: String;            
-            Port?: IntegerOptional;            
-            AutoMinorVersionUpgrade?: BooleanOptional;            
-            Iops?: IntegerOptional;            
-            OptionGroupName?: String;            
-            PubliclyAccessible?: BooleanOptional;            
-            Tags?: TagList;            
-            DBSubnetGroupName?: String;            
-            StorageType?: String;            
-            CopyTagsToSnapshot?: BooleanOptional;            
+            DBInstanceIdentifier: String;
+            SourceDBInstanceIdentifier: String;
+            DBInstanceClass?: String;
+            AvailabilityZone?: String;
+            Port?: IntegerOptional;
+            AutoMinorVersionUpgrade?: BooleanOptional;
+            Iops?: IntegerOptional;
+            OptionGroupName?: String;
+            PubliclyAccessible?: BooleanOptional;
+            Tags?: TagList;
+            DBSubnetGroupName?: String;
+            StorageType?: String;
+            CopyTagsToSnapshot?: BooleanOptional;
+            MonitoringInterval?: IntegerOptional;
+            MonitoringRoleArn?: String;
+        }
+        export interface CreateDBInstanceReadReplicaResult {
+            DBInstance?: DBInstance;
+        }
+        export interface CreateDBInstanceResult {
+            DBInstance?: DBInstance;
         }
         export interface CreateDBParameterGroupMessage {
-            DBParameterGroupName: String;            
-            DBParameterGroupFamily: String;            
-            Description: String;            
-            Tags?: TagList;            
+            DBParameterGroupName: String;
+            DBParameterGroupFamily: String;
+            Description: String;
+            Tags?: TagList;
+        }
+        export interface CreateDBParameterGroupResult {
+            DBParameterGroup?: DBParameterGroup;
         }
         export interface CreateDBSecurityGroupMessage {
-            DBSecurityGroupName: String;            
-            DBSecurityGroupDescription: String;            
-            Tags?: TagList;            
+            DBSecurityGroupName: String;
+            DBSecurityGroupDescription: String;
+            Tags?: TagList;
+        }
+        export interface CreateDBSecurityGroupResult {
+            DBSecurityGroup?: DBSecurityGroup;
         }
         export interface CreateDBSnapshotMessage {
-            DBSnapshotIdentifier: String;            
-            DBInstanceIdentifier: String;            
-            Tags?: TagList;            
+            DBSnapshotIdentifier: String;
+            DBInstanceIdentifier: String;
+            Tags?: TagList;
+        }
+        export interface CreateDBSnapshotResult {
+            DBSnapshot?: DBSnapshot;
         }
         export interface CreateDBSubnetGroupMessage {
-            DBSubnetGroupName: String;            
-            DBSubnetGroupDescription: String;            
-            SubnetIds: SubnetIdentifierList;            
-            Tags?: TagList;            
+            DBSubnetGroupName: String;
+            DBSubnetGroupDescription: String;
+            SubnetIds: SubnetIdentifierList;
+            Tags?: TagList;
+        }
+        export interface CreateDBSubnetGroupResult {
+            DBSubnetGroup?: DBSubnetGroup;
         }
         export interface CreateEventSubscriptionMessage {
-            SubscriptionName: String;            
-            SnsTopicArn: String;            
-            SourceType?: String;            
-            EventCategories?: EventCategoriesList;            
-            SourceIds?: SourceIdsList;            
-            Enabled?: BooleanOptional;            
-            Tags?: TagList;            
+            SubscriptionName: String;
+            SnsTopicArn: String;
+            SourceType?: String;
+            EventCategories?: EventCategoriesList;
+            SourceIds?: SourceIdsList;
+            Enabled?: BooleanOptional;
+            Tags?: TagList;
+        }
+        export interface CreateEventSubscriptionResult {
+            EventSubscription?: EventSubscription;
         }
         export interface CreateOptionGroupMessage {
-            OptionGroupName: String;            
-            EngineName: String;            
-            MajorEngineVersion: String;            
-            OptionGroupDescription: String;            
-            Tags?: TagList;            
+            OptionGroupName: String;
+            EngineName: String;
+            MajorEngineVersion: String;
+            OptionGroupDescription: String;
+            Tags?: TagList;
+        }
+        export interface CreateOptionGroupResult {
+            OptionGroup?: OptionGroup;
         }
         export interface DBCluster {
-            AllocatedStorage?: IntegerOptional;            
-            AvailabilityZones?: AvailabilityZones;            
-            BackupRetentionPeriod?: IntegerOptional;            
-            CharacterSetName?: String;            
-            DatabaseName?: String;            
-            DBClusterIdentifier?: String;            
-            DBClusterParameterGroup?: String;            
-            DBSubnetGroup?: String;            
-            Status?: String;            
-            PercentProgress?: String;            
-            EarliestRestorableTime?: TStamp;            
-            Endpoint?: String;            
-            Engine?: String;            
-            EngineVersion?: String;            
-            LatestRestorableTime?: TStamp;            
-            Port?: IntegerOptional;            
-            MasterUsername?: String;            
-            DBClusterOptionGroupMemberships?: DBClusterOptionGroupMemberships;            
-            PreferredBackupWindow?: String;            
-            PreferredMaintenanceWindow?: String;            
-            DBClusterMembers?: DBClusterMemberList;            
-            VpcSecurityGroups?: VpcSecurityGroupMembershipList;            
-            HostedZoneId?: String;            
+            AllocatedStorage?: IntegerOptional;
+            AvailabilityZones?: AvailabilityZones;
+            BackupRetentionPeriod?: IntegerOptional;
+            CharacterSetName?: String;
+            DatabaseName?: String;
+            DBClusterIdentifier?: String;
+            DBClusterParameterGroup?: String;
+            DBSubnetGroup?: String;
+            Status?: String;
+            PercentProgress?: String;
+            EarliestRestorableTime?: TStamp;
+            Endpoint?: String;
+            Engine?: String;
+            EngineVersion?: String;
+            LatestRestorableTime?: TStamp;
+            Port?: IntegerOptional;
+            MasterUsername?: String;
+            DBClusterOptionGroupMemberships?: DBClusterOptionGroupMemberships;
+            PreferredBackupWindow?: String;
+            PreferredMaintenanceWindow?: String;
+            DBClusterMembers?: DBClusterMemberList;
+            VpcSecurityGroups?: VpcSecurityGroupMembershipList;
+            HostedZoneId?: String;
+            StorageEncrypted?: Boolean;
+            KmsKeyId?: String;
+            DbClusterResourceId?: String;
         }
         export interface DBClusterAlreadyExistsFault {
         }
         export interface DBClusterMember {
-            DBInstanceIdentifier?: String;            
-            IsClusterWriter?: Boolean;            
-            DBClusterParameterGroupStatus?: String;            
+            DBInstanceIdentifier?: String;
+            IsClusterWriter?: Boolean;
+            DBClusterParameterGroupStatus?: String;
         }
         export interface DBClusterMessage {
-            Marker?: String;            
-            DBClusters?: DBClusterList;            
+            Marker?: String;
+            DBClusters?: DBClusterList;
         }
         export interface DBClusterNotFoundFault {
         }
         export interface DBClusterOptionGroupStatus {
-            DBClusterOptionGroupName?: String;            
-            Status?: String;            
+            DBClusterOptionGroupName?: String;
+            Status?: String;
         }
         export interface DBClusterParameterGroup {
-            DBClusterParameterGroupName?: String;            
-            DBParameterGroupFamily?: String;            
-            Description?: String;            
+            DBClusterParameterGroupName?: String;
+            DBParameterGroupFamily?: String;
+            Description?: String;
         }
         export interface DBClusterParameterGroupDetails {
-            Parameters?: ParametersList;            
-            Marker?: String;            
+            Parameters?: ParametersList;
+            Marker?: String;
         }
         export interface DBClusterParameterGroupNameMessage {
-            DBClusterParameterGroupName?: String;            
+            DBClusterParameterGroupName?: String;
         }
         export interface DBClusterParameterGroupNotFoundFault {
         }
         export interface DBClusterParameterGroupsMessage {
-            Marker?: String;            
-            DBClusterParameterGroups?: DBClusterParameterGroupList;            
+            Marker?: String;
+            DBClusterParameterGroups?: DBClusterParameterGroupList;
         }
         export interface DBClusterQuotaExceededFault {
         }
         export interface DBClusterSnapshot {
-            AvailabilityZones?: AvailabilityZones;            
-            DBClusterSnapshotIdentifier?: String;            
-            DBClusterIdentifier?: String;            
-            SnapshotCreateTime?: TStamp;            
-            Engine?: String;            
-            AllocatedStorage?: Integer;            
-            Status?: String;            
-            Port?: Integer;            
-            VpcId?: String;            
-            ClusterCreateTime?: TStamp;            
-            MasterUsername?: String;            
-            EngineVersion?: String;            
-            LicenseModel?: String;            
-            SnapshotType?: String;            
-            PercentProgress?: Integer;            
+            AvailabilityZones?: AvailabilityZones;
+            DBClusterSnapshotIdentifier?: String;
+            DBClusterIdentifier?: String;
+            SnapshotCreateTime?: TStamp;
+            Engine?: String;
+            AllocatedStorage?: Integer;
+            Status?: String;
+            Port?: Integer;
+            VpcId?: String;
+            ClusterCreateTime?: TStamp;
+            MasterUsername?: String;
+            EngineVersion?: String;
+            LicenseModel?: String;
+            SnapshotType?: String;
+            PercentProgress?: Integer;
+            StorageEncrypted?: Boolean;
+            KmsKeyId?: String;
         }
         export interface DBClusterSnapshotAlreadyExistsFault {
         }
         export interface DBClusterSnapshotMessage {
-            Marker?: String;            
-            DBClusterSnapshots?: DBClusterSnapshotList;            
+            Marker?: String;
+            DBClusterSnapshots?: DBClusterSnapshotList;
         }
         export interface DBClusterSnapshotNotFoundFault {
         }
         export interface DBEngineVersion {
-            Engine?: String;            
-            EngineVersion?: String;            
-            DBParameterGroupFamily?: String;            
-            DBEngineDescription?: String;            
-            DBEngineVersionDescription?: String;            
-            DefaultCharacterSet?: CharacterSet;            
-            SupportedCharacterSets?: SupportedCharacterSetsList;            
-            ValidUpgradeTarget?: ValidUpgradeTargetList;            
+            Engine?: String;
+            EngineVersion?: String;
+            DBParameterGroupFamily?: String;
+            DBEngineDescription?: String;
+            DBEngineVersionDescription?: String;
+            DefaultCharacterSet?: CharacterSet;
+            SupportedCharacterSets?: SupportedCharacterSetsList;
+            ValidUpgradeTarget?: ValidUpgradeTargetList;
         }
         export interface DBEngineVersionMessage {
-            Marker?: String;            
-            DBEngineVersions?: DBEngineVersionList;            
+            Marker?: String;
+            DBEngineVersions?: DBEngineVersionList;
         }
         export interface DBInstance {
-            DBInstanceIdentifier?: String;            
-            DBInstanceClass?: String;            
-            Engine?: String;            
-            DBInstanceStatus?: String;            
-            MasterUsername?: String;            
-            DBName?: String;            
-            Endpoint?: Endpoint;            
-            AllocatedStorage?: Integer;            
-            InstanceCreateTime?: TStamp;            
-            PreferredBackupWindow?: String;            
-            BackupRetentionPeriod?: Integer;            
-            DBSecurityGroups?: DBSecurityGroupMembershipList;            
-            VpcSecurityGroups?: VpcSecurityGroupMembershipList;            
-            DBParameterGroups?: DBParameterGroupStatusList;            
-            AvailabilityZone?: String;            
-            DBSubnetGroup?: DBSubnetGroup;            
-            PreferredMaintenanceWindow?: String;            
-            PendingModifiedValues?: PendingModifiedValues;            
-            LatestRestorableTime?: TStamp;            
-            MultiAZ?: Boolean;            
-            EngineVersion?: String;            
-            AutoMinorVersionUpgrade?: Boolean;            
-            ReadReplicaSourceDBInstanceIdentifier?: String;            
-            ReadReplicaDBInstanceIdentifiers?: ReadReplicaDBInstanceIdentifierList;            
-            LicenseModel?: String;            
-            Iops?: IntegerOptional;            
-            OptionGroupMemberships?: OptionGroupMembershipList;            
-            CharacterSetName?: String;            
-            SecondaryAvailabilityZone?: String;            
-            PubliclyAccessible?: Boolean;            
-            StatusInfos?: DBInstanceStatusInfoList;            
-            StorageType?: String;            
-            TdeCredentialArn?: String;            
-            DbInstancePort?: Integer;            
-            DBClusterIdentifier?: String;            
-            StorageEncrypted?: Boolean;            
-            KmsKeyId?: String;            
-            DbiResourceId?: String;            
-            CACertificateIdentifier?: String;            
-            CopyTagsToSnapshot?: Boolean;            
+            DBInstanceIdentifier?: String;
+            DBInstanceClass?: String;
+            Engine?: String;
+            DBInstanceStatus?: String;
+            MasterUsername?: String;
+            DBName?: String;
+            Endpoint?: Endpoint;
+            AllocatedStorage?: Integer;
+            InstanceCreateTime?: TStamp;
+            PreferredBackupWindow?: String;
+            BackupRetentionPeriod?: Integer;
+            DBSecurityGroups?: DBSecurityGroupMembershipList;
+            VpcSecurityGroups?: VpcSecurityGroupMembershipList;
+            DBParameterGroups?: DBParameterGroupStatusList;
+            AvailabilityZone?: String;
+            DBSubnetGroup?: DBSubnetGroup;
+            PreferredMaintenanceWindow?: String;
+            PendingModifiedValues?: PendingModifiedValues;
+            LatestRestorableTime?: TStamp;
+            MultiAZ?: Boolean;
+            EngineVersion?: String;
+            AutoMinorVersionUpgrade?: Boolean;
+            ReadReplicaSourceDBInstanceIdentifier?: String;
+            ReadReplicaDBInstanceIdentifiers?: ReadReplicaDBInstanceIdentifierList;
+            LicenseModel?: String;
+            Iops?: IntegerOptional;
+            OptionGroupMemberships?: OptionGroupMembershipList;
+            CharacterSetName?: String;
+            SecondaryAvailabilityZone?: String;
+            PubliclyAccessible?: Boolean;
+            StatusInfos?: DBInstanceStatusInfoList;
+            StorageType?: String;
+            TdeCredentialArn?: String;
+            DbInstancePort?: Integer;
+            DBClusterIdentifier?: String;
+            StorageEncrypted?: Boolean;
+            KmsKeyId?: String;
+            DbiResourceId?: String;
+            CACertificateIdentifier?: String;
+            CopyTagsToSnapshot?: Boolean;
+            MonitoringInterval?: IntegerOptional;
+            EnhancedMonitoringResourceArn?: String;
+            MonitoringRoleArn?: String;
         }
         export interface DBInstanceAlreadyExistsFault {
         }
         export interface DBInstanceMessage {
-            Marker?: String;            
-            DBInstances?: DBInstanceList;            
+            Marker?: String;
+            DBInstances?: DBInstanceList;
         }
         export interface DBInstanceNotFoundFault {
         }
         export interface DBInstanceStatusInfo {
-            StatusType?: String;            
-            Normal?: Boolean;            
-            Status?: String;            
-            Message?: String;            
+            StatusType?: String;
+            Normal?: Boolean;
+            Status?: String;
+            Message?: String;
         }
         export interface DBLogFileNotFoundFault {
         }
         export interface DBParameterGroup {
-            DBParameterGroupName?: String;            
-            DBParameterGroupFamily?: String;            
-            Description?: String;            
+            DBParameterGroupName?: String;
+            DBParameterGroupFamily?: String;
+            Description?: String;
         }
         export interface DBParameterGroupAlreadyExistsFault {
         }
         export interface DBParameterGroupDetails {
-            Parameters?: ParametersList;            
-            Marker?: String;            
+            Parameters?: ParametersList;
+            Marker?: String;
         }
         export interface DBParameterGroupNameMessage {
-            DBParameterGroupName?: String;            
+            DBParameterGroupName?: String;
         }
         export interface DBParameterGroupNotFoundFault {
         }
         export interface DBParameterGroupQuotaExceededFault {
         }
         export interface DBParameterGroupStatus {
-            DBParameterGroupName?: String;            
-            ParameterApplyStatus?: String;            
+            DBParameterGroupName?: String;
+            ParameterApplyStatus?: String;
         }
         export interface DBParameterGroupsMessage {
-            Marker?: String;            
-            DBParameterGroups?: DBParameterGroupList;            
+            Marker?: String;
+            DBParameterGroups?: DBParameterGroupList;
         }
         export interface DBSecurityGroup {
-            OwnerId?: String;            
-            DBSecurityGroupName?: String;            
-            DBSecurityGroupDescription?: String;            
-            VpcId?: String;            
-            EC2SecurityGroups?: EC2SecurityGroupList;            
-            IPRanges?: IPRangeList;            
+            OwnerId?: String;
+            DBSecurityGroupName?: String;
+            DBSecurityGroupDescription?: String;
+            VpcId?: String;
+            EC2SecurityGroups?: EC2SecurityGroupList;
+            IPRanges?: IPRangeList;
         }
         export interface DBSecurityGroupAlreadyExistsFault {
         }
         export interface DBSecurityGroupMembership {
-            DBSecurityGroupName?: String;            
-            Status?: String;            
+            DBSecurityGroupName?: String;
+            Status?: String;
         }
         export interface DBSecurityGroupMessage {
-            Marker?: String;            
-            DBSecurityGroups?: DBSecurityGroups;            
+            Marker?: String;
+            DBSecurityGroups?: DBSecurityGroups;
         }
         export interface DBSecurityGroupNotFoundFault {
         }
@@ -570,60 +639,60 @@ declare module "aws-sdk" {
         export interface DBSecurityGroupQuotaExceededFault {
         }
         export interface DBSnapshot {
-            DBSnapshotIdentifier?: String;            
-            DBInstanceIdentifier?: String;            
-            SnapshotCreateTime?: TStamp;            
-            Engine?: String;            
-            AllocatedStorage?: Integer;            
-            Status?: String;            
-            Port?: Integer;            
-            AvailabilityZone?: String;            
-            VpcId?: String;            
-            InstanceCreateTime?: TStamp;            
-            MasterUsername?: String;            
-            EngineVersion?: String;            
-            LicenseModel?: String;            
-            SnapshotType?: String;            
-            Iops?: IntegerOptional;            
-            OptionGroupName?: String;            
-            PercentProgress?: Integer;            
-            SourceRegion?: String;            
-            SourceDBSnapshotIdentifier?: String;            
-            StorageType?: String;            
-            TdeCredentialArn?: String;            
-            Encrypted?: Boolean;            
-            KmsKeyId?: String;            
+            DBSnapshotIdentifier?: String;
+            DBInstanceIdentifier?: String;
+            SnapshotCreateTime?: TStamp;
+            Engine?: String;
+            AllocatedStorage?: Integer;
+            Status?: String;
+            Port?: Integer;
+            AvailabilityZone?: String;
+            VpcId?: String;
+            InstanceCreateTime?: TStamp;
+            MasterUsername?: String;
+            EngineVersion?: String;
+            LicenseModel?: String;
+            SnapshotType?: String;
+            Iops?: IntegerOptional;
+            OptionGroupName?: String;
+            PercentProgress?: Integer;
+            SourceRegion?: String;
+            SourceDBSnapshotIdentifier?: String;
+            StorageType?: String;
+            TdeCredentialArn?: String;
+            Encrypted?: Boolean;
+            KmsKeyId?: String;
         }
         export interface DBSnapshotAlreadyExistsFault {
         }
         export interface DBSnapshotAttribute {
-            AttributeName?: String;            
-            AttributeValues?: AttributeValueList;            
+            AttributeName?: String;
+            AttributeValues?: AttributeValueList;
         }
         export interface DBSnapshotAttributesResult {
-            DBSnapshotIdentifier?: String;            
-            DBSnapshotAttributes?: DBSnapshotAttributeList;            
+            DBSnapshotIdentifier?: String;
+            DBSnapshotAttributes?: DBSnapshotAttributeList;
         }
         export interface DBSnapshotMessage {
-            Marker?: String;            
-            DBSnapshots?: DBSnapshotList;            
+            Marker?: String;
+            DBSnapshots?: DBSnapshotList;
         }
         export interface DBSnapshotNotFoundFault {
         }
         export interface DBSubnetGroup {
-            DBSubnetGroupName?: String;            
-            DBSubnetGroupDescription?: String;            
-            VpcId?: String;            
-            SubnetGroupStatus?: String;            
-            Subnets?: SubnetList;            
+            DBSubnetGroupName?: String;
+            DBSubnetGroupDescription?: String;
+            VpcId?: String;
+            SubnetGroupStatus?: String;
+            Subnets?: SubnetList;
         }
         export interface DBSubnetGroupAlreadyExistsFault {
         }
         export interface DBSubnetGroupDoesNotCoverEnoughAZs {
         }
         export interface DBSubnetGroupMessage {
-            Marker?: String;            
-            DBSubnetGroups?: DBSubnetGroups;            
+            Marker?: String;
+            DBSubnetGroups?: DBSubnetGroups;
         }
         export interface DBSubnetGroupNotAllowedFault {
         }
@@ -636,305 +705,332 @@ declare module "aws-sdk" {
         export interface DBUpgradeDependencyFailureFault {
         }
         export interface DeleteDBClusterMessage {
-            DBClusterIdentifier: String;            
-            SkipFinalSnapshot?: Boolean;            
-            FinalDBSnapshotIdentifier?: String;            
+            DBClusterIdentifier: String;
+            SkipFinalSnapshot?: Boolean;
+            FinalDBSnapshotIdentifier?: String;
         }
         export interface DeleteDBClusterParameterGroupMessage {
-            DBClusterParameterGroupName: String;            
+            DBClusterParameterGroupName: String;
+        }
+        export interface DeleteDBClusterResult {
+            DBCluster?: DBCluster;
         }
         export interface DeleteDBClusterSnapshotMessage {
-            DBClusterSnapshotIdentifier: String;            
+            DBClusterSnapshotIdentifier: String;
+        }
+        export interface DeleteDBClusterSnapshotResult {
+            DBClusterSnapshot?: DBClusterSnapshot;
         }
         export interface DeleteDBInstanceMessage {
-            DBInstanceIdentifier: String;            
-            SkipFinalSnapshot?: Boolean;            
-            FinalDBSnapshotIdentifier?: String;            
+            DBInstanceIdentifier: String;
+            SkipFinalSnapshot?: Boolean;
+            FinalDBSnapshotIdentifier?: String;
+        }
+        export interface DeleteDBInstanceResult {
+            DBInstance?: DBInstance;
         }
         export interface DeleteDBParameterGroupMessage {
-            DBParameterGroupName: String;            
+            DBParameterGroupName: String;
         }
         export interface DeleteDBSecurityGroupMessage {
-            DBSecurityGroupName: String;            
+            DBSecurityGroupName: String;
         }
         export interface DeleteDBSnapshotMessage {
-            DBSnapshotIdentifier: String;            
+            DBSnapshotIdentifier: String;
+        }
+        export interface DeleteDBSnapshotResult {
+            DBSnapshot?: DBSnapshot;
         }
         export interface DeleteDBSubnetGroupMessage {
-            DBSubnetGroupName: String;            
+            DBSubnetGroupName: String;
         }
         export interface DeleteEventSubscriptionMessage {
-            SubscriptionName: String;            
+            SubscriptionName: String;
+        }
+        export interface DeleteEventSubscriptionResult {
+            EventSubscription?: EventSubscription;
         }
         export interface DeleteOptionGroupMessage {
-            OptionGroupName: String;            
+            OptionGroupName: String;
         }
         export interface DescribeAccountAttributesMessage {
         }
         export interface DescribeCertificatesMessage {
-            CertificateIdentifier?: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            CertificateIdentifier?: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeDBClusterParameterGroupsMessage {
-            DBClusterParameterGroupName?: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            DBClusterParameterGroupName?: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeDBClusterParametersMessage {
-            DBClusterParameterGroupName: String;            
-            Source?: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            DBClusterParameterGroupName: String;
+            Source?: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeDBClusterSnapshotsMessage {
-            DBClusterIdentifier?: String;            
-            DBClusterSnapshotIdentifier?: String;            
-            SnapshotType?: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            DBClusterIdentifier?: String;
+            DBClusterSnapshotIdentifier?: String;
+            SnapshotType?: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeDBClustersMessage {
-            DBClusterIdentifier?: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            DBClusterIdentifier?: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeDBEngineVersionsMessage {
-            Engine?: String;            
-            EngineVersion?: String;            
-            DBParameterGroupFamily?: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
-            DefaultOnly?: Boolean;            
-            ListSupportedCharacterSets?: BooleanOptional;            
+            Engine?: String;
+            EngineVersion?: String;
+            DBParameterGroupFamily?: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
+            DefaultOnly?: Boolean;
+            ListSupportedCharacterSets?: BooleanOptional;
         }
         export interface DescribeDBInstancesMessage {
-            DBInstanceIdentifier?: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            DBInstanceIdentifier?: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeDBLogFilesDetails {
-            LogFileName?: String;            
-            LastWritten?: Long;            
-            Size?: Long;            
+            LogFileName?: String;
+            LastWritten?: Long;
+            Size?: Long;
         }
         export interface DescribeDBLogFilesMessage {
-            DBInstanceIdentifier: String;            
-            FilenameContains?: String;            
-            FileLastWritten?: Long;            
-            FileSize?: Long;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            DBInstanceIdentifier: String;
+            FilenameContains?: String;
+            FileLastWritten?: Long;
+            FileSize?: Long;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeDBLogFilesResponse {
-            DescribeDBLogFiles?: DescribeDBLogFilesList;            
-            Marker?: String;            
+            DescribeDBLogFiles?: DescribeDBLogFilesList;
+            Marker?: String;
         }
         export interface DescribeDBParameterGroupsMessage {
-            DBParameterGroupName?: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            DBParameterGroupName?: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeDBParametersMessage {
-            DBParameterGroupName: String;            
-            Source?: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            DBParameterGroupName: String;
+            Source?: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeDBSecurityGroupsMessage {
-            DBSecurityGroupName?: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            DBSecurityGroupName?: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeDBSnapshotAttributesMessage {
-            DBSnapshotIdentifier?: String;            
+            DBSnapshotIdentifier?: String;
+        }
+        export interface DescribeDBSnapshotAttributesResult {
+            DBSnapshotAttributesResult?: DBSnapshotAttributesResult;
         }
         export interface DescribeDBSnapshotsMessage {
-            DBInstanceIdentifier?: String;            
-            DBSnapshotIdentifier?: String;            
-            SnapshotType?: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
-            IncludeShared?: Boolean;            
-            IncludePublic?: Boolean;            
+            DBInstanceIdentifier?: String;
+            DBSnapshotIdentifier?: String;
+            SnapshotType?: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
+            IncludeShared?: Boolean;
+            IncludePublic?: Boolean;
         }
         export interface DescribeDBSubnetGroupsMessage {
-            DBSubnetGroupName?: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            DBSubnetGroupName?: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeEngineDefaultClusterParametersMessage {
-            DBParameterGroupFamily: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            DBParameterGroupFamily: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
+        }
+        export interface DescribeEngineDefaultClusterParametersResult {
+            EngineDefaults?: EngineDefaults;
         }
         export interface DescribeEngineDefaultParametersMessage {
-            DBParameterGroupFamily: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            DBParameterGroupFamily: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
+        }
+        export interface DescribeEngineDefaultParametersResult {
+            EngineDefaults?: EngineDefaults;
         }
         export interface DescribeEventCategoriesMessage {
-            SourceType?: String;            
-            Filters?: FilterList;            
+            SourceType?: String;
+            Filters?: FilterList;
         }
         export interface DescribeEventSubscriptionsMessage {
-            SubscriptionName?: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            SubscriptionName?: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeEventsMessage {
-            SourceIdentifier?: String;            
-            SourceType?: SourceType;            
-            StartTime?: TStamp;            
-            EndTime?: TStamp;            
-            Duration?: IntegerOptional;            
-            EventCategories?: EventCategoriesList;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            SourceIdentifier?: String;
+            SourceType?: SourceType;
+            StartTime?: TStamp;
+            EndTime?: TStamp;
+            Duration?: IntegerOptional;
+            EventCategories?: EventCategoriesList;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeOptionGroupOptionsMessage {
-            EngineName: String;            
-            MajorEngineVersion?: String;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            EngineName: String;
+            MajorEngineVersion?: String;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeOptionGroupsMessage {
-            OptionGroupName?: String;            
-            Filters?: FilterList;            
-            Marker?: String;            
-            MaxRecords?: IntegerOptional;            
-            EngineName?: String;            
-            MajorEngineVersion?: String;            
+            OptionGroupName?: String;
+            Filters?: FilterList;
+            Marker?: String;
+            MaxRecords?: IntegerOptional;
+            EngineName?: String;
+            MajorEngineVersion?: String;
         }
         export interface DescribeOrderableDBInstanceOptionsMessage {
-            Engine: String;            
-            EngineVersion?: String;            
-            DBInstanceClass?: String;            
-            LicenseModel?: String;            
-            Vpc?: BooleanOptional;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            Engine: String;
+            EngineVersion?: String;
+            DBInstanceClass?: String;
+            LicenseModel?: String;
+            Vpc?: BooleanOptional;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribePendingMaintenanceActionsMessage {
-            ResourceIdentifier?: String;            
-            Filters?: FilterList;            
-            Marker?: String;            
-            MaxRecords?: IntegerOptional;            
+            ResourceIdentifier?: String;
+            Filters?: FilterList;
+            Marker?: String;
+            MaxRecords?: IntegerOptional;
         }
         export interface DescribeReservedDBInstancesMessage {
-            ReservedDBInstanceId?: String;            
-            ReservedDBInstancesOfferingId?: String;            
-            DBInstanceClass?: String;            
-            Duration?: String;            
-            ProductDescription?: String;            
-            OfferingType?: String;            
-            MultiAZ?: BooleanOptional;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            ReservedDBInstanceId?: String;
+            ReservedDBInstancesOfferingId?: String;
+            DBInstanceClass?: String;
+            Duration?: String;
+            ProductDescription?: String;
+            OfferingType?: String;
+            MultiAZ?: BooleanOptional;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DescribeReservedDBInstancesOfferingsMessage {
-            ReservedDBInstancesOfferingId?: String;            
-            DBInstanceClass?: String;            
-            Duration?: String;            
-            ProductDescription?: String;            
-            OfferingType?: String;            
-            MultiAZ?: BooleanOptional;            
-            Filters?: FilterList;            
-            MaxRecords?: IntegerOptional;            
-            Marker?: String;            
+            ReservedDBInstancesOfferingId?: String;
+            DBInstanceClass?: String;
+            Duration?: String;
+            ProductDescription?: String;
+            OfferingType?: String;
+            MultiAZ?: BooleanOptional;
+            Filters?: FilterList;
+            MaxRecords?: IntegerOptional;
+            Marker?: String;
         }
         export interface DownloadDBLogFilePortionDetails {
-            LogFileData?: String;            
-            Marker?: String;            
-            AdditionalDataPending?: Boolean;            
+            LogFileData?: String;
+            Marker?: String;
+            AdditionalDataPending?: Boolean;
         }
         export interface DownloadDBLogFilePortionMessage {
-            DBInstanceIdentifier: String;            
-            LogFileName: String;            
-            Marker?: String;            
-            NumberOfLines?: Integer;            
+            DBInstanceIdentifier: String;
+            LogFileName: String;
+            Marker?: String;
+            NumberOfLines?: Integer;
         }
         export interface EC2SecurityGroup {
-            Status?: String;            
-            EC2SecurityGroupName?: String;            
-            EC2SecurityGroupId?: String;            
-            EC2SecurityGroupOwnerId?: String;            
+            Status?: String;
+            EC2SecurityGroupName?: String;
+            EC2SecurityGroupId?: String;
+            EC2SecurityGroupOwnerId?: String;
         }
         export interface Endpoint {
-            Address?: String;            
-            Port?: Integer;            
-            HostedZoneId?: String;            
+            Address?: String;
+            Port?: Integer;
+            HostedZoneId?: String;
         }
         export interface EngineDefaults {
-            DBParameterGroupFamily?: String;            
-            Marker?: String;            
-            Parameters?: ParametersList;            
+            DBParameterGroupFamily?: String;
+            Marker?: String;
+            Parameters?: ParametersList;
         }
         export interface Event {
-            SourceIdentifier?: String;            
-            SourceType?: SourceType;            
-            Message?: String;            
-            EventCategories?: EventCategoriesList;            
-            Date?: TStamp;            
+            SourceIdentifier?: String;
+            SourceType?: SourceType;
+            Message?: String;
+            EventCategories?: EventCategoriesList;
+            Date?: TStamp;
         }
         export interface EventCategoriesMap {
-            SourceType?: String;            
-            EventCategories?: EventCategoriesList;            
+            SourceType?: String;
+            EventCategories?: EventCategoriesList;
         }
         export interface EventCategoriesMessage {
-            EventCategoriesMapList?: EventCategoriesMapList;            
+            EventCategoriesMapList?: EventCategoriesMapList;
         }
         export interface EventSubscription {
-            CustomerAwsId?: String;            
-            CustSubscriptionId?: String;            
-            SnsTopicArn?: String;            
-            Status?: String;            
-            SubscriptionCreationTime?: String;            
-            SourceType?: String;            
-            SourceIdsList?: SourceIdsList;            
-            EventCategoriesList?: EventCategoriesList;            
-            Enabled?: Boolean;            
+            CustomerAwsId?: String;
+            CustSubscriptionId?: String;
+            SnsTopicArn?: String;
+            Status?: String;
+            SubscriptionCreationTime?: String;
+            SourceType?: String;
+            SourceIdsList?: SourceIdsList;
+            EventCategoriesList?: EventCategoriesList;
+            Enabled?: Boolean;
         }
         export interface EventSubscriptionQuotaExceededFault {
         }
         export interface EventSubscriptionsMessage {
-            Marker?: String;            
-            EventSubscriptionsList?: EventSubscriptionsList;            
+            Marker?: String;
+            EventSubscriptionsList?: EventSubscriptionsList;
         }
         export interface EventsMessage {
-            Marker?: String;            
-            Events?: EventList;            
+            Marker?: String;
+            Events?: EventList;
         }
         export interface FailoverDBClusterMessage {
-            DBClusterIdentifier?: String;            
+            DBClusterIdentifier?: String;
+        }
+        export interface FailoverDBClusterResult {
+            DBCluster?: DBCluster;
         }
         export interface Filter {
-            Name: String;            
-            Values: FilterValueList;            
+            Name: String;
+            Values: FilterValueList;
         }
         export interface IPRange {
-            Status?: String;            
-            CIDRIP?: String;            
+            Status?: String;
+            CIDRIP?: String;
         }
         export interface InstanceQuotaExceededFault {
         }
@@ -975,375 +1071,426 @@ declare module "aws-sdk" {
         export interface KMSKeyNotAccessibleFault {
         }
         export interface ListTagsForResourceMessage {
-            ResourceName: String;            
-            Filters?: FilterList;            
+            ResourceName: String;
+            Filters?: FilterList;
         }
         export interface ModifyDBClusterMessage {
-            DBClusterIdentifier: String;            
-            NewDBClusterIdentifier?: String;            
-            ApplyImmediately?: Boolean;            
-            BackupRetentionPeriod?: IntegerOptional;            
-            DBClusterParameterGroupName?: String;            
-            VpcSecurityGroupIds?: VpcSecurityGroupIdList;            
-            Port?: IntegerOptional;            
-            MasterUserPassword?: String;            
-            OptionGroupName?: String;            
-            PreferredBackupWindow?: String;            
-            PreferredMaintenanceWindow?: String;            
+            DBClusterIdentifier: String;
+            NewDBClusterIdentifier?: String;
+            ApplyImmediately?: Boolean;
+            BackupRetentionPeriod?: IntegerOptional;
+            DBClusterParameterGroupName?: String;
+            VpcSecurityGroupIds?: VpcSecurityGroupIdList;
+            Port?: IntegerOptional;
+            MasterUserPassword?: String;
+            OptionGroupName?: String;
+            PreferredBackupWindow?: String;
+            PreferredMaintenanceWindow?: String;
         }
         export interface ModifyDBClusterParameterGroupMessage {
-            DBClusterParameterGroupName: String;            
-            Parameters: ParametersList;            
+            DBClusterParameterGroupName: String;
+            Parameters: ParametersList;
+        }
+        export interface ModifyDBClusterResult {
+            DBCluster?: DBCluster;
         }
         export interface ModifyDBInstanceMessage {
-            DBInstanceIdentifier: String;            
-            AllocatedStorage?: IntegerOptional;            
-            DBInstanceClass?: String;            
-            DBSecurityGroups?: DBSecurityGroupNameList;            
-            VpcSecurityGroupIds?: VpcSecurityGroupIdList;            
-            ApplyImmediately?: Boolean;            
-            MasterUserPassword?: String;            
-            DBParameterGroupName?: String;            
-            BackupRetentionPeriod?: IntegerOptional;            
-            PreferredBackupWindow?: String;            
-            PreferredMaintenanceWindow?: String;            
-            MultiAZ?: BooleanOptional;            
-            EngineVersion?: String;            
-            AllowMajorVersionUpgrade?: Boolean;            
-            AutoMinorVersionUpgrade?: BooleanOptional;            
-            Iops?: IntegerOptional;            
-            OptionGroupName?: String;            
-            NewDBInstanceIdentifier?: String;            
-            StorageType?: String;            
-            TdeCredentialArn?: String;            
-            TdeCredentialPassword?: String;            
-            CACertificateIdentifier?: String;            
-            CopyTagsToSnapshot?: BooleanOptional;            
-            PubliclyAccessible?: BooleanOptional;            
+            DBInstanceIdentifier: String;
+            AllocatedStorage?: IntegerOptional;
+            DBInstanceClass?: String;
+            DBSecurityGroups?: DBSecurityGroupNameList;
+            VpcSecurityGroupIds?: VpcSecurityGroupIdList;
+            ApplyImmediately?: Boolean;
+            MasterUserPassword?: String;
+            DBParameterGroupName?: String;
+            BackupRetentionPeriod?: IntegerOptional;
+            PreferredBackupWindow?: String;
+            PreferredMaintenanceWindow?: String;
+            MultiAZ?: BooleanOptional;
+            EngineVersion?: String;
+            AllowMajorVersionUpgrade?: Boolean;
+            AutoMinorVersionUpgrade?: BooleanOptional;
+            Iops?: IntegerOptional;
+            OptionGroupName?: String;
+            NewDBInstanceIdentifier?: String;
+            StorageType?: String;
+            TdeCredentialArn?: String;
+            TdeCredentialPassword?: String;
+            CACertificateIdentifier?: String;
+            CopyTagsToSnapshot?: BooleanOptional;
+            MonitoringInterval?: IntegerOptional;
+            DBPortNumber?: IntegerOptional;
+            PubliclyAccessible?: BooleanOptional;
+            MonitoringRoleArn?: String;
+        }
+        export interface ModifyDBInstanceResult {
+            DBInstance?: DBInstance;
         }
         export interface ModifyDBParameterGroupMessage {
-            DBParameterGroupName: String;            
-            Parameters: ParametersList;            
+            DBParameterGroupName: String;
+            Parameters: ParametersList;
         }
         export interface ModifyDBSnapshotAttributeMessage {
-            DBSnapshotIdentifier: String;            
-            AttributeName?: String;            
-            ValuesToAdd?: AttributeValueList;            
-            ValuesToRemove?: AttributeValueList;            
+            DBSnapshotIdentifier: String;
+            AttributeName?: String;
+            ValuesToAdd?: AttributeValueList;
+            ValuesToRemove?: AttributeValueList;
+        }
+        export interface ModifyDBSnapshotAttributeResult {
+            DBSnapshotAttributesResult?: DBSnapshotAttributesResult;
         }
         export interface ModifyDBSubnetGroupMessage {
-            DBSubnetGroupName: String;            
-            DBSubnetGroupDescription?: String;            
-            SubnetIds: SubnetIdentifierList;            
+            DBSubnetGroupName: String;
+            DBSubnetGroupDescription?: String;
+            SubnetIds: SubnetIdentifierList;
+        }
+        export interface ModifyDBSubnetGroupResult {
+            DBSubnetGroup?: DBSubnetGroup;
         }
         export interface ModifyEventSubscriptionMessage {
-            SubscriptionName: String;            
-            SnsTopicArn?: String;            
-            SourceType?: String;            
-            EventCategories?: EventCategoriesList;            
-            Enabled?: BooleanOptional;            
+            SubscriptionName: String;
+            SnsTopicArn?: String;
+            SourceType?: String;
+            EventCategories?: EventCategoriesList;
+            Enabled?: BooleanOptional;
+        }
+        export interface ModifyEventSubscriptionResult {
+            EventSubscription?: EventSubscription;
         }
         export interface ModifyOptionGroupMessage {
-            OptionGroupName: String;            
-            OptionsToInclude?: OptionConfigurationList;            
-            OptionsToRemove?: OptionNamesList;            
-            ApplyImmediately?: Boolean;            
+            OptionGroupName: String;
+            OptionsToInclude?: OptionConfigurationList;
+            OptionsToRemove?: OptionNamesList;
+            ApplyImmediately?: Boolean;
+        }
+        export interface ModifyOptionGroupResult {
+            OptionGroup?: OptionGroup;
         }
         export interface Option {
-            OptionName?: String;            
-            OptionDescription?: String;            
-            Persistent?: Boolean;            
-            Permanent?: Boolean;            
-            Port?: IntegerOptional;            
-            OptionSettings?: OptionSettingConfigurationList;            
-            DBSecurityGroupMemberships?: DBSecurityGroupMembershipList;            
-            VpcSecurityGroupMemberships?: VpcSecurityGroupMembershipList;            
+            OptionName?: String;
+            OptionDescription?: String;
+            Persistent?: Boolean;
+            Permanent?: Boolean;
+            Port?: IntegerOptional;
+            OptionSettings?: OptionSettingConfigurationList;
+            DBSecurityGroupMemberships?: DBSecurityGroupMembershipList;
+            VpcSecurityGroupMemberships?: VpcSecurityGroupMembershipList;
         }
         export interface OptionConfiguration {
-            OptionName: String;            
-            Port?: IntegerOptional;            
-            DBSecurityGroupMemberships?: DBSecurityGroupNameList;            
-            VpcSecurityGroupMemberships?: VpcSecurityGroupIdList;            
-            OptionSettings?: OptionSettingsList;            
+            OptionName: String;
+            Port?: IntegerOptional;
+            DBSecurityGroupMemberships?: DBSecurityGroupNameList;
+            VpcSecurityGroupMemberships?: VpcSecurityGroupIdList;
+            OptionSettings?: OptionSettingsList;
         }
         export interface OptionGroup {
-            OptionGroupName?: String;            
-            OptionGroupDescription?: String;            
-            EngineName?: String;            
-            MajorEngineVersion?: String;            
-            Options?: OptionsList;            
-            AllowsVpcAndNonVpcInstanceMemberships?: Boolean;            
-            VpcId?: String;            
+            OptionGroupName?: String;
+            OptionGroupDescription?: String;
+            EngineName?: String;
+            MajorEngineVersion?: String;
+            Options?: OptionsList;
+            AllowsVpcAndNonVpcInstanceMemberships?: Boolean;
+            VpcId?: String;
         }
         export interface OptionGroupAlreadyExistsFault {
         }
         export interface OptionGroupMembership {
-            OptionGroupName?: String;            
-            Status?: String;            
+            OptionGroupName?: String;
+            Status?: String;
         }
         export interface OptionGroupNotFoundFault {
         }
         export interface OptionGroupOption {
-            Name?: String;            
-            Description?: String;            
-            EngineName?: String;            
-            MajorEngineVersion?: String;            
-            MinimumRequiredMinorEngineVersion?: String;            
-            PortRequired?: Boolean;            
-            DefaultPort?: IntegerOptional;            
-            OptionsDependedOn?: OptionsDependedOn;            
-            Persistent?: Boolean;            
-            Permanent?: Boolean;            
-            OptionGroupOptionSettings?: OptionGroupOptionSettingsList;            
+            Name?: String;
+            Description?: String;
+            EngineName?: String;
+            MajorEngineVersion?: String;
+            MinimumRequiredMinorEngineVersion?: String;
+            PortRequired?: Boolean;
+            DefaultPort?: IntegerOptional;
+            OptionsDependedOn?: OptionsDependedOn;
+            Persistent?: Boolean;
+            Permanent?: Boolean;
+            OptionGroupOptionSettings?: OptionGroupOptionSettingsList;
         }
         export interface OptionGroupOptionSetting {
-            SettingName?: String;            
-            SettingDescription?: String;            
-            DefaultValue?: String;            
-            ApplyType?: String;            
-            AllowedValues?: String;            
-            IsModifiable?: Boolean;            
+            SettingName?: String;
+            SettingDescription?: String;
+            DefaultValue?: String;
+            ApplyType?: String;
+            AllowedValues?: String;
+            IsModifiable?: Boolean;
         }
         export interface OptionGroupOptionsMessage {
-            OptionGroupOptions?: OptionGroupOptionsList;            
-            Marker?: String;            
+            OptionGroupOptions?: OptionGroupOptionsList;
+            Marker?: String;
         }
         export interface OptionGroupQuotaExceededFault {
         }
         export interface OptionGroups {
-            OptionGroupsList?: OptionGroupsList;            
-            Marker?: String;            
+            OptionGroupsList?: OptionGroupsList;
+            Marker?: String;
         }
         export interface OptionSetting {
-            Name?: String;            
-            Value?: String;            
-            DefaultValue?: String;            
-            Description?: String;            
-            ApplyType?: String;            
-            DataType?: String;            
-            AllowedValues?: String;            
-            IsModifiable?: Boolean;            
-            IsCollection?: Boolean;            
+            Name?: String;
+            Value?: String;
+            DefaultValue?: String;
+            Description?: String;
+            ApplyType?: String;
+            DataType?: String;
+            AllowedValues?: String;
+            IsModifiable?: Boolean;
+            IsCollection?: Boolean;
         }
         export interface OrderableDBInstanceOption {
-            Engine?: String;            
-            EngineVersion?: String;            
-            DBInstanceClass?: String;            
-            LicenseModel?: String;            
-            AvailabilityZones?: AvailabilityZoneList;            
-            MultiAZCapable?: Boolean;            
-            ReadReplicaCapable?: Boolean;            
-            Vpc?: Boolean;            
-            SupportsStorageEncryption?: Boolean;            
-            StorageType?: String;            
-            SupportsIops?: Boolean;            
+            Engine?: String;
+            EngineVersion?: String;
+            DBInstanceClass?: String;
+            LicenseModel?: String;
+            AvailabilityZones?: AvailabilityZoneList;
+            MultiAZCapable?: Boolean;
+            ReadReplicaCapable?: Boolean;
+            Vpc?: Boolean;
+            SupportsStorageEncryption?: Boolean;
+            StorageType?: String;
+            SupportsIops?: Boolean;
+            SupportsEnhancedMonitoring?: Boolean;
         }
         export interface OrderableDBInstanceOptionsMessage {
-            OrderableDBInstanceOptions?: OrderableDBInstanceOptionsList;            
-            Marker?: String;            
+            OrderableDBInstanceOptions?: OrderableDBInstanceOptionsList;
+            Marker?: String;
         }
         export interface Parameter {
-            ParameterName?: String;            
-            ParameterValue?: String;            
-            Description?: String;            
-            Source?: String;            
-            ApplyType?: String;            
-            DataType?: String;            
-            AllowedValues?: String;            
-            IsModifiable?: Boolean;            
-            MinimumEngineVersion?: String;            
-            ApplyMethod?: ApplyMethod;            
+            ParameterName?: String;
+            ParameterValue?: String;
+            Description?: String;
+            Source?: String;
+            ApplyType?: String;
+            DataType?: String;
+            AllowedValues?: String;
+            IsModifiable?: Boolean;
+            MinimumEngineVersion?: String;
+            ApplyMethod?: ApplyMethod;
         }
         export interface PendingMaintenanceAction {
-            Action?: String;            
-            AutoAppliedAfterDate?: TStamp;            
-            ForcedApplyDate?: TStamp;            
-            OptInStatus?: String;            
-            CurrentApplyDate?: TStamp;            
-            Description?: String;            
+            Action?: String;
+            AutoAppliedAfterDate?: TStamp;
+            ForcedApplyDate?: TStamp;
+            OptInStatus?: String;
+            CurrentApplyDate?: TStamp;
+            Description?: String;
         }
         export interface PendingMaintenanceActionsMessage {
-            PendingMaintenanceActions?: PendingMaintenanceActions;            
-            Marker?: String;            
+            PendingMaintenanceActions?: PendingMaintenanceActions;
+            Marker?: String;
         }
         export interface PendingModifiedValues {
-            DBInstanceClass?: String;            
-            AllocatedStorage?: IntegerOptional;            
-            MasterUserPassword?: String;            
-            Port?: IntegerOptional;            
-            BackupRetentionPeriod?: IntegerOptional;            
-            MultiAZ?: BooleanOptional;            
-            EngineVersion?: String;            
-            Iops?: IntegerOptional;            
-            DBInstanceIdentifier?: String;            
-            StorageType?: String;            
-            CACertificateIdentifier?: String;            
+            DBInstanceClass?: String;
+            AllocatedStorage?: IntegerOptional;
+            MasterUserPassword?: String;
+            Port?: IntegerOptional;
+            BackupRetentionPeriod?: IntegerOptional;
+            MultiAZ?: BooleanOptional;
+            EngineVersion?: String;
+            Iops?: IntegerOptional;
+            DBInstanceIdentifier?: String;
+            StorageType?: String;
+            CACertificateIdentifier?: String;
         }
         export interface PointInTimeRestoreNotEnabledFault {
         }
         export interface PromoteReadReplicaMessage {
-            DBInstanceIdentifier: String;            
-            BackupRetentionPeriod?: IntegerOptional;            
-            PreferredBackupWindow?: String;            
+            DBInstanceIdentifier: String;
+            BackupRetentionPeriod?: IntegerOptional;
+            PreferredBackupWindow?: String;
+        }
+        export interface PromoteReadReplicaResult {
+            DBInstance?: DBInstance;
         }
         export interface ProvisionedIopsNotAvailableInAZFault {
         }
         export interface PurchaseReservedDBInstancesOfferingMessage {
-            ReservedDBInstancesOfferingId: String;            
-            ReservedDBInstanceId?: String;            
-            DBInstanceCount?: IntegerOptional;            
-            Tags?: TagList;            
+            ReservedDBInstancesOfferingId: String;
+            ReservedDBInstanceId?: String;
+            DBInstanceCount?: IntegerOptional;
+            Tags?: TagList;
+        }
+        export interface PurchaseReservedDBInstancesOfferingResult {
+            ReservedDBInstance?: ReservedDBInstance;
         }
         export interface RebootDBInstanceMessage {
-            DBInstanceIdentifier: String;            
-            ForceFailover?: BooleanOptional;            
+            DBInstanceIdentifier: String;
+            ForceFailover?: BooleanOptional;
+        }
+        export interface RebootDBInstanceResult {
+            DBInstance?: DBInstance;
         }
         export interface RecurringCharge {
-            RecurringChargeAmount?: Double;            
-            RecurringChargeFrequency?: String;            
+            RecurringChargeAmount?: Double;
+            RecurringChargeFrequency?: String;
         }
         export interface RemoveSourceIdentifierFromSubscriptionMessage {
-            SubscriptionName: String;            
-            SourceIdentifier: String;            
+            SubscriptionName: String;
+            SourceIdentifier: String;
+        }
+        export interface RemoveSourceIdentifierFromSubscriptionResult {
+            EventSubscription?: EventSubscription;
         }
         export interface RemoveTagsFromResourceMessage {
-            ResourceName: String;            
-            TagKeys: KeyList;            
+            ResourceName: String;
+            TagKeys: KeyList;
         }
         export interface ReservedDBInstance {
-            ReservedDBInstanceId?: String;            
-            ReservedDBInstancesOfferingId?: String;            
-            DBInstanceClass?: String;            
-            StartTime?: TStamp;            
-            Duration?: Integer;            
-            FixedPrice?: Double;            
-            UsagePrice?: Double;            
-            CurrencyCode?: String;            
-            DBInstanceCount?: Integer;            
-            ProductDescription?: String;            
-            OfferingType?: String;            
-            MultiAZ?: Boolean;            
-            State?: String;            
-            RecurringCharges?: RecurringChargeList;            
+            ReservedDBInstanceId?: String;
+            ReservedDBInstancesOfferingId?: String;
+            DBInstanceClass?: String;
+            StartTime?: TStamp;
+            Duration?: Integer;
+            FixedPrice?: Double;
+            UsagePrice?: Double;
+            CurrencyCode?: String;
+            DBInstanceCount?: Integer;
+            ProductDescription?: String;
+            OfferingType?: String;
+            MultiAZ?: Boolean;
+            State?: String;
+            RecurringCharges?: RecurringChargeList;
         }
         export interface ReservedDBInstanceAlreadyExistsFault {
         }
         export interface ReservedDBInstanceMessage {
-            Marker?: String;            
-            ReservedDBInstances?: ReservedDBInstanceList;            
+            Marker?: String;
+            ReservedDBInstances?: ReservedDBInstanceList;
         }
         export interface ReservedDBInstanceNotFoundFault {
         }
         export interface ReservedDBInstanceQuotaExceededFault {
         }
         export interface ReservedDBInstancesOffering {
-            ReservedDBInstancesOfferingId?: String;            
-            DBInstanceClass?: String;            
-            Duration?: Integer;            
-            FixedPrice?: Double;            
-            UsagePrice?: Double;            
-            CurrencyCode?: String;            
-            ProductDescription?: String;            
-            OfferingType?: String;            
-            MultiAZ?: Boolean;            
-            RecurringCharges?: RecurringChargeList;            
+            ReservedDBInstancesOfferingId?: String;
+            DBInstanceClass?: String;
+            Duration?: Integer;
+            FixedPrice?: Double;
+            UsagePrice?: Double;
+            CurrencyCode?: String;
+            ProductDescription?: String;
+            OfferingType?: String;
+            MultiAZ?: Boolean;
+            RecurringCharges?: RecurringChargeList;
         }
         export interface ReservedDBInstancesOfferingMessage {
-            Marker?: String;            
-            ReservedDBInstancesOfferings?: ReservedDBInstancesOfferingList;            
+            Marker?: String;
+            ReservedDBInstancesOfferings?: ReservedDBInstancesOfferingList;
         }
         export interface ReservedDBInstancesOfferingNotFoundFault {
         }
         export interface ResetDBClusterParameterGroupMessage {
-            DBClusterParameterGroupName: String;            
-            ResetAllParameters?: Boolean;            
-            Parameters?: ParametersList;            
+            DBClusterParameterGroupName: String;
+            ResetAllParameters?: Boolean;
+            Parameters?: ParametersList;
         }
         export interface ResetDBParameterGroupMessage {
-            DBParameterGroupName: String;            
-            ResetAllParameters?: Boolean;            
-            Parameters?: ParametersList;            
+            DBParameterGroupName: String;
+            ResetAllParameters?: Boolean;
+            Parameters?: ParametersList;
         }
         export interface ResourceNotFoundFault {
         }
         export interface ResourcePendingMaintenanceActions {
-            ResourceIdentifier?: String;            
-            PendingMaintenanceActionDetails?: PendingMaintenanceActionDetails;            
+            ResourceIdentifier?: String;
+            PendingMaintenanceActionDetails?: PendingMaintenanceActionDetails;
         }
         export interface RestoreDBClusterFromSnapshotMessage {
-            AvailabilityZones?: AvailabilityZones;            
-            DBClusterIdentifier: String;            
-            SnapshotIdentifier: String;            
-            Engine: String;            
-            EngineVersion?: String;            
-            Port?: IntegerOptional;            
-            DBSubnetGroupName?: String;            
-            DatabaseName?: String;            
-            OptionGroupName?: String;            
-            VpcSecurityGroupIds?: VpcSecurityGroupIdList;            
-            Tags?: TagList;            
+            AvailabilityZones?: AvailabilityZones;
+            DBClusterIdentifier: String;
+            SnapshotIdentifier: String;
+            Engine: String;
+            EngineVersion?: String;
+            Port?: IntegerOptional;
+            DBSubnetGroupName?: String;
+            DatabaseName?: String;
+            OptionGroupName?: String;
+            VpcSecurityGroupIds?: VpcSecurityGroupIdList;
+            Tags?: TagList;
+            KmsKeyId?: String;
+        }
+        export interface RestoreDBClusterFromSnapshotResult {
+            DBCluster?: DBCluster;
         }
         export interface RestoreDBClusterToPointInTimeMessage {
-            DBClusterIdentifier: String;            
-            SourceDBClusterIdentifier: String;            
-            RestoreToTime?: TStamp;            
-            UseLatestRestorableTime?: Boolean;            
-            Port?: IntegerOptional;            
-            DBSubnetGroupName?: String;            
-            OptionGroupName?: String;            
-            VpcSecurityGroupIds?: VpcSecurityGroupIdList;            
-            Tags?: TagList;            
+            DBClusterIdentifier: String;
+            SourceDBClusterIdentifier: String;
+            RestoreToTime?: TStamp;
+            UseLatestRestorableTime?: Boolean;
+            Port?: IntegerOptional;
+            DBSubnetGroupName?: String;
+            OptionGroupName?: String;
+            VpcSecurityGroupIds?: VpcSecurityGroupIdList;
+            Tags?: TagList;
+            KmsKeyId?: String;
+        }
+        export interface RestoreDBClusterToPointInTimeResult {
+            DBCluster?: DBCluster;
         }
         export interface RestoreDBInstanceFromDBSnapshotMessage {
-            DBInstanceIdentifier: String;            
-            DBSnapshotIdentifier: String;            
-            DBInstanceClass?: String;            
-            Port?: IntegerOptional;            
-            AvailabilityZone?: String;            
-            DBSubnetGroupName?: String;            
-            MultiAZ?: BooleanOptional;            
-            PubliclyAccessible?: BooleanOptional;            
-            AutoMinorVersionUpgrade?: BooleanOptional;            
-            LicenseModel?: String;            
-            DBName?: String;            
-            Engine?: String;            
-            Iops?: IntegerOptional;            
-            OptionGroupName?: String;            
-            Tags?: TagList;            
-            StorageType?: String;            
-            TdeCredentialArn?: String;            
-            TdeCredentialPassword?: String;            
-            CopyTagsToSnapshot?: BooleanOptional;            
+            DBInstanceIdentifier: String;
+            DBSnapshotIdentifier: String;
+            DBInstanceClass?: String;
+            Port?: IntegerOptional;
+            AvailabilityZone?: String;
+            DBSubnetGroupName?: String;
+            MultiAZ?: BooleanOptional;
+            PubliclyAccessible?: BooleanOptional;
+            AutoMinorVersionUpgrade?: BooleanOptional;
+            LicenseModel?: String;
+            DBName?: String;
+            Engine?: String;
+            Iops?: IntegerOptional;
+            OptionGroupName?: String;
+            Tags?: TagList;
+            StorageType?: String;
+            TdeCredentialArn?: String;
+            TdeCredentialPassword?: String;
+            CopyTagsToSnapshot?: BooleanOptional;
+        }
+        export interface RestoreDBInstanceFromDBSnapshotResult {
+            DBInstance?: DBInstance;
         }
         export interface RestoreDBInstanceToPointInTimeMessage {
-            SourceDBInstanceIdentifier: String;            
-            TargetDBInstanceIdentifier: String;            
-            RestoreTime?: TStamp;            
-            UseLatestRestorableTime?: Boolean;            
-            DBInstanceClass?: String;            
-            Port?: IntegerOptional;            
-            AvailabilityZone?: String;            
-            DBSubnetGroupName?: String;            
-            MultiAZ?: BooleanOptional;            
-            PubliclyAccessible?: BooleanOptional;            
-            AutoMinorVersionUpgrade?: BooleanOptional;            
-            LicenseModel?: String;            
-            DBName?: String;            
-            Engine?: String;            
-            Iops?: IntegerOptional;            
-            OptionGroupName?: String;            
-            CopyTagsToSnapshot?: BooleanOptional;            
-            Tags?: TagList;            
-            StorageType?: String;            
-            TdeCredentialArn?: String;            
-            TdeCredentialPassword?: String;            
+            SourceDBInstanceIdentifier: String;
+            TargetDBInstanceIdentifier: String;
+            RestoreTime?: TStamp;
+            UseLatestRestorableTime?: Boolean;
+            DBInstanceClass?: String;
+            Port?: IntegerOptional;
+            AvailabilityZone?: String;
+            DBSubnetGroupName?: String;
+            MultiAZ?: BooleanOptional;
+            PubliclyAccessible?: BooleanOptional;
+            AutoMinorVersionUpgrade?: BooleanOptional;
+            LicenseModel?: String;
+            DBName?: String;
+            Engine?: String;
+            Iops?: IntegerOptional;
+            OptionGroupName?: String;
+            CopyTagsToSnapshot?: BooleanOptional;
+            Tags?: TagList;
+            StorageType?: String;
+            TdeCredentialArn?: String;
+            TdeCredentialPassword?: String;
+        }
+        export interface RestoreDBInstanceToPointInTimeResult {
+            DBInstance?: DBInstance;
         }
         export interface RevokeDBSecurityGroupIngressMessage {
-            DBSecurityGroupName: String;            
-            CIDRIP?: String;            
-            EC2SecurityGroupName?: String;            
-            EC2SecurityGroupId?: String;            
-            EC2SecurityGroupOwnerId?: String;            
+            DBSecurityGroupName: String;
+            CIDRIP?: String;
+            EC2SecurityGroupName?: String;
+            EC2SecurityGroupId?: String;
+            EC2SecurityGroupOwnerId?: String;
+        }
+        export interface RevokeDBSecurityGroupIngressResult {
+            DBSecurityGroup?: DBSecurityGroup;
         }
         export interface SNSInvalidTopicFault {
         }
@@ -1362,9 +1509,9 @@ declare module "aws-sdk" {
         export interface StorageTypeNotSupportedFault {
         }
         export interface Subnet {
-            SubnetIdentifier?: String;            
-            SubnetAvailabilityZone?: AvailabilityZone;            
-            SubnetStatus?: String;            
+            SubnetIdentifier?: String;
+            SubnetAvailabilityZone?: AvailabilityZone;
+            SubnetStatus?: String;
         }
         export interface SubnetAlreadyInUse {
         }
@@ -1375,148 +1522,22 @@ declare module "aws-sdk" {
         export interface SubscriptionNotFoundFault {
         }
         export interface Tag {
-            Key?: String;            
-            Value?: String;            
+            Key?: String;
+            Value?: String;
         }
         export interface TagListMessage {
-            TagList?: TagList;            
+            TagList?: TagList;
         }
         export interface UpgradeTarget {
-            Engine?: String;            
-            EngineVersion?: String;            
-            Description?: String;            
-            AutoUpgrade?: Boolean;            
-            IsMajorVersionUpgrade?: Boolean;            
+            Engine?: String;
+            EngineVersion?: String;
+            Description?: String;
+            AutoUpgrade?: Boolean;
+            IsMajorVersionUpgrade?: Boolean;
         }
         export interface VpcSecurityGroupMembership {
-            VpcSecurityGroupId?: String;            
-            Status?: String;            
-        }
-        export interface AddSourceIdentifierToSubscriptionResult {
-            EventSubscription?: EventSubscription;            
-        }
-        export interface ApplyPendingMaintenanceActionResult {
-            ResourcePendingMaintenanceActions?: ResourcePendingMaintenanceActions;            
-        }
-        export interface AuthorizeDBSecurityGroupIngressResult {
-            DBSecurityGroup?: DBSecurityGroup;            
-        }
-        export interface CopyDBClusterSnapshotResult {
-            DBClusterSnapshot?: DBClusterSnapshot;            
-        }
-        export interface CopyDBParameterGroupResult {
-            DBParameterGroup?: DBParameterGroup;            
-        }
-        export interface CopyDBSnapshotResult {
-            DBSnapshot?: DBSnapshot;            
-        }
-        export interface CopyOptionGroupResult {
-            OptionGroup?: OptionGroup;            
-        }
-        export interface CreateDBClusterResult {
-            DBCluster?: DBCluster;            
-        }
-        export interface CreateDBClusterParameterGroupResult {
-            DBClusterParameterGroup?: DBClusterParameterGroup;            
-        }
-        export interface CreateDBClusterSnapshotResult {
-            DBClusterSnapshot?: DBClusterSnapshot;            
-        }
-        export interface CreateDBInstanceResult {
-            DBInstance?: DBInstance;            
-        }
-        export interface CreateDBInstanceReadReplicaResult {
-            DBInstance?: DBInstance;            
-        }
-        export interface CreateDBParameterGroupResult {
-            DBParameterGroup?: DBParameterGroup;            
-        }
-        export interface CreateDBSecurityGroupResult {
-            DBSecurityGroup?: DBSecurityGroup;            
-        }
-        export interface CreateDBSnapshotResult {
-            DBSnapshot?: DBSnapshot;            
-        }
-        export interface CreateDBSubnetGroupResult {
-            DBSubnetGroup?: DBSubnetGroup;            
-        }
-        export interface CreateEventSubscriptionResult {
-            EventSubscription?: EventSubscription;            
-        }
-        export interface CreateOptionGroupResult {
-            OptionGroup?: OptionGroup;            
-        }
-        export interface DeleteDBClusterResult {
-            DBCluster?: DBCluster;            
-        }
-        export interface DeleteDBClusterSnapshotResult {
-            DBClusterSnapshot?: DBClusterSnapshot;            
-        }
-        export interface DeleteDBInstanceResult {
-            DBInstance?: DBInstance;            
-        }
-        export interface DeleteDBSnapshotResult {
-            DBSnapshot?: DBSnapshot;            
-        }
-        export interface DeleteEventSubscriptionResult {
-            EventSubscription?: EventSubscription;            
-        }
-        export interface DescribeDBSnapshotAttributesResult {
-            DBSnapshotAttributesResult?: DBSnapshotAttributesResult;            
-        }
-        export interface DescribeEngineDefaultClusterParametersResult {
-            EngineDefaults?: EngineDefaults;            
-        }
-        export interface DescribeEngineDefaultParametersResult {
-            EngineDefaults?: EngineDefaults;            
-        }
-        export interface FailoverDBClusterResult {
-            DBCluster?: DBCluster;            
-        }
-        export interface ModifyDBClusterResult {
-            DBCluster?: DBCluster;            
-        }
-        export interface ModifyDBInstanceResult {
-            DBInstance?: DBInstance;            
-        }
-        export interface ModifyDBSnapshotAttributeResult {
-            DBSnapshotAttributesResult?: DBSnapshotAttributesResult;            
-        }
-        export interface ModifyDBSubnetGroupResult {
-            DBSubnetGroup?: DBSubnetGroup;            
-        }
-        export interface ModifyEventSubscriptionResult {
-            EventSubscription?: EventSubscription;            
-        }
-        export interface ModifyOptionGroupResult {
-            OptionGroup?: OptionGroup;            
-        }
-        export interface PromoteReadReplicaResult {
-            DBInstance?: DBInstance;            
-        }
-        export interface PurchaseReservedDBInstancesOfferingResult {
-            ReservedDBInstance?: ReservedDBInstance;            
-        }
-        export interface RebootDBInstanceResult {
-            DBInstance?: DBInstance;            
-        }
-        export interface RemoveSourceIdentifierFromSubscriptionResult {
-            EventSubscription?: EventSubscription;            
-        }
-        export interface RestoreDBClusterFromSnapshotResult {
-            DBCluster?: DBCluster;            
-        }
-        export interface RestoreDBClusterToPointInTimeResult {
-            DBCluster?: DBCluster;            
-        }
-        export interface RestoreDBInstanceFromDBSnapshotResult {
-            DBInstance?: DBInstance;            
-        }
-        export interface RestoreDBInstanceToPointInTimeResult {
-            DBInstance?: DBInstance;            
-        }
-        export interface RevokeDBSecurityGroupIngressResult {
-            DBSecurityGroup?: DBSecurityGroup;            
+            VpcSecurityGroupId?: String;
+            Status?: String;
         }
 
     }

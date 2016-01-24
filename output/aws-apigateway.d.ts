@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-07-09
      * endpointPrefix: apigateway
      * serviceAbbreviation: 
@@ -84,8 +84,13 @@ declare module "aws-sdk" {
       updateResource(params: APIGateway.UpdateResourceRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Resource|any) => void): Request;
       updateRestApi(params: APIGateway.UpdateRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.RestApi|any) => void): Request;
       updateStage(params: APIGateway.UpdateStageRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Stage|any) => void): Request;
+
+      // Found on JS Sources - Sorry for the inconvenience :)
+      setAcceptHeader(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      setupRequestListeners(...args: any[]): any
     }
-    
+
     export module APIGateway {
         export type Blob = any;    // type: blob
         export type Boolean = boolean;
@@ -124,548 +129,548 @@ declare module "aws-sdk" {
         export type op = string;
 
         export interface Account {
-            cloudwatchRoleArn?: String;            
-            throttleSettings?: ThrottleSettings;            
+            cloudwatchRoleArn?: String;
+            throttleSettings?: ThrottleSettings;
         }
         export interface ApiKey {
-            id?: String;            
-            name?: String;            
-            description?: String;            
-            enabled?: Boolean;            
-            stageKeys?: ListOfString;            
-            createdDate?: Timestamp;            
-            lastUpdatedDate?: Timestamp;            
+            id?: String;
+            name?: String;
+            description?: String;
+            enabled?: Boolean;
+            stageKeys?: ListOfString;
+            createdDate?: Timestamp;
+            lastUpdatedDate?: Timestamp;
         }
         export interface ApiKeys {
-            position?: String;            
-            items?: ListOfApiKey;            
+            position?: String;
+            items?: ListOfApiKey;
         }
         export interface BadRequestException {
-            message?: String;            
+            message?: String;
         }
         export interface BasePathMapping {
-            basePath?: String;            
-            restApiId?: String;            
-            stage?: String;            
+            basePath?: String;
+            restApiId?: String;
+            stage?: String;
         }
         export interface BasePathMappings {
-            position?: String;            
-            items?: ListOfBasePathMapping;            
+            position?: String;
+            items?: ListOfBasePathMapping;
         }
         export interface ClientCertificate {
-            clientCertificateId?: String;            
-            description?: String;            
-            pemEncodedCertificate?: String;            
-            createdDate?: Timestamp;            
-            expirationDate?: Timestamp;            
+            clientCertificateId?: String;
+            description?: String;
+            pemEncodedCertificate?: String;
+            createdDate?: Timestamp;
+            expirationDate?: Timestamp;
         }
         export interface ClientCertificates {
-            position?: String;            
-            items?: ListOfClientCertificate;            
+            position?: String;
+            items?: ListOfClientCertificate;
         }
         export interface ConflictException {
-            message?: String;            
+            message?: String;
         }
         export interface CreateApiKeyRequest {
-            name?: String;            
-            description?: String;            
-            enabled?: Boolean;            
-            stageKeys?: ListOfStageKeys;            
+            name?: String;
+            description?: String;
+            enabled?: Boolean;
+            stageKeys?: ListOfStageKeys;
         }
         export interface CreateBasePathMappingRequest {
-            domainName: String;            
-            basePath?: String;            
-            restApiId: String;            
-            stage?: String;            
+            domainName: String;
+            basePath?: String;
+            restApiId: String;
+            stage?: String;
         }
         export interface CreateDeploymentRequest {
-            restApiId: String;            
-            stageName: String;            
-            stageDescription?: String;            
-            description?: String;            
-            cacheClusterEnabled?: NullableBoolean;            
-            cacheClusterSize?: CacheClusterSize;            
-            variables?: MapOfStringToString;            
+            restApiId: String;
+            stageName: String;
+            stageDescription?: String;
+            description?: String;
+            cacheClusterEnabled?: NullableBoolean;
+            cacheClusterSize?: CacheClusterSize;
+            variables?: MapOfStringToString;
         }
         export interface CreateDomainNameRequest {
-            domainName: String;            
-            certificateName: String;            
-            certificateBody: String;            
-            certificatePrivateKey: String;            
-            certificateChain: String;            
+            domainName: String;
+            certificateName: String;
+            certificateBody: String;
+            certificatePrivateKey: String;
+            certificateChain: String;
         }
         export interface CreateModelRequest {
-            restApiId: String;            
-            name: String;            
-            description?: String;            
-            schema?: String;            
-            contentType: String;            
+            restApiId: String;
+            name: String;
+            description?: String;
+            schema?: String;
+            contentType: String;
         }
         export interface CreateResourceRequest {
-            restApiId: String;            
-            parentId: String;            
-            pathPart: String;            
+            restApiId: String;
+            parentId: String;
+            pathPart: String;
         }
         export interface CreateRestApiRequest {
-            name: String;            
-            description?: String;            
-            cloneFrom?: String;            
+            name: String;
+            description?: String;
+            cloneFrom?: String;
         }
         export interface CreateStageRequest {
-            restApiId: String;            
-            stageName: String;            
-            deploymentId: String;            
-            description?: String;            
-            cacheClusterEnabled?: Boolean;            
-            cacheClusterSize?: CacheClusterSize;            
-            variables?: MapOfStringToString;            
+            restApiId: String;
+            stageName: String;
+            deploymentId: String;
+            description?: String;
+            cacheClusterEnabled?: Boolean;
+            cacheClusterSize?: CacheClusterSize;
+            variables?: MapOfStringToString;
         }
         export interface DeleteApiKeyRequest {
-            apiKey: String;            
+            apiKey: String;
         }
         export interface DeleteBasePathMappingRequest {
-            domainName: String;            
-            basePath: String;            
+            domainName: String;
+            basePath: String;
         }
         export interface DeleteClientCertificateRequest {
-            clientCertificateId: String;            
+            clientCertificateId: String;
         }
         export interface DeleteDeploymentRequest {
-            restApiId: String;            
-            deploymentId: String;            
+            restApiId: String;
+            deploymentId: String;
         }
         export interface DeleteDomainNameRequest {
-            domainName: String;            
+            domainName: String;
         }
         export interface DeleteIntegrationRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
         }
         export interface DeleteIntegrationResponseRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
-            statusCode: StatusCode;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
+            statusCode: StatusCode;
         }
         export interface DeleteMethodRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
         }
         export interface DeleteMethodResponseRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
-            statusCode: StatusCode;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
+            statusCode: StatusCode;
         }
         export interface DeleteModelRequest {
-            restApiId: String;            
-            modelName: String;            
+            restApiId: String;
+            modelName: String;
         }
         export interface DeleteResourceRequest {
-            restApiId: String;            
-            resourceId: String;            
+            restApiId: String;
+            resourceId: String;
         }
         export interface DeleteRestApiRequest {
-            restApiId: String;            
+            restApiId: String;
         }
         export interface DeleteStageRequest {
-            restApiId: String;            
-            stageName: String;            
+            restApiId: String;
+            stageName: String;
         }
         export interface Deployment {
-            id?: String;            
-            description?: String;            
-            createdDate?: Timestamp;            
-            apiSummary?: PathToMapOfMethodSnapshot;            
+            id?: String;
+            description?: String;
+            createdDate?: Timestamp;
+            apiSummary?: PathToMapOfMethodSnapshot;
         }
         export interface Deployments {
-            position?: String;            
-            items?: ListOfDeployment;            
+            position?: String;
+            items?: ListOfDeployment;
         }
         export interface DomainName {
-            domainName?: String;            
-            certificateName?: String;            
-            certificateUploadDate?: Timestamp;            
-            distributionDomainName?: String;            
+            domainName?: String;
+            certificateName?: String;
+            certificateUploadDate?: Timestamp;
+            distributionDomainName?: String;
         }
         export interface DomainNames {
-            position?: String;            
-            items?: ListOfDomainName;            
+            position?: String;
+            items?: ListOfDomainName;
         }
         export interface FlushStageCacheRequest {
-            restApiId: String;            
-            stageName: String;            
+            restApiId: String;
+            stageName: String;
         }
         export interface GenerateClientCertificateRequest {
-            description?: String;            
+            description?: String;
         }
         export interface GetAccountRequest {
         }
         export interface GetApiKeyRequest {
-            apiKey: String;            
+            apiKey: String;
         }
         export interface GetApiKeysRequest {
-            position?: String;            
-            limit?: NullableInteger;            
+            position?: String;
+            limit?: NullableInteger;
         }
         export interface GetBasePathMappingRequest {
-            domainName: String;            
-            basePath: String;            
+            domainName: String;
+            basePath: String;
         }
         export interface GetBasePathMappingsRequest {
-            domainName: String;            
-            position?: String;            
-            limit?: NullableInteger;            
+            domainName: String;
+            position?: String;
+            limit?: NullableInteger;
         }
         export interface GetClientCertificateRequest {
-            clientCertificateId: String;            
+            clientCertificateId: String;
         }
         export interface GetClientCertificatesRequest {
-            position?: String;            
-            limit?: NullableInteger;            
+            position?: String;
+            limit?: NullableInteger;
         }
         export interface GetDeploymentRequest {
-            restApiId: String;            
-            deploymentId: String;            
+            restApiId: String;
+            deploymentId: String;
         }
         export interface GetDeploymentsRequest {
-            restApiId: String;            
-            position?: String;            
-            limit?: NullableInteger;            
+            restApiId: String;
+            position?: String;
+            limit?: NullableInteger;
         }
         export interface GetDomainNameRequest {
-            domainName: String;            
+            domainName: String;
         }
         export interface GetDomainNamesRequest {
-            position?: String;            
-            limit?: NullableInteger;            
+            position?: String;
+            limit?: NullableInteger;
         }
         export interface GetIntegrationRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
         }
         export interface GetIntegrationResponseRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
-            statusCode: StatusCode;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
+            statusCode: StatusCode;
         }
         export interface GetMethodRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
         }
         export interface GetMethodResponseRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
-            statusCode: StatusCode;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
+            statusCode: StatusCode;
         }
         export interface GetModelRequest {
-            restApiId: String;            
-            modelName: String;            
-            flatten?: Boolean;            
+            restApiId: String;
+            modelName: String;
+            flatten?: Boolean;
         }
         export interface GetModelTemplateRequest {
-            restApiId: String;            
-            modelName: String;            
+            restApiId: String;
+            modelName: String;
         }
         export interface GetModelsRequest {
-            restApiId: String;            
-            position?: String;            
-            limit?: NullableInteger;            
+            restApiId: String;
+            position?: String;
+            limit?: NullableInteger;
         }
         export interface GetResourceRequest {
-            restApiId: String;            
-            resourceId: String;            
+            restApiId: String;
+            resourceId: String;
         }
         export interface GetResourcesRequest {
-            restApiId: String;            
-            position?: String;            
-            limit?: NullableInteger;            
+            restApiId: String;
+            position?: String;
+            limit?: NullableInteger;
         }
         export interface GetRestApiRequest {
-            restApiId: String;            
+            restApiId: String;
         }
         export interface GetRestApisRequest {
-            position?: String;            
-            limit?: NullableInteger;            
+            position?: String;
+            limit?: NullableInteger;
         }
         export interface GetSdkRequest {
-            restApiId: String;            
-            stageName: String;            
-            sdkType: String;            
-            parameters?: MapOfStringToString;            
+            restApiId: String;
+            stageName: String;
+            sdkType: String;
+            parameters?: MapOfStringToString;
         }
         export interface GetStageRequest {
-            restApiId: String;            
-            stageName: String;            
+            restApiId: String;
+            stageName: String;
         }
         export interface GetStagesRequest {
-            restApiId: String;            
-            deploymentId?: String;            
+            restApiId: String;
+            deploymentId?: String;
         }
         export interface Integration {
-            type?: IntegrationType;            
-            httpMethod?: String;            
-            uri?: String;            
-            credentials?: String;            
-            requestParameters?: MapOfStringToString;            
-            requestTemplates?: MapOfStringToString;            
-            cacheNamespace?: String;            
-            cacheKeyParameters?: ListOfString;            
-            integrationResponses?: MapOfIntegrationResponse;            
+            type?: IntegrationType;
+            httpMethod?: String;
+            uri?: String;
+            credentials?: String;
+            requestParameters?: MapOfStringToString;
+            requestTemplates?: MapOfStringToString;
+            cacheNamespace?: String;
+            cacheKeyParameters?: ListOfString;
+            integrationResponses?: MapOfIntegrationResponse;
         }
         export interface IntegrationResponse {
-            statusCode?: StatusCode;            
-            selectionPattern?: String;            
-            responseParameters?: MapOfStringToString;            
-            responseTemplates?: MapOfStringToString;            
+            statusCode?: StatusCode;
+            selectionPattern?: String;
+            responseParameters?: MapOfStringToString;
+            responseTemplates?: MapOfStringToString;
         }
         export interface LimitExceededException {
-            retryAfterSeconds?: String;            
-            message?: String;            
+            retryAfterSeconds?: String;
+            message?: String;
         }
         export interface Method {
-            httpMethod?: String;            
-            authorizationType?: String;            
-            apiKeyRequired?: NullableBoolean;            
-            requestParameters?: MapOfStringToBoolean;            
-            requestModels?: MapOfStringToString;            
-            methodResponses?: MapOfMethodResponse;            
-            methodIntegration?: Integration;            
+            httpMethod?: String;
+            authorizationType?: String;
+            apiKeyRequired?: NullableBoolean;
+            requestParameters?: MapOfStringToBoolean;
+            requestModels?: MapOfStringToString;
+            methodResponses?: MapOfMethodResponse;
+            methodIntegration?: Integration;
         }
         export interface MethodResponse {
-            statusCode?: StatusCode;            
-            responseParameters?: MapOfStringToBoolean;            
-            responseModels?: MapOfStringToString;            
+            statusCode?: StatusCode;
+            responseParameters?: MapOfStringToBoolean;
+            responseModels?: MapOfStringToString;
         }
         export interface MethodSetting {
-            metricsEnabled?: Boolean;            
-            loggingLevel?: String;            
-            dataTraceEnabled?: Boolean;            
-            throttlingBurstLimit?: Integer;            
-            throttlingRateLimit?: Double;            
-            cachingEnabled?: Boolean;            
-            cacheTtlInSeconds?: Integer;            
-            cacheDataEncrypted?: Boolean;            
+            metricsEnabled?: Boolean;
+            loggingLevel?: String;
+            dataTraceEnabled?: Boolean;
+            throttlingBurstLimit?: Integer;
+            throttlingRateLimit?: Double;
+            cachingEnabled?: Boolean;
+            cacheTtlInSeconds?: Integer;
+            cacheDataEncrypted?: Boolean;
         }
         export interface MethodSnapshot {
-            authorizationType?: String;            
-            apiKeyRequired?: Boolean;            
+            authorizationType?: String;
+            apiKeyRequired?: Boolean;
         }
         export interface Model {
-            id?: String;            
-            name?: String;            
-            description?: String;            
-            schema?: String;            
-            contentType?: String;            
+            id?: String;
+            name?: String;
+            description?: String;
+            schema?: String;
+            contentType?: String;
         }
         export interface Models {
-            position?: String;            
-            items?: ListOfModel;            
+            position?: String;
+            items?: ListOfModel;
         }
         export interface NotFoundException {
-            message?: String;            
+            message?: String;
         }
         export interface PatchOperation {
-            op?: op;            
-            path?: String;            
-            value?: String;            
-            from?: String;            
+            op?: op;
+            path?: String;
+            value?: String;
+            from?: String;
         }
         export interface PutIntegrationRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
-            type: IntegrationType;            
-            integrationHttpMethod?: String;            
-            uri?: String;            
-            credentials?: String;            
-            requestParameters?: MapOfStringToString;            
-            requestTemplates?: MapOfStringToString;            
-            cacheNamespace?: String;            
-            cacheKeyParameters?: ListOfString;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
+            type: IntegrationType;
+            integrationHttpMethod?: String;
+            uri?: String;
+            credentials?: String;
+            requestParameters?: MapOfStringToString;
+            requestTemplates?: MapOfStringToString;
+            cacheNamespace?: String;
+            cacheKeyParameters?: ListOfString;
         }
         export interface PutIntegrationResponseRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
-            statusCode: StatusCode;            
-            selectionPattern?: String;            
-            responseParameters?: MapOfStringToString;            
-            responseTemplates?: MapOfStringToString;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
+            statusCode: StatusCode;
+            selectionPattern?: String;
+            responseParameters?: MapOfStringToString;
+            responseTemplates?: MapOfStringToString;
         }
         export interface PutMethodRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
-            authorizationType: String;            
-            apiKeyRequired?: Boolean;            
-            requestParameters?: MapOfStringToBoolean;            
-            requestModels?: MapOfStringToString;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
+            authorizationType: String;
+            apiKeyRequired?: Boolean;
+            requestParameters?: MapOfStringToBoolean;
+            requestModels?: MapOfStringToString;
         }
         export interface PutMethodResponseRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
-            statusCode: StatusCode;            
-            responseParameters?: MapOfStringToBoolean;            
-            responseModels?: MapOfStringToString;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
+            statusCode: StatusCode;
+            responseParameters?: MapOfStringToBoolean;
+            responseModels?: MapOfStringToString;
         }
         export interface Resource {
-            id?: String;            
-            parentId?: String;            
-            pathPart?: String;            
-            path?: String;            
-            resourceMethods?: MapOfMethod;            
+            id?: String;
+            parentId?: String;
+            pathPart?: String;
+            path?: String;
+            resourceMethods?: MapOfMethod;
         }
         export interface Resources {
-            position?: String;            
-            items?: ListOfResource;            
+            position?: String;
+            items?: ListOfResource;
         }
         export interface RestApi {
-            id?: String;            
-            name?: String;            
-            description?: String;            
-            createdDate?: Timestamp;            
+            id?: String;
+            name?: String;
+            description?: String;
+            createdDate?: Timestamp;
         }
         export interface RestApis {
-            position?: String;            
-            items?: ListOfRestApi;            
+            position?: String;
+            items?: ListOfRestApi;
         }
         export interface SdkResponse {
-            contentType?: String;            
-            contentDisposition?: String;            
-            body?: Blob;            
+            contentType?: String;
+            contentDisposition?: String;
+            body?: Blob;
         }
         export interface ServiceUnavailableException {
-            retryAfterSeconds?: String;            
-            message?: String;            
+            retryAfterSeconds?: String;
+            message?: String;
         }
         export interface Stage {
-            deploymentId?: String;            
-            clientCertificateId?: String;            
-            stageName?: String;            
-            description?: String;            
-            cacheClusterEnabled?: Boolean;            
-            cacheClusterSize?: CacheClusterSize;            
-            cacheClusterStatus?: CacheClusterStatus;            
-            methodSettings?: MapOfMethodSettings;            
-            variables?: MapOfStringToString;            
-            createdDate?: Timestamp;            
-            lastUpdatedDate?: Timestamp;            
+            deploymentId?: String;
+            clientCertificateId?: String;
+            stageName?: String;
+            description?: String;
+            cacheClusterEnabled?: Boolean;
+            cacheClusterSize?: CacheClusterSize;
+            cacheClusterStatus?: CacheClusterStatus;
+            methodSettings?: MapOfMethodSettings;
+            variables?: MapOfStringToString;
+            createdDate?: Timestamp;
+            lastUpdatedDate?: Timestamp;
         }
         export interface StageKey {
-            restApiId?: String;            
-            stageName?: String;            
+            restApiId?: String;
+            stageName?: String;
         }
         export interface Stages {
-            item?: ListOfStage;            
+            item?: ListOfStage;
         }
         export interface Template {
-            value?: String;            
+            value?: String;
         }
         export interface TestInvokeMethodRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
-            pathWithQueryString?: String;            
-            body?: String;            
-            headers?: MapOfHeaderValues;            
-            clientCertificateId?: String;            
-            stageVariables?: MapOfStringToString;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
+            pathWithQueryString?: String;
+            body?: String;
+            headers?: MapOfHeaderValues;
+            clientCertificateId?: String;
+            stageVariables?: MapOfStringToString;
         }
         export interface TestInvokeMethodResponse {
-            status?: Integer;            
-            body?: String;            
-            headers?: MapOfHeaderValues;            
-            log?: String;            
-            latency?: Long;            
+            status?: Integer;
+            body?: String;
+            headers?: MapOfHeaderValues;
+            log?: String;
+            latency?: Long;
         }
         export interface ThrottleSettings {
-            burstLimit?: Integer;            
-            rateLimit?: Double;            
+            burstLimit?: Integer;
+            rateLimit?: Double;
         }
         export interface TooManyRequestsException {
-            retryAfterSeconds?: String;            
-            message?: String;            
+            retryAfterSeconds?: String;
+            message?: String;
         }
         export interface UnauthorizedException {
-            message?: String;            
+            message?: String;
         }
         export interface UpdateAccountRequest {
-            patchOperations?: ListOfPatchOperation;            
+            patchOperations?: ListOfPatchOperation;
         }
         export interface UpdateApiKeyRequest {
-            apiKey: String;            
-            patchOperations?: ListOfPatchOperation;            
+            apiKey: String;
+            patchOperations?: ListOfPatchOperation;
         }
         export interface UpdateBasePathMappingRequest {
-            domainName: String;            
-            basePath: String;            
-            patchOperations?: ListOfPatchOperation;            
+            domainName: String;
+            basePath: String;
+            patchOperations?: ListOfPatchOperation;
         }
         export interface UpdateClientCertificateRequest {
-            clientCertificateId: String;            
-            patchOperations?: ListOfPatchOperation;            
+            clientCertificateId: String;
+            patchOperations?: ListOfPatchOperation;
         }
         export interface UpdateDeploymentRequest {
-            restApiId: String;            
-            deploymentId: String;            
-            patchOperations?: ListOfPatchOperation;            
+            restApiId: String;
+            deploymentId: String;
+            patchOperations?: ListOfPatchOperation;
         }
         export interface UpdateDomainNameRequest {
-            domainName: String;            
-            patchOperations?: ListOfPatchOperation;            
+            domainName: String;
+            patchOperations?: ListOfPatchOperation;
         }
         export interface UpdateIntegrationRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
-            patchOperations?: ListOfPatchOperation;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
+            patchOperations?: ListOfPatchOperation;
         }
         export interface UpdateIntegrationResponseRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
-            statusCode: StatusCode;            
-            patchOperations?: ListOfPatchOperation;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
+            statusCode: StatusCode;
+            patchOperations?: ListOfPatchOperation;
         }
         export interface UpdateMethodRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
-            patchOperations?: ListOfPatchOperation;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
+            patchOperations?: ListOfPatchOperation;
         }
         export interface UpdateMethodResponseRequest {
-            restApiId: String;            
-            resourceId: String;            
-            httpMethod: String;            
-            statusCode: StatusCode;            
-            patchOperations?: ListOfPatchOperation;            
+            restApiId: String;
+            resourceId: String;
+            httpMethod: String;
+            statusCode: StatusCode;
+            patchOperations?: ListOfPatchOperation;
         }
         export interface UpdateModelRequest {
-            restApiId: String;            
-            modelName: String;            
-            patchOperations?: ListOfPatchOperation;            
+            restApiId: String;
+            modelName: String;
+            patchOperations?: ListOfPatchOperation;
         }
         export interface UpdateResourceRequest {
-            restApiId: String;            
-            resourceId: String;            
-            patchOperations?: ListOfPatchOperation;            
+            restApiId: String;
+            resourceId: String;
+            patchOperations?: ListOfPatchOperation;
         }
         export interface UpdateRestApiRequest {
-            restApiId: String;            
-            patchOperations?: ListOfPatchOperation;            
+            restApiId: String;
+            patchOperations?: ListOfPatchOperation;
         }
         export interface UpdateStageRequest {
-            restApiId: String;            
-            stageName: String;            
-            patchOperations?: ListOfPatchOperation;            
+            restApiId: String;
+            stageName: String;
+            patchOperations?: ListOfPatchOperation;
         }
 
     }

@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2014-05-30
      * endpointPrefix: cloudhsm
      * serviceAbbreviation: CloudHSM
@@ -34,8 +34,9 @@ declare module "aws-sdk" {
       modifyHapg(params: CloudHSM.ModifyHapgRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ModifyHapgResponse|any) => void): Request;
       modifyHsm(params: CloudHSM.ModifyHsmRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ModifyHsmResponse|any) => void): Request;
       modifyLunaClient(params: CloudHSM.ModifyLunaClientRequest, callback?: (err: CloudHSM.CloudHsmServiceException|any, data: CloudHSM.ModifyLunaClientResponse|any) => void): Request;
+
     }
-    
+
     export module CloudHSM {
         export type AZ = string;    // pattern: &quot;[a-zA-Z0-9\-]*&quot;
         export type AZList = AZ[];
@@ -74,168 +75,168 @@ declare module "aws-sdk" {
         export interface CloudHsmInternalException {
         }
         export interface CloudHsmServiceException {
-            message?: String;            
-            retryable?: Boolean;            
+            message?: String;
+            retryable?: Boolean;
         }
         export interface CreateHapgRequest {
-            Label: Label;            
+            Label: Label;
         }
         export interface CreateHapgResponse {
-            HapgArn?: HapgArn;            
+            HapgArn?: HapgArn;
         }
         export interface CreateHsmRequest {
-            SubnetId: SubnetId;            
-            SshKey: SshKey;            
-            EniIp?: IpAddress;            
-            IamRoleArn: IamRoleArn;            
-            ExternalId?: ExternalId;            
-            SubscriptionType: SubscriptionType;            
-            ClientToken?: ClientToken;            
-            SyslogIp?: IpAddress;            
+            SubnetId: SubnetId;
+            SshKey: SshKey;
+            EniIp?: IpAddress;
+            IamRoleArn: IamRoleArn;
+            ExternalId?: ExternalId;
+            SubscriptionType: SubscriptionType;
+            ClientToken?: ClientToken;
+            SyslogIp?: IpAddress;
         }
         export interface CreateHsmResponse {
-            HsmArn?: HsmArn;            
+            HsmArn?: HsmArn;
         }
         export interface CreateLunaClientRequest {
-            Label?: ClientLabel;            
-            Certificate: Certificate;            
+            Label?: ClientLabel;
+            Certificate: Certificate;
         }
         export interface CreateLunaClientResponse {
-            ClientArn?: ClientArn;            
+            ClientArn?: ClientArn;
         }
         export interface DeleteHapgRequest {
-            HapgArn: HapgArn;            
+            HapgArn: HapgArn;
         }
         export interface DeleteHapgResponse {
-            Status: String;            
+            Status: String;
         }
         export interface DeleteHsmRequest {
-            HsmArn: HsmArn;            
+            HsmArn: HsmArn;
         }
         export interface DeleteHsmResponse {
-            Status: String;            
+            Status: String;
         }
         export interface DeleteLunaClientRequest {
-            ClientArn: ClientArn;            
+            ClientArn: ClientArn;
         }
         export interface DeleteLunaClientResponse {
-            Status: String;            
+            Status: String;
         }
         export interface DescribeHapgRequest {
-            HapgArn: HapgArn;            
+            HapgArn: HapgArn;
         }
         export interface DescribeHapgResponse {
-            HapgArn?: HapgArn;            
-            HapgSerial?: String;            
-            HsmsLastActionFailed?: HsmList;            
-            HsmsPendingDeletion?: HsmList;            
-            HsmsPendingRegistration?: HsmList;            
-            Label?: Label;            
-            LastModifiedTimestamp?: Timestamp;            
-            PartitionSerialList?: PartitionSerialList;            
-            State?: CloudHsmObjectState;            
+            HapgArn?: HapgArn;
+            HapgSerial?: String;
+            HsmsLastActionFailed?: HsmList;
+            HsmsPendingDeletion?: HsmList;
+            HsmsPendingRegistration?: HsmList;
+            Label?: Label;
+            LastModifiedTimestamp?: Timestamp;
+            PartitionSerialList?: PartitionSerialList;
+            State?: CloudHsmObjectState;
         }
         export interface DescribeHsmRequest {
-            HsmArn?: HsmArn;            
-            HsmSerialNumber?: HsmSerialNumber;            
+            HsmArn?: HsmArn;
+            HsmSerialNumber?: HsmSerialNumber;
         }
         export interface DescribeHsmResponse {
-            HsmArn?: HsmArn;            
-            Status?: HsmStatus;            
-            StatusDetails?: String;            
-            AvailabilityZone?: AZ;            
-            EniId?: EniId;            
-            EniIp?: IpAddress;            
-            SubscriptionType?: SubscriptionType;            
-            SubscriptionStartDate?: Timestamp;            
-            SubscriptionEndDate?: Timestamp;            
-            VpcId?: VpcId;            
-            SubnetId?: SubnetId;            
-            IamRoleArn?: IamRoleArn;            
-            SerialNumber?: HsmSerialNumber;            
-            VendorName?: String;            
-            HsmType?: String;            
-            SoftwareVersion?: String;            
-            SshPublicKey?: SshKey;            
-            SshKeyLastUpdated?: Timestamp;            
-            ServerCertUri?: String;            
-            ServerCertLastUpdated?: Timestamp;            
-            Partitions?: PartitionList;            
+            HsmArn?: HsmArn;
+            Status?: HsmStatus;
+            StatusDetails?: String;
+            AvailabilityZone?: AZ;
+            EniId?: EniId;
+            EniIp?: IpAddress;
+            SubscriptionType?: SubscriptionType;
+            SubscriptionStartDate?: Timestamp;
+            SubscriptionEndDate?: Timestamp;
+            VpcId?: VpcId;
+            SubnetId?: SubnetId;
+            IamRoleArn?: IamRoleArn;
+            SerialNumber?: HsmSerialNumber;
+            VendorName?: String;
+            HsmType?: String;
+            SoftwareVersion?: String;
+            SshPublicKey?: SshKey;
+            SshKeyLastUpdated?: Timestamp;
+            ServerCertUri?: String;
+            ServerCertLastUpdated?: Timestamp;
+            Partitions?: PartitionList;
         }
         export interface DescribeLunaClientRequest {
-            ClientArn?: ClientArn;            
-            CertificateFingerprint?: CertificateFingerprint;            
+            ClientArn?: ClientArn;
+            CertificateFingerprint?: CertificateFingerprint;
         }
         export interface DescribeLunaClientResponse {
-            ClientArn?: ClientArn;            
-            Certificate?: Certificate;            
-            CertificateFingerprint?: CertificateFingerprint;            
-            LastModifiedTimestamp?: Timestamp;            
-            Label?: Label;            
+            ClientArn?: ClientArn;
+            Certificate?: Certificate;
+            CertificateFingerprint?: CertificateFingerprint;
+            LastModifiedTimestamp?: Timestamp;
+            Label?: Label;
         }
         export interface GetConfigRequest {
-            ClientArn: ClientArn;            
-            ClientVersion: ClientVersion;            
-            HapgList: HapgList;            
+            ClientArn: ClientArn;
+            ClientVersion: ClientVersion;
+            HapgList: HapgList;
         }
         export interface GetConfigResponse {
-            ConfigType?: String;            
-            ConfigFile?: String;            
-            ConfigCred?: String;            
+            ConfigType?: String;
+            ConfigFile?: String;
+            ConfigCred?: String;
         }
         export interface InvalidRequestException {
         }
         export interface ListAvailableZonesRequest {
         }
         export interface ListAvailableZonesResponse {
-            AZList?: AZList;            
+            AZList?: AZList;
         }
         export interface ListHapgsRequest {
-            NextToken?: PaginationToken;            
+            NextToken?: PaginationToken;
         }
         export interface ListHapgsResponse {
-            HapgList: HapgList;            
-            NextToken?: PaginationToken;            
+            HapgList: HapgList;
+            NextToken?: PaginationToken;
         }
         export interface ListHsmsRequest {
-            NextToken?: PaginationToken;            
+            NextToken?: PaginationToken;
         }
         export interface ListHsmsResponse {
-            HsmList?: HsmList;            
-            NextToken?: PaginationToken;            
+            HsmList?: HsmList;
+            NextToken?: PaginationToken;
         }
         export interface ListLunaClientsRequest {
-            NextToken?: PaginationToken;            
+            NextToken?: PaginationToken;
         }
         export interface ListLunaClientsResponse {
-            ClientList: ClientList;            
-            NextToken?: PaginationToken;            
+            ClientList: ClientList;
+            NextToken?: PaginationToken;
         }
         export interface ModifyHapgRequest {
-            HapgArn: HapgArn;            
-            Label?: Label;            
-            PartitionSerialList?: PartitionSerialList;            
+            HapgArn: HapgArn;
+            Label?: Label;
+            PartitionSerialList?: PartitionSerialList;
         }
         export interface ModifyHapgResponse {
-            HapgArn?: HapgArn;            
+            HapgArn?: HapgArn;
         }
         export interface ModifyHsmRequest {
-            HsmArn: HsmArn;            
-            SubnetId?: SubnetId;            
-            EniIp?: IpAddress;            
-            IamRoleArn?: IamRoleArn;            
-            ExternalId?: ExternalId;            
-            SyslogIp?: IpAddress;            
+            HsmArn: HsmArn;
+            SubnetId?: SubnetId;
+            EniIp?: IpAddress;
+            IamRoleArn?: IamRoleArn;
+            ExternalId?: ExternalId;
+            SyslogIp?: IpAddress;
         }
         export interface ModifyHsmResponse {
-            HsmArn?: HsmArn;            
+            HsmArn?: HsmArn;
         }
         export interface ModifyLunaClientRequest {
-            ClientArn: ClientArn;            
-            Certificate: Certificate;            
+            ClientArn: ClientArn;
+            Certificate: Certificate;
         }
         export interface ModifyLunaClientResponse {
-            ClientArn?: ClientArn;            
+            ClientArn?: ClientArn;
         }
 
     }

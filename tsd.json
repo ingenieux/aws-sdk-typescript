@@ -19,6 +19,12 @@
     },
     "minimatch/minimatch.d.ts": {
       "commit": "70737c2a2496f7a13c4da63eb00081cad94d19f1"
+    },
+    "esprima/esprima.d.ts": {
+      "commit": "7fffbd3e040a93c244777e3be04cd6223ac69301"
+    },
+    "estree/estree.d.ts": {
+      "commit": "7fffbd3e040a93c244777e3be04cd6223ac69301"
     }
   }
 }

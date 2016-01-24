@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2010-08-01
      * endpointPrefix: monitoring
      * serviceAbbreviation: CloudWatch
@@ -28,8 +28,9 @@ declare module "aws-sdk" {
       putMetricAlarm(params: CloudWatch.PutMetricAlarmInput, callback?: (err: CloudWatch.LimitExceededFault|any, data: any) => void): Request;
       putMetricData(params: CloudWatch.PutMetricDataInput, callback?: (err: CloudWatch.InvalidParameterValueException|CloudWatch.MissingRequiredParameterException|CloudWatch.InvalidParameterCombinationException|CloudWatch.InternalServiceFault|any, data: any) => void): Request;
       setAlarmState(params: CloudWatch.SetAlarmStateInput, callback?: (err: CloudWatch.ResourceNotFound|CloudWatch.InvalidFormatFault|any, data: any) => void): Request;
+
     }
-    
+
     export module CloudWatch {
         export type ActionPrefix = string;    // max: 1024, min: 1
         export type ActionsEnabled = boolean;
@@ -74,189 +75,189 @@ declare module "aws-sdk" {
         export type Timestamp = number;
 
         export interface AlarmHistoryItem {
-            AlarmName?: AlarmName;            
-            Timestamp?: Timestamp;            
-            HistoryItemType?: HistoryItemType;            
-            HistorySummary?: HistorySummary;            
-            HistoryData?: HistoryData;            
+            AlarmName?: AlarmName;
+            Timestamp?: Timestamp;
+            HistoryItemType?: HistoryItemType;
+            HistorySummary?: HistorySummary;
+            HistoryData?: HistoryData;
         }
         export interface Datapoint {
-            Timestamp?: Timestamp;            
-            SampleCount?: DatapointValue;            
-            Average?: DatapointValue;            
-            Sum?: DatapointValue;            
-            Minimum?: DatapointValue;            
-            Maximum?: DatapointValue;            
-            Unit?: StandardUnit;            
+            Timestamp?: Timestamp;
+            SampleCount?: DatapointValue;
+            Average?: DatapointValue;
+            Sum?: DatapointValue;
+            Minimum?: DatapointValue;
+            Maximum?: DatapointValue;
+            Unit?: StandardUnit;
         }
         export interface DeleteAlarmsInput {
-            AlarmNames: AlarmNames;            
+            AlarmNames: AlarmNames;
         }
         export interface DescribeAlarmHistoryInput {
-            AlarmName?: AlarmName;            
-            HistoryItemType?: HistoryItemType;            
-            StartDate?: Timestamp;            
-            EndDate?: Timestamp;            
-            MaxRecords?: MaxRecords;            
-            NextToken?: NextToken;            
+            AlarmName?: AlarmName;
+            HistoryItemType?: HistoryItemType;
+            StartDate?: Timestamp;
+            EndDate?: Timestamp;
+            MaxRecords?: MaxRecords;
+            NextToken?: NextToken;
         }
         export interface DescribeAlarmHistoryOutput {
-            AlarmHistoryItems?: AlarmHistoryItems;            
-            NextToken?: NextToken;            
+            AlarmHistoryItems?: AlarmHistoryItems;
+            NextToken?: NextToken;
         }
         export interface DescribeAlarmsForMetricInput {
-            MetricName: MetricName;            
-            Namespace: Namespace;            
-            Statistic?: Statistic;            
-            Dimensions?: Dimensions;            
-            Period?: Period;            
-            Unit?: StandardUnit;            
+            MetricName: MetricName;
+            Namespace: Namespace;
+            Statistic?: Statistic;
+            Dimensions?: Dimensions;
+            Period?: Period;
+            Unit?: StandardUnit;
         }
         export interface DescribeAlarmsForMetricOutput {
-            MetricAlarms?: MetricAlarms;            
+            MetricAlarms?: MetricAlarms;
         }
         export interface DescribeAlarmsInput {
-            AlarmNames?: AlarmNames;            
-            AlarmNamePrefix?: AlarmNamePrefix;            
-            StateValue?: StateValue;            
-            ActionPrefix?: ActionPrefix;            
-            MaxRecords?: MaxRecords;            
-            NextToken?: NextToken;            
+            AlarmNames?: AlarmNames;
+            AlarmNamePrefix?: AlarmNamePrefix;
+            StateValue?: StateValue;
+            ActionPrefix?: ActionPrefix;
+            MaxRecords?: MaxRecords;
+            NextToken?: NextToken;
         }
         export interface DescribeAlarmsOutput {
-            MetricAlarms?: MetricAlarms;            
-            NextToken?: NextToken;            
+            MetricAlarms?: MetricAlarms;
+            NextToken?: NextToken;
         }
         export interface Dimension {
-            Name: DimensionName;            
-            Value: DimensionValue;            
+            Name: DimensionName;
+            Value: DimensionValue;
         }
         export interface DimensionFilter {
-            Name: DimensionName;            
-            Value?: DimensionValue;            
+            Name: DimensionName;
+            Value?: DimensionValue;
         }
         export interface DisableAlarmActionsInput {
-            AlarmNames: AlarmNames;            
+            AlarmNames: AlarmNames;
         }
         export interface EnableAlarmActionsInput {
-            AlarmNames: AlarmNames;            
+            AlarmNames: AlarmNames;
         }
         export interface GetMetricStatisticsInput {
-            Namespace: Namespace;            
-            MetricName: MetricName;            
-            Dimensions?: Dimensions;            
-            StartTime: Timestamp;            
-            EndTime: Timestamp;            
-            Period: Period;            
-            Statistics: Statistics;            
-            Unit?: StandardUnit;            
+            Namespace: Namespace;
+            MetricName: MetricName;
+            Dimensions?: Dimensions;
+            StartTime: Timestamp;
+            EndTime: Timestamp;
+            Period: Period;
+            Statistics: Statistics;
+            Unit?: StandardUnit;
         }
         export interface GetMetricStatisticsOutput {
-            Label?: MetricLabel;            
-            Datapoints?: Datapoints;            
+            Label?: MetricLabel;
+            Datapoints?: Datapoints;
         }
         export interface InternalServiceFault {
-            Message?: FaultDescription;            
+            Message?: FaultDescription;
         }
         export interface InvalidFormatFault {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface InvalidNextToken {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface InvalidParameterCombinationException {
-            message?: AwsQueryErrorMessage;            
+            message?: AwsQueryErrorMessage;
         }
         export interface InvalidParameterValueException {
-            message?: AwsQueryErrorMessage;            
+            message?: AwsQueryErrorMessage;
         }
         export interface LimitExceededFault {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ListMetricsInput {
-            Namespace?: Namespace;            
-            MetricName?: MetricName;            
-            Dimensions?: DimensionFilters;            
-            NextToken?: NextToken;            
+            Namespace?: Namespace;
+            MetricName?: MetricName;
+            Dimensions?: DimensionFilters;
+            NextToken?: NextToken;
         }
         export interface ListMetricsOutput {
-            Metrics?: Metrics;            
-            NextToken?: NextToken;            
+            Metrics?: Metrics;
+            NextToken?: NextToken;
         }
         export interface Metric {
-            Namespace?: Namespace;            
-            MetricName?: MetricName;            
-            Dimensions?: Dimensions;            
+            Namespace?: Namespace;
+            MetricName?: MetricName;
+            Dimensions?: Dimensions;
         }
         export interface MetricAlarm {
-            AlarmName?: AlarmName;            
-            AlarmArn?: AlarmArn;            
-            AlarmDescription?: AlarmDescription;            
-            AlarmConfigurationUpdatedTimestamp?: Timestamp;            
-            ActionsEnabled?: ActionsEnabled;            
-            OKActions?: ResourceList;            
-            AlarmActions?: ResourceList;            
-            InsufficientDataActions?: ResourceList;            
-            StateValue?: StateValue;            
-            StateReason?: StateReason;            
-            StateReasonData?: StateReasonData;            
-            StateUpdatedTimestamp?: Timestamp;            
-            MetricName?: MetricName;            
-            Namespace?: Namespace;            
-            Statistic?: Statistic;            
-            Dimensions?: Dimensions;            
-            Period?: Period;            
-            Unit?: StandardUnit;            
-            EvaluationPeriods?: EvaluationPeriods;            
-            Threshold?: Threshold;            
-            ComparisonOperator?: ComparisonOperator;            
+            AlarmName?: AlarmName;
+            AlarmArn?: AlarmArn;
+            AlarmDescription?: AlarmDescription;
+            AlarmConfigurationUpdatedTimestamp?: Timestamp;
+            ActionsEnabled?: ActionsEnabled;
+            OKActions?: ResourceList;
+            AlarmActions?: ResourceList;
+            InsufficientDataActions?: ResourceList;
+            StateValue?: StateValue;
+            StateReason?: StateReason;
+            StateReasonData?: StateReasonData;
+            StateUpdatedTimestamp?: Timestamp;
+            MetricName?: MetricName;
+            Namespace?: Namespace;
+            Statistic?: Statistic;
+            Dimensions?: Dimensions;
+            Period?: Period;
+            Unit?: StandardUnit;
+            EvaluationPeriods?: EvaluationPeriods;
+            Threshold?: Threshold;
+            ComparisonOperator?: ComparisonOperator;
         }
         export interface MetricDatum {
-            MetricName: MetricName;            
-            Dimensions?: Dimensions;            
-            Timestamp?: Timestamp;            
-            Value?: DatapointValue;            
-            StatisticValues?: StatisticSet;            
-            Unit?: StandardUnit;            
+            MetricName: MetricName;
+            Dimensions?: Dimensions;
+            Timestamp?: Timestamp;
+            Value?: DatapointValue;
+            StatisticValues?: StatisticSet;
+            Unit?: StandardUnit;
         }
         export interface MissingRequiredParameterException {
-            message?: AwsQueryErrorMessage;            
+            message?: AwsQueryErrorMessage;
         }
         export interface PutMetricAlarmInput {
-            AlarmName: AlarmName;            
-            AlarmDescription?: AlarmDescription;            
-            ActionsEnabled?: ActionsEnabled;            
-            OKActions?: ResourceList;            
-            AlarmActions?: ResourceList;            
-            InsufficientDataActions?: ResourceList;            
-            MetricName: MetricName;            
-            Namespace: Namespace;            
-            Statistic: Statistic;            
-            Dimensions?: Dimensions;            
-            Period: Period;            
-            Unit?: StandardUnit;            
-            EvaluationPeriods: EvaluationPeriods;            
-            Threshold: Threshold;            
-            ComparisonOperator: ComparisonOperator;            
+            AlarmName: AlarmName;
+            AlarmDescription?: AlarmDescription;
+            ActionsEnabled?: ActionsEnabled;
+            OKActions?: ResourceList;
+            AlarmActions?: ResourceList;
+            InsufficientDataActions?: ResourceList;
+            MetricName: MetricName;
+            Namespace: Namespace;
+            Statistic: Statistic;
+            Dimensions?: Dimensions;
+            Period: Period;
+            Unit?: StandardUnit;
+            EvaluationPeriods: EvaluationPeriods;
+            Threshold: Threshold;
+            ComparisonOperator: ComparisonOperator;
         }
         export interface PutMetricDataInput {
-            Namespace: Namespace;            
-            MetricData: MetricData;            
+            Namespace: Namespace;
+            MetricData: MetricData;
         }
         export interface ResourceNotFound {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface SetAlarmStateInput {
-            AlarmName: AlarmName;            
-            StateValue: StateValue;            
-            StateReason: StateReason;            
-            StateReasonData?: StateReasonData;            
+            AlarmName: AlarmName;
+            StateValue: StateValue;
+            StateReason: StateReason;
+            StateReasonData?: StateReasonData;
         }
         export interface StatisticSet {
-            SampleCount: DatapointValue;            
-            Sum: DatapointValue;            
-            Minimum: DatapointValue;            
-            Maximum: DatapointValue;            
+            SampleCount: DatapointValue;
+            Sum: DatapointValue;
+            Minimum: DatapointValue;
+            Maximum: DatapointValue;
         }
 
     }

@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2012-10-25
      * endpointPrefix: directconnect
      * serviceAbbreviation: 
@@ -36,8 +36,9 @@ declare module "aws-sdk" {
       describeLocations(callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Locations|any) => void): Request;
       describeVirtualGateways(callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualGateways|any) => void): Request;
       describeVirtualInterfaces(params: DirectConnect.DescribeVirtualInterfacesRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterfaces|any) => void): Request;
+
     }
-    
+
     export module DirectConnect {
         export type ASN = number;
         export type AmazonAddress = string;
@@ -73,189 +74,189 @@ declare module "aws-sdk" {
         export type VirtualInterfaceType = string;
 
         export interface AllocateConnectionOnInterconnectRequest {
-            bandwidth: Bandwidth;            
-            connectionName: ConnectionName;            
-            ownerAccount: OwnerAccount;            
-            interconnectId: InterconnectId;            
-            vlan: VLAN;            
+            bandwidth: Bandwidth;
+            connectionName: ConnectionName;
+            ownerAccount: OwnerAccount;
+            interconnectId: InterconnectId;
+            vlan: VLAN;
         }
         export interface AllocatePrivateVirtualInterfaceRequest {
-            connectionId: ConnectionId;            
-            ownerAccount: OwnerAccount;            
-            newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocation;            
+            connectionId: ConnectionId;
+            ownerAccount: OwnerAccount;
+            newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocation;
         }
         export interface AllocatePublicVirtualInterfaceRequest {
-            connectionId: ConnectionId;            
-            ownerAccount: OwnerAccount;            
-            newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocation;            
+            connectionId: ConnectionId;
+            ownerAccount: OwnerAccount;
+            newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocation;
         }
         export interface ConfirmConnectionRequest {
-            connectionId: ConnectionId;            
+            connectionId: ConnectionId;
         }
         export interface ConfirmConnectionResponse {
-            connectionState?: ConnectionState;            
+            connectionState?: ConnectionState;
         }
         export interface ConfirmPrivateVirtualInterfaceRequest {
-            virtualInterfaceId: VirtualInterfaceId;            
-            virtualGatewayId: VirtualGatewayId;            
+            virtualInterfaceId: VirtualInterfaceId;
+            virtualGatewayId: VirtualGatewayId;
         }
         export interface ConfirmPrivateVirtualInterfaceResponse {
-            virtualInterfaceState?: VirtualInterfaceState;            
+            virtualInterfaceState?: VirtualInterfaceState;
         }
         export interface ConfirmPublicVirtualInterfaceRequest {
-            virtualInterfaceId: VirtualInterfaceId;            
+            virtualInterfaceId: VirtualInterfaceId;
         }
         export interface ConfirmPublicVirtualInterfaceResponse {
-            virtualInterfaceState?: VirtualInterfaceState;            
+            virtualInterfaceState?: VirtualInterfaceState;
         }
         export interface Connection {
-            ownerAccount?: OwnerAccount;            
-            connectionId?: ConnectionId;            
-            connectionName?: ConnectionName;            
-            connectionState?: ConnectionState;            
-            region?: Region;            
-            location?: LocationCode;            
-            bandwidth?: Bandwidth;            
-            vlan?: VLAN;            
-            partnerName?: PartnerName;            
+            ownerAccount?: OwnerAccount;
+            connectionId?: ConnectionId;
+            connectionName?: ConnectionName;
+            connectionState?: ConnectionState;
+            region?: Region;
+            location?: LocationCode;
+            bandwidth?: Bandwidth;
+            vlan?: VLAN;
+            partnerName?: PartnerName;
         }
         export interface Connections {
-            connections?: ConnectionList;            
+            connections?: ConnectionList;
         }
         export interface CreateConnectionRequest {
-            location: LocationCode;            
-            bandwidth: Bandwidth;            
-            connectionName: ConnectionName;            
+            location: LocationCode;
+            bandwidth: Bandwidth;
+            connectionName: ConnectionName;
         }
         export interface CreateInterconnectRequest {
-            interconnectName: InterconnectName;            
-            bandwidth: Bandwidth;            
-            location: LocationCode;            
+            interconnectName: InterconnectName;
+            bandwidth: Bandwidth;
+            location: LocationCode;
         }
         export interface CreatePrivateVirtualInterfaceRequest {
-            connectionId: ConnectionId;            
-            newPrivateVirtualInterface: NewPrivateVirtualInterface;            
+            connectionId: ConnectionId;
+            newPrivateVirtualInterface: NewPrivateVirtualInterface;
         }
         export interface CreatePublicVirtualInterfaceRequest {
-            connectionId: ConnectionId;            
-            newPublicVirtualInterface: NewPublicVirtualInterface;            
+            connectionId: ConnectionId;
+            newPublicVirtualInterface: NewPublicVirtualInterface;
         }
         export interface DeleteConnectionRequest {
-            connectionId: ConnectionId;            
+            connectionId: ConnectionId;
         }
         export interface DeleteInterconnectRequest {
-            interconnectId: InterconnectId;            
+            interconnectId: InterconnectId;
         }
         export interface DeleteInterconnectResponse {
-            interconnectState?: InterconnectState;            
+            interconnectState?: InterconnectState;
         }
         export interface DeleteVirtualInterfaceRequest {
-            virtualInterfaceId: VirtualInterfaceId;            
+            virtualInterfaceId: VirtualInterfaceId;
         }
         export interface DeleteVirtualInterfaceResponse {
-            virtualInterfaceState?: VirtualInterfaceState;            
+            virtualInterfaceState?: VirtualInterfaceState;
         }
         export interface DescribeConnectionsOnInterconnectRequest {
-            interconnectId: InterconnectId;            
+            interconnectId: InterconnectId;
         }
         export interface DescribeConnectionsRequest {
-            connectionId?: ConnectionId;            
+            connectionId?: ConnectionId;
         }
         export interface DescribeInterconnectsRequest {
-            interconnectId?: InterconnectId;            
+            interconnectId?: InterconnectId;
         }
         export interface DescribeVirtualInterfacesRequest {
-            connectionId?: ConnectionId;            
-            virtualInterfaceId?: VirtualInterfaceId;            
+            connectionId?: ConnectionId;
+            virtualInterfaceId?: VirtualInterfaceId;
         }
         export interface DirectConnectClientException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface DirectConnectServerException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface Interconnect {
-            interconnectId?: InterconnectId;            
-            interconnectName?: InterconnectName;            
-            interconnectState?: InterconnectState;            
-            region?: Region;            
-            location?: LocationCode;            
-            bandwidth?: Bandwidth;            
+            interconnectId?: InterconnectId;
+            interconnectName?: InterconnectName;
+            interconnectState?: InterconnectState;
+            region?: Region;
+            location?: LocationCode;
+            bandwidth?: Bandwidth;
         }
         export interface Interconnects {
-            interconnects?: InterconnectList;            
+            interconnects?: InterconnectList;
         }
         export interface Location {
-            locationCode?: LocationCode;            
-            locationName?: LocationName;            
+            locationCode?: LocationCode;
+            locationName?: LocationName;
         }
         export interface Locations {
-            locations?: LocationList;            
+            locations?: LocationList;
         }
         export interface NewPrivateVirtualInterface {
-            virtualInterfaceName: VirtualInterfaceName;            
-            vlan: VLAN;            
-            asn: ASN;            
-            authKey?: BGPAuthKey;            
-            amazonAddress?: AmazonAddress;            
-            customerAddress?: CustomerAddress;            
-            virtualGatewayId: VirtualGatewayId;            
+            virtualInterfaceName: VirtualInterfaceName;
+            vlan: VLAN;
+            asn: ASN;
+            authKey?: BGPAuthKey;
+            amazonAddress?: AmazonAddress;
+            customerAddress?: CustomerAddress;
+            virtualGatewayId: VirtualGatewayId;
         }
         export interface NewPrivateVirtualInterfaceAllocation {
-            virtualInterfaceName: VirtualInterfaceName;            
-            vlan: VLAN;            
-            asn: ASN;            
-            authKey?: BGPAuthKey;            
-            amazonAddress?: AmazonAddress;            
-            customerAddress?: CustomerAddress;            
+            virtualInterfaceName: VirtualInterfaceName;
+            vlan: VLAN;
+            asn: ASN;
+            authKey?: BGPAuthKey;
+            amazonAddress?: AmazonAddress;
+            customerAddress?: CustomerAddress;
         }
         export interface NewPublicVirtualInterface {
-            virtualInterfaceName: VirtualInterfaceName;            
-            vlan: VLAN;            
-            asn: ASN;            
-            authKey?: BGPAuthKey;            
-            amazonAddress: AmazonAddress;            
-            customerAddress: CustomerAddress;            
-            routeFilterPrefixes: RouteFilterPrefixList;            
+            virtualInterfaceName: VirtualInterfaceName;
+            vlan: VLAN;
+            asn: ASN;
+            authKey?: BGPAuthKey;
+            amazonAddress: AmazonAddress;
+            customerAddress: CustomerAddress;
+            routeFilterPrefixes: RouteFilterPrefixList;
         }
         export interface NewPublicVirtualInterfaceAllocation {
-            virtualInterfaceName: VirtualInterfaceName;            
-            vlan: VLAN;            
-            asn: ASN;            
-            authKey?: BGPAuthKey;            
-            amazonAddress: AmazonAddress;            
-            customerAddress: CustomerAddress;            
-            routeFilterPrefixes: RouteFilterPrefixList;            
+            virtualInterfaceName: VirtualInterfaceName;
+            vlan: VLAN;
+            asn: ASN;
+            authKey?: BGPAuthKey;
+            amazonAddress: AmazonAddress;
+            customerAddress: CustomerAddress;
+            routeFilterPrefixes: RouteFilterPrefixList;
         }
         export interface RouteFilterPrefix {
-            cidr?: CIDR;            
+            cidr?: CIDR;
         }
         export interface VirtualGateway {
-            virtualGatewayId?: VirtualGatewayId;            
-            virtualGatewayState?: VirtualGatewayState;            
+            virtualGatewayId?: VirtualGatewayId;
+            virtualGatewayState?: VirtualGatewayState;
         }
         export interface VirtualGateways {
-            virtualGateways?: VirtualGatewayList;            
+            virtualGateways?: VirtualGatewayList;
         }
         export interface VirtualInterface {
-            ownerAccount?: OwnerAccount;            
-            virtualInterfaceId?: VirtualInterfaceId;            
-            location?: LocationCode;            
-            connectionId?: ConnectionId;            
-            virtualInterfaceType?: VirtualInterfaceType;            
-            virtualInterfaceName?: VirtualInterfaceName;            
-            vlan?: VLAN;            
-            asn?: ASN;            
-            authKey?: BGPAuthKey;            
-            amazonAddress?: AmazonAddress;            
-            customerAddress?: CustomerAddress;            
-            virtualInterfaceState?: VirtualInterfaceState;            
-            customerRouterConfig?: RouterConfig;            
-            virtualGatewayId?: VirtualGatewayId;            
-            routeFilterPrefixes?: RouteFilterPrefixList;            
+            ownerAccount?: OwnerAccount;
+            virtualInterfaceId?: VirtualInterfaceId;
+            location?: LocationCode;
+            connectionId?: ConnectionId;
+            virtualInterfaceType?: VirtualInterfaceType;
+            virtualInterfaceName?: VirtualInterfaceName;
+            vlan?: VLAN;
+            asn?: ASN;
+            authKey?: BGPAuthKey;
+            amazonAddress?: AmazonAddress;
+            customerAddress?: CustomerAddress;
+            virtualInterfaceState?: VirtualInterfaceState;
+            customerRouterConfig?: RouterConfig;
+            virtualGatewayId?: VirtualGatewayId;
+            routeFilterPrefixes?: RouteFilterPrefixList;
         }
         export interface VirtualInterfaces {
-            virtualInterfaces?: VirtualInterfaceList;            
+            virtualInterfaces?: VirtualInterfaceList;
         }
 
     }

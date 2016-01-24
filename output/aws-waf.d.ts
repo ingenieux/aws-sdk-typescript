@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-08-24
      * endpointPrefix: waf
      * serviceAbbreviation: WAF
@@ -45,8 +45,9 @@ declare module "aws-sdk" {
       updateRule(params: WAF.UpdateRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateRuleResponse|any) => void): Request;
       updateSqlInjectionMatchSet(params: WAF.UpdateSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateSqlInjectionMatchSetResponse|any) => void): Request;
       updateWebACL(params: WAF.UpdateWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateWebACLResponse|any) => void): Request;
+
     }
-    
+
     export module WAF {
         export type Action = string;
         export type ActivatedRules = ActivatedRule[];
@@ -102,369 +103,369 @@ declare module "aws-sdk" {
         export type errorMessage = string;
 
         export interface ActivatedRule {
-            Priority: RulePriority;            
-            RuleId: ResourceId;            
-            Action: WafAction;            
+            Priority: RulePriority;
+            RuleId: ResourceId;
+            Action: WafAction;
         }
         export interface ByteMatchSet {
-            ByteMatchSetId: ResourceId;            
-            Name?: ResourceName;            
-            ByteMatchTuples: ByteMatchTuples;            
+            ByteMatchSetId: ResourceId;
+            Name?: ResourceName;
+            ByteMatchTuples: ByteMatchTuples;
         }
         export interface ByteMatchSetSummary {
-            ByteMatchSetId: ResourceId;            
-            Name: ResourceName;            
+            ByteMatchSetId: ResourceId;
+            Name: ResourceName;
         }
         export interface ByteMatchSetUpdate {
-            Action: ChangeAction;            
-            ByteMatchTuple: ByteMatchTuple;            
+            Action: ChangeAction;
+            ByteMatchTuple: ByteMatchTuple;
         }
         export interface ByteMatchTuple {
-            FieldToMatch: FieldToMatch;            
-            TargetString: ByteMatchTargetString;            
-            TextTransformation: TextTransformation;            
-            PositionalConstraint: PositionalConstraint;            
+            FieldToMatch: FieldToMatch;
+            TargetString: ByteMatchTargetString;
+            TextTransformation: TextTransformation;
+            PositionalConstraint: PositionalConstraint;
         }
         export interface CreateByteMatchSetRequest {
-            Name: ResourceName;            
-            ChangeToken: ChangeToken;            
+            Name: ResourceName;
+            ChangeToken: ChangeToken;
         }
         export interface CreateByteMatchSetResponse {
-            ByteMatchSet?: ByteMatchSet;            
-            ChangeToken?: ChangeToken;            
+            ByteMatchSet?: ByteMatchSet;
+            ChangeToken?: ChangeToken;
         }
         export interface CreateIPSetRequest {
-            Name: ResourceName;            
-            ChangeToken: ChangeToken;            
+            Name: ResourceName;
+            ChangeToken: ChangeToken;
         }
         export interface CreateIPSetResponse {
-            IPSet?: IPSet;            
-            ChangeToken?: ChangeToken;            
+            IPSet?: IPSet;
+            ChangeToken?: ChangeToken;
         }
         export interface CreateRuleRequest {
-            Name: ResourceName;            
-            MetricName: MetricName;            
-            ChangeToken: ChangeToken;            
+            Name: ResourceName;
+            MetricName: MetricName;
+            ChangeToken: ChangeToken;
         }
         export interface CreateRuleResponse {
-            Rule?: Rule;            
-            ChangeToken?: ChangeToken;            
+            Rule?: Rule;
+            ChangeToken?: ChangeToken;
         }
         export interface CreateSqlInjectionMatchSetRequest {
-            Name: ResourceName;            
-            ChangeToken: ChangeToken;            
+            Name: ResourceName;
+            ChangeToken: ChangeToken;
         }
         export interface CreateSqlInjectionMatchSetResponse {
-            SqlInjectionMatchSet?: SqlInjectionMatchSet;            
-            ChangeToken?: ChangeToken;            
+            SqlInjectionMatchSet?: SqlInjectionMatchSet;
+            ChangeToken?: ChangeToken;
         }
         export interface CreateWebACLRequest {
-            Name: ResourceName;            
-            MetricName: MetricName;            
-            DefaultAction: WafAction;            
-            ChangeToken: ChangeToken;            
+            Name: ResourceName;
+            MetricName: MetricName;
+            DefaultAction: WafAction;
+            ChangeToken: ChangeToken;
         }
         export interface CreateWebACLResponse {
-            WebACL?: WebACL;            
-            ChangeToken?: ChangeToken;            
+            WebACL?: WebACL;
+            ChangeToken?: ChangeToken;
         }
         export interface DeleteByteMatchSetRequest {
-            ByteMatchSetId: ResourceId;            
-            ChangeToken: ChangeToken;            
+            ByteMatchSetId: ResourceId;
+            ChangeToken: ChangeToken;
         }
         export interface DeleteByteMatchSetResponse {
-            ChangeToken?: ChangeToken;            
+            ChangeToken?: ChangeToken;
         }
         export interface DeleteIPSetRequest {
-            IPSetId: ResourceId;            
-            ChangeToken: ChangeToken;            
+            IPSetId: ResourceId;
+            ChangeToken: ChangeToken;
         }
         export interface DeleteIPSetResponse {
-            ChangeToken?: ChangeToken;            
+            ChangeToken?: ChangeToken;
         }
         export interface DeleteRuleRequest {
-            RuleId: ResourceId;            
-            ChangeToken: ChangeToken;            
+            RuleId: ResourceId;
+            ChangeToken: ChangeToken;
         }
         export interface DeleteRuleResponse {
-            ChangeToken?: ChangeToken;            
+            ChangeToken?: ChangeToken;
         }
         export interface DeleteSqlInjectionMatchSetRequest {
-            SqlInjectionMatchSetId: ResourceId;            
-            ChangeToken: ChangeToken;            
+            SqlInjectionMatchSetId: ResourceId;
+            ChangeToken: ChangeToken;
         }
         export interface DeleteSqlInjectionMatchSetResponse {
-            ChangeToken?: ChangeToken;            
+            ChangeToken?: ChangeToken;
         }
         export interface DeleteWebACLRequest {
-            WebACLId: ResourceId;            
-            ChangeToken: ChangeToken;            
+            WebACLId: ResourceId;
+            ChangeToken: ChangeToken;
         }
         export interface DeleteWebACLResponse {
-            ChangeToken?: ChangeToken;            
+            ChangeToken?: ChangeToken;
         }
         export interface FieldToMatch {
-            Type: MatchFieldType;            
-            Data?: MatchFieldData;            
+            Type: MatchFieldType;
+            Data?: MatchFieldData;
         }
         export interface GetByteMatchSetRequest {
-            ByteMatchSetId: ResourceId;            
+            ByteMatchSetId: ResourceId;
         }
         export interface GetByteMatchSetResponse {
-            ByteMatchSet?: ByteMatchSet;            
+            ByteMatchSet?: ByteMatchSet;
         }
         export interface GetChangeTokenRequest {
         }
         export interface GetChangeTokenResponse {
-            ChangeToken?: ChangeToken;            
+            ChangeToken?: ChangeToken;
         }
         export interface GetChangeTokenStatusRequest {
-            ChangeToken: ChangeToken;            
+            ChangeToken: ChangeToken;
         }
         export interface GetChangeTokenStatusResponse {
-            ChangeTokenStatus?: ChangeTokenStatus;            
+            ChangeTokenStatus?: ChangeTokenStatus;
         }
         export interface GetIPSetRequest {
-            IPSetId: ResourceId;            
+            IPSetId: ResourceId;
         }
         export interface GetIPSetResponse {
-            IPSet?: IPSet;            
+            IPSet?: IPSet;
         }
         export interface GetRuleRequest {
-            RuleId: ResourceId;            
+            RuleId: ResourceId;
         }
         export interface GetRuleResponse {
-            Rule?: Rule;            
+            Rule?: Rule;
         }
         export interface GetSampledRequestsRequest {
-            WebAclId: ResourceId;            
-            RuleId: ResourceId;            
-            TimeWindow: TimeWindow;            
-            MaxItems: ListMaxItems;            
+            WebAclId: ResourceId;
+            RuleId: ResourceId;
+            TimeWindow: TimeWindow;
+            MaxItems: ListMaxItems;
         }
         export interface GetSampledRequestsResponse {
-            SampledRequests?: SampledHTTPRequests;            
-            PopulationSize?: PopulationSize;            
-            TimeWindow?: TimeWindow;            
+            SampledRequests?: SampledHTTPRequests;
+            PopulationSize?: PopulationSize;
+            TimeWindow?: TimeWindow;
         }
         export interface GetSqlInjectionMatchSetRequest {
-            SqlInjectionMatchSetId: ResourceId;            
+            SqlInjectionMatchSetId: ResourceId;
         }
         export interface GetSqlInjectionMatchSetResponse {
-            SqlInjectionMatchSet?: SqlInjectionMatchSet;            
+            SqlInjectionMatchSet?: SqlInjectionMatchSet;
         }
         export interface GetWebACLRequest {
-            WebACLId: ResourceId;            
+            WebACLId: ResourceId;
         }
         export interface GetWebACLResponse {
-            WebACL?: WebACL;            
+            WebACL?: WebACL;
         }
         export interface HTTPHeader {
-            Name?: HeaderName;            
-            Value?: HeaderValue;            
+            Name?: HeaderName;
+            Value?: HeaderValue;
         }
         export interface HTTPRequest {
-            ClientIP?: IPString;            
-            Country?: Country;            
-            URI?: URIString;            
-            Method?: HTTPMethod;            
-            HTTPVersion?: HTTPVersion;            
-            Headers?: HTTPHeaders;            
+            ClientIP?: IPString;
+            Country?: Country;
+            URI?: URIString;
+            Method?: HTTPMethod;
+            HTTPVersion?: HTTPVersion;
+            Headers?: HTTPHeaders;
         }
         export interface IPSet {
-            IPSetId: ResourceId;            
-            Name?: ResourceName;            
-            IPSetDescriptors: IPSetDescriptors;            
+            IPSetId: ResourceId;
+            Name?: ResourceName;
+            IPSetDescriptors: IPSetDescriptors;
         }
         export interface IPSetDescriptor {
-            Type: IPSetDescriptorType;            
-            Value: IPSetDescriptorValue;            
+            Type: IPSetDescriptorType;
+            Value: IPSetDescriptorValue;
         }
         export interface IPSetSummary {
-            IPSetId: ResourceId;            
-            Name: ResourceName;            
+            IPSetId: ResourceId;
+            Name: ResourceName;
         }
         export interface IPSetUpdate {
-            Action: ChangeAction;            
-            IPSetDescriptor: IPSetDescriptor;            
+            Action: ChangeAction;
+            IPSetDescriptor: IPSetDescriptor;
         }
         export interface ListByteMatchSetsRequest {
-            NextMarker?: NextMarker;            
-            Limit: PaginationLimit;            
+            NextMarker?: NextMarker;
+            Limit: PaginationLimit;
         }
         export interface ListByteMatchSetsResponse {
-            NextMarker?: NextMarker;            
-            ByteMatchSets?: ByteMatchSetSummaries;            
+            NextMarker?: NextMarker;
+            ByteMatchSets?: ByteMatchSetSummaries;
         }
         export interface ListIPSetsRequest {
-            NextMarker?: NextMarker;            
-            Limit: PaginationLimit;            
+            NextMarker?: NextMarker;
+            Limit: PaginationLimit;
         }
         export interface ListIPSetsResponse {
-            NextMarker?: NextMarker;            
-            IPSets?: IPSetSummaries;            
+            NextMarker?: NextMarker;
+            IPSets?: IPSetSummaries;
         }
         export interface ListRulesRequest {
-            NextMarker?: NextMarker;            
-            Limit: PaginationLimit;            
+            NextMarker?: NextMarker;
+            Limit: PaginationLimit;
         }
         export interface ListRulesResponse {
-            NextMarker?: NextMarker;            
-            Rules?: RuleSummaries;            
+            NextMarker?: NextMarker;
+            Rules?: RuleSummaries;
         }
         export interface ListSqlInjectionMatchSetsRequest {
-            NextMarker?: NextMarker;            
-            Limit: PaginationLimit;            
+            NextMarker?: NextMarker;
+            Limit: PaginationLimit;
         }
         export interface ListSqlInjectionMatchSetsResponse {
-            NextMarker?: NextMarker;            
-            SqlInjectionMatchSets?: SqlInjectionMatchSetSummaries;            
+            NextMarker?: NextMarker;
+            SqlInjectionMatchSets?: SqlInjectionMatchSetSummaries;
         }
         export interface ListWebACLsRequest {
-            NextMarker?: NextMarker;            
-            Limit: PaginationLimit;            
+            NextMarker?: NextMarker;
+            Limit: PaginationLimit;
         }
         export interface ListWebACLsResponse {
-            NextMarker?: NextMarker;            
-            WebACLs?: WebACLSummaries;            
+            NextMarker?: NextMarker;
+            WebACLs?: WebACLSummaries;
         }
         export interface Predicate {
-            Negated: Negated;            
-            Type: PredicateType;            
-            DataId: PredicateDataId;            
+            Negated: Negated;
+            Type: PredicateType;
+            DataId: PredicateDataId;
         }
         export interface Rule {
-            RuleId: ResourceId;            
-            Name?: ResourceName;            
-            MetricName?: MetricName;            
-            Predicates: Predicates;            
+            RuleId: ResourceId;
+            Name?: ResourceName;
+            MetricName?: MetricName;
+            Predicates: Predicates;
         }
         export interface RuleSummary {
-            RuleId: ResourceId;            
-            Name: ResourceName;            
+            RuleId: ResourceId;
+            Name: ResourceName;
         }
         export interface RuleUpdate {
-            Action: ChangeAction;            
-            Predicate: Predicate;            
+            Action: ChangeAction;
+            Predicate: Predicate;
         }
         export interface SampledHTTPRequest {
-            Request: HTTPRequest;            
-            Weight: SampleWeight;            
-            Timestamp?: Timestamp;            
-            Action?: Action;            
+            Request: HTTPRequest;
+            Weight: SampleWeight;
+            Timestamp?: Timestamp;
+            Action?: Action;
         }
         export interface SqlInjectionMatchSet {
-            SqlInjectionMatchSetId: ResourceId;            
-            Name?: ResourceName;            
-            SqlInjectionMatchTuples: SqlInjectionMatchTuples;            
+            SqlInjectionMatchSetId: ResourceId;
+            Name?: ResourceName;
+            SqlInjectionMatchTuples: SqlInjectionMatchTuples;
         }
         export interface SqlInjectionMatchSetSummary {
-            SqlInjectionMatchSetId: ResourceId;            
-            Name: ResourceName;            
+            SqlInjectionMatchSetId: ResourceId;
+            Name: ResourceName;
         }
         export interface SqlInjectionMatchSetUpdate {
-            Action: ChangeAction;            
-            SqlInjectionMatchTuple: SqlInjectionMatchTuple;            
+            Action: ChangeAction;
+            SqlInjectionMatchTuple: SqlInjectionMatchTuple;
         }
         export interface SqlInjectionMatchTuple {
-            FieldToMatch: FieldToMatch;            
-            TextTransformation: TextTransformation;            
+            FieldToMatch: FieldToMatch;
+            TextTransformation: TextTransformation;
         }
         export interface TimeWindow {
-            StartTime: Timestamp;            
-            EndTime: Timestamp;            
+            StartTime: Timestamp;
+            EndTime: Timestamp;
         }
         export interface UpdateByteMatchSetRequest {
-            ByteMatchSetId: ResourceId;            
-            ChangeToken: ChangeToken;            
-            Updates: ByteMatchSetUpdates;            
+            ByteMatchSetId: ResourceId;
+            ChangeToken: ChangeToken;
+            Updates: ByteMatchSetUpdates;
         }
         export interface UpdateByteMatchSetResponse {
-            ChangeToken?: ChangeToken;            
+            ChangeToken?: ChangeToken;
         }
         export interface UpdateIPSetRequest {
-            IPSetId: ResourceId;            
-            ChangeToken: ChangeToken;            
-            Updates: IPSetUpdates;            
+            IPSetId: ResourceId;
+            ChangeToken: ChangeToken;
+            Updates: IPSetUpdates;
         }
         export interface UpdateIPSetResponse {
-            ChangeToken?: ChangeToken;            
+            ChangeToken?: ChangeToken;
         }
         export interface UpdateRuleRequest {
-            RuleId: ResourceId;            
-            ChangeToken: ChangeToken;            
-            Updates: RuleUpdates;            
+            RuleId: ResourceId;
+            ChangeToken: ChangeToken;
+            Updates: RuleUpdates;
         }
         export interface UpdateRuleResponse {
-            ChangeToken?: ChangeToken;            
+            ChangeToken?: ChangeToken;
         }
         export interface UpdateSqlInjectionMatchSetRequest {
-            SqlInjectionMatchSetId: ResourceId;            
-            ChangeToken: ChangeToken;            
-            Updates: SqlInjectionMatchSetUpdates;            
+            SqlInjectionMatchSetId: ResourceId;
+            ChangeToken: ChangeToken;
+            Updates: SqlInjectionMatchSetUpdates;
         }
         export interface UpdateSqlInjectionMatchSetResponse {
-            ChangeToken?: ChangeToken;            
+            ChangeToken?: ChangeToken;
         }
         export interface UpdateWebACLRequest {
-            WebACLId: ResourceId;            
-            ChangeToken: ChangeToken;            
-            Updates?: WebACLUpdates;            
-            DefaultAction?: WafAction;            
+            WebACLId: ResourceId;
+            ChangeToken: ChangeToken;
+            Updates?: WebACLUpdates;
+            DefaultAction?: WafAction;
         }
         export interface UpdateWebACLResponse {
-            ChangeToken?: ChangeToken;            
+            ChangeToken?: ChangeToken;
         }
         export interface WAFDisallowedNameException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface WAFInternalErrorException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface WAFInvalidAccountException {
         }
         export interface WAFInvalidOperationException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface WAFInvalidParameterException {
-            field?: ParameterExceptionField;            
-            parameter?: ParameterExceptionParameter;            
+            field?: ParameterExceptionField;
+            parameter?: ParameterExceptionParameter;
         }
         export interface WAFLimitsExceededException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface WAFNonEmptyEntityException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface WAFNonexistentContainerException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface WAFNonexistentItemException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface WAFReferencedItemException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface WAFStaleDataException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface WafAction {
-            Type: WafActionType;            
+            Type: WafActionType;
         }
         export interface WebACL {
-            WebACLId: ResourceId;            
-            Name?: ResourceName;            
-            MetricName?: MetricName;            
-            DefaultAction: WafAction;            
-            Rules: ActivatedRules;            
+            WebACLId: ResourceId;
+            Name?: ResourceName;
+            MetricName?: MetricName;
+            DefaultAction: WafAction;
+            Rules: ActivatedRules;
         }
         export interface WebACLSummary {
-            WebACLId: ResourceId;            
-            Name: ResourceName;            
+            WebACLId: ResourceId;
+            Name: ResourceName;
         }
         export interface WebACLUpdate {
-            Action: ChangeAction;            
-            ActivatedRule: ActivatedRule;            
+            Action: ChangeAction;
+            ActivatedRule: ActivatedRule;
         }
 
     }

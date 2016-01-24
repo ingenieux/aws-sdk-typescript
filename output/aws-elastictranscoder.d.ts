@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2012-09-25
      * endpointPrefix: elastictranscoder
      * serviceAbbreviation: 
@@ -34,8 +34,9 @@ declare module "aws-sdk" {
       updatePipeline(params: ElasticTranscoder.UpdatePipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.UpdatePipelineResponse|any) => void): Request;
       updatePipelineNotifications(params: ElasticTranscoder.UpdatePipelineNotificationsRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.UpdatePipelineNotificationsResponse|any) => void): Request;
       updatePipelineStatus(params: ElasticTranscoder.UpdatePipelineStatusRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.UpdatePipelineStatusResponse|any) => void): Request;
+
     }
-    
+
     export module ElasticTranscoder {
         export type AccessControl = string;    // pattern: &quot;(^FullControl$)|(^Read$)|(^ReadAcp$)|(^WriteAcp$)&quot;
         export type AccessControls = AccessControl[];    // max: 30
@@ -138,408 +139,408 @@ declare module "aws-sdk" {
         export interface AccessDeniedException {
         }
         export interface Artwork {
-            InputKey?: WatermarkKey;            
-            MaxWidth?: DigitsOrAuto;            
-            MaxHeight?: DigitsOrAuto;            
-            SizingPolicy?: SizingPolicy;            
-            PaddingPolicy?: PaddingPolicy;            
-            AlbumArtFormat?: JpgOrPng;            
-            Encryption?: Encryption;            
+            InputKey?: WatermarkKey;
+            MaxWidth?: DigitsOrAuto;
+            MaxHeight?: DigitsOrAuto;
+            SizingPolicy?: SizingPolicy;
+            PaddingPolicy?: PaddingPolicy;
+            AlbumArtFormat?: JpgOrPng;
+            Encryption?: Encryption;
         }
         export interface AudioCodecOptions {
-            Profile?: AudioCodecProfile;            
-            BitDepth?: AudioBitDepth;            
-            BitOrder?: AudioBitOrder;            
-            Signed?: AudioSigned;            
+            Profile?: AudioCodecProfile;
+            BitDepth?: AudioBitDepth;
+            BitOrder?: AudioBitOrder;
+            Signed?: AudioSigned;
         }
         export interface AudioParameters {
-            Codec?: AudioCodec;            
-            SampleRate?: AudioSampleRate;            
-            BitRate?: AudioBitRate;            
-            Channels?: AudioChannels;            
-            AudioPackingMode?: AudioPackingMode;            
-            CodecOptions?: AudioCodecOptions;            
+            Codec?: AudioCodec;
+            SampleRate?: AudioSampleRate;
+            BitRate?: AudioBitRate;
+            Channels?: AudioChannels;
+            AudioPackingMode?: AudioPackingMode;
+            CodecOptions?: AudioCodecOptions;
         }
         export interface CancelJobRequest {
-            Id: Id;            
+            Id: Id;
         }
         export interface CancelJobResponse {
         }
         export interface CaptionFormat {
-            Format?: CaptionFormatFormat;            
-            Pattern?: CaptionFormatPattern;            
-            Encryption?: Encryption;            
+            Format?: CaptionFormatFormat;
+            Pattern?: CaptionFormatPattern;
+            Encryption?: Encryption;
         }
         export interface CaptionSource {
-            Key?: Key;            
-            Language?: Key;            
-            TimeOffset?: TimeOffset;            
-            Label?: Name;            
-            Encryption?: Encryption;            
+            Key?: Key;
+            Language?: Key;
+            TimeOffset?: TimeOffset;
+            Label?: Name;
+            Encryption?: Encryption;
         }
         export interface Captions {
-            MergePolicy?: CaptionMergePolicy;            
-            CaptionSources?: CaptionSources;            
-            CaptionFormats?: CaptionFormats;            
+            MergePolicy?: CaptionMergePolicy;
+            CaptionSources?: CaptionSources;
+            CaptionFormats?: CaptionFormats;
         }
         export interface Clip {
-            TimeSpan?: TimeSpan;            
+            TimeSpan?: TimeSpan;
         }
         export interface CreateJobOutput {
-            Key?: Key;            
-            ThumbnailPattern?: ThumbnailPattern;            
-            ThumbnailEncryption?: Encryption;            
-            Rotate?: Rotate;            
-            PresetId?: Id;            
-            SegmentDuration?: FloatString;            
-            Watermarks?: JobWatermarks;            
-            AlbumArt?: JobAlbumArt;            
-            Composition?: Composition;            
-            Captions?: Captions;            
-            Encryption?: Encryption;            
+            Key?: Key;
+            ThumbnailPattern?: ThumbnailPattern;
+            ThumbnailEncryption?: Encryption;
+            Rotate?: Rotate;
+            PresetId?: Id;
+            SegmentDuration?: FloatString;
+            Watermarks?: JobWatermarks;
+            AlbumArt?: JobAlbumArt;
+            Composition?: Composition;
+            Captions?: Captions;
+            Encryption?: Encryption;
         }
         export interface CreateJobPlaylist {
-            Name?: Filename;            
-            Format?: PlaylistFormat;            
-            OutputKeys?: OutputKeys;            
-            HlsContentProtection?: HlsContentProtection;            
-            PlayReadyDrm?: PlayReadyDrm;            
+            Name?: Filename;
+            Format?: PlaylistFormat;
+            OutputKeys?: OutputKeys;
+            HlsContentProtection?: HlsContentProtection;
+            PlayReadyDrm?: PlayReadyDrm;
         }
         export interface CreateJobRequest {
-            PipelineId: Id;            
-            Input: JobInput;            
-            Output?: CreateJobOutput;            
-            Outputs?: CreateJobOutputs;            
-            OutputKeyPrefix?: Key;            
-            Playlists?: CreateJobPlaylists;            
-            UserMetadata?: UserMetadata;            
+            PipelineId: Id;
+            Input: JobInput;
+            Output?: CreateJobOutput;
+            Outputs?: CreateJobOutputs;
+            OutputKeyPrefix?: Key;
+            Playlists?: CreateJobPlaylists;
+            UserMetadata?: UserMetadata;
         }
         export interface CreateJobResponse {
-            Job?: Job;            
+            Job?: Job;
         }
         export interface CreatePipelineRequest {
-            Name: Name;            
-            InputBucket: BucketName;            
-            OutputBucket?: BucketName;            
-            Role: Role;            
-            AwsKmsKeyArn?: KeyArn;            
-            Notifications?: Notifications;            
-            ContentConfig?: PipelineOutputConfig;            
-            ThumbnailConfig?: PipelineOutputConfig;            
+            Name: Name;
+            InputBucket: BucketName;
+            OutputBucket?: BucketName;
+            Role: Role;
+            AwsKmsKeyArn?: KeyArn;
+            Notifications?: Notifications;
+            ContentConfig?: PipelineOutputConfig;
+            ThumbnailConfig?: PipelineOutputConfig;
         }
         export interface CreatePipelineResponse {
-            Pipeline?: Pipeline;            
-            Warnings?: Warnings;            
+            Pipeline?: Pipeline;
+            Warnings?: Warnings;
         }
         export interface CreatePresetRequest {
-            Name: Name;            
-            Description?: Description;            
-            Container: PresetContainer;            
-            Video?: VideoParameters;            
-            Audio?: AudioParameters;            
-            Thumbnails?: Thumbnails;            
+            Name: Name;
+            Description?: Description;
+            Container: PresetContainer;
+            Video?: VideoParameters;
+            Audio?: AudioParameters;
+            Thumbnails?: Thumbnails;
         }
         export interface CreatePresetResponse {
-            Preset?: Preset;            
-            Warning?: String;            
+            Preset?: Preset;
+            Warning?: String;
         }
         export interface DeletePipelineRequest {
-            Id: Id;            
+            Id: Id;
         }
         export interface DeletePipelineResponse {
         }
         export interface DeletePresetRequest {
-            Id: Id;            
+            Id: Id;
         }
         export interface DeletePresetResponse {
         }
         export interface DetectedProperties {
-            Width?: NullableInteger;            
-            Height?: NullableInteger;            
-            FrameRate?: FloatString;            
-            FileSize?: NullableLong;            
-            DurationMillis?: NullableLong;            
+            Width?: NullableInteger;
+            Height?: NullableInteger;
+            FrameRate?: FloatString;
+            FileSize?: NullableLong;
+            DurationMillis?: NullableLong;
         }
         export interface Encryption {
-            Mode?: EncryptionMode;            
-            Key?: Base64EncodedString;            
-            KeyMd5?: Base64EncodedString;            
-            InitializationVector?: ZeroTo255String;            
+            Mode?: EncryptionMode;
+            Key?: Base64EncodedString;
+            KeyMd5?: Base64EncodedString;
+            InitializationVector?: ZeroTo255String;
         }
         export interface HlsContentProtection {
-            Method?: HlsContentProtectionMethod;            
-            Key?: Base64EncodedString;            
-            KeyMd5?: Base64EncodedString;            
-            InitializationVector?: ZeroTo255String;            
-            LicenseAcquisitionUrl?: ZeroTo512String;            
-            KeyStoragePolicy?: KeyStoragePolicy;            
+            Method?: HlsContentProtectionMethod;
+            Key?: Base64EncodedString;
+            KeyMd5?: Base64EncodedString;
+            InitializationVector?: ZeroTo255String;
+            LicenseAcquisitionUrl?: ZeroTo512String;
+            KeyStoragePolicy?: KeyStoragePolicy;
         }
         export interface IncompatibleVersionException {
         }
         export interface InternalServiceException {
         }
         export interface Job {
-            Id?: Id;            
-            Arn?: String;            
-            PipelineId?: Id;            
-            Input?: JobInput;            
-            Output?: JobOutput;            
-            Outputs?: JobOutputs;            
-            OutputKeyPrefix?: Key;            
-            Playlists?: Playlists;            
-            Status?: JobStatus;            
-            UserMetadata?: UserMetadata;            
-            Timing?: Timing;            
+            Id?: Id;
+            Arn?: String;
+            PipelineId?: Id;
+            Input?: JobInput;
+            Output?: JobOutput;
+            Outputs?: JobOutputs;
+            OutputKeyPrefix?: Key;
+            Playlists?: Playlists;
+            Status?: JobStatus;
+            UserMetadata?: UserMetadata;
+            Timing?: Timing;
         }
         export interface JobAlbumArt {
-            MergePolicy?: MergePolicy;            
-            Artwork?: Artworks;            
+            MergePolicy?: MergePolicy;
+            Artwork?: Artworks;
         }
         export interface JobInput {
-            Key?: Key;            
-            FrameRate?: FrameRate;            
-            Resolution?: Resolution;            
-            AspectRatio?: AspectRatio;            
-            Interlaced?: Interlaced;            
-            Container?: JobContainer;            
-            Encryption?: Encryption;            
-            DetectedProperties?: DetectedProperties;            
+            Key?: Key;
+            FrameRate?: FrameRate;
+            Resolution?: Resolution;
+            AspectRatio?: AspectRatio;
+            Interlaced?: Interlaced;
+            Container?: JobContainer;
+            Encryption?: Encryption;
+            DetectedProperties?: DetectedProperties;
         }
         export interface JobOutput {
-            Id?: String;            
-            Key?: Key;            
-            ThumbnailPattern?: ThumbnailPattern;            
-            ThumbnailEncryption?: Encryption;            
-            Rotate?: Rotate;            
-            PresetId?: Id;            
-            SegmentDuration?: FloatString;            
-            Status?: JobStatus;            
-            StatusDetail?: Description;            
-            Duration?: NullableLong;            
-            Width?: NullableInteger;            
-            Height?: NullableInteger;            
-            FrameRate?: FloatString;            
-            FileSize?: NullableLong;            
-            DurationMillis?: NullableLong;            
-            Watermarks?: JobWatermarks;            
-            AlbumArt?: JobAlbumArt;            
-            Composition?: Composition;            
-            Captions?: Captions;            
-            Encryption?: Encryption;            
-            AppliedColorSpaceConversion?: String;            
+            Id?: String;
+            Key?: Key;
+            ThumbnailPattern?: ThumbnailPattern;
+            ThumbnailEncryption?: Encryption;
+            Rotate?: Rotate;
+            PresetId?: Id;
+            SegmentDuration?: FloatString;
+            Status?: JobStatus;
+            StatusDetail?: Description;
+            Duration?: NullableLong;
+            Width?: NullableInteger;
+            Height?: NullableInteger;
+            FrameRate?: FloatString;
+            FileSize?: NullableLong;
+            DurationMillis?: NullableLong;
+            Watermarks?: JobWatermarks;
+            AlbumArt?: JobAlbumArt;
+            Composition?: Composition;
+            Captions?: Captions;
+            Encryption?: Encryption;
+            AppliedColorSpaceConversion?: String;
         }
         export interface JobWatermark {
-            PresetWatermarkId?: PresetWatermarkId;            
-            InputKey?: WatermarkKey;            
-            Encryption?: Encryption;            
+            PresetWatermarkId?: PresetWatermarkId;
+            InputKey?: WatermarkKey;
+            Encryption?: Encryption;
         }
         export interface LimitExceededException {
         }
         export interface ListJobsByPipelineRequest {
-            PipelineId: Id;            
-            Ascending?: Ascending;            
-            PageToken?: Id;            
+            PipelineId: Id;
+            Ascending?: Ascending;
+            PageToken?: Id;
         }
         export interface ListJobsByPipelineResponse {
-            Jobs?: Jobs;            
-            NextPageToken?: Id;            
+            Jobs?: Jobs;
+            NextPageToken?: Id;
         }
         export interface ListJobsByStatusRequest {
-            Status: JobStatus;            
-            Ascending?: Ascending;            
-            PageToken?: Id;            
+            Status: JobStatus;
+            Ascending?: Ascending;
+            PageToken?: Id;
         }
         export interface ListJobsByStatusResponse {
-            Jobs?: Jobs;            
-            NextPageToken?: Id;            
+            Jobs?: Jobs;
+            NextPageToken?: Id;
         }
         export interface ListPipelinesRequest {
-            Ascending?: Ascending;            
-            PageToken?: Id;            
+            Ascending?: Ascending;
+            PageToken?: Id;
         }
         export interface ListPipelinesResponse {
-            Pipelines?: Pipelines;            
-            NextPageToken?: Id;            
+            Pipelines?: Pipelines;
+            NextPageToken?: Id;
         }
         export interface ListPresetsRequest {
-            Ascending?: Ascending;            
-            PageToken?: Id;            
+            Ascending?: Ascending;
+            PageToken?: Id;
         }
         export interface ListPresetsResponse {
-            Presets?: Presets;            
-            NextPageToken?: Id;            
+            Presets?: Presets;
+            NextPageToken?: Id;
         }
         export interface Notifications {
-            Progressing?: SnsTopic;            
-            Completed?: SnsTopic;            
-            Warning?: SnsTopic;            
-            Error?: SnsTopic;            
+            Progressing?: SnsTopic;
+            Completed?: SnsTopic;
+            Warning?: SnsTopic;
+            Error?: SnsTopic;
         }
         export interface Permission {
-            GranteeType?: GranteeType;            
-            Grantee?: Grantee;            
-            Access?: AccessControls;            
+            GranteeType?: GranteeType;
+            Grantee?: Grantee;
+            Access?: AccessControls;
         }
         export interface Pipeline {
-            Id?: Id;            
-            Arn?: String;            
-            Name?: Name;            
-            Status?: PipelineStatus;            
-            InputBucket?: BucketName;            
-            OutputBucket?: BucketName;            
-            Role?: Role;            
-            AwsKmsKeyArn?: KeyArn;            
-            Notifications?: Notifications;            
-            ContentConfig?: PipelineOutputConfig;            
-            ThumbnailConfig?: PipelineOutputConfig;            
+            Id?: Id;
+            Arn?: String;
+            Name?: Name;
+            Status?: PipelineStatus;
+            InputBucket?: BucketName;
+            OutputBucket?: BucketName;
+            Role?: Role;
+            AwsKmsKeyArn?: KeyArn;
+            Notifications?: Notifications;
+            ContentConfig?: PipelineOutputConfig;
+            ThumbnailConfig?: PipelineOutputConfig;
         }
         export interface PipelineOutputConfig {
-            Bucket?: BucketName;            
-            StorageClass?: StorageClass;            
-            Permissions?: Permissions;            
+            Bucket?: BucketName;
+            StorageClass?: StorageClass;
+            Permissions?: Permissions;
         }
         export interface PlayReadyDrm {
-            Format?: PlayReadyDrmFormatString;            
-            Key?: NonEmptyBase64EncodedString;            
-            KeyMd5?: NonEmptyBase64EncodedString;            
-            KeyId?: KeyIdGuid;            
-            InitializationVector?: ZeroTo255String;            
-            LicenseAcquisitionUrl?: OneTo512String;            
+            Format?: PlayReadyDrmFormatString;
+            Key?: NonEmptyBase64EncodedString;
+            KeyMd5?: NonEmptyBase64EncodedString;
+            KeyId?: KeyIdGuid;
+            InitializationVector?: ZeroTo255String;
+            LicenseAcquisitionUrl?: OneTo512String;
         }
         export interface Playlist {
-            Name?: Filename;            
-            Format?: PlaylistFormat;            
-            OutputKeys?: OutputKeys;            
-            HlsContentProtection?: HlsContentProtection;            
-            PlayReadyDrm?: PlayReadyDrm;            
-            Status?: JobStatus;            
-            StatusDetail?: Description;            
+            Name?: Filename;
+            Format?: PlaylistFormat;
+            OutputKeys?: OutputKeys;
+            HlsContentProtection?: HlsContentProtection;
+            PlayReadyDrm?: PlayReadyDrm;
+            Status?: JobStatus;
+            StatusDetail?: Description;
         }
         export interface Preset {
-            Id?: Id;            
-            Arn?: String;            
-            Name?: Name;            
-            Description?: Description;            
-            Container?: PresetContainer;            
-            Audio?: AudioParameters;            
-            Video?: VideoParameters;            
-            Thumbnails?: Thumbnails;            
-            Type?: PresetType;            
+            Id?: Id;
+            Arn?: String;
+            Name?: Name;
+            Description?: Description;
+            Container?: PresetContainer;
+            Audio?: AudioParameters;
+            Video?: VideoParameters;
+            Thumbnails?: Thumbnails;
+            Type?: PresetType;
         }
         export interface PresetWatermark {
-            Id?: PresetWatermarkId;            
-            MaxWidth?: PixelsOrPercent;            
-            MaxHeight?: PixelsOrPercent;            
-            SizingPolicy?: WatermarkSizingPolicy;            
-            HorizontalAlign?: HorizontalAlign;            
-            HorizontalOffset?: PixelsOrPercent;            
-            VerticalAlign?: VerticalAlign;            
-            VerticalOffset?: PixelsOrPercent;            
-            Opacity?: Opacity;            
-            Target?: Target;            
+            Id?: PresetWatermarkId;
+            MaxWidth?: PixelsOrPercent;
+            MaxHeight?: PixelsOrPercent;
+            SizingPolicy?: WatermarkSizingPolicy;
+            HorizontalAlign?: HorizontalAlign;
+            HorizontalOffset?: PixelsOrPercent;
+            VerticalAlign?: VerticalAlign;
+            VerticalOffset?: PixelsOrPercent;
+            Opacity?: Opacity;
+            Target?: Target;
         }
         export interface ReadJobRequest {
-            Id: Id;            
+            Id: Id;
         }
         export interface ReadJobResponse {
-            Job?: Job;            
+            Job?: Job;
         }
         export interface ReadPipelineRequest {
-            Id: Id;            
+            Id: Id;
         }
         export interface ReadPipelineResponse {
-            Pipeline?: Pipeline;            
-            Warnings?: Warnings;            
+            Pipeline?: Pipeline;
+            Warnings?: Warnings;
         }
         export interface ReadPresetRequest {
-            Id: Id;            
+            Id: Id;
         }
         export interface ReadPresetResponse {
-            Preset?: Preset;            
+            Preset?: Preset;
         }
         export interface ResourceInUseException {
         }
         export interface ResourceNotFoundException {
         }
         export interface TestRoleRequest {
-            Role: Role;            
-            InputBucket: BucketName;            
-            OutputBucket: BucketName;            
-            Topics: SnsTopics;            
+            Role: Role;
+            InputBucket: BucketName;
+            OutputBucket: BucketName;
+            Topics: SnsTopics;
         }
         export interface TestRoleResponse {
-            Success?: Success;            
-            Messages?: ExceptionMessages;            
+            Success?: Success;
+            Messages?: ExceptionMessages;
         }
         export interface Thumbnails {
-            Format?: JpgOrPng;            
-            Interval?: Digits;            
-            Resolution?: ThumbnailResolution;            
-            AspectRatio?: AspectRatio;            
-            MaxWidth?: DigitsOrAuto;            
-            MaxHeight?: DigitsOrAuto;            
-            SizingPolicy?: SizingPolicy;            
-            PaddingPolicy?: PaddingPolicy;            
+            Format?: JpgOrPng;
+            Interval?: Digits;
+            Resolution?: ThumbnailResolution;
+            AspectRatio?: AspectRatio;
+            MaxWidth?: DigitsOrAuto;
+            MaxHeight?: DigitsOrAuto;
+            SizingPolicy?: SizingPolicy;
+            PaddingPolicy?: PaddingPolicy;
         }
         export interface TimeSpan {
-            StartTime?: Time;            
-            Duration?: Time;            
+            StartTime?: Time;
+            Duration?: Time;
         }
         export interface Timing {
-            SubmitTimeMillis?: NullableLong;            
-            StartTimeMillis?: NullableLong;            
-            FinishTimeMillis?: NullableLong;            
+            SubmitTimeMillis?: NullableLong;
+            StartTimeMillis?: NullableLong;
+            FinishTimeMillis?: NullableLong;
         }
         export interface UpdatePipelineNotificationsRequest {
-            Id: Id;            
-            Notifications: Notifications;            
+            Id: Id;
+            Notifications: Notifications;
         }
         export interface UpdatePipelineNotificationsResponse {
-            Pipeline?: Pipeline;            
+            Pipeline?: Pipeline;
         }
         export interface UpdatePipelineRequest {
-            Id: Id;            
-            Name?: Name;            
-            InputBucket?: BucketName;            
-            Role?: Role;            
-            AwsKmsKeyArn?: KeyArn;            
-            Notifications?: Notifications;            
-            ContentConfig?: PipelineOutputConfig;            
-            ThumbnailConfig?: PipelineOutputConfig;            
+            Id: Id;
+            Name?: Name;
+            InputBucket?: BucketName;
+            Role?: Role;
+            AwsKmsKeyArn?: KeyArn;
+            Notifications?: Notifications;
+            ContentConfig?: PipelineOutputConfig;
+            ThumbnailConfig?: PipelineOutputConfig;
         }
         export interface UpdatePipelineResponse {
-            Pipeline?: Pipeline;            
-            Warnings?: Warnings;            
+            Pipeline?: Pipeline;
+            Warnings?: Warnings;
         }
         export interface UpdatePipelineStatusRequest {
-            Id: Id;            
-            Status: PipelineStatus;            
+            Id: Id;
+            Status: PipelineStatus;
         }
         export interface UpdatePipelineStatusResponse {
-            Pipeline?: Pipeline;            
+            Pipeline?: Pipeline;
         }
         export interface ValidationException {
         }
         export interface VideoParameters {
-            Codec?: VideoCodec;            
-            CodecOptions?: CodecOptions;            
-            KeyframesMaxDist?: KeyframesMaxDist;            
-            FixedGOP?: FixedGOP;            
-            BitRate?: VideoBitRate;            
-            FrameRate?: FrameRate;            
-            MaxFrameRate?: MaxFrameRate;            
-            Resolution?: Resolution;            
-            AspectRatio?: AspectRatio;            
-            MaxWidth?: DigitsOrAuto;            
-            MaxHeight?: DigitsOrAuto;            
-            DisplayAspectRatio?: AspectRatio;            
-            SizingPolicy?: SizingPolicy;            
-            PaddingPolicy?: PaddingPolicy;            
-            Watermarks?: PresetWatermarks;            
+            Codec?: VideoCodec;
+            CodecOptions?: CodecOptions;
+            KeyframesMaxDist?: KeyframesMaxDist;
+            FixedGOP?: FixedGOP;
+            BitRate?: VideoBitRate;
+            FrameRate?: FrameRate;
+            MaxFrameRate?: MaxFrameRate;
+            Resolution?: Resolution;
+            AspectRatio?: AspectRatio;
+            MaxWidth?: DigitsOrAuto;
+            MaxHeight?: DigitsOrAuto;
+            DisplayAspectRatio?: AspectRatio;
+            SizingPolicy?: SizingPolicy;
+            PaddingPolicy?: PaddingPolicy;
+            Watermarks?: PresetWatermarks;
         }
         export interface Warning {
-            Code?: String;            
-            Message?: String;            
+            Code?: String;
+            Message?: String;
         }
 
     }

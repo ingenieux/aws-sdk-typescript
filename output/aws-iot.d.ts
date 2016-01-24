@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-05-28
      * endpointPrefix: iot
      * serviceAbbreviation: 
@@ -33,10 +33,12 @@ declare module "aws-sdk" {
       deleteThing(params: Iot.DeleteThingRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DeleteThingResponse|any) => void): Request;
       deleteTopicRule(params: Iot.DeleteTopicRuleRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: any) => void): Request;
       describeCertificate(params: Iot.DescribeCertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.DescribeCertificateResponse|any) => void): Request;
-      describeEndpoint(params: Iot.DescribeEndpointRequest, callback?: (err: Iot.InternalFailureException|Iot.UnauthorizedException|any, data: Iot.DescribeEndpointResponse|any) => void): Request;
+      describeEndpoint(params: Iot.DescribeEndpointRequest, callback?: (err: Iot.InternalFailureException|Iot.UnauthorizedException|Iot.ThrottlingException|any, data: Iot.DescribeEndpointResponse|any) => void): Request;
       describeThing(params: Iot.DescribeThingRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DescribeThingResponse|any) => void): Request;
       detachPrincipalPolicy(params: Iot.DetachPrincipalPolicyRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
       detachThingPrincipal(params: Iot.DetachThingPrincipalRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DetachThingPrincipalResponse|any) => void): Request;
+      disableTopicRule(params: Iot.DisableTopicRuleRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: any) => void): Request;
+      enableTopicRule(params: Iot.EnableTopicRuleRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: any) => void): Request;
       getLoggingOptions(params: Iot.GetLoggingOptionsRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|any, data: Iot.GetLoggingOptionsResponse|any) => void): Request;
       getPolicy(params: Iot.GetPolicyRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.GetPolicyResponse|any) => void): Request;
       getPolicyVersion(params: Iot.GetPolicyVersionRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.GetPolicyVersionResponse|any) => void): Request;
@@ -56,8 +58,9 @@ declare module "aws-sdk" {
       transferCertificate(params: Iot.TransferCertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.ResourceNotFoundException|Iot.CertificateStateException|Iot.TransferConflictException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.TransferCertificateResponse|any) => void): Request;
       updateCertificate(params: Iot.UpdateCertificateRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.CertificateStateException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
       updateThing(params: Iot.UpdateThingRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.UpdateThingResponse|any) => void): Request;
+
     }
-    
+
     export module Iot {
         export type ActionList = Action[];    // max: 10
         export type AscendingOrder = boolean;
@@ -69,7 +72,7 @@ declare module "aws-sdk" {
         export type BucketName = string;
         export type CertificateArn = string;
         export type CertificateId = string;    // pattern: &quot;(0x)?[a-fA-F0-9]+&quot;, max: 64, min: 64
-        export type CertificatePem = string;
+        export type CertificatePem = string;    // min: 1
         export type CertificateSigningRequest = string;    // min: 1
         export type CertificateStatus = string;
         export type Certificates = Certificate[];
@@ -106,6 +109,7 @@ declare module "aws-sdk" {
         export type QueueUrl = string;
         export type RangeKeyField = string;
         export type RangeKeyValue = string;
+        export type RuleArn = string;
         export type RuleName = string;    // pattern: &quot;^[a-zA-Z0-9_]+$&quot;, max: 128, min: 1
         export type SQL = string;
         export type SetAsActive = boolean;
@@ -123,407 +127,415 @@ declare module "aws-sdk" {
         export type errorMessage = string;
 
         export interface AcceptCertificateTransferRequest {
-            certificateId: CertificateId;            
-            setAsActive?: SetAsActive;            
+            certificateId: CertificateId;
+            setAsActive?: SetAsActive;
         }
         export interface Action {
-            dynamoDB?: DynamoDBAction;            
-            lambda?: LambdaAction;            
-            sns?: SnsAction;            
-            sqs?: SqsAction;            
-            kinesis?: KinesisAction;            
-            republish?: RepublishAction;            
-            s3?: S3Action;            
-            firehose?: FirehoseAction;            
+            dynamoDB?: DynamoDBAction;
+            lambda?: LambdaAction;
+            sns?: SnsAction;
+            sqs?: SqsAction;
+            kinesis?: KinesisAction;
+            republish?: RepublishAction;
+            s3?: S3Action;
+            firehose?: FirehoseAction;
         }
         export interface AttachPrincipalPolicyRequest {
-            policyName: PolicyName;            
-            principal: Principal;            
+            policyName: PolicyName;
+            principal: Principal;
         }
         export interface AttachThingPrincipalRequest {
-            thingName: ThingName;            
-            principal: Principal;            
+            thingName: ThingName;
+            principal: Principal;
         }
         export interface AttachThingPrincipalResponse {
         }
         export interface AttributePayload {
-            attributes?: Attributes;            
+            attributes?: Attributes;
         }
         export interface CancelCertificateTransferRequest {
-            certificateId: CertificateId;            
+            certificateId: CertificateId;
         }
         export interface Certificate {
-            certificateArn?: CertificateArn;            
-            certificateId?: CertificateId;            
-            status?: CertificateStatus;            
-            creationDate?: DateType;            
+            certificateArn?: CertificateArn;
+            certificateId?: CertificateId;
+            status?: CertificateStatus;
+            creationDate?: DateType;
         }
         export interface CertificateDescription {
-            certificateArn?: CertificateArn;            
-            certificateId?: CertificateId;            
-            status?: CertificateStatus;            
-            certificatePem?: CertificatePem;            
-            ownedBy?: AwsAccountId;            
-            creationDate?: DateType;            
-            lastModifiedDate?: DateType;            
+            certificateArn?: CertificateArn;
+            certificateId?: CertificateId;
+            status?: CertificateStatus;
+            certificatePem?: CertificatePem;
+            ownedBy?: AwsAccountId;
+            creationDate?: DateType;
+            lastModifiedDate?: DateType;
         }
         export interface CertificateStateException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface CreateCertificateFromCsrRequest {
-            certificateSigningRequest: CertificateSigningRequest;            
-            setAsActive?: SetAsActive;            
+            certificateSigningRequest: CertificateSigningRequest;
+            setAsActive?: SetAsActive;
         }
         export interface CreateCertificateFromCsrResponse {
-            certificateArn?: CertificateArn;            
-            certificateId?: CertificateId;            
-            certificatePem?: CertificatePem;            
+            certificateArn?: CertificateArn;
+            certificateId?: CertificateId;
+            certificatePem?: CertificatePem;
         }
         export interface CreateKeysAndCertificateRequest {
-            setAsActive?: SetAsActive;            
+            setAsActive?: SetAsActive;
         }
         export interface CreateKeysAndCertificateResponse {
-            certificateArn?: CertificateArn;            
-            certificateId?: CertificateId;            
-            certificatePem?: CertificatePem;            
-            keyPair?: KeyPair;            
+            certificateArn?: CertificateArn;
+            certificateId?: CertificateId;
+            certificatePem?: CertificatePem;
+            keyPair?: KeyPair;
         }
         export interface CreatePolicyRequest {
-            policyName: PolicyName;            
-            policyDocument: PolicyDocument;            
+            policyName: PolicyName;
+            policyDocument: PolicyDocument;
         }
         export interface CreatePolicyResponse {
-            policyName?: PolicyName;            
-            policyArn?: PolicyArn;            
-            policyDocument?: PolicyDocument;            
-            policyVersionId?: PolicyVersionId;            
+            policyName?: PolicyName;
+            policyArn?: PolicyArn;
+            policyDocument?: PolicyDocument;
+            policyVersionId?: PolicyVersionId;
         }
         export interface CreatePolicyVersionRequest {
-            policyName: PolicyName;            
-            policyDocument: PolicyDocument;            
-            setAsDefault?: SetAsDefault;            
+            policyName: PolicyName;
+            policyDocument: PolicyDocument;
+            setAsDefault?: SetAsDefault;
         }
         export interface CreatePolicyVersionResponse {
-            policyArn?: PolicyArn;            
-            policyDocument?: PolicyDocument;            
-            policyVersionId?: PolicyVersionId;            
-            isDefaultVersion?: IsDefaultVersion;            
+            policyArn?: PolicyArn;
+            policyDocument?: PolicyDocument;
+            policyVersionId?: PolicyVersionId;
+            isDefaultVersion?: IsDefaultVersion;
         }
         export interface CreateThingRequest {
-            thingName: ThingName;            
-            attributePayload?: AttributePayload;            
+            thingName: ThingName;
+            attributePayload?: AttributePayload;
         }
         export interface CreateThingResponse {
-            thingName?: ThingName;            
-            thingArn?: ThingArn;            
+            thingName?: ThingName;
+            thingArn?: ThingArn;
         }
         export interface CreateTopicRuleRequest {
-            ruleName: RuleName;            
-            topicRulePayload: TopicRulePayload;            
+            ruleName: RuleName;
+            topicRulePayload: TopicRulePayload;
         }
         export interface DeleteCertificateRequest {
-            certificateId: CertificateId;            
+            certificateId: CertificateId;
         }
         export interface DeleteConflictException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface DeletePolicyRequest {
-            policyName: PolicyName;            
+            policyName: PolicyName;
         }
         export interface DeletePolicyVersionRequest {
-            policyName: PolicyName;            
-            policyVersionId: PolicyVersionId;            
+            policyName: PolicyName;
+            policyVersionId: PolicyVersionId;
         }
         export interface DeleteThingRequest {
-            thingName: ThingName;            
+            thingName: ThingName;
         }
         export interface DeleteThingResponse {
         }
         export interface DeleteTopicRuleRequest {
-            ruleName: RuleName;            
+            ruleName: RuleName;
         }
         export interface DescribeCertificateRequest {
-            certificateId: CertificateId;            
+            certificateId: CertificateId;
         }
         export interface DescribeCertificateResponse {
-            certificateDescription?: CertificateDescription;            
+            certificateDescription?: CertificateDescription;
         }
         export interface DescribeEndpointRequest {
         }
         export interface DescribeEndpointResponse {
-            endpointAddress?: EndpointAddress;            
+            endpointAddress?: EndpointAddress;
         }
         export interface DescribeThingRequest {
-            thingName: ThingName;            
+            thingName: ThingName;
         }
         export interface DescribeThingResponse {
-            defaultClientId?: ClientId;            
-            thingName?: ThingName;            
-            attributes?: Attributes;            
+            defaultClientId?: ClientId;
+            thingName?: ThingName;
+            attributes?: Attributes;
         }
         export interface DetachPrincipalPolicyRequest {
-            policyName: PolicyName;            
-            principal: Principal;            
+            policyName: PolicyName;
+            principal: Principal;
         }
         export interface DetachThingPrincipalRequest {
-            thingName: ThingName;            
-            principal: Principal;            
+            thingName: ThingName;
+            principal: Principal;
         }
         export interface DetachThingPrincipalResponse {
         }
+        export interface DisableTopicRuleRequest {
+            ruleName: RuleName;
+        }
         export interface DynamoDBAction {
-            tableName: TableName;            
-            roleArn: AwsArn;            
-            hashKeyField: HashKeyField;            
-            hashKeyValue: HashKeyValue;            
-            rangeKeyField: RangeKeyField;            
-            rangeKeyValue: RangeKeyValue;            
-            payloadField?: PayloadField;            
+            tableName: TableName;
+            roleArn: AwsArn;
+            hashKeyField: HashKeyField;
+            hashKeyValue: HashKeyValue;
+            rangeKeyField: RangeKeyField;
+            rangeKeyValue: RangeKeyValue;
+            payloadField?: PayloadField;
+        }
+        export interface EnableTopicRuleRequest {
+            ruleName: RuleName;
         }
         export interface FirehoseAction {
-            roleArn: AwsArn;            
-            deliveryStreamName: DeliveryStreamName;            
+            roleArn: AwsArn;
+            deliveryStreamName: DeliveryStreamName;
         }
         export interface GetLoggingOptionsRequest {
         }
         export interface GetLoggingOptionsResponse {
-            roleArn?: AwsArn;            
-            logLevel?: LogLevel;            
+            roleArn?: AwsArn;
+            logLevel?: LogLevel;
         }
         export interface GetPolicyRequest {
-            policyName: PolicyName;            
+            policyName: PolicyName;
         }
         export interface GetPolicyResponse {
-            policyName?: PolicyName;            
-            policyArn?: PolicyArn;            
-            policyDocument?: PolicyDocument;            
-            defaultVersionId?: PolicyVersionId;            
+            policyName?: PolicyName;
+            policyArn?: PolicyArn;
+            policyDocument?: PolicyDocument;
+            defaultVersionId?: PolicyVersionId;
         }
         export interface GetPolicyVersionRequest {
-            policyName: PolicyName;            
-            policyVersionId: PolicyVersionId;            
+            policyName: PolicyName;
+            policyVersionId: PolicyVersionId;
         }
         export interface GetPolicyVersionResponse {
-            policyArn?: PolicyArn;            
-            policyName?: PolicyName;            
-            policyDocument?: PolicyDocument;            
-            policyVersionId?: PolicyVersionId;            
-            isDefaultVersion?: IsDefaultVersion;            
+            policyArn?: PolicyArn;
+            policyName?: PolicyName;
+            policyDocument?: PolicyDocument;
+            policyVersionId?: PolicyVersionId;
+            isDefaultVersion?: IsDefaultVersion;
         }
         export interface GetTopicRuleRequest {
-            ruleName: RuleName;            
+            ruleName: RuleName;
         }
         export interface GetTopicRuleResponse {
-            rule?: TopicRule;            
+            ruleArn?: RuleArn;
+            rule?: TopicRule;
         }
         export interface InternalException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface InternalFailureException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface InvalidRequestException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface KeyPair {
-            PublicKey?: PublicKey;            
-            PrivateKey?: PrivateKey;            
+            PublicKey?: PublicKey;
+            PrivateKey?: PrivateKey;
         }
         export interface KinesisAction {
-            roleArn: AwsArn;            
-            streamName: StreamName;            
-            partitionKey?: PartitionKey;            
+            roleArn: AwsArn;
+            streamName: StreamName;
+            partitionKey?: PartitionKey;
         }
         export interface LambdaAction {
-            functionArn: FunctionArn;            
+            functionArn: FunctionArn;
         }
         export interface LimitExceededException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface ListCertificatesRequest {
-            pageSize?: PageSize;            
-            marker?: Marker;            
-            ascendingOrder?: AscendingOrder;            
+            pageSize?: PageSize;
+            marker?: Marker;
+            ascendingOrder?: AscendingOrder;
         }
         export interface ListCertificatesResponse {
-            certificates?: Certificates;            
-            nextMarker?: Marker;            
+            certificates?: Certificates;
+            nextMarker?: Marker;
         }
         export interface ListPoliciesRequest {
-            marker?: Marker;            
-            pageSize?: PageSize;            
-            ascendingOrder?: AscendingOrder;            
+            marker?: Marker;
+            pageSize?: PageSize;
+            ascendingOrder?: AscendingOrder;
         }
         export interface ListPoliciesResponse {
-            policies?: Policies;            
-            nextMarker?: Marker;            
+            policies?: Policies;
+            nextMarker?: Marker;
         }
         export interface ListPolicyVersionsRequest {
-            policyName: PolicyName;            
+            policyName: PolicyName;
         }
         export interface ListPolicyVersionsResponse {
-            policyVersions?: PolicyVersions;            
+            policyVersions?: PolicyVersions;
         }
         export interface ListPrincipalPoliciesRequest {
-            principal: Principal;            
-            marker?: Marker;            
-            pageSize?: PageSize;            
-            ascendingOrder?: AscendingOrder;            
+            principal: Principal;
+            marker?: Marker;
+            pageSize?: PageSize;
+            ascendingOrder?: AscendingOrder;
         }
         export interface ListPrincipalPoliciesResponse {
-            policies?: Policies;            
-            nextMarker?: Marker;            
+            policies?: Policies;
+            nextMarker?: Marker;
         }
         export interface ListPrincipalThingsRequest {
-            nextToken?: NextToken;            
-            maxResults?: MaxResults;            
-            principal: Principal;            
+            nextToken?: NextToken;
+            maxResults?: MaxResults;
+            principal: Principal;
         }
         export interface ListPrincipalThingsResponse {
-            things?: ThingNameList;            
-            nextToken?: NextToken;            
+            things?: ThingNameList;
+            nextToken?: NextToken;
         }
         export interface ListThingPrincipalsRequest {
-            thingName: ThingName;            
+            thingName: ThingName;
         }
         export interface ListThingPrincipalsResponse {
-            principals?: Principals;            
+            principals?: Principals;
         }
         export interface ListThingsRequest {
-            nextToken?: NextToken;            
-            maxResults?: MaxResults;            
-            attributeName?: AttributeName;            
-            attributeValue?: AttributeValue;            
+            nextToken?: NextToken;
+            maxResults?: MaxResults;
+            attributeName?: AttributeName;
+            attributeValue?: AttributeValue;
         }
         export interface ListThingsResponse {
-            things?: ThingAttributeList;            
-            nextToken?: NextToken;            
+            things?: ThingAttributeList;
+            nextToken?: NextToken;
         }
         export interface ListTopicRulesRequest {
-            topic?: Topic;            
-            maxResults?: MaxResults;            
-            nextToken?: NextToken;            
-            ruleDisabled?: IsDisabled;            
+            topic?: Topic;
+            maxResults?: MaxResults;
+            nextToken?: NextToken;
+            ruleDisabled?: IsDisabled;
         }
         export interface ListTopicRulesResponse {
-            rules?: TopicRuleList;            
-            nextToken?: NextToken;            
+            rules?: TopicRuleList;
+            nextToken?: NextToken;
         }
         export interface LoggingOptionsPayload {
-            roleArn: AwsArn;            
-            logLevel?: LogLevel;            
+            roleArn: AwsArn;
+            logLevel?: LogLevel;
         }
         export interface MalformedPolicyException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface Policy {
-            policyName?: PolicyName;            
-            policyArn?: PolicyArn;            
+            policyName?: PolicyName;
+            policyArn?: PolicyArn;
         }
         export interface PolicyVersion {
-            versionId?: PolicyVersionId;            
-            isDefaultVersion?: IsDefaultVersion;            
-            createDate?: DateType;            
+            versionId?: PolicyVersionId;
+            isDefaultVersion?: IsDefaultVersion;
+            createDate?: DateType;
         }
         export interface RejectCertificateTransferRequest {
-            certificateId: CertificateId;            
+            certificateId: CertificateId;
         }
         export interface ReplaceTopicRuleRequest {
-            ruleName: RuleName;            
-            topicRulePayload: TopicRulePayload;            
+            ruleName: RuleName;
+            topicRulePayload: TopicRulePayload;
         }
         export interface RepublishAction {
-            roleArn: AwsArn;            
-            topic: TopicPattern;            
+            roleArn: AwsArn;
+            topic: TopicPattern;
         }
         export interface ResourceAlreadyExistsException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface ResourceNotFoundException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface S3Action {
-            roleArn: AwsArn;            
-            bucketName: BucketName;            
-            key: Key;            
+            roleArn: AwsArn;
+            bucketName: BucketName;
+            key: Key;
         }
         export interface ServiceUnavailableException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface SetDefaultPolicyVersionRequest {
-            policyName: PolicyName;            
-            policyVersionId: PolicyVersionId;            
+            policyName: PolicyName;
+            policyVersionId: PolicyVersionId;
         }
         export interface SetLoggingOptionsRequest {
-            loggingOptionsPayload?: LoggingOptionsPayload;            
+            loggingOptionsPayload: LoggingOptionsPayload;
         }
         export interface SnsAction {
-            targetArn: AwsArn;            
-            roleArn: AwsArn;            
+            targetArn: AwsArn;
+            roleArn: AwsArn;
         }
         export interface SqlParseException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface SqsAction {
-            roleArn: AwsArn;            
-            queueUrl: QueueUrl;            
-            useBase64?: UseBase64;            
+            roleArn: AwsArn;
+            queueUrl: QueueUrl;
+            useBase64?: UseBase64;
         }
         export interface ThingAttribute {
-            thingName?: ThingName;            
-            attributes?: Attributes;            
+            thingName?: ThingName;
+            attributes?: Attributes;
         }
         export interface ThrottlingException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface TopicRule {
-            ruleName?: RuleName;            
-            sql?: SQL;            
-            description?: Description;            
-            createdAt?: CreatedAtDate;            
-            actions?: ActionList;            
-            ruleDisabled?: IsDisabled;            
+            ruleName?: RuleName;
+            sql?: SQL;
+            description?: Description;
+            createdAt?: CreatedAtDate;
+            actions?: ActionList;
+            ruleDisabled?: IsDisabled;
         }
         export interface TopicRuleListItem {
-            ruleName?: RuleName;            
-            topicPattern?: TopicPattern;            
-            createdAt?: CreatedAtDate;            
-            ruleDisabled?: IsDisabled;            
+            ruleArn?: RuleArn;
+            ruleName?: RuleName;
+            topicPattern?: TopicPattern;
+            createdAt?: CreatedAtDate;
+            ruleDisabled?: IsDisabled;
         }
         export interface TopicRulePayload {
-            sql: SQL;            
-            description?: Description;            
-            actions: ActionList;            
-            ruleDisabled?: IsDisabled;            
+            sql: SQL;
+            description?: Description;
+            actions: ActionList;
+            ruleDisabled?: IsDisabled;
         }
         export interface TransferAlreadyCompletedException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface TransferCertificateRequest {
-            certificateId: CertificateId;            
-            targetAwsAccount: AwsAccountId;            
+            certificateId: CertificateId;
+            targetAwsAccount: AwsAccountId;
         }
         export interface TransferCertificateResponse {
-            transferredCertificateArn?: CertificateArn;            
+            transferredCertificateArn?: CertificateArn;
         }
         export interface TransferConflictException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface UnauthorizedException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface UpdateCertificateRequest {
-            certificateId: CertificateId;            
-            newStatus: CertificateStatus;            
+            certificateId: CertificateId;
+            newStatus: CertificateStatus;
         }
         export interface UpdateThingRequest {
-            thingName: ThingName;            
-            attributePayload: AttributePayload;            
+            thingName: ThingName;
+            attributePayload: AttributePayload;
         }
         export interface UpdateThingResponse {
         }
         export interface VersionsLimitExceededException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
 
     }

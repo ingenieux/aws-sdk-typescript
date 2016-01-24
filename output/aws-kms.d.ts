@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2014-11-01
      * endpointPrefix: kms
      * serviceAbbreviation: KMS
@@ -46,8 +46,9 @@ declare module "aws-sdk" {
       scheduleKeyDeletion(params: KMS.ScheduleKeyDeletionRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.ScheduleKeyDeletionResponse|any) => void): Request;
       updateAlias(params: KMS.UpdateAliasRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
       updateKeyDescription(params: KMS.UpdateKeyDescriptionRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+
     }
-    
+
     export module KMS {
         export type AWSAccountIdType = string;
         export type AliasList = AliasListEntry[];
@@ -84,289 +85,289 @@ declare module "aws-sdk" {
         export type PrincipalIdType = string;    // max: 256, min: 1
 
         export interface AliasListEntry {
-            AliasName?: AliasNameType;            
-            AliasArn?: ArnType;            
-            TargetKeyId?: KeyIdType;            
+            AliasName?: AliasNameType;
+            AliasArn?: ArnType;
+            TargetKeyId?: KeyIdType;
         }
         export interface AlreadyExistsException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface CancelKeyDeletionRequest {
-            KeyId: KeyIdType;            
+            KeyId: KeyIdType;
         }
         export interface CancelKeyDeletionResponse {
-            KeyId?: KeyIdType;            
+            KeyId?: KeyIdType;
         }
         export interface CreateAliasRequest {
-            AliasName: AliasNameType;            
-            TargetKeyId: KeyIdType;            
+            AliasName: AliasNameType;
+            TargetKeyId: KeyIdType;
         }
         export interface CreateGrantRequest {
-            KeyId: KeyIdType;            
-            GranteePrincipal: PrincipalIdType;            
-            RetiringPrincipal?: PrincipalIdType;            
-            Operations?: GrantOperationList;            
-            Constraints?: GrantConstraints;            
-            GrantTokens?: GrantTokenList;            
-            Name?: GrantNameType;            
+            KeyId: KeyIdType;
+            GranteePrincipal: PrincipalIdType;
+            RetiringPrincipal?: PrincipalIdType;
+            Operations?: GrantOperationList;
+            Constraints?: GrantConstraints;
+            GrantTokens?: GrantTokenList;
+            Name?: GrantNameType;
         }
         export interface CreateGrantResponse {
-            GrantToken?: GrantTokenType;            
-            GrantId?: GrantIdType;            
+            GrantToken?: GrantTokenType;
+            GrantId?: GrantIdType;
         }
         export interface CreateKeyRequest {
-            Policy?: PolicyType;            
-            Description?: DescriptionType;            
-            KeyUsage?: KeyUsageType;            
+            Policy?: PolicyType;
+            Description?: DescriptionType;
+            KeyUsage?: KeyUsageType;
         }
         export interface CreateKeyResponse {
-            KeyMetadata?: KeyMetadata;            
+            KeyMetadata?: KeyMetadata;
         }
         export interface DecryptRequest {
-            CiphertextBlob: CiphertextType;            
-            EncryptionContext?: EncryptionContextType;            
-            GrantTokens?: GrantTokenList;            
+            CiphertextBlob: CiphertextType;
+            EncryptionContext?: EncryptionContextType;
+            GrantTokens?: GrantTokenList;
         }
         export interface DecryptResponse {
-            KeyId?: KeyIdType;            
-            Plaintext?: PlaintextType;            
+            KeyId?: KeyIdType;
+            Plaintext?: PlaintextType;
         }
         export interface DeleteAliasRequest {
-            AliasName: AliasNameType;            
+            AliasName: AliasNameType;
         }
         export interface DependencyTimeoutException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface DescribeKeyRequest {
-            KeyId: KeyIdType;            
-            GrantTokens?: GrantTokenList;            
+            KeyId: KeyIdType;
+            GrantTokens?: GrantTokenList;
         }
         export interface DescribeKeyResponse {
-            KeyMetadata?: KeyMetadata;            
+            KeyMetadata?: KeyMetadata;
         }
         export interface DisableKeyRequest {
-            KeyId: KeyIdType;            
+            KeyId: KeyIdType;
         }
         export interface DisableKeyRotationRequest {
-            KeyId: KeyIdType;            
+            KeyId: KeyIdType;
         }
         export interface DisabledException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface EnableKeyRequest {
-            KeyId: KeyIdType;            
+            KeyId: KeyIdType;
         }
         export interface EnableKeyRotationRequest {
-            KeyId: KeyIdType;            
+            KeyId: KeyIdType;
         }
         export interface EncryptRequest {
-            KeyId: KeyIdType;            
-            Plaintext: PlaintextType;            
-            EncryptionContext?: EncryptionContextType;            
-            GrantTokens?: GrantTokenList;            
+            KeyId: KeyIdType;
+            Plaintext: PlaintextType;
+            EncryptionContext?: EncryptionContextType;
+            GrantTokens?: GrantTokenList;
         }
         export interface EncryptResponse {
-            CiphertextBlob?: CiphertextType;            
-            KeyId?: KeyIdType;            
+            CiphertextBlob?: CiphertextType;
+            KeyId?: KeyIdType;
         }
         export interface GenerateDataKeyRequest {
-            KeyId: KeyIdType;            
-            EncryptionContext?: EncryptionContextType;            
-            NumberOfBytes?: NumberOfBytesType;            
-            KeySpec?: DataKeySpec;            
-            GrantTokens?: GrantTokenList;            
+            KeyId: KeyIdType;
+            EncryptionContext?: EncryptionContextType;
+            NumberOfBytes?: NumberOfBytesType;
+            KeySpec?: DataKeySpec;
+            GrantTokens?: GrantTokenList;
         }
         export interface GenerateDataKeyResponse {
-            CiphertextBlob?: CiphertextType;            
-            Plaintext?: PlaintextType;            
-            KeyId?: KeyIdType;            
+            CiphertextBlob?: CiphertextType;
+            Plaintext?: PlaintextType;
+            KeyId?: KeyIdType;
         }
         export interface GenerateDataKeyWithoutPlaintextRequest {
-            KeyId: KeyIdType;            
-            EncryptionContext?: EncryptionContextType;            
-            KeySpec?: DataKeySpec;            
-            NumberOfBytes?: NumberOfBytesType;            
-            GrantTokens?: GrantTokenList;            
+            KeyId: KeyIdType;
+            EncryptionContext?: EncryptionContextType;
+            KeySpec?: DataKeySpec;
+            NumberOfBytes?: NumberOfBytesType;
+            GrantTokens?: GrantTokenList;
         }
         export interface GenerateDataKeyWithoutPlaintextResponse {
-            CiphertextBlob?: CiphertextType;            
-            KeyId?: KeyIdType;            
+            CiphertextBlob?: CiphertextType;
+            KeyId?: KeyIdType;
         }
         export interface GenerateRandomRequest {
-            NumberOfBytes?: NumberOfBytesType;            
+            NumberOfBytes?: NumberOfBytesType;
         }
         export interface GenerateRandomResponse {
-            Plaintext?: PlaintextType;            
+            Plaintext?: PlaintextType;
         }
         export interface GetKeyPolicyRequest {
-            KeyId: KeyIdType;            
-            PolicyName: PolicyNameType;            
+            KeyId: KeyIdType;
+            PolicyName: PolicyNameType;
         }
         export interface GetKeyPolicyResponse {
-            Policy?: PolicyType;            
+            Policy?: PolicyType;
         }
         export interface GetKeyRotationStatusRequest {
-            KeyId: KeyIdType;            
+            KeyId: KeyIdType;
         }
         export interface GetKeyRotationStatusResponse {
-            KeyRotationEnabled?: BooleanType;            
+            KeyRotationEnabled?: BooleanType;
         }
         export interface GrantConstraints {
-            EncryptionContextSubset?: EncryptionContextType;            
-            EncryptionContextEquals?: EncryptionContextType;            
+            EncryptionContextSubset?: EncryptionContextType;
+            EncryptionContextEquals?: EncryptionContextType;
         }
         export interface GrantListEntry {
-            KeyId?: KeyIdType;            
-            GrantId?: GrantIdType;            
-            Name?: GrantNameType;            
-            CreationDate?: DateType;            
-            GranteePrincipal?: PrincipalIdType;            
-            RetiringPrincipal?: PrincipalIdType;            
-            IssuingAccount?: PrincipalIdType;            
-            Operations?: GrantOperationList;            
-            Constraints?: GrantConstraints;            
+            KeyId?: KeyIdType;
+            GrantId?: GrantIdType;
+            Name?: GrantNameType;
+            CreationDate?: DateType;
+            GranteePrincipal?: PrincipalIdType;
+            RetiringPrincipal?: PrincipalIdType;
+            IssuingAccount?: PrincipalIdType;
+            Operations?: GrantOperationList;
+            Constraints?: GrantConstraints;
         }
         export interface InvalidAliasNameException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface InvalidArnException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface InvalidCiphertextException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface InvalidGrantIdException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface InvalidGrantTokenException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface InvalidKeyUsageException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface InvalidMarkerException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface KMSInternalException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface KMSInvalidStateException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface KeyListEntry {
-            KeyId?: KeyIdType;            
-            KeyArn?: ArnType;            
+            KeyId?: KeyIdType;
+            KeyArn?: ArnType;
         }
         export interface KeyMetadata {
-            AWSAccountId?: AWSAccountIdType;            
-            KeyId: KeyIdType;            
-            Arn?: ArnType;            
-            CreationDate?: DateType;            
-            Enabled?: BooleanType;            
-            Description?: DescriptionType;            
-            KeyUsage?: KeyUsageType;            
-            KeyState?: KeyState;            
-            DeletionDate?: DateType;            
+            AWSAccountId?: AWSAccountIdType;
+            KeyId: KeyIdType;
+            Arn?: ArnType;
+            CreationDate?: DateType;
+            Enabled?: BooleanType;
+            Description?: DescriptionType;
+            KeyUsage?: KeyUsageType;
+            KeyState?: KeyState;
+            DeletionDate?: DateType;
         }
         export interface KeyUnavailableException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface LimitExceededException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface ListAliasesRequest {
-            Limit?: LimitType;            
-            Marker?: MarkerType;            
+            Limit?: LimitType;
+            Marker?: MarkerType;
         }
         export interface ListAliasesResponse {
-            Aliases?: AliasList;            
-            NextMarker?: MarkerType;            
-            Truncated?: BooleanType;            
+            Aliases?: AliasList;
+            NextMarker?: MarkerType;
+            Truncated?: BooleanType;
         }
         export interface ListGrantsRequest {
-            Limit?: LimitType;            
-            Marker?: MarkerType;            
-            KeyId: KeyIdType;            
+            Limit?: LimitType;
+            Marker?: MarkerType;
+            KeyId: KeyIdType;
         }
         export interface ListGrantsResponse {
-            Grants?: GrantList;            
-            NextMarker?: MarkerType;            
-            Truncated?: BooleanType;            
+            Grants?: GrantList;
+            NextMarker?: MarkerType;
+            Truncated?: BooleanType;
         }
         export interface ListKeyPoliciesRequest {
-            KeyId: KeyIdType;            
-            Limit?: LimitType;            
-            Marker?: MarkerType;            
+            KeyId: KeyIdType;
+            Limit?: LimitType;
+            Marker?: MarkerType;
         }
         export interface ListKeyPoliciesResponse {
-            PolicyNames?: PolicyNameList;            
-            NextMarker?: MarkerType;            
-            Truncated?: BooleanType;            
+            PolicyNames?: PolicyNameList;
+            NextMarker?: MarkerType;
+            Truncated?: BooleanType;
         }
         export interface ListKeysRequest {
-            Limit?: LimitType;            
-            Marker?: MarkerType;            
+            Limit?: LimitType;
+            Marker?: MarkerType;
         }
         export interface ListKeysResponse {
-            Keys?: KeyList;            
-            NextMarker?: MarkerType;            
-            Truncated?: BooleanType;            
+            Keys?: KeyList;
+            NextMarker?: MarkerType;
+            Truncated?: BooleanType;
         }
         export interface ListRetirableGrantsRequest {
-            Limit?: LimitType;            
-            Marker?: MarkerType;            
-            RetiringPrincipal: PrincipalIdType;            
+            Limit?: LimitType;
+            Marker?: MarkerType;
+            RetiringPrincipal: PrincipalIdType;
         }
         export interface MalformedPolicyDocumentException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface NotFoundException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface PutKeyPolicyRequest {
-            KeyId: KeyIdType;            
-            PolicyName: PolicyNameType;            
-            Policy: PolicyType;            
+            KeyId: KeyIdType;
+            PolicyName: PolicyNameType;
+            Policy: PolicyType;
         }
         export interface ReEncryptRequest {
-            CiphertextBlob: CiphertextType;            
-            SourceEncryptionContext?: EncryptionContextType;            
-            DestinationKeyId: KeyIdType;            
-            DestinationEncryptionContext?: EncryptionContextType;            
-            GrantTokens?: GrantTokenList;            
+            CiphertextBlob: CiphertextType;
+            SourceEncryptionContext?: EncryptionContextType;
+            DestinationKeyId: KeyIdType;
+            DestinationEncryptionContext?: EncryptionContextType;
+            GrantTokens?: GrantTokenList;
         }
         export interface ReEncryptResponse {
-            CiphertextBlob?: CiphertextType;            
-            SourceKeyId?: KeyIdType;            
-            KeyId?: KeyIdType;            
+            CiphertextBlob?: CiphertextType;
+            SourceKeyId?: KeyIdType;
+            KeyId?: KeyIdType;
         }
         export interface RetireGrantRequest {
-            GrantToken?: GrantTokenType;            
-            KeyId?: KeyIdType;            
-            GrantId?: GrantIdType;            
+            GrantToken?: GrantTokenType;
+            KeyId?: KeyIdType;
+            GrantId?: GrantIdType;
         }
         export interface RevokeGrantRequest {
-            KeyId: KeyIdType;            
-            GrantId: GrantIdType;            
+            KeyId: KeyIdType;
+            GrantId: GrantIdType;
         }
         export interface ScheduleKeyDeletionRequest {
-            KeyId: KeyIdType;            
-            PendingWindowInDays?: PendingWindowInDaysType;            
+            KeyId: KeyIdType;
+            PendingWindowInDays?: PendingWindowInDaysType;
         }
         export interface ScheduleKeyDeletionResponse {
-            KeyId?: KeyIdType;            
-            DeletionDate?: DateType;            
+            KeyId?: KeyIdType;
+            DeletionDate?: DateType;
         }
         export interface UnsupportedOperationException {
-            message?: ErrorMessageType;            
+            message?: ErrorMessageType;
         }
         export interface UpdateAliasRequest {
-            AliasName: AliasNameType;            
-            TargetKeyId: KeyIdType;            
+            AliasName: AliasNameType;
+            TargetKeyId: KeyIdType;
         }
         export interface UpdateKeyDescriptionRequest {
-            KeyId: KeyIdType;            
-            Description: DescriptionType;            
+            KeyId: KeyIdType;
+            Description: DescriptionType;
         }
 
     }

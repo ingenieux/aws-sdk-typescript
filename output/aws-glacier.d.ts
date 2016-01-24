@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2012-06-01
      * endpointPrefix: glacier
      * serviceAbbreviation: 
@@ -48,8 +48,21 @@ declare module "aws-sdk" {
       setVaultNotifications(params: Glacier.SetVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
       uploadArchive(params: Glacier.UploadArchiveInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.RequestTimeoutException|Glacier.ServiceUnavailableException|any, data: Glacier.ArchiveCreationOutput|any) => void): Request;
       uploadMultipartPart(params: Glacier.UploadMultipartPartInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.RequestTimeoutException|Glacier.ServiceUnavailableException|any, data: Glacier.UploadMultipartPartOutput|any) => void): Request;
+
+      // Found on JS Sources - Sorry for the inconvenience :)
+      setupRequestListeners(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      validateAccountId(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      addGlacierApiVersion(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      addTreeHashHeaders(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      computeChecksums(...args: any[]): any
+      // Found on JS Sources - Sorry for the inconvenience :)
+      buildHashTree(...args: any[]): any
     }
-    
+
     export module Glacier {
         export type ActionCode = string;
         export type DataRetrievalRulesList = DataRetrievalRule[];
@@ -71,343 +84,343 @@ declare module "aws-sdk" {
         export type long = number;
 
         export interface AbortMultipartUploadInput {
-            accountId: string;            
-            vaultName: string;            
-            uploadId: string;            
+            accountId: string;
+            vaultName: string;
+            uploadId: string;
         }
         export interface AbortVaultLockInput {
-            accountId: string;            
-            vaultName: string;            
+            accountId: string;
+            vaultName: string;
         }
         export interface AddTagsToVaultInput {
-            accountId: string;            
-            vaultName: string;            
-            Tags?: TagMap;            
+            accountId: string;
+            vaultName: string;
+            Tags?: TagMap;
         }
         export interface ArchiveCreationOutput {
-            location?: string;            
-            checksum?: string;            
-            archiveId?: string;            
+            location?: string;
+            checksum?: string;
+            archiveId?: string;
         }
         export interface CompleteMultipartUploadInput {
-            accountId: string;            
-            vaultName: string;            
-            uploadId: string;            
-            archiveSize?: string;            
-            checksum?: string;            
+            accountId: string;
+            vaultName: string;
+            uploadId: string;
+            archiveSize?: string;
+            checksum?: string;
         }
         export interface CompleteVaultLockInput {
-            accountId: string;            
-            vaultName: string;            
-            lockId: string;            
+            accountId: string;
+            vaultName: string;
+            lockId: string;
         }
         export interface CreateVaultInput {
-            accountId: string;            
-            vaultName: string;            
+            accountId: string;
+            vaultName: string;
         }
         export interface CreateVaultOutput {
-            location?: string;            
+            location?: string;
         }
         export interface DataRetrievalPolicy {
-            Rules?: DataRetrievalRulesList;            
+            Rules?: DataRetrievalRulesList;
         }
         export interface DataRetrievalRule {
-            Strategy?: string;            
-            BytesPerHour?: NullableLong;            
+            Strategy?: string;
+            BytesPerHour?: NullableLong;
         }
         export interface DeleteArchiveInput {
-            accountId: string;            
-            vaultName: string;            
-            archiveId: string;            
+            accountId: string;
+            vaultName: string;
+            archiveId: string;
         }
         export interface DeleteVaultAccessPolicyInput {
-            accountId: string;            
-            vaultName: string;            
+            accountId: string;
+            vaultName: string;
         }
         export interface DeleteVaultInput {
-            accountId: string;            
-            vaultName: string;            
+            accountId: string;
+            vaultName: string;
         }
         export interface DeleteVaultNotificationsInput {
-            accountId: string;            
-            vaultName: string;            
+            accountId: string;
+            vaultName: string;
         }
         export interface DescribeJobInput {
-            accountId: string;            
-            vaultName: string;            
-            jobId: string;            
+            accountId: string;
+            vaultName: string;
+            jobId: string;
         }
         export interface DescribeVaultInput {
-            accountId: string;            
-            vaultName: string;            
+            accountId: string;
+            vaultName: string;
         }
         export interface DescribeVaultOutput {
-            VaultARN?: string;            
-            VaultName?: string;            
-            CreationDate?: string;            
-            LastInventoryDate?: string;            
-            NumberOfArchives?: long;            
-            SizeInBytes?: long;            
+            VaultARN?: string;
+            VaultName?: string;
+            CreationDate?: string;
+            LastInventoryDate?: string;
+            NumberOfArchives?: long;
+            SizeInBytes?: long;
         }
         export interface GetDataRetrievalPolicyInput {
-            accountId: string;            
+            accountId: string;
         }
         export interface GetDataRetrievalPolicyOutput {
-            Policy?: DataRetrievalPolicy;            
+            Policy?: DataRetrievalPolicy;
         }
         export interface GetJobOutputInput {
-            accountId: string;            
-            vaultName: string;            
-            jobId: string;            
-            range?: string;            
+            accountId: string;
+            vaultName: string;
+            jobId: string;
+            range?: string;
         }
         export interface GetJobOutputOutput {
-            body?: Stream;            
-            checksum?: string;            
-            status?: httpstatus;            
-            contentRange?: string;            
-            acceptRanges?: string;            
-            contentType?: string;            
-            archiveDescription?: string;            
+            body?: Stream;
+            checksum?: string;
+            status?: httpstatus;
+            contentRange?: string;
+            acceptRanges?: string;
+            contentType?: string;
+            archiveDescription?: string;
         }
         export interface GetVaultAccessPolicyInput {
-            accountId: string;            
-            vaultName: string;            
+            accountId: string;
+            vaultName: string;
         }
         export interface GetVaultAccessPolicyOutput {
-            policy?: VaultAccessPolicy;            
+            policy?: VaultAccessPolicy;
         }
         export interface GetVaultLockInput {
-            accountId: string;            
-            vaultName: string;            
+            accountId: string;
+            vaultName: string;
         }
         export interface GetVaultLockOutput {
-            Policy?: string;            
-            State?: string;            
-            ExpirationDate?: string;            
-            CreationDate?: string;            
+            Policy?: string;
+            State?: string;
+            ExpirationDate?: string;
+            CreationDate?: string;
         }
         export interface GetVaultNotificationsInput {
-            accountId: string;            
-            vaultName: string;            
+            accountId: string;
+            vaultName: string;
         }
         export interface GetVaultNotificationsOutput {
-            vaultNotificationConfig?: VaultNotificationConfig;            
+            vaultNotificationConfig?: VaultNotificationConfig;
         }
         export interface GlacierJobDescription {
-            JobId?: string;            
-            JobDescription?: string;            
-            Action?: ActionCode;            
-            ArchiveId?: string;            
-            VaultARN?: string;            
-            CreationDate?: string;            
-            Completed?: boolean;            
-            StatusCode?: StatusCode;            
-            StatusMessage?: string;            
-            ArchiveSizeInBytes?: Size;            
-            InventorySizeInBytes?: Size;            
-            SNSTopic?: string;            
-            CompletionDate?: string;            
-            SHA256TreeHash?: string;            
-            ArchiveSHA256TreeHash?: string;            
-            RetrievalByteRange?: string;            
-            InventoryRetrievalParameters?: InventoryRetrievalJobDescription;            
+            JobId?: string;
+            JobDescription?: string;
+            Action?: ActionCode;
+            ArchiveId?: string;
+            VaultARN?: string;
+            CreationDate?: string;
+            Completed?: boolean;
+            StatusCode?: StatusCode;
+            StatusMessage?: string;
+            ArchiveSizeInBytes?: Size;
+            InventorySizeInBytes?: Size;
+            SNSTopic?: string;
+            CompletionDate?: string;
+            SHA256TreeHash?: string;
+            ArchiveSHA256TreeHash?: string;
+            RetrievalByteRange?: string;
+            InventoryRetrievalParameters?: InventoryRetrievalJobDescription;
         }
         export interface InitiateJobInput {
-            accountId: string;            
-            vaultName: string;            
-            jobParameters?: JobParameters;            
+            accountId: string;
+            vaultName: string;
+            jobParameters?: JobParameters;
         }
         export interface InitiateJobOutput {
-            location?: string;            
-            jobId?: string;            
+            location?: string;
+            jobId?: string;
         }
         export interface InitiateMultipartUploadInput {
-            accountId: string;            
-            vaultName: string;            
-            archiveDescription?: string;            
-            partSize?: string;            
+            accountId: string;
+            vaultName: string;
+            archiveDescription?: string;
+            partSize?: string;
         }
         export interface InitiateMultipartUploadOutput {
-            location?: string;            
-            uploadId?: string;            
+            location?: string;
+            uploadId?: string;
         }
         export interface InitiateVaultLockInput {
-            accountId: string;            
-            vaultName: string;            
-            policy?: VaultLockPolicy;            
+            accountId: string;
+            vaultName: string;
+            policy?: VaultLockPolicy;
         }
         export interface InitiateVaultLockOutput {
-            lockId?: string;            
+            lockId?: string;
         }
         export interface InvalidParameterValueException {
-            type?: string;            
-            code?: string;            
-            message?: string;            
+            type?: string;
+            code?: string;
+            message?: string;
         }
         export interface InventoryRetrievalJobDescription {
-            Format?: string;            
-            StartDate?: DateTime;            
-            EndDate?: DateTime;            
-            Limit?: string;            
-            Marker?: string;            
+            Format?: string;
+            StartDate?: DateTime;
+            EndDate?: DateTime;
+            Limit?: string;
+            Marker?: string;
         }
         export interface InventoryRetrievalJobInput {
-            StartDate?: string;            
-            EndDate?: string;            
-            Limit?: string;            
-            Marker?: string;            
+            StartDate?: string;
+            EndDate?: string;
+            Limit?: string;
+            Marker?: string;
         }
         export interface JobParameters {
-            Format?: string;            
-            Type?: string;            
-            ArchiveId?: string;            
-            Description?: string;            
-            SNSTopic?: string;            
-            RetrievalByteRange?: string;            
-            InventoryRetrievalParameters?: InventoryRetrievalJobInput;            
+            Format?: string;
+            Type?: string;
+            ArchiveId?: string;
+            Description?: string;
+            SNSTopic?: string;
+            RetrievalByteRange?: string;
+            InventoryRetrievalParameters?: InventoryRetrievalJobInput;
         }
         export interface LimitExceededException {
-            type?: string;            
-            code?: string;            
-            message?: string;            
+            type?: string;
+            code?: string;
+            message?: string;
         }
         export interface ListJobsInput {
-            accountId: string;            
-            vaultName: string;            
-            limit?: string;            
-            marker?: string;            
-            statuscode?: string;            
-            completed?: string;            
+            accountId: string;
+            vaultName: string;
+            limit?: string;
+            marker?: string;
+            statuscode?: string;
+            completed?: string;
         }
         export interface ListJobsOutput {
-            JobList?: JobList;            
-            Marker?: string;            
+            JobList?: JobList;
+            Marker?: string;
         }
         export interface ListMultipartUploadsInput {
-            accountId: string;            
-            vaultName: string;            
-            marker?: string;            
-            limit?: string;            
+            accountId: string;
+            vaultName: string;
+            marker?: string;
+            limit?: string;
         }
         export interface ListMultipartUploadsOutput {
-            UploadsList?: UploadsList;            
-            Marker?: string;            
+            UploadsList?: UploadsList;
+            Marker?: string;
         }
         export interface ListPartsInput {
-            accountId: string;            
-            vaultName: string;            
-            uploadId: string;            
-            marker?: string;            
-            limit?: string;            
+            accountId: string;
+            vaultName: string;
+            uploadId: string;
+            marker?: string;
+            limit?: string;
         }
         export interface ListPartsOutput {
-            MultipartUploadId?: string;            
-            VaultARN?: string;            
-            ArchiveDescription?: string;            
-            PartSizeInBytes?: long;            
-            CreationDate?: string;            
-            Parts?: PartList;            
-            Marker?: string;            
+            MultipartUploadId?: string;
+            VaultARN?: string;
+            ArchiveDescription?: string;
+            PartSizeInBytes?: long;
+            CreationDate?: string;
+            Parts?: PartList;
+            Marker?: string;
         }
         export interface ListTagsForVaultInput {
-            accountId: string;            
-            vaultName: string;            
+            accountId: string;
+            vaultName: string;
         }
         export interface ListTagsForVaultOutput {
-            Tags?: TagMap;            
+            Tags?: TagMap;
         }
         export interface ListVaultsInput {
-            accountId: string;            
-            marker?: string;            
-            limit?: string;            
+            accountId: string;
+            marker?: string;
+            limit?: string;
         }
         export interface ListVaultsOutput {
-            VaultList?: VaultList;            
-            Marker?: string;            
+            VaultList?: VaultList;
+            Marker?: string;
         }
         export interface MissingParameterValueException {
-            type?: string;            
-            code?: string;            
-            message?: string;            
+            type?: string;
+            code?: string;
+            message?: string;
         }
         export interface PartListElement {
-            RangeInBytes?: string;            
-            SHA256TreeHash?: string;            
+            RangeInBytes?: string;
+            SHA256TreeHash?: string;
         }
         export interface PolicyEnforcedException {
-            type?: string;            
-            code?: string;            
-            message?: string;            
+            type?: string;
+            code?: string;
+            message?: string;
         }
         export interface RemoveTagsFromVaultInput {
-            accountId: string;            
-            vaultName: string;            
-            TagKeys?: TagKeyList;            
+            accountId: string;
+            vaultName: string;
+            TagKeys?: TagKeyList;
         }
         export interface RequestTimeoutException {
-            type?: string;            
-            code?: string;            
-            message?: string;            
+            type?: string;
+            code?: string;
+            message?: string;
         }
         export interface ResourceNotFoundException {
-            type?: string;            
-            code?: string;            
-            message?: string;            
+            type?: string;
+            code?: string;
+            message?: string;
         }
         export interface ServiceUnavailableException {
-            type?: string;            
-            code?: string;            
-            message?: string;            
+            type?: string;
+            code?: string;
+            message?: string;
         }
         export interface SetDataRetrievalPolicyInput {
-            accountId: string;            
-            Policy?: DataRetrievalPolicy;            
+            accountId: string;
+            Policy?: DataRetrievalPolicy;
         }
         export interface SetVaultAccessPolicyInput {
-            accountId: string;            
-            vaultName: string;            
-            policy?: VaultAccessPolicy;            
+            accountId: string;
+            vaultName: string;
+            policy?: VaultAccessPolicy;
         }
         export interface SetVaultNotificationsInput {
-            accountId: string;            
-            vaultName: string;            
-            vaultNotificationConfig?: VaultNotificationConfig;            
+            accountId: string;
+            vaultName: string;
+            vaultNotificationConfig?: VaultNotificationConfig;
         }
         export interface UploadArchiveInput {
-            vaultName: string;            
-            accountId: string;            
-            archiveDescription?: string;            
-            checksum?: string;            
-            body?: Stream;            
+            vaultName: string;
+            accountId: string;
+            archiveDescription?: string;
+            checksum?: string;
+            body?: Stream;
         }
         export interface UploadListElement {
-            MultipartUploadId?: string;            
-            VaultARN?: string;            
-            ArchiveDescription?: string;            
-            PartSizeInBytes?: long;            
-            CreationDate?: string;            
+            MultipartUploadId?: string;
+            VaultARN?: string;
+            ArchiveDescription?: string;
+            PartSizeInBytes?: long;
+            CreationDate?: string;
         }
         export interface UploadMultipartPartInput {
-            accountId: string;            
-            vaultName: string;            
-            uploadId: string;            
-            checksum?: string;            
-            range?: string;            
-            body?: Stream;            
+            accountId: string;
+            vaultName: string;
+            uploadId: string;
+            checksum?: string;
+            range?: string;
+            body?: Stream;
         }
         export interface UploadMultipartPartOutput {
-            checksum?: string;            
+            checksum?: string;
         }
         export interface VaultAccessPolicy {
-            Policy?: string;            
+            Policy?: string;
         }
         export interface VaultLockPolicy {
-            Policy?: string;            
+            Policy?: string;
         }
         export interface VaultNotificationConfig {
-            SNSTopic?: string;            
-            Events?: NotificationEventList;            
+            SNSTopic?: string;
+            Events?: NotificationEventList;
         }
 
     }

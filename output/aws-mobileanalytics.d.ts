@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2014-06-05
      * endpointPrefix: mobileanalytics
      * serviceAbbreviation: 
@@ -18,8 +18,9 @@ declare module "aws-sdk" {
       constructor(options?: any);
       endpoint: Endpoint;
       putEvents(params: MobileAnalytics.PutEventsInput, callback?: (err: MobileAnalytics.BadRequestException|any, data: any) => void): Request;
+
     }
-    
+
     export module MobileAnalytics {
         export type Double = number;
         export type EventListDefinition = Event[];
@@ -33,26 +34,26 @@ declare module "aws-sdk" {
         export type String50Chars = string;    // max: 50, min: 1
 
         export interface BadRequestException {
-            message?: String;            
+            message?: String;
         }
         export interface Event {
-            eventType: String50Chars;            
-            timestamp: ISO8601Timestamp;            
-            session?: Session;            
-            version?: String10Chars;            
-            attributes?: MapOfStringToString;            
-            metrics?: MapOfStringToNumber;            
+            eventType: String50Chars;
+            timestamp: ISO8601Timestamp;
+            session?: Session;
+            version?: String10Chars;
+            attributes?: MapOfStringToString;
+            metrics?: MapOfStringToNumber;
         }
         export interface PutEventsInput {
-            events: EventListDefinition;            
-            clientContext: String;            
-            clientContextEncoding?: String;            
+            events: EventListDefinition;
+            clientContext: String;
+            clientContextEncoding?: String;
         }
         export interface Session {
-            id?: String50Chars;            
-            duration?: Long;            
-            startTimestamp?: ISO8601Timestamp;            
-            stopTimestamp?: ISO8601Timestamp;            
+            id?: String50Chars;
+            duration?: Long;
+            startTimestamp?: ISO8601Timestamp;
+            stopTimestamp?: ISO8601Timestamp;
         }
 
     }

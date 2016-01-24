@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-08-18
      * endpointPrefix: inspector
      * serviceAbbreviation: 
@@ -53,8 +53,9 @@ declare module "aws-sdk" {
       stopDataCollection(params: Inspector.StopDataCollectionRequest, callback?: (err: Inspector.InternalException|Inspector.InvalidInputException|Inspector.AccessDeniedException|Inspector.NoSuchEntityException|any, data: Inspector.StopDataCollectionResponse|any) => void): Request;
       updateApplication(params: Inspector.UpdateApplicationRequest, callback?: (err: Inspector.InternalException|Inspector.InvalidInputException|Inspector.AccessDeniedException|Inspector.NoSuchEntityException|any, data: Inspector.UpdateApplicationResponse|any) => void): Request;
       updateAssessment(params: Inspector.UpdateAssessmentRequest, callback?: (err: Inspector.InternalException|Inspector.InvalidInputException|Inspector.AccessDeniedException|Inspector.NoSuchEntityException|any, data: Inspector.UpdateAssessmentResponse|any) => void): Request;
+
     }
-    
+
     export module Inspector {
         export type AgentHealth = string;
         export type AgentHealthCode = string;
@@ -111,185 +112,185 @@ declare module "aws-sdk" {
         export interface AccessDeniedException {
         }
         export interface AddAttributesToFindingsRequest {
-            findingArns?: ArnList;            
-            attributes?: AttributeList;            
+            findingArns?: ArnList;
+            attributes?: AttributeList;
         }
         export interface AddAttributesToFindingsResponse {
-            message?: Message;            
+            message?: Message;
         }
         export interface Agent {
-            agentId?: AgentId;            
-            assessmentArn?: Arn;            
-            agentHealth?: AgentHealth;            
-            agentHealthCode?: AgentHealthCode;            
-            agentHealthDetails?: AgentHealthDetails;            
-            autoScalingGroup?: AutoScalingGroup;            
-            accountId?: AwsAccount;            
-            telemetry?: TelemetryList;            
+            agentId?: AgentId;
+            assessmentArn?: Arn;
+            agentHealth?: AgentHealth;
+            agentHealthCode?: AgentHealthCode;
+            agentHealthDetails?: AgentHealthDetails;
+            autoScalingGroup?: AutoScalingGroup;
+            accountId?: AwsAccount;
+            telemetry?: TelemetryList;
         }
         export interface AgentPreview {
-            agentId?: AgentId;            
-            autoScalingGroup?: AutoScalingGroup;            
+            agentId?: AgentId;
+            autoScalingGroup?: AutoScalingGroup;
         }
         export interface AgentsFilter {
-            agentHealthList?: AgentHealthList;            
+            agentHealthList?: AgentHealthList;
         }
         export interface Application {
-            applicationArn?: Arn;            
-            applicationName?: Name;            
-            resourceGroupArn?: Arn;            
+            applicationArn?: Arn;
+            applicationName?: Name;
+            resourceGroupArn?: Arn;
         }
         export interface ApplicationsFilter {
-            applicationNamePatterns?: NamePatternList;            
+            applicationNamePatterns?: NamePatternList;
         }
         export interface Assessment {
-            assessmentArn?: Arn;            
-            assessmentName?: Name;            
-            applicationArn?: Arn;            
-            assessmentState?: AssessmentState;            
-            failureMessage?: FailureMessage;            
-            dataCollected?: Bool;            
-            startTime?: Timestamp;            
-            endTime?: Timestamp;            
-            durationInSeconds?: Duration;            
-            userAttributesForFindings?: AttributeList;            
+            assessmentArn?: Arn;
+            assessmentName?: Name;
+            applicationArn?: Arn;
+            assessmentState?: AssessmentState;
+            failureMessage?: FailureMessage;
+            dataCollected?: Bool;
+            startTime?: Timestamp;
+            endTime?: Timestamp;
+            durationInSeconds?: Duration;
+            userAttributesForFindings?: AttributeList;
         }
         export interface AssessmentsFilter {
-            assessmentNamePatterns?: NamePatternList;            
-            assessmentStates?: AssessmentStateList;            
-            dataCollected?: Bool;            
-            startTimeRange?: TimestampRange;            
-            endTimeRange?: TimestampRange;            
-            durationRange?: DurationRange;            
+            assessmentNamePatterns?: NamePatternList;
+            assessmentStates?: AssessmentStateList;
+            dataCollected?: Bool;
+            startTimeRange?: TimestampRange;
+            endTimeRange?: TimestampRange;
+            durationRange?: DurationRange;
         }
         export interface AttachAssessmentAndRulesPackageRequest {
-            assessmentArn?: Arn;            
-            rulesPackageArn?: Arn;            
+            assessmentArn?: Arn;
+            rulesPackageArn?: Arn;
         }
         export interface AttachAssessmentAndRulesPackageResponse {
-            message?: Message;            
+            message?: Message;
         }
         export interface Attribute {
-            key?: AttributeKey;            
-            value?: AttributeValue;            
+            key?: AttributeKey;
+            value?: AttributeValue;
         }
         export interface CreateApplicationRequest {
-            applicationName?: Name;            
-            resourceGroupArn?: Arn;            
+            applicationName?: Name;
+            resourceGroupArn?: Arn;
         }
         export interface CreateApplicationResponse {
-            applicationArn?: Arn;            
+            applicationArn?: Arn;
         }
         export interface CreateAssessmentRequest {
-            applicationArn?: Arn;            
-            assessmentName?: Name;            
-            durationInSeconds?: Duration;            
-            userAttributesForFindings?: AttributeList;            
+            applicationArn?: Arn;
+            assessmentName?: Name;
+            durationInSeconds?: Duration;
+            userAttributesForFindings?: AttributeList;
         }
         export interface CreateAssessmentResponse {
-            assessmentArn?: Arn;            
+            assessmentArn?: Arn;
         }
         export interface CreateResourceGroupRequest {
-            resourceGroupTags?: ResourceGroupTags;            
+            resourceGroupTags?: ResourceGroupTags;
         }
         export interface CreateResourceGroupResponse {
-            resourceGroupArn?: Arn;            
+            resourceGroupArn?: Arn;
         }
         export interface DeleteApplicationRequest {
-            applicationArn?: Arn;            
+            applicationArn?: Arn;
         }
         export interface DeleteApplicationResponse {
-            message?: Message;            
+            message?: Message;
         }
         export interface DeleteAssessmentRequest {
-            assessmentArn?: Arn;            
+            assessmentArn?: Arn;
         }
         export interface DeleteAssessmentResponse {
-            message?: Message;            
+            message?: Message;
         }
         export interface DeleteRunRequest {
-            runArn?: Arn;            
+            runArn?: Arn;
         }
         export interface DeleteRunResponse {
-            message?: Message;            
+            message?: Message;
         }
         export interface DescribeApplicationRequest {
-            applicationArn?: Arn;            
+            applicationArn?: Arn;
         }
         export interface DescribeApplicationResponse {
-            application?: Application;            
+            application?: Application;
         }
         export interface DescribeAssessmentRequest {
-            assessmentArn?: Arn;            
+            assessmentArn?: Arn;
         }
         export interface DescribeAssessmentResponse {
-            assessment?: Assessment;            
+            assessment?: Assessment;
         }
         export interface DescribeCrossAccountAccessRoleResponse {
-            roleArn?: Arn;            
-            valid?: Bool;            
+            roleArn?: Arn;
+            valid?: Bool;
         }
         export interface DescribeFindingRequest {
-            findingArn?: Arn;            
+            findingArn?: Arn;
         }
         export interface DescribeFindingResponse {
-            finding?: Finding;            
+            finding?: Finding;
         }
         export interface DescribeResourceGroupRequest {
-            resourceGroupArn?: Arn;            
+            resourceGroupArn?: Arn;
         }
         export interface DescribeResourceGroupResponse {
-            resourceGroup?: ResourceGroup;            
+            resourceGroup?: ResourceGroup;
         }
         export interface DescribeRulesPackageRequest {
-            rulesPackageArn?: Arn;            
+            rulesPackageArn?: Arn;
         }
         export interface DescribeRulesPackageResponse {
-            rulesPackage?: RulesPackage;            
+            rulesPackage?: RulesPackage;
         }
         export interface DescribeRunRequest {
-            runArn?: Arn;            
+            runArn?: Arn;
         }
         export interface DescribeRunResponse {
-            run?: Run;            
+            run?: Run;
         }
         export interface DetachAssessmentAndRulesPackageRequest {
-            assessmentArn?: Arn;            
-            rulesPackageArn?: Arn;            
+            assessmentArn?: Arn;
+            rulesPackageArn?: Arn;
         }
         export interface DetachAssessmentAndRulesPackageResponse {
-            message?: Message;            
+            message?: Message;
         }
         export interface DurationRange {
-            minimum?: Duration;            
-            maximum?: Duration;            
+            minimum?: Duration;
+            maximum?: Duration;
         }
         export interface Finding {
-            findingArn?: Arn;            
-            runArn?: Arn;            
-            rulesPackageArn?: Arn;            
-            ruleName?: Name;            
-            agentId?: AgentId;            
-            autoScalingGroup?: AutoScalingGroup;            
-            severity?: Severity;            
-            finding?: LocalizedText;            
-            description?: LocalizedText;            
-            recommendation?: LocalizedText;            
-            attributes?: AttributeList;            
-            userAttributes?: AttributeList;            
+            findingArn?: Arn;
+            runArn?: Arn;
+            rulesPackageArn?: Arn;
+            ruleName?: Name;
+            agentId?: AgentId;
+            autoScalingGroup?: AutoScalingGroup;
+            severity?: Severity;
+            finding?: LocalizedText;
+            description?: LocalizedText;
+            recommendation?: LocalizedText;
+            attributes?: AttributeList;
+            userAttributes?: AttributeList;
         }
         export interface FindingsFilter {
-            rulesPackageArns?: ArnList;            
-            ruleNames?: NameList;            
-            severities?: SeverityList;            
-            attributes?: AttributeList;            
-            userAttributes?: AttributeList;            
+            rulesPackageArns?: ArnList;
+            ruleNames?: NameList;
+            severities?: SeverityList;
+            attributes?: AttributeList;
+            userAttributes?: AttributeList;
         }
         export interface GetAssessmentTelemetryRequest {
-            assessmentArn?: Arn;            
+            assessmentArn?: Arn;
         }
         export interface GetAssessmentTelemetryResponse {
-            telemetry?: TelemetryList;            
+            telemetry?: TelemetryList;
         }
         export interface InternalException {
         }
@@ -298,218 +299,218 @@ declare module "aws-sdk" {
         export interface InvalidInputException {
         }
         export interface ListApplicationsRequest {
-            filter?: ApplicationsFilter;            
-            nextToken?: PaginationToken;            
-            maxResults?: Integer;            
+            filter?: ApplicationsFilter;
+            nextToken?: PaginationToken;
+            maxResults?: Integer;
         }
         export interface ListApplicationsResponse {
-            applicationArnList?: ArnList;            
-            nextToken?: PaginationToken;            
+            applicationArnList?: ArnList;
+            nextToken?: PaginationToken;
         }
         export interface ListAssessmentAgentsRequest {
-            assessmentArn?: Arn;            
-            filter?: AgentsFilter;            
-            nextToken?: PaginationToken;            
-            maxResults?: Integer;            
+            assessmentArn?: Arn;
+            filter?: AgentsFilter;
+            nextToken?: PaginationToken;
+            maxResults?: Integer;
         }
         export interface ListAssessmentAgentsResponse {
-            agentList?: AgentList;            
-            nextToken?: PaginationToken;            
+            agentList?: AgentList;
+            nextToken?: PaginationToken;
         }
         export interface ListAssessmentsRequest {
-            applicationArns?: ArnList;            
-            filter?: AssessmentsFilter;            
-            nextToken?: PaginationToken;            
-            maxResults?: Integer;            
+            applicationArns?: ArnList;
+            filter?: AssessmentsFilter;
+            nextToken?: PaginationToken;
+            maxResults?: Integer;
         }
         export interface ListAssessmentsResponse {
-            assessmentArnList?: ArnList;            
-            nextToken?: PaginationToken;            
+            assessmentArnList?: ArnList;
+            nextToken?: PaginationToken;
         }
         export interface ListAttachedAssessmentsRequest {
-            rulesPackageArn?: Arn;            
-            filter?: AssessmentsFilter;            
-            nextToken?: PaginationToken;            
-            maxResults?: Integer;            
+            rulesPackageArn?: Arn;
+            filter?: AssessmentsFilter;
+            nextToken?: PaginationToken;
+            maxResults?: Integer;
         }
         export interface ListAttachedAssessmentsResponse {
-            assessmentArnList?: ArnList;            
-            nextToken?: PaginationToken;            
+            assessmentArnList?: ArnList;
+            nextToken?: PaginationToken;
         }
         export interface ListAttachedRulesPackagesRequest {
-            assessmentArn?: Arn;            
-            nextToken?: PaginationToken;            
-            maxResults?: Integer;            
+            assessmentArn?: Arn;
+            nextToken?: PaginationToken;
+            maxResults?: Integer;
         }
         export interface ListAttachedRulesPackagesResponse {
-            rulesPackageArnList?: ArnList;            
-            nextToken?: PaginationToken;            
+            rulesPackageArnList?: ArnList;
+            nextToken?: PaginationToken;
         }
         export interface ListFindingsRequest {
-            runArns?: ArnList;            
-            filter?: FindingsFilter;            
-            nextToken?: PaginationToken;            
-            maxResults?: Integer;            
+            runArns?: ArnList;
+            filter?: FindingsFilter;
+            nextToken?: PaginationToken;
+            maxResults?: Integer;
         }
         export interface ListFindingsResponse {
-            findingArnList?: ArnList;            
-            nextToken?: PaginationToken;            
+            findingArnList?: ArnList;
+            nextToken?: PaginationToken;
         }
         export interface ListRulesPackagesRequest {
-            nextToken?: PaginationToken;            
-            maxResults?: Integer;            
+            nextToken?: PaginationToken;
+            maxResults?: Integer;
         }
         export interface ListRulesPackagesResponse {
-            rulesPackageArnList?: ArnList;            
-            nextToken?: PaginationToken;            
+            rulesPackageArnList?: ArnList;
+            nextToken?: PaginationToken;
         }
         export interface ListRunsRequest {
-            assessmentArns?: ArnList;            
-            filter?: RunsFilter;            
-            nextToken?: PaginationToken;            
-            maxResults?: Integer;            
+            assessmentArns?: ArnList;
+            filter?: RunsFilter;
+            nextToken?: PaginationToken;
+            maxResults?: Integer;
         }
         export interface ListRunsResponse {
-            runArnList?: ArnList;            
-            nextToken?: PaginationToken;            
+            runArnList?: ArnList;
+            nextToken?: PaginationToken;
         }
         export interface ListTagsForResourceRequest {
-            resourceArn?: Arn;            
+            resourceArn?: Arn;
         }
         export interface ListTagsForResourceResponse {
-            tagList?: TagList;            
+            tagList?: TagList;
         }
         export interface LocalizeTextRequest {
-            localizedTexts?: LocalizedTextList;            
-            locale?: Locale;            
+            localizedTexts?: LocalizedTextList;
+            locale?: Locale;
         }
         export interface LocalizeTextResponse {
-            message?: Message;            
-            results?: TextList;            
+            message?: Message;
+            results?: TextList;
         }
         export interface LocalizedText {
-            key?: LocalizedTextKey;            
-            parameters?: ParameterList;            
+            key?: LocalizedTextKey;
+            parameters?: ParameterList;
         }
         export interface LocalizedTextKey {
-            facility?: LocalizedFacility;            
-            id?: LocalizedTextId;            
+            facility?: LocalizedFacility;
+            id?: LocalizedTextId;
         }
         export interface MessageTypeTelemetry {
-            messageType?: MessageType;            
-            count?: Long;            
-            dataSize?: Long;            
+            messageType?: MessageType;
+            count?: Long;
+            dataSize?: Long;
         }
         export interface NoSuchEntityException {
         }
         export interface OperationInProgressException {
         }
         export interface Parameter {
-            name?: ParameterName;            
-            value?: ParameterValue;            
+            name?: ParameterName;
+            value?: ParameterValue;
         }
         export interface PreviewAgentsForResourceGroupRequest {
-            resourceGroupArn?: Arn;            
-            nextToken?: PaginationToken;            
-            maxResults?: Integer;            
+            resourceGroupArn?: Arn;
+            nextToken?: PaginationToken;
+            maxResults?: Integer;
         }
         export interface PreviewAgentsForResourceGroupResponse {
-            agentPreviewList?: AgentPreviewList;            
-            nextToken?: PaginationToken;            
+            agentPreviewList?: AgentPreviewList;
+            nextToken?: PaginationToken;
         }
         export interface RegisterCrossAccountAccessRoleRequest {
-            roleArn?: Arn;            
+            roleArn?: Arn;
         }
         export interface RegisterCrossAccountAccessRoleResponse {
-            message?: Message;            
+            message?: Message;
         }
         export interface RemoveAttributesFromFindingsRequest {
-            findingArns?: ArnList;            
-            attributeKeys?: AttributeKeyList;            
+            findingArns?: ArnList;
+            attributeKeys?: AttributeKeyList;
         }
         export interface RemoveAttributesFromFindingsResponse {
-            message?: Message;            
+            message?: Message;
         }
         export interface ResourceGroup {
-            resourceGroupArn?: Arn;            
-            resourceGroupTags?: ResourceGroupTags;            
+            resourceGroupArn?: Arn;
+            resourceGroupTags?: ResourceGroupTags;
         }
         export interface RulesPackage {
-            rulesPackageArn?: Arn;            
-            rulesPackageName?: Name;            
-            version?: Version;            
-            provider?: Name;            
-            description?: LocalizedText;            
+            rulesPackageArn?: Arn;
+            rulesPackageName?: Name;
+            version?: Version;
+            provider?: Name;
+            description?: LocalizedText;
         }
         export interface Run {
-            runArn?: Arn;            
-            runName?: Name;            
-            assessmentArn?: Arn;            
-            runState?: RunState;            
-            rulesPackages?: ArnList;            
-            creationTime?: Timestamp;            
-            completionTime?: Timestamp;            
+            runArn?: Arn;
+            runName?: Name;
+            assessmentArn?: Arn;
+            runState?: RunState;
+            rulesPackages?: ArnList;
+            creationTime?: Timestamp;
+            completionTime?: Timestamp;
         }
         export interface RunAssessmentRequest {
-            assessmentArn?: Arn;            
-            runName?: Name;            
+            assessmentArn?: Arn;
+            runName?: Name;
         }
         export interface RunAssessmentResponse {
-            runArn?: Arn;            
+            runArn?: Arn;
         }
         export interface RunsFilter {
-            runNamePatterns?: NamePatternList;            
-            runStates?: RunStateList;            
-            rulesPackages?: ArnList;            
-            creationTime?: TimestampRange;            
-            completionTime?: TimestampRange;            
+            runNamePatterns?: NamePatternList;
+            runStates?: RunStateList;
+            rulesPackages?: ArnList;
+            creationTime?: TimestampRange;
+            completionTime?: TimestampRange;
         }
         export interface SetTagsForResourceRequest {
-            resourceArn?: Arn;            
-            tags?: TagList;            
+            resourceArn?: Arn;
+            tags?: TagList;
         }
         export interface SetTagsForResourceResponse {
-            message?: Message;            
+            message?: Message;
         }
         export interface StartDataCollectionRequest {
-            assessmentArn?: Arn;            
+            assessmentArn?: Arn;
         }
         export interface StartDataCollectionResponse {
-            message?: Message;            
+            message?: Message;
         }
         export interface StopDataCollectionRequest {
-            assessmentArn?: Arn;            
+            assessmentArn?: Arn;
         }
         export interface StopDataCollectionResponse {
-            message?: Message;            
+            message?: Message;
         }
         export interface Tag {
-            Key?: TagKey;            
-            Value?: TagValue;            
+            Key?: TagKey;
+            Value?: TagValue;
         }
         export interface Telemetry {
-            status?: TelemetryStatus;            
-            messageTypeTelemetries?: MessageTypeTelemetryList;            
+            status?: TelemetryStatus;
+            messageTypeTelemetries?: MessageTypeTelemetryList;
         }
         export interface TimestampRange {
-            minimum?: Timestamp;            
-            maximum?: Timestamp;            
+            minimum?: Timestamp;
+            maximum?: Timestamp;
         }
         export interface UpdateApplicationRequest {
-            applicationArn?: Arn;            
-            applicationName?: Name;            
-            resourceGroupArn?: Arn;            
+            applicationArn?: Arn;
+            applicationName?: Name;
+            resourceGroupArn?: Arn;
         }
         export interface UpdateApplicationResponse {
-            message?: Message;            
+            message?: Message;
         }
         export interface UpdateAssessmentRequest {
-            assessmentArn?: Arn;            
-            assessmentName?: Name;            
-            durationInSeconds?: Duration;            
+            assessmentArn?: Arn;
+            assessmentName?: Name;
+            durationInSeconds?: Duration;
         }
         export interface UpdateAssessmentResponse {
-            message?: Message;            
+            message?: Message;
         }
 
     }

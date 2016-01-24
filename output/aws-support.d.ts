@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2013-04-15
      * endpointPrefix: support
      * serviceAbbreviation: 
@@ -31,8 +31,9 @@ declare module "aws-sdk" {
       describeTrustedAdvisorChecks(params: Support.DescribeTrustedAdvisorChecksRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorChecksResponse|any) => void): Request;
       refreshTrustedAdvisorCheck(params: Support.RefreshTrustedAdvisorCheckRequest, callback?: (err: Support.InternalServerError|any, data: Support.RefreshTrustedAdvisorCheckResponse|any) => void): Request;
       resolveCase(params: Support.ResolveCaseRequest, callback?: (err: Support.InternalServerError|Support.CaseIdNotFound|any, data: Support.ResolveCaseResponse|any) => void): Request;
+
     }
-    
+
     export module Support {
         export type AfterTime = string;
         export type AttachmentId = string;
@@ -86,239 +87,239 @@ declare module "aws-sdk" {
         export type TrustedAdvisorResourceDetailList = TrustedAdvisorResourceDetail[];
 
         export interface AddAttachmentsToSetRequest {
-            attachmentSetId?: AttachmentSetId;            
-            attachments: Attachments;            
+            attachmentSetId?: AttachmentSetId;
+            attachments: Attachments;
         }
         export interface AddAttachmentsToSetResponse {
-            attachmentSetId?: AttachmentSetId;            
-            expiryTime?: ExpiryTime;            
+            attachmentSetId?: AttachmentSetId;
+            expiryTime?: ExpiryTime;
         }
         export interface AddCommunicationToCaseRequest {
-            caseId?: CaseId;            
-            communicationBody: CommunicationBody;            
-            ccEmailAddresses?: CcEmailAddressList;            
-            attachmentSetId?: AttachmentSetId;            
+            caseId?: CaseId;
+            communicationBody: CommunicationBody;
+            ccEmailAddresses?: CcEmailAddressList;
+            attachmentSetId?: AttachmentSetId;
         }
         export interface AddCommunicationToCaseResponse {
-            result?: Result;            
+            result?: Result;
         }
         export interface Attachment {
-            fileName?: FileName;            
-            data?: Data;            
+            fileName?: FileName;
+            data?: Data;
         }
         export interface AttachmentDetails {
-            attachmentId?: AttachmentId;            
-            fileName?: FileName;            
+            attachmentId?: AttachmentId;
+            fileName?: FileName;
         }
         export interface AttachmentIdNotFound {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface AttachmentLimitExceeded {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface AttachmentSetExpired {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface AttachmentSetIdNotFound {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface AttachmentSetSizeLimitExceeded {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface CaseCreationLimitExceeded {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface CaseDetails {
-            caseId?: CaseId;            
-            displayId?: DisplayId;            
-            subject?: Subject;            
-            status?: Status;            
-            serviceCode?: ServiceCode;            
-            categoryCode?: CategoryCode;            
-            severityCode?: SeverityCode;            
-            submittedBy?: SubmittedBy;            
-            timeCreated?: TimeCreated;            
-            recentCommunications?: RecentCaseCommunications;            
-            ccEmailAddresses?: CcEmailAddressList;            
-            language?: Language;            
+            caseId?: CaseId;
+            displayId?: DisplayId;
+            subject?: Subject;
+            status?: Status;
+            serviceCode?: ServiceCode;
+            categoryCode?: CategoryCode;
+            severityCode?: SeverityCode;
+            submittedBy?: SubmittedBy;
+            timeCreated?: TimeCreated;
+            recentCommunications?: RecentCaseCommunications;
+            ccEmailAddresses?: CcEmailAddressList;
+            language?: Language;
         }
         export interface CaseIdNotFound {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface Category {
-            code?: CategoryCode;            
-            name?: CategoryName;            
+            code?: CategoryCode;
+            name?: CategoryName;
         }
         export interface Communication {
-            caseId?: CaseId;            
-            body?: CommunicationBody;            
-            submittedBy?: SubmittedBy;            
-            timeCreated?: TimeCreated;            
-            attachmentSet?: AttachmentSet;            
+            caseId?: CaseId;
+            body?: CommunicationBody;
+            submittedBy?: SubmittedBy;
+            timeCreated?: TimeCreated;
+            attachmentSet?: AttachmentSet;
         }
         export interface CreateCaseRequest {
-            subject: Subject;            
-            serviceCode?: ServiceCode;            
-            severityCode?: SeverityCode;            
-            categoryCode?: CategoryCode;            
-            communicationBody: CommunicationBody;            
-            ccEmailAddresses?: CcEmailAddressList;            
-            language?: Language;            
-            issueType?: IssueType;            
-            attachmentSetId?: AttachmentSetId;            
+            subject: Subject;
+            serviceCode?: ServiceCode;
+            severityCode?: SeverityCode;
+            categoryCode?: CategoryCode;
+            communicationBody: CommunicationBody;
+            ccEmailAddresses?: CcEmailAddressList;
+            language?: Language;
+            issueType?: IssueType;
+            attachmentSetId?: AttachmentSetId;
         }
         export interface CreateCaseResponse {
-            caseId?: CaseId;            
+            caseId?: CaseId;
         }
         export interface DescribeAttachmentLimitExceeded {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface DescribeAttachmentRequest {
-            attachmentId: AttachmentId;            
+            attachmentId: AttachmentId;
         }
         export interface DescribeAttachmentResponse {
-            attachment?: Attachment;            
+            attachment?: Attachment;
         }
         export interface DescribeCasesRequest {
-            caseIdList?: CaseIdList;            
-            displayId?: DisplayId;            
-            afterTime?: AfterTime;            
-            beforeTime?: BeforeTime;            
-            includeResolvedCases?: IncludeResolvedCases;            
-            nextToken?: NextToken;            
-            maxResults?: MaxResults;            
-            language?: Language;            
-            includeCommunications?: IncludeCommunications;            
+            caseIdList?: CaseIdList;
+            displayId?: DisplayId;
+            afterTime?: AfterTime;
+            beforeTime?: BeforeTime;
+            includeResolvedCases?: IncludeResolvedCases;
+            nextToken?: NextToken;
+            maxResults?: MaxResults;
+            language?: Language;
+            includeCommunications?: IncludeCommunications;
         }
         export interface DescribeCasesResponse {
-            cases?: CaseList;            
-            nextToken?: NextToken;            
+            cases?: CaseList;
+            nextToken?: NextToken;
         }
         export interface DescribeCommunicationsRequest {
-            caseId: CaseId;            
-            beforeTime?: BeforeTime;            
-            afterTime?: AfterTime;            
-            nextToken?: NextToken;            
-            maxResults?: MaxResults;            
+            caseId: CaseId;
+            beforeTime?: BeforeTime;
+            afterTime?: AfterTime;
+            nextToken?: NextToken;
+            maxResults?: MaxResults;
         }
         export interface DescribeCommunicationsResponse {
-            communications?: CommunicationList;            
-            nextToken?: NextToken;            
+            communications?: CommunicationList;
+            nextToken?: NextToken;
         }
         export interface DescribeServicesRequest {
-            serviceCodeList?: ServiceCodeList;            
-            language?: Language;            
+            serviceCodeList?: ServiceCodeList;
+            language?: Language;
         }
         export interface DescribeServicesResponse {
-            services?: ServiceList;            
+            services?: ServiceList;
         }
         export interface DescribeSeverityLevelsRequest {
-            language?: Language;            
+            language?: Language;
         }
         export interface DescribeSeverityLevelsResponse {
-            severityLevels?: SeverityLevelsList;            
+            severityLevels?: SeverityLevelsList;
         }
         export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
-            checkIds: StringList;            
+            checkIds: StringList;
         }
         export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
-            statuses: TrustedAdvisorCheckRefreshStatusList;            
+            statuses: TrustedAdvisorCheckRefreshStatusList;
         }
         export interface DescribeTrustedAdvisorCheckResultRequest {
-            checkId: String;            
-            language?: String;            
+            checkId: String;
+            language?: String;
         }
         export interface DescribeTrustedAdvisorCheckResultResponse {
-            result?: TrustedAdvisorCheckResult;            
+            result?: TrustedAdvisorCheckResult;
         }
         export interface DescribeTrustedAdvisorCheckSummariesRequest {
-            checkIds: StringList;            
+            checkIds: StringList;
         }
         export interface DescribeTrustedAdvisorCheckSummariesResponse {
-            summaries: TrustedAdvisorCheckSummaryList;            
+            summaries: TrustedAdvisorCheckSummaryList;
         }
         export interface DescribeTrustedAdvisorChecksRequest {
-            language: String;            
+            language: String;
         }
         export interface DescribeTrustedAdvisorChecksResponse {
-            checks: TrustedAdvisorCheckList;            
+            checks: TrustedAdvisorCheckList;
         }
         export interface InternalServerError {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface RecentCaseCommunications {
-            communications?: CommunicationList;            
-            nextToken?: NextToken;            
+            communications?: CommunicationList;
+            nextToken?: NextToken;
         }
         export interface RefreshTrustedAdvisorCheckRequest {
-            checkId: String;            
+            checkId: String;
         }
         export interface RefreshTrustedAdvisorCheckResponse {
-            status: TrustedAdvisorCheckRefreshStatus;            
+            status: TrustedAdvisorCheckRefreshStatus;
         }
         export interface ResolveCaseRequest {
-            caseId?: CaseId;            
+            caseId?: CaseId;
         }
         export interface ResolveCaseResponse {
-            initialCaseStatus?: CaseStatus;            
-            finalCaseStatus?: CaseStatus;            
+            initialCaseStatus?: CaseStatus;
+            finalCaseStatus?: CaseStatus;
         }
         export interface Service {
-            code?: ServiceCode;            
-            name?: ServiceName;            
-            categories?: CategoryList;            
+            code?: ServiceCode;
+            name?: ServiceName;
+            categories?: CategoryList;
         }
         export interface SeverityLevel {
-            code?: SeverityLevelCode;            
-            name?: SeverityLevelName;            
+            code?: SeverityLevelCode;
+            name?: SeverityLevelName;
         }
         export interface TrustedAdvisorCategorySpecificSummary {
-            costOptimizing?: TrustedAdvisorCostOptimizingSummary;            
+            costOptimizing?: TrustedAdvisorCostOptimizingSummary;
         }
         export interface TrustedAdvisorCheckDescription {
-            id: String;            
-            name: String;            
-            description: String;            
-            category: String;            
-            metadata: StringList;            
+            id: String;
+            name: String;
+            description: String;
+            category: String;
+            metadata: StringList;
         }
         export interface TrustedAdvisorCheckRefreshStatus {
-            checkId: String;            
-            status: String;            
-            millisUntilNextRefreshable: Long;            
+            checkId: String;
+            status: String;
+            millisUntilNextRefreshable: Long;
         }
         export interface TrustedAdvisorCheckResult {
-            checkId: String;            
-            timestamp: String;            
-            status: String;            
-            resourcesSummary: TrustedAdvisorResourcesSummary;            
-            categorySpecificSummary: TrustedAdvisorCategorySpecificSummary;            
-            flaggedResources: TrustedAdvisorResourceDetailList;            
+            checkId: String;
+            timestamp: String;
+            status: String;
+            resourcesSummary: TrustedAdvisorResourcesSummary;
+            categorySpecificSummary: TrustedAdvisorCategorySpecificSummary;
+            flaggedResources: TrustedAdvisorResourceDetailList;
         }
         export interface TrustedAdvisorCheckSummary {
-            checkId: String;            
-            timestamp: String;            
-            status: String;            
-            hasFlaggedResources?: Boolean;            
-            resourcesSummary: TrustedAdvisorResourcesSummary;            
-            categorySpecificSummary: TrustedAdvisorCategorySpecificSummary;            
+            checkId: String;
+            timestamp: String;
+            status: String;
+            hasFlaggedResources?: Boolean;
+            resourcesSummary: TrustedAdvisorResourcesSummary;
+            categorySpecificSummary: TrustedAdvisorCategorySpecificSummary;
         }
         export interface TrustedAdvisorCostOptimizingSummary {
-            estimatedMonthlySavings: Double;            
-            estimatedPercentMonthlySavings: Double;            
+            estimatedMonthlySavings: Double;
+            estimatedPercentMonthlySavings: Double;
         }
         export interface TrustedAdvisorResourceDetail {
-            status: String;            
-            region: String;            
-            resourceId: String;            
-            isSuppressed?: Boolean;            
-            metadata: StringList;            
+            status: String;
+            region: String;
+            resourceId: String;
+            isSuppressed?: Boolean;
+            metadata: StringList;
         }
         export interface TrustedAdvisorResourcesSummary {
-            resourcesProcessed: Long;            
-            resourcesFlagged: Long;            
-            resourcesIgnored: Long;            
-            resourcesSuppressed: Long;            
+            resourcesProcessed: Long;
+            resourcesFlagged: Long;
+            resourcesIgnored: Long;
+            resourcesSuppressed: Long;
         }
 
     }

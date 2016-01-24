@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-04-13
      * endpointPrefix: codecommit
      * serviceAbbreviation: CodeCommit
@@ -28,8 +28,9 @@ declare module "aws-sdk" {
       updateDefaultBranch(params: CodeCommit.UpdateDefaultBranchInput, callback?: (err: CodeCommit.RepositoryNameRequiredException|CodeCommit.RepositoryDoesNotExistException|CodeCommit.InvalidRepositoryNameException|CodeCommit.BranchNameRequiredException|CodeCommit.InvalidBranchNameException|CodeCommit.BranchDoesNotExistException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any, data: any) => void): Request;
       updateRepositoryDescription(params: CodeCommit.UpdateRepositoryDescriptionInput, callback?: (err: CodeCommit.RepositoryNameRequiredException|CodeCommit.RepositoryDoesNotExistException|CodeCommit.InvalidRepositoryNameException|CodeCommit.InvalidRepositoryDescriptionException|CodeCommit.EncryptionIntegrityChecksFailedException|CodeCommit.EncryptionKeyAccessDeniedException|CodeCommit.EncryptionKeyDisabledException|CodeCommit.EncryptionKeyNotFoundException|CodeCommit.EncryptionKeyUnavailableException|any, data: any) => void): Request;
       updateRepositoryName(params: CodeCommit.UpdateRepositoryNameInput, callback?: (err: CodeCommit.RepositoryDoesNotExistException|CodeCommit.RepositoryNameExistsException|CodeCommit.RepositoryNameRequiredException|CodeCommit.InvalidRepositoryNameException|any, data: any) => void): Request;
+
     }
-    
+
     export module CodeCommit {
         export type AccountId = string;
         export type Arn = string;
@@ -52,17 +53,17 @@ declare module "aws-sdk" {
         export type SortByEnum = string;
 
         export interface BatchGetRepositoriesInput {
-            repositoryNames: RepositoryNameList;            
+            repositoryNames: RepositoryNameList;
         }
         export interface BatchGetRepositoriesOutput {
-            repositories?: RepositoryMetadataList;            
-            repositoriesNotFound?: RepositoryNotFoundList;            
+            repositories?: RepositoryMetadataList;
+            repositoriesNotFound?: RepositoryNotFoundList;
         }
         export interface BranchDoesNotExistException {
         }
         export interface BranchInfo {
-            branchName?: BranchName;            
-            commitId?: CommitId;            
+            branchName?: BranchName;
+            commitId?: CommitId;
         }
         export interface BranchNameExistsException {
         }
@@ -73,22 +74,22 @@ declare module "aws-sdk" {
         export interface CommitIdRequiredException {
         }
         export interface CreateBranchInput {
-            repositoryName: RepositoryName;            
-            branchName: BranchName;            
-            commitId: CommitId;            
+            repositoryName: RepositoryName;
+            branchName: BranchName;
+            commitId: CommitId;
         }
         export interface CreateRepositoryInput {
-            repositoryName: RepositoryName;            
-            repositoryDescription?: RepositoryDescription;            
+            repositoryName: RepositoryName;
+            repositoryDescription?: RepositoryDescription;
         }
         export interface CreateRepositoryOutput {
-            repositoryMetadata?: RepositoryMetadata;            
+            repositoryMetadata?: RepositoryMetadata;
         }
         export interface DeleteRepositoryInput {
-            repositoryName: RepositoryName;            
+            repositoryName: RepositoryName;
         }
         export interface DeleteRepositoryOutput {
-            repositoryId?: RepositoryId;            
+            repositoryId?: RepositoryId;
         }
         export interface EncryptionIntegrityChecksFailedException {
         }
@@ -101,17 +102,17 @@ declare module "aws-sdk" {
         export interface EncryptionKeyUnavailableException {
         }
         export interface GetBranchInput {
-            repositoryName?: RepositoryName;            
-            branchName?: BranchName;            
+            repositoryName?: RepositoryName;
+            branchName?: BranchName;
         }
         export interface GetBranchOutput {
-            branch?: BranchInfo;            
+            branch?: BranchInfo;
         }
         export interface GetRepositoryInput {
-            repositoryName: RepositoryName;            
+            repositoryName: RepositoryName;
         }
         export interface GetRepositoryOutput {
-            repositoryMetadata?: RepositoryMetadata;            
+            repositoryMetadata?: RepositoryMetadata;
         }
         export interface InvalidBranchNameException {
         }
@@ -128,21 +129,21 @@ declare module "aws-sdk" {
         export interface InvalidSortByException {
         }
         export interface ListBranchesInput {
-            repositoryName: RepositoryName;            
-            nextToken?: NextToken;            
+            repositoryName: RepositoryName;
+            nextToken?: NextToken;
         }
         export interface ListBranchesOutput {
-            branches?: BranchNameList;            
-            nextToken?: NextToken;            
+            branches?: BranchNameList;
+            nextToken?: NextToken;
         }
         export interface ListRepositoriesInput {
-            nextToken?: NextToken;            
-            sortBy?: SortByEnum;            
-            order?: OrderEnum;            
+            nextToken?: NextToken;
+            sortBy?: SortByEnum;
+            order?: OrderEnum;
         }
         export interface ListRepositoriesOutput {
-            repositories?: RepositoryNameIdPairList;            
-            nextToken?: NextToken;            
+            repositories?: RepositoryNameIdPairList;
+            nextToken?: NextToken;
         }
         export interface MaximumRepositoryNamesExceededException {
         }
@@ -151,38 +152,38 @@ declare module "aws-sdk" {
         export interface RepositoryLimitExceededException {
         }
         export interface RepositoryMetadata {
-            accountId?: AccountId;            
-            repositoryId?: RepositoryId;            
-            repositoryName?: RepositoryName;            
-            repositoryDescription?: RepositoryDescription;            
-            defaultBranch?: BranchName;            
-            lastModifiedDate?: LastModifiedDate;            
-            creationDate?: CreationDate;            
-            cloneUrlHttp?: CloneUrlHttp;            
-            cloneUrlSsh?: CloneUrlSsh;            
-            Arn?: Arn;            
+            accountId?: AccountId;
+            repositoryId?: RepositoryId;
+            repositoryName?: RepositoryName;
+            repositoryDescription?: RepositoryDescription;
+            defaultBranch?: BranchName;
+            lastModifiedDate?: LastModifiedDate;
+            creationDate?: CreationDate;
+            cloneUrlHttp?: CloneUrlHttp;
+            cloneUrlSsh?: CloneUrlSsh;
+            Arn?: Arn;
         }
         export interface RepositoryNameExistsException {
         }
         export interface RepositoryNameIdPair {
-            repositoryName?: RepositoryName;            
-            repositoryId?: RepositoryId;            
+            repositoryName?: RepositoryName;
+            repositoryId?: RepositoryId;
         }
         export interface RepositoryNameRequiredException {
         }
         export interface RepositoryNamesRequiredException {
         }
         export interface UpdateDefaultBranchInput {
-            repositoryName: RepositoryName;            
-            defaultBranchName: BranchName;            
+            repositoryName: RepositoryName;
+            defaultBranchName: BranchName;
         }
         export interface UpdateRepositoryDescriptionInput {
-            repositoryName: RepositoryName;            
-            repositoryDescription?: RepositoryDescription;            
+            repositoryName: RepositoryName;
+            repositoryDescription?: RepositoryDescription;
         }
         export interface UpdateRepositoryNameInput {
-            oldName: RepositoryName;            
-            newName: RepositoryName;            
+            oldName: RepositoryName;
+            newName: RepositoryName;
         }
 
     }

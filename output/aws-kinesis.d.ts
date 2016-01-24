@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2013-12-02
      * endpointPrefix: kinesis
      * serviceAbbreviation: Kinesis
@@ -32,8 +32,9 @@ declare module "aws-sdk" {
       putRecords(params: Kinesis.PutRecordsInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any, data: Kinesis.PutRecordsOutput|any) => void): Request;
       removeTagsFromStream(params: Kinesis.RemoveTagsFromStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request;
       splitShard(params: Kinesis.SplitShardInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request;
+
     }
-    
+
     export module Kinesis {
         export type ApproximateArrivalTimestamp = number;
         export type BooleanObject = boolean;
@@ -68,161 +69,161 @@ declare module "aws-sdk" {
         export type TagValue = string;    // max: 256
 
         export interface AddTagsToStreamInput {
-            StreamName: StreamName;            
-            Tags: TagMap;            
+            StreamName: StreamName;
+            Tags: TagMap;
         }
         export interface CreateStreamInput {
-            StreamName: StreamName;            
-            ShardCount: PositiveIntegerObject;            
+            StreamName: StreamName;
+            ShardCount: PositiveIntegerObject;
         }
         export interface DecreaseStreamRetentionPeriodInput {
-            StreamName: StreamName;            
-            RetentionPeriodHours: RetentionPeriodHours;            
+            StreamName: StreamName;
+            RetentionPeriodHours: RetentionPeriodHours;
         }
         export interface DeleteStreamInput {
-            StreamName: StreamName;            
+            StreamName: StreamName;
         }
         export interface DescribeStreamInput {
-            StreamName: StreamName;            
-            Limit?: DescribeStreamInputLimit;            
-            ExclusiveStartShardId?: ShardId;            
+            StreamName: StreamName;
+            Limit?: DescribeStreamInputLimit;
+            ExclusiveStartShardId?: ShardId;
         }
         export interface DescribeStreamOutput {
-            StreamDescription: StreamDescription;            
+            StreamDescription: StreamDescription;
         }
         export interface ExpiredIteratorException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface GetRecordsInput {
-            ShardIterator: ShardIterator;            
-            Limit?: GetRecordsInputLimit;            
+            ShardIterator: ShardIterator;
+            Limit?: GetRecordsInputLimit;
         }
         export interface GetRecordsOutput {
-            Records: RecordList;            
-            NextShardIterator?: ShardIterator;            
-            MillisBehindLatest?: MillisBehindLatest;            
+            Records: RecordList;
+            NextShardIterator?: ShardIterator;
+            MillisBehindLatest?: MillisBehindLatest;
         }
         export interface GetShardIteratorInput {
-            StreamName: StreamName;            
-            ShardId: ShardId;            
-            ShardIteratorType: ShardIteratorType;            
-            StartingSequenceNumber?: SequenceNumber;            
+            StreamName: StreamName;
+            ShardId: ShardId;
+            ShardIteratorType: ShardIteratorType;
+            StartingSequenceNumber?: SequenceNumber;
         }
         export interface GetShardIteratorOutput {
-            ShardIterator?: ShardIterator;            
+            ShardIterator?: ShardIterator;
         }
         export interface HashKeyRange {
-            StartingHashKey: HashKey;            
-            EndingHashKey: HashKey;            
+            StartingHashKey: HashKey;
+            EndingHashKey: HashKey;
         }
         export interface IncreaseStreamRetentionPeriodInput {
-            StreamName: StreamName;            
-            RetentionPeriodHours: RetentionPeriodHours;            
+            StreamName: StreamName;
+            RetentionPeriodHours: RetentionPeriodHours;
         }
         export interface InvalidArgumentException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface LimitExceededException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ListStreamsInput {
-            Limit?: ListStreamsInputLimit;            
-            ExclusiveStartStreamName?: StreamName;            
+            Limit?: ListStreamsInputLimit;
+            ExclusiveStartStreamName?: StreamName;
         }
         export interface ListStreamsOutput {
-            StreamNames: StreamNameList;            
-            HasMoreStreams: BooleanObject;            
+            StreamNames: StreamNameList;
+            HasMoreStreams: BooleanObject;
         }
         export interface ListTagsForStreamInput {
-            StreamName: StreamName;            
-            ExclusiveStartTagKey?: TagKey;            
-            Limit?: ListTagsForStreamInputLimit;            
+            StreamName: StreamName;
+            ExclusiveStartTagKey?: TagKey;
+            Limit?: ListTagsForStreamInputLimit;
         }
         export interface ListTagsForStreamOutput {
-            Tags: TagList;            
-            HasMoreTags: BooleanObject;            
+            Tags: TagList;
+            HasMoreTags: BooleanObject;
         }
         export interface MergeShardsInput {
-            StreamName: StreamName;            
-            ShardToMerge: ShardId;            
-            AdjacentShardToMerge: ShardId;            
+            StreamName: StreamName;
+            ShardToMerge: ShardId;
+            AdjacentShardToMerge: ShardId;
         }
         export interface ProvisionedThroughputExceededException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface PutRecordInput {
-            StreamName: StreamName;            
-            Data: Data;            
-            PartitionKey: PartitionKey;            
-            ExplicitHashKey?: HashKey;            
-            SequenceNumberForOrdering?: SequenceNumber;            
+            StreamName: StreamName;
+            Data: Data;
+            PartitionKey: PartitionKey;
+            ExplicitHashKey?: HashKey;
+            SequenceNumberForOrdering?: SequenceNumber;
         }
         export interface PutRecordOutput {
-            ShardId: ShardId;            
-            SequenceNumber: SequenceNumber;            
+            ShardId: ShardId;
+            SequenceNumber: SequenceNumber;
         }
         export interface PutRecordsInput {
-            Records: PutRecordsRequestEntryList;            
-            StreamName: StreamName;            
+            Records: PutRecordsRequestEntryList;
+            StreamName: StreamName;
         }
         export interface PutRecordsOutput {
-            FailedRecordCount?: PositiveIntegerObject;            
-            Records: PutRecordsResultEntryList;            
+            FailedRecordCount?: PositiveIntegerObject;
+            Records: PutRecordsResultEntryList;
         }
         export interface PutRecordsRequestEntry {
-            Data: Data;            
-            ExplicitHashKey?: HashKey;            
-            PartitionKey: PartitionKey;            
+            Data: Data;
+            ExplicitHashKey?: HashKey;
+            PartitionKey: PartitionKey;
         }
         export interface PutRecordsResultEntry {
-            SequenceNumber?: SequenceNumber;            
-            ShardId?: ShardId;            
-            ErrorCode?: ErrorCode;            
-            ErrorMessage?: ErrorMessage;            
+            SequenceNumber?: SequenceNumber;
+            ShardId?: ShardId;
+            ErrorCode?: ErrorCode;
+            ErrorMessage?: ErrorMessage;
         }
         export interface Record {
-            SequenceNumber: SequenceNumber;            
-            ApproximateArrivalTimestamp?: ApproximateArrivalTimestamp;            
-            Data: Data;            
-            PartitionKey: PartitionKey;            
+            SequenceNumber: SequenceNumber;
+            ApproximateArrivalTimestamp?: ApproximateArrivalTimestamp;
+            Data: Data;
+            PartitionKey: PartitionKey;
         }
         export interface RemoveTagsFromStreamInput {
-            StreamName: StreamName;            
-            TagKeys: TagKeyList;            
+            StreamName: StreamName;
+            TagKeys: TagKeyList;
         }
         export interface ResourceInUseException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface ResourceNotFoundException {
-            message?: ErrorMessage;            
+            message?: ErrorMessage;
         }
         export interface SequenceNumberRange {
-            StartingSequenceNumber: SequenceNumber;            
-            EndingSequenceNumber?: SequenceNumber;            
+            StartingSequenceNumber: SequenceNumber;
+            EndingSequenceNumber?: SequenceNumber;
         }
         export interface Shard {
-            ShardId: ShardId;            
-            ParentShardId?: ShardId;            
-            AdjacentParentShardId?: ShardId;            
-            HashKeyRange: HashKeyRange;            
-            SequenceNumberRange: SequenceNumberRange;            
+            ShardId: ShardId;
+            ParentShardId?: ShardId;
+            AdjacentParentShardId?: ShardId;
+            HashKeyRange: HashKeyRange;
+            SequenceNumberRange: SequenceNumberRange;
         }
         export interface SplitShardInput {
-            StreamName: StreamName;            
-            ShardToSplit: ShardId;            
-            NewStartingHashKey: HashKey;            
+            StreamName: StreamName;
+            ShardToSplit: ShardId;
+            NewStartingHashKey: HashKey;
         }
         export interface StreamDescription {
-            StreamName: StreamName;            
-            StreamARN: StreamARN;            
-            StreamStatus: StreamStatus;            
-            Shards: ShardList;            
-            HasMoreShards: BooleanObject;            
-            RetentionPeriodHours: RetentionPeriodHours;            
+            StreamName: StreamName;
+            StreamARN: StreamARN;
+            StreamStatus: StreamStatus;
+            Shards: ShardList;
+            HasMoreShards: BooleanObject;
+            RetentionPeriodHours: RetentionPeriodHours;
         }
         export interface Tag {
-            Key: TagKey;            
-            Value?: TagValue;            
+            Key: TagKey;
+            Value?: TagValue;
         }
 
     }

@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: {{descriptor.metadata.apiVersion}}
      * endpointPrefix: {{descriptor.metadata.endpointPrefix}}
      * serviceAbbreviation: {{descriptor.metadata.serviceAbbreviation}}
@@ -25,8 +25,13 @@ declare module "aws-sdk" {
             data: {{#if this.output.shape}}{{../../name}}.{{this.output.shape}}|{{/if}}any) => void {{~null~}}
       ): Request;
 {{/each}}
+
+{{#each extraClientMethods}}
+      // Found on JS Sources - Sorry for the inconvenience :)
+      {{{this}}}(...args: any[]): any
+{{/each}}
     }
-    
+
     export module {{name}} {
 {{!-- Alias definitions --}}
 {{#each descriptor.aliases}}
@@ -37,7 +42,7 @@ declare module "aws-sdk" {
 {{#each descriptor.structures}}
         export interface {{name}} {
 {{#each members}}
-            {{@key}}{{this.required}}: {{this.shape}};            
+            {{@key}}{{this.required}}: {{this.shape}};
 {{/each}}
         }
 {{/each}}

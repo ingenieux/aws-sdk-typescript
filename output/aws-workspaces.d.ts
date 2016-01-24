@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2015-04-08
      * endpointPrefix: workspaces
      * serviceAbbreviation: 
@@ -24,8 +24,9 @@ declare module "aws-sdk" {
       rebootWorkspaces(params: WorkSpaces.RebootWorkspacesRequest, callback?: (err: any, data: WorkSpaces.RebootWorkspacesResult|any) => void): Request;
       rebuildWorkspaces(params: WorkSpaces.RebuildWorkspacesRequest, callback?: (err: any, data: WorkSpaces.RebuildWorkspacesResult|any) => void): Request;
       terminateWorkspaces(params: WorkSpaces.TerminateWorkspacesRequest, callback?: (err: any, data: WorkSpaces.TerminateWorkspacesResult|any) => void): Request;
+
     }
-    
+
     export module WorkSpaces {
         export type ARN = string;    // pattern: &quot;^arn:aws:[A-Za-z0-9][A-za-z0-9_/.-]{0,62}:[A-za-z0-9_/.-]{0,63}:[A-za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-za-z0-9_/.-]{0,127}$&quot;
         export type Alias = string;
@@ -72,145 +73,145 @@ declare module "aws-sdk" {
         export type WorkspaceState = string;
 
         export interface ComputeType {
-            Name?: Compute;            
+            Name?: Compute;
         }
         export interface CreateWorkspacesRequest {
-            Workspaces: WorkspaceRequestList;            
+            Workspaces: WorkspaceRequestList;
         }
         export interface CreateWorkspacesResult {
-            FailedRequests?: FailedCreateWorkspaceRequests;            
-            PendingRequests?: WorkspaceList;            
+            FailedRequests?: FailedCreateWorkspaceRequests;
+            PendingRequests?: WorkspaceList;
         }
         export interface DefaultWorkspaceCreationProperties {
-            EnableWorkDocs?: BooleanObject;            
-            EnableInternetAccess?: BooleanObject;            
-            DefaultOu?: DefaultOu;            
-            CustomSecurityGroupId?: SecurityGroupId;            
-            UserEnabledAsLocalAdministrator?: BooleanObject;            
+            EnableWorkDocs?: BooleanObject;
+            EnableInternetAccess?: BooleanObject;
+            DefaultOu?: DefaultOu;
+            CustomSecurityGroupId?: SecurityGroupId;
+            UserEnabledAsLocalAdministrator?: BooleanObject;
         }
         export interface DescribeWorkspaceBundlesRequest {
-            BundleIds?: BundleIdList;            
-            Owner?: BundleOwner;            
-            NextToken?: PaginationToken;            
+            BundleIds?: BundleIdList;
+            Owner?: BundleOwner;
+            NextToken?: PaginationToken;
         }
         export interface DescribeWorkspaceBundlesResult {
-            Bundles?: BundleList;            
-            NextToken?: PaginationToken;            
+            Bundles?: BundleList;
+            NextToken?: PaginationToken;
         }
         export interface DescribeWorkspaceDirectoriesRequest {
-            DirectoryIds?: DirectoryIdList;            
-            NextToken?: PaginationToken;            
+            DirectoryIds?: DirectoryIdList;
+            NextToken?: PaginationToken;
         }
         export interface DescribeWorkspaceDirectoriesResult {
-            Directories?: DirectoryList;            
-            NextToken?: PaginationToken;            
+            Directories?: DirectoryList;
+            NextToken?: PaginationToken;
         }
         export interface DescribeWorkspacesRequest {
-            WorkspaceIds?: WorkspaceIdList;            
-            DirectoryId?: DirectoryId;            
-            UserName?: UserName;            
-            BundleId?: BundleId;            
-            Limit?: Limit;            
-            NextToken?: PaginationToken;            
+            WorkspaceIds?: WorkspaceIdList;
+            DirectoryId?: DirectoryId;
+            UserName?: UserName;
+            BundleId?: BundleId;
+            Limit?: Limit;
+            NextToken?: PaginationToken;
         }
         export interface DescribeWorkspacesResult {
-            Workspaces?: WorkspaceList;            
-            NextToken?: PaginationToken;            
+            Workspaces?: WorkspaceList;
+            NextToken?: PaginationToken;
         }
         export interface FailedCreateWorkspaceRequest {
-            WorkspaceRequest?: WorkspaceRequest;            
-            ErrorCode?: ErrorType;            
-            ErrorMessage?: Description;            
+            WorkspaceRequest?: WorkspaceRequest;
+            ErrorCode?: ErrorType;
+            ErrorMessage?: Description;
         }
         export interface FailedWorkspaceChangeRequest {
-            WorkspaceId?: WorkspaceId;            
-            ErrorCode?: ErrorType;            
-            ErrorMessage?: Description;            
+            WorkspaceId?: WorkspaceId;
+            ErrorCode?: ErrorType;
+            ErrorMessage?: Description;
         }
         export interface InvalidParameterValuesException {
-            message?: ExceptionMessage;            
+            message?: ExceptionMessage;
         }
         export interface RebootRequest {
-            WorkspaceId: WorkspaceId;            
+            WorkspaceId: WorkspaceId;
         }
         export interface RebootWorkspacesRequest {
-            RebootWorkspaceRequests: RebootWorkspaceRequests;            
+            RebootWorkspaceRequests: RebootWorkspaceRequests;
         }
         export interface RebootWorkspacesResult {
-            FailedRequests?: FailedRebootWorkspaceRequests;            
+            FailedRequests?: FailedRebootWorkspaceRequests;
         }
         export interface RebuildRequest {
-            WorkspaceId: WorkspaceId;            
+            WorkspaceId: WorkspaceId;
         }
         export interface RebuildWorkspacesRequest {
-            RebuildWorkspaceRequests: RebuildWorkspaceRequests;            
+            RebuildWorkspaceRequests: RebuildWorkspaceRequests;
         }
         export interface RebuildWorkspacesResult {
-            FailedRequests?: FailedRebuildWorkspaceRequests;            
+            FailedRequests?: FailedRebuildWorkspaceRequests;
         }
         export interface ResourceLimitExceededException {
-            message?: ExceptionMessage;            
+            message?: ExceptionMessage;
         }
         export interface ResourceUnavailableException {
-            message?: ExceptionMessage;            
-            ResourceId?: NonEmptyString;            
+            message?: ExceptionMessage;
+            ResourceId?: NonEmptyString;
         }
         export interface TerminateRequest {
-            WorkspaceId: WorkspaceId;            
+            WorkspaceId: WorkspaceId;
         }
         export interface TerminateWorkspacesRequest {
-            TerminateWorkspaceRequests: TerminateWorkspaceRequests;            
+            TerminateWorkspaceRequests: TerminateWorkspaceRequests;
         }
         export interface TerminateWorkspacesResult {
-            FailedRequests?: FailedTerminateWorkspaceRequests;            
+            FailedRequests?: FailedTerminateWorkspaceRequests;
         }
         export interface UserStorage {
-            Capacity?: NonEmptyString;            
+            Capacity?: NonEmptyString;
         }
         export interface Workspace {
-            WorkspaceId?: WorkspaceId;            
-            DirectoryId?: DirectoryId;            
-            UserName?: UserName;            
-            IpAddress?: IpAddress;            
-            State?: WorkspaceState;            
-            BundleId?: BundleId;            
-            SubnetId?: SubnetId;            
-            ErrorMessage?: Description;            
-            ErrorCode?: WorkspaceErrorCode;            
-            ComputerName?: ComputerName;            
-            VolumeEncryptionKey?: VolumeEncryptionKey;            
-            UserVolumeEncryptionEnabled?: BooleanObject;            
-            RootVolumeEncryptionEnabled?: BooleanObject;            
+            WorkspaceId?: WorkspaceId;
+            DirectoryId?: DirectoryId;
+            UserName?: UserName;
+            IpAddress?: IpAddress;
+            State?: WorkspaceState;
+            BundleId?: BundleId;
+            SubnetId?: SubnetId;
+            ErrorMessage?: Description;
+            ErrorCode?: WorkspaceErrorCode;
+            ComputerName?: ComputerName;
+            VolumeEncryptionKey?: VolumeEncryptionKey;
+            UserVolumeEncryptionEnabled?: BooleanObject;
+            RootVolumeEncryptionEnabled?: BooleanObject;
         }
         export interface WorkspaceBundle {
-            BundleId?: BundleId;            
-            Name?: NonEmptyString;            
-            Owner?: BundleOwner;            
-            Description?: Description;            
-            UserStorage?: UserStorage;            
-            ComputeType?: ComputeType;            
+            BundleId?: BundleId;
+            Name?: NonEmptyString;
+            Owner?: BundleOwner;
+            Description?: Description;
+            UserStorage?: UserStorage;
+            ComputeType?: ComputeType;
         }
         export interface WorkspaceDirectory {
-            DirectoryId?: DirectoryId;            
-            Alias?: Alias;            
-            DirectoryName?: DirectoryName;            
-            RegistrationCode?: RegistrationCode;            
-            SubnetIds?: SubnetIds;            
-            DnsIpAddresses?: DnsIpAddresses;            
-            CustomerUserName?: UserName;            
-            IamRoleId?: ARN;            
-            DirectoryType?: WorkspaceDirectoryType;            
-            WorkspaceSecurityGroupId?: SecurityGroupId;            
-            State?: WorkspaceDirectoryState;            
-            WorkspaceCreationProperties?: DefaultWorkspaceCreationProperties;            
+            DirectoryId?: DirectoryId;
+            Alias?: Alias;
+            DirectoryName?: DirectoryName;
+            RegistrationCode?: RegistrationCode;
+            SubnetIds?: SubnetIds;
+            DnsIpAddresses?: DnsIpAddresses;
+            CustomerUserName?: UserName;
+            IamRoleId?: ARN;
+            DirectoryType?: WorkspaceDirectoryType;
+            WorkspaceSecurityGroupId?: SecurityGroupId;
+            State?: WorkspaceDirectoryState;
+            WorkspaceCreationProperties?: DefaultWorkspaceCreationProperties;
         }
         export interface WorkspaceRequest {
-            DirectoryId: DirectoryId;            
-            UserName: UserName;            
-            BundleId: BundleId;            
-            VolumeEncryptionKey?: VolumeEncryptionKey;            
-            UserVolumeEncryptionEnabled?: BooleanObject;            
-            RootVolumeEncryptionEnabled?: BooleanObject;            
+            DirectoryId: DirectoryId;
+            UserName: UserName;
+            BundleId: BundleId;
+            VolumeEncryptionKey?: VolumeEncryptionKey;
+            UserVolumeEncryptionEnabled?: BooleanObject;
+            RootVolumeEncryptionEnabled?: BooleanObject;
         }
 
     }

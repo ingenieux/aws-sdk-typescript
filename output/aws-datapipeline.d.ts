@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
-    /* 
+    /*
      * apiVersion: 2012-10-29
      * endpointPrefix: datapipeline
      * serviceAbbreviation: 
@@ -36,8 +36,9 @@ declare module "aws-sdk" {
       setStatus(params: DataPipeline.SetStatusInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: any) => void): Request;
       setTaskStatus(params: DataPipeline.SetTaskStatusInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.TaskNotFoundException|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.SetTaskStatusOutput|any) => void): Request;
       validatePipelineDefinition(params: DataPipeline.ValidatePipelineDefinitionInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.ValidatePipelineDefinitionOutput|any) => void): Request;
+
     }
-    
+
     export module DataPipeline {
         export type OperatorType = string;
         export type ParameterAttributeList = ParameterAttribute[];
@@ -72,235 +73,235 @@ declare module "aws-sdk" {
         export type validationMessages = validationMessage[];
 
         export interface ActivatePipelineInput {
-            pipelineId: id;            
-            parameterValues?: ParameterValueList;            
-            startTimestamp?: timestamp;            
+            pipelineId: id;
+            parameterValues?: ParameterValueList;
+            startTimestamp?: timestamp;
         }
         export interface ActivatePipelineOutput {
         }
         export interface AddTagsInput {
-            pipelineId: id;            
-            tags: tagList;            
+            pipelineId: id;
+            tags: tagList;
         }
         export interface AddTagsOutput {
         }
         export interface CreatePipelineInput {
-            name: id;            
-            uniqueId: id;            
-            description?: string;            
-            tags?: tagList;            
+            name: id;
+            uniqueId: id;
+            description?: string;
+            tags?: tagList;
         }
         export interface CreatePipelineOutput {
-            pipelineId: id;            
+            pipelineId: id;
         }
         export interface DeactivatePipelineInput {
-            pipelineId: id;            
-            cancelActive?: cancelActive;            
+            pipelineId: id;
+            cancelActive?: cancelActive;
         }
         export interface DeactivatePipelineOutput {
         }
         export interface DeletePipelineInput {
-            pipelineId: id;            
+            pipelineId: id;
         }
         export interface DescribeObjectsInput {
-            pipelineId: id;            
-            objectIds: idList;            
-            evaluateExpressions?: boolean;            
-            marker?: string;            
+            pipelineId: id;
+            objectIds: idList;
+            evaluateExpressions?: boolean;
+            marker?: string;
         }
         export interface DescribeObjectsOutput {
-            pipelineObjects: PipelineObjectList;            
-            marker?: string;            
-            hasMoreResults?: boolean;            
+            pipelineObjects: PipelineObjectList;
+            marker?: string;
+            hasMoreResults?: boolean;
         }
         export interface DescribePipelinesInput {
-            pipelineIds: idList;            
+            pipelineIds: idList;
         }
         export interface DescribePipelinesOutput {
-            pipelineDescriptionList: PipelineDescriptionList;            
+            pipelineDescriptionList: PipelineDescriptionList;
         }
         export interface EvaluateExpressionInput {
-            pipelineId: id;            
-            objectId: id;            
-            expression: longString;            
+            pipelineId: id;
+            objectId: id;
+            expression: longString;
         }
         export interface EvaluateExpressionOutput {
-            evaluatedExpression: longString;            
+            evaluatedExpression: longString;
         }
         export interface Field {
-            key: fieldNameString;            
-            stringValue?: fieldStringValue;            
-            refValue?: fieldNameString;            
+            key: fieldNameString;
+            stringValue?: fieldStringValue;
+            refValue?: fieldNameString;
         }
         export interface GetPipelineDefinitionInput {
-            pipelineId: id;            
-            version?: string;            
+            pipelineId: id;
+            version?: string;
         }
         export interface GetPipelineDefinitionOutput {
-            pipelineObjects?: PipelineObjectList;            
-            parameterObjects?: ParameterObjectList;            
-            parameterValues?: ParameterValueList;            
+            pipelineObjects?: PipelineObjectList;
+            parameterObjects?: ParameterObjectList;
+            parameterValues?: ParameterValueList;
         }
         export interface InstanceIdentity {
-            document?: string;            
-            signature?: string;            
+            document?: string;
+            signature?: string;
         }
         export interface InternalServiceError {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface InvalidRequestException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface ListPipelinesInput {
-            marker?: string;            
+            marker?: string;
         }
         export interface ListPipelinesOutput {
-            pipelineIdList: pipelineList;            
-            marker?: string;            
-            hasMoreResults?: boolean;            
+            pipelineIdList: pipelineList;
+            marker?: string;
+            hasMoreResults?: boolean;
         }
         export interface Operator {
-            type?: OperatorType;            
-            values?: stringList;            
+            type?: OperatorType;
+            values?: stringList;
         }
         export interface ParameterAttribute {
-            key: attributeNameString;            
-            stringValue: attributeValueString;            
+            key: attributeNameString;
+            stringValue: attributeValueString;
         }
         export interface ParameterObject {
-            id: fieldNameString;            
-            attributes: ParameterAttributeList;            
+            id: fieldNameString;
+            attributes: ParameterAttributeList;
         }
         export interface ParameterValue {
-            id: fieldNameString;            
-            stringValue: fieldStringValue;            
+            id: fieldNameString;
+            stringValue: fieldStringValue;
         }
         export interface PipelineDeletedException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface PipelineDescription {
-            pipelineId: id;            
-            name: id;            
-            fields: fieldList;            
-            description?: string;            
-            tags?: tagList;            
+            pipelineId: id;
+            name: id;
+            fields: fieldList;
+            description?: string;
+            tags?: tagList;
         }
         export interface PipelineIdName {
-            id?: id;            
-            name?: id;            
+            id?: id;
+            name?: id;
         }
         export interface PipelineNotFoundException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface PipelineObject {
-            id: id;            
-            name: id;            
-            fields: fieldList;            
+            id: id;
+            name: id;
+            fields: fieldList;
         }
         export interface PollForTaskInput {
-            workerGroup: string;            
-            hostname?: id;            
-            instanceIdentity?: InstanceIdentity;            
+            workerGroup: string;
+            hostname?: id;
+            instanceIdentity?: InstanceIdentity;
         }
         export interface PollForTaskOutput {
-            taskObject?: TaskObject;            
+            taskObject?: TaskObject;
         }
         export interface PutPipelineDefinitionInput {
-            pipelineId: id;            
-            pipelineObjects: PipelineObjectList;            
-            parameterObjects?: ParameterObjectList;            
-            parameterValues?: ParameterValueList;            
+            pipelineId: id;
+            pipelineObjects: PipelineObjectList;
+            parameterObjects?: ParameterObjectList;
+            parameterValues?: ParameterValueList;
         }
         export interface PutPipelineDefinitionOutput {
-            validationErrors?: ValidationErrors;            
-            validationWarnings?: ValidationWarnings;            
-            errored: boolean;            
+            validationErrors?: ValidationErrors;
+            validationWarnings?: ValidationWarnings;
+            errored: boolean;
         }
         export interface Query {
-            selectors?: SelectorList;            
+            selectors?: SelectorList;
         }
         export interface QueryObjectsInput {
-            pipelineId: id;            
-            query?: Query;            
-            sphere: string;            
-            marker?: string;            
-            limit?: int;            
+            pipelineId: id;
+            query?: Query;
+            sphere: string;
+            marker?: string;
+            limit?: int;
         }
         export interface QueryObjectsOutput {
-            ids?: idList;            
-            marker?: string;            
-            hasMoreResults?: boolean;            
+            ids?: idList;
+            marker?: string;
+            hasMoreResults?: boolean;
         }
         export interface RemoveTagsInput {
-            pipelineId: id;            
-            tagKeys: stringList;            
+            pipelineId: id;
+            tagKeys: stringList;
         }
         export interface RemoveTagsOutput {
         }
         export interface ReportTaskProgressInput {
-            taskId: taskId;            
-            fields?: fieldList;            
+            taskId: taskId;
+            fields?: fieldList;
         }
         export interface ReportTaskProgressOutput {
-            canceled: boolean;            
+            canceled: boolean;
         }
         export interface ReportTaskRunnerHeartbeatInput {
-            taskrunnerId: id;            
-            workerGroup?: string;            
-            hostname?: id;            
+            taskrunnerId: id;
+            workerGroup?: string;
+            hostname?: id;
         }
         export interface ReportTaskRunnerHeartbeatOutput {
-            terminate: boolean;            
+            terminate: boolean;
         }
         export interface Selector {
-            fieldName?: string;            
-            operator?: Operator;            
+            fieldName?: string;
+            operator?: Operator;
         }
         export interface SetStatusInput {
-            pipelineId: id;            
-            objectIds: idList;            
-            status: string;            
+            pipelineId: id;
+            objectIds: idList;
+            status: string;
         }
         export interface SetTaskStatusInput {
-            taskId: taskId;            
-            taskStatus: TaskStatus;            
-            errorId?: string;            
-            errorMessage?: errorMessage;            
-            errorStackTrace?: string;            
+            taskId: taskId;
+            taskStatus: TaskStatus;
+            errorId?: string;
+            errorMessage?: errorMessage;
+            errorStackTrace?: string;
         }
         export interface SetTaskStatusOutput {
         }
         export interface Tag {
-            key: tagKey;            
-            value: tagValue;            
+            key: tagKey;
+            value: tagValue;
         }
         export interface TaskNotFoundException {
-            message?: errorMessage;            
+            message?: errorMessage;
         }
         export interface TaskObject {
-            taskId?: taskId;            
-            pipelineId?: id;            
-            attemptId?: id;            
-            objects?: PipelineObjectMap;            
+            taskId?: taskId;
+            pipelineId?: id;
+            attemptId?: id;
+            objects?: PipelineObjectMap;
         }
         export interface ValidatePipelineDefinitionInput {
-            pipelineId: id;            
-            pipelineObjects: PipelineObjectList;            
-            parameterObjects?: ParameterObjectList;            
-            parameterValues?: ParameterValueList;            
+            pipelineId: id;
+            pipelineObjects: PipelineObjectList;
+            parameterObjects?: ParameterObjectList;
+            parameterValues?: ParameterValueList;
         }
         export interface ValidatePipelineDefinitionOutput {
-            validationErrors?: ValidationErrors;            
-            validationWarnings?: ValidationWarnings;            
-            errored: boolean;            
+            validationErrors?: ValidationErrors;
+            validationWarnings?: ValidationWarnings;
+            errored: boolean;
         }
         export interface ValidationError {
-            id?: id;            
-            errors?: validationMessages;            
+            id?: id;
+            errors?: validationMessages;
         }
         export interface ValidationWarning {
-            id?: id;            
-            warnings?: validationMessages;            
+            id?: id;
+            warnings?: validationMessages;
         }
 
     }
