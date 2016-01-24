@@ -3,7 +3,7 @@ node_js:
   - "4.1"
   - "stable"
 before_install:
-- npm install -g npm@latest gulp
+- npm install -g gulp
 - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 - npm whoami
 env:
