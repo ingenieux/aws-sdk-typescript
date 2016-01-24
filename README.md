@@ -14,7 +14,7 @@ If you're using tsd, things are easier:
 
 ```
 $ # Obvious Preconditions: npm install -g typescript tsd, then {npm,tsc,tsd} init
-$ npm install ingenieux/aws-sdk-typescript --save-dev
+$ npm install aws-sdk-typescript --save-dev
 $ tsd link
 ```
 
