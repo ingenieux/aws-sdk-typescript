@@ -49,7 +49,7 @@
   },
   "scripts": {
     "main": "gulp buildrun",
-    "prepublish": "gulp update-package"
+    "prepublish": "gulp buildrun && gulp update-package"
   },
   "typescript": {
     "definitions": [
