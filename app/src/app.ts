@@ -34,7 +34,7 @@ function readServiceFiles() {
 
     if (result  && result.length > 0) {
       serviceInfo.input = result[result.length -1];   //most recent API version
-      serviceInfo.output = `output/aws-${serviceInfo.prefix}.d.ts`;
+      serviceInfo.output = `output/typings/aws-${serviceInfo.prefix}.d.ts`;
 
       console.log(shortName + ": " + JSON.stringify(serviceInfo, null, 2));
       var content = fs.readFileSync(serviceInfo.input).toString();
@@ -58,7 +58,7 @@ function copyCommonDefs() {
   // TODO: What if we don't support Buffer?
   //
   var content = fs.readFileSync(__dirname + '/../src/aws-sdk-common.d.ts.template');
-  fs.writeFileSync('output/aws-sdk-common.d.ts', content);
+  fs.writeFileSync('output/typings/aws-sdk-common.d.ts', content);
 }
 
 function generateModuleFile() {
@@ -66,7 +66,7 @@ function generateModuleFile() {
     .map(shortName => metadata[shortName].prefix);
   var result = new generator.AWSTypeGenerator().generateMainModule(services);
 
-  fs.writeFileSync('output/aws-sdk.d.ts', result);
+  fs.writeFileSync('output/typings/aws-sdk.d.ts', result);
 }
 
 function cleanDefinitions() {

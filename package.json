@@ -4,14 +4,13 @@
   "author": "",
   "main": "app/build/app.js",
   "dependencies": {
-    "aws-sdk": "^2.1.31",
+    "aws-sdk": ">=2.2.32"
+  },
+  "devDependencies": {
     "esprima": "^2.7.1",
     "glob": "^5.0.10",
     "handlebars": "^3.0.3",
-    "source-map-support": "^0.4.0"
-  },
-  "devDependencies": {
-    "aws-sdk": ">=2.2.32",
+    "source-map-support": "^0.4.0",
     "del": "^2.1.0",
     "escodegen": "^1.8.0",
     "estraverse": "^4.1.1",
@@ -24,5 +23,11 @@
   "scripts": {
     "main": "gulp buildrun",
     "test": "gulp buildrun && gulp compile:tests"
+  },
+  "typescript": {
+    "definitions": [
+        "dist/cool-partA.d.ts",
+        "dist/cool-partB.d.ts"
+    ]
   }
 }
