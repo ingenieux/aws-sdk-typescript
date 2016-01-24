@@ -58,6 +58,13 @@ function copyCommonDefs() {
   // TODO: What if we don't support Buffer?
   //
   var content = fs.readFileSync(__dirname + '/../src/aws-sdk-common.d.ts.template');
+
+  [ 'output', 'output/typings'].forEach((path: string) => {
+    if (! fs.existsSync(path)) {
+      fs.mkdirSync(path)
+    }
+  })
+
   fs.writeFileSync('output/typings/aws-sdk-common.d.ts', content);
 }
 
@@ -131,6 +138,8 @@ readServiceFiles();
 readCustomCode();
 
 cleanDefinitions();
+
 copyCommonDefs();
+
 generateServiceDefinitions();
 generateModuleFile();

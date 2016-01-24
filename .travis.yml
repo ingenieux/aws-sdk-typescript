@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- iojs-v2.0.0
+before_install:
+- npm install -g npm@latest
+- npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+- npm whoami
+env:
+  global:
+    secure: F//PohsfPBs87GrCTKBcmFEDXOLB1iyMylEREyO0FhI5ntAm8DWa+4GSe0EB5eCySlVcwyRoTjEtj0KzmMAYBTGcYDQJHEG5o95gHwfglPzxiKweRBSbHeCZgAOs8HvXBIEtevm/Esmw3T7Kfcl6ULDyJGPWVeerBWG6jQGRf0R34xGW6I14+cpHz2DDVLZxkHpqcc3OOK3mu94gzyGI+YCoIE4VznRb3ypL4Lp3oT9qM5XXNsfr7jc4/1aLH/2yFfvXbfVpyM0RmmGipPqjtWMPv1KuEMt5ZirwbAVEdOT6QSiwk3F3UeTBzDL3eFD1616oCd6NKFCThpElNYQ9K6iLUt3koiQMY711ohsbfUIez0xmW1soTrhA/Eo8A/Umn01ZX+TOP3DqTyFemwwxe0fIXln91H3+7FKqaMt2O7LMHq4g984TY7IDv8dtzgSatRsWX4rpRcb5RzgIJbkfH8wmG6AvciQ7V/78u8Q1NVYugIzkf/O7RRH7tPgfbQKlsUIUK34sCRQFQAToSJOuihl/6T/0MoYRCsBSSxG3tpzLqLi9DBgiNRjTfAFywi6PGhEMZTFzH6tgr6/iSVOQgYEM8FzMQ+cFF6bAY7anNxh6cOmoGxA+EQCTl0f/ePc8ciawtrQyFvFmbVRDBaHCJ1M82QOFmPHenSk30EaKdBA=
+after_success:
+- if [[ "x" != "x$TRAVIS_TAG" ]]; then npm publish ; fi
+

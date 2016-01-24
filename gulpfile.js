@@ -30,12 +30,16 @@ gulp.task('default', ['watch']);
 
 // ** Running ** //
 
+gulp.task('update-package', shell.task([
+  'node app/build/update-package.js . package.json'
+]));
+
 gulp.task('run', shell.task([
   'node app/build/app.js ../aws-sdk-js/apis'
 ]));
 
 gulp.task('buildrun', function (cb) {
-	runseq('build', 'run', 'compile:tests', cb);
+	runseq('build', 'run', cb);
 });
 
 // ** Watching ** //
@@ -62,6 +66,7 @@ gulp.task('compile:typescript', function () {
 	.pipe(gulp.dest(paths.tscripts.dest));
 });
 
+/*
 gulp.task('compile:tests', function() {
 	return gulp
 	.src(paths.tests.src)
@@ -71,7 +76,7 @@ gulp.task('compile:tests', function() {
 	}))
 	.pipe(gulp.dest(paths.tests.dest));
 });
-
+*/
 
 // ** Clean ** //
 
