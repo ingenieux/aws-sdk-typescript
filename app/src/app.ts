@@ -130,7 +130,7 @@ function readCustomCode() {
 
 console.log(JSON.stringify(process.argv))
 
-sdkDir = (process.argv.length > 2) ? process.argv[-1 + process.argv.length] : "../aws-sdk-js/apis";
+sdkDir = "./aws-sdk-js/apis";
 
 metadata = readMetadata();
 readServiceFiles();
