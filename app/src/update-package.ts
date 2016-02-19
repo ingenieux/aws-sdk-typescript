@@ -37,7 +37,7 @@ packageJson["typescript"] = {
 // console.log(JSON.stringify(packageJson, null, 2))
 
 if ("-" === outputFile) {
-  console.log(JSON.stringify(packageJson, null, 2))
+  console.log(JSON.stringify(packageJson, null, 2) + "\n")
 } else {
   fs.writeFileSync(outputFile, JSON.stringify(packageJson, null, 2))
 }
