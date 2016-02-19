@@ -20,11 +20,13 @@ declare module "aws-sdk" {
       createByteMatchSet(params: WAF.CreateByteMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.CreateByteMatchSetResponse|any) => void): Request;
       createIPSet(params: WAF.CreateIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateIPSetResponse|any) => void): Request;
       createRule(params: WAF.CreateRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateRuleResponse|any) => void): Request;
+      createSizeConstraintSet(params: WAF.CreateSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateSizeConstraintSetResponse|any) => void): Request;
       createSqlInjectionMatchSet(params: WAF.CreateSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.CreateSqlInjectionMatchSetResponse|any) => void): Request;
       createWebACL(params: WAF.CreateWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateWebACLResponse|any) => void): Request;
       deleteByteMatchSet(params: WAF.DeleteByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteByteMatchSetResponse|any) => void): Request;
       deleteIPSet(params: WAF.DeleteIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteIPSetResponse|any) => void): Request;
       deleteRule(params: WAF.DeleteRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteRuleResponse|any) => void): Request;
+      deleteSizeConstraintSet(params: WAF.DeleteSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteSizeConstraintSetResponse|any) => void): Request;
       deleteSqlInjectionMatchSet(params: WAF.DeleteSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteSqlInjectionMatchSetResponse|any) => void): Request;
       deleteWebACL(params: WAF.DeleteWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteWebACLResponse|any) => void): Request;
       getByteMatchSet(params: WAF.GetByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetByteMatchSetResponse|any) => void): Request;
@@ -32,17 +34,20 @@ declare module "aws-sdk" {
       getChangeTokenStatus(params: WAF.GetChangeTokenStatusRequest, callback?: (err: WAF.WAFNonexistentItemException|WAF.WAFInternalErrorException|any, data: WAF.GetChangeTokenStatusResponse|any) => void): Request;
       getIPSet(params: WAF.GetIPSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetIPSetResponse|any) => void): Request;
       getRule(params: WAF.GetRuleRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetRuleResponse|any) => void): Request;
-      getSampledRequests(params: WAF.GetSampledRequestsRequest, callback?: (err: WAF.WAFNonexistentItemException|any, data: WAF.GetSampledRequestsResponse|any) => void): Request;
+      getSampledRequests(params: WAF.GetSampledRequestsRequest, callback?: (err: WAF.WAFNonexistentItemException|WAF.WAFInternalErrorException|any, data: WAF.GetSampledRequestsResponse|any) => void): Request;
+      getSizeConstraintSet(params: WAF.GetSizeConstraintSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetSizeConstraintSetResponse|any) => void): Request;
       getSqlInjectionMatchSet(params: WAF.GetSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetSqlInjectionMatchSetResponse|any) => void): Request;
       getWebACL(params: WAF.GetWebACLRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetWebACLResponse|any) => void): Request;
       listByteMatchSets(params: WAF.ListByteMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListByteMatchSetsResponse|any) => void): Request;
       listIPSets(params: WAF.ListIPSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListIPSetsResponse|any) => void): Request;
       listRules(params: WAF.ListRulesRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListRulesResponse|any) => void): Request;
+      listSizeConstraintSets(params: WAF.ListSizeConstraintSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListSizeConstraintSetsResponse|any) => void): Request;
       listSqlInjectionMatchSets(params: WAF.ListSqlInjectionMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListSqlInjectionMatchSetsResponse|any) => void): Request;
       listWebACLs(params: WAF.ListWebACLsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListWebACLsResponse|any) => void): Request;
       updateByteMatchSet(params: WAF.UpdateByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateByteMatchSetResponse|any) => void): Request;
       updateIPSet(params: WAF.UpdateIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateIPSetResponse|any) => void): Request;
       updateRule(params: WAF.UpdateRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateRuleResponse|any) => void): Request;
+      updateSizeConstraintSet(params: WAF.UpdateSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateSizeConstraintSetResponse|any) => void): Request;
       updateSqlInjectionMatchSet(params: WAF.UpdateSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateSqlInjectionMatchSetResponse|any) => void): Request;
       updateWebACL(params: WAF.UpdateWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateWebACLResponse|any) => void): Request;
 
@@ -58,6 +63,7 @@ declare module "aws-sdk" {
         export type ChangeAction = string;
         export type ChangeToken = string;
         export type ChangeTokenStatus = string;
+        export type ComparisonOperator = string;
         export type Country = string;
         export type HTTPHeaders = HTTPHeader[];
         export type HTTPMethod = string;
@@ -79,9 +85,9 @@ declare module "aws-sdk" {
         export type PaginationLimit = number;    // max: 100, min: 1
         export type ParameterExceptionField = string;
         export type ParameterExceptionParameter = string;    // min: 1
+        export type ParameterExceptionReason = string;
         export type PopulationSize = number;
         export type PositionalConstraint = string;
-        export type PredicateDataId = string;
         export type PredicateType = string;
         export type Predicates = Predicate[];
         export type ResourceId = string;    // max: 128, min: 1
@@ -91,6 +97,10 @@ declare module "aws-sdk" {
         export type RuleUpdates = RuleUpdate[];
         export type SampleWeight = number;
         export type SampledHTTPRequests = SampledHTTPRequest[];
+        export type Size = number;
+        export type SizeConstraintSetSummaries = SizeConstraintSetSummary[];
+        export type SizeConstraintSetUpdates = SizeConstraintSetUpdate[];
+        export type SizeConstraints = SizeConstraint[];
         export type SqlInjectionMatchSetSummaries = SqlInjectionMatchSetSummary[];
         export type SqlInjectionMatchSetUpdates = SqlInjectionMatchSetUpdate[];
         export type SqlInjectionMatchTuples = SqlInjectionMatchTuple[];
@@ -151,6 +161,14 @@ declare module "aws-sdk" {
             Rule?: Rule;
             ChangeToken?: ChangeToken;
         }
+        export interface CreateSizeConstraintSetRequest {
+            Name: ResourceName;
+            ChangeToken: ChangeToken;
+        }
+        export interface CreateSizeConstraintSetResponse {
+            SizeConstraintSet?: SizeConstraintSet;
+            ChangeToken?: ChangeToken;
+        }
         export interface CreateSqlInjectionMatchSetRequest {
             Name: ResourceName;
             ChangeToken: ChangeToken;
@@ -188,6 +206,13 @@ declare module "aws-sdk" {
             ChangeToken: ChangeToken;
         }
         export interface DeleteRuleResponse {
+            ChangeToken?: ChangeToken;
+        }
+        export interface DeleteSizeConstraintSetRequest {
+            SizeConstraintSetId: ResourceId;
+            ChangeToken: ChangeToken;
+        }
+        export interface DeleteSizeConstraintSetResponse {
             ChangeToken?: ChangeToken;
         }
         export interface DeleteSqlInjectionMatchSetRequest {
@@ -247,6 +272,12 @@ declare module "aws-sdk" {
             SampledRequests?: SampledHTTPRequests;
             PopulationSize?: PopulationSize;
             TimeWindow?: TimeWindow;
+        }
+        export interface GetSizeConstraintSetRequest {
+            SizeConstraintSetId: ResourceId;
+        }
+        export interface GetSizeConstraintSetResponse {
+            SizeConstraintSet?: SizeConstraintSet;
         }
         export interface GetSqlInjectionMatchSetRequest {
             SqlInjectionMatchSetId: ResourceId;
@@ -313,6 +344,14 @@ declare module "aws-sdk" {
             NextMarker?: NextMarker;
             Rules?: RuleSummaries;
         }
+        export interface ListSizeConstraintSetsRequest {
+            NextMarker?: NextMarker;
+            Limit: PaginationLimit;
+        }
+        export interface ListSizeConstraintSetsResponse {
+            NextMarker?: NextMarker;
+            SizeConstraintSets?: SizeConstraintSetSummaries;
+        }
         export interface ListSqlInjectionMatchSetsRequest {
             NextMarker?: NextMarker;
             Limit: PaginationLimit;
@@ -332,7 +371,7 @@ declare module "aws-sdk" {
         export interface Predicate {
             Negated: Negated;
             Type: PredicateType;
-            DataId: PredicateDataId;
+            DataId: ResourceId;
         }
         export interface Rule {
             RuleId: ResourceId;
@@ -353,6 +392,25 @@ declare module "aws-sdk" {
             Weight: SampleWeight;
             Timestamp?: Timestamp;
             Action?: Action;
+        }
+        export interface SizeConstraint {
+            FieldToMatch: FieldToMatch;
+            TextTransformation: TextTransformation;
+            ComparisonOperator: ComparisonOperator;
+            Size: Size;
+        }
+        export interface SizeConstraintSet {
+            SizeConstraintSetId: ResourceId;
+            Name?: ResourceName;
+            SizeConstraints: SizeConstraints;
+        }
+        export interface SizeConstraintSetSummary {
+            SizeConstraintSetId: ResourceId;
+            Name: ResourceName;
+        }
+        export interface SizeConstraintSetUpdate {
+            Action: ChangeAction;
+            SizeConstraint: SizeConstraint;
         }
         export interface SqlInjectionMatchSet {
             SqlInjectionMatchSetId: ResourceId;
@@ -399,6 +457,14 @@ declare module "aws-sdk" {
         export interface UpdateRuleResponse {
             ChangeToken?: ChangeToken;
         }
+        export interface UpdateSizeConstraintSetRequest {
+            SizeConstraintSetId: ResourceId;
+            ChangeToken: ChangeToken;
+            Updates: SizeConstraintSetUpdates;
+        }
+        export interface UpdateSizeConstraintSetResponse {
+            ChangeToken?: ChangeToken;
+        }
         export interface UpdateSqlInjectionMatchSetRequest {
             SqlInjectionMatchSetId: ResourceId;
             ChangeToken: ChangeToken;
@@ -430,6 +496,7 @@ declare module "aws-sdk" {
         export interface WAFInvalidParameterException {
             field?: ParameterExceptionField;
             parameter?: ParameterExceptionParameter;
+            reason?: ParameterExceptionReason;
         }
         export interface WAFLimitsExceededException {
             message?: errorMessage;

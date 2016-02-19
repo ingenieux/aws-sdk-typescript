@@ -77,7 +77,7 @@ declare module "aws-sdk" {
         export type DocumentStatus = string;
         export type FailedCreateAssociationList = FailedCreateAssociation[];
         export type Fault = string;
-        export type InstanceId = string;    // pattern: &quot;^(?=.{10}$)(i-(\w){8})&quot;, max: 10, min: 10
+        export type InstanceId = string;    // pattern: &quot;(^i-(\w{8}|\w{17})$)|(^op-\w{17}$)&quot;
         export type InstanceIdList = InstanceId[];    // max: 50, min: 1
         export type InstanceInformationFilterKey = string;
         export type InstanceInformationFilterList = InstanceInformationFilter[];    // min: 1

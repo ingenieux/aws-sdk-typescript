@@ -41,6 +41,7 @@ declare module "aws-sdk" {
         export type ActionOnFailure = string;
         export type ApplicationList = Application[];
         export type Boolean = boolean;
+        export type BooleanObject = boolean;
         export type BootstrapActionConfigList = BootstrapActionConfig[];
         export type BootstrapActionDetailList = BootstrapActionDetail[];
         export type ClusterId = string;
@@ -52,6 +53,9 @@ declare module "aws-sdk" {
         export type ConfigurationList = Configuration[];
         export type Date = number;
         export type EC2InstanceIdsToTerminateList = InstanceId[];
+        export type EbsBlockDeviceConfigList = EbsBlockDeviceConfig[];
+        export type EbsBlockDeviceList = EbsBlockDevice[];
+        export type EbsVolumeList = EbsVolume[];
         export type ErrorCode = string;    // max: 256, min: 1
         export type ErrorMessage = string;
         export type InstanceGroupConfigList = InstanceGroupConfig[];
@@ -203,6 +207,22 @@ declare module "aws-sdk" {
         export interface DescribeStepOutput {
             Step?: Step;
         }
+        export interface EbsBlockDevice {
+            VolumeSpecification?: VolumeSpecification;
+            Device?: String;
+        }
+        export interface EbsBlockDeviceConfig {
+            VolumeSpecification: VolumeSpecification;
+            VolumesPerInstance?: Integer;
+        }
+        export interface EbsConfiguration {
+            EbsBlockDeviceConfigs?: EbsBlockDeviceConfigList;
+            EbsOptimized?: BooleanObject;
+        }
+        export interface EbsVolume {
+            Device?: String;
+            VolumeId?: String;
+        }
         export interface Ec2InstanceAttributes {
             Ec2KeyName?: String;
             Ec2SubnetId?: String;
@@ -234,6 +254,8 @@ declare module "aws-sdk" {
             PrivateDnsName?: String;
             PrivateIpAddress?: String;
             Status?: InstanceStatus;
+            InstanceGroupId?: String;
+            EbsVolumes?: EbsVolumeList;
         }
         export interface InstanceGroup {
             Id?: InstanceGroupId;
@@ -246,6 +268,8 @@ declare module "aws-sdk" {
             RunningInstanceCount?: Integer;
             Status?: InstanceGroupStatus;
             Configurations?: ConfigurationList;
+            EbsBlockDevices?: EbsBlockDeviceList;
+            EbsOptimized?: BooleanObject;
         }
         export interface InstanceGroupConfig {
             Name?: XmlStringMaxLen256;
@@ -255,6 +279,7 @@ declare module "aws-sdk" {
             InstanceType: InstanceType;
             InstanceCount: Integer;
             Configurations?: ConfigurationList;
+            EbsConfiguration?: EbsConfiguration;
         }
         export interface InstanceGroupDetail {
             InstanceGroupId?: XmlStringMaxLen256;
@@ -517,6 +542,11 @@ declare module "aws-sdk" {
         }
         export interface TerminateJobFlowsInput {
             JobFlowIds: XmlStringList;
+        }
+        export interface VolumeSpecification {
+            VolumeType: String;
+            Iops?: Integer;
+            SizeInGB: Integer;
         }
 
     }

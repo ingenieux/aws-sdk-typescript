@@ -35,7 +35,7 @@ declare module "aws-sdk" {
         export type ActionPrefix = string;    // max: 1024, min: 1
         export type ActionsEnabled = boolean;
         export type AlarmArn = string;    // max: 1600, min: 1
-        export type AlarmDescription = string;    // max: 255
+        export type AlarmDescription = string;    // max: 1024
         export type AlarmHistoryItems = AlarmHistoryItem[];
         export type AlarmName = string;    // max: 255, min: 1
         export type AlarmNamePrefix = string;    // max: 255, min: 1
@@ -61,7 +61,7 @@ declare module "aws-sdk" {
         export type MetricName = string;    // max: 255, min: 1
         export type Metrics = Metric[];
         export type Namespace = string;    // pattern: &quot;[^:].*&quot;, max: 255, min: 1
-        export type NextToken = string;
+        export type NextToken = string;    // max: 1024
         export type Period = number;    // min: 60
         export type ResourceList = ResourceName[];    // max: 5
         export type ResourceName = string;    // max: 1024, min: 1

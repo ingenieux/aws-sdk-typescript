@@ -66,17 +66,12 @@ gulp.task('compile:typescript', function () {
 	.pipe(gulp.dest(paths.tscripts.dest));
 });
 
-/*
 gulp.task('compile:tests', function() {
 	return gulp
 	.src(paths.tests.src)
-	.pipe(tsc({
-		module: "commonjs",
-		emitError: false
-	}))
+	.pipe(tsc())
 	.pipe(gulp.dest(paths.tests.dest));
 });
-*/
 
 // ** Clean ** //
 

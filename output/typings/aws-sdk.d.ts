@@ -39,6 +39,7 @@
 ///<reference path="./aws-es.d.ts" />
 ///<reference path="./aws-elastictranscoder.d.ts" />
 ///<reference path="./aws-firehose.d.ts" />
+///<reference path="./aws-gamelift.d.ts" />
 ///<reference path="./aws-glacier.d.ts" />
 ///<reference path="./aws-iam.d.ts" />
 ///<reference path="./aws-importexport.d.ts" />

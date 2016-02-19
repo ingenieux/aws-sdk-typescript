@@ -18,6 +18,7 @@ declare module "aws-sdk" {
       constructor(options?: any);
       endpoint: Endpoint;
       createApiKey(params: APIGateway.CreateApiKeyRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.BadRequestException|any, data: APIGateway.ApiKey|any) => void): Request;
+      createAuthorizer(params: APIGateway.CreateAuthorizerRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any, data: APIGateway.Authorizer|any) => void): Request;
       createBasePathMapping(params: APIGateway.CreateBasePathMappingRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.BasePathMapping|any) => void): Request;
       createDeployment(params: APIGateway.CreateDeploymentRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|APIGateway.ServiceUnavailableException|any, data: APIGateway.Deployment|any) => void): Request;
       createDomainName(params: APIGateway.CreateDomainNameRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainName|any) => void): Request;
@@ -26,6 +27,7 @@ declare module "aws-sdk" {
       createRestApi(params: APIGateway.CreateRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.RestApi|any) => void): Request;
       createStage(params: APIGateway.CreateStageRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any, data: APIGateway.Stage|any) => void): Request;
       deleteApiKey(params: APIGateway.DeleteApiKeyRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
+      deleteAuthorizer(params: APIGateway.DeleteAuthorizerRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.ConflictException|any, data: any) => void): Request;
       deleteBasePathMapping(params: APIGateway.DeleteBasePathMappingRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
       deleteClientCertificate(params: APIGateway.DeleteClientCertificateRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.NotFoundException|any, data: any) => void): Request;
       deleteDeployment(params: APIGateway.DeleteDeploymentRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
@@ -43,6 +45,8 @@ declare module "aws-sdk" {
       getAccount(params: APIGateway.GetAccountRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Account|any) => void): Request;
       getApiKey(params: APIGateway.GetApiKeyRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.ApiKey|any) => void): Request;
       getApiKeys(params: APIGateway.GetApiKeysRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|any, data: APIGateway.ApiKeys|any) => void): Request;
+      getAuthorizer(params: APIGateway.GetAuthorizerRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Authorizer|any) => void): Request;
+      getAuthorizers(params: APIGateway.GetAuthorizersRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Authorizers|any) => void): Request;
       getBasePathMapping(params: APIGateway.GetBasePathMappingRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.BasePathMapping|any) => void): Request;
       getBasePathMappings(params: APIGateway.GetBasePathMappingsRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.BasePathMappings|any) => void): Request;
       getClientCertificate(params: APIGateway.GetClientCertificateRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.ClientCertificate|any) => void): Request;
@@ -51,6 +55,7 @@ declare module "aws-sdk" {
       getDeployments(params: APIGateway.GetDeploymentsRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.ServiceUnavailableException|any, data: APIGateway.Deployments|any) => void): Request;
       getDomainName(params: APIGateway.GetDomainNameRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ServiceUnavailableException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainName|any) => void): Request;
       getDomainNames(params: APIGateway.GetDomainNamesRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainNames|any) => void): Request;
+      getExport(params: APIGateway.GetExportRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.ExportResponse|any) => void): Request;
       getIntegration(params: APIGateway.GetIntegrationRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Integration|any) => void): Request;
       getIntegrationResponse(params: APIGateway.GetIntegrationResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.IntegrationResponse|any) => void): Request;
       getMethod(params: APIGateway.GetMethodRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Method|any) => void): Request;
@@ -72,6 +77,7 @@ declare module "aws-sdk" {
       testInvokeMethod(params: APIGateway.TestInvokeMethodRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.TestInvokeMethodResponse|any) => void): Request;
       updateAccount(params: APIGateway.UpdateAccountRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Account|any) => void): Request;
       updateApiKey(params: APIGateway.UpdateApiKeyRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.ApiKey|any) => void): Request;
+      updateAuthorizer(params: APIGateway.UpdateAuthorizerRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Authorizer|any) => void): Request;
       updateBasePathMapping(params: APIGateway.UpdateBasePathMappingRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.BasePathMapping|any) => void): Request;
       updateClientCertificate(params: APIGateway.UpdateClientCertificateRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.NotFoundException|any, data: APIGateway.ClientCertificate|any) => void): Request;
       updateDeployment(params: APIGateway.UpdateDeploymentRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|APIGateway.ServiceUnavailableException|any, data: APIGateway.Deployment|any) => void): Request;
@@ -92,6 +98,7 @@ declare module "aws-sdk" {
     }
 
     export module APIGateway {
+        export type AuthorizerType = string;
         export type Blob = any;    // type: blob
         export type Boolean = boolean;
         export type CacheClusterSize = string;
@@ -100,6 +107,7 @@ declare module "aws-sdk" {
         export type Integer = number;
         export type IntegrationType = string;
         export type ListOfApiKey = ApiKey[];
+        export type ListOfAuthorizer = Authorizer[];
         export type ListOfBasePathMapping = BasePathMapping[];
         export type ListOfClientCertificate = ClientCertificate[];
         export type ListOfDeployment = Deployment[];
@@ -145,6 +153,20 @@ declare module "aws-sdk" {
             position?: String;
             items?: ListOfApiKey;
         }
+        export interface Authorizer {
+            id?: String;
+            name?: String;
+            type?: AuthorizerType;
+            authorizerUri?: String;
+            authorizerCredentials?: String;
+            identitySource?: String;
+            identityValidationExpression?: String;
+            authorizerResultTtlInSeconds?: NullableInteger;
+        }
+        export interface Authorizers {
+            position?: String;
+            items?: ListOfAuthorizer;
+        }
         export interface BadRequestException {
             message?: String;
         }
@@ -176,6 +198,16 @@ declare module "aws-sdk" {
             description?: String;
             enabled?: Boolean;
             stageKeys?: ListOfStageKeys;
+        }
+        export interface CreateAuthorizerRequest {
+            restApiId: String;
+            name: String;
+            type: AuthorizerType;
+            authorizerUri: String;
+            authorizerCredentials?: String;
+            identitySource: String;
+            identityValidationExpression?: String;
+            authorizerResultTtlInSeconds?: NullableInteger;
         }
         export interface CreateBasePathMappingRequest {
             domainName: String;
@@ -227,6 +259,10 @@ declare module "aws-sdk" {
         }
         export interface DeleteApiKeyRequest {
             apiKey: String;
+        }
+        export interface DeleteAuthorizerRequest {
+            restApiId: String;
+            authorizerId: String;
         }
         export interface DeleteBasePathMappingRequest {
             domainName: String;
@@ -299,6 +335,11 @@ declare module "aws-sdk" {
             position?: String;
             items?: ListOfDomainName;
         }
+        export interface ExportResponse {
+            contentType?: String;
+            contentDisposition?: String;
+            body?: Blob;
+        }
         export interface FlushStageCacheRequest {
             restApiId: String;
             stageName: String;
@@ -312,6 +353,15 @@ declare module "aws-sdk" {
             apiKey: String;
         }
         export interface GetApiKeysRequest {
+            position?: String;
+            limit?: NullableInteger;
+        }
+        export interface GetAuthorizerRequest {
+            restApiId: String;
+            authorizerId: String;
+        }
+        export interface GetAuthorizersRequest {
+            restApiId: String;
             position?: String;
             limit?: NullableInteger;
         }
@@ -346,6 +396,13 @@ declare module "aws-sdk" {
         export interface GetDomainNamesRequest {
             position?: String;
             limit?: NullableInteger;
+        }
+        export interface GetExportRequest {
+            restApiId: String;
+            stageName: String;
+            exportType: String;
+            parameters?: MapOfStringToString;
+            accepts?: String;
         }
         export interface GetIntegrationRequest {
             restApiId: String;
@@ -437,6 +494,7 @@ declare module "aws-sdk" {
         export interface Method {
             httpMethod?: String;
             authorizationType?: String;
+            authorizerId?: String;
             apiKeyRequired?: NullableBoolean;
             requestParameters?: MapOfStringToBoolean;
             requestModels?: MapOfStringToString;
@@ -509,6 +567,7 @@ declare module "aws-sdk" {
             resourceId: String;
             httpMethod: String;
             authorizationType: String;
+            authorizerId?: String;
             apiKeyRequired?: Boolean;
             requestParameters?: MapOfStringToBoolean;
             requestModels?: MapOfStringToString;
@@ -607,6 +666,11 @@ declare module "aws-sdk" {
         }
         export interface UpdateApiKeyRequest {
             apiKey: String;
+            patchOperations?: ListOfPatchOperation;
+        }
+        export interface UpdateAuthorizerRequest {
+            restApiId: String;
+            authorizerId: String;
             patchOperations?: ListOfPatchOperation;
         }
         export interface UpdateBasePathMappingRequest {

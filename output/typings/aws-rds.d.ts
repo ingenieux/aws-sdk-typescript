@@ -250,6 +250,7 @@ declare module "aws-sdk" {
         export interface CopyDBSnapshotMessage {
             SourceDBSnapshotIdentifier: String;
             TargetDBSnapshotIdentifier: String;
+            KmsKeyId?: String;
             Tags?: TagList;
             CopyTags?: BooleanOptional;
         }

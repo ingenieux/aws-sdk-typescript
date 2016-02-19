@@ -29,7 +29,7 @@ declare module "aws-sdk" {
       getFunction(params: Lambda.GetFunctionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any, data: Lambda.GetFunctionResponse|any) => void): Request;
       getFunctionConfiguration(params: Lambda.GetFunctionConfigurationRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any, data: Lambda.FunctionConfiguration|any) => void): Request;
       getPolicy(params: Lambda.GetPolicyRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any, data: Lambda.GetPolicyResponse|any) => void): Request;
-      invoke(params: Lambda.InvocationRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|Lambda.RequestTooLargeException|Lambda.UnsupportedMediaTypeException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any, data: Lambda.InvocationResponse|any) => void): Request;
+      invoke(params: Lambda.InvocationRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|Lambda.RequestTooLargeException|Lambda.UnsupportedMediaTypeException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.EC2UnexpectedException|Lambda.SubnetIPAddressLimitReachedException|Lambda.ENILimitReachedException|Lambda.EC2ThrottledException|Lambda.EC2AccessDeniedException|Lambda.InvalidSubnetIDException|Lambda.InvalidSecurityGroupIDException|any, data: Lambda.InvocationResponse|any) => void): Request;
       invokeAsync(params: Lambda.InvokeAsyncRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|any, data: Lambda.InvokeAsyncResponse|any) => void): Request;
       listAliases(params: Lambda.ListAliasesRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.ListAliasesResponse|any) => void): Request;
       listEventSourceMappings(params: Lambda.ListEventSourceMappingsRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.ListEventSourceMappingsResponse|any) => void): Request;
@@ -70,18 +70,23 @@ declare module "aws-sdk" {
         export type MaxListItems = number;    // max: 10000, min: 1
         export type MemorySize = number;    // max: 1536, min: 128
         export type Principal = string;    // pattern: &quot;.*&quot;
-        export type Qualifier = string;    // pattern: &quot;(|[a-zA-Z0-9$_]+)&quot;, max: 128, min: 1
+        export type Qualifier = string;    // pattern: &quot;(|[a-zA-Z0-9$_-]+)&quot;, max: 128, min: 1
         export type RoleArn = string;    // pattern: &quot;arn:aws:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+&quot;
         export type Runtime = string;
         export type S3Bucket = string;    // pattern: &quot;^[0-9A-Za-z\.\-_]*(?&lt;!\.)$&quot;, max: 63, min: 3
         export type S3Key = string;    // max: 1024, min: 1
         export type S3ObjectVersion = string;    // max: 1024, min: 1
+        export type SecurityGroupId = string;
+        export type SecurityGroupIds = SecurityGroupId[];    // max: 5
         export type SourceOwner = string;    // pattern: &quot;\d{12}&quot;
         export type StatementId = string;    // pattern: &quot;([a-zA-Z0-9-_]+)&quot;, max: 100, min: 1
         export type String = string;
+        export type SubnetId = string;
+        export type SubnetIds = SubnetId[];    // max: 16
         export type Timeout = number;    // min: 1
         export type Timestamp = string;
         export type Version = string;    // pattern: &quot;(\$LATEST|[0-9]+)&quot;, max: 1024, min: 1
+        export type VpcId = string;
 
         export interface AddPermissionRequest {
             FunctionName: FunctionName;
@@ -128,6 +133,7 @@ declare module "aws-sdk" {
             Timeout?: Timeout;
             MemorySize?: MemorySize;
             Publish?: Boolean;
+            VpcConfig?: VpcConfig;
         }
         export interface DeleteAliasRequest {
             FunctionName: FunctionName;
@@ -139,6 +145,23 @@ declare module "aws-sdk" {
         export interface DeleteFunctionRequest {
             FunctionName: FunctionName;
             Qualifier?: Qualifier;
+        }
+        export interface EC2AccessDeniedException {
+            Type?: String;
+            Message?: String;
+        }
+        export interface EC2ThrottledException {
+            Type?: String;
+            Message?: String;
+        }
+        export interface EC2UnexpectedException {
+            Type?: String;
+            Message?: String;
+            EC2ErrorCode?: String;
+        }
+        export interface ENILimitReachedException {
+            Type?: String;
+            Message?: String;
         }
         export interface EventSourceMappingConfiguration {
             UUID?: String;
@@ -173,6 +196,7 @@ declare module "aws-sdk" {
             LastModified?: Timestamp;
             CodeSha256?: String;
             Version?: Version;
+            VpcConfig?: VpcConfigResponse;
         }
         export interface GetAliasRequest {
             FunctionName: FunctionName;
@@ -207,6 +231,14 @@ declare module "aws-sdk" {
         export interface InvalidRequestContentException {
             Type?: String;
             message?: String;
+        }
+        export interface InvalidSecurityGroupIDException {
+            Type?: String;
+            Message?: String;
+        }
+        export interface InvalidSubnetIDException {
+            Type?: String;
+            Message?: String;
         }
         export interface InvocationRequest {
             FunctionName: FunctionName;
@@ -296,6 +328,10 @@ declare module "aws-sdk" {
             Type?: String;
             Message?: String;
         }
+        export interface SubnetIPAddressLimitReachedException {
+            Type?: String;
+            Message?: String;
+        }
         export interface TooManyRequestsException {
             retryAfterSeconds?: String;
             Type?: String;
@@ -332,6 +368,16 @@ declare module "aws-sdk" {
             Description?: Description;
             Timeout?: Timeout;
             MemorySize?: MemorySize;
+            VpcConfig?: VpcConfig;
+        }
+        export interface VpcConfig {
+            SubnetIds?: SubnetIds;
+            SecurityGroupIds?: SecurityGroupIds;
+        }
+        export interface VpcConfigResponse {
+            SubnetIds?: SubnetIds;
+            SecurityGroupIds?: SecurityGroupIds;
+            VpcId?: VpcId;
         }
 
     }

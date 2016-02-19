@@ -22,12 +22,15 @@ declare module "aws-sdk" {
     }
 
     export module MarketplaceCommerceAnalytics {
+        export type CustomerDefinedValues = {[key:string]: OptionalValue};    // max: 5, min: 1
         export type DataSetPublicationDate = number;
         export type DataSetRequestId = string;
         export type DataSetType = string;    // max: 255, min: 1
         export type DestinationS3BucketName = string;    // min: 1
         export type DestinationS3Prefix = string;
         export type ExceptionMessage = string;
+        export type OptionalKey = string;    // max: 255, min: 1
+        export type OptionalValue = string;    // max: 255, min: 1
         export type RoleNameArn = string;    // min: 1
         export type SnsTopicArn = string;    // min: 1
 
@@ -38,6 +41,7 @@ declare module "aws-sdk" {
             destinationS3BucketName: DestinationS3BucketName;
             destinationS3Prefix?: DestinationS3Prefix;
             snsTopicArn: SnsTopicArn;
+            customerDefinedValues?: CustomerDefinedValues;
         }
         export interface GenerateDataSetResult {
             dataSetRequestId?: DataSetRequestId;

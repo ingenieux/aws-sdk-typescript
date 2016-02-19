@@ -105,7 +105,7 @@ declare module "aws-sdk" {
         export type ResourceName = string;
         export type ResourceType = string;
         export type ResourceTypeList = ResourceType[];
-        export type ResourceTypes = StringWithCharLimit256[];    // max: 100
+        export type ResourceTypes = StringWithCharLimit256[];    // max: 20
         export type SourceDetails = SourceDetail[];    // max: 25
         export type String = string;
         export type StringWithCharLimit128 = string;    // max: 128, min: 1

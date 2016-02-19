@@ -1,5 +1,5 @@
 
-/// <reference path="../output/aws-sdk.d.ts" />
+/// <reference path="../output/typings/aws-sdk.d.ts" />
 /// <reference path="../typings/node/node.d.ts" />
 
 import AWS = require('aws-sdk');

@@ -18,13 +18,15 @@ declare module "aws-sdk" {
       constructor(options?: any);
       endpoint: Endpoint;
       addTagsToOnPremisesInstances(params: CodeDeploy.AddTagsToOnPremisesInstancesInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.TagRequiredException|CodeDeploy.InvalidTagException|CodeDeploy.TagLimitExceededException|CodeDeploy.InstanceLimitExceededException|CodeDeploy.InstanceNotRegisteredException|any, data: any) => void): Request;
-      batchGetApplications(params: CodeDeploy.BatchGetApplicationsInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|any, data: CodeDeploy.BatchGetApplicationsOutput|any) => void): Request;
-      batchGetDeployments(params: CodeDeploy.BatchGetDeploymentsInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.InvalidDeploymentIdException|any, data: CodeDeploy.BatchGetDeploymentsOutput|any) => void): Request;
-      batchGetOnPremisesInstances(params: CodeDeploy.BatchGetOnPremisesInstancesInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.InvalidInstanceNameException|any, data: CodeDeploy.BatchGetOnPremisesInstancesOutput|any) => void): Request;
+      batchGetApplicationRevisions(params: CodeDeploy.BatchGetApplicationRevisionsInput, callback?: (err: CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetApplicationRevisionsOutput|any) => void): Request;
+      batchGetApplications(params: CodeDeploy.BatchGetApplicationsInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetApplicationsOutput|any) => void): Request;
+      batchGetDeploymentInstances(params: CodeDeploy.BatchGetDeploymentInstancesInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.InstanceIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetDeploymentInstancesOutput|any) => void): Request;
+      batchGetDeployments(params: CodeDeploy.BatchGetDeploymentsInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetDeploymentsOutput|any) => void): Request;
+      batchGetOnPremisesInstances(params: CodeDeploy.BatchGetOnPremisesInstancesInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetOnPremisesInstancesOutput|any) => void): Request;
       createApplication(params: CodeDeploy.CreateApplicationInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationAlreadyExistsException|CodeDeploy.ApplicationLimitExceededException|any, data: CodeDeploy.CreateApplicationOutput|any) => void): Request;
       createDeployment(params: CodeDeploy.CreateDeploymentInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.DescriptionTooLongException|CodeDeploy.DeploymentLimitExceededException|any, data: CodeDeploy.CreateDeploymentOutput|any) => void): Request;
       createDeploymentConfig(params: CodeDeploy.CreateDeploymentConfigInput, callback?: (err: CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigNameRequiredException|CodeDeploy.DeploymentConfigAlreadyExistsException|CodeDeploy.InvalidMinimumHealthyHostValueException|CodeDeploy.DeploymentConfigLimitExceededException|any, data: CodeDeploy.CreateDeploymentConfigOutput|any) => void): Request;
-      createDeploymentGroup(params: CodeDeploy.CreateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.RoleRequiredException|CodeDeploy.InvalidRoleException|CodeDeploy.DeploymentGroupLimitExceededException|any, data: CodeDeploy.CreateDeploymentGroupOutput|any) => void): Request;
+      createDeploymentGroup(params: CodeDeploy.CreateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.RoleRequiredException|CodeDeploy.InvalidRoleException|CodeDeploy.DeploymentGroupLimitExceededException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|any, data: CodeDeploy.CreateDeploymentGroupOutput|any) => void): Request;
       deleteApplication(params: CodeDeploy.DeleteApplicationInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|any, data: any) => void): Request;
       deleteDeploymentConfig(params: CodeDeploy.DeleteDeploymentConfigInput, callback?: (err: CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigNameRequiredException|CodeDeploy.DeploymentConfigInUseException|CodeDeploy.InvalidOperationException|any, data: any) => void): Request;
       deleteDeploymentGroup(params: CodeDeploy.DeleteDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.InvalidRoleException|any, data: CodeDeploy.DeleteDeploymentGroupOutput|any) => void): Request;
@@ -34,7 +36,7 @@ declare module "aws-sdk" {
       getDeployment(params: CodeDeploy.GetDeploymentInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.DeploymentDoesNotExistException|any, data: CodeDeploy.GetDeploymentOutput|any) => void): Request;
       getDeploymentConfig(params: CodeDeploy.GetDeploymentConfigInput, callback?: (err: CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigNameRequiredException|CodeDeploy.DeploymentConfigDoesNotExistException|any, data: CodeDeploy.GetDeploymentConfigOutput|any) => void): Request;
       getDeploymentGroup(params: CodeDeploy.GetDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|any, data: CodeDeploy.GetDeploymentGroupOutput|any) => void): Request;
-      getDeploymentInstance(params: CodeDeploy.GetDeploymentInstanceInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.InstanceIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InstanceDoesNotExistException|any, data: CodeDeploy.GetDeploymentInstanceOutput|any) => void): Request;
+      getDeploymentInstance(params: CodeDeploy.GetDeploymentInstanceInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.InstanceIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InstanceDoesNotExistException|CodeDeploy.InvalidInstanceNameException|any, data: CodeDeploy.GetDeploymentInstanceOutput|any) => void): Request;
       getOnPremisesInstance(params: CodeDeploy.GetOnPremisesInstanceInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.InstanceNotRegisteredException|CodeDeploy.InvalidInstanceNameException|any, data: CodeDeploy.GetOnPremisesInstanceOutput|any) => void): Request;
       listApplicationRevisions(params: CodeDeploy.ListApplicationRevisionsInput, callback?: (err: CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.InvalidSortByException|CodeDeploy.InvalidSortOrderException|CodeDeploy.InvalidBucketNameFilterException|CodeDeploy.InvalidKeyPrefixFilterException|CodeDeploy.BucketNameFilterRequiredException|CodeDeploy.InvalidDeployedStateFilterException|CodeDeploy.InvalidNextTokenException|any, data: CodeDeploy.ListApplicationRevisionsOutput|any) => void): Request;
       listApplications(params: CodeDeploy.ListApplicationsInput, callback?: (err: CodeDeploy.InvalidNextTokenException|any, data: CodeDeploy.ListApplicationsOutput|any) => void): Request;
@@ -48,7 +50,7 @@ declare module "aws-sdk" {
       removeTagsFromOnPremisesInstances(params: CodeDeploy.RemoveTagsFromOnPremisesInstancesInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.TagRequiredException|CodeDeploy.InvalidTagException|CodeDeploy.TagLimitExceededException|CodeDeploy.InstanceLimitExceededException|CodeDeploy.InstanceNotRegisteredException|any, data: any) => void): Request;
       stopDeployment(params: CodeDeploy.StopDeploymentInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentAlreadyCompletedException|CodeDeploy.InvalidDeploymentIdException|any, data: CodeDeploy.StopDeploymentOutput|any) => void): Request;
       updateApplication(params: CodeDeploy.UpdateApplicationInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationAlreadyExistsException|CodeDeploy.ApplicationDoesNotExistException|any, data: any) => void): Request;
-      updateDeploymentGroup(params: CodeDeploy.UpdateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.InvalidRoleException|any, data: CodeDeploy.UpdateDeploymentGroupOutput|any) => void): Request;
+      updateDeploymentGroup(params: CodeDeploy.UpdateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.InvalidRoleException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|any, data: CodeDeploy.UpdateDeploymentGroupOutput|any) => void): Request;
 
     }
 
@@ -92,6 +94,7 @@ declare module "aws-sdk" {
         export type InstanceNameList = InstanceName[];
         export type InstanceStatus = string;
         export type InstanceStatusList = InstanceStatus[];
+        export type InstanceSummaryList = InstanceSummary[];
         export type InstancesList = InstanceId[];
         export type Key = string;
         export type LifecycleErrorCode = string;
@@ -107,6 +110,7 @@ declare module "aws-sdk" {
         export type NextToken = string;
         export type RegistrationStatus = string;
         export type Repository = string;
+        export type RevisionInfoList = RevisionInfo[];
         export type RevisionLocationList = RevisionLocation[];
         export type RevisionLocationType = string;
         export type Role = string;
@@ -119,6 +123,11 @@ declare module "aws-sdk" {
         export type TagFilterType = string;
         export type TagList = Tag[];
         export type Timestamp = number;
+        export type TriggerConfigList = TriggerConfig[];
+        export type TriggerEventType = string;
+        export type TriggerEventTypeList = TriggerEventType[];
+        export type TriggerName = string;
+        export type TriggerTargetArn = string;
         export type Value = string;
         export type VersionId = string;
 
@@ -144,11 +153,28 @@ declare module "aws-sdk" {
             name?: AutoScalingGroupName;
             hook?: AutoScalingGroupHook;
         }
+        export interface BatchGetApplicationRevisionsInput {
+            applicationName: ApplicationName;
+            revisions: RevisionLocationList;
+        }
+        export interface BatchGetApplicationRevisionsOutput {
+            applicationName?: ApplicationName;
+            errorMessage?: ErrorMessage;
+            revisions?: RevisionInfoList;
+        }
         export interface BatchGetApplicationsInput {
             applicationNames?: ApplicationsList;
         }
         export interface BatchGetApplicationsOutput {
             applicationsInfo?: ApplicationsInfoList;
+        }
+        export interface BatchGetDeploymentInstancesInput {
+            deploymentId: DeploymentId;
+            instanceIds: InstancesList;
+        }
+        export interface BatchGetDeploymentInstancesOutput {
+            instancesSummary?: InstanceSummaryList;
+            errorMessage?: ErrorMessage;
         }
         export interface BatchGetDeploymentsInput {
             deploymentIds?: DeploymentsList;
@@ -161,6 +187,8 @@ declare module "aws-sdk" {
         }
         export interface BatchGetOnPremisesInstancesOutput {
             instanceInfos?: InstanceInfoList;
+        }
+        export interface BatchLimitExceededException {
         }
         export interface BucketNameFilterRequiredException {
         }
@@ -185,6 +213,7 @@ declare module "aws-sdk" {
             onPremisesInstanceTagFilters?: TagFilterList;
             autoScalingGroups?: AutoScalingGroupNameList;
             serviceRoleArn: Role;
+            triggerConfigurations?: TriggerConfigList;
         }
         export interface CreateDeploymentGroupOutput {
             deploymentGroupId?: DeploymentGroupId;
@@ -247,6 +276,7 @@ declare module "aws-sdk" {
             autoScalingGroups?: AutoScalingGroupList;
             serviceRoleArn?: Role;
             targetRevision?: RevisionLocation;
+            triggerConfigurations?: TriggerConfigList;
         }
         export interface DeploymentGroupLimitExceededException {
         }
@@ -438,12 +468,16 @@ declare module "aws-sdk" {
         }
         export interface InvalidTimeRangeException {
         }
+        export interface InvalidTriggerConfigException {
+        }
         export interface LifecycleEvent {
             lifecycleEventName?: LifecycleEventName;
             diagnostics?: Diagnostics;
             startTime?: Timestamp;
             endTime?: Timestamp;
             status?: LifecycleEventStatus;
+        }
+        export interface LifecycleHookLimitExceededException {
         }
         export interface ListApplicationRevisionsInput {
             applicationName: ApplicationName;
@@ -529,6 +563,10 @@ declare module "aws-sdk" {
         }
         export interface RevisionDoesNotExistException {
         }
+        export interface RevisionInfo {
+            revisionLocation?: RevisionLocation;
+            genericRevisionInfo?: GenericRevisionInfo;
+        }
         export interface RevisionLocation {
             revisionType?: RevisionLocationType;
             s3Location?: S3Location;
@@ -569,6 +607,13 @@ declare module "aws-sdk" {
             start?: Timestamp;
             end?: Timestamp;
         }
+        export interface TriggerConfig {
+            triggerName?: TriggerName;
+            triggerTargetArn?: TriggerTargetArn;
+            triggerEvents?: TriggerEventTypeList;
+        }
+        export interface TriggerTargetsLimitExceededException {
+        }
         export interface UpdateApplicationInput {
             applicationName?: ApplicationName;
             newApplicationName?: ApplicationName;
@@ -582,6 +627,7 @@ declare module "aws-sdk" {
             onPremisesInstanceTagFilters?: TagFilterList;
             autoScalingGroups?: AutoScalingGroupNameList;
             serviceRoleArn?: Role;
+            triggerConfigurations?: TriggerConfigList;
         }
         export interface UpdateDeploymentGroupOutput {
             hooksNotCleanedUp?: AutoScalingGroupList;

@@ -28,6 +28,7 @@ declare module "aws-sdk" {
       createSnapshot(params: StorageGateway.CreateSnapshotInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateSnapshotOutput|any) => void): Request;
       createSnapshotFromVolumeRecoveryPoint(params: StorageGateway.CreateSnapshotFromVolumeRecoveryPointInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateSnapshotFromVolumeRecoveryPointOutput|any) => void): Request;
       createStorediSCSIVolume(params: StorageGateway.CreateStorediSCSIVolumeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateStorediSCSIVolumeOutput|any) => void): Request;
+      createTapeWithBarcode(params: StorageGateway.CreateTapeWithBarcodeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateTapeWithBarcodeOutput|any) => void): Request;
       createTapes(params: StorageGateway.CreateTapesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateTapesOutput|any) => void): Request;
       deleteBandwidthRateLimit(params: StorageGateway.DeleteBandwidthRateLimitInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteBandwidthRateLimitOutput|any) => void): Request;
       deleteChapCredentials(params: StorageGateway.DeleteChapCredentialsInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteChapCredentialsOutput|any) => void): Request;
@@ -267,6 +268,14 @@ declare module "aws-sdk" {
             VolumeSizeInBytes?: long;
             TargetARN?: TargetARN;
         }
+        export interface CreateTapeWithBarcodeInput {
+            GatewayARN: GatewayARN;
+            TapeSizeInBytes: TapeSize;
+            TapeBarcode: TapeBarcode;
+        }
+        export interface CreateTapeWithBarcodeOutput {
+            TapeARN?: TapeARN;
+        }
         export interface CreateTapesInput {
             GatewayARN: GatewayARN;
             TapeSizeInBytes: TapeSize;
@@ -504,7 +513,7 @@ declare module "aws-sdk" {
             Disks?: Disks;
         }
         export interface ListTagsForResourceInput {
-            ResourceARN?: ResourceARN;
+            ResourceARN: ResourceARN;
             Marker?: Marker;
             Limit?: PositiveIntObject;
         }
@@ -542,8 +551,8 @@ declare module "aws-sdk" {
             Ipv6Address?: string;
         }
         export interface RemoveTagsFromResourceInput {
-            ResourceARN?: ResourceARN;
-            TagKeys?: TagKeys;
+            ResourceARN: ResourceARN;
+            TagKeys: TagKeys;
         }
         export interface RemoveTagsFromResourceOutput {
             ResourceARN?: ResourceARN;

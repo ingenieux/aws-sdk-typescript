@@ -665,12 +665,13 @@ declare module "aws-sdk" {
             ETag?: string;
         }
         export interface ViewerCertificate {
-            Certificate?: string;
-            CertificateSource?: CertificateSource;
+            CloudFrontDefaultCertificate?: boolean;
+            IAMCertificateId?: string;
+            ACMCertificateArn?: string;
             SSLSupportMethod?: SSLSupportMethod;
             MinimumProtocolVersion?: MinimumProtocolVersion;
-            IAMCertificateId?: string;
-            CloudFrontDefaultCertificate?: boolean;
+            Certificate?: string;
+            CertificateSource?: CertificateSource;
         }
 
     }
