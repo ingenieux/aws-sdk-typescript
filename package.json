@@ -86,6 +86,7 @@
       "output/typings/aws-es.d.ts",
       "output/typings/aws-events.d.ts",
       "output/typings/aws-firehose.d.ts",
+      "output/typings/aws-gamelift.d.ts",
       "output/typings/aws-glacier.d.ts",
       "output/typings/aws-iam.d.ts",
       "output/typings/aws-importexport.d.ts",
