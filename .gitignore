@@ -2,3 +2,4 @@ app/build
 app/src/*.js*
 node_modules
 .idea
+*.log
