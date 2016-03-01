@@ -34,32 +34,57 @@ declare module "aws-sdk" {
 		xhrAsync?: boolean;
 		xhrWithCredentials?: boolean;
 	}
-	
+
 	export interface Services {
+		httpOptions?: HttpOptions;
+		acm?: any;
+		apigateway?: any;
 		autoscaling?: any;
 		cloudformation?: any;
 		cloudfront?: any;
+		cloudhsm?: any;
 		cloudsearch?: any;
 		cloudsearchdomain?: any;
 		cloudtrail?: any;
 		cloudwatch?: any;
+		cloudwatchevents?: any;
 		cloudwatchlogs?: any;
+		codecommit?: any;
+		codedeploy?: any;
+		codepipeline?: any;
 		cognitoidentity?: any;
 		cognitosync?: any;
+		configservice?: any;
 		datapipeline?: any;
+		devicefarm?: any;
 		directconnect?: any;
+		directoryservice?: any;
 		dynamodb?: any;
+		dynamodbstreams?: any;
 		ec2?: any;
+		ecr?: any;
+		ecs?: any;
+		efs?: any;
 		elasticache?: any;
 		elasticbeanstalk?: any;
-		elastictranscoder?: any;
 		elb?: any;
 		emr?: any;
+		es?: any;
+		elastictranscoder?: any;
+		firehose?: any;
+		gamelift?: any;
 		glacier?: any;
-		httpOptions?: HttpOptions;
 		iam?: any;
 		importexport?: any;
+		inspector?: any;
+		iot?: any;
+		iotdata?: any;
 		kinesis?: any;
+		kms?: any;
+		lambda?: any;
+		machinelearning?: any;
+		marketplacecommerceanalytics?: any;
+		mobileanalytics?: any;
 		opsworks?: any;
 		rds?: any;
 		redshift?: any;
@@ -70,12 +95,15 @@ declare module "aws-sdk" {
 		simpledb?: any;
 		sns?: any;
 		sqs?: any;
+		ssm?: any;
 		storagegateway?: any;
 		sts?: any;
 		support?: any;
 		swf?: any;
-	}
-	
+		waf?: any;
+		workspaces?: any;
+  }
+
 	export interface ClientConfigPartial extends Services {
 		credentials?: Credentials;
 		region?: string;
@@ -100,28 +128,49 @@ declare module "aws-sdk" {
 		credentials: Credentials;
 		region: string;
 	}
-	
+
 	export class Endpoint {
 		constructor(endpoint:string);
-		
+
 		host:string;
 		hostname:string;
 		href:string;
 		port:number;
 		protocol:string;
 	}
-	
+
 	export class Service {
 		apiVersions:string[];
-		makeRequest(operation:string, params:Object, callback:(error?:Error, data?:any) => void): void; 
+		makeRequest(operation:string, params:Object, callback:(error?:Error, data?:any) => void): void;
 		makeUnauthenticatedRequest(operation:string, params:Object, callback: (error?:Error, data?:any) => void): void;
 		setupRequestListeners(): void;
-		waitFor(state:string, params:Object, callback:(error?:Error, data?:any) => void): void;   
+		waitFor(state:string, params:Object, callback:(error?:Error, data?:any) => void): void;
 	}
-	
-    export class Request extends EventEmitter {
+
+  export module CognitoIdentity {
+    export interface CognitoIdentity.CognitoIdentityCredentialsParams {
+      IdentityPoolId?: string;
+      AccountId?: string;
+      Logins?: [k: string]: any;
+
+      RoleArn?: string;
+      RoleSessionName?: string;
+      WebIdentityToken?: string;
+      ProviderId?: string;
+      Policy?: string;
+      DurationSeconds?: number;
+
+      IdentityId?: string;
+    }
+  }
+
+	export class CognitoIdentityCredentials extends Credentials {
+	  constructor(params: CognitoIdentity.CognitoIdentityCredentialsParams);
+	}
+
+  export class Request extends EventEmitter {
 		constructor(service:Service, operation:string, params:Object);
-		
+
 		on(event: string, listener: Function):Request;
 		httpRequest: HttpRequest;
 		startTime: Date;
@@ -131,9 +180,9 @@ declare module "aws-sdk" {
 		eachPage(callback: (err:Error, data:any, done?:() => void) => boolean|void): void;
 		isPageable(): boolean;
 		send(callback?: (err:Error, data:any) => void): void;
-		
+
     }
-	
+
 	export class HttpRequest {
 		body: string;
 		endpoint: Endpoint;
@@ -143,7 +192,7 @@ declare module "aws-sdk" {
 		pathName(): string;
 		search(): string;
 	}
-	
+
 	/*
 	 * Node-compatible interfaces
 	 */
@@ -157,7 +206,7 @@ declare module "aws-sdk" {
         listeners(event: string): Function[];
         emit(event: string, ...args: any[]): boolean;
     }
-	
+
     export interface ReadableStream extends EventEmitter {
         readable: boolean;
         read(size?: number): any;
@@ -170,7 +219,7 @@ declare module "aws-sdk" {
         unshift(chunk: Buffer): void;
         wrap(oldStream: ReadableStream): ReadableStream;
     }
-	
+
     export interface WritableStream extends EventEmitter {
         writable: boolean;
         write: Function;
@@ -178,4 +227,4 @@ declare module "aws-sdk" {
     }
 
 }
-	
+

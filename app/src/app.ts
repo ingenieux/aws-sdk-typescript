@@ -16,6 +16,8 @@ var escodegen = require("escodegen")
 
 require('source-map-support').install();
 
+import handlebars = require("handlebars")
+
 var sdkDir:string;
 var metadata:{[serviceName:string]:meta.ServiceInfo};
 
@@ -57,7 +59,7 @@ function generateServiceDefinitions() {
 function copyCommonDefs() {
   // TODO: What if we don't support Buffer?
   //
-  var content = fs.readFileSync(__dirname + '/../src/aws-sdk-common.d.ts.template');
+  var templateContent = fs.readFileSync(__dirname + '/../src/aws-sdk-common.handlebars').toString();
 
   [ 'output', 'output/typings'].forEach((path: string) => {
     if (! fs.existsSync(path)) {
@@ -65,7 +67,11 @@ function copyCommonDefs() {
     }
   })
 
-  fs.writeFileSync('output/typings/aws-sdk-common.d.ts', content);
+  var template = handlebars.compile(templateContent);
+
+  var commonContent = template({services: Object.keys(metadata)});
+
+  fs.writeFileSync('output/typings/aws-sdk-common.d.ts', commonContent);
 }
 
 function generateModuleFile() {
