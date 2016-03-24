@@ -1,22 +1,22 @@
-/// <reference path="../../typings/tsd.d.ts" />
+/// <reference path="../../typings/main.d.ts" />
 
-import generator = require("./generator");
-import meta = require("./meta");
-import fs = require("fs");
-import path = require("path");
-import glob = require("glob");
+import * as generator from './generator';
+import * as meta from './meta';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as glob from 'glob';
 
-var jsstana = require("jsstana")
+var jsstana = require('jsstana');
 
-import esprima = require("esprima");
+import * as esprima from 'esprima';
 
-var estraverse = require("estraverse");
+var estraverse = require('estraverse');
 
-var escodegen = require("escodegen")
+var escodegen = require('escodegen');
+
+import * as handlebars from 'handlebars';
 
 require('source-map-support').install();
-
-import handlebars = require("handlebars")
 
 var sdkDir:string;
 var metadata:{[serviceName:string]:meta.ServiceInfo};
@@ -34,9 +34,8 @@ function readServiceFiles() {
 
     var result = glob.sync(expr);
 
-    if (result  && result.length > 0) {
+    if (result && result.length > 0) {
       serviceInfo.input = result[result.length -1];   //most recent API version
-      serviceInfo.output = `output/typings/aws-${serviceInfo.prefix}.d.ts`;
 
       console.log(shortName + ": " + JSON.stringify(serviceInfo, null, 2));
       var content = fs.readFileSync(serviceInfo.input).toString();
@@ -48,18 +47,18 @@ function readServiceFiles() {
 function generateServiceDefinitions() {
   Object.keys(metadata).forEach((serviceName) => {
 
-    console.log(`Generating ${metadata[serviceName].output}`)
+    console.log(`Generating ${serviceName}`)
 
     var result = new generator.AWSTypeGenerator().generateServiceDefinitions(metadata[serviceName]);
 
-    fs.writeFileSync(metadata[serviceName].output, result);
+    metadata[serviceName].output = result;
   });
 }
 
 function copyCommonDefs() {
   // TODO: What if we don't support Buffer?
   //
-  var templateContent = fs.readFileSync(__dirname + '/../src/aws-sdk-common.handlebars').toString();
+  var templateContent = fs.readFileSync(__dirname + '/../src/aws-sdk.handlebars').toString();
 
   [ 'output', 'output/typings'].forEach((path: string) => {
     if (! fs.existsSync(path)) {
@@ -69,17 +68,13 @@ function copyCommonDefs() {
 
   var template = handlebars.compile(templateContent);
 
-  var commonContent = template({services: Object.keys(metadata)});
+  var moduleContent = Object.keys(metadata).map(name => {
+    return metadata[name].output;
+  }).join("\n");
 
-  fs.writeFileSync('output/typings/aws-sdk-common.d.ts', commonContent);
-}
+  var commonContent = template({services: Object.keys(metadata), sdkContent: moduleContent });
 
-function generateModuleFile() {
-  var services = Object.keys(metadata)
-    .map(shortName => metadata[shortName].prefix);
-  var result = new generator.AWSTypeGenerator().generateMainModule(services);
-
-  fs.writeFileSync('output/typings/aws-sdk.d.ts', result);
+  fs.writeFileSync('output/typings/index.d.ts', commonContent);
 }
 
 function cleanDefinitions() {
@@ -136,9 +131,10 @@ function readCustomCode() {
 
 console.log(JSON.stringify(process.argv))
 
-sdkDir = "./aws-sdk-js/apis";
+sdkDir = "./node_modules/aws-sdk/apis";
 
 metadata = readMetadata();
+
 readServiceFiles();
 
 readCustomCode();
@@ -148,4 +144,3 @@ cleanDefinitions();
 copyCommonDefs();
 
 generateServiceDefinitions();
-generateModuleFile();

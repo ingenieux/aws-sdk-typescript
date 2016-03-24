@@ -1,5 +1,6 @@
 app/build
 app/src/*.js*
+typings/
 node_modules
 .idea
 *.log

@@ -27,17 +27,14 @@ paths.srcAndTests = [].concat(
 
 gulp.task('default', ['watch']);
 
+gulp.task('run', function() {
+  require('./app/build/app.js');
+});
 
-// ** Running ** //
-
-gulp.task('update-package', shell.task([
-  'node app/build/update-package.js . package.json'
-]));
-
-gulp.task('run', shell.task([
-  'node app/build/app.js ../aws-sdk-js/apis'
-]));
-
+//gulp.task('run', shell.task([
+//  'node app/build/app.js ../aws-sdk-js/apis'
+//]));
+//
 gulp.task('buildrun', function (cb) {
 	runseq('build', 'run', cb);
 });

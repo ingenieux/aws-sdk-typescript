@@ -1,51 +1,39 @@
-// Type definitions for aws-sdk - {{descriptor.metadata.serviceFullName}}
-// Project: https://github.com/aws/aws-sdk-js
-// Definitions by: https://github.com/ingenieux/aws-sdk-typescript
-// GENERATED CODE - DO NOT EDIT
-
-///<reference path="./aws-sdk-common.d.ts" />
-
-declare module "aws-sdk" {
-
-    /*
-     * apiVersion: {{descriptor.metadata.apiVersion}}
-     * endpointPrefix: {{descriptor.metadata.endpointPrefix}}
-     * serviceAbbreviation: {{descriptor.metadata.serviceAbbreviation}}
-     * signatureVersion: {{descriptor.metadata.signatureVersion}}
-     * protocol: {{descriptor.metadata.protocol}}
-     */
-    export class {{name}} extends Service {
-      constructor(options?: any);
-      endpoint: Endpoint;
+  /*
+   * apiVersion: {{descriptor.metadata.apiVersion}}
+   * endpointPrefix: {{descriptor.metadata.endpointPrefix}}
+   * serviceAbbreviation: {{descriptor.metadata.serviceAbbreviation}}
+   * signatureVersion: {{descriptor.metadata.signatureVersion}}
+   * protocol: {{descriptor.metadata.protocol}}
+   */
+  export class {{name}} extends Service {
+    constructor(options?: any);
+    endpoint: Endpoint;
 {{#each descriptor.operations}}
-      {{{camelCase @key}}}(
-        {{~#if this.input.shape}}params: {{../../name}}.{{this.input.shape}}, {{/if~}}
-        callback?: ( {{~null~}}
-            err: {{#each this.errors~}}{{../../name}}.{{this.shape}}|{{/each}}any, {{null~}}
-            data: {{#if this.output.shape}}{{../../name}}.{{this.output.shape}}|{{/if}}any) => void {{~null~}}
-      ): Request;
+    {{{camelCase @key}}}(
+      {{~#if this.input.shape}}params: {{../../name}}.{{this.input.shape}}, {{/if~}}
+      callback?: ( {{~null~}}
+          err: {{#each this.errors~}}{{../../name}}.{{this.shape}}|{{/each}}any, {{null~}}
+          data: {{#if this.output.shape}}{{../../name}}.{{this.output.shape}}|{{/if}}any) => void {{~null~}}
+    ): Request;
 {{/each}}
 
 {{#each extraClientMethods}}
-      // Found on JS Sources - Sorry for the inconvenience :)
-      {{{this}}}(...args: any[]): any
+    // Found on JS Sources - Sorry for the inconvenience :)
+    {{{this}}}(...args: any[]): any
 {{/each}}
     }
 
-    export module {{name}} {
+  export namespace {{name}} {
 {{!-- Alias definitions --}}
 {{#each descriptor.aliases}}
-        export type {{name}} = {{type}};{{#if comment}}    // {{comment}}{{/if}}
+    export type {{name}} = {{type}};{{#if comment}}    // {{comment}}{{/if}}
 {{/each}}
 
 {{!-- Interface definitions --}}
 {{#each descriptor.structures}}
-        export interface {{name}} {
+    export interface {{name}} {
 {{#each members}}
-            {{@key}}{{this.required}}: {{this.shape}};
+    {{@key}}{{this.required}}: {{this.shape}};
 {{/each}}
-        }
-{{/each}}
-
     }
-}
+{{/each}}

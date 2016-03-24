@@ -1,8 +1,7 @@
+/// <reference path="../output/typings/index.d.ts" />
+/// <reference path="../typings/main/ambient/node/index.d.ts" />
 
-/// <reference path="../output/typings/aws-sdk.d.ts" />
-/// <reference path="../typings/node/node.d.ts" />
-
-import AWS = require('aws-sdk');
+import * as AWS from 'aws-sdk';
 
 var str: string;
 
@@ -37,11 +36,11 @@ if (request.isPageable()) {
 }
 
 request = new AWS.S3().putObject({Bucket: 'bucket', Key: 'key'});
-request.on('complete', response => console.log(response)); 
+request.on('complete', response => console.log(response));
 request.send();
 
 /*
- * SQS 
+ * SQS
  */
 var sqs:AWS.SQS
 
@@ -68,22 +67,22 @@ sqs.addPermission({
 	],
 	Label: 'STRING_VALUE', /* required */
 	QueueUrl: 'STRING_VALUE' /* required */
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
 	});
-	
+
 sqs.changeMessageVisibility({
 		QueueUrl: 'STRING_VALUE', /* required */
 		ReceiptHandle: 'STRING_VALUE', /* required */
 		VisibilityTimeout: 0 /* required */
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
 	});
-	
+
 sqs.changeMessageVisibilityBatch({
 		Entries: [ /* required */
 			{
@@ -94,19 +93,19 @@ sqs.changeMessageVisibilityBatch({
 			/* more items */
 		],
 		QueueUrl: 'STRING_VALUE' /* required */
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
 	});
-	
+
 sqs.createQueue({
 		QueueName: 'STRING_VALUE', /* required */
 		Attributes: {
 			someKey: 'STRING_VALUE',
 			/* anotherKey: ... */
 		}
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
@@ -115,12 +114,12 @@ sqs.createQueue({
 sqs.deleteMessage({
 		QueueUrl: 'STRING_VALUE', /* required */
 		ReceiptHandle: 'STRING_VALUE' /* required */
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
 	});
-	
+
 sqs.deleteMessageBatch({
 		Entries: [ /* required */
 			{
@@ -130,20 +129,20 @@ sqs.deleteMessageBatch({
 			/* more items */
 		],
 		QueueUrl: 'STRING_VALUE' /* required */
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
 	});
-	
+
 sqs.deleteQueue({
 		QueueUrl: 'STRING_VALUE' /* required */
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
 	});
-	
+
 sqs.getQueueAttributes({
 		QueueUrl: 'STRING_VALUE', /* required */
 		AttributeNames: [
@@ -155,26 +154,26 @@ sqs.getQueueAttributes({
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
 	});
-	
+
 sqs.getQueueUrl({
 		QueueName: 'STRING_VALUE', /* required */
 		QueueOwnerAWSAccountId: 'STRING_VALUE'
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
 	});
-	
+
 sqs.listDeadLetterSourceQueues({
 		QueueUrl: 'STRING_VALUE' /* required */
 	}, function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
 	});
-	
+
 sqs.listQueues({
 		QueueNamePrefix: 'STRING_VALUE'
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else     console.log(data);           // successful response
@@ -186,7 +185,7 @@ sqs.purgeQueue({
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
 	});
-	
+
 sqs.receiveMessage({
 		QueueUrl: 'STRING_VALUE', /* required */
 		AttributeNames: [
@@ -204,7 +203,7 @@ sqs.receiveMessage({
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
 	});
-	
+
 sqs.removePermission({
 		Label: 'STRING_VALUE', /* required */
 		QueueUrl: 'STRING_VALUE' /* required */
@@ -212,7 +211,7 @@ sqs.removePermission({
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
 	});
-	
+
 sqs.sendMessage({
 		MessageBody: 'STRING_VALUE', /* required */
 		QueueUrl: 'STRING_VALUE', /* required */
@@ -233,7 +232,7 @@ sqs.sendMessage({
 			},
 			/* anotherKey: ... */
 		}
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
@@ -265,12 +264,12 @@ sqs.sendMessageBatch({
 			/* more items */
 		],
 		QueueUrl: 'STRING_VALUE' /* required */
-	}, 
+	},
 	function(err, data) {
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
 	});
-	
+
 sqs.setQueueAttributes({
 		Attributes: { /* required */
 			someKey: 'STRING_VALUE',
@@ -281,5 +280,4 @@ sqs.setQueueAttributes({
 		if (err) console.log(err, err.stack); // an error occurred
 		else console.log(data);           // successful response
 	});
-	
-	
+
