@@ -1,5 +1,5 @@
 {
-  "name": "aws-sdk-typescript",
+  "name": "aws-sdk",
   "dependencies": {},
   "devDependencies": {},
   "main": "output/typings/index.d.ts",
