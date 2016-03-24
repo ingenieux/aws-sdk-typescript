@@ -47,6 +47,8 @@
     "typings": "^0.7.9"
   },
   "scripts": {
-    "preversion": "gulp buildrun"
-  }
+    "preversion": "gulp buildrun",
+    "test": "gulp buildrun"
+  },
+  "typings": "./output/typings/index.d.ts"
 }

@@ -1,5 +1,5 @@
-/// <reference path="../output/typings/index.d.ts" />
-/// <reference path="../typings/main/ambient/node/index.d.ts" />
+///<reference path="../typings/main/ambient/node/index.d.ts" />
+///<reference path="../output/typings/index.d.ts" />
 
 import * as AWS from 'aws-sdk';
 
