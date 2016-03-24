@@ -49,5 +49,6 @@
   },
   "scripts": {
     "preversion": "gulp buildrun"
-  }
+  },
+  "main": "./output/typings/index.d.ts"
 }
