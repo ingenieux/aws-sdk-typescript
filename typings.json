@@ -2,6 +2,7 @@
   "name": "aws-sdk-typescript",
   "dependencies": {},
   "devDependencies": {},
+  "main": "output/typings/index.d.ts",
   "ambientDevDependencies": {
     "esprima": "registry:dt/esprima#2.1.0+20160317120654",
     "estree": "registry:dt/estree#0.0.0+20160317120654",
