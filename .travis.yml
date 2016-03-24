@@ -3,6 +3,6 @@ node_js:
   - "4.1"
   - "stable"
 before_install:
-- npm install -g gulp
+- npm install -g gulp typings && typings install
 - git submodule update --init --recursive
 
