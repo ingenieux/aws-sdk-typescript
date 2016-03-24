@@ -55,7 +55,7 @@ function generateServiceDefinitions() {
   });
 }
 
-function copyCommonDefs() {
+function generateIndexDTS() {
   // TODO: What if we don't support Buffer?
   //
   var templateContent = fs.readFileSync(__dirname + '/../src/aws-sdk.handlebars').toString();
@@ -131,7 +131,7 @@ function readCustomCode() {
 
 console.log(JSON.stringify(process.argv))
 
-sdkDir = "./node_modules/aws-sdk/apis";
+sdkDir = "./aws-sdk-js/apis/";
 
 metadata = readMetadata();
 
@@ -141,6 +141,6 @@ readCustomCode();
 
 cleanDefinitions();
 
-copyCommonDefs();
-
 generateServiceDefinitions();
+
+generateIndexDTS();

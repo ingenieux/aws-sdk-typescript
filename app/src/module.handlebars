@@ -12,8 +12,8 @@
     {{{camelCase @key}}}(
       {{~#if this.input.shape}}params: {{../../name}}.{{this.input.shape}}, {{/if~}}
       callback?: ( {{~null~}}
-          err: {{#each this.errors~}}{{../../name}}.{{this.shape}}|{{/each}}any, {{null~}}
-          data: {{#if this.output.shape}}{{../../name}}.{{this.output.shape}}|{{/if}}any) => void {{~null~}}
+        err: {{#each this.errors~}}{{../../name}}.{{this.shape}}|{{/each}}any, {{null~}}
+        data: {{#if this.output.shape}}{{../../name}}.{{this.output.shape}}|{{/if}}any) => void {{~null~}}
     ): Request;
 {{/each}}
 
@@ -21,7 +21,7 @@
     // Found on JS Sources - Sorry for the inconvenience :)
     {{{this}}}(...args: any[]): any
 {{/each}}
-    }
+  }
 
   export namespace {{name}} {
 {{!-- Alias definitions --}}
@@ -33,7 +33,7 @@
 {{#each descriptor.structures}}
     export interface {{name}} {
 {{#each members}}
-    {{@key}}{{this.required}}: {{this.shape}};
+        {{@key}}{{this.required}}: {{this.shape}};
 {{/each}}
     }
 {{/each}}
