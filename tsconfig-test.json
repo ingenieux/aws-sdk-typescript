@@ -11,6 +11,7 @@
     "sourceMap": true
   },
   "files": [
-    "./test/aws-sdk-tests.ts"
+    "./test/aws-sdk-tests.ts",
+    "./test/document-client-test.ts"
   ]
 }
