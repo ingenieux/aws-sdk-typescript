@@ -5,4 +5,3 @@ node_js:
 before_install:
 - npm install -g gulp typings && typings install
 - git submodule update --init --recursive
-- npm run build
