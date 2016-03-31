@@ -1,7 +1,7 @@
 ///<reference path="../typings/main/ambient/node/index.d.ts" />
 ///<reference path="../output/typings/index.d.ts" />
 
-import * as AWS from 'aws-sdk';
+import * as AWS from '../aws-sdk-js';
 
 var str: string;
 

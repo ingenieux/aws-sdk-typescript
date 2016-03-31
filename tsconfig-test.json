@@ -7,7 +7,7 @@
     "noImplicitAny": true,
     "removeComments": false,
     "preserveConstEnums": true,
-    "outDir": "app/build/",
+    "outDir": "app/build/test",
     "sourceMap": true
   },
   "exclude": [
@@ -15,6 +15,6 @@
     "output/typings"
   ],
   "filesGlob": [
-    "./app/src/*.ts"
+    "./test/*.ts"
   ]
 }

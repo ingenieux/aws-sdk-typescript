@@ -10,6 +10,6 @@
     "handlebars": "registry:dt/handlebars#3.0.3+20160317120654",
     "minimatch": "registry:dt/minimatch#2.0.8+20160317120654",
     "mustache": "registry:dt/mustache#0.8.2+20160316155526",
-    "node": "registry:dt/node#4.0.0+20160319033040"
+    "node": "registry:dt/node#4.0.0+20160330064709"
   }
 }

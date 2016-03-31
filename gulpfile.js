@@ -1,8 +1,16 @@
 var gulp   = require('gulp');
-var tsc    = require('gulp-tsc');
+var ts    = require('gulp-typescript');
 var shell  = require('gulp-shell');
 var runseq = require('run-sequence');
 var del  = require('del');
+
+var tsProject = ts.createProject('tsconfig.json', {
+  typescript: require('typescript')
+});
+
+var tsTestProject = ts.createProject('tsconfig-test.json', {
+  typescript: require('typescript')
+});
 
 var paths = {
 	tscripts : {
@@ -57,16 +65,15 @@ gulp.task('build', function(cb) {
 });
 
 gulp.task('compile:typescript', function () {
-	return gulp
-	.src(paths.tscripts.src)
-	.pipe(tsc())
-	.pipe(gulp.dest(paths.tscripts.dest));
+  return gulp.src(paths.tscripts.src).
+    pipe(ts(tsProject)).
+    pipe(gulp.dest(paths.tscripts.dest));
 });
 
 gulp.task('compile:tests', function() {
 	return gulp
 	.src(paths.tests.src)
-	.pipe(tsc())
+	.pipe(ts(tsTestProject))
 	.pipe(gulp.dest(paths.tests.dest));
 });
 
