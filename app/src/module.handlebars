@@ -4,11 +4,21 @@
    * serviceAbbreviation: {{descriptor.metadata.serviceAbbreviation}}
    * signatureVersion: {{descriptor.metadata.signatureVersion}}
    * protocol: {{descriptor.metadata.protocol}}
+   *
+   * {{{descriptor.documentation}}}
+   *
    */
   export class {{name}} extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
 {{#each descriptor.operations}}
+    /**
+     * {{{this.documentation}}}
+     *
+{{#each this.errors}}
+     * @error {{this.shape}} {{{this.documentation}}}  
+{{/each}}    
+     */
     {{{camelCase @key}}}(
       {{~#if this.input.shape}}params: {{../../name}}.{{this.input.shape}}, {{/if~}}
       callback?: ( {{~null~}}
@@ -29,13 +39,17 @@
   export module {{name}} {
 {{!-- Alias definitions --}}
 {{#each descriptor.aliases}}
-    export type {{name}} = {{type}};{{#if comment}}    // {{comment}}{{/if}}
+    {{#if comment}}/**{{{comment}}} **/{{/if}}
+    export type {{name}} = {{type}};
 {{/each}}
 
 {{!-- Interface definitions --}}
 {{#each descriptor.structures}}
     export interface {{name}} {
 {{#each members}}
+{{#if this.documentation}}
+        /*** {{{this.documentation}}} **/
+{{/if}}
         {{@key}}{{this.required}}: {{this.shape}};
 {{/each}}
     }

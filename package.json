@@ -49,7 +49,8 @@
     "typings": "^0.7.9"
   },
   "scripts": {
-    "prepublish": "gulp buildrun && tsfmt --verbose --replace -- output/typings/index.d.ts",
+    "prepublish": "gulp buildrun && npm run-script format",
+    "format": "tsfmt --verbose --replace -- output/typings/index.d.ts",
     "test": "npm install ./aws-sdk-js && gulp compile:tests"
   },
   "typings": "./output/typings/index.d.ts"
