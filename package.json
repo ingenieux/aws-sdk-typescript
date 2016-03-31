@@ -47,7 +47,7 @@
     "typings": "^0.7.9"
   },
   "scripts": {
-    "preversion": "gulp buildrun",
+    "build": "gulp buildrun",
     "test": "npm install ./aws-sdk-js && gulp compile:tests"
   },
   "typings": "./output/typings/index.d.ts"
