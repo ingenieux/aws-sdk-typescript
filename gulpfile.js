@@ -46,10 +46,6 @@ gulp.task('run', ['compile:typescript'], function(cb) {
   }
 });
 
-//gulp.task('run', shell.task([
-//  'node app/build/app.js ../aws-sdk-js/apis'
-//]));
-//
 gulp.task('buildrun', [ 'build', 'run'], function () {
 });
 

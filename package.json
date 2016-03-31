@@ -45,10 +45,11 @@
     "run-sequence": "^0.3.6",
     "source-map-support": "^0.4.0",
     "typescript": "^1.8.9",
+    "typescript-formatter": "^2.1.0",
     "typings": "^0.7.9"
   },
   "scripts": {
-    "build": "gulp buildrun",
+    "build": "gulp buildrun && tsfmt --verbose --replace -- output/typings/index.d.ts",
     "test": "npm install ./aws-sdk-js && gulp compile:tests"
   },
   "typings": "./output/typings/index.d.ts"
