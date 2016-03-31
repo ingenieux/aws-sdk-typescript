@@ -48,7 +48,7 @@
   },
   "scripts": {
     "preversion": "gulp buildrun",
-    "test": "gulp compile:tests"
+    "test": "npm install ./aws-sdk-js && gulp compile:tests"
   },
   "typings": "./output/typings/index.d.ts"
 }
