@@ -36,16 +36,21 @@ paths.srcAndTests = [].concat(
 
 gulp.task('default', ['watch']);
 
-gulp.task('run', function() {
-  require('./app/build/app.js');
+gulp.task('run', ['compile:typescript'], function(cb) {
+  try {
+    require('./app/build/app.js');
+
+    cb(null, { "ok": true});
+  } catch (err) {
+    cb(err, null);
+  }
 });
 
 //gulp.task('run', shell.task([
 //  'node app/build/app.js ../aws-sdk-js/apis'
 //]));
 //
-gulp.task('buildrun', function (cb) {
-	runseq('build', 'run', cb);
+gulp.task('buildrun', [ 'build', 'run'], function () {
 });
 
 // ** Watching ** //
@@ -61,11 +66,9 @@ gulp.task('watchrun', ['buildrun'], function () {
 });
 
 // ** Compilation ** //
-gulp.task('build', function(cb) {
-	runseq('clean',	'compile:typescript', cb);
-});
+gulp.task('build', [ 'compile:typescript' ]);
 
-gulp.task('compile:typescript', function () {
+gulp.task('compile:typescript', [ 'clean' ], function () {
   return gulp.src(paths.tscripts.src, { base: 'app/src'}).//
     pipe(sourcemaps.init({debug: true})).//
     pipe(ts(tsProject)).//
@@ -73,13 +76,15 @@ gulp.task('compile:typescript', function () {
     pipe(gulp.dest(paths.tscripts.dest));
 });
 
-gulp.task('compile:tests', function() {
+gulp.task('compile:tests', [ 'run' ], function() {
 	return gulp.src(paths.tests.src, { base: 'test'}).//
     pipe(sourcemaps.init({debug: true})).//
 	  pipe(ts(tsTestProject)).//
     pipe(sourcemaps.write('.')).//
     pipe(gulp.dest(paths.tests.dest));
 });
+
+gulp.task('test', [ 'compile:tests' ]);
 
 // ** Clean ** //
 
