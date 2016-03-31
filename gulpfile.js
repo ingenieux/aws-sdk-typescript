@@ -3,6 +3,7 @@ var ts    = require('gulp-typescript');
 var shell  = require('gulp-shell');
 var runseq = require('run-sequence');
 var del  = require('del');
+var sourcemaps = require('gulp-sourcemaps');
 
 var tsProject = ts.createProject('tsconfig.json', {
   typescript: require('typescript')
@@ -14,11 +15,11 @@ var tsTestProject = ts.createProject('tsconfig-test.json', {
 
 var paths = {
 	tscripts : {
-		src : ['app/src/**/*.ts'],
+		src : 'app/src/**/*.ts',
 		dest : 'app/build'
 	},
 	tests: {
-		src: ['test/**/*.ts'],
+		src: 'test/**/*.ts',
 		dest: 'app/build/test'
 	},
 	templates: {
@@ -65,16 +66,19 @@ gulp.task('build', function(cb) {
 });
 
 gulp.task('compile:typescript', function () {
-  return gulp.src(paths.tscripts.src).
-    pipe(ts(tsProject)).
+  return gulp.src(paths.tscripts.src, { base: 'app/src'}).//
+    pipe(sourcemaps.init({debug: true})).//
+    pipe(ts(tsProject)).//
+    pipe(sourcemaps.write('.')).//
     pipe(gulp.dest(paths.tscripts.dest));
 });
 
 gulp.task('compile:tests', function() {
-	return gulp
-	.src(paths.tests.src)
-	.pipe(ts(tsTestProject))
-	.pipe(gulp.dest(paths.tests.dest));
+	return gulp.src(paths.tests.src, { base: 'test'}).//
+    pipe(sourcemaps.init({debug: true})).//
+	  pipe(ts(tsTestProject)).//
+    pipe(sourcemaps.write('.')).//
+    pipe(gulp.dest(paths.tests.dest));
 });
 
 // ** Clean ** //

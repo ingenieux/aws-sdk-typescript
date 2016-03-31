@@ -15,6 +15,7 @@ var estraverse = require('estraverse');
 var escodegen = require('escodegen');
 
 import * as handlebars from 'handlebars';
+import {ExtraClientMethod} from "./meta";
 
 require('source-map-support').install();
 
@@ -35,7 +36,7 @@ function readServiceFiles() {
     var result = glob.sync(expr);
 
     if (result && result.length > 0) {
-      serviceInfo.input = result[result.length -1];   //most recent API version
+      serviceInfo.input = result[result.length - 1];   //most recent API version
 
       console.log(shortName + ": " + JSON.stringify(serviceInfo, null, 2));
       var content = fs.readFileSync(serviceInfo.input).toString();
@@ -60,8 +61,8 @@ function generateIndexDTS() {
   //
   var templateContent = fs.readFileSync(__dirname + '/../src/aws-sdk.handlebars').toString();
 
-  [ 'output', 'output/typings'].forEach((path: string) => {
-    if (! fs.existsSync(path)) {
+  ['output', 'output/typings'].forEach((path:string) => {
+    if (!fs.existsSync(path)) {
       fs.mkdirSync(path)
     }
   })
@@ -72,7 +73,7 @@ function generateIndexDTS() {
     return metadata[name].output;
   }).join("\n");
 
-  var commonContent = template({services: Object.keys(metadata), sdkContent: moduleContent });
+  var commonContent = template({services: Object.keys(metadata), sdkContent: moduleContent});
 
   fs.writeFileSync('output/typings/index.d.ts', commonContent);
 }
@@ -92,21 +93,39 @@ function readCustomCode() {
 
   var paths = glob.sync(expr)
 
-  var methodsToAdd: any = {}
+  var methodsToAdd:any = {}
 
   if (paths && paths.length > 0) {
-    paths.forEach(function(p: string) {
+    paths.forEach(function (p:string) {
       var src = fs.readFileSync(p).toString()
-      var ast = esprima.parse(src)
+      var ast = esprima.parse(src, {comment: true, attachComment: true})
 
       var matcher = jsstana.createMatcher("(call (lookup AWS.util.update) ? ?)")
 
       estraverse.traverse(ast, {
-        enter: function(n: any) {
+        enter: function (n:any) {
           if (matcher(n)) {
             var classname = escodegen.generate(n.arguments[0]).replace(/AWS\.(\w+)\.prototype/, "$1")
 
-            var methodList = n.arguments[1].properties.map(function(x: any) { return x.key.name })
+            var methodList = n.arguments[1].properties.map((x:any) => {
+              var context = {
+                classname: classname,
+                name: x.key.name,
+                comment: (x.leadingComments && x.leadingComments.map((x: any) => { return x.value }).join('\n')) || ""
+              } as ExtraClientMethod
+
+              context.comment = context.comment.replace(/\n\s+\*/g, "\n     *");
+
+              var m = /@api\s+private/.exec(context.comment)
+
+              if (m) {
+                return null
+              }
+
+              return context
+            }).filter((x: ExtraClientMethod) => {
+              return null != x
+            })
 
             console.log("Adding class: ", classname, " and methods: ", methodList)
 
@@ -117,7 +136,7 @@ function readCustomCode() {
     })
   }
 
-  Object.keys(metadata).forEach((serviceName: string) => {
+  Object.keys(metadata).forEach((serviceName:string) => {
     var k = metadata[serviceName].name
     if (methodsToAdd.hasOwnProperty(k)) {
       metadata[serviceName].extraClientMethods = methodsToAdd[k]

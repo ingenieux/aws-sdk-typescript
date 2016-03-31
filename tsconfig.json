@@ -14,7 +14,9 @@
     "node_modules",
     "output/typings"
   ],
-  "filesGlob": [
-    "./app/src/*.ts"
+  "files": [
+    "./app/src/app.ts",
+    "./app/src/generator.ts",
+    "./app/src/meta.ts"
   ]
 }

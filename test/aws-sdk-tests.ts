@@ -1,7 +1,7 @@
 ///<reference path="../typings/main/ambient/node/index.d.ts" />
 ///<reference path="../output/typings/index.d.ts" />
 
-import * as AWS from '../aws-sdk-js';
+import AWS = require('aws-sdk');
 
 var str: string;
 
@@ -35,9 +35,13 @@ if (request.isPageable()) {
 	request.eachPage((err, data, done) => done());
 }
 
-request = new AWS.S3().putObject({Bucket: 'bucket', Key: 'key'});
-request.on('complete', response => console.log(response));
-request.send();
+new AWS.S3().putObject({Bucket: 'bucket', Key: 'key'}, (err, data) => {
+  if (err) {
+    console.log('err: ', err);
+  } else {
+    console.log('data: ', data);
+  }
+});
 
 /*
  * SQS

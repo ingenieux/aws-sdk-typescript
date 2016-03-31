@@ -3,7 +3,7 @@
 // Definitions by: https://github.com/ingenieux/aws-sdk-typescript
 // GENERATED CODE - DO NOT EDIT
 
-declare namespace AWS {
+declare module "aws-sdk" {
 
   export var config: ClientConfig;
 
@@ -84,7 +84,7 @@ declare namespace AWS {
     waitFor(state:string, params:Object, callback:(error?:Error, data?:any) => void): void;
   }
 
-  export namespace CognitoIdentity {
+  export module CognitoIdentity {
     export interface CognitoIdentityCredentialsParams {
       IdentityPoolId?: string;
       AccountId?: string;
@@ -154,7 +154,7 @@ declare namespace AWS {
     pipe<T extends WritableStream>(destination: T, options?: { end?: boolean; }): T;
     unpipe<T extends WritableStream>(destination?: T): void;
     unshift(chunk: string): void;
-    unshift(chunk: AWS.Buffer): void;
+    unshift(chunk: Buffer): void;
     wrap(oldStream: ReadableStream): ReadableStream;
   }
 
@@ -167,5 +167,3 @@ declare namespace AWS {
 {{{sdkContent}}}
 
 }
-
-export = AWS;

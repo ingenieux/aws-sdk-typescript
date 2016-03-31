@@ -1,3 +1,8 @@
+export interface ExtraClientMethod {
+  classname: string;
+  name: string;
+  comment: string;
+}
 export interface ServiceInfo {
   name:string;
   versions?:string[];
@@ -6,7 +11,7 @@ export interface ServiceInfo {
   output?:string;
   descriptor?:Descriptor;
 
-  extraClientMethods?: string[];
+  extraClientMethods?: ExtraClientMethod[];
 }
 
 export interface Descriptor {

@@ -3,7 +3,7 @@
 // Definitions by: https://github.com/ingenieux/aws-sdk-typescript
 // GENERATED CODE - DO NOT EDIT
 
-declare namespace AWS {
+declare module "aws-sdk" {
 
   export var config: ClientConfig;
 
@@ -148,7 +148,7 @@ declare namespace AWS {
     waitFor(state:string, params:Object, callback:(error?:Error, data?:any) => void): void;
   }
 
-  export namespace CognitoIdentity {
+  export module CognitoIdentity {
     export interface CognitoIdentityCredentialsParams {
       IdentityPoolId?: string;
       AccountId?: string;
@@ -218,7 +218,7 @@ declare namespace AWS {
     pipe<T extends WritableStream>(destination: T, options?: { end?: boolean; }): T;
     unpipe<T extends WritableStream>(destination?: T): void;
     unshift(chunk: string): void;
-    unshift(chunk: AWS.Buffer): void;
+    unshift(chunk: Buffer): void;
     wrap(oldStream: ReadableStream): ReadableStream;
   }
 
@@ -247,7 +247,7 @@ declare namespace AWS {
 
   }
 
-  export namespace ACM {
+  export module ACM {
     export type Arn = string;    // pattern: &quot;arn:[\w+=/,.@-]+:[\w+=/,.@-]+:[\w+=/,.@-]*:[0-9]+:[\w+=,.@-]+(/[\w+=/,.@-]+)*&quot;, max: 2048, min: 20
     export type CertificateBody = string;    // pattern: &quot;-{5}BEGIN CERTIFICATE-{5}\u000D?\u000A([A-Za-z0-9/+]{64}\u000D?\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\u000D?\u000A-{5}END CERTIFICATE-{5}(\u000D?\u000A)?&quot;, max: 524288, min: 1
     export type CertificateChain = string;    // pattern: &quot;(-{5}BEGIN CERTIFICATE-{5}\u000D?\u000A([A-Za-z0-9/+]{64}\u000D?\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\u000D?\u000A-{5}END CERTIFICATE-{5}\u000D?\u000A)*-{5}BEGIN CERTIFICATE-{5}\u000D?\u000A([A-Za-z0-9/+]{64}\u000D?\u000A)*[A-Za-z0-9/+]{1,64}={0,2}\u000D?\u000A-{5}END CERTIFICATE-{5}(\u000D?\u000A)?&quot;, max: 2097152, min: 1
@@ -448,13 +448,9 @@ declare namespace AWS {
     updateRestApi(params: APIGateway.UpdateRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.RestApi|any) => void): Request;
     updateStage(params: APIGateway.UpdateStageRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Stage|any) => void): Request;
 
-    // Found on JS Sources - Sorry for the inconvenience :)
-    setAcceptHeader(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    setupRequestListeners(...args: any[]): any
   }
 
-  export namespace APIGateway {
+  export module APIGateway {
     export type AuthorizerType = string;
     export type Blob = any;    // type: blob
     export type Boolean = boolean;
@@ -1182,7 +1178,7 @@ declare namespace AWS {
 
   }
 
-  export namespace AutoScaling {
+  export module AutoScaling {
     export type Activities = Activity[];
     export type ActivityIds = XmlString[];
     export type AdjustmentTypes = AdjustmentType[];
@@ -1860,7 +1856,7 @@ declare namespace AWS {
 
   }
 
-  export namespace CloudFormation {
+  export module CloudFormation {
     export type AccountLimitList = AccountLimit[];
     export type AllowedValue = string;
     export type AllowedValues = AllowedValue[];
@@ -2230,11 +2226,14 @@ declare namespace AWS {
     updateDistribution(params: CloudFront.UpdateDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.CNAMEAlreadyExists|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchDistribution|CloudFront.PreconditionFailed|CloudFront.TooManyDistributionCNAMEs|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidOriginAccessIdentity|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|any, data: CloudFront.UpdateDistributionResult|any) => void): Request;
     updateStreamingDistribution(params: CloudFront.UpdateStreamingDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.CNAMEAlreadyExists|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchStreamingDistribution|CloudFront.PreconditionFailed|CloudFront.TooManyStreamingDistributionCNAMEs|CloudFront.InvalidArgument|CloudFront.InvalidOriginAccessIdentity|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InconsistentQuantities|any, data: CloudFront.UpdateStreamingDistributionResult|any) => void): Request;
 
-    // Found on JS Sources - Sorry for the inconvenience :)
+    /***
+     * Found on JS Sources - Sorry for the inconvenience :)
+     * 
+     **/
     setupRequestListeners(...args: any[]): any
   }
 
-  export namespace CloudFront {
+  export module CloudFront {
     export type AliasList = string[];
     export type AwsAccountNumberList = string[];
     export type CacheBehaviorList = CacheBehavior[];
@@ -2898,7 +2897,7 @@ declare namespace AWS {
 
   }
 
-  export namespace CloudHSM {
+  export module CloudHSM {
     export type AZ = string;    // pattern: &quot;[a-zA-Z0-9\-]*&quot;
     export type AZList = AZ[];
     export type Boolean = boolean;
@@ -3166,7 +3165,7 @@ declare namespace AWS {
 
   }
 
-  export namespace CloudSearch {
+  export module CloudSearch {
     export type APIVersion = string;
     export type ARN = string;
     export type AlgorithmicStemming = string;
@@ -3588,17 +3587,9 @@ declare namespace AWS {
     suggest(params: CloudSearchDomain.SuggestRequest, callback?: (err: CloudSearchDomain.SearchException|any, data: CloudSearchDomain.SuggestResponse|any) => void): Request;
     uploadDocuments(params: CloudSearchDomain.UploadDocumentsRequest, callback?: (err: CloudSearchDomain.DocumentServiceException|any, data: CloudSearchDomain.UploadDocumentsResponse|any) => void): Request;
 
-    // Found on JS Sources - Sorry for the inconvenience :)
-    validateService(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    setupRequestListeners(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    validateCredentials(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    updateRegion(...args: any[]): any
   }
 
-  export namespace CloudSearchDomain {
+  export module CloudSearchDomain {
     export type Adds = number;
     export type Blob = any;    // type: blob
     export type BucketList = Bucket[];
@@ -3758,7 +3749,7 @@ declare namespace AWS {
 
   }
 
-  export namespace CloudTrail {
+  export module CloudTrail {
     export type Boolean = boolean;
     export type ByteBuffer = any;    // type: blob
     export type Date = number;
@@ -4044,7 +4035,7 @@ declare namespace AWS {
 
   }
 
-  export namespace CloudWatch {
+  export module CloudWatch {
     export type ActionPrefix = string;    // max: 1024, min: 1
     export type ActionsEnabled = boolean;
     export type AlarmArn = string;    // max: 1600, min: 1
@@ -4299,7 +4290,7 @@ declare namespace AWS {
 
   }
 
-  export namespace CloudWatchEvents {
+  export module CloudWatchEvents {
     export type Boolean = boolean;
     export type ErrorCode = string;
     export type ErrorMessage = string;
@@ -4507,7 +4498,7 @@ declare namespace AWS {
 
   }
 
-  export namespace CloudWatchLogs {
+  export module CloudWatchLogs {
     export type AccessPolicy = string;    // min: 1
     export type Arn = string;
     export type Days = number;
@@ -4884,7 +4875,7 @@ declare namespace AWS {
 
   }
 
-  export namespace CodeCommit {
+  export module CodeCommit {
     export type AccountId = string;
     export type AdditionalData = string;
     export type Arn = string;
@@ -5185,7 +5176,7 @@ declare namespace AWS {
 
   }
 
-  export namespace CodeDeploy {
+  export module CodeDeploy {
     export type ApplicationId = string;
     export type ApplicationName = string;    // max: 100, min: 1
     export type ApplicationRevisionSortBy = string;
@@ -5810,7 +5801,7 @@ declare namespace AWS {
 
   }
 
-  export namespace CodePipeline {
+  export module CodePipeline {
     export type AccessKeyId = string;
     export type AccountId = string;    // pattern: &quot;[0-9]{12}&quot;
     export type ActionCategory = string;
@@ -6311,15 +6302,24 @@ declare namespace AWS {
     unlinkIdentity(params: CognitoIdentity.UnlinkIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ExternalServiceException|any, data: any) => void): Request;
     updateIdentityPool(params: CognitoIdentity.IdentityPool, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ConcurrentModificationException|any, data: CognitoIdentity.IdentityPool|any) => void): Request;
 
-    // Found on JS Sources - Sorry for the inconvenience :)
+    /***
+     * Found on JS Sources - Sorry for the inconvenience :)
+     * 
+     **/
     getOpenIdToken(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
+    /***
+     * Found on JS Sources - Sorry for the inconvenience :)
+     * 
+     **/
     getId(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
+    /***
+     * Found on JS Sources - Sorry for the inconvenience :)
+     * 
+     **/
     getCredentialsForIdentity(...args: any[]): any
   }
 
-  export namespace CognitoIdentity {
+  export module CognitoIdentity {
     export type ARNString = string;    // max: 2048, min: 20
     export type AccessKeyString = string;
     export type AccountId = string;    // pattern: &quot;\d+&quot;, max: 15, min: 1
@@ -6565,7 +6565,7 @@ declare namespace AWS {
 
   }
 
-  export namespace CognitoSync {
+  export module CognitoSync {
     export type ApplicationArn = string;    // pattern: &quot;arn:aws:sns:[-0-9a-z]+:\d+:app/[A-Z_]+/[a-zA-Z0-9_.-]+&quot;
     export type ApplicationArnList = ApplicationArn[];
     export type AssumeRoleArn = string;    // pattern: &quot;arn:aws:iam::\d+:role/.*&quot;, max: 2048, min: 20
@@ -6873,7 +6873,7 @@ declare namespace AWS {
 
   }
 
-  export namespace ConfigService {
+  export module ConfigService {
     export type ARN = string;
     export type AccountId = string;
     export type AllSupported = boolean;
@@ -7349,7 +7349,7 @@ declare namespace AWS {
 
   }
 
-  export namespace DataPipeline {
+  export module DataPipeline {
     export type OperatorType = string;
     export type ParameterAttributeList = ParameterAttribute[];
     export type ParameterObjectList = ParameterObject[];
@@ -7665,7 +7665,7 @@ declare namespace AWS {
 
   }
 
-  export namespace DeviceFarm {
+  export module DeviceFarm {
     export type AWSAccountNumber = string;    // max: 16, min: 2
     export type AmazonResourceName = string;    // min: 32
     export type AmazonResourceNames = AmazonResourceName[];
@@ -8260,7 +8260,7 @@ declare namespace AWS {
 
   }
 
-  export namespace DirectConnect {
+  export module DirectConnect {
     export type ASN = number;
     export type AmazonAddress = string;
     export type BGPAuthKey = string;
@@ -8519,7 +8519,7 @@ declare namespace AWS {
 
   }
 
-  export namespace DirectoryService {
+  export module DirectoryService {
     export type AccessUrl = string;    // max: 128, min: 1
     export type AliasName = string;    // pattern: &quot;^(?!d-)([\da-zA-Z]+)([-]*[\da-zA-Z])*&quot;, max: 62, min: 1
     export type AttributeName = string;    // min: 1
@@ -8977,7 +8977,7 @@ declare namespace AWS {
 
   }
 
-  export namespace DMS {
+  export module DMS {
     export type AccountQuotaList = AccountQuota[];
     export type Boolean = boolean;
     export type BooleanOptional = boolean;
@@ -9451,19 +9451,9 @@ declare namespace AWS {
     updateItem(params: DynamoDB.UpdateItemInput, callback?: (err: DynamoDB.ConditionalCheckFailedException|DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.UpdateItemOutput|any) => void): Request;
     updateTable(params: DynamoDB.UpdateTableInput, callback?: (err: DynamoDB.ResourceInUseException|DynamoDB.ResourceNotFoundException|DynamoDB.LimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.UpdateTableOutput|any) => void): Request;
 
-    // Found on JS Sources - Sorry for the inconvenience :)
-    setupRequestListeners(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    checkCrc32(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    crc32IsValid(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    defaultRetryCount(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    retryDelays(...args: any[]): any
   }
 
-  export namespace DynamoDB {
+  export module DynamoDB {
     export type AttributeAction = string;
     export type AttributeDefinitions = AttributeDefinition[];
     export type AttributeMap = {[key:string]: AttributeValue};
@@ -9922,7 +9912,7 @@ declare namespace AWS {
 
   }
 
-  export namespace DynamoDBStreams {
+  export module DynamoDBStreams {
     export type AttributeMap = {[key:string]: AttributeValue};
     export type AttributeName = string;    // max: 65535
     export type BinaryAttributeValue = any;    // type: blob
@@ -10275,15 +10265,9 @@ declare namespace AWS {
     unassignPrivateIpAddresses(params: EC2.UnassignPrivateIpAddressesRequest, callback?: (err: any, data: any) => void): Request;
     unmonitorInstances(params: EC2.UnmonitorInstancesRequest, callback?: (err: any, data: EC2.UnmonitorInstancesResult|any) => void): Request;
 
-    // Found on JS Sources - Sorry for the inconvenience :)
-    setupRequestListeners(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    buildCopySnapshotPresignedUrl(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    extractError(...args: any[]): any
   }
 
-  export namespace EC2 {
+  export module EC2 {
     export type AccountAttributeList = AccountAttribute[];
     export type AccountAttributeName = string;
     export type AccountAttributeNameStringList = AccountAttributeName[];
@@ -13525,7 +13509,7 @@ declare namespace AWS {
 
   }
 
-  export namespace ECR {
+  export module ECR {
     export type Arn = string;
     export type AuthorizationDataList = AuthorizationData[];
     export type Base64 = string;    // pattern: &quot;^\S+$&quot;
@@ -13840,7 +13824,7 @@ declare namespace AWS {
 
   }
 
-  export namespace ECS {
+  export module ECS {
     export type AgentUpdateStatus = string;
     export type Attributes = Attribute[];
     export type Boolean = boolean;
@@ -14365,7 +14349,7 @@ declare namespace AWS {
 
   }
 
-  export namespace EFS {
+  export module EFS {
     export type AwsAccountId = string;
     export type CreationToken = string;    // max: 64, min: 1
     export type ErrorCode = string;    // min: 1
@@ -14607,7 +14591,7 @@ declare namespace AWS {
 
   }
 
-  export namespace ElastiCache {
+  export module ElastiCache {
     export type AZMode = string;
     export type AutomaticFailoverStatus = string;
     export type AvailabilityZonesList = String[];
@@ -15366,7 +15350,7 @@ declare namespace AWS {
 
   }
 
-  export namespace ElasticBeanstalk {
+  export module ElasticBeanstalk {
     export type AbortableOperationInProgress = boolean;
     export type ApplicationDescriptionList = ApplicationDescription[];
     export type ApplicationName = string;    // max: 100, min: 1
@@ -16008,7 +15992,7 @@ declare namespace AWS {
 
   }
 
-  export namespace ELB {
+  export module ELB {
     export type AccessLogEnabled = boolean;
     export type AccessLogInterval = number;
     export type AccessLogPrefix = string;
@@ -16475,7 +16459,7 @@ declare namespace AWS {
 
   }
 
-  export namespace EMR {
+  export module EMR {
     export type ActionOnFailure = string;
     export type ApplicationList = Application[];
     export type Boolean = boolean;
@@ -17011,7 +16995,7 @@ declare namespace AWS {
 
   }
 
-  export namespace ES {
+  export module ES {
     export type ARN = string;
     export type AdvancedOptions = {[key:string]: String};
     export type Boolean = boolean;
@@ -17219,7 +17203,7 @@ declare namespace AWS {
 
   }
 
-  export namespace ElasticTranscoder {
+  export module ElasticTranscoder {
     export type AccessControl = string;    // pattern: &quot;(^FullControl$)|(^Read$)|(^ReadAcp$)|(^WriteAcp$)&quot;
     export type AccessControls = AccessControl[];    // max: 30
     export type Artworks = Artwork[];
@@ -17746,7 +17730,7 @@ declare namespace AWS {
 
   }
 
-  export namespace Firehose {
+  export module Firehose {
     export type AWSKMSKeyARN = string;    // pattern: &quot;arn:.*&quot;, max: 512, min: 1
     export type BooleanObject = boolean;
     export type BucketARN = string;    // pattern: &quot;arn:.*&quot;, max: 2048, min: 1
@@ -17987,7 +17971,7 @@ declare namespace AWS {
 
   }
 
-  export namespace GameLift {
+  export module GameLift {
     export type AliasId = string;    // pattern: &quot;^alias-\S+&quot;
     export type AliasList = Alias[];
     export type BuildId = string;    // pattern: &quot;^build-\S+&quot;
@@ -18529,21 +18513,33 @@ declare namespace AWS {
     uploadArchive(params: Glacier.UploadArchiveInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.RequestTimeoutException|Glacier.ServiceUnavailableException|any, data: Glacier.ArchiveCreationOutput|any) => void): Request;
     uploadMultipartPart(params: Glacier.UploadMultipartPartInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.RequestTimeoutException|Glacier.ServiceUnavailableException|any, data: Glacier.UploadMultipartPartOutput|any) => void): Request;
 
-    // Found on JS Sources - Sorry for the inconvenience :)
-    setupRequestListeners(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    validateAccountId(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    addGlacierApiVersion(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    addTreeHashHeaders(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
+    /***
+     * Found on JS Sources - Sorry for the inconvenience :)
+     * *
+     * @!group Computing Checksums
+     *
+     * Computes the SHA-256 linear and tree hash checksums for a given
+     * block of Buffer data. Pass the tree hash of the computed checksums
+     * as the checksum input to the {completeMultipartUpload} when performing
+     * a multi-part upload.
+     *
+     * @example Calculate checksum of 5.5MB data chunk
+     *   var glacier = new AWS.Glacier();
+     *   var data = new Buffer(5.5 * 1024 * 1024);
+     *   data.fill('0'); // fill with zeros
+     *   var results = glacier.computeChecksums(data);
+     *   // Result: { linearHash: '68aff0c5a9...', treeHash: '154e26c78f...' }
+     * @param data [Buffer, String] data to calculate the checksum for
+     * @return [map<linearHash:String,treeHash:String>] a map containing
+     *   the linearHash and treeHash properties representing hex based digests
+     *   of the respective checksums.
+     * @see completeMultipartUpload
+   
+     **/
     computeChecksums(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    buildHashTree(...args: any[]): any
   }
 
-  export namespace Glacier {
+  export module Glacier {
     export type ActionCode = string;
     export type DataRetrievalRulesList = DataRetrievalRule[];
     export type DateTime = string;
@@ -19030,7 +19026,7 @@ declare namespace AWS {
 
   }
 
-  export namespace IAM {
+  export module IAM {
     export type ActionNameListType = ActionNameType[];
     export type ActionNameType = string;    // max: 128, min: 3
     export type BootstrapDatum = any;    // type: blob
@@ -20218,7 +20214,7 @@ declare namespace AWS {
 
   }
 
-  export namespace ImportExport {
+  export module ImportExport {
     export type APIVersion = string;
     export type ArtifactList = Artifact[];
     export type Carrier = string;
@@ -20466,7 +20462,7 @@ declare namespace AWS {
 
   }
 
-  export namespace Inspector {
+  export module Inspector {
     export type AgentHealth = string;
     export type AgentHealthCode = string;
     export type AgentHealthDetails = string;
@@ -20978,7 +20974,7 @@ declare namespace AWS {
 
   }
 
-  export namespace Iot {
+  export module Iot {
     export type ActionList = Action[];    // max: 10
     export type AlarmName = string;
     export type AscendingOrder = boolean;
@@ -21509,15 +21505,9 @@ declare namespace AWS {
     publish(params: IotData.PublishRequest, callback?: (err: IotData.InternalFailureException|IotData.InvalidRequestException|IotData.UnauthorizedException|IotData.MethodNotAllowedException|any, data: any) => void): Request;
     updateThingShadow(params: IotData.UpdateThingShadowRequest, callback?: (err: IotData.ConflictException|IotData.RequestEntityTooLargeException|IotData.InvalidRequestException|IotData.ThrottlingException|IotData.UnauthorizedException|IotData.ServiceUnavailableException|IotData.InternalFailureException|IotData.MethodNotAllowedException|IotData.UnsupportedDocumentEncodingException|any, data: IotData.UpdateThingShadowResponse|any) => void): Request;
 
-    // Found on JS Sources - Sorry for the inconvenience :)
-    validateService(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    setupRequestListeners(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    validateResponseBody(...args: any[]): any
   }
 
-  export namespace IotData {
+  export module IotData {
     export type ErrorMessage = string;
     export type JsonDocument = any;    // type: blob
     export type Payload = any;    // type: blob
@@ -21610,7 +21600,7 @@ declare namespace AWS {
 
   }
 
-  export namespace Kinesis {
+  export module Kinesis {
     export type ApproximateArrivalTimestamp = number;
     export type BooleanObject = boolean;
     export type Data = any;    // max: 1048576, type: blob
@@ -21844,7 +21834,7 @@ declare namespace AWS {
 
   }
 
-  export namespace KMS {
+  export module KMS {
     export type AWSAccountIdType = string;
     export type AliasList = AliasListEntry[];
     export type AliasNameType = string;    // pattern: &quot;^[a-zA-Z0-9:/_-]+$&quot;, max: 256, min: 1
@@ -22203,7 +22193,7 @@ declare namespace AWS {
 
   }
 
-  export namespace Lambda {
+  export module Lambda {
     export type Action = string;    // pattern: &quot;(lambda:[*]|lambda:[a-zA-Z]+|[*])&quot;
     export type Alias = string;    // pattern: &quot;(?!^[0-9]+$)([a-zA-Z0-9-_]+)&quot;, max: 128, min: 1
     export type AliasList = AliasConfiguration[];
@@ -22576,13 +22566,9 @@ declare namespace AWS {
     updateEvaluation(params: MachineLearning.UpdateEvaluationInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateEvaluationOutput|any) => void): Request;
     updateMLModel(params: MachineLearning.UpdateMLModelInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateMLModelOutput|any) => void): Request;
 
-    // Found on JS Sources - Sorry for the inconvenience :)
-    setupRequestListeners(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    buildEndpoint(...args: any[]): any
   }
 
-  export namespace MachineLearning {
+  export module MachineLearning {
     export type Algorithm = string;
     export type AwsUserArn = string;    // pattern: &quot;arn:aws:iam::[0-9]+:((user/.+)|(root))&quot;
     export type BatchPredictionFilterVariable = string;
@@ -23106,7 +23092,7 @@ declare namespace AWS {
 
   }
 
-  export namespace MarketplaceCommerceAnalytics {
+  export module MarketplaceCommerceAnalytics {
     export type CustomerDefinedValues = {[key:string]: OptionalValue};    // max: 5, min: 1
     export type DataSetPublicationDate = number;
     export type DataSetRequestId = string;
@@ -23150,7 +23136,7 @@ declare namespace AWS {
 
   }
 
-  export namespace MarketplaceMetering {
+  export module MarketplaceMetering {
     export type Boolean = boolean;
     export type ProductCode = string;    // max: 255, min: 1
     export type String = string;
@@ -23206,7 +23192,7 @@ declare namespace AWS {
 
   }
 
-  export namespace MobileAnalytics {
+  export module MobileAnalytics {
     export type Double = number;
     export type EventListDefinition = Event[];
     export type ISO8601Timestamp = string;
@@ -23325,7 +23311,7 @@ declare namespace AWS {
 
   }
 
-  export namespace OpsWorks {
+  export module OpsWorks {
     export type AgentVersions = AgentVersion[];
     export type AppAttributes = {[key:string]: String};
     export type AppAttributesKeys = string;
@@ -24360,7 +24346,7 @@ declare namespace AWS {
 
   }
 
-  export namespace RDS {
+  export module RDS {
     export type AccountQuotaList = AccountQuota[];
     export type ApplyMethod = string;
     export type AttributeValueList = String[];
@@ -25882,7 +25868,7 @@ declare namespace AWS {
 
   }
 
-  export namespace Redshift {
+  export module Redshift {
     export type AccountsWithRestoreAccessList = AccountWithRestoreAccess[];
     export type AvailabilityZoneList = AvailabilityZone[];
     export type Boolean = boolean;
@@ -27019,13 +27005,9 @@ declare namespace AWS {
     updateTrafficPolicyComment(params: Route53.UpdateTrafficPolicyCommentRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicy|Route53.ConcurrentModification|any, data: Route53.UpdateTrafficPolicyCommentResponse|any) => void): Request;
     updateTrafficPolicyInstance(params: Route53.UpdateTrafficPolicyInstanceRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicy|Route53.NoSuchTrafficPolicyInstance|Route53.PriorRequestNotComplete|Route53.ConflictingTypes|any, data: Route53.UpdateTrafficPolicyInstanceResponse|any) => void): Request;
 
-    // Found on JS Sources - Sorry for the inconvenience :)
-    setupRequestListeners(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    sanitizeUrl(...args: any[]): any
   }
 
-  export namespace Route53 {
+  export module Route53 {
     export type AWSAccountID = string;
     export type AliasHealthEnabled = boolean;
     export type AssociateVPCComment = string;
@@ -27841,7 +27823,7 @@ declare namespace AWS {
 
   }
 
-  export namespace Route53Domains {
+  export module Route53Domains {
     export type AddressLine = string;    // max: 255
     export type Boolean = boolean;
     export type City = string;    // max: 255
@@ -28178,53 +28160,95 @@ declare namespace AWS {
     uploadPart(params: S3.UploadPartRequest, callback?: (err: any, data: S3.UploadPartOutput|any) => void): Request;
     uploadPartCopy(params: S3.UploadPartCopyRequest, callback?: (err: any, data: S3.UploadPartCopyOutput|any) => void): Request;
 
-    // Found on JS Sources - Sorry for the inconvenience :)
-    validateService(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    setupRequestListeners(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    validateScheme(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    validateBucketEndpoint(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    populateURI(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    addExpect100Continue(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    addContentType(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    computableChecksumOperations(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    willComputeChecksums(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    computeContentMd5(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    computeSseCustomerKeyMd5(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    pathStyleBucketName(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    dnsCompatibleBucketName(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    successfulResponse(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    retryableError(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    extractData(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    extractError(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
+    /***
+     * Found on JS Sources - Sorry for the inconvenience :)
+     * *
+     * Get a pre-signed URL for a given operation name.
+     *
+     * @note You must ensure that you have static or previously resolved
+     *   credentials if you call this method synchronously (with no callback),
+     *   otherwise it may not properly sign the request. If you cannot guarantee
+     *   this (you are using an asynchronous credential provider, i.e., EC2
+     *   IAM roles), you should always call this method with an asynchronous
+     *   callback.
+     * @param operation [String] the name of the operation to call
+     * @param params [map] parameters to pass to the operation. See the given
+     *   operation for the expected operation parameters. In addition, you can
+     *   also pass the "Expires" parameter to inform S3 how long the URL should
+     *   work for.
+     * @option params Expires [Integer] (900) the number of seconds to expire
+     *   the pre-signed URL operation in. Defaults to 15 minutes.
+     * @param callback [Function] if a callback is provided, this function will
+     *   pass the URL as the second parameter (after the error parameter) to
+     *   the callback function.
+     * @return [String] if called synchronously (with no callback), returns the
+     *   signed URL.
+     * @return [null] nothing is returned if a callback is provided.
+     * @example Pre-signing a getObject operation (synchronously)
+     *   var params = {Bucket: 'bucket', Key: 'key'};
+     *   var url = s3.getSignedUrl('getObject', params);
+     *   console.log('The URL is', url);
+     * @example Pre-signing a putObject (asynchronously)
+     *   var params = {Bucket: 'bucket', Key: 'key'};
+     *   s3.getSignedUrl('putObject', params, function (err, url) {
+     *     console.log('The URL is', url);
+     *   });
+     * @example Pre-signing a putObject operation with a specific payload
+     *   var params = {Bucket: 'bucket', Key: 'key', Body: 'body'};
+     *   var url = s3.getSignedUrl('putObject', params);
+     *   console.log('The URL is', url);
+     * @example Passing in a 1-minute expiry time for a pre-signed URL
+     *   var params = {Bucket: 'bucket', Key: 'key', Expires: 60};
+     *   var url = s3.getSignedUrl('getObject', params);
+     *   console.log('The URL is', url); // expires in 60 seconds
+   
+     **/
     getSignedUrl(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    prepareSignedUrl(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
+    /***
+     * Found on JS Sources - Sorry for the inconvenience :)
+     * 
+     **/
     noPresignedContentLength(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
+    /***
+     * Found on JS Sources - Sorry for the inconvenience :)
+     * 
+     **/
     createBucket(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
+    /***
+     * Found on JS Sources - Sorry for the inconvenience :)
+     * *
+     * @overload upload(params = {}, [options], [callback])
+     *   Uploads an arbitrarily sized buffer, blob, or stream, using intelligent
+     *   concurrent handling of parts if the payload is large enough. You can
+     *   configure the concurrent queue size by setting `options`.
+     *
+     *   @param (see AWS.S3.putObject)
+     *   @option (see AWS.S3.ManagedUpload.constructor)
+     *   @return [AWS.S3.ManagedUpload] the managed upload object that can call
+     *     `send()` or track progress.
+     *   @example Uploading a stream object
+     *     var params = {Bucket: 'bucket', Key: 'key', Body: stream};
+     *     s3.upload(params, function(err, data) {
+     *       console.log(err, data);
+     *     });
+     *   @example Uploading a stream with concurrency of 1 and partSize of 10mb
+     *     var params = {Bucket: 'bucket', Key: 'key', Body: stream};
+     *     var options = {partSize: 10 * 1024 * 1024, queueSize: 1};
+     *     s3.upload(params, options, function(err, data) {
+     *       console.log(err, data);
+     *     });
+     * @callback callback function(err, data)
+     *   @param err [Error] an error or null if no error occurred.
+     *   @param data [map] The response data from the successful upload:
+     *     * `Location` (String) the URL of the uploaded object
+     *     * `ETag` (String) the ETag of the uploaded object
+     *   @see AWS.S3.ManagedUpload
+   
+     **/
     upload(...args: any[]): any
   }
 
-  export namespace S3 {
+  export module S3 {
     export type AbortDate = number;
     export type AbortRuleId = string;
     export type AcceptRanges = string;
@@ -29393,7 +29417,7 @@ declare namespace AWS {
 
   }
 
-  export namespace SES {
+  export module SES {
     export type Address = string;
     export type AddressList = Address[];
     export type AmazonResourceName = string;
@@ -29909,7 +29933,7 @@ declare namespace AWS {
 
   }
 
-  export namespace SimpleDB {
+  export module SimpleDB {
     export type AttributeList = Attribute[];
     export type AttributeNameList = String[];
     export type Boolean = boolean;
@@ -30112,7 +30136,7 @@ declare namespace AWS {
 
   }
 
-  export namespace SNS {
+  export module SNS {
     export type ActionsList = action[];
     export type Binary = any;    // type: blob
     export type DelegatesList = delegate[];
@@ -30375,25 +30399,9 @@ declare namespace AWS {
     sendMessageBatch(params: SQS.SendMessageBatchRequest, callback?: (err: SQS.TooManyEntriesInBatchRequest|SQS.EmptyBatchRequest|SQS.BatchEntryIdsNotDistinct|SQS.BatchRequestTooLong|SQS.InvalidBatchEntryId|SQS.UnsupportedOperation|any, data: SQS.SendMessageBatchResult|any) => void): Request;
     setQueueAttributes(params: SQS.SetQueueAttributesRequest, callback?: (err: SQS.InvalidAttributeName|any, data: any) => void): Request;
 
-    // Found on JS Sources - Sorry for the inconvenience :)
-    setupRequestListeners(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    verifySendMessageChecksum(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    verifySendMessageBatchChecksum(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    verifyReceiveMessageChecksum(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    throwInvalidChecksumError(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    isChecksumValid(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    calculateChecksum(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
-    buildEndpoint(...args: any[]): any
   }
 
-  export namespace SQS {
+  export module SQS {
     export type AWSAccountIdList = String[];
     export type ActionNameList = String[];
     export type AttributeMap = {[key:string]: String};
@@ -30638,7 +30646,7 @@ declare namespace AWS {
 
   }
 
-  export namespace SSM {
+  export module SSM {
     export type AssociationDescriptionList = AssociationDescription[];
     export type AssociationFilterKey = string;
     export type AssociationFilterList = AssociationFilter[];    // min: 1
@@ -31056,7 +31064,7 @@ declare namespace AWS {
 
   }
 
-  export namespace StorageGateway {
+  export module StorageGateway {
     export type ActivationKey = string;    // max: 50, min: 1
     export type BandwidthDownloadRateLimit = number;    // min: 102400
     export type BandwidthType = string;    // max: 25, min: 3
@@ -31714,15 +31722,48 @@ declare namespace AWS {
     getFederationToken(params: STS.GetFederationTokenRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.RegionDisabledException|any, data: STS.GetFederationTokenResponse|any) => void): Request;
     getSessionToken(params: STS.GetSessionTokenRequest, callback?: (err: STS.RegionDisabledException|any, data: STS.GetSessionTokenResponse|any) => void): Request;
 
-    // Found on JS Sources - Sorry for the inconvenience :)
+    /***
+     * Found on JS Sources - Sorry for the inconvenience :)
+     * *
+     * @overload credentialsFrom(data, credentials = null)
+     *   Creates a credentials object from STS response data containing
+     *   credentials information. Useful for quickly setting AWS credentials.
+     *
+     *   @note This is a low-level utility function. If you want to load temporary
+     *     credentials into your process for subsequent requests to AWS resources,
+     *     you should use {AWS.TemporaryCredentials} instead.
+     *   @param data [map] data retrieved from a call to {getFederatedToken},
+     *     {getSessionToken}, {assumeRole}, or {assumeRoleWithWebIdentity}.
+     *   @param credentials [AWS.Credentials] an optional credentials object to
+     *     fill instead of creating a new object. Useful when modifying an
+     *     existing credentials object from a refresh call.
+     *   @return [AWS.TemporaryCredentials] the set of temporary credentials
+     *     loaded from a raw STS operation response.
+     *   @example Using credentialsFrom to load global AWS credentials
+     *     var sts = new AWS.STS();
+     *     sts.getSessionToken(function (err, data) {
+     *       if (err) console.log("Error getting credentials");
+     *       else {
+     *         AWS.config.credentials = sts.credentialsFrom(data);
+     *       }
+     *     });
+     *   @see AWS.TemporaryCredentials
+   
+     **/
     credentialsFrom(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
+    /***
+     * Found on JS Sources - Sorry for the inconvenience :)
+     * 
+     **/
     assumeRoleWithWebIdentity(...args: any[]): any
-    // Found on JS Sources - Sorry for the inconvenience :)
+    /***
+     * Found on JS Sources - Sorry for the inconvenience :)
+     * 
+     **/
     assumeRoleWithSAML(...args: any[]): any
   }
 
-  export namespace STS {
+  export module STS {
     export type Audience = string;
     export type Issuer = string;
     export type NameQualifier = string;
@@ -31897,7 +31938,7 @@ declare namespace AWS {
 
   }
 
-  export namespace Support {
+  export module Support {
     export type AfterTime = string;
     export type AttachmentId = string;
     export type AttachmentSet = AttachmentDetails[];
@@ -32230,7 +32271,7 @@ declare namespace AWS {
 
   }
 
-  export namespace SWF {
+  export module SWF {
     export type ActivityId = string;    // max: 256, min: 1
     export type ActivityTaskTimeoutType = string;
     export type ActivityTypeInfoList = ActivityTypeInfo[];
@@ -33219,7 +33260,7 @@ declare namespace AWS {
 
   }
 
-  export namespace WAF {
+  export module WAF {
     export type Action = string;
     export type ActivatedRules = ActivatedRule[];
     export type ByteMatchSetSummaries = ByteMatchSetSummary[];
@@ -33722,7 +33763,7 @@ declare namespace AWS {
 
   }
 
-  export namespace WorkSpaces {
+  export module WorkSpaces {
     export type ARN = string;    // pattern: &quot;^arn:aws:[A-Za-z0-9][A-za-z0-9_/.-]{0,62}:[A-za-z0-9_/.-]{0,63}:[A-za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-za-z0-9_/.-]{0,127}$&quot;
     export type Alias = string;
     export type BooleanObject = boolean;
@@ -33912,5 +33953,3 @@ declare namespace AWS {
 
 
 }
-
-export = AWS;

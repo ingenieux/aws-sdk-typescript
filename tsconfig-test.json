@@ -10,11 +10,7 @@
     "outDir": "app/build/test",
     "sourceMap": true
   },
-  "exclude": [
-    "node_modules",
-    "output/typings"
-  ],
-  "filesGlob": [
-    "./test/*.ts"
+  "files": [
+    "./test/aws-sdk-tests.ts"
   ]
 }

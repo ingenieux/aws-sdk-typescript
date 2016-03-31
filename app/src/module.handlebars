@@ -18,12 +18,15 @@
 {{/each}}
 
 {{#each extraClientMethods}}
-    // Found on JS Sources - Sorry for the inconvenience :)
-    {{{this}}}(...args: any[]): any
+    /***
+     * Found on JS Sources - Sorry for the inconvenience :)
+     * {{{this.comment}}}
+     **/
+    {{{this.name}}}(...args: any[]): any
 {{/each}}
   }
 
-  export namespace {{name}} {
+  export module {{name}} {
 {{!-- Alias definitions --}}
 {{#each descriptor.aliases}}
     export type {{name}} = {{type}};{{#if comment}}    // {{comment}}{{/if}}
