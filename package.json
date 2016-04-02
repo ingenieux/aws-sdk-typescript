@@ -51,8 +51,7 @@
   },
   "scripts": {
     "prepublish": "gulp buildrun && npm run-script format",
-    "format": "tsfmt --verbose --replace -- output/typings/index.d.ts",
+    "format": "tsfmt --verbose --replace -- output/typings/*.d.ts",
     "test": "npm install ./aws-sdk-js && gulp compile:tests"
-  },
-  "typings": "./output/typings/index.d.ts"
+  }
 }

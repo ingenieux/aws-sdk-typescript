@@ -37,13 +37,7 @@ declare module "aws-sdk" {
     xhrWithCredentials?: boolean;
   }
 
-  export interface Services {
-    httpOptions?: HttpOptions;
-{{#each services}}
-    {{this}}?: any;
-{{/each}}
-  }
-  export interface ClientConfigPartial extends Services {
+  export interface ClientConfigPartial {
     credentials?: Credentials;
     region?: string;
     computeChecksums?: boolean;
@@ -54,13 +48,17 @@ declare module "aws-sdk" {
     paramValidation?: boolean;
     s3ForcePathStyle?: boolean;
     apiVersion?: any;
-    apiVersions?: Services;
     signatureVersion?: string;
     sslEnabled?: boolean;
     systemClockOffset?: number;
   }
 
+  export interface APIVersionsType {
+    [api: string]: string;
+  }
+
   export interface ClientConfig extends ClientConfigPartial {
+    apiVersions?: APIVersionsType;
     update?: (options: ClientConfigPartial, allUnknownKeys?: boolean) => void;
     getCredentials?: (callback: (err?: any) => void) => void ;
     loadFromPath?: (path: string) => void;
@@ -79,7 +77,10 @@ declare module "aws-sdk" {
   }
 
   export class Service {
-    apiVersions:string[];
+    apiVersions: string[];
+    services: {[version: string]: any};
+    serviceIdentifier: string;
+
     makeRequest(operation:string, params:Object, callback:(error?:Error, data?:any) => void): void;
     makeUnauthenticatedRequest(operation:string, params:Object, callback: (error?:Error, data?:any) => void): void;
     setupRequestListeners(): void;
@@ -459,7 +460,4 @@ declare module "aws-sdk" {
       createSet(params: any, callback?: (err: any, data: any) => void): Request;
     }
   }  
-
-{{{sdkContent}}}
-
 }

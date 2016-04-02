@@ -6,16 +6,7 @@ import handlebars = require('handlebars')
 import htmlToText = require('html-to-text')
 
 export class AWSTypeGenerator {
-  fetchTemplate(name: string) {
-    var templateSource = fs.readFileSync(__dirname + `/../src/${name}.handlebars`).toString()
-    return handlebars.compile(templateSource)
-  }
-
-  generateServiceDefinitions(api: meta.ServiceInfo) {
-    var moduleTemplate = this.fetchTemplate("module")
-
-    this.cleanShapes(api.descriptor);
-
+  constructor() {
     handlebars.registerHelper("camelCase", function(name: string) {
       return name.charAt(0).toLowerCase() + name.substring(1)
     });
@@ -33,6 +24,37 @@ export class AWSTypeGenerator {
 
       return htmlResult;
     });
+
+    handlebars.registerHelper("as-service", function(name: string) {
+      var source = name || '';
+
+      if ('' == source) {
+        return '';
+      }
+
+      var result = source.replace(/-/, '');
+
+      return result;
+    });
+  }
+
+  fetchTemplate(name: string) {
+    var templateSource = fs.readFileSync(__dirname + `/../src/${name}.handlebars`).toString()
+    var template = handlebars.compile(templateSource);
+
+    return template
+  }
+
+  generateMainModule(services:string[]) {
+    var template = this.fetchTemplate('aws-sdk');
+
+    return template({services:services});
+  }
+
+  generateServiceDefinitions(api: meta.ServiceInfo) {
+    var moduleTemplate = this.fetchTemplate("module")
+
+    this.cleanShapes(api.descriptor);
 
     return moduleTemplate(api)
   }

@@ -1,5 +1,7 @@
 ///<reference path="../typings/main/ambient/node/index.d.ts" />
-///<reference path="../output/typings/index.d.ts" />
+///<reference path="../output/typings/aws-sdk.d.ts" />
+///<reference path="../output/typings/aws-s3.d.ts" />
+///<reference path="../output/typings/aws-sqs.d.ts" />
 
 import AWS = require('aws-sdk');
 

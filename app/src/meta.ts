@@ -10,6 +10,7 @@ export interface ServiceInfo {
   prefix?:string;
   input?:string;
   output?:string;
+  content?:string;
   descriptor?:Descriptor;
 
   extraClientMethods?: ExtraClientMethod[];
