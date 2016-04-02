@@ -4,3 +4,4 @@ app/src/*.js*
 node_modules
 .idea
 *.log
+.vscode

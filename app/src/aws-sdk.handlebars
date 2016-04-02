@@ -19,9 +19,9 @@ declare module "aws-sdk" {
     expiryWindow: number;
     secretAccessKey: string;
     sessionToken: string;
-    get(callback: (err?:Error) => void): void;
+    get(callback: (err?: Error) => void): void;
     needsRefresh(): boolean;
-    refresh(callback: (err?:Error) => void): void;
+    refresh(callback: (err?: Error) => void): void;
   }
 
   export interface Logger {
