@@ -1,8 +1,9 @@
 export interface ExtraClientMethod {
   classname: string;
   name: string;
-  comment: string;
+  commentStr: string;
 }
+
 export interface ServiceInfo {
   name:string;
   versions?:string[];
@@ -27,7 +28,7 @@ export interface Descriptor {
 export interface Alias {
   name: string;
   type: string;
-  comment?: string;
+  commentStr?: string;
 }
 
 export interface ShapeMap {

@@ -1,6 +1,9 @@
-import * as meta from './meta';
-import * as fs from 'fs';
-import * as handlebars from 'handlebars';
+///<reference path="../../typings/main.d.ts"/>
+
+import * as meta from './meta'
+import fs = require('fs')
+import handlebars = require('handlebars')
+import htmlToText = require('html-to-text')
 
 export class AWSTypeGenerator {
   fetchTemplate(name: string) {
@@ -15,7 +18,21 @@ export class AWSTypeGenerator {
 
     handlebars.registerHelper("camelCase", function(name: string) {
       return name.charAt(0).toLowerCase() + name.substring(1)
-    })
+    });
+
+    handlebars.registerHelper("comment", function(name: string) {
+      var source = name || '';
+
+      if ('' == source) {
+        return '';
+      }
+
+      source = source.replace(/^[\s\uFEFF\xA0\*\r\n]+|[\s\uFEFF\xA0\*\r\n]+$/g, '');
+
+      var htmlResult = htmlToText.fromString(name || '').replace(/\*/i, '&#42;');
+
+      return htmlResult;
+    });
 
     return moduleTemplate(api)
   }
@@ -54,7 +71,7 @@ export class AWSTypeGenerator {
     }
 
     if (comments.length) {
-      alias.comment = comments.join(', ');
+      alias.commentStr = comments.join(', ');
     }
 
     return alias;

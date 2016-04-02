@@ -111,15 +111,19 @@ function readCustomCode() {
               var context = {
                 classname: classname,
                 name: x.key.name,
-                comment: (x.leadingComments && x.leadingComments.map((x: any) => { return x.value }).join('\n')) || ""
+                commentStr: (x.leadingComments && x.leadingComments.map((x: any) => { return x.value }).join('\n')) || ""
               } as ExtraClientMethod
 
-              context.comment = context.comment.replace(/\n\s+\*/g, "\n     *");
+              context.commentStr = context.commentStr.replace(/\n\s+\*/g, "\n     *");
 
-              var m = /@api\s+private/.exec(context.comment)
+              var m = /@api\s+private/.exec(context.commentStr)
 
               if (m) {
                 return null
+              }
+
+              if (0 == context.commentStr.length) {
+                context.commentStr = null;
               }
 
               return context

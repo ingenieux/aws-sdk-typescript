@@ -1,11 +1,11 @@
-  /*
+  /**
    * apiVersion: {{descriptor.metadata.apiVersion}}
    * endpointPrefix: {{descriptor.metadata.endpointPrefix}}
    * serviceAbbreviation: {{descriptor.metadata.serviceAbbreviation}}
    * signatureVersion: {{descriptor.metadata.signatureVersion}}
    * protocol: {{descriptor.metadata.protocol}}
    *
-   * {{{descriptor.documentation}}}
+   * {{comment descriptor.documentation}}
    *
    */
   export class {{name}} extends Service {
@@ -13,10 +13,10 @@
     endpoint: Endpoint;
 {{#each descriptor.operations}}
     /**
-     * {{{this.documentation}}}
+     * {{comment this.documentation}}
      *
 {{#each this.errors}}
-     * @error {{this.shape}} {{{this.documentation}}}  
+     * @error {{this.shape}} {{this.documentation}}  
 {{/each}}    
      */
     {{{camelCase @key}}}(
@@ -28,10 +28,13 @@
 {{/each}}
 
 {{#each extraClientMethods}}
-    /***
+{{#if this.commentStr}}
+    /**
      * Found on JS Sources - Sorry for the inconvenience :)
-     * {{{this.comment}}}
+     *
+     * {{{this.commentStr}}}
      **/
+{{/if}}
     {{{this.name}}}(...args: any[]): any
 {{/each}}
   }
@@ -39,7 +42,7 @@
   export module {{name}} {
 {{!-- Alias definitions --}}
 {{#each descriptor.aliases}}
-    {{#if comment}}/**{{{comment}}} **/{{/if}}
+    {{#if comment}}/** {{comment commentString}} **/{{/if}}
     export type {{name}} = {{type}};
 {{/each}}
 
@@ -48,7 +51,7 @@
     export interface {{name}} {
 {{#each members}}
 {{#if this.documentation}}
-        /*** {{{this.documentation}}} **/
+        /** {{comment this.documentation}} **/
 {{/if}}
         {{@key}}{{this.required}}: {{this.shape}};
 {{/each}}
