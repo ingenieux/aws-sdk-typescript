@@ -7,18 +7,18 @@
 
 declare module "aws-sdk" {
 
-  /**
-    * apiVersion: 2015-08-04
-    * endpointPrefix: firehose
-    * serviceAbbreviation: Firehose
-    * signatureVersion: v4
-    * protocol: json
-    *
-    * Amazon Kinesis Firehose API ReferenceAmazon Kinesis Firehose is a fully-managed
- service that delivers real-time streaming data to destinations such as Amazon S3
- and Amazon Redshift.
-    *
-    */
+ /**
+   * apiVersion: 2015-08-04
+   * endpointPrefix: firehose
+   * serviceAbbreviation: Firehose
+   * signatureVersion: v4
+   * protocol: json
+   *
+   * Amazon Kinesis Firehose API ReferenceAmazon Kinesis Firehose is a fully-managed
+service that delivers real-time streaming data to destinations such as Amazon S3
+and Amazon Redshift.
+   *
+   */
   export class Firehose extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
@@ -77,7 +77,7 @@ in the Amazon Kinesis Firehose Developer Guide .
      * @error LimitExceededException You have already reached the limit for a requested resource.  
      * @error ResourceInUseException The resource is already in use and not available for this operation.  
      */
-    createDeliveryStream(params: Firehose.CreateDeliveryStreamInput, callback?: (err: Firehose.InvalidArgumentException | Firehose.LimitExceededException | Firehose.ResourceInUseException | any, data: Firehose.CreateDeliveryStreamOutput | any) => void): Request;
+    createDeliveryStream(params: Firehose.CreateDeliveryStreamInput, callback?: (err: Firehose.InvalidArgumentException|Firehose.LimitExceededException|Firehose.ResourceInUseException|any, data: Firehose.CreateDeliveryStreamOutput|any) => void): Request;
     /**
      * Deletes a delivery stream and its data.
 
@@ -95,7 +95,7 @@ applications that are sending records before deleting a delivery stream.
      * @error ResourceInUseException The resource is already in use and not available for this operation.  
      * @error ResourceNotFoundException The specified resource could not be found.  
      */
-    deleteDeliveryStream(params: Firehose.DeleteDeliveryStreamInput, callback?: (err: Firehose.ResourceInUseException | Firehose.ResourceNotFoundException | any, data: Firehose.DeleteDeliveryStreamOutput | any) => void): Request;
+    deleteDeliveryStream(params: Firehose.DeleteDeliveryStreamInput, callback?: (err: Firehose.ResourceInUseException|Firehose.ResourceNotFoundException|any, data: Firehose.DeleteDeliveryStreamOutput|any) => void): Request;
     /**
      * Describes the specified delivery stream and gets the status. For example, after
 your delivery stream is created, call DescribeDeliveryStream to see if the
@@ -103,7 +103,7 @@ delivery stream is ACTIVE and therefore ready for data to be sent to it.
      *
      * @error ResourceNotFoundException The specified resource could not be found.  
      */
-    describeDeliveryStream(params: Firehose.DescribeDeliveryStreamInput, callback?: (err: Firehose.ResourceNotFoundException | any, data: Firehose.DescribeDeliveryStreamOutput | any) => void): Request;
+    describeDeliveryStream(params: Firehose.DescribeDeliveryStreamInput, callback?: (err: Firehose.ResourceNotFoundException|any, data: Firehose.DescribeDeliveryStreamOutput|any) => void): Request;
     /**
      * Lists your delivery streams.
 
@@ -116,7 +116,7 @@ the last delivery stream returned in the call in the
 ExclusiveStartDeliveryStreamName parameter of a subsequent call.
      *
      */
-    listDeliveryStreams(params: Firehose.ListDeliveryStreamsInput, callback?: (err: any, data: Firehose.ListDeliveryStreamsOutput | any) => void): Request;
+    listDeliveryStreams(params: Firehose.ListDeliveryStreamsInput, callback?: (err: any, data: Firehose.ListDeliveryStreamsOutput|any) => void): Request;
     /**
      * Writes a single data record into an Amazon Kinesis Firehose delivery stream. To
 write multiple data records into a delivery stream, use PutRecordBatch .
@@ -165,7 +165,7 @@ exceeded. For more information about limits and how to request an increase, see
 Amazon Kinesis Firehose Limits
 [http://docs.aws.amazon.com/firehose/latest/dev/limits.html] .  
      */
-    putRecord(params: Firehose.PutRecordInput, callback?: (err: Firehose.ResourceNotFoundException | Firehose.InvalidArgumentException | Firehose.ServiceUnavailableException | any, data: Firehose.PutRecordOutput | any) => void): Request;
+    putRecord(params: Firehose.PutRecordInput, callback?: (err: Firehose.ResourceNotFoundException|Firehose.InvalidArgumentException|Firehose.ServiceUnavailableException|any, data: Firehose.PutRecordOutput|any) => void): Request;
     /**
      * Writes multiple data records into a delivery stream in a single call, which can
 achieve higher throughput per producer than when writing single records. To
@@ -233,7 +233,7 @@ exceeded. For more information about limits and how to request an increase, see
 Amazon Kinesis Firehose Limits
 [http://docs.aws.amazon.com/firehose/latest/dev/limits.html] .  
      */
-    putRecordBatch(params: Firehose.PutRecordBatchInput, callback?: (err: Firehose.ResourceNotFoundException | Firehose.InvalidArgumentException | Firehose.ServiceUnavailableException | any, data: Firehose.PutRecordBatchOutput | any) => void): Request;
+    putRecordBatch(params: Firehose.PutRecordBatchInput, callback?: (err: Firehose.ResourceNotFoundException|Firehose.InvalidArgumentException|Firehose.ServiceUnavailableException|any, data: Firehose.PutRecordBatchOutput|any) => void): Request;
     /**
      * Updates the specified destination of the specified delivery stream.
 
@@ -271,98 +271,98 @@ UpdateDestination operation.
      * @error ConcurrentModificationException Another modification has already happened. Fetch VersionId again and use it to
 update the destination.  
      */
-    updateDestination(params: Firehose.UpdateDestinationInput, callback?: (err: Firehose.InvalidArgumentException | Firehose.ResourceInUseException | Firehose.ResourceNotFoundException | Firehose.ConcurrentModificationException | any, data: Firehose.UpdateDestinationOutput | any) => void): Request;
+    updateDestination(params: Firehose.UpdateDestinationInput, callback?: (err: Firehose.InvalidArgumentException|Firehose.ResourceInUseException|Firehose.ResourceNotFoundException|Firehose.ConcurrentModificationException|any, data: Firehose.UpdateDestinationOutput|any) => void): Request;
 
   }
 
   export module Firehose {
-
+    
     export type AWSKMSKeyARN = string;
-
+    
     export type BooleanObject = boolean;
-
+    
     export type BucketARN = string;
-
+    
     export type ClusterJDBCURL = string;
-
+    
     export type CompressionFormat = string;
-
+    
     export type CopyOptions = string;
-
+    
     export type Data = any;
-
+    
     export type DataTableColumns = string;
-
+    
     export type DataTableName = string;
-
+    
     export type DeliveryStreamARN = string;
-
+    
     export type DeliveryStreamName = string;
-
+    
     export type DeliveryStreamNameList = DeliveryStreamName[];
-
+    
     export type DeliveryStreamStatus = string;
-
+    
     export type DeliveryStreamVersionId = string;
-
+    
     export type DescribeDeliveryStreamInputLimit = number;
-
+    
     export type DestinationDescriptionList = DestinationDescription[];
-
+    
     export type DestinationId = string;
-
+    
     export type ErrorCode = string;
-
+    
     export type ErrorMessage = string;
-
+    
     export type IntervalInSeconds = number;
-
+    
     export type ListDeliveryStreamsInputLimit = number;
-
+    
     export type NoEncryptionConfig = string;
-
+    
     export type NonNegativeIntegerObject = number;
-
+    
     export type Password = string;
-
+    
     export type Prefix = string;
-
+    
     export type PutRecordBatchRequestEntryList = Record[];
-
+    
     export type PutRecordBatchResponseEntryList = PutRecordBatchResponseEntry[];
-
+    
     export type PutResponseRecordId = string;
-
+    
     export type RoleARN = string;
-
+    
     export type SizeInMBs = number;
-
+    
     export type Timestamp = number;
-
+    
     export type Username = string;
 
     export interface BufferingHints {
-      /** Buffer incoming data to the specified size, in MBs, before delivering it to the
+        /** Buffer incoming data to the specified size, in MBs, before delivering it to the
 destination. The default value is 5.
 
 We recommend setting SizeInMBs to a value greater than the amount of data you
 typically ingest into the delivery stream in 10 seconds. For example, if you
 typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher. **/
-      SizeInMBs?: SizeInMBs;
-      /** Buffer incoming data for the specified period of time, in seconds, before
+        SizeInMBs?: SizeInMBs;
+        /** Buffer incoming data for the specified period of time, in seconds, before
 delivering it to the destination. The default value is 300. **/
-      IntervalInSeconds?: IntervalInSeconds;
+        IntervalInSeconds?: IntervalInSeconds;
     }
     export interface ConcurrentModificationException {
-      /** A message that provides information about the error. **/
-      message?: ErrorMessage;
+        /** A message that provides information about the error. **/
+        message?: ErrorMessage;
     }
     export interface CopyCommand {
-      /** The name of the target table. The table must already exist in the database. **/
-      DataTableName: DataTableName;
-      /** A comma-separated list of column names. **/
-      DataTableColumns?: DataTableColumns;
-      /** Optional parameters to use with the Amazon Redshift COPY command. For more
+        /** The name of the target table. The table must already exist in the database. **/
+        DataTableName: DataTableName;
+        /** A comma-separated list of column names. **/
+        DataTableColumns?: DataTableColumns;
+        /** Optional parameters to use with the Amazon Redshift COPY command. For more
 information, see the &quot;Optional Parameters&quot; section of Amazon Redshift COPY
 command [http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html] . Some
 possible examples that would apply to Amazon Kinesis Firehose are as follows.
@@ -383,286 +383,286 @@ specified is the format of the data.
 
 For more examples, see and Amazon Redshift COPY command exmaples
 [http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html] . **/
-      CopyOptions?: CopyOptions;
+        CopyOptions?: CopyOptions;
     }
     export interface CreateDeliveryStreamInput {
-      /** The name of the delivery stream. **/
-      DeliveryStreamName: DeliveryStreamName;
-      /** The destination in Amazon S3. This value must be specified if 
+        /** The name of the delivery stream. **/
+        DeliveryStreamName: DeliveryStreamName;
+        /** The destination in Amazon S3. This value must be specified if 
 RedshiftDestinationConfiguration is specified (see restrictions listed above). **/
-      S3DestinationConfiguration?: S3DestinationConfiguration;
-      /** The destination in Amazon Redshift. This value cannot be specified if Amazon S3
+        S3DestinationConfiguration?: S3DestinationConfiguration;
+        /** The destination in Amazon Redshift. This value cannot be specified if Amazon S3
 is the desired destination (see restrictions listed above). **/
-      RedshiftDestinationConfiguration?: RedshiftDestinationConfiguration;
+        RedshiftDestinationConfiguration?: RedshiftDestinationConfiguration;
     }
     export interface CreateDeliveryStreamOutput {
-      /** The ARN of the delivery stream. **/
-      DeliveryStreamARN?: DeliveryStreamARN;
+        /** The ARN of the delivery stream. **/
+        DeliveryStreamARN?: DeliveryStreamARN;
     }
     export interface DeleteDeliveryStreamInput {
-      /** The name of the delivery stream. **/
-      DeliveryStreamName: DeliveryStreamName;
+        /** The name of the delivery stream. **/
+        DeliveryStreamName: DeliveryStreamName;
     }
     export interface DeleteDeliveryStreamOutput {
     }
     export interface DeliveryStreamDescription {
-      /** The name of the delivery stream. **/
-      DeliveryStreamName: DeliveryStreamName;
-      /** The Amazon Resource Name (ARN) of the delivery stream. **/
-      DeliveryStreamARN: DeliveryStreamARN;
-      /** The status of the delivery stream. **/
-      DeliveryStreamStatus: DeliveryStreamStatus;
-      /** Used when calling the UpdateDestination operation. Each time the destination is
+        /** The name of the delivery stream. **/
+        DeliveryStreamName: DeliveryStreamName;
+        /** The Amazon Resource Name (ARN) of the delivery stream. **/
+        DeliveryStreamARN: DeliveryStreamARN;
+        /** The status of the delivery stream. **/
+        DeliveryStreamStatus: DeliveryStreamStatus;
+        /** Used when calling the UpdateDestination operation. Each time the destination is
 updated for the delivery stream, the VersionId is changed, and the current
 VersionId is required when updating the destination. This is so that the service
 knows it is applying the changes to the correct version of the delivery stream. **/
-      VersionId: DeliveryStreamVersionId;
-      /** The date and time that the delivery stream was created. **/
-      CreateTimestamp?: Timestamp;
-      /** The date and time that the delivery stream was last updated. **/
-      LastUpdateTimestamp?: Timestamp;
-      /** The destinations. **/
-      Destinations: DestinationDescriptionList;
-      /** Indicates whether there are more destinations available to list. **/
-      HasMoreDestinations: BooleanObject;
+        VersionId: DeliveryStreamVersionId;
+        /** The date and time that the delivery stream was created. **/
+        CreateTimestamp?: Timestamp;
+        /** The date and time that the delivery stream was last updated. **/
+        LastUpdateTimestamp?: Timestamp;
+        /** The destinations. **/
+        Destinations: DestinationDescriptionList;
+        /** Indicates whether there are more destinations available to list. **/
+        HasMoreDestinations: BooleanObject;
     }
     export interface DescribeDeliveryStreamInput {
-      /** The name of the delivery stream. **/
-      DeliveryStreamName: DeliveryStreamName;
-      /** The limit on the number of destinations to return. Currently, you can have one
+        /** The name of the delivery stream. **/
+        DeliveryStreamName: DeliveryStreamName;
+        /** The limit on the number of destinations to return. Currently, you can have one
 destination per delivery stream. **/
-      Limit?: DescribeDeliveryStreamInputLimit;
-      /** Specifies the destination ID to start returning the destination information.
+        Limit?: DescribeDeliveryStreamInputLimit;
+        /** Specifies the destination ID to start returning the destination information.
 Currently Amazon Kinesis Firehose supports one destination per delivery stream. **/
-      ExclusiveStartDestinationId?: DestinationId;
+        ExclusiveStartDestinationId?: DestinationId;
     }
     export interface DescribeDeliveryStreamOutput {
-      /** Information about the delivery stream. **/
-      DeliveryStreamDescription: DeliveryStreamDescription;
+        /** Information about the delivery stream. **/
+        DeliveryStreamDescription: DeliveryStreamDescription;
     }
     export interface DestinationDescription {
-      /** The ID of the destination. **/
-      DestinationId: DestinationId;
-      /** The Amazon S3 destination. **/
-      S3DestinationDescription?: S3DestinationDescription;
-      /** The destination in Amazon Redshift. **/
-      RedshiftDestinationDescription?: RedshiftDestinationDescription;
+        /** The ID of the destination. **/
+        DestinationId: DestinationId;
+        /** The Amazon S3 destination. **/
+        S3DestinationDescription?: S3DestinationDescription;
+        /** The destination in Amazon Redshift. **/
+        RedshiftDestinationDescription?: RedshiftDestinationDescription;
     }
     export interface EncryptionConfiguration {
-      /** Specifically override existing encryption information to ensure no encryption is
+        /** Specifically override existing encryption information to ensure no encryption is
 used. **/
-      NoEncryptionConfig?: NoEncryptionConfig;
-      /** The encryption key. **/
-      KMSEncryptionConfig?: KMSEncryptionConfig;
+        NoEncryptionConfig?: NoEncryptionConfig;
+        /** The encryption key. **/
+        KMSEncryptionConfig?: KMSEncryptionConfig;
     }
     export interface InvalidArgumentException {
-      /** A message that provides information about the error. **/
-      message?: ErrorMessage;
+        /** A message that provides information about the error. **/
+        message?: ErrorMessage;
     }
     export interface KMSEncryptionConfig {
-      /** The ARN of the encryption key. Must belong to the same region as the destination
+        /** The ARN of the encryption key. Must belong to the same region as the destination
 Amazon S3 bucket. **/
-      AWSKMSKeyARN: AWSKMSKeyARN;
+        AWSKMSKeyARN: AWSKMSKeyARN;
     }
     export interface LimitExceededException {
-      /** A message that provides information about the error. **/
-      message?: ErrorMessage;
+        /** A message that provides information about the error. **/
+        message?: ErrorMessage;
     }
     export interface ListDeliveryStreamsInput {
-      /** The maximum number of delivery streams to list. **/
-      Limit?: ListDeliveryStreamsInputLimit;
-      /** The name of the delivery stream to start the list with. **/
-      ExclusiveStartDeliveryStreamName?: DeliveryStreamName;
+        /** The maximum number of delivery streams to list. **/
+        Limit?: ListDeliveryStreamsInputLimit;
+        /** The name of the delivery stream to start the list with. **/
+        ExclusiveStartDeliveryStreamName?: DeliveryStreamName;
     }
     export interface ListDeliveryStreamsOutput {
-      /** The names of the delivery streams. **/
-      DeliveryStreamNames: DeliveryStreamNameList;
-      /** Indicates whether there are more delivery streams available to list. **/
-      HasMoreDeliveryStreams: BooleanObject;
+        /** The names of the delivery streams. **/
+        DeliveryStreamNames: DeliveryStreamNameList;
+        /** Indicates whether there are more delivery streams available to list. **/
+        HasMoreDeliveryStreams: BooleanObject;
     }
     export interface PutRecordBatchInput {
-      /** The name of the delivery stream. **/
-      DeliveryStreamName: DeliveryStreamName;
-      /** One or more records. **/
-      Records: PutRecordBatchRequestEntryList;
+        /** The name of the delivery stream. **/
+        DeliveryStreamName: DeliveryStreamName;
+        /** One or more records. **/
+        Records: PutRecordBatchRequestEntryList;
     }
     export interface PutRecordBatchOutput {
-      /** The number of unsuccessfully written records. **/
-      FailedPutCount: NonNegativeIntegerObject;
-      /** The results for the individual records. The index of each element matches the
+        /** The number of unsuccessfully written records. **/
+        FailedPutCount: NonNegativeIntegerObject;
+        /** The results for the individual records. The index of each element matches the
 same index in which records were sent. **/
-      RequestResponses: PutRecordBatchResponseEntryList;
+        RequestResponses: PutRecordBatchResponseEntryList;
     }
     export interface PutRecordBatchResponseEntry {
-      /** The ID of the record. **/
-      RecordId?: PutResponseRecordId;
-      /** The error code for an individual record result. **/
-      ErrorCode?: ErrorCode;
-      /** The error message for an individual record result. **/
-      ErrorMessage?: ErrorMessage;
+        /** The ID of the record. **/
+        RecordId?: PutResponseRecordId;
+        /** The error code for an individual record result. **/
+        ErrorCode?: ErrorCode;
+        /** The error message for an individual record result. **/
+        ErrorMessage?: ErrorMessage;
     }
     export interface PutRecordInput {
-      /** The name of the delivery stream. **/
-      DeliveryStreamName: DeliveryStreamName;
-      /** The record. **/
-      Record: Record;
+        /** The name of the delivery stream. **/
+        DeliveryStreamName: DeliveryStreamName;
+        /** The record. **/
+        Record: Record;
     }
     export interface PutRecordOutput {
-      /** The ID of the record. **/
-      RecordId: PutResponseRecordId;
+        /** The ID of the record. **/
+        RecordId: PutResponseRecordId;
     }
     export interface Record {
-      /** The data blob, which is base64-encoded when the blob is serialized. The maximum
+        /** The data blob, which is base64-encoded when the blob is serialized. The maximum
 size of the data blob, before base64-encoding, is 1,000 KB. **/
-      Data: Data;
+        Data: Data;
     }
     export interface RedshiftDestinationConfiguration {
-      /** The ARN of the AWS credentials. **/
-      RoleARN: RoleARN;
-      /** The database connection string. **/
-      ClusterJDBCURL: ClusterJDBCURL;
-      /** The COPY command. **/
-      CopyCommand: CopyCommand;
-      /** The name of the user. **/
-      Username: Username;
-      /** The user password. **/
-      Password: Password;
-      /** The S3 configuration for the intermediate location from which Amazon Redshift
+        /** The ARN of the AWS credentials. **/
+        RoleARN: RoleARN;
+        /** The database connection string. **/
+        ClusterJDBCURL: ClusterJDBCURL;
+        /** The COPY command. **/
+        CopyCommand: CopyCommand;
+        /** The name of the user. **/
+        Username: Username;
+        /** The user password. **/
+        Password: Password;
+        /** The S3 configuration for the intermediate location from which Amazon Redshift
 obtains data. Restrictions are described in the topic for CreateDeliveryStream .
 
 The compression formats SNAPPY or ZIP cannot be specified in 
 RedshiftDestinationConfiguration.S3Configuration because the Amazon Redshift 
 COPY operation that reads from the S3 bucket doesn&#x27;t support these compression
 formats. **/
-      S3Configuration: S3DestinationConfiguration;
+        S3Configuration: S3DestinationConfiguration;
     }
     export interface RedshiftDestinationDescription {
-      /** The ARN of the AWS credentials. **/
-      RoleARN: RoleARN;
-      /** The database connection string. **/
-      ClusterJDBCURL: ClusterJDBCURL;
-      /** The COPY command. **/
-      CopyCommand: CopyCommand;
-      /** The name of the user. **/
-      Username: Username;
-      /** The Amazon S3 destination. **/
-      S3DestinationDescription: S3DestinationDescription;
+        /** The ARN of the AWS credentials. **/
+        RoleARN: RoleARN;
+        /** The database connection string. **/
+        ClusterJDBCURL: ClusterJDBCURL;
+        /** The COPY command. **/
+        CopyCommand: CopyCommand;
+        /** The name of the user. **/
+        Username: Username;
+        /** The Amazon S3 destination. **/
+        S3DestinationDescription: S3DestinationDescription;
     }
     export interface RedshiftDestinationUpdate {
-      /** The ARN of the AWS credentials. **/
-      RoleARN?: RoleARN;
-      /** The database connection string. **/
-      ClusterJDBCURL?: ClusterJDBCURL;
-      /** The COPY command. **/
-      CopyCommand?: CopyCommand;
-      /** The name of the user. **/
-      Username?: Username;
-      /** The user password. **/
-      Password?: Password;
-      /** The Amazon S3 destination.
+        /** The ARN of the AWS credentials. **/
+        RoleARN?: RoleARN;
+        /** The database connection string. **/
+        ClusterJDBCURL?: ClusterJDBCURL;
+        /** The COPY command. **/
+        CopyCommand?: CopyCommand;
+        /** The name of the user. **/
+        Username?: Username;
+        /** The user password. **/
+        Password?: Password;
+        /** The Amazon S3 destination.
 
 The compression formats SNAPPY or ZIP cannot be specified in 
 RedshiftDestinationUpdate.S3Update because the Amazon Redshift COPY operation
 that reads from the S3 bucket doesn&#x27;t support these compression formats. **/
-      S3Update?: S3DestinationUpdate;
+        S3Update?: S3DestinationUpdate;
     }
     export interface ResourceInUseException {
-      /** A message that provides information about the error. **/
-      message?: ErrorMessage;
+        /** A message that provides information about the error. **/
+        message?: ErrorMessage;
     }
     export interface ResourceNotFoundException {
-      /** A message that provides information about the error. **/
-      message?: ErrorMessage;
+        /** A message that provides information about the error. **/
+        message?: ErrorMessage;
     }
     export interface S3DestinationConfiguration {
-      /** The ARN of the AWS credentials. **/
-      RoleARN: RoleARN;
-      /** The ARN of the S3 bucket. **/
-      BucketARN: BucketARN;
-      /** The &quot;YYYY/MM/DD/HH&quot; time format prefix is automatically used for delivered S3
+        /** The ARN of the AWS credentials. **/
+        RoleARN: RoleARN;
+        /** The ARN of the S3 bucket. **/
+        BucketARN: BucketARN;
+        /** The &quot;YYYY/MM/DD/HH&quot; time format prefix is automatically used for delivered S3
 files. You can specify an extra prefix to be added in front of the time format
 prefix. Note that if the prefix ends with a slash, it appears as a folder in the
 S3 bucket. For more information, see Amazon S3 Object Name Format
 [http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html] in the 
 guide-fh-dev [http://docs.aws.amazon.com/firehose/latest/dev/] . **/
-      Prefix?: Prefix;
-      /** The buffering option. If no value is specified, BufferingHints object default
+        Prefix?: Prefix;
+        /** The buffering option. If no value is specified, BufferingHints object default
 values are used. **/
-      BufferingHints?: BufferingHints;
-      /** The compression format. If no value is specified, the default is UNCOMPRESSED .
+        BufferingHints?: BufferingHints;
+        /** The compression format. If no value is specified, the default is UNCOMPRESSED .
 
 The compression formats SNAPPY or ZIP cannot be specified for Amazon Redshift
 destinations because they are not supported by the Amazon Redshift COPY 
 operation that reads from the S3 bucket. **/
-      CompressionFormat?: CompressionFormat;
-      /** The encryption configuration. If no value is specified, the default is no
+        CompressionFormat?: CompressionFormat;
+        /** The encryption configuration. If no value is specified, the default is no
 encryption. **/
-      EncryptionConfiguration?: EncryptionConfiguration;
+        EncryptionConfiguration?: EncryptionConfiguration;
     }
     export interface S3DestinationDescription {
-      /** The ARN of the AWS credentials. **/
-      RoleARN: RoleARN;
-      /** The ARN of the S3 bucket. **/
-      BucketARN: BucketARN;
-      /** The &quot;YYYY/MM/DD/HH&quot; time format prefix is automatically used for delivered S3
+        /** The ARN of the AWS credentials. **/
+        RoleARN: RoleARN;
+        /** The ARN of the S3 bucket. **/
+        BucketARN: BucketARN;
+        /** The &quot;YYYY/MM/DD/HH&quot; time format prefix is automatically used for delivered S3
 files. You can specify an extra prefix to be added in front of the time format
 prefix. Note that if the prefix ends with a slash, it appears as a folder in the
 S3 bucket. For more information, see Amazon S3 Object Name Format
 [http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html] in the 
 guide-fh-dev [http://docs.aws.amazon.com/firehose/latest/dev/] . **/
-      Prefix?: Prefix;
-      /** The buffering option. If no value is specified, BufferingHints object default
+        Prefix?: Prefix;
+        /** The buffering option. If no value is specified, BufferingHints object default
 values are used. **/
-      BufferingHints: BufferingHints;
-      /** The compression format. If no value is specified, the default is NOCOMPRESSION . **/
-      CompressionFormat: CompressionFormat;
-      /** The encryption configuration. If no value is specified, the default is no
+        BufferingHints: BufferingHints;
+        /** The compression format. If no value is specified, the default is NOCOMPRESSION . **/
+        CompressionFormat: CompressionFormat;
+        /** The encryption configuration. If no value is specified, the default is no
 encryption. **/
-      EncryptionConfiguration: EncryptionConfiguration;
+        EncryptionConfiguration: EncryptionConfiguration;
     }
     export interface S3DestinationUpdate {
-      /** The ARN of the AWS credentials. **/
-      RoleARN?: RoleARN;
-      /** The ARN of the S3 bucket. **/
-      BucketARN?: BucketARN;
-      /** The &quot;YYYY/MM/DD/HH&quot; time format prefix is automatically used for delivered S3
+        /** The ARN of the AWS credentials. **/
+        RoleARN?: RoleARN;
+        /** The ARN of the S3 bucket. **/
+        BucketARN?: BucketARN;
+        /** The &quot;YYYY/MM/DD/HH&quot; time format prefix is automatically used for delivered S3
 files. You can specify an extra prefix to be added in front of the time format
 prefix. Note that if the prefix ends with a slash, it appears as a folder in the
 S3 bucket. For more information, see Amazon S3 Object Name Format
 [http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html] in the 
 guide-fh-dev [http://docs.aws.amazon.com/firehose/latest/dev/] . **/
-      Prefix?: Prefix;
-      /** The buffering option. If no value is specified, BufferingHints object default
+        Prefix?: Prefix;
+        /** The buffering option. If no value is specified, BufferingHints object default
 values are used. **/
-      BufferingHints?: BufferingHints;
-      /** The compression format. If no value is specified, the default is NOCOMPRESSION .
+        BufferingHints?: BufferingHints;
+        /** The compression format. If no value is specified, the default is NOCOMPRESSION .
 
 The compression formats SNAPPY or ZIP cannot be specified for Amazon Redshift
 destinations because they are not supported by the Amazon Redshift COPY 
 operation that reads from the S3 bucket. **/
-      CompressionFormat?: CompressionFormat;
-      /** The encryption configuration. If no value is specified, the default is no
+        CompressionFormat?: CompressionFormat;
+        /** The encryption configuration. If no value is specified, the default is no
 encryption. **/
-      EncryptionConfiguration?: EncryptionConfiguration;
+        EncryptionConfiguration?: EncryptionConfiguration;
     }
     export interface ServiceUnavailableException {
-      /** A message that provides information about the error. **/
-      message?: ErrorMessage;
+        /** A message that provides information about the error. **/
+        message?: ErrorMessage;
     }
     export interface UpdateDestinationInput {
-      /** The name of the delivery stream. **/
-      DeliveryStreamName: DeliveryStreamName;
-      /** Obtain this value from the VersionId result of the DeliveryStreamDescription 
+        /** The name of the delivery stream. **/
+        DeliveryStreamName: DeliveryStreamName;
+        /** Obtain this value from the VersionId result of the DeliveryStreamDescription 
 operation. This value is required, and helps the service to perform conditional
 operations. For example, if there is a interleaving update and this value is
 null, then the update destination fails. After the update is successful, the 
 VersionId value is updated. The service then performs a merge of the old
 configuration with the new configuration. **/
-      CurrentDeliveryStreamVersionId: DeliveryStreamVersionId;
-      /** The ID of the destination. **/
-      DestinationId: DestinationId;
-      S3DestinationUpdate?: S3DestinationUpdate;
-      RedshiftDestinationUpdate?: RedshiftDestinationUpdate;
+        CurrentDeliveryStreamVersionId: DeliveryStreamVersionId;
+        /** The ID of the destination. **/
+        DestinationId: DestinationId;
+        S3DestinationUpdate?: S3DestinationUpdate;
+        RedshiftDestinationUpdate?: RedshiftDestinationUpdate;
     }
     export interface UpdateDestinationOutput {
     }

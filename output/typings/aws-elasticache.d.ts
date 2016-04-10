@@ -7,26 +7,26 @@
 
 declare module "aws-sdk" {
 
-  /**
-    * apiVersion: 2015-02-02
-    * endpointPrefix: elasticache
-    * serviceAbbreviation: 
-    * signatureVersion: v4
-    * protocol: query
-    *
-    * Amazon ElastiCacheAmazon ElastiCache is a web service that makes it easier to
- set up, operate, and scale a distributed cache in the cloud.
- 
- With ElastiCache, customers gain all of the benefits of a high-performance,
- in-memory cache with far less of the administrative burden of launching and
- managing a distributed cache. The service makes setup, scaling, and cluster
- failure handling much simpler than in a self-managed cache deployment.
- 
- In addition, through integration with Amazon CloudWatch, customers get enhanced
- visibility into the key performance statistics associated with their cache and
- can receive alarms if a part of their cache runs hot.
-    *
-    */
+ /**
+   * apiVersion: 2015-02-02
+   * endpointPrefix: elasticache
+   * serviceAbbreviation: 
+   * signatureVersion: v4
+   * protocol: query
+   *
+   * Amazon ElastiCacheAmazon ElastiCache is a web service that makes it easier to
+set up, operate, and scale a distributed cache in the cloud.
+
+With ElastiCache, customers gain all of the benefits of a high-performance,
+in-memory cache with far less of the administrative burden of launching and
+managing a distributed cache. The service makes setup, scaling, and cluster
+failure handling much simpler than in a self-managed cache deployment.
+
+In addition, through integration with Amazon CloudWatch, customers get enhanced
+visibility into the key performance statistics associated with their cache and
+can receive alarms if a part of their cache runs hot.
+   *
+   */
   export class ElastiCache extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
@@ -44,14 +44,12 @@ costs across multiple services. For more information, see Using Cost Allocation
 Tags in Amazon ElastiCache
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Tagging.html] .
      *
-     * @error CacheClusterNotFoundFault The requested cache cluster ID does not refer to an existing cache cluster.  
-     * @error SnapshotNotFoundFault The requested snapshot name does not refer to an existing snapshot.  
-     * @error TagQuotaPerResourceExceeded The request cannot be processed because it would cause the resource to have more
-than the allowed number of tags. The maximum number of tags permitted on a
-resource is 10.  
-     * @error InvalidARNFault The requested Amazon Resource Name (ARN) does not refer to an existing resource.  
+     * @error CacheClusterNotFoundFault   
+     * @error SnapshotNotFoundFault   
+     * @error TagQuotaPerResourceExceeded   
+     * @error InvalidARNFault   
      */
-    addTagsToResource(params: ElastiCache.AddTagsToResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault | ElastiCache.SnapshotNotFoundFault | ElastiCache.TagQuotaPerResourceExceeded | ElastiCache.InvalidARNFault | any, data: ElastiCache.TagListMessage | any) => void): Request;
+    addTagsToResource(params: ElastiCache.AddTagsToResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidARNFault|any, data: ElastiCache.TagListMessage|any) => void): Request;
     /**
      * The AuthorizeCacheSecurityGroupIngress action allows network ingress to a cache
 security group. Applications using ElastiCache must be running on Amazon EC2,
@@ -60,71 +58,57 @@ and Amazon EC2 security groups are used as the authorization mechanism.
 You cannot authorize ingress from an Amazon EC2 security group in one region to
 an ElastiCache cluster in another region.
      *
-     * @error CacheSecurityGroupNotFoundFault The requested cache security group name does not refer to an existing cache
-security group.  
-     * @error InvalidCacheSecurityGroupStateFault The current state of the cache security group does not allow deletion.  
-     * @error AuthorizationAlreadyExistsFault The specified Amazon EC2 security group is already authorized for the specified
-cache security group.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error CacheSecurityGroupNotFoundFault   
+     * @error InvalidCacheSecurityGroupStateFault   
+     * @error AuthorizationAlreadyExistsFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    authorizeCacheSecurityGroupIngress(params: ElastiCache.AuthorizeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault | ElastiCache.InvalidCacheSecurityGroupStateFault | ElastiCache.AuthorizationAlreadyExistsFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.AuthorizeCacheSecurityGroupIngressResult | any) => void): Request;
+    authorizeCacheSecurityGroupIngress(params: ElastiCache.AuthorizeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.AuthorizationAlreadyExistsFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.AuthorizeCacheSecurityGroupIngressResult|any) => void): Request;
     /**
      * The CopySnapshot action makes a copy of an existing snapshot.
      *
-     * @error SnapshotAlreadyExistsFault You already have a snapshot with the given name.  
-     * @error SnapshotNotFoundFault The requested snapshot name does not refer to an existing snapshot.  
-     * @error SnapshotQuotaExceededFault The request cannot be processed because it would exceed the maximum number of
-snapshots.  
-     * @error InvalidSnapshotStateFault The current state of the snapshot does not allow the requested action to occur.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error SnapshotAlreadyExistsFault   
+     * @error SnapshotNotFoundFault   
+     * @error SnapshotQuotaExceededFault   
+     * @error InvalidSnapshotStateFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    copySnapshot(params: ElastiCache.CopySnapshotMessage, callback?: (err: ElastiCache.SnapshotAlreadyExistsFault | ElastiCache.SnapshotNotFoundFault | ElastiCache.SnapshotQuotaExceededFault | ElastiCache.InvalidSnapshotStateFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.CopySnapshotResult | any) => void): Request;
+    copySnapshot(params: ElastiCache.CopySnapshotMessage, callback?: (err: ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CopySnapshotResult|any) => void): Request;
     /**
      * The CreateCacheCluster action creates a cache cluster. All nodes in the cache
 cluster run the same protocol-compliant cache engine software, either Memcached
 or Redis.
      *
-     * @error ReplicationGroupNotFoundFault The specified replication group does not exist.  
-     * @error InvalidReplicationGroupStateFault The requested replication group is not in the available state.  
-     * @error CacheClusterAlreadyExistsFault You already have a cache cluster with the given identifier.  
-     * @error InsufficientCacheClusterCapacityFault The requested cache node type is not available in the specified Availability
-Zone.  
-     * @error CacheSecurityGroupNotFoundFault The requested cache security group name does not refer to an existing cache
-security group.  
-     * @error CacheSubnetGroupNotFoundFault The requested cache subnet group name does not refer to an existing cache subnet
-group.  
-     * @error ClusterQuotaForCustomerExceededFault The request cannot be processed because it would exceed the allowed number of
-cache clusters per customer.  
-     * @error NodeQuotaForClusterExceededFault The request cannot be processed because it would exceed the allowed number of
-cache nodes in a single cache cluster.  
-     * @error NodeQuotaForCustomerExceededFault The request cannot be processed because it would exceed the allowed number of
-cache nodes per customer.  
-     * @error CacheParameterGroupNotFoundFault The requested cache parameter group name does not refer to an existing cache
-parameter group.  
-     * @error InvalidVPCNetworkStateFault The VPC network is in an invalid state.  
-     * @error TagQuotaPerResourceExceeded The request cannot be processed because it would cause the resource to have more
-than the allowed number of tags. The maximum number of tags permitted on a
-resource is 10.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error ReplicationGroupNotFoundFault   
+     * @error InvalidReplicationGroupStateFault   
+     * @error CacheClusterAlreadyExistsFault   
+     * @error InsufficientCacheClusterCapacityFault   
+     * @error CacheSecurityGroupNotFoundFault   
+     * @error CacheSubnetGroupNotFoundFault   
+     * @error ClusterQuotaForCustomerExceededFault   
+     * @error NodeQuotaForClusterExceededFault   
+     * @error NodeQuotaForCustomerExceededFault   
+     * @error CacheParameterGroupNotFoundFault   
+     * @error InvalidVPCNetworkStateFault   
+     * @error TagQuotaPerResourceExceeded   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    createCacheCluster(params: ElastiCache.CreateCacheClusterMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault | ElastiCache.InvalidReplicationGroupStateFault | ElastiCache.CacheClusterAlreadyExistsFault | ElastiCache.InsufficientCacheClusterCapacityFault | ElastiCache.CacheSecurityGroupNotFoundFault | ElastiCache.CacheSubnetGroupNotFoundFault | ElastiCache.ClusterQuotaForCustomerExceededFault | ElastiCache.NodeQuotaForClusterExceededFault | ElastiCache.NodeQuotaForCustomerExceededFault | ElastiCache.CacheParameterGroupNotFoundFault | ElastiCache.InvalidVPCNetworkStateFault | ElastiCache.TagQuotaPerResourceExceeded | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.CreateCacheClusterResult | any) => void): Request;
+    createCacheCluster(params: ElastiCache.CreateCacheClusterMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.CacheClusterAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheClusterResult|any) => void): Request;
     /**
      * The CreateCacheParameterGroup action creates a new cache parameter group. A
 cache parameter group is a collection of parameters that you apply to all of the
 nodes in a cache cluster.
      *
-     * @error CacheParameterGroupQuotaExceededFault The request cannot be processed because it would exceed the maximum number of
-cache security groups.  
-     * @error CacheParameterGroupAlreadyExistsFault A cache parameter group with the requested name already exists.  
-     * @error InvalidCacheParameterGroupStateFault The current state of the cache parameter group does not allow the requested
-action to occur.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error CacheParameterGroupQuotaExceededFault   
+     * @error CacheParameterGroupAlreadyExistsFault   
+     * @error InvalidCacheParameterGroupStateFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    createCacheParameterGroup(params: ElastiCache.CreateCacheParameterGroupMessage, callback?: (err: ElastiCache.CacheParameterGroupQuotaExceededFault | ElastiCache.CacheParameterGroupAlreadyExistsFault | ElastiCache.InvalidCacheParameterGroupStateFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.CreateCacheParameterGroupResult | any) => void): Request;
+    createCacheParameterGroup(params: ElastiCache.CreateCacheParameterGroupMessage, callback?: (err: ElastiCache.CacheParameterGroupQuotaExceededFault|ElastiCache.CacheParameterGroupAlreadyExistsFault|ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheParameterGroupResult|any) => void): Request;
     /**
      * The CreateCacheSecurityGroup action creates a new cache security group. Use a
 cache security group to control access to one or more cache clusters.
@@ -136,28 +120,24 @@ see CreateCacheSubnetGroup
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html] 
 .
      *
-     * @error CacheSecurityGroupAlreadyExistsFault A cache security group with the specified name already exists.  
-     * @error CacheSecurityGroupQuotaExceededFault The request cannot be processed because it would exceed the allowed number of
-cache security groups.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error CacheSecurityGroupAlreadyExistsFault   
+     * @error CacheSecurityGroupQuotaExceededFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    createCacheSecurityGroup(params: ElastiCache.CreateCacheSecurityGroupMessage, callback?: (err: ElastiCache.CacheSecurityGroupAlreadyExistsFault | ElastiCache.CacheSecurityGroupQuotaExceededFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.CreateCacheSecurityGroupResult | any) => void): Request;
+    createCacheSecurityGroup(params: ElastiCache.CreateCacheSecurityGroupMessage, callback?: (err: ElastiCache.CacheSecurityGroupAlreadyExistsFault|ElastiCache.CacheSecurityGroupQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheSecurityGroupResult|any) => void): Request;
     /**
      * The CreateCacheSubnetGroup action creates a new cache subnet group.
 
 Use this parameter only when you are creating a cluster in an Amazon Virtual
 Private Cloud (VPC).
      *
-     * @error CacheSubnetGroupAlreadyExistsFault The requested cache subnet group name is already in use by an existing cache
-subnet group.  
-     * @error CacheSubnetGroupQuotaExceededFault The request cannot be processed because it would exceed the allowed number of
-cache subnet groups.  
-     * @error CacheSubnetQuotaExceededFault The request cannot be processed because it would exceed the allowed number of
-subnets in a cache subnet group.  
-     * @error InvalidSubnet An invalid subnet identifier was specified.  
+     * @error CacheSubnetGroupAlreadyExistsFault   
+     * @error CacheSubnetGroupQuotaExceededFault   
+     * @error CacheSubnetQuotaExceededFault   
+     * @error InvalidSubnet   
      */
-    createCacheSubnetGroup(params: ElastiCache.CreateCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupAlreadyExistsFault | ElastiCache.CacheSubnetGroupQuotaExceededFault | ElastiCache.CacheSubnetQuotaExceededFault | ElastiCache.InvalidSubnet | any, data: ElastiCache.CreateCacheSubnetGroupResult | any) => void): Request;
+    createCacheSubnetGroup(params: ElastiCache.CreateCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupAlreadyExistsFault|ElastiCache.CacheSubnetGroupQuotaExceededFault|ElastiCache.CacheSubnetQuotaExceededFault|ElastiCache.InvalidSubnet|any, data: ElastiCache.CreateCacheSubnetGroupResult|any) => void): Request;
     /**
      * The CreateReplicationGroup action creates a replication group. A replication
 group is a collection of cache clusters, where one of the cache clusters is a
@@ -171,56 +151,35 @@ five read replicas.
 
 Note: This action is valid only for Redis.
      *
-     * @error CacheClusterNotFoundFault The requested cache cluster ID does not refer to an existing cache cluster.  
-     * @error InvalidCacheClusterStateFault The requested cache cluster is not in the available state.  
-     * @error ReplicationGroupAlreadyExistsFault The specified replication group already exists.  
-     * @error InsufficientCacheClusterCapacityFault The requested cache node type is not available in the specified Availability
-Zone.  
-     * @error CacheSecurityGroupNotFoundFault The requested cache security group name does not refer to an existing cache
-security group.  
-     * @error CacheSubnetGroupNotFoundFault The requested cache subnet group name does not refer to an existing cache subnet
-group.  
-     * @error ClusterQuotaForCustomerExceededFault The request cannot be processed because it would exceed the allowed number of
-cache clusters per customer.  
-     * @error NodeQuotaForClusterExceededFault The request cannot be processed because it would exceed the allowed number of
-cache nodes in a single cache cluster.  
-     * @error NodeQuotaForCustomerExceededFault The request cannot be processed because it would exceed the allowed number of
-cache nodes per customer.  
-     * @error CacheParameterGroupNotFoundFault The requested cache parameter group name does not refer to an existing cache
-parameter group.  
-     * @error InvalidVPCNetworkStateFault The VPC network is in an invalid state.  
-     * @error TagQuotaPerResourceExceeded The request cannot be processed because it would cause the resource to have more
-than the allowed number of tags. The maximum number of tags permitted on a
-resource is 10.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error CacheClusterNotFoundFault   
+     * @error InvalidCacheClusterStateFault   
+     * @error ReplicationGroupAlreadyExistsFault   
+     * @error InsufficientCacheClusterCapacityFault   
+     * @error CacheSecurityGroupNotFoundFault   
+     * @error CacheSubnetGroupNotFoundFault   
+     * @error ClusterQuotaForCustomerExceededFault   
+     * @error NodeQuotaForClusterExceededFault   
+     * @error NodeQuotaForCustomerExceededFault   
+     * @error CacheParameterGroupNotFoundFault   
+     * @error InvalidVPCNetworkStateFault   
+     * @error TagQuotaPerResourceExceeded   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    createReplicationGroup(params: ElastiCache.CreateReplicationGroupMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault | ElastiCache.InvalidCacheClusterStateFault | ElastiCache.ReplicationGroupAlreadyExistsFault | ElastiCache.InsufficientCacheClusterCapacityFault | ElastiCache.CacheSecurityGroupNotFoundFault | ElastiCache.CacheSubnetGroupNotFoundFault | ElastiCache.ClusterQuotaForCustomerExceededFault | ElastiCache.NodeQuotaForClusterExceededFault | ElastiCache.NodeQuotaForCustomerExceededFault | ElastiCache.CacheParameterGroupNotFoundFault | ElastiCache.InvalidVPCNetworkStateFault | ElastiCache.TagQuotaPerResourceExceeded | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.CreateReplicationGroupResult | any) => void): Request;
+    createReplicationGroup(params: ElastiCache.CreateReplicationGroupMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.ReplicationGroupAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateReplicationGroupResult|any) => void): Request;
     /**
      * The CreateSnapshot action creates a copy of an entire cache cluster at a
 specific moment in time.
      *
-     * @error SnapshotAlreadyExistsFault You already have a snapshot with the given name.  
-     * @error CacheClusterNotFoundFault The requested cache cluster ID does not refer to an existing cache cluster.  
-     * @error InvalidCacheClusterStateFault The requested cache cluster is not in the available state.  
-     * @error SnapshotQuotaExceededFault The request cannot be processed because it would exceed the maximum number of
-snapshots.  
-     * @error SnapshotFeatureNotSupportedFault You attempted one of the following actions:
-
- &amp;#42; Creating a snapshot of a Redis cache cluster running on a t1.micro cache
-   node.
-   
-   
- * Creating a snapshot of a cache cluster that is running Memcached rather than
-   Redis.
-   
-   
-
-Neither of these are supported by ElastiCache.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
+     * @error SnapshotAlreadyExistsFault   
+     * @error CacheClusterNotFoundFault   
+     * @error InvalidCacheClusterStateFault   
+     * @error SnapshotQuotaExceededFault   
+     * @error SnapshotFeatureNotSupportedFault   
+     * @error InvalidParameterCombinationException   
+     * @error InvalidParameterValueException   
      */
-    createSnapshot(params: ElastiCache.CreateSnapshotMessage, callback?: (err: ElastiCache.SnapshotAlreadyExistsFault | ElastiCache.CacheClusterNotFoundFault | ElastiCache.InvalidCacheClusterStateFault | ElastiCache.SnapshotQuotaExceededFault | ElastiCache.SnapshotFeatureNotSupportedFault | ElastiCache.InvalidParameterCombinationException | ElastiCache.InvalidParameterValueException | any, data: ElastiCache.CreateSnapshotResult | any) => void): Request;
+    createSnapshot(params: ElastiCache.CreateSnapshotMessage, callback?: (err: ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any, data: ElastiCache.CreateSnapshotResult|any) => void): Request;
     /**
      * The DeleteCacheCluster action deletes a previously provisioned cache cluster. 
 DeleteCacheCluster deletes all associated cache nodes, node endpoints and the
@@ -231,64 +190,48 @@ cancel or revert this action.
 This API cannot be used to delete a cache cluster that is the last read replica
 of a replication group that has Multi-AZ mode enabled.
      *
-     * @error CacheClusterNotFoundFault The requested cache cluster ID does not refer to an existing cache cluster.  
-     * @error InvalidCacheClusterStateFault The requested cache cluster is not in the available state.  
-     * @error SnapshotAlreadyExistsFault You already have a snapshot with the given name.  
-     * @error SnapshotFeatureNotSupportedFault You attempted one of the following actions:
-
- &amp;#42; Creating a snapshot of a Redis cache cluster running on a t1.micro cache
-   node.
-   
-   
- * Creating a snapshot of a cache cluster that is running Memcached rather than
-   Redis.
-   
-   
-
-Neither of these are supported by ElastiCache.  
-     * @error SnapshotQuotaExceededFault The request cannot be processed because it would exceed the maximum number of
-snapshots.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error CacheClusterNotFoundFault   
+     * @error InvalidCacheClusterStateFault   
+     * @error SnapshotAlreadyExistsFault   
+     * @error SnapshotFeatureNotSupportedFault   
+     * @error SnapshotQuotaExceededFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    deleteCacheCluster(params: ElastiCache.DeleteCacheClusterMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault | ElastiCache.InvalidCacheClusterStateFault | ElastiCache.SnapshotAlreadyExistsFault | ElastiCache.SnapshotFeatureNotSupportedFault | ElastiCache.SnapshotQuotaExceededFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.DeleteCacheClusterResult | any) => void): Request;
+    deleteCacheCluster(params: ElastiCache.DeleteCacheClusterMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteCacheClusterResult|any) => void): Request;
     /**
      * The DeleteCacheParameterGroup action deletes the specified cache parameter
 group. You cannot delete a cache parameter group if it is associated with any
 cache clusters.
      *
-     * @error InvalidCacheParameterGroupStateFault The current state of the cache parameter group does not allow the requested
-action to occur.  
-     * @error CacheParameterGroupNotFoundFault The requested cache parameter group name does not refer to an existing cache
-parameter group.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error InvalidCacheParameterGroupStateFault   
+     * @error CacheParameterGroupNotFoundFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    deleteCacheParameterGroup(params: ElastiCache.DeleteCacheParameterGroupMessage, callback?: (err: ElastiCache.InvalidCacheParameterGroupStateFault | ElastiCache.CacheParameterGroupNotFoundFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: any) => void): Request;
+    deleteCacheParameterGroup(params: ElastiCache.DeleteCacheParameterGroupMessage, callback?: (err: ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: any) => void): Request;
     /**
      * The DeleteCacheSecurityGroup action deletes a cache security group.
 
 You cannot delete a cache security group if it is associated with any cache
 clusters.
      *
-     * @error InvalidCacheSecurityGroupStateFault The current state of the cache security group does not allow deletion.  
-     * @error CacheSecurityGroupNotFoundFault The requested cache security group name does not refer to an existing cache
-security group.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error InvalidCacheSecurityGroupStateFault   
+     * @error CacheSecurityGroupNotFoundFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    deleteCacheSecurityGroup(params: ElastiCache.DeleteCacheSecurityGroupMessage, callback?: (err: ElastiCache.InvalidCacheSecurityGroupStateFault | ElastiCache.CacheSecurityGroupNotFoundFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: any) => void): Request;
+    deleteCacheSecurityGroup(params: ElastiCache.DeleteCacheSecurityGroupMessage, callback?: (err: ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: any) => void): Request;
     /**
      * The DeleteCacheSubnetGroup action deletes a cache subnet group.
 
 You cannot delete a cache subnet group if it is associated with any cache
 clusters.
      *
-     * @error CacheSubnetGroupInUse The requested cache subnet group is currently in use.  
-     * @error CacheSubnetGroupNotFoundFault The requested cache subnet group name does not refer to an existing cache subnet
-group.  
+     * @error CacheSubnetGroupInUse   
+     * @error CacheSubnetGroupNotFoundFault   
      */
-    deleteCacheSubnetGroup(params: ElastiCache.DeleteCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupInUse | ElastiCache.CacheSubnetGroupNotFoundFault | any, data: any) => void): Request;
+    deleteCacheSubnetGroup(params: ElastiCache.DeleteCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupInUse|ElastiCache.CacheSubnetGroupNotFoundFault|any, data: any) => void): Request;
     /**
      * The DeleteReplicationGroup action deletes an existing replication group. By
 default, this action deletes the entire replication group, including the primary
@@ -299,38 +242,26 @@ When you receive a successful response from this action, Amazon ElastiCache
 immediately begins deleting the selected resources; you cannot cancel or revert
 this action.
      *
-     * @error ReplicationGroupNotFoundFault The specified replication group does not exist.  
-     * @error InvalidReplicationGroupStateFault The requested replication group is not in the available state.  
-     * @error SnapshotAlreadyExistsFault You already have a snapshot with the given name.  
-     * @error SnapshotFeatureNotSupportedFault You attempted one of the following actions:
-
- &amp;#42; Creating a snapshot of a Redis cache cluster running on a t1.micro cache
-   node.
-   
-   
- * Creating a snapshot of a cache cluster that is running Memcached rather than
-   Redis.
-   
-   
-
-Neither of these are supported by ElastiCache.  
-     * @error SnapshotQuotaExceededFault The request cannot be processed because it would exceed the maximum number of
-snapshots.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error ReplicationGroupNotFoundFault   
+     * @error InvalidReplicationGroupStateFault   
+     * @error SnapshotAlreadyExistsFault   
+     * @error SnapshotFeatureNotSupportedFault   
+     * @error SnapshotQuotaExceededFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    deleteReplicationGroup(params: ElastiCache.DeleteReplicationGroupMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault | ElastiCache.InvalidReplicationGroupStateFault | ElastiCache.SnapshotAlreadyExistsFault | ElastiCache.SnapshotFeatureNotSupportedFault | ElastiCache.SnapshotQuotaExceededFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.DeleteReplicationGroupResult | any) => void): Request;
+    deleteReplicationGroup(params: ElastiCache.DeleteReplicationGroupMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteReplicationGroupResult|any) => void): Request;
     /**
      * The DeleteSnapshot action deletes an existing snapshot. When you receive a
 successful response from this action, ElastiCache immediately begins deleting
 the snapshot; you cannot cancel or revert this action.
      *
-     * @error SnapshotNotFoundFault The requested snapshot name does not refer to an existing snapshot.  
-     * @error InvalidSnapshotStateFault The current state of the snapshot does not allow the requested action to occur.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error SnapshotNotFoundFault   
+     * @error InvalidSnapshotStateFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    deleteSnapshot(params: ElastiCache.DeleteSnapshotMessage, callback?: (err: ElastiCache.SnapshotNotFoundFault | ElastiCache.InvalidSnapshotStateFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.DeleteSnapshotResult | any) => void): Request;
+    deleteSnapshot(params: ElastiCache.DeleteSnapshotMessage, callback?: (err: ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteSnapshotResult|any) => void): Request;
     /**
      * The DescribeCacheClusters action returns information about all provisioned cache
 clusters if no cache cluster identifier is specified, or about a specific cache
@@ -355,66 +286,62 @@ until they are completely provisioned. When the cache cluster state is available
 If cache nodes are currently being removed from the cache cluster, no endpoint
 information for the removed nodes is displayed.
      *
-     * @error CacheClusterNotFoundFault The requested cache cluster ID does not refer to an existing cache cluster.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error CacheClusterNotFoundFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    describeCacheClusters(params: ElastiCache.DescribeCacheClustersMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.CacheClusterMessage | any) => void): Request;
+    describeCacheClusters(params: ElastiCache.DescribeCacheClustersMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheClusterMessage|any) => void): Request;
     /**
      * The DescribeCacheEngineVersions action returns a list of the available cache
 engines and their versions.
      *
      */
-    describeCacheEngineVersions(params: ElastiCache.DescribeCacheEngineVersionsMessage, callback?: (err: any, data: ElastiCache.CacheEngineVersionMessage | any) => void): Request;
+    describeCacheEngineVersions(params: ElastiCache.DescribeCacheEngineVersionsMessage, callback?: (err: any, data: ElastiCache.CacheEngineVersionMessage|any) => void): Request;
     /**
      * The DescribeCacheParameterGroups action returns a list of cache parameter group
 descriptions. If a cache parameter group name is specified, the list will
 contain only the descriptions for that group.
      *
-     * @error CacheParameterGroupNotFoundFault The requested cache parameter group name does not refer to an existing cache
-parameter group.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error CacheParameterGroupNotFoundFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    describeCacheParameterGroups(params: ElastiCache.DescribeCacheParameterGroupsMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.CacheParameterGroupsMessage | any) => void): Request;
+    describeCacheParameterGroups(params: ElastiCache.DescribeCacheParameterGroupsMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupsMessage|any) => void): Request;
     /**
      * The DescribeCacheParameters action returns the detailed parameter list for a
 particular cache parameter group.
      *
-     * @error CacheParameterGroupNotFoundFault The requested cache parameter group name does not refer to an existing cache
-parameter group.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error CacheParameterGroupNotFoundFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    describeCacheParameters(params: ElastiCache.DescribeCacheParametersMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.CacheParameterGroupDetails | any) => void): Request;
+    describeCacheParameters(params: ElastiCache.DescribeCacheParametersMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupDetails|any) => void): Request;
     /**
      * The DescribeCacheSecurityGroups action returns a list of cache security group
 descriptions. If a cache security group name is specified, the list will contain
 only the description of that group.
      *
-     * @error CacheSecurityGroupNotFoundFault The requested cache security group name does not refer to an existing cache
-security group.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error CacheSecurityGroupNotFoundFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    describeCacheSecurityGroups(params: ElastiCache.DescribeCacheSecurityGroupsMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.CacheSecurityGroupMessage | any) => void): Request;
+    describeCacheSecurityGroups(params: ElastiCache.DescribeCacheSecurityGroupsMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheSecurityGroupMessage|any) => void): Request;
     /**
      * The DescribeCacheSubnetGroups action returns a list of cache subnet group
 descriptions. If a subnet group name is specified, the list will contain only
 the description of that group.
      *
-     * @error CacheSubnetGroupNotFoundFault The requested cache subnet group name does not refer to an existing cache subnet
-group.  
+     * @error CacheSubnetGroupNotFoundFault   
      */
-    describeCacheSubnetGroups(params: ElastiCache.DescribeCacheSubnetGroupsMessage, callback?: (err: ElastiCache.CacheSubnetGroupNotFoundFault | any, data: ElastiCache.CacheSubnetGroupMessage | any) => void): Request;
+    describeCacheSubnetGroups(params: ElastiCache.DescribeCacheSubnetGroupsMessage, callback?: (err: ElastiCache.CacheSubnetGroupNotFoundFault|any, data: ElastiCache.CacheSubnetGroupMessage|any) => void): Request;
     /**
      * The DescribeEngineDefaultParameters action returns the default engine and system
 parameter information for the specified cache engine.
      *
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    describeEngineDefaultParameters(params: ElastiCache.DescribeEngineDefaultParametersMessage, callback?: (err: ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.DescribeEngineDefaultParametersResult | any) => void): Request;
+    describeEngineDefaultParameters(params: ElastiCache.DescribeEngineDefaultParametersMessage, callback?: (err: ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DescribeEngineDefaultParametersResult|any) => void): Request;
     /**
      * The DescribeEvents action returns events related to cache clusters, cache
 security groups, and cache parameter groups. You can obtain events specific to a
@@ -424,50 +351,65 @@ providing the name as a parameter.
 By default, only the events occurring within the last hour are returned;
 however, you can retrieve up to 14 days&#x27; worth of events if necessary.
      *
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    describeEvents(params: ElastiCache.DescribeEventsMessage, callback?: (err: ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.EventsMessage | any) => void): Request;
+    describeEvents(params: ElastiCache.DescribeEventsMessage, callback?: (err: ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.EventsMessage|any) => void): Request;
     /**
      * The DescribeReplicationGroups action returns information about a particular
 replication group. If no identifier is specified, DescribeReplicationGroups 
 returns information about all replication groups.
      *
-     * @error ReplicationGroupNotFoundFault The specified replication group does not exist.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error ReplicationGroupNotFoundFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    describeReplicationGroups(params: ElastiCache.DescribeReplicationGroupsMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.ReplicationGroupMessage | any) => void): Request;
+    describeReplicationGroups(params: ElastiCache.DescribeReplicationGroupsMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReplicationGroupMessage|any) => void): Request;
     /**
      * The DescribeReservedCacheNodes action returns information about reserved cache
 nodes for this account, or about a specified reserved cache node.
      *
-     * @error ReservedCacheNodeNotFoundFault The requested reserved cache node was not found.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error ReservedCacheNodeNotFoundFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    describeReservedCacheNodes(params: ElastiCache.DescribeReservedCacheNodesMessage, callback?: (err: ElastiCache.ReservedCacheNodeNotFoundFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.ReservedCacheNodeMessage | any) => void): Request;
+    describeReservedCacheNodes(params: ElastiCache.DescribeReservedCacheNodesMessage, callback?: (err: ElastiCache.ReservedCacheNodeNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReservedCacheNodeMessage|any) => void): Request;
     /**
      * The DescribeReservedCacheNodesOfferings action lists available reserved cache
 node offerings.
      *
-     * @error ReservedCacheNodesOfferingNotFoundFault The requested cache node offering does not exist.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error ReservedCacheNodesOfferingNotFoundFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    describeReservedCacheNodesOfferings(params: ElastiCache.DescribeReservedCacheNodesOfferingsMessage, callback?: (err: ElastiCache.ReservedCacheNodesOfferingNotFoundFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.ReservedCacheNodesOfferingMessage | any) => void): Request;
+    describeReservedCacheNodesOfferings(params: ElastiCache.DescribeReservedCacheNodesOfferingsMessage, callback?: (err: ElastiCache.ReservedCacheNodesOfferingNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReservedCacheNodesOfferingMessage|any) => void): Request;
     /**
      * The DescribeSnapshots action returns information about cache cluster snapshots.
 By default, DescribeSnapshots lists all of your snapshots; it can optionally
 describe a single snapshot, or just the snapshots associated with a particular
 cache cluster.
      *
-     * @error CacheClusterNotFoundFault The requested cache cluster ID does not refer to an existing cache cluster.  
-     * @error SnapshotNotFoundFault The requested snapshot name does not refer to an existing snapshot.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error CacheClusterNotFoundFault   
+     * @error SnapshotNotFoundFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    describeSnapshots(params: ElastiCache.DescribeSnapshotsMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault | ElastiCache.SnapshotNotFoundFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.DescribeSnapshotsListMessage | any) => void): Request;
+    describeSnapshots(params: ElastiCache.DescribeSnapshotsMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DescribeSnapshotsListMessage|any) => void): Request;
+    /**
+     * The ListAllowedNodeTypeModifications action lists all available node types that
+you can scale your Redis cluster&#x27;s or replication group&#x27;s current node type up
+to.
+
+When you use the ModifyCacheCluster or ModifyReplicationGroup APIs to scale up
+your cluster or replication group, the value of the CacheNodeType parameter must
+be one of the node types returned by this action.
+     *
+     * @error CacheClusterNotFoundFault   
+     * @error ReplicationGroupNotFoundFault   
+     * @error InvalidParameterCombinationException   
+     * @error InvalidParameterValueException   
+     */
+    listAllowedNodeTypeModifications(params: ElastiCache.ListAllowedNodeTypeModificationsMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any, data: ElastiCache.AllowedNodeTypeModificationsMessage|any) => void): Request;
     /**
      * The ListTagsForResource action lists all cost allocation tags currently on the
 named resource. A cost allocation tag is a key-value pair where the key is
@@ -479,93 +421,78 @@ For more information, see Using Cost Allocation Tags in Amazon ElastiCache
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/BestPractices.html] 
 .
      *
-     * @error CacheClusterNotFoundFault The requested cache cluster ID does not refer to an existing cache cluster.  
-     * @error SnapshotNotFoundFault The requested snapshot name does not refer to an existing snapshot.  
-     * @error InvalidARNFault The requested Amazon Resource Name (ARN) does not refer to an existing resource.  
+     * @error CacheClusterNotFoundFault   
+     * @error SnapshotNotFoundFault   
+     * @error InvalidARNFault   
      */
-    listTagsForResource(params: ElastiCache.ListTagsForResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault | ElastiCache.SnapshotNotFoundFault | ElastiCache.InvalidARNFault | any, data: ElastiCache.TagListMessage | any) => void): Request;
+    listTagsForResource(params: ElastiCache.ListTagsForResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|any, data: ElastiCache.TagListMessage|any) => void): Request;
     /**
      * The ModifyCacheCluster action modifies the settings for a cache cluster. You can
 use this action to change one or more cluster configuration parameters by
 specifying the parameters and the new values.
      *
-     * @error InvalidCacheClusterStateFault The requested cache cluster is not in the available state.  
-     * @error InvalidCacheSecurityGroupStateFault The current state of the cache security group does not allow deletion.  
-     * @error InsufficientCacheClusterCapacityFault The requested cache node type is not available in the specified Availability
-Zone.  
-     * @error CacheClusterNotFoundFault The requested cache cluster ID does not refer to an existing cache cluster.  
-     * @error NodeQuotaForClusterExceededFault The request cannot be processed because it would exceed the allowed number of
-cache nodes in a single cache cluster.  
-     * @error NodeQuotaForCustomerExceededFault The request cannot be processed because it would exceed the allowed number of
-cache nodes per customer.  
-     * @error CacheSecurityGroupNotFoundFault The requested cache security group name does not refer to an existing cache
-security group.  
-     * @error CacheParameterGroupNotFoundFault The requested cache parameter group name does not refer to an existing cache
-parameter group.  
-     * @error InvalidVPCNetworkStateFault The VPC network is in an invalid state.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error InvalidCacheClusterStateFault   
+     * @error InvalidCacheSecurityGroupStateFault   
+     * @error InsufficientCacheClusterCapacityFault   
+     * @error CacheClusterNotFoundFault   
+     * @error NodeQuotaForClusterExceededFault   
+     * @error NodeQuotaForCustomerExceededFault   
+     * @error CacheSecurityGroupNotFoundFault   
+     * @error CacheParameterGroupNotFoundFault   
+     * @error InvalidVPCNetworkStateFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    modifyCacheCluster(params: ElastiCache.ModifyCacheClusterMessage, callback?: (err: ElastiCache.InvalidCacheClusterStateFault | ElastiCache.InvalidCacheSecurityGroupStateFault | ElastiCache.InsufficientCacheClusterCapacityFault | ElastiCache.CacheClusterNotFoundFault | ElastiCache.NodeQuotaForClusterExceededFault | ElastiCache.NodeQuotaForCustomerExceededFault | ElastiCache.CacheSecurityGroupNotFoundFault | ElastiCache.CacheParameterGroupNotFoundFault | ElastiCache.InvalidVPCNetworkStateFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.ModifyCacheClusterResult | any) => void): Request;
+    modifyCacheCluster(params: ElastiCache.ModifyCacheClusterMessage, callback?: (err: ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ModifyCacheClusterResult|any) => void): Request;
     /**
      * The ModifyCacheParameterGroup action modifies the parameters of a cache
 parameter group. You can modify up to 20 parameters in a single request by
 submitting a list parameter name and value pairs.
      *
-     * @error CacheParameterGroupNotFoundFault The requested cache parameter group name does not refer to an existing cache
-parameter group.  
-     * @error InvalidCacheParameterGroupStateFault The current state of the cache parameter group does not allow the requested
-action to occur.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error CacheParameterGroupNotFoundFault   
+     * @error InvalidCacheParameterGroupStateFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    modifyCacheParameterGroup(params: ElastiCache.ModifyCacheParameterGroupMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault | ElastiCache.InvalidCacheParameterGroupStateFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.CacheParameterGroupNameMessage | any) => void): Request;
+    modifyCacheParameterGroup(params: ElastiCache.ModifyCacheParameterGroupMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupNameMessage|any) => void): Request;
     /**
      * The ModifyCacheSubnetGroup action modifies an existing cache subnet group.
      *
-     * @error CacheSubnetGroupNotFoundFault The requested cache subnet group name does not refer to an existing cache subnet
-group.  
-     * @error CacheSubnetQuotaExceededFault The request cannot be processed because it would exceed the allowed number of
-subnets in a cache subnet group.  
-     * @error SubnetInUse The requested subnet is being used by another cache subnet group.  
-     * @error InvalidSubnet An invalid subnet identifier was specified.  
+     * @error CacheSubnetGroupNotFoundFault   
+     * @error CacheSubnetQuotaExceededFault   
+     * @error SubnetInUse   
+     * @error InvalidSubnet   
      */
-    modifyCacheSubnetGroup(params: ElastiCache.ModifyCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupNotFoundFault | ElastiCache.CacheSubnetQuotaExceededFault | ElastiCache.SubnetInUse | ElastiCache.InvalidSubnet | any, data: ElastiCache.ModifyCacheSubnetGroupResult | any) => void): Request;
+    modifyCacheSubnetGroup(params: ElastiCache.ModifyCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.CacheSubnetQuotaExceededFault|ElastiCache.SubnetInUse|ElastiCache.InvalidSubnet|any, data: ElastiCache.ModifyCacheSubnetGroupResult|any) => void): Request;
     /**
      * The ModifyReplicationGroup action modifies the settings for a replication group.
      *
-     * @error ReplicationGroupNotFoundFault The specified replication group does not exist.  
-     * @error InvalidReplicationGroupStateFault The requested replication group is not in the available state.  
-     * @error InvalidCacheClusterStateFault The requested cache cluster is not in the available state.  
-     * @error InvalidCacheSecurityGroupStateFault The current state of the cache security group does not allow deletion.  
-     * @error InsufficientCacheClusterCapacityFault The requested cache node type is not available in the specified Availability
-Zone.  
-     * @error CacheClusterNotFoundFault The requested cache cluster ID does not refer to an existing cache cluster.  
-     * @error NodeQuotaForClusterExceededFault The request cannot be processed because it would exceed the allowed number of
-cache nodes in a single cache cluster.  
-     * @error NodeQuotaForCustomerExceededFault The request cannot be processed because it would exceed the allowed number of
-cache nodes per customer.  
-     * @error CacheSecurityGroupNotFoundFault The requested cache security group name does not refer to an existing cache
-security group.  
-     * @error CacheParameterGroupNotFoundFault The requested cache parameter group name does not refer to an existing cache
-parameter group.  
-     * @error InvalidVPCNetworkStateFault The VPC network is in an invalid state.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error ReplicationGroupNotFoundFault   
+     * @error InvalidReplicationGroupStateFault   
+     * @error InvalidCacheClusterStateFault   
+     * @error InvalidCacheSecurityGroupStateFault   
+     * @error InsufficientCacheClusterCapacityFault   
+     * @error CacheClusterNotFoundFault   
+     * @error NodeQuotaForClusterExceededFault   
+     * @error NodeQuotaForCustomerExceededFault   
+     * @error CacheSecurityGroupNotFoundFault   
+     * @error CacheParameterGroupNotFoundFault   
+     * @error InvalidVPCNetworkStateFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    modifyReplicationGroup(params: ElastiCache.ModifyReplicationGroupMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault | ElastiCache.InvalidReplicationGroupStateFault | ElastiCache.InvalidCacheClusterStateFault | ElastiCache.InvalidCacheSecurityGroupStateFault | ElastiCache.InsufficientCacheClusterCapacityFault | ElastiCache.CacheClusterNotFoundFault | ElastiCache.NodeQuotaForClusterExceededFault | ElastiCache.NodeQuotaForCustomerExceededFault | ElastiCache.CacheSecurityGroupNotFoundFault | ElastiCache.CacheParameterGroupNotFoundFault | ElastiCache.InvalidVPCNetworkStateFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.ModifyReplicationGroupResult | any) => void): Request;
+    modifyReplicationGroup(params: ElastiCache.ModifyReplicationGroupMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ModifyReplicationGroupResult|any) => void): Request;
     /**
      * The PurchaseReservedCacheNodesOffering action allows you to purchase a reserved
 cache node offering.
      *
-     * @error ReservedCacheNodesOfferingNotFoundFault The requested cache node offering does not exist.  
-     * @error ReservedCacheNodeAlreadyExistsFault You already have a reservation with the given identifier.  
-     * @error ReservedCacheNodeQuotaExceededFault The request cannot be processed because it would exceed the user&#x27;s cache node
-quota.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error ReservedCacheNodesOfferingNotFoundFault   
+     * @error ReservedCacheNodeAlreadyExistsFault   
+     * @error ReservedCacheNodeQuotaExceededFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    purchaseReservedCacheNodesOffering(params: ElastiCache.PurchaseReservedCacheNodesOfferingMessage, callback?: (err: ElastiCache.ReservedCacheNodesOfferingNotFoundFault | ElastiCache.ReservedCacheNodeAlreadyExistsFault | ElastiCache.ReservedCacheNodeQuotaExceededFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.PurchaseReservedCacheNodesOfferingResult | any) => void): Request;
+    purchaseReservedCacheNodesOffering(params: ElastiCache.PurchaseReservedCacheNodesOfferingMessage, callback?: (err: ElastiCache.ReservedCacheNodesOfferingNotFoundFault|ElastiCache.ReservedCacheNodeAlreadyExistsFault|ElastiCache.ReservedCacheNodeQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.PurchaseReservedCacheNodesOfferingResult|any) => void): Request;
     /**
      * The RebootCacheCluster action reboots some, or all, of the cache nodes within a
 provisioned cache cluster. This API will apply any modified cache parameter
@@ -578,201 +505,216 @@ to be lost.
 
 When the reboot is complete, a cache cluster event is created.
      *
-     * @error InvalidCacheClusterStateFault The requested cache cluster is not in the available state.  
-     * @error CacheClusterNotFoundFault The requested cache cluster ID does not refer to an existing cache cluster.  
+     * @error InvalidCacheClusterStateFault   
+     * @error CacheClusterNotFoundFault   
      */
-    rebootCacheCluster(params: ElastiCache.RebootCacheClusterMessage, callback?: (err: ElastiCache.InvalidCacheClusterStateFault | ElastiCache.CacheClusterNotFoundFault | any, data: ElastiCache.RebootCacheClusterResult | any) => void): Request;
+    rebootCacheCluster(params: ElastiCache.RebootCacheClusterMessage, callback?: (err: ElastiCache.InvalidCacheClusterStateFault|ElastiCache.CacheClusterNotFoundFault|any, data: ElastiCache.RebootCacheClusterResult|any) => void): Request;
     /**
      * The RemoveTagsFromResource action removes the tags identified by the TagKeys 
 list from the named resource.
      *
-     * @error CacheClusterNotFoundFault The requested cache cluster ID does not refer to an existing cache cluster.  
-     * @error SnapshotNotFoundFault The requested snapshot name does not refer to an existing snapshot.  
-     * @error InvalidARNFault The requested Amazon Resource Name (ARN) does not refer to an existing resource.  
-     * @error TagNotFoundFault The requested tag was not found on this resource.  
+     * @error CacheClusterNotFoundFault   
+     * @error SnapshotNotFoundFault   
+     * @error InvalidARNFault   
+     * @error TagNotFoundFault   
      */
-    removeTagsFromResource(params: ElastiCache.RemoveTagsFromResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault | ElastiCache.SnapshotNotFoundFault | ElastiCache.InvalidARNFault | ElastiCache.TagNotFoundFault | any, data: ElastiCache.TagListMessage | any) => void): Request;
+    removeTagsFromResource(params: ElastiCache.RemoveTagsFromResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|ElastiCache.TagNotFoundFault|any, data: ElastiCache.TagListMessage|any) => void): Request;
     /**
      * The ResetCacheParameterGroup action modifies the parameters of a cache parameter
 group to the engine or system default value. You can reset specific parameters
 by submitting a list of parameter names. To reset the entire cache parameter
 group, specify the ResetAllParameters and CacheParameterGroupName parameters.
      *
-     * @error InvalidCacheParameterGroupStateFault The current state of the cache parameter group does not allow the requested
-action to occur.  
-     * @error CacheParameterGroupNotFoundFault The requested cache parameter group name does not refer to an existing cache
-parameter group.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error InvalidCacheParameterGroupStateFault   
+     * @error CacheParameterGroupNotFoundFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    resetCacheParameterGroup(params: ElastiCache.ResetCacheParameterGroupMessage, callback?: (err: ElastiCache.InvalidCacheParameterGroupStateFault | ElastiCache.CacheParameterGroupNotFoundFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.CacheParameterGroupNameMessage | any) => void): Request;
+    resetCacheParameterGroup(params: ElastiCache.ResetCacheParameterGroupMessage, callback?: (err: ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupNameMessage|any) => void): Request;
     /**
      * The RevokeCacheSecurityGroupIngress action revokes ingress from a cache security
 group. Use this action to disallow access from an Amazon EC2 security group that
 had been previously authorized.
      *
-     * @error CacheSecurityGroupNotFoundFault The requested cache security group name does not refer to an existing cache
-security group.  
-     * @error AuthorizationNotFoundFault The specified Amazon EC2 security group is not authorized for the specified
-cache security group.  
-     * @error InvalidCacheSecurityGroupStateFault The current state of the cache security group does not allow deletion.  
-     * @error InvalidParameterValueException The value for a parameter is invalid.  
-     * @error InvalidParameterCombinationException Two or more incompatible parameters were specified.  
+     * @error CacheSecurityGroupNotFoundFault   
+     * @error AuthorizationNotFoundFault   
+     * @error InvalidCacheSecurityGroupStateFault   
+     * @error InvalidParameterValueException   
+     * @error InvalidParameterCombinationException   
      */
-    revokeCacheSecurityGroupIngress(params: ElastiCache.RevokeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault | ElastiCache.AuthorizationNotFoundFault | ElastiCache.InvalidCacheSecurityGroupStateFault | ElastiCache.InvalidParameterValueException | ElastiCache.InvalidParameterCombinationException | any, data: ElastiCache.RevokeCacheSecurityGroupIngressResult | any) => void): Request;
+    revokeCacheSecurityGroupIngress(params: ElastiCache.RevokeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.AuthorizationNotFoundFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.RevokeCacheSecurityGroupIngressResult|any) => void): Request;
 
   }
 
   export module ElastiCache {
-
+    
     export type AZMode = string;
-
+    
     export type AutomaticFailoverStatus = string;
-
+    
     export type AvailabilityZonesList = String[];
-
+    
     export type AwsQueryErrorMessage = string;
-
+    
     export type Boolean = boolean;
-
+    
     export type BooleanOptional = boolean;
-
+    
     export type CacheClusterList = CacheCluster[];
-
+    
     export type CacheEngineVersionList = CacheEngineVersion[];
-
+    
     export type CacheNodeIdsList = String[];
-
+    
     export type CacheNodeList = CacheNode[];
-
+    
     export type CacheNodeTypeSpecificParametersList = CacheNodeTypeSpecificParameter[];
-
+    
     export type CacheNodeTypeSpecificValueList = CacheNodeTypeSpecificValue[];
-
+    
     export type CacheParameterGroupList = CacheParameterGroup[];
-
+    
     export type CacheSecurityGroupMembershipList = CacheSecurityGroupMembership[];
-
+    
     export type CacheSecurityGroupNameList = String[];
-
+    
     export type CacheSecurityGroups = CacheSecurityGroup[];
-
+    
     export type CacheSubnetGroups = CacheSubnetGroup[];
-
+    
     export type ClusterIdList = String[];
-
+    
     export type Double = number;
-
+    
     export type EC2SecurityGroupList = EC2SecurityGroup[];
-
+    
     export type EventList = Event[];
-
+    
     export type Integer = number;
-
+    
     export type IntegerOptional = number;
-
+    
     export type KeyList = String[];
-
+    
     export type NodeGroupList = NodeGroup[];
-
+    
     export type NodeGroupMemberList = NodeGroupMember[];
-
+    
     export type NodeSnapshotList = NodeSnapshot[];
-
+    
+    export type NodeTypeList = String[];
+    
     export type ParameterNameValueList = ParameterNameValue[];
-
+    
     export type ParametersList = Parameter[];
-
+    
     export type PendingAutomaticFailoverStatus = string;
-
+    
     export type PreferredAvailabilityZoneList = String[];
-
+    
     export type RecurringChargeList = RecurringCharge[];
-
+    
     export type ReplicationGroupList = ReplicationGroup[];
-
+    
     export type ReservedCacheNodeList = ReservedCacheNode[];
-
+    
     export type ReservedCacheNodesOfferingList = ReservedCacheNodesOffering[];
-
+    
     export type SecurityGroupIdsList = String[];
-
+    
     export type SecurityGroupMembershipList = SecurityGroupMembership[];
-
+    
     export type SnapshotArnsList = String[];
-
+    
     export type SnapshotList = Snapshot[];
-
+    
     export type SourceType = string;
-
+    
     export type String = string;
-
+    
     export type SubnetIdentifierList = String[];
-
+    
     export type SubnetList = Subnet[];
-
+    
     export type TStamp = number;
-
+    
     export type TagList = Tag[];
 
     export interface AddTagsToResourceMessage {
-      /** The name of the resource to which the tags are to be added, for example 
-arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster . **/
-      ResourceName: String;
-      /** A list of cost allocation tags to be added to this resource. A tag is a
+        /** The Amazon Resource Name (ARN) of the resource to which the tags are to be
+added, for example arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster or 
+arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot .
+
+For more information on ARNs, go to Amazon Resource Names (ARNs) and AWS Service
+Namespaces
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
+        ResourceName: String;
+        /** A list of cost allocation tags to be added to this resource. A tag is a
 key-value pair. A tag key must be accompanied by a tag value. **/
-      Tags: TagList;
+        Tags: TagList;
+    }
+    export interface AllowedNodeTypeModificationsMessage {
+        /** A string list, each element of which specifies a cache node type which you can
+use to scale your cache cluster or replication group.
+
+When scaling up a Redis cluster or replication group using ModifyCacheCluster or 
+ModifyReplicationGroup , use a value from this list for the CacheNodeType 
+parameter. **/
+        ScaleUpModifications?: NodeTypeList;
     }
     export interface AuthorizationAlreadyExistsFault {
     }
     export interface AuthorizationNotFoundFault {
     }
     export interface AuthorizeCacheSecurityGroupIngressMessage {
-      /** The cache security group which will allow network ingress. **/
-      CacheSecurityGroupName: String;
-      /** The Amazon EC2 security group to be authorized for ingress to the cache security
+        /** The cache security group which will allow network ingress. **/
+        CacheSecurityGroupName: String;
+        /** The Amazon EC2 security group to be authorized for ingress to the cache security
 group. **/
-      EC2SecurityGroupName: String;
-      /** The AWS account number of the Amazon EC2 security group owner. Note that this is
+        EC2SecurityGroupName: String;
+        /** The AWS account number of the Amazon EC2 security group owner. Note that this is
 not the same thing as an AWS access key ID - you must provide a valid AWS
 account number for this parameter. **/
-      EC2SecurityGroupOwnerId: String;
+        EC2SecurityGroupOwnerId: String;
+    }
+    export interface AuthorizeCacheSecurityGroupIngressResult {
+        CacheSecurityGroup?: CacheSecurityGroup;
     }
     export interface AvailabilityZone {
-      /** The name of the Availability Zone. **/
-      Name?: String;
+        /** The name of the Availability Zone. **/
+        Name?: String;
     }
     export interface CacheCluster {
-      /** The user-supplied identifier of the cache cluster. This identifier is a unique
+        /** The user-supplied identifier of the cache cluster. This identifier is a unique
 key that identifies a cache cluster. **/
-      CacheClusterId?: String;
-      ConfigurationEndpoint?: Endpoint;
-      /** The URL of the web page where you can download the latest ElastiCache client
+        CacheClusterId?: String;
+        ConfigurationEndpoint?: Endpoint;
+        /** The URL of the web page where you can download the latest ElastiCache client
 library. **/
-      ClientDownloadLandingPage?: String;
-      /** The name of the compute and memory capacity node type for the cache cluster.
+        ClientDownloadLandingPage?: String;
+        /** The name of the compute and memory capacity node type for the cache cluster.
 
 Valid node types are as follows:
 
-&amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-    cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
-  * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
-    cache.m1.large , cache.m1.xlarge
- 
- 
-* Compute optimized: cache.c1.xlarge
-* Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
-    cache.r3.4xlarge , cache.r3.8xlarge
-  * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
- 
- 
+ &amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+    * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
+      cache.m1.large , cache.m1.xlarge
+   
+   
+ * Compute optimized: cache.c1.xlarge
+ * Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
+      cache.r3.4xlarge , cache.r3.8xlarge
+    * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
+   
+   
 
 Notes:
 
-* All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
-* Redis backup/restore is not supported for t2 instances.
-* Redis Append-only files (AOF) functionality is not supported for t1 or t2
- instances.
+ * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * Redis backup/restore is not supported for t2 instances.
+ * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+   instances.
 
 For a complete listing of cache node types and specifications, see Amazon
 ElastiCache Product Features and Details
@@ -782,59 +724,59 @@ Parameters for Memcached
 or Cache Node Type-Specific Parameters for Redis
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
 . **/
-      CacheNodeType?: String;
-      /** The name of the cache engine ( memcached or redis ) to be used for this cache
+        CacheNodeType?: String;
+        /** The name of the cache engine ( memcached or redis ) to be used for this cache
 cluster. **/
-      Engine?: String;
-      /** The version of the cache engine version that is used in this cache cluster. **/
-      EngineVersion?: String;
-      /** The current state of this cache cluster, one of the following values: available 
+        Engine?: String;
+        /** The version of the cache engine that is used in this cache cluster. **/
+        EngineVersion?: String;
+        /** The current state of this cache cluster, one of the following values: available 
 , creating , deleted , deleting , incompatible-network , modifying , rebooting
 cache cluster nodes , restore-failed , or snapshotting . **/
-      CacheClusterStatus?: String;
-      /** The number of cache nodes in the cache cluster.
+        CacheClusterStatus?: String;
+        /** The number of cache nodes in the cache cluster.
 
 For clusters running Redis, this value must be 1. For clusters running
 Memcached, this value must be between 1 and 20. **/
-      NumCacheNodes?: IntegerOptional;
-      /** The name of the Availability Zone in which the cache cluster is located or
+        NumCacheNodes?: IntegerOptional;
+        /** The name of the Availability Zone in which the cache cluster is located or
 &quot;Multiple&quot; if the cache nodes are located in different Availability Zones. **/
-      PreferredAvailabilityZone?: String;
-      /** The date and time when the cache cluster was created. **/
-      CacheClusterCreateTime?: TStamp;
-      /** Specifies the weekly time range during which maintenance on the cache cluster is
+        PreferredAvailabilityZone?: String;
+        /** The date and time when the cache cluster was created. **/
+        CacheClusterCreateTime?: TStamp;
+        /** Specifies the weekly time range during which maintenance on the cache cluster is
 performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
 Clock UTC). The minimum maintenance window is a 60 minute period. Valid values
 for ddd are:
 
-&amp;#42; sun
-* mon
-* tue
-* wed
-* thu
-* fri
-* sat
+ &amp;#42; sun
+ * mon
+ * tue
+ * wed
+ * thu
+ * fri
+ * sat
 
 Example: sun:05:00-sun:09:00 **/
-      PreferredMaintenanceWindow?: String;
-      PendingModifiedValues?: PendingModifiedValues;
-      NotificationConfiguration?: NotificationConfiguration;
-      /** A list of cache security group elements, composed of name and status
+        PreferredMaintenanceWindow?: String;
+        PendingModifiedValues?: PendingModifiedValues;
+        NotificationConfiguration?: NotificationConfiguration;
+        /** A list of cache security group elements, composed of name and status
 sub-elements. **/
-      CacheSecurityGroups?: CacheSecurityGroupMembershipList;
-      CacheParameterGroup?: CacheParameterGroupStatus;
-      /** The name of the cache subnet group associated with the cache cluster. **/
-      CacheSubnetGroupName?: String;
-      /** A list of cache nodes that are members of the cache cluster. **/
-      CacheNodes?: CacheNodeList;
-      /** This parameter is currently disabled. **/
-      AutoMinorVersionUpgrade?: Boolean;
-      /** A list of VPC Security Groups associated with the cache cluster. **/
-      SecurityGroups?: SecurityGroupMembershipList;
-      /** The replication group to which this cache cluster belongs. If this field is
+        CacheSecurityGroups?: CacheSecurityGroupMembershipList;
+        CacheParameterGroup?: CacheParameterGroupStatus;
+        /** The name of the cache subnet group associated with the cache cluster. **/
+        CacheSubnetGroupName?: String;
+        /** A list of cache nodes that are members of the cache cluster. **/
+        CacheNodes?: CacheNodeList;
+        /** This parameter is currently disabled. **/
+        AutoMinorVersionUpgrade?: Boolean;
+        /** A list of VPC Security Groups associated with the cache cluster. **/
+        SecurityGroups?: SecurityGroupMembershipList;
+        /** The replication group to which this cache cluster belongs. If this field is
 empty, the cache cluster is not associated with any replication group. **/
-      ReplicationGroupId?: String;
-      /** The number of days for which ElastiCache will retain automatic cache cluster
+        ReplicationGroupId?: String;
+        /** The number of days for which ElastiCache will retain automatic cache cluster
 snapshots before deleting them. For example, if you set SnapshotRetentionLimit 
 to 5, then a snapshot that was taken today will be retained for 5 days before
 being deleted.
@@ -842,185 +784,185 @@ being deleted.
 Important
 If the value of SnapshotRetentionLimit is set to zero (0), backups are turned
 off. **/
-      SnapshotRetentionLimit?: IntegerOptional;
-      /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
+        SnapshotRetentionLimit?: IntegerOptional;
+        /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
 snapshot of your cache cluster.
 
 Example: 05:00-09:00 **/
-      SnapshotWindow?: String;
+        SnapshotWindow?: String;
     }
     export interface CacheClusterAlreadyExistsFault {
     }
     export interface CacheClusterMessage {
-      /** Provides an identifier to allow retrieval of paginated results. **/
-      Marker?: String;
-      /** A list of cache clusters. Each item in the list contains detailed information
+        /** Provides an identifier to allow retrieval of paginated results. **/
+        Marker?: String;
+        /** A list of cache clusters. Each item in the list contains detailed information
 about one cache cluster. **/
-      CacheClusters?: CacheClusterList;
+        CacheClusters?: CacheClusterList;
     }
     export interface CacheClusterNotFoundFault {
     }
     export interface CacheEngineVersion {
-      /** The name of the cache engine. **/
-      Engine?: String;
-      /** The version number of the cache engine. **/
-      EngineVersion?: String;
-      /** The name of the cache parameter group family associated with this cache engine. **/
-      CacheParameterGroupFamily?: String;
-      /** The description of the cache engine. **/
-      CacheEngineDescription?: String;
-      /** The description of the cache engine version. **/
-      CacheEngineVersionDescription?: String;
+        /** The name of the cache engine. **/
+        Engine?: String;
+        /** The version number of the cache engine. **/
+        EngineVersion?: String;
+        /** The name of the cache parameter group family associated with this cache engine. **/
+        CacheParameterGroupFamily?: String;
+        /** The description of the cache engine. **/
+        CacheEngineDescription?: String;
+        /** The description of the cache engine version. **/
+        CacheEngineVersionDescription?: String;
     }
     export interface CacheEngineVersionMessage {
-      /** Provides an identifier to allow retrieval of paginated results. **/
-      Marker?: String;
-      /** A list of cache engine version details. Each element in the list contains
+        /** Provides an identifier to allow retrieval of paginated results. **/
+        Marker?: String;
+        /** A list of cache engine version details. Each element in the list contains
 detailed information about one cache engine version. **/
-      CacheEngineVersions?: CacheEngineVersionList;
+        CacheEngineVersions?: CacheEngineVersionList;
     }
     export interface CacheNode {
-      /** The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.).
+        /** The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.).
 The combination of cluster ID and node ID uniquely identifies every cache node
 used in a customer&#x27;s AWS account. **/
-      CacheNodeId?: String;
-      /** The current state of this cache node. **/
-      CacheNodeStatus?: String;
-      /** The date and time when the cache node was created. **/
-      CacheNodeCreateTime?: TStamp;
-      /** The hostname for connecting to this cache node. **/
-      Endpoint?: Endpoint;
-      /** The status of the parameter group applied to this cache node. **/
-      ParameterGroupStatus?: String;
-      /** The ID of the primary node to which this read replica node is synchronized. If
+        CacheNodeId?: String;
+        /** The current state of this cache node. **/
+        CacheNodeStatus?: String;
+        /** The date and time when the cache node was created. **/
+        CacheNodeCreateTime?: TStamp;
+        /** The hostname for connecting to this cache node. **/
+        Endpoint?: Endpoint;
+        /** The status of the parameter group applied to this cache node. **/
+        ParameterGroupStatus?: String;
+        /** The ID of the primary node to which this read replica node is synchronized. If
 this field is empty, then this node is not associated with a primary cache
 cluster. **/
-      SourceCacheNodeId?: String;
-      /** The Availability Zone where this node was created and now resides. **/
-      CustomerAvailabilityZone?: String;
+        SourceCacheNodeId?: String;
+        /** The Availability Zone where this node was created and now resides. **/
+        CustomerAvailabilityZone?: String;
     }
     export interface CacheNodeTypeSpecificParameter {
-      /** The name of the parameter. **/
-      ParameterName?: String;
-      /** A description of the parameter. **/
-      Description?: String;
-      /** The source of the parameter value. **/
-      Source?: String;
-      /** The valid data type for the parameter. **/
-      DataType?: String;
-      /** The valid range of values for the parameter. **/
-      AllowedValues?: String;
-      /** Indicates whether ( true ) or not ( false ) the parameter can be modified. Some
+        /** The name of the parameter. **/
+        ParameterName?: String;
+        /** A description of the parameter. **/
+        Description?: String;
+        /** The source of the parameter value. **/
+        Source?: String;
+        /** The valid data type for the parameter. **/
+        DataType?: String;
+        /** The valid range of values for the parameter. **/
+        AllowedValues?: String;
+        /** Indicates whether ( true ) or not ( false ) the parameter can be modified. Some
 parameters have security or operational implications that prevent them from
 being changed. **/
-      IsModifiable?: Boolean;
-      /** The earliest cache engine version to which the parameter can apply. **/
-      MinimumEngineVersion?: String;
-      /** A list of cache node types and their corresponding values for this parameter. **/
-      CacheNodeTypeSpecificValues?: CacheNodeTypeSpecificValueList;
+        IsModifiable?: Boolean;
+        /** The earliest cache engine version to which the parameter can apply. **/
+        MinimumEngineVersion?: String;
+        /** A list of cache node types and their corresponding values for this parameter. **/
+        CacheNodeTypeSpecificValues?: CacheNodeTypeSpecificValueList;
     }
     export interface CacheNodeTypeSpecificValue {
-      /** The cache node type for which this value applies. **/
-      CacheNodeType?: String;
-      /** The value for the cache node type. **/
-      Value?: String;
+        /** The cache node type for which this value applies. **/
+        CacheNodeType?: String;
+        /** The value for the cache node type. **/
+        Value?: String;
     }
     export interface CacheParameterGroup {
-      /** The name of the cache parameter group. **/
-      CacheParameterGroupName?: String;
-      /** The name of the cache parameter group family that this cache parameter group is
+        /** The name of the cache parameter group. **/
+        CacheParameterGroupName?: String;
+        /** The name of the cache parameter group family that this cache parameter group is
 compatible with. **/
-      CacheParameterGroupFamily?: String;
-      /** The description for this cache parameter group. **/
-      Description?: String;
+        CacheParameterGroupFamily?: String;
+        /** The description for this cache parameter group. **/
+        Description?: String;
     }
     export interface CacheParameterGroupAlreadyExistsFault {
     }
     export interface CacheParameterGroupDetails {
-      /** Provides an identifier to allow retrieval of paginated results. **/
-      Marker?: String;
-      /** A list of Parameter instances. **/
-      Parameters?: ParametersList;
-      /** A list of parameters specific to a particular cache node type. Each element in
+        /** Provides an identifier to allow retrieval of paginated results. **/
+        Marker?: String;
+        /** A list of Parameter instances. **/
+        Parameters?: ParametersList;
+        /** A list of parameters specific to a particular cache node type. Each element in
 the list contains detailed information about one parameter. **/
-      CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParametersList;
+        CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParametersList;
     }
     export interface CacheParameterGroupNameMessage {
-      /** The name of the cache parameter group. **/
-      CacheParameterGroupName?: String;
+        /** The name of the cache parameter group. **/
+        CacheParameterGroupName?: String;
     }
     export interface CacheParameterGroupNotFoundFault {
     }
     export interface CacheParameterGroupQuotaExceededFault {
     }
     export interface CacheParameterGroupStatus {
-      /** The name of the cache parameter group. **/
-      CacheParameterGroupName?: String;
-      /** The status of parameter updates. **/
-      ParameterApplyStatus?: String;
-      /** A list of the cache node IDs which need to be rebooted for parameter changes to
+        /** The name of the cache parameter group. **/
+        CacheParameterGroupName?: String;
+        /** The status of parameter updates. **/
+        ParameterApplyStatus?: String;
+        /** A list of the cache node IDs which need to be rebooted for parameter changes to
 be applied. A node ID is a numeric identifier (0001, 0002, etc.). **/
-      CacheNodeIdsToReboot?: CacheNodeIdsList;
+        CacheNodeIdsToReboot?: CacheNodeIdsList;
     }
     export interface CacheParameterGroupsMessage {
-      /** Provides an identifier to allow retrieval of paginated results. **/
-      Marker?: String;
-      /** A list of cache parameter groups. Each element in the list contains detailed
+        /** Provides an identifier to allow retrieval of paginated results. **/
+        Marker?: String;
+        /** A list of cache parameter groups. Each element in the list contains detailed
 information about one cache parameter group. **/
-      CacheParameterGroups?: CacheParameterGroupList;
+        CacheParameterGroups?: CacheParameterGroupList;
     }
     export interface CacheSecurityGroup {
-      /** The AWS account ID of the cache security group owner. **/
-      OwnerId?: String;
-      /** The name of the cache security group. **/
-      CacheSecurityGroupName?: String;
-      /** The description of the cache security group. **/
-      Description?: String;
-      /** A list of Amazon EC2 security groups that are associated with this cache
+        /** The AWS account ID of the cache security group owner. **/
+        OwnerId?: String;
+        /** The name of the cache security group. **/
+        CacheSecurityGroupName?: String;
+        /** The description of the cache security group. **/
+        Description?: String;
+        /** A list of Amazon EC2 security groups that are associated with this cache
 security group. **/
-      EC2SecurityGroups?: EC2SecurityGroupList;
+        EC2SecurityGroups?: EC2SecurityGroupList;
     }
     export interface CacheSecurityGroupAlreadyExistsFault {
     }
     export interface CacheSecurityGroupMembership {
-      /** The name of the cache security group. **/
-      CacheSecurityGroupName?: String;
-      /** The membership status in the cache security group. The status changes when a
+        /** The name of the cache security group. **/
+        CacheSecurityGroupName?: String;
+        /** The membership status in the cache security group. The status changes when a
 cache security group is modified, or when the cache security groups assigned to
 a cache cluster are modified. **/
-      Status?: String;
+        Status?: String;
     }
     export interface CacheSecurityGroupMessage {
-      /** Provides an identifier to allow retrieval of paginated results. **/
-      Marker?: String;
-      /** A list of cache security groups. Each element in the list contains detailed
+        /** Provides an identifier to allow retrieval of paginated results. **/
+        Marker?: String;
+        /** A list of cache security groups. Each element in the list contains detailed
 information about one group. **/
-      CacheSecurityGroups?: CacheSecurityGroups;
+        CacheSecurityGroups?: CacheSecurityGroups;
     }
     export interface CacheSecurityGroupNotFoundFault {
     }
     export interface CacheSecurityGroupQuotaExceededFault {
     }
     export interface CacheSubnetGroup {
-      /** The name of the cache subnet group. **/
-      CacheSubnetGroupName?: String;
-      /** The description of the cache subnet group. **/
-      CacheSubnetGroupDescription?: String;
-      /** The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group. **/
-      VpcId?: String;
-      /** A list of subnets associated with the cache subnet group. **/
-      Subnets?: SubnetList;
+        /** The name of the cache subnet group. **/
+        CacheSubnetGroupName?: String;
+        /** The description of the cache subnet group. **/
+        CacheSubnetGroupDescription?: String;
+        /** The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group. **/
+        VpcId?: String;
+        /** A list of subnets associated with the cache subnet group. **/
+        Subnets?: SubnetList;
     }
     export interface CacheSubnetGroupAlreadyExistsFault {
     }
     export interface CacheSubnetGroupInUse {
     }
     export interface CacheSubnetGroupMessage {
-      /** Provides an identifier to allow retrieval of paginated results. **/
-      Marker?: String;
-      /** A list of cache subnet groups. Each element in the list contains detailed
+        /** Provides an identifier to allow retrieval of paginated results. **/
+        Marker?: String;
+        /** A list of cache subnet groups. Each element in the list contains detailed
 information about one group. **/
-      CacheSubnetGroups?: CacheSubnetGroups;
+        CacheSubnetGroups?: CacheSubnetGroups;
     }
     export interface CacheSubnetGroupNotFoundFault {
     }
@@ -1031,21 +973,24 @@ information about one group. **/
     export interface ClusterQuotaForCustomerExceededFault {
     }
     export interface CopySnapshotMessage {
-      /** The name of an existing snapshot from which to copy. **/
-      SourceSnapshotName: String;
-      /** A name for the copied snapshot. **/
-      TargetSnapshotName: String;
+        /** The name of an existing snapshot from which to copy. **/
+        SourceSnapshotName: String;
+        /** A name for the copied snapshot. **/
+        TargetSnapshotName: String;
+    }
+    export interface CopySnapshotResult {
+        Snapshot?: Snapshot;
     }
     export interface CreateCacheClusterMessage {
-      /** The node group identifier. This parameter is stored as a lowercase string.
+        /** The node group identifier. This parameter is stored as a lowercase string.
 
 Constraints:
 
-&amp;#42; A name must contain from 1 to 20 alphanumeric characters or hyphens.
-* The first character must be a letter.
-* A name cannot end with a hyphen or contain two consecutive hyphens. **/
-      CacheClusterId: String;
-      /** The ID of the replication group to which this cache cluster should belong. If
+ &amp;#42; A name must contain from 1 to 20 alphanumeric characters or hyphens.
+ * The first character must be a letter.
+ * A name cannot end with a hyphen or contain two consecutive hyphens. **/
+        CacheClusterId: String;
+        /** The ID of the replication group to which this cache cluster should belong. If
 this parameter is specified, the cache cluster will be added to the specified
 replication group as a read replica; otherwise, the cache cluster will be a
 standalone primary that is not part of any replication group.
@@ -1055,8 +1000,8 @@ is not specified, the cache cluster will be created in availability zones that
 provide the best spread of read replicas across availability zones.
 
 Note: This parameter is only valid if the Engine parameter is redis . **/
-      ReplicationGroupId?: String;
-      /** Specifies whether the nodes in this Memcached node group are created in a single
+        ReplicationGroupId?: String;
+        /** Specifies whether the nodes in this Memcached node group are created in a single
 Availability Zone or created across multiple Availability Zones in the cluster&#x27;s
 region.
 
@@ -1064,16 +1009,16 @@ This parameter is only supported for Memcached cache clusters.
 
 If the AZMode and PreferredAvailabilityZones are not specified, ElastiCache
 assumes single-az mode. **/
-      AZMode?: AZMode;
-      /** The EC2 Availability Zone in which the cache cluster will be created.
+        AZMode?: AZMode;
+        /** The EC2 Availability Zone in which the cache cluster will be created.
 
 All nodes belonging to this Memcached cache cluster are placed in the preferred
 Availability Zone. If you want to create your nodes across multiple Availability
 Zones, use PreferredAvailabilityZones .
 
 Default: System chosen Availability Zone. **/
-      PreferredAvailabilityZone?: String;
-      /** A list of the Availability Zones in which cache nodes will be created. The order
+        PreferredAvailabilityZone?: String;
+        /** A list of the Availability Zones in which cache nodes will be created. The order
 of the zones in the list is not important.
 
 This option is only supported on Memcached.
@@ -1090,13 +1035,11 @@ times in the list.
 
 Default: System chosen Availability Zones.
 
-Example: One Memcached node in each of three different Availability Zones: 
-PreferredAvailabilityZones.member.1=us-west-2a&amp;PreferredAvailabilityZones.member.2=us-west-2b&amp;PreferredAvailabilityZones.member.3=us-west-2c
+Example: One Memcached node in each of three different Availability Zones:
 
-Example: All three Memcached nodes in one Availability Zone: 
-PreferredAvailabilityZones.member.1=us-west-2a&amp;PreferredAvailabilityZones.member.2=us-west-2a&amp;PreferredAvailabilityZones.member.3=us-west-2a **/
-      PreferredAvailabilityZones?: PreferredAvailabilityZoneList;
-      /** The initial number of cache nodes that the cache cluster will have.
+Example: All three Memcached nodes in one Availability Zone: **/
+        PreferredAvailabilityZones?: PreferredAvailabilityZoneList;
+        /** The initial number of cache nodes that the cache cluster will have.
 
 For clusters running Redis, this value must be 1. For clusters running
 Memcached, this value must be between 1 and 20.
@@ -1105,30 +1048,30 @@ If you need more than 20 nodes for your Memcached cluster, please fill out the
 ElastiCache Limit Increase Request form at 
 http://aws.amazon.com/contact-us/elasticache-node-limit-request/
 [http://aws.amazon.com/contact-us/elasticache-node-limit-request/] . **/
-      NumCacheNodes?: IntegerOptional;
-      /** The compute and memory capacity of the nodes in the node group.
+        NumCacheNodes?: IntegerOptional;
+        /** The compute and memory capacity of the nodes in the node group.
 
 Valid node types are as follows:
 
-&amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-    cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
-  * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
-    cache.m1.large , cache.m1.xlarge
- 
- 
-* Compute optimized: cache.c1.xlarge
-* Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
-    cache.r3.4xlarge , cache.r3.8xlarge
-  * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
- 
- 
+ &amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+    * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
+      cache.m1.large , cache.m1.xlarge
+   
+   
+ * Compute optimized: cache.c1.xlarge
+ * Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
+      cache.r3.4xlarge , cache.r3.8xlarge
+    * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
+   
+   
 
 Notes:
 
-* All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
-* Redis backup/restore is not supported for t2 instances.
-* Redis Append-only files (AOF) functionality is not supported for t1 or t2
- instances.
+ * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * Redis backup/restore is not supported for t2 instances.
+ * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+   instances.
 
 For a complete listing of cache node types and specifications, see Amazon
 ElastiCache Product Features and Details
@@ -1138,40 +1081,47 @@ Parameters for Memcached
 or Cache Node Type-Specific Parameters for Redis
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
 . **/
-      CacheNodeType?: String;
-      /** The name of the cache engine to be used for this cache cluster.
+        CacheNodeType?: String;
+        /** The name of the cache engine to be used for this cache cluster.
 
 Valid values for this parameter are:
 
 memcached | redis **/
-      Engine?: String;
-      /** The version number of the cache engine to be used for this cache cluster. To
+        Engine?: String;
+        /** The version number of the cache engine to be used for this cache cluster. To
 view the supported cache engine versions, use the DescribeCacheEngineVersions 
-action. **/
-      EngineVersion?: String;
-      /** The name of the parameter group to associate with this cache cluster. If this
+action.
+
+Important: You can upgrade to a newer engine version (see Selecting a Cache
+Engine and Version
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement] 
+), but you cannot downgrade to an earlier engine version. If you want to use an
+earlier engine version, you must delete the existing cache cluster or
+replication group and create it anew with the earlier engine version. **/
+        EngineVersion?: String;
+        /** The name of the parameter group to associate with this cache cluster. If this
 argument is omitted, the default parameter group for the specified engine is
 used. **/
-      CacheParameterGroupName?: String;
-      /** The name of the subnet group to be used for the cache cluster.
+        CacheParameterGroupName?: String;
+        /** The name of the subnet group to be used for the cache cluster.
 
 Use this parameter only when you are creating a cache cluster in an Amazon
 Virtual Private Cloud (VPC). **/
-      CacheSubnetGroupName?: String;
-      /** A list of security group names to associate with this cache cluster.
+        CacheSubnetGroupName?: String;
+        /** A list of security group names to associate with this cache cluster.
 
 Use this parameter only when you are creating a cache cluster outside of an
 Amazon Virtual Private Cloud (VPC). **/
-      CacheSecurityGroupNames?: CacheSecurityGroupNameList;
-      /** One or more VPC security groups associated with the cache cluster.
+        CacheSecurityGroupNames?: CacheSecurityGroupNameList;
+        /** One or more VPC security groups associated with the cache cluster.
 
 Use this parameter only when you are creating a cache cluster in an Amazon
 Virtual Private Cloud (VPC). **/
-      SecurityGroupIds?: SecurityGroupIdsList;
-      /** A list of cost allocation tags to be added to this resource. A tag is a
+        SecurityGroupIds?: SecurityGroupIdsList;
+        /** A list of cost allocation tags to be added to this resource. A tag is a
 key-value pair. A tag key must be accompanied by a tag value. **/
-      Tags?: TagList;
-      /** A single-element string list containing an Amazon Resource Name (ARN) that
+        Tags?: TagList;
+        /** A single-element string list containing an Amazon Resource Name (ARN) that
 uniquely identifies a Redis RDB snapshot file stored in Amazon S3. The snapshot
 file will be used to populate the node group. The Amazon S3 object name in the
 ARN cannot contain any commas.
@@ -1179,45 +1129,45 @@ ARN cannot contain any commas.
 Note: This parameter is only valid if the Engine parameter is redis .
 
 Example of an Amazon S3 ARN: arn:aws:s3:::my_bucket/snapshot1.rdb **/
-      SnapshotArns?: SnapshotArnsList;
-      /** The name of a snapshot from which to restore data into the new node group. The
+        SnapshotArns?: SnapshotArnsList;
+        /** The name of a snapshot from which to restore data into the new node group. The
 snapshot status changes to restoring while the new node group is being created.
 
 Note: This parameter is only valid if the Engine parameter is redis . **/
-      SnapshotName?: String;
-      /** Specifies the weekly time range during which maintenance on the cache cluster is
+        SnapshotName?: String;
+        /** Specifies the weekly time range during which maintenance on the cache cluster is
 performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
 Clock UTC). The minimum maintenance window is a 60 minute period. Valid values
 for ddd are:
 
-&amp;#42; sun
-* mon
-* tue
-* wed
-* thu
-* fri
-* sat
+ &amp;#42; sun
+ * mon
+ * tue
+ * wed
+ * thu
+ * fri
+ * sat
 
 Example: sun:05:00-sun:09:00 **/
-      PreferredMaintenanceWindow?: String;
-      /** The port number on which each of the cache nodes will accept connections. **/
-      Port?: IntegerOptional;
-      /** The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS)
+        PreferredMaintenanceWindow?: String;
+        /** The port number on which each of the cache nodes will accept connections. **/
+        Port?: IntegerOptional;
+        /** The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS)
 topic to which notifications will be sent.
 
 The Amazon SNS topic owner must be the same as the cache cluster owner. **/
-      NotificationTopicArn?: String;
-      /** This parameter is currently disabled. **/
-      AutoMinorVersionUpgrade?: BooleanOptional;
-      /** The number of days for which ElastiCache will retain automatic snapshots before
+        NotificationTopicArn?: String;
+        /** This parameter is currently disabled. **/
+        AutoMinorVersionUpgrade?: BooleanOptional;
+        /** The number of days for which ElastiCache will retain automatic snapshots before
 deleting them. For example, if you set SnapshotRetentionLimit to 5, then a
 snapshot that was taken today will be retained for 5 days before being deleted.
 
 Note: This parameter is only valid if the Engine parameter is redis .
 
 Default: 0 (i.e., automatic backups are disabled for this cache cluster). **/
-      SnapshotRetentionLimit?: IntegerOptional;
-      /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
+        SnapshotRetentionLimit?: IntegerOptional;
+        /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
 snapshot of your node group.
 
 Example: 05:00-09:00
@@ -1226,61 +1176,73 @@ If you do not specify this parameter, then ElastiCache will automatically choose
 an appropriate time range.
 
 Note: This parameter is only valid if the Engine parameter is redis . **/
-      SnapshotWindow?: String;
+        SnapshotWindow?: String;
+    }
+    export interface CreateCacheClusterResult {
+        CacheCluster?: CacheCluster;
     }
     export interface CreateCacheParameterGroupMessage {
-      /** A user-specified name for the cache parameter group. **/
-      CacheParameterGroupName: String;
-      /** The name of the cache parameter group family the cache parameter group can be
+        /** A user-specified name for the cache parameter group. **/
+        CacheParameterGroupName: String;
+        /** The name of the cache parameter group family the cache parameter group can be
 used with.
 
 Valid values are: memcached1.4 | redis2.6 | redis2.8 **/
-      CacheParameterGroupFamily: String;
-      /** A user-specified description for the cache parameter group. **/
-      Description: String;
+        CacheParameterGroupFamily: String;
+        /** A user-specified description for the cache parameter group. **/
+        Description: String;
+    }
+    export interface CreateCacheParameterGroupResult {
+        CacheParameterGroup?: CacheParameterGroup;
     }
     export interface CreateCacheSecurityGroupMessage {
-      /** A name for the cache security group. This value is stored as a lowercase string.
+        /** A name for the cache security group. This value is stored as a lowercase string.
 
 Constraints: Must contain no more than 255 alphanumeric characters. Cannot be
 the word &quot;Default&quot;.
 
 Example: mysecuritygroup **/
-      CacheSecurityGroupName: String;
-      /** A description for the cache security group. **/
-      Description: String;
+        CacheSecurityGroupName: String;
+        /** A description for the cache security group. **/
+        Description: String;
+    }
+    export interface CreateCacheSecurityGroupResult {
+        CacheSecurityGroup?: CacheSecurityGroup;
     }
     export interface CreateCacheSubnetGroupMessage {
-      /** A name for the cache subnet group. This value is stored as a lowercase string.
+        /** A name for the cache subnet group. This value is stored as a lowercase string.
 
 Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
 
 Example: mysubnetgroup **/
-      CacheSubnetGroupName: String;
-      /** A description for the cache subnet group. **/
-      CacheSubnetGroupDescription: String;
-      /** A list of VPC subnet IDs for the cache subnet group. **/
-      SubnetIds: SubnetIdentifierList;
+        CacheSubnetGroupName: String;
+        /** A description for the cache subnet group. **/
+        CacheSubnetGroupDescription: String;
+        /** A list of VPC subnet IDs for the cache subnet group. **/
+        SubnetIds: SubnetIdentifierList;
+    }
+    export interface CreateCacheSubnetGroupResult {
+        CacheSubnetGroup?: CacheSubnetGroup;
     }
     export interface CreateReplicationGroupMessage {
-      /** The replication group identifier. This parameter is stored as a lowercase
+        /** The replication group identifier. This parameter is stored as a lowercase
 string.
 
 Constraints:
 
-&amp;#42; A name must contain from 1 to 20 alphanumeric characters or hyphens.
-* The first character must be a letter.
-* A name cannot end with a hyphen or contain two consecutive hyphens. **/
-      ReplicationGroupId: String;
-      /** A user-created description for the replication group. **/
-      ReplicationGroupDescription: String;
-      /** The identifier of the cache cluster that will serve as the primary for this
+ &amp;#42; A name must contain from 1 to 20 alphanumeric characters or hyphens.
+ * The first character must be a letter.
+ * A name cannot end with a hyphen or contain two consecutive hyphens. **/
+        ReplicationGroupId: String;
+        /** A user-created description for the replication group. **/
+        ReplicationGroupDescription: String;
+        /** The identifier of the cache cluster that will serve as the primary for this
 replication group. This cache cluster must already exist and have a status of 
 available .
 
 This parameter is not required if NumCacheClusters is specified. **/
-      PrimaryClusterId?: String;
-      /** Specifies whether a read-only replica will be automatically promoted to
+        PrimaryClusterId?: String;
+        /** Specifies whether a read-only replica will be automatically promoted to
 read/write primary if the existing primary fails.
 
 If true , Multi-AZ is enabled for this replication group. If false , Multi-AZ is
@@ -1290,10 +1252,10 @@ Default: false
 
 ElastiCache Multi-AZ replication groups is not supported on:
 
-&amp;#42; Redis versions earlier than 2.8.6.
-* T1 and T2 cache node types. **/
-      AutomaticFailoverEnabled?: BooleanOptional;
-      /** The number of cache clusters this replication group will initially have.
+ &amp;#42; Redis versions earlier than 2.8.6.
+ * T1 and T2 cache node types. **/
+        AutomaticFailoverEnabled?: BooleanOptional;
+        /** The number of cache clusters this replication group will initially have.
 
 If Multi-AZ is enabled , the value of this parameter must be at least 2.
 
@@ -1301,8 +1263,8 @@ The maximum permitted value for NumCacheClusters is 6 (primary plus 5 replicas).
 If you need to exceed this limit, please fill out the ElastiCache Limit Increase
 Request form at http://aws.amazon.com/contact-us/elasticache-node-limit-request
 [http://aws.amazon.com/contact-us/elasticache-node-limit-request] . **/
-      NumCacheClusters?: IntegerOptional;
-      /** A list of EC2 availability zones in which the replication group&#x27;s cache clusters
+        NumCacheClusters?: IntegerOptional;
+        /** A list of EC2 availability zones in which the replication group&#x27;s cache clusters
 will be created. The order of the availability zones in the list is not
 important.
 
@@ -1313,34 +1275,31 @@ the value of NumCacheClusters .
 
 Default: system chosen availability zones.
 
-Example: One Redis cache cluster in each of three availability zones.
-PreferredAvailabilityZones.member.1=us-west-2a
-PreferredAvailabilityZones.member.2=us-west-2c
-PreferredAvailabilityZones.member.3=us-west-2c **/
-      PreferredCacheClusterAZs?: AvailabilityZonesList;
-      /** The compute and memory capacity of the nodes in the node group.
+Example: One Redis cache cluster in each of three availability zones. **/
+        PreferredCacheClusterAZs?: AvailabilityZonesList;
+        /** The compute and memory capacity of the nodes in the node group.
 
 Valid node types are as follows:
 
-&amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-    cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
-  * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
-    cache.m1.large , cache.m1.xlarge
- 
- 
-* Compute optimized: cache.c1.xlarge
-* Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
-    cache.r3.4xlarge , cache.r3.8xlarge
-  * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
- 
- 
+ &amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+    * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
+      cache.m1.large , cache.m1.xlarge
+   
+   
+ * Compute optimized: cache.c1.xlarge
+ * Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
+      cache.r3.4xlarge , cache.r3.8xlarge
+    * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
+   
+   
 
 Notes:
 
-* All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
-* Redis backup/restore is not supported for t2 instances.
-* Redis Append-only files (AOF) functionality is not supported for t1 or t2
- instances.
+ * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * Redis backup/restore is not supported for t2 instances.
+ * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+   instances.
 
 For a complete listing of cache node types and specifications, see Amazon
 ElastiCache Product Features and Details
@@ -1350,33 +1309,40 @@ Parameters for Memcached
 or Cache Node Type-Specific Parameters for Redis
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
 . **/
-      CacheNodeType?: String;
-      /** The name of the cache engine to be used for the cache clusters in this
+        CacheNodeType?: String;
+        /** The name of the cache engine to be used for the cache clusters in this
 replication group.
 
 Default: redis **/
-      Engine?: String;
-      /** The version number of the cache engine to be used for the cache clusters in this
+        Engine?: String;
+        /** The version number of the cache engine to be used for the cache clusters in this
 replication group. To view the supported cache engine versions, use the 
-DescribeCacheEngineVersions action. **/
-      EngineVersion?: String;
-      /** The name of the parameter group to associate with this replication group. If
+DescribeCacheEngineVersions action.
+
+Important: You can upgrade to a newer engine version (see Selecting a Cache
+Engine and Version
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement] 
+), but you cannot downgrade to an earlier engine version. If you want to use an
+earlier engine version, you must delete the existing cache cluster or
+replication group and create it anew with the earlier engine version. **/
+        EngineVersion?: String;
+        /** The name of the parameter group to associate with this replication group. If
 this argument is omitted, the default cache parameter group for the specified
 engine is used. **/
-      CacheParameterGroupName?: String;
-      /** The name of the cache subnet group to be used for the replication group. **/
-      CacheSubnetGroupName?: String;
-      /** A list of cache security group names to associate with this replication group. **/
-      CacheSecurityGroupNames?: CacheSecurityGroupNameList;
-      /** One or more Amazon VPC security groups associated with this replication group.
+        CacheParameterGroupName?: String;
+        /** The name of the cache subnet group to be used for the replication group. **/
+        CacheSubnetGroupName?: String;
+        /** A list of cache security group names to associate with this replication group. **/
+        CacheSecurityGroupNames?: CacheSecurityGroupNameList;
+        /** One or more Amazon VPC security groups associated with this replication group.
 
 Use this parameter only when you are creating a replication group in an Amazon
 Virtual Private Cloud (VPC). **/
-      SecurityGroupIds?: SecurityGroupIdsList;
-      /** A list of cost allocation tags to be added to this resource. A tag is a
+        SecurityGroupIds?: SecurityGroupIdsList;
+        /** A list of cost allocation tags to be added to this resource. A tag is a
 key-value pair. A tag key must be accompanied by a tag value. **/
-      Tags?: TagList;
-      /** A single-element string list containing an Amazon Resource Name (ARN) that
+        Tags?: TagList;
+        /** A single-element string list containing an Amazon Resource Name (ARN) that
 uniquely identifies a Redis RDB snapshot file stored in Amazon S3. The snapshot
 file will be used to populate the node group. The Amazon S3 object name in the
 ARN cannot contain any commas.
@@ -1384,46 +1350,46 @@ ARN cannot contain any commas.
 Note: This parameter is only valid if the Engine parameter is redis .
 
 Example of an Amazon S3 ARN: arn:aws:s3:::my_bucket/snapshot1.rdb **/
-      SnapshotArns?: SnapshotArnsList;
-      /** The name of a snapshot from which to restore data into the new node group. The
+        SnapshotArns?: SnapshotArnsList;
+        /** The name of a snapshot from which to restore data into the new node group. The
 snapshot status changes to restoring while the new node group is being created.
 
 Note: This parameter is only valid if the Engine parameter is redis . **/
-      SnapshotName?: String;
-      /** Specifies the weekly time range during which maintenance on the cache cluster is
+        SnapshotName?: String;
+        /** Specifies the weekly time range during which maintenance on the cache cluster is
 performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
 Clock UTC). The minimum maintenance window is a 60 minute period. Valid values
 for ddd are:
 
-&amp;#42; sun
-* mon
-* tue
-* wed
-* thu
-* fri
-* sat
+ &amp;#42; sun
+ * mon
+ * tue
+ * wed
+ * thu
+ * fri
+ * sat
 
 Example: sun:05:00-sun:09:00 **/
-      PreferredMaintenanceWindow?: String;
-      /** The port number on which each member of the replication group will accept
+        PreferredMaintenanceWindow?: String;
+        /** The port number on which each member of the replication group will accept
 connections. **/
-      Port?: IntegerOptional;
-      /** The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS)
+        Port?: IntegerOptional;
+        /** The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS)
 topic to which notifications will be sent.
 
 The Amazon SNS topic owner must be the same as the cache cluster owner. **/
-      NotificationTopicArn?: String;
-      /** This parameter is currently disabled. **/
-      AutoMinorVersionUpgrade?: BooleanOptional;
-      /** The number of days for which ElastiCache will retain automatic snapshots before
+        NotificationTopicArn?: String;
+        /** This parameter is currently disabled. **/
+        AutoMinorVersionUpgrade?: BooleanOptional;
+        /** The number of days for which ElastiCache will retain automatic snapshots before
 deleting them. For example, if you set SnapshotRetentionLimit to 5, then a
 snapshot that was taken today will be retained for 5 days before being deleted.
 
 Note: This parameter is only valid if the Engine parameter is redis .
 
 Default: 0 (i.e., automatic backups are disabled for this cache cluster). **/
-      SnapshotRetentionLimit?: IntegerOptional;
-      /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
+        SnapshotRetentionLimit?: IntegerOptional;
+        /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
 snapshot of your node group.
 
 Example: 05:00-09:00
@@ -1432,288 +1398,306 @@ If you do not specify this parameter, then ElastiCache will automatically choose
 an appropriate time range.
 
 Note: This parameter is only valid if the Engine parameter is redis . **/
-      SnapshotWindow?: String;
+        SnapshotWindow?: String;
+    }
+    export interface CreateReplicationGroupResult {
+        ReplicationGroup?: ReplicationGroup;
     }
     export interface CreateSnapshotMessage {
-      /** The identifier of an existing cache cluster. The snapshot will be created from
+        /** The identifier of an existing cache cluster. The snapshot will be created from
 this cache cluster. **/
-      CacheClusterId: String;
-      /** A name for the snapshot being created. **/
-      SnapshotName: String;
+        CacheClusterId: String;
+        /** A name for the snapshot being created. **/
+        SnapshotName: String;
+    }
+    export interface CreateSnapshotResult {
+        Snapshot?: Snapshot;
     }
     export interface DeleteCacheClusterMessage {
-      /** The cache cluster identifier for the cluster to be deleted. This parameter is
+        /** The cache cluster identifier for the cluster to be deleted. This parameter is
 not case sensitive. **/
-      CacheClusterId: String;
-      /** The user-supplied name of a final cache cluster snapshot. This is the unique
+        CacheClusterId: String;
+        /** The user-supplied name of a final cache cluster snapshot. This is the unique
 name that identifies the snapshot. ElastiCache creates the snapshot, and then
 deletes the cache cluster immediately afterward. **/
-      FinalSnapshotIdentifier?: String;
+        FinalSnapshotIdentifier?: String;
+    }
+    export interface DeleteCacheClusterResult {
+        CacheCluster?: CacheCluster;
     }
     export interface DeleteCacheParameterGroupMessage {
-      /** The name of the cache parameter group to delete.
+        /** The name of the cache parameter group to delete.
 
 The specified cache security group must not be associated with any cache
 clusters. **/
-      CacheParameterGroupName: String;
+        CacheParameterGroupName: String;
     }
     export interface DeleteCacheSecurityGroupMessage {
-      /** The name of the cache security group to delete.
+        /** The name of the cache security group to delete.
 
 You cannot delete the default security group. **/
-      CacheSecurityGroupName: String;
+        CacheSecurityGroupName: String;
     }
     export interface DeleteCacheSubnetGroupMessage {
-      /** The name of the cache subnet group to delete.
+        /** The name of the cache subnet group to delete.
 
 Constraints: Must contain no more than 255 alphanumeric characters or hyphens. **/
-      CacheSubnetGroupName: String;
+        CacheSubnetGroupName: String;
     }
     export interface DeleteReplicationGroupMessage {
-      /** The identifier for the cluster to be deleted. This parameter is not case
+        /** The identifier for the cluster to be deleted. This parameter is not case
 sensitive. **/
-      ReplicationGroupId: String;
-      /** If set to true , all of the read replicas will be deleted, but the primary node
+        ReplicationGroupId: String;
+        /** If set to true , all of the read replicas will be deleted, but the primary node
 will be retained. **/
-      RetainPrimaryCluster?: BooleanOptional;
-      /** The name of a final node group snapshot. ElastiCache creates the snapshot from
+        RetainPrimaryCluster?: BooleanOptional;
+        /** The name of a final node group snapshot. ElastiCache creates the snapshot from
 the primary node in the cluster, rather than one of the replicas; this is to
 ensure that it captures the freshest data. After the final snapshot is taken,
 the cluster is immediately deleted. **/
-      FinalSnapshotIdentifier?: String;
+        FinalSnapshotIdentifier?: String;
+    }
+    export interface DeleteReplicationGroupResult {
+        ReplicationGroup?: ReplicationGroup;
     }
     export interface DeleteSnapshotMessage {
-      /** The name of the snapshot to be deleted. **/
-      SnapshotName: String;
+        /** The name of the snapshot to be deleted. **/
+        SnapshotName: String;
+    }
+    export interface DeleteSnapshotResult {
+        Snapshot?: Snapshot;
     }
     export interface DescribeCacheClustersMessage {
-      /** The user-supplied cluster identifier. If this parameter is specified, only
+        /** The user-supplied cluster identifier. If this parameter is specified, only
 information about that specific cache cluster is returned. This parameter isn&#x27;t
 case sensitive. **/
-      CacheClusterId?: String;
-      /** The maximum number of records to include in the response. If more records exist
+        CacheClusterId?: String;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
 that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: minimum 20; maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional marker returned from a prior request. Use this marker for pagination
+        MaxRecords?: IntegerOptional;
+        /** An optional marker returned from a prior request. Use this marker for pagination
 of results from this action. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
-      Marker?: String;
-      /** An optional flag that can be included in the DescribeCacheCluster request to
+        Marker?: String;
+        /** An optional flag that can be included in the DescribeCacheCluster request to
 retrieve information about the individual cache nodes. **/
-      ShowCacheNodeInfo?: BooleanOptional;
+        ShowCacheNodeInfo?: BooleanOptional;
     }
     export interface DescribeCacheEngineVersionsMessage {
-      /** The cache engine to return. Valid values: memcached | redis **/
-      Engine?: String;
-      /** The cache engine version to return.
+        /** The cache engine to return. Valid values: memcached | redis **/
+        Engine?: String;
+        /** The cache engine version to return.
 
 Example: 1.4.14 **/
-      EngineVersion?: String;
-      /** The name of a specific cache parameter group family to return details for.
+        EngineVersion?: String;
+        /** The name of a specific cache parameter group family to return details for.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      CacheParameterGroupFamily?: String;
-      /** The maximum number of records to include in the response. If more records exist
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        CacheParameterGroupFamily?: String;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
 that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: minimum 20; maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional marker returned from a prior request. Use this marker for pagination
+        MaxRecords?: IntegerOptional;
+        /** An optional marker returned from a prior request. Use this marker for pagination
 of results from this action. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
-      Marker?: String;
-      /** If true , specifies that only the default version of the specified engine or
+        Marker?: String;
+        /** If true , specifies that only the default version of the specified engine or
 engine and major version combination is to be returned. **/
-      DefaultOnly?: Boolean;
+        DefaultOnly?: Boolean;
     }
     export interface DescribeCacheParameterGroupsMessage {
-      /** The name of a specific cache parameter group to return details for. **/
-      CacheParameterGroupName?: String;
-      /** The maximum number of records to include in the response. If more records exist
+        /** The name of a specific cache parameter group to return details for. **/
+        CacheParameterGroupName?: String;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
 that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: minimum 20; maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional marker returned from a prior request. Use this marker for pagination
+        MaxRecords?: IntegerOptional;
+        /** An optional marker returned from a prior request. Use this marker for pagination
 of results from this action. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeCacheParametersMessage {
-      /** The name of a specific cache parameter group to return details for. **/
-      CacheParameterGroupName: String;
-      /** The parameter types to return.
+        /** The name of a specific cache parameter group to return details for. **/
+        CacheParameterGroupName: String;
+        /** The parameter types to return.
 
 Valid values: user | system | engine-default **/
-      Source?: String;
-      /** The maximum number of records to include in the response. If more records exist
+        Source?: String;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
 that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: minimum 20; maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional marker returned from a prior request. Use this marker for pagination
+        MaxRecords?: IntegerOptional;
+        /** An optional marker returned from a prior request. Use this marker for pagination
 of results from this action. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeCacheSecurityGroupsMessage {
-      /** The name of the cache security group to return details for. **/
-      CacheSecurityGroupName?: String;
-      /** The maximum number of records to include in the response. If more records exist
+        /** The name of the cache security group to return details for. **/
+        CacheSecurityGroupName?: String;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
 that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: minimum 20; maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional marker returned from a prior request. Use this marker for pagination
+        MaxRecords?: IntegerOptional;
+        /** An optional marker returned from a prior request. Use this marker for pagination
 of results from this action. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeCacheSubnetGroupsMessage {
-      /** The name of the cache subnet group to return details for. **/
-      CacheSubnetGroupName?: String;
-      /** The maximum number of records to include in the response. If more records exist
+        /** The name of the cache subnet group to return details for. **/
+        CacheSubnetGroupName?: String;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
 that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: minimum 20; maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional marker returned from a prior request. Use this marker for pagination
+        MaxRecords?: IntegerOptional;
+        /** An optional marker returned from a prior request. Use this marker for pagination
 of results from this action. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeEngineDefaultParametersMessage {
-      /** The name of the cache parameter group family. Valid values are: memcached1.4 | 
+        /** The name of the cache parameter group family. Valid values are: memcached1.4 | 
 redis2.6 | redis2.8 **/
-      CacheParameterGroupFamily: String;
-      /** The maximum number of records to include in the response. If more records exist
+        CacheParameterGroupFamily: String;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
 that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: minimum 20; maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional marker returned from a prior request. Use this marker for pagination
+        MaxRecords?: IntegerOptional;
+        /** An optional marker returned from a prior request. Use this marker for pagination
 of results from this action. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
-      Marker?: String;
+        Marker?: String;
+    }
+    export interface DescribeEngineDefaultParametersResult {
+        EngineDefaults?: EngineDefaults;
     }
     export interface DescribeEventsMessage {
-      /** The identifier of the event source for which events will be returned. If not
+        /** The identifier of the event source for which events will be returned. If not
 specified, then all sources are included in the response. **/
-      SourceIdentifier?: String;
-      /** The event source to retrieve events for. If no value is specified, all events
+        SourceIdentifier?: String;
+        /** The event source to retrieve events for. If no value is specified, all events
 are returned.
 
 Valid values are: cache-cluster | cache-parameter-group | cache-security-group | 
 cache-subnet-group **/
-      SourceType?: SourceType;
-      /** The beginning of the time interval to retrieve events for, specified in ISO 8601
+        SourceType?: SourceType;
+        /** The beginning of the time interval to retrieve events for, specified in ISO 8601
 format. **/
-      StartTime?: TStamp;
-      /** The end of the time interval for which to retrieve events, specified in ISO 8601
+        StartTime?: TStamp;
+        /** The end of the time interval for which to retrieve events, specified in ISO 8601
 format. **/
-      EndTime?: TStamp;
-      /** The number of minutes&#x27; worth of events to retrieve. **/
-      Duration?: IntegerOptional;
-      /** The maximum number of records to include in the response. If more records exist
+        EndTime?: TStamp;
+        /** The number of minutes&#x27; worth of events to retrieve. **/
+        Duration?: IntegerOptional;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
 that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: minimum 20; maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional marker returned from a prior request. Use this marker for pagination
+        MaxRecords?: IntegerOptional;
+        /** An optional marker returned from a prior request. Use this marker for pagination
 of results from this action. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeReplicationGroupsMessage {
-      /** The identifier for the replication group to be described. This parameter is not
+        /** The identifier for the replication group to be described. This parameter is not
 case sensitive.
 
 If you do not specify this parameter, information about all replication groups
 is returned. **/
-      ReplicationGroupId?: String;
-      /** The maximum number of records to include in the response. If more records exist
+        ReplicationGroupId?: String;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
 that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: minimum 20; maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional marker returned from a prior request. Use this marker for pagination
+        MaxRecords?: IntegerOptional;
+        /** An optional marker returned from a prior request. Use this marker for pagination
 of results from this action. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeReservedCacheNodesMessage {
-      /** The reserved cache node identifier filter value. Use this parameter to show only
+        /** The reserved cache node identifier filter value. Use this parameter to show only
 the reservation that matches the specified reservation ID. **/
-      ReservedCacheNodeId?: String;
-      /** The offering identifier filter value. Use this parameter to show only purchased
+        ReservedCacheNodeId?: String;
+        /** The offering identifier filter value. Use this parameter to show only purchased
 reservations matching the specified offering identifier. **/
-      ReservedCacheNodesOfferingId?: String;
-      /** The cache node type filter value. Use this parameter to show only those
+        ReservedCacheNodesOfferingId?: String;
+        /** The cache node type filter value. Use this parameter to show only those
 reservations matching the specified cache node type.
 
 Valid node types are as follows:
 
-&amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-    cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
-  * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
-    cache.m1.large , cache.m1.xlarge
- 
- 
-* Compute optimized: cache.c1.xlarge
-* Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
-    cache.r3.4xlarge , cache.r3.8xlarge
-  * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
- 
- 
+ &amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+    * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
+      cache.m1.large , cache.m1.xlarge
+   
+   
+ * Compute optimized: cache.c1.xlarge
+ * Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
+      cache.r3.4xlarge , cache.r3.8xlarge
+    * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
+   
+   
 
 Notes:
 
-* All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
-* Redis backup/restore is not supported for t2 instances.
-* Redis Append-only files (AOF) functionality is not supported for t1 or t2
- instances.
+ * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * Redis backup/restore is not supported for t2 instances.
+ * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+   instances.
 
 For a complete listing of cache node types and specifications, see Amazon
 ElastiCache Product Features and Details
@@ -1723,64 +1707,64 @@ Parameters for Memcached
 or Cache Node Type-Specific Parameters for Redis
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
 . **/
-      CacheNodeType?: String;
-      /** The duration filter value, specified in years or seconds. Use this parameter to
+        CacheNodeType?: String;
+        /** The duration filter value, specified in years or seconds. Use this parameter to
 show only reservations for this duration.
 
 Valid Values: 1 | 3 | 31536000 | 94608000 **/
-      Duration?: String;
-      /** The product description filter value. Use this parameter to show only those
+        Duration?: String;
+        /** The product description filter value. Use this parameter to show only those
 reservations matching the specified product description. **/
-      ProductDescription?: String;
-      /** The offering type filter value. Use this parameter to show only the available
+        ProductDescription?: String;
+        /** The offering type filter value. Use this parameter to show only the available
 offerings matching the specified offering type.
 
 Valid values: &quot;Light Utilization&quot;|&quot;Medium Utilization&quot;|&quot;Heavy Utilization&quot; **/
-      OfferingType?: String;
-      /** The maximum number of records to include in the response. If more records exist
+        OfferingType?: String;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
 that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: minimum 20; maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional marker returned from a prior request. Use this marker for pagination
+        MaxRecords?: IntegerOptional;
+        /** An optional marker returned from a prior request. Use this marker for pagination
 of results from this action. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeReservedCacheNodesOfferingsMessage {
-      /** The offering identifier filter value. Use this parameter to show only the
+        /** The offering identifier filter value. Use this parameter to show only the
 available offering that matches the specified reservation identifier.
 
 Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706 **/
-      ReservedCacheNodesOfferingId?: String;
-      /** The cache node type filter value. Use this parameter to show only the available
+        ReservedCacheNodesOfferingId?: String;
+        /** The cache node type filter value. Use this parameter to show only the available
 offerings matching the specified cache node type.
 
 Valid node types are as follows:
 
-&amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-    cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
-  * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
-    cache.m1.large , cache.m1.xlarge
- 
- 
-* Compute optimized: cache.c1.xlarge
-* Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
-    cache.r3.4xlarge , cache.r3.8xlarge
-  * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
- 
- 
+ &amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+    * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
+      cache.m1.large , cache.m1.xlarge
+   
+   
+ * Compute optimized: cache.c1.xlarge
+ * Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
+      cache.r3.4xlarge , cache.r3.8xlarge
+    * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
+   
+   
 
 Notes:
 
-* All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
-* Redis backup/restore is not supported for t2 instances.
-* Redis Append-only files (AOF) functionality is not supported for t1 or t2
- instances.
+ * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * Redis backup/restore is not supported for t2 instances.
+ * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+   instances.
 
 For a complete listing of cache node types and specifications, see Amazon
 ElastiCache Product Features and Details
@@ -1790,115 +1774,115 @@ Parameters for Memcached
 or Cache Node Type-Specific Parameters for Redis
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
 . **/
-      CacheNodeType?: String;
-      /** Duration filter value, specified in years or seconds. Use this parameter to show
+        CacheNodeType?: String;
+        /** Duration filter value, specified in years or seconds. Use this parameter to show
 only reservations for a given duration.
 
 Valid Values: 1 | 3 | 31536000 | 94608000 **/
-      Duration?: String;
-      /** The product description filter value. Use this parameter to show only the
+        Duration?: String;
+        /** The product description filter value. Use this parameter to show only the
 available offerings matching the specified product description. **/
-      ProductDescription?: String;
-      /** The offering type filter value. Use this parameter to show only the available
+        ProductDescription?: String;
+        /** The offering type filter value. Use this parameter to show only the available
 offerings matching the specified offering type.
 
 Valid Values: &quot;Light Utilization&quot;|&quot;Medium Utilization&quot;|&quot;Heavy Utilization&quot; **/
-      OfferingType?: String;
-      /** The maximum number of records to include in the response. If more records exist
+        OfferingType?: String;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
 that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: minimum 20; maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional marker returned from a prior request. Use this marker for pagination
+        MaxRecords?: IntegerOptional;
+        /** An optional marker returned from a prior request. Use this marker for pagination
 of results from this action. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeSnapshotsListMessage {
-      /** An optional marker returned from a prior request. Use this marker for pagination
+        /** An optional marker returned from a prior request. Use this marker for pagination
 of results from this action. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
-      Marker?: String;
-      /** A list of snapshots. Each item in the list contains detailed information about
+        Marker?: String;
+        /** A list of snapshots. Each item in the list contains detailed information about
 one snapshot. **/
-      Snapshots?: SnapshotList;
+        Snapshots?: SnapshotList;
     }
     export interface DescribeSnapshotsMessage {
-      /** A user-supplied cluster identifier. If this parameter is specified, only
+        /** A user-supplied cluster identifier. If this parameter is specified, only
 snapshots associated with that specific cache cluster will be described. **/
-      CacheClusterId?: String;
-      /** A user-supplied name of the snapshot. If this parameter is specified, only this
+        CacheClusterId?: String;
+        /** A user-supplied name of the snapshot. If this parameter is specified, only this
 snapshot will be described. **/
-      SnapshotName?: String;
-      /** If set to system , the output shows snapshots that were automatically created by
+        SnapshotName?: String;
+        /** If set to system , the output shows snapshots that were automatically created by
 ElastiCache. If set to user the output shows snapshots that were manually
 created. If omitted, the output shows both automatically and manually created
 snapshots. **/
-      SnapshotSource?: String;
-      /** An optional marker returned from a prior request. Use this marker for pagination
+        SnapshotSource?: String;
+        /** An optional marker returned from a prior request. Use this marker for pagination
 of results from this action. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
-      Marker?: String;
-      /** The maximum number of records to include in the response. If more records exist
+        Marker?: String;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
 that the remaining results can be retrieved.
 
 Default: 50
 
 Constraints: minimum 20; maximum 50. **/
-      MaxRecords?: IntegerOptional;
+        MaxRecords?: IntegerOptional;
     }
     export interface EC2SecurityGroup {
-      /** The status of the Amazon EC2 security group. **/
-      Status?: String;
-      /** The name of the Amazon EC2 security group. **/
-      EC2SecurityGroupName?: String;
-      /** The AWS account ID of the Amazon EC2 security group owner. **/
-      EC2SecurityGroupOwnerId?: String;
+        /** The status of the Amazon EC2 security group. **/
+        Status?: String;
+        /** The name of the Amazon EC2 security group. **/
+        EC2SecurityGroupName?: String;
+        /** The AWS account ID of the Amazon EC2 security group owner. **/
+        EC2SecurityGroupOwnerId?: String;
     }
     export interface Endpoint {
-      /** The DNS hostname of the cache node. **/
-      Address?: String;
-      /** The port number that the cache engine is listening on. **/
-      Port?: Integer;
+        /** The DNS hostname of the cache node. **/
+        Address?: String;
+        /** The port number that the cache engine is listening on. **/
+        Port?: Integer;
     }
     export interface EngineDefaults {
-      /** Specifies the name of the cache parameter group family to which the engine
+        /** Specifies the name of the cache parameter group family to which the engine
 default parameters apply. **/
-      CacheParameterGroupFamily?: String;
-      /** Provides an identifier to allow retrieval of paginated results. **/
-      Marker?: String;
-      /** Contains a list of engine default parameters. **/
-      Parameters?: ParametersList;
-      /** A list of parameters specific to a particular cache node type. Each element in
+        CacheParameterGroupFamily?: String;
+        /** Provides an identifier to allow retrieval of paginated results. **/
+        Marker?: String;
+        /** Contains a list of engine default parameters. **/
+        Parameters?: ParametersList;
+        /** A list of parameters specific to a particular cache node type. Each element in
 the list contains detailed information about one parameter. **/
-      CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParametersList;
+        CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParametersList;
     }
     export interface Event {
-      /** The identifier for the source of the event. For example, if the event occurred
+        /** The identifier for the source of the event. For example, if the event occurred
 at the cache cluster level, the identifier would be the name of the cache
 cluster. **/
-      SourceIdentifier?: String;
-      /** Specifies the origin of this event - a cache cluster, a parameter group, a
+        SourceIdentifier?: String;
+        /** Specifies the origin of this event - a cache cluster, a parameter group, a
 security group, etc. **/
-      SourceType?: SourceType;
-      /** The text of the event. **/
-      Message?: String;
-      /** The date and time when the event occurred. **/
-      Date?: TStamp;
+        SourceType?: SourceType;
+        /** The text of the event. **/
+        Message?: String;
+        /** The date and time when the event occurred. **/
+        Date?: TStamp;
     }
     export interface EventsMessage {
-      /** Provides an identifier to allow retrieval of paginated results. **/
-      Marker?: String;
-      /** A list of events. Each element in the list contains detailed information about
+        /** Provides an identifier to allow retrieval of paginated results. **/
+        Marker?: String;
+        /** A list of events. Each element in the list contains detailed information about
 one event. **/
-      Events?: EventList;
+        Events?: EventList;
     }
     export interface InsufficientCacheClusterCapacityFault {
     }
@@ -1911,12 +1895,12 @@ one event. **/
     export interface InvalidCacheSecurityGroupStateFault {
     }
     export interface InvalidParameterCombinationException {
-      /** Two or more parameters that must not be used together were used together. **/
-      message?: AwsQueryErrorMessage;
+        /** Two or more parameters that must not be used together were used together. **/
+        message?: AwsQueryErrorMessage;
     }
     export interface InvalidParameterValueException {
-      /** A parameter value is invalid. **/
-      message?: AwsQueryErrorMessage;
+        /** A parameter value is invalid. **/
+        message?: AwsQueryErrorMessage;
     }
     export interface InvalidReplicationGroupStateFault {
     }
@@ -1926,15 +1910,39 @@ one event. **/
     }
     export interface InvalidVPCNetworkStateFault {
     }
+    export interface ListAllowedNodeTypeModificationsMessage {
+        /** The name of the cache cluster you want to scale up to a larger node instanced
+type. ElastiCache uses the cluster id to identify the current node type of this
+cluster and from that to to create a list of node types you can scale up to.
+
+Important:
+You must provide a value for either the CacheClusterId or the ReplicationGroupId 
+. **/
+        CacheClusterId?: String;
+        /** The name of the replication group want to scale up to a larger node type.
+ElastiCache uses the replication group id to identify the current node type
+being used by this replication group, and from that to create a list of node
+types you can scale up to.
+
+Important:
+You must provide a value for either the CacheClusterId or the ReplicationGroupId 
+. **/
+        ReplicationGroupId?: String;
+    }
     export interface ListTagsForResourceMessage {
-      /** The name of the resource for which you want the list of tags, for example 
-arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster . **/
-      ResourceName: String;
+        /** The Amazon Resource Name (ARN) of the resource for which you want the list of
+tags, for example arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster or 
+arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot .
+
+For more information on ARNs, go to Amazon Resource Names (ARNs) and AWS Service
+Namespaces
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
+        ResourceName: String;
     }
     export interface ModifyCacheClusterMessage {
-      /** The cache cluster identifier. This value is stored as a lowercase string. **/
-      CacheClusterId: String;
-      /** The number of cache nodes that the cache cluster should have. If the value for 
+        /** The cache cluster identifier. This value is stored as a lowercase string. **/
+        CacheClusterId: String;
+        /** The number of cache nodes that the cache cluster should have. If the value for 
 NumCacheNodes is greater than the sum of the number of current cache nodes and
 the number of cache nodes pending creation (which may be zero), then more nodes
 will be added. If the value is less than the number of existing cache nodes,
@@ -1965,8 +1973,8 @@ cancel the pending request and retry the new request. To cancel pending actions
 to modify the number of cache nodes in a cluster, use the ModifyCacheCluster 
 request and set NumCacheNodes equal to the number of cache nodes currently in
 the cache cluster. **/
-      NumCacheNodes?: IntegerOptional;
-      /** A list of cache node IDs to be removed. A node ID is a numeric identifier (0001,
+        NumCacheNodes?: IntegerOptional;
+        /** A list of cache node IDs to be removed. A node ID is a numeric identifier (0001,
 0002, etc.). This parameter is only valid when NumCacheNodes is less than the
 existing number of cache nodes. The number of cache node IDs supplied in this
 parameter must match the difference between the existing number of cache nodes
@@ -1976,8 +1984,8 @@ NumCacheNodes in the request.
 For example: If you have 3 active cache nodes, 7 pending cache nodes, and the
 number of cache nodes in this ModifyCacheCluser call is 5, you must list 2 (7 -
 5) cache node IDs to remove. **/
-      CacheNodeIdsToRemove?: CacheNodeIdsList;
-      /** Specifies whether the new nodes in this Memcached cache cluster are all created
+        CacheNodeIdsToRemove?: CacheNodeIdsList;
+        /** Specifies whether the new nodes in this Memcached cache cluster are all created
 in a single Availability Zone or created across multiple Availability Zones.
 
 Valid values: single-az | cross-az .
@@ -1994,8 +2002,8 @@ Zones, see the Availability Zone Considerations section of Cache Node
 Considerations for Memcached
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html] 
 . **/
-      AZMode?: AZMode;
-      /** The list of Availability Zones where the new Memcached cache nodes will be
+        AZMode?: AZMode;
+        /** The list of Availability Zones where the new Memcached cache nodes will be
 created.
 
 This parameter is only valid when NumCacheNodes in the request is greater than
@@ -2006,14 +2014,14 @@ in this list must match the cache nodes being added in this request.
 This option is only supported on Memcached clusters.
 
 Scenarios: &amp;#42; Scenario 1: You have 3 active nodes and wish to add 2 nodes.
- Specify NumCacheNodes=5 (3 + 2) and optionally specify two Availability Zones
- for the two new nodes.
-* Scenario 2: You have 3 active nodes and 2 nodes pending creation (from the
- scenario 1 call) and want to add 1 more node.
- Specify NumCacheNodes=6 ((3 + 2) + 1)
-* 
-* Scenario 3: You want to cancel all pending actions.
- Specify NumCacheNodes=3 to cancel all pending actions.
+   Specify NumCacheNodes=5 (3 + 2) and optionally specify two Availability Zones
+   for the two new nodes.
+ * Scenario 2: You have 3 active nodes and 2 nodes pending creation (from the
+   scenario 1 call) and want to add 1 more node.
+   Specify NumCacheNodes=6 ((3 + 2) + 1)
+ * 
+ * Scenario 3: You want to cancel all pending actions.
+   Specify NumCacheNodes=3 to cancel all pending actions.
 
 
 
@@ -2031,19 +2039,37 @@ of Cache Node Considerations for Memcached
 
 Impact of new add/remove requests upon pending requests
 
-Scenarios Pending action New Request Results Scenario-1 Delete Delete The new
-delete, pending or immediate, replaces the pending delete. Scenario-2 Delete 
-Create The new create, pending or immediate, replaces the pending delete. 
-Scenario-3 Create Delete The new delete, pending or immediate, replaces the
-pending create. Scenario-4 Create Create The new create is added to the pending
-create.
-Important:
-If the new create request is Apply Immediately - Yes , all creates are performed
-immediately. If the new create request is Apply Immediately - No , all creates
-are pending.Example: 
-NewAvailabilityZones.member.1=us-west-2a&amp;NewAvailabilityZones.member.2=us-west-2b&amp;NewAvailabilityZones.member.3=us-west-2c **/
-      NewAvailabilityZones?: PreferredAvailabilityZoneList;
-      /** A list of cache security group names to authorize on this cache cluster. This
+ * Scenario-1 * Pending Action: Delete
+    * New Request: Delete
+    * Result: The new delete, pending or immediate, replaces the
+      pending delete.
+   
+   
+ * Scenario-2 * Pending Action: Delete
+    * New Request: Create
+    * Result: The new create, pending or immediate, replaces the
+      pending delete.
+   
+   
+ * Scenario-3 * Pending Action: Create
+    * New Request: Delete
+    * Result: The new delete, pending or immediate, replaces the
+      pending create.
+   
+   
+ * Scenario-4 * Pending Action: Create
+    * New Request: Create
+    * Result: The new create is added to the pending create. Important:
+      If the new create request is Apply Immediately - Yes , all creates are
+      performed immediately.
+      If the new create request is Apply Immediately - No , all creates are
+      pending.
+   
+   
+
+Example: **/
+        NewAvailabilityZones?: PreferredAvailabilityZoneList;
+        /** A list of cache security group names to authorize on this cache cluster. This
 change is asynchronously applied as soon as possible.
 
 This parameter can be used only with clusters that are created outside of an
@@ -2051,42 +2077,42 @@ Amazon Virtual Private Cloud (VPC).
 
 Constraints: Must contain no more than 255 alphanumeric characters. Must not be
 &quot;Default&quot;. **/
-      CacheSecurityGroupNames?: CacheSecurityGroupNameList;
-      /** Specifies the VPC Security Groups associated with the cache cluster.
+        CacheSecurityGroupNames?: CacheSecurityGroupNameList;
+        /** Specifies the VPC Security Groups associated with the cache cluster.
 
 This parameter can be used only with clusters that are created in an Amazon
 Virtual Private Cloud (VPC). **/
-      SecurityGroupIds?: SecurityGroupIdsList;
-      /** Specifies the weekly time range during which maintenance on the cache cluster is
+        SecurityGroupIds?: SecurityGroupIdsList;
+        /** Specifies the weekly time range during which maintenance on the cache cluster is
 performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
 Clock UTC). The minimum maintenance window is a 60 minute period. Valid values
 for ddd are:
 
-&amp;#42; sun
-* mon
-* tue
-* wed
-* thu
-* fri
-* sat
+ &amp;#42; sun
+ * mon
+ * tue
+ * wed
+ * thu
+ * fri
+ * sat
 
 Example: sun:05:00-sun:09:00 **/
-      PreferredMaintenanceWindow?: String;
-      /** The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications
+        PreferredMaintenanceWindow?: String;
+        /** The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications
 will be sent.
 
 The Amazon SNS topic owner must be same as the cache cluster owner. **/
-      NotificationTopicArn?: String;
-      /** The name of the cache parameter group to apply to this cache cluster. This
+        NotificationTopicArn?: String;
+        /** The name of the cache parameter group to apply to this cache cluster. This
 change is asynchronously applied as soon as possible for parameters when the 
 ApplyImmediately parameter is specified as true for this request. **/
-      CacheParameterGroupName?: String;
-      /** The status of the Amazon SNS notification topic. Notifications are sent only if
+        CacheParameterGroupName?: String;
+        /** The status of the Amazon SNS notification topic. Notifications are sent only if
 the status is active .
 
 Valid values: active | inactive **/
-      NotificationTopicStatus?: String;
-      /** If true , this parameter causes the modifications in this request and any
+        NotificationTopicStatus?: String;
+        /** If true , this parameter causes the modifications in this request and any
 pending modifications to be applied, asynchronously and as soon as possible,
 regardless of the PreferredMaintenanceWindow setting for the cache cluster.
 
@@ -2097,12 +2123,19 @@ If you perform a ModifyCacheCluster before a pending modification is applied,
 the pending modification is replaced by the newer modification.Valid values: true | false
 
 Default: false **/
-      ApplyImmediately?: Boolean;
-      /** The upgraded version of the cache engine to be run on the cache nodes. **/
-      EngineVersion?: String;
-      /** This parameter is currently disabled. **/
-      AutoMinorVersionUpgrade?: BooleanOptional;
-      /** The number of days for which ElastiCache will retain automatic cache cluster
+        ApplyImmediately?: Boolean;
+        /** The upgraded version of the cache engine to be run on the cache nodes.
+
+Important: You can upgrade to a newer engine version (see Selecting a Cache
+Engine and Version
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement] 
+), but you cannot downgrade to an earlier engine version. If you want to use an
+earlier engine version, you must delete the existing cache cluster and create it
+anew with the earlier engine version. **/
+        EngineVersion?: String;
+        /** This parameter is currently disabled. **/
+        AutoMinorVersionUpgrade?: BooleanOptional;
+        /** The number of days for which ElastiCache will retain automatic cache cluster
 snapshots before deleting them. For example, if you set SnapshotRetentionLimit 
 to 5, then a snapshot that was taken today will be retained for 5 days before
 being deleted.
@@ -2110,54 +2143,64 @@ being deleted.
 Important
 If the value of SnapshotRetentionLimit is set to zero (0), backups are turned
 off. **/
-      SnapshotRetentionLimit?: IntegerOptional;
-      /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
+        SnapshotRetentionLimit?: IntegerOptional;
+        /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
 snapshot of your cache cluster. **/
-      SnapshotWindow?: String;
+        SnapshotWindow?: String;
+        /** A valid cache node type that you want to scale this cache cluster to. The value
+of this parameter must be one of the ScaleUpModifications values returned by the 
+ListAllowedCacheNodeTypeModification action. **/
+        CacheNodeType?: String;
+    }
+    export interface ModifyCacheClusterResult {
+        CacheCluster?: CacheCluster;
     }
     export interface ModifyCacheParameterGroupMessage {
-      /** The name of the cache parameter group to modify. **/
-      CacheParameterGroupName: String;
-      /** An array of parameter names and values for the parameter update. You must supply
+        /** The name of the cache parameter group to modify. **/
+        CacheParameterGroupName: String;
+        /** An array of parameter names and values for the parameter update. You must supply
 at least one parameter name and value; subsequent arguments are optional. A
 maximum of 20 parameters may be modified per request. **/
-      ParameterNameValues: ParameterNameValueList;
+        ParameterNameValues: ParameterNameValueList;
     }
     export interface ModifyCacheSubnetGroupMessage {
-      /** The name for the cache subnet group. This value is stored as a lowercase string.
+        /** The name for the cache subnet group. This value is stored as a lowercase string.
 
 Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
 
 Example: mysubnetgroup **/
-      CacheSubnetGroupName: String;
-      /** A description for the cache subnet group. **/
-      CacheSubnetGroupDescription?: String;
-      /** The EC2 subnet IDs for the cache subnet group. **/
-      SubnetIds?: SubnetIdentifierList;
+        CacheSubnetGroupName: String;
+        /** A description for the cache subnet group. **/
+        CacheSubnetGroupDescription?: String;
+        /** The EC2 subnet IDs for the cache subnet group. **/
+        SubnetIds?: SubnetIdentifierList;
+    }
+    export interface ModifyCacheSubnetGroupResult {
+        CacheSubnetGroup?: CacheSubnetGroup;
     }
     export interface ModifyReplicationGroupMessage {
-      /** The identifier of the replication group to modify. **/
-      ReplicationGroupId: String;
-      /** A description for the replication group. Maximum length is 255 characters. **/
-      ReplicationGroupDescription?: String;
-      /** If this parameter is specified, ElastiCache will promote each of the cache
-clusters in the specified replication group to the primary role. The nodes of
-all other cache clusters in the replication group will be read replicas. **/
-      PrimaryClusterId?: String;
-      /** The cache cluster ID that will be used as the daily snapshot source for the
+        /** The identifier of the replication group to modify. **/
+        ReplicationGroupId: String;
+        /** A description for the replication group. Maximum length is 255 characters. **/
+        ReplicationGroupDescription?: String;
+        /** If this parameter is specified, ElastiCache will promote the specified cluster
+in the specified replication group to the primary role. The nodes of all other
+clusters in the replication group will be read replicas. **/
+        PrimaryClusterId?: String;
+        /** The cache cluster ID that will be used as the daily snapshot source for the
 replication group. **/
-      SnapshottingClusterId?: String;
-      /** Whether a read replica will be automatically promoted to read/write primary if
+        SnapshottingClusterId?: String;
+        /** Whether a read replica will be automatically promoted to read/write primary if
 the existing primary encounters a failure.
 
 Valid values: true | false
 
 ElastiCache Multi-AZ replication groups are not supported on:
 
-&amp;#42; Redis versions earlier than 2.8.6.
-* T1 and T2 cache node types. **/
-      AutomaticFailoverEnabled?: BooleanOptional;
-      /** A list of cache security group names to authorize for the clusters in this
+ &amp;#42; Redis versions earlier than 2.8.6.
+ * T1 and T2 cache node types. **/
+        AutomaticFailoverEnabled?: BooleanOptional;
+        /** A list of cache security group names to authorize for the clusters in this
 replication group. This change is asynchronously applied as soon as possible.
 
 This parameter can be used only with replication group containing cache clusters
@@ -2165,44 +2208,44 @@ running outside of an Amazon Virtual Private Cloud (VPC).
 
 Constraints: Must contain no more than 255 alphanumeric characters. Must not be
 &quot;Default&quot;. **/
-      CacheSecurityGroupNames?: CacheSecurityGroupNameList;
-      /** Specifies the VPC Security Groups associated with the cache clusters in the
+        CacheSecurityGroupNames?: CacheSecurityGroupNameList;
+        /** Specifies the VPC Security Groups associated with the cache clusters in the
 replication group.
 
 This parameter can be used only with replication group containing cache clusters
 running in an Amazon Virtual Private Cloud (VPC). **/
-      SecurityGroupIds?: SecurityGroupIdsList;
-      /** Specifies the weekly time range during which maintenance on the cache cluster is
+        SecurityGroupIds?: SecurityGroupIdsList;
+        /** Specifies the weekly time range during which maintenance on the cache cluster is
 performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
 Clock UTC). The minimum maintenance window is a 60 minute period. Valid values
 for ddd are:
 
-&amp;#42; sun
-* mon
-* tue
-* wed
-* thu
-* fri
-* sat
+ &amp;#42; sun
+ * mon
+ * tue
+ * wed
+ * thu
+ * fri
+ * sat
 
 Example: sun:05:00-sun:09:00 **/
-      PreferredMaintenanceWindow?: String;
-      /** The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications
+        PreferredMaintenanceWindow?: String;
+        /** The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications
 will be sent.
 
 The Amazon SNS topic owner must be same as the replication group owner. **/
-      NotificationTopicArn?: String;
-      /** The name of the cache parameter group to apply to all of the clusters in this
+        NotificationTopicArn?: String;
+        /** The name of the cache parameter group to apply to all of the clusters in this
 replication group. This change is asynchronously applied as soon as possible for
 parameters when the ApplyImmediately parameter is specified as true for this
 request. **/
-      CacheParameterGroupName?: String;
-      /** The status of the Amazon SNS notification topic for the replication group.
+        CacheParameterGroupName?: String;
+        /** The status of the Amazon SNS notification topic for the replication group.
 Notifications are sent only if the status is active .
 
 Valid values: active | inactive **/
-      NotificationTopicStatus?: String;
-      /** If true , this parameter causes the modifications in this request and any
+        NotificationTopicStatus?: String;
+        /** If true , this parameter causes the modifications in this request and any
 pending modifications to be applied, asynchronously and as soon as possible,
 regardless of the PreferredMaintenanceWindow setting for the replication group.
 
@@ -2212,13 +2255,20 @@ next maintenance reboot, or the next failure reboot, whichever occurs first.
 Valid values: true | false
 
 Default: false **/
-      ApplyImmediately?: Boolean;
-      /** The upgraded version of the cache engine to be run on the cache clusters in the
-replication group. **/
-      EngineVersion?: String;
-      /** This parameter is currently disabled. **/
-      AutoMinorVersionUpgrade?: BooleanOptional;
-      /** The number of days for which ElastiCache will retain automatic node group
+        ApplyImmediately?: Boolean;
+        /** The upgraded version of the cache engine to be run on the cache clusters in the
+replication group.
+
+Important: You can upgrade to a newer engine version (see Selecting a Cache
+Engine and Version
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement] 
+), but you cannot downgrade to an earlier engine version. If you want to use an
+earlier engine version, you must delete the existing replication group and
+create it anew with the earlier engine version. **/
+        EngineVersion?: String;
+        /** This parameter is currently disabled. **/
+        AutoMinorVersionUpgrade?: BooleanOptional;
+        /** The number of days for which ElastiCache will retain automatic node group
 snapshots before deleting them. For example, if you set SnapshotRetentionLimit 
 to 5, then a snapshot that was taken today will be retained for 5 days before
 being deleted.
@@ -2226,211 +2276,236 @@ being deleted.
 Important
 If the value of SnapshotRetentionLimit is set to zero (0), backups are turned
 off. **/
-      SnapshotRetentionLimit?: IntegerOptional;
-      /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
+        SnapshotRetentionLimit?: IntegerOptional;
+        /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
 snapshot of the node group specified by SnapshottingClusterId .
 
 Example: 05:00-09:00
 
 If you do not specify this parameter, then ElastiCache will automatically choose
 an appropriate time range. **/
-      SnapshotWindow?: String;
+        SnapshotWindow?: String;
+        /** A valid cache node type that you want to scale this replication group to. The
+value of this parameter must be one of the ScaleUpModifications values returned
+by the ListAllowedCacheNodeTypeModification action. **/
+        CacheNodeType?: String;
+    }
+    export interface ModifyReplicationGroupResult {
+        ReplicationGroup?: ReplicationGroup;
     }
     export interface NodeGroup {
-      /** The identifier for the node group. A replication group contains only one node
+        /** The identifier for the node group. A replication group contains only one node
 group; therefore, the node group ID is 0001. **/
-      NodeGroupId?: String;
-      /** The current state of this replication group - creating , available , etc. **/
-      Status?: String;
-      PrimaryEndpoint?: Endpoint;
-      /** A list containing information about individual nodes within the node group. **/
-      NodeGroupMembers?: NodeGroupMemberList;
+        NodeGroupId?: String;
+        /** The current state of this replication group - creating , available , etc. **/
+        Status?: String;
+        PrimaryEndpoint?: Endpoint;
+        /** A list containing information about individual nodes within the node group. **/
+        NodeGroupMembers?: NodeGroupMemberList;
     }
     export interface NodeGroupMember {
-      /** The ID of the cache cluster to which the node belongs. **/
-      CacheClusterId?: String;
-      /** The ID of the node within its cache cluster. A node ID is a numeric identifier
+        /** The ID of the cache cluster to which the node belongs. **/
+        CacheClusterId?: String;
+        /** The ID of the node within its cache cluster. A node ID is a numeric identifier
 (0001, 0002, etc.). **/
-      CacheNodeId?: String;
-      ReadEndpoint?: Endpoint;
-      /** The name of the Availability Zone in which the node is located. **/
-      PreferredAvailabilityZone?: String;
-      /** The role that is currently assigned to the node - primary or replica . **/
-      CurrentRole?: String;
+        CacheNodeId?: String;
+        ReadEndpoint?: Endpoint;
+        /** The name of the Availability Zone in which the node is located. **/
+        PreferredAvailabilityZone?: String;
+        /** The role that is currently assigned to the node - primary or replica . **/
+        CurrentRole?: String;
     }
     export interface NodeQuotaForClusterExceededFault {
     }
     export interface NodeQuotaForCustomerExceededFault {
     }
     export interface NodeSnapshot {
-      /** The cache node identifier for the node in the source cache cluster. **/
-      CacheNodeId?: String;
-      /** The size of the cache on the source cache node. **/
-      CacheSize?: String;
-      /** The date and time when the cache node was created in the source cache cluster. **/
-      CacheNodeCreateTime?: TStamp;
-      /** The date and time when the source node&#x27;s metadata and cache data set was
+        /** The cache node identifier for the node in the source cache cluster. **/
+        CacheNodeId?: String;
+        /** The size of the cache on the source cache node. **/
+        CacheSize?: String;
+        /** The date and time when the cache node was created in the source cache cluster. **/
+        CacheNodeCreateTime?: TStamp;
+        /** The date and time when the source node&#x27;s metadata and cache data set was
 obtained for the snapshot. **/
-      SnapshotCreateTime?: TStamp;
+        SnapshotCreateTime?: TStamp;
     }
     export interface NotificationConfiguration {
-      /** The Amazon Resource Name (ARN) that identifies the topic. **/
-      TopicArn?: String;
-      /** The current state of the topic. **/
-      TopicStatus?: String;
+        /** The Amazon Resource Name (ARN) that identifies the topic. **/
+        TopicArn?: String;
+        /** The current state of the topic. **/
+        TopicStatus?: String;
     }
     export interface Parameter {
-      /** The name of the parameter. **/
-      ParameterName?: String;
-      /** The value of the parameter. **/
-      ParameterValue?: String;
-      /** A description of the parameter. **/
-      Description?: String;
-      /** The source of the parameter. **/
-      Source?: String;
-      /** The valid data type for the parameter. **/
-      DataType?: String;
-      /** The valid range of values for the parameter. **/
-      AllowedValues?: String;
-      /** Indicates whether ( true ) or not ( false ) the parameter can be modified. Some
+        /** The name of the parameter. **/
+        ParameterName?: String;
+        /** The value of the parameter. **/
+        ParameterValue?: String;
+        /** A description of the parameter. **/
+        Description?: String;
+        /** The source of the parameter. **/
+        Source?: String;
+        /** The valid data type for the parameter. **/
+        DataType?: String;
+        /** The valid range of values for the parameter. **/
+        AllowedValues?: String;
+        /** Indicates whether ( true ) or not ( false ) the parameter can be modified. Some
 parameters have security or operational implications that prevent them from
 being changed. **/
-      IsModifiable?: Boolean;
-      /** The earliest cache engine version to which the parameter can apply. **/
-      MinimumEngineVersion?: String;
+        IsModifiable?: Boolean;
+        /** The earliest cache engine version to which the parameter can apply. **/
+        MinimumEngineVersion?: String;
     }
     export interface ParameterNameValue {
-      /** The name of the parameter. **/
-      ParameterName?: String;
-      /** The value of the parameter. **/
-      ParameterValue?: String;
+        /** The name of the parameter. **/
+        ParameterName?: String;
+        /** The value of the parameter. **/
+        ParameterValue?: String;
     }
     export interface PendingModifiedValues {
-      /** The new number of cache nodes for the cache cluster.
+        /** The new number of cache nodes for the cache cluster.
 
 For clusters running Redis, this value must be 1. For clusters running
 Memcached, this value must be between 1 and 20. **/
-      NumCacheNodes?: IntegerOptional;
-      /** A list of cache node IDs that are being removed (or will be removed) from the
+        NumCacheNodes?: IntegerOptional;
+        /** A list of cache node IDs that are being removed (or will be removed) from the
 cache cluster. A node ID is a numeric identifier (0001, 0002, etc.). **/
-      CacheNodeIdsToRemove?: CacheNodeIdsList;
-      /** The new cache engine version that the cache cluster will run. **/
-      EngineVersion?: String;
+        CacheNodeIdsToRemove?: CacheNodeIdsList;
+        /** The new cache engine version that the cache cluster will run. **/
+        EngineVersion?: String;
+        /** The cache node type that this cache cluster or replication group will be scaled
+to. **/
+        CacheNodeType?: String;
     }
     export interface PurchaseReservedCacheNodesOfferingMessage {
-      /** The ID of the reserved cache node offering to purchase.
+        /** The ID of the reserved cache node offering to purchase.
 
 Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706 **/
-      ReservedCacheNodesOfferingId: String;
-      /** A customer-specified identifier to track this reservation.
+        ReservedCacheNodesOfferingId: String;
+        /** A customer-specified identifier to track this reservation.
+
+Note:
+The Reserved Cache Node ID is an unique customer-specified identifier to track
+this reservation. If this parameter is not specified, ElastiCache automatically
+generates an identifier for the reservation.
 
 Example: myreservationID **/
-      ReservedCacheNodeId?: String;
-      /** The number of cache node instances to reserve.
+        ReservedCacheNodeId?: String;
+        /** The number of cache node instances to reserve.
 
 Default: 1 **/
-      CacheNodeCount?: IntegerOptional;
+        CacheNodeCount?: IntegerOptional;
+    }
+    export interface PurchaseReservedCacheNodesOfferingResult {
+        ReservedCacheNode?: ReservedCacheNode;
     }
     export interface RebootCacheClusterMessage {
-      /** The cache cluster identifier. This parameter is stored as a lowercase string. **/
-      CacheClusterId: String;
-      /** A list of cache node IDs to reboot. A node ID is a numeric identifier (0001,
+        /** The cache cluster identifier. This parameter is stored as a lowercase string. **/
+        CacheClusterId: String;
+        /** A list of cache node IDs to reboot. A node ID is a numeric identifier (0001,
 0002, etc.). To reboot an entire cache cluster, specify all of the cache node
 IDs. **/
-      CacheNodeIdsToReboot: CacheNodeIdsList;
+        CacheNodeIdsToReboot: CacheNodeIdsList;
+    }
+    export interface RebootCacheClusterResult {
+        CacheCluster?: CacheCluster;
     }
     export interface RecurringCharge {
-      /** The monetary amount of the recurring charge. **/
-      RecurringChargeAmount?: Double;
-      /** The frequency of the recurring charge. **/
-      RecurringChargeFrequency?: String;
+        /** The monetary amount of the recurring charge. **/
+        RecurringChargeAmount?: Double;
+        /** The frequency of the recurring charge. **/
+        RecurringChargeFrequency?: String;
     }
     export interface RemoveTagsFromResourceMessage {
-      /** The name of the ElastiCache resource from which you want the listed tags
+        /** The Amazon Resource Name (ARN) of the resource from which you want the tags
 removed, for example arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster 
-. **/
-      ResourceName: String;
-      /** A list of TagKeys identifying the tags you want removed from the named resource.
+or arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot .
+
+For more information on ARNs, go to Amazon Resource Names (ARNs) and AWS Service
+Namespaces
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
+        ResourceName: String;
+        /** A list of TagKeys identifying the tags you want removed from the named resource.
 For example, TagKeys.member.1=Region removes the cost allocation tag with the
 key name Region from the resource named by the ResourceName parameter. **/
-      TagKeys: KeyList;
+        TagKeys: KeyList;
     }
     export interface ReplicationGroup {
-      /** The identifier for the replication group. **/
-      ReplicationGroupId?: String;
-      /** The description of the replication group. **/
-      Description?: String;
-      /** The current state of this replication group - creating , available , etc. **/
-      Status?: String;
-      /** A group of settings to be applied to the replication group, either immediately
+        /** The identifier for the replication group. **/
+        ReplicationGroupId?: String;
+        /** The description of the replication group. **/
+        Description?: String;
+        /** The current state of this replication group - creating , available , etc. **/
+        Status?: String;
+        /** A group of settings to be applied to the replication group, either immediately
 or during the next maintenance window. **/
-      PendingModifiedValues?: ReplicationGroupPendingModifiedValues;
-      /** The names of all the cache clusters that are part of this replication group. **/
-      MemberClusters?: ClusterIdList;
-      /** A single element list with information about the nodes in the replication group. **/
-      NodeGroups?: NodeGroupList;
-      /** The cache cluster ID that is used as the daily snapshot source for the
+        PendingModifiedValues?: ReplicationGroupPendingModifiedValues;
+        /** The names of all the cache clusters that are part of this replication group. **/
+        MemberClusters?: ClusterIdList;
+        /** A single element list with information about the nodes in the replication group. **/
+        NodeGroups?: NodeGroupList;
+        /** The cache cluster ID that is used as the daily snapshot source for the
 replication group. **/
-      SnapshottingClusterId?: String;
-      /** Indicates the status of Multi-AZ for this replication group.
+        SnapshottingClusterId?: String;
+        /** Indicates the status of Multi-AZ for this replication group.
 
 ElastiCache Multi-AZ replication groups are not supported on:
 
-&amp;#42; Redis versions earlier than 2.8.6.
-* T1 and T2 cache node types. **/
-      AutomaticFailover?: AutomaticFailoverStatus;
+ &amp;#42; Redis versions earlier than 2.8.6.
+ * T1 and T2 cache node types. **/
+        AutomaticFailover?: AutomaticFailoverStatus;
     }
     export interface ReplicationGroupAlreadyExistsFault {
     }
     export interface ReplicationGroupMessage {
-      /** Provides an identifier to allow retrieval of paginated results. **/
-      Marker?: String;
-      /** A list of replication groups. Each item in the list contains detailed
+        /** Provides an identifier to allow retrieval of paginated results. **/
+        Marker?: String;
+        /** A list of replication groups. Each item in the list contains detailed
 information about one replication group. **/
-      ReplicationGroups?: ReplicationGroupList;
+        ReplicationGroups?: ReplicationGroupList;
     }
     export interface ReplicationGroupNotFoundFault {
     }
     export interface ReplicationGroupPendingModifiedValues {
-      /** The primary cluster ID which will be applied immediately (if --apply-immediately 
+        /** The primary cluster ID which will be applied immediately (if --apply-immediately 
 was specified), or during the next maintenance window. **/
-      PrimaryClusterId?: String;
-      /** Indicates the status of Multi-AZ for this replication group.
+        PrimaryClusterId?: String;
+        /** Indicates the status of Multi-AZ for this replication group.
 
 ElastiCache Multi-AZ replication groups are not supported on:
 
-&amp;#42; Redis versions earlier than 2.8.6.
-* T1 and T2 cache node types. **/
-      AutomaticFailoverStatus?: PendingAutomaticFailoverStatus;
+ &amp;#42; Redis versions earlier than 2.8.6.
+ * T1 and T2 cache node types. **/
+        AutomaticFailoverStatus?: PendingAutomaticFailoverStatus;
     }
     export interface ReservedCacheNode {
-      /** The unique identifier for the reservation. **/
-      ReservedCacheNodeId?: String;
-      /** The offering identifier. **/
-      ReservedCacheNodesOfferingId?: String;
-      /** The cache node type for the reserved cache nodes.
+        /** The unique identifier for the reservation. **/
+        ReservedCacheNodeId?: String;
+        /** The offering identifier. **/
+        ReservedCacheNodesOfferingId?: String;
+        /** The cache node type for the reserved cache nodes.
 
 Valid node types are as follows:
 
-&amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-    cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
-  * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
-    cache.m1.large , cache.m1.xlarge
- 
- 
-* Compute optimized: cache.c1.xlarge
-* Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
-    cache.r3.4xlarge , cache.r3.8xlarge
-  * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
- 
- 
+ &amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+    * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
+      cache.m1.large , cache.m1.xlarge
+   
+   
+ * Compute optimized: cache.c1.xlarge
+ * Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
+      cache.r3.4xlarge , cache.r3.8xlarge
+    * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
+   
+   
 
 Notes:
 
-* All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
-* Redis backup/restore is not supported for t2 instances.
-* Redis Append-only files (AOF) functionality is not supported for t1 or t2
- instances.
+ * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * Redis backup/restore is not supported for t2 instances.
+ * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+   instances.
 
 For a complete listing of cache node types and specifications, see Amazon
 ElastiCache Product Features and Details
@@ -2440,65 +2515,65 @@ Parameters for Memcached
 or Cache Node Type-Specific Parameters for Redis
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
 . **/
-      CacheNodeType?: String;
-      /** The time the reservation started. **/
-      StartTime?: TStamp;
-      /** The duration of the reservation in seconds. **/
-      Duration?: Integer;
-      /** The fixed price charged for this reserved cache node. **/
-      FixedPrice?: Double;
-      /** The hourly price charged for this reserved cache node. **/
-      UsagePrice?: Double;
-      /** The number of cache nodes that have been reserved. **/
-      CacheNodeCount?: Integer;
-      /** The description of the reserved cache node. **/
-      ProductDescription?: String;
-      /** The offering type of this reserved cache node. **/
-      OfferingType?: String;
-      /** The state of the reserved cache node. **/
-      State?: String;
-      /** The recurring price charged to run this reserved cache node. **/
-      RecurringCharges?: RecurringChargeList;
+        CacheNodeType?: String;
+        /** The time the reservation started. **/
+        StartTime?: TStamp;
+        /** The duration of the reservation in seconds. **/
+        Duration?: Integer;
+        /** The fixed price charged for this reserved cache node. **/
+        FixedPrice?: Double;
+        /** The hourly price charged for this reserved cache node. **/
+        UsagePrice?: Double;
+        /** The number of cache nodes that have been reserved. **/
+        CacheNodeCount?: Integer;
+        /** The description of the reserved cache node. **/
+        ProductDescription?: String;
+        /** The offering type of this reserved cache node. **/
+        OfferingType?: String;
+        /** The state of the reserved cache node. **/
+        State?: String;
+        /** The recurring price charged to run this reserved cache node. **/
+        RecurringCharges?: RecurringChargeList;
     }
     export interface ReservedCacheNodeAlreadyExistsFault {
     }
     export interface ReservedCacheNodeMessage {
-      /** Provides an identifier to allow retrieval of paginated results. **/
-      Marker?: String;
-      /** A list of reserved cache nodes. Each element in the list contains detailed
+        /** Provides an identifier to allow retrieval of paginated results. **/
+        Marker?: String;
+        /** A list of reserved cache nodes. Each element in the list contains detailed
 information about one node. **/
-      ReservedCacheNodes?: ReservedCacheNodeList;
+        ReservedCacheNodes?: ReservedCacheNodeList;
     }
     export interface ReservedCacheNodeNotFoundFault {
     }
     export interface ReservedCacheNodeQuotaExceededFault {
     }
     export interface ReservedCacheNodesOffering {
-      /** A unique identifier for the reserved cache node offering. **/
-      ReservedCacheNodesOfferingId?: String;
-      /** The cache node type for the reserved cache node.
+        /** A unique identifier for the reserved cache node offering. **/
+        ReservedCacheNodesOfferingId?: String;
+        /** The cache node type for the reserved cache node.
 
 Valid node types are as follows:
 
-&amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-    cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
-  * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
-    cache.m1.large , cache.m1.xlarge
- 
- 
-* Compute optimized: cache.c1.xlarge
-* Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
-    cache.r3.4xlarge , cache.r3.8xlarge
-  * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
- 
- 
+ &amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+    * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
+      cache.m1.large , cache.m1.xlarge
+   
+   
+ * Compute optimized: cache.c1.xlarge
+ * Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
+      cache.r3.4xlarge , cache.r3.8xlarge
+    * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
+   
+   
 
 Notes:
 
-* All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
-* Redis backup/restore is not supported for t2 instances.
-* Redis Append-only files (AOF) functionality is not supported for t1 or t2
- instances.
+ * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * Redis backup/restore is not supported for t2 instances.
+ * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+   instances.
 
 For a complete listing of cache node types and specifications, see Amazon
 ElastiCache Product Features and Details
@@ -2508,95 +2583,98 @@ Parameters for Memcached
 or Cache Node Type-Specific Parameters for Redis
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
 . **/
-      CacheNodeType?: String;
-      /** The duration of the offering. in seconds. **/
-      Duration?: Integer;
-      /** The fixed price charged for this offering. **/
-      FixedPrice?: Double;
-      /** The hourly price charged for this offering. **/
-      UsagePrice?: Double;
-      /** The cache engine used by the offering. **/
-      ProductDescription?: String;
-      /** The offering type. **/
-      OfferingType?: String;
-      /** The recurring price charged to run this reserved cache node. **/
-      RecurringCharges?: RecurringChargeList;
+        CacheNodeType?: String;
+        /** The duration of the offering. in seconds. **/
+        Duration?: Integer;
+        /** The fixed price charged for this offering. **/
+        FixedPrice?: Double;
+        /** The hourly price charged for this offering. **/
+        UsagePrice?: Double;
+        /** The cache engine used by the offering. **/
+        ProductDescription?: String;
+        /** The offering type. **/
+        OfferingType?: String;
+        /** The recurring price charged to run this reserved cache node. **/
+        RecurringCharges?: RecurringChargeList;
     }
     export interface ReservedCacheNodesOfferingMessage {
-      /** Provides an identifier to allow retrieval of paginated results. **/
-      Marker?: String;
-      /** A list of reserved cache node offerings. Each element in the list contains
+        /** Provides an identifier to allow retrieval of paginated results. **/
+        Marker?: String;
+        /** A list of reserved cache node offerings. Each element in the list contains
 detailed information about one offering. **/
-      ReservedCacheNodesOfferings?: ReservedCacheNodesOfferingList;
+        ReservedCacheNodesOfferings?: ReservedCacheNodesOfferingList;
     }
     export interface ReservedCacheNodesOfferingNotFoundFault {
     }
     export interface ResetCacheParameterGroupMessage {
-      /** The name of the cache parameter group to reset. **/
-      CacheParameterGroupName: String;
-      /** If true , all parameters in the cache parameter group will be reset to default
+        /** The name of the cache parameter group to reset. **/
+        CacheParameterGroupName: String;
+        /** If true , all parameters in the cache parameter group will be reset to default
 values. If false , no such action occurs.
 
 Valid values: true | false **/
-      ResetAllParameters?: Boolean;
-      /** An array of parameter names to be reset. If you are not resetting the entire
+        ResetAllParameters?: Boolean;
+        /** An array of parameter names to be reset. If you are not resetting the entire
 cache parameter group, you must specify at least one parameter name. **/
-      ParameterNameValues: ParameterNameValueList;
+        ParameterNameValues: ParameterNameValueList;
     }
     export interface RevokeCacheSecurityGroupIngressMessage {
-      /** The name of the cache security group to revoke ingress from. **/
-      CacheSecurityGroupName: String;
-      /** The name of the Amazon EC2 security group to revoke access from. **/
-      EC2SecurityGroupName: String;
-      /** The AWS account number of the Amazon EC2 security group owner. Note that this is
+        /** The name of the cache security group to revoke ingress from. **/
+        CacheSecurityGroupName: String;
+        /** The name of the Amazon EC2 security group to revoke access from. **/
+        EC2SecurityGroupName: String;
+        /** The AWS account number of the Amazon EC2 security group owner. Note that this is
 not the same thing as an AWS access key ID - you must provide a valid AWS
 account number for this parameter. **/
-      EC2SecurityGroupOwnerId: String;
+        EC2SecurityGroupOwnerId: String;
+    }
+    export interface RevokeCacheSecurityGroupIngressResult {
+        CacheSecurityGroup?: CacheSecurityGroup;
     }
     export interface SecurityGroupMembership {
-      /** The identifier of the cache security group. **/
-      SecurityGroupId?: String;
-      /** The status of the cache security group membership. The status changes whenever a
+        /** The identifier of the cache security group. **/
+        SecurityGroupId?: String;
+        /** The status of the cache security group membership. The status changes whenever a
 cache security group is modified, or when the cache security groups assigned to
 a cache cluster are modified. **/
-      Status?: String;
+        Status?: String;
     }
     export interface Snapshot {
-      /** The name of a snapshot. For an automatic snapshot, the name is system-generated;
+        /** The name of a snapshot. For an automatic snapshot, the name is system-generated;
 for a manual snapshot, this is the user-provided name. **/
-      SnapshotName?: String;
-      /** The user-supplied identifier of the source cache cluster. **/
-      CacheClusterId?: String;
-      /** The status of the snapshot. Valid values: creating | available | restoring | 
+        SnapshotName?: String;
+        /** The user-supplied identifier of the source cache cluster. **/
+        CacheClusterId?: String;
+        /** The status of the snapshot. Valid values: creating | available | restoring | 
 copying | deleting . **/
-      SnapshotStatus?: String;
-      /** Indicates whether the snapshot is from an automatic backup ( automated ) or was
+        SnapshotStatus?: String;
+        /** Indicates whether the snapshot is from an automatic backup ( automated ) or was
 created manually ( manual ). **/
-      SnapshotSource?: String;
-      /** The name of the compute and memory capacity node type for the source cache
+        SnapshotSource?: String;
+        /** The name of the compute and memory capacity node type for the source cache
 cluster.
 
 Valid node types are as follows:
 
-&amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-    cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
-  * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
-    cache.m1.large , cache.m1.xlarge
- 
- 
-* Compute optimized: cache.c1.xlarge
-* Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
-    cache.r3.4xlarge , cache.r3.8xlarge
-  * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
- 
- 
+ &amp;#42; General purpose: * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+    * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
+      cache.m1.large , cache.m1.xlarge
+   
+   
+ * Compute optimized: cache.c1.xlarge
+ * Memory optimized * Current generation: cache.r3.large , cache.r3.xlarge , cache.r3.2xlarge , 
+      cache.r3.4xlarge , cache.r3.8xlarge
+    * Previous generation: cache.m2.xlarge , cache.m2.2xlarge , cache.m2.4xlarge
+   
+   
 
 Notes:
 
-* All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
-* Redis backup/restore is not supported for t2 instances.
-* Redis Append-only files (AOF) functionality is not supported for t1 or t2
- instances.
+ * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * Redis backup/restore is not supported for t2 instances.
+ * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+   instances.
 
 For a complete listing of cache node types and specifications, see Amazon
 ElastiCache Product Features and Details
@@ -2606,52 +2684,52 @@ Parameters for Memcached
 or Cache Node Type-Specific Parameters for Redis
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
 . **/
-      CacheNodeType?: String;
-      /** The name of the cache engine ( memcached or redis ) used by the source cache
+        CacheNodeType?: String;
+        /** The name of the cache engine ( memcached or redis ) used by the source cache
 cluster. **/
-      Engine?: String;
-      /** The version of the cache engine version that is used by the source cache
+        Engine?: String;
+        /** The version of the cache engine version that is used by the source cache
 cluster. **/
-      EngineVersion?: String;
-      /** The number of cache nodes in the source cache cluster.
+        EngineVersion?: String;
+        /** The number of cache nodes in the source cache cluster.
 
 For clusters running Redis, this value must be 1. For clusters running
 Memcached, this value must be between 1 and 20. **/
-      NumCacheNodes?: IntegerOptional;
-      /** The name of the Availability Zone in which the source cache cluster is located. **/
-      PreferredAvailabilityZone?: String;
-      /** The date and time when the source cache cluster was created. **/
-      CacheClusterCreateTime?: TStamp;
-      /** Specifies the weekly time range during which maintenance on the cache cluster is
+        NumCacheNodes?: IntegerOptional;
+        /** The name of the Availability Zone in which the source cache cluster is located. **/
+        PreferredAvailabilityZone?: String;
+        /** The date and time when the source cache cluster was created. **/
+        CacheClusterCreateTime?: TStamp;
+        /** Specifies the weekly time range during which maintenance on the cache cluster is
 performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
 Clock UTC). The minimum maintenance window is a 60 minute period. Valid values
 for ddd are:
 
-&amp;#42; sun
-* mon
-* tue
-* wed
-* thu
-* fri
-* sat
+ &amp;#42; sun
+ * mon
+ * tue
+ * wed
+ * thu
+ * fri
+ * sat
 
 Example: sun:05:00-sun:09:00 **/
-      PreferredMaintenanceWindow?: String;
-      /** The Amazon Resource Name (ARN) for the topic used by the source cache cluster
+        PreferredMaintenanceWindow?: String;
+        /** The Amazon Resource Name (ARN) for the topic used by the source cache cluster
 for publishing notifications. **/
-      TopicArn?: String;
-      /** The port number used by each cache nodes in the source cache cluster. **/
-      Port?: IntegerOptional;
-      /** The cache parameter group that is associated with the source cache cluster. **/
-      CacheParameterGroupName?: String;
-      /** The name of the cache subnet group associated with the source cache cluster. **/
-      CacheSubnetGroupName?: String;
-      /** The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group
+        TopicArn?: String;
+        /** The port number used by each cache nodes in the source cache cluster. **/
+        Port?: IntegerOptional;
+        /** The cache parameter group that is associated with the source cache cluster. **/
+        CacheParameterGroupName?: String;
+        /** The name of the cache subnet group associated with the source cache cluster. **/
+        CacheSubnetGroupName?: String;
+        /** The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group
 for the source cache cluster. **/
-      VpcId?: String;
-      /** This parameter is currently disabled. **/
-      AutoMinorVersionUpgrade?: Boolean;
-      /** For an automatic snapshot, the number of days for which ElastiCache will retain
+        VpcId?: String;
+        /** This parameter is currently disabled. **/
+        AutoMinorVersionUpgrade?: Boolean;
+        /** For an automatic snapshot, the number of days for which ElastiCache will retain
 the snapshot before deleting it.
 
 For manual snapshots, this field reflects the SnapshotRetentionLimit for the
@@ -2662,12 +2740,12 @@ DeleteSnapshot action.
 Important
 If the value of SnapshotRetentionLimit is set to zero (0), backups are turned
 off. **/
-      SnapshotRetentionLimit?: IntegerOptional;
-      /** The daily time range during which ElastiCache takes daily snapshots of the
+        SnapshotRetentionLimit?: IntegerOptional;
+        /** The daily time range during which ElastiCache takes daily snapshots of the
 source cache cluster. **/
-      SnapshotWindow?: String;
-      /** A list of the cache nodes in the source cache cluster. **/
-      NodeSnapshots?: NodeSnapshotList;
+        SnapshotWindow?: String;
+        /** A list of the cache nodes in the source cache cluster. **/
+        NodeSnapshots?: NodeSnapshotList;
     }
     export interface SnapshotAlreadyExistsFault {
     }
@@ -2678,80 +2756,26 @@ source cache cluster. **/
     export interface SnapshotQuotaExceededFault {
     }
     export interface Subnet {
-      /** The unique identifier for the subnet. **/
-      SubnetIdentifier?: String;
-      /** The Availability Zone associated with the subnet. **/
-      SubnetAvailabilityZone?: AvailabilityZone;
+        /** The unique identifier for the subnet. **/
+        SubnetIdentifier?: String;
+        /** The Availability Zone associated with the subnet. **/
+        SubnetAvailabilityZone?: AvailabilityZone;
     }
     export interface SubnetInUse {
     }
     export interface Tag {
-      /** The key for the tag. **/
-      Key?: String;
-      /** The tag&#x27;s value. May not be null. **/
-      Value?: String;
+        /** The key for the tag. **/
+        Key?: String;
+        /** The tag&#x27;s value. May not be null. **/
+        Value?: String;
     }
     export interface TagListMessage {
-      /** A list of cost allocation tags as key-value pairs. **/
-      TagList?: TagList;
+        /** A list of cost allocation tags as key-value pairs. **/
+        TagList?: TagList;
     }
     export interface TagNotFoundFault {
     }
     export interface TagQuotaPerResourceExceeded {
-    }
-    export interface AuthorizeCacheSecurityGroupIngressResult {
-      CacheSecurityGroup?: CacheSecurityGroup;
-    }
-    export interface CopySnapshotResult {
-      Snapshot?: Snapshot;
-    }
-    export interface CreateCacheClusterResult {
-      CacheCluster?: CacheCluster;
-    }
-    export interface CreateCacheParameterGroupResult {
-      CacheParameterGroup?: CacheParameterGroup;
-    }
-    export interface CreateCacheSecurityGroupResult {
-      CacheSecurityGroup?: CacheSecurityGroup;
-    }
-    export interface CreateCacheSubnetGroupResult {
-      CacheSubnetGroup?: CacheSubnetGroup;
-    }
-    export interface CreateReplicationGroupResult {
-      ReplicationGroup?: ReplicationGroup;
-    }
-    export interface CreateSnapshotResult {
-      Snapshot?: Snapshot;
-    }
-    export interface DeleteCacheClusterResult {
-      CacheCluster?: CacheCluster;
-    }
-    export interface DeleteReplicationGroupResult {
-      ReplicationGroup?: ReplicationGroup;
-    }
-    export interface DeleteSnapshotResult {
-      Snapshot?: Snapshot;
-    }
-    export interface DescribeEngineDefaultParametersResult {
-      EngineDefaults?: EngineDefaults;
-    }
-    export interface ModifyCacheClusterResult {
-      CacheCluster?: CacheCluster;
-    }
-    export interface ModifyCacheSubnetGroupResult {
-      CacheSubnetGroup?: CacheSubnetGroup;
-    }
-    export interface ModifyReplicationGroupResult {
-      ReplicationGroup?: ReplicationGroup;
-    }
-    export interface PurchaseReservedCacheNodesOfferingResult {
-      ReservedCacheNode?: ReservedCacheNode;
-    }
-    export interface RebootCacheClusterResult {
-      CacheCluster?: CacheCluster;
-    }
-    export interface RevokeCacheSecurityGroupIngressResult {
-      CacheSecurityGroup?: CacheSecurityGroup;
     }
   }
 }

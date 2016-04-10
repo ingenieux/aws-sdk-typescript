@@ -22,6 +22,13 @@ declare module "aws-sdk" {
     get(callback: (err?: Error) => void): void;
     needsRefresh(): boolean;
     refresh(callback: (err?: Error) => void): void;
+    params: CredentialParams;
+    refresh(callback: (err?: Error) => void): void;
+  }
+
+  export interface CredentialParams {
+    Logins: { [index:string]:string };
+    refresh(callback: (err?: Error) => void): void;
   }
 
   export interface Logger {
@@ -60,38 +67,38 @@ declare module "aws-sdk" {
   export interface ClientConfig extends ClientConfigPartial {
     apiVersions?: APIVersionsType;
     update?: (options: ClientConfigPartial, allUnknownKeys?: boolean) => void;
-    getCredentials?: (callback: (err?: any) => void) => void;
+    getCredentials?: (callback: (err?: any) => void) => void ;
     loadFromPath?: (path: string) => void;
     credentials: Credentials;
     region: string;
   }
 
   export class Endpoint {
-    constructor(endpoint: string);
+    constructor(endpoint:string);
 
-    host: string;
-    hostname: string;
-    href: string;
-    port: number;
-    protocol: string;
+    host:string;
+    hostname:string;
+    href:string;
+    port:number;
+    protocol:string;
   }
 
   export class Service {
     apiVersions: string[];
-    services: { [version: string]: any };
+    services: {[version: string]: any};
     serviceIdentifier: string;
 
-    makeRequest(operation: string, params: Object, callback: (error?: Error, data?: any) => void): void;
-    makeUnauthenticatedRequest(operation: string, params: Object, callback: (error?: Error, data?: any) => void): void;
+    makeRequest(operation:string, params:Object, callback:(error?:Error, data?:any) => void): void;
+    makeUnauthenticatedRequest(operation:string, params:Object, callback: (error?:Error, data?:any) => void): void;
     setupRequestListeners(): void;
-    waitFor(state: string, params: Object, callback: (error?: Error, data?: any) => void): void;
+    waitFor(state:string, params:Object, callback:(error?:Error, data?:any) => void): void;
   }
 
   export module CognitoIdentity {
     export interface CognitoIdentityCredentialsParams {
       IdentityPoolId?: string;
       AccountId?: string;
-      Logins?: { [k: string]: any };
+      Logins?: {[k: string]: any};
 
       RoleArn?: string;
       RoleSessionName?: string;
@@ -109,23 +116,23 @@ declare module "aws-sdk" {
   }
 
   export class Request extends EventEmitter {
-    constructor(service: Service, operation: string, params: Object);
+    constructor(service:Service, operation:string, params:Object);
 
-    on(event: string, listener: Function): Request;
+    on(event: string, listener: Function):Request;
     httpRequest: HttpRequest;
     startTime: Date;
     abort(): Request;
     createReadStream(): ReadableStream;
-    eachItem(callback: Function): void;
-    eachPage(callback: (err: Error, data: any, done?: () => void) => boolean | void): void;
+    eachItem(callback:Function): void;
+    eachPage(callback: (err:Error, data:any, done?:() => void) => boolean|void): void;
     isPageable(): boolean;
-    send(callback?: (err: Error, data: any) => void): void;
+    send(callback?: (err:Error, data:any) => void): void;
   }
 
   export class HttpRequest {
     body: string;
     endpoint: Endpoint;
-    headers: { [index: string]: string };
+    headers: {[index:string]: string};
     method: string;
     path: string;
     pathName(): string;
@@ -166,7 +173,7 @@ declare module "aws-sdk" {
     write: Function;
     end: Function;
   }
-
+    
   export module DynamoDB {
     export class DocumentClient {
       /**
@@ -459,5 +466,5 @@ declare module "aws-sdk" {
       */
       createSet(params: any, callback?: (err: any, data: any) => void): Request;
     }
-  }
+  }  
 }

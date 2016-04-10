@@ -7,18 +7,18 @@
 
 declare module "aws-sdk" {
 
-  /**
-    * apiVersion: 2015-04-16
-    * endpointPrefix: ds
-    * serviceAbbreviation: Directory Service
-    * signatureVersion: v4
-    * protocol: json
-    *
-    * AWS Directory ServiceThis is the AWS Directory Service API Reference . This guide provides detailed
- information about AWS Directory Service operations, data types, parameters, and
- errors.
-    *
-    */
+ /**
+   * apiVersion: 2015-04-16
+   * endpointPrefix: ds
+   * serviceAbbreviation: Directory Service
+   * signatureVersion: v4
+   * protocol: json
+   *
+   * AWS Directory ServiceThis is the AWS Directory Service API Reference . This guide provides detailed
+information about AWS Directory Service operations, data types, parameters, and
+errors.
+   *
+   */
   export class DirectoryService extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
@@ -30,7 +30,7 @@ declare module "aws-sdk" {
      * @error ClientException   
      * @error ServiceException   
      */
-    connectDirectory(params: DirectoryService.ConnectDirectoryRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException | DirectoryService.InvalidParameterException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.ConnectDirectoryResult | any) => void): Request;
+    connectDirectory(params: DirectoryService.ConnectDirectoryRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.ConnectDirectoryResult|any) => void): Request;
     /**
      * Creates an alias for a directory and assigns the alias to the directory. The
 alias is used to construct the access URL for the directory, such as http:// 
@@ -45,7 +45,7 @@ operation should only be used when absolutely necessary.
      * @error ClientException   
      * @error ServiceException   
      */
-    createAlias(params: DirectoryService.CreateAliasRequest, callback?: (err: DirectoryService.EntityAlreadyExistsException | DirectoryService.EntityDoesNotExistException | DirectoryService.InvalidParameterException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.CreateAliasResult | any) => void): Request;
+    createAlias(params: DirectoryService.CreateAliasRequest, callback?: (err: DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateAliasResult|any) => void): Request;
     /**
      * Creates a computer account in the specified directory, and joins the computer to
 the directory.
@@ -59,7 +59,21 @@ the directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    createComputer(params: DirectoryService.CreateComputerRequest, callback?: (err: DirectoryService.AuthenticationFailedException | DirectoryService.DirectoryUnavailableException | DirectoryService.EntityAlreadyExistsException | DirectoryService.EntityDoesNotExistException | DirectoryService.InvalidParameterException | DirectoryService.UnsupportedOperationException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.CreateComputerResult | any) => void): Request;
+    createComputer(params: DirectoryService.CreateComputerRequest, callback?: (err: DirectoryService.AuthenticationFailedException|DirectoryService.DirectoryUnavailableException|DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateComputerResult|any) => void): Request;
+    /**
+     * Creates a conditional forwarder associated with your AWS directory. Conditional
+forwarders are required in order to set up a trust relationship with another
+domain. The conditional forwarder points to the trusted domain.
+     *
+     * @error EntityAlreadyExistsException   
+     * @error EntityDoesNotExistException   
+     * @error DirectoryUnavailableException   
+     * @error InvalidParameterException   
+     * @error UnsupportedOperationException   
+     * @error ClientException   
+     * @error ServiceException   
+     */
+    createConditionalForwarder(params: DirectoryService.CreateConditionalForwarderRequest, callback?: (err: DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateConditionalForwarderResult|any) => void): Request;
     /**
      * Creates a Simple AD directory.
      *
@@ -68,7 +82,7 @@ the directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    createDirectory(params: DirectoryService.CreateDirectoryRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException | DirectoryService.InvalidParameterException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.CreateDirectoryResult | any) => void): Request;
+    createDirectory(params: DirectoryService.CreateDirectoryRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateDirectoryResult|any) => void): Request;
     /**
      * Creates a Microsoft AD in the AWS cloud.
      *
@@ -78,7 +92,7 @@ the directory.
      * @error ServiceException   
      * @error UnsupportedOperationException   
      */
-    createMicrosoftAD(params: DirectoryService.CreateMicrosoftADRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException | DirectoryService.InvalidParameterException | DirectoryService.ClientException | DirectoryService.ServiceException | DirectoryService.UnsupportedOperationException | any, data: DirectoryService.CreateMicrosoftADResult | any) => void): Request;
+    createMicrosoftAD(params: DirectoryService.CreateMicrosoftADRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.CreateMicrosoftADResult|any) => void): Request;
     /**
      * Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.
 
@@ -90,7 +104,7 @@ You cannot take snapshots of AD Connector directories.
      * @error ClientException   
      * @error ServiceException   
      */
-    createSnapshot(params: DirectoryService.CreateSnapshotRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.InvalidParameterException | DirectoryService.SnapshotLimitExceededException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.CreateSnapshotResult | any) => void): Request;
+    createSnapshot(params: DirectoryService.CreateSnapshotRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.SnapshotLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateSnapshotResult|any) => void): Request;
     /**
      * AWS Directory Service for Microsoft Active Directory allows you to configure
 trust relationships. For example, you can establish a trust between your
@@ -108,7 +122,18 @@ between a Microsoft AD in the AWS cloud and an external domain.
      * @error ServiceException   
      * @error UnsupportedOperationException   
      */
-    createTrust(params: DirectoryService.CreateTrustRequest, callback?: (err: DirectoryService.EntityAlreadyExistsException | DirectoryService.EntityDoesNotExistException | DirectoryService.InvalidParameterException | DirectoryService.ClientException | DirectoryService.ServiceException | DirectoryService.UnsupportedOperationException | any, data: DirectoryService.CreateTrustResult | any) => void): Request;
+    createTrust(params: DirectoryService.CreateTrustRequest, callback?: (err: DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.CreateTrustResult|any) => void): Request;
+    /**
+     * Deletes a conditional forwarder that has been set up for your AWS directory.
+     *
+     * @error EntityDoesNotExistException   
+     * @error DirectoryUnavailableException   
+     * @error InvalidParameterException   
+     * @error UnsupportedOperationException   
+     * @error ClientException   
+     * @error ServiceException   
+     */
+    deleteConditionalForwarder(params: DirectoryService.DeleteConditionalForwarderRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DeleteConditionalForwarderResult|any) => void): Request;
     /**
      * Deletes an AWS Directory Service directory.
      *
@@ -116,7 +141,7 @@ between a Microsoft AD in the AWS cloud and an external domain.
      * @error ClientException   
      * @error ServiceException   
      */
-    deleteDirectory(params: DirectoryService.DeleteDirectoryRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.DeleteDirectoryResult | any) => void): Request;
+    deleteDirectory(params: DirectoryService.DeleteDirectoryRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DeleteDirectoryResult|any) => void): Request;
     /**
      * Deletes a directory snapshot.
      *
@@ -125,7 +150,7 @@ between a Microsoft AD in the AWS cloud and an external domain.
      * @error ClientException   
      * @error ServiceException   
      */
-    deleteSnapshot(params: DirectoryService.DeleteSnapshotRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.InvalidParameterException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.DeleteSnapshotResult | any) => void): Request;
+    deleteSnapshot(params: DirectoryService.DeleteSnapshotRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DeleteSnapshotResult|any) => void): Request;
     /**
      * Deletes an existing trust relationship between your Microsoft AD in the AWS
 cloud and an external domain.
@@ -136,7 +161,7 @@ cloud and an external domain.
      * @error ServiceException   
      * @error UnsupportedOperationException   
      */
-    deleteTrust(params: DirectoryService.DeleteTrustRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.InvalidParameterException | DirectoryService.ClientException | DirectoryService.ServiceException | DirectoryService.UnsupportedOperationException | any, data: DirectoryService.DeleteTrustResult | any) => void): Request;
+    deleteTrust(params: DirectoryService.DeleteTrustRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.DeleteTrustResult|any) => void): Request;
     /**
      * Removes the specified directory as a publisher to the specified SNS topic.
      *
@@ -145,7 +170,21 @@ cloud and an external domain.
      * @error ClientException   
      * @error ServiceException   
      */
-    deregisterEventTopic(params: DirectoryService.DeregisterEventTopicRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.InvalidParameterException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.DeregisterEventTopicResult | any) => void): Request;
+    deregisterEventTopic(params: DirectoryService.DeregisterEventTopicRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DeregisterEventTopicResult|any) => void): Request;
+    /**
+     * Obtains information about the conditional forwarders for this account.
+
+If no input parameters are provided for RemoteDomainNames, this request
+describes all conditional forwarders for the specified directory ID.
+     *
+     * @error EntityDoesNotExistException   
+     * @error DirectoryUnavailableException   
+     * @error InvalidParameterException   
+     * @error UnsupportedOperationException   
+     * @error ClientException   
+     * @error ServiceException   
+     */
+    describeConditionalForwarders(params: DirectoryService.DescribeConditionalForwardersRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DescribeConditionalForwardersResult|any) => void): Request;
     /**
      * Obtains information about the directories that belong to this account.
 
@@ -167,7 +206,7 @@ parameter.
      * @error ClientException   
      * @error ServiceException   
      */
-    describeDirectories(params: DirectoryService.DescribeDirectoriesRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.InvalidParameterException | DirectoryService.InvalidNextTokenException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.DescribeDirectoriesResult | any) => void): Request;
+    describeDirectories(params: DirectoryService.DescribeDirectoriesRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.InvalidNextTokenException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DescribeDirectoriesResult|any) => void): Request;
     /**
      * Obtains information about which SNS topics receive status messages from the
 specified directory.
@@ -180,7 +219,7 @@ request describes all of the associations in the account.
      * @error ClientException   
      * @error ServiceException   
      */
-    describeEventTopics(params: DirectoryService.DescribeEventTopicsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.InvalidParameterException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.DescribeEventTopicsResult | any) => void): Request;
+    describeEventTopics(params: DirectoryService.DescribeEventTopicsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DescribeEventTopicsResult|any) => void): Request;
     /**
      * Obtains information about the directory snapshots that belong to this account.
 
@@ -198,7 +237,7 @@ parameter.
      * @error ClientException   
      * @error ServiceException   
      */
-    describeSnapshots(params: DirectoryService.DescribeSnapshotsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.InvalidParameterException | DirectoryService.InvalidNextTokenException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.DescribeSnapshotsResult | any) => void): Request;
+    describeSnapshots(params: DirectoryService.DescribeSnapshotsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.InvalidNextTokenException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DescribeSnapshotsResult|any) => void): Request;
     /**
      * Obtains information about the trust relationships for this account.
 
@@ -212,7 +251,7 @@ request describes all the trust relationships belonging to the account.
      * @error ServiceException   
      * @error UnsupportedOperationException   
      */
-    describeTrusts(params: DirectoryService.DescribeTrustsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.InvalidNextTokenException | DirectoryService.InvalidParameterException | DirectoryService.ClientException | DirectoryService.ServiceException | DirectoryService.UnsupportedOperationException | any, data: DirectoryService.DescribeTrustsResult | any) => void): Request;
+    describeTrusts(params: DirectoryService.DescribeTrustsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidNextTokenException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.DescribeTrustsResult|any) => void): Request;
     /**
      * Disables multi-factor authentication (MFA) with the Remote Authentication Dial
 In User Service (RADIUS) server for an AD Connector directory.
@@ -221,7 +260,7 @@ In User Service (RADIUS) server for an AD Connector directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    disableRadius(params: DirectoryService.DisableRadiusRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.DisableRadiusResult | any) => void): Request;
+    disableRadius(params: DirectoryService.DisableRadiusRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DisableRadiusResult|any) => void): Request;
     /**
      * Disables single-sign on for a directory.
      *
@@ -231,7 +270,7 @@ In User Service (RADIUS) server for an AD Connector directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    disableSso(params: DirectoryService.DisableSsoRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.InsufficientPermissionsException | DirectoryService.AuthenticationFailedException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.DisableSsoResult | any) => void): Request;
+    disableSso(params: DirectoryService.DisableSsoRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InsufficientPermissionsException|DirectoryService.AuthenticationFailedException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DisableSsoResult|any) => void): Request;
     /**
      * Enables multi-factor authentication (MFA) with the Remote Authentication Dial In
 User Service (RADIUS) server for an AD Connector directory.
@@ -242,7 +281,7 @@ User Service (RADIUS) server for an AD Connector directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    enableRadius(params: DirectoryService.EnableRadiusRequest, callback?: (err: DirectoryService.InvalidParameterException | DirectoryService.EntityAlreadyExistsException | DirectoryService.EntityDoesNotExistException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.EnableRadiusResult | any) => void): Request;
+    enableRadius(params: DirectoryService.EnableRadiusRequest, callback?: (err: DirectoryService.InvalidParameterException|DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.EnableRadiusResult|any) => void): Request;
     /**
      * Enables single-sign on for a directory.
      *
@@ -252,7 +291,7 @@ User Service (RADIUS) server for an AD Connector directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    enableSso(params: DirectoryService.EnableSsoRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.InsufficientPermissionsException | DirectoryService.AuthenticationFailedException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.EnableSsoResult | any) => void): Request;
+    enableSso(params: DirectoryService.EnableSsoRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InsufficientPermissionsException|DirectoryService.AuthenticationFailedException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.EnableSsoResult|any) => void): Request;
     /**
      * Obtains directory limit information for the current region.
      *
@@ -260,7 +299,7 @@ User Service (RADIUS) server for an AD Connector directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    getDirectoryLimits(params: DirectoryService.GetDirectoryLimitsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.GetDirectoryLimitsResult | any) => void): Request;
+    getDirectoryLimits(params: DirectoryService.GetDirectoryLimitsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.GetDirectoryLimitsResult|any) => void): Request;
     /**
      * Obtains the manual snapshot limits for a directory.
      *
@@ -268,7 +307,7 @@ User Service (RADIUS) server for an AD Connector directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    getSnapshotLimits(params: DirectoryService.GetSnapshotLimitsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.GetSnapshotLimitsResult | any) => void): Request;
+    getSnapshotLimits(params: DirectoryService.GetSnapshotLimitsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.GetSnapshotLimitsResult|any) => void): Request;
     /**
      * Associates a directory with an SNS topic. This establishes the directory as a
 publisher to the specified SNS topic. You can then receive email or text (SMS)
@@ -281,7 +320,7 @@ also receive a notification when the directory returns to an Active status.
      * @error ClientException   
      * @error ServiceException   
      */
-    registerEventTopic(params: DirectoryService.RegisterEventTopicRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.InvalidParameterException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.RegisterEventTopicResult | any) => void): Request;
+    registerEventTopic(params: DirectoryService.RegisterEventTopicRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.RegisterEventTopicResult|any) => void): Request;
     /**
      * Restores a directory using an existing directory snapshot.
 
@@ -298,7 +337,18 @@ value changes to Active , the restore operation is complete.
      * @error ClientException   
      * @error ServiceException   
      */
-    restoreFromSnapshot(params: DirectoryService.RestoreFromSnapshotRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.InvalidParameterException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.RestoreFromSnapshotResult | any) => void): Request;
+    restoreFromSnapshot(params: DirectoryService.RestoreFromSnapshotRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.RestoreFromSnapshotResult|any) => void): Request;
+    /**
+     * Updates a conditional forwarder that has been set up for your AWS directory.
+     *
+     * @error EntityDoesNotExistException   
+     * @error DirectoryUnavailableException   
+     * @error InvalidParameterException   
+     * @error UnsupportedOperationException   
+     * @error ClientException   
+     * @error ServiceException   
+     */
+    updateConditionalForwarder(params: DirectoryService.UpdateConditionalForwarderRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.UpdateConditionalForwarderResult|any) => void): Request;
     /**
      * Updates the Remote Authentication Dial In User Service (RADIUS) server
 information for an AD Connector directory.
@@ -308,7 +358,7 @@ information for an AD Connector directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    updateRadius(params: DirectoryService.UpdateRadiusRequest, callback?: (err: DirectoryService.InvalidParameterException | DirectoryService.EntityDoesNotExistException | DirectoryService.ClientException | DirectoryService.ServiceException | any, data: DirectoryService.UpdateRadiusResult | any) => void): Request;
+    updateRadius(params: DirectoryService.UpdateRadiusRequest, callback?: (err: DirectoryService.InvalidParameterException|DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.UpdateRadiusResult|any) => void): Request;
     /**
      * AWS Directory Service for Microsoft Active Directory allows you to configure and
 verify trust relationships.
@@ -322,576 +372,633 @@ cloud and an external domain.
      * @error ServiceException   
      * @error UnsupportedOperationException   
      */
-    verifyTrust(params: DirectoryService.VerifyTrustRequest, callback?: (err: DirectoryService.EntityDoesNotExistException | DirectoryService.InvalidParameterException | DirectoryService.ClientException | DirectoryService.ServiceException | DirectoryService.UnsupportedOperationException | any, data: DirectoryService.VerifyTrustResult | any) => void): Request;
+    verifyTrust(params: DirectoryService.VerifyTrustRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.VerifyTrustResult|any) => void): Request;
 
   }
 
   export module DirectoryService {
-
+    
     export type AccessUrl = string;
-
+    
     export type AliasName = string;
-
+    
     export type AttributeName = string;
-
+    
     export type AttributeValue = string;
-
+    
     export type Attributes = Attribute[];
-
+    
     export type AvailabilityZone = string;
-
+    
     export type AvailabilityZones = AvailabilityZone[];
-
+    
     export type CloudOnlyDirectoriesLimitReached = boolean;
-
+    
     export type ComputerName = string;
-
+    
     export type ComputerPassword = string;
-
+    
+    export type ConditionalForwarders = ConditionalForwarder[];
+    
     export type ConnectPassword = string;
-
+    
     export type ConnectedDirectoriesLimitReached = boolean;
-
+    
     export type CreatedDateTime = number;
-
+    
+    export type DeleteAssociatedConditionalForwarder = boolean;
+    
     export type Description = string;
-
+    
     export type DirectoryDescriptions = DirectoryDescription[];
-
+    
     export type DirectoryId = string;
-
+    
     export type DirectoryIds = DirectoryId[];
-
+    
     export type DirectoryName = string;
-
+    
     export type DirectoryShortName = string;
-
+    
     export type DirectorySize = string;
-
+    
     export type DirectoryStage = string;
-
+    
     export type DirectoryType = string;
-
+    
     export type DnsIpAddrs = IpAddr[];
-
+    
     export type EventTopics = EventTopic[];
-
+    
     export type ExceptionMessage = string;
-
+    
     export type IpAddr = string;
-
+    
     export type IpAddrs = IpAddr[];
-
+    
     export type LastUpdatedDateTime = number;
-
+    
     export type LaunchTime = number;
-
+    
     export type Limit = number;
-
+    
     export type ManualSnapshotsLimitReached = boolean;
-
+    
     export type NextToken = string;
-
+    
     export type OrganizationalUnitDN = string;
-
+    
     export type Password = string;
-
+    
     export type PortNumber = number;
-
+    
     export type RadiusAuthenticationProtocol = string;
-
+    
     export type RadiusDisplayLabel = string;
-
+    
     export type RadiusRetries = number;
-
+    
     export type RadiusSharedSecret = string;
-
+    
     export type RadiusStatus = string;
-
+    
     export type RadiusTimeout = number;
-
+    
     export type RemoteDomainName = string;
-
+    
+    export type RemoteDomainNames = RemoteDomainName[];
+    
+    export type ReplicationScope = string;
+    
     export type RequestId = string;
-
+    
     export type SID = string;
-
+    
     export type SecurityGroupId = string;
-
+    
     export type Server = string;
-
+    
     export type Servers = Server[];
-
+    
     export type SnapshotId = string;
-
+    
     export type SnapshotIds = SnapshotId[];
-
+    
     export type SnapshotName = string;
-
+    
     export type SnapshotStatus = string;
-
+    
     export type SnapshotType = string;
-
+    
     export type Snapshots = Snapshot[];
-
+    
     export type SsoEnabled = boolean;
-
+    
     export type StageReason = string;
-
+    
     export type StartTime = number;
-
+    
     export type StateLastUpdatedDateTime = number;
-
+    
     export type SubnetId = string;
-
+    
     export type SubnetIds = SubnetId[];
-
+    
     export type TopicArn = string;
-
+    
     export type TopicName = string;
-
+    
     export type TopicNames = TopicName[];
-
+    
     export type TopicStatus = string;
-
+    
     export type TrustDirection = string;
-
+    
     export type TrustId = string;
-
+    
     export type TrustIds = TrustId[];
-
+    
     export type TrustPassword = string;
-
+    
     export type TrustState = string;
-
+    
+    export type TrustStateReason = string;
+    
     export type TrustType = string;
-
+    
     export type Trusts = Trust[];
-
+    
     export type UseSameUsername = boolean;
-
+    
     export type UserName = string;
-
+    
     export type VpcId = string;
 
     export interface Attribute {
-      /** The name of the attribute. **/
-      Name?: AttributeName;
-      /** The value of the attribute. **/
-      Value?: AttributeValue;
+        /** The name of the attribute. **/
+        Name?: AttributeName;
+        /** The value of the attribute. **/
+        Value?: AttributeValue;
     }
     export interface AuthenticationFailedException {
-      /** The textual message for the exception. **/
-      Message?: ExceptionMessage;
-      /** The identifier of the request that caused the exception. **/
-      RequestId?: RequestId;
+        /** The textual message for the exception. **/
+        Message?: ExceptionMessage;
+        /** The identifier of the request that caused the exception. **/
+        RequestId?: RequestId;
     }
     export interface ClientException {
-      Message?: ExceptionMessage;
-      RequestId?: RequestId;
+        Message?: ExceptionMessage;
+        RequestId?: RequestId;
     }
     export interface Computer {
-      /** The identifier of the computer. **/
-      ComputerId?: SID;
-      /** The computer name. **/
-      ComputerName?: ComputerName;
-      /** An array of Attribute objects containing the LDAP attributes that belong to the
+        /** The identifier of the computer. **/
+        ComputerId?: SID;
+        /** The computer name. **/
+        ComputerName?: ComputerName;
+        /** An array of Attribute objects containing the LDAP attributes that belong to the
 computer account. **/
-      ComputerAttributes?: Attributes;
+        ComputerAttributes?: Attributes;
+    }
+    export interface ConditionalForwarder {
+        /** The fully qualified domain name (FQDN) of the remote domains pointed to by the
+conditional forwarder. **/
+        RemoteDomainName?: RemoteDomainName;
+        /** The IP addresses of the remote DNS server associated with RemoteDomainName. This
+is the IP address of the DNS server that your conditional forwarder points to. **/
+        DnsIpAddrs?: DnsIpAddrs;
+        /** The replication scope of the conditional forwarder. The only allowed value is 
+Domain , which will replicate the conditional forwarder to all of the domain
+controllers for your AWS directory. **/
+        ReplicationScope?: ReplicationScope;
     }
     export interface ConnectDirectoryRequest {
-      /** The fully-qualified name of the on-premises directory, such as corp.example.com 
+        /** The fully-qualified name of the on-premises directory, such as corp.example.com 
 . **/
-      Name: DirectoryName;
-      /** The NetBIOS name of the on-premises directory, such as CORP . **/
-      ShortName?: DirectoryShortName;
-      /** The password for the on-premises user account. **/
-      Password: ConnectPassword;
-      /** A textual description for the directory. **/
-      Description?: Description;
-      /** The size of the directory. **/
-      Size: DirectorySize;
-      /** A DirectoryConnectSettings object that contains additional information for the
+        Name: DirectoryName;
+        /** The NetBIOS name of the on-premises directory, such as CORP . **/
+        ShortName?: DirectoryShortName;
+        /** The password for the on-premises user account. **/
+        Password: ConnectPassword;
+        /** A textual description for the directory. **/
+        Description?: Description;
+        /** The size of the directory. **/
+        Size: DirectorySize;
+        /** A DirectoryConnectSettings object that contains additional information for the
 operation. **/
-      ConnectSettings: DirectoryConnectSettings;
+        ConnectSettings: DirectoryConnectSettings;
     }
     export interface ConnectDirectoryResult {
-      /** The identifier of the new directory. **/
-      DirectoryId?: DirectoryId;
+        /** The identifier of the new directory. **/
+        DirectoryId?: DirectoryId;
     }
     export interface CreateAliasRequest {
-      /** The identifier of the directory for which to create the alias. **/
-      DirectoryId: DirectoryId;
-      /** The requested alias.
+        /** The identifier of the directory for which to create the alias. **/
+        DirectoryId: DirectoryId;
+        /** The requested alias.
 
 The alias must be unique amongst all aliases in AWS. This operation throws an 
 EntityAlreadyExistsException error if the alias already exists. **/
-      Alias: AliasName;
+        Alias: AliasName;
     }
     export interface CreateAliasResult {
-      /** The identifier of the directory. **/
-      DirectoryId?: DirectoryId;
-      /** The alias for the directory. **/
-      Alias?: AliasName;
+        /** The identifier of the directory. **/
+        DirectoryId?: DirectoryId;
+        /** The alias for the directory. **/
+        Alias?: AliasName;
     }
     export interface CreateComputerRequest {
-      /** The identifier of the directory in which to create the computer account. **/
-      DirectoryId: DirectoryId;
-      /** The name of the computer account. **/
-      ComputerName: ComputerName;
-      /** A one-time password that is used to join the computer to the directory. You
+        /** The identifier of the directory in which to create the computer account. **/
+        DirectoryId: DirectoryId;
+        /** The name of the computer account. **/
+        ComputerName: ComputerName;
+        /** A one-time password that is used to join the computer to the directory. You
 should generate a random, strong password to use for this parameter. **/
-      Password: ComputerPassword;
-      /** The fully-qualified distinguished name of the organizational unit to place the
+        Password: ComputerPassword;
+        /** The fully-qualified distinguished name of the organizational unit to place the
 computer account in. **/
-      OrganizationalUnitDistinguishedName?: OrganizationalUnitDN;
-      /** An array of Attribute objects that contain any LDAP attributes to apply to the
+        OrganizationalUnitDistinguishedName?: OrganizationalUnitDN;
+        /** An array of Attribute objects that contain any LDAP attributes to apply to the
 computer account. **/
-      ComputerAttributes?: Attributes;
+        ComputerAttributes?: Attributes;
     }
     export interface CreateComputerResult {
-      /** A Computer object that represents the computer account. **/
-      Computer?: Computer;
+        /** A Computer object that represents the computer account. **/
+        Computer?: Computer;
+    }
+    export interface CreateConditionalForwarderRequest {
+        /** The directory ID of the AWS directory for which you are creating the conditional
+forwarder. **/
+        DirectoryId: DirectoryId;
+        /** The fully qualified domain name (FQDN) of the remote domain with which you will
+set up a trust relationship. **/
+        RemoteDomainName: RemoteDomainName;
+        /** The IP addresses of the remote DNS server associated with RemoteDomainName. **/
+        DnsIpAddrs: DnsIpAddrs;
+    }
+    export interface CreateConditionalForwarderResult {
     }
     export interface CreateDirectoryRequest {
-      /** The fully qualified name for the directory, such as corp.example.com . **/
-      Name: DirectoryName;
-      /** The short name of the directory, such as CORP . **/
-      ShortName?: DirectoryShortName;
-      /** The password for the directory administrator. The directory creation process
+        /** The fully qualified name for the directory, such as corp.example.com . **/
+        Name: DirectoryName;
+        /** The short name of the directory, such as CORP . **/
+        ShortName?: DirectoryShortName;
+        /** The password for the directory administrator. The directory creation process
 creates a directory administrator account with the username Administrator and
 this password. **/
-      Password: Password;
-      /** A textual description for the directory. **/
-      Description?: Description;
-      /** The size of the directory. **/
-      Size: DirectorySize;
-      /** A DirectoryVpcSettings object that contains additional information for the
+        Password: Password;
+        /** A textual description for the directory. **/
+        Description?: Description;
+        /** The size of the directory. **/
+        Size: DirectorySize;
+        /** A DirectoryVpcSettings object that contains additional information for the
 operation. **/
-      VpcSettings?: DirectoryVpcSettings;
+        VpcSettings?: DirectoryVpcSettings;
     }
     export interface CreateDirectoryResult {
-      /** The identifier of the directory that was created. **/
-      DirectoryId?: DirectoryId;
+        /** The identifier of the directory that was created. **/
+        DirectoryId?: DirectoryId;
     }
     export interface CreateMicrosoftADRequest {
-      /** The fully qualified domain name for the directory, such as corp.example.com .
+        /** The fully qualified domain name for the directory, such as corp.example.com .
 This name will resolve inside your VPC only. It does not need to be publicly
 resolvable. **/
-      Name: DirectoryName;
-      /** The NetBIOS name for your domain. A short identifier for your domain, such as 
+        Name: DirectoryName;
+        /** The NetBIOS name for your domain. A short identifier for your domain, such as 
 CORP . If you don&#x27;t specify a NetBIOS name, it will default to the first part of
 your directory DNS. For example, CORP for the directory DNS corp.example.com . **/
-      ShortName?: DirectoryShortName;
-      /** The password for the default administrative user named Admin . **/
-      Password: Password;
-      /** A textual description for the directory. This label will appear on the AWS
+        ShortName?: DirectoryShortName;
+        /** The password for the default administrative user named Admin . **/
+        Password: Password;
+        /** A textual description for the directory. This label will appear on the AWS
 console Directory Details page after the directory is created. **/
-      Description?: Description;
-      VpcSettings: DirectoryVpcSettings;
+        Description?: Description;
+        VpcSettings: DirectoryVpcSettings;
     }
     export interface CreateMicrosoftADResult {
-      /** The identifier of the directory that was created. **/
-      DirectoryId?: DirectoryId;
+        /** The identifier of the directory that was created. **/
+        DirectoryId?: DirectoryId;
     }
     export interface CreateSnapshotRequest {
-      /** The identifier of the directory of which to take a snapshot. **/
-      DirectoryId: DirectoryId;
-      /** The descriptive name to apply to the snapshot. **/
-      Name?: SnapshotName;
+        /** The identifier of the directory of which to take a snapshot. **/
+        DirectoryId: DirectoryId;
+        /** The descriptive name to apply to the snapshot. **/
+        Name?: SnapshotName;
     }
     export interface CreateSnapshotResult {
-      /** The identifier of the snapshot that was created. **/
-      SnapshotId?: SnapshotId;
+        /** The identifier of the snapshot that was created. **/
+        SnapshotId?: SnapshotId;
     }
     export interface CreateTrustRequest {
-      /** The Directory ID of the Microsoft AD in the AWS cloud for which to establish the
+        /** The Directory ID of the Microsoft AD in the AWS cloud for which to establish the
 trust relationship. **/
-      DirectoryId: DirectoryId;
-      /** The Fully Qualified Domain Name (FQDN) of the external domain for which to
+        DirectoryId: DirectoryId;
+        /** The Fully Qualified Domain Name (FQDN) of the external domain for which to
 create the trust relationship. **/
-      RemoteDomainName: RemoteDomainName;
-      /** The trust password. The must be the same password that was used when creating
+        RemoteDomainName: RemoteDomainName;
+        /** The trust password. The must be the same password that was used when creating
 the trust relationship on the external domain. **/
-      TrustPassword: TrustPassword;
-      /** The direction of the trust relationship. **/
-      TrustDirection: TrustDirection;
-      /** The trust relationship type. **/
-      TrustType?: TrustType;
+        TrustPassword: TrustPassword;
+        /** The direction of the trust relationship. **/
+        TrustDirection: TrustDirection;
+        /** The trust relationship type. **/
+        TrustType?: TrustType;
+        ConditionalForwarderIpAddrs?: DnsIpAddrs;
     }
     export interface CreateTrustResult {
-      /** A unique identifier for the trust relationship that was created. **/
-      TrustId?: TrustId;
+        /** A unique identifier for the trust relationship that was created. **/
+        TrustId?: TrustId;
+    }
+    export interface DeleteConditionalForwarderRequest {
+        /** The directory ID for which you are deleting the conditional forwarder. **/
+        DirectoryId: DirectoryId;
+        /** The fully qualified domain name (FQDN) of the remote domain with which you are
+deleting the conditional forwarder. **/
+        RemoteDomainName: RemoteDomainName;
+    }
+    export interface DeleteConditionalForwarderResult {
     }
     export interface DeleteDirectoryRequest {
-      /** The identifier of the directory to delete. **/
-      DirectoryId: DirectoryId;
+        /** The identifier of the directory to delete. **/
+        DirectoryId: DirectoryId;
     }
     export interface DeleteDirectoryResult {
-      /** The directory identifier. **/
-      DirectoryId?: DirectoryId;
+        /** The directory identifier. **/
+        DirectoryId?: DirectoryId;
     }
     export interface DeleteSnapshotRequest {
-      /** The identifier of the directory snapshot to be deleted. **/
-      SnapshotId: SnapshotId;
+        /** The identifier of the directory snapshot to be deleted. **/
+        SnapshotId: SnapshotId;
     }
     export interface DeleteSnapshotResult {
-      /** The identifier of the directory snapshot that was deleted. **/
-      SnapshotId?: SnapshotId;
+        /** The identifier of the directory snapshot that was deleted. **/
+        SnapshotId?: SnapshotId;
     }
     export interface DeleteTrustRequest {
-      /** The Trust ID of the trust relationship to be deleted. **/
-      TrustId: TrustId;
+        /** The Trust ID of the trust relationship to be deleted. **/
+        TrustId: TrustId;
+        DeleteAssociatedConditionalForwarder?: DeleteAssociatedConditionalForwarder;
     }
     export interface DeleteTrustResult {
-      /** The Trust ID of the trust relationship that was deleted. **/
-      TrustId?: TrustId;
+        /** The Trust ID of the trust relationship that was deleted. **/
+        TrustId?: TrustId;
     }
     export interface DeregisterEventTopicRequest {
-      /** The Directory ID to remove as a publisher. This directory will no longer send
+        /** The Directory ID to remove as a publisher. This directory will no longer send
 messages to the specified SNS topic. **/
-      DirectoryId: DirectoryId;
-      /** The name of the SNS topic from which to remove the directory as a publisher. **/
-      TopicName: TopicName;
+        DirectoryId: DirectoryId;
+        /** The name of the SNS topic from which to remove the directory as a publisher. **/
+        TopicName: TopicName;
     }
     export interface DeregisterEventTopicResult {
     }
+    export interface DescribeConditionalForwardersRequest {
+        /** The directory ID for which to get the list of associated conditional forwarders. **/
+        DirectoryId: DirectoryId;
+        /** The fully qualified domain names (FQDN) of the remote domains for which to get
+the list of associated conditional forwarders. If this member is null, all
+conditional forwarders are returned. **/
+        RemoteDomainNames?: RemoteDomainNames;
+    }
+    export interface DescribeConditionalForwardersResult {
+        /** The list of conditional forwarders that have been created. **/
+        ConditionalForwarders?: ConditionalForwarders;
+    }
     export interface DescribeDirectoriesRequest {
-      /** A list of identifiers of the directories for which to obtain the information. If
+        /** A list of identifiers of the directories for which to obtain the information. If
 this member is null, all directories that belong to the current account are
 returned.
 
 An empty list results in an InvalidParameterException being thrown. **/
-      DirectoryIds?: DirectoryIds;
-      /** The DescribeDirectoriesResult.NextToken value from a previous call to 
+        DirectoryIds?: DirectoryIds;
+        /** The DescribeDirectoriesResult.NextToken value from a previous call to 
 DescribeDirectories . Pass null if this is the first call. **/
-      NextToken?: NextToken;
-      /** The maximum number of items to return. If this value is zero, the maximum number
+        NextToken?: NextToken;
+        /** The maximum number of items to return. If this value is zero, the maximum number
 of items is specified by the limitations of the operation. **/
-      Limit?: Limit;
+        Limit?: Limit;
     }
     export interface DescribeDirectoriesResult {
-      /** The list of DirectoryDescription objects that were retrieved.
+        /** The list of DirectoryDescription objects that were retrieved.
 
 It is possible that this list contains less than the number of items specified
 in the Limit member of the request. This occurs if there are less than the
 requested number of items left to retrieve, or if the limitations of the
 operation have been exceeded. **/
-      DirectoryDescriptions?: DirectoryDescriptions;
-      /** If not null, more results are available. Pass this value for the NextToken 
+        DirectoryDescriptions?: DirectoryDescriptions;
+        /** If not null, more results are available. Pass this value for the NextToken 
 parameter in a subsequent call to DescribeDirectories to retrieve the next set
 of items. **/
-      NextToken?: NextToken;
+        NextToken?: NextToken;
     }
     export interface DescribeEventTopicsRequest {
-      /** The Directory ID for which to get the list of associated SNS topics. If this
+        /** The Directory ID for which to get the list of associated SNS topics. If this
 member is null, associations for all Directory IDs are returned. **/
-      DirectoryId?: DirectoryId;
-      /** A list of SNS topic names for which to obtain the information. If this member is
+        DirectoryId?: DirectoryId;
+        /** A list of SNS topic names for which to obtain the information. If this member is
 null, all associations for the specified Directory ID are returned.
 
 An empty list results in an InvalidParameterException being thrown. **/
-      TopicNames?: TopicNames;
+        TopicNames?: TopicNames;
     }
     export interface DescribeEventTopicsResult {
-      /** A list of SNS topic names that receive status messages from the specified
+        /** A list of SNS topic names that receive status messages from the specified
 Directory ID. **/
-      EventTopics?: EventTopics;
+        EventTopics?: EventTopics;
     }
     export interface DescribeSnapshotsRequest {
-      /** The identifier of the directory for which to retrieve snapshot information. **/
-      DirectoryId?: DirectoryId;
-      /** A list of identifiers of the snapshots to obtain the information for. If this
+        /** The identifier of the directory for which to retrieve snapshot information. **/
+        DirectoryId?: DirectoryId;
+        /** A list of identifiers of the snapshots to obtain the information for. If this
 member is null or empty, all snapshots are returned using the Limit and 
 NextToken members. **/
-      SnapshotIds?: SnapshotIds;
-      /** The DescribeSnapshotsResult.NextToken value from a previous call to 
+        SnapshotIds?: SnapshotIds;
+        /** The DescribeSnapshotsResult.NextToken value from a previous call to 
 DescribeSnapshots . Pass null if this is the first call. **/
-      NextToken?: NextToken;
-      /** The maximum number of objects to return. **/
-      Limit?: Limit;
+        NextToken?: NextToken;
+        /** The maximum number of objects to return. **/
+        Limit?: Limit;
     }
     export interface DescribeSnapshotsResult {
-      /** The list of Snapshot objects that were retrieved.
+        /** The list of Snapshot objects that were retrieved.
 
 It is possible that this list contains less than the number of items specified
 in the Limit member of the request. This occurs if there are less than the
 requested number of items left to retrieve, or if the limitations of the
 operation have been exceeded. **/
-      Snapshots?: Snapshots;
-      /** If not null, more results are available. Pass this value in the NextToken member
+        Snapshots?: Snapshots;
+        /** If not null, more results are available. Pass this value in the NextToken member
 of a subsequent call to DescribeSnapshots . **/
-      NextToken?: NextToken;
+        NextToken?: NextToken;
     }
     export interface DescribeTrustsRequest {
-      /** The Directory ID of the AWS directory that is a part of the requested trust
+        /** The Directory ID of the AWS directory that is a part of the requested trust
 relationship. **/
-      DirectoryId?: DirectoryId;
-      /** A list of identifiers of the trust relationships for which to obtain the
+        DirectoryId?: DirectoryId;
+        /** A list of identifiers of the trust relationships for which to obtain the
 information. If this member is null, all trust relationships that belong to the
 current account are returned.
 
 An empty list results in an InvalidParameterException being thrown. **/
-      TrustIds?: TrustIds;
-      /** The DescribeTrustsResult.NextToken value from a previous call to DescribeTrusts 
+        TrustIds?: TrustIds;
+        /** The DescribeTrustsResult.NextToken value from a previous call to DescribeTrusts 
 . Pass null if this is the first call. **/
-      NextToken?: NextToken;
-      /** The maximum number of objects to return. **/
-      Limit?: Limit;
+        NextToken?: NextToken;
+        /** The maximum number of objects to return. **/
+        Limit?: Limit;
     }
     export interface DescribeTrustsResult {
-      /** The list of Trust objects that were retrieved.
+        /** The list of Trust objects that were retrieved.
 
 It is possible that this list contains less than the number of items specified
 in the Limit member of the request. This occurs if there are less than the
 requested number of items left to retrieve, or if the limitations of the
 operation have been exceeded. **/
-      Trusts?: Trusts;
-      /** If not null, more results are available. Pass this value for the NextToken 
+        Trusts?: Trusts;
+        /** If not null, more results are available. Pass this value for the NextToken 
 parameter in a subsequent call to DescribeTrusts to retrieve the next set of
 items. **/
-      NextToken?: NextToken;
+        NextToken?: NextToken;
     }
     export interface DirectoryConnectSettings {
-      /** The identifier of the VPC in which the AD Connector is created. **/
-      VpcId: VpcId;
-      /** A list of subnet identifiers in the VPC in which the AD Connector is created. **/
-      SubnetIds: SubnetIds;
-      /** A list of one or more IP addresses of DNS servers or domain controllers in the
+        /** The identifier of the VPC in which the AD Connector is created. **/
+        VpcId: VpcId;
+        /** A list of subnet identifiers in the VPC in which the AD Connector is created. **/
+        SubnetIds: SubnetIds;
+        /** A list of one or more IP addresses of DNS servers or domain controllers in the
 on-premises directory. **/
-      CustomerDnsIps: DnsIpAddrs;
-      /** The username of an account in the on-premises directory that is used to connect
+        CustomerDnsIps: DnsIpAddrs;
+        /** The username of an account in the on-premises directory that is used to connect
 to the directory. This account must have the following privileges:
 
-&amp;#42; Read users and groups
-* Create computer objects
-* Join computers to the domain **/
-      CustomerUserName: UserName;
+ &amp;#42; Read users and groups
+ * Create computer objects
+ * Join computers to the domain **/
+        CustomerUserName: UserName;
     }
     export interface DirectoryConnectSettingsDescription {
-      /** The identifier of the VPC that the AD Connector is in. **/
-      VpcId?: VpcId;
-      /** A list of subnet identifiers in the VPC that the AD connector is in. **/
-      SubnetIds?: SubnetIds;
-      /** The username of the service account in the on-premises directory. **/
-      CustomerUserName?: UserName;
-      /** The security group identifier for the AD Connector directory. **/
-      SecurityGroupId?: SecurityGroupId;
-      /** A list of the Availability Zones that the directory is in. **/
-      AvailabilityZones?: AvailabilityZones;
-      /** The IP addresses of the AD Connector servers. **/
-      ConnectIps?: IpAddrs;
+        /** The identifier of the VPC that the AD Connector is in. **/
+        VpcId?: VpcId;
+        /** A list of subnet identifiers in the VPC that the AD connector is in. **/
+        SubnetIds?: SubnetIds;
+        /** The username of the service account in the on-premises directory. **/
+        CustomerUserName?: UserName;
+        /** The security group identifier for the AD Connector directory. **/
+        SecurityGroupId?: SecurityGroupId;
+        /** A list of the Availability Zones that the directory is in. **/
+        AvailabilityZones?: AvailabilityZones;
+        /** The IP addresses of the AD Connector servers. **/
+        ConnectIps?: IpAddrs;
     }
     export interface DirectoryDescription {
-      /** The directory identifier. **/
-      DirectoryId?: DirectoryId;
-      /** The fully-qualified name of the directory. **/
-      Name?: DirectoryName;
-      /** The short name of the directory. **/
-      ShortName?: DirectoryShortName;
-      /** The directory size. **/
-      Size?: DirectorySize;
-      /** The alias for the directory. If no alias has been created for the directory, the
+        /** The directory identifier. **/
+        DirectoryId?: DirectoryId;
+        /** The fully-qualified name of the directory. **/
+        Name?: DirectoryName;
+        /** The short name of the directory. **/
+        ShortName?: DirectoryShortName;
+        /** The directory size. **/
+        Size?: DirectorySize;
+        /** The alias for the directory. If no alias has been created for the directory, the
 alias is the directory identifier, such as d-XXXXXXXXXX . **/
-      Alias?: AliasName;
-      /** The access URL for the directory, such as http:// alias .awsapps.com . If no
+        Alias?: AliasName;
+        /** The access URL for the directory, such as http:// alias .awsapps.com . If no
 alias has been created for the directory, alias is the directory identifier,
 such as d-XXXXXXXXXX . **/
-      AccessUrl?: AccessUrl;
-      /** The textual description for the directory. **/
-      Description?: Description;
-      /** The IP addresses of the DNS servers for the directory. For a Simple AD or
+        AccessUrl?: AccessUrl;
+        /** The textual description for the directory. **/
+        Description?: Description;
+        /** The IP addresses of the DNS servers for the directory. For a Simple AD or
 Microsoft AD directory, these are the IP addresses of the Simple AD or Microsoft
 AD directory servers. For an AD Connector directory, these are the IP addresses
 of the DNS servers or domain controllers in the on-premises directory to which
 the AD Connector is connected. **/
-      DnsIpAddrs?: DnsIpAddrs;
-      /** The current stage of the directory. **/
-      Stage?: DirectoryStage;
-      /** Specifies when the directory was created. **/
-      LaunchTime?: LaunchTime;
-      /** The date and time that the stage was last updated. **/
-      StageLastUpdatedDateTime?: LastUpdatedDateTime;
-      /** The directory size. **/
-      Type?: DirectoryType;
-      /** A DirectoryVpcSettingsDescription object that contains additional information
+        DnsIpAddrs?: DnsIpAddrs;
+        /** The current stage of the directory. **/
+        Stage?: DirectoryStage;
+        /** Specifies when the directory was created. **/
+        LaunchTime?: LaunchTime;
+        /** The date and time that the stage was last updated. **/
+        StageLastUpdatedDateTime?: LastUpdatedDateTime;
+        /** The directory size. **/
+        Type?: DirectoryType;
+        /** A DirectoryVpcSettingsDescription object that contains additional information
 about a directory. This member is only present if the directory is a Simple AD
 or Managed AD directory. **/
-      VpcSettings?: DirectoryVpcSettingsDescription;
-      /** A DirectoryConnectSettingsDescription object that contains additional
+        VpcSettings?: DirectoryVpcSettingsDescription;
+        /** A DirectoryConnectSettingsDescription object that contains additional
 information about an AD Connector directory. This member is only present if the
 directory is an AD Connector directory. **/
-      ConnectSettings?: DirectoryConnectSettingsDescription;
-      /** A RadiusSettings object that contains information about the RADIUS server
+        ConnectSettings?: DirectoryConnectSettingsDescription;
+        /** A RadiusSettings object that contains information about the RADIUS server
 configured for this directory. **/
-      RadiusSettings?: RadiusSettings;
-      /** The status of the RADIUS MFA server connection. **/
-      RadiusStatus?: RadiusStatus;
-      /** Additional information about the directory stage. **/
-      StageReason?: StageReason;
-      /** Indicates if single-sign on is enabled for the directory. For more information,
+        RadiusSettings?: RadiusSettings;
+        /** The status of the RADIUS MFA server connection. **/
+        RadiusStatus?: RadiusStatus;
+        /** Additional information about the directory stage. **/
+        StageReason?: StageReason;
+        /** Indicates if single-sign on is enabled for the directory. For more information,
 see EnableSso and DisableSso . **/
-      SsoEnabled?: SsoEnabled;
+        SsoEnabled?: SsoEnabled;
     }
     export interface DirectoryLimitExceededException {
-      Message?: ExceptionMessage;
-      RequestId?: RequestId;
+        Message?: ExceptionMessage;
+        RequestId?: RequestId;
     }
     export interface DirectoryLimits {
-      /** The maximum number of cloud directories allowed in the region. **/
-      CloudOnlyDirectoriesLimit?: Limit;
-      /** The current number of cloud directories in the region. **/
-      CloudOnlyDirectoriesCurrentCount?: Limit;
-      /** Indicates if the cloud directory limit has been reached. **/
-      CloudOnlyDirectoriesLimitReached?: CloudOnlyDirectoriesLimitReached;
-      /** The maximum number of Microsoft AD directories allowed in the region. **/
-      CloudOnlyMicrosoftADLimit?: Limit;
-      /** The current number of Microsoft AD directories in the region. **/
-      CloudOnlyMicrosoftADCurrentCount?: Limit;
-      /** Indicates if the Microsoft AD directory limit has been reached. **/
-      CloudOnlyMicrosoftADLimitReached?: CloudOnlyDirectoriesLimitReached;
-      /** The maximum number of connected directories allowed in the region. **/
-      ConnectedDirectoriesLimit?: Limit;
-      /** The current number of connected directories in the region. **/
-      ConnectedDirectoriesCurrentCount?: Limit;
-      /** Indicates if the connected directory limit has been reached. **/
-      ConnectedDirectoriesLimitReached?: ConnectedDirectoriesLimitReached;
+        /** The maximum number of cloud directories allowed in the region. **/
+        CloudOnlyDirectoriesLimit?: Limit;
+        /** The current number of cloud directories in the region. **/
+        CloudOnlyDirectoriesCurrentCount?: Limit;
+        /** Indicates if the cloud directory limit has been reached. **/
+        CloudOnlyDirectoriesLimitReached?: CloudOnlyDirectoriesLimitReached;
+        /** The maximum number of Microsoft AD directories allowed in the region. **/
+        CloudOnlyMicrosoftADLimit?: Limit;
+        /** The current number of Microsoft AD directories in the region. **/
+        CloudOnlyMicrosoftADCurrentCount?: Limit;
+        /** Indicates if the Microsoft AD directory limit has been reached. **/
+        CloudOnlyMicrosoftADLimitReached?: CloudOnlyDirectoriesLimitReached;
+        /** The maximum number of connected directories allowed in the region. **/
+        ConnectedDirectoriesLimit?: Limit;
+        /** The current number of connected directories in the region. **/
+        ConnectedDirectoriesCurrentCount?: Limit;
+        /** Indicates if the connected directory limit has been reached. **/
+        ConnectedDirectoriesLimitReached?: ConnectedDirectoriesLimitReached;
     }
     export interface DirectoryUnavailableException {
-      Message?: ExceptionMessage;
-      RequestId?: RequestId;
+        Message?: ExceptionMessage;
+        RequestId?: RequestId;
     }
     export interface DirectoryVpcSettings {
-      /** The identifier of the VPC in which to create the directory. **/
-      VpcId: VpcId;
-      /** The identifiers of the subnets for the directory servers. The two subnets must
+        /** The identifier of the VPC in which to create the directory. **/
+        VpcId: VpcId;
+        /** The identifiers of the subnets for the directory servers. The two subnets must
 be in different Availability Zones. AWS Directory Service creates a directory
 server and a DNS server in each of these subnets. **/
-      SubnetIds: SubnetIds;
+        SubnetIds: SubnetIds;
     }
     export interface DirectoryVpcSettingsDescription {
-      /** The identifier of the VPC that the directory is in. **/
-      VpcId?: VpcId;
-      /** The identifiers of the subnets for the directory servers. **/
-      SubnetIds?: SubnetIds;
-      /** The security group identifier for the directory. If the directory was created
+        /** The identifier of the VPC that the directory is in. **/
+        VpcId?: VpcId;
+        /** The identifiers of the subnets for the directory servers. **/
+        SubnetIds?: SubnetIds;
+        /** The security group identifier for the directory. If the directory was created
 before 8/1/2014, this is the identifier of the directory members security group
 that was created when the directory was created. If the directory was created
 after this date, this value is null. **/
-      SecurityGroupId?: SecurityGroupId;
-      /** The list of Availability Zones that the directory is in. **/
-      AvailabilityZones?: AvailabilityZones;
+        SecurityGroupId?: SecurityGroupId;
+        /** The list of Availability Zones that the directory is in. **/
+        AvailabilityZones?: AvailabilityZones;
     }
     export interface DisableRadiusRequest {
-      /** The identifier of the directory for which to disable MFA. **/
-      DirectoryId: DirectoryId;
+        /** The identifier of the directory for which to disable MFA. **/
+        DirectoryId: DirectoryId;
     }
     export interface DisableRadiusResult {
     }
     export interface DisableSsoRequest {
-      /** The identifier of the directory for which to disable single-sign on. **/
-      DirectoryId: DirectoryId;
-      /** The username of an alternate account to use to disable single-sign on. This is
+        /** The identifier of the directory for which to disable single-sign on. **/
+        DirectoryId: DirectoryId;
+        /** The username of an alternate account to use to disable single-sign on. This is
 only used for AD Connector directories. This account must have privileges to
 remove a service principal name.
 
@@ -900,26 +1007,26 @@ principal name, you can specify an alternate account with the UserName and
 Password parameters. These credentials are only used to disable single sign-on
 and are not stored by the service. The AD Connector service account is not
 changed. **/
-      UserName?: UserName;
-      /** The password of an alternate account to use to disable single-sign on. This is
+        UserName?: UserName;
+        /** The password of an alternate account to use to disable single-sign on. This is
 only used for AD Connector directories. For more information, see the UserName 
 parameter. **/
-      Password?: ConnectPassword;
+        Password?: ConnectPassword;
     }
     export interface DisableSsoResult {
     }
     export interface EnableRadiusRequest {
-      /** The identifier of the directory for which to enable MFA. **/
-      DirectoryId: DirectoryId;
-      /** A RadiusSettings object that contains information about the RADIUS server. **/
-      RadiusSettings: RadiusSettings;
+        /** The identifier of the directory for which to enable MFA. **/
+        DirectoryId: DirectoryId;
+        /** A RadiusSettings object that contains information about the RADIUS server. **/
+        RadiusSettings: RadiusSettings;
     }
     export interface EnableRadiusResult {
     }
     export interface EnableSsoRequest {
-      /** The identifier of the directory for which to enable single-sign on. **/
-      DirectoryId: DirectoryId;
-      /** The username of an alternate account to use to enable single-sign on. This is
+        /** The identifier of the directory for which to enable single-sign on. **/
+        DirectoryId: DirectoryId;
+        /** The username of an alternate account to use to enable single-sign on. This is
 only used for AD Connector directories. This account must have privileges to add
 a service principal name.
 
@@ -928,172 +1035,187 @@ principal name, you can specify an alternate account with the UserName and
 Password parameters. These credentials are only used to enable single sign-on
 and are not stored by the service. The AD Connector service account is not
 changed. **/
-      UserName?: UserName;
-      /** The password of an alternate account to use to enable single-sign on. This is
+        UserName?: UserName;
+        /** The password of an alternate account to use to enable single-sign on. This is
 only used for AD Connector directories. For more information, see the UserName 
 parameter. **/
-      Password?: ConnectPassword;
+        Password?: ConnectPassword;
     }
     export interface EnableSsoResult {
     }
     export interface EntityAlreadyExistsException {
-      Message?: ExceptionMessage;
-      RequestId?: RequestId;
+        Message?: ExceptionMessage;
+        RequestId?: RequestId;
     }
     export interface EntityDoesNotExistException {
-      Message?: ExceptionMessage;
-      RequestId?: RequestId;
+        Message?: ExceptionMessage;
+        RequestId?: RequestId;
     }
     export interface EventTopic {
-      /** The Directory ID of an AWS Directory Service directory that will publish status
+        /** The Directory ID of an AWS Directory Service directory that will publish status
 messages to an SNS topic. **/
-      DirectoryId?: DirectoryId;
-      /** The name of an AWS SNS topic the receives status messages from the directory. **/
-      TopicName?: TopicName;
-      /** The SNS topic ARN (Amazon Resource Name). **/
-      TopicArn?: TopicArn;
-      /** The date and time of when you associated your directory with the SNS topic. **/
-      CreatedDateTime?: CreatedDateTime;
-      /** The topic registration status. **/
-      Status?: TopicStatus;
+        DirectoryId?: DirectoryId;
+        /** The name of an AWS SNS topic the receives status messages from the directory. **/
+        TopicName?: TopicName;
+        /** The SNS topic ARN (Amazon Resource Name). **/
+        TopicArn?: TopicArn;
+        /** The date and time of when you associated your directory with the SNS topic. **/
+        CreatedDateTime?: CreatedDateTime;
+        /** The topic registration status. **/
+        Status?: TopicStatus;
     }
     export interface GetDirectoryLimitsRequest {
     }
     export interface GetDirectoryLimitsResult {
-      /** A DirectoryLimits object that contains the directory limits for the current
+        /** A DirectoryLimits object that contains the directory limits for the current
 region. **/
-      DirectoryLimits?: DirectoryLimits;
+        DirectoryLimits?: DirectoryLimits;
     }
     export interface GetSnapshotLimitsRequest {
-      /** Contains the identifier of the directory to obtain the limits for. **/
-      DirectoryId: DirectoryId;
+        /** Contains the identifier of the directory to obtain the limits for. **/
+        DirectoryId: DirectoryId;
     }
     export interface GetSnapshotLimitsResult {
-      /** A SnapshotLimits object that contains the manual snapshot limits for the
+        /** A SnapshotLimits object that contains the manual snapshot limits for the
 specified directory. **/
-      SnapshotLimits?: SnapshotLimits;
+        SnapshotLimits?: SnapshotLimits;
     }
     export interface InsufficientPermissionsException {
-      Message?: ExceptionMessage;
-      RequestId?: RequestId;
+        Message?: ExceptionMessage;
+        RequestId?: RequestId;
     }
     export interface InvalidNextTokenException {
-      Message?: ExceptionMessage;
-      RequestId?: RequestId;
+        Message?: ExceptionMessage;
+        RequestId?: RequestId;
     }
     export interface InvalidParameterException {
-      Message?: ExceptionMessage;
-      RequestId?: RequestId;
+        Message?: ExceptionMessage;
+        RequestId?: RequestId;
     }
     export interface RadiusSettings {
-      /** An array of strings that contains the IP addresses of the RADIUS server
+        /** An array of strings that contains the IP addresses of the RADIUS server
 endpoints, or the IP addresses of your RADIUS server load balancer. **/
-      RadiusServers?: Servers;
-      /** The port that your RADIUS server is using for communications. Your on-premises
+        RadiusServers?: Servers;
+        /** The port that your RADIUS server is using for communications. Your on-premises
 network must allow inbound traffic over this port from the AWS Directory Service
 servers. **/
-      RadiusPort?: PortNumber;
-      /** The amount of time, in seconds, to wait for the RADIUS server to respond. **/
-      RadiusTimeout?: RadiusTimeout;
-      /** The maximum number of times that communication with the RADIUS server is
+        RadiusPort?: PortNumber;
+        /** The amount of time, in seconds, to wait for the RADIUS server to respond. **/
+        RadiusTimeout?: RadiusTimeout;
+        /** The maximum number of times that communication with the RADIUS server is
 attempted. **/
-      RadiusRetries?: RadiusRetries;
-      /** The shared secret code that was specified when your RADIUS endpoints were
+        RadiusRetries?: RadiusRetries;
+        /** The shared secret code that was specified when your RADIUS endpoints were
 created. **/
-      SharedSecret?: RadiusSharedSecret;
-      /** The protocol specified for your RADIUS endpoints. **/
-      AuthenticationProtocol?: RadiusAuthenticationProtocol;
-      /** Not currently used. **/
-      DisplayLabel?: RadiusDisplayLabel;
-      /** Not currently used. **/
-      UseSameUsername?: UseSameUsername;
+        SharedSecret?: RadiusSharedSecret;
+        /** The protocol specified for your RADIUS endpoints. **/
+        AuthenticationProtocol?: RadiusAuthenticationProtocol;
+        /** Not currently used. **/
+        DisplayLabel?: RadiusDisplayLabel;
+        /** Not currently used. **/
+        UseSameUsername?: UseSameUsername;
     }
     export interface RegisterEventTopicRequest {
-      /** The Directory ID that will publish status messages to the SNS topic. **/
-      DirectoryId: DirectoryId;
-      /** The SNS topic name to which the directory will publish status messages. This SNS
+        /** The Directory ID that will publish status messages to the SNS topic. **/
+        DirectoryId: DirectoryId;
+        /** The SNS topic name to which the directory will publish status messages. This SNS
 topic must be in the same region as the specified Directory ID. **/
-      TopicName: TopicName;
+        TopicName: TopicName;
     }
     export interface RegisterEventTopicResult {
     }
     export interface RestoreFromSnapshotRequest {
-      /** The identifier of the snapshot to restore from. **/
-      SnapshotId: SnapshotId;
+        /** The identifier of the snapshot to restore from. **/
+        SnapshotId: SnapshotId;
     }
     export interface RestoreFromSnapshotResult {
     }
     export interface ServiceException {
-      Message?: ExceptionMessage;
-      RequestId?: RequestId;
+        Message?: ExceptionMessage;
+        RequestId?: RequestId;
     }
     export interface Snapshot {
-      /** The directory identifier. **/
-      DirectoryId?: DirectoryId;
-      /** The snapshot identifier. **/
-      SnapshotId?: SnapshotId;
-      /** The snapshot type. **/
-      Type?: SnapshotType;
-      /** The descriptive name of the snapshot. **/
-      Name?: SnapshotName;
-      /** The snapshot status. **/
-      Status?: SnapshotStatus;
-      /** The date and time that the snapshot was taken. **/
-      StartTime?: StartTime;
+        /** The directory identifier. **/
+        DirectoryId?: DirectoryId;
+        /** The snapshot identifier. **/
+        SnapshotId?: SnapshotId;
+        /** The snapshot type. **/
+        Type?: SnapshotType;
+        /** The descriptive name of the snapshot. **/
+        Name?: SnapshotName;
+        /** The snapshot status. **/
+        Status?: SnapshotStatus;
+        /** The date and time that the snapshot was taken. **/
+        StartTime?: StartTime;
     }
     export interface SnapshotLimitExceededException {
-      Message?: ExceptionMessage;
-      RequestId?: RequestId;
+        Message?: ExceptionMessage;
+        RequestId?: RequestId;
     }
     export interface SnapshotLimits {
-      /** The maximum number of manual snapshots allowed. **/
-      ManualSnapshotsLimit?: Limit;
-      /** The current number of manual snapshots of the directory. **/
-      ManualSnapshotsCurrentCount?: Limit;
-      /** Indicates if the manual snapshot limit has been reached. **/
-      ManualSnapshotsLimitReached?: ManualSnapshotsLimitReached;
+        /** The maximum number of manual snapshots allowed. **/
+        ManualSnapshotsLimit?: Limit;
+        /** The current number of manual snapshots of the directory. **/
+        ManualSnapshotsCurrentCount?: Limit;
+        /** Indicates if the manual snapshot limit has been reached. **/
+        ManualSnapshotsLimitReached?: ManualSnapshotsLimitReached;
     }
     export interface Trust {
-      /** The Directory ID of the AWS directory involved in the trust relationship. **/
-      DirectoryId?: DirectoryId;
-      /** The unique ID of the trust relationship. **/
-      TrustId?: TrustId;
-      /** The Fully Qualified Domain Name (FQDN) of the external domain involved in the
+        /** The Directory ID of the AWS directory involved in the trust relationship. **/
+        DirectoryId?: DirectoryId;
+        /** The unique ID of the trust relationship. **/
+        TrustId?: TrustId;
+        /** The Fully Qualified Domain Name (FQDN) of the external domain involved in the
 trust relationship. **/
-      RemoteDomainName?: RemoteDomainName;
-      /** The trust relationship type. **/
-      TrustType?: TrustType;
-      /** The trust relationship direction. **/
-      TrustDirection?: TrustDirection;
-      /** The trust relationship state. **/
-      TrustState?: TrustState;
-      /** The date and time that the trust relationship was created. **/
-      CreatedDateTime?: CreatedDateTime;
-      /** The date and time that the trust relationship was last updated. **/
-      LastUpdatedDateTime?: LastUpdatedDateTime;
-      /** The date and time that the TrustState was last updated. **/
-      StateLastUpdatedDateTime?: StateLastUpdatedDateTime;
+        RemoteDomainName?: RemoteDomainName;
+        /** The trust relationship type. **/
+        TrustType?: TrustType;
+        /** The trust relationship direction. **/
+        TrustDirection?: TrustDirection;
+        /** The trust relationship state. **/
+        TrustState?: TrustState;
+        /** The date and time that the trust relationship was created. **/
+        CreatedDateTime?: CreatedDateTime;
+        /** The date and time that the trust relationship was last updated. **/
+        LastUpdatedDateTime?: LastUpdatedDateTime;
+        /** The date and time that the TrustState was last updated. **/
+        StateLastUpdatedDateTime?: StateLastUpdatedDateTime;
+        /** The reason for the TrustState. **/
+        TrustStateReason?: TrustStateReason;
     }
     export interface UnsupportedOperationException {
-      Message?: ExceptionMessage;
-      RequestId?: RequestId;
+        Message?: ExceptionMessage;
+        RequestId?: RequestId;
+    }
+    export interface UpdateConditionalForwarderRequest {
+        /** The directory ID of the AWS directory for which to update the conditional
+forwarder. **/
+        DirectoryId: DirectoryId;
+        /** The fully qualified domain name (FQDN) of the remote domain with which you will
+set up a trust relationship. **/
+        RemoteDomainName: RemoteDomainName;
+        /** The updated IP addresses of the remote DNS server associated with the
+conditional forwarder. **/
+        DnsIpAddrs: DnsIpAddrs;
+    }
+    export interface UpdateConditionalForwarderResult {
     }
     export interface UpdateRadiusRequest {
-      /** The identifier of the directory for which to update the RADIUS server
+        /** The identifier of the directory for which to update the RADIUS server
 information. **/
-      DirectoryId: DirectoryId;
-      /** A RadiusSettings object that contains information about the RADIUS server. **/
-      RadiusSettings: RadiusSettings;
+        DirectoryId: DirectoryId;
+        /** A RadiusSettings object that contains information about the RADIUS server. **/
+        RadiusSettings: RadiusSettings;
     }
     export interface UpdateRadiusResult {
     }
     export interface VerifyTrustRequest {
-      /** The unique Trust ID of the trust relationship to verify. **/
-      TrustId: TrustId;
+        /** The unique Trust ID of the trust relationship to verify. **/
+        TrustId: TrustId;
     }
     export interface VerifyTrustResult {
-      /** The unique Trust ID of the trust relationship that was verified. **/
-      TrustId?: TrustId;
+        /** The unique Trust ID of the trust relationship that was verified. **/
+        TrustId?: TrustId;
     }
   }
 }
