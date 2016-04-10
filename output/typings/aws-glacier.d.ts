@@ -7,49 +7,49 @@
 
 declare module "aws-sdk" {
 
- /**
-   * apiVersion: 2012-06-01
-   * endpointPrefix: glacier
-   * serviceAbbreviation: 
-   * signatureVersion: v4
-   * protocol: rest-json
-   *
-   * Amazon Glacier is a storage solution for &quot;cold data.&quot;
-
-Amazon Glacier is an extremely low-cost storage service that provides secure,
-durable, and easy-to-use storage for data backup and archival. With Amazon
-Glacier, customers can store their data cost effectively for months, years, or
-decades. Amazon Glacier also enables customers to offload the administrative
-burdens of operating and scaling storage to AWS, so they don&#x27;t have to worry
-about capacity planning, hardware provisioning, data replication, hardware
-failure and recovery, or time-consuming hardware migrations.
-
-Amazon Glacier is a great storage choice when low storage cost is paramount,
-your data is rarely retrieved, and retrieval latency of several hours is
-acceptable. If your application requires fast or frequent access to your data,
-consider using Amazon S3. For more information, go to Amazon Simple Storage
-Service (Amazon S3) [http://aws.amazon.com/s3/] .
-
-You can store any kind of data in any format. There is no maximum limit on the
-total amount of data you can store in Amazon Glacier.
-
-If you are a first-time user of Amazon Glacier, we recommend that you begin by
-reading the following sections in the Amazon Glacier Developer Guide :
-
- &amp;#42; What is Amazon Glacier
-   [http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html] -
-   This section of the Developer Guide describes the underlying data model, the
-   operations it supports, and the AWS SDKs that you can use to interact with
-   the service.
-   
-   
- * Getting Started with Amazon Glacier
-   [http://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-getting-started.html] 
-   - The Getting Started section walks you through the process of creating a
-   vault, uploading archives, creating jobs to download archives, retrieving the
-   job output, and deleting archives.
-   *
-   */
+  /**
+    * apiVersion: 2012-06-01
+    * endpointPrefix: glacier
+    * serviceAbbreviation: 
+    * signatureVersion: v4
+    * protocol: rest-json
+    *
+    * Amazon Glacier is a storage solution for &quot;cold data.&quot;
+ 
+ Amazon Glacier is an extremely low-cost storage service that provides secure,
+ durable, and easy-to-use storage for data backup and archival. With Amazon
+ Glacier, customers can store their data cost effectively for months, years, or
+ decades. Amazon Glacier also enables customers to offload the administrative
+ burdens of operating and scaling storage to AWS, so they don&#x27;t have to worry
+ about capacity planning, hardware provisioning, data replication, hardware
+ failure and recovery, or time-consuming hardware migrations.
+ 
+ Amazon Glacier is a great storage choice when low storage cost is paramount,
+ your data is rarely retrieved, and retrieval latency of several hours is
+ acceptable. If your application requires fast or frequent access to your data,
+ consider using Amazon S3. For more information, go to Amazon Simple Storage
+ Service (Amazon S3) [http://aws.amazon.com/s3/] .
+ 
+ You can store any kind of data in any format. There is no maximum limit on the
+ total amount of data you can store in Amazon Glacier.
+ 
+ If you are a first-time user of Amazon Glacier, we recommend that you begin by
+ reading the following sections in the Amazon Glacier Developer Guide :
+ 
+  &amp;#42; What is Amazon Glacier
+    [http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html] -
+    This section of the Developer Guide describes the underlying data model, the
+    operations it supports, and the AWS SDKs that you can use to interact with
+    the service.
+    
+    
+  * Getting Started with Amazon Glacier
+    [http://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-getting-started.html] 
+    - The Getting Started section walks you through the process of creating a
+    vault, uploading archives, creating jobs to download archives, retrieving the
+    job output, and deleting archives.
+    *
+    */
   export class Glacier extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
@@ -86,7 +86,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    abortMultipartUpload(params: Glacier.AbortMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    abortMultipartUpload(params: Glacier.AbortMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: any) => void): Request;
     /**
      * This operation aborts the vault locking process if the vault lock is not in the 
 Locked state. If the vault lock is in the Locked state when this operation is
@@ -112,7 +112,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    abortVaultLock(params: Glacier.AbortVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    abortVaultLock(params: Glacier.AbortVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: any) => void): Request;
     /**
      * This operation adds the specified tags to a vault. Each tag is composed of a key
 and a value. Each vault can have up to 10 tags. If your request would cause the
@@ -129,7 +129,7 @@ not exist.
      * @error LimitExceededException Returned if the request results in a vault or account limit being exceeded.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    addTagsToVault(params: Glacier.AddTagsToVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.LimitExceededException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    addTagsToVault(params: Glacier.AddTagsToVaultInput, callback?: (err: Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ResourceNotFoundException | Glacier.LimitExceededException | Glacier.ServiceUnavailableException | any, data: any) => void): Request;
     /**
      * You call this operation to inform Amazon Glacier that all the archive parts have
 been uploaded and that Amazon Glacier can now assemble the archive from the
@@ -187,7 +187,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    completeMultipartUpload(params: Glacier.CompleteMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ArchiveCreationOutput|any) => void): Request;
+    completeMultipartUpload(params: Glacier.CompleteMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.ArchiveCreationOutput | any) => void): Request;
     /**
      * This operation completes the vault locking process by transitioning the vault
 lock from the InProgress state to the Locked state, which causes the vault lock
@@ -212,7 +212,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    completeVaultLock(params: Glacier.CompleteVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    completeVaultLock(params: Glacier.CompleteVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: any) => void): Request;
     /**
      * This operation creates a new vault with the specified name. The name of the
 vault must be unique within a region for an AWS account. You can create up to
@@ -253,7 +253,7 @@ Amazon Glacier Developer Guide .
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      * @error LimitExceededException Returned if the request results in a vault or account limit being exceeded.  
      */
-    createVault(params: Glacier.CreateVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|Glacier.LimitExceededException|any, data: Glacier.CreateVaultOutput|any) => void): Request;
+    createVault(params: Glacier.CreateVaultInput, callback?: (err: Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | Glacier.LimitExceededException | any, data: Glacier.CreateVaultOutput | any) => void): Request;
     /**
      * This operation deletes an archive from a vault. Subsequent requests to initiate
 a retrieval of this archive will fail. Archive retrievals that are in progress
@@ -290,7 +290,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    deleteArchive(params: Glacier.DeleteArchiveInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    deleteArchive(params: Glacier.DeleteArchiveInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: any) => void): Request;
     /**
      * This operation deletes a vault. Amazon Glacier will delete a vault only if there
 are no archives in the vault as of the last inventory and there have been no
@@ -326,7 +326,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    deleteVault(params: Glacier.DeleteVaultInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    deleteVault(params: Glacier.DeleteVaultInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: any) => void): Request;
     /**
      * This operation deletes the access policy associated with the specified vault.
 The operation is eventually consistent; that is, it might take some time for
@@ -344,7 +344,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    deleteVaultAccessPolicy(params: Glacier.DeleteVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    deleteVaultAccessPolicy(params: Glacier.DeleteVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: any) => void): Request;
     /**
      * This operation deletes the notification configuration set for a vault. The
 operation is eventually consistent; that is, it might take some time for Amazon
@@ -371,7 +371,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    deleteVaultNotifications(params: Glacier.DeleteVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    deleteVaultNotifications(params: Glacier.DeleteVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: any) => void): Request;
     /**
      * This operation returns information about a job you previously initiated,
 including the job initiation date, the user who initiated the job, the job
@@ -406,7 +406,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    describeJob(params: Glacier.DescribeJobInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GlacierJobDescription|any) => void): Request;
+    describeJob(params: Glacier.DescribeJobInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.GlacierJobDescription | any) => void): Request;
     /**
      * This operation returns information about a vault, including the vault&#x27;s Amazon
 Resource Name (ARN), the date the vault was created, the number of archives it
@@ -440,7 +440,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    describeVault(params: Glacier.DescribeVaultInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.DescribeVaultOutput|any) => void): Request;
+    describeVault(params: Glacier.DescribeVaultInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.DescribeVaultOutput | any) => void): Request;
     /**
      * This operation returns the current data retrieval policy for the account and
 region specified in the GET request. For more information about data retrieval
@@ -452,7 +452,7 @@ policies, see Amazon Glacier Data Retrieval Policies
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    getDataRetrievalPolicy(params: Glacier.GetDataRetrievalPolicyInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetDataRetrievalPolicyOutput|any) => void): Request;
+    getDataRetrievalPolicy(params: Glacier.GetDataRetrievalPolicyInput, callback?: (err: Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.GetDataRetrievalPolicyOutput | any) => void): Request;
     /**
      * This operation downloads the output of the job you initiated using InitiateJob .
 Depending on the job type you specified when you initiated the job, the output
@@ -515,7 +515,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    getJobOutput(params: Glacier.GetJobOutputInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetJobOutputOutput|any) => void): Request;
+    getJobOutput(params: Glacier.GetJobOutputInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.GetJobOutputOutput | any) => void): Request;
     /**
      * This operation retrieves the access-policy subresource set on the vault; for
 more information on setting this subresource, see Set Vault Access Policy (PUT
@@ -532,7 +532,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    getVaultAccessPolicy(params: Glacier.GetVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetVaultAccessPolicyOutput|any) => void): Request;
+    getVaultAccessPolicy(params: Glacier.GetVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.GetVaultAccessPolicyOutput | any) => void): Request;
     /**
      * This operation retrieves the following attributes from the lock-policy 
 subresource set on the specified vault: &amp;#42; The vault lock policy set on the
@@ -571,7 +571,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    getVaultLock(params: Glacier.GetVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetVaultLockOutput|any) => void): Request;
+    getVaultLock(params: Glacier.GetVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.GetVaultLockOutput | any) => void): Request;
     /**
      * This operation retrieves the notification-configuration subresource of the
 specified vault.
@@ -604,7 +604,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    getVaultNotifications(params: Glacier.GetVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetVaultNotificationsOutput|any) => void): Request;
+    getVaultNotifications(params: Glacier.GetVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.GetVaultNotificationsOutput | any) => void): Request;
     /**
      * This operation initiates a job of the specified type. In this release, you can
 initiate a job to retrieve either an archive or a vault inventory (a list of
@@ -745,7 +745,7 @@ rate limit. For more information about data retrieval policies,
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    initiateJob(params: Glacier.InitiateJobInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.PolicyEnforcedException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.InitiateJobOutput|any) => void): Request;
+    initiateJob(params: Glacier.InitiateJobInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.PolicyEnforcedException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.InitiateJobOutput | any) => void): Request;
     /**
      * This operation initiates a multipart upload. Amazon Glacier creates a multipart
 upload resource and returns its ID in the response. The multipart upload ID is
@@ -792,7 +792,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    initiateMultipartUpload(params: Glacier.InitiateMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.InitiateMultipartUploadOutput|any) => void): Request;
+    initiateMultipartUpload(params: Glacier.InitiateMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.InitiateMultipartUploadOutput | any) => void): Request;
     /**
      * This operation initiates the vault locking process by doing the following: &amp;#42; 
    Installing a vault lock policy on the specified vault.
@@ -839,7 +839,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    initiateVaultLock(params: Glacier.InitiateVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.InitiateVaultLockOutput|any) => void): Request;
+    initiateVaultLock(params: Glacier.InitiateVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.InitiateVaultLockOutput | any) => void): Request;
     /**
      * This operation lists jobs for a vault, including jobs that are in-progress and
 jobs that have recently finished.
@@ -890,7 +890,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    listJobs(params: Glacier.ListJobsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListJobsOutput|any) => void): Request;
+    listJobs(params: Glacier.ListJobsInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.ListJobsOutput | any) => void): Request;
     /**
      * This operation lists in-progress multipart uploads for the specified vault. An
 in-progress multipart upload is a multipart upload that has been initiated by an 
@@ -932,7 +932,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    listMultipartUploads(params: Glacier.ListMultipartUploadsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListMultipartUploadsOutput|any) => void): Request;
+    listMultipartUploads(params: Glacier.ListMultipartUploadsInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.ListMultipartUploadsOutput | any) => void): Request;
     /**
      * This operation lists the parts of an archive that have been uploaded in a
 specific multipart upload. You can make this request at any time during an
@@ -969,7 +969,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    listParts(params: Glacier.ListPartsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListPartsOutput|any) => void): Request;
+    listParts(params: Glacier.ListPartsInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.ListPartsOutput | any) => void): Request;
     /**
      * This operation lists all the tags attached to a vault. The operation returns an
 empty map if there are no tags. For more information about tags, see Tagging
@@ -982,7 +982,7 @@ Amazon Glacier Resources
 not exist.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    listTagsForVault(params: Glacier.ListTagsForVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.ServiceUnavailableException|any, data: Glacier.ListTagsForVaultOutput|any) => void): Request;
+    listTagsForVault(params: Glacier.ListTagsForVaultInput, callback?: (err: Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ResourceNotFoundException | Glacier.ServiceUnavailableException | any, data: Glacier.ListTagsForVaultOutput | any) => void): Request;
     /**
      * This operation lists all vaults owned by the calling user&#x27;s account. The list
 returned in the response is ASCII-sorted by vault name.
@@ -1016,7 +1016,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    listVaults(params: Glacier.ListVaultsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListVaultsOutput|any) => void): Request;
+    listVaults(params: Glacier.ListVaultsInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: Glacier.ListVaultsOutput | any) => void): Request;
     /**
      * This operation removes one or more tags from the set of tags attached to a
 vault. For more information about tags, see Tagging Amazon Glacier Resources
@@ -1030,7 +1030,7 @@ tags attached to the vault.
 not exist.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    removeTagsFromVault(params: Glacier.RemoveTagsFromVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    removeTagsFromVault(params: Glacier.RemoveTagsFromVaultInput, callback?: (err: Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ResourceNotFoundException | Glacier.ServiceUnavailableException | any, data: any) => void): Request;
     /**
      * This operation sets and then enacts a data retrieval policy in the region
 specified in the PUT request. You can set one policy per region for an AWS
@@ -1047,7 +1047,7 @@ policies, see Amazon Glacier Data Retrieval Policies
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    setDataRetrievalPolicy(params: Glacier.SetDataRetrievalPolicyInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    setDataRetrievalPolicy(params: Glacier.SetDataRetrievalPolicyInput, callback?: (err: Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: any) => void): Request;
     /**
      * This operation configures an access policy for a vault and will overwrite an
 existing policy. To configure a vault access policy, send a PUT request to the 
@@ -1063,7 +1063,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    setVaultAccessPolicy(params: Glacier.SetVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    setVaultAccessPolicy(params: Glacier.SetVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: any) => void): Request;
     /**
      * This operation configures notifications that will be sent when specific events
 happen to a vault. By default, you don&#x27;t get any notifications.
@@ -1107,7 +1107,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    setVaultNotifications(params: Glacier.SetVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    setVaultNotifications(params: Glacier.SetVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.ServiceUnavailableException | any, data: any) => void): Request;
     /**
      * This operation adds an archive to a vault. This is a synchronous operation, and
 for a successful upload, your data is durably persisted. Amazon Glacier returns
@@ -1160,7 +1160,7 @@ not exist.
 the upload.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    uploadArchive(params: Glacier.UploadArchiveInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.RequestTimeoutException|Glacier.ServiceUnavailableException|any, data: Glacier.ArchiveCreationOutput|any) => void): Request;
+    uploadArchive(params: Glacier.UploadArchiveInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.RequestTimeoutException | Glacier.ServiceUnavailableException | any, data: Glacier.ArchiveCreationOutput | any) => void): Request;
     /**
      * This operation uploads a part of an archive. You can upload archive parts in any
 order. You can also upload them in parallel. You can upload up to 10,000 parts
@@ -1223,7 +1223,7 @@ not exist.
 the upload.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    uploadMultipartPart(params: Glacier.UploadMultipartPartInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.RequestTimeoutException|Glacier.ServiceUnavailableException|any, data: Glacier.UploadMultipartPartOutput|any) => void): Request;
+    uploadMultipartPart(params: Glacier.UploadMultipartPartInput, callback?: (err: Glacier.ResourceNotFoundException | Glacier.InvalidParameterValueException | Glacier.MissingParameterValueException | Glacier.RequestTimeoutException | Glacier.ServiceUnavailableException | any, data: Glacier.UploadMultipartPartOutput | any) => void): Request;
 
     /**
      * Found on JS Sources - Sorry for the inconvenience :)
@@ -1253,387 +1253,387 @@ the upload.
   }
 
   export module Glacier {
-    
+
     export type ActionCode = string;
-    
+
     export type DataRetrievalRulesList = DataRetrievalRule[];
-    
+
     export type DateTime = string;
-    
+
     export type JobList = GlacierJobDescription[];
-    
+
     export type NotificationEventList = string[];
-    
+
     export type NullableLong = number;
-    
+
     export type PartList = PartListElement[];
-    
+
     export type Size = number;
-    
+
     export type StatusCode = string;
-    
+
     export type Stream = any;
-    
+
     export type TagKey = string;
-    
+
     export type TagKeyList = string[];
-    
-    export type TagMap = {[key:string]: TagValue};
-    
+
+    export type TagMap = { [key: string]: TagValue };
+
     export type TagValue = string;
-    
+
     export type UploadsList = UploadListElement[];
-    
+
     export type VaultList = DescribeVaultOutput[];
-    
+
     export type httpstatus = number;
-    
+
     export type long = number;
 
     export interface AbortMultipartUploadInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** The upload ID of the multipart upload to delete. **/
-        uploadId: string;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** The upload ID of the multipart upload to delete. **/
+      uploadId: string;
     }
     export interface AbortVaultLockInput {
-        /** The AccountId value is the AWS account ID. This value must match the AWS account
+      /** The AccountId value is the AWS account ID. This value must match the AWS account
 ID associated with the credentials used to sign the request. You can either
 specify an AWS account ID or optionally a single apos - apos (hyphen), in which
 case Amazon Glacier uses the AWS account ID associated with the credentials used
 to sign the request. If you specify your account ID, do not include any hyphens
 (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
     }
     export interface AddTagsToVaultInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** The tags to add to the vault. Each tag is composed of a key and a value. The
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** The tags to add to the vault. Each tag is composed of a key and a value. The
 value can be an empty string. **/
-        Tags?: TagMap;
+      Tags?: TagMap;
     }
     export interface ArchiveCreationOutput {
-        /** The relative URI path of the newly added archive resource. **/
-        location?: string;
-        /** The checksum of the archive computed by Amazon Glacier. **/
-        checksum?: string;
-        /** The ID of the archive. This value is also included as part of the location. **/
-        archiveId?: string;
+      /** The relative URI path of the newly added archive resource. **/
+      location?: string;
+      /** The checksum of the archive computed by Amazon Glacier. **/
+      checksum?: string;
+      /** The ID of the archive. This value is also included as part of the location. **/
+      archiveId?: string;
     }
     export interface CompleteMultipartUploadInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** The upload ID of the multipart upload. **/
-        uploadId: string;
-        /** The total size, in bytes, of the entire archive. This value should be the sum of
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** The upload ID of the multipart upload. **/
+      uploadId: string;
+      /** The total size, in bytes, of the entire archive. This value should be the sum of
 all the sizes of the individual parts that you uploaded. **/
-        archiveSize?: string;
-        /** The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree
+      archiveSize?: string;
+      /** The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree
 hash of the individual parts. If the value you specify in the request does not
 match the SHA256 tree hash of the final assembled archive as computed by Amazon
 Glacier, Amazon Glacier returns an error and the request fails. **/
-        checksum?: string;
+      checksum?: string;
     }
     export interface CompleteVaultLockInput {
-        /** The AccountId value is the AWS account ID. This value must match the AWS account
+      /** The AccountId value is the AWS account ID. This value must match the AWS account
 ID associated with the credentials used to sign the request. You can either
 specify an AWS account ID or optionally a single apos - apos (hyphen), in which
 case Amazon Glacier uses the AWS account ID associated with the credentials used
 to sign the request. If you specify your account ID, do not include any hyphens
 (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** The lockId value is the lock ID obtained from a InitiateVaultLock request. **/
-        lockId: string;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** The lockId value is the lock ID obtained from a InitiateVaultLock request. **/
+      lockId: string;
     }
     export interface CreateVaultInput {
-        /** The AccountId value is the AWS account ID. This value must match the AWS account
+      /** The AccountId value is the AWS account ID. This value must match the AWS account
 ID associated with the credentials used to sign the request. You can either
 specify an AWS account ID or optionally a single apos - apos (hyphen), in which
 case Amazon Glacier uses the AWS account ID associated with the credentials used
 to sign the request. If you specify your account ID, do not include any hyphens
 (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
     }
     export interface CreateVaultOutput {
-        /** The URI of the vault that was created. **/
-        location?: string;
+      /** The URI of the vault that was created. **/
+      location?: string;
     }
     export interface DataRetrievalPolicy {
-        /** The policy rule. Although this is a list type, currently there must be only one
+      /** The policy rule. Although this is a list type, currently there must be only one
 rule, which contains a Strategy field and optionally a BytesPerHour field. **/
-        Rules?: DataRetrievalRulesList;
+      Rules?: DataRetrievalRulesList;
     }
     export interface DataRetrievalRule {
-        /** The type of data retrieval policy to set.
+      /** The type of data retrieval policy to set.
 
 Valid values: BytesPerHour|FreeTier|None **/
-        Strategy?: string;
-        /** The maximum number of bytes that can be retrieved in an hour.
+      Strategy?: string;
+      /** The maximum number of bytes that can be retrieved in an hour.
 
 This field is required only if the value of the Strategy field is BytesPerHour .
 Your PUT operation will be rejected if the Strategy field is not set to 
 BytesPerHour and you set this field. **/
-        BytesPerHour?: NullableLong;
+      BytesPerHour?: NullableLong;
     }
     export interface DeleteArchiveInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** The ID of the archive to delete. **/
-        archiveId: string;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** The ID of the archive to delete. **/
+      archiveId: string;
     }
     export interface DeleteVaultAccessPolicyInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
     }
     export interface DeleteVaultInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
     }
     export interface DeleteVaultNotificationsInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
     }
     export interface DescribeJobInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** The ID of the job to describe. **/
-        jobId: string;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** The ID of the job to describe. **/
+      jobId: string;
     }
     export interface DescribeVaultInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
     }
     export interface DescribeVaultOutput {
-        /** The Amazon Resource Name (ARN) of the vault. **/
-        VaultARN?: string;
-        /** The name of the vault. **/
-        VaultName?: string;
-        /** The UTC date when the vault was created. A string representation of ISO 8601
+      /** The Amazon Resource Name (ARN) of the vault. **/
+      VaultARN?: string;
+      /** The name of the vault. **/
+      VaultName?: string;
+      /** The UTC date when the vault was created. A string representation of ISO 8601
 date format, for example, &quot;2012-03-20T17:03:43.221Z&quot;. **/
-        CreationDate?: string;
-        /** The UTC date when Amazon Glacier completed the last vault inventory. A string
+      CreationDate?: string;
+      /** The UTC date when Amazon Glacier completed the last vault inventory. A string
 representation of ISO 8601 date format, for example, &quot;2012-03-20T17:03:43.221Z&quot;. **/
-        LastInventoryDate?: string;
-        /** The number of archives in the vault as of the last inventory date. This field
+      LastInventoryDate?: string;
+      /** The number of archives in the vault as of the last inventory date. This field
 will return null if an inventory has not yet run on the vault, for example, if
 you just created the vault. **/
-        NumberOfArchives?: long;
-        /** Total size, in bytes, of the archives in the vault as of the last inventory
+      NumberOfArchives?: long;
+      /** Total size, in bytes, of the archives in the vault as of the last inventory
 date. This field will return null if an inventory has not yet run on the vault,
 for example, if you just created the vault. **/
-        SizeInBytes?: long;
+      SizeInBytes?: long;
     }
     export interface GetDataRetrievalPolicyInput {
-        /** The AccountId value is the AWS account ID. This value must match the AWS account
+      /** The AccountId value is the AWS account ID. This value must match the AWS account
 ID associated with the credentials used to sign the request. You can either
 specify an AWS account ID or optionally a single apos - apos (hyphen), in which
 case Amazon Glacier uses the AWS account ID associated with the credentials used
 to sign the request. If you specify your account ID, do not include any hyphens
 (apos-apos) in the ID. **/
-        accountId: string;
+      accountId: string;
     }
     export interface GetDataRetrievalPolicyOutput {
-        /** Contains the returned data retrieval policy in JSON format. **/
-        Policy?: DataRetrievalPolicy;
+      /** Contains the returned data retrieval policy in JSON format. **/
+      Policy?: DataRetrievalPolicy;
     }
     export interface GetJobOutputInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** The job ID whose data is downloaded. **/
-        jobId: string;
-        /** The range of bytes to retrieve from the output. For example, if you want to
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** The job ID whose data is downloaded. **/
+      jobId: string;
+      /** The range of bytes to retrieve from the output. For example, if you want to
 download the first 1,048,576 bytes, specify &quot;Range: bytes=0-1048575&quot;. By
 default, this operation downloads the entire output. **/
-        range?: string;
+      range?: string;
     }
     export interface GetJobOutputOutput {
-        /** The job data, either archive data or inventory data. **/
-        body?: Stream;
-        /** The checksum of the data in the response. This header is returned only when
+      /** The job data, either archive data or inventory data. **/
+      body?: Stream;
+      /** The checksum of the data in the response. This header is returned only when
 retrieving the output for an archive retrieval job. Furthermore, this header
 appears only under the following conditions: &amp;#42; You get the entire range of the
-   archive.
- * You request a range to return of
-   the archive that starts and ends on a multiple of 1 MB. For example, if you
-   have an 3.1 MB archive and you specify a range to return that starts at 1 MB
-   and ends at 2 MB, then the x-amz-sha256-tree-hash is returned as a response
-   header.
- * You request a range of the
-   archive to return that starts on a multiple of 1 MB and goes to the end of
-   the archive. For example, if you have a 3.1 MB archive and you specify a
-   range that starts at 2 MB and ends at 3.1 MB (the end of the archive), then
-   the x-amz-sha256-tree-hash is returned as a response header. **/
-        checksum?: string;
-        /** The HTTP response code for a job output request. The value depends on whether a
+ archive.
+* You request a range to return of
+ the archive that starts and ends on a multiple of 1 MB. For example, if you
+ have an 3.1 MB archive and you specify a range to return that starts at 1 MB
+ and ends at 2 MB, then the x-amz-sha256-tree-hash is returned as a response
+ header.
+* You request a range of the
+ archive to return that starts on a multiple of 1 MB and goes to the end of
+ the archive. For example, if you have a 3.1 MB archive and you specify a
+ range that starts at 2 MB and ends at 3.1 MB (the end of the archive), then
+ the x-amz-sha256-tree-hash is returned as a response header. **/
+      checksum?: string;
+      /** The HTTP response code for a job output request. The value depends on whether a
 range was specified in the request. **/
-        status?: httpstatus;
-        /** The range of bytes returned by Amazon Glacier. If only partial output is
+      status?: httpstatus;
+      /** The range of bytes returned by Amazon Glacier. If only partial output is
 downloaded, the response provides the range of bytes Amazon Glacier returned.
 For example, bytes 0-1048575/8388608 returns the first 1 MB from 8 MB. **/
-        contentRange?: string;
-        /** Indicates the range units accepted. For more information, go to RFC2616
+      contentRange?: string;
+      /** Indicates the range units accepted. For more information, go to RFC2616
 [http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html] . **/
-        acceptRanges?: string;
-        /** The Content-Type depends on whether the job output is an archive or a vault
+      acceptRanges?: string;
+      /** The Content-Type depends on whether the job output is an archive or a vault
 inventory. For archive data, the Content-Type is application/octet-stream. For
 vault inventory, if you requested CSV format when you initiated the job, the
 Content-Type is text/csv. Otherwise, by default, vault inventory is returned as
 JSON, and the Content-Type is application/json. **/
-        contentType?: string;
-        /** The description of an archive. **/
-        archiveDescription?: string;
+      contentType?: string;
+      /** The description of an archive. **/
+      archiveDescription?: string;
     }
     export interface GetVaultAccessPolicyInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
     }
     export interface GetVaultAccessPolicyOutput {
-        /** Contains the returned vault access policy as a JSON string. **/
-        policy?: VaultAccessPolicy;
+      /** Contains the returned vault access policy as a JSON string. **/
+      policy?: VaultAccessPolicy;
     }
     export interface GetVaultLockInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
     }
     export interface GetVaultLockOutput {
-        /** The vault lock policy as a JSON string, which uses &quot;\&quot; as an escape character. **/
-        Policy?: string;
-        /** The state of the vault lock. InProgress or Locked . **/
-        State?: string;
-        /** The UTC date and time at which the lock ID expires. This value can be null if
+      /** The vault lock policy as a JSON string, which uses &quot;\&quot; as an escape character. **/
+      Policy?: string;
+      /** The state of the vault lock. InProgress or Locked . **/
+      State?: string;
+      /** The UTC date and time at which the lock ID expires. This value can be null if
 the vault lock is in a Locked state. **/
-        ExpirationDate?: string;
-        /** The UTC date and time at which the vault lock was put into the InProgress state. **/
-        CreationDate?: string;
+      ExpirationDate?: string;
+      /** The UTC date and time at which the vault lock was put into the InProgress state. **/
+      CreationDate?: string;
     }
     export interface GetVaultNotificationsInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
     }
     export interface GetVaultNotificationsOutput {
-        /** Returns the notification configuration set on the vault. **/
-        vaultNotificationConfig?: VaultNotificationConfig;
+      /** Returns the notification configuration set on the vault. **/
+      vaultNotificationConfig?: VaultNotificationConfig;
     }
     export interface GlacierJobDescription {
-        /** An opaque string that identifies an Amazon Glacier job. **/
-        JobId?: string;
-        /** The job description you provided when you initiated the job. **/
-        JobDescription?: string;
-        /** The job type. It is either ArchiveRetrieval or InventoryRetrieval. **/
-        Action?: ActionCode;
-        /** For an ArchiveRetrieval job, this is the archive ID requested for download.
+      /** An opaque string that identifies an Amazon Glacier job. **/
+      JobId?: string;
+      /** The job description you provided when you initiated the job. **/
+      JobDescription?: string;
+      /** The job type. It is either ArchiveRetrieval or InventoryRetrieval. **/
+      Action?: ActionCode;
+      /** For an ArchiveRetrieval job, this is the archive ID requested for download.
 Otherwise, this field is null. **/
-        ArchiveId?: string;
-        /** The Amazon Resource Name (ARN) of the vault from which the archive retrieval was
+      ArchiveId?: string;
+      /** The Amazon Resource Name (ARN) of the vault from which the archive retrieval was
 requested. **/
-        VaultARN?: string;
-        /** The UTC date when the job was created. A string representation of ISO 8601 date
+      VaultARN?: string;
+      /** The UTC date when the job was created. A string representation of ISO 8601 date
 format, for example, &quot;2012-03-20T17:03:43.221Z&quot;. **/
-        CreationDate?: string;
-        /** The job status. When a job is completed, you get the job&#x27;s output. **/
-        Completed?: boolean;
-        /** The status code can be InProgress, Succeeded, or Failed, and indicates the
+      CreationDate?: string;
+      /** The job status. When a job is completed, you get the job&#x27;s output. **/
+      Completed?: boolean;
+      /** The status code can be InProgress, Succeeded, or Failed, and indicates the
 status of the job. **/
-        StatusCode?: StatusCode;
-        /** A friendly message that describes the job status. **/
-        StatusMessage?: string;
-        /** For an ArchiveRetrieval job, this is the size in bytes of the archive being
+      StatusCode?: StatusCode;
+      /** A friendly message that describes the job status. **/
+      StatusMessage?: string;
+      /** For an ArchiveRetrieval job, this is the size in bytes of the archive being
 requested for download. For the InventoryRetrieval job, the value is null. **/
-        ArchiveSizeInBytes?: Size;
-        /** For an InventoryRetrieval job, this is the size in bytes of the inventory
+      ArchiveSizeInBytes?: Size;
+      /** For an InventoryRetrieval job, this is the size in bytes of the inventory
 requested for download. For the ArchiveRetrieval job, the value is null. **/
-        InventorySizeInBytes?: Size;
-        /** An Amazon Simple Notification Service (Amazon SNS) topic that receives
+      InventorySizeInBytes?: Size;
+      /** An Amazon Simple Notification Service (Amazon SNS) topic that receives
 notification. **/
-        SNSTopic?: string;
-        /** The UTC time that the archive retrieval request completed. While the job is in
+      SNSTopic?: string;
+      /** The UTC time that the archive retrieval request completed. While the job is in
 progress, the value will be null. **/
-        CompletionDate?: string;
-        /** For an ArchiveRetrieval job, it is the checksum of the archive. Otherwise, the
+      CompletionDate?: string;
+      /** For an ArchiveRetrieval job, it is the checksum of the archive. Otherwise, the
 value is null.
 
 The SHA256 tree hash value for the requested range of an archive. If the
@@ -1644,162 +1644,162 @@ For the specific case when the whole archive is retrieved, this value is the
 same as the ArchiveSHA256TreeHash value.
 
 This field is null in the following situations: &amp;#42; Archive retrieval jobs that
-   specify a range that is not tree-hash aligned.
-   
-   
+ specify a range that is not tree-hash aligned.
+ 
+ 
 
- * Archival jobs that specify a range that is equal to the whole archive and the
-   job status is InProgress.
-   
-   
+* Archival jobs that specify a range that is equal to the whole archive and the
+ job status is InProgress.
+ 
+ 
 
- * Inventory jobs. **/
-        SHA256TreeHash?: string;
-        /** The SHA256 tree hash of the entire archive for an archive retrieval. For
+* Inventory jobs. **/
+      SHA256TreeHash?: string;
+      /** The SHA256 tree hash of the entire archive for an archive retrieval. For
 inventory retrieval jobs, this field is null. **/
-        ArchiveSHA256TreeHash?: string;
-        /** The retrieved byte range for archive retrieval jobs in the form &quot; StartByteValue 
+      ArchiveSHA256TreeHash?: string;
+      /** The retrieved byte range for archive retrieval jobs in the form &quot; StartByteValue 
 - EndByteValue &quot; If no range was specified in the archive retrieval, then the
 whole archive is retrieved and StartByteValue equals 0 and EndByteValue equals
 the size of the archive minus 1. For inventory retrieval jobs this field is
 null. **/
-        RetrievalByteRange?: string;
-        /** Parameters used for range inventory retrieval. **/
-        InventoryRetrievalParameters?: InventoryRetrievalJobDescription;
+      RetrievalByteRange?: string;
+      /** Parameters used for range inventory retrieval. **/
+      InventoryRetrievalParameters?: InventoryRetrievalJobDescription;
     }
     export interface InitiateJobInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** Provides options for specifying job information. **/
-        jobParameters?: JobParameters;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** Provides options for specifying job information. **/
+      jobParameters?: JobParameters;
     }
     export interface InitiateJobOutput {
-        /** The relative URI path of the job. **/
-        location?: string;
-        /** The ID of the job. **/
-        jobId?: string;
+      /** The relative URI path of the job. **/
+      location?: string;
+      /** The ID of the job. **/
+      jobId?: string;
     }
     export interface InitiateMultipartUploadInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** The archive description that you are uploading in parts.
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** The archive description that you are uploading in parts.
 
 The part size must be a megabyte (1024 KB) multiplied by a power of 2, for
 example 1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8 MB), and so
 on. The minimum allowable part size is 1 MB, and the maximum is 4 GB (4096 MB). **/
-        archiveDescription?: string;
-        /** The size of each part except the last, in bytes. The last part can be smaller
+      archiveDescription?: string;
+      /** The size of each part except the last, in bytes. The last part can be smaller
 than this part size. **/
-        partSize?: string;
+      partSize?: string;
     }
     export interface InitiateMultipartUploadOutput {
-        /** The relative URI path of the multipart upload ID Amazon Glacier created. **/
-        location?: string;
-        /** The ID of the multipart upload. This value is also included as part of the
+      /** The relative URI path of the multipart upload ID Amazon Glacier created. **/
+      location?: string;
+      /** The ID of the multipart upload. This value is also included as part of the
 location. **/
-        uploadId?: string;
+      uploadId?: string;
     }
     export interface InitiateVaultLockInput {
-        /** The AccountId value is the AWS account ID. This value must match the AWS account
+      /** The AccountId value is the AWS account ID. This value must match the AWS account
 ID associated with the credentials used to sign the request. You can either
 specify an AWS account ID or optionally a single apos - apos (hyphen), in which
 case Amazon Glacier uses the AWS account ID associated with the credentials used
 to sign the request. If you specify your account ID, do not include any hyphens
 (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** The vault lock policy as a JSON string, which uses &quot;\&quot; as an escape character. **/
-        policy?: VaultLockPolicy;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** The vault lock policy as a JSON string, which uses &quot;\&quot; as an escape character. **/
+      policy?: VaultLockPolicy;
     }
     export interface InitiateVaultLockOutput {
-        /** The lock ID, which is used to complete the vault locking process. **/
-        lockId?: string;
+      /** The lock ID, which is used to complete the vault locking process. **/
+      lockId?: string;
     }
     export interface InvalidParameterValueException {
-        /** Client **/
-        type?: string;
-        /** 400 Bad Request **/
-        code?: string;
-        message?: string;
+      /** Client **/
+      type?: string;
+      /** 400 Bad Request **/
+      code?: string;
+      message?: string;
     }
     export interface InventoryRetrievalJobDescription {
-        /** The output format for the vault inventory list, which is set by the InitiateJob 
+      /** The output format for the vault inventory list, which is set by the InitiateJob 
 request when initiating a job to retrieve a vault inventory. Valid values are
 &quot;CSV&quot; and &quot;JSON&quot;. **/
-        Format?: string;
-        /** The start of the date range in UTC for vault inventory retrieval that includes
+      Format?: string;
+      /** The start of the date range in UTC for vault inventory retrieval that includes
 archives created on or after this date. A string representation of ISO 8601 date
 format, for example, 2013-03-20T17:03:43Z. **/
-        StartDate?: DateTime;
-        /** The end of the date range in UTC for vault inventory retrieval that includes
+      StartDate?: DateTime;
+      /** The end of the date range in UTC for vault inventory retrieval that includes
 archives created before this date. A string representation of ISO 8601 date
 format, for example, 2013-03-20T17:03:43Z. **/
-        EndDate?: DateTime;
-        /** Specifies the maximum number of inventory items returned per vault inventory
+      EndDate?: DateTime;
+      /** Specifies the maximum number of inventory items returned per vault inventory
 retrieval request. This limit is set when initiating the job with the a 
 InitiateJob request. **/
-        Limit?: string;
-        /** An opaque string that represents where to continue pagination of the vault
+      Limit?: string;
+      /** An opaque string that represents where to continue pagination of the vault
 inventory retrieval results. You use the marker in a new InitiateJob request to
 obtain additional inventory items. If there are no more inventory items, this
 value is null . For more information, see Range Inventory Retrieval
 [http://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html#api-initiate-job-post-vault-inventory-list-filtering] 
 . **/
-        Marker?: string;
+      Marker?: string;
     }
     export interface InventoryRetrievalJobInput {
-        /** The start of the date range in UTC for vault inventory retrieval that includes
+      /** The start of the date range in UTC for vault inventory retrieval that includes
 archives created on or after this date. A string representation of ISO 8601 date
 format, for example, 2013-03-20T17:03:43Z. **/
-        StartDate?: string;
-        /** The end of the date range in UTC for vault inventory retrieval that includes
+      StartDate?: string;
+      /** The end of the date range in UTC for vault inventory retrieval that includes
 archives created before this date. A string representation of ISO 8601 date
 format, for example, 2013-03-20T17:03:43Z. **/
-        EndDate?: string;
-        /** Specifies the maximum number of inventory items returned per vault inventory
+      EndDate?: string;
+      /** Specifies the maximum number of inventory items returned per vault inventory
 retrieval request. Valid values are greater than or equal to 1. **/
-        Limit?: string;
-        /** An opaque string that represents where to continue pagination of the vault
+      Limit?: string;
+      /** An opaque string that represents where to continue pagination of the vault
 inventory retrieval results. You use the marker in a new InitiateJob request to
 obtain additional inventory items. If there are no more inventory items, this
 value is null . **/
-        Marker?: string;
+      Marker?: string;
     }
     export interface JobParameters {
-        /** When initiating a job to retrieve a vault inventory, you can optionally add this
+      /** When initiating a job to retrieve a vault inventory, you can optionally add this
 parameter to your request to specify the output format. If you are initiating an
 inventory job and do not specify a Format field, JSON is the default format.
 Valid values are &quot;CSV&quot; and &quot;JSON&quot;. **/
-        Format?: string;
-        /** The job type. You can initiate a job to retrieve an archive or get an inventory
+      Format?: string;
+      /** The job type. You can initiate a job to retrieve an archive or get an inventory
 of a vault. Valid values are &quot;archive-retrieval&quot; and &quot;inventory-retrieval&quot;. **/
-        Type?: string;
-        /** The ID of the archive that you want to retrieve. This field is required only if 
+      Type?: string;
+      /** The ID of the archive that you want to retrieve. This field is required only if 
 Type is set to archive-retrieval. An error occurs if you specify this request
 parameter for an inventory retrieval job request. **/
-        ArchiveId?: string;
-        /** The optional description for the job. The description must be less than or equal
+      ArchiveId?: string;
+      /** The optional description for the job. The description must be less than or equal
 to 1,024 bytes. The allowable characters are 7-bit ASCII without control
 codes-specifically, ASCII values 32-126 decimal or 0x20-0x7E hexadecimal. **/
-        Description?: string;
-        /** The Amazon SNS topic ARN to which Amazon Glacier sends a notification when the
+      Description?: string;
+      /** The Amazon SNS topic ARN to which Amazon Glacier sends a notification when the
 job is completed and the output is ready for you to download. The specified
 topic publishes the notification to its subscribers. The SNS topic must exist. **/
-        SNSTopic?: string;
-        /** The byte range to retrieve for an archive retrieval. in the form &quot; 
+      SNSTopic?: string;
+      /** The byte range to retrieve for an archive retrieval. in the form &quot; 
 StartByteValue - EndByteValue &quot; If not specified, the whole archive is
 retrieved. If specified, the byte range must be megabyte (1024&amp;#42;1024) aligned
 which means that StartByteValue must be divisible by 1 MB and EndByteValue plus
@@ -1809,311 +1809,311 @@ this operation returns a 400 response.
 
 An error occurs if you specify this field for an inventory retrieval job
 request. **/
-        RetrievalByteRange?: string;
-        /** Input parameters used for range inventory retrieval. **/
-        InventoryRetrievalParameters?: InventoryRetrievalJobInput;
+      RetrievalByteRange?: string;
+      /** Input parameters used for range inventory retrieval. **/
+      InventoryRetrievalParameters?: InventoryRetrievalJobInput;
     }
     export interface LimitExceededException {
-        /** Client **/
-        type?: string;
-        /** 400 Bad Request **/
-        code?: string;
-        message?: string;
+      /** Client **/
+      type?: string;
+      /** 400 Bad Request **/
+      code?: string;
+      message?: string;
     }
     export interface ListJobsInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** Specifies that the response be limited to the specified number of items or
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** Specifies that the response be limited to the specified number of items or
 fewer. If not specified, the List Jobs operation returns up to 1,000 jobs. **/
-        limit?: string;
-        /** An opaque string used for pagination. This value specifies the job at which the
+      limit?: string;
+      /** An opaque string used for pagination. This value specifies the job at which the
 listing of jobs should begin. Get the marker value from a previous List Jobs
 response. You need only include the marker if you are continuing the pagination
 of results started in a previous List Jobs request. **/
-        marker?: string;
-        /** Specifies the type of job status to return. You can specify the following
+      marker?: string;
+      /** Specifies the type of job status to return. You can specify the following
 values: &quot;InProgress&quot;, &quot;Succeeded&quot;, or &quot;Failed&quot;. **/
-        statuscode?: string;
-        /** Specifies the state of the jobs to return. You can specify true or false . **/
-        completed?: string;
+      statuscode?: string;
+      /** Specifies the state of the jobs to return. You can specify true or false . **/
+      completed?: string;
     }
     export interface ListJobsOutput {
-        /** A list of job objects. Each job object contains metadata describing the job. **/
-        JobList?: JobList;
-        /** An opaque string that represents where to continue pagination of the results.
+      /** A list of job objects. Each job object contains metadata describing the job. **/
+      JobList?: JobList;
+      /** An opaque string that represents where to continue pagination of the results.
 You use this value in a new List Jobs request to obtain more jobs in the list.
 If there are no more jobs, this value is null . **/
-        Marker?: string;
+      Marker?: string;
     }
     export interface ListMultipartUploadsInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** An opaque string used for pagination. This value specifies the upload at which
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** An opaque string used for pagination. This value specifies the upload at which
 the listing of uploads should begin. Get the marker value from a previous List
 Uploads response. You need only include the marker if you are continuing the
 pagination of results started in a previous List Uploads request. **/
-        marker?: string;
-        /** Specifies the maximum number of uploads returned in the response body. If this
+      marker?: string;
+      /** Specifies the maximum number of uploads returned in the response body. If this
 value is not specified, the List Uploads operation returns up to 1,000 uploads. **/
-        limit?: string;
+      limit?: string;
     }
     export interface ListMultipartUploadsOutput {
-        /** A list of in-progress multipart uploads. **/
-        UploadsList?: UploadsList;
-        /** An opaque string that represents where to continue pagination of the results.
+      /** A list of in-progress multipart uploads. **/
+      UploadsList?: UploadsList;
+      /** An opaque string that represents where to continue pagination of the results.
 You use the marker in a new List Multipart Uploads request to obtain more
 uploads in the list. If there are no more uploads, this value is null . **/
-        Marker?: string;
+      Marker?: string;
     }
     export interface ListPartsInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** The upload ID of the multipart upload. **/
-        uploadId: string;
-        /** An opaque string used for pagination. This value specifies the part at which the
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** The upload ID of the multipart upload. **/
+      uploadId: string;
+      /** An opaque string used for pagination. This value specifies the part at which the
 listing of parts should begin. Get the marker value from the response of a
 previous List Parts response. You need only include the marker if you are
 continuing the pagination of results started in a previous List Parts request. **/
-        marker?: string;
-        /** Specifies the maximum number of parts returned in the response body. If this
+      marker?: string;
+      /** Specifies the maximum number of parts returned in the response body. If this
 value is not specified, the List Parts operation returns up to 1,000 uploads. **/
-        limit?: string;
+      limit?: string;
     }
     export interface ListPartsOutput {
-        /** The ID of the upload to which the parts are associated. **/
-        MultipartUploadId?: string;
-        /** The Amazon Resource Name (ARN) of the vault to which the multipart upload was
+      /** The ID of the upload to which the parts are associated. **/
+      MultipartUploadId?: string;
+      /** The Amazon Resource Name (ARN) of the vault to which the multipart upload was
 initiated. **/
-        VaultARN?: string;
-        /** The description of the archive that was specified in the Initiate Multipart
+      VaultARN?: string;
+      /** The description of the archive that was specified in the Initiate Multipart
 Upload request. **/
-        ArchiveDescription?: string;
-        /** The part size in bytes. **/
-        PartSizeInBytes?: long;
-        /** The UTC time at which the multipart upload was initiated. **/
-        CreationDate?: string;
-        /** A list of the part sizes of the multipart upload. **/
-        Parts?: PartList;
-        /** An opaque string that represents where to continue pagination of the results.
+      ArchiveDescription?: string;
+      /** The part size in bytes. **/
+      PartSizeInBytes?: long;
+      /** The UTC time at which the multipart upload was initiated. **/
+      CreationDate?: string;
+      /** A list of the part sizes of the multipart upload. **/
+      Parts?: PartList;
+      /** An opaque string that represents where to continue pagination of the results.
 You use the marker in a new List Parts request to obtain more jobs in the list.
 If there are no more parts, this value is null . **/
-        Marker?: string;
+      Marker?: string;
     }
     export interface ListTagsForVaultInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
     }
     export interface ListTagsForVaultOutput {
-        /** The tags attached to the vault. Each tag is composed of a key and a value. **/
-        Tags?: TagMap;
+      /** The tags attached to the vault. Each tag is composed of a key and a value. **/
+      Tags?: TagMap;
     }
     export interface ListVaultsInput {
-        /** The AccountId value is the AWS account ID. This value must match the AWS account
+      /** The AccountId value is the AWS account ID. This value must match the AWS account
 ID associated with the credentials used to sign the request. You can either
 specify an AWS account ID or optionally a single apos - apos (hyphen), in which
 case Amazon Glacier uses the AWS account ID associated with the credentials used
 to sign the request. If you specify your account ID, do not include any hyphens
 (apos-apos) in the ID. **/
-        accountId: string;
-        /** A string used for pagination. The marker specifies the vault ARN after which the
+      accountId: string;
+      /** A string used for pagination. The marker specifies the vault ARN after which the
 listing of vaults should begin. **/
-        marker?: string;
-        /** The maximum number of items returned in the response. If you don&#x27;t specify a
+      marker?: string;
+      /** The maximum number of items returned in the response. If you don&#x27;t specify a
 value, the List Vaults operation returns up to 1,000 items. **/
-        limit?: string;
+      limit?: string;
     }
     export interface ListVaultsOutput {
-        /** List of vaults. **/
-        VaultList?: VaultList;
-        /** The vault ARN at which to continue pagination of the results. You use the marker
+      /** List of vaults. **/
+      VaultList?: VaultList;
+      /** The vault ARN at which to continue pagination of the results. You use the marker
 in another List Vaults request to obtain more vaults in the list. **/
-        Marker?: string;
+      Marker?: string;
     }
     export interface MissingParameterValueException {
-        /** Client. **/
-        type?: string;
-        /** 400 Bad Request **/
-        code?: string;
-        message?: string;
+      /** Client. **/
+      type?: string;
+      /** 400 Bad Request **/
+      code?: string;
+      message?: string;
     }
     export interface PartListElement {
-        /** The byte range of a part, inclusive of the upper value of the range. **/
-        RangeInBytes?: string;
-        /** The SHA256 tree hash value that Amazon Glacier calculated for the part. This
+      /** The byte range of a part, inclusive of the upper value of the range. **/
+      RangeInBytes?: string;
+      /** The SHA256 tree hash value that Amazon Glacier calculated for the part. This
 field is never null . **/
-        SHA256TreeHash?: string;
+      SHA256TreeHash?: string;
     }
     export interface PolicyEnforcedException {
-        /** Client **/
-        type?: string;
-        /** PolicyEnforcedException **/
-        code?: string;
-        /** InitiateJob request denied by current data retrieval policy. **/
-        message?: string;
+      /** Client **/
+      type?: string;
+      /** PolicyEnforcedException **/
+      code?: string;
+      /** InitiateJob request denied by current data retrieval policy. **/
+      message?: string;
     }
     export interface RemoveTagsFromVaultInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** A list of tag keys. Each corresponding tag is removed from the vault. **/
-        TagKeys?: TagKeyList;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** A list of tag keys. Each corresponding tag is removed from the vault. **/
+      TagKeys?: TagKeyList;
     }
     export interface RequestTimeoutException {
-        /** Client **/
-        type?: string;
-        /** 408 Request Timeout **/
-        code?: string;
-        message?: string;
+      /** Client **/
+      type?: string;
+      /** 408 Request Timeout **/
+      code?: string;
+      message?: string;
     }
     export interface ResourceNotFoundException {
-        /** Client **/
-        type?: string;
-        /** 404 Not Found **/
-        code?: string;
-        message?: string;
+      /** Client **/
+      type?: string;
+      /** 404 Not Found **/
+      code?: string;
+      message?: string;
     }
     export interface ServiceUnavailableException {
-        /** Server **/
-        type?: string;
-        /** 500 Internal Server Error **/
-        code?: string;
-        message?: string;
+      /** Server **/
+      type?: string;
+      /** 500 Internal Server Error **/
+      code?: string;
+      message?: string;
     }
     export interface SetDataRetrievalPolicyInput {
-        /** The AccountId value is the AWS account ID. This value must match the AWS account
+      /** The AccountId value is the AWS account ID. This value must match the AWS account
 ID associated with the credentials used to sign the request. You can either
 specify an AWS account ID or optionally a single apos - apos (hyphen), in which
 case Amazon Glacier uses the AWS account ID associated with the credentials used
 to sign the request. If you specify your account ID, do not include any hyphens
 (apos-apos) in the ID. **/
-        accountId: string;
-        /** The data retrieval policy in JSON format. **/
-        Policy?: DataRetrievalPolicy;
+      accountId: string;
+      /** The data retrieval policy in JSON format. **/
+      Policy?: DataRetrievalPolicy;
     }
     export interface SetVaultAccessPolicyInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** The vault access policy as a JSON string. **/
-        policy?: VaultAccessPolicy;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** The vault access policy as a JSON string. **/
+      policy?: VaultAccessPolicy;
     }
     export interface SetVaultNotificationsInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** Provides options for specifying notification configuration. **/
-        vaultNotificationConfig?: VaultNotificationConfig;
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** Provides options for specifying notification configuration. **/
+      vaultNotificationConfig?: VaultNotificationConfig;
     }
     export interface UploadArchiveInput {
-        /** The name of the vault. **/
-        vaultName: string;
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The name of the vault. **/
+      vaultName: string;
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The optional description of the archive you are uploading. **/
-        archiveDescription?: string;
-        /** The SHA256 tree hash of the data being uploaded. **/
-        checksum?: string;
-        /** The data to upload. **/
-        body?: Stream;
+      accountId: string;
+      /** The optional description of the archive you are uploading. **/
+      archiveDescription?: string;
+      /** The SHA256 tree hash of the data being uploaded. **/
+      checksum?: string;
+      /** The data to upload. **/
+      body?: Stream;
     }
     export interface UploadListElement {
-        /** The ID of a multipart upload. **/
-        MultipartUploadId?: string;
-        /** The Amazon Resource Name (ARN) of the vault that contains the archive. **/
-        VaultARN?: string;
-        /** The description of the archive that was specified in the Initiate Multipart
+      /** The ID of a multipart upload. **/
+      MultipartUploadId?: string;
+      /** The Amazon Resource Name (ARN) of the vault that contains the archive. **/
+      VaultARN?: string;
+      /** The description of the archive that was specified in the Initiate Multipart
 Upload request. **/
-        ArchiveDescription?: string;
-        /** The part size, in bytes, specified in the Initiate Multipart Upload request.
+      ArchiveDescription?: string;
+      /** The part size, in bytes, specified in the Initiate Multipart Upload request.
 This is the size of all the parts in the upload except the last part, which may
 be smaller than this size. **/
-        PartSizeInBytes?: long;
-        /** The UTC time at which the multipart upload was initiated. **/
-        CreationDate?: string;
+      PartSizeInBytes?: long;
+      /** The UTC time at which the multipart upload was initiated. **/
+      CreationDate?: string;
     }
     export interface UploadMultipartPartInput {
-        /** The AccountId value is the AWS account ID of the account that owns the vault.
+      /** The AccountId value is the AWS account ID of the account that owns the vault.
 You can either specify an AWS account ID or optionally a single apos - apos
 (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
 the credentials used to sign the request. If you use an account ID, do not
 include any hyphens (apos-apos) in the ID. **/
-        accountId: string;
-        /** The name of the vault. **/
-        vaultName: string;
-        /** The upload ID of the multipart upload. **/
-        uploadId: string;
-        /** The SHA256 tree hash of the data being uploaded. **/
-        checksum?: string;
-        /** Identifies the range of bytes in the assembled archive that will be uploaded in
+      accountId: string;
+      /** The name of the vault. **/
+      vaultName: string;
+      /** The upload ID of the multipart upload. **/
+      uploadId: string;
+      /** The SHA256 tree hash of the data being uploaded. **/
+      checksum?: string;
+      /** Identifies the range of bytes in the assembled archive that will be uploaded in
 this part. Amazon Glacier uses this information to assemble the archive in the
 proper sequence. The format of this header follows RFC 2616. An example header
 is Content-Range:bytes 0-4194303/&amp;#42;. **/
-        range?: string;
-        /** The data to upload. **/
-        body?: Stream;
+      range?: string;
+      /** The data to upload. **/
+      body?: Stream;
     }
     export interface UploadMultipartPartOutput {
-        /** The SHA256 tree hash that Amazon Glacier computed for the uploaded part. **/
-        checksum?: string;
+      /** The SHA256 tree hash that Amazon Glacier computed for the uploaded part. **/
+      checksum?: string;
     }
     export interface VaultAccessPolicy {
-        /** The vault access policy. **/
-        Policy?: string;
+      /** The vault access policy. **/
+      Policy?: string;
     }
     export interface VaultLockPolicy {
-        /** The vault lock policy. **/
-        Policy?: string;
+      /** The vault lock policy. **/
+      Policy?: string;
     }
     export interface VaultNotificationConfig {
-        /** The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name
+      /** The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name
 (ARN). **/
-        SNSTopic?: string;
-        /** A list of one or more events for which Amazon Glacier will send a notification
+      SNSTopic?: string;
+      /** A list of one or more events for which Amazon Glacier will send a notification
 to the specified Amazon SNS topic. **/
-        Events?: NotificationEventList;
+      Events?: NotificationEventList;
     }
   }
 }

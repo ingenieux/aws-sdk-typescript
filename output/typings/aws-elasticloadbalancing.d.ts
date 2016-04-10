@@ -7,31 +7,31 @@
 
 declare module "aws-sdk" {
 
- /**
-   * apiVersion: 2012-06-01
-   * endpointPrefix: elasticloadbalancing
-   * serviceAbbreviation: 
-   * signatureVersion: v4
-   * protocol: query
-   *
-   * Elastic Load BalancingElastic Load Balancing distributes incoming traffic across
-your EC2 instances.
-
-For information about the features of Elastic Load Balancing, see What Is
-Elastic Load Balancing?
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elastic-load-balancing.html] 
-in the Elastic Load Balancing Developer Guide .
-
-For information about the AWS regions supported by Elastic Load Balancing, see 
-Regions and Endpoints - Elastic Load Balancing
-[http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region] in the 
-Amazon Web Services General Reference .
-
-All Elastic Load Balancing operations are idempotent , which means that they
-complete at most one time. If you repeat an operation, it succeeds with a 200 OK
-response code.
-   *
-   */
+  /**
+    * apiVersion: 2012-06-01
+    * endpointPrefix: elasticloadbalancing
+    * serviceAbbreviation: 
+    * signatureVersion: v4
+    * protocol: query
+    *
+    * Elastic Load BalancingElastic Load Balancing distributes incoming traffic across
+ your EC2 instances.
+ 
+ For information about the features of Elastic Load Balancing, see What Is
+ Elastic Load Balancing?
+ [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elastic-load-balancing.html] 
+ in the Elastic Load Balancing Developer Guide .
+ 
+ For information about the AWS regions supported by Elastic Load Balancing, see 
+ Regions and Endpoints - Elastic Load Balancing
+ [http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region] in the 
+ Amazon Web Services General Reference .
+ 
+ All Elastic Load Balancing operations are idempotent , which means that they
+ complete at most one time. If you repeat an operation, it succeeds with a 200 OK
+ response code.
+    *
+    */
   export class ELB extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
@@ -51,7 +51,7 @@ in the Elastic Load Balancing Developer Guide .
 been reached.  
      * @error DuplicateTagKeysException A tag key was specified more than once.  
      */
-    addTags(params: ELB.AddTagsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|any, data: ELB.AddTagsOutput|any) => void): Request;
+    addTags(params: ELB.AddTagsInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.TooManyTagsException | ELB.DuplicateTagKeysException | any, data: ELB.AddTagsOutput | any) => void): Request;
     /**
      * Associates one or more security groups with your load balancer in a virtual
 private cloud (VPC). The specified security groups override the previously
@@ -65,7 +65,7 @@ in the Elastic Load Balancing Developer Guide .
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      * @error InvalidSecurityGroupException One or more of the specified security groups do not exist.  
      */
-    applySecurityGroupsToLoadBalancer(params: ELB.ApplySecurityGroupsToLoadBalancerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|ELB.InvalidSecurityGroupException|any, data: ELB.ApplySecurityGroupsToLoadBalancerOutput|any) => void): Request;
+    applySecurityGroupsToLoadBalancer(params: ELB.ApplySecurityGroupsToLoadBalancerInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.InvalidConfigurationRequestException | ELB.InvalidSecurityGroupException | any, data: ELB.ApplySecurityGroupsToLoadBalancerOutput | any) => void): Request;
     /**
      * Adds one or more subnets to the set of configured subnets for the specified load
 balancer.
@@ -80,7 +80,7 @@ in the Elastic Load Balancing Developer Guide .
      * @error SubnetNotFoundException One or more of the specified subnets do not exist.  
      * @error InvalidSubnetException The specified VPC has no associated Internet gateway.  
      */
-    attachLoadBalancerToSubnets(params: ELB.AttachLoadBalancerToSubnetsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|any, data: ELB.AttachLoadBalancerToSubnetsOutput|any) => void): Request;
+    attachLoadBalancerToSubnets(params: ELB.AttachLoadBalancerToSubnetsInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.InvalidConfigurationRequestException | ELB.SubnetNotFoundException | ELB.InvalidSubnetException | any, data: ELB.AttachLoadBalancerToSubnetsOutput | any) => void): Request;
     /**
      * Specifies the health check settings to use when evaluating the health state of
 your back-end instances.
@@ -91,7 +91,7 @@ in the Elastic Load Balancing Developer Guide .
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      */
-    configureHealthCheck(params: ELB.ConfigureHealthCheckInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.ConfigureHealthCheckOutput|any) => void): Request;
+    configureHealthCheck(params: ELB.ConfigureHealthCheckInput, callback?: (err: ELB.AccessPointNotFoundException | any, data: ELB.ConfigureHealthCheckOutput | any) => void): Request;
     /**
      * Generates a stickiness policy with sticky session lifetimes that follow that of
 an application-generated cookie. This policy can be associated only with
@@ -115,7 +115,7 @@ in the Elastic Load Balancing Developer Guide .
      * @error TooManyPoliciesException The quota for the number of policies for this load balancer has been reached.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    createAppCookieStickinessPolicy(params: ELB.CreateAppCookieStickinessPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateAppCookieStickinessPolicyOutput|any) => void): Request;
+    createAppCookieStickinessPolicy(params: ELB.CreateAppCookieStickinessPolicyInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.DuplicatePolicyNameException | ELB.TooManyPoliciesException | ELB.InvalidConfigurationRequestException | any, data: ELB.CreateAppCookieStickinessPolicyOutput | any) => void): Request;
     /**
      * Generates a stickiness policy with sticky session lifetimes controlled by the
 lifetime of the browser (user-agent) or a specified expiration period. This
@@ -141,7 +141,7 @@ in the Elastic Load Balancing Developer Guide .
      * @error TooManyPoliciesException The quota for the number of policies for this load balancer has been reached.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    createLBCookieStickinessPolicy(params: ELB.CreateLBCookieStickinessPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateLBCookieStickinessPolicyOutput|any) => void): Request;
+    createLBCookieStickinessPolicy(params: ELB.CreateLBCookieStickinessPolicyInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.DuplicatePolicyNameException | ELB.TooManyPoliciesException | ELB.InvalidConfigurationRequestException | any, data: ELB.CreateLBCookieStickinessPolicyOutput | any) => void): Request;
     /**
      * Creates a load balancer.
 
@@ -172,7 +172,7 @@ for load balancers in a VPC.
 been reached.  
      * @error DuplicateTagKeysException A tag key was specified more than once.  
      */
-    createLoadBalancer(params: ELB.CreateAccessPointInput, callback?: (err: ELB.DuplicateAccessPointNameException|ELB.TooManyAccessPointsException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|ELB.InvalidSecurityGroupException|ELB.InvalidSchemeException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|any, data: ELB.CreateAccessPointOutput|any) => void): Request;
+    createLoadBalancer(params: ELB.CreateAccessPointInput, callback?: (err: ELB.DuplicateAccessPointNameException | ELB.TooManyAccessPointsException | ELB.CertificateNotFoundException | ELB.InvalidConfigurationRequestException | ELB.SubnetNotFoundException | ELB.InvalidSubnetException | ELB.InvalidSecurityGroupException | ELB.InvalidSchemeException | ELB.TooManyTagsException | ELB.DuplicateTagKeysException | any, data: ELB.CreateAccessPointOutput | any) => void): Request;
     /**
      * Creates one or more listeners for the specified load balancer. If a listener
 with the specified port does not already exist, it is created; otherwise, the
@@ -191,7 +191,7 @@ SSLCertificateId .
 and Access Management (IAM).  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    createLoadBalancerListeners(params: ELB.CreateLoadBalancerListenerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.DuplicateListenerException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateLoadBalancerListenerOutput|any) => void): Request;
+    createLoadBalancerListeners(params: ELB.CreateLoadBalancerListenerInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.DuplicateListenerException | ELB.CertificateNotFoundException | ELB.InvalidConfigurationRequestException | any, data: ELB.CreateLoadBalancerListenerOutput | any) => void): Request;
     /**
      * Creates a policy with the specified attributes for the specified load balancer.
 
@@ -205,7 +205,7 @@ on the policy type.
      * @error TooManyPoliciesException The quota for the number of policies for this load balancer has been reached.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    createLoadBalancerPolicy(params: ELB.CreateLoadBalancerPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyTypeNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateLoadBalancerPolicyOutput|any) => void): Request;
+    createLoadBalancerPolicy(params: ELB.CreateLoadBalancerPolicyInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.PolicyTypeNotFoundException | ELB.DuplicatePolicyNameException | ELB.TooManyPoliciesException | ELB.InvalidConfigurationRequestException | any, data: ELB.CreateLoadBalancerPolicyOutput | any) => void): Request;
     /**
      * Deletes the specified load balancer.
 
@@ -219,13 +219,13 @@ If the load balancer does not exist or has already been deleted, the call to
 DeleteLoadBalancer still succeeds.
      *
      */
-    deleteLoadBalancer(params: ELB.DeleteAccessPointInput, callback?: (err: any, data: ELB.DeleteAccessPointOutput|any) => void): Request;
+    deleteLoadBalancer(params: ELB.DeleteAccessPointInput, callback?: (err: any, data: ELB.DeleteAccessPointOutput | any) => void): Request;
     /**
      * Deletes the specified listeners from the specified load balancer.
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      */
-    deleteLoadBalancerListeners(params: ELB.DeleteLoadBalancerListenerInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.DeleteLoadBalancerListenerOutput|any) => void): Request;
+    deleteLoadBalancerListeners(params: ELB.DeleteLoadBalancerListenerInput, callback?: (err: ELB.AccessPointNotFoundException | any, data: ELB.DeleteLoadBalancerListenerOutput | any) => void): Request;
     /**
      * Deletes the specified policy from the specified load balancer. This policy must
 not be enabled for any listeners.
@@ -233,7 +233,7 @@ not be enabled for any listeners.
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    deleteLoadBalancerPolicy(params: ELB.DeleteLoadBalancerPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.DeleteLoadBalancerPolicyOutput|any) => void): Request;
+    deleteLoadBalancerPolicy(params: ELB.DeleteLoadBalancerPolicyInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.InvalidConfigurationRequestException | any, data: ELB.DeleteLoadBalancerPolicyOutput | any) => void): Request;
     /**
      * Deregisters the specified instances from the specified load balancer. After the
 instance is deregistered, it no longer receives traffic from the load balancer.
@@ -248,7 +248,7 @@ in the Elastic Load Balancing Developer Guide .
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error InvalidEndPointException The specified endpoint is not valid.  
      */
-    deregisterInstancesFromLoadBalancer(params: ELB.DeregisterEndPointsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any, data: ELB.DeregisterEndPointsOutput|any) => void): Request;
+    deregisterInstancesFromLoadBalancer(params: ELB.DeregisterEndPointsInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.InvalidEndPointException | any, data: ELB.DeregisterEndPointsOutput | any) => void): Request;
     /**
      * Describes the state of the specified instances registered with the specified
 load balancer. If no instances are specified, the call describes the state of
@@ -258,14 +258,14 @@ instances.
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error InvalidEndPointException The specified endpoint is not valid.  
      */
-    describeInstanceHealth(params: ELB.DescribeEndPointStateInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any, data: ELB.DescribeEndPointStateOutput|any) => void): Request;
+    describeInstanceHealth(params: ELB.DescribeEndPointStateInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.InvalidEndPointException | any, data: ELB.DescribeEndPointStateOutput | any) => void): Request;
     /**
      * Describes the attributes for the specified load balancer.
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error LoadBalancerAttributeNotFoundException The specified load balancer attribute does not exist.  
      */
-    describeLoadBalancerAttributes(params: ELB.DescribeLoadBalancerAttributesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.LoadBalancerAttributeNotFoundException|any, data: ELB.DescribeLoadBalancerAttributesOutput|any) => void): Request;
+    describeLoadBalancerAttributes(params: ELB.DescribeLoadBalancerAttributesInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.LoadBalancerAttributeNotFoundException | any, data: ELB.DescribeLoadBalancerAttributesOutput | any) => void): Request;
     /**
      * Describes the specified policies.
 
@@ -279,7 +279,7 @@ the sample policies have the ELBSample- prefix.
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error PolicyNotFoundException One or more of the specified policies do not exist.  
      */
-    describeLoadBalancerPolicies(params: ELB.DescribeLoadBalancerPoliciesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|any, data: ELB.DescribeLoadBalancerPoliciesOutput|any) => void): Request;
+    describeLoadBalancerPolicies(params: ELB.DescribeLoadBalancerPoliciesInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.PolicyNotFoundException | any, data: ELB.DescribeLoadBalancerPoliciesOutput | any) => void): Request;
     /**
      * Describes the specified load balancer policy types.
 
@@ -288,20 +288,20 @@ configurations for a load balancer.
      *
      * @error PolicyTypeNotFoundException One or more of the specified policy types do not exist.  
      */
-    describeLoadBalancerPolicyTypes(params: ELB.DescribeLoadBalancerPolicyTypesInput, callback?: (err: ELB.PolicyTypeNotFoundException|any, data: ELB.DescribeLoadBalancerPolicyTypesOutput|any) => void): Request;
+    describeLoadBalancerPolicyTypes(params: ELB.DescribeLoadBalancerPolicyTypesInput, callback?: (err: ELB.PolicyTypeNotFoundException | any, data: ELB.DescribeLoadBalancerPolicyTypesOutput | any) => void): Request;
     /**
      * Describes the specified the load balancers. If no load balancers are specified,
 the call describes all of your load balancers.
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      */
-    describeLoadBalancers(params: ELB.DescribeAccessPointsInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.DescribeAccessPointsOutput|any) => void): Request;
+    describeLoadBalancers(params: ELB.DescribeAccessPointsInput, callback?: (err: ELB.AccessPointNotFoundException | any, data: ELB.DescribeAccessPointsOutput | any) => void): Request;
     /**
      * Describes the tags associated with the specified load balancers.
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      */
-    describeTags(params: ELB.DescribeTagsInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.DescribeTagsOutput|any) => void): Request;
+    describeTags(params: ELB.DescribeTagsInput, callback?: (err: ELB.AccessPointNotFoundException | any, data: ELB.DescribeTagsOutput | any) => void): Request;
     /**
      * Removes the specified subnets from the set of configured subnets for the load
 balancer.
@@ -313,7 +313,7 @@ balances the traffic among the remaining routable subnets.
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    detachLoadBalancerFromSubnets(params: ELB.DetachLoadBalancerFromSubnetsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.DetachLoadBalancerFromSubnetsOutput|any) => void): Request;
+    detachLoadBalancerFromSubnets(params: ELB.DetachLoadBalancerFromSubnetsInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.InvalidConfigurationRequestException | any, data: ELB.DetachLoadBalancerFromSubnetsOutput | any) => void): Request;
     /**
      * Removes the specified Availability Zones from the set of Availability Zones for
 the specified load balancer.
@@ -332,7 +332,7 @@ in the Elastic Load Balancing Developer Guide .
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    disableAvailabilityZonesForLoadBalancer(params: ELB.RemoveAvailabilityZonesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.RemoveAvailabilityZonesOutput|any) => void): Request;
+    disableAvailabilityZonesForLoadBalancer(params: ELB.RemoveAvailabilityZonesInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.InvalidConfigurationRequestException | any, data: ELB.RemoveAvailabilityZonesOutput | any) => void): Request;
     /**
      * Adds the specified Availability Zones to the set of Availability Zones for the
 specified load balancer.
@@ -346,7 +346,7 @@ in the Elastic Load Balancing Developer Guide .
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      */
-    enableAvailabilityZonesForLoadBalancer(params: ELB.AddAvailabilityZonesInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.AddAvailabilityZonesOutput|any) => void): Request;
+    enableAvailabilityZonesForLoadBalancer(params: ELB.AddAvailabilityZonesInput, callback?: (err: ELB.AccessPointNotFoundException | any, data: ELB.AddAvailabilityZonesOutput | any) => void): Request;
     /**
      * Modifies the attributes of the specified load balancer.
 
@@ -371,7 +371,7 @@ Guide :
      * @error LoadBalancerAttributeNotFoundException The specified load balancer attribute does not exist.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    modifyLoadBalancerAttributes(params: ELB.ModifyLoadBalancerAttributesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.LoadBalancerAttributeNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.ModifyLoadBalancerAttributesOutput|any) => void): Request;
+    modifyLoadBalancerAttributes(params: ELB.ModifyLoadBalancerAttributesInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.LoadBalancerAttributeNotFoundException | ELB.InvalidConfigurationRequestException | any, data: ELB.ModifyLoadBalancerAttributesOutput | any) => void): Request;
     /**
      * Adds the specified instances to the specified load balancer.
 
@@ -407,13 +407,13 @@ in the Elastic Load Balancing Developer Guide .
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error InvalidEndPointException The specified endpoint is not valid.  
      */
-    registerInstancesWithLoadBalancer(params: ELB.RegisterEndPointsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any, data: ELB.RegisterEndPointsOutput|any) => void): Request;
+    registerInstancesWithLoadBalancer(params: ELB.RegisterEndPointsInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.InvalidEndPointException | any, data: ELB.RegisterEndPointsOutput | any) => void): Request;
     /**
      * Removes one or more tags from the specified load balancer.
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      */
-    removeTags(params: ELB.RemoveTagsInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.RemoveTagsOutput|any) => void): Request;
+    removeTags(params: ELB.RemoveTagsInput, callback?: (err: ELB.AccessPointNotFoundException | any, data: ELB.RemoveTagsOutput | any) => void): Request;
     /**
      * Sets the certificate that terminates the specified listener&#x27;s SSL connections.
 The specified certificate replaces any prior certificate that was used on the
@@ -430,7 +430,7 @@ and Access Management (IAM).
      * @error ListenerNotFoundException The load balancer does not have a listener configured at the specified port.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    setLoadBalancerListenerSSLCertificate(params: ELB.SetLoadBalancerListenerSSLCertificateInput, callback?: (err: ELB.CertificateNotFoundException|ELB.AccessPointNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerListenerSSLCertificateOutput|any) => void): Request;
+    setLoadBalancerListenerSSLCertificate(params: ELB.SetLoadBalancerListenerSSLCertificateInput, callback?: (err: ELB.CertificateNotFoundException | ELB.AccessPointNotFoundException | ELB.ListenerNotFoundException | ELB.InvalidConfigurationRequestException | any, data: ELB.SetLoadBalancerListenerSSLCertificateOutput | any) => void): Request;
     /**
      * Replaces the set of policies associated with the specified port on which the
 back-end server is listening with a new set of policies. At this time, only the
@@ -448,7 +448,7 @@ the policy is associated with the back-end server.
      * @error PolicyNotFoundException One or more of the specified policies do not exist.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    setLoadBalancerPoliciesForBackendServer(params: ELB.SetLoadBalancerPoliciesForBackendServerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerPoliciesForBackendServerOutput|any) => void): Request;
+    setLoadBalancerPoliciesForBackendServer(params: ELB.SetLoadBalancerPoliciesForBackendServerInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.PolicyNotFoundException | ELB.InvalidConfigurationRequestException | any, data: ELB.SetLoadBalancerPoliciesForBackendServerOutput | any) => void): Request;
     /**
      * Associates, updates, or disables a policy with a listener for the specified load
 balancer. You can associate multiple policies with a listener.
@@ -458,281 +458,281 @@ balancer. You can associate multiple policies with a listener.
      * @error ListenerNotFoundException The load balancer does not have a listener configured at the specified port.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    setLoadBalancerPoliciesOfListener(params: ELB.SetLoadBalancerPoliciesOfListenerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerPoliciesOfListenerOutput|any) => void): Request;
+    setLoadBalancerPoliciesOfListener(params: ELB.SetLoadBalancerPoliciesOfListenerInput, callback?: (err: ELB.AccessPointNotFoundException | ELB.PolicyNotFoundException | ELB.ListenerNotFoundException | ELB.InvalidConfigurationRequestException | any, data: ELB.SetLoadBalancerPoliciesOfListenerOutput | any) => void): Request;
 
   }
 
   export module ELB {
-    
+
     export type AccessLogEnabled = boolean;
-    
+
     export type AccessLogInterval = number;
-    
+
     export type AccessLogPrefix = string;
-    
+
     export type AccessPointName = string;
-    
+
     export type AccessPointPort = number;
-    
+
     export type AdditionalAttributes = AdditionalAttribute[];
-    
+
     export type AppCookieStickinessPolicies = AppCookieStickinessPolicy[];
-    
+
     export type AttributeName = string;
-    
+
     export type AttributeType = string;
-    
+
     export type AttributeValue = string;
-    
+
     export type AvailabilityZone = string;
-    
+
     export type AvailabilityZones = AvailabilityZone[];
-    
+
     export type BackendServerDescriptions = BackendServerDescription[];
-    
+
     export type Cardinality = string;
-    
+
     export type ConnectionDrainingEnabled = boolean;
-    
+
     export type ConnectionDrainingTimeout = number;
-    
+
     export type CookieExpirationPeriod = number;
-    
+
     export type CookieName = string;
-    
+
     export type CreatedTime = number;
-    
+
     export type CrossZoneLoadBalancingEnabled = boolean;
-    
+
     export type DNSName = string;
-    
+
     export type DefaultValue = string;
-    
+
     export type Description = string;
-    
+
     export type EndPointPort = number;
-    
+
     export type HealthCheckInterval = number;
-    
+
     export type HealthCheckTarget = string;
-    
+
     export type HealthCheckTimeout = number;
-    
+
     export type HealthyThreshold = number;
-    
+
     export type IdleTimeout = number;
-    
+
     export type InstanceId = string;
-    
+
     export type InstancePort = number;
-    
+
     export type InstanceStates = InstanceState[];
-    
+
     export type Instances = Instance[];
-    
+
     export type LBCookieStickinessPolicies = LBCookieStickinessPolicy[];
-    
+
     export type ListenerDescriptions = ListenerDescription[];
-    
+
     export type Listeners = Listener[];
-    
+
     export type LoadBalancerDescriptions = LoadBalancerDescription[];
-    
+
     export type LoadBalancerNames = AccessPointName[];
-    
+
     export type LoadBalancerNamesMax20 = AccessPointName[];
-    
+
     export type LoadBalancerScheme = string;
-    
+
     export type Marker = string;
-    
+
     export type PageSize = number;
-    
+
     export type PolicyAttributeDescriptions = PolicyAttributeDescription[];
-    
+
     export type PolicyAttributeTypeDescriptions = PolicyAttributeTypeDescription[];
-    
+
     export type PolicyAttributes = PolicyAttribute[];
-    
+
     export type PolicyDescriptions = PolicyDescription[];
-    
+
     export type PolicyName = string;
-    
+
     export type PolicyNames = PolicyName[];
-    
+
     export type PolicyTypeDescriptions = PolicyTypeDescription[];
-    
+
     export type PolicyTypeName = string;
-    
+
     export type PolicyTypeNames = PolicyTypeName[];
-    
+
     export type Ports = AccessPointPort[];
-    
+
     export type Protocol = string;
-    
+
     export type ReasonCode = string;
-    
+
     export type S3BucketName = string;
-    
+
     export type SSLCertificateId = string;
-    
+
     export type SecurityGroupId = string;
-    
+
     export type SecurityGroupName = string;
-    
+
     export type SecurityGroupOwnerAlias = string;
-    
+
     export type SecurityGroups = SecurityGroupId[];
-    
+
     export type State = string;
-    
+
     export type StringVal = string;
-    
+
     export type SubnetId = string;
-    
+
     export type Subnets = SubnetId[];
-    
+
     export type TagDescriptions = TagDescription[];
-    
+
     export type TagKey = string;
-    
+
     export type TagKeyList = TagKeyOnly[];
-    
+
     export type TagList = Tag[];
-    
+
     export type TagValue = string;
-    
+
     export type UnhealthyThreshold = number;
-    
+
     export type VPCId = string;
 
     export interface AccessLog {
-        /** Specifies whether access log is enabled for the load balancer. **/
-        Enabled: AccessLogEnabled;
-        /** The name of the Amazon S3 bucket where the access logs are stored. **/
-        S3BucketName?: S3BucketName;
-        /** The interval for publishing the access logs. You can specify an interval of
+      /** Specifies whether access log is enabled for the load balancer. **/
+      Enabled: AccessLogEnabled;
+      /** The name of the Amazon S3 bucket where the access logs are stored. **/
+      S3BucketName?: S3BucketName;
+      /** The interval for publishing the access logs. You can specify an interval of
 either 5 minutes or 60 minutes.
 
 Default: 60 minutes **/
-        EmitInterval?: AccessLogInterval;
-        /** The logical hierarchy you created for your Amazon S3 bucket, for example 
+      EmitInterval?: AccessLogInterval;
+      /** The logical hierarchy you created for your Amazon S3 bucket, for example 
 my-bucket-prefix/prod . If the prefix is not provided, the log is placed at the
 root level of the bucket. **/
-        S3BucketPrefix?: AccessLogPrefix;
+      S3BucketPrefix?: AccessLogPrefix;
     }
     export interface AccessPointNotFoundException {
     }
     export interface AddAvailabilityZonesInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The Availability Zones. These must be in the same region as the load balancer. **/
-        AvailabilityZones: AvailabilityZones;
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The Availability Zones. These must be in the same region as the load balancer. **/
+      AvailabilityZones: AvailabilityZones;
     }
     export interface AddAvailabilityZonesOutput {
-        /** The updated list of Availability Zones for the load balancer. **/
-        AvailabilityZones?: AvailabilityZones;
+      /** The updated list of Availability Zones for the load balancer. **/
+      AvailabilityZones?: AvailabilityZones;
     }
     export interface AddTagsInput {
-        /** The name of the load balancer. You can specify one load balancer only. **/
-        LoadBalancerNames: LoadBalancerNames;
-        /** The tags. **/
-        Tags: TagList;
+      /** The name of the load balancer. You can specify one load balancer only. **/
+      LoadBalancerNames: LoadBalancerNames;
+      /** The tags. **/
+      Tags: TagList;
     }
     export interface AddTagsOutput {
     }
     export interface AdditionalAttribute {
-        /** This parameter is reserved. **/
-        Key?: StringVal;
-        /** This parameter is reserved. **/
-        Value?: StringVal;
+      /** This parameter is reserved. **/
+      Key?: StringVal;
+      /** This parameter is reserved. **/
+      Value?: StringVal;
     }
     export interface AppCookieStickinessPolicy {
-        /** The mnemonic name for the policy being created. The name must be unique within a
+      /** The mnemonic name for the policy being created. The name must be unique within a
 set of policies for this load balancer. **/
-        PolicyName?: PolicyName;
-        /** The name of the application cookie used for stickiness. **/
-        CookieName?: CookieName;
+      PolicyName?: PolicyName;
+      /** The name of the application cookie used for stickiness. **/
+      CookieName?: CookieName;
     }
     export interface ApplySecurityGroupsToLoadBalancerInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The IDs of the security groups to associate with the load balancer. Note that
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The IDs of the security groups to associate with the load balancer. Note that
 you cannot specify the name of the security group. **/
-        SecurityGroups: SecurityGroups;
+      SecurityGroups: SecurityGroups;
     }
     export interface ApplySecurityGroupsToLoadBalancerOutput {
-        /** The IDs of the security groups associated with the load balancer. **/
-        SecurityGroups?: SecurityGroups;
+      /** The IDs of the security groups associated with the load balancer. **/
+      SecurityGroups?: SecurityGroups;
     }
     export interface AttachLoadBalancerToSubnetsInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The IDs of the subnets to add for the load balancer. You can add only one subnet
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The IDs of the subnets to add for the load balancer. You can add only one subnet
 per Availability Zone. **/
-        Subnets: Subnets;
+      Subnets: Subnets;
     }
     export interface AttachLoadBalancerToSubnetsOutput {
-        /** The IDs of the subnets attached to the load balancer. **/
-        Subnets?: Subnets;
+      /** The IDs of the subnets attached to the load balancer. **/
+      Subnets?: Subnets;
     }
     export interface BackendServerDescription {
-        /** The port on which the back-end server is listening. **/
-        InstancePort?: InstancePort;
-        /** The names of the policies enabled for the back-end server. **/
-        PolicyNames?: PolicyNames;
+      /** The port on which the back-end server is listening. **/
+      InstancePort?: InstancePort;
+      /** The names of the policies enabled for the back-end server. **/
+      PolicyNames?: PolicyNames;
     }
     export interface CertificateNotFoundException {
     }
     export interface ConfigureHealthCheckInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The configuration information for the new health check. **/
-        HealthCheck: HealthCheck;
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The configuration information for the new health check. **/
+      HealthCheck: HealthCheck;
     }
     export interface ConfigureHealthCheckOutput {
-        /** The updated health check. **/
-        HealthCheck?: HealthCheck;
+      /** The updated health check. **/
+      HealthCheck?: HealthCheck;
     }
     export interface ConnectionDraining {
-        /** Specifies whether connection draining is enabled for the load balancer. **/
-        Enabled: ConnectionDrainingEnabled;
-        /** The maximum time, in seconds, to keep the existing connections open before
+      /** Specifies whether connection draining is enabled for the load balancer. **/
+      Enabled: ConnectionDrainingEnabled;
+      /** The maximum time, in seconds, to keep the existing connections open before
 deregistering the instances. **/
-        Timeout?: ConnectionDrainingTimeout;
+      Timeout?: ConnectionDrainingTimeout;
     }
     export interface ConnectionSettings {
-        /** The time, in seconds, that the connection is allowed to be idle (no data has
+      /** The time, in seconds, that the connection is allowed to be idle (no data has
 been sent over the connection) before it is closed by the load balancer. **/
-        IdleTimeout: IdleTimeout;
+      IdleTimeout: IdleTimeout;
     }
     export interface CreateAccessPointInput {
-        /** The name of the load balancer.
+      /** The name of the load balancer.
 
 This name must be unique within your AWS account, must have a maximum of 32
 characters, must contain only alphanumeric characters or hyphens, and cannot
 begin or end with a hyphen. **/
-        LoadBalancerName: AccessPointName;
-        /** The listeners.
+      LoadBalancerName: AccessPointName;
+      /** The listeners.
 
 For more information, see Listeners for Your Load Balancer
 [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html] 
 in the Elastic Load Balancing Developer Guide . **/
-        Listeners: Listeners;
-        /** One or more Availability Zones from the same region as the load balancer.
+      Listeners: Listeners;
+      /** One or more Availability Zones from the same region as the load balancer.
 Traffic is equally distributed across all specified Availability Zones.
 
 You must specify at least one Availability Zone.
 
 You can add more Availability Zones after you create the load balancer using 
 EnableAvailabilityZonesForLoadBalancer . **/
-        AvailabilityZones?: AvailabilityZones;
-        /** The IDs of the subnets in your VPC to attach to the load balancer. Specify one
+      AvailabilityZones?: AvailabilityZones;
+      /** The IDs of the subnets in your VPC to attach to the load balancer. Specify one
 subnet per Availability Zone specified in AvailabilityZones . **/
-        Subnets?: Subnets;
-        /** The IDs of the security groups to assign to the load balancer. **/
-        SecurityGroups?: SecurityGroups;
-        /** The type of a load balancer. Valid only for load balancers in a VPC.
+      Subnets?: Subnets;
+      /** The IDs of the security groups to assign to the load balancer. **/
+      SecurityGroups?: SecurityGroups;
+      /** The type of a load balancer. Valid only for load balancers in a VPC.
 
 By default, Elastic Load Balancing creates an Internet-facing load balancer with
 a publicly resolvable DNS name, which resolves to public IP addresses. For more
@@ -743,171 +743,171 @@ in the Elastic Load Balancing Developer Guide .
 
 Specify internal to create an internal load balancer with a DNS name that
 resolves to private IP addresses. **/
-        Scheme?: LoadBalancerScheme;
-        /** A list of tags to assign to the load balancer.
+      Scheme?: LoadBalancerScheme;
+      /** A list of tags to assign to the load balancer.
 
 For more information about tagging your load balancer, see Tagging
 [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb] 
 in the Elastic Load Balancing Developer Guide . **/
-        Tags?: TagList;
+      Tags?: TagList;
     }
     export interface CreateAccessPointOutput {
-        /** The DNS name of the load balancer. **/
-        DNSName?: DNSName;
+      /** The DNS name of the load balancer. **/
+      DNSName?: DNSName;
     }
     export interface CreateAppCookieStickinessPolicyInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The name of the policy being created. This name must be unique within the set of
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The name of the policy being created. This name must be unique within the set of
 policies for this load balancer. **/
-        PolicyName: PolicyName;
-        /** The name of the application cookie used for stickiness. **/
-        CookieName: CookieName;
+      PolicyName: PolicyName;
+      /** The name of the application cookie used for stickiness. **/
+      CookieName: CookieName;
     }
     export interface CreateAppCookieStickinessPolicyOutput {
     }
     export interface CreateLBCookieStickinessPolicyInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The name of the policy being created. This name must be unique within the set of
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The name of the policy being created. This name must be unique within the set of
 policies for this load balancer. **/
-        PolicyName: PolicyName;
-        /** The time period, in seconds, after which the cookie should be considered stale.
+      PolicyName: PolicyName;
+      /** The time period, in seconds, after which the cookie should be considered stale.
 If you do not specify this parameter, the sticky session lasts for the duration
 of the browser session. **/
-        CookieExpirationPeriod?: CookieExpirationPeriod;
+      CookieExpirationPeriod?: CookieExpirationPeriod;
     }
     export interface CreateLBCookieStickinessPolicyOutput {
     }
     export interface CreateLoadBalancerListenerInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The listeners. **/
-        Listeners: Listeners;
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The listeners. **/
+      Listeners: Listeners;
     }
     export interface CreateLoadBalancerListenerOutput {
     }
     export interface CreateLoadBalancerPolicyInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The name of the load balancer policy to be created. This name must be unique
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The name of the load balancer policy to be created. This name must be unique
 within the set of policies for this load balancer. **/
-        PolicyName: PolicyName;
-        /** The name of the base policy type. To get the list of policy types, use 
+      PolicyName: PolicyName;
+      /** The name of the base policy type. To get the list of policy types, use 
 DescribeLoadBalancerPolicyTypes . **/
-        PolicyTypeName: PolicyTypeName;
-        /** The attributes for the policy. **/
-        PolicyAttributes?: PolicyAttributes;
+      PolicyTypeName: PolicyTypeName;
+      /** The attributes for the policy. **/
+      PolicyAttributes?: PolicyAttributes;
     }
     export interface CreateLoadBalancerPolicyOutput {
     }
     export interface CrossZoneLoadBalancing {
-        /** Specifies whether cross-zone load balancing is enabled for the load balancer. **/
-        Enabled: CrossZoneLoadBalancingEnabled;
+      /** Specifies whether cross-zone load balancing is enabled for the load balancer. **/
+      Enabled: CrossZoneLoadBalancingEnabled;
     }
     export interface DeleteAccessPointInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
     }
     export interface DeleteAccessPointOutput {
     }
     export interface DeleteLoadBalancerListenerInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The client port numbers of the listeners. **/
-        LoadBalancerPorts: Ports;
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The client port numbers of the listeners. **/
+      LoadBalancerPorts: Ports;
     }
     export interface DeleteLoadBalancerListenerOutput {
     }
     export interface DeleteLoadBalancerPolicyInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The name of the policy. **/
-        PolicyName: PolicyName;
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The name of the policy. **/
+      PolicyName: PolicyName;
     }
     export interface DeleteLoadBalancerPolicyOutput {
     }
     export interface DeregisterEndPointsInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The IDs of the instances. **/
-        Instances: Instances;
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The IDs of the instances. **/
+      Instances: Instances;
     }
     export interface DeregisterEndPointsOutput {
-        /** The remaining instances registered with the load balancer. **/
-        Instances?: Instances;
+      /** The remaining instances registered with the load balancer. **/
+      Instances?: Instances;
     }
     export interface DescribeAccessPointsInput {
-        /** The names of the load balancers. **/
-        LoadBalancerNames?: LoadBalancerNames;
-        /** The marker for the next set of results. (You received this marker from a
+      /** The names of the load balancers. **/
+      LoadBalancerNames?: LoadBalancerNames;
+      /** The marker for the next set of results. (You received this marker from a
 previous call.) **/
-        Marker?: Marker;
-        /** The maximum number of results to return with this call (a number from 1 to 400).
+      Marker?: Marker;
+      /** The maximum number of results to return with this call (a number from 1 to 400).
 The default is 400. **/
-        PageSize?: PageSize;
+      PageSize?: PageSize;
     }
     export interface DescribeAccessPointsOutput {
-        /** Information about the load balancers. **/
-        LoadBalancerDescriptions?: LoadBalancerDescriptions;
-        /** The marker to use when requesting the next set of results. If there are no
+      /** Information about the load balancers. **/
+      LoadBalancerDescriptions?: LoadBalancerDescriptions;
+      /** The marker to use when requesting the next set of results. If there are no
 additional results, the string is empty. **/
-        NextMarker?: Marker;
+      NextMarker?: Marker;
     }
     export interface DescribeEndPointStateInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The IDs of the instances. **/
-        Instances?: Instances;
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The IDs of the instances. **/
+      Instances?: Instances;
     }
     export interface DescribeEndPointStateOutput {
-        /** Information about the health of the instances. **/
-        InstanceStates?: InstanceStates;
+      /** Information about the health of the instances. **/
+      InstanceStates?: InstanceStates;
     }
     export interface DescribeLoadBalancerAttributesInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
     }
     export interface DescribeLoadBalancerAttributesOutput {
-        /** Information about the load balancer attributes. **/
-        LoadBalancerAttributes?: LoadBalancerAttributes;
+      /** Information about the load balancer attributes. **/
+      LoadBalancerAttributes?: LoadBalancerAttributes;
     }
     export interface DescribeLoadBalancerPoliciesInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName?: AccessPointName;
-        /** The names of the policies. **/
-        PolicyNames?: PolicyNames;
+      /** The name of the load balancer. **/
+      LoadBalancerName?: AccessPointName;
+      /** The names of the policies. **/
+      PolicyNames?: PolicyNames;
     }
     export interface DescribeLoadBalancerPoliciesOutput {
-        /** Information about the policies. **/
-        PolicyDescriptions?: PolicyDescriptions;
+      /** Information about the policies. **/
+      PolicyDescriptions?: PolicyDescriptions;
     }
     export interface DescribeLoadBalancerPolicyTypesInput {
-        /** The names of the policy types. If no names are specified, describes all policy
+      /** The names of the policy types. If no names are specified, describes all policy
 types defined by Elastic Load Balancing. **/
-        PolicyTypeNames?: PolicyTypeNames;
+      PolicyTypeNames?: PolicyTypeNames;
     }
     export interface DescribeLoadBalancerPolicyTypesOutput {
-        /** Information about the policy types. **/
-        PolicyTypeDescriptions?: PolicyTypeDescriptions;
+      /** Information about the policy types. **/
+      PolicyTypeDescriptions?: PolicyTypeDescriptions;
     }
     export interface DescribeTagsInput {
-        /** The names of the load balancers. **/
-        LoadBalancerNames: LoadBalancerNamesMax20;
+      /** The names of the load balancers. **/
+      LoadBalancerNames: LoadBalancerNamesMax20;
     }
     export interface DescribeTagsOutput {
-        /** Information about the tags. **/
-        TagDescriptions?: TagDescriptions;
+      /** Information about the tags. **/
+      TagDescriptions?: TagDescriptions;
     }
     export interface DetachLoadBalancerFromSubnetsInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The IDs of the subnets. **/
-        Subnets: Subnets;
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The IDs of the subnets. **/
+      Subnets: Subnets;
     }
     export interface DetachLoadBalancerFromSubnetsOutput {
-        /** The IDs of the remaining subnets for the load balancer. **/
-        Subnets?: Subnets;
+      /** The IDs of the remaining subnets for the load balancer. **/
+      Subnets?: Subnets;
     }
     export interface DuplicateAccessPointNameException {
     }
@@ -918,7 +918,7 @@ types defined by Elastic Load Balancing. **/
     export interface DuplicateTagKeysException {
     }
     export interface HealthCheck {
-        /** The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The
+      /** The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The
 range of valid ports is one (1) through 65535.
 
 TCP is the default, specified as a TCP: port pair, for example &quot;TCP:5000&quot;. In
@@ -936,79 +936,79 @@ unhealthy.
 
 The total length of the HTTP ping target must be 1024 16-bit Unicode characters
 or less. **/
-        Target: HealthCheckTarget;
-        /** The approximate interval, in seconds, between health checks of an individual
+      Target: HealthCheckTarget;
+      /** The approximate interval, in seconds, between health checks of an individual
 instance. **/
-        Interval: HealthCheckInterval;
-        /** The amount of time, in seconds, during which no response means a failed health
+      Interval: HealthCheckInterval;
+      /** The amount of time, in seconds, during which no response means a failed health
 check.
 
 This value must be less than the Interval value. **/
-        Timeout: HealthCheckTimeout;
-        /** The number of consecutive health check failures required before moving the
+      Timeout: HealthCheckTimeout;
+      /** The number of consecutive health check failures required before moving the
 instance to the Unhealthy state. **/
-        UnhealthyThreshold: UnhealthyThreshold;
-        /** The number of consecutive health checks successes required before moving the
+      UnhealthyThreshold: UnhealthyThreshold;
+      /** The number of consecutive health checks successes required before moving the
 instance to the Healthy state. **/
-        HealthyThreshold: HealthyThreshold;
+      HealthyThreshold: HealthyThreshold;
     }
     export interface Instance {
-        /** The ID of the instance. **/
-        InstanceId?: InstanceId;
+      /** The ID of the instance. **/
+      InstanceId?: InstanceId;
     }
     export interface InstanceState {
-        /** The ID of the instance. **/
-        InstanceId?: InstanceId;
-        /** The current state of the instance.
+      /** The ID of the instance. **/
+      InstanceId?: InstanceId;
+      /** The current state of the instance.
 
 Valid values: InService | OutOfService | Unknown **/
-        State?: State;
-        /** Information about the cause of OutOfService instances. Specifically, whether the
+      State?: State;
+      /** Information about the cause of OutOfService instances. Specifically, whether the
 cause is Elastic Load Balancing or the instance.
 
 Valid values: ELB | Instance | N/A **/
-        ReasonCode?: ReasonCode;
-        /** A description of the instance state. This string can contain one or more of the
+      ReasonCode?: ReasonCode;
+      /** A description of the instance state. This string can contain one or more of the
 following messages.
 
- &amp;#42; N/A
-   
-   
- * A transient error occurred. Please try again later.
-   
-   
- * Instance has failed at least the UnhealthyThreshold number of health checks
-   consecutively.
-   
-   
- * Instance has not passed the configured HealthyThreshold number of health
-   checks consecutively.
-   
-   
- * Instance registration is still in progress.
-   
-   
- * Instance is in the EC2 Availability Zone for which LoadBalancer is not
-   configured to route traffic to.
-   
-   
- * Instance is not currently registered with the LoadBalancer.
-   
-   
- * Instance deregistration currently in progress.
-   
-   
- * Disable Availability Zone is currently in progress.
-   
-   
- * Instance is in pending state.
-   
-   
- * Instance is in stopped state.
-   
-   
- * Instance is in terminated state. **/
-        Description?: Description;
+&amp;#42; N/A
+ 
+ 
+* A transient error occurred. Please try again later.
+ 
+ 
+* Instance has failed at least the UnhealthyThreshold number of health checks
+ consecutively.
+ 
+ 
+* Instance has not passed the configured HealthyThreshold number of health
+ checks consecutively.
+ 
+ 
+* Instance registration is still in progress.
+ 
+ 
+* Instance is in the EC2 Availability Zone for which LoadBalancer is not
+ configured to route traffic to.
+ 
+ 
+* Instance is not currently registered with the LoadBalancer.
+ 
+ 
+* Instance deregistration currently in progress.
+ 
+ 
+* Disable Availability Zone is currently in progress.
+ 
+ 
+* Instance is in pending state.
+ 
+ 
+* Instance is in stopped state.
+ 
+ 
+* Instance is in terminated state. **/
+      Description?: Description;
     }
     export interface InvalidConfigurationRequestException {
     }
@@ -1021,22 +1021,22 @@ following messages.
     export interface InvalidSubnetException {
     }
     export interface LBCookieStickinessPolicy {
-        /** The name for the policy being created. The name must be unique within the set of
+      /** The name for the policy being created. The name must be unique within the set of
 policies for this load balancer. **/
-        PolicyName?: PolicyName;
-        /** The time period, in seconds, after which the cookie should be considered stale.
+      PolicyName?: PolicyName;
+      /** The time period, in seconds, after which the cookie should be considered stale.
 If this parameter is not specified, the stickiness session lasts for the
 duration of the browser session. **/
-        CookieExpirationPeriod?: CookieExpirationPeriod;
+      CookieExpirationPeriod?: CookieExpirationPeriod;
     }
     export interface Listener {
-        /** The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or
+      /** The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or
 SSL. **/
-        Protocol: Protocol;
-        /** The port on which the load balancer is listening. The supported ports are: 25,
+      Protocol: Protocol;
+      /** The port on which the load balancer is listening. The supported ports are: 25,
 80, 443, 465, 587, and 1024-65535. **/
-        LoadBalancerPort: AccessPointPort;
-        /** The protocol to use for routing traffic to back-end instances: HTTP, HTTPS, TCP,
+      LoadBalancerPort: AccessPointPort;
+      /** The protocol to use for routing traffic to back-end instances: HTTP, HTTPS, TCP,
 or SSL.
 
 If the front-end protocol is HTTP, HTTPS, TCP, or SSL, InstanceProtocol must be
@@ -1047,45 +1047,45 @@ is secure, (HTTPS or SSL), the listener&#x27;s InstanceProtocol must also be sec
 
 If there is another listener with the same InstancePort whose InstanceProtocol 
 is HTTP or TCP, the listener&#x27;s InstanceProtocol must be HTTP or TCP. **/
-        InstanceProtocol?: Protocol;
-        /** The port on which the instance is listening. **/
-        InstancePort: InstancePort;
-        /** The Amazon Resource Name (ARN) of the server certificate. **/
-        SSLCertificateId?: SSLCertificateId;
+      InstanceProtocol?: Protocol;
+      /** The port on which the instance is listening. **/
+      InstancePort: InstancePort;
+      /** The Amazon Resource Name (ARN) of the server certificate. **/
+      SSLCertificateId?: SSLCertificateId;
     }
     export interface ListenerDescription {
-        Listener?: Listener;
-        /** The policies. If there are no policies enabled, the list is empty. **/
-        PolicyNames?: PolicyNames;
+      Listener?: Listener;
+      /** The policies. If there are no policies enabled, the list is empty. **/
+      PolicyNames?: PolicyNames;
     }
     export interface ListenerNotFoundException {
     }
     export interface LoadBalancerAttributeNotFoundException {
     }
     export interface LoadBalancerAttributes {
-        /** If enabled, the load balancer routes the request traffic evenly across all
+      /** If enabled, the load balancer routes the request traffic evenly across all
 back-end instances regardless of the Availability Zones.
 
 For more information, see Enable Cross-Zone Load Balancing
 [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-disable-crosszone-lb.html] 
 in the Elastic Load Balancing Developer Guide . **/
-        CrossZoneLoadBalancing?: CrossZoneLoadBalancing;
-        /** If enabled, the load balancer captures detailed information of all requests and
+      CrossZoneLoadBalancing?: CrossZoneLoadBalancing;
+      /** If enabled, the load balancer captures detailed information of all requests and
 delivers the information to the Amazon S3 bucket that you specify.
 
 For more information, see Enable Access Logs
 [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-access-logs.html] 
 in the Elastic Load Balancing Developer Guide . **/
-        AccessLog?: AccessLog;
-        /** If enabled, the load balancer allows existing requests to complete before the
+      AccessLog?: AccessLog;
+      /** If enabled, the load balancer allows existing requests to complete before the
 load balancer shifts traffic away from a deregistered or unhealthy back-end
 instance.
 
 For more information, see Enable Connection Draining
 [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-conn-drain.html] 
 in the Elastic Load Balancing Developer Guide . **/
-        ConnectionDraining?: ConnectionDraining;
-        /** If enabled, the load balancer allows the connections to remain idle (no data is
+      ConnectionDraining?: ConnectionDraining;
+      /** If enabled, the load balancer allows the connections to remain idle (no data is
 sent over the connection) for the specified duration.
 
 By default, Elastic Load Balancing maintains a 60-second idle connection timeout
@@ -1093,214 +1093,214 @@ for both front-end and back-end connections of your load balancer. For more
 information, see Configure Idle Connection Timeout
 [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-idle-timeout.html] 
 in the Elastic Load Balancing Developer Guide . **/
-        ConnectionSettings?: ConnectionSettings;
-        /** This parameter is reserved. **/
-        AdditionalAttributes?: AdditionalAttributes;
+      ConnectionSettings?: ConnectionSettings;
+      /** This parameter is reserved. **/
+      AdditionalAttributes?: AdditionalAttributes;
     }
     export interface LoadBalancerDescription {
-        /** The name of the load balancer. **/
-        LoadBalancerName?: AccessPointName;
-        /** The external DNS name of the load balancer. **/
-        DNSName?: DNSName;
-        /** The Amazon Route 53 hosted zone associated with the load balancer.
+      /** The name of the load balancer. **/
+      LoadBalancerName?: AccessPointName;
+      /** The external DNS name of the load balancer. **/
+      DNSName?: DNSName;
+      /** The Amazon Route 53 hosted zone associated with the load balancer.
 
 For more information, see Using Domain Names With Elastic Load Balancing
 [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-domain-names-with-elb.html] 
 in the Elastic Load Balancing Developer Guide . **/
-        CanonicalHostedZoneName?: DNSName;
-        /** The ID of the Amazon Route 53 hosted zone name associated with the load
+      CanonicalHostedZoneName?: DNSName;
+      /** The ID of the Amazon Route 53 hosted zone name associated with the load
 balancer. **/
-        CanonicalHostedZoneNameID?: DNSName;
-        /** The listeners for the load balancer. **/
-        ListenerDescriptions?: ListenerDescriptions;
-        /** The policies defined for the load balancer. **/
-        Policies?: Policies;
-        /** Information about the back-end servers. **/
-        BackendServerDescriptions?: BackendServerDescriptions;
-        /** The Availability Zones for the load balancer. **/
-        AvailabilityZones?: AvailabilityZones;
-        /** The IDs of the subnets for the load balancer. **/
-        Subnets?: Subnets;
-        /** The ID of the VPC for the load balancer. **/
-        VPCId?: VPCId;
-        /** The IDs of the instances for the load balancer. **/
-        Instances?: Instances;
-        /** Information about the health checks conducted on the load balancer. **/
-        HealthCheck?: HealthCheck;
-        /** The security group that you can use as part of your inbound rules for your load
+      CanonicalHostedZoneNameID?: DNSName;
+      /** The listeners for the load balancer. **/
+      ListenerDescriptions?: ListenerDescriptions;
+      /** The policies defined for the load balancer. **/
+      Policies?: Policies;
+      /** Information about the back-end servers. **/
+      BackendServerDescriptions?: BackendServerDescriptions;
+      /** The Availability Zones for the load balancer. **/
+      AvailabilityZones?: AvailabilityZones;
+      /** The IDs of the subnets for the load balancer. **/
+      Subnets?: Subnets;
+      /** The ID of the VPC for the load balancer. **/
+      VPCId?: VPCId;
+      /** The IDs of the instances for the load balancer. **/
+      Instances?: Instances;
+      /** Information about the health checks conducted on the load balancer. **/
+      HealthCheck?: HealthCheck;
+      /** The security group that you can use as part of your inbound rules for your load
 balancer&#x27;s back-end application instances. To only allow traffic from load
 balancers, add a security group rule to your back end instance that specifies
 this source security group as the inbound source. **/
-        SourceSecurityGroup?: SourceSecurityGroup;
-        /** The security groups for the load balancer. Valid only for load balancers in a
+      SourceSecurityGroup?: SourceSecurityGroup;
+      /** The security groups for the load balancer. Valid only for load balancers in a
 VPC. **/
-        SecurityGroups?: SecurityGroups;
-        /** The date and time the load balancer was created. **/
-        CreatedTime?: CreatedTime;
-        /** The type of load balancer. Valid only for load balancers in a VPC.
+      SecurityGroups?: SecurityGroups;
+      /** The date and time the load balancer was created. **/
+      CreatedTime?: CreatedTime;
+      /** The type of load balancer. Valid only for load balancers in a VPC.
 
 If Scheme is internet-facing , the load balancer has a public DNS name that
 resolves to a public IP address.
 
 If Scheme is internal , the load balancer has a public DNS name that resolves to
 a private IP address. **/
-        Scheme?: LoadBalancerScheme;
+      Scheme?: LoadBalancerScheme;
     }
     export interface ModifyLoadBalancerAttributesInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The attributes of the load balancer. **/
-        LoadBalancerAttributes: LoadBalancerAttributes;
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The attributes of the load balancer. **/
+      LoadBalancerAttributes: LoadBalancerAttributes;
     }
     export interface ModifyLoadBalancerAttributesOutput {
-        /** The name of the load balancer. **/
-        LoadBalancerName?: AccessPointName;
-        LoadBalancerAttributes?: LoadBalancerAttributes;
+      /** The name of the load balancer. **/
+      LoadBalancerName?: AccessPointName;
+      LoadBalancerAttributes?: LoadBalancerAttributes;
     }
     export interface Policies {
-        /** The stickiness policies created using CreateAppCookieStickinessPolicy . **/
-        AppCookieStickinessPolicies?: AppCookieStickinessPolicies;
-        /** The stickiness policies created using CreateLBCookieStickinessPolicy . **/
-        LBCookieStickinessPolicies?: LBCookieStickinessPolicies;
-        /** The policies other than the stickiness policies. **/
-        OtherPolicies?: PolicyNames;
+      /** The stickiness policies created using CreateAppCookieStickinessPolicy . **/
+      AppCookieStickinessPolicies?: AppCookieStickinessPolicies;
+      /** The stickiness policies created using CreateLBCookieStickinessPolicy . **/
+      LBCookieStickinessPolicies?: LBCookieStickinessPolicies;
+      /** The policies other than the stickiness policies. **/
+      OtherPolicies?: PolicyNames;
     }
     export interface PolicyAttribute {
-        /** The name of the attribute. **/
-        AttributeName?: AttributeName;
-        /** The value of the attribute. **/
-        AttributeValue?: AttributeValue;
+      /** The name of the attribute. **/
+      AttributeName?: AttributeName;
+      /** The value of the attribute. **/
+      AttributeValue?: AttributeValue;
     }
     export interface PolicyAttributeDescription {
-        /** The name of the attribute. **/
-        AttributeName?: AttributeName;
-        /** The value of the attribute. **/
-        AttributeValue?: AttributeValue;
+      /** The name of the attribute. **/
+      AttributeName?: AttributeName;
+      /** The value of the attribute. **/
+      AttributeValue?: AttributeValue;
     }
     export interface PolicyAttributeTypeDescription {
-        /** The name of the attribute. **/
-        AttributeName?: AttributeName;
-        /** The type of the attribute. For example, Boolean or Integer . **/
-        AttributeType?: AttributeType;
-        /** A description of the attribute. **/
-        Description?: Description;
-        /** The default value of the attribute, if applicable. **/
-        DefaultValue?: DefaultValue;
-        /** The cardinality of the attribute.
+      /** The name of the attribute. **/
+      AttributeName?: AttributeName;
+      /** The type of the attribute. For example, Boolean or Integer . **/
+      AttributeType?: AttributeType;
+      /** A description of the attribute. **/
+      Description?: Description;
+      /** The default value of the attribute, if applicable. **/
+      DefaultValue?: DefaultValue;
+      /** The cardinality of the attribute.
 
 Valid values:
 
- &amp;#42; ONE(1) : Single value required
- * ZERO_OR_ONE(0..1) : Up to one value can be supplied
- * ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
- * ONE_OR_MORE(1..*0) : Required. Multiple values are allowed **/
-        Cardinality?: Cardinality;
+&amp;#42; ONE(1) : Single value required
+* ZERO_OR_ONE(0..1) : Up to one value can be supplied
+* ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
+* ONE_OR_MORE(1..*0) : Required. Multiple values are allowed **/
+      Cardinality?: Cardinality;
     }
     export interface PolicyDescription {
-        /** The name of the policy. **/
-        PolicyName?: PolicyName;
-        /** The name of the policy type. **/
-        PolicyTypeName?: PolicyTypeName;
-        /** The policy attributes. **/
-        PolicyAttributeDescriptions?: PolicyAttributeDescriptions;
+      /** The name of the policy. **/
+      PolicyName?: PolicyName;
+      /** The name of the policy type. **/
+      PolicyTypeName?: PolicyTypeName;
+      /** The policy attributes. **/
+      PolicyAttributeDescriptions?: PolicyAttributeDescriptions;
     }
     export interface PolicyNotFoundException {
     }
     export interface PolicyTypeDescription {
-        /** The name of the policy type. **/
-        PolicyTypeName?: PolicyTypeName;
-        /** A description of the policy type. **/
-        Description?: Description;
-        /** The description of the policy attributes associated with the policies defined by
+      /** The name of the policy type. **/
+      PolicyTypeName?: PolicyTypeName;
+      /** A description of the policy type. **/
+      Description?: Description;
+      /** The description of the policy attributes associated with the policies defined by
 Elastic Load Balancing. **/
-        PolicyAttributeTypeDescriptions?: PolicyAttributeTypeDescriptions;
+      PolicyAttributeTypeDescriptions?: PolicyAttributeTypeDescriptions;
     }
     export interface PolicyTypeNotFoundException {
     }
     export interface RegisterEndPointsInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The IDs of the instances. **/
-        Instances: Instances;
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The IDs of the instances. **/
+      Instances: Instances;
     }
     export interface RegisterEndPointsOutput {
-        /** The updated list of instances for the load balancer. **/
-        Instances?: Instances;
+      /** The updated list of instances for the load balancer. **/
+      Instances?: Instances;
     }
     export interface RemoveAvailabilityZonesInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The Availability Zones. **/
-        AvailabilityZones: AvailabilityZones;
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The Availability Zones. **/
+      AvailabilityZones: AvailabilityZones;
     }
     export interface RemoveAvailabilityZonesOutput {
-        /** The remaining Availability Zones for the load balancer. **/
-        AvailabilityZones?: AvailabilityZones;
+      /** The remaining Availability Zones for the load balancer. **/
+      AvailabilityZones?: AvailabilityZones;
     }
     export interface RemoveTagsInput {
-        /** The name of the load balancer. You can specify a maximum of one load balancer
+      /** The name of the load balancer. You can specify a maximum of one load balancer
 name. **/
-        LoadBalancerNames: LoadBalancerNames;
-        /** The list of tag keys to remove. **/
-        Tags: TagKeyList;
+      LoadBalancerNames: LoadBalancerNames;
+      /** The list of tag keys to remove. **/
+      Tags: TagKeyList;
     }
     export interface RemoveTagsOutput {
     }
     export interface SetLoadBalancerListenerSSLCertificateInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The port that uses the specified SSL certificate. **/
-        LoadBalancerPort: AccessPointPort;
-        /** The Amazon Resource Name (ARN) of the SSL certificate. **/
-        SSLCertificateId: SSLCertificateId;
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The port that uses the specified SSL certificate. **/
+      LoadBalancerPort: AccessPointPort;
+      /** The Amazon Resource Name (ARN) of the SSL certificate. **/
+      SSLCertificateId: SSLCertificateId;
     }
     export interface SetLoadBalancerListenerSSLCertificateOutput {
     }
     export interface SetLoadBalancerPoliciesForBackendServerInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The port number associated with the back-end server. **/
-        InstancePort: EndPointPort;
-        /** The names of the policies. If the list is empty, then all current polices are
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The port number associated with the back-end server. **/
+      InstancePort: EndPointPort;
+      /** The names of the policies. If the list is empty, then all current polices are
 removed from the back-end server. **/
-        PolicyNames: PolicyNames;
+      PolicyNames: PolicyNames;
     }
     export interface SetLoadBalancerPoliciesForBackendServerOutput {
     }
     export interface SetLoadBalancerPoliciesOfListenerInput {
-        /** The name of the load balancer. **/
-        LoadBalancerName: AccessPointName;
-        /** The external port of the load balancer for the policy. **/
-        LoadBalancerPort: AccessPointPort;
-        /** The names of the policies. If the list is empty, the current policy is removed
+      /** The name of the load balancer. **/
+      LoadBalancerName: AccessPointName;
+      /** The external port of the load balancer for the policy. **/
+      LoadBalancerPort: AccessPointPort;
+      /** The names of the policies. If the list is empty, the current policy is removed
 from the listener. **/
-        PolicyNames: PolicyNames;
+      PolicyNames: PolicyNames;
     }
     export interface SetLoadBalancerPoliciesOfListenerOutput {
     }
     export interface SourceSecurityGroup {
-        /** The owner of the security group. **/
-        OwnerAlias?: SecurityGroupOwnerAlias;
-        /** The name of the security group. **/
-        GroupName?: SecurityGroupName;
+      /** The owner of the security group. **/
+      OwnerAlias?: SecurityGroupOwnerAlias;
+      /** The name of the security group. **/
+      GroupName?: SecurityGroupName;
     }
     export interface SubnetNotFoundException {
     }
     export interface Tag {
-        /** The key of the tag. **/
-        Key: TagKey;
-        /** The value of the tag. **/
-        Value?: TagValue;
+      /** The key of the tag. **/
+      Key: TagKey;
+      /** The value of the tag. **/
+      Value?: TagValue;
     }
     export interface TagDescription {
-        /** The name of the load balancer. **/
-        LoadBalancerName?: AccessPointName;
-        /** The tags. **/
-        Tags?: TagList;
+      /** The name of the load balancer. **/
+      LoadBalancerName?: AccessPointName;
+      /** The tags. **/
+      Tags?: TagList;
     }
     export interface TagKeyOnly {
-        /** The name of the key. **/
-        Key?: TagKey;
+      /** The name of the key. **/
+      Key?: TagKey;
     }
     export interface TooManyAccessPointsException {
     }

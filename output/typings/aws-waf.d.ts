@@ -7,20 +7,20 @@
 
 declare module "aws-sdk" {
 
- /**
-   * apiVersion: 2015-08-24
-   * endpointPrefix: waf
-   * serviceAbbreviation: WAF
-   * signatureVersion: v4
-   * protocol: json
-   *
-   * This is the AWS WAF API Reference . This guide is for developers who need
-detailed information about the AWS WAF API actions, data types, and errors. For
-detailed information about AWS WAF features and an overview of how to use the
-AWS WAF API, see the AWS WAF Developer Guide
-[http://docs.aws.amazon.com/waf/latest/developerguide/] .
-   *
-   */
+  /**
+    * apiVersion: 2015-08-24
+    * endpointPrefix: waf
+    * serviceAbbreviation: WAF
+    * signatureVersion: v4
+    * protocol: json
+    *
+    * This is the AWS WAF API Reference . This guide is for developers who need
+ detailed information about the AWS WAF API actions, data types, and errors. For
+ detailed information about AWS WAF features and an overview of how to use the
+ AWS WAF API, see the AWS WAF Developer Guide
+ [http://docs.aws.amazon.com/waf/latest/developerguide/] .
+    *
+    */
   export class WAF extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
@@ -53,7 +53,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFStaleDataException   
      * @error WAFLimitsExceededException   
      */
-    createByteMatchSet(params: WAF.CreateByteMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.CreateByteMatchSetResponse|any) => void): Request;
+    createByteMatchSet(params: WAF.CreateByteMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException | WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFInvalidParameterException | WAF.WAFStaleDataException | WAF.WAFLimitsExceededException | any, data: WAF.CreateByteMatchSetResponse | any) => void): Request;
     /**
      * Creates an IPSet , which you use to specify which web requests you want to allow
 or block based on the IP addresses that the requests originate from. For
@@ -83,7 +83,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFInvalidParameterException   
      * @error WAFLimitsExceededException   
      */
-    createIPSet(params: WAF.CreateIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateIPSetResponse|any) => void): Request;
+    createIPSet(params: WAF.CreateIPSetRequest, callback?: (err: WAF.WAFStaleDataException | WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFDisallowedNameException | WAF.WAFInvalidParameterException | WAF.WAFLimitsExceededException | any, data: WAF.CreateIPSetResponse | any) => void): Request;
     /**
      * Creates a Rule , which contains the IPSet objects, ByteMatchSet objects, and
 other predicates that identify the requests that you want to block. If you add
@@ -124,7 +124,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFInvalidParameterException   
      * @error WAFLimitsExceededException   
      */
-    createRule(params: WAF.CreateRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateRuleResponse|any) => void): Request;
+    createRule(params: WAF.CreateRuleRequest, callback?: (err: WAF.WAFStaleDataException | WAF.WAFInternalErrorException | WAF.WAFDisallowedNameException | WAF.WAFInvalidParameterException | WAF.WAFLimitsExceededException | any, data: WAF.CreateRuleResponse | any) => void): Request;
     /**
      * Creates a SizeConstraintSet . You then use UpdateSizeConstraintSet to identify
 the part of a web request that you want AWS WAF to check for length, such as the
@@ -155,7 +155,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFInvalidParameterException   
      * @error WAFLimitsExceededException   
      */
-    createSizeConstraintSet(params: WAF.CreateSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateSizeConstraintSetResponse|any) => void): Request;
+    createSizeConstraintSet(params: WAF.CreateSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException | WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFDisallowedNameException | WAF.WAFInvalidParameterException | WAF.WAFLimitsExceededException | any, data: WAF.CreateSizeConstraintSetResponse | any) => void): Request;
     /**
      * Creates a SqlInjectionMatchSet , which you use to allow, block, or count
 requests that contain snippets of SQL code in a specified part of web requests.
@@ -183,7 +183,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFStaleDataException   
      * @error WAFLimitsExceededException   
      */
-    createSqlInjectionMatchSet(params: WAF.CreateSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.CreateSqlInjectionMatchSetResponse|any) => void): Request;
+    createSqlInjectionMatchSet(params: WAF.CreateSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException | WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFInvalidParameterException | WAF.WAFStaleDataException | WAF.WAFLimitsExceededException | any, data: WAF.CreateSqlInjectionMatchSetResponse | any) => void): Request;
     /**
      * Creates a WebACL , which contains the Rules that identify the CloudFront web
 requests that you want to allow, block, or count. AWS WAF evaluates Rules in
@@ -220,7 +220,7 @@ Guide [http://docs.aws.amazon.com/waf/latest/developerguide/] .
      * @error WAFInvalidParameterException   
      * @error WAFLimitsExceededException   
      */
-    createWebACL(params: WAF.CreateWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateWebACLResponse|any) => void): Request;
+    createWebACL(params: WAF.CreateWebACLRequest, callback?: (err: WAF.WAFStaleDataException | WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFDisallowedNameException | WAF.WAFInvalidParameterException | WAF.WAFLimitsExceededException | any, data: WAF.CreateWebACLResponse | any) => void): Request;
     /**
      * Creates an XssMatchSet , which you use to allow, block, or count requests that
 contain cross-site scripting attacks in the specified part of web requests. AWS
@@ -247,7 +247,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFStaleDataException   
      * @error WAFLimitsExceededException   
      */
-    createXssMatchSet(params: WAF.CreateXssMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.CreateXssMatchSetResponse|any) => void): Request;
+    createXssMatchSet(params: WAF.CreateXssMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException | WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFInvalidParameterException | WAF.WAFStaleDataException | WAF.WAFLimitsExceededException | any, data: WAF.CreateXssMatchSetResponse | any) => void): Request;
     /**
      * Permanently deletes a ByteMatchSet . You can&#x27;t delete a ByteMatchSet if it&#x27;s
 still used in any Rules or if it still includes any ByteMatchTuple objects (any
@@ -270,7 +270,7 @@ To permanently delete a ByteMatchSet , perform the following steps:
      * @error WAFStaleDataException   
      * @error WAFNonEmptyEntityException   
      */
-    deleteByteMatchSet(params: WAF.DeleteByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteByteMatchSetResponse|any) => void): Request;
+    deleteByteMatchSet(params: WAF.DeleteByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFNonexistentItemException | WAF.WAFReferencedItemException | WAF.WAFStaleDataException | WAF.WAFNonEmptyEntityException | any, data: WAF.DeleteByteMatchSetResponse | any) => void): Request;
     /**
      * Permanently deletes an IPSet . You can&#x27;t delete an IPSet if it&#x27;s still used in
 any Rules or if it still includes any IP addresses.
@@ -292,7 +292,7 @@ To permanently delete an IPSet from AWS WAF, perform the following steps:
      * @error WAFReferencedItemException   
      * @error WAFNonEmptyEntityException   
      */
-    deleteIPSet(params: WAF.DeleteIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteIPSetResponse|any) => void): Request;
+    deleteIPSet(params: WAF.DeleteIPSetRequest, callback?: (err: WAF.WAFStaleDataException | WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFNonexistentItemException | WAF.WAFReferencedItemException | WAF.WAFNonEmptyEntityException | any, data: WAF.DeleteIPSetResponse | any) => void): Request;
     /**
      * Permanently deletes a Rule . You can&#x27;t delete a Rule if it&#x27;s still used in any 
 WebACL objects or if it still includes any predicates, such as ByteMatchSet 
@@ -315,7 +315,7 @@ To permanently delete a Rule from AWS WAF, perform the following steps:
      * @error WAFReferencedItemException   
      * @error WAFNonEmptyEntityException   
      */
-    deleteRule(params: WAF.DeleteRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteRuleResponse|any) => void): Request;
+    deleteRule(params: WAF.DeleteRuleRequest, callback?: (err: WAF.WAFStaleDataException | WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFNonexistentItemException | WAF.WAFReferencedItemException | WAF.WAFNonEmptyEntityException | any, data: WAF.DeleteRuleResponse | any) => void): Request;
     /**
      * Permanently deletes a SizeConstraintSet . You can&#x27;t delete a SizeConstraintSet 
 if it&#x27;s still used in any Rules or if it still includes any SizeConstraint 
@@ -338,7 +338,7 @@ To permanently delete a SizeConstraintSet , perform the following steps:
      * @error WAFReferencedItemException   
      * @error WAFNonEmptyEntityException   
      */
-    deleteSizeConstraintSet(params: WAF.DeleteSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteSizeConstraintSetResponse|any) => void): Request;
+    deleteSizeConstraintSet(params: WAF.DeleteSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException | WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFNonexistentItemException | WAF.WAFReferencedItemException | WAF.WAFNonEmptyEntityException | any, data: WAF.DeleteSizeConstraintSetResponse | any) => void): Request;
     /**
      * Permanently deletes a SqlInjectionMatchSet . You can&#x27;t delete a 
 SqlInjectionMatchSet if it&#x27;s still used in any Rules or if it still contains any 
@@ -362,7 +362,7 @@ steps:
      * @error WAFStaleDataException   
      * @error WAFNonEmptyEntityException   
      */
-    deleteSqlInjectionMatchSet(params: WAF.DeleteSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteSqlInjectionMatchSetResponse|any) => void): Request;
+    deleteSqlInjectionMatchSet(params: WAF.DeleteSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFNonexistentItemException | WAF.WAFReferencedItemException | WAF.WAFStaleDataException | WAF.WAFNonEmptyEntityException | any, data: WAF.DeleteSqlInjectionMatchSetResponse | any) => void): Request;
     /**
      * Permanently deletes a WebACL . You can&#x27;t delete a WebACL if it still contains
 any Rules .
@@ -382,7 +382,7 @@ To delete a WebACL , perform the following steps:
      * @error WAFReferencedItemException   
      * @error WAFNonEmptyEntityException   
      */
-    deleteWebACL(params: WAF.DeleteWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteWebACLResponse|any) => void): Request;
+    deleteWebACL(params: WAF.DeleteWebACLRequest, callback?: (err: WAF.WAFStaleDataException | WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFNonexistentItemException | WAF.WAFReferencedItemException | WAF.WAFNonEmptyEntityException | any, data: WAF.DeleteWebACLResponse | any) => void): Request;
     /**
      * Permanently deletes an XssMatchSet . You can&#x27;t delete an XssMatchSet if it&#x27;s
 still used in any Rules or if it still contains any XssMatchTuple objects.
@@ -404,7 +404,7 @@ To permanently delete an XssMatchSet from AWS WAF, perform the following steps:
      * @error WAFStaleDataException   
      * @error WAFNonEmptyEntityException   
      */
-    deleteXssMatchSet(params: WAF.DeleteXssMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteXssMatchSetResponse|any) => void): Request;
+    deleteXssMatchSet(params: WAF.DeleteXssMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFNonexistentItemException | WAF.WAFReferencedItemException | WAF.WAFStaleDataException | WAF.WAFNonEmptyEntityException | any, data: WAF.DeleteXssMatchSetResponse | any) => void): Request;
     /**
      * Returns the ByteMatchSet specified by ByteMatchSetId .
      *
@@ -412,7 +412,7 @@ To permanently delete an XssMatchSet from AWS WAF, perform the following steps:
      * @error WAFInvalidAccountException   
      * @error WAFNonexistentItemException   
      */
-    getByteMatchSet(params: WAF.GetByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetByteMatchSetResponse|any) => void): Request;
+    getByteMatchSet(params: WAF.GetByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFNonexistentItemException | any, data: WAF.GetByteMatchSetResponse | any) => void): Request;
     /**
      * When you want to create, update, or delete AWS WAF objects, get a change token
 and include the change token in the create, update, or delete request. Change
@@ -432,7 +432,7 @@ determine the status of your change token.
      *
      * @error WAFInternalErrorException   
      */
-    getChangeToken(params: WAF.GetChangeTokenRequest, callback?: (err: WAF.WAFInternalErrorException|any, data: WAF.GetChangeTokenResponse|any) => void): Request;
+    getChangeToken(params: WAF.GetChangeTokenRequest, callback?: (err: WAF.WAFInternalErrorException | any, data: WAF.GetChangeTokenResponse | any) => void): Request;
     /**
      * Returns the status of a ChangeToken that you got by calling GetChangeToken . 
 ChangeTokenStatus is one of the following values:
@@ -447,7 +447,7 @@ ChangeTokenStatus is one of the following values:
      * @error WAFNonexistentItemException   
      * @error WAFInternalErrorException   
      */
-    getChangeTokenStatus(params: WAF.GetChangeTokenStatusRequest, callback?: (err: WAF.WAFNonexistentItemException|WAF.WAFInternalErrorException|any, data: WAF.GetChangeTokenStatusResponse|any) => void): Request;
+    getChangeTokenStatus(params: WAF.GetChangeTokenStatusRequest, callback?: (err: WAF.WAFNonexistentItemException | WAF.WAFInternalErrorException | any, data: WAF.GetChangeTokenStatusResponse | any) => void): Request;
     /**
      * Returns the IPSet that is specified by IPSetId .
      *
@@ -455,7 +455,7 @@ ChangeTokenStatus is one of the following values:
      * @error WAFInvalidAccountException   
      * @error WAFNonexistentItemException   
      */
-    getIPSet(params: WAF.GetIPSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetIPSetResponse|any) => void): Request;
+    getIPSet(params: WAF.GetIPSetRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFNonexistentItemException | any, data: WAF.GetIPSetResponse | any) => void): Request;
     /**
      * Returns the Rule that is specified by the RuleId that you included in the 
 GetRule request.
@@ -464,7 +464,7 @@ GetRule request.
      * @error WAFInvalidAccountException   
      * @error WAFNonexistentItemException   
      */
-    getRule(params: WAF.GetRuleRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetRuleResponse|any) => void): Request;
+    getRule(params: WAF.GetRuleRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFNonexistentItemException | any, data: WAF.GetRuleResponse | any) => void): Request;
     /**
      * Gets detailed information about a specified number of requests--a sample--that
 AWS WAF randomly selects from among the first 5,000 requests that your AWS
@@ -481,7 +481,7 @@ the actual period during which AWS WAF selected the requests in the sample.
      * @error WAFNonexistentItemException   
      * @error WAFInternalErrorException   
      */
-    getSampledRequests(params: WAF.GetSampledRequestsRequest, callback?: (err: WAF.WAFNonexistentItemException|WAF.WAFInternalErrorException|any, data: WAF.GetSampledRequestsResponse|any) => void): Request;
+    getSampledRequests(params: WAF.GetSampledRequestsRequest, callback?: (err: WAF.WAFNonexistentItemException | WAF.WAFInternalErrorException | any, data: WAF.GetSampledRequestsResponse | any) => void): Request;
     /**
      * Returns the SizeConstraintSet specified by SizeConstraintSetId .
      *
@@ -489,7 +489,7 @@ the actual period during which AWS WAF selected the requests in the sample.
      * @error WAFInvalidAccountException   
      * @error WAFNonexistentItemException   
      */
-    getSizeConstraintSet(params: WAF.GetSizeConstraintSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetSizeConstraintSetResponse|any) => void): Request;
+    getSizeConstraintSet(params: WAF.GetSizeConstraintSetRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFNonexistentItemException | any, data: WAF.GetSizeConstraintSetResponse | any) => void): Request;
     /**
      * Returns the SqlInjectionMatchSet that is specified by SqlInjectionMatchSetId .
      *
@@ -497,7 +497,7 @@ the actual period during which AWS WAF selected the requests in the sample.
      * @error WAFInvalidAccountException   
      * @error WAFNonexistentItemException   
      */
-    getSqlInjectionMatchSet(params: WAF.GetSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetSqlInjectionMatchSetResponse|any) => void): Request;
+    getSqlInjectionMatchSet(params: WAF.GetSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFNonexistentItemException | any, data: WAF.GetSqlInjectionMatchSetResponse | any) => void): Request;
     /**
      * Returns the WebACL that is specified by WebACLId .
      *
@@ -505,7 +505,7 @@ the actual period during which AWS WAF selected the requests in the sample.
      * @error WAFInvalidAccountException   
      * @error WAFNonexistentItemException   
      */
-    getWebACL(params: WAF.GetWebACLRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetWebACLResponse|any) => void): Request;
+    getWebACL(params: WAF.GetWebACLRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFNonexistentItemException | any, data: WAF.GetWebACLResponse | any) => void): Request;
     /**
      * Returns the XssMatchSet that is specified by XssMatchSetId .
      *
@@ -513,56 +513,56 @@ the actual period during which AWS WAF selected the requests in the sample.
      * @error WAFInvalidAccountException   
      * @error WAFNonexistentItemException   
      */
-    getXssMatchSet(params: WAF.GetXssMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetXssMatchSetResponse|any) => void): Request;
+    getXssMatchSet(params: WAF.GetXssMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFNonexistentItemException | any, data: WAF.GetXssMatchSetResponse | any) => void): Request;
     /**
      * Returns an array of ByteMatchSetSummary objects.
      *
      * @error WAFInternalErrorException   
      * @error WAFInvalidAccountException   
      */
-    listByteMatchSets(params: WAF.ListByteMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListByteMatchSetsResponse|any) => void): Request;
+    listByteMatchSets(params: WAF.ListByteMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | any, data: WAF.ListByteMatchSetsResponse | any) => void): Request;
     /**
      * Returns an array of IPSetSummary objects in the response.
      *
      * @error WAFInternalErrorException   
      * @error WAFInvalidAccountException   
      */
-    listIPSets(params: WAF.ListIPSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListIPSetsResponse|any) => void): Request;
+    listIPSets(params: WAF.ListIPSetsRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | any, data: WAF.ListIPSetsResponse | any) => void): Request;
     /**
      * Returns an array of RuleSummary objects.
      *
      * @error WAFInternalErrorException   
      * @error WAFInvalidAccountException   
      */
-    listRules(params: WAF.ListRulesRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListRulesResponse|any) => void): Request;
+    listRules(params: WAF.ListRulesRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | any, data: WAF.ListRulesResponse | any) => void): Request;
     /**
      * Returns an array of SizeConstraintSetSummary objects.
      *
      * @error WAFInternalErrorException   
      * @error WAFInvalidAccountException   
      */
-    listSizeConstraintSets(params: WAF.ListSizeConstraintSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListSizeConstraintSetsResponse|any) => void): Request;
+    listSizeConstraintSets(params: WAF.ListSizeConstraintSetsRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | any, data: WAF.ListSizeConstraintSetsResponse | any) => void): Request;
     /**
      * Returns an array of SqlInjectionMatchSet objects.
      *
      * @error WAFInternalErrorException   
      * @error WAFInvalidAccountException   
      */
-    listSqlInjectionMatchSets(params: WAF.ListSqlInjectionMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListSqlInjectionMatchSetsResponse|any) => void): Request;
+    listSqlInjectionMatchSets(params: WAF.ListSqlInjectionMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | any, data: WAF.ListSqlInjectionMatchSetsResponse | any) => void): Request;
     /**
      * Returns an array of WebACLSummary objects in the response.
      *
      * @error WAFInternalErrorException   
      * @error WAFInvalidAccountException   
      */
-    listWebACLs(params: WAF.ListWebACLsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListWebACLsResponse|any) => void): Request;
+    listWebACLs(params: WAF.ListWebACLsRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | any, data: WAF.ListWebACLsResponse | any) => void): Request;
     /**
      * Returns an array of XssMatchSet objects.
      *
      * @error WAFInternalErrorException   
      * @error WAFInvalidAccountException   
      */
-    listXssMatchSets(params: WAF.ListXssMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListXssMatchSetsResponse|any) => void): Request;
+    listXssMatchSets(params: WAF.ListXssMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | any, data: WAF.ListXssMatchSetsResponse | any) => void): Request;
     /**
      * Inserts or deletes ByteMatchTuple objects (filters) in a ByteMatchSet . For each 
 ByteMatchTuple object, you specify the following values:
@@ -606,7 +606,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFStaleDataException   
      * @error WAFLimitsExceededException   
      */
-    updateByteMatchSet(params: WAF.UpdateByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateByteMatchSetResponse|any) => void): Request;
+    updateByteMatchSet(params: WAF.UpdateByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFInvalidOperationException | WAF.WAFInvalidParameterException | WAF.WAFNonexistentContainerException | WAF.WAFNonexistentItemException | WAF.WAFStaleDataException | WAF.WAFLimitsExceededException | any, data: WAF.UpdateByteMatchSetResponse | any) => void): Request;
     /**
      * Inserts or deletes IPSetDescriptor objects in an IPSet . For each 
 IPSetDescriptor object, you specify the following values:
@@ -654,7 +654,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFReferencedItemException   
      * @error WAFLimitsExceededException   
      */
-    updateIPSet(params: WAF.UpdateIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateIPSetResponse|any) => void): Request;
+    updateIPSet(params: WAF.UpdateIPSetRequest, callback?: (err: WAF.WAFStaleDataException | WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFInvalidOperationException | WAF.WAFInvalidParameterException | WAF.WAFNonexistentContainerException | WAF.WAFNonexistentItemException | WAF.WAFReferencedItemException | WAF.WAFLimitsExceededException | any, data: WAF.UpdateIPSetResponse | any) => void): Request;
     /**
      * Inserts or deletes Predicate objects in a Rule . Each Predicate object
 identifies a predicate, such as a ByteMatchSet or an IPSet , that specifies the
@@ -697,7 +697,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFReferencedItemException   
      * @error WAFLimitsExceededException   
      */
-    updateRule(params: WAF.UpdateRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateRuleResponse|any) => void): Request;
+    updateRule(params: WAF.UpdateRuleRequest, callback?: (err: WAF.WAFStaleDataException | WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFInvalidOperationException | WAF.WAFInvalidParameterException | WAF.WAFNonexistentContainerException | WAF.WAFNonexistentItemException | WAF.WAFReferencedItemException | WAF.WAFLimitsExceededException | any, data: WAF.UpdateRuleResponse | any) => void): Request;
     /**
      * Inserts or deletes SizeConstraint objects (filters) in a SizeConstraintSet . For
 each SizeConstraint object, you specify the following values:
@@ -745,7 +745,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFReferencedItemException   
      * @error WAFLimitsExceededException   
      */
-    updateSizeConstraintSet(params: WAF.UpdateSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateSizeConstraintSetResponse|any) => void): Request;
+    updateSizeConstraintSet(params: WAF.UpdateSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException | WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFInvalidOperationException | WAF.WAFInvalidParameterException | WAF.WAFNonexistentContainerException | WAF.WAFNonexistentItemException | WAF.WAFReferencedItemException | WAF.WAFLimitsExceededException | any, data: WAF.UpdateSizeConstraintSetResponse | any) => void): Request;
     /**
      * Inserts or deletes SqlInjectionMatchTuple objects (filters) in a 
 SqlInjectionMatchSet . For each SqlInjectionMatchTuple object, you specify the
@@ -786,7 +786,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFStaleDataException   
      * @error WAFLimitsExceededException   
      */
-    updateSqlInjectionMatchSet(params: WAF.UpdateSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateSqlInjectionMatchSetResponse|any) => void): Request;
+    updateSqlInjectionMatchSet(params: WAF.UpdateSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFInvalidOperationException | WAF.WAFInvalidParameterException | WAF.WAFNonexistentContainerException | WAF.WAFNonexistentItemException | WAF.WAFStaleDataException | WAF.WAFLimitsExceededException | any, data: WAF.UpdateSqlInjectionMatchSetResponse | any) => void): Request;
     /**
      * Inserts or deletes ActivatedRule objects in a WebACL . Each Rule identifies web
 requests that you want to allow, block, or count. When you update a WebACL , you
@@ -838,7 +838,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFReferencedItemException   
      * @error WAFLimitsExceededException   
      */
-    updateWebACL(params: WAF.UpdateWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateWebACLResponse|any) => void): Request;
+    updateWebACL(params: WAF.UpdateWebACLRequest, callback?: (err: WAF.WAFStaleDataException | WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFInvalidOperationException | WAF.WAFInvalidParameterException | WAF.WAFNonexistentContainerException | WAF.WAFNonexistentItemException | WAF.WAFReferencedItemException | WAF.WAFLimitsExceededException | any, data: WAF.UpdateWebACLResponse | any) => void): Request;
     /**
      * Inserts or deletes XssMatchTuple objects (filters) in an XssMatchSet . For each 
 XssMatchTuple object, you specify the following values:
@@ -878,219 +878,219 @@ requests, see the AWS WAF Developer Guide
      * @error WAFStaleDataException   
      * @error WAFLimitsExceededException   
      */
-    updateXssMatchSet(params: WAF.UpdateXssMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateXssMatchSetResponse|any) => void): Request;
+    updateXssMatchSet(params: WAF.UpdateXssMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException | WAF.WAFInvalidAccountException | WAF.WAFInvalidOperationException | WAF.WAFInvalidParameterException | WAF.WAFNonexistentContainerException | WAF.WAFNonexistentItemException | WAF.WAFStaleDataException | WAF.WAFLimitsExceededException | any, data: WAF.UpdateXssMatchSetResponse | any) => void): Request;
 
   }
 
   export module WAF {
-    
+
     export type Action = string;
-    
+
     export type ActivatedRules = ActivatedRule[];
-    
+
     export type ByteMatchSetSummaries = ByteMatchSetSummary[];
-    
+
     export type ByteMatchSetUpdates = ByteMatchSetUpdate[];
-    
+
     export type ByteMatchTargetString = any;
-    
+
     export type ByteMatchTuples = ByteMatchTuple[];
-    
+
     export type ChangeAction = string;
-    
+
     export type ChangeToken = string;
-    
+
     export type ChangeTokenStatus = string;
-    
+
     export type ComparisonOperator = string;
-    
+
     export type Country = string;
-    
+
     export type HTTPHeaders = HTTPHeader[];
-    
+
     export type HTTPMethod = string;
-    
+
     export type HTTPVersion = string;
-    
+
     export type HeaderName = string;
-    
+
     export type HeaderValue = string;
-    
+
     export type IPSetDescriptorType = string;
-    
+
     export type IPSetDescriptorValue = string;
-    
+
     export type IPSetDescriptors = IPSetDescriptor[];
-    
+
     export type IPSetSummaries = IPSetSummary[];
-    
+
     export type IPSetUpdates = IPSetUpdate[];
-    
+
     export type IPString = string;
-    
+
     export type ListMaxItems = number;
-    
+
     export type MatchFieldData = string;
-    
+
     export type MatchFieldType = string;
-    
+
     export type MetricName = string;
-    
+
     export type Negated = boolean;
-    
+
     export type NextMarker = string;
-    
+
     export type PaginationLimit = number;
-    
+
     export type ParameterExceptionField = string;
-    
+
     export type ParameterExceptionParameter = string;
-    
+
     export type ParameterExceptionReason = string;
-    
+
     export type PopulationSize = number;
-    
+
     export type PositionalConstraint = string;
-    
+
     export type PredicateType = string;
-    
+
     export type Predicates = Predicate[];
-    
+
     export type ResourceId = string;
-    
+
     export type ResourceName = string;
-    
+
     export type RulePriority = number;
-    
+
     export type RuleSummaries = RuleSummary[];
-    
+
     export type RuleUpdates = RuleUpdate[];
-    
+
     export type SampleWeight = number;
-    
+
     export type SampledHTTPRequests = SampledHTTPRequest[];
-    
+
     export type Size = number;
-    
+
     export type SizeConstraintSetSummaries = SizeConstraintSetSummary[];
-    
+
     export type SizeConstraintSetUpdates = SizeConstraintSetUpdate[];
-    
+
     export type SizeConstraints = SizeConstraint[];
-    
+
     export type SqlInjectionMatchSetSummaries = SqlInjectionMatchSetSummary[];
-    
+
     export type SqlInjectionMatchSetUpdates = SqlInjectionMatchSetUpdate[];
-    
+
     export type SqlInjectionMatchTuples = SqlInjectionMatchTuple[];
-    
+
     export type TextTransformation = string;
-    
+
     export type Timestamp = number;
-    
+
     export type URIString = string;
-    
+
     export type WafActionType = string;
-    
+
     export type WebACLSummaries = WebACLSummary[];
-    
+
     export type WebACLUpdates = WebACLUpdate[];
-    
+
     export type XssMatchSetSummaries = XssMatchSetSummary[];
-    
+
     export type XssMatchSetUpdates = XssMatchSetUpdate[];
-    
+
     export type XssMatchTuples = XssMatchTuple[];
-    
+
     export type errorMessage = string;
 
     export interface ActivatedRule {
-        /** Specifies the order in which the Rules in a WebACL are evaluated. Rules with a
+      /** Specifies the order in which the Rules in a WebACL are evaluated. Rules with a
 lower value for Priority are evaluated before Rules with a higher value. The
 value must be a unique integer. If you add multiple Rules to a WebACL , the
 values don&#x27;t need to be consecutive. **/
-        Priority: RulePriority;
-        /** The RuleId for a Rule . You use RuleId to get more information about a Rule (see 
+      Priority: RulePriority;
+      /** The RuleId for a Rule . You use RuleId to get more information about a Rule (see 
 GetRule ), update a Rule (see UpdateRule ), insert a Rule into a WebACL or
 delete a one from a WebACL (see UpdateWebACL ), or delete a Rule from AWS WAF
 (see DeleteRule ).
 
 RuleId is returned by CreateRule and by ListRules . **/
-        RuleId: ResourceId;
-        /** Specifies the action that CloudFront or AWS WAF takes when a web request matches
+      RuleId: ResourceId;
+      /** Specifies the action that CloudFront or AWS WAF takes when a web request matches
 the conditions in the Rule . Valid values for Action include the following:
 
- &amp;#42; ALLOW : CloudFront responds with the requested object.
- * BLOCK : CloudFront responds with an HTTP 403 (Forbidden) status code.
- * COUNT : AWS WAF increments a counter of requests that match the conditions in
-   the rule and then continues to inspect the web request based on the remaining
-   rules in the web ACL. **/
-        Action: WafAction;
+&amp;#42; ALLOW : CloudFront responds with the requested object.
+* BLOCK : CloudFront responds with an HTTP 403 (Forbidden) status code.
+* COUNT : AWS WAF increments a counter of requests that match the conditions in
+ the rule and then continues to inspect the web request based on the remaining
+ rules in the web ACL. **/
+      Action: WafAction;
     }
     export interface ByteMatchSet {
-        /** The ByteMatchSetId for a ByteMatchSet . You use ByteMatchSetId to get
+      /** The ByteMatchSetId for a ByteMatchSet . You use ByteMatchSetId to get
 information about a ByteMatchSet (see GetByteMatchSet ), update a ByteMatchSet 
 (see UpdateByteMatchSet ), insert a ByteMatchSet into a Rule or delete one from
 a Rule (see UpdateRule ), and delete a ByteMatchSet from AWS WAF (see 
 DeleteByteMatchSet ).
 
 ByteMatchSetId is returned by CreateByteMatchSet and by ListByteMatchSets . **/
-        ByteMatchSetId: ResourceId;
-        /** A friendly name or description of the ByteMatchSet . You can&#x27;t change Name after
+      ByteMatchSetId: ResourceId;
+      /** A friendly name or description of the ByteMatchSet . You can&#x27;t change Name after
 you create a ByteMatchSet . **/
-        Name?: ResourceName;
-        /** Specifies the bytes (typically a string that corresponds with ASCII characters)
+      Name?: ResourceName;
+      /** Specifies the bytes (typically a string that corresponds with ASCII characters)
 that you want AWS WAF to search for in web requests, the location in requests
 that you want AWS WAF to search, and other settings. **/
-        ByteMatchTuples: ByteMatchTuples;
+      ByteMatchTuples: ByteMatchTuples;
     }
     export interface ByteMatchSetSummary {
-        /** The ByteMatchSetId for a ByteMatchSet . You use ByteMatchSetId to get
+      /** The ByteMatchSetId for a ByteMatchSet . You use ByteMatchSetId to get
 information about a ByteMatchSet , update a ByteMatchSet , remove a ByteMatchSet 
 from a Rule , and delete a ByteMatchSet from AWS WAF.
 
 ByteMatchSetId is returned by CreateByteMatchSet and by ListByteMatchSets . **/
-        ByteMatchSetId: ResourceId;
-        /** A friendly name or description of the ByteMatchSet . You can&#x27;t change Name after
+      ByteMatchSetId: ResourceId;
+      /** A friendly name or description of the ByteMatchSet . You can&#x27;t change Name after
 you create a ByteMatchSet . **/
-        Name: ResourceName;
+      Name: ResourceName;
     }
     export interface ByteMatchSetUpdate {
-        /** Specifies whether to insert or delete a ByteMatchTuple . **/
-        Action: ChangeAction;
-        /** Information about the part of a web request that you want AWS WAF to inspect and
+      /** Specifies whether to insert or delete a ByteMatchTuple . **/
+      Action: ChangeAction;
+      /** Information about the part of a web request that you want AWS WAF to inspect and
 the value that you want AWS WAF to search for. If you specify DELETE for the
 value of Action , the ByteMatchTuple values must exactly match the values in the 
 ByteMatchTuple that you want to delete from the ByteMatchSet . **/
-        ByteMatchTuple: ByteMatchTuple;
+      ByteMatchTuple: ByteMatchTuple;
     }
     export interface ByteMatchTuple {
-        /** The part of a web request that you want AWS WAF to search, such as a specified
+      /** The part of a web request that you want AWS WAF to search, such as a specified
 header or a query string. For more information, see FieldToMatch . **/
-        FieldToMatch: FieldToMatch;
-        /** The value that you want AWS WAF to search for. AWS WAF searches for the
+      FieldToMatch: FieldToMatch;
+      /** The value that you want AWS WAF to search for. AWS WAF searches for the
 specified string in the part of web requests that you specified in FieldToMatch 
 . The maximum length of the value is 50 bytes.
 
 Valid values depend on the values that you specified for FieldToMatch :
 
- &amp;#42; HEADER : The value that you want AWS WAF to search for in the request header
-   that you specified in FieldToMatch , for example, the value of the User-Agent 
-   or Referer header.
- * METHOD : The HTTP method, which indicates the type of operation specified in
-   the request. CloudFront supports the following methods: DELETE , GET , HEAD , 
-   OPTIONS , PATCH , POST , and PUT .
- * QUERY_STRING : The value that you want AWS WAF to search for in the query
-   string, which is the part of a URL that appears after a ? character.
- * URI : The value that you want AWS WAF to search for in the part of a URL that
-   identifies a resource, for example, /images/daily-ad.jpg .
- * BODY : The part of a request that contains any additional data that you want
-   to send to your web server as the HTTP request body, such as data from a
-   form. The request body immediately follows the request headers. Note that
-   only the first 8192 bytes of the request body are forwarded to AWS WAF for
-   inspection. To allow or block requests based on the length of the body, you
-   can create a size constraint set. For more information, see 
-   CreateSizeConstraintSet .
+&amp;#42; HEADER : The value that you want AWS WAF to search for in the request header
+ that you specified in FieldToMatch , for example, the value of the User-Agent 
+ or Referer header.
+* METHOD : The HTTP method, which indicates the type of operation specified in
+ the request. CloudFront supports the following methods: DELETE , GET , HEAD , 
+ OPTIONS , PATCH , POST , and PUT .
+* QUERY_STRING : The value that you want AWS WAF to search for in the query
+ string, which is the part of a URL that appears after a ? character.
+* URI : The value that you want AWS WAF to search for in the part of a URL that
+ identifies a resource, for example, /images/daily-ad.jpg .
+* BODY : The part of a request that contains any additional data that you want
+ to send to your web server as the HTTP request body, such as data from a
+ form. The request body immediately follows the request headers. Note that
+ only the first 8192 bytes of the request body are forwarded to AWS WAF for
+ inspection. To allow or block requests based on the length of the body, you
+ can create a size constraint set. For more information, see 
+ CreateSizeConstraintSet .
 
 If TargetString includes alphabetic characters A-Z and a-z, note that the value
 is case sensitive.
@@ -1109,8 +1109,8 @@ If you&#x27;re using the AWS CLI or one of the AWS SDKs
 
 The value that you want AWS WAF to search for. The SDK automatically base64
 encodes the value. **/
-        TargetString: ByteMatchTargetString;
-        /** Text transformations eliminate some of the unusual formatting that attackers use
+      TargetString: ByteMatchTargetString;
+      /** Text transformations eliminate some of the unusual formatting that attackers use
 in web requests in an effort to bypass AWS WAF. If you specify a transformation,
 AWS WAF performs the transformation on TargetString before inspecting a request
 for a match.
@@ -1121,23 +1121,23 @@ When you&#x27;re concerned that attackers are injecting an operating system
 commandline command and using unusual formatting to disguise some or all of the
 command, use this option to perform the following transformations:
 
- &amp;#42; Delete the following characters: \ &quot; &#x27; ^
- * Delete spaces before the following characters: / (
- * Replace the following characters with a space: , ;
- * Replace multiple spaces with one space
- * Convert uppercase letters (A-Z) to lowercase (a-z)
+&amp;#42; Delete the following characters: \ &quot; &#x27; ^
+* Delete spaces before the following characters: / (
+* Replace the following characters with a space: , ;
+* Replace multiple spaces with one space
+* Convert uppercase letters (A-Z) to lowercase (a-z)
 
 COMPRESS_WHITE_SPACE
 
 Use this option to replace the following characters with a space character
 (decimal 32):
 
- * \f, formfeed, decimal 12
- * \t, tab, decimal 9
- * \n, newline, decimal 10
- * \r, carriage return, decimal 13
- * \v, vertical tab, decimal 11
- * non-breaking space, decimal 160
+* \f, formfeed, decimal 12
+* \t, tab, decimal 9
+* \n, newline, decimal 10
+* \r, carriage return, decimal 13
+* \v, vertical tab, decimal 11
+* non-breaking space, decimal 160
 
 COMPRESS_WHITE_SPACE also replaces multiple spaces with one space.
 
@@ -1146,14 +1146,14 @@ HTML_ENTITY_DECODE
 Use this option to replace HTML-encoded characters with unencoded characters. 
 HTML_ENTITY_DECODE performs the following operations:
 
- * Replaces (ampersand)quot; with &quot;
- * Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
- * Replaces (ampersand)lt; with a &quot;less than&quot; symbol
- * Replaces (ampersand)gt; with
- * Replaces characters that are represented in hexadecimal format, 
-   (ampersand)#xhhhh; , with the corresponding characters
- * Replaces characters that are represented in decimal format, (ampersand)#nnnn; 
-   , with the corresponding characters
+* Replaces (ampersand)quot; with &quot;
+* Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
+* Replaces (ampersand)lt; with a &quot;less than&quot; symbol
+* Replaces (ampersand)gt; with
+* Replaces characters that are represented in hexadecimal format, 
+ (ampersand)#xhhhh; , with the corresponding characters
+* Replaces characters that are represented in decimal format, (ampersand)#nnnn; 
+ , with the corresponding characters
 
 LOWERCASE
 
@@ -1166,8 +1166,8 @@ Use this option to decode a URL-encoded value.
 NONE
 
 Specify NONE if you don&#x27;t want to perform any text transformations. **/
-        TextTransformation: TextTransformation;
-        /** Within the portion of a web request that you want to search (for example, in the
+      TextTransformation: TextTransformation;
+      /** Within the portion of a web request that you want to search (for example, in the
 query string, if any), specify where you want AWS WAF to search. Valid values
 include the following:
 
@@ -1183,17 +1183,17 @@ and TargetString must contain only alphanumeric characters or underscore (A-Z,
 a-z, 0-9, or _). In addition, TargetString must be a word, which means one of
 the following:
 
- &amp;#42; TargetString exactly matches the value of the specified part of the web
-   request, such as the value of a header.
- * TargetString is at the beginning of the specified part of the web request and
-   is followed by a character other than an alphanumeric character or underscore
-   (_), for example, BadBot; .
- * TargetString is at the end of the specified part of the web request and is
-   preceded by a character other than an alphanumeric character or underscore
-   (_), for example, ;BadBot .
- * TargetString is in the middle of the specified part of the web request and is
-   preceded and followed by characters other than alphanumeric characters or
-   underscore (_), for example, -BadBot; .
+&amp;#42; TargetString exactly matches the value of the specified part of the web
+ request, such as the value of a header.
+* TargetString is at the beginning of the specified part of the web request and
+ is followed by a character other than an alphanumeric character or underscore
+ (_), for example, BadBot; .
+* TargetString is at the end of the specified part of the web request and is
+ preceded by a character other than an alphanumeric character or underscore
+ (_), for example, ;BadBot .
+* TargetString is in the middle of the specified part of the web request and is
+ preceded and followed by characters other than alphanumeric characters or
+ underscore (_), for example, -BadBot; .
 
 EXACTLY
 
@@ -1209,653 +1209,653 @@ ENDS_WITH
 
 The value of TargetString must appear at the end of the specified part of the
 web request. **/
-        PositionalConstraint: PositionalConstraint;
+      PositionalConstraint: PositionalConstraint;
     }
     export interface CreateByteMatchSetRequest {
-        /** A friendly name or description of the ByteMatchSet . You can&#x27;t change Name after
+      /** A friendly name or description of the ByteMatchSet . You can&#x27;t change Name after
 you create a ByteMatchSet . **/
-        Name: ResourceName;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
+      Name: ResourceName;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
     }
     export interface CreateByteMatchSetResponse {
-        /** A ByteMatchSet that contains no ByteMatchTuple objects. **/
-        ByteMatchSet?: ByteMatchSet;
-        /** The ChangeToken that you used to submit the CreateByteMatchSet request. You can
+      /** A ByteMatchSet that contains no ByteMatchTuple objects. **/
+      ByteMatchSet?: ByteMatchSet;
+      /** The ChangeToken that you used to submit the CreateByteMatchSet request. You can
 also use this value to query the status of the request. For more information,
 see GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface CreateIPSetRequest {
-        /** A friendly name or description of the IPSet . You can&#x27;t change Name after you
+      /** A friendly name or description of the IPSet . You can&#x27;t change Name after you
 create the IPSet . **/
-        Name: ResourceName;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
+      Name: ResourceName;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
     }
     export interface CreateIPSetResponse {
-        /** The IPSet returned in the CreateIPSet response. **/
-        IPSet?: IPSet;
-        /** The ChangeToken that you used to submit the CreateIPSet request. You can also
+      /** The IPSet returned in the CreateIPSet response. **/
+      IPSet?: IPSet;
+      /** The ChangeToken that you used to submit the CreateIPSet request. You can also
 use this value to query the status of the request. For more information, see 
 GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface CreateRuleRequest {
-        /** A friendly name or description of the Rule . You can&#x27;t change the name of a Rule 
+      /** A friendly name or description of the Rule . You can&#x27;t change the name of a Rule 
 after you create it. **/
-        Name: ResourceName;
-        /** A friendly name or description for the metrics for this Rule . The name can
+      Name: ResourceName;
+      /** A friendly name or description for the metrics for this Rule . The name can
 contain only alphanumeric characters (A-Z, a-z, 0-9); the name can&#x27;t contain
 whitespace. You can&#x27;t change the name of the metric after you create the Rule . **/
-        MetricName: MetricName;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
+      MetricName: MetricName;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
     }
     export interface CreateRuleResponse {
-        /** The Rule returned in the CreateRule response. **/
-        Rule?: Rule;
-        /** The ChangeToken that you used to submit the CreateRule request. You can also use
+      /** The Rule returned in the CreateRule response. **/
+      Rule?: Rule;
+      /** The ChangeToken that you used to submit the CreateRule request. You can also use
 this value to query the status of the request. For more information, see 
 GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface CreateSizeConstraintSetRequest {
-        /** A friendly name or description of the SizeConstraintSet . You can&#x27;t change Name 
+      /** A friendly name or description of the SizeConstraintSet . You can&#x27;t change Name 
 after you create a SizeConstraintSet . **/
-        Name: ResourceName;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
+      Name: ResourceName;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
     }
     export interface CreateSizeConstraintSetResponse {
-        /** A SizeConstraintSet that contains no SizeConstraint objects. **/
-        SizeConstraintSet?: SizeConstraintSet;
-        /** The ChangeToken that you used to submit the CreateSizeConstraintSet request. You
+      /** A SizeConstraintSet that contains no SizeConstraint objects. **/
+      SizeConstraintSet?: SizeConstraintSet;
+      /** The ChangeToken that you used to submit the CreateSizeConstraintSet request. You
 can also use this value to query the status of the request. For more
 information, see GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface CreateSqlInjectionMatchSetRequest {
-        /** A friendly name or description for the SqlInjectionMatchSet that you&#x27;re
+      /** A friendly name or description for the SqlInjectionMatchSet that you&#x27;re
 creating. You can&#x27;t change Name after you create the SqlInjectionMatchSet . **/
-        Name: ResourceName;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
+      Name: ResourceName;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
     }
     export interface CreateSqlInjectionMatchSetResponse {
-        /** A SqlInjectionMatchSet . **/
-        SqlInjectionMatchSet?: SqlInjectionMatchSet;
-        /** The ChangeToken that you used to submit the CreateSqlInjectionMatchSet request.
+      /** A SqlInjectionMatchSet . **/
+      SqlInjectionMatchSet?: SqlInjectionMatchSet;
+      /** The ChangeToken that you used to submit the CreateSqlInjectionMatchSet request.
 You can also use this value to query the status of the request. For more
 information, see GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface CreateWebACLRequest {
-        /** A friendly name or description of the WebACL . You can&#x27;t change Name after you
+      /** A friendly name or description of the WebACL . You can&#x27;t change Name after you
 create the WebACL . **/
-        Name: ResourceName;
-        /** A friendly name or description for the metrics for this WebACL . The name can
+      Name: ResourceName;
+      /** A friendly name or description for the metrics for this WebACL . The name can
 contain only alphanumeric characters (A-Z, a-z, 0-9); the name can&#x27;t contain
 whitespace. You can&#x27;t change MetricName after you create the WebACL . **/
-        MetricName: MetricName;
-        /** The action that you want AWS WAF to take when a request doesn&#x27;t match the
+      MetricName: MetricName;
+      /** The action that you want AWS WAF to take when a request doesn&#x27;t match the
 criteria specified in any of the Rule objects that are associated with the 
 WebACL . **/
-        DefaultAction: WafAction;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
+      DefaultAction: WafAction;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
     }
     export interface CreateWebACLResponse {
-        /** The WebACL returned in the CreateWebACL response. **/
-        WebACL?: WebACL;
-        /** The ChangeToken that you used to submit the CreateWebACL request. You can also
+      /** The WebACL returned in the CreateWebACL response. **/
+      WebACL?: WebACL;
+      /** The ChangeToken that you used to submit the CreateWebACL request. You can also
 use this value to query the status of the request. For more information, see 
 GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface CreateXssMatchSetRequest {
-        /** A friendly name or description for the XssMatchSet that you&#x27;re creating. You
+      /** A friendly name or description for the XssMatchSet that you&#x27;re creating. You
 can&#x27;t change Name after you create the XssMatchSet . **/
-        Name: ResourceName;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
+      Name: ResourceName;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
     }
     export interface CreateXssMatchSetResponse {
-        /** An XssMatchSet . **/
-        XssMatchSet?: XssMatchSet;
-        /** The ChangeToken that you used to submit the CreateXssMatchSet request. You can
+      /** An XssMatchSet . **/
+      XssMatchSet?: XssMatchSet;
+      /** The ChangeToken that you used to submit the CreateXssMatchSet request. You can
 also use this value to query the status of the request. For more information,
 see GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface DeleteByteMatchSetRequest {
-        /** The ByteMatchSetId of the ByteMatchSet that you want to delete. ByteMatchSetId 
+      /** The ByteMatchSetId of the ByteMatchSet that you want to delete. ByteMatchSetId 
 is returned by CreateByteMatchSet and by ListByteMatchSets . **/
-        ByteMatchSetId: ResourceId;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
+      ByteMatchSetId: ResourceId;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
     }
     export interface DeleteByteMatchSetResponse {
-        /** The ChangeToken that you used to submit the DeleteByteMatchSet request. You can
+      /** The ChangeToken that you used to submit the DeleteByteMatchSet request. You can
 also use this value to query the status of the request. For more information,
 see GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface DeleteIPSetRequest {
-        /** The IPSetId of the IPSet that you want to delete. IPSetId is returned by 
+      /** The IPSetId of the IPSet that you want to delete. IPSetId is returned by 
 CreateIPSet and by ListIPSets . **/
-        IPSetId: ResourceId;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
+      IPSetId: ResourceId;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
     }
     export interface DeleteIPSetResponse {
-        /** The ChangeToken that you used to submit the DeleteIPSet request. You can also
+      /** The ChangeToken that you used to submit the DeleteIPSet request. You can also
 use this value to query the status of the request. For more information, see 
 GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface DeleteRuleRequest {
-        /** The RuleId of the Rule that you want to delete. RuleId is returned by CreateRule 
+      /** The RuleId of the Rule that you want to delete. RuleId is returned by CreateRule 
 and by ListRules . **/
-        RuleId: ResourceId;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
+      RuleId: ResourceId;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
     }
     export interface DeleteRuleResponse {
-        /** The ChangeToken that you used to submit the DeleteRule request. You can also use
+      /** The ChangeToken that you used to submit the DeleteRule request. You can also use
 this value to query the status of the request. For more information, see 
 GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface DeleteSizeConstraintSetRequest {
-        /** The SizeConstraintSetId of the SizeConstraintSet that you want to delete. 
+      /** The SizeConstraintSetId of the SizeConstraintSet that you want to delete. 
 SizeConstraintSetId is returned by CreateSizeConstraintSet and by 
 ListSizeConstraintSets . **/
-        SizeConstraintSetId: ResourceId;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
+      SizeConstraintSetId: ResourceId;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
     }
     export interface DeleteSizeConstraintSetResponse {
-        /** The ChangeToken that you used to submit the DeleteSizeConstraintSet request. You
+      /** The ChangeToken that you used to submit the DeleteSizeConstraintSet request. You
 can also use this value to query the status of the request. For more
 information, see GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface DeleteSqlInjectionMatchSetRequest {
-        /** The SqlInjectionMatchSetId of the SqlInjectionMatchSet that you want to delete. 
+      /** The SqlInjectionMatchSetId of the SqlInjectionMatchSet that you want to delete. 
 SqlInjectionMatchSetId is returned by CreateSqlInjectionMatchSet and by 
 ListSqlInjectionMatchSets . **/
-        SqlInjectionMatchSetId: ResourceId;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
+      SqlInjectionMatchSetId: ResourceId;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
     }
     export interface DeleteSqlInjectionMatchSetResponse {
-        /** The ChangeToken that you used to submit the DeleteSqlInjectionMatchSet request.
+      /** The ChangeToken that you used to submit the DeleteSqlInjectionMatchSet request.
 You can also use this value to query the status of the request. For more
 information, see GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface DeleteWebACLRequest {
-        /** The WebACLId of the WebACL that you want to delete. WebACLId is returned by 
+      /** The WebACLId of the WebACL that you want to delete. WebACLId is returned by 
 CreateWebACL and by ListWebACLs . **/
-        WebACLId: ResourceId;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
+      WebACLId: ResourceId;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
     }
     export interface DeleteWebACLResponse {
-        /** The ChangeToken that you used to submit the DeleteWebACL request. You can also
+      /** The ChangeToken that you used to submit the DeleteWebACL request. You can also
 use this value to query the status of the request. For more information, see 
 GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface DeleteXssMatchSetRequest {
-        /** The XssMatchSetId of the XssMatchSet that you want to delete. XssMatchSetId is
+      /** The XssMatchSetId of the XssMatchSet that you want to delete. XssMatchSetId is
 returned by CreateXssMatchSet and by ListXssMatchSets . **/
-        XssMatchSetId: ResourceId;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
+      XssMatchSetId: ResourceId;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
     }
     export interface DeleteXssMatchSetResponse {
-        /** The ChangeToken that you used to submit the DeleteXssMatchSet request. You can
+      /** The ChangeToken that you used to submit the DeleteXssMatchSet request. You can
 also use this value to query the status of the request. For more information,
 see GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface FieldToMatch {
-        /** The part of the web request that you want AWS WAF to search for a specified
+      /** The part of the web request that you want AWS WAF to search for a specified
 string. Parts of a request that you can search include the following:
 
- &amp;#42; HEADER : A specified request header, for example, the value of the User-Agent 
-   or Referer header. If you choose HEADER for the type, specify the name of the
-   header in Data .
- * METHOD : The HTTP method, which indicated the type of operation that the
-   request is asking the origin to perform. Amazon CloudFront supports the
-   following methods: DELETE , GET , HEAD , OPTIONS , PATCH , POST , and PUT .
- * QUERY_STRING : A query string, which is the part of a URL that appears after
-   a ? character, if any.
- * URI : The part of a web request that identifies a resource, for example, 
-   /images/daily-ad.jpg .
- * BODY : The part of a request that contains any additional data that you want
-   to send to your web server as the HTTP request body, such as data from a
-   form. The request body immediately follows the request headers. Note that
-   only the first 8192 bytes of the request body are forwarded to AWS WAF for
-   inspection. To allow or block requests based on the length of the body, you
-   can create a size constraint set. For more information, see 
-   CreateSizeConstraintSet . **/
-        Type: MatchFieldType;
-        /** When the value of Type is HEADER , enter the name of the header that you want
+&amp;#42; HEADER : A specified request header, for example, the value of the User-Agent 
+ or Referer header. If you choose HEADER for the type, specify the name of the
+ header in Data .
+* METHOD : The HTTP method, which indicated the type of operation that the
+ request is asking the origin to perform. Amazon CloudFront supports the
+ following methods: DELETE , GET , HEAD , OPTIONS , PATCH , POST , and PUT .
+* QUERY_STRING : A query string, which is the part of a URL that appears after
+ a ? character, if any.
+* URI : The part of a web request that identifies a resource, for example, 
+ /images/daily-ad.jpg .
+* BODY : The part of a request that contains any additional data that you want
+ to send to your web server as the HTTP request body, such as data from a
+ form. The request body immediately follows the request headers. Note that
+ only the first 8192 bytes of the request body are forwarded to AWS WAF for
+ inspection. To allow or block requests based on the length of the body, you
+ can create a size constraint set. For more information, see 
+ CreateSizeConstraintSet . **/
+      Type: MatchFieldType;
+      /** When the value of Type is HEADER , enter the name of the header that you want
 AWS WAF to search, for example, User-Agent or Referer . If the value of Type is
 any other value, omit Data .
 
 The name of the header is not case sensitive. **/
-        Data?: MatchFieldData;
+      Data?: MatchFieldData;
     }
     export interface GetByteMatchSetRequest {
-        /** The ByteMatchSetId of the ByteMatchSet that you want to get. ByteMatchSetId is
+      /** The ByteMatchSetId of the ByteMatchSet that you want to get. ByteMatchSetId is
 returned by CreateByteMatchSet and by ListByteMatchSets . **/
-        ByteMatchSetId: ResourceId;
+      ByteMatchSetId: ResourceId;
     }
     export interface GetByteMatchSetResponse {
-        /** Information about the ByteMatchSet that you specified in the GetByteMatchSet 
+      /** Information about the ByteMatchSet that you specified in the GetByteMatchSet 
 request. For more information, see the following topics:
 
- &amp;#42; ByteMatchSet : Contains ByteMatchSetId , ByteMatchTuples , and Name
- * ByteMatchTuples : Contains an array of ByteMatchTuple objects. Each 
-   ByteMatchTuple object contains FieldToMatch , PositionalConstraint , 
-   TargetString , and TextTransformation
- * FieldToMatch : Contains Data and Type **/
-        ByteMatchSet?: ByteMatchSet;
+&amp;#42; ByteMatchSet : Contains ByteMatchSetId , ByteMatchTuples , and Name
+* ByteMatchTuples : Contains an array of ByteMatchTuple objects. Each 
+ ByteMatchTuple object contains FieldToMatch , PositionalConstraint , 
+ TargetString , and TextTransformation
+* FieldToMatch : Contains Data and Type **/
+      ByteMatchSet?: ByteMatchSet;
     }
     export interface GetChangeTokenRequest {
     }
     export interface GetChangeTokenResponse {
-        /** The ChangeToken that you used in the request. Use this value in a 
+      /** The ChangeToken that you used in the request. Use this value in a 
 GetChangeTokenStatus request to get the current status of the request. **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface GetChangeTokenStatusRequest {
-        /** The change token for which you want to get the status. This change token was
+      /** The change token for which you want to get the status. This change token was
 previously returned in the GetChangeToken response. **/
-        ChangeToken: ChangeToken;
+      ChangeToken: ChangeToken;
     }
     export interface GetChangeTokenStatusResponse {
-        /** The status of the change token. **/
-        ChangeTokenStatus?: ChangeTokenStatus;
+      /** The status of the change token. **/
+      ChangeTokenStatus?: ChangeTokenStatus;
     }
     export interface GetIPSetRequest {
-        /** The IPSetId of the IPSet that you want to get. IPSetId is returned by 
+      /** The IPSetId of the IPSet that you want to get. IPSetId is returned by 
 CreateIPSet and by ListIPSets . **/
-        IPSetId: ResourceId;
+      IPSetId: ResourceId;
     }
     export interface GetIPSetResponse {
-        /** Information about the IPSet that you specified in the GetIPSet request. For more
+      /** Information about the IPSet that you specified in the GetIPSet request. For more
 information, see the following topics:
 
- &amp;#42; IPSet : Contains IPSetDescriptors , IPSetId , and Name
- * IPSetDescriptors : Contains an array of IPSetDescriptor objects. Each 
-   IPSetDescriptor object contains Type and Value **/
-        IPSet?: IPSet;
+&amp;#42; IPSet : Contains IPSetDescriptors , IPSetId , and Name
+* IPSetDescriptors : Contains an array of IPSetDescriptor objects. Each 
+ IPSetDescriptor object contains Type and Value **/
+      IPSet?: IPSet;
     }
     export interface GetRuleRequest {
-        /** The RuleId of the Rule that you want to get. RuleId is returned by CreateRule 
+      /** The RuleId of the Rule that you want to get. RuleId is returned by CreateRule 
 and by ListRules . **/
-        RuleId: ResourceId;
+      RuleId: ResourceId;
     }
     export interface GetRuleResponse {
-        /** Information about the Rule that you specified in the GetRule request. For more
+      /** Information about the Rule that you specified in the GetRule request. For more
 information, see the following topics:
 
- &amp;#42; Rule : Contains MetricName , Name , an array of Predicate objects, and RuleId
- * Predicate : Each Predicate object contains DataId , Negated , and Type **/
-        Rule?: Rule;
+&amp;#42; Rule : Contains MetricName , Name , an array of Predicate objects, and RuleId
+* Predicate : Each Predicate object contains DataId , Negated , and Type **/
+      Rule?: Rule;
     }
     export interface GetSampledRequestsRequest {
-        /** The WebACLId of the WebACL for which you want GetSampledRequests to return a
+      /** The WebACLId of the WebACL for which you want GetSampledRequests to return a
 sample of requests. **/
-        WebAclId: ResourceId;
-        /** RuleId is one of two values:
+      WebAclId: ResourceId;
+      /** RuleId is one of two values:
 
- &amp;#42; The RuleId of the Rule for which you want GetSampledRequests to return a
-   sample of requests.
- * Default_Action , which causes GetSampledRequests to return a sample of the
-   requests that didn&#x27;t match any of the rules in the specified WebACL . **/
-        RuleId: ResourceId;
-        /** The start date and time and the end date and time of the range for which you
+&amp;#42; The RuleId of the Rule for which you want GetSampledRequests to return a
+ sample of requests.
+* Default_Action , which causes GetSampledRequests to return a sample of the
+ requests that didn&#x27;t match any of the rules in the specified WebACL . **/
+      RuleId: ResourceId;
+      /** The start date and time and the end date and time of the range for which you
 want GetSampledRequests to return a sample of requests. Specify the date and
 time in Unix time format (in seconds). You can specify any time range in the
 previous three hours. **/
-        TimeWindow: TimeWindow;
-        /** The number of requests that you want AWS WAF to return from among the first
+      TimeWindow: TimeWindow;
+      /** The number of requests that you want AWS WAF to return from among the first
 5,000 requests that your AWS resource received during the time range. If your
 resource received fewer requests than the value of MaxItems , GetSampledRequests 
 returns information about all of them. **/
-        MaxItems: ListMaxItems;
+      MaxItems: ListMaxItems;
     }
     export interface GetSampledRequestsResponse {
-        /** A complex type that contains detailed information about each of the requests in
+      /** A complex type that contains detailed information about each of the requests in
 the sample. **/
-        SampledRequests?: SampledHTTPRequests;
-        /** The total number of requests from which GetSampledRequests got a sample of 
+      SampledRequests?: SampledHTTPRequests;
+      /** The total number of requests from which GetSampledRequests got a sample of 
 MaxItems requests. If PopulationSize is less than MaxItems , the sample includes
 every request that your AWS resource received during the specified time range. **/
-        PopulationSize?: PopulationSize;
-        /** Usually, TimeWindow is the time range that you specified in the 
+      PopulationSize?: PopulationSize;
+      /** Usually, TimeWindow is the time range that you specified in the 
 GetSampledRequests request. However, if your AWS resource received more than
 5,000 requests during the time range that you specified in the request, 
 GetSampledRequests returns the time range for the first 5,000 requests. **/
-        TimeWindow?: TimeWindow;
+      TimeWindow?: TimeWindow;
     }
     export interface GetSizeConstraintSetRequest {
-        /** The SizeConstraintSetId of the SizeConstraintSet that you want to get. 
+      /** The SizeConstraintSetId of the SizeConstraintSet that you want to get. 
 SizeConstraintSetId is returned by CreateSizeConstraintSet and by 
 ListSizeConstraintSets . **/
-        SizeConstraintSetId: ResourceId;
+      SizeConstraintSetId: ResourceId;
     }
     export interface GetSizeConstraintSetResponse {
-        /** Information about the SizeConstraintSet that you specified in the 
+      /** Information about the SizeConstraintSet that you specified in the 
 GetSizeConstraintSet request. For more information, see the following topics:
 
- &amp;#42; SizeConstraintSet : Contains SizeConstraintSetId , SizeConstraints , and Name
- * SizeConstraints : Contains an array of SizeConstraint objects. Each 
-   SizeConstraint object contains FieldToMatch , TextTransformation , 
-   ComparisonOperator , and Size
- * FieldToMatch : Contains Data and Type **/
-        SizeConstraintSet?: SizeConstraintSet;
+&amp;#42; SizeConstraintSet : Contains SizeConstraintSetId , SizeConstraints , and Name
+* SizeConstraints : Contains an array of SizeConstraint objects. Each 
+ SizeConstraint object contains FieldToMatch , TextTransformation , 
+ ComparisonOperator , and Size
+* FieldToMatch : Contains Data and Type **/
+      SizeConstraintSet?: SizeConstraintSet;
     }
     export interface GetSqlInjectionMatchSetRequest {
-        /** The SqlInjectionMatchSetId of the SqlInjectionMatchSet that you want to get. 
+      /** The SqlInjectionMatchSetId of the SqlInjectionMatchSet that you want to get. 
 SqlInjectionMatchSetId is returned by CreateSqlInjectionMatchSet and by 
 ListSqlInjectionMatchSets . **/
-        SqlInjectionMatchSetId: ResourceId;
+      SqlInjectionMatchSetId: ResourceId;
     }
     export interface GetSqlInjectionMatchSetResponse {
-        /** Information about the SqlInjectionMatchSet that you specified in the 
+      /** Information about the SqlInjectionMatchSet that you specified in the 
 GetSqlInjectionMatchSet request. For more information, see the following topics:
 
- &amp;#42; SqlInjectionMatchSet : Contains Name , SqlInjectionMatchSetId , and an array
-   of SqlInjectionMatchTuple objects
- * SqlInjectionMatchTuple : Each SqlInjectionMatchTuple object contains 
-   FieldToMatch and TextTransformation
- * FieldToMatch : Contains Data and Type **/
-        SqlInjectionMatchSet?: SqlInjectionMatchSet;
+&amp;#42; SqlInjectionMatchSet : Contains Name , SqlInjectionMatchSetId , and an array
+ of SqlInjectionMatchTuple objects
+* SqlInjectionMatchTuple : Each SqlInjectionMatchTuple object contains 
+ FieldToMatch and TextTransformation
+* FieldToMatch : Contains Data and Type **/
+      SqlInjectionMatchSet?: SqlInjectionMatchSet;
     }
     export interface GetWebACLRequest {
-        /** The WebACLId of the WebACL that you want to get. WebACLId is returned by 
+      /** The WebACLId of the WebACL that you want to get. WebACLId is returned by 
 CreateWebACL and by ListWebACLs . **/
-        WebACLId: ResourceId;
+      WebACLId: ResourceId;
     }
     export interface GetWebACLResponse {
-        /** Information about the WebACL that you specified in the GetWebACL request. For
+      /** Information about the WebACL that you specified in the GetWebACL request. For
 more information, see the following topics:
 
- &amp;#42; WebACL : Contains DefaultAction , MetricName , Name , an array of Rule 
-   objects, and WebACLId
- * DefaultAction (Data type is WafAction ): Contains Type
- * Rules : Contains an array of ActivatedRule objects, which contain Action , 
-   Priority , and RuleId
- * Action : Contains Type **/
-        WebACL?: WebACL;
+&amp;#42; WebACL : Contains DefaultAction , MetricName , Name , an array of Rule 
+ objects, and WebACLId
+* DefaultAction (Data type is WafAction ): Contains Type
+* Rules : Contains an array of ActivatedRule objects, which contain Action , 
+ Priority , and RuleId
+* Action : Contains Type **/
+      WebACL?: WebACL;
     }
     export interface GetXssMatchSetRequest {
-        /** The XssMatchSetId of the XssMatchSet that you want to get. XssMatchSetId is
+      /** The XssMatchSetId of the XssMatchSet that you want to get. XssMatchSetId is
 returned by CreateXssMatchSet and by ListXssMatchSets . **/
-        XssMatchSetId: ResourceId;
+      XssMatchSetId: ResourceId;
     }
     export interface GetXssMatchSetResponse {
-        /** Information about the XssMatchSet that you specified in the GetXssMatchSet 
+      /** Information about the XssMatchSet that you specified in the GetXssMatchSet 
 request. For more information, see the following topics:
 
- &amp;#42; XssMatchSet : Contains Name , XssMatchSetId , and an array of XssMatchTuple 
-   objects
- * XssMatchTuple : Each XssMatchTuple object contains FieldToMatch and 
-   TextTransformation
- * FieldToMatch : Contains Data and Type **/
-        XssMatchSet?: XssMatchSet;
+&amp;#42; XssMatchSet : Contains Name , XssMatchSetId , and an array of XssMatchTuple 
+ objects
+* XssMatchTuple : Each XssMatchTuple object contains FieldToMatch and 
+ TextTransformation
+* FieldToMatch : Contains Data and Type **/
+      XssMatchSet?: XssMatchSet;
     }
     export interface HTTPHeader {
-        /** The name of one of the headers in the sampled web request. **/
-        Name?: HeaderName;
-        /** The value of one of the headers in the sampled web request. **/
-        Value?: HeaderValue;
+      /** The name of one of the headers in the sampled web request. **/
+      Name?: HeaderName;
+      /** The value of one of the headers in the sampled web request. **/
+      Value?: HeaderValue;
     }
     export interface HTTPRequest {
-        /** The IP address that the request originated from. If the WebACL is associated
+      /** The IP address that the request originated from. If the WebACL is associated
 with a CloudFront distribution, this is the value of one of the following fields
 in CloudFront access logs:
 
- &amp;#42; c-ip , if the viewer did not use an HTTP proxy or a load balancer to send the
-   request
- * x-forwarded-for , if the viewer did use an HTTP proxy or a load balancer to
-   send the request **/
-        ClientIP?: IPString;
-        /** The two-letter country code for the country that the request originated from.
+&amp;#42; c-ip , if the viewer did not use an HTTP proxy or a load balancer to send the
+ request
+* x-forwarded-for , if the viewer did use an HTTP proxy or a load balancer to
+ send the request **/
+      ClientIP?: IPString;
+      /** The two-letter country code for the country that the request originated from.
 For a current list of country codes, see the Wikipedia entry ISO 3166-1 alpha-2
 [https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2] . **/
-        Country?: Country;
-        /** The part of a web request that identifies the resource, for example, 
+      Country?: Country;
+      /** The part of a web request that identifies the resource, for example, 
 /images/daily-ad.jpg . **/
-        URI?: URIString;
-        /** The HTTP method specified in the sampled web request. CloudFront supports the
+      URI?: URIString;
+      /** The HTTP method specified in the sampled web request. CloudFront supports the
 following methods: DELETE , GET , HEAD , OPTIONS , PATCH , POST , and PUT . **/
-        Method?: HTTPMethod;
-        /** The HTTP version specified in the sampled web request, for example, HTTP/1.1 . **/
-        HTTPVersion?: HTTPVersion;
-        /** A complex type that contains two values for each header in the sampled web
+      Method?: HTTPMethod;
+      /** The HTTP version specified in the sampled web request, for example, HTTP/1.1 . **/
+      HTTPVersion?: HTTPVersion;
+      /** A complex type that contains two values for each header in the sampled web
 request: the name of the header and the value of the header. **/
-        Headers?: HTTPHeaders;
+      Headers?: HTTPHeaders;
     }
     export interface IPSet {
-        /** The IPSetId for an IPSet . You use IPSetId to get information about an IPSet 
+      /** The IPSetId for an IPSet . You use IPSetId to get information about an IPSet 
 (see GetIPSet ), update an IPSet (see UpdateIPSet ), insert an IPSet into a Rule 
 or delete one from a Rule (see UpdateRule ), and delete an IPSet from AWS WAF
 (see DeleteIPSet ).
 
 IPSetId is returned by CreateIPSet and by ListIPSets . **/
-        IPSetId: ResourceId;
-        /** A friendly name or description of the IPSet . You can&#x27;t change the name of an 
+      IPSetId: ResourceId;
+      /** A friendly name or description of the IPSet . You can&#x27;t change the name of an 
 IPSet after you create it. **/
-        Name?: ResourceName;
-        /** The IP address type ( IPV4 ) and the IP address range (in CIDR notation) that
+      Name?: ResourceName;
+      /** The IP address type ( IPV4 ) and the IP address range (in CIDR notation) that
 web requests originate from. If the WebACL is associated with a CloudFront
 distribution, this is the value of one of the following fields in CloudFront
 access logs:
 
- &amp;#42; c-ip , if the viewer did not use an HTTP proxy or a load balancer to send the
-   request
- * x-forwarded-for , if the viewer did use an HTTP proxy or a load balancer to
-   send the request **/
-        IPSetDescriptors: IPSetDescriptors;
+&amp;#42; c-ip , if the viewer did not use an HTTP proxy or a load balancer to send the
+ request
+* x-forwarded-for , if the viewer did use an HTTP proxy or a load balancer to
+ send the request **/
+      IPSetDescriptors: IPSetDescriptors;
     }
     export interface IPSetDescriptor {
-        /** Specify IPV4 . **/
-        Type: IPSetDescriptorType;
-        /** Specify an IPv4 address by using CIDR notation. For example:
+      /** Specify IPV4 . **/
+      Type: IPSetDescriptorType;
+      /** Specify an IPv4 address by using CIDR notation. For example:
 
- &amp;#42; To configure AWS WAF to allow, block, or count requests that originated from
-   the IP address 192.0.2.44, specify 192.0.2.44/32 .
- * To configure AWS WAF to allow, block, or count requests that originated from
-   IP addresses from 192.0.2.0 to 192.0.2.255, specify 192.0.2.0/24 .
+&amp;#42; To configure AWS WAF to allow, block, or count requests that originated from
+ the IP address 192.0.2.44, specify 192.0.2.44/32 .
+* To configure AWS WAF to allow, block, or count requests that originated from
+ IP addresses from 192.0.2.0 to 192.0.2.255, specify 192.0.2.0/24 .
 
 AWS WAF supports only /8, /16, /24, and /32 IP addresses.
 
 For more information about CIDR notation, see the Wikipedia entry Classless
 Inter-Domain Routing
 [https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing] . **/
-        Value: IPSetDescriptorValue;
+      Value: IPSetDescriptorValue;
     }
     export interface IPSetSummary {
-        /** The IPSetId for an IPSet . You can use IPSetId in a GetIPSet request to get
+      /** The IPSetId for an IPSet . You can use IPSetId in a GetIPSet request to get
 detailed information about an IPSet . **/
-        IPSetId: ResourceId;
-        /** A friendly name or description of the IPSet . You can&#x27;t change the name of an 
+      IPSetId: ResourceId;
+      /** A friendly name or description of the IPSet . You can&#x27;t change the name of an 
 IPSet after you create it. **/
-        Name: ResourceName;
+      Name: ResourceName;
     }
     export interface IPSetUpdate {
-        /** Specifies whether to insert or delete an IP address with UpdateIPSet . **/
-        Action: ChangeAction;
-        /** The IP address type ( IPV4 ) and the IP address range (in CIDR notation) that
+      /** Specifies whether to insert or delete an IP address with UpdateIPSet . **/
+      Action: ChangeAction;
+      /** The IP address type ( IPV4 ) and the IP address range (in CIDR notation) that
 web requests originate from. **/
-        IPSetDescriptor: IPSetDescriptor;
+      IPSetDescriptor: IPSetDescriptor;
     }
     export interface ListByteMatchSetsRequest {
-        /** If you specify a value for Limit and you have more ByteMatchSets than the value
+      /** If you specify a value for Limit and you have more ByteMatchSets than the value
 of Limit , AWS WAF returns a NextMarker value in the response that allows you to
 list another group of ByteMatchSets . For the second and subsequent 
 ListByteMatchSets requests, specify the value of NextMarker from the previous
 response to get information about another batch of ByteMatchSets . **/
-        NextMarker?: NextMarker;
-        /** Specifies the number of ByteMatchSet objects that you want AWS WAF to return for
+      NextMarker?: NextMarker;
+      /** Specifies the number of ByteMatchSet objects that you want AWS WAF to return for
 this request. If you have more ByteMatchSets objects than the number you specify
 for Limit , the response includes a NextMarker value that you can use to get
 another batch of ByteMatchSet objects. **/
-        Limit: PaginationLimit;
+      Limit: PaginationLimit;
     }
     export interface ListByteMatchSetsResponse {
-        /** If you have more ByteMatchSet objects than the number that you specified for 
+      /** If you have more ByteMatchSet objects than the number that you specified for 
 Limit in the request, the response includes a NextMarker value. To list more 
 ByteMatchSet objects, submit another ListByteMatchSets request, and specify the 
 NextMarker value from the response in the NextMarker value in the next request. **/
-        NextMarker?: NextMarker;
-        /** An array of ByteMatchSetSummary objects. **/
-        ByteMatchSets?: ByteMatchSetSummaries;
+      NextMarker?: NextMarker;
+      /** An array of ByteMatchSetSummary objects. **/
+      ByteMatchSets?: ByteMatchSetSummaries;
     }
     export interface ListIPSetsRequest {
-        /** If you specify a value for Limit and you have more IPSets than the value of 
+      /** If you specify a value for Limit and you have more IPSets than the value of 
 Limit , AWS WAF returns a NextMarker value in the response that allows you to
 list another group of IPSets . For the second and subsequent ListIPSets 
 requests, specify the value of NextMarker from the previous response to get
 information about another batch of ByteMatchSets . **/
-        NextMarker?: NextMarker;
-        /** Specifies the number of IPSet objects that you want AWS WAF to return for this
+      NextMarker?: NextMarker;
+      /** Specifies the number of IPSet objects that you want AWS WAF to return for this
 request. If you have more IPSet objects than the number you specify for Limit ,
 the response includes a NextMarker value that you can use to get another batch
 of IPSet objects. **/
-        Limit: PaginationLimit;
+      Limit: PaginationLimit;
     }
     export interface ListIPSetsResponse {
-        /** If you have more IPSet objects than the number that you specified for Limit in
+      /** If you have more IPSet objects than the number that you specified for Limit in
 the request, the response includes a NextMarker value. To list more IPSet 
 objects, submit another ListIPSets request, and specify the NextMarker value
 from the response in the NextMarker value in the next request. **/
-        NextMarker?: NextMarker;
-        /** An array of IPSetSummary objects. **/
-        IPSets?: IPSetSummaries;
+      NextMarker?: NextMarker;
+      /** An array of IPSetSummary objects. **/
+      IPSets?: IPSetSummaries;
     }
     export interface ListRulesRequest {
-        /** If you specify a value for Limit and you have more Rules than the value of Limit 
+      /** If you specify a value for Limit and you have more Rules than the value of Limit 
 , AWS WAF returns a NextMarker value in the response that allows you to list
 another group of Rules . For the second and subsequent ListRules requests,
 specify the value of NextMarker from the previous response to get information
 about another batch of Rules . **/
-        NextMarker?: NextMarker;
-        /** Specifies the number of Rules that you want AWS WAF to return for this request.
+      NextMarker?: NextMarker;
+      /** Specifies the number of Rules that you want AWS WAF to return for this request.
 If you have more Rules than the number that you specify for Limit , the response
 includes a NextMarker value that you can use to get another batch of Rules . **/
-        Limit: PaginationLimit;
+      Limit: PaginationLimit;
     }
     export interface ListRulesResponse {
-        /** If you have more Rules than the number that you specified for Limit in the
+      /** If you have more Rules than the number that you specified for Limit in the
 request, the response includes a NextMarker value. To list more Rules , submit
 another ListRules request, and specify the NextMarker value from the response in
 the NextMarker value in the next request. **/
-        NextMarker?: NextMarker;
-        /** An array of RuleSummary objects. **/
-        Rules?: RuleSummaries;
+      NextMarker?: NextMarker;
+      /** An array of RuleSummary objects. **/
+      Rules?: RuleSummaries;
     }
     export interface ListSizeConstraintSetsRequest {
-        /** If you specify a value for Limit and you have more SizeConstraintSets than the
+      /** If you specify a value for Limit and you have more SizeConstraintSets than the
 value of Limit , AWS WAF returns a NextMarker value in the response that allows
 you to list another group of SizeConstraintSets . For the second and subsequent 
 ListSizeConstraintSets requests, specify the value of NextMarker from the
 previous response to get information about another batch of SizeConstraintSets . **/
-        NextMarker?: NextMarker;
-        /** Specifies the number of SizeConstraintSet objects that you want AWS WAF to
+      NextMarker?: NextMarker;
+      /** Specifies the number of SizeConstraintSet objects that you want AWS WAF to
 return for this request. If you have more SizeConstraintSets objects than the
 number you specify for Limit , the response includes a NextMarker value that you
 can use to get another batch of SizeConstraintSet objects. **/
-        Limit: PaginationLimit;
+      Limit: PaginationLimit;
     }
     export interface ListSizeConstraintSetsResponse {
-        /** If you have more SizeConstraintSet objects than the number that you specified
+      /** If you have more SizeConstraintSet objects than the number that you specified
 for Limit in the request, the response includes a NextMarker value. To list more 
 SizeConstraintSet objects, submit another ListSizeConstraintSets request, and
 specify the NextMarker value from the response in the NextMarker value in the
 next request. **/
-        NextMarker?: NextMarker;
-        /** An array of SizeConstraintSetSummary objects. **/
-        SizeConstraintSets?: SizeConstraintSetSummaries;
+      NextMarker?: NextMarker;
+      /** An array of SizeConstraintSetSummary objects. **/
+      SizeConstraintSets?: SizeConstraintSetSummaries;
     }
     export interface ListSqlInjectionMatchSetsRequest {
-        /** If you specify a value for Limit and you have more SqlInjectionMatchSet objects
+      /** If you specify a value for Limit and you have more SqlInjectionMatchSet objects
 than the value of Limit , AWS WAF returns a NextMarker value in the response
 that allows you to list another group of SqlInjectionMatchSets . For the second
 and subsequent ListSqlInjectionMatchSets requests, specify the value of 
 NextMarker from the previous response to get information about another batch of 
 SqlInjectionMatchSets . **/
-        NextMarker?: NextMarker;
-        /** Specifies the number of SqlInjectionMatchSet objects that you want AWS WAF to
+      NextMarker?: NextMarker;
+      /** Specifies the number of SqlInjectionMatchSet objects that you want AWS WAF to
 return for this request. If you have more SqlInjectionMatchSet objects than the
 number you specify for Limit , the response includes a NextMarker value that you
 can use to get another batch of Rules . **/
-        Limit: PaginationLimit;
+      Limit: PaginationLimit;
     }
     export interface ListSqlInjectionMatchSetsResponse {
-        /** If you have more SqlInjectionMatchSet objects than the number that you specified
+      /** If you have more SqlInjectionMatchSet objects than the number that you specified
 for Limit in the request, the response includes a NextMarker value. To list more 
 SqlInjectionMatchSet objects, submit another ListSqlInjectionMatchSets request,
 and specify the NextMarker value from the response in the NextMarker value in
 the next request. **/
-        NextMarker?: NextMarker;
-        /** An array of SqlInjectionMatchSetSummary objects. **/
-        SqlInjectionMatchSets?: SqlInjectionMatchSetSummaries;
+      NextMarker?: NextMarker;
+      /** An array of SqlInjectionMatchSetSummary objects. **/
+      SqlInjectionMatchSets?: SqlInjectionMatchSetSummaries;
     }
     export interface ListWebACLsRequest {
-        /** If you specify a value for Limit and you have more WebACL objects than the
+      /** If you specify a value for Limit and you have more WebACL objects than the
 number that you specify for Limit , AWS WAF returns a NextMarker value in the
 response that allows you to list another group of WebACL objects. For the second
 and subsequent ListWebACLs requests, specify the value of NextMarker from the
 previous response to get information about another batch of WebACL objects. **/
-        NextMarker?: NextMarker;
-        /** Specifies the number of WebACL objects that you want AWS WAF to return for this
+      NextMarker?: NextMarker;
+      /** Specifies the number of WebACL objects that you want AWS WAF to return for this
 request. If you have more WebACL objects than the number that you specify for 
 Limit , the response includes a NextMarker value that you can use to get another
 batch of WebACL objects. **/
-        Limit: PaginationLimit;
+      Limit: PaginationLimit;
     }
     export interface ListWebACLsResponse {
-        /** If you have more WebACL objects than the number that you specified for Limit in
+      /** If you have more WebACL objects than the number that you specified for Limit in
 the request, the response includes a NextMarker value. To list more WebACL 
 objects, submit another ListWebACLs request, and specify the NextMarker value
 from the response in the NextMarker value in the next request. **/
-        NextMarker?: NextMarker;
-        /** An array of WebACLSummary objects. **/
-        WebACLs?: WebACLSummaries;
+      NextMarker?: NextMarker;
+      /** An array of WebACLSummary objects. **/
+      WebACLs?: WebACLSummaries;
     }
     export interface ListXssMatchSetsRequest {
-        /** If you specify a value for Limit and you have more XssMatchSet objects than the
+      /** If you specify a value for Limit and you have more XssMatchSet objects than the
 value of Limit , AWS WAF returns a NextMarker value in the response that allows
 you to list another group of XssMatchSets . For the second and subsequent 
 ListXssMatchSets requests, specify the value of NextMarker from the previous
 response to get information about another batch of XssMatchSets . **/
-        NextMarker?: NextMarker;
-        /** Specifies the number of XssMatchSet objects that you want AWS WAF to return for
+      NextMarker?: NextMarker;
+      /** Specifies the number of XssMatchSet objects that you want AWS WAF to return for
 this request. If you have more XssMatchSet objects than the number you specify
 for Limit , the response includes a NextMarker value that you can use to get
 another batch of Rules . **/
-        Limit: PaginationLimit;
+      Limit: PaginationLimit;
     }
     export interface ListXssMatchSetsResponse {
-        /** If you have more XssMatchSet objects than the number that you specified for 
+      /** If you have more XssMatchSet objects than the number that you specified for 
 Limit in the request, the response includes a NextMarker value. To list more 
 XssMatchSet objects, submit another ListXssMatchSets request, and specify the 
 NextMarker value from the response in the NextMarker value in the next request. **/
-        NextMarker?: NextMarker;
-        /** An array of XssMatchSetSummary objects. **/
-        XssMatchSets?: XssMatchSetSummaries;
+      NextMarker?: NextMarker;
+      /** An array of XssMatchSetSummary objects. **/
+      XssMatchSets?: XssMatchSetSummaries;
     }
     export interface Predicate {
-        /** Set Negated to False if you want AWS WAF to allow, block, or count requests
+      /** Set Negated to False if you want AWS WAF to allow, block, or count requests
 based on the settings in the specified ByteMatchSet , IPSet , 
 SqlInjectionMatchSet , XssMatchSet , or SizeConstraintSet . For example, if an 
 IPSet includes the IP address 192.0.2.44 , AWS WAF will allow or block requests
@@ -1866,65 +1866,65 @@ negation of the settings in the ByteMatchSet , IPSet , SqlInjectionMatchSet ,
 XssMatchSet , or SizeConstraintSet . For example, if an IPSet includes the IP
 address 192.0.2.44 , AWS WAF will allow, block, or count requests based on all
 IP addresses except 192.0.2.44 . **/
-        Negated: Negated;
-        /** The type of predicate in a Rule , such as ByteMatchSet or IPSet . **/
-        Type: PredicateType;
-        /** A unique identifier for a predicate in a Rule , such as ByteMatchSetId or 
+      Negated: Negated;
+      /** The type of predicate in a Rule , such as ByteMatchSet or IPSet . **/
+      Type: PredicateType;
+      /** A unique identifier for a predicate in a Rule , such as ByteMatchSetId or 
 IPSetId . The ID is returned by the corresponding Create or List command. **/
-        DataId: ResourceId;
+      DataId: ResourceId;
     }
     export interface Rule {
-        /** A unique identifier for a Rule . You use RuleId to get more information about a 
+      /** A unique identifier for a Rule . You use RuleId to get more information about a 
 Rule (see GetRule ), update a Rule (see UpdateRule ), insert a Rule into a 
 WebACL or delete a one from a WebACL (see UpdateWebACL ), or delete a Rule from
 AWS WAF (see DeleteRule ).
 
 RuleId is returned by CreateRule and by ListRules . **/
-        RuleId: ResourceId;
-        /** The friendly name or description for the Rule . You can&#x27;t change the name of a 
+      RuleId: ResourceId;
+      /** The friendly name or description for the Rule . You can&#x27;t change the name of a 
 Rule after you create it. **/
-        Name?: ResourceName;
-        MetricName?: MetricName;
-        /** The Predicates object contains one Predicate element for each ByteMatchSet , 
+      Name?: ResourceName;
+      MetricName?: MetricName;
+      /** The Predicates object contains one Predicate element for each ByteMatchSet , 
 IPSet , or SqlInjectionMatchSet object that you want to include in a Rule . **/
-        Predicates: Predicates;
+      Predicates: Predicates;
     }
     export interface RuleSummary {
-        /** A unique identifier for a Rule . You use RuleId to get more information about a 
+      /** A unique identifier for a Rule . You use RuleId to get more information about a 
 Rule (see GetRule ), update a Rule (see UpdateRule ), insert a Rule into a 
 WebACL or delete one from a WebACL (see UpdateWebACL ), or delete a Rule from
 AWS WAF (see DeleteRule ).
 
 RuleId is returned by CreateRule and by ListRules . **/
-        RuleId: ResourceId;
-        /** A friendly name or description of the Rule . You can&#x27;t change the name of a Rule 
+      RuleId: ResourceId;
+      /** A friendly name or description of the Rule . You can&#x27;t change the name of a Rule 
 after you create it. **/
-        Name: ResourceName;
+      Name: ResourceName;
     }
     export interface RuleUpdate {
-        /** Specify INSERT to add a Predicate to a Rule . Use DELETE to remove a Predicate 
+      /** Specify INSERT to add a Predicate to a Rule . Use DELETE to remove a Predicate 
 from a Rule . **/
-        Action: ChangeAction;
-        /** The ID of the Predicate (such as an IPSet ) that you want to add to a Rule . **/
-        Predicate: Predicate;
+      Action: ChangeAction;
+      /** The ID of the Predicate (such as an IPSet ) that you want to add to a Rule . **/
+      Predicate: Predicate;
     }
     export interface SampledHTTPRequest {
-        /** A complex type that contains detailed information about the request. **/
-        Request: HTTPRequest;
-        /** A value that indicates how one result in the response relates proportionally to
+      /** A complex type that contains detailed information about the request. **/
+      Request: HTTPRequest;
+      /** A value that indicates how one result in the response relates proportionally to
 other results in the response. A result that has a weight of 2 represents
 roughly twice as many CloudFront web requests as a result that has a weight of 1 
 . **/
-        Weight: SampleWeight;
-        /** The time at which AWS WAF received the request from your AWS resource, in Unix
+      Weight: SampleWeight;
+      /** The time at which AWS WAF received the request from your AWS resource, in Unix
 time format (in seconds). **/
-        Timestamp?: Timestamp;
-        /** The action for the Rule that the request matched: ALLOW , BLOCK , or COUNT . **/
-        Action?: Action;
+      Timestamp?: Timestamp;
+      /** The action for the Rule that the request matched: ALLOW , BLOCK , or COUNT . **/
+      Action?: Action;
     }
     export interface SizeConstraint {
-        FieldToMatch: FieldToMatch;
-        /** Text transformations eliminate some of the unusual formatting that attackers use
+      FieldToMatch: FieldToMatch;
+      /** Text transformations eliminate some of the unusual formatting that attackers use
 in web requests in an effort to bypass AWS WAF. If you specify a transformation,
 AWS WAF performs the transformation on FieldToMatch before inspecting a request
 for a match.
@@ -1943,23 +1943,23 @@ When you&#x27;re concerned that attackers are injecting an operating system comm
 line command and using unusual formatting to disguise some or all of the
 command, use this option to perform the following transformations:
 
- &amp;#42; Delete the following characters: \ &quot; &#x27; ^
- * Delete spaces before the following characters: / (
- * Replace the following characters with a space: , ;
- * Replace multiple spaces with one space
- * Convert uppercase letters (A-Z) to lowercase (a-z)
+&amp;#42; Delete the following characters: \ &quot; &#x27; ^
+* Delete spaces before the following characters: / (
+* Replace the following characters with a space: , ;
+* Replace multiple spaces with one space
+* Convert uppercase letters (A-Z) to lowercase (a-z)
 
 COMPRESS_WHITE_SPACE
 
 Use this option to replace the following characters with a space character
 (decimal 32):
 
- * \f, formfeed, decimal 12
- * \t, tab, decimal 9
- * \n, newline, decimal 10
- * \r, carriage return, decimal 13
- * \v, vertical tab, decimal 11
- * non-breaking space, decimal 160
+* \f, formfeed, decimal 12
+* \t, tab, decimal 9
+* \n, newline, decimal 10
+* \r, carriage return, decimal 13
+* \v, vertical tab, decimal 11
+* non-breaking space, decimal 160
 
 COMPRESS_WHITE_SPACE also replaces multiple spaces with one space.
 
@@ -1968,14 +1968,14 @@ HTML_ENTITY_DECODE
 Use this option to replace HTML-encoded characters with unencoded characters. 
 HTML_ENTITY_DECODE performs the following operations:
 
- * Replaces (ampersand)quot; with &quot;
- * Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
- * Replaces (ampersand)lt; with a &quot;less than&quot; symbol
- * Replaces (ampersand)gt; with
- * Replaces characters that are represented in hexadecimal format, 
-   (ampersand)#xhhhh; , with the corresponding characters
- * Replaces characters that are represented in decimal format, (ampersand)#nnnn; 
-   , with the corresponding characters
+* Replaces (ampersand)quot; with &quot;
+* Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
+* Replaces (ampersand)lt; with a &quot;less than&quot; symbol
+* Replaces (ampersand)gt; with
+* Replaces characters that are represented in hexadecimal format, 
+ (ampersand)#xhhhh; , with the corresponding characters
+* Replaces characters that are represented in decimal format, (ampersand)#nnnn; 
+ , with the corresponding characters
 
 LOWERCASE
 
@@ -1984,8 +1984,8 @@ Use this option to convert uppercase letters (A-Z) to lowercase (a-z).
 URL_DECODE
 
 Use this option to decode a URL-encoded value. **/
-        TextTransformation: TextTransformation;
-        /** The type of comparison you want AWS WAF to perform. AWS WAF uses this in
+      TextTransformation: TextTransformation;
+      /** The type of comparison you want AWS WAF to perform. AWS WAF uses this in
 combination with the provided Size and FieldToMatch to build an expression in
 the form of &quot; Size ComparisonOperator size in bytes of FieldToMatch &quot;. If that
 expression is true, the SizeConstraint is considered to match.
@@ -2004,8 +2004,8 @@ FieldToMatch
 
 GT : Used to test if the Size is strictly greater than the size of the 
 FieldToMatch **/
-        ComparisonOperator: ComparisonOperator;
-        /** The size in bytes that you want AWS WAF to compare against the size of the
+      ComparisonOperator: ComparisonOperator;
+      /** The size in bytes that you want AWS WAF to compare against the size of the
 specified FieldToMatch . AWS WAF uses this in combination with 
 ComparisonOperator and FieldToMatch to build an expression in the form of &quot; Size 
 ComparisonOperator size in bytes of FieldToMatch &quot;. If that expression is true,
@@ -2015,10 +2015,10 @@ Valid values for size are 0 - 21474836480 bytes (0 - 20 GB).
 
 If you specify URI for the value of Type , the / in the URI counts as one
 character. For example, the URI /logo.jpg is nine characters long. **/
-        Size: Size;
+      Size: Size;
     }
     export interface SizeConstraintSet {
-        /** A unique identifier for a SizeConstraintSet . You use SizeConstraintSetId to get
+      /** A unique identifier for a SizeConstraintSet . You use SizeConstraintSetId to get
 information about a SizeConstraintSet (see GetSizeConstraintSet ), update a 
 SizeConstraintSet (see UpdateSizeConstraintSet ), insert a SizeConstraintSet 
 into a Rule or delete one from a Rule (see UpdateRule ), and delete a 
@@ -2026,14 +2026,14 @@ SizeConstraintSet from AWS WAF (see DeleteSizeConstraintSet ).
 
 SizeConstraintSetId is returned by CreateSizeConstraintSet and by 
 ListSizeConstraintSets . **/
-        SizeConstraintSetId: ResourceId;
-        /** The name, if any, of the SizeConstraintSet . **/
-        Name?: ResourceName;
-        /** Specifies the parts of web requests that you want to inspect the size of. **/
-        SizeConstraints: SizeConstraints;
+      SizeConstraintSetId: ResourceId;
+      /** The name, if any, of the SizeConstraintSet . **/
+      Name?: ResourceName;
+      /** Specifies the parts of web requests that you want to inspect the size of. **/
+      SizeConstraints: SizeConstraints;
     }
     export interface SizeConstraintSetSummary {
-        /** A unique identifier for a SizeConstraintSet . You use SizeConstraintSetId to get
+      /** A unique identifier for a SizeConstraintSet . You use SizeConstraintSetId to get
 information about a SizeConstraintSet (see GetSizeConstraintSet ), update a 
 SizeConstraintSet (see UpdateSizeConstraintSet ), insert a SizeConstraintSet 
 into a Rule or delete one from a Rule (see UpdateRule ), and delete a 
@@ -2041,22 +2041,22 @@ SizeConstraintSet from AWS WAF (see DeleteSizeConstraintSet ).
 
 SizeConstraintSetId is returned by CreateSizeConstraintSet and by 
 ListSizeConstraintSets . **/
-        SizeConstraintSetId: ResourceId;
-        /** The name of the SizeConstraintSet , if any. **/
-        Name: ResourceName;
+      SizeConstraintSetId: ResourceId;
+      /** The name of the SizeConstraintSet , if any. **/
+      Name: ResourceName;
     }
     export interface SizeConstraintSetUpdate {
-        /** Specify INSERT to add a SizeConstraintSetUpdate to a SizeConstraintSet . Use 
+      /** Specify INSERT to add a SizeConstraintSetUpdate to a SizeConstraintSet . Use 
 DELETE to remove a SizeConstraintSetUpdate from a SizeConstraintSet . **/
-        Action: ChangeAction;
-        /** Specifies a constraint on the size of a part of the web request. AWS WAF uses
+      Action: ChangeAction;
+      /** Specifies a constraint on the size of a part of the web request. AWS WAF uses
 the Size , ComparisonOperator , and FieldToMatch to build an expression in the
 form of &quot; Size ComparisonOperator size in bytes of FieldToMatch &quot;. If that
 expression is true, the SizeConstraint is considered to match. **/
-        SizeConstraint: SizeConstraint;
+      SizeConstraint: SizeConstraint;
     }
     export interface SqlInjectionMatchSet {
-        /** A unique identifier for a SqlInjectionMatchSet . You use SqlInjectionMatchSetId 
+      /** A unique identifier for a SqlInjectionMatchSet . You use SqlInjectionMatchSetId 
 to get information about a SqlInjectionMatchSet (see GetSqlInjectionMatchSet ),
 update a SqlInjectionMatchSet (see UpdateSqlInjectionMatchSet ), insert a 
 SqlInjectionMatchSet into a Rule or delete one from a Rule (see UpdateRule ),
@@ -2065,15 +2065,15 @@ and delete a SqlInjectionMatchSet from AWS WAF (see DeleteSqlInjectionMatchSet
 
 SqlInjectionMatchSetId is returned by CreateSqlInjectionMatchSet and by 
 ListSqlInjectionMatchSets . **/
-        SqlInjectionMatchSetId: ResourceId;
-        /** The name, if any, of the SqlInjectionMatchSet . **/
-        Name?: ResourceName;
-        /** Specifies the parts of web requests that you want to inspect for snippets of
+      SqlInjectionMatchSetId: ResourceId;
+      /** The name, if any, of the SqlInjectionMatchSet . **/
+      Name?: ResourceName;
+      /** Specifies the parts of web requests that you want to inspect for snippets of
 malicious SQL code. **/
-        SqlInjectionMatchTuples: SqlInjectionMatchTuples;
+      SqlInjectionMatchTuples: SqlInjectionMatchTuples;
     }
     export interface SqlInjectionMatchSetSummary {
-        /** A unique identifier for a SqlInjectionMatchSet . You use SqlInjectionMatchSetId 
+      /** A unique identifier for a SqlInjectionMatchSet . You use SqlInjectionMatchSetId 
 to get information about a SqlInjectionMatchSet (see GetSqlInjectionMatchSet ),
 update a SqlInjectionMatchSet (see UpdateSqlInjectionMatchSet ), insert a 
 SqlInjectionMatchSet into a Rule or delete one from a Rule (see UpdateRule ),
@@ -2082,22 +2082,22 @@ and delete a SqlInjectionMatchSet from AWS WAF (see DeleteSqlInjectionMatchSet
 
 SqlInjectionMatchSetId is returned by CreateSqlInjectionMatchSet and by 
 ListSqlInjectionMatchSets . **/
-        SqlInjectionMatchSetId: ResourceId;
-        /** The name of the SqlInjectionMatchSet , if any, specified by Id . **/
-        Name: ResourceName;
+      SqlInjectionMatchSetId: ResourceId;
+      /** The name of the SqlInjectionMatchSet , if any, specified by Id . **/
+      Name: ResourceName;
     }
     export interface SqlInjectionMatchSetUpdate {
-        /** Specify INSERT to add a SqlInjectionMatchSetUpdate to a SqlInjectionMatchSet .
+      /** Specify INSERT to add a SqlInjectionMatchSetUpdate to a SqlInjectionMatchSet .
 Use DELETE to remove a SqlInjectionMatchSetUpdate from a SqlInjectionMatchSet . **/
-        Action: ChangeAction;
-        /** Specifies the part of a web request that you want AWS WAF to inspect for
+      Action: ChangeAction;
+      /** Specifies the part of a web request that you want AWS WAF to inspect for
 snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the
 name of the header. **/
-        SqlInjectionMatchTuple: SqlInjectionMatchTuple;
+      SqlInjectionMatchTuple: SqlInjectionMatchTuple;
     }
     export interface SqlInjectionMatchTuple {
-        FieldToMatch: FieldToMatch;
-        /** Text transformations eliminate some of the unusual formatting that attackers use
+      FieldToMatch: FieldToMatch;
+      /** Text transformations eliminate some of the unusual formatting that attackers use
 in web requests in an effort to bypass AWS WAF. If you specify a transformation,
 AWS WAF performs the transformation on FieldToMatch before inspecting a request
 for a match.
@@ -2108,23 +2108,23 @@ When you&#x27;re concerned that attackers are injecting an operating system
 commandline command and using unusual formatting to disguise some or all of the
 command, use this option to perform the following transformations:
 
- &amp;#42; Delete the following characters: \ &quot; &#x27; ^
- * Delete spaces before the following characters: / (
- * Replace the following characters with a space: , ;
- * Replace multiple spaces with one space
- * Convert uppercase letters (A-Z) to lowercase (a-z)
+&amp;#42; Delete the following characters: \ &quot; &#x27; ^
+* Delete spaces before the following characters: / (
+* Replace the following characters with a space: , ;
+* Replace multiple spaces with one space
+* Convert uppercase letters (A-Z) to lowercase (a-z)
 
 COMPRESS_WHITE_SPACE
 
 Use this option to replace the following characters with a space character
 (decimal 32):
 
- * \f, formfeed, decimal 12
- * \t, tab, decimal 9
- * \n, newline, decimal 10
- * \r, carriage return, decimal 13
- * \v, vertical tab, decimal 11
- * non-breaking space, decimal 160
+* \f, formfeed, decimal 12
+* \t, tab, decimal 9
+* \n, newline, decimal 10
+* \r, carriage return, decimal 13
+* \v, vertical tab, decimal 11
+* non-breaking space, decimal 160
 
 COMPRESS_WHITE_SPACE also replaces multiple spaces with one space.
 
@@ -2133,14 +2133,14 @@ HTML_ENTITY_DECODE
 Use this option to replace HTML-encoded characters with unencoded characters. 
 HTML_ENTITY_DECODE performs the following operations:
 
- * Replaces (ampersand)quot; with &quot;
- * Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
- * Replaces (ampersand)lt; with a &quot;less than&quot; symbol
- * Replaces (ampersand)gt; with
- * Replaces characters that are represented in hexadecimal format, 
-   (ampersand)#xhhhh; , with the corresponding characters
- * Replaces characters that are represented in decimal format, (ampersand)#nnnn; 
-   , with the corresponding characters
+* Replaces (ampersand)quot; with &quot;
+* Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
+* Replaces (ampersand)lt; with a &quot;less than&quot; symbol
+* Replaces (ampersand)gt; with
+* Replaces characters that are represented in hexadecimal format, 
+ (ampersand)#xhhhh; , with the corresponding characters
+* Replaces characters that are represented in decimal format, (ampersand)#nnnn; 
+ , with the corresponding characters
 
 LOWERCASE
 
@@ -2153,285 +2153,285 @@ Use this option to decode a URL-encoded value.
 NONE
 
 Specify NONE if you don&#x27;t want to perform any text transformations. **/
-        TextTransformation: TextTransformation;
+      TextTransformation: TextTransformation;
     }
     export interface TimeWindow {
-        /** The beginning of the time range from which you want GetSampledRequests to return
+      /** The beginning of the time range from which you want GetSampledRequests to return
 a sample of the requests that your AWS resource received. You can specify any
 time range in the previous three hours. **/
-        StartTime: Timestamp;
-        /** The end of the time range from which you want GetSampledRequests to return a
+      StartTime: Timestamp;
+      /** The end of the time range from which you want GetSampledRequests to return a
 sample of the requests that your AWS resource received. You can specify any time
 range in the previous three hours. **/
-        EndTime: Timestamp;
+      EndTime: Timestamp;
     }
     export interface UpdateByteMatchSetRequest {
-        /** The ByteMatchSetId of the ByteMatchSet that you want to update. ByteMatchSetId 
+      /** The ByteMatchSetId of the ByteMatchSet that you want to update. ByteMatchSetId 
 is returned by CreateByteMatchSet and by ListByteMatchSets . **/
-        ByteMatchSetId: ResourceId;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
-        /** An array of ByteMatchSetUpdate objects that you want to insert into or delete
+      ByteMatchSetId: ResourceId;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
+      /** An array of ByteMatchSetUpdate objects that you want to insert into or delete
 from a ByteMatchSet . For more information, see the applicable data types:
 
- &amp;#42; ByteMatchSetUpdate : Contains Action and ByteMatchTuple
- * ByteMatchTuple : Contains FieldToMatch , PositionalConstraint , TargetString 
-   , and TextTransformation
- * FieldToMatch : Contains Data and Type **/
-        Updates: ByteMatchSetUpdates;
+&amp;#42; ByteMatchSetUpdate : Contains Action and ByteMatchTuple
+* ByteMatchTuple : Contains FieldToMatch , PositionalConstraint , TargetString 
+ , and TextTransformation
+* FieldToMatch : Contains Data and Type **/
+      Updates: ByteMatchSetUpdates;
     }
     export interface UpdateByteMatchSetResponse {
-        /** The ChangeToken that you used to submit the UpdateByteMatchSet request. You can
+      /** The ChangeToken that you used to submit the UpdateByteMatchSet request. You can
 also use this value to query the status of the request. For more information,
 see GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface UpdateIPSetRequest {
-        /** The IPSetId of the IPSet that you want to update. IPSetId is returned by 
+      /** The IPSetId of the IPSet that you want to update. IPSetId is returned by 
 CreateIPSet and by ListIPSets . **/
-        IPSetId: ResourceId;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
-        /** An array of IPSetUpdate objects that you want to insert into or delete from an 
+      IPSetId: ResourceId;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
+      /** An array of IPSetUpdate objects that you want to insert into or delete from an 
 IPSet . For more information, see the applicable data types:
 
- &amp;#42; IPSetUpdate : Contains Action and IPSetDescriptor
- * IPSetDescriptor : Contains Type and Value **/
-        Updates: IPSetUpdates;
+&amp;#42; IPSetUpdate : Contains Action and IPSetDescriptor
+* IPSetDescriptor : Contains Type and Value **/
+      Updates: IPSetUpdates;
     }
     export interface UpdateIPSetResponse {
-        /** The ChangeToken that you used to submit the UpdateIPSet request. You can also
+      /** The ChangeToken that you used to submit the UpdateIPSet request. You can also
 use this value to query the status of the request. For more information, see 
 GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface UpdateRuleRequest {
-        /** The RuleId of the Rule that you want to update. RuleId is returned by CreateRule 
+      /** The RuleId of the Rule that you want to update. RuleId is returned by CreateRule 
 and by ListRules . **/
-        RuleId: ResourceId;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
-        /** An array of RuleUpdate objects that you want to insert into or delete from a 
+      RuleId: ResourceId;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
+      /** An array of RuleUpdate objects that you want to insert into or delete from a 
 Rule . For more information, see the applicable data types:
 
- &amp;#42; RuleUpdate : Contains Action and Predicate
- * Predicate : Contains DataId , Negated , and Type
- * FieldToMatch : Contains Data and Type **/
-        Updates: RuleUpdates;
+&amp;#42; RuleUpdate : Contains Action and Predicate
+* Predicate : Contains DataId , Negated , and Type
+* FieldToMatch : Contains Data and Type **/
+      Updates: RuleUpdates;
     }
     export interface UpdateRuleResponse {
-        /** The ChangeToken that you used to submit the UpdateRule request. You can also use
+      /** The ChangeToken that you used to submit the UpdateRule request. You can also use
 this value to query the status of the request. For more information, see 
 GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface UpdateSizeConstraintSetRequest {
-        /** The SizeConstraintSetId of the SizeConstraintSet that you want to update. 
+      /** The SizeConstraintSetId of the SizeConstraintSet that you want to update. 
 SizeConstraintSetId is returned by CreateSizeConstraintSet and by 
 ListSizeConstraintSets . **/
-        SizeConstraintSetId: ResourceId;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
-        /** An array of SizeConstraintSetUpdate objects that you want to insert into or
+      SizeConstraintSetId: ResourceId;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
+      /** An array of SizeConstraintSetUpdate objects that you want to insert into or
 delete from a SizeConstraintSet . For more information, see the applicable data
 types:
 
- &amp;#42; SizeConstraintSetUpdate : Contains Action and SizeConstraint
- * SizeConstraint : Contains FieldToMatch , TextTransformation , 
-   ComparisonOperator , and Size
- * FieldToMatch : Contains Data and Type **/
-        Updates: SizeConstraintSetUpdates;
+&amp;#42; SizeConstraintSetUpdate : Contains Action and SizeConstraint
+* SizeConstraint : Contains FieldToMatch , TextTransformation , 
+ ComparisonOperator , and Size
+* FieldToMatch : Contains Data and Type **/
+      Updates: SizeConstraintSetUpdates;
     }
     export interface UpdateSizeConstraintSetResponse {
-        /** The ChangeToken that you used to submit the UpdateSizeConstraintSet request. You
+      /** The ChangeToken that you used to submit the UpdateSizeConstraintSet request. You
 can also use this value to query the status of the request. For more
 information, see GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface UpdateSqlInjectionMatchSetRequest {
-        /** The SqlInjectionMatchSetId of the SqlInjectionMatchSet that you want to update. 
+      /** The SqlInjectionMatchSetId of the SqlInjectionMatchSet that you want to update. 
 SqlInjectionMatchSetId is returned by CreateSqlInjectionMatchSet and by 
 ListSqlInjectionMatchSets . **/
-        SqlInjectionMatchSetId: ResourceId;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
-        /** An array of SqlInjectionMatchSetUpdate objects that you want to insert into or
+      SqlInjectionMatchSetId: ResourceId;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
+      /** An array of SqlInjectionMatchSetUpdate objects that you want to insert into or
 delete from a SqlInjectionMatchSet . For more information, see the applicable
 data types:
 
- &amp;#42; SqlInjectionMatchSetUpdate : Contains Action and SqlInjectionMatchTuple
- * SqlInjectionMatchTuple : Contains FieldToMatch and TextTransformation
- * FieldToMatch : Contains Data and Type **/
-        Updates: SqlInjectionMatchSetUpdates;
+&amp;#42; SqlInjectionMatchSetUpdate : Contains Action and SqlInjectionMatchTuple
+* SqlInjectionMatchTuple : Contains FieldToMatch and TextTransformation
+* FieldToMatch : Contains Data and Type **/
+      Updates: SqlInjectionMatchSetUpdates;
     }
     export interface UpdateSqlInjectionMatchSetResponse {
-        /** The ChangeToken that you used to submit the UpdateSqlInjectionMatchSet request.
+      /** The ChangeToken that you used to submit the UpdateSqlInjectionMatchSet request.
 You can also use this value to query the status of the request. For more
 information, see GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface UpdateWebACLRequest {
-        /** The WebACLId of the WebACL that you want to update. WebACLId is returned by 
+      /** The WebACLId of the WebACL that you want to update. WebACLId is returned by 
 CreateWebACL and by ListWebACLs . **/
-        WebACLId: ResourceId;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
-        /** An array of updates to make to the WebACL .
+      WebACLId: ResourceId;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
+      /** An array of updates to make to the WebACL .
 
 An array of WebACLUpdate objects that you want to insert into or delete from a 
 WebACL . For more information, see the applicable data types:
 
- &amp;#42; WebACLUpdate : Contains Action and ActivatedRule
- * ActivatedRule : Contains Action , Priority , and RuleId
- * WafAction : Contains Type **/
-        Updates?: WebACLUpdates;
-        DefaultAction?: WafAction;
+&amp;#42; WebACLUpdate : Contains Action and ActivatedRule
+* ActivatedRule : Contains Action , Priority , and RuleId
+* WafAction : Contains Type **/
+      Updates?: WebACLUpdates;
+      DefaultAction?: WafAction;
     }
     export interface UpdateWebACLResponse {
-        /** The ChangeToken that you used to submit the UpdateWebACL request. You can also
+      /** The ChangeToken that you used to submit the UpdateWebACL request. You can also
 use this value to query the status of the request. For more information, see 
 GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface UpdateXssMatchSetRequest {
-        /** The XssMatchSetId of the XssMatchSet that you want to update. XssMatchSetId is
+      /** The XssMatchSetId of the XssMatchSet that you want to update. XssMatchSetId is
 returned by CreateXssMatchSet and by ListXssMatchSets . **/
-        XssMatchSetId: ResourceId;
-        /** The value returned by the most recent call to GetChangeToken . **/
-        ChangeToken: ChangeToken;
-        /** An array of XssMatchSetUpdate objects that you want to insert into or delete
+      XssMatchSetId: ResourceId;
+      /** The value returned by the most recent call to GetChangeToken . **/
+      ChangeToken: ChangeToken;
+      /** An array of XssMatchSetUpdate objects that you want to insert into or delete
 from a XssMatchSet . For more information, see the applicable data types:
 
- &amp;#42; XssMatchSetUpdate : Contains Action and XssMatchTuple
- * XssMatchTuple : Contains FieldToMatch and TextTransformation
- * FieldToMatch : Contains Data and Type **/
-        Updates: XssMatchSetUpdates;
+&amp;#42; XssMatchSetUpdate : Contains Action and XssMatchTuple
+* XssMatchTuple : Contains FieldToMatch and TextTransformation
+* FieldToMatch : Contains Data and Type **/
+      Updates: XssMatchSetUpdates;
     }
     export interface UpdateXssMatchSetResponse {
-        /** The ChangeToken that you used to submit the UpdateXssMatchSet request. You can
+      /** The ChangeToken that you used to submit the UpdateXssMatchSet request. You can
 also use this value to query the status of the request. For more information,
 see GetChangeTokenStatus . **/
-        ChangeToken?: ChangeToken;
+      ChangeToken?: ChangeToken;
     }
     export interface WAFDisallowedNameException {
-        message?: errorMessage;
+      message?: errorMessage;
     }
     export interface WAFInternalErrorException {
-        message?: errorMessage;
+      message?: errorMessage;
     }
     export interface WAFInvalidAccountException {
     }
     export interface WAFInvalidOperationException {
-        message?: errorMessage;
+      message?: errorMessage;
     }
     export interface WAFInvalidParameterException {
-        field?: ParameterExceptionField;
-        parameter?: ParameterExceptionParameter;
-        reason?: ParameterExceptionReason;
+      field?: ParameterExceptionField;
+      parameter?: ParameterExceptionParameter;
+      reason?: ParameterExceptionReason;
     }
     export interface WAFLimitsExceededException {
-        message?: errorMessage;
+      message?: errorMessage;
     }
     export interface WAFNonEmptyEntityException {
-        message?: errorMessage;
+      message?: errorMessage;
     }
     export interface WAFNonexistentContainerException {
-        message?: errorMessage;
+      message?: errorMessage;
     }
     export interface WAFNonexistentItemException {
-        message?: errorMessage;
+      message?: errorMessage;
     }
     export interface WAFReferencedItemException {
-        message?: errorMessage;
+      message?: errorMessage;
     }
     export interface WAFStaleDataException {
-        message?: errorMessage;
+      message?: errorMessage;
     }
     export interface WafAction {
-        /** Specifies how you want AWS WAF to respond to requests that match the settings in
+      /** Specifies how you want AWS WAF to respond to requests that match the settings in
 a Rule . Valid settings include the following:
 
- &amp;#42; ALLOW : AWS WAF allows requests
- * BLOCK : AWS WAF blocks requests
- * COUNT : AWS WAF increments a counter of the requests that match all of the
-   conditions in the rule. AWS WAF then continues to inspect the web request
-   based on the remaining rules in the web ACL. You can&#x27;t specify COUNT for the
-   default action for a WebACL . **/
-        Type: WafActionType;
+&amp;#42; ALLOW : AWS WAF allows requests
+* BLOCK : AWS WAF blocks requests
+* COUNT : AWS WAF increments a counter of the requests that match all of the
+ conditions in the rule. AWS WAF then continues to inspect the web request
+ based on the remaining rules in the web ACL. You can&#x27;t specify COUNT for the
+ default action for a WebACL . **/
+      Type: WafActionType;
     }
     export interface WebACL {
-        /** A unique identifier for a WebACL . You use WebACLId to get information about a 
+      /** A unique identifier for a WebACL . You use WebACLId to get information about a 
 WebACL (see GetWebACL ), update a WebACL (see UpdateWebACL ), and delete a 
 WebACL from AWS WAF (see DeleteWebACL ).
 
 WebACLId is returned by CreateWebACL and by ListWebACLs . **/
-        WebACLId: ResourceId;
-        /** A friendly name or description of the WebACL . You can&#x27;t change the name of a 
+      WebACLId: ResourceId;
+      /** A friendly name or description of the WebACL . You can&#x27;t change the name of a 
 WebACL after you create it. **/
-        Name?: ResourceName;
-        MetricName?: MetricName;
-        /** The action to perform if none of the Rules contained in the WebACL match. The
+      Name?: ResourceName;
+      MetricName?: MetricName;
+      /** The action to perform if none of the Rules contained in the WebACL match. The
 action is specified by the WafAction object. **/
-        DefaultAction: WafAction;
-        /** An array that contains the action for each Rule in a WebACL , the priority of
+      DefaultAction: WafAction;
+      /** An array that contains the action for each Rule in a WebACL , the priority of
 the Rule , and the ID of the Rule . **/
-        Rules: ActivatedRules;
+      Rules: ActivatedRules;
     }
     export interface WebACLSummary {
-        /** A unique identifier for a WebACL . You use WebACLId to get information about a 
+      /** A unique identifier for a WebACL . You use WebACLId to get information about a 
 WebACL (see GetWebACL ), update a WebACL (see UpdateWebACL ), and delete a 
 WebACL from AWS WAF (see DeleteWebACL ).
 
 WebACLId is returned by CreateWebACL and by ListWebACLs . **/
-        WebACLId: ResourceId;
-        /** A friendly name or description of the WebACL . You can&#x27;t change the name of a 
+      WebACLId: ResourceId;
+      /** A friendly name or description of the WebACL . You can&#x27;t change the name of a 
 WebACL after you create it. **/
-        Name: ResourceName;
+      Name: ResourceName;
     }
     export interface WebACLUpdate {
-        /** Specifies whether to insert a Rule into or delete a Rule from a WebACL . **/
-        Action: ChangeAction;
-        ActivatedRule: ActivatedRule;
+      /** Specifies whether to insert a Rule into or delete a Rule from a WebACL . **/
+      Action: ChangeAction;
+      ActivatedRule: ActivatedRule;
     }
     export interface XssMatchSet {
-        /** A unique identifier for an XssMatchSet . You use XssMatchSetId to get
+      /** A unique identifier for an XssMatchSet . You use XssMatchSetId to get
 information about an XssMatchSet (see GetXssMatchSet ), update an XssMatchSet 
 (see UpdateXssMatchSet ), insert an XssMatchSet into a Rule or delete one from a 
 Rule (see UpdateRule ), and delete an XssMatchSet from AWS WAF (see 
 DeleteXssMatchSet ).
 
 XssMatchSetId is returned by CreateXssMatchSet and by ListXssMatchSets . **/
-        XssMatchSetId: ResourceId;
-        /** The name, if any, of the XssMatchSet . **/
-        Name?: ResourceName;
-        /** Specifies the parts of web requests that you want to inspect for cross-site
+      XssMatchSetId: ResourceId;
+      /** The name, if any, of the XssMatchSet . **/
+      Name?: ResourceName;
+      /** Specifies the parts of web requests that you want to inspect for cross-site
 scripting attacks. **/
-        XssMatchTuples: XssMatchTuples;
+      XssMatchTuples: XssMatchTuples;
     }
     export interface XssMatchSetSummary {
-        /** A unique identifier for an XssMatchSet . You use XssMatchSetId to get
+      /** A unique identifier for an XssMatchSet . You use XssMatchSetId to get
 information about a XssMatchSet (see GetXssMatchSet ), update an XssMatchSet 
 (see UpdateXssMatchSet ), insert an XssMatchSet into a Rule or delete one from a 
 Rule (see UpdateRule ), and delete an XssMatchSet from AWS WAF (see 
 DeleteXssMatchSet ).
 
 XssMatchSetId is returned by CreateXssMatchSet and by ListXssMatchSets . **/
-        XssMatchSetId: ResourceId;
-        /** The name of the XssMatchSet , if any, specified by Id . **/
-        Name: ResourceName;
+      XssMatchSetId: ResourceId;
+      /** The name of the XssMatchSet , if any, specified by Id . **/
+      Name: ResourceName;
     }
     export interface XssMatchSetUpdate {
-        /** Specify INSERT to add a XssMatchSetUpdate to an XssMatchSet . Use DELETE to
+      /** Specify INSERT to add a XssMatchSetUpdate to an XssMatchSet . Use DELETE to
 remove a XssMatchSetUpdate from an XssMatchSet . **/
-        Action: ChangeAction;
-        /** Specifies the part of a web request that you want AWS WAF to inspect for
+      Action: ChangeAction;
+      /** Specifies the part of a web request that you want AWS WAF to inspect for
 cross-site scripting attacks and, if you want AWS WAF to inspect a header, the
 name of the header. **/
-        XssMatchTuple: XssMatchTuple;
+      XssMatchTuple: XssMatchTuple;
     }
     export interface XssMatchTuple {
-        FieldToMatch: FieldToMatch;
-        /** Text transformations eliminate some of the unusual formatting that attackers use
+      FieldToMatch: FieldToMatch;
+      /** Text transformations eliminate some of the unusual formatting that attackers use
 in web requests in an effort to bypass AWS WAF. If you specify a transformation,
 AWS WAF performs the transformation on FieldToMatch before inspecting a request
 for a match.
@@ -2442,23 +2442,23 @@ When you&#x27;re concerned that attackers are injecting an operating system
 commandline command and using unusual formatting to disguise some or all of the
 command, use this option to perform the following transformations:
 
- &amp;#42; Delete the following characters: \ &quot; &#x27; ^
- * Delete spaces before the following characters: / (
- * Replace the following characters with a space: , ;
- * Replace multiple spaces with one space
- * Convert uppercase letters (A-Z) to lowercase (a-z)
+&amp;#42; Delete the following characters: \ &quot; &#x27; ^
+* Delete spaces before the following characters: / (
+* Replace the following characters with a space: , ;
+* Replace multiple spaces with one space
+* Convert uppercase letters (A-Z) to lowercase (a-z)
 
 COMPRESS_WHITE_SPACE
 
 Use this option to replace the following characters with a space character
 (decimal 32):
 
- * \f, formfeed, decimal 12
- * \t, tab, decimal 9
- * \n, newline, decimal 10
- * \r, carriage return, decimal 13
- * \v, vertical tab, decimal 11
- * non-breaking space, decimal 160
+* \f, formfeed, decimal 12
+* \t, tab, decimal 9
+* \n, newline, decimal 10
+* \r, carriage return, decimal 13
+* \v, vertical tab, decimal 11
+* non-breaking space, decimal 160
 
 COMPRESS_WHITE_SPACE also replaces multiple spaces with one space.
 
@@ -2467,14 +2467,14 @@ HTML_ENTITY_DECODE
 Use this option to replace HTML-encoded characters with unencoded characters. 
 HTML_ENTITY_DECODE performs the following operations:
 
- * Replaces (ampersand)quot; with &quot;
- * Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
- * Replaces (ampersand)lt; with a &quot;less than&quot; symbol
- * Replaces (ampersand)gt; with
- * Replaces characters that are represented in hexadecimal format, 
-   (ampersand)#xhhhh; , with the corresponding characters
- * Replaces characters that are represented in decimal format, (ampersand)#nnnn; 
-   , with the corresponding characters
+* Replaces (ampersand)quot; with &quot;
+* Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
+* Replaces (ampersand)lt; with a &quot;less than&quot; symbol
+* Replaces (ampersand)gt; with
+* Replaces characters that are represented in hexadecimal format, 
+ (ampersand)#xhhhh; , with the corresponding characters
+* Replaces characters that are represented in decimal format, (ampersand)#nnnn; 
+ , with the corresponding characters
 
 LOWERCASE
 
@@ -2487,7 +2487,7 @@ Use this option to decode a URL-encoded value.
 NONE
 
 Specify NONE if you don&#x27;t want to perform any text transformations. **/
-        TextTransformation: TextTransformation;
+      TextTransformation: TextTransformation;
     }
   }
 }
