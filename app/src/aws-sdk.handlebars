@@ -23,12 +23,11 @@ declare module "aws-sdk" {
     needsRefresh(): boolean;
     refresh(callback: (err?: Error) => void): void;
     params: CredentialParams;
-    refresh(callback: (err?: Error) => void): void;
+    refresh(callback?: (err?: Error) => void): void;
   }
 
   export interface CredentialParams {
     Logins: { [index:string]:string };
-    refresh(callback?: (err?: Error) => void): void;
   }
 
   export interface Logger {
@@ -173,7 +172,7 @@ declare module "aws-sdk" {
     write: Function;
     end: Function;
   }
-    
+
   export module DynamoDB {
     export class DocumentClient {
       /**
@@ -466,5 +465,5 @@ declare module "aws-sdk" {
       */
       createSet(params: any, callback?: (err: any, data: any) => void): Request;
     }
-  }  
+  }
 }

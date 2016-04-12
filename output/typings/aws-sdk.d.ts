@@ -23,12 +23,11 @@ declare module "aws-sdk" {
     needsRefresh(): boolean;
     refresh(callback: (err?: Error) => void): void;
     params: CredentialParams;
-    refresh(callback: (err?: Error) => void): void;
+    refresh(callback?: (err?: Error) => void): void;
   }
 
   export interface CredentialParams {
     Logins: { [index: string]: string };
-    refresh(callback?: (err?: Error) => void): void;
   }
 
   export interface Logger {
