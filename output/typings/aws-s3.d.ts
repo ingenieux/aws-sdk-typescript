@@ -109,6 +109,11 @@ single HTTP request. You may specify up to 1000 keys.
      */
     deleteObjects(params: S3.DeleteObjectsRequest, callback?: (err: any, data: S3.DeleteObjectsOutput | any) => void): Request;
     /**
+     * Returns the accelerate configuration of a bucket.
+     *
+     */
+    getBucketAccelerateConfiguration(params: S3.GetBucketAccelerateConfigurationRequest, callback?: (err: any, data: S3.GetBucketAccelerateConfigurationOutput | any) => void): Request;
+    /**
      * Gets the access control policy for the bucket.
      *
      */
@@ -240,6 +245,11 @@ bucket.
      */
     listParts(params: S3.ListPartsRequest, callback?: (err: any, data: S3.ListPartsOutput | any) => void): Request;
     /**
+     * Sets the accelerate configuration of an existing bucket.
+     *
+     */
+    putBucketAccelerateConfiguration(params: S3.PutBucketAccelerateConfigurationRequest, callback?: (err: any, data: any) => void): Request;
+    /**
      * Sets the permissions on a bucket using access control lists (ACL).
      *
      */
@@ -350,6 +360,7 @@ parts storage.
      */
     uploadPartCopy(params: S3.UploadPartCopyRequest, callback?: (err: any, data: S3.UploadPartCopyOutput | any) => void): Request;
 
+    isValidAccelerateOperation(...args: any[]): any
     /**
      * Found on JS Sources - Sorry for the inconvenience :)
      *
@@ -455,6 +466,8 @@ parts storage.
     export type AllowedOrigins = AllowedOrigin[];
 
     export type Body = any;
+
+    export type BucketAccelerateStatus = string;
 
     export type BucketCannedACL = string;
 
@@ -791,6 +804,10 @@ abort an Incomplete Multipart Upload. **/
       Key: ObjectKey;
       UploadId: MultipartUploadId;
       RequestPayer?: RequestPayer;
+    }
+    export interface AccelerateConfiguration {
+      /** The accelerate configuration of the bucket. **/
+      Status?: BucketAccelerateStatus;
     }
     export interface AccessControlPolicy {
       /** A list of grants. **/
@@ -1221,6 +1238,14 @@ Configuring Event Notifications
 Amazon Simple Storage Service Developer Guide. **/
       Name?: FilterRuleName;
       Value?: FilterRuleValue;
+    }
+    export interface GetBucketAccelerateConfigurationOutput {
+      /** The accelerate configuration of the bucket. **/
+      Status?: BucketAccelerateStatus;
+    }
+    export interface GetBucketAccelerateConfigurationRequest {
+      /** Name of the bucket for which the accelerate configuration is retrieved. **/
+      Bucket: BucketName;
     }
     export interface GetBucketAclOutput {
       Owner?: Owner;
@@ -1904,6 +1929,12 @@ an object. **/
       /** Size of the uploaded part data. **/
       Size?: Size;
     }
+    export interface PutBucketAccelerateConfigurationRequest {
+      /** Name of the bucket for which the accelerate configuration is set. **/
+      Bucket: BucketName;
+      /** Specifies the Accelerate Configuration you want to set for the bucket. **/
+      AccelerateConfiguration: AccelerateConfiguration;
+    }
     export interface PutBucketAclRequest {
       /** The canned ACL to apply to the bucket. **/
       ACL?: BucketCannedACL;
@@ -2006,6 +2037,8 @@ bucket. **/
       GrantWriteACP?: GrantWriteACP;
       Key: ObjectKey;
       RequestPayer?: RequestPayer;
+      /** VersionId used to reference a specific version of the object. **/
+      VersionId?: ObjectVersionId;
     }
     export interface PutObjectOutput {
       /** If the object expiration is configured, this will contain the expiration date

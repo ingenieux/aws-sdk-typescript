@@ -97,20 +97,11 @@ Deleting Customer Master Keys
 [http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html] in the 
 AWS Key Management Service Developer Guide .
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error InvalidArnException   
+     * @error DependencyTimeoutException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     cancelKeyDeletion(params: KMS.CancelKeyDeletionRequest, callback?: (err: KMS.NotFoundException | KMS.InvalidArnException | KMS.DependencyTimeoutException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: KMS.CancelKeyDeletionResponse | any) => void): Request;
     /**
@@ -127,25 +118,13 @@ same region.
 
 To map an alias to a different key, call UpdateAlias .
      *
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error AlreadyExistsException The request was rejected because it attempted to create a resource that already
-exists.  
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error InvalidAliasNameException The request was rejected because the specified alias name is not valid.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error LimitExceededException The request was rejected because a limit was exceeded. For more information, see 
-Limits [http://docs.aws.amazon.com/kms/latest/developerguide/limits.html] in the 
-AWS Key Management Service Developer Guide .  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error DependencyTimeoutException   
+     * @error AlreadyExistsException   
+     * @error NotFoundException   
+     * @error InvalidAliasNameException   
+     * @error KMSInternalException   
+     * @error LimitExceededException   
+     * @error KMSInvalidStateException   
      */
     createAlias(params: KMS.CreateAliasRequest, callback?: (err: KMS.DependencyTimeoutException | KMS.AlreadyExistsException | KMS.NotFoundException | KMS.InvalidAliasNameException | KMS.KMSInternalException | KMS.LimitExceededException | KMS.KMSInvalidStateException | any, data: any) => void): Request;
     /**
@@ -156,26 +135,14 @@ For more information about grants, see Grants
 [http://docs.aws.amazon.com/kms/latest/developerguide/grants.html] in the AWS
 Key Management Service Developer Guide .
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error DisabledException The request was rejected because the specified key was marked as disabled.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error InvalidGrantTokenException The request was rejected because a grant token provided as part of the request
-is invalid.  
-     * @error LimitExceededException The request was rejected because a limit was exceeded. For more information, see 
-Limits [http://docs.aws.amazon.com/kms/latest/developerguide/limits.html] in the 
-AWS Key Management Service Developer Guide .  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error DisabledException   
+     * @error DependencyTimeoutException   
+     * @error InvalidArnException   
+     * @error KMSInternalException   
+     * @error InvalidGrantTokenException   
+     * @error LimitExceededException   
+     * @error KMSInvalidStateException   
      */
     createGrant(params: KMS.CreateGrantRequest, callback?: (err: KMS.NotFoundException | KMS.DisabledException | KMS.DependencyTimeoutException | KMS.InvalidArnException | KMS.KMSInternalException | KMS.InvalidGrantTokenException | KMS.LimitExceededException | KMS.KMSInvalidStateException | any, data: KMS.CreateGrantResponse | any) => void): Request;
     /**
@@ -185,17 +152,12 @@ encrypt or envelope data keys that are then used to encrypt customer data. For
 more information about data keys, see GenerateDataKey and 
 GenerateDataKeyWithoutPlaintext .
      *
-     * @error MalformedPolicyDocumentException The request was rejected because the specified policy is not syntactically or
-semantically correct.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error UnsupportedOperationException The request was rejected because a specified parameter is not supported.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error LimitExceededException The request was rejected because a limit was exceeded. For more information, see 
-Limits [http://docs.aws.amazon.com/kms/latest/developerguide/limits.html] in the 
-AWS Key Management Service Developer Guide .  
+     * @error MalformedPolicyDocumentException   
+     * @error DependencyTimeoutException   
+     * @error InvalidArnException   
+     * @error UnsupportedOperationException   
+     * @error KMSInternalException   
+     * @error LimitExceededException   
      */
     createKey(params: KMS.CreateKeyRequest, callback?: (err: KMS.MalformedPolicyDocumentException | KMS.DependencyTimeoutException | KMS.InvalidArnException | KMS.UnsupportedOperationException | KMS.KMSInternalException | KMS.LimitExceededException | any, data: KMS.CreateKeyResponse | any) => void): Request;
     /**
@@ -214,57 +176,33 @@ not grant Decrypt access in an IAM user policy. Instead grant Decrypt access
 only in key policies. If you must grant Decrypt access in an IAM user policy,
 you should scope the resource to specific keys or to specific trusted accounts.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error DisabledException The request was rejected because the specified key was marked as disabled.  
-     * @error InvalidCiphertextException The request was rejected because the specified ciphertext has been corrupted or
-is otherwise invalid.  
-     * @error KeyUnavailableException The request was rejected because the key was not available. The request can be
-retried.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error InvalidGrantTokenException The request was rejected because a grant token provided as part of the request
-is invalid.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error DisabledException   
+     * @error InvalidCiphertextException   
+     * @error KeyUnavailableException   
+     * @error DependencyTimeoutException   
+     * @error InvalidGrantTokenException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     decrypt(params: KMS.DecryptRequest, callback?: (err: KMS.NotFoundException | KMS.DisabledException | KMS.InvalidCiphertextException | KMS.KeyUnavailableException | KMS.DependencyTimeoutException | KMS.InvalidGrantTokenException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: KMS.DecryptResponse | any) => void): Request;
     /**
      * Deletes the specified alias. To map an alias to a different key, call 
 UpdateAlias .
      *
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error DependencyTimeoutException   
+     * @error NotFoundException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     deleteAlias(params: KMS.DeleteAliasRequest, callback?: (err: KMS.DependencyTimeoutException | KMS.NotFoundException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: any) => void): Request;
     /**
      * Provides detailed information about the specified customer master key.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
+     * @error NotFoundException   
+     * @error InvalidArnException   
+     * @error DependencyTimeoutException   
+     * @error KMSInternalException   
      */
     describeKey(params: KMS.DescribeKeyRequest, callback?: (err: KMS.NotFoundException | KMS.InvalidArnException | KMS.DependencyTimeoutException | KMS.KMSInternalException | any, data: KMS.DescribeKeyResponse | any) => void): Request;
     /**
@@ -274,82 +212,44 @@ use of a master key, go to How Key State Affects the Use of a Customer Master
 Key [http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the 
 AWS Key Management Service Developer Guide .
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error InvalidArnException   
+     * @error DependencyTimeoutException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     disableKey(params: KMS.DisableKeyRequest, callback?: (err: KMS.NotFoundException | KMS.InvalidArnException | KMS.DependencyTimeoutException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: any) => void): Request;
     /**
      * Disables rotation of the specified key.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error DisabledException The request was rejected because the specified key was marked as disabled.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error DisabledException   
+     * @error InvalidArnException   
+     * @error DependencyTimeoutException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     disableKeyRotation(params: KMS.DisableKeyRotationRequest, callback?: (err: KMS.NotFoundException | KMS.DisabledException | KMS.InvalidArnException | KMS.DependencyTimeoutException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: any) => void): Request;
     /**
      * Marks a key as enabled, thereby permitting its use.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error LimitExceededException The request was rejected because a limit was exceeded. For more information, see 
-Limits [http://docs.aws.amazon.com/kms/latest/developerguide/limits.html] in the 
-AWS Key Management Service Developer Guide .  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error InvalidArnException   
+     * @error DependencyTimeoutException   
+     * @error KMSInternalException   
+     * @error LimitExceededException   
+     * @error KMSInvalidStateException   
      */
     enableKey(params: KMS.EnableKeyRequest, callback?: (err: KMS.NotFoundException | KMS.InvalidArnException | KMS.DependencyTimeoutException | KMS.KMSInternalException | KMS.LimitExceededException | KMS.KMSInvalidStateException | any, data: any) => void): Request;
     /**
      * Enables rotation of the specified customer master key.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error DisabledException The request was rejected because the specified key was marked as disabled.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error DisabledException   
+     * @error InvalidArnException   
+     * @error DependencyTimeoutException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     enableKeyRotation(params: KMS.EnableKeyRotationRequest, callback?: (err: KMS.NotFoundException | KMS.DisabledException | KMS.InvalidArnException | KMS.DependencyTimeoutException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: any) => void): Request;
     /**
@@ -375,26 +275,14 @@ If you want to encrypt data locally in your application, you can use the
 GenerateDataKey function to return a plaintext data encryption key and a copy of
 the key encrypted under the customer master key (CMK) of your choosing.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error DisabledException The request was rejected because the specified key was marked as disabled.  
-     * @error KeyUnavailableException The request was rejected because the key was not available. The request can be
-retried.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error InvalidKeyUsageException The request was rejected because the specified KeySpec parameter is not valid.
-The currently supported value is ENCRYPT/DECRYPT.  
-     * @error InvalidGrantTokenException The request was rejected because a grant token provided as part of the request
-is invalid.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error DisabledException   
+     * @error KeyUnavailableException   
+     * @error DependencyTimeoutException   
+     * @error InvalidKeyUsageException   
+     * @error InvalidGrantTokenException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     encrypt(params: KMS.EncryptRequest, callback?: (err: KMS.NotFoundException | KMS.DisabledException | KMS.KeyUnavailableException | KMS.DependencyTimeoutException | KMS.InvalidKeyUsageException | KMS.InvalidGrantTokenException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: KMS.EncryptResponse | any) => void): Request;
     /**
@@ -428,26 +316,14 @@ erase the key from memory. You must specify the encryption context, if any, that
 you specified when you generated the key. The encryption context is logged by
 CloudTrail, and you can use this log to help track the use of particular data.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error DisabledException The request was rejected because the specified key was marked as disabled.  
-     * @error KeyUnavailableException The request was rejected because the key was not available. The request can be
-retried.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error InvalidKeyUsageException The request was rejected because the specified KeySpec parameter is not valid.
-The currently supported value is ENCRYPT/DECRYPT.  
-     * @error InvalidGrantTokenException The request was rejected because a grant token provided as part of the request
-is invalid.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error DisabledException   
+     * @error KeyUnavailableException   
+     * @error DependencyTimeoutException   
+     * @error InvalidKeyUsageException   
+     * @error InvalidGrantTokenException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     generateDataKey(params: KMS.GenerateDataKeyRequest, callback?: (err: KMS.NotFoundException | KMS.DisabledException | KMS.KeyUnavailableException | KMS.DependencyTimeoutException | KMS.InvalidKeyUsageException | KMS.InvalidGrantTokenException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: KMS.GenerateDataKeyResponse | any) => void): Request;
     /**
@@ -456,134 +332,78 @@ of that key. Otherwise, this API functions exactly like GenerateDataKey . You
 can use this API to, for example, satisfy an audit requirement that an encrypted
 key be made available without exposing the plaintext copy of that key.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error DisabledException The request was rejected because the specified key was marked as disabled.  
-     * @error KeyUnavailableException The request was rejected because the key was not available. The request can be
-retried.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error InvalidKeyUsageException The request was rejected because the specified KeySpec parameter is not valid.
-The currently supported value is ENCRYPT/DECRYPT.  
-     * @error InvalidGrantTokenException The request was rejected because a grant token provided as part of the request
-is invalid.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error DisabledException   
+     * @error KeyUnavailableException   
+     * @error DependencyTimeoutException   
+     * @error InvalidKeyUsageException   
+     * @error InvalidGrantTokenException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     generateDataKeyWithoutPlaintext(params: KMS.GenerateDataKeyWithoutPlaintextRequest, callback?: (err: KMS.NotFoundException | KMS.DisabledException | KMS.KeyUnavailableException | KMS.DependencyTimeoutException | KMS.InvalidKeyUsageException | KMS.InvalidGrantTokenException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: KMS.GenerateDataKeyWithoutPlaintextResponse | any) => void): Request;
     /**
      * Generates an unpredictable byte string.
      *
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
+     * @error DependencyTimeoutException   
+     * @error KMSInternalException   
      */
     generateRandom(params: KMS.GenerateRandomRequest, callback?: (err: KMS.DependencyTimeoutException | KMS.KMSInternalException | any, data: KMS.GenerateRandomResponse | any) => void): Request;
     /**
      * Retrieves a policy attached to the specified key.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error InvalidArnException   
+     * @error DependencyTimeoutException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     getKeyPolicy(params: KMS.GetKeyPolicyRequest, callback?: (err: KMS.NotFoundException | KMS.InvalidArnException | KMS.DependencyTimeoutException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: KMS.GetKeyPolicyResponse | any) => void): Request;
     /**
      * Retrieves a Boolean value that indicates whether key rotation is enabled for the
 specified key.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error InvalidArnException   
+     * @error DependencyTimeoutException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     getKeyRotationStatus(params: KMS.GetKeyRotationStatusRequest, callback?: (err: KMS.NotFoundException | KMS.InvalidArnException | KMS.DependencyTimeoutException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: KMS.GetKeyRotationStatusResponse | any) => void): Request;
     /**
      * Lists all of the key aliases in the account.
      *
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error InvalidMarkerException The request was rejected because the marker that specifies where pagination
-should next begin is not valid.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
+     * @error DependencyTimeoutException   
+     * @error InvalidMarkerException   
+     * @error KMSInternalException   
      */
     listAliases(params: KMS.ListAliasesRequest, callback?: (err: KMS.DependencyTimeoutException | KMS.InvalidMarkerException | KMS.KMSInternalException | any, data: KMS.ListAliasesResponse | any) => void): Request;
     /**
      * List the grants for a specified key.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error InvalidMarkerException The request was rejected because the marker that specifies where pagination
-should next begin is not valid.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error DependencyTimeoutException   
+     * @error InvalidMarkerException   
+     * @error InvalidArnException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     listGrants(params: KMS.ListGrantsRequest, callback?: (err: KMS.NotFoundException | KMS.DependencyTimeoutException | KMS.InvalidMarkerException | KMS.InvalidArnException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: KMS.ListGrantsResponse | any) => void): Request;
     /**
      * Retrieves a list of policies attached to a key.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error InvalidArnException   
+     * @error DependencyTimeoutException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     listKeyPolicies(params: KMS.ListKeyPoliciesRequest, callback?: (err: KMS.NotFoundException | KMS.InvalidArnException | KMS.DependencyTimeoutException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: KMS.ListKeyPoliciesResponse | any) => void): Request;
     /**
      * Lists the customer master keys.
      *
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
+     * @error DependencyTimeoutException   
+     * @error KMSInternalException   
      */
     listKeys(params: KMS.ListKeysRequest, callback?: (err: KMS.DependencyTimeoutException | KMS.KMSInternalException | any, data: KMS.ListKeysResponse | any) => void): Request;
     /**
@@ -593,41 +413,25 @@ one specified.
 A typical use is to list all grants that you are able to retire. To retire a
 grant, use RetireGrant .
      *
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error InvalidMarkerException The request was rejected because the marker that specifies where pagination
-should next begin is not valid.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
+     * @error DependencyTimeoutException   
+     * @error InvalidMarkerException   
+     * @error InvalidArnException   
+     * @error NotFoundException   
+     * @error KMSInternalException   
      */
     listRetirableGrants(params: KMS.ListRetirableGrantsRequest, callback?: (err: KMS.DependencyTimeoutException | KMS.InvalidMarkerException | KMS.InvalidArnException | KMS.NotFoundException | KMS.KMSInternalException | any, data: KMS.ListGrantsResponse | any) => void): Request;
     /**
      * Attaches a policy to the specified key.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error MalformedPolicyDocumentException The request was rejected because the specified policy is not syntactically or
-semantically correct.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error UnsupportedOperationException The request was rejected because a specified parameter is not supported.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error LimitExceededException The request was rejected because a limit was exceeded. For more information, see 
-Limits [http://docs.aws.amazon.com/kms/latest/developerguide/limits.html] in the 
-AWS Key Management Service Developer Guide .  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error InvalidArnException   
+     * @error MalformedPolicyDocumentException   
+     * @error DependencyTimeoutException   
+     * @error InvalidArnException   
+     * @error UnsupportedOperationException   
+     * @error KMSInternalException   
+     * @error LimitExceededException   
+     * @error KMSInvalidStateException   
      */
     putKeyPolicy(params: KMS.PutKeyPolicyRequest, callback?: (err: KMS.NotFoundException | KMS.InvalidArnException | KMS.MalformedPolicyDocumentException | KMS.DependencyTimeoutException | KMS.InvalidArnException | KMS.UnsupportedOperationException | KMS.KMSInternalException | KMS.LimitExceededException | KMS.KMSInvalidStateException | any, data: any) => void): Request;
     /**
@@ -643,28 +447,15 @@ policies to permit re-encryption from or to the key. The statement is included
 automatically when you authorize use of the key through the console but must be
 included manually when you set a policy by using the PutKeyPolicy function.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error DisabledException The request was rejected because the specified key was marked as disabled.  
-     * @error InvalidCiphertextException The request was rejected because the specified ciphertext has been corrupted or
-is otherwise invalid.  
-     * @error KeyUnavailableException The request was rejected because the key was not available. The request can be
-retried.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error InvalidKeyUsageException The request was rejected because the specified KeySpec parameter is not valid.
-The currently supported value is ENCRYPT/DECRYPT.  
-     * @error InvalidGrantTokenException The request was rejected because a grant token provided as part of the request
-is invalid.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error DisabledException   
+     * @error InvalidCiphertextException   
+     * @error KeyUnavailableException   
+     * @error DependencyTimeoutException   
+     * @error InvalidKeyUsageException   
+     * @error InvalidGrantTokenException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     reEncrypt(params: KMS.ReEncryptRequest, callback?: (err: KMS.NotFoundException | KMS.DisabledException | KMS.InvalidCiphertextException | KMS.KeyUnavailableException | KMS.DependencyTimeoutException | KMS.InvalidKeyUsageException | KMS.InvalidGrantTokenException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: KMS.ReEncryptResponse | any) => void): Request;
     /**
@@ -680,43 +471,24 @@ the key ARN and the grant ID. A grant token is a unique variable-length
 base64-encoded string. A grant ID is a 64 character unique identifier of a
 grant. Both are returned by the CreateGrant function.
      *
-     * @error InvalidGrantTokenException The request was rejected because a grant token provided as part of the request
-is invalid.  
-     * @error InvalidGrantIdException The request was rejected because the specified GrantId is not valid.  
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error InvalidGrantTokenException   
+     * @error InvalidGrantIdException   
+     * @error NotFoundException   
+     * @error DependencyTimeoutException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     retireGrant(params: KMS.RetireGrantRequest, callback?: (err: KMS.InvalidGrantTokenException | KMS.InvalidGrantIdException | KMS.NotFoundException | KMS.DependencyTimeoutException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: any) => void): Request;
     /**
      * Revokes a grant. You can revoke a grant to actively deny operations that depend
 on it.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error InvalidGrantIdException The request was rejected because the specified GrantId is not valid.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error DependencyTimeoutException   
+     * @error InvalidArnException   
+     * @error InvalidGrantIdException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     revokeGrant(params: KMS.RevokeGrantRequest, callback?: (err: KMS.NotFoundException | KMS.DependencyTimeoutException | KMS.InvalidArnException | KMS.InvalidGrantIdException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: any) => void): Request;
     /**
@@ -737,20 +509,11 @@ Customer Master Keys
 [http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html] in the 
 AWS Key Management Service Developer Guide .
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error InvalidArnException   
+     * @error DependencyTimeoutException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     scheduleKeyDeletion(params: KMS.ScheduleKeyDeletionRequest, callback?: (err: KMS.NotFoundException | KMS.InvalidArnException | KMS.DependencyTimeoutException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: KMS.ScheduleKeyDeletionResponse | any) => void): Request;
     /**
@@ -767,38 +530,20 @@ forward slash (alias/aws...) is reserved by Amazon Web Services (AWS).
 The alias and the key it is mapped to must be in the same AWS account and the
 same region.
      *
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error DependencyTimeoutException   
+     * @error NotFoundException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     updateAlias(params: KMS.UpdateAliasRequest, callback?: (err: KMS.DependencyTimeoutException | KMS.NotFoundException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: any) => void): Request;
     /**
      * Updates the description of a key.
      *
-     * @error NotFoundException The request was rejected because the specified entity or resource could not be
-found.  
-     * @error InvalidArnException The request was rejected because a specified ARN was not valid.  
-     * @error DependencyTimeoutException The system timed out while trying to fulfill the request. The request can be
-retried.  
-     * @error KMSInternalException The request was rejected because an internal exception occurred. The request can
-be retried.  
-     * @error KMSInvalidStateException The request was rejected because the state of the specified resource is not
-valid for this request.
-
-For more information about how key state affects the use of a customer master
-key (CMK), go to How Key State Affects the Use of a Customer Master Key
-[http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
-Key Management Service Developer Guide .  
+     * @error NotFoundException   
+     * @error InvalidArnException   
+     * @error DependencyTimeoutException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
      */
     updateKeyDescription(params: KMS.UpdateKeyDescriptionRequest, callback?: (err: KMS.NotFoundException | KMS.InvalidArnException | KMS.DependencyTimeoutException | KMS.KMSInternalException | KMS.KMSInvalidStateException | any, data: any) => void): Request;
 
@@ -1372,7 +1117,7 @@ This value is optional. If you include a value, it must be between 1 and 100,
 inclusive. If you do not include a value, it defaults to 50. **/
       Limit?: LimitType;
       /** Use this parameter only when paginating results and only in a subsequent request
-after you&#x27;ve received a response with truncated results. Set it to the value of 
+after you receive a response with truncated results. Set it to the value of 
 NextMarker from the response you just received. **/
       Marker?: MarkerType;
     }
@@ -1396,7 +1141,7 @@ This value is optional. If you include a value, it must be between 1 and 100,
 inclusive. If you do not include a value, it defaults to 50. **/
       Limit?: LimitType;
       /** Use this parameter only when paginating results and only in a subsequent request
-after you&#x27;ve received a response with truncated results. Set it to the value of 
+after you receive a response with truncated results. Set it to the value of 
 NextMarker from the response you just received. **/
       Marker?: MarkerType;
       /** A unique identifier for the customer master key. This value can be a globally
@@ -1438,7 +1183,7 @@ inclusive. If you do not include a value, it defaults to 100.
 Currently only 1 policy can be attached to a key. **/
       Limit?: LimitType;
       /** Use this parameter only when paginating results and only in a subsequent request
-after you&#x27;ve received a response with truncated results. Set it to the value of 
+after you receive a response with truncated results. Set it to the value of 
 NextMarker from the response you just received. **/
       Marker?: MarkerType;
     }
@@ -1463,7 +1208,7 @@ This value is optional. If you include a value, it must be between 1 and 1000,
 inclusive. If you do not include a value, it defaults to 100. **/
       Limit?: LimitType;
       /** Use this parameter only when paginating results and only in a subsequent request
-after you&#x27;ve received a response with truncated results. Set it to the value of 
+after you receive a response with truncated results. Set it to the value of 
 NextMarker from the response you just received. **/
       Marker?: MarkerType;
     }
@@ -1487,7 +1232,7 @@ This value is optional. If you include a value, it must be between 1 and 100,
 inclusive. If you do not include a value, it defaults to 50. **/
       Limit?: LimitType;
       /** Use this parameter only when paginating results and only in a subsequent request
-after you&#x27;ve received a response with truncated results. Set it to the value of 
+after you receive a response with truncated results. Set it to the value of 
 NextMarker from the response you just received. **/
       Marker?: MarkerType;
       /** The retiring principal for which to list grants.

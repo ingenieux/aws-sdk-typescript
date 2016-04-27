@@ -14,13 +14,9 @@ declare module "aws-sdk" {
     * signatureVersion: v4
     * protocol: query
     *
-    * AWS Elastic BeanstalkThis is the AWS Elastic Beanstalk API Reference. This guide
- provides detailed information about AWS Elastic Beanstalk actions, data types,
- parameters, and errors.
- 
- AWS Elastic Beanstalk is a tool that makes it easy for you to create, deploy,
- and manage scalable, fault-tolerant applications running on Amazon Web Services
- cloud resources.
+    * AWS Elastic BeanstalkAWS Elastic Beanstalk makes it easy for you to create,
+ deploy, and manage scalable, fault-tolerant applications running on the Amazon
+ Web Services cloud.
  
  For more information about this product, go to the AWS Elastic Beanstalk
  [http://aws.amazon.com/elasticbeanstalk/] details page. The location of the
@@ -49,6 +45,15 @@ deployment.
      * @error InsufficientPrivilegesException   
      */
     abortEnvironmentUpdate(params: ElasticBeanstalk.AbortEnvironmentUpdateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException | any, data: any) => void): Request;
+    /**
+     * Applies a scheduled managed action immediately. A managed action can be applied
+only if its status is Scheduled . Get the status and action ID of a managed
+action with DescribeEnvironmentManagedActions .
+     *
+     * @error ElasticBeanstalkServiceException   
+     * @error ManagedActionInvalidStateException   
+     */
+    applyEnvironmentManagedAction(params: ElasticBeanstalk.ApplyEnvironmentManagedActionRequest, callback?: (err: ElasticBeanstalk.ElasticBeanstalkServiceException | ElasticBeanstalk.ManagedActionInvalidStateException | any, data: ElasticBeanstalk.ApplyEnvironmentManagedActionResult | any) => void): Request;
     /**
      * Checks if the specified CNAME is available.
      *
@@ -212,6 +217,18 @@ Enhanced Health.
      */
     describeEnvironmentHealth(params: ElasticBeanstalk.DescribeEnvironmentHealthRequest, callback?: (err: ElasticBeanstalk.InvalidRequestException | ElasticBeanstalk.ElasticBeanstalkServiceException | any, data: ElasticBeanstalk.DescribeEnvironmentHealthResult | any) => void): Request;
     /**
+     * Lists an environment&#x27;s completed and failed managed actions.
+     *
+     * @error ElasticBeanstalkServiceException   
+     */
+    describeEnvironmentManagedActionHistory(params: ElasticBeanstalk.DescribeEnvironmentManagedActionHistoryRequest, callback?: (err: ElasticBeanstalk.ElasticBeanstalkServiceException | any, data: ElasticBeanstalk.DescribeEnvironmentManagedActionHistoryResult | any) => void): Request;
+    /**
+     * Lists an environment&#x27;s upcoming and in-progress managed actions.
+     *
+     * @error ElasticBeanstalkServiceException   
+     */
+    describeEnvironmentManagedActions(params: ElasticBeanstalk.DescribeEnvironmentManagedActionsRequest, callback?: (err: ElasticBeanstalk.ElasticBeanstalkServiceException | any, data: ElasticBeanstalk.DescribeEnvironmentManagedActionsResult | any) => void): Request;
+    /**
      * Returns AWS resources for this environment.
      *
      * @error InsufficientPrivilegesException   
@@ -357,6 +374,12 @@ associated with the selection of option values.
 
     export type AbortableOperationInProgress = boolean;
 
+    export type ActionHistoryStatus = string;
+
+    export type ActionStatus = string;
+
+    export type ActionType = string;
+
     export type ApplicationDescriptionList = ApplicationDescription[];
 
     export type ApplicationName = string;
@@ -461,6 +484,8 @@ associated with the selection of option values.
 
     export type ExceptionMessage = string;
 
+    export type FailureType = string;
+
     export type FileTypeExtension = string;
 
     export type ForceTerminate = boolean;
@@ -494,6 +519,10 @@ associated with the selection of option values.
     export type LoadBalancerList = LoadBalancer[];
 
     export type LoadBalancerListenersDescription = Listener[];
+
+    export type ManagedActionHistoryItems = ManagedActionHistoryItem[];
+
+    export type ManagedActions = ManagedAction[];
 
     export type MaxRecords = number;
 
@@ -558,6 +587,8 @@ associated with the selection of option values.
     export type TimeFilterEnd = number;
 
     export type TimeFilterStart = number;
+
+    export type Timestamp = number;
 
     export type Token = string;
 
@@ -647,6 +678,24 @@ last 10 seconds. Latencies are in seconds with one milisecond resolution. **/
     export interface ApplicationVersionDescriptionsMessage {
       /** List of ApplicationVersionDescription objects sorted by order of creation. **/
       ApplicationVersions?: ApplicationVersionDescriptionList;
+    }
+    export interface ApplyEnvironmentManagedActionRequest {
+      /** The name of the target environment. **/
+      EnvironmentName?: String;
+      /** The environment ID of the target environment. **/
+      EnvironmentId?: String;
+      /** The action ID of the scheduled managed action to execute. **/
+      ActionId: String;
+    }
+    export interface ApplyEnvironmentManagedActionResult {
+      /** The action ID of the managed action. **/
+      ActionId?: String;
+      /** A description of the managed action. **/
+      ActionDescription?: String;
+      /** The type of managed action. **/
+      ActionType?: ActionType;
+      /** The status of the managed action. **/
+      Status?: String;
     }
     export interface AutoScalingGroup {
       /** The name of the AutoScalingGroup . **/
@@ -1120,6 +1169,35 @@ environment. For more information, see Health Colors and Statuses
       /** The date and time the information was last refreshed. **/
       RefreshedAt?: RefreshedAt;
     }
+    export interface DescribeEnvironmentManagedActionHistoryRequest {
+      /** The environment ID of the target environment. **/
+      EnvironmentId?: EnvironmentId;
+      /** The name of the target environment. **/
+      EnvironmentName?: EnvironmentName;
+      /** The pagination token returned by a previous request. **/
+      NextToken?: String;
+      /** The maximum number of items to return for a single request. **/
+      MaxItems?: Integer;
+    }
+    export interface DescribeEnvironmentManagedActionHistoryResult {
+      /** A list of completed and failed managed actions. **/
+      ManagedActionHistoryItems?: ManagedActionHistoryItems;
+      /** A pagination token that you pass to DescribeEnvironmentManagedActionHistory to
+get the next page of results. **/
+      NextToken?: String;
+    }
+    export interface DescribeEnvironmentManagedActionsRequest {
+      /** The name of the target environment. **/
+      EnvironmentName?: String;
+      /** The environment ID of the target environment. **/
+      EnvironmentId?: String;
+      /** To show only actions with a particular status, specify a status. **/
+      Status?: ActionStatus;
+    }
+    export interface DescribeEnvironmentManagedActionsResult {
+      /** A list of upcoming and in-progress managed actions. **/
+      ManagedActions?: ManagedActions;
+    }
     export interface DescribeEnvironmentResourcesMessage {
       /** The ID of the environment to retrieve AWS resource usage data.
 
@@ -1445,6 +1523,40 @@ seconds. **/
       Domain?: String;
       /** A list of Listeners used by the LoadBalancer. **/
       Listeners?: LoadBalancerListenersDescription;
+    }
+    export interface ManagedAction {
+      /** A unique identifier for the managed action. **/
+      ActionId?: String;
+      /** A description of the managed action. **/
+      ActionDescription?: String;
+      /** The type of managed action. **/
+      ActionType?: ActionType;
+      /** The status of the managed action. If the action is Scheduled , you can apply it
+immediately with ApplyEnvironmentManagedAction . **/
+      Status?: ActionStatus;
+      /** The start time of the maintenance window in which the managed action will
+execute. **/
+      WindowStartTime?: Timestamp;
+    }
+    export interface ManagedActionHistoryItem {
+      /** A unique identifier for the managed action. **/
+      ActionId?: String;
+      /** The type of the managed action. **/
+      ActionType?: ActionType;
+      /** A description of the managed action. **/
+      ActionDescription?: String;
+      /** If the action failed, the type of failure. **/
+      FailureType?: FailureType;
+      /** The status of the action. **/
+      Status?: ActionHistoryStatus;
+      /** If the action failed, a description of the failure. **/
+      FailureDescription?: String;
+      /** The date and time that the action started executing. **/
+      ExecutedTime?: Timestamp;
+      /** The date and time that the action finished executing. **/
+      FinishedTime?: Timestamp;
+    }
+    export interface ManagedActionInvalidStateException {
     }
     export interface OperationInProgressException {
     }

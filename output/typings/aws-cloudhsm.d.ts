@@ -21,9 +21,10 @@ declare module "aws-sdk" {
     constructor(options?: any);
     endpoint: Endpoint;
     /**
-     * Adds or overwrites one or more tags for the specified resource.
+     * Adds or overwrites one or more tags for the specified AWS CloudHSM resource.
 
-Each tag consists of a key and a value. Tag keys must be unique per resource.
+Each tag consists of a key and a value. Tag keys must be unique to each
+resource.
      *
      * @error CloudHsmServiceException   
      * @error CloudHsmInternalException   
@@ -171,7 +172,7 @@ items.
      */
     listLunaClients(params: CloudHSM.ListLunaClientsRequest, callback?: (err: CloudHSM.CloudHsmServiceException | CloudHSM.CloudHsmInternalException | CloudHSM.InvalidRequestException | any, data: CloudHSM.ListLunaClientsResponse | any) => void): Request;
     /**
-     * Returns a list of all tags for the specified resource.
+     * Returns a list of all tags for the specified AWS CloudHSM resource.
      *
      * @error CloudHsmServiceException   
      * @error CloudHsmInternalException   
@@ -209,7 +210,7 @@ the client&#x27;s HSMs.
      */
     modifyLunaClient(params: CloudHSM.ModifyLunaClientRequest, callback?: (err: CloudHSM.CloudHsmServiceException | any, data: CloudHSM.ModifyLunaClientResponse | any) => void): Request;
     /**
-     * Removes one or more tags from the specified resource.
+     * Removes one or more tags from the specified AWS CloudHSM resource.
 
 To remove a tag, specify only the tag key to remove (not the value). To
 overwrite the value for an existing tag, use AddTagsToResource .
@@ -299,7 +300,7 @@ overwrite the value for an existing tag, use AddTagsToResource .
     export type VpcId = string;
 
     export interface AddTagsToResourceRequest {
-      /** The Amazon Resource Name (ARN) of the resource to tag. **/
+      /** The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag. **/
       ResourceArn: String;
       /** One or more tags. **/
       TagList: TagList;
@@ -539,7 +540,7 @@ retrieve the next set of items. **/
       NextToken?: PaginationToken;
     }
     export interface ListTagsForResourceRequest {
-      /** The Amazon Resource Name (ARN) of the resource. **/
+      /** The Amazon Resource Name (ARN) of the AWS CloudHSM resource. **/
       ResourceArn: String;
     }
     export interface ListTagsForResourceResponse {
@@ -593,7 +594,7 @@ only supports one syslog monitoring server. **/
       ClientArn?: ClientArn;
     }
     export interface RemoveTagsFromResourceRequest {
-      /** The Amazon Resource Name (ARN) of the resource. **/
+      /** The Amazon Resource Name (ARN) of the AWS CloudHSM resource. **/
       ResourceArn: String;
       /** The tag key or keys to remove.
 

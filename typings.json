@@ -27,6 +27,7 @@
     "output/typings/aws-codedeploy.d.ts",
     "output/typings/aws-codepipeline.d.ts",
     "output/typings/aws-cognito-identity.d.ts",
+    "output/typings/aws-cognito-idp.d.ts",
     "output/typings/aws-cognito-sync.d.ts",
     "output/typings/aws-config.d.ts",
     "output/typings/aws-datapipeline.d.ts",

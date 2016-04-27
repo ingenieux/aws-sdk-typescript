@@ -288,6 +288,8 @@ resources, such as Amazon EC2 instances.
 
     export type Date = number;
 
+    export type EC2InstanceIdsList = InstanceId[];
+
     export type EC2InstanceIdsToTerminateList = InstanceId[];
 
     export type EbsBlockDeviceConfigList = EbsBlockDeviceConfig[];
@@ -716,6 +718,8 @@ task). **/
 optimized configuration stack and provides additional, dedicated capacity for
 Amazon EBS I/O. **/
       EbsOptimized?: BooleanObject;
+      /** Policy for customizing shrink operations. **/
+      ShrinkPolicy?: ShrinkPolicy;
     }
     export interface InstanceGroupConfig {
       /** Friendly name given to the instance group. **/
@@ -778,10 +782,11 @@ TERMINATED, and FAILED. **/
       InstanceGroupId: XmlStringMaxLen256;
       /** Target size for the instance group. **/
       InstanceCount?: Integer;
-      /** The EC2 InstanceIds to terminate. For advanced users only. Once you terminate
-the instances, the instance group will not return to its original requested
-size. **/
+      /** The EC2 InstanceIds to terminate. Once you terminate the instances, the instance
+group will not return to its original requested size. **/
       EC2InstanceIdsToTerminate?: EC2InstanceIdsToTerminateList;
+      /** Policy for customizing shrink operations. **/
+      ShrinkPolicy?: ShrinkPolicy;
     }
     export interface InstanceGroupStateChangeReason {
       /** The programmable code for the state change reason. **/
@@ -804,6 +809,15 @@ size. **/
       ReadyDateTime?: Date;
       /** The date and time when the instance group terminated. **/
       EndDateTime?: Date;
+    }
+    export interface InstanceResizePolicy {
+      /** Specific list of instances to be terminated when shrinking an instance group. **/
+      InstancesToTerminate?: EC2InstanceIdsList;
+      /** Specific list of instances to be protected when shrinking an instance group. **/
+      InstancesToProtect?: EC2InstanceIdsList;
+      /** Decommissioning timeout override for the specific list of instances to be
+terminated. **/
+      InstanceTerminationTimeout?: Integer;
     }
     export interface InstanceStateChangeReason {
       /** The programmable code for the state change reason. **/
@@ -1200,6 +1214,14 @@ that AWS account can view and, if they have the proper IAM policy permissions
 set, manage the job flows. If it is set to False, only the IAM user that created
 a job flow can view and manage it. **/
       VisibleToAllUsers: Boolean;
+    }
+    export interface ShrinkPolicy {
+      /** The desired timeout for decommissioning an instance. Overrides the default YARN
+decommissioning timeout. **/
+      DecommissionTimeout?: Integer;
+      /** Custom policy for requesting termination protection or termination of specific
+instances when shrinking an instance group. **/
+      InstanceResizePolicy?: InstanceResizePolicy;
     }
     export interface Step {
       /** The identifier of the cluster step. **/

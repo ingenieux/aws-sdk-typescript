@@ -522,8 +522,11 @@ updated as a whole (or not at all).
     export interface AccountSettings {
       /** The AWS account number specified in the AccountSettings container. **/
       awsAccountNumber?: AWSAccountNumber;
-      /** Returns the unmetered devices you have purchased. **/
+      /** Returns the unmetered devices you have purchased or want to purchase. **/
       unmeteredDevices?: PurchasedDevicesMap;
+      /** Returns the unmetered remote access devices you have purchased or want to
+purchase. **/
+      unmeteredRemoteAccessDevices?: PurchasedDevicesMap;
     }
     export interface ArgumentException {
       /** Any additional information about the exception. **/
@@ -1049,25 +1052,43 @@ Allowed values include the following:
 
 Allowed values include:
 
-&amp;#42; COMPLETED: A completed status.
+&amp;#42; PENDING: A pending status.
  
  
-* PENDING: A pending status.
+* PENDING_CONCURRENCY: A pending concurrency status.
+ 
+ 
+* PENDING_DEVICE: A pending device status.
  
  
 * PROCESSING: A processing status.
  
  
+* SCHEDULING: A scheduling status.
+ 
+ 
+* PREPARING: A preparing status.
+ 
+ 
 * RUNNING: A running status.
  
  
-* SCHEDULING: A scheduling status. **/
+* COMPLETED: A completed status.
+ 
+ 
+* STOPPING: A stopping status. **/
       status?: ExecutionStatus;
       /** The job&#x27;s result.
 
 Allowed values include:
 
-&amp;#42; ERRORED: An error condition.
+&amp;#42; PENDING: A pending condition.
+ 
+ 
+* PASSED: A passing condition.
+ 
+ 
+* WARNED: A warning condition.
  
  
 * FAILED: A failed condition.
@@ -1076,16 +1097,10 @@ Allowed values include:
 * SKIPPED: A skipped condition.
  
  
-* STOPPED: A stopped condition.
+* ERRORED: An error condition.
  
  
-* PASSED: A passing condition.
- 
- 
-* PENDING: A pending condition.
- 
- 
-* WARNED: A warning condition. **/
+* STOPPED: A stopped condition. **/
       result?: ExecutionResult;
       /** The job&#x27;s start time. **/
       started?: DateTime;
@@ -1293,7 +1308,13 @@ can be used to return the next set of items in the list. **/
 
 Allowed values include:
 
-&amp;#42; ERRORED: An error condition.
+&amp;#42; PENDING: A pending condition.
+ 
+ 
+* PASSED: A passing condition.
+ 
+ 
+* WARNED: A warning condition.
  
  
 * FAILED: A failed condition.
@@ -1302,16 +1323,10 @@ Allowed values include:
 * SKIPPED: A skipped condition.
  
  
-* STOPPED: A stopped condition.
+* ERRORED: An error condition.
  
  
-* PASSED: A passing condition.
- 
- 
-* PENDING: A pending condition.
- 
- 
-* WARNED: A warning condition. **/
+* STOPPED: A stopped condition. **/
       uniqueProblems?: UniqueProblemsByExecutionResultMap;
       /** If the number of items that are returned is significantly large, this is an
 identifier that is also returned, which can be used in a subsequent call to this
@@ -1400,7 +1415,13 @@ operation to return the next set of items in the list. **/
 
 Allowed values include:
 
-&amp;#42; ERRORED: An error condition.
+&amp;#42; PENDING: A pending condition.
+ 
+ 
+* PASSED: A passing condition.
+ 
+ 
+* WARNED: A warning condition.
  
  
 * FAILED: A failed condition.
@@ -1409,16 +1430,10 @@ Allowed values include:
 * SKIPPED: A skipped condition.
  
  
-* STOPPED: A stopped condition.
+* ERRORED: An error condition.
  
  
-* PASSED: A passing condition.
- 
- 
-* PENDING: A pending condition.
- 
- 
-* WARNED: A warning condition. **/
+* STOPPED: A stopped condition. **/
       result?: ExecutionResult;
       /** A message about the problem&#x27;s result. **/
       message?: Message;
@@ -1580,25 +1595,43 @@ Allowed values include:
 
 Allowed values include:
 
-&amp;#42; COMPLETED: A completed status.
+&amp;#42; PENDING: A pending status.
  
  
-* PENDING: A pending status.
+* PENDING_CONCURRENCY: A pending concurrency status.
+ 
+ 
+* PENDING_DEVICE: A pending device status.
  
  
 * PROCESSING: A processing status.
  
  
+* SCHEDULING: A scheduling status.
+ 
+ 
+* PREPARING: A preparing status.
+ 
+ 
 * RUNNING: A running status.
  
  
-* SCHEDULING: A scheduling status. **/
+* COMPLETED: A completed status.
+ 
+ 
+* STOPPING: A stopping status. **/
       status?: ExecutionStatus;
       /** The run&#x27;s result.
 
 Allowed values include:
 
-&amp;#42; ERRORED: An error condition.
+&amp;#42; PENDING: A pending condition.
+ 
+ 
+* PASSED: A passing condition.
+ 
+ 
+* WARNED: A warning condition.
  
  
 * FAILED: A failed condition.
@@ -1607,16 +1640,10 @@ Allowed values include:
 * SKIPPED: A skipped condition.
  
  
-* STOPPED: A stopped condition.
+* ERRORED: An error condition.
  
  
-* PASSED: A passing condition.
- 
- 
-* PENDING: A pending condition.
- 
- 
-* WARNED: A warning condition. **/
+* STOPPED: A stopped condition. **/
       result?: ExecutionResult;
       /** The run&#x27;s start time. **/
       started?: DateTime;
@@ -1862,25 +1889,43 @@ Must be one of the following values:
 
 Allowed values include:
 
-&amp;#42; COMPLETED: A completed status.
+&amp;#42; PENDING: A pending status.
  
  
-* PENDING: A pending status.
+* PENDING_CONCURRENCY: A pending concurrency status.
+ 
+ 
+* PENDING_DEVICE: A pending device status.
  
  
 * PROCESSING: A processing status.
  
  
+* SCHEDULING: A scheduling status.
+ 
+ 
+* PREPARING: A preparing status.
+ 
+ 
 * RUNNING: A running status.
  
  
-* SCHEDULING: A scheduling status. **/
+* COMPLETED: A completed status.
+ 
+ 
+* STOPPING: A stopping status. **/
       status?: ExecutionStatus;
       /** The suite&#x27;s result.
 
 Allowed values include:
 
-&amp;#42; ERRORED: An error condition.
+&amp;#42; PENDING: A pending condition.
+ 
+ 
+* PASSED: A passing condition.
+ 
+ 
+* WARNED: A warning condition.
  
  
 * FAILED: A failed condition.
@@ -1889,16 +1934,10 @@ Allowed values include:
 * SKIPPED: A skipped condition.
  
  
-* STOPPED: A stopped condition.
+* ERRORED: An error condition.
  
  
-* PASSED: A passing condition.
- 
- 
-* PENDING: A pending condition.
- 
- 
-* WARNED: A warning condition. **/
+* STOPPED: A stopped condition. **/
       result?: ExecutionResult;
       /** The suite&#x27;s start time. **/
       started?: DateTime;
@@ -1968,25 +2007,43 @@ Must be one of the following values:
 
 Allowed values include:
 
-&amp;#42; COMPLETED: A completed status.
+&amp;#42; PENDING: A pending status.
  
  
-* PENDING: A pending status.
+* PENDING_CONCURRENCY: A pending concurrency status.
+ 
+ 
+* PENDING_DEVICE: A pending device status.
  
  
 * PROCESSING: A processing status.
  
  
+* SCHEDULING: A scheduling status.
+ 
+ 
+* PREPARING: A preparing status.
+ 
+ 
 * RUNNING: A running status.
  
  
-* SCHEDULING: A scheduling status. **/
+* COMPLETED: A completed status.
+ 
+ 
+* STOPPING: A stopping status. **/
       status?: ExecutionStatus;
       /** The test&#x27;s result.
 
 Allowed values include:
 
-&amp;#42; ERRORED: An error condition.
+&amp;#42; PENDING: A pending condition.
+ 
+ 
+* PASSED: A passing condition.
+ 
+ 
+* WARNED: A warning condition.
  
  
 * FAILED: A failed condition.
@@ -1995,16 +2052,10 @@ Allowed values include:
 * SKIPPED: A skipped condition.
  
  
-* STOPPED: A stopped condition.
+* ERRORED: An error condition.
  
  
-* PASSED: A passing condition.
- 
- 
-* PENDING: A pending condition.
- 
- 
-* WARNED: A warning condition. **/
+* STOPPED: A stopped condition. **/
       result?: ExecutionResult;
       /** The test&#x27;s start time. **/
       started?: DateTime;

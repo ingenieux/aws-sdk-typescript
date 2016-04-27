@@ -164,11 +164,19 @@ Amazon Elastic Compute Cloud User Guide .
 If a volume has an AWS Marketplace product code:
 
  &amp;#42; The volume can be attached only to a stopped instance.
+   
+   
  * AWS Marketplace product codes are copied from the volume to the instance.
+   
+   
  * You must be subscribed to the product.
+   
+   
  * The instance type and operating system of the instance must support the
    product. For example, you can&#x27;t detach a volume from a Windows instance and
    attach it to a Linux instance.
+   
+   
 
 For an overview of the AWS Marketplace, see Introducing AWS Marketplace
 [https://aws.amazon.com/marketplace/help/200900000] .
@@ -390,26 +398,36 @@ launch in the VPC to use this set of DHCP options. The following are the
 individual DHCP options you can specify. For more information about the options,
 see RFC 2132 [http://www.ietf.org/rfc/rfc2132.txt] .
 
- &amp;#42; domain-name-servers - The IP addresses of up to four domain name servers, or 
-   AmazonProvidedDNS . The default DHCP option set specifies AmazonProvidedDNS .
+ &amp;#42; domain-name-servers - The IP addresses of up to four domain name servers, or
+   AmazonProvidedDNS. The default DHCP option set specifies AmazonProvidedDNS.
    If specifying more than one domain name server, specify the IP addresses in a
    single parameter, separated by commas.
- * domain-name - If you&#x27;re using AmazonProvidedDNS in us-east-1 , specify 
-   ec2.internal . If you&#x27;re using AmazonProvidedDNS in another region, specify 
-   region.compute.internal (for example, ap-northeast-1.compute.internal ).
-   Otherwise, specify a domain name (for example, MyCompany.com ). Important :
+   
+   
+ * domain-name - If you&#x27;re using AmazonProvidedDNS in &quot;us-east-1&quot;, specify
+   &quot;ec2.internal&quot;. If you&#x27;re using AmazonProvidedDNS in another region, specify
+   &quot;region.compute.internal&quot; (for example, &quot;ap-northeast-1.compute.internal&quot;).
+   Otherwise, specify a domain name (for example, &quot;MyCompany.com&quot;). Important :
    Some Linux operating systems accept multiple domain names separated by
    spaces. However, Windows and other Linux operating systems treat the value as
    a single domain, which results in unexpected behavior. If your DHCP options
    set is associated with a VPC that has instances with multiple operating
    systems, specify only one domain name.
+   
+   
  * ntp-servers - The IP addresses of up to four Network Time Protocol (NTP)
    servers.
+   
+   
  * netbios-name-servers - The IP addresses of up to four NetBIOS name servers.
+   
+   
  * netbios-node-type - The NetBIOS node type (1, 2, 4, or 8). We recommend that
    you specify 2 (broadcast and multicast are not currently supported). For more
    information about these node types, see RFC 2132
    [http://www.ietf.org/rfc/rfc2132.txt] .
+   
+   
 
 Your VPC automatically starts out with a set of DHCP options that includes only
 a DNS server that we provide (AmazonProvidedDNS). If you create a set of
@@ -769,6 +787,12 @@ which includes only a default DNS server that we provide (AmazonProvidedDNS).
 For more information about DHCP options, see DHCP Options Sets
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html] in
 the Amazon Virtual Private Cloud User Guide .
+
+You can specify the instance tenancy value for the VPC when you create it. You
+can&#x27;t change this value for the VPC after you create it. For more information,
+see Dedicated Instances
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html.html] 
+in the Amazon Virtual Private Cloud User Guide .
      *
      */
     createVpc(params: EC2.CreateVpcRequest, callback?: (err: any, data: EC2.CreateVpcResult | any) => void): Request;
@@ -812,6 +836,9 @@ customer gateway.
 If you decide to shut down your VPN connection for any reason and later create a
 new VPN connection, you must reconfigure your customer gateway with the new
 information returned from this call.
+
+This is an idempotent operation. If you perform the operation more than once,
+Amazon EC2 doesn&#x27;t return an error.
 
 For more information about VPN connections, see Adding a Hardware Virtual
 Private Gateway to Your VPC
@@ -1169,7 +1196,8 @@ example, to view which resource types are enabled for longer IDs. This request
 only returns information about resource types whose ID formats can be modified;
 it does not return information about other resource types.
 
-The following resource types support longer IDs: instance | reservation .
+The following resource types support longer IDs: instance | reservation | 
+snapshot | volume .
 
 These settings apply to the IAM user who makes the request; they do not apply to
 the entire AWS account. By default, an IAM user defaults to the same settings as
@@ -1218,7 +1246,8 @@ groupSet | ebsOptimized | sriovNetSupport
      */
     describeInstanceAttribute(params: EC2.DescribeInstanceAttributeRequest, callback?: (err: any, data: EC2.InstanceAttribute | any) => void): Request;
     /**
-     * Describes the status of one or more instances.
+     * Describes the status of one or more instances. By default, only running
+instances are described, unless specified otherwise.
 
 Instance status includes the following components:
 
@@ -1461,10 +1490,16 @@ The create volume permissions fall into the following categories:
  &amp;#42; public : The owner of the snapshot granted create volume permissions for the
    snapshot to the all group. All AWS accounts have create volume permissions
    for these snapshots.
+   
+   
  * explicit : The owner of the snapshot granted create volume permissions to a
    specific AWS account.
+   
+   
  * implicit : An AWS account has implicit create volume permissions for all
    snapshots it owns.
+   
+   
 
 The list of snapshots returned can be modified by specifying snapshot IDs,
 snapshot owners, or AWS accounts with create volume permissions. If no options
@@ -1946,7 +1981,7 @@ host which has auto-placement enabled.
      * Modifies the ID format for the specified resource on a per-region basis. You can
 specify that resources should receive longer IDs (17-character IDs) when they
 are created. The following resource types support longer IDs: instance | 
-reservation .
+reservation | snapshot | volume .
 
 This setting applies to the IAM user who makes the request; it does not apply to
 the entire AWS account. By default, an IAM user defaults to the same settings as
@@ -2094,6 +2129,30 @@ with the endpoint.
      */
     modifyVpcEndpoint(params: EC2.ModifyVpcEndpointRequest, callback?: (err: any, data: EC2.ModifyVpcEndpointResult | any) => void): Request;
     /**
+     * Modifies the VPC peering connection options on one side of a VPC peering
+connection. You can do the following:
+
+ &amp;#42; Enable/disable communication over the peering connection between an
+   EC2-Classic instance that&#x27;s linked to your VPC (using ClassicLink) and
+   instances in the peer VPC.
+   
+   
+ * Enable/disable communication over the peering connection between instances in
+   your VPC and an EC2-Classic instance that&#x27;s linked to the peer VPC.
+   
+   
+
+If the peered VPCs are in different accounts, each owner must initiate a
+separate request to enable or disable communication in either direction,
+depending on whether their VPC was the requester or accepter for the VPC peering
+connection. If the peered VPCs are in the same account, you can modify the
+requester and accepter options in the same request. To confirm which VPC is the
+accepter and requester for a VPC peering connection, use the 
+DescribeVpcPeeringConnections command.
+     *
+     */
+    modifyVpcPeeringConnectionOptions(params: EC2.ModifyVpcPeeringConnectionOptionsRequest, callback?: (err: any, data: EC2.ModifyVpcPeeringConnectionOptionsResult | any) => void): Request;
+    /**
      * Enables monitoring for a running instance. For more information about monitoring
 instances, see Monitoring Your Instances and Volumes
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html] in
@@ -2107,10 +2166,10 @@ platform. The Elastic IP address must be allocated to your account for more than
 24 hours, and it must not be associated with an instance. After the Elastic IP
 address is moved, it is no longer available for use in the EC2-Classic platform,
 unless you move it back using the RestoreAddressToClassic request. You cannot
-move an Elastic IP address that&#x27;s allocated for use in the EC2-VPC platform to
-the EC2-Classic platform. You cannot migrate an Elastic IP address that&#x27;s
-associated with a reverse DNS record. Contact AWS account and billing support to
-remove the reverse DNS record.
+move an Elastic IP address that was originally allocated for use in the EC2-VPC
+platform to the EC2-Classic platform. You cannot migrate an Elastic IP address
+that&#x27;s associated with a reverse DNS record. Contact AWS account and billing
+support to remove the reverse DNS record.
      *
      */
     moveAddressToVpc(params: EC2.MoveAddressToVpcRequest, callback?: (err: any, data: EC2.MoveAddressToVpcResult | any) => void): Request;
@@ -2139,7 +2198,11 @@ the Amazon Elastic Compute Cloud User Guide .
 Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the
 hour for a one-year term. Before you can purchase a Scheduled Instance, you must
 call DescribeScheduledInstanceAvailability to check for available schedules and
-obtain a purchase token.
+obtain a purchase token. After you purchase a Scheduled Instance, you must call 
+RunScheduledInstances during each scheduled time period.
+
+After you purchase a Scheduled Instance, you can&#x27;t cancel, modify, or resell
+your purchase.
      *
      */
     purchaseScheduledInstances(params: EC2.PurchaseScheduledInstancesRequest, callback?: (err: any, data: EC2.PurchaseScheduledInstancesResult | any) => void): Request;
@@ -2149,8 +2212,8 @@ only queues a request to reboot the specified instances. The operation succeeds
 if the instances are valid and belong to you. Requests to reboot terminated
 instances are ignored.
 
-If a Linux/Unix instance does not cleanly shut down within four minutes, Amazon
-EC2 performs a hard reboot.
+If an instance does not cleanly shut down within four minutes, Amazon EC2
+performs a hard reboot.
 
 For more information about troubleshooting, see Getting Console Output and
 Rebooting Instances
@@ -2465,7 +2528,10 @@ identifier using PurchaseScheduledInstances .
 You must launch a Scheduled Instance during its scheduled time period. You can&#x27;t
 stop or reboot a Scheduled Instance, but you can terminate it as needed. If you
 terminate a Scheduled Instance before the current scheduled time period ends,
-you can launch it again after a few minutes.
+you can launch it again after a few minutes. For more information, see Scheduled
+Instances
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html] 
+in the Amazon Elastic Compute Cloud User Guide .
      *
      */
     runScheduledInstances(params: EC2.RunScheduledInstancesRequest, callback?: (err: any, data: EC2.RunScheduledInstancesResult | any) => void): Request;
@@ -2494,31 +2560,27 @@ Amazon Elastic Compute Cloud User Guide .
      */
     startInstances(params: EC2.StartInstancesRequest, callback?: (err: any, data: EC2.StartInstancesResult | any) => void): Request;
     /**
-     * Stops an Amazon EBS-backed instance. Each time you transition an instance from
-stopped to started, Amazon EC2 charges a full instance hour, even if transitions
-happen multiple times within a single hour.
+     * Stops an Amazon EBS-backed instance.
 
-You can&#x27;t start or stop Spot instances.
+We don&#x27;t charge hourly usage for a stopped instance, or data transfer fees;
+however, your root partition Amazon EBS volume remains, continues to persist
+your data, and you are charged for Amazon EBS volume usage. Each time you
+transition an instance from stopped to started, Amazon EC2 charges a full
+instance hour, even if transitions happen multiple times within a single hour.
 
-Instances that use Amazon EBS volumes as their root devices can be quickly
-stopped and started. When an instance is stopped, the compute resources are
-released and you are not billed for hourly instance usage. However, your root
-partition Amazon EBS volume remains, continues to persist your data, and you are
-charged for Amazon EBS volume usage. You can restart your instance at any time.
+You can&#x27;t start or stop Spot instances, and you can&#x27;t stop instance store-backed
+instances.
 
-Before stopping an instance, make sure it is in a state from which it can be
-restarted. Stopping an instance does not preserve data stored in RAM.
+When you stop an instance, we shut it down. You can restart your instance at any
+time. Before stopping an instance, make sure it is in a state from which it can
+be restarted. Stopping an instance does not preserve data stored in RAM.
 
-Performing this operation on an instance that uses an instance store as its root
-device returns an error.
-
-You can stop, start, and terminate EBS-backed instances. You can only terminate
-instance store-backed instances. What happens to an instance differs if you stop
-it or terminate it. For example, when you stop an instance, the root device and
-any other devices attached to the instance persist. When you terminate an
-instance, the root device and any other devices attached during the instance
-launch are automatically deleted. For more information about the differences
-between stopping and terminating instances, see Instance Lifecycle
+Stopping an instance is different to rebooting or terminating it. For example,
+when you stop an instance, the root device and any other devices attached to the
+instance persist. When you terminate an instance, the root device and any other
+devices attached during the instance launch are automatically deleted. For more
+information about the differences between rebooting, stopping, and terminating
+instances, see Instance Lifecycle
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html] 
 in the Amazon Elastic Compute Cloud User Guide .
 
@@ -3411,15 +3473,16 @@ UnauthorizedOperation . **/
       /** [EC2-Classic, default VPC] The name of the source security group. You can&#x27;t
 specify this parameter in combination with the following parameters: the CIDR IP
 address range, the start of the port range, the IP protocol, and the end of the
-port range. For EC2-VPC, the source security group must be in the same VPC. **/
-      SourceSecurityGroupName?: String;
-      /** [EC2-Classic, default VPC] The AWS account number for the source security group.
-For EC2-VPC, the source security group must be in the same VPC. You can&#x27;t
-specify this parameter in combination with the following parameters: the CIDR IP
-address range, the IP protocol, the start of the port range, and the end of the
 port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a
 rule with a specific IP protocol and port range, use a set of IP permissions
-instead. **/
+instead. For EC2-VPC, the source security group must be in the same VPC. **/
+      SourceSecurityGroupName?: String;
+      /** [EC2-Classic] The AWS account number for the source security group, if the
+source security group is in a different account. You can&#x27;t specify this
+parameter in combination with the following parameters: the CIDR IP address
+range, the IP protocol, the start of the port range, and the end of the port
+range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule
+with a specific IP protocol and port range, use a set of IP permissions instead. **/
       SourceSecurityGroupOwnerId?: String;
       /** The IP protocol name ( tcp , udp , icmp ) or number (see Protocol Numbers
 [http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml] ).
@@ -3878,11 +3941,10 @@ at-signs (@), or underscores(_) **/
       Name: String;
       /** A description for the new image. **/
       Description?: String;
-      /** By default, this parameter is set to false , which means Amazon EC2 attempts to
-shut down the instance cleanly before image creation and then reboots the
-instance. When the parameter is set to true , Amazon EC2 doesn&#x27;t shut down the
-instance before creating the image. When this option is used, file system
-integrity on the created image can&#x27;t be guaranteed. **/
+      /** By default, Amazon EC2 attempts to shut down and reboot the instance before
+creating the image. If the &#x27;No Reboot&#x27; option is set, Amazon EC2 doesn&#x27;t shut
+down the instance before creating the image. When this option is used, file
+system integrity on the created image can&#x27;t be guaranteed. **/
       NoReboot?: Boolean;
       /** Information about one or more block device mappings. **/
       BlockDeviceMappings?: BlockDeviceMappingRequestList;
@@ -4215,9 +4277,9 @@ UnauthorizedOperation . **/
       DryRun?: Boolean;
       /** The size of the volume, in GiBs.
 
-Constraints: 1-1024 for standard volumes, 1-16384 for gp2 volumes, and 4-16384 
-for io1 volumes. If you specify a snapshot, the volume size must be equal to or
-larger than the snapshot size.
+Constraints: 1-16384 for gp2 , 4-16384 for io1 , 500-16384 for st1 , 500-16384
+for sc1 , and 1-1024 for standard . If you specify a snapshot, the volume size
+must be equal to or larger than the snapshot size.
 
 Default: If you&#x27;re creating the volume from a snapshot and don&#x27;t specify a
 volume size, the default is the snapshot size. **/
@@ -4228,15 +4290,16 @@ volume size, the default is the snapshot size. **/
 DescribeAvailabilityZones to list the Availability Zones that are currently
 available to you. **/
       AvailabilityZone: String;
-      /** The volume type. This can be gp2 for General Purpose (SSD) volumes, io1 for
-Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes.
+      /** The volume type. This can be gp2 for General Purpose SSD, io1 for Provisioned
+IOPS SSD, st1 for Throughput Optimized HDD, sc1 for Cold HDD, or standard for
+Magnetic volumes.
 
 Default: standard **/
       VolumeType?: VolumeType;
-      /** Only valid for Provisioned IOPS (SSD) volumes. The number of I/O operations per
+      /** Only valid for Provisioned IOPS SSD volumes. The number of I/O operations per
 second (IOPS) to provision for the volume, with a maximum ratio of 30 IOPS/GiB.
 
-Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes **/
+Constraint: Range is 100 to 20000 for Provisioned IOPS SSD volumes **/
       Iops?: Integer;
       /** Specifies whether the volume should be encrypted. Encrypted Amazon EBS volumes
 may only be attached to instances that support Amazon EBS encryption. Volumes
@@ -4314,11 +4377,11 @@ UnauthorizedOperation . **/
       DryRun?: Boolean;
       /** The network range for the VPC, in CIDR notation. For example, 10.0.0.0/16 . **/
       CidrBlock: String;
-      /** The supported tenancy options for instances launched into the VPC. A value of 
-default means that instances can be launched with any tenancy; a value of 
-dedicated means all instances launched into the VPC are launched as dedicated
-tenancy instances regardless of the tenancy assigned to the instance at launch.
-Dedicated tenancy instances run on single-tenant hardware.
+      /** The tenancy options for instances launched into the VPC. For default , instances
+are launched with shared tenancy by default. You can launch instances with any
+tenancy into a shared tenancy VPC. For dedicated , instances are launched as
+dedicated tenancy instances by default. You can only launch instances with a
+tenancy of dedicated or host into a dedicated tenancy VPC.
 
 Important: The host value cannot be used with this parameter. Use the default or 
 dedicated values only.
@@ -5074,7 +5137,7 @@ account ID, self (the sender of the request), or all (public AMIs). **/
  
  
 * block-device-mapping.volume-type - The volume type of the EBS volume ( gp2 | 
- standard | io1 ).
+ io1 | st1 | sc1 | standard ).
  
  
 * description - The description of the image (provided during image creation).
@@ -5169,9 +5232,11 @@ UnauthorizedOperation . **/
       ImportTaskIds?: ImportTaskIdList;
       /** A token that indicates the next page of results. **/
       NextToken?: String;
-      /** The maximum number of results to return in a single request. **/
+      /** The maximum number of results to return in a single call. To retrieve the
+remaining results, make another call with the returned NextToken value. **/
       MaxResults?: Integer;
-      /** One or more filters. **/
+      /** Filter tasks using the task-state filter and one of the following values:
+active, completed, deleting, deleted. **/
       Filters?: FilterList;
     }
     export interface DescribeImportImageTasksResult {
@@ -5192,7 +5257,8 @@ UnauthorizedOperation . **/
       ImportTaskIds?: ImportTaskIdList;
       /** A token that indicates the next page of results. **/
       NextToken?: String;
-      /** The maximum number of results to return in a single request. **/
+      /** The maximum number of results to return in a single call. To retrieve the
+remaining results, make another call with the returned NextToken value. **/
       MaxResults?: Integer;
       /** One or more filters. **/
       Filters?: FilterList;
@@ -5276,12 +5342,10 @@ Constraints: Maximum 100 explicitly specified instance IDs. **/
       Filters?: FilterList;
       /** The token to retrieve the next page of results. **/
       NextToken?: String;
-      /** The maximum number of results to return for the request in a single page. The
-remaining results of the initial request can be seen by sending another request
-with the returned NextToken value. This value can be between 5 and 1000; if 
-MaxResults is given a value larger than 1000, only 1000 results are returned.
-You cannot specify this parameter and the instance IDs parameter in the same
-request. **/
+      /** The maximum number of results to return in a single call. To retrieve the
+remaining results, make another call with the returned NextToken value. This
+value can be between 5 and 1000. You cannot specify this parameter and the
+instance IDs parameter in the same call. **/
       MaxResults?: Integer;
       /** When true , includes the health status for all instances. When false , includes
 the health status for running instances only.
@@ -5620,12 +5684,10 @@ Default: Describes all your instances. **/
       Filters?: FilterList;
       /** The token to request the next page of results. **/
       NextToken?: String;
-      /** The maximum number of results to return for the request in a single page. The
-remaining results of the initial request can be seen by sending another request
-with the returned NextToken value. This value can be between 5 and 1000; if 
-MaxResults is given a value larger than 1000, only 1000 results are returned.
-You cannot specify this parameter and the instance IDs parameter in the same
-request. **/
+      /** The maximum number of results to return in a single call. To retrieve the
+remaining results, make another call with the returned NextToken value. This
+value can be between 5 and 1000. You cannot specify this parameter and the
+instance IDs parameter in the same call. **/
       MaxResults?: Integer;
     }
     export interface DescribeInstancesResult {
@@ -6849,8 +6911,9 @@ UnauthorizedOperation . **/
  in GiB.
  
  
-* launch.block-device-mapping.volume-type - The type of the Amazon EBS volume ( 
- gp2 | standard | io1 ).
+* launch.block-device-mapping.volume-type - The type of the Amazon EBS volume: 
+ gp2 for General Purpose SSD, io1 for Provisioned IOPS SSD, st1 for Throughput
+ Optimized HDD, sc1 for Cold HDD, or standard for Magnetic.
  
  
 * launch.group-id - The security group for the instance.
@@ -7104,10 +7167,9 @@ UnauthorizedOperation . **/
  
 * value - The tag value. **/
       Filters?: FilterList;
-      /** The maximum number of results to return for the request in a single page. The
-remaining results of the initial request can be seen by sending another request
-with the returned NextToken value. This value can be between 5 and 1000; if 
-MaxResults is given a value larger than 1000, only 1000 results are returned. **/
+      /** The maximum number of results to return in a single call. This value can be
+between 5 and 1000. To retrieve the remaining results, make another call with
+the returned NextToken value. **/
       MaxResults?: Integer;
       /** The token to retrieve the next page of results. **/
       NextToken?: String;
@@ -7280,8 +7342,8 @@ UnauthorizedOperation . **/
  
  
 * volume-type - The Amazon EBS volume type. This can be gp2 for General Purpose
- (SSD) volumes, io1 for Provisioned IOPS (SSD) volumes, or standard for
- Magnetic volumes. **/
+ SSD, io1 for Provisioned IOPS SSD, st1 for Throughput Optimized HDD, sc1 for
+ Cold HDD, or standard for Magnetic volumes. **/
       Filters?: FilterList;
       /** The NextToken value returned from a previous paginated DescribeVolumes request
 where MaxResults was used and the results exceeded the value of that parameter.
@@ -7862,34 +7924,34 @@ Import Manifest
       SnapshotId?: String;
       /** The size of the volume, in GiB.
 
-Constraints: 1-1024 for standard volumes, 1-16384 for gp2 volumes, and 4-16384 
-for io1 volumes. If you specify a snapshot, the volume size must be equal to or
-larger than the snapshot size.
+Constraints: 1-16384 for General Purpose SSD ( gp2 ), 4-16384 for Provisioned
+IOPS SSD ( io1 ), 500-16384 for Throughput Optimized HDD ( st1 ), 500-16384 for
+Cold HDD ( sc1 ), and 1-1024 for Magnetic ( standard ) volumes. If you specify a
+snapshot, the volume size must be equal to or larger than the snapshot size.
 
 Default: If you&#x27;re creating the volume from a snapshot and don&#x27;t specify a
 volume size, the default is the snapshot size. **/
       VolumeSize?: Integer;
       /** Indicates whether the EBS volume is deleted on instance termination. **/
       DeleteOnTermination?: Boolean;
-      /** The volume type. gp2 for General Purpose (SSD) volumes, io1 for Provisioned IOPS
-(SSD) volumes, and standard for Magnetic volumes.
+      /** The volume type: gp2 , io1 , st1 , sc1 , or standard .
 
 Default: standard **/
       VolumeType?: VolumeType;
       /** The number of I/O operations per second (IOPS) that the volume supports. For
-Provisioned IOPS (SSD) volumes, this represents the number of IOPS that are
-provisioned for the volume. For General Purpose (SSD) volumes, this represents
-the baseline performance of the volume and the rate at which the volume
-accumulates I/O credits for bursting. For more information on General Purpose
-(SSD) baseline performance, I/O credits, and bursting, see Amazon EBS Volume
-Types [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+io1, this represents the number of IOPS that are provisioned for the volume. For 
+gp2 , this represents the baseline performance of the volume and the rate at
+which the volume accumulates I/O credits for bursting. For more information on
+General Purpose SSD baseline performance, I/O credits, and bursting, see Amazon
+EBS Volume Types
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html] in the 
+Amazon Elastic Compute Cloud User Guide .
 
-Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and 3 to
-10000 for General Purpose (SSD) volumes.
+Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for gp2 
+volumes.
 
 Condition: This parameter is required for requests to create io1 volumes; it is
-not used in requests to create standard or gp2 volumes. **/
+not used in requests to create gp2 , st1 , sc1 , or standard volumes. **/
       Iops?: Integer;
       /** Indicates whether the EBS volume is encrypted. Encrypted Amazon EBS volumes may
 only be attached to instances that support Amazon EBS encryption. **/
@@ -8181,7 +8243,7 @@ in the Amazon Elastic Compute Cloud User Guide . **/
     export interface HostInstance {
       /** the IDs of instances that are running on the Dedicated host. **/
       InstanceId?: String;
-      /** The instance type size (e.g., m3.medium) of the running instance. **/
+      /** The instance type size (for example, m3.medium) of the running instance. **/
       InstanceType?: String;
     }
     export interface HostProperties {
@@ -8191,7 +8253,8 @@ in the Amazon Elastic Compute Cloud User Guide . **/
       Cores?: Integer;
       /** The number of vCPUs on the Dedicated host. **/
       TotalVCpus?: Integer;
-      /** The instance type size that the Dedicated host supports (e.g., m3.medium). **/
+      /** The instance type size that the Dedicated host supports (for example,
+m3.medium). **/
       InstanceType?: String;
     }
     export interface IamInstanceProfile {
@@ -8483,8 +8546,8 @@ UnauthorizedOperation . **/
       DryRun?: Boolean;
       /** A unique name for the key pair. **/
       KeyName: String;
-      /** The public key. You must base64 encode the public key material before sending it
-to AWS. **/
+      /** The public key. For API calls, the text must be base64-encoded. For command line
+tools, base64 encoding is performed for you. **/
       PublicKeyMaterial: Blob;
     }
     export interface ImportKeyPairResult {
@@ -9000,7 +9063,10 @@ EC2-Classic, you can specify the names or the IDs of the security groups. **/
       KernelId?: String;
       /** The ID of the RAM disk. **/
       RamdiskId?: String;
-      /** One or more block device mapping entries. **/
+      /** One or more block device mapping entries.
+
+Although you can specify encrypted EBS volumes in this block device mapping for
+your Spot Instances, these volumes are not encrypted. **/
       BlockDeviceMappings?: BlockDeviceMappingList;
       /** The ID of the subnet in which to launch the instance. **/
       SubnetId?: String;
@@ -9112,7 +9178,8 @@ PV-GRUB instead of kernels and RAM disks. For more information, see PV-GRUB
 use PV-GRUB instead of kernels and RAM disks. For more information, see PV-GRUB
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html] . **/
       Ramdisk?: AttributeValue;
-      /** Changes the instance&#x27;s user data to the specified value. **/
+      /** Changes the instance&#x27;s user data to the specified base64-encoded value. For
+command line tools, base64 encoding is performed for you. **/
       UserData?: BlobAttributeValue;
       /** Specifies whether an instance stops or terminates when you initiate shutdown
 from the instance (using the operating system command for system shutdown). **/
@@ -9285,6 +9352,25 @@ format. **/
       /** Returns true if the request succeeds; otherwise, it returns an error. **/
       Return?: Boolean;
     }
+    export interface ModifyVpcPeeringConnectionOptionsRequest {
+      /** Checks whether you have the required permissions for the operation, without
+actually making the request, and provides an error response. If you have the
+required permissions, the error response is DryRunOperation . Otherwise, it is 
+UnauthorizedOperation . **/
+      DryRun?: Boolean;
+      /** The ID of the VPC peering connection. **/
+      VpcPeeringConnectionId: String;
+      /** The VPC peering connection options for the requester VPC. **/
+      RequesterPeeringConnectionOptions?: PeeringConnectionOptionsRequest;
+      /** The VPC peering connection options for the accepter VPC. **/
+      AccepterPeeringConnectionOptions?: PeeringConnectionOptionsRequest;
+    }
+    export interface ModifyVpcPeeringConnectionOptionsResult {
+      /** Information about the VPC peering connection options for the requester VPC. **/
+      RequesterPeeringConnectionOptions?: PeeringConnectionOptions;
+      /** Information about the VPC peering connection options for the accepter VPC. **/
+      AccepterPeeringConnectionOptions?: PeeringConnectionOptions;
+    }
     export interface MonitorInstancesRequest {
       /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
@@ -9348,18 +9434,28 @@ InvalidSubnetID.NotFound ) **/
       /** If the NAT gateway could not be created, specifies the error message for the
 failure, that corresponds to the error code.
 
-&amp;#42; For InsufficientFreeAddressesInSubnet: Subnet has insufficient free addresses
- to create this NAT gateway
-* For Gateway.NotAttached: Network vpc-xxxxxxxx has no Internet gateway
- attached
-* For InvalidAllocationID.NotFound: Elastic IP address eipalloc-xxxxxxxx could
- not be associated with this NAT gateway
-* For Resource.AlreadyAssociated: Elastic IP address eipalloc-xxxxxxxx is
- already associated
-* For InternalError: Network interface eni-xxxxxxxx, created and used
- internally by this NAT gateway is in an invalid state. Please try again.
-* For InvalidSubnetID.NotFound: The specified subnet subnet-xxxxxxxx does not
- exist or could not be found. **/
+&amp;#42; For InsufficientFreeAddressesInSubnet: &quot;Subnet has insufficient free
+ addresses to create this NAT gateway&quot;
+ 
+ 
+* For Gateway.NotAttached: &quot;Network vpc-xxxxxxxx has no Internet gateway
+ attached&quot;
+ 
+ 
+* For InvalidAllocationID.NotFound: &quot;Elastic IP address eipalloc-xxxxxxxx could
+ not be associated with this NAT gateway&quot;
+ 
+ 
+* For Resource.AlreadyAssociated: &quot;Elastic IP address eipalloc-xxxxxxxx is
+ already associated&quot;
+ 
+ 
+* For InternalError: &quot;Network interface eni-xxxxxxxx, created and used
+ internally by this NAT gateway is in an invalid state. Please try again.&quot;
+ 
+ 
+* For InvalidSubnetID.NotFound: &quot;The specified subnet subnet-xxxxxxxx does not
+ exist or could not be found.&quot; **/
       FailureMessage?: String;
     }
     export interface NatGatewayAddress {
@@ -9506,6 +9602,22 @@ network interface. **/
     export interface NewDhcpConfiguration {
       Key?: String;
       Values?: ValueStringList;
+    }
+    export interface PeeringConnectionOptions {
+      /** If true, enables outbound communication from an EC2-Classic instance that&#x27;s
+linked to a local VPC via ClassicLink to instances in a peer VPC. **/
+      AllowEgressFromLocalClassicLinkToRemoteVpc?: Boolean;
+      /** If true, enables outbound communication from instances in a local VPC to an
+EC2-Classic instance that&#x27;s linked to a peer VPC via ClassicLink. **/
+      AllowEgressFromLocalVpcToRemoteClassicLink?: Boolean;
+    }
+    export interface PeeringConnectionOptionsRequest {
+      /** If true, enables outbound communication from an EC2-Classic instance that&#x27;s
+linked to a local VPC via ClassicLink to instances in a peer VPC. **/
+      AllowEgressFromLocalClassicLinkToRemoteVpc: Boolean;
+      /** If true, enables outbound communication from instances in a local VPC to an
+EC2-Classic instance that&#x27;s linked to a peer VPC via ClassicLink. **/
+      AllowEgressFromLocalVpcToRemoteClassicLink: Boolean;
     }
     export interface Placement {
       /** The Availability Zone of the instance. **/
@@ -9985,7 +10097,10 @@ specify a duration. **/
       KernelId?: String;
       /** The ID of the RAM disk. **/
       RamdiskId?: String;
-      /** One or more block device mapping entries. **/
+      /** One or more block device mapping entries.
+
+Although you can specify encrypted EBS volumes in this block device mapping for
+your Spot Instances, these volumes are not encrypted. **/
       BlockDeviceMappings?: BlockDeviceMappingList;
       /** The ID of the subnet in which to launch the instance. **/
       SubnetId?: String;
@@ -10271,14 +10386,16 @@ UnauthorizedOperation . **/
       /** [EC2-Classic, default VPC] The name of the source security group. You can&#x27;t
 specify this parameter in combination with the following parameters: the CIDR IP
 address range, the start of the port range, the IP protocol, and the end of the
-port range. For EC2-VPC, the source security group must be in the same VPC. **/
+port range. For EC2-VPC, the source security group must be in the same VPC. To
+revoke a specific rule for an IP protocol and port range, use a set of IP
+permissions instead. **/
       SourceSecurityGroupName?: String;
-      /** [EC2-Classic, default VPC] The AWS account ID of the source security group. For
-EC2-VPC, the source security group must be in the same VPC. You can&#x27;t specify
-this parameter in combination with the following parameters: the CIDR IP address
-range, the IP protocol, the start of the port range, and the end of the port
-range. To revoke a specific rule for an IP protocol and port range, use a set of
-IP permissions instead. **/
+      /** [EC2-Classic] The AWS account ID of the source security group, if the source
+security group is in a different account. You can&#x27;t specify this parameter in
+combination with the following parameters: the CIDR IP address range, the IP
+protocol, the start of the port range, and the end of the port range. To revoke
+a specific rule for an IP protocol and port range, use a set of IP permissions
+instead. **/
       SourceSecurityGroupOwnerId?: String;
       /** The IP protocol name ( tcp , udp , icmp ) or number (see Protocol Numbers
 [http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml] ). Use 
@@ -10320,11 +10437,14 @@ or the specified NAT instance has been terminated). **/
       State?: RouteState;
       /** Describes how the route was created.
 
-&amp;#42; CreateRouteTable indicates that route was automatically created when the
- route table was created.
-* CreateRoute indicates that the route was manually added to the route table.
-* EnableVgwRoutePropagation indicates that the route was propagated by route
- propagation. **/
+&amp;#42; CreateRouteTable - The route was automatically created when the route table
+ was created.
+ 
+ 
+* CreateRoute - The route was manually added to the route table.
+ 
+ 
+* EnableVgwRoutePropagation - The route was propagated by route propagation. **/
       Origin?: RouteOrigin;
     }
     export interface RouteTable {
@@ -10518,8 +10638,9 @@ Managing AWS Access Keys
 [http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html] 
 . **/
       AWSAccessKeyId?: String;
-      /** A Base64-encoded Amazon S3 upload policy that gives Amazon EC2 permission to
-upload items into Amazon S3 on your behalf. **/
+      /** A base64-encoded Amazon S3 upload policy that gives Amazon EC2 permission to
+upload items into Amazon S3 on your behalf. For command line tools, base64
+encoding is performed for you. **/
       UploadPolicy?: Blob;
       /** The signature of the Base64 encoded JSON document. **/
       UploadPolicySignature?: String;
@@ -10648,25 +10769,25 @@ volume size, the default is the snapshot size. **/
       VolumeSize?: Integer;
       /** Indicates whether the volume is deleted on instance termination. **/
       DeleteOnTermination?: Boolean;
-      /** The volume type. gp2 for General Purpose (SSD) volumes, io1 for Provisioned IOPS
-(SSD) volumes, and standard for Magnetic volumes.
+      /** The volume type. gp2 for General Purpose SSD, io1 for Provisioned IOPS SSD,
+Throughput Optimized HDD for st1 , Cold HDD for sc1 , or standard for Magnetic.
 
 Default: standard **/
       VolumeType?: String;
-      /** The number of I/O operations per second (IOPS) that the volume supports. For
-Provisioned IOPS (SSD) volumes, this represents the number of IOPS that are
-provisioned for the volume. For General Purpose (SSD) volumes, this represents
-the baseline performance of the volume and the rate at which the volume
-accumulates I/O credits for bursting. For more information about General Purpose
-(SSD) baseline performance, I/O credits, and bursting, see Amazon EBS Volume
-Types [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+      /** The number of I/O operations per second (IOPS) that the volume supports. For io1
+volumes, this represents the number of IOPS that are provisioned for the volume.
+For gp2 volumes, this represents the baseline performance of the volume and the
+rate at which the volume accumulates I/O credits for bursting. For more
+information about gp2 baseline performance, I/O credits, and bursting, see 
+Amazon EBS Volume Types
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html] in the 
+Amazon Elastic Compute Cloud User Guide .
 
-Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and 3 to
-10000 for General Purpose (SSD) volumes.
+Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for gp2 
+volumes.
 
 Condition: This parameter is required for requests to create io1 volumes; it is
-not used in requests to create standard or gp2 volumes. **/
+not used in requests to create gp2 , st1 , sc1 , or standard volumes. **/
       Iops?: Integer;
       /** Indicates whether the volume is encrypted. You can attached encrypted volumes
 only to instances that support them. **/
@@ -10840,6 +10961,7 @@ lineage. This parameter is only returned by the DescribeSnapshots API operation.
       Format?: String;
       /** The URL used to access the disk image. **/
       Url?: String;
+      /** The S3 bucket for the disk image. **/
       UserBucket?: UserBucketDetails;
       /** The block device mapping for the snapshot. **/
       DeviceName?: String;
@@ -10862,6 +10984,7 @@ Valid values: RAW | VHD | VMDK | OVA **/
       /** The URL to the Amazon S3-based disk image being imported. It can either be a
 https URL (https://..) or an Amazon S3 URL (s3://..). **/
       Url?: String;
+      /** The S3 bucket for the disk image. **/
       UserBucket?: UserBucket;
     }
     export interface SnapshotTaskDetail {
@@ -11248,10 +11371,10 @@ UnauthorizedOperation . **/
       InstanceMonitorings?: InstanceMonitoringList;
     }
     export interface UnsuccessfulItem {
-      /** The ID of the resource. **/
-      ResourceId?: String;
       /** Information about the error. **/
       Error: UnsuccessfulItemError;
+      /** The ID of the resource. **/
+      ResourceId?: String;
     }
     export interface UnsuccessfulItemError {
       /** The error code. **/
@@ -11276,11 +11399,14 @@ UnauthorizedOperation . **/
       Data?: String;
     }
     export interface UserIdGroupPair {
-      /** The ID of an AWS account. **/
+      /** The ID of an AWS account.
+
+[EC2-Classic] Required when adding or removing rules that reference a security
+group in another AWS account. **/
       UserId?: String;
       /** The name of the security group. In a request, use this parameter for a security
 group in EC2-Classic or a default VPC only. For a security group in a nondefault
-VPC, use GroupId . **/
+VPC, use the security group ID. **/
       GroupName?: String;
       /** The ID of the security group. **/
       GroupId?: String;
@@ -11321,23 +11447,24 @@ interface. **/
       Attachments?: VolumeAttachmentList;
       /** Any tags assigned to the volume. **/
       Tags?: TagList;
-      /** The volume type. This can be gp2 for General Purpose (SSD) volumes, io1 for
-Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes. **/
+      /** The volume type. This can be gp2 for General Purpose SSD, io1 for Provisioned
+IOPS SSD, st1 for Throughput Optimized HDD, sc1 for Cold HDD, or standard for
+Magnetic volumes. **/
       VolumeType?: VolumeType;
       /** The number of I/O operations per second (IOPS) that the volume supports. For
-Provisioned IOPS (SSD) volumes, this represents the number of IOPS that are
-provisioned for the volume. For General Purpose (SSD) volumes, this represents
-the baseline performance of the volume and the rate at which the volume
-accumulates I/O credits for bursting. For more information on General Purpose
-(SSD) baseline performance, I/O credits, and bursting, see Amazon EBS Volume
-Types [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+Provisioned IOPS SSD volumes, this represents the number of IOPS that are
+provisioned for the volume. For General Purpose SSD volumes, this represents the
+baseline performance of the volume and the rate at which the volume accumulates
+I/O credits for bursting. For more information on General Purpose SSD baseline
+performance, I/O credits, and bursting, see Amazon EBS Volume Types
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html] in the 
+Amazon Elastic Compute Cloud User Guide .
 
-Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and 3 to
-10000 for General Purpose (SSD) volumes.
+Constraint: Range is 100-20000 IOPS for io1 volumes and 100-10000 IOPS for gp2 
+volumes.
 
 Condition: This parameter is required for requests to create io1 volumes; it is
-not used in requests to create standard or gp2 volumes. **/
+not used in requests to create gp2 , st1 , sc1 , or standard volumes. **/
       Iops?: Integer;
       /** Indicates whether the volume will be encrypted. **/
       Encrypted?: Boolean;
@@ -11457,11 +11584,13 @@ the default options are associated with the VPC). **/
       CreationTimestamp?: DateTime;
     }
     export interface VpcPeeringConnection {
-      /** The information of the peer VPC. **/
+      /** Information about the peer VPC. CIDR block information is not returned when
+creating a VPC peering connection, or when describing a VPC peering connection
+that&#x27;s in the initiating-request or pending-acceptance state. **/
       AccepterVpcInfo?: VpcPeeringConnectionVpcInfo;
       /** The time that an unaccepted VPC peering connection will expire. **/
       ExpirationTime?: DateTime;
-      /** The information of the requester VPC. **/
+      /** Information about the requester VPC. **/
       RequesterVpcInfo?: VpcPeeringConnectionVpcInfo;
       /** The status of the VPC peering connection. **/
       Status?: VpcPeeringConnectionStateReason;
@@ -11469,6 +11598,14 @@ the default options are associated with the VPC). **/
       Tags?: TagList;
       /** The ID of the VPC peering connection. **/
       VpcPeeringConnectionId?: String;
+    }
+    export interface VpcPeeringConnectionOptionsDescription {
+      /** Indicates whether a local ClassicLink connection can communicate with the peer
+VPC over the VPC peering connection. **/
+      AllowEgressFromLocalClassicLinkToRemoteVpc?: Boolean;
+      /** Indicates whether a local VPC can communicate with a ClassicLink connection in
+the peer VPC over the VPC peering connection. **/
+      AllowEgressFromLocalVpcToRemoteClassicLink?: Boolean;
     }
     export interface VpcPeeringConnectionStateReason {
       /** The status of the VPC peering connection. **/
@@ -11483,6 +11620,9 @@ the default options are associated with the VPC). **/
       OwnerId?: String;
       /** The ID of the VPC. **/
       VpcId?: String;
+      /** Information about the VPC peering connection options for the accepter or
+requester VPC. **/
+      PeeringOptions?: VpcPeeringConnectionOptionsDescription;
     }
     export interface VpnConnection {
       /** The ID of the VPN connection. **/

@@ -292,7 +292,7 @@ Authorization tokens are valid for 12 hours. **/
       /** The registry URL to use for this authorization token in a docker login command.
 The Amazon ECR registry URL format is 
 https://aws_account_id.dkr.ecr.region.amazonaws.com . For example, 
-https://012345678910.dkr.ecr.us-east-1.amazonaws.com . **/
+https://012345678910.dkr.ecr.us-east-1.amazonaws.com .. **/
       proxyEndpoint?: ProxyEndpoint;
     }
     export interface BatchCheckLayerAvailabilityRequest {
@@ -634,6 +634,9 @@ repository name. For example, arn:aws:ecr:region:012345678910:repository/test . 
       registryId?: RegistryId;
       /** The name of the repository. **/
       repositoryName?: RepositoryName;
+      /** The URI for the repository. You can use this URI for Docker push and pull 
+operations. **/
+      repositoryUri?: Url;
     }
     export interface RepositoryAlreadyExistsException {
       /** The error message associated with the exception. **/

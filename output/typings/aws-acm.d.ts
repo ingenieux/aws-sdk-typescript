@@ -29,6 +29,32 @@ declare module "aws-sdk" {
     constructor(options?: any);
     endpoint: Endpoint;
     /**
+     * Adds one or more tags to an ACM Certificate. Tags are labels that you can use to
+identify and organize your AWS resources. Each tag consists of a key and an
+optional value . You specify the certificate on input by its Amazon Resource
+Name (ARN). You specify the tag by using a key-value pair.
+
+You can apply a tag to just one certificate if you want to identify a specific
+characteristic of that certificate, or you can apply the same tag to multiple
+certificates if you want to filter for a common relationship among those
+certificates. Similarly, you can apply the same tag to multiple resources if you
+want to specify a relationship among those resources. For example, you can add
+the same tag to an ACM Certificate and an Elastic Load Balancing load balancer
+to indicate that they are both used by the same website. For more information,
+see Tagging ACM Certificates
+[http://docs.aws.amazon.com/acm/latest/userguide/tags.html] .
+
+To remove one or more tags, use the RemoveTagsFromCertificate action. To view
+all of the tags that have been applied to the certificate, use the 
+ListTagsForCertificate action.
+     *
+     * @error ResourceNotFoundException   
+     * @error InvalidArnException   
+     * @error InvalidTagException   
+     * @error TooManyTagsException   
+     */
+    addTagsToCertificate(params: ACM.AddTagsToCertificateRequest, callback?: (err: ACM.ResourceNotFoundException | ACM.InvalidArnException | ACM.InvalidTagException | ACM.TooManyTagsException | any, data: any) => void): Request;
+    /**
      * Deletes an ACM Certificate and its associated private key. If this action
 succeeds, the certificate no longer appears in the list of ACM Certificates that
 can be displayed by calling the ListCertificates action or be retrieved by
@@ -48,8 +74,8 @@ be removed.
      * Returns a list of the fields contained in the specified ACM Certificate. For
 example, this action returns the certificate status, a flag that indicates
 whether the certificate is associated with any other AWS service, and the date
-at which the certificate request was created. The ACM Certificate is specified
-on input by its Amazon Resource Name (ARN).
+at which the certificate request was created. You specify the ACM Certificate on
+input by its Amazon Resource Name (ARN).
      *
      * @error ResourceNotFoundException   
      * @error InvalidArnException   
@@ -81,6 +107,31 @@ to retrieve the next set of certificate ARNs.
      *
      */
     listCertificates(params: ACM.ListCertificatesRequest, callback?: (err: any, data: ACM.ListCertificatesResponse | any) => void): Request;
+    /**
+     * Lists the tags that have been applied to the ACM Certificate. Use the
+certificate ARN to specify the certificate. To add a tag to an ACM Certificate,
+use the AddTagsToCertificate action. To delete a tag, use the 
+RemoveTagsFromCertificate action.
+     *
+     * @error ResourceNotFoundException   
+     * @error InvalidArnException   
+     */
+    listTagsForCertificate(params: ACM.ListTagsForCertificateRequest, callback?: (err: ACM.ResourceNotFoundException | ACM.InvalidArnException | any, data: ACM.ListTagsForCertificateResponse | any) => void): Request;
+    /**
+     * Remove one or more tags from an ACM Certificate. A tag consists of a key-value
+pair. If you do not specify the value portion of the tag when calling this
+function, the tag will be removed regardless of value. If you specify a value,
+the tag is removed only if it is associated with the specified value.
+
+To add tags to a certificate, use the AddTagsToCertificate action. To view all
+of the tags that have been applied to a specific ACM Certificate, use the 
+ListTagsForCertificate action.
+     *
+     * @error ResourceNotFoundException   
+     * @error InvalidArnException   
+     * @error InvalidTagException   
+     */
+    removeTagsFromCertificate(params: ACM.RemoveTagsFromCertificateRequest, callback?: (err: ACM.ResourceNotFoundException | ACM.InvalidArnException | ACM.InvalidTagException | any, data: any) => void): Request;
     /**
      * Requests an ACM Certificate for use with other AWS services. To request an ACM
 Certificate, you must specify the fully qualified domain name (FQDN) for your
@@ -153,8 +204,27 @@ validation mail, you must request a new certificate.
 
     export type TStamp = number;
 
+    export type TagKey = string;
+
+    export type TagList = Tag[];
+
+    export type TagValue = string;
+
     export type ValidationEmailList = String[];
 
+    export interface AddTagsToCertificateRequest {
+      /** String that contains the ARN of the ACM Certificate to which the tag is to be
+applied. This must be of the form:
+
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+
+For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
+Service Namespaces
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
+      CertificateArn: Arn;
+      /** The key-value pair that defines the tag. The tag value is optional. **/
+      Tags: TagList;
+    }
     export interface CertificateDetail {
       /** Amazon Resource Name (ARN) of the certificate. This is of the form:
 
@@ -189,16 +259,28 @@ contained in the certificate. **/
       IssuedAt?: TStamp;
       /** A CertificateStatus enumeration value that can contain one of the following: &amp;#42; 
  PENDING_VALIDATION
+ 
+ 
 * 
  ISSUED
+ 
+ 
 * 
  INACTIVE
+ 
+ 
 * 
  EXPIRED
+ 
+ 
 * 
  REVOKED
+ 
+ 
 * 
  FAILED
+ 
+ 
 * 
  VALIDATION_TIMED_OUT **/
       Status?: CertificateStatus;
@@ -208,14 +290,32 @@ if the certificate has been revoked. **/
       /** A RevocationReason enumeration value that indicates why the certificate was
 revoked. This value exists only if the certificate has been revoked. This can be
 one of the following vales: &amp;#42; UNSPECIFIED
+ 
+ 
 * KEY_COMPROMISE
+ 
+ 
 * CA_COMPROMISE
+ 
+ 
 * AFFILIATION_CHANGED
+ 
+ 
 * SUPERCEDED
+ 
+ 
 * CESSATION_OF_OPERATION
+ 
+ 
 * CERTIFICATE_HOLD
+ 
+ 
 * REMOVE_FROM_CRL
+ 
+ 
 * PRIVILEGE_WITHDRAWN
+ 
+ 
 * A_A_COMPROMISE **/
       RevocationReason?: RevocationReason;
       /** Time before which the certificate is not valid. **/
@@ -290,9 +390,17 @@ requested a certificate for site.subdomain.example.com and specify a
 ValidationDomain of subdomain.example.com , ACM sends email to the domain
 registrant, technical contact, and administrative contact in WHOIS for the base
 domain and the following five addresses: &amp;#42; admin@subdomain.example.com
+ 
+ 
 * administrator@subdomain.example.com
+ 
+ 
 * hostmaster@subdomain.example.com
+ 
+ 
 * postmaster@subdomain.example.com
+ 
+ 
 * webmaster@subdomain.example.com **/
       ValidationDomain: DomainNameString;
     }
@@ -315,26 +423,46 @@ certificate authority (CA). **/
       CertificateChain?: CertificateChain;
     }
     export interface InvalidArnException {
+      /**  **/
       message?: String;
     }
     export interface InvalidDomainValidationOptionsException {
+      /**  **/
       message?: String;
     }
     export interface InvalidStateException {
+      /**  **/
+      message?: String;
+    }
+    export interface InvalidTagException {
+      /**  **/
       message?: String;
     }
     export interface LimitExceededException {
+      /**  **/
       message?: String;
     }
     export interface ListCertificatesRequest {
       /** Identifies the statuses of the ACM Certificates for which you want to retrieve
 the ARNs. This can be one or more of the following values: &amp;#42; PENDING_VALIDATION
+ 
+ 
 * ISSUED
+ 
+ 
 * INACTIVE
+ 
+ 
 * EXPIRED
+ 
+ 
 * 
  VALIDATION_TIMED_OUT
+ 
+ 
 * REVOKED
+ 
+ 
 * FAILED **/
       CertificateStatuses?: CertificateStatuses;
       /** String that contains an opaque marker of the next ACM Certificate ARN to be
@@ -356,6 +484,34 @@ NextToken input parameter on your next call to ListCertificates . **/
       NextToken?: NextToken;
       /** A list of the certificate ARNs. **/
       CertificateSummaryList?: CertificateSummaryList;
+    }
+    export interface ListTagsForCertificateRequest {
+      /** String that contains the ARN of the ACM Certificate for which you want to list
+the tags. This must be of the form:
+
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+
+For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
+Service Namespaces
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
+      CertificateArn: Arn;
+    }
+    export interface ListTagsForCertificateResponse {
+      /** The key-value pairs that define the applied tags. **/
+      Tags?: TagList;
+    }
+    export interface RemoveTagsFromCertificateRequest {
+      /** String that contains the ARN of the ACM Certificate with one or more tags that
+you want to remove. This must be of the form:
+
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+
+For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
+Service Namespaces
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
+      CertificateArn: Arn;
+      /** The key-value pair that defines the tag to remove. **/
+      Tags: TagList;
     }
     export interface RequestCertificateRequest {
       /** Fully qualified domain name (FQDN), such as www.example.com, of the site you
@@ -382,9 +538,17 @@ superdomain of the Domain value. For example, if you requested a certificate for
 test.example.com and specify DomainValidationOptions of example.com , ACM sends
 email to the domain registrant, technical contact, and administrative contact in
 WHOIS and the following five addresses: &amp;#42; admin@example.com
+ 
+ 
 * administrator@example.com
+ 
+ 
 * hostmaster@example.com
+ 
+ 
 * postmaster@example.com
+ 
+ 
 * webmaster@example.com **/
       DomainValidationOptions?: DomainValidationOptionList;
     }
@@ -397,13 +561,14 @@ arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789
       CertificateArn?: Arn;
     }
     export interface RequestInProgressException {
+      /**  **/
       message?: String;
     }
     export interface ResendValidationEmailRequest {
       /** String that contains the ARN of the requested certificate. The certificate ARN
-is generated and returned by RequestCertificate as soon as the request is made.
-By default, using this parameter causes email to be sent to all top-level
-domains you specified in the certificate request.
+is generated and returned by the RequestCertificate action as soon as the
+request is made. By default, using this parameter causes email to be sent to all
+top-level domains you specified in the certificate request.
 
 The ARN must be of the form:
 
@@ -420,20 +585,39 @@ site.subdomain.example.com and specify a ValidationDomain of
 subdomain.example.com , ACM sends email to the domain registrant, technical
 contact, and administrative contact in WHOIS and the following five addresses: &amp;#42; 
  admin@subdomain.example.com
+ 
+ 
 * 
  administrator@subdomain.example.com
+ 
+ 
 * 
  hostmaster@subdomain.example.com
+ 
+ 
 * 
  postmaster@subdomain.example.com
+ 
+ 
 * 
  webmaster@subdomain.example.com **/
       ValidationDomain: DomainNameString;
     }
     export interface ResourceInUseException {
+      /**  **/
       message?: String;
     }
     export interface ResourceNotFoundException {
+      /**  **/
+      message?: String;
+    }
+    export interface Tag {
+      /** The key of the tag. **/
+      Key: TagKey;
+      /** The value of the tag. **/
+      Value?: TagValue;
+    }
+    export interface TooManyTagsException {
       message?: String;
     }
   }

@@ -29,8 +29,10 @@ declare module "aws-sdk" {
  cryptographically signing requests, managing errors, and retrying requests
  automatically. For information about the AWS SDKs, including how to download and
  install them, see the Tools for Amazon Web Services page
- [http://aws.amazon.com/tools/] .For information about setting up signatures and
- authorization through the API, go to Signing AWS API Requests
+ [http://aws.amazon.com/tools/] .
+ 
+ For information about setting up signatures and authorization through the API,
+ go to Signing AWS API Requests
  [http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html] in
  the AWS General Reference . For general information about the Query API, go to 
  Making Query Requests
@@ -223,17 +225,29 @@ Calling AssumeRoleWithSAML does not require the use of AWS security credentials.
 The identity of the caller is validated by using keys in the metadata document
 that is uploaded for the SAML provider entity for your identity provider.
 
+Calling AssumeRoleWithSAML can result in an entry in your AWS CloudTrail logs.
+The entry includes the value in the NameID element of the SAML assertion. We
+recommend that you use a NameIDType that is not associated with any personally
+identifiable information (PII). For example, you could instead use the
+Persistent Identifier ( urn:oasis:names:tc:SAML:2.0:nameid-format:persistent ).
+
 For more information, see the following resources:
 
  &amp;#42; About SAML 2.0-based Federation
    [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html] 
    in the IAM User Guide .
+   
+   
  * Creating SAML Identity Providers
    [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html] 
    in the IAM User Guide .
+   
+   
  * Configuring a Relying Party and Claims
    [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_relying-party.html] 
    in the IAM User Guide .
+   
+   
  * Creating a Role for SAML 2.0 Federation
    [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html] 
    in the IAM User Guide .
@@ -309,6 +323,14 @@ application can assume. The role that your application assumes must trust the
 identity provider that is associated with the identity token. In other words,
 the identity provider must be specified in the role&#x27;s trust policy.
 
+Calling AssumeRoleWithWebIdentity can result in an entry in your AWS CloudTrail
+logs. The entry includes the Subject
+[http://openid.net/specs/openid-connect-core-1_0.html#Claims] of the provided
+Web Identity Token. We recommend that you avoid using any personally
+identifiable information (PII) in this field. For example, you could instead use
+a GUID or a pairwise identifier, as suggested in the OIDC specification
+[http://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes] .
+
 For more information about how to use web identity federation and the 
 AssumeRoleWithWebIdentity API, see the following resources:
 
@@ -317,16 +339,22 @@ AssumeRoleWithWebIdentity API, see the following resources:
    and Federation Through a Web-based Identity Provider
    [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity] 
    .
+   
+   
  * Web Identity Federation Playground
    [https://web-identity-federation-playground.s3.amazonaws.com/index.html] .
    This interactive website lets you walk through the process of authenticating
    via Login with Amazon, Facebook, or Google, getting temporary security
    credentials, and then using those credentials to make a request to AWS.
+   
+   
  * AWS SDK for iOS [http://aws.amazon.com/sdkforios/] and AWS SDK for Android
    [http://aws.amazon.com/sdkforandroid/] . These toolkits contain sample apps
    that show how to invoke the identity providers, and then how to use the
    information from these providers to get and use temporary security
    credentials.
+   
+   
  * Web Identity Federation with Mobile Applications
    [http://aws.amazon.com/articles/4617974389850313] . This article discusses
    web identity federation and shows an example of how to use web identity
@@ -352,11 +380,12 @@ provide details about this authorization failure.
 
 Only certain AWS actions return an encoded authorization message. The
 documentation for an individual action indicates whether that action returns an
-encoded message in addition to returning an HTTP code.The message is encoded
-because the details of the authorization status can constitute privileged
-information that the user who requested the action should not see. To decode an
-authorization status message, a user must be granted permissions via an IAM
-policy to request the DecodeAuthorizationMessage ( 
+encoded message in addition to returning an HTTP code.
+
+The message is encoded because the details of the authorization status can
+constitute privileged information that the user who requested the action should
+not see. To decode an authorization status message, a user must be granted
+permissions via an IAM policy to request the DecodeAuthorizationMessage ( 
 sts:DecodeAuthorizationMessage ) action.
 
 The decoded message includes the following type of information:
@@ -366,9 +395,17 @@ The decoded message includes the following type of information:
    is Allowed or Denied
    [http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-denyallow] 
    in the IAM User Guide .
+   
+   
  * The principal who made the request.
+   
+   
  * The requested action.
+   
+   
  * The requested resource.
+   
+   
  * The values of condition keys in the context of the user&#x27;s request.
      *
      * @error InvalidAuthorizationMessageException   
@@ -436,7 +473,11 @@ GetFederationToken are determined by a combination of the following:
 
  * The policy or policies that are attached to the IAM user whose credentials
    are used to call GetFederationToken .
+   
+   
  * The policy that is passed as a parameter in the call.
+   
+   
 
 The passed policy is attached to the temporary security credentials that result
 from the GetFederationToken API call--that is, to the federated user . When the
@@ -651,7 +692,11 @@ scenarios, the role session name is visible to, and can be logged by the account
 that owns the role. The role session name is also used in the ARN of the assumed
 role principal. This means that subsequent cross-account API requests using the
 temporary security credentials will expose the role session name to the external
-account in their CloudTrail logs. **/
+account in their CloudTrail logs.
+
+The format for this parameter, as described by its regex pattern, is a string of
+characters consisting of upper- and lower-case alphanumeric characters with no
+spaces. You can also include any of the following characters: =,.@- **/
       RoleSessionName: roleSessionNameType;
       /** An IAM policy in JSON format.
 
@@ -666,6 +711,12 @@ information, see Permissions for AssumeRole, AssumeRoleWithSAML, and
 AssumeRoleWithWebIdentity
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html] 
 in the IAM User Guide .
+
+The format for this parameter, as described by its regex pattern, is a string of
+characters up to 2048 characters in length. The characters can be any ASCII
+character from the space character to the end of the valid character list
+(\u0020-\u00FF). It can also include the tab (\u0009), linefeed (\u000A), and
+carriage return (\u000D) characters.
 
 The policy plain text must be 2048 bytes or shorter. However, an internal
 conversion compresses it into a packed binary format with a separate limit. The
@@ -685,19 +736,30 @@ in order to help third parties bind a role to the customer who created it. For
 more information about the external ID, see How to Use an External ID When
 Granting Access to Your AWS Resources to a Third Party
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html] 
-in the IAM User Guide . **/
+in the IAM User Guide .
+
+The format for this parameter, as described by its regex pattern, is a string of
+characters consisting of upper- and lower-case alphanumeric characters with no
+spaces. You can also include any of the following characters: =,.@:\/- **/
       ExternalId?: externalIdType;
       /** The identification number of the MFA device that is associated with the user who
 is making the AssumeRole call. Specify this value if the trust policy of the
 role being assumed includes a condition that requires MFA authentication. The
 value is either the serial number for a hardware device (such as GAHT12345678 )
 or an Amazon Resource Name (ARN) for a virtual device (such as 
-arn:aws:iam::123456789012:mfa/user ). **/
+arn:aws:iam::123456789012:mfa/user ).
+
+The format for this parameter, as described by its regex pattern, is a string of
+characters consisting of upper- and lower-case alphanumeric characters with no
+spaces. You can also include any of the following characters: =,.@- **/
       SerialNumber?: serialNumberType;
       /** The value provided by the MFA device, if the trust policy of the role being
 assumed requires MFA (that is, if the policy includes a condition that tests for
 MFA). If the role being assumed requires MFA and if the TokenCode value is
-missing or expired, the AssumeRole call returns an &quot;access denied&quot; error. **/
+missing or expired, the AssumeRole call returns an &quot;access denied&quot; error.
+
+The format for this parameter, as described by its regex pattern, is a sequence
+of six numeric digits. **/
       TokenCode?: tokenCodeType;
     }
     export interface AssumeRoleResponse {
@@ -745,6 +807,12 @@ AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html] 
 in the IAM User Guide .
 
+The format for this parameter, as described by its regex pattern, is a string of
+characters up to 2048 characters in length. The characters can be any ASCII
+character from the space character to the end of the valid character list
+(\u0020-\u00FF). It can also include the tab (\u0009), linefeed (\u000A), and
+carriage return (\u000D) characters.
+
 The policy plain text must be 2048 bytes or shorter. However, an internal
 conversion compresses it into a packed binary format with a separate limit. The
 PackedPolicySize response element indicates by percentage how close to the upper
@@ -769,6 +837,8 @@ strongly recommend that you make no assumptions about the maximum size. As of
 this writing, the typical size is less than 4096 bytes, but that can vary. Also,
 future updates to AWS might require larger sizes. **/
       Credentials?: Credentials;
+      /** The identifiers for the temporary security credentials that the operation
+returns. **/
       AssumedRoleUser?: AssumedRoleUser;
       /** A percentage value that indicates the size of the policy in packed form. The
 service rejects any policy with a packed size greater than 100 percent, which
@@ -808,7 +878,11 @@ BASE64 ( SHA1 ( &quot;https://example.com/saml&quot; + &quot;123456789012&quot; 
 identifier that is associated with the user who is using your application. That
 way, the temporary security credentials that your application will use are
 associated with that user. This session name is included as part of the ARN and
-assumed role ID in the AssumedRoleUser response element. **/
+assumed role ID in the AssumedRoleUser response element.
+
+The format for this parameter, as described by its regex pattern, is a string of
+characters consisting of upper- and lower-case alphanumeric characters with no
+spaces. You can also include any of the following characters: =,.@- **/
       RoleSessionName: roleSessionNameType;
       /** The OAuth 2.0 access token or OpenID Connect ID token that is provided by the
 identity provider. Your application must get this token by authenticating the
@@ -835,6 +909,12 @@ policy of the role that is being assumed. For more information, see Permissions
 for AssumeRoleWithWebIdentity
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html] 
 in the IAM User Guide .
+
+The format for this parameter, as described by its regex pattern, is a string of
+characters up to 2048 characters in length. The characters can be any ASCII
+character from the space character to the end of the valid character list
+(\u0020-\u00FF). It can also include the tab (\u0009), linefeed (\u000A), and
+carriage return (\u000D) characters.
 
 The policy plain text must be 2048 bytes or shorter. However, an internal
 conversion compresses it into a packed binary format with a separate limit. The
@@ -910,8 +990,7 @@ credentials. **/
       EncodedMessage: encodedMessageType;
     }
     export interface DecodeAuthorizationMessageResponse {
-      /** An XML document that contains the decoded message. For more information, see 
-DecodeAuthorizationMessage . **/
+      /** An XML document that contains the decoded message. **/
       DecodedMessage?: decodedMessageType;
     }
     export interface ExpiredTokenException {
@@ -947,7 +1026,11 @@ entity. **/
       /** The name of the federated user. The name is used as an identifier for the
 temporary security credentials (such as Bob ). For example, you can reference
 the federated user name in a resource-based policy, such as in an Amazon S3
-bucket policy. **/
+bucket policy.
+
+The format for this parameter, as described by its regex pattern, is a string of
+characters consisting of upper- and lower-case alphanumeric characters with no
+spaces. You can also include any of the following characters: =,.@- **/
       Name: userNameType;
       /** An IAM policy in JSON format that is passed with the GetFederationToken call and
 evaluated along with the policy or policies that are attached to the IAM user
@@ -963,11 +1046,19 @@ no effective permissions. The only exception is when the temporary security
 credentials are used to access a resource that has a resource-based policy that
 specifically allows the federated user to access the resource.
 
+The format for this parameter, as described by its regex pattern, is a string of
+characters up to 2048 characters in length. The characters can be any ASCII
+character from the space character to the end of the valid character list
+(\u0020-\u00FF). It can also include the tab (\u0009), linefeed (\u000A), and
+carriage return (\u000D) characters.
+
 The policy plain text must be 2048 bytes or shorter. However, an internal
 conversion compresses it into a packed binary format with a separate limit. The
 PackedPolicySize response element indicates by percentage how close to the upper
-size limit the policy is, with 100% equaling the maximum allowed size.For more
-information about how permissions work, see Permissions for GetFederationToken
+size limit the policy is, with 100% equaling the maximum allowed size.
+
+For more information about how permissions work, see Permissions for
+GetFederationToken
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getfederationtoken.html] 
 . **/
       Policy?: sessionPolicyDocumentType;
@@ -1012,13 +1103,20 @@ policy that requires MFA authentication. The value is either the serial number
 for a hardware device (such as GAHT12345678 ) or an Amazon Resource Name (ARN)
 for a virtual device (such as arn:aws:iam::123456789012:mfa/user ). You can find
 the device for an IAM user by going to the AWS Management Console and viewing
-the user&#x27;s security credentials. **/
+the user&#x27;s security credentials.
+
+The format for this parameter, as described by its regex pattern, is a string of
+characters consisting of upper- and lower-case alphanumeric characters with no
+spaces. You can also include any of the following characters: =,.@- **/
       SerialNumber?: serialNumberType;
       /** The value provided by the MFA device, if MFA is required. If any policy requires
 the IAM user to submit an MFA code, specify this value. If MFA authentication is
 required, and the user does not provide a code when requesting a set of
 temporary security credentials, the user will receive an &quot;access denied&quot;
-response when requesting resources that require MFA authentication. **/
+response when requesting resources that require MFA authentication.
+
+The format for this parameter, as described by its regex pattern, is a sequence
+of six numeric digits. **/
       TokenCode?: tokenCodeType;
     }
     export interface GetSessionTokenResponse {

@@ -15,7 +15,8 @@ declare module "aws-sdk" {
     * protocol: json
     *
     * Amazon Kinesis Firehose API ReferenceAmazon Kinesis Firehose is a fully-managed
- service that delivers real-time streaming data to destinations such as Amazon S3
+ service that delivers real-time streaming data to destinations such as Amazon
+ Simple Storage Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES),
  and Amazon Redshift.
     *
     */
@@ -35,47 +36,48 @@ The name of a delivery stream identifies it. You can&#x27;t have two delivery st
 with the same name in the same region. Two delivery streams in different AWS
 accounts or different regions in the same AWS account can have the same name.
 
-By default, you can create up to 5 delivery streams per region.
+By default, you can create up to 20 delivery streams per region.
 
 A delivery stream can only be configured with a single destination, Amazon S3 or
 Amazon Redshift. For correct CreateDeliveryStream request syntax, specify only
-one destination configuration parameter: either RedshiftDestinationConfiguration 
-or S3DestinationConfiguration
+one destination configuration parameter: either 
+ElasticsearchDestinationConfiguration , RedshiftDestinationConfiguration or 
+S3DestinationConfiguration
 
 As part of S3DestinationConfiguration , optional values BufferingHints , 
 EncryptionConfiguration , and CompressionFormat can be provided. By default, if
-no BufferingHints value is provided, Amazon Kinesis Firehose buffers data up to
-5 MB or for 5 minutes, whichever condition is satisfied first. Note that 
-BufferingHints is a hint, so there are some cases where the service cannot
-adhere to these conditions strictly; for example, record boundaries are such
-that the size is a little over or under the configured buffering size. By
-default, no encryption is performed. We strongly recommend that you enable
-encryption to ensure secure data storage in Amazon S3.
+no BufferingHints value is provided, Firehose buffers data up to 5 MB or for 5
+minutes, whichever condition is satisfied first. Note that BufferingHints is a
+hint, so there are some cases where the service cannot adhere to these
+conditions strictly; for example, record boundaries are such that the size is a
+little over or under the configured buffering size. By default, no encryption is
+performed. We strongly recommend that you enable encryption to ensure secure
+data storage in Amazon S3.
 
 A few notes about RedshiftDestinationConfiguration :
 
  &amp;#42; An Amazon Redshift destination requires an S3 bucket as intermediate
-   location, as Amazon Kinesis Firehose first delivers data to S3 and then uses 
-   COPY syntax to load data into an Amazon Redshift table. This is specified in
-   the RedshiftDestinationConfiguration.S3Configuration parameter element.
+   location, as Firehose first delivers data to S3 and then uses COPY syntax to
+   load data into an Amazon Redshift table. This is specified in the 
+   RedshiftDestinationConfiguration.S3Configuration parameter element.
  * The compression formats SNAPPY or ZIP cannot be specified in 
    RedshiftDestinationConfiguration.S3Configuration because the Amazon Redshift 
    COPY operation that reads from the S3 bucket doesn&#x27;t support these
    compression formats.
  * We strongly recommend that the username and password provided is used
-   exclusively for Amazon Kinesis Firehose purposes, and that the permissions
-   for the account are restricted for Amazon Redshift INSERT permissions.
+   exclusively for Firehose purposes, and that the permissions for the account
+   are restricted for Amazon Redshift INSERT permissions.
 
-Amazon Kinesis Firehose assumes the IAM role that is configured as part of
-destinations. The IAM role should allow the Amazon Kinesis Firehose principal to
-assume the role, and the role should have permissions that allows the service to
-deliver the data. For more information, see Amazon S3 Bucket Access
+Firehose assumes the IAM role that is configured as part of destinations. The
+IAM role should allow the Firehose principal to assume the role, and the role
+should have permissions that allows the service to deliver the data. For more
+information, see Amazon S3 Bucket Access
 [http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3] 
 in the Amazon Kinesis Firehose Developer Guide .
      *
-     * @error InvalidArgumentException The specified input parameter has an value that is not valid.  
-     * @error LimitExceededException You have already reached the limit for a requested resource.  
-     * @error ResourceInUseException The resource is already in use and not available for this operation.  
+     * @error InvalidArgumentException   
+     * @error LimitExceededException   
+     * @error ResourceInUseException   
      */
     createDeliveryStream(params: Firehose.CreateDeliveryStreamInput, callback?: (err: Firehose.InvalidArgumentException | Firehose.LimitExceededException | Firehose.ResourceInUseException | any, data: Firehose.CreateDeliveryStreamOutput | any) => void): Request;
     /**
@@ -92,8 +94,8 @@ the records, but the service doesn&#x27;t make any guarantees with respect to
 delivering the data. Therefore, as a best practice, you should first stop any
 applications that are sending records before deleting a delivery stream.
      *
-     * @error ResourceInUseException The resource is already in use and not available for this operation.  
-     * @error ResourceNotFoundException The specified resource could not be found.  
+     * @error ResourceInUseException   
+     * @error ResourceNotFoundException   
      */
     deleteDeliveryStream(params: Firehose.DeleteDeliveryStreamInput, callback?: (err: Firehose.ResourceInUseException | Firehose.ResourceNotFoundException | any, data: Firehose.DeleteDeliveryStreamOutput | any) => void): Request;
     /**
@@ -101,7 +103,7 @@ applications that are sending records before deleting a delivery stream.
 your delivery stream is created, call DescribeDeliveryStream to see if the
 delivery stream is ACTIVE and therefore ready for data to be sent to it.
      *
-     * @error ResourceNotFoundException The specified resource could not be found.  
+     * @error ResourceNotFoundException   
      */
     describeDeliveryStream(params: Firehose.DescribeDeliveryStreamInput, callback?: (err: Firehose.ResourceNotFoundException | any, data: Firehose.DescribeDeliveryStreamOutput | any) => void): Request;
     /**
@@ -134,15 +136,11 @@ PutRecord . The data record consists of a data blob that can be up to 1,000 KB
 in size, and any kind of data, for example, a segment from a log file,
 geographic location data, web site clickstream data, etc.
 
-Amazon Kinesis Firehose buffers records before delivering them to the
-destination. To disambiguate the data blobs at the destination, a common
-solution is to use delimiters in the data, such as a newline ( \n ) or some
-other character unique within the data. This allows the consumer application(s)
-to parse individual data items when reading the data from the destination.
-
-Amazon Kinesis Firehose does not maintain data record ordering. If the
-destination data needs to be re-ordered by the consumer application, the
-producer should include some form of sequence number in each data record.
+Firehose buffers records before delivering them to the destination. To
+disambiguate the data blobs at the destination, a common solution is to use
+delimiters in the data, such as a newline ( \n ) or some other character unique
+within the data. This allows the consumer application(s) to parse individual
+data items when reading the data from the destination.
 
 The PutRecord operation returns a RecordId , which is a unique string assigned
 to each record. Producer applications can use this ID for purposes such as
@@ -152,18 +150,14 @@ If the PutRecord operation throws a ServiceUnavailableException , back off and
 retry. If the exception persists, it is possible that the throughput limits have
 been exceeded for the delivery stream.
 
-Data records sent to Amazon Kinesis Firehose are stored for 24 hours from the
-time they are added to a delivery stream as it attempts to send the records to
-the destination. If the destination is unreachable for more than 24 hours, the
-data is no longer available.
+Data records sent to Firehose are stored for 24 hours from the time they are
+added to a delivery stream as it attempts to send the records to the
+destination. If the destination is unreachable for more than 24 hours, the data
+is no longer available.
      *
-     * @error ResourceNotFoundException The specified resource could not be found.  
-     * @error InvalidArgumentException The specified input parameter has an value that is not valid.  
-     * @error ServiceUnavailableException The service is unavailable, back off and retry the operation. If you continue to
-see the exception, throughput limits for the delivery stream may have been
-exceeded. For more information about limits and how to request an increase, see 
-Amazon Kinesis Firehose Limits
-[http://docs.aws.amazon.com/firehose/latest/dev/limits.html] .  
+     * @error ResourceNotFoundException   
+     * @error InvalidArgumentException   
+     * @error ServiceUnavailableException   
      */
     putRecord(params: Firehose.PutRecordInput, callback?: (err: Firehose.ResourceNotFoundException | Firehose.InvalidArgumentException | Firehose.ServiceUnavailableException | any, data: Firehose.PutRecordOutput | any) => void): Request;
     /**
@@ -186,11 +180,11 @@ PutRecord . The data record consists of a data blob that can be up to 1,000 KB
 in size, and any kind of data, for example, a segment from a log file,
 geographic location data, web site clickstream data, and so on.
 
-Amazon Kinesis Firehose buffers records before delivering them to the
-destination. To disambiguate the data blobs at the destination, a common
-solution is to use delimiters in the data, such as a newline ( \n ) or some
-other character unique within the data. This allows the consumer application(s)
-to parse individual data items when reading the data from the destination.
+Firehose buffers records before delivering them to the destination. To
+disambiguate the data blobs at the destination, a common solution is to use
+delimiters in the data, such as a newline ( \n ) or some other character unique
+within the data. This allows the consumer application(s) to parse individual
+data items when reading the data from the destination.
 
 The PutRecordBatch response includes a count of any failed records, 
 FailedPutCount , and an array of responses, RequestResponses . The 
@@ -200,9 +194,9 @@ Each entry in RequestResponses directly correlates with a record in the request
 array using the same ordering, from the top to the bottom of the request and
 response. RequestResponses always includes the same number of records as the
 request array. RequestResponses both successfully and unsuccessfully processed
-records. Amazon Kinesis Firehose attempts to process all records in each 
-PutRecordBatch request. A single record failure does not stop the processing of
-subsequent records.
+records. Firehose attempts to process all records in each PutRecordBatch 
+request. A single record failure does not stop the processing of subsequent
+records.
 
 A successfully processed record includes a RecordId value, which is a unique
 value identified for the record. An unsuccessfully processed record includes 
@@ -220,22 +214,21 @@ If the PutRecordBatch operation throws a ServiceUnavailableException , back off
 and retry. If the exception persists, it is possible that the throughput limits
 have been exceeded for the delivery stream.
 
-Data records sent to Amazon Kinesis Firehose are stored for 24 hours from the
-time they are added to a delivery stream as it attempts to send the records to
-the destination. If the destination is unreachable for more than 24 hours, the
-data is no longer available.
+Data records sent to Firehose are stored for 24 hours from the time they are
+added to a delivery stream as it attempts to send the records to the
+destination. If the destination is unreachable for more than 24 hours, the data
+is no longer available.
      *
-     * @error ResourceNotFoundException The specified resource could not be found.  
-     * @error InvalidArgumentException The specified input parameter has an value that is not valid.  
-     * @error ServiceUnavailableException The service is unavailable, back off and retry the operation. If you continue to
-see the exception, throughput limits for the delivery stream may have been
-exceeded. For more information about limits and how to request an increase, see 
-Amazon Kinesis Firehose Limits
-[http://docs.aws.amazon.com/firehose/latest/dev/limits.html] .  
+     * @error ResourceNotFoundException   
+     * @error InvalidArgumentException   
+     * @error ServiceUnavailableException   
      */
     putRecordBatch(params: Firehose.PutRecordBatchInput, callback?: (err: Firehose.ResourceNotFoundException | Firehose.InvalidArgumentException | Firehose.ServiceUnavailableException | any, data: Firehose.PutRecordBatchOutput | any) => void): Request;
     /**
-     * Updates the specified destination of the specified delivery stream.
+     * Updates the specified destination of the specified delivery stream. Note:
+Switching between Elasticsearch and other services is not supported. For
+Elasticsearch destination, you can only update an existing Elasticsearch
+destination with this operation.
 
 This operation can be used to change the destination type (for example, to
 replace the Amazon S3 destination with Amazon Redshift) or change the parameters
@@ -245,31 +238,30 @@ delivery stream remains active while the configurations are updated, so data
 writes to the delivery stream can continue during this process. The updated
 configurations are normally effective within a few minutes.
 
-If the destination type is the same, Amazon Kinesis Firehose merges the
-configuration parameters specified in the UpdateDestination request with the
-destination configuration that already exists on the delivery stream. If any of
-the parameters are not specified in the update request, then the existing
+If the destination type is the same, Firehose merges the configuration
+parameters specified in the UpdateDestination request with the destination
+configuration that already exists on the delivery stream. If any of the
+parameters are not specified in the update request, then the existing
 configuration parameters are retained. For example, in the Amazon S3
 destination, if EncryptionConfiguration is not specified then the existing 
 EncryptionConfiguration is maintained on the destination.
 
 If the destination type is not the same, for example, changing the destination
-from Amazon S3 to Amazon Redshift, Amazon Kinesis Firehose does not merge any
-parameters. In this case, all parameters must be specified.
+from Amazon S3 to Amazon Redshift, Firehose does not merge any parameters. In
+this case, all parameters must be specified.
 
-Amazon Kinesis Firehose uses the CurrentDeliveryStreamVersionId to avoid race
-conditions and conflicting merges. This is a required field in every request and
-the service only updates the configuration if the existing configuration matches
-the VersionId . After the update is applied successfully, the VersionId is
-updated, which can be retrieved with the DescribeDeliveryStream operation. The
-new VersionId should be uses to set CurrentDeliveryStreamVersionId in the next 
+Firehose uses the CurrentDeliveryStreamVersionId to avoid race conditions and
+conflicting merges. This is a required field in every request and the service
+only updates the configuration if the existing configuration matches the 
+VersionId . After the update is applied successfully, the VersionId is updated,
+which can be retrieved with the DescribeDeliveryStream operation. The new 
+VersionId should be uses to set CurrentDeliveryStreamVersionId in the next 
 UpdateDestination operation.
      *
-     * @error InvalidArgumentException The specified input parameter has an value that is not valid.  
-     * @error ResourceInUseException The resource is already in use and not available for this operation.  
-     * @error ResourceNotFoundException The specified resource could not be found.  
-     * @error ConcurrentModificationException Another modification has already happened. Fetch VersionId again and use it to
-update the destination.  
+     * @error InvalidArgumentException   
+     * @error ResourceInUseException   
+     * @error ResourceNotFoundException   
+     * @error ConcurrentModificationException   
      */
     updateDestination(params: Firehose.UpdateDestinationInput, callback?: (err: Firehose.InvalidArgumentException | Firehose.ResourceInUseException | Firehose.ResourceNotFoundException | Firehose.ConcurrentModificationException | any, data: Firehose.UpdateDestinationOutput | any) => void): Request;
 
@@ -311,6 +303,22 @@ update the destination.
 
     export type DestinationId = string;
 
+    export type ElasticsearchBufferingIntervalInSeconds = number;
+
+    export type ElasticsearchBufferingSizeInMBs = number;
+
+    export type ElasticsearchDomainARN = string;
+
+    export type ElasticsearchIndexName = string;
+
+    export type ElasticsearchIndexRotationPeriod = string;
+
+    export type ElasticsearchRetryDurationInSeconds = number;
+
+    export type ElasticsearchS3BackupMode = string;
+
+    export type ElasticsearchTypeName = string;
+
     export type ErrorCode = string;
 
     export type ErrorMessage = string;
@@ -318,6 +326,10 @@ update the destination.
     export type IntervalInSeconds = number;
 
     export type ListDeliveryStreamsInputLimit = number;
+
+    export type LogGroupName = string;
+
+    export type LogStreamName = string;
 
     export type NoEncryptionConfig = string;
 
@@ -353,6 +365,16 @@ typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher. **/
 delivering it to the destination. The default value is 300. **/
       IntervalInSeconds?: IntervalInSeconds;
     }
+    export interface CloudWatchLoggingOptions {
+      /** Enables or disables CloudWatch logging. **/
+      Enabled?: BooleanObject;
+      /** The CloudWatch group name for logging. This value is required if Enabled is
+true. **/
+      LogGroupName?: LogGroupName;
+      /** The CloudWatch log stream name for logging. This value is required if Enabled is
+true. **/
+      LogStreamName?: LogStreamName;
+    }
     export interface ConcurrentModificationException {
       /** A message that provides information about the error. **/
       message?: ErrorMessage;
@@ -365,7 +387,7 @@ delivering it to the destination. The default value is 300. **/
       /** Optional parameters to use with the Amazon Redshift COPY command. For more
 information, see the &quot;Optional Parameters&quot; section of Amazon Redshift COPY
 command [http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html] . Some
-possible examples that would apply to Amazon Kinesis Firehose are as follows.
+possible examples that would apply to Firehose are as follows.
 
 delimiter &#x27;\t&#x27; lzop; - fields are delimited with &quot;\t&quot; (TAB character) and
 compressed using lzop.
@@ -381,7 +403,7 @@ column in the table.
 JSON &#x27;s3://mybucket/jsonpaths.txt&#x27; - data is in JSON format, and the path
 specified is the format of the data.
 
-For more examples, see and Amazon Redshift COPY command exmaples
+For more examples, see Amazon Redshift COPY command examples
 [http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html] . **/
       CopyOptions?: CopyOptions;
     }
@@ -389,11 +411,16 @@ For more examples, see and Amazon Redshift COPY command exmaples
       /** The name of the delivery stream. **/
       DeliveryStreamName: DeliveryStreamName;
       /** The destination in Amazon S3. This value must be specified if 
-RedshiftDestinationConfiguration is specified (see restrictions listed above). **/
+ElasticsearchDestinationConfiguration or RedshiftDestinationConfiguration is
+specified (see restrictions listed above). **/
       S3DestinationConfiguration?: S3DestinationConfiguration;
       /** The destination in Amazon Redshift. This value cannot be specified if Amazon S3
-is the desired destination (see restrictions listed above). **/
+or Amazon Elasticsearch is the desired destination (see restrictions listed
+above). **/
       RedshiftDestinationConfiguration?: RedshiftDestinationConfiguration;
+      /** The destination in Amazon ES. This value cannot be specified if Amazon S3 or
+Amazon Redshift is the desired destination (see restrictions listed above). **/
+      ElasticsearchDestinationConfiguration?: ElasticsearchDestinationConfiguration;
     }
     export interface CreateDeliveryStreamOutput {
       /** The ARN of the delivery stream. **/
@@ -433,7 +460,7 @@ knows it is applying the changes to the correct version of the delivery stream. 
 destination per delivery stream. **/
       Limit?: DescribeDeliveryStreamInputLimit;
       /** Specifies the destination ID to start returning the destination information.
-Currently Amazon Kinesis Firehose supports one destination per delivery stream. **/
+Currently Firehose supports one destination per delivery stream. **/
       ExclusiveStartDestinationId?: DestinationId;
     }
     export interface DescribeDeliveryStreamOutput {
@@ -447,6 +474,120 @@ Currently Amazon Kinesis Firehose supports one destination per delivery stream. 
       S3DestinationDescription?: S3DestinationDescription;
       /** The destination in Amazon Redshift. **/
       RedshiftDestinationDescription?: RedshiftDestinationDescription;
+      /** The destination in Amazon ES. **/
+      ElasticsearchDestinationDescription?: ElasticsearchDestinationDescription;
+    }
+    export interface ElasticsearchBufferingHints {
+      /** Buffer incoming data for the specified period of time, in seconds, before
+delivering it to the destination. The default value is 300 (5 minutes). **/
+      IntervalInSeconds?: ElasticsearchBufferingIntervalInSeconds;
+      /** Buffer incoming data to the specified size, in MBs, before delivering it to the
+destination. The default value is 5.
+
+We recommend setting SizeInMBs to a value greater than the amount of data you
+typically ingest into the delivery stream in 10 seconds. For example, if you
+typically ingest data at 1 MB/sec, set SizeInMBs to be 10 MB or higher. **/
+      SizeInMBs?: ElasticsearchBufferingSizeInMBs;
+    }
+    export interface ElasticsearchDestinationConfiguration {
+      /** The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES
+Configuration API and for indexing documents. For more information, see Amazon
+S3 Bucket Access
+[http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3] 
+. **/
+      RoleARN: RoleARN;
+      /** The ARN of the Amazon ES domain. The IAM role must have permission for 
+DescribeElasticsearchDomain , DescribeElasticsearchDomains , and 
+DescribeElasticsearchDomainConfig after assuming RoleARN . **/
+      DomainARN: ElasticsearchDomainARN;
+      /** The Elasticsearch index name. **/
+      IndexName: ElasticsearchIndexName;
+      /** The Elasticsearch type name. **/
+      TypeName: ElasticsearchTypeName;
+      /** The Elasticsearch index rotation period. Index rotation appends a timestamp to
+the IndexName to facilitate expiration of old data. For more information, see 
+Index Rotation for Amazon Elasticsearch Service Destination
+[http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation] 
+. Default value is OneDay . **/
+      IndexRotationPeriod?: ElasticsearchIndexRotationPeriod;
+      /** Buffering options. If no value is specified, ElasticsearchBufferingHints object
+default values are used. **/
+      BufferingHints?: ElasticsearchBufferingHints;
+      /** Configures retry behavior in the event that Firehose is unable to deliver
+documents to Amazon ES. Default value is 300 (5 minutes). **/
+      RetryOptions?: ElasticsearchRetryOptions;
+      /** Defines how documents should be delivered to Amazon S3. When set to
+FailedDocumentsOnly, Firehose writes any documents that could not be indexed to
+the configured Amazon S3 destination, with elasticsearch-failed/ appended to the
+key prefix. When set to AllDocuments, Firehose delivers all incoming records to
+Amazon S3, and also writes failed documents with elasticsearch-failed/ appended
+to the prefix. For more information, see Amazon S3 Backup for Amazon
+Elasticsearch Service Destination
+[http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup] 
+. Default value is FailedDocumentsOnly. **/
+      S3BackupMode?: ElasticsearchS3BackupMode;
+      S3Configuration: S3DestinationConfiguration;
+      /** Describes CloudWatch logging options for your delivery stream. **/
+      CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+    }
+    export interface ElasticsearchDestinationDescription {
+      /** The ARN of the AWS credentials. **/
+      RoleARN?: RoleARN;
+      /** The ARN of the Amazon ES domain. **/
+      DomainARN?: ElasticsearchDomainARN;
+      /** The Elasticsearch index name. **/
+      IndexName?: ElasticsearchIndexName;
+      /** The Elasticsearch type name. **/
+      TypeName?: ElasticsearchTypeName;
+      /** The Elasticsearch index rotation period **/
+      IndexRotationPeriod?: ElasticsearchIndexRotationPeriod;
+      /** Buffering options. **/
+      BufferingHints?: ElasticsearchBufferingHints;
+      /** Elasticsearch retry options. **/
+      RetryOptions?: ElasticsearchRetryOptions;
+      /** Amazon S3 backup mode. **/
+      S3BackupMode?: ElasticsearchS3BackupMode;
+      S3DestinationDescription?: S3DestinationDescription;
+      /** CloudWatch logging options. **/
+      CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+    }
+    export interface ElasticsearchDestinationUpdate {
+      /** The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES
+Configuration API and for indexing documents. For more information, see Amazon
+S3 Bucket Access
+[http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3] 
+. **/
+      RoleARN?: RoleARN;
+      /** The ARN of the Amazon ES domain. The IAM role must have permission for
+DescribeElasticsearchDomain, DescribeElasticsearchDomains , and
+DescribeElasticsearchDomainConfig after assuming RoleARN . **/
+      DomainARN?: ElasticsearchDomainARN;
+      /** The Elasticsearch index name. **/
+      IndexName?: ElasticsearchIndexName;
+      /** The Elasticsearch type name. **/
+      TypeName?: ElasticsearchTypeName;
+      /** The Elasticsearch index rotation period. Index rotation appends a timestamp to
+the IndexName to facilitate the expiration of old data. For more information,
+see Index Rotation for Amazon Elasticsearch Service Destination
+[http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation] 
+. Default value is OneDay . **/
+      IndexRotationPeriod?: ElasticsearchIndexRotationPeriod;
+      /** Buffering options. If no value is specified, ElasticsearchBufferingHints object
+default values are used. **/
+      BufferingHints?: ElasticsearchBufferingHints;
+      /** Configures retry behavior in the event that Firehose is unable to deliver
+documents to Amazon ES. Default value is 300 (5 minutes). **/
+      RetryOptions?: ElasticsearchRetryOptions;
+      S3Update?: S3DestinationUpdate;
+      /** Describes CloudWatch logging options for your delivery stream. **/
+      CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+    }
+    export interface ElasticsearchRetryOptions {
+      /** After an initial failure to deliver to Amazon ES, the total amount of time
+during which Firehose re-attempts delivery. After this time has elapsed, the
+failed documents are written to Amazon S3. Default value is 300 seconds. A value
+of 0 (zero) results in no retries. **/
+      DurationInSeconds?: ElasticsearchRetryDurationInSeconds;
     }
     export interface EncryptionConfiguration {
       /** Specifically override existing encryption information to ensure no encryption is
@@ -535,6 +676,8 @@ RedshiftDestinationConfiguration.S3Configuration because the Amazon Redshift
 COPY operation that reads from the S3 bucket doesn&#x27;t support these compression
 formats. **/
       S3Configuration: S3DestinationConfiguration;
+      /** Describes CloudWatch logging options for your delivery stream. **/
+      CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
     }
     export interface RedshiftDestinationDescription {
       /** The ARN of the AWS credentials. **/
@@ -547,6 +690,8 @@ formats. **/
       Username: Username;
       /** The Amazon S3 destination. **/
       S3DestinationDescription: S3DestinationDescription;
+      /** Describes CloudWatch logging options for your delivery stream. **/
+      CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
     }
     export interface RedshiftDestinationUpdate {
       /** The ARN of the AWS credentials. **/
@@ -565,6 +710,8 @@ The compression formats SNAPPY or ZIP cannot be specified in
 RedshiftDestinationUpdate.S3Update because the Amazon Redshift COPY operation
 that reads from the S3 bucket doesn&#x27;t support these compression formats. **/
       S3Update?: S3DestinationUpdate;
+      /** Describes CloudWatch logging options for your delivery stream. **/
+      CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
     }
     export interface ResourceInUseException {
       /** A message that provides information about the error. **/
@@ -598,6 +745,8 @@ operation that reads from the S3 bucket. **/
       /** The encryption configuration. If no value is specified, the default is no
 encryption. **/
       EncryptionConfiguration?: EncryptionConfiguration;
+      /** Describes CloudWatch logging options for your delivery stream. **/
+      CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
     }
     export interface S3DestinationDescription {
       /** The ARN of the AWS credentials. **/
@@ -619,6 +768,8 @@ values are used. **/
       /** The encryption configuration. If no value is specified, the default is no
 encryption. **/
       EncryptionConfiguration: EncryptionConfiguration;
+      /** Describes CloudWatch logging options for your delivery stream. **/
+      CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
     }
     export interface S3DestinationUpdate {
       /** The ARN of the AWS credentials. **/
@@ -644,6 +795,8 @@ operation that reads from the S3 bucket. **/
       /** The encryption configuration. If no value is specified, the default is no
 encryption. **/
       EncryptionConfiguration?: EncryptionConfiguration;
+      /** Describes CloudWatch logging options for your delivery stream. **/
+      CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
     }
     export interface ServiceUnavailableException {
       /** A message that provides information about the error. **/
@@ -663,6 +816,8 @@ configuration with the new configuration. **/
       DestinationId: DestinationId;
       S3DestinationUpdate?: S3DestinationUpdate;
       RedshiftDestinationUpdate?: RedshiftDestinationUpdate;
+      /** Describes an update for a destination in Amazon ES. **/
+      ElasticsearchDestinationUpdate?: ElasticsearchDestinationUpdate;
     }
     export interface UpdateDestinationOutput {
     }

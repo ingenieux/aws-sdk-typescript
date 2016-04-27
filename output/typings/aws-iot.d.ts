@@ -214,6 +214,18 @@ rule.
      */
     createTopicRule(params: Iot.CreateTopicRuleRequest, callback?: (err: Iot.SqlParseException | Iot.InternalException | Iot.InvalidRequestException | Iot.ResourceAlreadyExistsException | Iot.ServiceUnavailableException | any, data: any) => void): Request;
     /**
+     * Deletes a registered CA certificate.
+     *
+     * @error InvalidRequestException The request is not valid.  
+     * @error CertificateStateException The certificate operation is not allowed.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     * @error ResourceNotFoundException The specified resource does not exist.  
+     */
+    deleteCACertificate(params: Iot.DeleteCACertificateRequest, callback?: (err: Iot.InvalidRequestException | Iot.CertificateStateException | Iot.ThrottlingException | Iot.UnauthorizedException | Iot.ServiceUnavailableException | Iot.InternalFailureException | Iot.ResourceNotFoundException | any, data: Iot.DeleteCACertificateResponse | any) => void): Request;
+    /**
      * Deletes the specified certificate.
 
 A certificate cannot be deleted if it has a policy attached to it or if its
@@ -221,11 +233,16 @@ status is set to ACTIVE. To delete a certificate, first use the
 DetachPrincipalPolicy API to detach all policies. Next, use the 
 UpdateCertificate API to set the certificate to the INACTIVE status.
      *
-     * @error DeleteConflictException You can&#x27;t delete the resource because it is attached to one or more resources.  
-     * @error ResourceNotFoundException The specified resource does not exist.  
      * @error CertificateStateException The certificate operation is not allowed.  
+     * @error DeleteConflictException You can&#x27;t delete the resource because it is attached to one or more resources.  
+     * @error InvalidRequestException The request is not valid.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     * @error ResourceNotFoundException The specified resource does not exist.  
      */
-    deleteCertificate(params: Iot.DeleteCertificateRequest, callback?: (err: Iot.DeleteConflictException | Iot.ResourceNotFoundException | Iot.CertificateStateException | any, data: any) => void): Request;
+    deleteCertificate(params: Iot.DeleteCertificateRequest, callback?: (err: Iot.CertificateStateException | Iot.DeleteConflictException | Iot.InvalidRequestException | Iot.ThrottlingException | Iot.UnauthorizedException | Iot.ServiceUnavailableException | Iot.InternalFailureException | Iot.ResourceNotFoundException | any, data: any) => void): Request;
     /**
      * Deletes the specified policy.
 
@@ -264,6 +281,16 @@ the default version, use ListPolicyVersions.
      */
     deletePolicyVersion(params: Iot.DeletePolicyVersionRequest, callback?: (err: Iot.DeleteConflictException | Iot.ResourceNotFoundException | Iot.InvalidRequestException | Iot.ThrottlingException | Iot.UnauthorizedException | Iot.ServiceUnavailableException | Iot.InternalFailureException | any, data: any) => void): Request;
     /**
+     * Deletes a CA certificate registration code.
+     *
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error ResourceNotFoundException The specified resource does not exist.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     */
+    deleteRegistrationCode(params: Iot.DeleteRegistrationCodeRequest, callback?: (err: Iot.ThrottlingException | Iot.ResourceNotFoundException | Iot.UnauthorizedException | Iot.ServiceUnavailableException | Iot.InternalFailureException | any, data: Iot.DeleteRegistrationCodeResponse | any) => void): Request;
+    /**
      * Deletes the specified thing from the Thing Registry.
      *
      * @error ResourceNotFoundException The specified resource does not exist.  
@@ -283,6 +310,17 @@ the default version, use ListPolicyVersions.
      * @error UnauthorizedException You are not authorized to perform this operation.  
      */
     deleteTopicRule(params: Iot.DeleteTopicRuleRequest, callback?: (err: Iot.InternalException | Iot.InvalidRequestException | Iot.ServiceUnavailableException | Iot.UnauthorizedException | any, data: any) => void): Request;
+    /**
+     * Describes a registered CA certificate.
+     *
+     * @error InvalidRequestException The request is not valid.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     * @error ResourceNotFoundException The specified resource does not exist.  
+     */
+    describeCACertificate(params: Iot.DescribeCACertificateRequest, callback?: (err: Iot.InvalidRequestException | Iot.ThrottlingException | Iot.UnauthorizedException | Iot.ServiceUnavailableException | Iot.InternalFailureException | Iot.ResourceNotFoundException | any, data: Iot.DescribeCACertificateResponse | any) => void): Request;
     /**
      * Gets information about the specified certificate.
      *
@@ -387,6 +425,15 @@ default version.
      */
     getPolicyVersion(params: Iot.GetPolicyVersionRequest, callback?: (err: Iot.ResourceNotFoundException | Iot.InvalidRequestException | Iot.ThrottlingException | Iot.UnauthorizedException | Iot.ServiceUnavailableException | Iot.InternalFailureException | any, data: Iot.GetPolicyVersionResponse | any) => void): Request;
     /**
+     * Gets a registration code used to register a CA certificate with AWS IoT.
+     *
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     */
+    getRegistrationCode(params: Iot.GetRegistrationCodeRequest, callback?: (err: Iot.ThrottlingException | Iot.UnauthorizedException | Iot.ServiceUnavailableException | Iot.InternalFailureException | any, data: Iot.GetRegistrationCodeResponse | any) => void): Request;
+    /**
      * Gets information about the specified rule.
      *
      * @error InternalException An unexpected error has occurred.  
@@ -396,7 +443,20 @@ default version.
      */
     getTopicRule(params: Iot.GetTopicRuleRequest, callback?: (err: Iot.InternalException | Iot.InvalidRequestException | Iot.ServiceUnavailableException | Iot.UnauthorizedException | any, data: Iot.GetTopicRuleResponse | any) => void): Request;
     /**
-     * Lists your certificates.
+     * Lists the CA certificates registered for your AWS account.
+
+The results are paginated with a default page size of 25. You can use the
+returned marker to retrieve additional results.
+     *
+     * @error InvalidRequestException The request is not valid.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     */
+    listCACertificates(params: Iot.ListCACertificatesRequest, callback?: (err: Iot.InvalidRequestException | Iot.ThrottlingException | Iot.UnauthorizedException | Iot.ServiceUnavailableException | Iot.InternalFailureException | any, data: Iot.ListCACertificatesResponse | any) => void): Request;
+    /**
+     * Lists the certificates registered in your AWS account.
 
 The results are paginated with a default page size of 25. You can use the
 returned marker to retrieve additional results.
@@ -408,6 +468,16 @@ returned marker to retrieve additional results.
      * @error InternalFailureException An unexpected error has occurred.  
      */
     listCertificates(params: Iot.ListCertificatesRequest, callback?: (err: Iot.InvalidRequestException | Iot.ThrottlingException | Iot.UnauthorizedException | Iot.ServiceUnavailableException | Iot.InternalFailureException | any, data: Iot.ListCertificatesResponse | any) => void): Request;
+    /**
+     * List the device certificates signed by the specified CA certificate.
+     *
+     * @error InvalidRequestException The request is not valid.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     */
+    listCertificatesByCA(params: Iot.ListCertificatesByCARequest, callback?: (err: Iot.InvalidRequestException | Iot.ThrottlingException | Iot.UnauthorizedException | Iot.ServiceUnavailableException | Iot.InternalFailureException | any, data: Iot.ListCertificatesByCAResponse | any) => void): Request;
     /**
      * Lists your policies.
      *
@@ -484,8 +554,46 @@ AttributeValue=Red&quot;).
      */
     listTopicRules(params: Iot.ListTopicRulesRequest, callback?: (err: Iot.InternalException | Iot.InvalidRequestException | Iot.ServiceUnavailableException | any, data: Iot.ListTopicRulesResponse | any) => void): Request;
     /**
+     * Registers a CA certificate with AWS IoT. This CA certificate can then be used to
+sign device certificates, which can be then registered with AWS IoT. You can
+register up to 10 CA certificates per AWS account that have the same subject
+field and public key. This enables you to have up to 10 certificate authorities
+sign your device certificates. If you have more than one CA certificate
+registered, make sure you pass the CA certificate when you register your device
+certificates with the RegisterCertificate API.
+     *
+     * @error ResourceAlreadyExistsException The resource already exists.  
+     * @error RegistrationCodeValidationException The registration code is invalid.  
+     * @error InvalidRequestException The request is not valid.  
+     * @error CertificateValidationException The certificate is invalid.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error LimitExceededException The number of attached entities exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     */
+    registerCACertificate(params: Iot.RegisterCACertificateRequest, callback?: (err: Iot.ResourceAlreadyExistsException | Iot.RegistrationCodeValidationException | Iot.InvalidRequestException | Iot.CertificateValidationException | Iot.ThrottlingException | Iot.LimitExceededException | Iot.UnauthorizedException | Iot.ServiceUnavailableException | Iot.InternalFailureException | any, data: Iot.RegisterCACertificateResponse | any) => void): Request;
+    /**
+     * Registers a device certificate with AWS IoT. If you have more than one CA
+certificate that has the same subject field, you must specify the CA certificate
+that was used to sign the device certificate being registered.
+     *
+     * @error ResourceAlreadyExistsException The resource already exists.  
+     * @error InvalidRequestException The request is not valid.  
+     * @error CertificateValidationException The certificate is invalid.  
+     * @error CertificateStateException The certificate operation is not allowed.  
+     * @error CertificateConflictException Unable to verify the CA certificate used to sign the device certificate you are
+attempting to register. This is happens when you have registered more than one
+CA certificate that has the same subject field and public key.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     */
+    registerCertificate(params: Iot.RegisterCertificateRequest, callback?: (err: Iot.ResourceAlreadyExistsException | Iot.InvalidRequestException | Iot.CertificateValidationException | Iot.CertificateStateException | Iot.CertificateConflictException | Iot.ThrottlingException | Iot.UnauthorizedException | Iot.ServiceUnavailableException | Iot.InternalFailureException | any, data: Iot.RegisterCertificateResponse | any) => void): Request;
+    /**
      * Rejects a pending certificate transfer. After AWS IoT rejects a certificate
-transfer, the certificate status changes from PENDING_TRANFER to INACTIVE .
+transfer, the certificate status changes from PENDING_TRANSFER to INACTIVE .
 
 To check for pending certificate transfers, call ListCertificates to enumerate
 your certificates.
@@ -564,6 +672,17 @@ attached.
      */
     transferCertificate(params: Iot.TransferCertificateRequest, callback?: (err: Iot.InvalidRequestException | Iot.ResourceNotFoundException | Iot.CertificateStateException | Iot.TransferConflictException | Iot.ThrottlingException | Iot.UnauthorizedException | Iot.ServiceUnavailableException | Iot.InternalFailureException | any, data: Iot.TransferCertificateResponse | any) => void): Request;
     /**
+     * Updates a registered CA certificate.
+     *
+     * @error ResourceNotFoundException The specified resource does not exist.  
+     * @error InvalidRequestException The request is not valid.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     */
+    updateCACertificate(params: Iot.UpdateCACertificateRequest, callback?: (err: Iot.ResourceNotFoundException | Iot.InvalidRequestException | Iot.ThrottlingException | Iot.UnauthorizedException | Iot.ServiceUnavailableException | Iot.InternalFailureException | any, data: any) => void): Request;
+    /**
      * Updates the status of the specified certificate. This operation is idempotent.
 
 Moving a certificate from the ACTIVE state (including REVOKED) will not
@@ -614,7 +733,13 @@ a certificate.
 
     export type AwsArn = string;
 
+    export type AwsIotSqlVersion = string;
+
     export type BucketName = string;
+
+    export type CACertificateStatus = string;
+
+    export type CACertificates = CACertificate[];
 
     export type CertificateArn = string;
 
@@ -666,6 +791,8 @@ a certificate.
 
     export type MaxResults = number;
 
+    export type Message = string;
+
     export type MessageFormat = string;
 
     export type MetricName = string;
@@ -713,6 +840,8 @@ a certificate.
     export type RangeKeyField = string;
 
     export type RangeKeyValue = string;
+
+    export type RegistrationCode = string;
 
     export type RuleArn = string;
 
@@ -800,6 +929,30 @@ CreateCertificate operation) or an Amazon Cognito ID. **/
 {\&quot;attributes\&quot;:{\&quot;string1\&quot;:\&quot;string2\&quot;}}). **/
       attributes?: Attributes;
     }
+    export interface CACertificate {
+      /** The ARN of the CA certificate. **/
+      certificateArn?: CertificateArn;
+      /** The ID of the CA certificate. **/
+      certificateId?: CertificateId;
+      /** The status of the CA certificate. **/
+      status?: CACertificateStatus;
+      /** The date the CA certificate was created. **/
+      creationDate?: DateType;
+    }
+    export interface CACertificateDescription {
+      /** The CA certificate ARN. **/
+      certificateArn?: CertificateArn;
+      /** The CA certificate ID. **/
+      certificateId?: CertificateId;
+      /** The status of a CA certificate. **/
+      status?: CACertificateStatus;
+      /** The CA certificate data, in PEM format. **/
+      certificatePem?: CertificatePem;
+      /** The owner of the CA certificate. **/
+      ownedBy?: AwsAccountId;
+      /** The date the CA certificate was created. **/
+      creationDate?: DateType;
+    }
     export interface CancelCertificateTransferRequest {
       /** The ID of the certificate. **/
       certificateId: CertificateId;
@@ -814,24 +967,38 @@ CreateCertificate operation) or an Amazon Cognito ID. **/
       /** The date and time the certificate was created. **/
       creationDate?: DateType;
     }
+    export interface CertificateConflictException {
+      /** The message for the exception. **/
+      message?: errorMessage;
+    }
     export interface CertificateDescription {
       /** The ARN of the certificate. **/
       certificateArn?: CertificateArn;
       /** The ID of the certificate. **/
       certificateId?: CertificateId;
+      /** The certificate ID of the CA certificate used to sign this certificate. **/
+      caCertificateId?: CertificateId;
       /** The status of the certificate. **/
       status?: CertificateStatus;
       /** The certificate data, in PEM format. **/
       certificatePem?: CertificatePem;
       /** The ID of the AWS account that owns the certificate. **/
       ownedBy?: AwsAccountId;
+      /** The ID of the AWS account of the previous owner of the certificate. **/
+      previousOwnedBy?: AwsAccountId;
       /** The date and time the certificate was created. **/
       creationDate?: DateType;
       /** The date and time the certificate was last modified. **/
       lastModifiedDate?: DateType;
+      /** The transfer data. **/
+      transferData?: TransferData;
     }
     export interface CertificateStateException {
       /** The message for the exception. **/
+      message?: errorMessage;
+    }
+    export interface CertificateValidationException {
+      /** Additional information about the exception. **/
       message?: errorMessage;
     }
     export interface CloudwatchAlarmAction {
@@ -951,6 +1118,12 @@ document (for example, {\&quot;attributes\&quot;:{\&quot;string1\&quot;:\&quot;s
       /** The rule payload. **/
       topicRulePayload: TopicRulePayload;
     }
+    export interface DeleteCACertificateRequest {
+      /** The ID of the certificate to delete. **/
+      certificateId: CertificateId;
+    }
+    export interface DeleteCACertificateResponse {
+    }
     export interface DeleteCertificateRequest {
       /** The ID of the certificate. **/
       certificateId: CertificateId;
@@ -969,6 +1142,10 @@ document (for example, {\&quot;attributes\&quot;:{\&quot;string1\&quot;:\&quot;s
       /** The policy version ID. **/
       policyVersionId: PolicyVersionId;
     }
+    export interface DeleteRegistrationCodeRequest {
+    }
+    export interface DeleteRegistrationCodeResponse {
+    }
     export interface DeleteThingRequest {
       /** The thing name. **/
       thingName: ThingName;
@@ -978,6 +1155,14 @@ document (for example, {\&quot;attributes\&quot;:{\&quot;string1\&quot;:\&quot;s
     export interface DeleteTopicRuleRequest {
       /** The name of the rule. **/
       ruleName: RuleName;
+    }
+    export interface DescribeCACertificateRequest {
+      /** The CA certificate identifier. **/
+      certificateId: CertificateId;
+    }
+    export interface DescribeCACertificateResponse {
+      /** The CA certificate description. **/
+      certificateDescription?: CACertificateDescription;
     }
     export interface DescribeCertificateRequest {
       /** The ID of the certificate. **/
@@ -1107,6 +1292,12 @@ is an Amazon Cognito identity, specify the identity ID. **/
       /** Specifies whether the policy version is the default. **/
       isDefaultVersion?: IsDefaultVersion;
     }
+    export interface GetRegistrationCodeRequest {
+    }
+    export interface GetRegistrationCodeResponse {
+      /** The CA certificate registration code. **/
+      registrationCode?: RegistrationCode;
+    }
     export interface GetTopicRuleRequest {
       /** The name of the rule. **/
       ruleName: RuleName;
@@ -1150,6 +1341,39 @@ is an Amazon Cognito identity, specify the identity ID. **/
     export interface LimitExceededException {
       /** The message for the exception. **/
       message?: errorMessage;
+    }
+    export interface ListCACertificatesRequest {
+      /** The result page size. **/
+      pageSize?: PageSize;
+      /** The marker for the next set of results. **/
+      marker?: Marker;
+      /** Determines the order of the results. **/
+      ascendingOrder?: AscendingOrder;
+    }
+    export interface ListCACertificatesResponse {
+      /** The CA certificates registered in your AWS account. **/
+      certificates?: CACertificates;
+      /** The current position within the list of CA certificates. **/
+      nextMarker?: Marker;
+    }
+    export interface ListCertificatesByCARequest {
+      /** The ID of the CA certificate. This operation will list all registered device
+certificate that were signed by this CA certificate. **/
+      caCertificateId: CertificateId;
+      /** The result page size. **/
+      pageSize?: PageSize;
+      /** The marker for the next set of results. **/
+      marker?: Marker;
+      /** Specifies the order for results. If True, the results are returned in ascending
+order, based on the creation date. **/
+      ascendingOrder?: AscendingOrder;
+    }
+    export interface ListCertificatesByCAResponse {
+      /** The device certificates signed by the specified CA certificate. **/
+      certificates?: Certificates;
+      /** The marker for the next set of results, or null if there are no additional
+results. **/
+      nextMarker?: Marker;
     }
     export interface ListCertificatesRequest {
       /** The result page size. **/
@@ -1287,9 +1511,43 @@ results. **/
       /** The date and time the policy was created. **/
       createDate?: DateType;
     }
+    export interface RegisterCACertificateRequest {
+      /** The CA certificate. **/
+      caCertificate: CertificatePem;
+      /** The private key verification certificate. **/
+      verificationCertificate: CertificatePem;
+      /** A boolean value that specifies if the CA certificate is set to active. **/
+      setAsActive?: SetAsActive;
+    }
+    export interface RegisterCACertificateResponse {
+      /** The CA certificate ARN. **/
+      certificateArn?: CertificateArn;
+      /** The CA certificate identifier. **/
+      certificateId?: CertificateId;
+    }
+    export interface RegisterCertificateRequest {
+      /** The certificate data, in PEM format. **/
+      certificatePem: CertificatePem;
+      /** The CA certificate used to sign the device certificate being registered. **/
+      caCertificatePem?: CertificatePem;
+      /** A boolean value that specifies if the CA certificate is set to active. **/
+      setAsActive?: SetAsActive;
+    }
+    export interface RegisterCertificateResponse {
+      /** The certificate ARN. **/
+      certificateArn?: CertificateArn;
+      /** The certificate identifier. **/
+      certificateId?: CertificateId;
+    }
+    export interface RegistrationCodeValidationException {
+      /** Additional information about the exception. **/
+      message?: errorMessage;
+    }
     export interface RejectCertificateTransferRequest {
       /** The ID of the certificate. **/
       certificateId: CertificateId;
+      /** The reason the certificate transfer was rejected. **/
+      rejectReason?: Message;
     }
     export interface ReplaceTopicRuleRequest {
       /** The name of the rule. **/
@@ -1383,6 +1641,8 @@ lines, be sure to escape the newline characters. **/
       actions?: ActionList;
       /** Specifies whether the rule is disabled. **/
       ruleDisabled?: IsDisabled;
+      /** The version of the SQL rules engine to use when evaluating the rule. **/
+      awsIotSqlVersion?: AwsIotSqlVersion;
     }
     export interface TopicRuleListItem {
       /** The rule ARN. **/
@@ -1408,6 +1668,8 @@ in the AWS IoT Developer Guide . **/
       actions: ActionList;
       /** Specifies whether the rule is disabled. **/
       ruleDisabled?: IsDisabled;
+      /** The version of the SQL rules engine to use when evaluating the rule. **/
+      awsIotSqlVersion?: AwsIotSqlVersion;
     }
     export interface TransferAlreadyCompletedException {
       /** The message for the exception. **/
@@ -1418,6 +1680,8 @@ in the AWS IoT Developer Guide . **/
       certificateId: CertificateId;
       /** The AWS account. **/
       targetAwsAccount: AwsAccountId;
+      /** The transfer message. **/
+      transferMessage?: Message;
     }
     export interface TransferCertificateResponse {
       /** The ARN of the certificate. **/
@@ -1427,9 +1691,27 @@ in the AWS IoT Developer Guide . **/
       /** The message for the exception. **/
       message?: errorMessage;
     }
+    export interface TransferData {
+      /** The transfer message. **/
+      transferMessage?: Message;
+      /** The reason why the transfer was rejected. **/
+      rejectReason?: Message;
+      /** The date the transfer took place. **/
+      transferDate?: DateType;
+      /** The date the transfer was accepted. **/
+      acceptDate?: DateType;
+      /** The date the transfer was rejected. **/
+      rejectDate?: DateType;
+    }
     export interface UnauthorizedException {
       /** The message for the exception. **/
       message?: errorMessage;
+    }
+    export interface UpdateCACertificateRequest {
+      /** The CA certificate identifier. **/
+      certificateId: CertificateId;
+      /** The updated status of the CA certificate. **/
+      newStatus: CACertificateStatus;
     }
     export interface UpdateCertificateRequest {
       /** The ID of the certificate. **/

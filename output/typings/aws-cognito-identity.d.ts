@@ -65,13 +65,12 @@ information that is specific to your AWS account. The limit on identity pools is
 
 You must use AWS Developer credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error ResourceConflictException Thrown when a user tries to use a login which is already linked to another
-account.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
-     * @error LimitExceededException Thrown when the total number of user pools has exceeded a preset limit.  
+     * @error InvalidParameterException   
+     * @error NotAuthorizedException   
+     * @error ResourceConflictException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
+     * @error LimitExceededException   
      */
     createIdentityPool(params: CognitoIdentity.CreateIdentityPoolInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.ResourceConflictException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | CognitoIdentity.LimitExceededException | any, data: CognitoIdentity.IdentityPool | any) => void): Request;
     /**
@@ -80,9 +79,9 @@ identities that you want to delete.
 
 You must use AWS Developer credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
+     * @error InvalidParameterException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
      */
     deleteIdentities(params: CognitoIdentity.DeleteIdentitiesInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | any, data: CognitoIdentity.DeleteIdentitiesResponse | any) => void): Request;
     /**
@@ -91,12 +90,11 @@ authenticate with the pool.
 
 You must use AWS Developer credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
      */
     deleteIdentityPool(params: CognitoIdentity.DeleteIdentityPoolInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | any, data: any) => void): Request;
     /**
@@ -105,12 +103,11 @@ created and any associated linked logins.
 
 You must use AWS Developer credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
      */
     describeIdentity(params: CognitoIdentity.DescribeIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | any, data: CognitoIdentity.IdentityDescription | any) => void): Request;
     /**
@@ -119,12 +116,11 @@ description, creation date, and current number of users.
 
 You must use AWS Developer credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
      */
     describeIdentityPool(params: CognitoIdentity.DescribeIdentityPoolInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | any, data: CognitoIdentity.IdentityPool | any) => void): Request;
     /**
@@ -135,18 +131,14 @@ Service with the appropriate role for the token.
 
 This is a public API. You do not need any credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error ResourceConflictException Thrown when a user tries to use a login which is already linked to another
-account.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InvalidIdentityPoolConfigurationException Thrown if the identity pool has no role associated for the given auth type
-(auth/unauth) or if the AssumeRole fails.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
-     * @error ExternalServiceException An exception thrown when a dependent service such as Facebook or Twitter is not
-responding  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error ResourceConflictException   
+     * @error TooManyRequestsException   
+     * @error InvalidIdentityPoolConfigurationException   
+     * @error InternalErrorException   
+     * @error ExternalServiceException   
      */
     getCredentialsForIdentity(params: CognitoIdentity.GetCredentialsForIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.ResourceConflictException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InvalidIdentityPoolConfigurationException | CognitoIdentity.InternalErrorException | CognitoIdentity.ExternalServiceException | any, data: CognitoIdentity.GetCredentialsForIdentityResponse | any) => void): Request;
     /**
@@ -155,17 +147,14 @@ implicit linked account.
 
 This is a public API. You do not need any credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error ResourceConflictException Thrown when a user tries to use a login which is already linked to another
-account.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
-     * @error LimitExceededException Thrown when the total number of user pools has exceeded a preset limit.  
-     * @error ExternalServiceException An exception thrown when a dependent service such as Facebook or Twitter is not
-responding  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error ResourceConflictException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
+     * @error LimitExceededException   
+     * @error ExternalServiceException   
      */
     getId(params: CognitoIdentity.GetIdInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.ResourceConflictException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | CognitoIdentity.LimitExceededException | CognitoIdentity.ExternalServiceException | any, data: CognitoIdentity.GetIdResponse | any) => void): Request;
     /**
@@ -173,14 +162,12 @@ responding
 
 You must use AWS Developer credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error ResourceConflictException Thrown when a user tries to use a login which is already linked to another
-account.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error ResourceConflictException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
      */
     getIdentityPoolRoles(params: CognitoIdentity.GetIdentityPoolRolesInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.ResourceConflictException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | any, data: CognitoIdentity.GetIdentityPoolRolesResponse | any) => void): Request;
     /**
@@ -192,16 +179,13 @@ The OpenId token is valid for 15 minutes.
 
 This is a public API. You do not need any credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error ResourceConflictException Thrown when a user tries to use a login which is already linked to another
-account.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
-     * @error ExternalServiceException An exception thrown when a dependent service such as Facebook or Twitter is not
-responding  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error ResourceConflictException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
+     * @error ExternalServiceException   
      */
     getOpenIdToken(params: CognitoIdentity.GetOpenIdTokenInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.ResourceConflictException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | CognitoIdentity.ExternalServiceException | any, data: CognitoIdentity.GetOpenIdTokenResponse | any) => void): Request;
     /**
@@ -222,16 +206,13 @@ specified IdentityPoolId .
 
 You must use AWS Developer credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error ResourceConflictException Thrown when a user tries to use a login which is already linked to another
-account.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
-     * @error DeveloperUserAlreadyRegisteredException The provided developer user identifier is already registered with Cognito under
-a different identity ID.  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error ResourceConflictException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
+     * @error DeveloperUserAlreadyRegisteredException   
      */
     getOpenIdTokenForDeveloperIdentity(params: CognitoIdentity.GetOpenIdTokenForDeveloperIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.ResourceConflictException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | CognitoIdentity.DeveloperUserAlreadyRegisteredException | any, data: CognitoIdentity.GetOpenIdTokenForDeveloperIdentityResponse | any) => void): Request;
     /**
@@ -239,12 +220,11 @@ a different identity ID.
 
 You must use AWS Developer credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
      */
     listIdentities(params: CognitoIdentity.ListIdentitiesInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | any, data: CognitoIdentity.ListIdentitiesResponse | any) => void): Request;
     /**
@@ -252,10 +232,10 @@ exist.
 
 You must use AWS Developer credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
+     * @error InvalidParameterException   
+     * @error NotAuthorizedException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
      */
     listIdentityPools(params: CognitoIdentity.ListIdentityPoolsInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | any, data: CognitoIdentity.ListIdentityPoolsResponse | any) => void): Request;
     /**
@@ -270,14 +250,12 @@ as the request. Otherwise a ResourceConflictException is thrown.
 
 You must use AWS Developer credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error ResourceConflictException Thrown when a user tries to use a login which is already linked to another
-account.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error ResourceConflictException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
      */
     lookupDeveloperIdentity(params: CognitoIdentity.LookupDeveloperIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.ResourceConflictException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | any, data: CognitoIdentity.LookupDeveloperIdentityResponse | any) => void): Request;
     /**
@@ -292,14 +270,12 @@ exception will be thrown.
 
 You must use AWS Developer credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error ResourceConflictException Thrown when a user tries to use a login which is already linked to another
-account.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error ResourceConflictException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
      */
     mergeDeveloperIdentities(params: CognitoIdentity.MergeDeveloperIdentitiesInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.ResourceConflictException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | any, data: CognitoIdentity.MergeDeveloperIdentitiesResponse | any) => void): Request;
     /**
@@ -308,15 +284,13 @@ GetCredentialsForIdentity action.
 
 You must use AWS Developer credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error ResourceConflictException Thrown when a user tries to use a login which is already linked to another
-account.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
-     * @error ConcurrentModificationException Thrown if there are parallel requests to modify a resource.  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error ResourceConflictException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
+     * @error ConcurrentModificationException   
      */
     setIdentityPoolRoles(params: CognitoIdentity.SetIdentityPoolRolesInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.ResourceConflictException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | CognitoIdentity.ConcurrentModificationException | any, data: any) => void): Request;
     /**
@@ -327,14 +301,12 @@ user identifier, the Cognito identity becomes inaccessible.
 
 You must use AWS Developer credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error ResourceConflictException Thrown when a user tries to use a login which is already linked to another
-account.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error ResourceConflictException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
      */
     unlinkDeveloperIdentity(params: CognitoIdentity.UnlinkDeveloperIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.ResourceConflictException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | any, data: any) => void): Request;
     /**
@@ -344,16 +316,13 @@ login will make this identity inaccessible.
 
 This is a public API. You do not need any credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error ResourceConflictException Thrown when a user tries to use a login which is already linked to another
-account.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
-     * @error ExternalServiceException An exception thrown when a dependent service such as Facebook or Twitter is not
-responding  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error ResourceConflictException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
+     * @error ExternalServiceException   
      */
     unlinkIdentity(params: CognitoIdentity.UnlinkIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.ResourceConflictException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | CognitoIdentity.ExternalServiceException | any, data: any) => void): Request;
     /**
@@ -361,17 +330,16 @@ responding
 
 You must use AWS Developer credentials to call this API.
      *
-     * @error InvalidParameterException Thrown for missing or bad input parameter(s).  
-     * @error ResourceNotFoundException Thrown when the requested resource (for example, a dataset or record) does not
-exist.  
-     * @error NotAuthorizedException Thrown when a user is not authorized to access the requested resource.  
-     * @error ResourceConflictException Thrown when a user tries to use a login which is already linked to another
-account.  
-     * @error TooManyRequestsException Thrown when a request is throttled.  
-     * @error InternalErrorException Thrown when the service encounters an error during processing the request.  
-     * @error ConcurrentModificationException Thrown if there are parallel requests to modify a resource.  
+     * @error InvalidParameterException   
+     * @error ResourceNotFoundException   
+     * @error NotAuthorizedException   
+     * @error ResourceConflictException   
+     * @error TooManyRequestsException   
+     * @error InternalErrorException   
+     * @error ConcurrentModificationException   
+     * @error LimitExceededException   
      */
-    updateIdentityPool(params: CognitoIdentity.IdentityPool, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.ResourceConflictException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | CognitoIdentity.ConcurrentModificationException | any, data: CognitoIdentity.IdentityPool | any) => void): Request;
+    updateIdentityPool(params: CognitoIdentity.IdentityPool, callback?: (err: CognitoIdentity.InvalidParameterException | CognitoIdentity.ResourceNotFoundException | CognitoIdentity.NotAuthorizedException | CognitoIdentity.ResourceConflictException | CognitoIdentity.TooManyRequestsException | CognitoIdentity.InternalErrorException | CognitoIdentity.ConcurrentModificationException | CognitoIdentity.LimitExceededException | any, data: CognitoIdentity.IdentityPool | any) => void): Request;
 
     getOpenIdToken(...args: any[]): any
     getId(...args: any[]): any
@@ -385,6 +353,12 @@ account.
     export type AccessKeyString = string;
 
     export type AccountId = string;
+
+    export type CognitoIdentityProviderClientId = string;
+
+    export type CognitoIdentityProviderList = CognitoIdentityProvider[];
+
+    export type CognitoIdentityProviderName = string;
 
     export type DateType = number;
 
@@ -446,6 +420,13 @@ account.
 
     export type UnprocessedIdentityIdList = UnprocessedIdentityId[];
 
+    export interface CognitoIdentityProvider {
+      /** The provider name for a Cognito User Identity Pool. For example, 
+cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789 . **/
+      ProviderName?: CognitoIdentityProviderName;
+      /** The client ID for the Cognito User Identity Pool. **/
+      ClientId?: CognitoIdentityProviderClientId;
+    }
     export interface ConcurrentModificationException {
       /** The message returned by a ConcurrentModificationException. **/
       message?: String;
@@ -467,6 +448,8 @@ care in setting this parameter. **/
       DeveloperProviderName?: DeveloperProviderName;
       /** A list of OpendID Connect provider ARNs. **/
       OpenIdConnectProviderARNs?: OIDCProviderList;
+      /** A list representing a Cognito User Identity Pool and its client ID. **/
+      CognitoIdentityProviders?: CognitoIdentityProviderList;
     }
     export interface Credentials {
       /** The Access Key portion of the credentials. **/
@@ -527,6 +510,8 @@ and IdentityId. **/
       /** A set of optional name-value pairs that map provider names to provider tokens.
 
 The available provider names for Logins are as follows: &amp;#42; Facebook: graph.facebook.com
+* Amazon Cognito
+ Identity Provider: cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789
 * Google: accounts.google.com
 * Amazon: www.amazon.com
 * Twitter: api.twitter.com
@@ -584,8 +569,9 @@ resources for the token&#x27;s duration. **/
       IdentityId: IdentityId;
       /** A set of optional name-value pairs that map provider names to provider tokens.
 When using graph.facebook.com and www.amazon.com, supply the access_token
-returned from the provider&#x27;s authflow. For accounts.google.com or any other
-OpenId Connect provider, always include the id_token. **/
+returned from the provider&#x27;s authflow. For accounts.google.com, an Amazon
+Cognito Identity Provider, or any other OpenId Connect provider, always include
+the id_token . **/
       Logins?: LoginsMap;
     }
     export interface GetOpenIdTokenResponse {
@@ -618,6 +604,8 @@ may not match the one passed on input. **/
       DeveloperProviderName?: DeveloperProviderName;
       /** A list of OpendID Connect provider ARNs. **/
       OpenIdConnectProviderARNs?: OIDCProviderList;
+      /** A list representing a Cognito User Identity Pool and its client ID. **/
+      CognitoIdentityProviders?: CognitoIdentityProviderList;
     }
     export interface IdentityPoolShortDescription {
       /** An identity pool ID in the format REGION:GUID. **/
