@@ -7,23 +7,23 @@
 
 declare module "aws-sdk" {
 
-  /**
-    * apiVersion: 2010-12-01
-    * endpointPrefix: email
-    * serviceAbbreviation: Amazon SES
-    * signatureVersion: v4
-    * protocol: query
-    *
-    * Amazon Simple Email ServiceThis is the API Reference for Amazon Simple Email
- Service (Amazon SES). This documentation is intended to be used in conjunction
- with the Amazon SES Developer Guide
- [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html] .
- 
- For a list of Amazon SES endpoints to use in service requests, see Regions and
- Amazon SES [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html] 
- in the Amazon SES Developer Guide.
-    *
-    */
+ /**
+   * apiVersion: 2010-12-01
+   * endpointPrefix: email
+   * serviceAbbreviation: Amazon SES
+   * signatureVersion: v4
+   * protocol: query
+   *
+   * Amazon Simple Email ServiceThis is the API Reference for Amazon Simple Email
+Service (Amazon SES). This documentation is intended to be used in conjunction
+with the Amazon SES Developer Guide
+[http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html] .
+
+For a list of Amazon SES endpoints to use in service requests, see Regions and
+Amazon SES [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html] 
+in the Amazon SES Developer Guide.
+   *
+   */
   export class SES extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
@@ -42,7 +42,7 @@ This action is throttled at one request per second.
      * @error AlreadyExistsException   
      * @error LimitExceededException   
      */
-    cloneReceiptRuleSet(params: SES.CloneReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException | SES.AlreadyExistsException | SES.LimitExceededException | any, data: SES.CloneReceiptRuleSetResponse | any) => void): Request;
+    cloneReceiptRuleSet(params: SES.CloneReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException|SES.AlreadyExistsException|SES.LimitExceededException|any, data: SES.CloneReceiptRuleSetResponse|any) => void): Request;
     /**
      * Creates a new IP address filter.
 
@@ -56,7 +56,7 @@ This action is throttled at one request per second.
      * @error LimitExceededException   
      * @error AlreadyExistsException   
      */
-    createReceiptFilter(params: SES.CreateReceiptFilterRequest, callback?: (err: SES.LimitExceededException | SES.AlreadyExistsException | any, data: SES.CreateReceiptFilterResponse | any) => void): Request;
+    createReceiptFilter(params: SES.CreateReceiptFilterRequest, callback?: (err: SES.LimitExceededException|SES.AlreadyExistsException|any, data: SES.CreateReceiptFilterResponse|any) => void): Request;
     /**
      * Creates a receipt rule.
 
@@ -75,7 +75,7 @@ This action is throttled at one request per second.
      * @error RuleSetDoesNotExistException   
      * @error LimitExceededException   
      */
-    createReceiptRule(params: SES.CreateReceiptRuleRequest, callback?: (err: SES.InvalidSnsTopicException | SES.InvalidS3ConfigurationException | SES.InvalidLambdaFunctionException | SES.AlreadyExistsException | SES.RuleDoesNotExistException | SES.RuleSetDoesNotExistException | SES.LimitExceededException | any, data: SES.CreateReceiptRuleResponse | any) => void): Request;
+    createReceiptRule(params: SES.CreateReceiptRuleRequest, callback?: (err: SES.InvalidSnsTopicException|SES.InvalidS3ConfigurationException|SES.InvalidLambdaFunctionException|SES.AlreadyExistsException|SES.RuleDoesNotExistException|SES.RuleSetDoesNotExistException|SES.LimitExceededException|any, data: SES.CreateReceiptRuleResponse|any) => void): Request;
     /**
      * Creates an empty receipt rule set.
 
@@ -89,7 +89,7 @@ This action is throttled at one request per second.
      * @error AlreadyExistsException   
      * @error LimitExceededException   
      */
-    createReceiptRuleSet(params: SES.CreateReceiptRuleSetRequest, callback?: (err: SES.AlreadyExistsException | SES.LimitExceededException | any, data: SES.CreateReceiptRuleSetResponse | any) => void): Request;
+    createReceiptRuleSet(params: SES.CreateReceiptRuleSetRequest, callback?: (err: SES.AlreadyExistsException|SES.LimitExceededException|any, data: SES.CreateReceiptRuleSetResponse|any) => void): Request;
     /**
      * Deletes the specified identity (email address or domain) from the list of
 verified identities.
@@ -97,7 +97,7 @@ verified identities.
 This action is throttled at one request per second.
      *
      */
-    deleteIdentity(params: SES.DeleteIdentityRequest, callback?: (err: any, data: SES.DeleteIdentityResponse | any) => void): Request;
+    deleteIdentity(params: SES.DeleteIdentityRequest, callback?: (err: any, data: SES.DeleteIdentityResponse|any) => void): Request;
     /**
      * Deletes the specified sending authorization policy for the given identity (email
 address or domain). This API returns successfully even if a policy with the
@@ -113,7 +113,7 @@ about using sending authorization, see the Amazon SES Developer Guide
 This action is throttled at one request per second.
      *
      */
-    deleteIdentityPolicy(params: SES.DeleteIdentityPolicyRequest, callback?: (err: any, data: SES.DeleteIdentityPolicyResponse | any) => void): Request;
+    deleteIdentityPolicy(params: SES.DeleteIdentityPolicyRequest, callback?: (err: any, data: SES.DeleteIdentityPolicyResponse|any) => void): Request;
     /**
      * Deletes the specified IP address filter.
 
@@ -125,7 +125,7 @@ Guide
 This action is throttled at one request per second.
      *
      */
-    deleteReceiptFilter(params: SES.DeleteReceiptFilterRequest, callback?: (err: any, data: SES.DeleteReceiptFilterResponse | any) => void): Request;
+    deleteReceiptFilter(params: SES.DeleteReceiptFilterRequest, callback?: (err: any, data: SES.DeleteReceiptFilterResponse|any) => void): Request;
     /**
      * Deletes the specified receipt rule.
 
@@ -137,7 +137,7 @@ This action is throttled at one request per second.
      *
      * @error RuleSetDoesNotExistException   
      */
-    deleteReceiptRule(params: SES.DeleteReceiptRuleRequest, callback?: (err: SES.RuleSetDoesNotExistException | any, data: SES.DeleteReceiptRuleResponse | any) => void): Request;
+    deleteReceiptRule(params: SES.DeleteReceiptRuleRequest, callback?: (err: SES.RuleSetDoesNotExistException|any, data: SES.DeleteReceiptRuleResponse|any) => void): Request;
     /**
      * Deletes the specified receipt rule set and all of the receipt rules it contains.
 
@@ -150,7 +150,7 @@ This action is throttled at one request per second.
      *
      * @error CannotDeleteException   
      */
-    deleteReceiptRuleSet(params: SES.DeleteReceiptRuleSetRequest, callback?: (err: SES.CannotDeleteException | any, data: SES.DeleteReceiptRuleSetResponse | any) => void): Request;
+    deleteReceiptRuleSet(params: SES.DeleteReceiptRuleSetRequest, callback?: (err: SES.CannotDeleteException|any, data: SES.DeleteReceiptRuleSetResponse|any) => void): Request;
     /**
      * Deletes the specified email address from the list of verified addresses.
 
@@ -172,7 +172,7 @@ Guide
 This action is throttled at one request per second.
      *
      */
-    describeActiveReceiptRuleSet(params: SES.DescribeActiveReceiptRuleSetRequest, callback?: (err: any, data: SES.DescribeActiveReceiptRuleSetResponse | any) => void): Request;
+    describeActiveReceiptRuleSet(params: SES.DescribeActiveReceiptRuleSetRequest, callback?: (err: any, data: SES.DescribeActiveReceiptRuleSetResponse|any) => void): Request;
     /**
      * Returns the details of the specified receipt rule.
 
@@ -186,7 +186,7 @@ This action is throttled at one request per second.
      * @error RuleDoesNotExistException   
      * @error RuleSetDoesNotExistException   
      */
-    describeReceiptRule(params: SES.DescribeReceiptRuleRequest, callback?: (err: SES.RuleDoesNotExistException | SES.RuleSetDoesNotExistException | any, data: SES.DescribeReceiptRuleResponse | any) => void): Request;
+    describeReceiptRule(params: SES.DescribeReceiptRuleRequest, callback?: (err: SES.RuleDoesNotExistException|SES.RuleSetDoesNotExistException|any, data: SES.DescribeReceiptRuleResponse|any) => void): Request;
     /**
      * Returns the details of the specified receipt rule set.
 
@@ -199,7 +199,7 @@ This action is throttled at one request per second.
      *
      * @error RuleSetDoesNotExistException   
      */
-    describeReceiptRuleSet(params: SES.DescribeReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException | any, data: SES.DescribeReceiptRuleSetResponse | any) => void): Request;
+    describeReceiptRuleSet(params: SES.DescribeReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException|any, data: SES.DescribeReceiptRuleSetResponse|any) => void): Request;
     /**
      * Returns the current status of Easy DKIM signing for an entity. For domain name
 identities, this action also returns the DKIM tokens that are required for Easy
@@ -225,7 +225,7 @@ Amazon SES Developer Guide
 .
      *
      */
-    getIdentityDkimAttributes(params: SES.GetIdentityDkimAttributesRequest, callback?: (err: any, data: SES.GetIdentityDkimAttributesResponse | any) => void): Request;
+    getIdentityDkimAttributes(params: SES.GetIdentityDkimAttributesRequest, callback?: (err: any, data: SES.GetIdentityDkimAttributesResponse|any) => void): Request;
     /**
      * Returns the custom MAIL FROM attributes for a list of identities (email
 addresses and/or domains).
@@ -234,7 +234,7 @@ This action is throttled at one request per second and can only get custom MAIL
 FROM attributes for up to 100 identities at a time.
      *
      */
-    getIdentityMailFromDomainAttributes(params: SES.GetIdentityMailFromDomainAttributesRequest, callback?: (err: any, data: SES.GetIdentityMailFromDomainAttributesResponse | any) => void): Request;
+    getIdentityMailFromDomainAttributes(params: SES.GetIdentityMailFromDomainAttributesRequest, callback?: (err: any, data: SES.GetIdentityMailFromDomainAttributesResponse|any) => void): Request;
     /**
      * Given a list of verified identities (email addresses and/or domains), returns a
 structure describing identity notification attributes.
@@ -247,7 +247,7 @@ SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html] .
      *
      */
-    getIdentityNotificationAttributes(params: SES.GetIdentityNotificationAttributesRequest, callback?: (err: any, data: SES.GetIdentityNotificationAttributesResponse | any) => void): Request;
+    getIdentityNotificationAttributes(params: SES.GetIdentityNotificationAttributesRequest, callback?: (err: any, data: SES.GetIdentityNotificationAttributesResponse|any) => void): Request;
     /**
      * Returns the requested sending authorization policies for the given identity
 (email address or domain). The policies are returned as a map of policy names to
@@ -263,7 +263,7 @@ about using sending authorization, see the Amazon SES Developer Guide
 This action is throttled at one request per second.
      *
      */
-    getIdentityPolicies(params: SES.GetIdentityPoliciesRequest, callback?: (err: any, data: SES.GetIdentityPoliciesResponse | any) => void): Request;
+    getIdentityPolicies(params: SES.GetIdentityPoliciesRequest, callback?: (err: any, data: SES.GetIdentityPoliciesResponse|any) => void): Request;
     /**
      * Given a list of identities (email addresses and/or domains), returns the
 verification status and (for domain identities) the verification token for each
@@ -273,14 +273,14 @@ This action is throttled at one request per second and can only get verification
 attributes for up to 100 identities at a time.
      *
      */
-    getIdentityVerificationAttributes(params: SES.GetIdentityVerificationAttributesRequest, callback?: (err: any, data: SES.GetIdentityVerificationAttributesResponse | any) => void): Request;
+    getIdentityVerificationAttributes(params: SES.GetIdentityVerificationAttributesRequest, callback?: (err: any, data: SES.GetIdentityVerificationAttributesResponse|any) => void): Request;
     /**
      * Returns the user&#x27;s current sending limits.
 
 This action is throttled at one request per second.
      *
      */
-    getSendQuota(callback?: (err: any, data: SES.GetSendQuotaResponse | any) => void): Request;
+    getSendQuota(callback?: (err: any, data: SES.GetSendQuotaResponse|any) => void): Request;
     /**
      * Returns the user&#x27;s sending statistics. The result is a list of data points,
 representing the last two weeks of sending activity.
@@ -290,7 +290,7 @@ Each data point in the list contains statistics for a 15-minute interval.
 This action is throttled at one request per second.
      *
      */
-    getSendStatistics(callback?: (err: any, data: SES.GetSendStatisticsResponse | any) => void): Request;
+    getSendStatistics(callback?: (err: any, data: SES.GetSendStatisticsResponse|any) => void): Request;
     /**
      * Returns a list containing all of the identities (email addresses and domains)
 for a specific AWS Account, regardless of verification status.
@@ -298,7 +298,7 @@ for a specific AWS Account, regardless of verification status.
 This action is throttled at one request per second.
      *
      */
-    listIdentities(params: SES.ListIdentitiesRequest, callback?: (err: any, data: SES.ListIdentitiesResponse | any) => void): Request;
+    listIdentities(params: SES.ListIdentitiesRequest, callback?: (err: any, data: SES.ListIdentitiesResponse|any) => void): Request;
     /**
      * Returns a list of sending authorization policies that are attached to the given
 identity (email address or domain). This API returns only a list. If you want
@@ -314,7 +314,7 @@ about using sending authorization, see the Amazon SES Developer Guide
 This action is throttled at one request per second.
      *
      */
-    listIdentityPolicies(params: SES.ListIdentityPoliciesRequest, callback?: (err: any, data: SES.ListIdentityPoliciesResponse | any) => void): Request;
+    listIdentityPolicies(params: SES.ListIdentityPoliciesRequest, callback?: (err: any, data: SES.ListIdentityPoliciesResponse|any) => void): Request;
     /**
      * Lists the IP address filters associated with your account.
 
@@ -326,7 +326,7 @@ Guide
 This action is throttled at one request per second.
      *
      */
-    listReceiptFilters(params: SES.ListReceiptFiltersRequest, callback?: (err: any, data: SES.ListReceiptFiltersResponse | any) => void): Request;
+    listReceiptFilters(params: SES.ListReceiptFiltersRequest, callback?: (err: any, data: SES.ListReceiptFiltersResponse|any) => void): Request;
     /**
      * Lists the receipt rule sets that exist under your AWS account. If there are
 additional receipt rule sets to be retrieved, you will receive a NextToken that
@@ -341,7 +341,7 @@ Guide
 This action is throttled at one request per second.
      *
      */
-    listReceiptRuleSets(params: SES.ListReceiptRuleSetsRequest, callback?: (err: any, data: SES.ListReceiptRuleSetsResponse | any) => void): Request;
+    listReceiptRuleSets(params: SES.ListReceiptRuleSetsRequest, callback?: (err: any, data: SES.ListReceiptRuleSetsResponse|any) => void): Request;
     /**
      * Returns a list containing all of the email addresses that have been verified.
 
@@ -350,7 +350,7 @@ release of Domain Verification. The ListIdentities action is now preferred.This
 action is throttled at one request per second.
      *
      */
-    listVerifiedEmailAddresses(callback?: (err: any, data: SES.ListVerifiedEmailAddressesResponse | any) => void): Request;
+    listVerifiedEmailAddresses(callback?: (err: any, data: SES.ListVerifiedEmailAddressesResponse|any) => void): Request;
     /**
      * Adds or updates a sending authorization policy for the specified identity (email
 address or domain).
@@ -366,7 +366,7 @@ This action is throttled at one request per second.
      *
      * @error InvalidPolicyException   
      */
-    putIdentityPolicy(params: SES.PutIdentityPolicyRequest, callback?: (err: SES.InvalidPolicyException | any, data: SES.PutIdentityPolicyResponse | any) => void): Request;
+    putIdentityPolicy(params: SES.PutIdentityPolicyRequest, callback?: (err: SES.InvalidPolicyException|any, data: SES.PutIdentityPolicyResponse|any) => void): Request;
     /**
      * Reorders the receipt rules within a receipt rule set.
 
@@ -382,7 +382,7 @@ This action is throttled at one request per second.
      * @error RuleSetDoesNotExistException   
      * @error RuleDoesNotExistException   
      */
-    reorderReceiptRuleSet(params: SES.ReorderReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException | SES.RuleDoesNotExistException | any, data: SES.ReorderReceiptRuleSetResponse | any) => void): Request;
+    reorderReceiptRuleSet(params: SES.ReorderReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException|SES.RuleDoesNotExistException|any, data: SES.ReorderReceiptRuleSetResponse|any) => void): Request;
     /**
      * Generates and sends a bounce message to the sender of an email you received
 through Amazon SES. You can only use this API on an email up to 24 hours after
@@ -397,7 +397,7 @@ This action is throttled at one request per second.
      *
      * @error MessageRejected   
      */
-    sendBounce(params: SES.SendBounceRequest, callback?: (err: SES.MessageRejected | any, data: SES.SendBounceResponse | any) => void): Request;
+    sendBounce(params: SES.SendBounceRequest, callback?: (err: SES.MessageRejected|any, data: SES.SendBounceResponse|any) => void): Request;
     /**
      * Composes an email message based on input data, and then immediately queues the
 message for sending.
@@ -428,7 +428,7 @@ There are several important points to know about SendEmail :
      * @error MessageRejected   
      * @error MailFromDomainNotVerifiedException   
      */
-    sendEmail(params: SES.SendEmailRequest, callback?: (err: SES.MessageRejected | SES.MailFromDomainNotVerifiedException | any, data: SES.SendEmailResponse | any) => void): Request;
+    sendEmail(params: SES.SendEmailRequest, callback?: (err: SES.MessageRejected|SES.MailFromDomainNotVerifiedException|any, data: SES.SendEmailResponse|any) => void): Request;
     /**
      * Sends an email message, with header and content specified by the client. The 
 SendRawEmail action is useful for sending multipart MIME emails. The raw text of
@@ -484,7 +484,7 @@ There are several important points to know about SendRawEmail :
      * @error MessageRejected   
      * @error MailFromDomainNotVerifiedException   
      */
-    sendRawEmail(params: SES.SendRawEmailRequest, callback?: (err: SES.MessageRejected | SES.MailFromDomainNotVerifiedException | any, data: SES.SendRawEmailResponse | any) => void): Request;
+    sendRawEmail(params: SES.SendRawEmailRequest, callback?: (err: SES.MessageRejected|SES.MailFromDomainNotVerifiedException|any, data: SES.SendRawEmailResponse|any) => void): Request;
     /**
      * Sets the specified receipt rule set as the active receipt rule set.
 
@@ -498,7 +498,7 @@ This action is throttled at one request per second.
      *
      * @error RuleSetDoesNotExistException   
      */
-    setActiveReceiptRuleSet(params: SES.SetActiveReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException | any, data: SES.SetActiveReceiptRuleSetResponse | any) => void): Request;
+    setActiveReceiptRuleSet(params: SES.SetActiveReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException|any, data: SES.SetActiveReceiptRuleSetResponse|any) => void): Request;
     /**
      * Enables or disables Easy DKIM signing of email sent from an identity:
 
@@ -518,7 +518,7 @@ For more information about Easy DKIM signing, go to the Amazon SES Developer
 Guide [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html] .
      *
      */
-    setIdentityDkimEnabled(params: SES.SetIdentityDkimEnabledRequest, callback?: (err: any, data: SES.SetIdentityDkimEnabledResponse | any) => void): Request;
+    setIdentityDkimEnabled(params: SES.SetIdentityDkimEnabledRequest, callback?: (err: any, data: SES.SetIdentityDkimEnabledResponse|any) => void): Request;
     /**
      * Given an identity (email address or domain), enables or disables whether Amazon
 SES forwards bounce and complaint notifications as email. Feedback forwarding
@@ -534,7 +534,7 @@ SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html] .
      *
      */
-    setIdentityFeedbackForwardingEnabled(params: SES.SetIdentityFeedbackForwardingEnabledRequest, callback?: (err: any, data: SES.SetIdentityFeedbackForwardingEnabledResponse | any) => void): Request;
+    setIdentityFeedbackForwardingEnabled(params: SES.SetIdentityFeedbackForwardingEnabledRequest, callback?: (err: any, data: SES.SetIdentityFeedbackForwardingEnabledResponse|any) => void): Request;
     /**
      * Enables or disables the custom MAIL FROM domain setup for a verified identity
 (email address or domain).
@@ -547,7 +547,7 @@ more information, see the Amazon SES Developer Guide
 action is throttled at one request per second.
      *
      */
-    setIdentityMailFromDomain(params: SES.SetIdentityMailFromDomainRequest, callback?: (err: any, data: SES.SetIdentityMailFromDomainResponse | any) => void): Request;
+    setIdentityMailFromDomain(params: SES.SetIdentityMailFromDomainRequest, callback?: (err: any, data: SES.SetIdentityMailFromDomainResponse|any) => void): Request;
     /**
      * Given an identity (email address or domain), sets the Amazon Simple Notification
 Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint,
@@ -563,7 +563,7 @@ Guide [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html]
 .
      *
      */
-    setIdentityNotificationTopic(params: SES.SetIdentityNotificationTopicRequest, callback?: (err: any, data: SES.SetIdentityNotificationTopicResponse | any) => void): Request;
+    setIdentityNotificationTopic(params: SES.SetIdentityNotificationTopicRequest, callback?: (err: any, data: SES.SetIdentityNotificationTopicResponse|any) => void): Request;
     /**
      * Sets the position of the specified receipt rule in the receipt rule set.
 
@@ -576,7 +576,7 @@ This action is throttled at one request per second.
      * @error RuleSetDoesNotExistException   
      * @error RuleDoesNotExistException   
      */
-    setReceiptRulePosition(params: SES.SetReceiptRulePositionRequest, callback?: (err: SES.RuleSetDoesNotExistException | SES.RuleDoesNotExistException | any, data: SES.SetReceiptRulePositionResponse | any) => void): Request;
+    setReceiptRulePosition(params: SES.SetReceiptRulePositionRequest, callback?: (err: SES.RuleSetDoesNotExistException|SES.RuleDoesNotExistException|any, data: SES.SetReceiptRulePositionResponse|any) => void): Request;
     /**
      * Updates a receipt rule.
 
@@ -593,7 +593,7 @@ This action is throttled at one request per second.
      * @error RuleDoesNotExistException   
      * @error LimitExceededException   
      */
-    updateReceiptRule(params: SES.UpdateReceiptRuleRequest, callback?: (err: SES.InvalidSnsTopicException | SES.InvalidS3ConfigurationException | SES.InvalidLambdaFunctionException | SES.RuleSetDoesNotExistException | SES.RuleDoesNotExistException | SES.LimitExceededException | any, data: SES.UpdateReceiptRuleResponse | any) => void): Request;
+    updateReceiptRule(params: SES.UpdateReceiptRuleRequest, callback?: (err: SES.InvalidSnsTopicException|SES.InvalidS3ConfigurationException|SES.InvalidLambdaFunctionException|SES.RuleSetDoesNotExistException|SES.RuleDoesNotExistException|SES.LimitExceededException|any, data: SES.UpdateReceiptRuleResponse|any) => void): Request;
     /**
      * Returns a set of DKIM tokens for a domain. DKIM tokens are character strings
 that represent your domain&#x27;s identity. Using these tokens, you will need to
@@ -614,14 +614,14 @@ Amazon SES Developer Guide
 .
      *
      */
-    verifyDomainDkim(params: SES.VerifyDomainDkimRequest, callback?: (err: any, data: SES.VerifyDomainDkimResponse | any) => void): Request;
+    verifyDomainDkim(params: SES.VerifyDomainDkimRequest, callback?: (err: any, data: SES.VerifyDomainDkimResponse|any) => void): Request;
     /**
      * Verifies a domain.
 
 This action is throttled at one request per second.
      *
      */
-    verifyDomainIdentity(params: SES.VerifyDomainIdentityRequest, callback?: (err: any, data: SES.VerifyDomainIdentityResponse | any) => void): Request;
+    verifyDomainIdentity(params: SES.VerifyDomainIdentityRequest, callback?: (err: any, data: SES.VerifyDomainIdentityResponse|any) => void): Request;
     /**
      * Verifies an email address. This action causes a confirmation email message to be
 sent to the specified address.
@@ -639,436 +639,436 @@ sent to the specified address.
 This action is throttled at one request per second.
      *
      */
-    verifyEmailIdentity(params: SES.VerifyEmailIdentityRequest, callback?: (err: any, data: SES.VerifyEmailIdentityResponse | any) => void): Request;
+    verifyEmailIdentity(params: SES.VerifyEmailIdentityRequest, callback?: (err: any, data: SES.VerifyEmailIdentityResponse|any) => void): Request;
 
   }
 
   export module SES {
-
+    
     export type Address = string;
-
+    
     export type AddressList = Address[];
-
+    
     export type AmazonResourceName = string;
-
+    
     export type ArrivalDate = number;
-
+    
     export type BehaviorOnMXFailure = string;
-
+    
     export type BounceMessage = string;
-
+    
     export type BounceSmtpReplyCode = string;
-
+    
     export type BounceStatusCode = string;
-
+    
     export type BounceType = string;
-
+    
     export type BouncedRecipientInfoList = BouncedRecipientInfo[];
-
+    
     export type Charset = string;
-
+    
     export type Cidr = string;
-
+    
     export type Counter = number;
-
+    
     export type CustomMailFromStatus = string;
-
+    
     export type DiagnosticCode = string;
-
-    export type DkimAttributes = { [key: string]: IdentityDkimAttributes };
-
+    
+    export type DkimAttributes = {[key:string]: IdentityDkimAttributes};
+    
     export type Domain = string;
-
+    
     export type DsnAction = string;
-
+    
     export type DsnStatus = string;
-
+    
     export type Enabled = boolean;
-
+    
     export type Explanation = string;
-
+    
     export type ExtensionFieldList = ExtensionField[];
-
+    
     export type ExtensionFieldName = string;
-
+    
     export type ExtensionFieldValue = string;
-
+    
     export type HeaderName = string;
-
+    
     export type HeaderValue = string;
-
+    
     export type Identity = string;
-
+    
     export type IdentityList = Identity[];
-
+    
     export type IdentityType = string;
-
+    
     export type InvocationType = string;
-
+    
     export type LastAttemptDate = number;
-
-    export type MailFromDomainAttributes = { [key: string]: IdentityMailFromDomainAttributes };
-
+    
+    export type MailFromDomainAttributes = {[key:string]: IdentityMailFromDomainAttributes};
+    
     export type MailFromDomainName = string;
-
+    
     export type Max24HourSend = number;
-
+    
     export type MaxItems = number;
-
+    
     export type MaxSendRate = number;
-
+    
     export type MessageData = string;
-
+    
     export type MessageId = string;
-
+    
     export type NextToken = string;
-
-    export type NotificationAttributes = { [key: string]: IdentityNotificationAttributes };
-
+    
+    export type NotificationAttributes = {[key:string]: IdentityNotificationAttributes};
+    
     export type NotificationTopic = string;
-
+    
     export type NotificationType = string;
-
+    
     export type Policy = string;
-
-    export type PolicyMap = { [key: string]: Policy };
-
+    
+    export type PolicyMap = {[key:string]: Policy};
+    
     export type PolicyName = string;
-
+    
     export type PolicyNameList = PolicyName[];
-
+    
     export type RawMessageData = any;
-
+    
     export type ReceiptActionsList = ReceiptAction[];
-
+    
     export type ReceiptFilterList = ReceiptFilter[];
-
+    
     export type ReceiptFilterName = string;
-
+    
     export type ReceiptFilterPolicy = string;
-
+    
     export type ReceiptRuleName = string;
-
+    
     export type ReceiptRuleNamesList = ReceiptRuleName[];
-
+    
     export type ReceiptRuleSetName = string;
-
+    
     export type ReceiptRuleSetsLists = ReceiptRuleSetMetadata[];
-
+    
     export type ReceiptRulesList = ReceiptRule[];
-
+    
     export type Recipient = string;
-
+    
     export type RecipientsList = Recipient[];
-
+    
     export type RemoteMta = string;
-
+    
     export type ReportingMta = string;
-
+    
     export type RuleOrRuleSetName = string;
-
+    
     export type S3BucketName = string;
-
+    
     export type S3KeyPrefix = string;
-
+    
     export type SNSActionEncoding = string;
-
+    
     export type SendDataPointList = SendDataPoint[];
-
+    
     export type SentLast24Hours = number;
-
+    
     export type StopScope = string;
-
+    
     export type Timestamp = number;
-
+    
     export type TlsPolicy = string;
-
-    export type VerificationAttributes = { [key: string]: IdentityVerificationAttributes };
-
+    
+    export type VerificationAttributes = {[key:string]: IdentityVerificationAttributes};
+    
     export type VerificationStatus = string;
-
+    
     export type VerificationToken = string;
-
+    
     export type VerificationTokenList = VerificationToken[];
 
     export interface AddHeaderAction {
-      /** The name of the header to add. Must be between 1 and 50 characters, inclusive,
+        /** The name of the header to add. Must be between 1 and 50 characters, inclusive,
 and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only. **/
-      HeaderName: HeaderName;
-      /** Must be less than 2048 characters, and must not contain newline characters (&quot;\r&quot;
+        HeaderName: HeaderName;
+        /** Must be less than 2048 characters, and must not contain newline characters (&quot;\r&quot;
 or &quot;\n&quot;). **/
-      HeaderValue: HeaderValue;
+        HeaderValue: HeaderValue;
     }
     export interface AlreadyExistsException {
-      Name?: RuleOrRuleSetName;
+        Name?: RuleOrRuleSetName;
     }
     export interface Body {
-      /** The content of the message, in text format. Use this for text-based email
+        /** The content of the message, in text format. Use this for text-based email
 clients, or clients on high-latency networks (such as mobile devices). **/
-      Text?: Content;
-      /** The content of the message, in HTML format. Use this for email clients that can
+        Text?: Content;
+        /** The content of the message, in HTML format. Use this for email clients that can
 process HTML. You can include clickable links, formatted text, and much more in
 an HTML message. **/
-      Html?: Content;
+        Html?: Content;
     }
     export interface BounceAction {
-      /** The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce
+        /** The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce
 action is taken. An example of an Amazon SNS topic ARN is 
 arn:aws:sns:us-west-2:123456789012:MyTopic . For more information about Amazon
 SNS topics, see the Amazon SNS Developer Guide
 [http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html] . **/
-      TopicArn?: AmazonResourceName;
-      /** The SMTP reply code, as defined by RFC 5321
+        TopicArn?: AmazonResourceName;
+        /** The SMTP reply code, as defined by RFC 5321
 [https://tools.ietf.org/html/rfc5321] . **/
-      SmtpReplyCode: BounceSmtpReplyCode;
-      /** The SMTP enhanced status code, as defined by RFC 3463
+        SmtpReplyCode: BounceSmtpReplyCode;
+        /** The SMTP enhanced status code, as defined by RFC 3463
 [https://tools.ietf.org/html/rfc3463] . **/
-      StatusCode?: BounceStatusCode;
-      /** Human-readable text to include in the bounce message. **/
-      Message: BounceMessage;
-      /** The email address of the sender of the bounced email. This is the address from
+        StatusCode?: BounceStatusCode;
+        /** Human-readable text to include in the bounce message. **/
+        Message: BounceMessage;
+        /** The email address of the sender of the bounced email. This is the address from
 which the bounce message will be sent. **/
-      Sender: Address;
+        Sender: Address;
     }
     export interface BouncedRecipientInfo {
-      /** The email address of the recipient of the bounced email. **/
-      Recipient: Address;
-      /** This parameter is used only for sending authorization. It is the ARN of the
+        /** The email address of the recipient of the bounced email. **/
+        Recipient: Address;
+        /** This parameter is used only for sending authorization. It is the ARN of the
 identity that is associated with the sending authorization policy that permits
 you to receive email for the recipient of the bounced email. For more
 information about sending authorization, see the Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html] 
 . **/
-      RecipientArn?: AmazonResourceName;
-      /** The reason for the bounce. You must provide either this parameter or 
+        RecipientArn?: AmazonResourceName;
+        /** The reason for the bounce. You must provide either this parameter or 
 RecipientDsnFields . **/
-      BounceType?: BounceType;
-      /** Recipient-related DSN fields, most of which would normally be filled in
+        BounceType?: BounceType;
+        /** Recipient-related DSN fields, most of which would normally be filled in
 automatically when provided with a BounceType . You must provide either this
 parameter or BounceType . **/
-      RecipientDsnFields?: RecipientDsnFields;
+        RecipientDsnFields?: RecipientDsnFields;
     }
     export interface CannotDeleteException {
-      Name?: RuleOrRuleSetName;
+        Name?: RuleOrRuleSetName;
     }
     export interface CloneReceiptRuleSetRequest {
-      /** The name of the rule set to create. The name must:
+        /** The name of the rule set to create. The name must:
 
-&amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
- underscores (_), or dashes (-).
-* Start and end with a letter or number.
-* Contain less than 64 characters. **/
-      RuleSetName: ReceiptRuleSetName;
-      /** The name of the rule set to clone. **/
-      OriginalRuleSetName: ReceiptRuleSetName;
+ &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
+   underscores (_), or dashes (-).
+ * Start and end with a letter or number.
+ * Contain less than 64 characters. **/
+        RuleSetName: ReceiptRuleSetName;
+        /** The name of the rule set to clone. **/
+        OriginalRuleSetName: ReceiptRuleSetName;
     }
     export interface CloneReceiptRuleSetResponse {
     }
     export interface Content {
-      /** The textual data of the content. **/
-      Data: MessageData;
-      /** The character set of the content. **/
-      Charset?: Charset;
+        /** The textual data of the content. **/
+        Data: MessageData;
+        /** The character set of the content. **/
+        Charset?: Charset;
     }
     export interface CreateReceiptFilterRequest {
-      /** A data structure that describes the IP address filter to create, which consists
+        /** A data structure that describes the IP address filter to create, which consists
 of a name, an IP address range, and whether to allow or block mail from it. **/
-      Filter: ReceiptFilter;
+        Filter: ReceiptFilter;
     }
     export interface CreateReceiptFilterResponse {
     }
     export interface CreateReceiptRuleRequest {
-      /** The name of the rule set to which to add the rule. **/
-      RuleSetName: ReceiptRuleSetName;
-      /** The name of an existing rule after which the new rule will be placed. If this
+        /** The name of the rule set to which to add the rule. **/
+        RuleSetName: ReceiptRuleSetName;
+        /** The name of an existing rule after which the new rule will be placed. If this
 parameter is null, the new rule will be inserted at the beginning of the rule
 list. **/
-      After?: ReceiptRuleName;
-      /** A data structure that contains the specified rule&#x27;s name, actions, recipients,
+        After?: ReceiptRuleName;
+        /** A data structure that contains the specified rule&#x27;s name, actions, recipients,
 domains, enabled status, scan status, and TLS policy. **/
-      Rule: ReceiptRule;
+        Rule: ReceiptRule;
     }
     export interface CreateReceiptRuleResponse {
     }
     export interface CreateReceiptRuleSetRequest {
-      /** The name of the rule set to create. The name must:
+        /** The name of the rule set to create. The name must:
 
-&amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
- underscores (_), or dashes (-).
-* Start and end with a letter or number.
-* Contain less than 64 characters. **/
-      RuleSetName: ReceiptRuleSetName;
+ &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
+   underscores (_), or dashes (-).
+ * Start and end with a letter or number.
+ * Contain less than 64 characters. **/
+        RuleSetName: ReceiptRuleSetName;
     }
     export interface CreateReceiptRuleSetResponse {
     }
     export interface DeleteIdentityPolicyRequest {
-      /** The identity that is associated with the policy that you want to delete. You can
+        /** The identity that is associated with the policy that you want to delete. You can
 specify the identity by using its name or by using its Amazon Resource Name
 (ARN). Examples: user@example.com , example.com , 
 arn:aws:ses:us-east-1:123456789012:identity/example.com .
 
 To successfully call this API, you must own the identity. **/
-      Identity: Identity;
-      /** The name of the policy to be deleted. **/
-      PolicyName: PolicyName;
+        Identity: Identity;
+        /** The name of the policy to be deleted. **/
+        PolicyName: PolicyName;
     }
     export interface DeleteIdentityPolicyResponse {
     }
     export interface DeleteIdentityRequest {
-      /** The identity to be removed from the list of identities for the AWS Account. **/
-      Identity: Identity;
+        /** The identity to be removed from the list of identities for the AWS Account. **/
+        Identity: Identity;
     }
     export interface DeleteIdentityResponse {
     }
     export interface DeleteReceiptFilterRequest {
-      /** The name of the IP address filter to delete. **/
-      FilterName: ReceiptFilterName;
+        /** The name of the IP address filter to delete. **/
+        FilterName: ReceiptFilterName;
     }
     export interface DeleteReceiptFilterResponse {
     }
     export interface DeleteReceiptRuleRequest {
-      /** The name of the receipt rule set that contains the receipt rule to delete. **/
-      RuleSetName: ReceiptRuleSetName;
-      /** The name of the receipt rule to delete. **/
-      RuleName: ReceiptRuleName;
+        /** The name of the receipt rule set that contains the receipt rule to delete. **/
+        RuleSetName: ReceiptRuleSetName;
+        /** The name of the receipt rule to delete. **/
+        RuleName: ReceiptRuleName;
     }
     export interface DeleteReceiptRuleResponse {
     }
     export interface DeleteReceiptRuleSetRequest {
-      /** The name of the receipt rule set to delete. **/
-      RuleSetName: ReceiptRuleSetName;
+        /** The name of the receipt rule set to delete. **/
+        RuleSetName: ReceiptRuleSetName;
     }
     export interface DeleteReceiptRuleSetResponse {
     }
     export interface DeleteVerifiedEmailAddressRequest {
-      /** An email address to be removed from the list of verified addresses. **/
-      EmailAddress: Address;
+        /** An email address to be removed from the list of verified addresses. **/
+        EmailAddress: Address;
     }
     export interface DescribeActiveReceiptRuleSetRequest {
     }
     export interface DescribeActiveReceiptRuleSetResponse {
-      /** The metadata for the currently active receipt rule set. The metadata consists of
+        /** The metadata for the currently active receipt rule set. The metadata consists of
 the rule set name and a timestamp of when the rule set was created. **/
-      Metadata?: ReceiptRuleSetMetadata;
-      /** The receipt rules that belong to the active rule set. **/
-      Rules?: ReceiptRulesList;
+        Metadata?: ReceiptRuleSetMetadata;
+        /** The receipt rules that belong to the active rule set. **/
+        Rules?: ReceiptRulesList;
     }
     export interface DescribeReceiptRuleRequest {
-      /** The name of the receipt rule set to which the receipt rule belongs. **/
-      RuleSetName: ReceiptRuleSetName;
-      /** The name of the receipt rule. **/
-      RuleName: ReceiptRuleName;
+        /** The name of the receipt rule set to which the receipt rule belongs. **/
+        RuleSetName: ReceiptRuleSetName;
+        /** The name of the receipt rule. **/
+        RuleName: ReceiptRuleName;
     }
     export interface DescribeReceiptRuleResponse {
-      /** A data structure that contains the specified receipt rule&#x27;s name, actions,
+        /** A data structure that contains the specified receipt rule&#x27;s name, actions,
 recipients, domains, enabled status, scan status, and Transport Layer Security
 (TLS) policy. **/
-      Rule?: ReceiptRule;
+        Rule?: ReceiptRule;
     }
     export interface DescribeReceiptRuleSetRequest {
-      /** The name of the receipt rule set to describe. **/
-      RuleSetName: ReceiptRuleSetName;
+        /** The name of the receipt rule set to describe. **/
+        RuleSetName: ReceiptRuleSetName;
     }
     export interface DescribeReceiptRuleSetResponse {
-      /** The metadata for the receipt rule set, which consists of the rule set name and
+        /** The metadata for the receipt rule set, which consists of the rule set name and
 the timestamp of when the rule set was created. **/
-      Metadata?: ReceiptRuleSetMetadata;
-      /** A list of the receipt rules that belong to the specified receipt rule set. **/
-      Rules?: ReceiptRulesList;
+        Metadata?: ReceiptRuleSetMetadata;
+        /** A list of the receipt rules that belong to the specified receipt rule set. **/
+        Rules?: ReceiptRulesList;
     }
     export interface Destination {
-      /** The To: field(s) of the message. **/
-      ToAddresses?: AddressList;
-      /** The CC: field(s) of the message. **/
-      CcAddresses?: AddressList;
-      /** The BCC: field(s) of the message. **/
-      BccAddresses?: AddressList;
+        /** The To: field(s) of the message. **/
+        ToAddresses?: AddressList;
+        /** The CC: field(s) of the message. **/
+        CcAddresses?: AddressList;
+        /** The BCC: field(s) of the message. **/
+        BccAddresses?: AddressList;
     }
     export interface ExtensionField {
-      /** The name of the header to add. Must be between 1 and 50 characters, inclusive,
+        /** The name of the header to add. Must be between 1 and 50 characters, inclusive,
 and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only. **/
-      Name: ExtensionFieldName;
-      /** The value of the header to add. Must be less than 2048 characters, and must not
+        Name: ExtensionFieldName;
+        /** The value of the header to add. Must be less than 2048 characters, and must not
 contain newline characters (&quot;\r&quot; or &quot;\n&quot;). **/
-      Value: ExtensionFieldValue;
+        Value: ExtensionFieldValue;
     }
     export interface GetIdentityDkimAttributesRequest {
-      /** A list of one or more verified identities - email addresses, domains, or both. **/
-      Identities: IdentityList;
+        /** A list of one or more verified identities - email addresses, domains, or both. **/
+        Identities: IdentityList;
     }
     export interface GetIdentityDkimAttributesResponse {
-      /** The DKIM attributes for an email address or a domain. **/
-      DkimAttributes: DkimAttributes;
+        /** The DKIM attributes for an email address or a domain. **/
+        DkimAttributes: DkimAttributes;
     }
     export interface GetIdentityMailFromDomainAttributesRequest {
-      /** A list of one or more identities. **/
-      Identities: IdentityList;
+        /** A list of one or more identities. **/
+        Identities: IdentityList;
     }
     export interface GetIdentityMailFromDomainAttributesResponse {
-      /** A map of identities to custom MAIL FROM attributes. **/
-      MailFromDomainAttributes: MailFromDomainAttributes;
+        /** A map of identities to custom MAIL FROM attributes. **/
+        MailFromDomainAttributes: MailFromDomainAttributes;
     }
     export interface GetIdentityNotificationAttributesRequest {
-      /** A list of one or more identities. You can specify an identity by using its name
+        /** A list of one or more identities. You can specify an identity by using its name
 or by using its Amazon Resource Name (ARN). Examples: user@example.com , 
 example.com , arn:aws:ses:us-east-1:123456789012:identity/example.com . **/
-      Identities: IdentityList;
+        Identities: IdentityList;
     }
     export interface GetIdentityNotificationAttributesResponse {
-      /** A map of Identity to IdentityNotificationAttributes. **/
-      NotificationAttributes: NotificationAttributes;
+        /** A map of Identity to IdentityNotificationAttributes. **/
+        NotificationAttributes: NotificationAttributes;
     }
     export interface GetIdentityPoliciesRequest {
-      /** The identity for which the policies will be retrieved. You can specify an
+        /** The identity for which the policies will be retrieved. You can specify an
 identity by using its name or by using its Amazon Resource Name (ARN). Examples: 
 user@example.com , example.com , 
 arn:aws:ses:us-east-1:123456789012:identity/example.com .
 
 To successfully call this API, you must own the identity. **/
-      Identity: Identity;
-      /** A list of the names of policies to be retrieved. You can retrieve a maximum of
+        Identity: Identity;
+        /** A list of the names of policies to be retrieved. You can retrieve a maximum of
 20 policies at a time. If you do not know the names of the policies that are
 attached to the identity, you can use ListIdentityPolicies . **/
-      PolicyNames: PolicyNameList;
+        PolicyNames: PolicyNameList;
     }
     export interface GetIdentityPoliciesResponse {
-      /** A map of policy names to policies. **/
-      Policies: PolicyMap;
+        /** A map of policy names to policies. **/
+        Policies: PolicyMap;
     }
     export interface GetIdentityVerificationAttributesRequest {
-      /** A list of identities. **/
-      Identities: IdentityList;
+        /** A list of identities. **/
+        Identities: IdentityList;
     }
     export interface GetIdentityVerificationAttributesResponse {
-      /** A map of Identities to IdentityVerificationAttributes objects. **/
-      VerificationAttributes: VerificationAttributes;
+        /** A map of Identities to IdentityVerificationAttributes objects. **/
+        VerificationAttributes: VerificationAttributes;
     }
     export interface GetSendQuotaResponse {
-      /** The maximum number of emails the user is allowed to send in a 24-hour interval.
+        /** The maximum number of emails the user is allowed to send in a 24-hour interval.
 A value of -1 signifies an unlimited quota. **/
-      Max24HourSend?: Max24HourSend;
-      /** The maximum number of emails that Amazon SES can accept from the user&#x27;s account
+        Max24HourSend?: Max24HourSend;
+        /** The maximum number of emails that Amazon SES can accept from the user&#x27;s account
 per second.
 
 The rate at which Amazon SES accepts the user&#x27;s messages might be less than the
 maximum send rate. **/
-      MaxSendRate?: MaxSendRate;
-      /** The number of emails sent during the previous 24 hours. **/
-      SentLast24Hours?: SentLast24Hours;
+        MaxSendRate?: MaxSendRate;
+        /** The number of emails sent during the previous 24 hours. **/
+        SentLast24Hours?: SentLast24Hours;
     }
     export interface GetSendStatisticsResponse {
-      /** A list of data points, each of which represents 15 minutes of activity. **/
-      SendDataPoints?: SendDataPointList;
+        /** A list of data points, each of which represents 15 minutes of activity. **/
+        SendDataPoints?: SendDataPointList;
     }
     export interface IdentityDkimAttributes {
-      /** True if DKIM signing is enabled for email sent from the identity; false
+        /** True if DKIM signing is enabled for email sent from the identity; false
 otherwise. **/
-      DkimEnabled: Enabled;
-      /** Describes whether Amazon SES has successfully verified the DKIM DNS records
+        DkimEnabled: Enabled;
+        /** Describes whether Amazon SES has successfully verified the DKIM DNS records
 (tokens) published in the domain name&#x27;s DNS. (This only applies to domain
 identities, not email address identities.) **/
-      DkimVerificationStatus: VerificationStatus;
-      /** A set of character strings that represent the domain&#x27;s identity. Using these
+        DkimVerificationStatus: VerificationStatus;
+        /** A set of character strings that represent the domain&#x27;s identity. Using these
 tokens, you will need to create DNS CNAME records that point to DKIM public keys
 hosted by Amazon SES. Amazon Web Services will eventually detect that you have
 updated your DNS records; this detection process may take up to 72 hours. Upon
@@ -1080,18 +1080,18 @@ For more information about creating DNS records using DKIM tokens, go to the
 Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html] 
 . **/
-      DkimTokens?: VerificationTokenList;
+        DkimTokens?: VerificationTokenList;
     }
     export interface IdentityMailFromDomainAttributes {
-      /** The custom MAIL FROM domain that the identity is configured to use. **/
-      MailFromDomain: MailFromDomainName;
-      /** The state that indicates whether Amazon SES has successfully read the MX record
+        /** The custom MAIL FROM domain that the identity is configured to use. **/
+        MailFromDomain: MailFromDomainName;
+        /** The state that indicates whether Amazon SES has successfully read the MX record
 required for custom MAIL FROM domain setup. If the state is Success , Amazon SES
 uses the specified custom MAIL FROM domain when the verified identity sends an
 email. All other states indicate that Amazon SES takes the action described by 
 BehaviorOnMXFailure . **/
-      MailFromDomainStatus: CustomMailFromStatus;
-      /** The action that Amazon SES takes if it cannot successfully read the required MX
+        MailFromDomainStatus: CustomMailFromStatus;
+        /** The action that Amazon SES takes if it cannot successfully read the required MX
 record when you send an email. A value of UseDefaultValue indicates that if
 Amazon SES cannot read the required MX record, it uses amazonses.com (or a
 subdomain of that) as the MAIL FROM domain. A value of RejectMessage indicates
@@ -1100,56 +1100,56 @@ MailFromDomainNotVerified error and does not send the email.
 
 The custom MAIL FROM setup states that result in this behavior are Pending , 
 Failed , and TemporaryFailure . **/
-      BehaviorOnMXFailure: BehaviorOnMXFailure;
+        BehaviorOnMXFailure: BehaviorOnMXFailure;
     }
     export interface IdentityNotificationAttributes {
-      /** The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will
+        /** The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will
 publish bounce notifications. **/
-      BounceTopic: NotificationTopic;
-      /** The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will
+        BounceTopic: NotificationTopic;
+        /** The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will
 publish complaint notifications. **/
-      ComplaintTopic: NotificationTopic;
-      /** The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will
+        ComplaintTopic: NotificationTopic;
+        /** The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will
 publish delivery notifications. **/
-      DeliveryTopic: NotificationTopic;
-      /** Describes whether Amazon SES will forward bounce and complaint notifications as
+        DeliveryTopic: NotificationTopic;
+        /** Describes whether Amazon SES will forward bounce and complaint notifications as
 email. true indicates that Amazon SES will forward bounce and complaint
 notifications as email, while false indicates that bounce and complaint
 notifications will be published only to the specified bounce and complaint
 Amazon SNS topics. **/
-      ForwardingEnabled: Enabled;
+        ForwardingEnabled: Enabled;
     }
     export interface IdentityVerificationAttributes {
-      /** The verification status of the identity: &quot;Pending&quot;, &quot;Success&quot;, &quot;Failed&quot;, or
+        /** The verification status of the identity: &quot;Pending&quot;, &quot;Success&quot;, &quot;Failed&quot;, or
 &quot;TemporaryFailure&quot;. **/
-      VerificationStatus: VerificationStatus;
-      /** The verification token for a domain identity. Null for email address identities. **/
-      VerificationToken?: VerificationToken;
+        VerificationStatus: VerificationStatus;
+        /** The verification token for a domain identity. Null for email address identities. **/
+        VerificationToken?: VerificationToken;
     }
     export interface InvalidLambdaFunctionException {
-      FunctionArn?: AmazonResourceName;
+        FunctionArn?: AmazonResourceName;
     }
     export interface InvalidPolicyException {
     }
     export interface InvalidS3ConfigurationException {
-      Bucket?: S3BucketName;
+        Bucket?: S3BucketName;
     }
     export interface InvalidSnsTopicException {
-      Topic?: AmazonResourceName;
+        Topic?: AmazonResourceName;
     }
     export interface LambdaAction {
-      /** The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda
+        /** The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda
 action is taken. An example of an Amazon SNS topic ARN is 
 arn:aws:sns:us-west-2:123456789012:MyTopic . For more information about Amazon
 SNS topics, see the Amazon SNS Developer Guide
 [http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html] . **/
-      TopicArn?: AmazonResourceName;
-      /** The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS
+        TopicArn?: AmazonResourceName;
+        /** The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS
 Lambda function ARN is arn:aws:lambda:us-west-2:account-id:function:MyFunction .
 For more information about AWS Lambda, see the AWS Lambda Developer Guide
 [http://docs.aws.amazon.com/lambda/latest/dg/welcome.html] . **/
-      FunctionArn: AmazonResourceName;
-      /** The invocation type of the AWS Lambda function. An invocation type of 
+        FunctionArn: AmazonResourceName;
+        /** The invocation type of the AWS Lambda function. An invocation type of 
 RequestResponse means that the execution of the function will immediately result
 in a response, and a value of Event means that the function will be invoked
 asynchronously. The default value is Event . For information about AWS Lambda
@@ -1160,110 +1160,110 @@ There is a 30-second timeout on RequestResponse invocations. You should use
 Event invocation in most cases. Use RequestResponse only when you want to make a
 mail flow decision, such as whether to stop the receipt rule or the receipt rule
 set. **/
-      InvocationType?: InvocationType;
+        InvocationType?: InvocationType;
     }
     export interface LimitExceededException {
     }
     export interface ListIdentitiesRequest {
-      /** The type of the identities to list. Possible values are &quot;EmailAddress&quot; and
+        /** The type of the identities to list. Possible values are &quot;EmailAddress&quot; and
 &quot;Domain&quot;. If this parameter is omitted, then all identities will be listed. **/
-      IdentityType?: IdentityType;
-      /** The token to use for pagination. **/
-      NextToken?: NextToken;
-      /** The maximum number of identities per page. Possible values are 1-1000 inclusive. **/
-      MaxItems?: MaxItems;
+        IdentityType?: IdentityType;
+        /** The token to use for pagination. **/
+        NextToken?: NextToken;
+        /** The maximum number of identities per page. Possible values are 1-1000 inclusive. **/
+        MaxItems?: MaxItems;
     }
     export interface ListIdentitiesResponse {
-      /** A list of identities. **/
-      Identities: IdentityList;
-      /** The token used for pagination. **/
-      NextToken?: NextToken;
+        /** A list of identities. **/
+        Identities: IdentityList;
+        /** The token used for pagination. **/
+        NextToken?: NextToken;
     }
     export interface ListIdentityPoliciesRequest {
-      /** The identity that is associated with the policy for which the policies will be
+        /** The identity that is associated with the policy for which the policies will be
 listed. You can specify an identity by using its name or by using its Amazon
 Resource Name (ARN). Examples: user@example.com , example.com , 
 arn:aws:ses:us-east-1:123456789012:identity/example.com .
 
 To successfully call this API, you must own the identity. **/
-      Identity: Identity;
+        Identity: Identity;
     }
     export interface ListIdentityPoliciesResponse {
-      /** A list of names of policies that apply to the specified identity. **/
-      PolicyNames: PolicyNameList;
+        /** A list of names of policies that apply to the specified identity. **/
+        PolicyNames: PolicyNameList;
     }
     export interface ListReceiptFiltersRequest {
     }
     export interface ListReceiptFiltersResponse {
-      /** A list of IP address filter data structures, which each consist of a name, an IP
+        /** A list of IP address filter data structures, which each consist of a name, an IP
 address range, and whether to allow or block mail from it. **/
-      Filters?: ReceiptFilterList;
+        Filters?: ReceiptFilterList;
     }
     export interface ListReceiptRuleSetsRequest {
-      /** A token returned from a previous call to ListReceiptRuleSets to indicate the
+        /** A token returned from a previous call to ListReceiptRuleSets to indicate the
 position in the receipt rule set list. **/
-      NextToken?: NextToken;
+        NextToken?: NextToken;
     }
     export interface ListReceiptRuleSetsResponse {
-      /** The metadata for the currently active receipt rule set. The metadata consists of
+        /** The metadata for the currently active receipt rule set. The metadata consists of
 the rule set name and the timestamp of when the rule set was created. **/
-      RuleSets?: ReceiptRuleSetsLists;
-      /** A token indicating that there are additional receipt rule sets available to be
+        RuleSets?: ReceiptRuleSetsLists;
+        /** A token indicating that there are additional receipt rule sets available to be
 listed. Pass this token to successive calls of ListReceiptRuleSets to retrieve
 up to 100 receipt rule sets at a time. **/
-      NextToken?: NextToken;
+        NextToken?: NextToken;
     }
     export interface ListVerifiedEmailAddressesResponse {
-      /** A list of email addresses that have been verified. **/
-      VerifiedEmailAddresses?: AddressList;
+        /** A list of email addresses that have been verified. **/
+        VerifiedEmailAddresses?: AddressList;
     }
     export interface MailFromDomainNotVerifiedException {
     }
     export interface Message {
-      /** The subject of the message: A short summary of the content, which will appear in
+        /** The subject of the message: A short summary of the content, which will appear in
 the recipient&#x27;s inbox. **/
-      Subject: Content;
-      /** The message body. **/
-      Body: Body;
+        Subject: Content;
+        /** The message body. **/
+        Body: Body;
     }
     export interface MessageDsn {
-      /** The reporting MTA that attempted to deliver the message, formatted as specified
+        /** The reporting MTA that attempted to deliver the message, formatted as specified
 in RFC 3464 [https://tools.ietf.org/html/rfc3464] ( mta-name-type; mta-name ).
 The default value is dns; inbound-smtp.[region].amazonaws.com . **/
-      ReportingMta: ReportingMta;
-      /** When the message was received by the reporting mail transfer agent (MTA), in RFC
+        ReportingMta: ReportingMta;
+        /** When the message was received by the reporting mail transfer agent (MTA), in RFC
 822 [https://www.ietf.org/rfc/rfc0822.txt] date-time format. **/
-      ArrivalDate?: ArrivalDate;
-      /** Additional X-headers to include in the DSN. **/
-      ExtensionFields?: ExtensionFieldList;
+        ArrivalDate?: ArrivalDate;
+        /** Additional X-headers to include in the DSN. **/
+        ExtensionFields?: ExtensionFieldList;
     }
     export interface MessageRejected {
     }
     export interface PutIdentityPolicyRequest {
-      /** The identity to which the policy will apply. You can specify an identity by
+        /** The identity to which the policy will apply. You can specify an identity by
 using its name or by using its Amazon Resource Name (ARN). Examples: 
 user@example.com , example.com , 
 arn:aws:ses:us-east-1:123456789012:identity/example.com .
 
 To successfully call this API, you must own the identity. **/
-      Identity: Identity;
-      /** The name of the policy.
+        Identity: Identity;
+        /** The name of the policy.
 
 The policy name cannot exceed 64 characters and can only include alphanumeric
 characters, dashes, and underscores. **/
-      PolicyName: PolicyName;
-      /** The text of the policy in JSON format. The policy cannot exceed 4 KB.
+        PolicyName: PolicyName;
+        /** The text of the policy in JSON format. The policy cannot exceed 4 KB.
 
 For information about the syntax of sending authorization policies, see the 
 Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html] 
 . **/
-      Policy: Policy;
+        Policy: Policy;
     }
     export interface PutIdentityPolicyResponse {
     }
     export interface RawMessage {
-      /** The raw data of the message. The client must ensure that the message format
+        /** The raw data of the message. The client must ensure that the message format
 complies with Internet email standards regarding email header fields, MIME
 types, MIME encoding, and base64 encoding (if necessary).
 
@@ -1276,91 +1276,91 @@ addresses. For more information, see the documentation for SendRawEmail .
 Do not include these X-headers in the DKIM signature, because they are removed
 by Amazon SES before sending the email.For more information, go to the Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html] . **/
-      Data: RawMessageData;
+        Data: RawMessageData;
     }
     export interface ReceiptAction {
-      /** Saves the received message to an Amazon Simple Storage Service (Amazon S3)
+        /** Saves the received message to an Amazon Simple Storage Service (Amazon S3)
 bucket and, optionally, publishes a notification to Amazon SNS. **/
-      S3Action?: S3Action;
-      /** Rejects the received email by returning a bounce response to the sender and,
+        S3Action?: S3Action;
+        /** Rejects the received email by returning a bounce response to the sender and,
 optionally, publishes a notification to Amazon Simple Notification Service
 (Amazon SNS). **/
-      BounceAction?: BounceAction;
-      /** Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS. **/
-      WorkmailAction?: WorkmailAction;
-      /** Calls an AWS Lambda function, and optionally, publishes a notification to Amazon
+        BounceAction?: BounceAction;
+        /** Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS. **/
+        WorkmailAction?: WorkmailAction;
+        /** Calls an AWS Lambda function, and optionally, publishes a notification to Amazon
 SNS. **/
-      LambdaAction?: LambdaAction;
-      /** Terminates the evaluation of the receipt rule set and optionally publishes a
+        LambdaAction?: LambdaAction;
+        /** Terminates the evaluation of the receipt rule set and optionally publishes a
 notification to Amazon SNS. **/
-      StopAction?: StopAction;
-      /** Adds a header to the received email. **/
-      AddHeaderAction?: AddHeaderAction;
-      /** Publishes the email content within a notification to Amazon SNS. **/
-      SNSAction?: SNSAction;
+        StopAction?: StopAction;
+        /** Adds a header to the received email. **/
+        AddHeaderAction?: AddHeaderAction;
+        /** Publishes the email content within a notification to Amazon SNS. **/
+        SNSAction?: SNSAction;
     }
     export interface ReceiptFilter {
-      /** The name of the IP address filter. The name must:
+        /** The name of the IP address filter. The name must:
 
-&amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
- underscores (_), or dashes (-).
-* Start and end with a letter or number.
-* Contain less than 64 characters. **/
-      Name: ReceiptFilterName;
-      /** A structure that provides the IP addresses to block or allow, and whether to
+ &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
+   underscores (_), or dashes (-).
+ * Start and end with a letter or number.
+ * Contain less than 64 characters. **/
+        Name: ReceiptFilterName;
+        /** A structure that provides the IP addresses to block or allow, and whether to
 block or allow incoming mail from them. **/
-      IpFilter: ReceiptIpFilter;
+        IpFilter: ReceiptIpFilter;
     }
     export interface ReceiptIpFilter {
-      /** Indicates whether to block or allow incoming mail from the specified IP
+        /** Indicates whether to block or allow incoming mail from the specified IP
 addresses. **/
-      Policy: ReceiptFilterPolicy;
-      /** A single IP address or a range of IP addresses that you want to block or allow,
+        Policy: ReceiptFilterPolicy;
+        /** A single IP address or a range of IP addresses that you want to block or allow,
 specified in Classless Inter-Domain Routing (CIDR) notation. An example of a
 single email address is 10.0.0.1. An example of a range of IP addresses is
 10.0.0.1/24. For more information about CIDR notation, see RFC 2317
 [https://tools.ietf.org/html/rfc2317] . **/
-      Cidr: Cidr;
+        Cidr: Cidr;
     }
     export interface ReceiptRule {
-      /** The name of the receipt rule. The name must:
+        /** The name of the receipt rule. The name must:
 
-&amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
- underscores (_), or dashes (-).
-* Start and end with a letter or number.
-* Contain less than 64 characters. **/
-      Name: ReceiptRuleName;
-      /** If true , the receipt rule is active. The default value is false . **/
-      Enabled?: Enabled;
-      /** Specifies whether Amazon SES should require that incoming email is delivered
+ &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
+   underscores (_), or dashes (-).
+ * Start and end with a letter or number.
+ * Contain less than 64 characters. **/
+        Name: ReceiptRuleName;
+        /** If true , the receipt rule is active. The default value is false . **/
+        Enabled?: Enabled;
+        /** Specifies whether Amazon SES should require that incoming email is delivered
 over a connection encrypted with Transport Layer Security (TLS). If this
 parameter is set to Require , Amazon SES will bounce emails that are not
 received over TLS. The default is Optional . **/
-      TlsPolicy?: TlsPolicy;
-      /** The recipient domains and email addresses to which the receipt rule applies. If
+        TlsPolicy?: TlsPolicy;
+        /** The recipient domains and email addresses to which the receipt rule applies. If
 this field is not specified, this rule will match all recipients under all
 verified domains. **/
-      Recipients?: RecipientsList;
-      /** An ordered list of actions to perform on messages that match at least one of the
+        Recipients?: RecipientsList;
+        /** An ordered list of actions to perform on messages that match at least one of the
 recipient email addresses or domains specified in the receipt rule. **/
-      Actions?: ReceiptActionsList;
-      /** If true , then messages to which this receipt rule applies are scanned for spam
+        Actions?: ReceiptActionsList;
+        /** If true , then messages to which this receipt rule applies are scanned for spam
 and viruses. The default value is false . **/
-      ScanEnabled?: Enabled;
+        ScanEnabled?: Enabled;
     }
     export interface ReceiptRuleSetMetadata {
-      /** The name of the receipt rule set. The name must:
+        /** The name of the receipt rule set. The name must:
 
-&amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
- underscores (_), or dashes (-).
-* Start and end with a letter or number.
-* Contain less than 64 characters. **/
-      Name?: ReceiptRuleSetName;
-      /** The date and time the receipt rule set was created. **/
-      CreatedTimestamp?: Timestamp;
+ &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
+   underscores (_), or dashes (-).
+ * Start and end with a letter or number.
+ * Contain less than 64 characters. **/
+        Name?: ReceiptRuleSetName;
+        /** The date and time the receipt rule set was created. **/
+        CreatedTimestamp?: Timestamp;
     }
     export interface RecipientDsnFields {
-      /** The email address to which the message was ultimately delivered. This
+        /** The email address to which the message was ultimately delivered. This
 corresponds to the Final-Recipient in the DSN. If not specified, FinalRecipient 
 will be set to the Recipient specified in the BouncedRecipientInfo structure.
 Either FinalRecipient or the recipient in BouncedRecipientInfo must be a
@@ -1368,74 +1368,74 @@ recipient of the original bounced message.
 
 Do not prepend the FinalRecipient email address with rfc 822; , as described in 
 RFC 3798 [https://tools.ietf.org/html/rfc3798] . **/
-      FinalRecipient?: Address;
-      /** The action performed by the reporting mail transfer agent (MTA) as a result of
+        FinalRecipient?: Address;
+        /** The action performed by the reporting mail transfer agent (MTA) as a result of
 its attempt to deliver the message to the recipient address. This is required by 
 RFC 3464 [https://tools.ietf.org/html/rfc3464] . **/
-      Action: DsnAction;
-      /** The MTA to which the remote MTA attempted to deliver the message, formatted as
+        Action: DsnAction;
+        /** The MTA to which the remote MTA attempted to deliver the message, formatted as
 specified in RFC 3464 [https://tools.ietf.org/html/rfc3464] ( mta-name-type;
 mta-name ). This parameter typically applies only to propagating synchronous
 bounces. **/
-      RemoteMta?: RemoteMta;
-      /** The status code that indicates what went wrong. This is required by RFC 3464
+        RemoteMta?: RemoteMta;
+        /** The status code that indicates what went wrong. This is required by RFC 3464
 [https://tools.ietf.org/html/rfc3464] . **/
-      Status: DsnStatus;
-      /** An extended explanation of what went wrong; this is usually an SMTP response.
+        Status: DsnStatus;
+        /** An extended explanation of what went wrong; this is usually an SMTP response.
 See RFC 3463 [https://tools.ietf.org/html/rfc3463] for the correct formatting of
 this parameter. **/
-      DiagnosticCode?: DiagnosticCode;
-      /** The time the final delivery attempt was made, in RFC 822
+        DiagnosticCode?: DiagnosticCode;
+        /** The time the final delivery attempt was made, in RFC 822
 [https://www.ietf.org/rfc/rfc0822.txt] date-time format. **/
-      LastAttemptDate?: LastAttemptDate;
-      /** Additional X-headers to include in the DSN. **/
-      ExtensionFields?: ExtensionFieldList;
+        LastAttemptDate?: LastAttemptDate;
+        /** Additional X-headers to include in the DSN. **/
+        ExtensionFields?: ExtensionFieldList;
     }
     export interface ReorderReceiptRuleSetRequest {
-      /** The name of the receipt rule set to reorder. **/
-      RuleSetName: ReceiptRuleSetName;
-      /** A list of the specified receipt rule set&#x27;s receipt rules in the order that you
+        /** The name of the receipt rule set to reorder. **/
+        RuleSetName: ReceiptRuleSetName;
+        /** A list of the specified receipt rule set&#x27;s receipt rules in the order that you
 want to put them. **/
-      RuleNames: ReceiptRuleNamesList;
+        RuleNames: ReceiptRuleNamesList;
     }
     export interface ReorderReceiptRuleSetResponse {
     }
     export interface RuleDoesNotExistException {
-      Name?: RuleOrRuleSetName;
+        Name?: RuleOrRuleSetName;
     }
     export interface RuleSetDoesNotExistException {
-      Name?: RuleOrRuleSetName;
+        Name?: RuleOrRuleSetName;
     }
     export interface S3Action {
-      /** The ARN of the Amazon SNS topic to notify when the message is saved to the
+        /** The ARN of the Amazon SNS topic to notify when the message is saved to the
 Amazon S3 bucket. An example of an Amazon SNS topic ARN is 
 arn:aws:sns:us-west-2:123456789012:MyTopic . For more information about Amazon
 SNS topics, see the Amazon SNS Developer Guide
 [http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html] . **/
-      TopicArn?: AmazonResourceName;
-      /** The name of the Amazon S3 bucket to which to save the received email. **/
-      BucketName: S3BucketName;
-      /** The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory
+        TopicArn?: AmazonResourceName;
+        /** The name of the Amazon S3 bucket to which to save the received email. **/
+        BucketName: S3BucketName;
+        /** The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory
 name that enables you to store similar data under the same directory in a
 bucket. **/
-      ObjectKeyPrefix?: S3KeyPrefix;
-      /** The customer master key that Amazon SES should use to encrypt your emails before
+        ObjectKeyPrefix?: S3KeyPrefix;
+        /** The customer master key that Amazon SES should use to encrypt your emails before
 saving them to the Amazon S3 bucket. You can use the default master key or a
 custom master key you created in AWS KMS as follows:
 
-&amp;#42; To use the default master key, provide an ARN in the form of 
- arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses . For example, if
- your AWS account ID is 123456789012 and you want to use the default master
- key in the US West (Oregon) region, the ARN of the default master key would
- be arn:aws:kms:us-west-2:123456789012:alias/aws/ses . If you use the default
- master key, you don&#x27;t need to perform any extra steps to give Amazon SES
- permission to use the key.
-* To use a custom master key you created in AWS KMS, provide the ARN of the
- master key and ensure that you add a statement to your key&#x27;s policy to give
- Amazon SES permission to use it. For more information about giving
- permissions, see the Amazon SES Developer Guide
- [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html] 
- .
+ &amp;#42; To use the default master key, provide an ARN in the form of 
+   arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses . For example, if
+   your AWS account ID is 123456789012 and you want to use the default master
+   key in the US West (Oregon) region, the ARN of the default master key would
+   be arn:aws:kms:us-west-2:123456789012:alias/aws/ses . If you use the default
+   master key, you don&#x27;t need to perform any extra steps to give Amazon SES
+   permission to use the key.
+ * To use a custom master key you created in AWS KMS, provide the ARN of the
+   master key and ensure that you add a statement to your key&#x27;s policy to give
+   Amazon SES permission to use it. For more information about giving
+   permissions, see the Amazon SES Developer Guide
+   [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html] 
+   .
 
 For more information about key policies, see the AWS KMS Developer Guide
 [http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html] . If you do
@@ -1453,62 +1453,62 @@ client-side encryption using AWS KMS master keys, see the Amazon S3 Developer
 Guide
 [http://alpha-docs-aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html] 
 . **/
-      KmsKeyArn?: AmazonResourceName;
+        KmsKeyArn?: AmazonResourceName;
     }
     export interface SNSAction {
-      /** The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of
+        /** The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of
 an Amazon SNS topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic . For more
 information about Amazon SNS topics, see the Amazon SNS Developer Guide
 [http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html] . **/
-      TopicArn: AmazonResourceName;
-      /** The encoding to use for the email within the Amazon SNS notification. UTF-8 is
+        TopicArn: AmazonResourceName;
+        /** The encoding to use for the email within the Amazon SNS notification. UTF-8 is
 easier to use, but may not preserve all special characters when a message was
 encoded with a different encoding format. Base64 preserves all special
 characters. The default value is UTF-8. **/
-      Encoding?: SNSActionEncoding;
+        Encoding?: SNSActionEncoding;
     }
     export interface SendBounceRequest {
-      /** The message ID of the message to be bounced. **/
-      OriginalMessageId: MessageId;
-      /** The address to use in the &quot;From&quot; header of the bounce message. This must be an
+        /** The message ID of the message to be bounced. **/
+        OriginalMessageId: MessageId;
+        /** The address to use in the &quot;From&quot; header of the bounce message. This must be an
 identity that you have verified with Amazon SES. **/
-      BounceSender: Address;
-      /** Human-readable text for the bounce message to explain the failure. If not
+        BounceSender: Address;
+        /** Human-readable text for the bounce message to explain the failure. If not
 specified, the text will be auto-generated based on the bounced recipient
 information. **/
-      Explanation?: Explanation;
-      /** Message-related DSN fields. If not specified, Amazon SES will choose the values. **/
-      MessageDsn?: MessageDsn;
-      /** A list of recipients of the bounced message, including the information required
+        Explanation?: Explanation;
+        /** Message-related DSN fields. If not specified, Amazon SES will choose the values. **/
+        MessageDsn?: MessageDsn;
+        /** A list of recipients of the bounced message, including the information required
 to create the Delivery Status Notifications (DSNs) for the recipients. You must
 specify at least one BouncedRecipientInfo in the list. **/
-      BouncedRecipientInfoList: BouncedRecipientInfoList;
-      /** This parameter is used only for sending authorization. It is the ARN of the
+        BouncedRecipientInfoList: BouncedRecipientInfoList;
+        /** This parameter is used only for sending authorization. It is the ARN of the
 identity that is associated with the sending authorization policy that permits
 you to use the address in the &quot;From&quot; header of the bounce. For more information
 about sending authorization, see the Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html] 
 . **/
-      BounceSenderArn?: AmazonResourceName;
+        BounceSenderArn?: AmazonResourceName;
     }
     export interface SendBounceResponse {
-      /** The message ID of the bounce message. **/
-      MessageId?: MessageId;
+        /** The message ID of the bounce message. **/
+        MessageId?: MessageId;
     }
     export interface SendDataPoint {
-      /** Time of the data point. **/
-      Timestamp?: Timestamp;
-      /** Number of emails that have been enqueued for sending. **/
-      DeliveryAttempts?: Counter;
-      /** Number of emails that have bounced. **/
-      Bounces?: Counter;
-      /** Number of unwanted emails that were rejected by recipients. **/
-      Complaints?: Counter;
-      /** Number of emails rejected by Amazon SES. **/
-      Rejects?: Counter;
+        /** Time of the data point. **/
+        Timestamp?: Timestamp;
+        /** Number of emails that have been enqueued for sending. **/
+        DeliveryAttempts?: Counter;
+        /** Number of emails that have bounced. **/
+        Bounces?: Counter;
+        /** Number of unwanted emails that were rejected by recipients. **/
+        Complaints?: Counter;
+        /** Number of emails rejected by Amazon SES. **/
+        Rejects?: Counter;
     }
     export interface SendEmailRequest {
-      /** The email address that is sending the email. This email address must be either
+        /** The email address that is sending the email. This email address must be either
 individually verified with Amazon SES, or from a domain that has been verified
 with Amazon SES. For information about verifying identities, see the Amazon SES
 Developer Guide
@@ -1527,23 +1527,23 @@ any other characters, then you must use MIME encoded-word syntax (RFC 2047)
 instead of a literal string. MIME encoded-word syntax uses the following form: 
 =?charset?encoding?encoded-text?= . For more information, see RFC 2047
 [http://tools.ietf.org/html/rfc2047] . **/
-      Source: Address;
-      /** The destination for this email, composed of To:, CC:, and BCC: fields. **/
-      Destination: Destination;
-      /** The message to be sent. **/
-      Message: Message;
-      /** The reply-to email address(es) for the message. If the recipient replies to the
+        Source: Address;
+        /** The destination for this email, composed of To:, CC:, and BCC: fields. **/
+        Destination: Destination;
+        /** The message to be sent. **/
+        Message: Message;
+        /** The reply-to email address(es) for the message. If the recipient replies to the
 message, each reply-to address will receive the reply. **/
-      ReplyToAddresses?: AddressList;
-      /** The email address to which bounces and complaints are to be forwarded when
+        ReplyToAddresses?: AddressList;
+        /** The email address to which bounces and complaints are to be forwarded when
 feedback forwarding is enabled. If the message cannot be delivered to the
 recipient, then an error message will be returned from the recipient&#x27;s ISP; this
 message will then be forwarded to the email address specified by the ReturnPath 
 parameter. The ReturnPath parameter is never overwritten. This email address
 must be either individually verified with Amazon SES, or from a domain that has
 been verified with Amazon SES. **/
-      ReturnPath?: Address;
-      /** This parameter is used only for sending authorization. It is the ARN of the
+        ReturnPath?: Address;
+        /** This parameter is used only for sending authorization. It is the ARN of the
 identity that is associated with the sending authorization policy that permits
 you to send for the email address specified in the Source parameter.
 
@@ -1557,8 +1557,8 @@ For more information about sending authorization, see the Amazon SES Developer
 Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html] 
 . **/
-      SourceArn?: AmazonResourceName;
-      /** This parameter is used only for sending authorization. It is the ARN of the
+        SourceArn?: AmazonResourceName;
+        /** This parameter is used only for sending authorization. It is the ARN of the
 identity that is associated with the sending authorization policy that permits
 you to use the email address specified in the ReturnPath parameter.
 
@@ -1572,14 +1572,14 @@ For more information about sending authorization, see the Amazon SES Developer
 Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html] 
 . **/
-      ReturnPathArn?: AmazonResourceName;
+        ReturnPathArn?: AmazonResourceName;
     }
     export interface SendEmailResponse {
-      /** The unique message identifier returned from the SendEmail action. **/
-      MessageId: MessageId;
+        /** The unique message identifier returned from the SendEmail action. **/
+        MessageId: MessageId;
     }
     export interface SendRawEmailRequest {
-      /** The identity&#x27;s email address. If you do not provide a value for this parameter,
+        /** The identity&#x27;s email address. If you do not provide a value for this parameter,
 you must specify a &quot;From&quot; address in the raw text of the message. (You can also
 specify both.)
 
@@ -1593,22 +1593,22 @@ If you specify the Source parameter and have feedback forwarding enabled, then
 bounces and complaints will be sent to this email address. This takes precedence
 over any Return-Path header that you might include in the raw text of the
 message. **/
-      Source?: Address;
-      /** A list of destinations for the message, consisting of To:, CC:, and BCC:
+        Source?: Address;
+        /** A list of destinations for the message, consisting of To:, CC:, and BCC:
 addresses. **/
-      Destinations?: AddressList;
-      /** The raw text of the message. The client is responsible for ensuring the
+        Destinations?: AddressList;
+        /** The raw text of the message. The client is responsible for ensuring the
 following:
 
-&amp;#42; Message must contain a header and a body, separated by a blank line.
-* All required header fields must be present.
-* Each part of a multipart MIME message must be formatted properly.
-* MIME content types must be among those supported by Amazon SES. For more
- information, go to the Amazon SES Developer Guide
- [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html] .
-* Content must be base64-encoded, if MIME requires it. **/
-      RawMessage: RawMessage;
-      /** This parameter is used only for sending authorization. It is the ARN of the
+ &amp;#42; Message must contain a header and a body, separated by a blank line.
+ * All required header fields must be present.
+ * Each part of a multipart MIME message must be formatted properly.
+ * MIME content types must be among those supported by Amazon SES. For more
+   information, go to the Amazon SES Developer Guide
+   [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html] .
+ * Content must be base64-encoded, if MIME requires it. **/
+        RawMessage: RawMessage;
+        /** This parameter is used only for sending authorization. It is the ARN of the
 identity that is associated with the sending authorization policy that permits
 you to specify a particular &quot;From&quot; address in the header of the raw email.
 
@@ -1620,8 +1620,8 @@ For information about when to use this parameter, see the description of
 SendRawEmail in this guide, or see the Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html] 
 . **/
-      FromArn?: AmazonResourceName;
-      /** This parameter is used only for sending authorization. It is the ARN of the
+        FromArn?: AmazonResourceName;
+        /** This parameter is used only for sending authorization. It is the ARN of the
 identity that is associated with the sending authorization policy that permits
 you to send for the email address specified in the Source parameter.
 
@@ -1639,8 +1639,8 @@ For information about when to use this parameter, see the description of
 SendRawEmail in this guide, or see the Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html] 
 . **/
-      SourceArn?: AmazonResourceName;
-      /** This parameter is used only for sending authorization. It is the ARN of the
+        SourceArn?: AmazonResourceName;
+        /** This parameter is used only for sending authorization. It is the ARN of the
 identity that is associated with the sending authorization policy that permits
 you to use the email address specified in the ReturnPath parameter.
 
@@ -1659,55 +1659,55 @@ For information about when to use this parameter, see the description of
 SendRawEmail in this guide, or see the Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html] 
 . **/
-      ReturnPathArn?: AmazonResourceName;
+        ReturnPathArn?: AmazonResourceName;
     }
     export interface SendRawEmailResponse {
-      /** The unique message identifier returned from the SendRawEmail action. **/
-      MessageId: MessageId;
+        /** The unique message identifier returned from the SendRawEmail action. **/
+        MessageId: MessageId;
     }
     export interface SetActiveReceiptRuleSetRequest {
-      /** The name of the receipt rule set to make active. Setting this value to null
+        /** The name of the receipt rule set to make active. Setting this value to null
 disables all email receiving. **/
-      RuleSetName?: ReceiptRuleSetName;
+        RuleSetName?: ReceiptRuleSetName;
     }
     export interface SetActiveReceiptRuleSetResponse {
     }
     export interface SetIdentityDkimEnabledRequest {
-      /** The identity for which DKIM signing should be enabled or disabled. **/
-      Identity: Identity;
-      /** Sets whether DKIM signing is enabled for an identity. Set to true to enable DKIM
+        /** The identity for which DKIM signing should be enabled or disabled. **/
+        Identity: Identity;
+        /** Sets whether DKIM signing is enabled for an identity. Set to true to enable DKIM
 signing for this identity; false to disable it. **/
-      DkimEnabled: Enabled;
+        DkimEnabled: Enabled;
     }
     export interface SetIdentityDkimEnabledResponse {
     }
     export interface SetIdentityFeedbackForwardingEnabledRequest {
-      /** The identity for which to set bounce and complaint notification forwarding.
+        /** The identity for which to set bounce and complaint notification forwarding.
 Examples: user@example.com , example.com . **/
-      Identity: Identity;
-      /** Sets whether Amazon SES will forward bounce and complaint notifications as
+        Identity: Identity;
+        /** Sets whether Amazon SES will forward bounce and complaint notifications as
 email. true specifies that Amazon SES will forward bounce and complaint
 notifications as email, in addition to any Amazon SNS topic publishing otherwise
 specified. false specifies that Amazon SES will publish bounce and complaint
 notifications only through Amazon SNS. This value can only be set to false when
 Amazon SNS topics are set for both Bounce and Complaint notification types. **/
-      ForwardingEnabled: Enabled;
+        ForwardingEnabled: Enabled;
     }
     export interface SetIdentityFeedbackForwardingEnabledResponse {
     }
     export interface SetIdentityMailFromDomainRequest {
-      /** The verified identity for which you want to enable or disable the specified
+        /** The verified identity for which you want to enable or disable the specified
 custom MAIL FROM domain. **/
-      Identity: Identity;
-      /** The custom MAIL FROM domain that you want the verified identity to use. The MAIL
+        Identity: Identity;
+        /** The custom MAIL FROM domain that you want the verified identity to use. The MAIL
 FROM domain must 1) be a subdomain of the verified identity, 2) not be used in a
 &quot;From&quot; address if the MAIL FROM domain is the destination of email feedback
 forwarding (for more information, see the Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html] ), and 3)
 not be used to receive emails. A value of null disables the custom MAIL FROM
 setting for the identity. **/
-      MailFromDomain?: MailFromDomainName;
-      /** The action that you want Amazon SES to take if it cannot successfully read the
+        MailFromDomain?: MailFromDomainName;
+        /** The action that you want Amazon SES to take if it cannot successfully read the
 required MX record when you send an email. If you choose UseDefaultValue ,
 Amazon SES will use amazonses.com (or a subdomain of that) as the MAIL FROM
 domain. If you choose RejectMessage , Amazon SES will return a 
@@ -1715,60 +1715,60 @@ MailFromDomainNotVerified error and not send the email.
 
 The action specified in BehaviorOnMXFailure is taken when the custom MAIL FROM
 domain setup is in the Pending , Failed , and TemporaryFailure states. **/
-      BehaviorOnMXFailure?: BehaviorOnMXFailure;
+        BehaviorOnMXFailure?: BehaviorOnMXFailure;
     }
     export interface SetIdentityMailFromDomainResponse {
     }
     export interface SetIdentityNotificationTopicRequest {
-      /** The identity for which the Amazon SNS topic will be set. You can specify an
+        /** The identity for which the Amazon SNS topic will be set. You can specify an
 identity by using its name or by using its Amazon Resource Name (ARN). Examples: 
 user@example.com , example.com , 
 arn:aws:ses:us-east-1:123456789012:identity/example.com . **/
-      Identity: Identity;
-      /** The type of notifications that will be published to the specified Amazon SNS
+        Identity: Identity;
+        /** The type of notifications that will be published to the specified Amazon SNS
 topic. **/
-      NotificationType: NotificationType;
-      /** The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is
+        NotificationType: NotificationType;
+        /** The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is
 omitted from the request or a null value is passed, SnsTopic is cleared and
 publishing is disabled. **/
-      SnsTopic?: NotificationTopic;
+        SnsTopic?: NotificationTopic;
     }
     export interface SetIdentityNotificationTopicResponse {
     }
     export interface SetReceiptRulePositionRequest {
-      /** The name of the receipt rule set that contains the receipt rule to reposition. **/
-      RuleSetName: ReceiptRuleSetName;
-      /** The name of the receipt rule to reposition. **/
-      RuleName: ReceiptRuleName;
-      /** The name of the receipt rule after which to place the specified receipt rule. **/
-      After?: ReceiptRuleName;
+        /** The name of the receipt rule set that contains the receipt rule to reposition. **/
+        RuleSetName: ReceiptRuleSetName;
+        /** The name of the receipt rule to reposition. **/
+        RuleName: ReceiptRuleName;
+        /** The name of the receipt rule after which to place the specified receipt rule. **/
+        After?: ReceiptRuleName;
     }
     export interface SetReceiptRulePositionResponse {
     }
     export interface StopAction {
-      /** The scope to which the Stop action applies. That is, what is being stopped. **/
-      Scope: StopScope;
-      /** The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop
+        /** The scope to which the Stop action applies. That is, what is being stopped. **/
+        Scope: StopScope;
+        /** The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop
 action is taken. An example of an Amazon SNS topic ARN is 
 arn:aws:sns:us-west-2:123456789012:MyTopic . For more information about Amazon
 SNS topics, see the Amazon SNS Developer Guide
 [http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html] . **/
-      TopicArn?: AmazonResourceName;
+        TopicArn?: AmazonResourceName;
     }
     export interface UpdateReceiptRuleRequest {
-      /** The name of the receipt rule set to which the receipt rule belongs. **/
-      RuleSetName: ReceiptRuleSetName;
-      /** A data structure that contains the updated receipt rule information. **/
-      Rule: ReceiptRule;
+        /** The name of the receipt rule set to which the receipt rule belongs. **/
+        RuleSetName: ReceiptRuleSetName;
+        /** A data structure that contains the updated receipt rule information. **/
+        Rule: ReceiptRule;
     }
     export interface UpdateReceiptRuleResponse {
     }
     export interface VerifyDomainDkimRequest {
-      /** The name of the domain to be verified for Easy DKIM signing. **/
-      Domain: Domain;
+        /** The name of the domain to be verified for Easy DKIM signing. **/
+        Domain: Domain;
     }
     export interface VerifyDomainDkimResponse {
-      /** A set of character strings that represent the domain&#x27;s identity. If the identity
+        /** A set of character strings that represent the domain&#x27;s identity. If the identity
 is an email address, the tokens represent the domain of that address.
 
 Using these tokens, you will need to create DNS CNAME records that point to DKIM
@@ -1781,42 +1781,42 @@ For more information about creating DNS records using DKIM tokens, go to the
 Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html] 
 . **/
-      DkimTokens: VerificationTokenList;
+        DkimTokens: VerificationTokenList;
     }
     export interface VerifyDomainIdentityRequest {
-      /** The domain to be verified. **/
-      Domain: Domain;
+        /** The domain to be verified. **/
+        Domain: Domain;
     }
     export interface VerifyDomainIdentityResponse {
-      /** A TXT record that must be placed in the DNS settings for the domain, in order to
+        /** A TXT record that must be placed in the DNS settings for the domain, in order to
 complete domain verification. **/
-      VerificationToken: VerificationToken;
+        VerificationToken: VerificationToken;
     }
     export interface VerifyEmailAddressRequest {
-      /** The email address to be verified. **/
-      EmailAddress: Address;
+        /** The email address to be verified. **/
+        EmailAddress: Address;
     }
     export interface VerifyEmailIdentityRequest {
-      /** The email address to be verified. **/
-      EmailAddress: Address;
+        /** The email address to be verified. **/
+        EmailAddress: Address;
     }
     export interface VerifyEmailIdentityResponse {
     }
     export interface WorkmailAction {
-      /** The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the
+        /** The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the
 WorkMail action is called. An example of an Amazon SNS topic ARN is 
 arn:aws:sns:us-west-2:123456789012:MyTopic . For more information about Amazon
 SNS topics, see the Amazon SNS Developer Guide
 [http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html] . **/
-      TopicArn?: AmazonResourceName;
-      /** The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail
+        TopicArn?: AmazonResourceName;
+        /** The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail
 organization ARN is 
 arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7 
 . For information about Amazon WorkMail organizations, see the Amazon WorkMail
 Administrator Guide
 [http://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html] 
 . **/
-      OrganizationArn: AmazonResourceName;
+        OrganizationArn: AmazonResourceName;
     }
   }
 }

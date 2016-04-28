@@ -7,73 +7,73 @@
 
 declare module "aws-sdk" {
 
-  /**
-    * apiVersion: 2014-10-31
-    * endpointPrefix: rds
-    * serviceAbbreviation: Amazon RDS
-    * signatureVersion: v4
-    * protocol: query
-    *
-    * Amazon Relational Database ServiceAmazon Relational Database Service (Amazon
- RDS) is a web service that makes it easier to set up, operate, and scale a
- relational database in the cloud. It provides cost-efficient, resizeable
- capacity for an industry-standard relational database and manages common
- database administration tasks, freeing up developers to focus on what makes
- their applications and businesses unique.
- 
- Amazon RDS gives you access to the capabilities of a MySQL, MariaDB, PostgreSQL,
- Microsoft SQL Server, Oracle, or Amazon Aurora database server. These
- capabilities mean that the code, applications, and tools you already use today
- with your existing databases work with Amazon RDS without modification. Amazon
- RDS automatically backs up your database and maintains the database software
- that powers your DB instance. Amazon RDS is flexible: you can scale your
- database instance&#x27;s compute resources and storage capacity to meet your
- application&#x27;s demand. As with all Amazon Web Services, there are no up-front
- investments, and you pay only for the resources you use.
- 
- This interface reference for Amazon RDS contains documentation for a programming
- or command line interface you can use to manage Amazon RDS. Note that Amazon RDS
- is asynchronous, which means that some interfaces might require techniques such
- as polling or callback functions to determine when a command has been applied.
- In this reference, the parameter descriptions indicate whether a command is
- applied immediately, on the next instance reboot, or during the maintenance
- window. The reference structure is as follows, and we list following some
- related topics from the user guide.
- 
- Amazon RDS API Reference
- 
-  &amp;#42; For the alphabetical list of API actions, see API Actions
-    [http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Operations.html] 
-    .
-    
-    
-  * For the alphabetical list of data types, see Data Types
-    [http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Types.html] .
-    
-    
-  * For a list of common query parameters, see Common Parameters
-    [http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonParameters.html] 
-    .
-    
-    
-  * For descriptions of the error codes, see Common Errors
-    [http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonErrors.html] 
-    .
-    
-    
- 
- Amazon RDS User Guide
- 
-  * For a summary of the Amazon RDS interfaces, see Available RDS Interfaces
-    [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html#Welcome.Interfaces] 
-    .
-    
-    
-  * For more information about how to use the Query API, see Using the Query API
-    [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Using_the_Query_API.html] 
-    .
-    *
-    */
+ /**
+   * apiVersion: 2014-10-31
+   * endpointPrefix: rds
+   * serviceAbbreviation: Amazon RDS
+   * signatureVersion: v4
+   * protocol: query
+   *
+   * Amazon Relational Database ServiceAmazon Relational Database Service (Amazon
+RDS) is a web service that makes it easier to set up, operate, and scale a
+relational database in the cloud. It provides cost-efficient, resizeable
+capacity for an industry-standard relational database and manages common
+database administration tasks, freeing up developers to focus on what makes
+their applications and businesses unique.
+
+Amazon RDS gives you access to the capabilities of a MySQL, MariaDB, PostgreSQL,
+Microsoft SQL Server, Oracle, or Amazon Aurora database server. These
+capabilities mean that the code, applications, and tools you already use today
+with your existing databases work with Amazon RDS without modification. Amazon
+RDS automatically backs up your database and maintains the database software
+that powers your DB instance. Amazon RDS is flexible: you can scale your
+database instance&#x27;s compute resources and storage capacity to meet your
+application&#x27;s demand. As with all Amazon Web Services, there are no up-front
+investments, and you pay only for the resources you use.
+
+This interface reference for Amazon RDS contains documentation for a programming
+or command line interface you can use to manage Amazon RDS. Note that Amazon RDS
+is asynchronous, which means that some interfaces might require techniques such
+as polling or callback functions to determine when a command has been applied.
+In this reference, the parameter descriptions indicate whether a command is
+applied immediately, on the next instance reboot, or during the maintenance
+window. The reference structure is as follows, and we list following some
+related topics from the user guide.
+
+Amazon RDS API Reference
+
+ &amp;#42; For the alphabetical list of API actions, see API Actions
+   [http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Operations.html] 
+   .
+   
+   
+ * For the alphabetical list of data types, see Data Types
+   [http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Types.html] .
+   
+   
+ * For a list of common query parameters, see Common Parameters
+   [http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonParameters.html] 
+   .
+   
+   
+ * For descriptions of the error codes, see Common Errors
+   [http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonErrors.html] 
+   .
+   
+   
+
+Amazon RDS User Guide
+
+ * For a summary of the Amazon RDS interfaces, see Available RDS Interfaces
+   [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html#Welcome.Interfaces] 
+   .
+   
+   
+ * For more information about how to use the Query API, see Using the Query API
+   [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Using_the_Query_API.html] 
+   .
+   *
+   */
   export class RDS extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
@@ -83,7 +83,7 @@ declare module "aws-sdk" {
      * @error SubscriptionNotFoundFault   
      * @error SourceNotFoundFault   
      */
-    addSourceIdentifierToSubscription(params: RDS.AddSourceIdentifierToSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault | RDS.SourceNotFoundFault | any, data: RDS.AddSourceIdentifierToSubscriptionResult | any) => void): Request;
+    addSourceIdentifierToSubscription(params: RDS.AddSourceIdentifierToSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault|RDS.SourceNotFoundFault|any, data: RDS.AddSourceIdentifierToSubscriptionResult|any) => void): Request;
     /**
      * Adds metadata tags to an Amazon RDS resource. These tags can also be used with
 cost allocation reporting to track cost associated with Amazon RDS resources, or
@@ -96,14 +96,14 @@ Resources
      * @error DBInstanceNotFoundFault   
      * @error DBSnapshotNotFoundFault   
      */
-    addTagsToResource(params: RDS.AddTagsToResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault | RDS.DBSnapshotNotFoundFault | any, data: any) => void): Request;
+    addTagsToResource(params: RDS.AddTagsToResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: any) => void): Request;
     /**
      * Applies a pending maintenance action to a resource (for example, to a DB
 instance).
      *
      * @error ResourceNotFoundFault   
      */
-    applyPendingMaintenanceAction(params: RDS.ApplyPendingMaintenanceActionMessage, callback?: (err: RDS.ResourceNotFoundFault | any, data: RDS.ApplyPendingMaintenanceActionResult | any) => void): Request;
+    applyPendingMaintenanceAction(params: RDS.ApplyPendingMaintenanceActionMessage, callback?: (err: RDS.ResourceNotFoundFault|any, data: RDS.ApplyPendingMaintenanceActionResult|any) => void): Request;
     /**
      * Enables ingress to a DBSecurityGroup using one of two forms of authorization.
 First, EC2 or VPC security groups can be added to the DBSecurityGroup if the
@@ -125,7 +125,7 @@ For an overview of CIDR ranges, go to the Wikipedia Tutorial
      * @error AuthorizationAlreadyExistsFault   
      * @error AuthorizationQuotaExceededFault   
      */
-    authorizeDBSecurityGroupIngress(params: RDS.AuthorizeDBSecurityGroupIngressMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault | RDS.InvalidDBSecurityGroupStateFault | RDS.AuthorizationAlreadyExistsFault | RDS.AuthorizationQuotaExceededFault | any, data: RDS.AuthorizeDBSecurityGroupIngressResult | any) => void): Request;
+    authorizeDBSecurityGroupIngress(params: RDS.AuthorizeDBSecurityGroupIngressMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|RDS.AuthorizationAlreadyExistsFault|RDS.AuthorizationQuotaExceededFault|any, data: RDS.AuthorizeDBSecurityGroupIngressResult|any) => void): Request;
     /**
      * Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see 
 Aurora on Amazon RDS
@@ -136,7 +136,7 @@ Amazon RDS User Guide.
      * @error DBClusterSnapshotNotFoundFault   
      * @error InvalidDBClusterStateFault   
      */
-    copyDBClusterSnapshot(params: RDS.CopyDBClusterSnapshotMessage, callback?: (err: RDS.DBClusterSnapshotAlreadyExistsFault | RDS.DBClusterSnapshotNotFoundFault | RDS.InvalidDBClusterStateFault | any, data: RDS.CopyDBClusterSnapshotResult | any) => void): Request;
+    copyDBClusterSnapshot(params: RDS.CopyDBClusterSnapshotMessage, callback?: (err: RDS.DBClusterSnapshotAlreadyExistsFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InvalidDBClusterStateFault|any, data: RDS.CopyDBClusterSnapshotResult|any) => void): Request;
     /**
      * Copies the specified DB parameter group.
      *
@@ -144,7 +144,7 @@ Amazon RDS User Guide.
      * @error DBParameterGroupAlreadyExistsFault   
      * @error DBParameterGroupQuotaExceededFault   
      */
-    copyDBParameterGroup(params: RDS.CopyDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault | RDS.DBParameterGroupAlreadyExistsFault | RDS.DBParameterGroupQuotaExceededFault | any, data: RDS.CopyDBParameterGroupResult | any) => void): Request;
+    copyDBParameterGroup(params: RDS.CopyDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|RDS.DBParameterGroupAlreadyExistsFault|RDS.DBParameterGroupQuotaExceededFault|any, data: RDS.CopyDBParameterGroupResult|any) => void): Request;
     /**
      * Copies the specified DB snapshot. The source DB snapshot must be in the
 &quot;available&quot; state.
@@ -158,7 +158,7 @@ SourceDBSnapshotIdentifier must be the ARN of the shared DB snapshot.
      * @error SnapshotQuotaExceededFault   
      * @error KMSKeyNotAccessibleFault   
      */
-    copyDBSnapshot(params: RDS.CopyDBSnapshotMessage, callback?: (err: RDS.DBSnapshotAlreadyExistsFault | RDS.DBSnapshotNotFoundFault | RDS.InvalidDBSnapshotStateFault | RDS.SnapshotQuotaExceededFault | RDS.KMSKeyNotAccessibleFault | any, data: RDS.CopyDBSnapshotResult | any) => void): Request;
+    copyDBSnapshot(params: RDS.CopyDBSnapshotMessage, callback?: (err: RDS.DBSnapshotAlreadyExistsFault|RDS.DBSnapshotNotFoundFault|RDS.InvalidDBSnapshotStateFault|RDS.SnapshotQuotaExceededFault|RDS.KMSKeyNotAccessibleFault|any, data: RDS.CopyDBSnapshotResult|any) => void): Request;
     /**
      * Copies the specified option group.
      *
@@ -166,7 +166,7 @@ SourceDBSnapshotIdentifier must be the ARN of the shared DB snapshot.
      * @error OptionGroupNotFoundFault   
      * @error OptionGroupQuotaExceededFault   
      */
-    copyOptionGroup(params: RDS.CopyOptionGroupMessage, callback?: (err: RDS.OptionGroupAlreadyExistsFault | RDS.OptionGroupNotFoundFault | RDS.OptionGroupQuotaExceededFault | any, data: RDS.CopyOptionGroupResult | any) => void): Request;
+    copyOptionGroup(params: RDS.CopyOptionGroupMessage, callback?: (err: RDS.OptionGroupAlreadyExistsFault|RDS.OptionGroupNotFoundFault|RDS.OptionGroupQuotaExceededFault|any, data: RDS.CopyOptionGroupResult|any) => void): Request;
     /**
      * Creates a new Amazon Aurora DB cluster. For more information on Amazon Aurora,
 see Aurora on Amazon RDS
@@ -186,7 +186,7 @@ Amazon RDS User Guide.
      * @error KMSKeyNotAccessibleFault   
      * @error DBClusterNotFoundFault   
      */
-    createDBCluster(params: RDS.CreateDBClusterMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault | RDS.InsufficientStorageClusterCapacityFault | RDS.DBClusterQuotaExceededFault | RDS.StorageQuotaExceededFault | RDS.DBSubnetGroupNotFoundFault | RDS.InvalidVPCNetworkStateFault | RDS.InvalidDBClusterStateFault | RDS.InvalidDBSubnetGroupStateFault | RDS.InvalidSubnet | RDS.DBClusterParameterGroupNotFoundFault | RDS.KMSKeyNotAccessibleFault | RDS.DBClusterNotFoundFault | any, data: RDS.CreateDBClusterResult | any) => void): Request;
+    createDBCluster(params: RDS.CreateDBClusterMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.InsufficientStorageClusterCapacityFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|any, data: RDS.CreateDBClusterResult|any) => void): Request;
     /**
      * Creates a new DB cluster parameter group.
 
@@ -220,7 +220,7 @@ Amazon RDS User Guide.
      * @error DBParameterGroupQuotaExceededFault   
      * @error DBParameterGroupAlreadyExistsFault   
      */
-    createDBClusterParameterGroup(params: RDS.CreateDBClusterParameterGroupMessage, callback?: (err: RDS.DBParameterGroupQuotaExceededFault | RDS.DBParameterGroupAlreadyExistsFault | any, data: RDS.CreateDBClusterParameterGroupResult | any) => void): Request;
+    createDBClusterParameterGroup(params: RDS.CreateDBClusterParameterGroupMessage, callback?: (err: RDS.DBParameterGroupQuotaExceededFault|RDS.DBParameterGroupAlreadyExistsFault|any, data: RDS.CreateDBClusterParameterGroupResult|any) => void): Request;
     /**
      * Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see 
 Aurora on Amazon RDS
@@ -233,7 +233,7 @@ Amazon RDS User Guide.
      * @error SnapshotQuotaExceededFault   
      * @error InvalidDBClusterSnapshotStateFault   
      */
-    createDBClusterSnapshot(params: RDS.CreateDBClusterSnapshotMessage, callback?: (err: RDS.DBClusterSnapshotAlreadyExistsFault | RDS.InvalidDBClusterStateFault | RDS.DBClusterNotFoundFault | RDS.SnapshotQuotaExceededFault | RDS.InvalidDBClusterSnapshotStateFault | any, data: RDS.CreateDBClusterSnapshotResult | any) => void): Request;
+    createDBClusterSnapshot(params: RDS.CreateDBClusterSnapshotMessage, callback?: (err: RDS.DBClusterSnapshotAlreadyExistsFault|RDS.InvalidDBClusterStateFault|RDS.DBClusterNotFoundFault|RDS.SnapshotQuotaExceededFault|RDS.InvalidDBClusterSnapshotStateFault|any, data: RDS.CreateDBClusterSnapshotResult|any) => void): Request;
     /**
      * Creates a new DB instance.
      *
@@ -256,7 +256,7 @@ Amazon RDS User Guide.
      * @error KMSKeyNotAccessibleFault   
      * @error DomainNotFoundFault   
      */
-    createDBInstance(params: RDS.CreateDBInstanceMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault | RDS.InsufficientDBInstanceCapacityFault | RDS.DBParameterGroupNotFoundFault | RDS.DBSecurityGroupNotFoundFault | RDS.InstanceQuotaExceededFault | RDS.StorageQuotaExceededFault | RDS.DBSubnetGroupNotFoundFault | RDS.DBSubnetGroupDoesNotCoverEnoughAZs | RDS.InvalidDBClusterStateFault | RDS.InvalidSubnet | RDS.InvalidVPCNetworkStateFault | RDS.ProvisionedIopsNotAvailableInAZFault | RDS.OptionGroupNotFoundFault | RDS.DBClusterNotFoundFault | RDS.StorageTypeNotSupportedFault | RDS.AuthorizationNotFoundFault | RDS.KMSKeyNotAccessibleFault | RDS.DomainNotFoundFault | any, data: RDS.CreateDBInstanceResult | any) => void): Request;
+    createDBInstance(params: RDS.CreateDBInstanceMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.InsufficientDBInstanceCapacityFault|RDS.DBParameterGroupNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidDBClusterStateFault|RDS.InvalidSubnet|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.DBClusterNotFoundFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DomainNotFoundFault|any, data: RDS.CreateDBInstanceResult|any) => void): Request;
     /**
      * Creates a DB instance for a DB instance running MySQL, MariaDB, or PostgreSQL
 that acts as a Read Replica of a source DB instance.
@@ -287,7 +287,7 @@ The source DB instance must have backup retention enabled.
      * @error StorageTypeNotSupportedFault   
      * @error KMSKeyNotAccessibleFault   
      */
-    createDBInstanceReadReplica(params: RDS.CreateDBInstanceReadReplicaMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault | RDS.InsufficientDBInstanceCapacityFault | RDS.DBParameterGroupNotFoundFault | RDS.DBSecurityGroupNotFoundFault | RDS.InstanceQuotaExceededFault | RDS.StorageQuotaExceededFault | RDS.DBInstanceNotFoundFault | RDS.InvalidDBInstanceStateFault | RDS.DBSubnetGroupNotFoundFault | RDS.DBSubnetGroupDoesNotCoverEnoughAZs | RDS.InvalidSubnet | RDS.InvalidVPCNetworkStateFault | RDS.ProvisionedIopsNotAvailableInAZFault | RDS.OptionGroupNotFoundFault | RDS.DBSubnetGroupNotAllowedFault | RDS.InvalidDBSubnetGroupFault | RDS.StorageTypeNotSupportedFault | RDS.KMSKeyNotAccessibleFault | any, data: RDS.CreateDBInstanceReadReplicaResult | any) => void): Request;
+    createDBInstanceReadReplica(params: RDS.CreateDBInstanceReadReplicaMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.InsufficientDBInstanceCapacityFault|RDS.DBParameterGroupNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBInstanceNotFoundFault|RDS.InvalidDBInstanceStateFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.DBSubnetGroupNotAllowedFault|RDS.InvalidDBSubnetGroupFault|RDS.StorageTypeNotSupportedFault|RDS.KMSKeyNotAccessibleFault|any, data: RDS.CreateDBInstanceReadReplicaResult|any) => void): Request;
     /**
      * Creates a new DB parameter group.
 
@@ -314,7 +314,7 @@ created or modified.
      * @error DBParameterGroupQuotaExceededFault   
      * @error DBParameterGroupAlreadyExistsFault   
      */
-    createDBParameterGroup(params: RDS.CreateDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupQuotaExceededFault | RDS.DBParameterGroupAlreadyExistsFault | any, data: RDS.CreateDBParameterGroupResult | any) => void): Request;
+    createDBParameterGroup(params: RDS.CreateDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupQuotaExceededFault|RDS.DBParameterGroupAlreadyExistsFault|any, data: RDS.CreateDBParameterGroupResult|any) => void): Request;
     /**
      * Creates a new DB security group. DB security groups control access to a DB
 instance.
@@ -323,7 +323,7 @@ instance.
      * @error DBSecurityGroupQuotaExceededFault   
      * @error DBSecurityGroupNotSupportedFault   
      */
-    createDBSecurityGroup(params: RDS.CreateDBSecurityGroupMessage, callback?: (err: RDS.DBSecurityGroupAlreadyExistsFault | RDS.DBSecurityGroupQuotaExceededFault | RDS.DBSecurityGroupNotSupportedFault | any, data: RDS.CreateDBSecurityGroupResult | any) => void): Request;
+    createDBSecurityGroup(params: RDS.CreateDBSecurityGroupMessage, callback?: (err: RDS.DBSecurityGroupAlreadyExistsFault|RDS.DBSecurityGroupQuotaExceededFault|RDS.DBSecurityGroupNotSupportedFault|any, data: RDS.CreateDBSecurityGroupResult|any) => void): Request;
     /**
      * Creates a DBSnapshot. The source DBInstance must be in &quot;available&quot; state.
      *
@@ -332,7 +332,7 @@ instance.
      * @error DBInstanceNotFoundFault   
      * @error SnapshotQuotaExceededFault   
      */
-    createDBSnapshot(params: RDS.CreateDBSnapshotMessage, callback?: (err: RDS.DBSnapshotAlreadyExistsFault | RDS.InvalidDBInstanceStateFault | RDS.DBInstanceNotFoundFault | RDS.SnapshotQuotaExceededFault | any, data: RDS.CreateDBSnapshotResult | any) => void): Request;
+    createDBSnapshot(params: RDS.CreateDBSnapshotMessage, callback?: (err: RDS.DBSnapshotAlreadyExistsFault|RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|RDS.SnapshotQuotaExceededFault|any, data: RDS.CreateDBSnapshotResult|any) => void): Request;
     /**
      * Creates a new DB subnet group. DB subnet groups must contain at least one subnet
 in at least two AZs in the region.
@@ -343,7 +343,7 @@ in at least two AZs in the region.
      * @error DBSubnetGroupDoesNotCoverEnoughAZs   
      * @error InvalidSubnet   
      */
-    createDBSubnetGroup(params: RDS.CreateDBSubnetGroupMessage, callback?: (err: RDS.DBSubnetGroupAlreadyExistsFault | RDS.DBSubnetGroupQuotaExceededFault | RDS.DBSubnetQuotaExceededFault | RDS.DBSubnetGroupDoesNotCoverEnoughAZs | RDS.InvalidSubnet | any, data: RDS.CreateDBSubnetGroupResult | any) => void): Request;
+    createDBSubnetGroup(params: RDS.CreateDBSubnetGroupMessage, callback?: (err: RDS.DBSubnetGroupAlreadyExistsFault|RDS.DBSubnetGroupQuotaExceededFault|RDS.DBSubnetQuotaExceededFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|any, data: RDS.CreateDBSubnetGroupResult|any) => void): Request;
     /**
      * Creates an RDS event notification subscription. This action requires a topic ARN
 (Amazon Resource Name) created by either the RDS console, the SNS console, or
@@ -372,14 +372,14 @@ from all RDS sources belonging to your customer account.
      * @error SubscriptionCategoryNotFoundFault   
      * @error SourceNotFoundFault   
      */
-    createEventSubscription(params: RDS.CreateEventSubscriptionMessage, callback?: (err: RDS.EventSubscriptionQuotaExceededFault | RDS.SubscriptionAlreadyExistFault | RDS.SNSInvalidTopicFault | RDS.SNSNoAuthorizationFault | RDS.SNSTopicArnNotFoundFault | RDS.SubscriptionCategoryNotFoundFault | RDS.SourceNotFoundFault | any, data: RDS.CreateEventSubscriptionResult | any) => void): Request;
+    createEventSubscription(params: RDS.CreateEventSubscriptionMessage, callback?: (err: RDS.EventSubscriptionQuotaExceededFault|RDS.SubscriptionAlreadyExistFault|RDS.SNSInvalidTopicFault|RDS.SNSNoAuthorizationFault|RDS.SNSTopicArnNotFoundFault|RDS.SubscriptionCategoryNotFoundFault|RDS.SourceNotFoundFault|any, data: RDS.CreateEventSubscriptionResult|any) => void): Request;
     /**
      * Creates a new option group. You can create up to 20 option groups.
      *
      * @error OptionGroupAlreadyExistsFault   
      * @error OptionGroupQuotaExceededFault   
      */
-    createOptionGroup(params: RDS.CreateOptionGroupMessage, callback?: (err: RDS.OptionGroupAlreadyExistsFault | RDS.OptionGroupQuotaExceededFault | any, data: RDS.CreateOptionGroupResult | any) => void): Request;
+    createOptionGroup(params: RDS.CreateOptionGroupMessage, callback?: (err: RDS.OptionGroupAlreadyExistsFault|RDS.OptionGroupQuotaExceededFault|any, data: RDS.CreateOptionGroupResult|any) => void): Request;
     /**
      * The DeleteDBCluster action deletes a previously provisioned DB cluster. A
 successful response from the web service indicates the request was received
@@ -397,7 +397,7 @@ Amazon RDS User Guide.
      * @error SnapshotQuotaExceededFault   
      * @error InvalidDBClusterSnapshotStateFault   
      */
-    deleteDBCluster(params: RDS.DeleteDBClusterMessage, callback?: (err: RDS.DBClusterNotFoundFault | RDS.InvalidDBClusterStateFault | RDS.DBClusterSnapshotAlreadyExistsFault | RDS.SnapshotQuotaExceededFault | RDS.InvalidDBClusterSnapshotStateFault | any, data: RDS.DeleteDBClusterResult | any) => void): Request;
+    deleteDBCluster(params: RDS.DeleteDBClusterMessage, callback?: (err: RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|RDS.DBClusterSnapshotAlreadyExistsFault|RDS.SnapshotQuotaExceededFault|RDS.InvalidDBClusterSnapshotStateFault|any, data: RDS.DeleteDBClusterResult|any) => void): Request;
     /**
      * Deletes a specified DB cluster parameter group. The DB cluster parameter group
 to be deleted cannot be associated with any DB clusters.
@@ -409,7 +409,7 @@ Amazon RDS User Guide.
      * @error InvalidDBParameterGroupStateFault   
      * @error DBParameterGroupNotFoundFault   
      */
-    deleteDBClusterParameterGroup(params: RDS.DeleteDBClusterParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault | RDS.DBParameterGroupNotFoundFault | any, data: any) => void): Request;
+    deleteDBClusterParameterGroup(params: RDS.DeleteDBClusterParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: any) => void): Request;
     /**
      * Deletes a DB cluster snapshot. If the snapshot is being copied, the copy
 operation is terminated.
@@ -422,7 +422,7 @@ Amazon RDS User Guide.
      * @error InvalidDBClusterSnapshotStateFault   
      * @error DBClusterSnapshotNotFoundFault   
      */
-    deleteDBClusterSnapshot(params: RDS.DeleteDBClusterSnapshotMessage, callback?: (err: RDS.InvalidDBClusterSnapshotStateFault | RDS.DBClusterSnapshotNotFoundFault | any, data: RDS.DeleteDBClusterSnapshotResult | any) => void): Request;
+    deleteDBClusterSnapshot(params: RDS.DeleteDBClusterSnapshotMessage, callback?: (err: RDS.InvalidDBClusterSnapshotStateFault|RDS.DBClusterSnapshotNotFoundFault|any, data: RDS.DeleteDBClusterSnapshotResult|any) => void): Request;
     /**
      * The DeleteDBInstance action deletes a previously provisioned DB instance. A
 successful response from the web service indicates the request was received
@@ -445,7 +445,7 @@ the SkipFinalSnapshot parameter is set to &quot;true&quot;.
      * @error SnapshotQuotaExceededFault   
      * @error InvalidDBClusterStateFault   
      */
-    deleteDBInstance(params: RDS.DeleteDBInstanceMessage, callback?: (err: RDS.DBInstanceNotFoundFault | RDS.InvalidDBInstanceStateFault | RDS.DBSnapshotAlreadyExistsFault | RDS.SnapshotQuotaExceededFault | RDS.InvalidDBClusterStateFault | any, data: RDS.DeleteDBInstanceResult | any) => void): Request;
+    deleteDBInstance(params: RDS.DeleteDBInstanceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.InvalidDBInstanceStateFault|RDS.DBSnapshotAlreadyExistsFault|RDS.SnapshotQuotaExceededFault|RDS.InvalidDBClusterStateFault|any, data: RDS.DeleteDBInstanceResult|any) => void): Request;
     /**
      * Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted cannot
 be associated with any DB instances.
@@ -453,7 +453,7 @@ be associated with any DB instances.
      * @error InvalidDBParameterGroupStateFault   
      * @error DBParameterGroupNotFoundFault   
      */
-    deleteDBParameterGroup(params: RDS.DeleteDBParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault | RDS.DBParameterGroupNotFoundFault | any, data: any) => void): Request;
+    deleteDBParameterGroup(params: RDS.DeleteDBParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: any) => void): Request;
     /**
      * Deletes a DB security group.
 
@@ -462,7 +462,7 @@ The specified DB security group must not be associated with any DB instances.
      * @error InvalidDBSecurityGroupStateFault   
      * @error DBSecurityGroupNotFoundFault   
      */
-    deleteDBSecurityGroup(params: RDS.DeleteDBSecurityGroupMessage, callback?: (err: RDS.InvalidDBSecurityGroupStateFault | RDS.DBSecurityGroupNotFoundFault | any, data: any) => void): Request;
+    deleteDBSecurityGroup(params: RDS.DeleteDBSecurityGroupMessage, callback?: (err: RDS.InvalidDBSecurityGroupStateFault|RDS.DBSecurityGroupNotFoundFault|any, data: any) => void): Request;
     /**
      * Deletes a DBSnapshot. If the snapshot is being copied, the copy operation is
 terminated.
@@ -472,7 +472,7 @@ The DBSnapshot must be in the available state to be deleted.
      * @error InvalidDBSnapshotStateFault   
      * @error DBSnapshotNotFoundFault   
      */
-    deleteDBSnapshot(params: RDS.DeleteDBSnapshotMessage, callback?: (err: RDS.InvalidDBSnapshotStateFault | RDS.DBSnapshotNotFoundFault | any, data: RDS.DeleteDBSnapshotResult | any) => void): Request;
+    deleteDBSnapshot(params: RDS.DeleteDBSnapshotMessage, callback?: (err: RDS.InvalidDBSnapshotStateFault|RDS.DBSnapshotNotFoundFault|any, data: RDS.DeleteDBSnapshotResult|any) => void): Request;
     /**
      * Deletes a DB subnet group.
 
@@ -483,21 +483,21 @@ instances.
      * @error InvalidDBSubnetStateFault   
      * @error DBSubnetGroupNotFoundFault   
      */
-    deleteDBSubnetGroup(params: RDS.DeleteDBSubnetGroupMessage, callback?: (err: RDS.InvalidDBSubnetGroupStateFault | RDS.InvalidDBSubnetStateFault | RDS.DBSubnetGroupNotFoundFault | any, data: any) => void): Request;
+    deleteDBSubnetGroup(params: RDS.DeleteDBSubnetGroupMessage, callback?: (err: RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidDBSubnetStateFault|RDS.DBSubnetGroupNotFoundFault|any, data: any) => void): Request;
     /**
      * Deletes an RDS event notification subscription.
      *
      * @error SubscriptionNotFoundFault   
      * @error InvalidEventSubscriptionStateFault   
      */
-    deleteEventSubscription(params: RDS.DeleteEventSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault | RDS.InvalidEventSubscriptionStateFault | any, data: RDS.DeleteEventSubscriptionResult | any) => void): Request;
+    deleteEventSubscription(params: RDS.DeleteEventSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault|RDS.InvalidEventSubscriptionStateFault|any, data: RDS.DeleteEventSubscriptionResult|any) => void): Request;
     /**
      * Deletes an existing option group.
      *
      * @error OptionGroupNotFoundFault   
      * @error InvalidOptionGroupStateFault   
      */
-    deleteOptionGroup(params: RDS.DeleteOptionGroupMessage, callback?: (err: RDS.OptionGroupNotFoundFault | RDS.InvalidOptionGroupStateFault | any, data: any) => void): Request;
+    deleteOptionGroup(params: RDS.DeleteOptionGroupMessage, callback?: (err: RDS.OptionGroupNotFoundFault|RDS.InvalidOptionGroupStateFault|any, data: any) => void): Request;
     /**
      * Lists all of the attributes for a customer account. The attributes include
 Amazon RDS quotas for the account, such as the number of DB instances allowed.
@@ -507,13 +507,13 @@ quota, and the quota&#x27;s maximum value.
 This command does not take any parameters.
      *
      */
-    describeAccountAttributes(params: RDS.DescribeAccountAttributesMessage, callback?: (err: any, data: RDS.AccountAttributesMessage | any) => void): Request;
+    describeAccountAttributes(params: RDS.DescribeAccountAttributesMessage, callback?: (err: any, data: RDS.AccountAttributesMessage|any) => void): Request;
     /**
      * Lists the set of CA certificates provided by Amazon RDS for this AWS account.
      *
      * @error CertificateNotFoundFault   
      */
-    describeCertificates(params: RDS.DescribeCertificatesMessage, callback?: (err: RDS.CertificateNotFoundFault | any, data: RDS.CertificateMessage | any) => void): Request;
+    describeCertificates(params: RDS.DescribeCertificatesMessage, callback?: (err: RDS.CertificateNotFoundFault|any, data: RDS.CertificateMessage|any) => void): Request;
     /**
      * Returns a list of DBClusterParameterGroup descriptions. If a 
 DBClusterParameterGroupName parameter is specified, the list will contain only
@@ -525,7 +525,7 @@ Amazon RDS User Guide.
      *
      * @error DBParameterGroupNotFoundFault   
      */
-    describeDBClusterParameterGroups(params: RDS.DescribeDBClusterParameterGroupsMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault | any, data: RDS.DBClusterParameterGroupsMessage | any) => void): Request;
+    describeDBClusterParameterGroups(params: RDS.DescribeDBClusterParameterGroupsMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBClusterParameterGroupsMessage|any) => void): Request;
     /**
      * Returns the detailed parameter list for a particular DB cluster parameter group.
 
@@ -535,7 +535,7 @@ Amazon RDS User Guide.
      *
      * @error DBParameterGroupNotFoundFault   
      */
-    describeDBClusterParameters(params: RDS.DescribeDBClusterParametersMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault | any, data: RDS.DBClusterParameterGroupDetails | any) => void): Request;
+    describeDBClusterParameters(params: RDS.DescribeDBClusterParametersMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBClusterParameterGroupDetails|any) => void): Request;
     /**
      * Returns information about DB cluster snapshots. This API supports pagination.
 
@@ -545,7 +545,7 @@ Amazon RDS User Guide.
      *
      * @error DBClusterSnapshotNotFoundFault   
      */
-    describeDBClusterSnapshots(params: RDS.DescribeDBClusterSnapshotsMessage, callback?: (err: RDS.DBClusterSnapshotNotFoundFault | any, data: RDS.DBClusterSnapshotMessage | any) => void): Request;
+    describeDBClusterSnapshots(params: RDS.DescribeDBClusterSnapshotsMessage, callback?: (err: RDS.DBClusterSnapshotNotFoundFault|any, data: RDS.DBClusterSnapshotMessage|any) => void): Request;
     /**
      * Returns information about provisioned Aurora DB clusters. This API supports
 pagination.
@@ -556,25 +556,25 @@ Amazon RDS User Guide.
      *
      * @error DBClusterNotFoundFault   
      */
-    describeDBClusters(params: RDS.DescribeDBClustersMessage, callback?: (err: RDS.DBClusterNotFoundFault | any, data: RDS.DBClusterMessage | any) => void): Request;
+    describeDBClusters(params: RDS.DescribeDBClustersMessage, callback?: (err: RDS.DBClusterNotFoundFault|any, data: RDS.DBClusterMessage|any) => void): Request;
     /**
      * Returns a list of the available DB engines.
      *
      */
-    describeDBEngineVersions(params: RDS.DescribeDBEngineVersionsMessage, callback?: (err: any, data: RDS.DBEngineVersionMessage | any) => void): Request;
+    describeDBEngineVersions(params: RDS.DescribeDBEngineVersionsMessage, callback?: (err: any, data: RDS.DBEngineVersionMessage|any) => void): Request;
     /**
      * Returns information about provisioned RDS instances. This API supports
 pagination.
      *
      * @error DBInstanceNotFoundFault   
      */
-    describeDBInstances(params: RDS.DescribeDBInstancesMessage, callback?: (err: RDS.DBInstanceNotFoundFault | any, data: RDS.DBInstanceMessage | any) => void): Request;
+    describeDBInstances(params: RDS.DescribeDBInstancesMessage, callback?: (err: RDS.DBInstanceNotFoundFault|any, data: RDS.DBInstanceMessage|any) => void): Request;
     /**
      * Returns a list of DB log files for the DB instance.
      *
      * @error DBInstanceNotFoundFault   
      */
-    describeDBLogFiles(params: RDS.DescribeDBLogFilesMessage, callback?: (err: RDS.DBInstanceNotFoundFault | any, data: RDS.DescribeDBLogFilesResponse | any) => void): Request;
+    describeDBLogFiles(params: RDS.DescribeDBLogFilesMessage, callback?: (err: RDS.DBInstanceNotFoundFault|any, data: RDS.DescribeDBLogFilesResponse|any) => void): Request;
     /**
      * Returns a list of DBParameterGroup descriptions. If a DBParameterGroupName is
 specified, the list will contain only the description of the specified DB
@@ -582,13 +582,13 @@ parameter group.
      *
      * @error DBParameterGroupNotFoundFault   
      */
-    describeDBParameterGroups(params: RDS.DescribeDBParameterGroupsMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault | any, data: RDS.DBParameterGroupsMessage | any) => void): Request;
+    describeDBParameterGroups(params: RDS.DescribeDBParameterGroupsMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBParameterGroupsMessage|any) => void): Request;
     /**
      * Returns the detailed parameter list for a particular DB parameter group.
      *
      * @error DBParameterGroupNotFoundFault   
      */
-    describeDBParameters(params: RDS.DescribeDBParametersMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault | any, data: RDS.DBParameterGroupDetails | any) => void): Request;
+    describeDBParameters(params: RDS.DescribeDBParametersMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBParameterGroupDetails|any) => void): Request;
     /**
      * Returns a list of DBSecurityGroup descriptions. If a DBSecurityGroupName is
 specified, the list will contain only the descriptions of the specified DB
@@ -596,7 +596,7 @@ security group.
      *
      * @error DBSecurityGroupNotFoundFault   
      */
-    describeDBSecurityGroups(params: RDS.DescribeDBSecurityGroupsMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault | any, data: RDS.DBSecurityGroupMessage | any) => void): Request;
+    describeDBSecurityGroups(params: RDS.DescribeDBSecurityGroupsMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault|any, data: RDS.DBSecurityGroupMessage|any) => void): Request;
     /**
      * Returns a list of DB snapshot attribute names and values for a manual DB
 snapshot.
@@ -613,13 +613,13 @@ ModifyDBSnapshotAttribute API.
      *
      * @error DBSnapshotNotFoundFault   
      */
-    describeDBSnapshotAttributes(params: RDS.DescribeDBSnapshotAttributesMessage, callback?: (err: RDS.DBSnapshotNotFoundFault | any, data: RDS.DescribeDBSnapshotAttributesResult | any) => void): Request;
+    describeDBSnapshotAttributes(params: RDS.DescribeDBSnapshotAttributesMessage, callback?: (err: RDS.DBSnapshotNotFoundFault|any, data: RDS.DescribeDBSnapshotAttributesResult|any) => void): Request;
     /**
      * Returns information about DB snapshots. This API supports pagination.
      *
      * @error DBSnapshotNotFoundFault   
      */
-    describeDBSnapshots(params: RDS.DescribeDBSnapshotsMessage, callback?: (err: RDS.DBSnapshotNotFoundFault | any, data: RDS.DBSnapshotMessage | any) => void): Request;
+    describeDBSnapshots(params: RDS.DescribeDBSnapshotsMessage, callback?: (err: RDS.DBSnapshotNotFoundFault|any, data: RDS.DBSnapshotMessage|any) => void): Request;
     /**
      * Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is
 specified, the list will contain only the descriptions of the specified
@@ -630,7 +630,7 @@ For an overview of CIDR ranges, go to the Wikipedia Tutorial
      *
      * @error DBSubnetGroupNotFoundFault   
      */
-    describeDBSubnetGroups(params: RDS.DescribeDBSubnetGroupsMessage, callback?: (err: RDS.DBSubnetGroupNotFoundFault | any, data: RDS.DBSubnetGroupMessage | any) => void): Request;
+    describeDBSubnetGroups(params: RDS.DescribeDBSubnetGroupsMessage, callback?: (err: RDS.DBSubnetGroupNotFoundFault|any, data: RDS.DBSubnetGroupMessage|any) => void): Request;
     /**
      * Returns the default engine and system parameter information for the cluster
 database engine.
@@ -640,13 +640,13 @@ For more information on Amazon Aurora, see Aurora on Amazon RDS
 Amazon RDS User Guide.
      *
      */
-    describeEngineDefaultClusterParameters(params: RDS.DescribeEngineDefaultClusterParametersMessage, callback?: (err: any, data: RDS.DescribeEngineDefaultClusterParametersResult | any) => void): Request;
+    describeEngineDefaultClusterParameters(params: RDS.DescribeEngineDefaultClusterParametersMessage, callback?: (err: any, data: RDS.DescribeEngineDefaultClusterParametersResult|any) => void): Request;
     /**
      * Returns the default engine and system parameter information for the specified
 database engine.
      *
      */
-    describeEngineDefaultParameters(params: RDS.DescribeEngineDefaultParametersMessage, callback?: (err: any, data: RDS.DescribeEngineDefaultParametersResult | any) => void): Request;
+    describeEngineDefaultParameters(params: RDS.DescribeEngineDefaultParametersMessage, callback?: (err: any, data: RDS.DescribeEngineDefaultParametersResult|any) => void): Request;
     /**
      * Displays a list of categories for all event source types, or, if specified, for
 a specified source type. You can see a list of the event categories and source
@@ -655,7 +655,7 @@ types in the Events
 in the Amazon RDS User Guide.
      *
      */
-    describeEventCategories(params: RDS.DescribeEventCategoriesMessage, callback?: (err: any, data: RDS.EventCategoriesMessage | any) => void): Request;
+    describeEventCategories(params: RDS.DescribeEventCategoriesMessage, callback?: (err: any, data: RDS.EventCategoriesMessage|any) => void): Request;
     /**
      * Lists all the subscription descriptions for a customer account. The description
 for a subscription includes SubscriptionName, SNSTopicARN, CustomerID,
@@ -665,7 +665,7 @@ If you specify a SubscriptionName, lists the description for that subscription.
      *
      * @error SubscriptionNotFoundFault   
      */
-    describeEventSubscriptions(params: RDS.DescribeEventSubscriptionsMessage, callback?: (err: RDS.SubscriptionNotFoundFault | any, data: RDS.EventSubscriptionsMessage | any) => void): Request;
+    describeEventSubscriptions(params: RDS.DescribeEventSubscriptionsMessage, callback?: (err: RDS.SubscriptionNotFoundFault|any, data: RDS.EventSubscriptionsMessage|any) => void): Request;
     /**
      * Returns events related to DB instances, DB security groups, DB snapshots, and DB
 parameter groups for the past 14 days. Events specific to a particular DB
@@ -674,50 +674,50 @@ obtained by providing the name as a parameter. By default, the past hour of
 events are returned.
      *
      */
-    describeEvents(params: RDS.DescribeEventsMessage, callback?: (err: any, data: RDS.EventsMessage | any) => void): Request;
+    describeEvents(params: RDS.DescribeEventsMessage, callback?: (err: any, data: RDS.EventsMessage|any) => void): Request;
     /**
      * Describes all available options.
      *
      */
-    describeOptionGroupOptions(params: RDS.DescribeOptionGroupOptionsMessage, callback?: (err: any, data: RDS.OptionGroupOptionsMessage | any) => void): Request;
+    describeOptionGroupOptions(params: RDS.DescribeOptionGroupOptionsMessage, callback?: (err: any, data: RDS.OptionGroupOptionsMessage|any) => void): Request;
     /**
      * Describes the available option groups.
      *
      * @error OptionGroupNotFoundFault   
      */
-    describeOptionGroups(params: RDS.DescribeOptionGroupsMessage, callback?: (err: RDS.OptionGroupNotFoundFault | any, data: RDS.OptionGroups | any) => void): Request;
+    describeOptionGroups(params: RDS.DescribeOptionGroupsMessage, callback?: (err: RDS.OptionGroupNotFoundFault|any, data: RDS.OptionGroups|any) => void): Request;
     /**
      * Returns a list of orderable DB instance options for the specified engine.
      *
      */
-    describeOrderableDBInstanceOptions(params: RDS.DescribeOrderableDBInstanceOptionsMessage, callback?: (err: any, data: RDS.OrderableDBInstanceOptionsMessage | any) => void): Request;
+    describeOrderableDBInstanceOptions(params: RDS.DescribeOrderableDBInstanceOptionsMessage, callback?: (err: any, data: RDS.OrderableDBInstanceOptionsMessage|any) => void): Request;
     /**
      * Returns a list of resources (for example, DB instances) that have at least one
 pending maintenance action.
      *
      * @error ResourceNotFoundFault   
      */
-    describePendingMaintenanceActions(params: RDS.DescribePendingMaintenanceActionsMessage, callback?: (err: RDS.ResourceNotFoundFault | any, data: RDS.PendingMaintenanceActionsMessage | any) => void): Request;
+    describePendingMaintenanceActions(params: RDS.DescribePendingMaintenanceActionsMessage, callback?: (err: RDS.ResourceNotFoundFault|any, data: RDS.PendingMaintenanceActionsMessage|any) => void): Request;
     /**
      * Returns information about reserved DB instances for this account, or about a
 specified reserved DB instance.
      *
      * @error ReservedDBInstanceNotFoundFault   
      */
-    describeReservedDBInstances(params: RDS.DescribeReservedDBInstancesMessage, callback?: (err: RDS.ReservedDBInstanceNotFoundFault | any, data: RDS.ReservedDBInstanceMessage | any) => void): Request;
+    describeReservedDBInstances(params: RDS.DescribeReservedDBInstancesMessage, callback?: (err: RDS.ReservedDBInstanceNotFoundFault|any, data: RDS.ReservedDBInstanceMessage|any) => void): Request;
     /**
      * Lists available reserved DB instance offerings.
      *
      * @error ReservedDBInstancesOfferingNotFoundFault   
      */
-    describeReservedDBInstancesOfferings(params: RDS.DescribeReservedDBInstancesOfferingsMessage, callback?: (err: RDS.ReservedDBInstancesOfferingNotFoundFault | any, data: RDS.ReservedDBInstancesOfferingMessage | any) => void): Request;
+    describeReservedDBInstancesOfferings(params: RDS.DescribeReservedDBInstancesOfferingsMessage, callback?: (err: RDS.ReservedDBInstancesOfferingNotFoundFault|any, data: RDS.ReservedDBInstancesOfferingMessage|any) => void): Request;
     /**
      * Downloads all or a portion of the specified log file, up to 1 MB in size.
      *
      * @error DBInstanceNotFoundFault   
      * @error DBLogFileNotFoundFault   
      */
-    downloadDBLogFilePortion(params: RDS.DownloadDBLogFilePortionMessage, callback?: (err: RDS.DBInstanceNotFoundFault | RDS.DBLogFileNotFoundFault | any, data: RDS.DownloadDBLogFilePortionDetails | any) => void): Request;
+    downloadDBLogFilePortion(params: RDS.DownloadDBLogFilePortionMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBLogFileNotFoundFault|any, data: RDS.DownloadDBLogFilePortionDetails|any) => void): Request;
     /**
      * Forces a failover for a DB cluster.
 
@@ -739,7 +739,7 @@ Amazon RDS User Guide.
      * @error DBClusterNotFoundFault   
      * @error InvalidDBClusterStateFault   
      */
-    failoverDBCluster(params: RDS.FailoverDBClusterMessage, callback?: (err: RDS.DBClusterNotFoundFault | RDS.InvalidDBClusterStateFault | any, data: RDS.FailoverDBClusterResult | any) => void): Request;
+    failoverDBCluster(params: RDS.FailoverDBClusterMessage, callback?: (err: RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|any, data: RDS.FailoverDBClusterResult|any) => void): Request;
     /**
      * Lists all tags on an Amazon RDS resource.
 
@@ -750,7 +750,7 @@ Resources
      * @error DBInstanceNotFoundFault   
      * @error DBSnapshotNotFoundFault   
      */
-    listTagsForResource(params: RDS.ListTagsForResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault | RDS.DBSnapshotNotFoundFault | any, data: RDS.TagListMessage | any) => void): Request;
+    listTagsForResource(params: RDS.ListTagsForResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: RDS.TagListMessage|any) => void): Request;
     /**
      * Modify a setting for an Amazon Aurora DB cluster. You can change one or more
 database configuration parameters by specifying these parameters and the new
@@ -771,7 +771,7 @@ Amazon RDS User Guide.
      * @error InvalidDBInstanceStateFault   
      * @error DBClusterAlreadyExistsFault   
      */
-    modifyDBCluster(params: RDS.ModifyDBClusterMessage, callback?: (err: RDS.DBClusterNotFoundFault | RDS.InvalidDBClusterStateFault | RDS.StorageQuotaExceededFault | RDS.DBSubnetGroupNotFoundFault | RDS.InvalidVPCNetworkStateFault | RDS.InvalidDBSubnetGroupStateFault | RDS.InvalidSubnet | RDS.DBClusterParameterGroupNotFoundFault | RDS.InvalidDBSecurityGroupStateFault | RDS.InvalidDBInstanceStateFault | RDS.DBClusterAlreadyExistsFault | any, data: RDS.ModifyDBClusterResult | any) => void): Request;
+    modifyDBCluster(params: RDS.ModifyDBClusterMessage, callback?: (err: RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.DBClusterParameterGroupNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|RDS.InvalidDBInstanceStateFault|RDS.DBClusterAlreadyExistsFault|any, data: RDS.ModifyDBClusterResult|any) => void): Request;
     /**
      * Modifies the parameters of a DB cluster parameter group. To modify more than one
 parameter, submit a list of the following: ParameterName , ParameterValue , and 
@@ -799,7 +799,7 @@ to verify that your DB cluster parameter group has been created or modified.
      * @error DBParameterGroupNotFoundFault   
      * @error InvalidDBParameterGroupStateFault   
      */
-    modifyDBClusterParameterGroup(params: RDS.ModifyDBClusterParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault | RDS.InvalidDBParameterGroupStateFault | any, data: RDS.DBClusterParameterGroupNameMessage | any) => void): Request;
+    modifyDBClusterParameterGroup(params: RDS.ModifyDBClusterParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any, data: RDS.DBClusterParameterGroupNameMessage|any) => void): Request;
     /**
      * Modify settings for a DB instance. You can change one or more database
 configuration parameters by specifying these parameters and the new values in
@@ -822,7 +822,7 @@ the request.
      * @error CertificateNotFoundFault   
      * @error DomainNotFoundFault   
      */
-    modifyDBInstance(params: RDS.ModifyDBInstanceMessage, callback?: (err: RDS.InvalidDBInstanceStateFault | RDS.InvalidDBSecurityGroupStateFault | RDS.DBInstanceAlreadyExistsFault | RDS.DBInstanceNotFoundFault | RDS.DBSecurityGroupNotFoundFault | RDS.DBParameterGroupNotFoundFault | RDS.InsufficientDBInstanceCapacityFault | RDS.StorageQuotaExceededFault | RDS.InvalidVPCNetworkStateFault | RDS.ProvisionedIopsNotAvailableInAZFault | RDS.OptionGroupNotFoundFault | RDS.DBUpgradeDependencyFailureFault | RDS.StorageTypeNotSupportedFault | RDS.AuthorizationNotFoundFault | RDS.CertificateNotFoundFault | RDS.DomainNotFoundFault | any, data: RDS.ModifyDBInstanceResult | any) => void): Request;
+    modifyDBInstance(params: RDS.ModifyDBInstanceMessage, callback?: (err: RDS.InvalidDBInstanceStateFault|RDS.InvalidDBSecurityGroupStateFault|RDS.DBInstanceAlreadyExistsFault|RDS.DBInstanceNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.DBParameterGroupNotFoundFault|RDS.InsufficientDBInstanceCapacityFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.DBUpgradeDependencyFailureFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.CertificateNotFoundFault|RDS.DomainNotFoundFault|any, data: RDS.ModifyDBInstanceResult|any) => void): Request;
     /**
      * Modifies the parameters of a DB parameter group. To modify more than one
 parameter, submit a list of the following: ParameterName , ParameterValue , and 
@@ -846,7 +846,7 @@ created or modified.
      * @error DBParameterGroupNotFoundFault   
      * @error InvalidDBParameterGroupStateFault   
      */
-    modifyDBParameterGroup(params: RDS.ModifyDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault | RDS.InvalidDBParameterGroupStateFault | any, data: RDS.DBParameterGroupNameMessage | any) => void): Request;
+    modifyDBParameterGroup(params: RDS.ModifyDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any, data: RDS.DBParameterGroupNameMessage|any) => void): Request;
     /**
      * Adds an attribute and values to, or removes an attribute and values from a
 manual DB snapshot.
@@ -868,7 +868,7 @@ If the manual DB snapshot is encrypted, it cannot be shared.
      * @error InvalidDBSnapshotStateFault   
      * @error SharedSnapshotQuotaExceededFault   
      */
-    modifyDBSnapshotAttribute(params: RDS.ModifyDBSnapshotAttributeMessage, callback?: (err: RDS.DBSnapshotNotFoundFault | RDS.InvalidDBSnapshotStateFault | RDS.SharedSnapshotQuotaExceededFault | any, data: RDS.ModifyDBSnapshotAttributeResult | any) => void): Request;
+    modifyDBSnapshotAttribute(params: RDS.ModifyDBSnapshotAttributeMessage, callback?: (err: RDS.DBSnapshotNotFoundFault|RDS.InvalidDBSnapshotStateFault|RDS.SharedSnapshotQuotaExceededFault|any, data: RDS.ModifyDBSnapshotAttributeResult|any) => void): Request;
     /**
      * Modifies an existing DB subnet group. DB subnet groups must contain at least one
 subnet in at least two AZs in the region.
@@ -879,7 +879,7 @@ subnet in at least two AZs in the region.
      * @error DBSubnetGroupDoesNotCoverEnoughAZs   
      * @error InvalidSubnet   
      */
-    modifyDBSubnetGroup(params: RDS.ModifyDBSubnetGroupMessage, callback?: (err: RDS.DBSubnetGroupNotFoundFault | RDS.DBSubnetQuotaExceededFault | RDS.SubnetAlreadyInUse | RDS.DBSubnetGroupDoesNotCoverEnoughAZs | RDS.InvalidSubnet | any, data: RDS.ModifyDBSubnetGroupResult | any) => void): Request;
+    modifyDBSubnetGroup(params: RDS.ModifyDBSubnetGroupMessage, callback?: (err: RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetQuotaExceededFault|RDS.SubnetAlreadyInUse|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|any, data: RDS.ModifyDBSubnetGroupResult|any) => void): Request;
     /**
      * Modifies an existing RDS event notification subscription. Note that you cannot
 modify the source identifiers using this call; to change source identifiers for
@@ -897,14 +897,14 @@ in the Amazon RDS User Guide or by using the DescribeEventCategories action.
      * @error SNSTopicArnNotFoundFault   
      * @error SubscriptionCategoryNotFoundFault   
      */
-    modifyEventSubscription(params: RDS.ModifyEventSubscriptionMessage, callback?: (err: RDS.EventSubscriptionQuotaExceededFault | RDS.SubscriptionNotFoundFault | RDS.SNSInvalidTopicFault | RDS.SNSNoAuthorizationFault | RDS.SNSTopicArnNotFoundFault | RDS.SubscriptionCategoryNotFoundFault | any, data: RDS.ModifyEventSubscriptionResult | any) => void): Request;
+    modifyEventSubscription(params: RDS.ModifyEventSubscriptionMessage, callback?: (err: RDS.EventSubscriptionQuotaExceededFault|RDS.SubscriptionNotFoundFault|RDS.SNSInvalidTopicFault|RDS.SNSNoAuthorizationFault|RDS.SNSTopicArnNotFoundFault|RDS.SubscriptionCategoryNotFoundFault|any, data: RDS.ModifyEventSubscriptionResult|any) => void): Request;
     /**
      * Modifies an existing option group.
      *
      * @error InvalidOptionGroupStateFault   
      * @error OptionGroupNotFoundFault   
      */
-    modifyOptionGroup(params: RDS.ModifyOptionGroupMessage, callback?: (err: RDS.InvalidOptionGroupStateFault | RDS.OptionGroupNotFoundFault | any, data: RDS.ModifyOptionGroupResult | any) => void): Request;
+    modifyOptionGroup(params: RDS.ModifyOptionGroupMessage, callback?: (err: RDS.InvalidOptionGroupStateFault|RDS.OptionGroupNotFoundFault|any, data: RDS.ModifyOptionGroupResult|any) => void): Request;
     /**
      * Promotes a Read Replica DB instance to a standalone DB instance.
 
@@ -916,7 +916,7 @@ are taken based on your backup settings.
      * @error InvalidDBInstanceStateFault   
      * @error DBInstanceNotFoundFault   
      */
-    promoteReadReplica(params: RDS.PromoteReadReplicaMessage, callback?: (err: RDS.InvalidDBInstanceStateFault | RDS.DBInstanceNotFoundFault | any, data: RDS.PromoteReadReplicaResult | any) => void): Request;
+    promoteReadReplica(params: RDS.PromoteReadReplicaMessage, callback?: (err: RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|any, data: RDS.PromoteReadReplicaResult|any) => void): Request;
     /**
      * Purchases a reserved DB instance offering.
      *
@@ -924,7 +924,7 @@ are taken based on your backup settings.
      * @error ReservedDBInstanceAlreadyExistsFault   
      * @error ReservedDBInstanceQuotaExceededFault   
      */
-    purchaseReservedDBInstancesOffering(params: RDS.PurchaseReservedDBInstancesOfferingMessage, callback?: (err: RDS.ReservedDBInstancesOfferingNotFoundFault | RDS.ReservedDBInstanceAlreadyExistsFault | RDS.ReservedDBInstanceQuotaExceededFault | any, data: RDS.PurchaseReservedDBInstancesOfferingResult | any) => void): Request;
+    purchaseReservedDBInstancesOffering(params: RDS.PurchaseReservedDBInstancesOfferingMessage, callback?: (err: RDS.ReservedDBInstancesOfferingNotFoundFault|RDS.ReservedDBInstanceAlreadyExistsFault|RDS.ReservedDBInstanceQuotaExceededFault|any, data: RDS.PurchaseReservedDBInstancesOfferingResult|any) => void): Request;
     /**
      * Rebooting a DB instance restarts the database engine service. A reboot also
 applies to the DB instance any modifications to the associated DB parameter
@@ -947,7 +947,7 @@ rollback activity for in-transit transactions.
      * @error InvalidDBInstanceStateFault   
      * @error DBInstanceNotFoundFault   
      */
-    rebootDBInstance(params: RDS.RebootDBInstanceMessage, callback?: (err: RDS.InvalidDBInstanceStateFault | RDS.DBInstanceNotFoundFault | any, data: RDS.RebootDBInstanceResult | any) => void): Request;
+    rebootDBInstance(params: RDS.RebootDBInstanceMessage, callback?: (err: RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|any, data: RDS.RebootDBInstanceResult|any) => void): Request;
     /**
      * Removes a source identifier from an existing RDS event notification
 subscription.
@@ -955,7 +955,7 @@ subscription.
      * @error SubscriptionNotFoundFault   
      * @error SourceNotFoundFault   
      */
-    removeSourceIdentifierFromSubscription(params: RDS.RemoveSourceIdentifierFromSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault | RDS.SourceNotFoundFault | any, data: RDS.RemoveSourceIdentifierFromSubscriptionResult | any) => void): Request;
+    removeSourceIdentifierFromSubscription(params: RDS.RemoveSourceIdentifierFromSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault|RDS.SourceNotFoundFault|any, data: RDS.RemoveSourceIdentifierFromSubscriptionResult|any) => void): Request;
     /**
      * Removes metadata tags from an Amazon RDS resource.
 
@@ -966,7 +966,7 @@ Resources
      * @error DBInstanceNotFoundFault   
      * @error DBSnapshotNotFoundFault   
      */
-    removeTagsFromResource(params: RDS.RemoveTagsFromResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault | RDS.DBSnapshotNotFoundFault | any, data: any) => void): Request;
+    removeTagsFromResource(params: RDS.RemoveTagsFromResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: any) => void): Request;
     /**
      * Modifies the parameters of a DB cluster parameter group to the default value. To
 reset specific parameters submit a list of the following: ParameterName and 
@@ -986,7 +986,7 @@ Amazon RDS User Guide.
      * @error InvalidDBParameterGroupStateFault   
      * @error DBParameterGroupNotFoundFault   
      */
-    resetDBClusterParameterGroup(params: RDS.ResetDBClusterParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault | RDS.DBParameterGroupNotFoundFault | any, data: RDS.DBClusterParameterGroupNameMessage | any) => void): Request;
+    resetDBClusterParameterGroup(params: RDS.ResetDBClusterParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBClusterParameterGroupNameMessage|any) => void): Request;
     /**
      * Modifies the parameters of a DB parameter group to the engine/system default
 value. To reset specific parameters submit a list of the following: 
@@ -999,7 +999,7 @@ RebootDBInstance request.
      * @error InvalidDBParameterGroupStateFault   
      * @error DBParameterGroupNotFoundFault   
      */
-    resetDBParameterGroup(params: RDS.ResetDBParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault | RDS.DBParameterGroupNotFoundFault | any, data: RDS.DBParameterGroupNameMessage | any) => void): Request;
+    resetDBParameterGroup(params: RDS.ResetDBParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBParameterGroupNameMessage|any) => void): Request;
     /**
      * Creates a new DB cluster from a DB cluster snapshot. The target DB cluster is
 created from the source DB cluster restore point with the same configuration as
@@ -1028,7 +1028,7 @@ Amazon RDS User Guide.
      * @error OptionGroupNotFoundFault   
      * @error KMSKeyNotAccessibleFault   
      */
-    restoreDBClusterFromSnapshot(params: RDS.RestoreDBClusterFromSnapshotMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault | RDS.DBClusterQuotaExceededFault | RDS.StorageQuotaExceededFault | RDS.DBSubnetGroupNotFoundFault | RDS.DBSnapshotNotFoundFault | RDS.DBClusterSnapshotNotFoundFault | RDS.InsufficientDBClusterCapacityFault | RDS.InsufficientStorageClusterCapacityFault | RDS.InvalidDBSnapshotStateFault | RDS.InvalidDBClusterSnapshotStateFault | RDS.StorageQuotaExceededFault | RDS.InvalidVPCNetworkStateFault | RDS.InvalidRestoreFault | RDS.DBSubnetGroupNotFoundFault | RDS.InvalidSubnet | RDS.OptionGroupNotFoundFault | RDS.KMSKeyNotAccessibleFault | any, data: RDS.RestoreDBClusterFromSnapshotResult | any) => void): Request;
+    restoreDBClusterFromSnapshot(params: RDS.RestoreDBClusterFromSnapshotMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSnapshotNotFoundFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InsufficientDBClusterCapacityFault|RDS.InsufficientStorageClusterCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidSubnet|RDS.OptionGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|any, data: RDS.RestoreDBClusterFromSnapshotResult|any) => void): Request;
     /**
      * Restores a DB cluster to an arbitrary point in time. Users can restore to any
 point in time before LatestRestorableTime for up to BackupRetentionPeriod days.
@@ -1057,7 +1057,7 @@ Amazon RDS User Guide.
      * @error OptionGroupNotFoundFault   
      * @error KMSKeyNotAccessibleFault   
      */
-    restoreDBClusterToPointInTime(params: RDS.RestoreDBClusterToPointInTimeMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault | RDS.DBClusterQuotaExceededFault | RDS.StorageQuotaExceededFault | RDS.DBSubnetGroupNotFoundFault | RDS.DBClusterNotFoundFault | RDS.DBClusterSnapshotNotFoundFault | RDS.InsufficientDBClusterCapacityFault | RDS.InvalidDBSnapshotStateFault | RDS.InvalidDBClusterSnapshotStateFault | RDS.StorageQuotaExceededFault | RDS.InvalidVPCNetworkStateFault | RDS.InvalidRestoreFault | RDS.DBSubnetGroupNotFoundFault | RDS.InvalidSubnet | RDS.OptionGroupNotFoundFault | RDS.KMSKeyNotAccessibleFault | any, data: RDS.RestoreDBClusterToPointInTimeResult | any) => void): Request;
+    restoreDBClusterToPointInTime(params: RDS.RestoreDBClusterToPointInTimeMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBClusterNotFoundFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InsufficientDBClusterCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidSubnet|RDS.OptionGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|any, data: RDS.RestoreDBClusterToPointInTimeResult|any) => void): Request;
     /**
      * Creates a new DB instance from a DB snapshot. The target database is created
 from the source database restore point with the most of original configuration
@@ -1098,7 +1098,7 @@ must be the ARN of the shared DB snapshot.
      * @error DBSecurityGroupNotFoundFault   
      * @error DomainNotFoundFault   
      */
-    restoreDBInstanceFromDBSnapshot(params: RDS.RestoreDBInstanceFromDBSnapshotMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault | RDS.DBSnapshotNotFoundFault | RDS.InstanceQuotaExceededFault | RDS.InsufficientDBInstanceCapacityFault | RDS.InvalidDBSnapshotStateFault | RDS.StorageQuotaExceededFault | RDS.InvalidVPCNetworkStateFault | RDS.InvalidRestoreFault | RDS.DBSubnetGroupNotFoundFault | RDS.DBSubnetGroupDoesNotCoverEnoughAZs | RDS.InvalidSubnet | RDS.ProvisionedIopsNotAvailableInAZFault | RDS.OptionGroupNotFoundFault | RDS.StorageTypeNotSupportedFault | RDS.AuthorizationNotFoundFault | RDS.KMSKeyNotAccessibleFault | RDS.DBSecurityGroupNotFoundFault | RDS.DomainNotFoundFault | any, data: RDS.RestoreDBInstanceFromDBSnapshotResult | any) => void): Request;
+    restoreDBInstanceFromDBSnapshot(params: RDS.RestoreDBInstanceFromDBSnapshotMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.DBSnapshotNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.InsufficientDBInstanceCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBSecurityGroupNotFoundFault|RDS.DomainNotFoundFault|any, data: RDS.RestoreDBInstanceFromDBSnapshotResult|any) => void): Request;
     /**
      * Restores a DB instance to an arbitrary point in time. You can restore to any
 point in time before the time identified by the LatestRestorableTime property.
@@ -1133,7 +1133,7 @@ deployment.
      * @error DBSecurityGroupNotFoundFault   
      * @error DomainNotFoundFault   
      */
-    restoreDBInstanceToPointInTime(params: RDS.RestoreDBInstanceToPointInTimeMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault | RDS.DBInstanceNotFoundFault | RDS.InstanceQuotaExceededFault | RDS.InsufficientDBInstanceCapacityFault | RDS.InvalidDBInstanceStateFault | RDS.PointInTimeRestoreNotEnabledFault | RDS.StorageQuotaExceededFault | RDS.InvalidVPCNetworkStateFault | RDS.InvalidRestoreFault | RDS.DBSubnetGroupNotFoundFault | RDS.DBSubnetGroupDoesNotCoverEnoughAZs | RDS.InvalidSubnet | RDS.ProvisionedIopsNotAvailableInAZFault | RDS.OptionGroupNotFoundFault | RDS.StorageTypeNotSupportedFault | RDS.AuthorizationNotFoundFault | RDS.KMSKeyNotAccessibleFault | RDS.DBSecurityGroupNotFoundFault | RDS.DomainNotFoundFault | any, data: RDS.RestoreDBInstanceToPointInTimeResult | any) => void): Request;
+    restoreDBInstanceToPointInTime(params: RDS.RestoreDBInstanceToPointInTimeMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.DBInstanceNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.InsufficientDBInstanceCapacityFault|RDS.InvalidDBInstanceStateFault|RDS.PointInTimeRestoreNotEnabledFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBSecurityGroupNotFoundFault|RDS.DomainNotFoundFault|any, data: RDS.RestoreDBInstanceToPointInTimeResult|any) => void): Request;
     /**
      * Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or
 EC2 or VPC Security Groups. Required parameters for this API are one of CIDRIP,
@@ -1144,217 +1144,217 @@ EC2SecurityGroupName or EC2SecurityGroupId).
      * @error AuthorizationNotFoundFault   
      * @error InvalidDBSecurityGroupStateFault   
      */
-    revokeDBSecurityGroupIngress(params: RDS.RevokeDBSecurityGroupIngressMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault | RDS.AuthorizationNotFoundFault | RDS.InvalidDBSecurityGroupStateFault | any, data: RDS.RevokeDBSecurityGroupIngressResult | any) => void): Request;
+    revokeDBSecurityGroupIngress(params: RDS.RevokeDBSecurityGroupIngressMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault|RDS.AuthorizationNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|any, data: RDS.RevokeDBSecurityGroupIngressResult|any) => void): Request;
 
   }
 
   export module RDS {
-
+    
     export type AccountQuotaList = AccountQuota[];
-
+    
     export type ApplyMethod = string;
-
+    
     export type AttributeValueList = String[];
-
+    
     export type AvailabilityZoneList = AvailabilityZone[];
-
+    
     export type AvailabilityZones = String[];
-
+    
     export type Boolean = boolean;
-
+    
     export type BooleanOptional = boolean;
-
+    
     export type CertificateList = Certificate[];
-
+    
     export type DBClusterList = DBCluster[];
-
+    
     export type DBClusterMemberList = DBClusterMember[];
-
+    
     export type DBClusterOptionGroupMemberships = DBClusterOptionGroupStatus[];
-
+    
     export type DBClusterParameterGroupList = DBClusterParameterGroup[];
-
+    
     export type DBClusterSnapshotList = DBClusterSnapshot[];
-
+    
     export type DBEngineVersionList = DBEngineVersion[];
-
+    
     export type DBInstanceList = DBInstance[];
-
+    
     export type DBInstanceStatusInfoList = DBInstanceStatusInfo[];
-
+    
     export type DBParameterGroupList = DBParameterGroup[];
-
+    
     export type DBParameterGroupStatusList = DBParameterGroupStatus[];
-
+    
     export type DBSecurityGroupMembershipList = DBSecurityGroupMembership[];
-
+    
     export type DBSecurityGroupNameList = String[];
-
+    
     export type DBSecurityGroups = DBSecurityGroup[];
-
+    
     export type DBSnapshotAttributeList = DBSnapshotAttribute[];
-
+    
     export type DBSnapshotList = DBSnapshot[];
-
+    
     export type DBSubnetGroups = DBSubnetGroup[];
-
+    
     export type DescribeDBLogFilesList = DescribeDBLogFilesDetails[];
-
+    
     export type DomainMembershipList = DomainMembership[];
-
+    
     export type Double = number;
-
+    
     export type EC2SecurityGroupList = EC2SecurityGroup[];
-
+    
     export type EventCategoriesList = String[];
-
+    
     export type EventCategoriesMapList = EventCategoriesMap[];
-
+    
     export type EventList = Event[];
-
+    
     export type EventSubscriptionsList = EventSubscription[];
-
+    
     export type FilterList = Filter[];
-
+    
     export type FilterValueList = String[];
-
+    
     export type IPRangeList = IPRange[];
-
+    
     export type Integer = number;
-
+    
     export type IntegerOptional = number;
-
+    
     export type KeyList = String[];
-
+    
     export type Long = number;
-
+    
     export type OptionConfigurationList = OptionConfiguration[];
-
+    
     export type OptionGroupMembershipList = OptionGroupMembership[];
-
+    
     export type OptionGroupOptionSettingsList = OptionGroupOptionSetting[];
-
+    
     export type OptionGroupOptionsList = OptionGroupOption[];
-
+    
     export type OptionGroupsList = OptionGroup[];
-
+    
     export type OptionNamesList = String[];
-
+    
     export type OptionSettingConfigurationList = OptionSetting[];
-
+    
     export type OptionSettingsList = OptionSetting[];
-
+    
     export type OptionsDependedOn = String[];
-
+    
     export type OptionsList = Option[];
-
+    
     export type OrderableDBInstanceOptionsList = OrderableDBInstanceOption[];
-
+    
     export type ParametersList = Parameter[];
-
+    
     export type PendingMaintenanceActionDetails = PendingMaintenanceAction[];
-
+    
     export type PendingMaintenanceActions = ResourcePendingMaintenanceActions[];
-
+    
     export type ReadReplicaDBInstanceIdentifierList = String[];
-
+    
     export type RecurringChargeList = RecurringCharge[];
-
+    
     export type ReservedDBInstanceList = ReservedDBInstance[];
-
+    
     export type ReservedDBInstancesOfferingList = ReservedDBInstancesOffering[];
-
+    
     export type SourceIdsList = String[];
-
+    
     export type SourceType = string;
-
+    
     export type String = string;
-
+    
     export type SubnetIdentifierList = String[];
-
+    
     export type SubnetList = Subnet[];
-
+    
     export type SupportedCharacterSetsList = CharacterSet[];
-
+    
     export type TStamp = number;
-
+    
     export type TagList = Tag[];
-
+    
     export type ValidUpgradeTargetList = UpgradeTarget[];
-
+    
     export type VpcSecurityGroupIdList = String[];
-
+    
     export type VpcSecurityGroupMembershipList = VpcSecurityGroupMembership[];
 
     export interface AccountAttributesMessage {
-      /** A list of AccountQuota objects. Within this list, each quota has a name, a count
+        /** A list of AccountQuota objects. Within this list, each quota has a name, a count
 of usage toward the quota maximum, and a maximum value for the quota. **/
-      AccountQuotas?: AccountQuotaList;
+        AccountQuotas?: AccountQuotaList;
     }
     export interface AccountQuota {
-      /** The name of the Amazon RDS quota for this AWS account. **/
-      AccountQuotaName?: String;
-      /** The amount currently used toward the quota maximum. **/
-      Used?: Long;
-      /** The maximum allowed value for the quota. **/
-      Max?: Long;
+        /** The name of the Amazon RDS quota for this AWS account. **/
+        AccountQuotaName?: String;
+        /** The amount currently used toward the quota maximum. **/
+        Used?: Long;
+        /** The maximum allowed value for the quota. **/
+        Max?: Long;
     }
     export interface AddSourceIdentifierToSubscriptionMessage {
-      /** The name of the RDS event notification subscription you want to add a source
+        /** The name of the RDS event notification subscription you want to add a source
 identifier to. **/
-      SubscriptionName: String;
-      /** The identifier of the event source to be added. An identifier must begin with a
+        SubscriptionName: String;
+        /** The identifier of the event source to be added. An identifier must begin with a
 letter and must contain only ASCII letters, digits, and hyphens; it cannot end
 with a hyphen or contain two consecutive hyphens.
 
 Constraints:
 
-&amp;#42; If the source type is a DB instance, then a DBInstanceIdentifier must be
- supplied.
-* If the source type is a DB security group, a DBSecurityGroupName must be
- supplied.
-* If the source type is a DB parameter group, a DBParameterGroupName must be
- supplied.
-* If the source type is a DB snapshot, a DBSnapshotIdentifier must be supplied. **/
-      SourceIdentifier: String;
+ &amp;#42; If the source type is a DB instance, then a DBInstanceIdentifier must be
+   supplied.
+ * If the source type is a DB security group, a DBSecurityGroupName must be
+   supplied.
+ * If the source type is a DB parameter group, a DBParameterGroupName must be
+   supplied.
+ * If the source type is a DB snapshot, a DBSnapshotIdentifier must be supplied. **/
+        SourceIdentifier: String;
     }
     export interface AddSourceIdentifierToSubscriptionResult {
-      EventSubscription?: EventSubscription;
+        EventSubscription?: EventSubscription;
     }
     export interface AddTagsToResourceMessage {
-      /** The Amazon RDS resource the tags will be added to. This value is an Amazon
+        /** The Amazon RDS resource the tags will be added to. This value is an Amazon
 Resource Name (ARN). For information about creating an ARN, see Constructing an
 RDS Amazon Resource Name (ARN)
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
 . **/
-      ResourceName: String;
-      /** The tags to be assigned to the Amazon RDS resource. **/
-      Tags: TagList;
+        ResourceName: String;
+        /** The tags to be assigned to the Amazon RDS resource. **/
+        Tags: TagList;
     }
     export interface ApplyPendingMaintenanceActionMessage {
-      /** The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance
+        /** The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance
 action applies to. For information about creating an ARN, see Constructing an
 RDS Amazon Resource Name (ARN)
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
 . **/
-      ResourceIdentifier: String;
-      /** The pending maintenance action to apply to this resource.
+        ResourceIdentifier: String;
+        /** The pending maintenance action to apply to this resource.
 
 Valid values: system-update , db-upgrade **/
-      ApplyAction: String;
-      /** A value that specifies the type of opt-in request, or undoes an opt-in request.
+        ApplyAction: String;
+        /** A value that specifies the type of opt-in request, or undoes an opt-in request.
 An opt-in request of type immediate cannot be undone.
 
 Valid values:
 
-&amp;#42; immediate - Apply the maintenance action immediately.
-* next-maintenance - Apply the maintenance action during the next maintenance
- window for the resource.
-* undo-opt-in - Cancel any existing next-maintenance opt-in requests. **/
-      OptInType: String;
+ &amp;#42; immediate - Apply the maintenance action immediately.
+ * next-maintenance - Apply the maintenance action during the next maintenance
+   window for the resource.
+ * undo-opt-in - Cancel any existing next-maintenance opt-in requests. **/
+        OptInType: String;
     }
     export interface ApplyPendingMaintenanceActionResult {
-      ResourcePendingMaintenanceActions?: ResourcePendingMaintenanceActions;
+        ResourcePendingMaintenanceActions?: ResourcePendingMaintenanceActions;
     }
     export interface AuthorizationAlreadyExistsFault {
     }
@@ -1363,155 +1363,155 @@ Valid values:
     export interface AuthorizationQuotaExceededFault {
     }
     export interface AuthorizeDBSecurityGroupIngressMessage {
-      /** The name of the DB security group to add authorization to. **/
-      DBSecurityGroupName: String;
-      /** The IP range to authorize. **/
-      CIDRIP?: String;
-      /** Name of the EC2 security group to authorize. For VPC DB security groups, 
+        /** The name of the DB security group to add authorization to. **/
+        DBSecurityGroupName: String;
+        /** The IP range to authorize. **/
+        CIDRIP?: String;
+        /** Name of the EC2 security group to authorize. For VPC DB security groups, 
 EC2SecurityGroupId must be provided. Otherwise, EC2SecurityGroupOwnerId and
 either EC2SecurityGroupName or EC2SecurityGroupId must be provided. **/
-      EC2SecurityGroupName?: String;
-      /** Id of the EC2 security group to authorize. For VPC DB security groups, 
+        EC2SecurityGroupName?: String;
+        /** Id of the EC2 security group to authorize. For VPC DB security groups, 
 EC2SecurityGroupId must be provided. Otherwise, EC2SecurityGroupOwnerId and
 either EC2SecurityGroupName or EC2SecurityGroupId must be provided. **/
-      EC2SecurityGroupId?: String;
-      /** AWS account number of the owner of the EC2 security group specified in the 
+        EC2SecurityGroupId?: String;
+        /** AWS account number of the owner of the EC2 security group specified in the 
 EC2SecurityGroupName parameter. The AWS Access Key ID is not an acceptable
 value. For VPC DB security groups, EC2SecurityGroupId must be provided.
 Otherwise, EC2SecurityGroupOwnerId and either EC2SecurityGroupName or 
 EC2SecurityGroupId must be provided. **/
-      EC2SecurityGroupOwnerId?: String;
+        EC2SecurityGroupOwnerId?: String;
     }
     export interface AuthorizeDBSecurityGroupIngressResult {
-      DBSecurityGroup?: DBSecurityGroup;
+        DBSecurityGroup?: DBSecurityGroup;
     }
     export interface AvailabilityZone {
-      /** The name of the availability zone. **/
-      Name?: String;
+        /** The name of the availability zone. **/
+        Name?: String;
     }
     export interface Certificate {
-      /** The unique key that identifies a certificate. **/
-      CertificateIdentifier?: String;
-      /** The type of the certificate. **/
-      CertificateType?: String;
-      /** The thumbprint of the certificate. **/
-      Thumbprint?: String;
-      /** The starting date from which the certificate is valid. **/
-      ValidFrom?: TStamp;
-      /** The final date that the certificate continues to be valid. **/
-      ValidTill?: TStamp;
+        /** The unique key that identifies a certificate. **/
+        CertificateIdentifier?: String;
+        /** The type of the certificate. **/
+        CertificateType?: String;
+        /** The thumbprint of the certificate. **/
+        Thumbprint?: String;
+        /** The starting date from which the certificate is valid. **/
+        ValidFrom?: TStamp;
+        /** The final date that the certificate continues to be valid. **/
+        ValidTill?: TStamp;
     }
     export interface CertificateMessage {
-      /** The list of Certificate objects for the AWS account. **/
-      Certificates?: CertificateList;
-      /** An optional pagination token provided by a previous DescribeCertificates 
+        /** The list of Certificate objects for the AWS account. **/
+        Certificates?: CertificateList;
+        /** An optional pagination token provided by a previous DescribeCertificates 
 request. If this parameter is specified, the response includes only records
 beyond the marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface CertificateNotFoundFault {
     }
     export interface CharacterSet {
-      /** The name of the character set. **/
-      CharacterSetName?: String;
-      /** The description of the character set. **/
-      CharacterSetDescription?: String;
+        /** The name of the character set. **/
+        CharacterSetName?: String;
+        /** The description of the character set. **/
+        CharacterSetDescription?: String;
     }
     export interface CopyDBClusterSnapshotMessage {
-      /** The identifier of the DB cluster snapshot to copy. This parameter is not
+        /** The identifier of the DB cluster snapshot to copy. This parameter is not
 case-sensitive.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens.
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+ * First character must be a letter.
+ * Cannot end with a hyphen or contain two consecutive hyphens.
 
 Example: my-cluster-snapshot1 **/
-      SourceDBClusterSnapshotIdentifier: String;
-      /** The identifier of the new DB cluster snapshot to create from the source DB
+        SourceDBClusterSnapshotIdentifier: String;
+        /** The identifier of the new DB cluster snapshot to create from the source DB
 cluster snapshot. This parameter is not case-sensitive.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens.
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+ * First character must be a letter.
+ * Cannot end with a hyphen or contain two consecutive hyphens.
 
 Example: my-cluster-snapshot2 **/
-      TargetDBClusterSnapshotIdentifier: String;
-      Tags?: TagList;
+        TargetDBClusterSnapshotIdentifier: String;
+        Tags?: TagList;
     }
     export interface CopyDBClusterSnapshotResult {
-      DBClusterSnapshot?: DBClusterSnapshot;
+        DBClusterSnapshot?: DBClusterSnapshot;
     }
     export interface CopyDBParameterGroupMessage {
-      /** The identifier or ARN for the source DB parameter group. For information about
+        /** The identifier or ARN for the source DB parameter group. For information about
 creating an ARN, see Constructing an RDS Amazon Resource Name (ARN)
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
 .
 
 Constraints:
 
-&amp;#42; Must specify a valid DB parameter group.
-* If the source DB parameter group is in the same region as the copy, specify a
- valid DB parameter group identifier, for example my-db-param-group , or a
- valid ARN.
-* If the source DB parameter group is in a different region than the copy,
- specify a valid DB parameter group ARN, for example 
- arn:aws:rds:us-west-2:123456789012:pg:special-parameters . **/
-      SourceDBParameterGroupIdentifier: String;
-      /** The identifier for the copied DB parameter group.
+ &amp;#42; Must specify a valid DB parameter group.
+ * If the source DB parameter group is in the same region as the copy, specify a
+   valid DB parameter group identifier, for example my-db-param-group , or a
+   valid ARN.
+ * If the source DB parameter group is in a different region than the copy,
+   specify a valid DB parameter group ARN, for example 
+   arn:aws:rds:us-west-2:123456789012:pg:special-parameters . **/
+        SourceDBParameterGroupIdentifier: String;
+        /** The identifier for the copied DB parameter group.
 
 Constraints:
 
-&amp;#42; Cannot be null, empty, or blank
-* Must contain from 1 to 255 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
+ &amp;#42; Cannot be null, empty, or blank
+ * Must contain from 1 to 255 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
 
 Example: my-db-parameter-group **/
-      TargetDBParameterGroupIdentifier: String;
-      /** A description for the copied DB parameter group. **/
-      TargetDBParameterGroupDescription: String;
-      Tags?: TagList;
+        TargetDBParameterGroupIdentifier: String;
+        /** A description for the copied DB parameter group. **/
+        TargetDBParameterGroupDescription: String;
+        Tags?: TagList;
     }
     export interface CopyDBParameterGroupResult {
-      DBParameterGroup?: DBParameterGroup;
+        DBParameterGroup?: DBParameterGroup;
     }
     export interface CopyDBSnapshotMessage {
-      /** The identifier for the source DB snapshot.
+        /** The identifier for the source DB snapshot.
 
 If you are copying from a shared manual DB snapshot, this must be the ARN of the
 shared DB snapshot.
 
 Constraints:
 
-&amp;#42; Must specify a valid system snapshot in the &quot;available&quot; state.
-* If the source snapshot is in the same region as the copy, specify a valid DB
- snapshot identifier.
-* If the source snapshot is in a different region than the copy, specify a
- valid DB snapshot ARN. For more information, go to Copying a DB Snapshot
- [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html] 
- .
+ &amp;#42; Must specify a valid system snapshot in the &quot;available&quot; state.
+ * If the source snapshot is in the same region as the copy, specify a valid DB
+   snapshot identifier.
+ * If the source snapshot is in a different region than the copy, specify a
+   valid DB snapshot ARN. For more information, go to Copying a DB Snapshot
+   [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html] 
+   .
 
 Example: rds:mydb-2012-04-02-00-01
 
 Example: 
 arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805 **/
-      SourceDBSnapshotIdentifier: String;
-      /** The identifier for the copied snapshot.
+        SourceDBSnapshotIdentifier: String;
+        /** The identifier for the copied snapshot.
 
 Constraints:
 
-&amp;#42; Cannot be null, empty, or blank
-* Must contain from 1 to 255 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
+ &amp;#42; Cannot be null, empty, or blank
+ * Must contain from 1 to 255 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
 
 Example: my-db-snapshot **/
-      TargetDBSnapshotIdentifier: String;
-      /** The AWS Key Management Service (AWS KMS) key identifier for an encrypted DB
+        TargetDBSnapshotIdentifier: String;
+        /** The AWS Key Management Service (AWS KMS) key identifier for an encrypted DB
 snapshot. The KMS key identifier is the Amazon Resource Name (ARN) or the KMS
 key alias for the KMS encryption key.
 
@@ -1526,134 +1526,134 @@ with the same KMS key as the source DB snapshot.
 
 If you copy an encrypted DB snapshot that is shared from another AWS account,
 then you must specify a value for KmsKeyId . **/
-      KmsKeyId?: String;
-      Tags?: TagList;
-      /** True to copy all tags from the source DB snapshot to the target DB snapshot;
+        KmsKeyId?: String;
+        Tags?: TagList;
+        /** True to copy all tags from the source DB snapshot to the target DB snapshot;
 otherwise false. The default is false. **/
-      CopyTags?: BooleanOptional;
+        CopyTags?: BooleanOptional;
     }
     export interface CopyDBSnapshotResult {
-      DBSnapshot?: DBSnapshot;
+        DBSnapshot?: DBSnapshot;
     }
     export interface CopyOptionGroupMessage {
-      /** The identifier or ARN for the source option group. For information about
+        /** The identifier or ARN for the source option group. For information about
 creating an ARN, see Constructing an RDS Amazon Resource Name (ARN)
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
 .
 
 Constraints:
 
-&amp;#42; Must specify a valid option group.
-* If the source option group is in the same region as the copy, specify a valid
- option group identifier, for example my-option-group , or a valid ARN.
-* If the source option group is in a different region than the copy, specify a
- valid option group ARN, for example 
- arn:aws:rds:us-west-2:123456789012:og:special-options . **/
-      SourceOptionGroupIdentifier: String;
-      /** The identifier for the copied option group.
+ &amp;#42; Must specify a valid option group.
+ * If the source option group is in the same region as the copy, specify a valid
+   option group identifier, for example my-option-group , or a valid ARN.
+ * If the source option group is in a different region than the copy, specify a
+   valid option group ARN, for example 
+   arn:aws:rds:us-west-2:123456789012:og:special-options . **/
+        SourceOptionGroupIdentifier: String;
+        /** The identifier for the copied option group.
 
 Constraints:
 
-&amp;#42; Cannot be null, empty, or blank
-* Must contain from 1 to 255 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
+ &amp;#42; Cannot be null, empty, or blank
+ * Must contain from 1 to 255 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
 
 Example: my-option-group **/
-      TargetOptionGroupIdentifier: String;
-      /** The description for the copied option group. **/
-      TargetOptionGroupDescription: String;
-      Tags?: TagList;
+        TargetOptionGroupIdentifier: String;
+        /** The description for the copied option group. **/
+        TargetOptionGroupDescription: String;
+        Tags?: TagList;
     }
     export interface CopyOptionGroupResult {
-      OptionGroup?: OptionGroup;
+        OptionGroup?: OptionGroup;
     }
     export interface CreateDBClusterMessage {
-      /** A list of EC2 Availability Zones that instances in the DB cluster can be created
+        /** A list of EC2 Availability Zones that instances in the DB cluster can be created
 in. For information on regions and Availability Zones, see Regions and
 Availability Zones
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html] 
 . **/
-      AvailabilityZones?: AvailabilityZones;
-      /** The number of days for which automated backups are retained. You must specify a
+        AvailabilityZones?: AvailabilityZones;
+        /** The number of days for which automated backups are retained. You must specify a
 minimum value of 1.
 
 Default: 1
 
 Constraints:
 
-&amp;#42; Must be a value from 1 to 35 **/
-      BackupRetentionPeriod?: IntegerOptional;
-      /** A value that indicates that the DB cluster should be associated with the
+ &amp;#42; Must be a value from 1 to 35 **/
+        BackupRetentionPeriod?: IntegerOptional;
+        /** A value that indicates that the DB cluster should be associated with the
 specified CharacterSet. **/
-      CharacterSetName?: String;
-      /** The name for your database of up to 8 alpha-numeric characters. If you do not
+        CharacterSetName?: String;
+        /** The name for your database of up to 8 alpha-numeric characters. If you do not
 provide a name, Amazon RDS will not create a database in the DB cluster you are
 creating. **/
-      DatabaseName?: String;
-      /** The DB cluster identifier. This parameter is stored as a lowercase string.
+        DatabaseName?: String;
+        /** The DB cluster identifier. This parameter is stored as a lowercase string.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens.
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+ * First character must be a letter.
+ * Cannot end with a hyphen or contain two consecutive hyphens.
 
 Example: my-cluster1 **/
-      DBClusterIdentifier: String;
-      /** The name of the DB cluster parameter group to associate with this DB cluster. If
+        DBClusterIdentifier: String;
+        /** The name of the DB cluster parameter group to associate with this DB cluster. If
 this argument is omitted, default.aurora5.6 for the specified engine will be
 used.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBClusterParameterGroupName?: String;
-      /** A list of EC2 VPC security groups to associate with this DB cluster. **/
-      VpcSecurityGroupIds?: VpcSecurityGroupIdList;
-      /** A DB subnet group to associate with this DB cluster.
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBClusterParameterGroupName?: String;
+        /** A list of EC2 VPC security groups to associate with this DB cluster. **/
+        VpcSecurityGroupIds?: VpcSecurityGroupIdList;
+        /** A DB subnet group to associate with this DB cluster.
 
 Constraints: Must contain no more than 255 alphanumeric characters, periods,
 underscores, spaces, or hyphens. Must not be default.
 
 Example: mySubnetgroup **/
-      DBSubnetGroupName?: String;
-      /** The name of the database engine to be used for this DB cluster.
+        DBSubnetGroupName?: String;
+        /** The name of the database engine to be used for this DB cluster.
 
 Valid Values: aurora **/
-      Engine: String;
-      /** The version number of the database engine to use.
+        Engine: String;
+        /** The version number of the database engine to use.
 
 Aurora
 
 Example: 5.6.10a **/
-      EngineVersion?: String;
-      /** The port number on which the instances in the DB cluster accept connections.
+        EngineVersion?: String;
+        /** The port number on which the instances in the DB cluster accept connections.
 
 Default: 3306 **/
-      Port?: IntegerOptional;
-      /** The name of the master user for the client DB cluster.
+        Port?: IntegerOptional;
+        /** The name of the master user for the client DB cluster.
 
 Constraints:
 
-&amp;#42; Must be 1 to 16 alphanumeric characters.
-* First character must be a letter.
-* Cannot be a reserved word for the chosen database engine. **/
-      MasterUsername: String;
-      /** The password for the master database user. This password can contain any
+ &amp;#42; Must be 1 to 16 alphanumeric characters.
+ * First character must be a letter.
+ * Cannot be a reserved word for the chosen database engine. **/
+        MasterUsername: String;
+        /** The password for the master database user. This password can contain any
 printable ASCII character except &quot;/&quot;, &quot;&quot;&quot;, or &quot;@&quot;.
 
 Constraints: Must contain from 8 to 41 characters. **/
-      MasterUserPassword: String;
-      /** A value that indicates that the DB cluster should be associated with the
+        MasterUserPassword: String;
+        /** A value that indicates that the DB cluster should be associated with the
 specified option group.
 
 Permanent options cannot be removed from an option group. The option group
 cannot be removed from a DB cluster once it is associated with a DB cluster. **/
-      OptionGroupName?: String;
-      /** The daily time range during which automated backups are created if automated
+        OptionGroupName?: String;
+        /** The daily time range during which automated backups are created if automated
 backups are enabled using the BackupRetentionPeriod parameter.
 
 Default: A 30-minute window selected at random from an 8-hour block of time per
@@ -1664,12 +1664,12 @@ in the Amazon RDS User Guide.
 
 Constraints:
 
-&amp;#42; Must be in the format hh24:mi-hh24:mi .
-* Times should be in Universal Coordinated Time (UTC).
-* Must not conflict with the preferred maintenance window.
-* Must be at least 30 minutes. **/
-      PreferredBackupWindow?: String;
-      /** The weekly time range during which system maintenance can occur, in Universal
+ &amp;#42; Must be in the format hh24:mi-hh24:mi .
+ * Times should be in Universal Coordinated Time (UTC).
+ * Must not conflict with the preferred maintenance window.
+ * Must be at least 30 minutes. **/
+        PreferredBackupWindow?: String;
+        /** The weekly time range during which system maintenance can occur, in Universal
 Coordinated Time (UTC).
 
 Format: ddd:hh24:mi-ddd:hh24:mi
@@ -1683,11 +1683,11 @@ in the Amazon RDS User Guide.
 Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 
 Constraints: Minimum 30-minute window. **/
-      PreferredMaintenanceWindow?: String;
-      Tags?: TagList;
-      /** Specifies whether the DB cluster is encrypted. **/
-      StorageEncrypted?: BooleanOptional;
-      /** The KMS key identifier for an encrypted DB cluster.
+        PreferredMaintenanceWindow?: String;
+        Tags?: TagList;
+        /** Specifies whether the DB cluster is encrypted. **/
+        StorageEncrypted?: BooleanOptional;
+        /** The KMS key identifier for an encrypted DB cluster.
 
 The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption
 key. If you are creating a DB cluster with the same AWS account that owns the
@@ -1698,65 +1698,65 @@ If the StorageEncrypted parameter is true, and you do not specify a value for
 the KmsKeyId parameter, then Amazon RDS will use your default encryption key.
 AWS KMS creates the default encryption key for your AWS account. Your AWS
 account has a different default encryption key for each AWS region. **/
-      KmsKeyId?: String;
+        KmsKeyId?: String;
     }
     export interface CreateDBClusterParameterGroupMessage {
-      /** The name of the DB cluster parameter group.
+        /** The name of the DB cluster parameter group.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
 
 This value is stored as a lowercase string. **/
-      DBClusterParameterGroupName: String;
-      /** The DB cluster parameter group family name. A DB cluster parameter group can be
+        DBClusterParameterGroupName: String;
+        /** The DB cluster parameter group family name. A DB cluster parameter group can be
 associated with one and only one DB cluster parameter group family, and can be
 applied only to a DB cluster running a database engine and engine version
 compatible with that DB cluster parameter group family. **/
-      DBParameterGroupFamily: String;
-      /** The description for the DB cluster parameter group. **/
-      Description: String;
-      Tags?: TagList;
+        DBParameterGroupFamily: String;
+        /** The description for the DB cluster parameter group. **/
+        Description: String;
+        Tags?: TagList;
     }
     export interface CreateDBClusterParameterGroupResult {
-      DBClusterParameterGroup?: DBClusterParameterGroup;
+        DBClusterParameterGroup?: DBClusterParameterGroup;
     }
     export interface CreateDBClusterResult {
-      DBCluster?: DBCluster;
+        DBCluster?: DBCluster;
     }
     export interface CreateDBClusterSnapshotMessage {
-      /** The identifier of the DB cluster snapshot. This parameter is stored as a
+        /** The identifier of the DB cluster snapshot. This parameter is stored as a
 lowercase string.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens.
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+ * First character must be a letter.
+ * Cannot end with a hyphen or contain two consecutive hyphens.
 
 Example: my-cluster1-snapshot1 **/
-      DBClusterSnapshotIdentifier: String;
-      /** The identifier of the DB cluster to create a snapshot for. This parameter is not
+        DBClusterSnapshotIdentifier: String;
+        /** The identifier of the DB cluster to create a snapshot for. This parameter is not
 case-sensitive.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens.
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+ * First character must be a letter.
+ * Cannot end with a hyphen or contain two consecutive hyphens.
 
 Example: my-cluster1 **/
-      DBClusterIdentifier: String;
-      /** The tags to be assigned to the DB cluster snapshot. **/
-      Tags?: TagList;
+        DBClusterIdentifier: String;
+        /** The tags to be assigned to the DB cluster snapshot. **/
+        Tags?: TagList;
     }
     export interface CreateDBClusterSnapshotResult {
-      DBClusterSnapshot?: DBClusterSnapshot;
+        DBClusterSnapshot?: DBClusterSnapshot;
     }
     export interface CreateDBInstanceMessage {
-      /** The meaning of this parameter differs according to the database engine you use.
+        /** The meaning of this parameter differs according to the database engine you use.
 
 Type: String
 
@@ -1767,8 +1767,8 @@ parameter is not specified, no database is created in the DB instance.
 
 Constraints:
 
-&amp;#42; Must contain 1 to 64 alphanumeric characters
-* Cannot be a word reserved by the specified database engine
+ &amp;#42; Must contain 1 to 64 alphanumeric characters
+ * Cannot be a word reserved by the specified database engine
 
 MariaDB
 
@@ -1777,8 +1777,8 @@ parameter is not specified, no database is created in the DB instance.
 
 Constraints:
 
-* Must contain 1 to 64 alphanumeric characters
-* Cannot be a word reserved by the specified database engine
+ * Must contain 1 to 64 alphanumeric characters
+ * Cannot be a word reserved by the specified database engine
 
 PostgreSQL
 
@@ -1788,10 +1788,10 @@ instance.
 
 Constraints:
 
-* Must contain 1 to 63 alphanumeric characters
-* Must begin with a letter or an underscore. Subsequent characters can be
- letters, underscores, or digits (0-9).
-* Cannot be a word reserved by the specified database engine
+ * Must contain 1 to 63 alphanumeric characters
+ * Must begin with a letter or an underscore. Subsequent characters can be
+   letters, underscores, or digits (0-9).
+ * Cannot be a word reserved by the specified database engine
 
 Oracle
 
@@ -1801,7 +1801,7 @@ Default: ORCL
 
 Constraints:
 
-* Cannot be longer than 8 characters
+ * Cannot be longer than 8 characters
 
 SQL Server
 
@@ -1815,21 +1815,21 @@ instance.
 
 Constraints:
 
-* Must contain 1 to 64 alphanumeric characters
-* Cannot be a word reserved by the specified database engine **/
-      DBName?: String;
-      /** The DB instance identifier. This parameter is stored as a lowercase string.
+ * Must contain 1 to 64 alphanumeric characters
+ * Cannot be a word reserved by the specified database engine **/
+        DBName?: String;
+        /** The DB instance identifier. This parameter is stored as a lowercase string.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for SQL
- Server).
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens.
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for SQL
+   Server).
+ * First character must be a letter.
+ * Cannot end with a hyphen or contain two consecutive hyphens.
 
 Example: mydbinstance **/
-      DBInstanceIdentifier: String;
-      /** The amount of storage (in gigabytes) to be initially allocated for the database
+        DBInstanceIdentifier: String;
+        /** The amount of storage (in gigabytes) to be initially allocated for the database
 instance.
 
 Type: Integer
@@ -1854,8 +1854,8 @@ SQL Server
 
 Constraints: Must be an integer from 200 to 4096 (Standard Edition and
 Enterprise Edition) or from 20 to 4096 (Express Edition and Web Edition) **/
-      AllocatedStorage?: IntegerOptional;
-      /** The compute and memory capacity of the DB instance.
+        AllocatedStorage?: IntegerOptional;
+        /** The compute and memory capacity of the DB instance.
 
 Valid Values: db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
 db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium |
@@ -1863,30 +1863,30 @@ db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge |
 db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge |
 db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small |
 db.t2.medium | db.t2.large **/
-      DBInstanceClass: String;
-      /** The name of the database engine to be used for this instance.
+        DBInstanceClass: String;
+        /** The name of the database engine to be used for this instance.
 
 Valid Values: MySQL | mariadb | oracle-se1 | oracle-se | oracle-ee | 
 sqlserver-ee | sqlserver-se | sqlserver-ex | sqlserver-web | postgres | aurora
 
 Not every database engine is available for every AWS region. **/
-      Engine: String;
-      /** The name of master user for the client DB instance.
+        Engine: String;
+        /** The name of master user for the client DB instance.
 
 MySQL
 
 Constraints:
 
-&amp;#42; Must be 1 to 16 alphanumeric characters.
-* First character must be a letter.
-* Cannot be a reserved word for the chosen database engine.
+ &amp;#42; Must be 1 to 16 alphanumeric characters.
+ * First character must be a letter.
+ * Cannot be a reserved word for the chosen database engine.
 
 MariaDB
 
 Constraints:
 
-* Must be 1 to 16 alphanumeric characters.
-* Cannot be a reserved word for the chosen database engine.
+ * Must be 1 to 16 alphanumeric characters.
+ * Cannot be a reserved word for the chosen database engine.
 
 Type: String
 
@@ -1894,27 +1894,27 @@ Oracle
 
 Constraints:
 
-* Must be 1 to 30 alphanumeric characters.
-* First character must be a letter.
-* Cannot be a reserved word for the chosen database engine.
+ * Must be 1 to 30 alphanumeric characters.
+ * First character must be a letter.
+ * Cannot be a reserved word for the chosen database engine.
 
 SQL Server
 
 Constraints:
 
-* Must be 1 to 128 alphanumeric characters.
-* First character must be a letter.
-* Cannot be a reserved word for the chosen database engine.
+ * Must be 1 to 128 alphanumeric characters.
+ * First character must be a letter.
+ * Cannot be a reserved word for the chosen database engine.
 
 PostgreSQL
 
 Constraints:
 
-* Must be 1 to 63 alphanumeric characters.
-* First character must be a letter.
-* Cannot be a reserved word for the chosen database engine. **/
-      MasterUsername?: String;
-      /** The password for the master database user. Can be any printable ASCII character
+ * Must be 1 to 63 alphanumeric characters.
+ * First character must be a letter.
+ * Cannot be a reserved word for the chosen database engine. **/
+        MasterUsername?: String;
+        /** The password for the master database user. Can be any printable ASCII character
 except &quot;/&quot;, &quot;&quot;&quot;, or &quot;@&quot;.
 
 Type: String
@@ -1942,16 +1942,16 @@ Constraints: Must contain from 8 to 128 characters.
 Amazon Aurora
 
 Constraints: Must contain from 8 to 41 characters. **/
-      MasterUserPassword?: String;
-      /** A list of DB security groups to associate with this DB instance.
+        MasterUserPassword?: String;
+        /** A list of DB security groups to associate with this DB instance.
 
 Default: The default DB security group for the database engine. **/
-      DBSecurityGroups?: DBSecurityGroupNameList;
-      /** A list of EC2 VPC security groups to associate with this DB instance.
+        DBSecurityGroups?: DBSecurityGroupNameList;
+        /** A list of EC2 VPC security groups to associate with this DB instance.
 
 Default: The default EC2 VPC security group for the DB subnet group&#x27;s VPC. **/
-      VpcSecurityGroupIds?: VpcSecurityGroupIdList;
-      /** The EC2 Availability Zone that the database instance will be created in. For
+        VpcSecurityGroupIds?: VpcSecurityGroupIdList;
+        /** The EC2 Availability Zone that the database instance will be created in. For
 information on regions and Availability Zones, see Regions and Availability
 Zones
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html] 
@@ -1964,12 +1964,12 @@ Example: us-east-1d
 Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ
 parameter is set to true . The specified Availability Zone must be in the same
 region as the current endpoint. **/
-      AvailabilityZone?: String;
-      /** A DB subnet group to associate with this DB instance.
+        AvailabilityZone?: String;
+        /** A DB subnet group to associate with this DB instance.
 
 If there is no DB subnet group, then it is a non-VPC DB instance. **/
-      DBSubnetGroupName?: String;
-      /** The weekly time range during which system maintenance can occur, in Universal
+        DBSubnetGroupName?: String;
+        /** The weekly time range during which system maintenance can occur, in Universal
 Coordinated Time (UTC). For more information, see DB Instance Maintenance
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBMaintenance.html] 
 .
@@ -1985,18 +1985,18 @@ in the Amazon RDS User Guide.
 Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 
 Constraints: Minimum 30-minute window. **/
-      PreferredMaintenanceWindow?: String;
-      /** The name of the DB parameter group to associate with this DB instance. If this
+        PreferredMaintenanceWindow?: String;
+        /** The name of the DB parameter group to associate with this DB instance. If this
 argument is omitted, the default DBParameterGroup for the specified engine will
 be used.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBParameterGroupName?: String;
-      /** The number of days for which automated backups are retained. Setting this
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBParameterGroupName?: String;
+        /** The number of days for which automated backups are retained. Setting this
 parameter to a positive number enables backups. Setting this parameter to 0
 disables automated backups.
 
@@ -2004,10 +2004,10 @@ Default: 1
 
 Constraints:
 
-&amp;#42; Must be a value from 0 to 35
-* Cannot be set to 0 if the DB instance is a source to Read Replicas **/
-      BackupRetentionPeriod?: IntegerOptional;
-      /** The daily time range during which automated backups are created if automated
+ &amp;#42; Must be a value from 0 to 35
+ * Cannot be set to 0 if the DB instance is a source to Read Replicas **/
+        BackupRetentionPeriod?: IntegerOptional;
+        /** The daily time range during which automated backups are created if automated
 backups are enabled, using the BackupRetentionPeriod parameter. For more
 information, see DB Instance Backups
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.BackingUpAndRestoringAmazonRDSInstances.html] 
@@ -2021,12 +2021,12 @@ in the Amazon RDS User Guide.
 
 Constraints:
 
-&amp;#42; Must be in the format hh24:mi-hh24:mi .
-* Times should be in Universal Coordinated Time (UTC).
-* Must not conflict with the preferred maintenance window.
-* Must be at least 30 minutes. **/
-      PreferredBackupWindow?: String;
-      /** The port number on which the database accepts connections.
+ &amp;#42; Must be in the format hh24:mi-hh24:mi .
+ * Times should be in Universal Coordinated Time (UTC).
+ * Must not conflict with the preferred maintenance window.
+ * Must be at least 30 minutes. **/
+        PreferredBackupWindow?: String;
+        /** The port number on which the database accepts connections.
 
 MySQL
 
@@ -2072,13 +2072,13 @@ Default: 3306
 Valid Values: 1150-65535
 
 Type: Integer **/
-      Port?: IntegerOptional;
-      /** Specifies if the DB instance is a Multi-AZ deployment. You cannot set the
+        Port?: IntegerOptional;
+        /** Specifies if the DB instance is a Multi-AZ deployment. You cannot set the
 AvailabilityZone parameter if the MultiAZ parameter is set to true. Do not set
 this value if you want a Multi-AZ deployment for a SQL Server DB instance.
 Multi-AZ for SQL Server is set using the Mirroring option in an option group. **/
-      MultiAZ?: BooleanOptional;
-      /** The version number of the database engine to use.
+        MultiAZ?: BooleanOptional;
+        /** The version number of the database engine to use.
 
 The following are the database engines and major and minor versions that are
 available with Amazon RDS. Not every database engine is available for every AWS
@@ -2086,120 +2086,120 @@ region.
 
 MySQL
 
-&amp;#42; Version 5.1 (Only available in the following regions: ap-northeast-1,
- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): 
- 5.1.73a | 5.1.73b
-* Version 5.5 (Only available in the following regions: ap-northeast-1,
- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): 
- 5.5.40 | 5.5.40a
-* Version 5.5 (Available in all regions): 5.5.40b | 5.5.41 | 5.5.42
-* Version 5.6 (Available in all regions): 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b
- | 5.6.22 | 5.6.23 | 5.6.27
-* Version 5.7 (Available in all regions): 5.7.10
+ &amp;#42; Version 5.1 (Only available in the following regions: ap-northeast-1,
+   ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): 
+   5.1.73a | 5.1.73b
+ * Version 5.5 (Only available in the following regions: ap-northeast-1,
+   ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): 
+   5.5.40 | 5.5.40a
+ * Version 5.5 (Available in all regions): 5.5.40b | 5.5.41 | 5.5.42
+ * Version 5.6 (Available in all regions): 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b
+   | 5.6.22 | 5.6.23 | 5.6.27
+ * Version 5.7 (Available in all regions): 5.7.10
 
 MariaDB
 
-* Version 10.0 (Available in all regions except AWS GovCloud (US) Region
- (us-gov-west-1)): 10.0.17
+ * Version 10.0 (Available in all regions except AWS GovCloud (US) Region
+   (us-gov-west-1)): 10.0.17
 
 Oracle Database Enterprise Edition (oracle-ee)
 
-* Version 11.2 (Only available in the following regions: ap-northeast-1,
- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): 
- 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7
-* Version 11.2 (Available in all regions): 11.2.0.3.v1 | 11.2.0.3.v2 |
- 11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4
-* Version 12.1 (Available in all regions): 12.1.0.1.v1 | 12.1.0.1.v2 |
- 12.1.0.2.v1
+ * Version 11.2 (Only available in the following regions: ap-northeast-1,
+   ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): 
+   11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7
+ * Version 11.2 (Available in all regions): 11.2.0.3.v1 | 11.2.0.3.v2 |
+   11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4
+ * Version 12.1 (Available in all regions): 12.1.0.1.v1 | 12.1.0.1.v2 |
+   12.1.0.2.v1
 
 Oracle Database Standard Edition (oracle-se)
 
-* Version 11.2 (Only available in the following regions: us-west-1): 
- 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7
-* Version 11.2 (Only available in the following regions: eu-central-1,
- us-west-1): 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 |
- 11.2.0.4.v3 | 11.2.0.4.v4
-* Version 12.1 (Only available in the following regions: eu-central-1,
- us-west-1): 12.1.0.1.v1 | 12.1.0.1.v2
+ * Version 11.2 (Only available in the following regions: us-west-1): 
+   11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7
+ * Version 11.2 (Only available in the following regions: eu-central-1,
+   us-west-1): 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 |
+   11.2.0.4.v3 | 11.2.0.4.v4
+ * Version 12.1 (Only available in the following regions: eu-central-1,
+   us-west-1): 12.1.0.1.v1 | 12.1.0.1.v2
 
 Oracle Database Standard Edition One (oracle-se1)
 
-* Version 11.2 (Only available in the following regions: us-west-1): 
- 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7
-* Version 11.2 (Only available in the following regions: eu-central-1,
- us-west-1): 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 |
- 11.2.0.4.v3 | 11.2.0.4.v4
-* Version 12.1 (Only available in the following regions: eu-central-1,
- us-west-1): 12.1.0.1.v1 | 12.1.0.1.v2
+ * Version 11.2 (Only available in the following regions: us-west-1): 
+   11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7
+ * Version 11.2 (Only available in the following regions: eu-central-1,
+   us-west-1): 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 |
+   11.2.0.4.v3 | 11.2.0.4.v4
+ * Version 12.1 (Only available in the following regions: eu-central-1,
+   us-west-1): 12.1.0.1.v1 | 12.1.0.1.v2
 
 PostgreSQL
 
-* Version 9.3 (Only available in the following regions: ap-northeast-1,
- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): 
- 9.3.1 | 9.3.2
-* Version 9.3 (Available in all regions): 9.3.3 | 9.3.5 | 9.3.6 | 9.3.9 |
- 9.3.10
-* Version 9.4 (Available in all regions): 9.4.1 | 9.4.4 | 9.4.5
+ * Version 9.3 (Only available in the following regions: ap-northeast-1,
+   ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): 
+   9.3.1 | 9.3.2
+ * Version 9.3 (Available in all regions): 9.3.3 | 9.3.5 | 9.3.6 | 9.3.9 |
+   9.3.10
+ * Version 9.4 (Available in all regions): 9.4.1 | 9.4.4 | 9.4.5
 
 Microsoft SQL Server Enterprise Edition (sqlserver-ee)
 
-* Version 10.50 (Available in all regions): 10.50.2789.0.v1
-* Version 10.50 (Available in all regions): 10.50.6000.34.v1
-* Version 11.00 (Available in all regions): 11.00.2100.60.v1
-* Version 11.00 (Available in all regions): 11.00.5058.0.v1
+ * Version 10.50 (Available in all regions): 10.50.2789.0.v1
+ * Version 10.50 (Available in all regions): 10.50.6000.34.v1
+ * Version 11.00 (Available in all regions): 11.00.2100.60.v1
+ * Version 11.00 (Available in all regions): 11.00.5058.0.v1
 
 Microsoft SQL Server Express Edition (sqlserver-ex)
 
-* Version 10.50 (Available in all regions): 10.50.2789.0.v1
-* Version 10.50 (Available in all regions): 10.50.6000.34.v1
-* Version 11.00 (Available in all regions): 11.00.2100.60.v1
-* Version 11.00 (Available in all regions): 11.00.5058.0.v1
-* Version 12.00 (Available in all regions): 12.00.4422.0.v1
+ * Version 10.50 (Available in all regions): 10.50.2789.0.v1
+ * Version 10.50 (Available in all regions): 10.50.6000.34.v1
+ * Version 11.00 (Available in all regions): 11.00.2100.60.v1
+ * Version 11.00 (Available in all regions): 11.00.5058.0.v1
+ * Version 12.00 (Available in all regions): 12.00.4422.0.v1
 
 Microsoft SQL Server Standard Edition (sqlserver-se)
 
-* Version 10.50 (Available in all regions): 10.50.2789.0.v1
-* Version 10.50 (Available in all regions): 10.50.6000.34.v1
-* Version 11.00 (Available in all regions): 11.00.2100.60.v1
-* Version 11.00 (Available in all regions): 11.00.5058.0.v1
-* Version 12.00 (Available in all regions): 12.00.4422.0.v1
+ * Version 10.50 (Available in all regions): 10.50.2789.0.v1
+ * Version 10.50 (Available in all regions): 10.50.6000.34.v1
+ * Version 11.00 (Available in all regions): 11.00.2100.60.v1
+ * Version 11.00 (Available in all regions): 11.00.5058.0.v1
+ * Version 12.00 (Available in all regions): 12.00.4422.0.v1
 
 Microsoft SQL Server Web Edition (sqlserver-web)
 
-* Version 10.50 (Available in all regions): 10.50.2789.0.v1
-* Version 10.50 (Available in all regions): 10.50.6000.34.v1
-* Version 11.00 (Available in all regions): 11.00.2100.60.v1
-* Version 11.00 (Available in all regions): 11.00.5058.0.v1
-* Version 12.00 (Available in all regions): 12.00.4422.0.v1 **/
-      EngineVersion?: String;
-      /** Indicates that minor engine upgrades will be applied automatically to the DB
+ * Version 10.50 (Available in all regions): 10.50.2789.0.v1
+ * Version 10.50 (Available in all regions): 10.50.6000.34.v1
+ * Version 11.00 (Available in all regions): 11.00.2100.60.v1
+ * Version 11.00 (Available in all regions): 11.00.5058.0.v1
+ * Version 12.00 (Available in all regions): 12.00.4422.0.v1 **/
+        EngineVersion?: String;
+        /** Indicates that minor engine upgrades will be applied automatically to the DB
 instance during the maintenance window.
 
 Default: true **/
-      AutoMinorVersionUpgrade?: BooleanOptional;
-      /** License model information for this DB instance.
+        AutoMinorVersionUpgrade?: BooleanOptional;
+        /** License model information for this DB instance.
 
 Valid values: license-included | bring-your-own-license | general-public-license **/
-      LicenseModel?: String;
-      /** The amount of Provisioned IOPS (input/output operations per second) to be
+        LicenseModel?: String;
+        /** The amount of Provisioned IOPS (input/output operations per second) to be
 initially allocated for the DB instance.
 
 Constraints: Must be a multiple between 3 and 10 of the storage amount for the
 DB instance. Must also be an integer multiple of 1000. For example, if the size
 of your DB instance is 500 GB, then your Iops value can be 2000, 3000, 4000, or
 5000. **/
-      Iops?: IntegerOptional;
-      /** Indicates that the DB instance should be associated with the specified option
+        Iops?: IntegerOptional;
+        /** Indicates that the DB instance should be associated with the specified option
 group.
 
 Permanent options, such as the TDE option for Oracle Advanced Security TDE,
 cannot be removed from an option group, and that option group cannot be removed
 from a DB instance once it is associated with a DB instance **/
-      OptionGroupName?: String;
-      /** For supported engines, indicates that the DB instance should be associated with
+        OptionGroupName?: String;
+        /** For supported engines, indicates that the DB instance should be associated with
 the specified CharacterSet. **/
-      CharacterSetName?: String;
-      /** Specifies the accessibility options for the DB instance. A value of true
+        CharacterSetName?: String;
+        /** Specifies the accessibility options for the DB instance. A value of true
 specifies an Internet-facing instance with a publicly resolvable DNS name, which
 resolves to a public IP address. A value of false specifies an internal instance
 with a DNS name that resolves to a private IP address.
@@ -2207,40 +2207,40 @@ with a DNS name that resolves to a private IP address.
 Default: The default behavior varies depending on whether a VPC has been
 requested or not. The following list shows the default behavior in each case.
 
-&amp;#42; Default VPC: true
-* VPC: false
+ &amp;#42; Default VPC: true
+ * VPC: false
 
 If no DB subnet group has been specified as part of the request and the
 PubliclyAccessible value has not been set, the DB instance will be publicly
 accessible. If a specific DB subnet group has been specified as part of the
 request and the PubliclyAccessible value has not been set, the DB instance will
 be private. **/
-      PubliclyAccessible?: BooleanOptional;
-      Tags?: TagList;
-      /** The identifier of the DB cluster that the instance will belong to.
+        PubliclyAccessible?: BooleanOptional;
+        Tags?: TagList;
+        /** The identifier of the DB cluster that the instance will belong to.
 
 For information on creating a DB cluster, see CreateDBCluster .
 
 Type: String **/
-      DBClusterIdentifier?: String;
-      /** Specifies the storage type to be associated with the DB instance.
+        DBClusterIdentifier?: String;
+        /** Specifies the storage type to be associated with the DB instance.
 
 Valid values: standard | gp2 | io1
 
 If you specify io1 , you must also include a value for the Iops parameter.
 
 Default: io1 if the Iops parameter is specified; otherwise standard **/
-      StorageType?: String;
-      /** The ARN from the Key Store with which to associate the instance for TDE
+        StorageType?: String;
+        /** The ARN from the Key Store with which to associate the instance for TDE
 encryption. **/
-      TdeCredentialArn?: String;
-      /** The password for the given ARN from the Key Store in order to access the device. **/
-      TdeCredentialPassword?: String;
-      /** Specifies whether the DB instance is encrypted.
+        TdeCredentialArn?: String;
+        /** The password for the given ARN from the Key Store in order to access the device. **/
+        TdeCredentialPassword?: String;
+        /** Specifies whether the DB instance is encrypted.
 
 Default: false **/
-      StorageEncrypted?: BooleanOptional;
-      /** The KMS key identifier for an encrypted DB instance.
+        StorageEncrypted?: BooleanOptional;
+        /** The KMS key identifier for an encrypted DB instance.
 
 The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption
 key. If you are creating a DB instance with the same AWS account that owns the
@@ -2251,13 +2251,13 @@ If the StorageEncrypted parameter is true, and you do not specify a value for
 the KmsKeyId parameter, then Amazon RDS will use your default encryption key.
 AWS KMS creates the default encryption key for your AWS account. Your AWS
 account has a different default encryption key for each AWS region. **/
-      KmsKeyId?: String;
-      /** Specify the Active Directory Domain to create the instance in. **/
-      Domain?: String;
-      /** True to copy all tags from the DB instance to snapshots of the DB instance;
+        KmsKeyId?: String;
+        /** Specify the Active Directory Domain to create the instance in. **/
+        Domain?: String;
+        /** True to copy all tags from the DB instance to snapshots of the DB instance;
 otherwise false. The default is false. **/
-      CopyTagsToSnapshot?: BooleanOptional;
-      /** The interval, in seconds, between points when Enhanced Monitoring metrics are
+        CopyTagsToSnapshot?: BooleanOptional;
+        /** The interval, in seconds, between points when Enhanced Monitoring metrics are
 collected for the DB instance. To disable collecting Enhanced Monitoring
 metrics, specify 0. The default is 60.
 
@@ -2265,8 +2265,8 @@ If MonitoringRoleArn is specified, then you must also set MonitoringInterval to
 a value other than 0.
 
 Valid Values: 0, 1, 5, 10, 15, 30, 60 **/
-      MonitoringInterval?: IntegerOptional;
-      /** The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to
+        MonitoringInterval?: IntegerOptional;
+        /** The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to
 CloudWatch Logs. For example, arn:aws:iam:123456789012:role/emaccess . For
 information on creating a monitoring role, go to To create an IAM role for
 Amazon RDS Enhanced Monitoring
@@ -2275,11 +2275,11 @@ Amazon RDS Enhanced Monitoring
 
 If MonitoringInterval is set to a value other than 0, then you must supply a 
 MonitoringRoleArn value. **/
-      MonitoringRoleArn?: String;
-      /** Specify the name of the IAM role to be used when making API calls to the
+        MonitoringRoleArn?: String;
+        /** Specify the name of the IAM role to be used when making API calls to the
 Directory Service. **/
-      DomainIAMRoleName?: String;
-      /** A value that specifies the order in which an Aurora Replica is promoted to the
+        DomainIAMRoleName?: String;
+        /** A value that specifies the order in which an Aurora Replica is promoted to the
 primary instance after a failure of the existing primary instance. For more
 information, see Fault Tolerance for an Aurora DB Cluster
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance] 
@@ -2288,35 +2288,35 @@ information, see Fault Tolerance for an Aurora DB Cluster
 Default: 1
 
 Valid Values: 0 - 15 **/
-      PromotionTier?: IntegerOptional;
+        PromotionTier?: IntegerOptional;
     }
     export interface CreateDBInstanceReadReplicaMessage {
-      /** The DB instance identifier of the Read Replica. This identifier is the unique
+        /** The DB instance identifier of the Read Replica. This identifier is the unique
 key that identifies a DB instance. This parameter is stored as a lowercase
 string. **/
-      DBInstanceIdentifier: String;
-      /** The identifier of the DB instance that will act as the source for the Read
+        DBInstanceIdentifier: String;
+        /** The identifier of the DB instance that will act as the source for the Read
 Replica. Each DB instance can have up to five Read Replicas.
 
 Constraints:
 
-&amp;#42; Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB
- instance.
-* Can specify a DB instance that is a MySQL Read Replica only if the source is
- running MySQL 5.6.
-* Can specify a DB instance that is a PostgreSQL Read Replica only if the
- source is running PostgreSQL 9.3.5.
-* The specified DB instance must have automatic backups enabled, its backup
- retention period must be greater than 0.
-* If the source DB instance is in the same region as the Read Replica, specify
- a valid DB instance identifier.
-* If the source DB instance is in a different region than the Read Replica,
- specify a valid DB instance ARN. For more information, go to Constructing a
- Amazon RDS Amazon Resource Name (ARN)
- [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
- . **/
-      SourceDBInstanceIdentifier: String;
-      /** The compute and memory capacity of the Read Replica.
+ &amp;#42; Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB
+   instance.
+ * Can specify a DB instance that is a MySQL Read Replica only if the source is
+   running MySQL 5.6.
+ * Can specify a DB instance that is a PostgreSQL Read Replica only if the
+   source is running PostgreSQL 9.3.5.
+ * The specified DB instance must have automatic backups enabled, its backup
+   retention period must be greater than 0.
+ * If the source DB instance is in the same region as the Read Replica, specify
+   a valid DB instance identifier.
+ * If the source DB instance is in a different region than the Read Replica,
+   specify a valid DB instance ARN. For more information, go to Constructing a
+   Amazon RDS Amazon Resource Name (ARN)
+   [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
+   . **/
+        SourceDBInstanceIdentifier: String;
+        /** The compute and memory capacity of the Read Replica.
 
 Valid Values: db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge |
 db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large |
@@ -2326,31 +2326,31 @@ db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium |
 db.t2.large
 
 Default: Inherits from the source DB instance. **/
-      DBInstanceClass?: String;
-      /** The Amazon EC2 Availability Zone that the Read Replica will be created in.
+        DBInstanceClass?: String;
+        /** The Amazon EC2 Availability Zone that the Read Replica will be created in.
 
 Default: A random, system-chosen Availability Zone in the endpoint&#x27;s region.
 
 Example: us-east-1d **/
-      AvailabilityZone?: String;
-      /** The port number that the DB instance uses for connections.
+        AvailabilityZone?: String;
+        /** The port number that the DB instance uses for connections.
 
 Default: Inherits from the source DB instance
 
 Valid Values: 1150-65535 **/
-      Port?: IntegerOptional;
-      /** Indicates that minor engine upgrades will be applied automatically to the Read
+        Port?: IntegerOptional;
+        /** Indicates that minor engine upgrades will be applied automatically to the Read
 Replica during the maintenance window.
 
 Default: Inherits from the source DB instance **/
-      AutoMinorVersionUpgrade?: BooleanOptional;
-      /** The amount of Provisioned IOPS (input/output operations per second) to be
+        AutoMinorVersionUpgrade?: BooleanOptional;
+        /** The amount of Provisioned IOPS (input/output operations per second) to be
 initially allocated for the DB instance. **/
-      Iops?: IntegerOptional;
-      /** The option group the DB instance will be associated with. If omitted, the
+        Iops?: IntegerOptional;
+        /** The option group the DB instance will be associated with. If omitted, the
 default option group for the engine specified will be used. **/
-      OptionGroupName?: String;
-      /** Specifies the accessibility options for the DB instance. A value of true
+        OptionGroupName?: String;
+        /** Specifies the accessibility options for the DB instance. A value of true
 specifies an Internet-facing instance with a publicly resolvable DNS name, which
 resolves to a public IP address. A value of false specifies an internal instance
 with a DNS name that resolves to a private IP address.
@@ -2358,51 +2358,51 @@ with a DNS name that resolves to a private IP address.
 Default: The default behavior varies depending on whether a VPC has been
 requested or not. The following list shows the default behavior in each case.
 
-&amp;#42; Default VPC: true
-* VPC: false
+ &amp;#42; Default VPC: true
+ * VPC: false
 
 If no DB subnet group has been specified as part of the request and the
 PubliclyAccessible value has not been set, the DB instance will be publicly
 accessible. If a specific DB subnet group has been specified as part of the
 request and the PubliclyAccessible value has not been set, the DB instance will
 be private. **/
-      PubliclyAccessible?: BooleanOptional;
-      Tags?: TagList;
-      /** Specifies a DB subnet group for the DB instance. The new DB instance will be
+        PubliclyAccessible?: BooleanOptional;
+        Tags?: TagList;
+        /** Specifies a DB subnet group for the DB instance. The new DB instance will be
 created in the VPC associated with the DB subnet group. If no DB subnet group is
 specified, then the new DB instance is not created in a VPC.
 
 Constraints:
 
-&amp;#42; Can only be specified if the source DB instance identifier specifies a DB
- instance in another region.
-* The specified DB subnet group must be in the same region in which the
- operation is running.
-* All Read Replicas in one region that are created from the same source DB
- instance must either: * Specify DB subnet groups from the same VPC. All these
-    Read Replicas will be created in the same VPC.
-  * Not specify a DB subnet group. All these Read
-    Replicas will be created outside of any VPC.
- 
- 
+ &amp;#42; Can only be specified if the source DB instance identifier specifies a DB
+   instance in another region.
+ * The specified DB subnet group must be in the same region in which the
+   operation is running.
+ * All Read Replicas in one region that are created from the same source DB
+   instance must either: * Specify DB subnet groups from the same VPC. All these
+      Read Replicas will be created in the same VPC.
+    * Not specify a DB subnet group. All these Read
+      Replicas will be created outside of any VPC.
+   
+   
 
 Constraints: Must contain no more than 255 alphanumeric characters, periods,
 underscores, spaces, or hyphens. Must not be default.
 
 Example: mySubnetgroup **/
-      DBSubnetGroupName?: String;
-      /** Specifies the storage type to be associated with the Read Replica.
+        DBSubnetGroupName?: String;
+        /** Specifies the storage type to be associated with the Read Replica.
 
 Valid values: standard | gp2 | io1
 
 If you specify io1 , you must also include a value for the Iops parameter.
 
 Default: io1 if the Iops parameter is specified; otherwise standard **/
-      StorageType?: String;
-      /** True to copy all tags from the Read Replica to snapshots of the Read Replica;
+        StorageType?: String;
+        /** True to copy all tags from the Read Replica to snapshots of the Read Replica;
 otherwise false. The default is false. **/
-      CopyTagsToSnapshot?: BooleanOptional;
-      /** The interval, in seconds, between points when Enhanced Monitoring metrics are
+        CopyTagsToSnapshot?: BooleanOptional;
+        /** The interval, in seconds, between points when Enhanced Monitoring metrics are
 collected for the Read Replica. To disable collecting Enhanced Monitoring
 metrics, specify 0. The default is 60.
 
@@ -2410,8 +2410,8 @@ If MonitoringRoleArn is specified, then you must also set MonitoringInterval to
 a value other than 0.
 
 Valid Values: 0, 1, 5, 10, 15, 30, 60 **/
-      MonitoringInterval?: IntegerOptional;
-      /** The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to
+        MonitoringInterval?: IntegerOptional;
+        /** The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to
 CloudWatch Logs. For example, arn:aws:iam:123456789012:role/emaccess . For
 information on creating a monitoring role, go to To create an IAM role for
 Amazon RDS Enhanced Monitoring
@@ -2420,404 +2420,404 @@ Amazon RDS Enhanced Monitoring
 
 If MonitoringInterval is set to a value other than 0, then you must supply a 
 MonitoringRoleArn value. **/
-      MonitoringRoleArn?: String;
+        MonitoringRoleArn?: String;
     }
     export interface CreateDBInstanceReadReplicaResult {
-      DBInstance?: DBInstance;
+        DBInstance?: DBInstance;
     }
     export interface CreateDBInstanceResult {
-      DBInstance?: DBInstance;
+        DBInstance?: DBInstance;
     }
     export interface CreateDBParameterGroupMessage {
-      /** The name of the DB parameter group.
+        /** The name of the DB parameter group.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
 
 This value is stored as a lowercase string. **/
-      DBParameterGroupName: String;
-      /** The DB parameter group family name. A DB parameter group can be associated with
+        DBParameterGroupName: String;
+        /** The DB parameter group family name. A DB parameter group can be associated with
 one and only one DB parameter group family, and can be applied only to a DB
 instance running a database engine and engine version compatible with that DB
 parameter group family. **/
-      DBParameterGroupFamily: String;
-      /** The description for the DB parameter group. **/
-      Description: String;
-      Tags?: TagList;
+        DBParameterGroupFamily: String;
+        /** The description for the DB parameter group. **/
+        Description: String;
+        Tags?: TagList;
     }
     export interface CreateDBParameterGroupResult {
-      DBParameterGroup?: DBParameterGroup;
+        DBParameterGroup?: DBParameterGroup;
     }
     export interface CreateDBSecurityGroupMessage {
-      /** The name for the DB security group. This value is stored as a lowercase string.
+        /** The name for the DB security group. This value is stored as a lowercase string.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
-* Must not be &quot;Default&quot;
-* Cannot contain spaces
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
+ * Must not be &quot;Default&quot;
+ * Cannot contain spaces
 
 Example: mysecuritygroup **/
-      DBSecurityGroupName: String;
-      /** The description for the DB security group. **/
-      DBSecurityGroupDescription: String;
-      Tags?: TagList;
+        DBSecurityGroupName: String;
+        /** The description for the DB security group. **/
+        DBSecurityGroupDescription: String;
+        Tags?: TagList;
     }
     export interface CreateDBSecurityGroupResult {
-      DBSecurityGroup?: DBSecurityGroup;
+        DBSecurityGroup?: DBSecurityGroup;
     }
     export interface CreateDBSnapshotMessage {
-      /** The identifier for the DB snapshot.
+        /** The identifier for the DB snapshot.
 
 Constraints:
 
-&amp;#42; Cannot be null, empty, or blank
-* Must contain from 1 to 255 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
+ &amp;#42; Cannot be null, empty, or blank
+ * Must contain from 1 to 255 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
 
 Example: my-snapshot-id **/
-      DBSnapshotIdentifier: String;
-      /** The DB instance identifier. This is the unique key that identifies a DB
+        DBSnapshotIdentifier: String;
+        /** The DB instance identifier. This is the unique key that identifies a DB
 instance.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBInstanceIdentifier: String;
-      Tags?: TagList;
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBInstanceIdentifier: String;
+        Tags?: TagList;
     }
     export interface CreateDBSnapshotResult {
-      DBSnapshot?: DBSnapshot;
+        DBSnapshot?: DBSnapshot;
     }
     export interface CreateDBSubnetGroupMessage {
-      /** The name for the DB subnet group. This value is stored as a lowercase string.
+        /** The name for the DB subnet group. This value is stored as a lowercase string.
 
 Constraints: Must contain no more than 255 alphanumeric characters, periods,
 underscores, spaces, or hyphens. Must not be default.
 
 Example: mySubnetgroup **/
-      DBSubnetGroupName: String;
-      /** The description for the DB subnet group. **/
-      DBSubnetGroupDescription: String;
-      /** The EC2 Subnet IDs for the DB subnet group. **/
-      SubnetIds: SubnetIdentifierList;
-      Tags?: TagList;
+        DBSubnetGroupName: String;
+        /** The description for the DB subnet group. **/
+        DBSubnetGroupDescription: String;
+        /** The EC2 Subnet IDs for the DB subnet group. **/
+        SubnetIds: SubnetIdentifierList;
+        Tags?: TagList;
     }
     export interface CreateDBSubnetGroupResult {
-      DBSubnetGroup?: DBSubnetGroup;
+        DBSubnetGroup?: DBSubnetGroup;
     }
     export interface CreateEventSubscriptionMessage {
-      /** The name of the subscription.
+        /** The name of the subscription.
 
 Constraints: The name must be less than 255 characters. **/
-      SubscriptionName: String;
-      /** The Amazon Resource Name (ARN) of the SNS topic created for event notification.
+        SubscriptionName: String;
+        /** The Amazon Resource Name (ARN) of the SNS topic created for event notification.
 The ARN is created by Amazon SNS when you create a topic and subscribe to it. **/
-      SnsTopicArn: String;
-      /** The type of source that will be generating the events. For example, if you want
+        SnsTopicArn: String;
+        /** The type of source that will be generating the events. For example, if you want
 to be notified of events generated by a DB instance, you would set this
 parameter to db-instance. if this value is not specified, all events are
 returned.
 
 Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot **/
-      SourceType?: String;
-      /** A list of event categories for a SourceType that you want to subscribe to. You
+        SourceType?: String;
+        /** A list of event categories for a SourceType that you want to subscribe to. You
 can see a list of the categories for a given SourceType in the Events
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html] topic
 in the Amazon RDS User Guide or by using the DescribeEventCategories action. **/
-      EventCategories?: EventCategoriesList;
-      /** The list of identifiers of the event sources for which events will be returned.
+        EventCategories?: EventCategoriesList;
+        /** The list of identifiers of the event sources for which events will be returned.
 If not specified, then all sources are included in the response. An identifier
 must begin with a letter and must contain only ASCII letters, digits, and
 hyphens; it cannot end with a hyphen or contain two consecutive hyphens.
 
 Constraints:
 
-&amp;#42; If SourceIds are supplied, SourceType must also be provided.
-* If the source type is a DB instance, then a DBInstanceIdentifier must be
- supplied.
-* If the source type is a DB security group, a DBSecurityGroupName must be
- supplied.
-* If the source type is a DB parameter group, a DBParameterGroupName must be
- supplied.
-* If the source type is a DB snapshot, a DBSnapshotIdentifier must be supplied. **/
-      SourceIds?: SourceIdsList;
-      /** A Boolean value; set to true to activate the subscription, set to false to
+ &amp;#42; If SourceIds are supplied, SourceType must also be provided.
+ * If the source type is a DB instance, then a DBInstanceIdentifier must be
+   supplied.
+ * If the source type is a DB security group, a DBSecurityGroupName must be
+   supplied.
+ * If the source type is a DB parameter group, a DBParameterGroupName must be
+   supplied.
+ * If the source type is a DB snapshot, a DBSnapshotIdentifier must be supplied. **/
+        SourceIds?: SourceIdsList;
+        /** A Boolean value; set to true to activate the subscription, set to false to
 create the subscription but not active it. **/
-      Enabled?: BooleanOptional;
-      Tags?: TagList;
+        Enabled?: BooleanOptional;
+        Tags?: TagList;
     }
     export interface CreateEventSubscriptionResult {
-      EventSubscription?: EventSubscription;
+        EventSubscription?: EventSubscription;
     }
     export interface CreateOptionGroupMessage {
-      /** Specifies the name of the option group to be created.
+        /** Specifies the name of the option group to be created.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
+ &amp;#42; Must be 1 to 255 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
 
 Example: myoptiongroup **/
-      OptionGroupName: String;
-      /** Specifies the name of the engine that this option group should be associated
+        OptionGroupName: String;
+        /** Specifies the name of the engine that this option group should be associated
 with. **/
-      EngineName: String;
-      /** Specifies the major version of the engine that this option group should be
+        EngineName: String;
+        /** Specifies the major version of the engine that this option group should be
 associated with. **/
-      MajorEngineVersion: String;
-      /** The description of the option group. **/
-      OptionGroupDescription: String;
-      Tags?: TagList;
+        MajorEngineVersion: String;
+        /** The description of the option group. **/
+        OptionGroupDescription: String;
+        Tags?: TagList;
     }
     export interface CreateOptionGroupResult {
-      OptionGroup?: OptionGroup;
+        OptionGroup?: OptionGroup;
     }
     export interface DBCluster {
-      /** Specifies the allocated storage size in gigabytes (GB). **/
-      AllocatedStorage?: IntegerOptional;
-      /** Provides the list of EC2 Availability Zones that instances in the DB cluster can
+        /** Specifies the allocated storage size in gigabytes (GB). **/
+        AllocatedStorage?: IntegerOptional;
+        /** Provides the list of EC2 Availability Zones that instances in the DB cluster can
 be created in. **/
-      AvailabilityZones?: AvailabilityZones;
-      /** Specifies the number of days for which automatic DB snapshots are retained. **/
-      BackupRetentionPeriod?: IntegerOptional;
-      /** If present, specifies the name of the character set that this cluster is
+        AvailabilityZones?: AvailabilityZones;
+        /** Specifies the number of days for which automatic DB snapshots are retained. **/
+        BackupRetentionPeriod?: IntegerOptional;
+        /** If present, specifies the name of the character set that this cluster is
 associated with. **/
-      CharacterSetName?: String;
-      /** Contains the name of the initial database of this DB cluster that was provided
+        CharacterSetName?: String;
+        /** Contains the name of the initial database of this DB cluster that was provided
 at create time, if one was specified when the DB cluster was created. This same
 name is returned for the life of the DB cluster. **/
-      DatabaseName?: String;
-      /** Contains a user-supplied DB cluster identifier. This identifier is the unique
+        DatabaseName?: String;
+        /** Contains a user-supplied DB cluster identifier. This identifier is the unique
 key that identifies a DB cluster. **/
-      DBClusterIdentifier?: String;
-      /** Specifies the name of the DB cluster parameter group for the DB cluster. **/
-      DBClusterParameterGroup?: String;
-      /** Specifies information on the subnet group associated with the DB cluster,
+        DBClusterIdentifier?: String;
+        /** Specifies the name of the DB cluster parameter group for the DB cluster. **/
+        DBClusterParameterGroup?: String;
+        /** Specifies information on the subnet group associated with the DB cluster,
 including the name, description, and subnets in the subnet group. **/
-      DBSubnetGroup?: String;
-      /** Specifies the current state of this DB cluster. **/
-      Status?: String;
-      /** Specifies the progress of the operation as a percentage. **/
-      PercentProgress?: String;
-      /** Specifies the earliest time to which a database can be restored with
+        DBSubnetGroup?: String;
+        /** Specifies the current state of this DB cluster. **/
+        Status?: String;
+        /** Specifies the progress of the operation as a percentage. **/
+        PercentProgress?: String;
+        /** Specifies the earliest time to which a database can be restored with
 point-in-time restore. **/
-      EarliestRestorableTime?: TStamp;
-      /** Specifies the connection endpoint for the primary instance of the DB cluster. **/
-      Endpoint?: String;
-      /** Provides the name of the database engine to be used for this DB cluster. **/
-      Engine?: String;
-      /** Indicates the database engine version. **/
-      EngineVersion?: String;
-      /** Specifies the latest time to which a database can be restored with point-in-time
+        EarliestRestorableTime?: TStamp;
+        /** Specifies the connection endpoint for the primary instance of the DB cluster. **/
+        Endpoint?: String;
+        /** Provides the name of the database engine to be used for this DB cluster. **/
+        Engine?: String;
+        /** Indicates the database engine version. **/
+        EngineVersion?: String;
+        /** Specifies the latest time to which a database can be restored with point-in-time
 restore. **/
-      LatestRestorableTime?: TStamp;
-      /** Specifies the port that the database engine is listening on. **/
-      Port?: IntegerOptional;
-      /** Contains the master username for the DB cluster. **/
-      MasterUsername?: String;
-      /** Provides the list of option group memberships for this DB cluster. **/
-      DBClusterOptionGroupMemberships?: DBClusterOptionGroupMemberships;
-      /** Specifies the daily time range during which automated backups are created if
+        LatestRestorableTime?: TStamp;
+        /** Specifies the port that the database engine is listening on. **/
+        Port?: IntegerOptional;
+        /** Contains the master username for the DB cluster. **/
+        MasterUsername?: String;
+        /** Provides the list of option group memberships for this DB cluster. **/
+        DBClusterOptionGroupMemberships?: DBClusterOptionGroupMemberships;
+        /** Specifies the daily time range during which automated backups are created if
 automated backups are enabled, as determined by the BackupRetentionPeriod . **/
-      PreferredBackupWindow?: String;
-      /** Specifies the weekly time range during which system maintenance can occur, in
+        PreferredBackupWindow?: String;
+        /** Specifies the weekly time range during which system maintenance can occur, in
 Universal Coordinated Time (UTC). **/
-      PreferredMaintenanceWindow?: String;
-      /** Provides the list of instances that make up the DB cluster. **/
-      DBClusterMembers?: DBClusterMemberList;
-      /** Provides a list of VPC security groups that the DB cluster belongs to. **/
-      VpcSecurityGroups?: VpcSecurityGroupMembershipList;
-      /** Specifies the ID that Amazon Route 53 assigns when you create a hosted zone. **/
-      HostedZoneId?: String;
-      /** Specifies whether the DB cluster is encrypted. **/
-      StorageEncrypted?: Boolean;
-      /** If StorageEncrypted is true, the KMS key identifier for the encrypted DB
+        PreferredMaintenanceWindow?: String;
+        /** Provides the list of instances that make up the DB cluster. **/
+        DBClusterMembers?: DBClusterMemberList;
+        /** Provides a list of VPC security groups that the DB cluster belongs to. **/
+        VpcSecurityGroups?: VpcSecurityGroupMembershipList;
+        /** Specifies the ID that Amazon Route 53 assigns when you create a hosted zone. **/
+        HostedZoneId?: String;
+        /** Specifies whether the DB cluster is encrypted. **/
+        StorageEncrypted?: Boolean;
+        /** If StorageEncrypted is true, the KMS key identifier for the encrypted DB
 cluster. **/
-      KmsKeyId?: String;
-      /** The region-unique, immutable identifier for the DB cluster. This identifier is
+        KmsKeyId?: String;
+        /** The region-unique, immutable identifier for the DB cluster. This identifier is
 found in AWS CloudTrail log entries whenever the KMS key for the DB cluster is
 accessed. **/
-      DbClusterResourceId?: String;
+        DbClusterResourceId?: String;
     }
     export interface DBClusterAlreadyExistsFault {
     }
     export interface DBClusterMember {
-      /** Specifies the instance identifier for this member of the DB cluster. **/
-      DBInstanceIdentifier?: String;
-      /** Value that is true if the cluster member is the primary instance for the DB
+        /** Specifies the instance identifier for this member of the DB cluster. **/
+        DBInstanceIdentifier?: String;
+        /** Value that is true if the cluster member is the primary instance for the DB
 cluster and false otherwise. **/
-      IsClusterWriter?: Boolean;
-      /** Specifies the status of the DB cluster parameter group for this member of the DB
+        IsClusterWriter?: Boolean;
+        /** Specifies the status of the DB cluster parameter group for this member of the DB
 cluster. **/
-      DBClusterParameterGroupStatus?: String;
-      /** A value that specifies the order in which an Aurora Replica is promoted to the
+        DBClusterParameterGroupStatus?: String;
+        /** A value that specifies the order in which an Aurora Replica is promoted to the
 primary instance after a failure of the existing primary instance. For more
 information, see Fault Tolerance for an Aurora DB Cluster
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance] 
 . **/
-      PromotionTier?: IntegerOptional;
+        PromotionTier?: IntegerOptional;
     }
     export interface DBClusterMessage {
-      /** A pagination token that can be used in a subsequent DescribeDBClusters request. **/
-      Marker?: String;
-      /** Contains a list of DB clusters for the user. **/
-      DBClusters?: DBClusterList;
+        /** A pagination token that can be used in a subsequent DescribeDBClusters request. **/
+        Marker?: String;
+        /** Contains a list of DB clusters for the user. **/
+        DBClusters?: DBClusterList;
     }
     export interface DBClusterNotFoundFault {
     }
     export interface DBClusterOptionGroupStatus {
-      /** Specifies the name of the DB cluster option group. **/
-      DBClusterOptionGroupName?: String;
-      /** Specifies the status of the DB cluster option group. **/
-      Status?: String;
+        /** Specifies the name of the DB cluster option group. **/
+        DBClusterOptionGroupName?: String;
+        /** Specifies the status of the DB cluster option group. **/
+        Status?: String;
     }
     export interface DBClusterParameterGroup {
-      /** Provides the name of the DB cluster parameter group. **/
-      DBClusterParameterGroupName?: String;
-      /** Provides the name of the DB parameter group family that this DB cluster
+        /** Provides the name of the DB cluster parameter group. **/
+        DBClusterParameterGroupName?: String;
+        /** Provides the name of the DB parameter group family that this DB cluster
 parameter group is compatible with. **/
-      DBParameterGroupFamily?: String;
-      /** Provides the customer-specified description for this DB cluster parameter group. **/
-      Description?: String;
+        DBParameterGroupFamily?: String;
+        /** Provides the customer-specified description for this DB cluster parameter group. **/
+        Description?: String;
     }
     export interface DBClusterParameterGroupDetails {
-      /** Provides a list of parameters for the DB cluster parameter group. **/
-      Parameters?: ParametersList;
-      /** An optional pagination token provided by a previous DescribeDBClusterParameters
+        /** Provides a list of parameters for the DB cluster parameter group. **/
+        Parameters?: ParametersList;
+        /** An optional pagination token provided by a previous DescribeDBClusterParameters
 request. If this parameter is specified, the response includes only records
 beyond the marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DBClusterParameterGroupNameMessage {
-      /** The name of the DB cluster parameter group.
+        /** The name of the DB cluster parameter group.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
 
 This value is stored as a lowercase string. **/
-      DBClusterParameterGroupName?: String;
+        DBClusterParameterGroupName?: String;
     }
     export interface DBClusterParameterGroupNotFoundFault {
     }
     export interface DBClusterParameterGroupsMessage {
-      /** An optional pagination token provided by a previous 
+        /** An optional pagination token provided by a previous 
 DescribeDBClusterParameterGroups request. If this parameter is specified, the
 response includes only records beyond the marker, up to the value specified by 
 MaxRecords . **/
-      Marker?: String;
-      /** A list of DB cluster parameter groups. **/
-      DBClusterParameterGroups?: DBClusterParameterGroupList;
+        Marker?: String;
+        /** A list of DB cluster parameter groups. **/
+        DBClusterParameterGroups?: DBClusterParameterGroupList;
     }
     export interface DBClusterQuotaExceededFault {
     }
     export interface DBClusterSnapshot {
-      /** Provides the list of EC2 Availability Zones that instances in the DB cluster
+        /** Provides the list of EC2 Availability Zones that instances in the DB cluster
 snapshot can be restored in. **/
-      AvailabilityZones?: AvailabilityZones;
-      /** Specifies the identifier for the DB cluster snapshot. **/
-      DBClusterSnapshotIdentifier?: String;
-      /** Specifies the DB cluster identifier of the DB cluster that this DB cluster
+        AvailabilityZones?: AvailabilityZones;
+        /** Specifies the identifier for the DB cluster snapshot. **/
+        DBClusterSnapshotIdentifier?: String;
+        /** Specifies the DB cluster identifier of the DB cluster that this DB cluster
 snapshot was created from. **/
-      DBClusterIdentifier?: String;
-      /** Provides the time when the snapshot was taken, in Universal Coordinated Time
+        DBClusterIdentifier?: String;
+        /** Provides the time when the snapshot was taken, in Universal Coordinated Time
 (UTC). **/
-      SnapshotCreateTime?: TStamp;
-      /** Specifies the name of the database engine. **/
-      Engine?: String;
-      /** Specifies the allocated storage size in gigabytes (GB). **/
-      AllocatedStorage?: Integer;
-      /** Specifies the status of this DB cluster snapshot. **/
-      Status?: String;
-      /** Specifies the port that the DB cluster was listening on at the time of the
+        SnapshotCreateTime?: TStamp;
+        /** Specifies the name of the database engine. **/
+        Engine?: String;
+        /** Specifies the allocated storage size in gigabytes (GB). **/
+        AllocatedStorage?: Integer;
+        /** Specifies the status of this DB cluster snapshot. **/
+        Status?: String;
+        /** Specifies the port that the DB cluster was listening on at the time of the
 snapshot. **/
-      Port?: Integer;
-      /** Provides the VPC ID associated with the DB cluster snapshot. **/
-      VpcId?: String;
-      /** Specifies the time when the DB cluster was created, in Universal Coordinated
+        Port?: Integer;
+        /** Provides the VPC ID associated with the DB cluster snapshot. **/
+        VpcId?: String;
+        /** Specifies the time when the DB cluster was created, in Universal Coordinated
 Time (UTC). **/
-      ClusterCreateTime?: TStamp;
-      /** Provides the master username for the DB cluster snapshot. **/
-      MasterUsername?: String;
-      /** Provides the version of the database engine for this DB cluster snapshot. **/
-      EngineVersion?: String;
-      /** Provides the license model information for this DB cluster snapshot. **/
-      LicenseModel?: String;
-      /** Provides the type of the DB cluster snapshot. **/
-      SnapshotType?: String;
-      /** Specifies the percentage of the estimated data that has been transferred. **/
-      PercentProgress?: Integer;
-      /** Specifies whether the DB cluster snapshot is encrypted. **/
-      StorageEncrypted?: Boolean;
-      /** If StorageEncrypted is true, the KMS key identifier for the encrypted DB cluster
+        ClusterCreateTime?: TStamp;
+        /** Provides the master username for the DB cluster snapshot. **/
+        MasterUsername?: String;
+        /** Provides the version of the database engine for this DB cluster snapshot. **/
+        EngineVersion?: String;
+        /** Provides the license model information for this DB cluster snapshot. **/
+        LicenseModel?: String;
+        /** Provides the type of the DB cluster snapshot. **/
+        SnapshotType?: String;
+        /** Specifies the percentage of the estimated data that has been transferred. **/
+        PercentProgress?: Integer;
+        /** Specifies whether the DB cluster snapshot is encrypted. **/
+        StorageEncrypted?: Boolean;
+        /** If StorageEncrypted is true, the KMS key identifier for the encrypted DB cluster
 snapshot. **/
-      KmsKeyId?: String;
+        KmsKeyId?: String;
     }
     export interface DBClusterSnapshotAlreadyExistsFault {
     }
     export interface DBClusterSnapshotMessage {
-      /** An optional pagination token provided by a previous DescribeDBClusterSnapshots 
+        /** An optional pagination token provided by a previous DescribeDBClusterSnapshots 
 request. If this parameter is specified, the response includes only records
 beyond the marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
-      /** Provides a list of DB cluster snapshots for the user. **/
-      DBClusterSnapshots?: DBClusterSnapshotList;
+        Marker?: String;
+        /** Provides a list of DB cluster snapshots for the user. **/
+        DBClusterSnapshots?: DBClusterSnapshotList;
     }
     export interface DBClusterSnapshotNotFoundFault {
     }
     export interface DBEngineVersion {
-      /** The name of the database engine. **/
-      Engine?: String;
-      /** The version number of the database engine. **/
-      EngineVersion?: String;
-      /** The name of the DB parameter group family for the database engine. **/
-      DBParameterGroupFamily?: String;
-      /** The description of the database engine. **/
-      DBEngineDescription?: String;
-      /** The description of the database engine version. **/
-      DBEngineVersionDescription?: String;
-      /** The default character set for new instances of this engine version, if the 
+        /** The name of the database engine. **/
+        Engine?: String;
+        /** The version number of the database engine. **/
+        EngineVersion?: String;
+        /** The name of the DB parameter group family for the database engine. **/
+        DBParameterGroupFamily?: String;
+        /** The description of the database engine. **/
+        DBEngineDescription?: String;
+        /** The description of the database engine version. **/
+        DBEngineVersionDescription?: String;
+        /** The default character set for new instances of this engine version, if the 
 CharacterSetName parameter of the CreateDBInstance API is not specified. **/
-      DefaultCharacterSet?: CharacterSet;
-      /** A list of the character sets supported by this engine for the CharacterSetName 
+        DefaultCharacterSet?: CharacterSet;
+        /** A list of the character sets supported by this engine for the CharacterSetName 
 parameter of the CreateDBInstance API. **/
-      SupportedCharacterSets?: SupportedCharacterSetsList;
-      /** A list of engine versions that this database engine version can be upgraded to. **/
-      ValidUpgradeTarget?: ValidUpgradeTargetList;
+        SupportedCharacterSets?: SupportedCharacterSetsList;
+        /** A list of engine versions that this database engine version can be upgraded to. **/
+        ValidUpgradeTarget?: ValidUpgradeTargetList;
     }
     export interface DBEngineVersionMessage {
-      /** An optional pagination token provided by a previous request. If this parameter
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
-      /** A list of DBEngineVersion elements. **/
-      DBEngineVersions?: DBEngineVersionList;
+        Marker?: String;
+        /** A list of DBEngineVersion elements. **/
+        DBEngineVersions?: DBEngineVersionList;
     }
     export interface DBInstance {
-      /** Contains a user-supplied database identifier. This identifier is the unique key
+        /** Contains a user-supplied database identifier. This identifier is the unique key
 that identifies a DB instance. **/
-      DBInstanceIdentifier?: String;
-      /** Contains the name of the compute and memory capacity class of the DB instance. **/
-      DBInstanceClass?: String;
-      /** Provides the name of the database engine to be used for this DB instance. **/
-      Engine?: String;
-      /** Specifies the current state of this database. **/
-      DBInstanceStatus?: String;
-      /** Contains the master username for the DB instance. **/
-      MasterUsername?: String;
-      /** The meaning of this parameter differs according to the database engine you use.
+        DBInstanceIdentifier?: String;
+        /** Contains the name of the compute and memory capacity class of the DB instance. **/
+        DBInstanceClass?: String;
+        /** Provides the name of the database engine to be used for this DB instance. **/
+        Engine?: String;
+        /** Specifies the current state of this database. **/
+        DBInstanceStatus?: String;
+        /** Contains the master username for the DB instance. **/
+        MasterUsername?: String;
+        /** The meaning of this parameter differs according to the database engine you use.
 For example, this value returns MySQL, MariaDB, or PostgreSQL information when
 returning values from CreateDBInstanceReadReplica since Read Replicas are only
 supported for these engines.
@@ -2834,65 +2834,65 @@ Oracle
 
 Contains the Oracle System ID (SID) of the created DB instance. Not shown when
 the returned parameters do not apply to an Oracle DB instance. **/
-      DBName?: String;
-      /** Specifies the connection endpoint. **/
-      Endpoint?: Endpoint;
-      /** Specifies the allocated storage size specified in gigabytes. **/
-      AllocatedStorage?: Integer;
-      /** Provides the date and time the DB instance was created. **/
-      InstanceCreateTime?: TStamp;
-      /** Specifies the daily time range during which automated backups are created if
+        DBName?: String;
+        /** Specifies the connection endpoint. **/
+        Endpoint?: Endpoint;
+        /** Specifies the allocated storage size specified in gigabytes. **/
+        AllocatedStorage?: Integer;
+        /** Provides the date and time the DB instance was created. **/
+        InstanceCreateTime?: TStamp;
+        /** Specifies the daily time range during which automated backups are created if
 automated backups are enabled, as determined by the BackupRetentionPeriod . **/
-      PreferredBackupWindow?: String;
-      /** Specifies the number of days for which automatic DB snapshots are retained. **/
-      BackupRetentionPeriod?: Integer;
-      /** Provides List of DB security group elements containing only DBSecurityGroup.Name 
+        PreferredBackupWindow?: String;
+        /** Specifies the number of days for which automatic DB snapshots are retained. **/
+        BackupRetentionPeriod?: Integer;
+        /** Provides List of DB security group elements containing only DBSecurityGroup.Name 
 and DBSecurityGroup.Status subelements. **/
-      DBSecurityGroups?: DBSecurityGroupMembershipList;
-      /** Provides List of VPC security group elements that the DB instance belongs to. **/
-      VpcSecurityGroups?: VpcSecurityGroupMembershipList;
-      /** Provides the list of DB parameter groups applied to this DB instance. **/
-      DBParameterGroups?: DBParameterGroupStatusList;
-      /** Specifies the name of the Availability Zone the DB instance is located in. **/
-      AvailabilityZone?: String;
-      /** Specifies information on the subnet group associated with the DB instance,
+        DBSecurityGroups?: DBSecurityGroupMembershipList;
+        /** Provides List of VPC security group elements that the DB instance belongs to. **/
+        VpcSecurityGroups?: VpcSecurityGroupMembershipList;
+        /** Provides the list of DB parameter groups applied to this DB instance. **/
+        DBParameterGroups?: DBParameterGroupStatusList;
+        /** Specifies the name of the Availability Zone the DB instance is located in. **/
+        AvailabilityZone?: String;
+        /** Specifies information on the subnet group associated with the DB instance,
 including the name, description, and subnets in the subnet group. **/
-      DBSubnetGroup?: DBSubnetGroup;
-      /** Specifies the weekly time range during which system maintenance can occur, in
+        DBSubnetGroup?: DBSubnetGroup;
+        /** Specifies the weekly time range during which system maintenance can occur, in
 Universal Coordinated Time (UTC). **/
-      PreferredMaintenanceWindow?: String;
-      /** Specifies that changes to the DB instance are pending. This element is only
+        PreferredMaintenanceWindow?: String;
+        /** Specifies that changes to the DB instance are pending. This element is only
 included when changes are pending. Specific changes are identified by
 subelements. **/
-      PendingModifiedValues?: PendingModifiedValues;
-      /** Specifies the latest time to which a database can be restored with point-in-time
+        PendingModifiedValues?: PendingModifiedValues;
+        /** Specifies the latest time to which a database can be restored with point-in-time
 restore. **/
-      LatestRestorableTime?: TStamp;
-      /** Specifies if the DB instance is a Multi-AZ deployment. **/
-      MultiAZ?: Boolean;
-      /** Indicates the database engine version. **/
-      EngineVersion?: String;
-      /** Indicates that minor version patches are applied automatically. **/
-      AutoMinorVersionUpgrade?: Boolean;
-      /** Contains the identifier of the source DB instance if this DB instance is a Read
+        LatestRestorableTime?: TStamp;
+        /** Specifies if the DB instance is a Multi-AZ deployment. **/
+        MultiAZ?: Boolean;
+        /** Indicates the database engine version. **/
+        EngineVersion?: String;
+        /** Indicates that minor version patches are applied automatically. **/
+        AutoMinorVersionUpgrade?: Boolean;
+        /** Contains the identifier of the source DB instance if this DB instance is a Read
 Replica. **/
-      ReadReplicaSourceDBInstanceIdentifier?: String;
-      /** Contains one or more identifiers of the Read Replicas associated with this DB
+        ReadReplicaSourceDBInstanceIdentifier?: String;
+        /** Contains one or more identifiers of the Read Replicas associated with this DB
 instance. **/
-      ReadReplicaDBInstanceIdentifiers?: ReadReplicaDBInstanceIdentifierList;
-      /** License model information for this DB instance. **/
-      LicenseModel?: String;
-      /** Specifies the Provisioned IOPS (I/O operations per second) value. **/
-      Iops?: IntegerOptional;
-      /** Provides the list of option group memberships for this DB instance. **/
-      OptionGroupMemberships?: OptionGroupMembershipList;
-      /** If present, specifies the name of the character set that this instance is
+        ReadReplicaDBInstanceIdentifiers?: ReadReplicaDBInstanceIdentifierList;
+        /** License model information for this DB instance. **/
+        LicenseModel?: String;
+        /** Specifies the Provisioned IOPS (I/O operations per second) value. **/
+        Iops?: IntegerOptional;
+        /** Provides the list of option group memberships for this DB instance. **/
+        OptionGroupMemberships?: OptionGroupMembershipList;
+        /** If present, specifies the name of the character set that this instance is
 associated with. **/
-      CharacterSetName?: String;
-      /** If present, specifies the name of the secondary Availability Zone for a DB
+        CharacterSetName?: String;
+        /** If present, specifies the name of the secondary Availability Zone for a DB
 instance with multi-AZ support. **/
-      SecondaryAvailabilityZone?: String;
-      /** Specifies the accessibility options for the DB instance. A value of true
+        SecondaryAvailabilityZone?: String;
+        /** Specifies the accessibility options for the DB instance. A value of true
 specifies an Internet-facing instance with a publicly resolvable DNS name, which
 resolves to a public IP address. A value of false specifies an internal instance
 with a DNS name that resolves to a private IP address.
@@ -2900,158 +2900,158 @@ with a DNS name that resolves to a private IP address.
 Default: The default behavior varies depending on whether a VPC has been
 requested or not. The following list shows the default behavior in each case.
 
-&amp;#42; Default VPC: true
-* VPC: false
+ &amp;#42; Default VPC: true
+ * VPC: false
 
 If no DB subnet group has been specified as part of the request and the
 PubliclyAccessible value has not been set, the DB instance will be publicly
 accessible. If a specific DB subnet group has been specified as part of the
 request and the PubliclyAccessible value has not been set, the DB instance will
 be private. **/
-      PubliclyAccessible?: Boolean;
-      /** The status of a Read Replica. If the instance is not a Read Replica, this will
+        PubliclyAccessible?: Boolean;
+        /** The status of a Read Replica. If the instance is not a Read Replica, this will
 be blank. **/
-      StatusInfos?: DBInstanceStatusInfoList;
-      /** Specifies the storage type associated with DB instance. **/
-      StorageType?: String;
-      /** The ARN from the Key Store with which the instance is associated for TDE
+        StatusInfos?: DBInstanceStatusInfoList;
+        /** Specifies the storage type associated with DB instance. **/
+        StorageType?: String;
+        /** The ARN from the Key Store with which the instance is associated for TDE
 encryption. **/
-      TdeCredentialArn?: String;
-      /** Specifies the port that the DB instance listens on. If the DB instance is part
+        TdeCredentialArn?: String;
+        /** Specifies the port that the DB instance listens on. If the DB instance is part
 of a DB cluster, this can be a different port than the DB cluster port. **/
-      DbInstancePort?: Integer;
-      /** If the DB instance is a member of a DB cluster, contains the name of the DB
+        DbInstancePort?: Integer;
+        /** If the DB instance is a member of a DB cluster, contains the name of the DB
 cluster that the DB instance is a member of. **/
-      DBClusterIdentifier?: String;
-      /** Specifies whether the DB instance is encrypted. **/
-      StorageEncrypted?: Boolean;
-      /** If StorageEncrypted is true, the KMS key identifier for the encrypted DB
+        DBClusterIdentifier?: String;
+        /** Specifies whether the DB instance is encrypted. **/
+        StorageEncrypted?: Boolean;
+        /** If StorageEncrypted is true, the KMS key identifier for the encrypted DB
 instance. **/
-      KmsKeyId?: String;
-      /** The region-unique, immutable identifier for the DB instance. This identifier is
+        KmsKeyId?: String;
+        /** The region-unique, immutable identifier for the DB instance. This identifier is
 found in AWS CloudTrail log entries whenever the KMS key for the DB instance is
 accessed. **/
-      DbiResourceId?: String;
-      /** The identifier of the CA certificate for this DB instance. **/
-      CACertificateIdentifier?: String;
-      /** The Active Directory Domain membership records associated with the DB instance. **/
-      DomainMemberships?: DomainMembershipList;
-      /** Specifies whether tags are copied from the DB instance to snapshots of the DB
+        DbiResourceId?: String;
+        /** The identifier of the CA certificate for this DB instance. **/
+        CACertificateIdentifier?: String;
+        /** The Active Directory Domain membership records associated with the DB instance. **/
+        DomainMemberships?: DomainMembershipList;
+        /** Specifies whether tags are copied from the DB instance to snapshots of the DB
 instance. **/
-      CopyTagsToSnapshot?: Boolean;
-      /** The interval, in seconds, between points when Enhanced Monitoring metrics are
+        CopyTagsToSnapshot?: Boolean;
+        /** The interval, in seconds, between points when Enhanced Monitoring metrics are
 collected for the DB instance. **/
-      MonitoringInterval?: IntegerOptional;
-      /** The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that
+        MonitoringInterval?: IntegerOptional;
+        /** The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that
 receives the Enhanced Monitoring metrics data for the DB instance. **/
-      EnhancedMonitoringResourceArn?: String;
-      /** The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to
+        EnhancedMonitoringResourceArn?: String;
+        /** The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to
 CloudWatch Logs. **/
-      MonitoringRoleArn?: String;
-      /** A value that specifies the order in which an Aurora Replica is promoted to the
+        MonitoringRoleArn?: String;
+        /** A value that specifies the order in which an Aurora Replica is promoted to the
 primary instance after a failure of the existing primary instance. For more
 information, see Fault Tolerance for an Aurora DB Cluster
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance] 
 . **/
-      PromotionTier?: IntegerOptional;
+        PromotionTier?: IntegerOptional;
     }
     export interface DBInstanceAlreadyExistsFault {
     }
     export interface DBInstanceMessage {
-      /** An optional pagination token provided by a previous request. If this parameter
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
-      /** A list of DBInstance instances. **/
-      DBInstances?: DBInstanceList;
+        Marker?: String;
+        /** A list of DBInstance instances. **/
+        DBInstances?: DBInstanceList;
     }
     export interface DBInstanceNotFoundFault {
     }
     export interface DBInstanceStatusInfo {
-      /** This value is currently &quot;read replication.&quot; **/
-      StatusType?: String;
-      /** Boolean value that is true if the instance is operating normally, or false if
+        /** This value is currently &quot;read replication.&quot; **/
+        StatusType?: String;
+        /** Boolean value that is true if the instance is operating normally, or false if
 the instance is in an error state. **/
-      Normal?: Boolean;
-      /** Status of the DB instance. For a StatusType of read replica, the values can be
+        Normal?: Boolean;
+        /** Status of the DB instance. For a StatusType of read replica, the values can be
 replicating, error, stopped, or terminated. **/
-      Status?: String;
-      /** Details of the error if there is an error for the instance. If the instance is
+        Status?: String;
+        /** Details of the error if there is an error for the instance. If the instance is
 not in an error state, this value is blank. **/
-      Message?: String;
+        Message?: String;
     }
     export interface DBLogFileNotFoundFault {
     }
     export interface DBParameterGroup {
-      /** Provides the name of the DB parameter group. **/
-      DBParameterGroupName?: String;
-      /** Provides the name of the DB parameter group family that this DB parameter group
+        /** Provides the name of the DB parameter group. **/
+        DBParameterGroupName?: String;
+        /** Provides the name of the DB parameter group family that this DB parameter group
 is compatible with. **/
-      DBParameterGroupFamily?: String;
-      /** Provides the customer-specified description for this DB parameter group. **/
-      Description?: String;
+        DBParameterGroupFamily?: String;
+        /** Provides the customer-specified description for this DB parameter group. **/
+        Description?: String;
     }
     export interface DBParameterGroupAlreadyExistsFault {
     }
     export interface DBParameterGroupDetails {
-      /** A list of Parameter values. **/
-      Parameters?: ParametersList;
-      /** An optional pagination token provided by a previous request. If this parameter
+        /** A list of Parameter values. **/
+        Parameters?: ParametersList;
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DBParameterGroupNameMessage {
-      /** Provides the name of the DB parameter group. **/
-      DBParameterGroupName?: String;
+        /** Provides the name of the DB parameter group. **/
+        DBParameterGroupName?: String;
     }
     export interface DBParameterGroupNotFoundFault {
     }
     export interface DBParameterGroupQuotaExceededFault {
     }
     export interface DBParameterGroupStatus {
-      /** The name of the DP parameter group. **/
-      DBParameterGroupName?: String;
-      /** The status of parameter updates. **/
-      ParameterApplyStatus?: String;
+        /** The name of the DP parameter group. **/
+        DBParameterGroupName?: String;
+        /** The status of parameter updates. **/
+        ParameterApplyStatus?: String;
     }
     export interface DBParameterGroupsMessage {
-      /** An optional pagination token provided by a previous request. If this parameter
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
-      /** A list of DBParameterGroup instances. **/
-      DBParameterGroups?: DBParameterGroupList;
+        Marker?: String;
+        /** A list of DBParameterGroup instances. **/
+        DBParameterGroups?: DBParameterGroupList;
     }
     export interface DBSecurityGroup {
-      /** Provides the AWS ID of the owner of a specific DB security group. **/
-      OwnerId?: String;
-      /** Specifies the name of the DB security group. **/
-      DBSecurityGroupName?: String;
-      /** Provides the description of the DB security group. **/
-      DBSecurityGroupDescription?: String;
-      /** Provides the VpcId of the DB security group. **/
-      VpcId?: String;
-      /** Contains a list of EC2SecurityGroup elements. **/
-      EC2SecurityGroups?: EC2SecurityGroupList;
-      /** Contains a list of IPRange elements. **/
-      IPRanges?: IPRangeList;
+        /** Provides the AWS ID of the owner of a specific DB security group. **/
+        OwnerId?: String;
+        /** Specifies the name of the DB security group. **/
+        DBSecurityGroupName?: String;
+        /** Provides the description of the DB security group. **/
+        DBSecurityGroupDescription?: String;
+        /** Provides the VpcId of the DB security group. **/
+        VpcId?: String;
+        /** Contains a list of EC2SecurityGroup elements. **/
+        EC2SecurityGroups?: EC2SecurityGroupList;
+        /** Contains a list of IPRange elements. **/
+        IPRanges?: IPRangeList;
     }
     export interface DBSecurityGroupAlreadyExistsFault {
     }
     export interface DBSecurityGroupMembership {
-      /** The name of the DB security group. **/
-      DBSecurityGroupName?: String;
-      /** The status of the DB security group. **/
-      Status?: String;
+        /** The name of the DB security group. **/
+        DBSecurityGroupName?: String;
+        /** The status of the DB security group. **/
+        Status?: String;
     }
     export interface DBSecurityGroupMessage {
-      /** An optional pagination token provided by a previous request. If this parameter
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
-      /** A list of DBSecurityGroup instances. **/
-      DBSecurityGroups?: DBSecurityGroups;
+        Marker?: String;
+        /** A list of DBSecurityGroup instances. **/
+        DBSecurityGroups?: DBSecurityGroups;
     }
     export interface DBSecurityGroupNotFoundFault {
     }
@@ -3060,116 +3060,116 @@ value specified by MaxRecords . **/
     export interface DBSecurityGroupQuotaExceededFault {
     }
     export interface DBSnapshot {
-      /** Specifies the identifier for the DB snapshot. **/
-      DBSnapshotIdentifier?: String;
-      /** Specifies the DB instance identifier of the DB instance this DB snapshot was
+        /** Specifies the identifier for the DB snapshot. **/
+        DBSnapshotIdentifier?: String;
+        /** Specifies the DB instance identifier of the DB instance this DB snapshot was
 created from. **/
-      DBInstanceIdentifier?: String;
-      /** Provides the time when the snapshot was taken, in Universal Coordinated Time
+        DBInstanceIdentifier?: String;
+        /** Provides the time when the snapshot was taken, in Universal Coordinated Time
 (UTC). **/
-      SnapshotCreateTime?: TStamp;
-      /** Specifies the name of the database engine. **/
-      Engine?: String;
-      /** Specifies the allocated storage size in gigabytes (GB). **/
-      AllocatedStorage?: Integer;
-      /** Specifies the status of this DB snapshot. **/
-      Status?: String;
-      /** Specifies the port that the database engine was listening on at the time of the
+        SnapshotCreateTime?: TStamp;
+        /** Specifies the name of the database engine. **/
+        Engine?: String;
+        /** Specifies the allocated storage size in gigabytes (GB). **/
+        AllocatedStorage?: Integer;
+        /** Specifies the status of this DB snapshot. **/
+        Status?: String;
+        /** Specifies the port that the database engine was listening on at the time of the
 snapshot. **/
-      Port?: Integer;
-      /** Specifies the name of the Availability Zone the DB instance was located in at
+        Port?: Integer;
+        /** Specifies the name of the Availability Zone the DB instance was located in at
 the time of the DB snapshot. **/
-      AvailabilityZone?: String;
-      /** Provides the VPC ID associated with the DB snapshot. **/
-      VpcId?: String;
-      /** Specifies the time when the snapshot was taken, in Universal Coordinated Time
+        AvailabilityZone?: String;
+        /** Provides the VPC ID associated with the DB snapshot. **/
+        VpcId?: String;
+        /** Specifies the time when the snapshot was taken, in Universal Coordinated Time
 (UTC). **/
-      InstanceCreateTime?: TStamp;
-      /** Provides the master username for the DB snapshot. **/
-      MasterUsername?: String;
-      /** Specifies the version of the database engine. **/
-      EngineVersion?: String;
-      /** License model information for the restored DB instance. **/
-      LicenseModel?: String;
-      /** Provides the type of the DB snapshot. **/
-      SnapshotType?: String;
-      /** Specifies the Provisioned IOPS (I/O operations per second) value of the DB
+        InstanceCreateTime?: TStamp;
+        /** Provides the master username for the DB snapshot. **/
+        MasterUsername?: String;
+        /** Specifies the version of the database engine. **/
+        EngineVersion?: String;
+        /** License model information for the restored DB instance. **/
+        LicenseModel?: String;
+        /** Provides the type of the DB snapshot. **/
+        SnapshotType?: String;
+        /** Specifies the Provisioned IOPS (I/O operations per second) value of the DB
 instance at the time of the snapshot. **/
-      Iops?: IntegerOptional;
-      /** Provides the option group name for the DB snapshot. **/
-      OptionGroupName?: String;
-      /** The percentage of the estimated data that has been transferred. **/
-      PercentProgress?: Integer;
-      /** The region that the DB snapshot was created in or copied from. **/
-      SourceRegion?: String;
-      /** The DB snapshot Arn that the DB snapshot was copied from. It only has value in
+        Iops?: IntegerOptional;
+        /** Provides the option group name for the DB snapshot. **/
+        OptionGroupName?: String;
+        /** The percentage of the estimated data that has been transferred. **/
+        PercentProgress?: Integer;
+        /** The region that the DB snapshot was created in or copied from. **/
+        SourceRegion?: String;
+        /** The DB snapshot Arn that the DB snapshot was copied from. It only has value in
 case of cross customer or cross region copy. **/
-      SourceDBSnapshotIdentifier?: String;
-      /** Specifies the storage type associated with DB Snapshot. **/
-      StorageType?: String;
-      /** The ARN from the Key Store with which to associate the instance for TDE
+        SourceDBSnapshotIdentifier?: String;
+        /** Specifies the storage type associated with DB Snapshot. **/
+        StorageType?: String;
+        /** The ARN from the Key Store with which to associate the instance for TDE
 encryption. **/
-      TdeCredentialArn?: String;
-      /** Specifies whether the DB snapshot is encrypted. **/
-      Encrypted?: Boolean;
-      /** If Encrypted is true, the KMS key identifier for the encrypted DB snapshot. **/
-      KmsKeyId?: String;
+        TdeCredentialArn?: String;
+        /** Specifies whether the DB snapshot is encrypted. **/
+        Encrypted?: Boolean;
+        /** If Encrypted is true, the KMS key identifier for the encrypted DB snapshot. **/
+        KmsKeyId?: String;
     }
     export interface DBSnapshotAlreadyExistsFault {
     }
     export interface DBSnapshotAttribute {
-      /** The name of the manual DB snapshot attribute.
+        /** The name of the manual DB snapshot attribute.
 
 An attribute name of restore applies to the list of AWS accounts that have
 permission to copy or restore the manual DB snapshot. **/
-      AttributeName?: String;
-      /** The value(s) for the manual DB snapshot attribute.
+        AttributeName?: String;
+        /** The value(s) for the manual DB snapshot attribute.
 
 If the AttributeName field is restore , then this field returns a list of AWS
 account ids that are authorized to copy or restore the manual DB snapshot. If a
 value of all is in the list, then the manual DB snapshot is public and available
 for any AWS account to copy or restore. **/
-      AttributeValues?: AttributeValueList;
+        AttributeValues?: AttributeValueList;
     }
     export interface DBSnapshotAttributesResult {
-      /** The identifier of the manual DB snapshot that the attributes apply to. **/
-      DBSnapshotIdentifier?: String;
-      /** The list of attributes and values for the manual DB snapshot. **/
-      DBSnapshotAttributes?: DBSnapshotAttributeList;
+        /** The identifier of the manual DB snapshot that the attributes apply to. **/
+        DBSnapshotIdentifier?: String;
+        /** The list of attributes and values for the manual DB snapshot. **/
+        DBSnapshotAttributes?: DBSnapshotAttributeList;
     }
     export interface DBSnapshotMessage {
-      /** An optional pagination token provided by a previous request. If this parameter
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
-      /** A list of DBSnapshot instances. **/
-      DBSnapshots?: DBSnapshotList;
+        Marker?: String;
+        /** A list of DBSnapshot instances. **/
+        DBSnapshots?: DBSnapshotList;
     }
     export interface DBSnapshotNotFoundFault {
     }
     export interface DBSubnetGroup {
-      /** The name of the DB subnet group. **/
-      DBSubnetGroupName?: String;
-      /** Provides the description of the DB subnet group. **/
-      DBSubnetGroupDescription?: String;
-      /** Provides the VpcId of the DB subnet group. **/
-      VpcId?: String;
-      /** Provides the status of the DB subnet group. **/
-      SubnetGroupStatus?: String;
-      /** Contains a list of Subnet elements. **/
-      Subnets?: SubnetList;
+        /** The name of the DB subnet group. **/
+        DBSubnetGroupName?: String;
+        /** Provides the description of the DB subnet group. **/
+        DBSubnetGroupDescription?: String;
+        /** Provides the VpcId of the DB subnet group. **/
+        VpcId?: String;
+        /** Provides the status of the DB subnet group. **/
+        SubnetGroupStatus?: String;
+        /** Contains a list of Subnet elements. **/
+        Subnets?: SubnetList;
     }
     export interface DBSubnetGroupAlreadyExistsFault {
     }
     export interface DBSubnetGroupDoesNotCoverEnoughAZs {
     }
     export interface DBSubnetGroupMessage {
-      /** An optional pagination token provided by a previous request. If this parameter
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
-      /** A list of DBSubnetGroup instances. **/
-      DBSubnetGroups?: DBSubnetGroups;
+        Marker?: String;
+        /** A list of DBSubnetGroup instances. **/
+        DBSubnetGroups?: DBSubnetGroups;
     }
     export interface DBSubnetGroupNotAllowedFault {
     }
@@ -3182,67 +3182,67 @@ value specified by MaxRecords . **/
     export interface DBUpgradeDependencyFailureFault {
     }
     export interface DeleteDBClusterMessage {
-      /** The DB cluster identifier for the DB cluster to be deleted. This parameter isn&#x27;t
+        /** The DB cluster identifier for the DB cluster to be deleted. This parameter isn&#x27;t
 case-sensitive.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBClusterIdentifier: String;
-      /** Determines whether a final DB cluster snapshot is created before the DB cluster
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBClusterIdentifier: String;
+        /** Determines whether a final DB cluster snapshot is created before the DB cluster
 is deleted. If true is specified, no DB cluster snapshot is created. If false is
 specified, a DB cluster snapshot is created before the DB cluster is deleted.
 
 You must specify a FinalDBSnapshotIdentifier parameter if SkipFinalSnapshot is 
 false .Default: false **/
-      SkipFinalSnapshot?: Boolean;
-      /** The DB cluster snapshot identifier of the new DB cluster snapshot created when 
+        SkipFinalSnapshot?: Boolean;
+        /** The DB cluster snapshot identifier of the new DB cluster snapshot created when 
 SkipFinalSnapshot is set to false .
 
 Specifying this parameter and also setting the SkipFinalShapshot parameter to
 true results in an error.Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      FinalDBSnapshotIdentifier?: String;
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        FinalDBSnapshotIdentifier?: String;
     }
     export interface DeleteDBClusterParameterGroupMessage {
-      /** The name of the DB cluster parameter group.
+        /** The name of the DB cluster parameter group.
 
 Constraints:
 
-&amp;#42; Must be the name of an existing DB cluster parameter group.
-* You cannot delete a default DB cluster parameter group.
-* Cannot be associated with any DB clusters. **/
-      DBClusterParameterGroupName: String;
+ &amp;#42; Must be the name of an existing DB cluster parameter group.
+ * You cannot delete a default DB cluster parameter group.
+ * Cannot be associated with any DB clusters. **/
+        DBClusterParameterGroupName: String;
     }
     export interface DeleteDBClusterResult {
-      DBCluster?: DBCluster;
+        DBCluster?: DBCluster;
     }
     export interface DeleteDBClusterSnapshotMessage {
-      /** The identifier of the DB cluster snapshot to delete.
+        /** The identifier of the DB cluster snapshot to delete.
 
 Constraints: Must be the name of an existing DB cluster snapshot in the 
 available state. **/
-      DBClusterSnapshotIdentifier: String;
+        DBClusterSnapshotIdentifier: String;
     }
     export interface DeleteDBClusterSnapshotResult {
-      DBClusterSnapshot?: DBClusterSnapshot;
+        DBClusterSnapshot?: DBClusterSnapshot;
     }
     export interface DeleteDBInstanceMessage {
-      /** The DB instance identifier for the DB instance to be deleted. This parameter
+        /** The DB instance identifier for the DB instance to be deleted. This parameter
 isn&#x27;t case-sensitive.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBInstanceIdentifier: String;
-      /** Determines whether a final DB snapshot is created before the DB instance is
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBInstanceIdentifier: String;
+        /** Determines whether a final DB snapshot is created before the DB instance is
 deleted. If true is specified, no DBSnapshot is created. If false is specified,
 a DB snapshot is created before the DB instance is deleted.
 
@@ -3254,55 +3254,55 @@ Specify true when deleting a Read Replica.
 
 The FinalDBSnapshotIdentifier parameter must be specified if SkipFinalSnapshot
 is false .Default: false **/
-      SkipFinalSnapshot?: Boolean;
-      /** The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is
+        SkipFinalSnapshot?: Boolean;
+        /** The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is
 set to false .
 
 Specifying this parameter and also setting the SkipFinalShapshot parameter to
 true results in an error.Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
-* Cannot be specified when deleting a Read Replica. **/
-      FinalDBSnapshotIdentifier?: String;
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
+ * Cannot be specified when deleting a Read Replica. **/
+        FinalDBSnapshotIdentifier?: String;
     }
     export interface DeleteDBInstanceResult {
-      DBInstance?: DBInstance;
+        DBInstance?: DBInstance;
     }
     export interface DeleteDBParameterGroupMessage {
-      /** The name of the DB parameter group.
+        /** The name of the DB parameter group.
 
 Constraints:
 
-&amp;#42; Must be the name of an existing DB parameter group
-* You cannot delete a default DB parameter group
-* Cannot be associated with any DB instances **/
-      DBParameterGroupName: String;
+ &amp;#42; Must be the name of an existing DB parameter group
+ * You cannot delete a default DB parameter group
+ * Cannot be associated with any DB instances **/
+        DBParameterGroupName: String;
     }
     export interface DeleteDBSecurityGroupMessage {
-      /** The name of the DB security group to delete.
+        /** The name of the DB security group to delete.
 
 You cannot delete the default DB security group.Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
-* Must not be &quot;Default&quot;
-* Cannot contain spaces **/
-      DBSecurityGroupName: String;
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
+ * Must not be &quot;Default&quot;
+ * Cannot contain spaces **/
+        DBSecurityGroupName: String;
     }
     export interface DeleteDBSnapshotMessage {
-      /** The DBSnapshot identifier.
+        /** The DBSnapshot identifier.
 
 Constraints: Must be the name of an existing DB snapshot in the available state. **/
-      DBSnapshotIdentifier: String;
+        DBSnapshotIdentifier: String;
     }
     export interface DeleteDBSnapshotResult {
-      DBSnapshot?: DBSnapshot;
+        DBSnapshot?: DBSnapshot;
     }
     export interface DeleteDBSubnetGroupMessage {
-      /** The name of the database subnet group to delete.
+        /** The name of the database subnet group to delete.
 
 You cannot delete the default subnet group.Constraints:
 
@@ -3310,387 +3310,387 @@ Constraints: Must contain no more than 255 alphanumeric characters, periods,
 underscores, spaces, or hyphens. Must not be default.
 
 Example: mySubnetgroup **/
-      DBSubnetGroupName: String;
+        DBSubnetGroupName: String;
     }
     export interface DeleteEventSubscriptionMessage {
-      /** The name of the RDS event notification subscription you want to delete. **/
-      SubscriptionName: String;
+        /** The name of the RDS event notification subscription you want to delete. **/
+        SubscriptionName: String;
     }
     export interface DeleteEventSubscriptionResult {
-      EventSubscription?: EventSubscription;
+        EventSubscription?: EventSubscription;
     }
     export interface DeleteOptionGroupMessage {
-      /** The name of the option group to be deleted.
+        /** The name of the option group to be deleted.
 
 You cannot delete default option groups. **/
-      OptionGroupName: String;
+        OptionGroupName: String;
     }
     export interface DescribeAccountAttributesMessage {
     }
     export interface DescribeCertificatesMessage {
-      /** The user-supplied certificate identifier. If this parameter is specified,
+        /** The user-supplied certificate identifier. If this parameter is specified,
 information for only the identified certificate is returned. This parameter
 isn&#x27;t case-sensitive.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      CertificateIdentifier?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        CertificateIdentifier?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous DescribeCertificates 
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous DescribeCertificates 
 request. If this parameter is specified, the response includes only records
 beyond the marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeDBClusterParameterGroupsMessage {
-      /** The name of a specific DB cluster parameter group to return details for.
+        /** The name of a specific DB cluster parameter group to return details for.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBClusterParameterGroupName?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBClusterParameterGroupName?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous 
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous 
 DescribeDBClusterParameterGroups request. If this parameter is specified, the
 response includes only records beyond the marker, up to the value specified by 
 MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeDBClusterParametersMessage {
-      /** The name of a specific DB cluster parameter group to return parameter details
+        /** The name of a specific DB cluster parameter group to return parameter details
 for.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBClusterParameterGroupName: String;
-      /** A value that indicates to return only parameters for a specific source.
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBClusterParameterGroupName: String;
+        /** A value that indicates to return only parameters for a specific source.
 Parameter sources can be engine , service , or customer . **/
-      Source?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+        Source?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous DescribeDBClusterParameters 
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous DescribeDBClusterParameters 
 request. If this parameter is specified, the response includes only records
 beyond the marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeDBClusterSnapshotsMessage {
-      /** A DB cluster identifier to retrieve the list of DB cluster snapshots for. This
+        /** A DB cluster identifier to retrieve the list of DB cluster snapshots for. This
 parameter cannot be used in conjunction with the DBClusterSnapshotIdentifier 
 parameter. This parameter is not case-sensitive.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBClusterIdentifier?: String;
-      /** A specific DB cluster snapshot identifier to describe. This parameter cannot be
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBClusterIdentifier?: String;
+        /** A specific DB cluster snapshot identifier to describe. This parameter cannot be
 used in conjunction with the DBClusterIdentifier parameter. This value is stored
 as a lowercase string.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
-* If this is the identifier of an automated snapshot, the SnapshotType 
- parameter must also be specified. **/
-      DBClusterSnapshotIdentifier?: String;
-      /** The type of DB cluster snapshots that will be returned. Values can be automated 
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
+ * If this is the identifier of an automated snapshot, the SnapshotType 
+   parameter must also be specified. **/
+        DBClusterSnapshotIdentifier?: String;
+        /** The type of DB cluster snapshots that will be returned. Values can be automated 
 or manual . If this parameter is not specified, the returned results will
 include all snapshot types. **/
-      SnapshotType?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+        SnapshotType?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous DescribeDBClusterSnapshots 
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous DescribeDBClusterSnapshots 
 request. If this parameter is specified, the response includes only records
 beyond the marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeDBClustersMessage {
-      /** The user-supplied DB cluster identifier. If this parameter is specified,
+        /** The user-supplied DB cluster identifier. If this parameter is specified,
 information from only the specific DB cluster is returned. This parameter isn&#x27;t
 case-sensitive.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBClusterIdentifier?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBClusterIdentifier?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous DescribeDBClusters request.
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous DescribeDBClusters request.
 If this parameter is specified, the response includes only records beyond the
 marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeDBEngineVersionsMessage {
-      /** The database engine to return. **/
-      Engine?: String;
-      /** The database engine version to return.
+        /** The database engine to return. **/
+        Engine?: String;
+        /** The database engine version to return.
 
 Example: 5.1.49 **/
-      EngineVersion?: String;
-      /** The name of a specific DB parameter group family to return details for.
+        EngineVersion?: String;
+        /** The name of a specific DB parameter group family to return details for.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBParameterGroupFamily?: String;
-      /** Not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more than the 
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBParameterGroupFamily?: String;
+        /** Not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more than the 
 MaxRecords value is available, a pagination token called a marker is included in
 the response so that the following results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous request. If this parameter
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
-      /** Indicates that only the default version of the specified engine or engine and
+        Marker?: String;
+        /** Indicates that only the default version of the specified engine or engine and
 major version combination is returned. **/
-      DefaultOnly?: Boolean;
-      /** If this parameter is specified, and if the requested engine supports the
+        DefaultOnly?: Boolean;
+        /** If this parameter is specified, and if the requested engine supports the
 CharacterSetName parameter for CreateDBInstance, the response includes a list of
 supported character sets for each engine version. **/
-      ListSupportedCharacterSets?: BooleanOptional;
+        ListSupportedCharacterSets?: BooleanOptional;
     }
     export interface DescribeDBInstancesMessage {
-      /** The user-supplied instance identifier. If this parameter is specified,
+        /** The user-supplied instance identifier. If this parameter is specified,
 information from only the specific DB instance is returned. This parameter isn&#x27;t
 case-sensitive.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBInstanceIdentifier?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBInstanceIdentifier?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous DescribeDBInstances request.
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous DescribeDBInstances request.
 If this parameter is specified, the response includes only records beyond the
 marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeDBLogFilesDetails {
-      /** The name of the log file for the specified DB instance. **/
-      LogFileName?: String;
-      /** A POSIX timestamp when the last log entry was written. **/
-      LastWritten?: Long;
-      /** The size, in bytes, of the log file for the specified DB instance. **/
-      Size?: Long;
+        /** The name of the log file for the specified DB instance. **/
+        LogFileName?: String;
+        /** A POSIX timestamp when the last log entry was written. **/
+        LastWritten?: Long;
+        /** The size, in bytes, of the log file for the specified DB instance. **/
+        Size?: Long;
     }
     export interface DescribeDBLogFilesMessage {
-      /** The customer-assigned name of the DB instance that contains the log files you
+        /** The customer-assigned name of the DB instance that contains the log files you
 want to list.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBInstanceIdentifier: String;
-      /** Filters the available log files for log file names that contain the specified
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBInstanceIdentifier: String;
+        /** Filters the available log files for log file names that contain the specified
 string. **/
-      FilenameContains?: String;
-      /** Filters the available log files for files written since the specified date, in
+        FilenameContains?: String;
+        /** Filters the available log files for files written since the specified date, in
 POSIX timestamp format with milliseconds. **/
-      FileLastWritten?: Long;
-      /** Filters the available log files for files larger than the specified size. **/
-      FileSize?: Long;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+        FileLastWritten?: Long;
+        /** Filters the available log files for files larger than the specified size. **/
+        FileSize?: Long;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved. **/
-      MaxRecords?: IntegerOptional;
-      /** The pagination token provided in the previous request. If this parameter is
+        MaxRecords?: IntegerOptional;
+        /** The pagination token provided in the previous request. If this parameter is
 specified the response includes only records beyond the marker, up to
 MaxRecords. **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeDBLogFilesResponse {
-      /** The DB log files returned. **/
-      DescribeDBLogFiles?: DescribeDBLogFilesList;
-      /** A pagination token that can be used in a subsequent DescribeDBLogFiles request. **/
-      Marker?: String;
+        /** The DB log files returned. **/
+        DescribeDBLogFiles?: DescribeDBLogFilesList;
+        /** A pagination token that can be used in a subsequent DescribeDBLogFiles request. **/
+        Marker?: String;
     }
     export interface DescribeDBParameterGroupsMessage {
-      /** The name of a specific DB parameter group to return details for.
+        /** The name of a specific DB parameter group to return details for.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBParameterGroupName?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBParameterGroupName?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous DescribeDBParameterGroups 
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous DescribeDBParameterGroups 
 request. If this parameter is specified, the response includes only records
 beyond the marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeDBParametersMessage {
-      /** The name of a specific DB parameter group to return details for.
+        /** The name of a specific DB parameter group to return details for.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBParameterGroupName: String;
-      /** The parameter types to return.
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBParameterGroupName: String;
+        /** The parameter types to return.
 
 Default: All parameter types returned
 
 Valid Values: user | system | engine-default **/
-      Source?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+        Source?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous DescribeDBParameters 
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous DescribeDBParameters 
 request. If this parameter is specified, the response includes only records
 beyond the marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeDBSecurityGroupsMessage {
-      /** The name of the DB security group to return details for. **/
-      DBSecurityGroupName?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+        /** The name of the DB security group to return details for. **/
+        DBSecurityGroupName?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous DescribeDBSecurityGroups 
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous DescribeDBSecurityGroups 
 request. If this parameter is specified, the response includes only records
 beyond the marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeDBSnapshotAttributesMessage {
-      /** The identifier for the DB snapshot to modify the attributes for. **/
-      DBSnapshotIdentifier?: String;
+        /** The identifier for the DB snapshot to modify the attributes for. **/
+        DBSnapshotIdentifier?: String;
     }
     export interface DescribeDBSnapshotAttributesResult {
-      DBSnapshotAttributesResult?: DBSnapshotAttributesResult;
+        DBSnapshotAttributesResult?: DBSnapshotAttributesResult;
     }
     export interface DescribeDBSnapshotsMessage {
-      /** A DB instance identifier to retrieve the list of DB snapshots for. This
+        /** A DB instance identifier to retrieve the list of DB snapshots for. This
 parameter cannot be used in conjunction with DBSnapshotIdentifier . This
 parameter is not case-sensitive.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBInstanceIdentifier?: String;
-      /** A specific DB snapshot identifier to describe. This parameter cannot be used in
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBInstanceIdentifier?: String;
+        /** A specific DB snapshot identifier to describe. This parameter cannot be used in
 conjunction with DBInstanceIdentifier . This value is stored as a lowercase
 string.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens.
-* If this is the identifier of an automated snapshot, the SnapshotType 
- parameter must also be specified. **/
-      DBSnapshotIdentifier?: String;
-      /** The type of snapshots that will be returned. You can specify one of the
+ &amp;#42; Must be 1 to 255 alphanumeric characters.
+ * First character must be a letter.
+ * Cannot end with a hyphen or contain two consecutive hyphens.
+ * If this is the identifier of an automated snapshot, the SnapshotType 
+   parameter must also be specified. **/
+        DBSnapshotIdentifier?: String;
+        /** The type of snapshots that will be returned. You can specify one of the
 following values:
 
-&amp;#42; automated - Return all DB snapshots that have been automatically taken by
- Amazon RDS for my AWS account.
-* manual - Return all DB snapshots that have been taken by my AWS account.
-* shared - Return all manual DB snapshots that have been shared to my AWS
- account.
-* public - Return all DB snapshots that have been marked as public.
+ &amp;#42; automated - Return all DB snapshots that have been automatically taken by
+   Amazon RDS for my AWS account.
+ * manual - Return all DB snapshots that have been taken by my AWS account.
+ * shared - Return all manual DB snapshots that have been shared to my AWS
+   account.
+ * public - Return all DB snapshots that have been marked as public.
 
 If you do not specify a SnapshotType , then both automated and manual snapshots
 are returned. You can include shared snapshots with these results by setting the 
@@ -3701,491 +3701,491 @@ The IncludeShared and IncludePublic parameters do not apply for SnapshotType
 values of manual or automated . The IncludePublic parameter does not apply when 
 SnapshotType is set to shared . the IncludeShared parameter does not apply when 
 SnapshotType is set to public . **/
-      SnapshotType?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+        SnapshotType?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous DescribeDBSnapshots request.
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous DescribeDBSnapshots request.
 If this parameter is specified, the response includes only records beyond the
 marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
-      /** True to include shared manual DB snapshots from other AWS accounts that this AWS
+        Marker?: String;
+        /** True to include shared manual DB snapshots from other AWS accounts that this AWS
 account has been given permission to copy or restore; otherwise false. The
 default is false.
 
 An AWS account is given permission to restore a manual DB snapshot from another
 AWS account by the ModifyDBSnapshotAttribute API. **/
-      IncludeShared?: Boolean;
-      /** True to include manual DB snapshots that are public and can be copied or
+        IncludeShared?: Boolean;
+        /** True to include manual DB snapshots that are public and can be copied or
 restored by any AWS account; otherwise false. The default is false.
 
 An manual DB snapshot is shared as public by the ModifyDBSnapshotAttribute API. **/
-      IncludePublic?: Boolean;
+        IncludePublic?: Boolean;
     }
     export interface DescribeDBSubnetGroupsMessage {
-      /** The name of the DB subnet group to return details for. **/
-      DBSubnetGroupName?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+        /** The name of the DB subnet group to return details for. **/
+        DBSubnetGroupName?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous DescribeDBSubnetGroups
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous DescribeDBSubnetGroups
 request. If this parameter is specified, the response includes only records
 beyond the marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeEngineDefaultClusterParametersMessage {
-      /** The name of the DB cluster parameter group family to return engine parameter
+        /** The name of the DB cluster parameter group family to return engine parameter
 information for. **/
-      DBParameterGroupFamily: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+        DBParameterGroupFamily: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous 
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous 
 DescribeEngineDefaultClusterParameters request. If this parameter is specified,
 the response includes only records beyond the marker, up to the value specified
 by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeEngineDefaultClusterParametersResult {
-      EngineDefaults?: EngineDefaults;
+        EngineDefaults?: EngineDefaults;
     }
     export interface DescribeEngineDefaultParametersMessage {
-      /** The name of the DB parameter group family. **/
-      DBParameterGroupFamily: String;
-      /** Not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+        /** The name of the DB parameter group family. **/
+        DBParameterGroupFamily: String;
+        /** Not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous 
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous 
 DescribeEngineDefaultParameters request. If this parameter is specified, the
 response includes only records beyond the marker, up to the value specified by 
 MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeEngineDefaultParametersResult {
-      EngineDefaults?: EngineDefaults;
+        EngineDefaults?: EngineDefaults;
     }
     export interface DescribeEventCategoriesMessage {
-      /** The type of source that will be generating the events.
+        /** The type of source that will be generating the events.
 
 Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot **/
-      SourceType?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
+        SourceType?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
     }
     export interface DescribeEventSubscriptionsMessage {
-      /** The name of the RDS event notification subscription you want to describe. **/
-      SubscriptionName?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+        /** The name of the RDS event notification subscription you want to describe. **/
+        SubscriptionName?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous
 DescribeOrderableDBInstanceOptions request. If this parameter is specified, the
 response includes only records beyond the marker, up to the value specified by 
 MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeEventsMessage {
-      /** The identifier of the event source for which events will be returned. If not
+        /** The identifier of the event source for which events will be returned. If not
 specified, then all sources are included in the response.
 
 Constraints:
 
-&amp;#42; If SourceIdentifier is supplied, SourceType must also be provided.
-* If the source type is DBInstance , then a DBInstanceIdentifier must be
- supplied.
-* If the source type is DBSecurityGroup , a DBSecurityGroupName must be
- supplied.
-* If the source type is DBParameterGroup , a DBParameterGroupName must be
- supplied.
-* If the source type is DBSnapshot , a DBSnapshotIdentifier must be supplied.
-* Cannot end with a hyphen or contain two consecutive hyphens. **/
-      SourceIdentifier?: String;
-      /** The event source to retrieve events for. If no value is specified, all events
+ &amp;#42; If SourceIdentifier is supplied, SourceType must also be provided.
+ * If the source type is DBInstance , then a DBInstanceIdentifier must be
+   supplied.
+ * If the source type is DBSecurityGroup , a DBSecurityGroupName must be
+   supplied.
+ * If the source type is DBParameterGroup , a DBParameterGroupName must be
+   supplied.
+ * If the source type is DBSnapshot , a DBSnapshotIdentifier must be supplied.
+ * Cannot end with a hyphen or contain two consecutive hyphens. **/
+        SourceIdentifier?: String;
+        /** The event source to retrieve events for. If no value is specified, all events
 are returned. **/
-      SourceType?: SourceType;
-      /** The beginning of the time interval to retrieve events for, specified in ISO 8601
+        SourceType?: SourceType;
+        /** The beginning of the time interval to retrieve events for, specified in ISO 8601
 format. For more information about ISO 8601, go to the ISO8601 Wikipedia page.
 [http://en.wikipedia.org/wiki/ISO_8601]
 
 Example: 2009-07-08T18:00Z **/
-      StartTime?: TStamp;
-      /** The end of the time interval for which to retrieve events, specified in ISO 8601
+        StartTime?: TStamp;
+        /** The end of the time interval for which to retrieve events, specified in ISO 8601
 format. For more information about ISO 8601, go to the ISO8601 Wikipedia page.
 [http://en.wikipedia.org/wiki/ISO_8601]
 
 Example: 2009-07-08T18:00Z **/
-      EndTime?: TStamp;
-      /** The number of minutes to retrieve events for.
+        EndTime?: TStamp;
+        /** The number of minutes to retrieve events for.
 
 Default: 60 **/
-      Duration?: IntegerOptional;
-      /** A list of event categories that trigger notifications for a event notification
+        Duration?: IntegerOptional;
+        /** A list of event categories that trigger notifications for a event notification
 subscription. **/
-      EventCategories?: EventCategoriesList;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+        EventCategories?: EventCategoriesList;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous DescribeEvents request. If
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous DescribeEvents request. If
 this parameter is specified, the response includes only records beyond the
 marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeOptionGroupOptionsMessage {
-      /** A required parameter. Options available for the given engine name will be
+        /** A required parameter. Options available for the given engine name will be
 described. **/
-      EngineName: String;
-      /** If specified, filters the results to include only options for the specified
+        EngineName: String;
+        /** If specified, filters the results to include only options for the specified
 major engine version. **/
-      MajorEngineVersion?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+        MajorEngineVersion?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous request. If this parameter
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeOptionGroupsMessage {
-      /** The name of the option group to describe. Cannot be supplied together with
+        /** The name of the option group to describe. Cannot be supplied together with
 EngineName or MajorEngineVersion. **/
-      OptionGroupName?: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** An optional pagination token provided by a previous DescribeOptionGroups
+        OptionGroupName?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** An optional pagination token provided by a previous DescribeOptionGroups
 request. If this parameter is specified, the response includes only records
 beyond the marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
-      /** The maximum number of records to include in the response. If more records exist
+        Marker?: String;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** Filters the list of option groups to only include groups associated with a
+        MaxRecords?: IntegerOptional;
+        /** Filters the list of option groups to only include groups associated with a
 specific database engine. **/
-      EngineName?: String;
-      /** Filters the list of option groups to only include groups associated with a
+        EngineName?: String;
+        /** Filters the list of option groups to only include groups associated with a
 specific database engine version. If specified, then EngineName must also be
 specified. **/
-      MajorEngineVersion?: String;
+        MajorEngineVersion?: String;
     }
     export interface DescribeOrderableDBInstanceOptionsMessage {
-      /** The name of the engine to retrieve DB instance options for. **/
-      Engine: String;
-      /** The engine version filter value. Specify this parameter to show only the
+        /** The name of the engine to retrieve DB instance options for. **/
+        Engine: String;
+        /** The engine version filter value. Specify this parameter to show only the
 available offerings matching the specified engine version. **/
-      EngineVersion?: String;
-      /** The DB instance class filter value. Specify this parameter to show only the
+        EngineVersion?: String;
+        /** The DB instance class filter value. Specify this parameter to show only the
 available offerings matching the specified DB instance class. **/
-      DBInstanceClass?: String;
-      /** The license model filter value. Specify this parameter to show only the
+        DBInstanceClass?: String;
+        /** The license model filter value. Specify this parameter to show only the
 available offerings matching the specified license model. **/
-      LicenseModel?: String;
-      /** The VPC filter value. Specify this parameter to show only the available VPC or
+        LicenseModel?: String;
+        /** The VPC filter value. Specify this parameter to show only the available VPC or
 non-VPC offerings. **/
-      Vpc?: BooleanOptional;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more records exist
+        Vpc?: BooleanOptional;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous
 DescribeOrderableDBInstanceOptions request. If this parameter is specified, the
 response includes only records beyond the marker, up to the value specified by 
 MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribePendingMaintenanceActionsMessage {
-      /** The ARN of a resource to return pending maintenance actions for. **/
-      ResourceIdentifier?: String;
-      /** A filter that specifies one or more resources to return pending maintenance
+        /** The ARN of a resource to return pending maintenance actions for. **/
+        ResourceIdentifier?: String;
+        /** A filter that specifies one or more resources to return pending maintenance
 actions for.
 
 Supported filters:
 
-&amp;#42; db-instance-id - Accepts DB instance identifiers and DB instance Amazon
- Resource Names (ARNs). The results list will only include pending maintenance
- actions for the DB instances identified by these ARNs. **/
-      Filters?: FilterList;
-      /** An optional pagination token provided by a previous 
+ &amp;#42; db-instance-id - Accepts DB instance identifiers and DB instance Amazon
+   Resource Names (ARNs). The results list will only include pending maintenance
+   actions for the DB instances identified by these ARNs. **/
+        Filters?: FilterList;
+        /** An optional pagination token provided by a previous 
 DescribePendingMaintenanceActions request. If this parameter is specified, the
 response includes only records beyond the marker, up to a number of records
 specified by MaxRecords . **/
-      Marker?: String;
-      /** The maximum number of records to include in the response. If more records exist
+        Marker?: String;
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
 included in the response so that the remaining results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
+        MaxRecords?: IntegerOptional;
     }
     export interface DescribeReservedDBInstancesMessage {
-      /** The reserved DB instance identifier filter value. Specify this parameter to show
+        /** The reserved DB instance identifier filter value. Specify this parameter to show
 only the reservation that matches the specified reservation ID. **/
-      ReservedDBInstanceId?: String;
-      /** The offering identifier filter value. Specify this parameter to show only
+        ReservedDBInstanceId?: String;
+        /** The offering identifier filter value. Specify this parameter to show only
 purchased reservations matching the specified offering identifier. **/
-      ReservedDBInstancesOfferingId?: String;
-      /** The DB instance class filter value. Specify this parameter to show only those
+        ReservedDBInstancesOfferingId?: String;
+        /** The DB instance class filter value. Specify this parameter to show only those
 reservations matching the specified DB instances class. **/
-      DBInstanceClass?: String;
-      /** The duration filter value, specified in years or seconds. Specify this parameter
+        DBInstanceClass?: String;
+        /** The duration filter value, specified in years or seconds. Specify this parameter
 to show only reservations for this duration.
 
 Valid Values: 1 | 3 | 31536000 | 94608000 **/
-      Duration?: String;
-      /** The product description filter value. Specify this parameter to show only those
+        Duration?: String;
+        /** The product description filter value. Specify this parameter to show only those
 reservations matching the specified product description. **/
-      ProductDescription?: String;
-      /** The offering type filter value. Specify this parameter to show only the
+        ProductDescription?: String;
+        /** The offering type filter value. Specify this parameter to show only the
 available offerings matching the specified offering type.
 
 Valid Values: &quot;Partial Upfront&quot; | &quot;All Upfront&quot; | &quot;No Upfront&quot; **/
-      OfferingType?: String;
-      /** The Multi-AZ filter value. Specify this parameter to show only those
+        OfferingType?: String;
+        /** The Multi-AZ filter value. Specify this parameter to show only those
 reservations matching the specified Multi-AZ parameter. **/
-      MultiAZ?: BooleanOptional;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more than the 
+        MultiAZ?: BooleanOptional;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more than the 
 MaxRecords value is available, a pagination token called a marker is included in
 the response so that the following results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous request. If this parameter
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DescribeReservedDBInstancesOfferingsMessage {
-      /** The offering identifier filter value. Specify this parameter to show only the
+        /** The offering identifier filter value. Specify this parameter to show only the
 available offering that matches the specified reservation identifier.
 
 Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706 **/
-      ReservedDBInstancesOfferingId?: String;
-      /** The DB instance class filter value. Specify this parameter to show only the
+        ReservedDBInstancesOfferingId?: String;
+        /** The DB instance class filter value. Specify this parameter to show only the
 available offerings matching the specified DB instance class. **/
-      DBInstanceClass?: String;
-      /** Duration filter value, specified in years or seconds. Specify this parameter to
+        DBInstanceClass?: String;
+        /** Duration filter value, specified in years or seconds. Specify this parameter to
 show only reservations for this duration.
 
 Valid Values: 1 | 3 | 31536000 | 94608000 **/
-      Duration?: String;
-      /** Product description filter value. Specify this parameter to show only the
+        Duration?: String;
+        /** Product description filter value. Specify this parameter to show only the
 available offerings matching the specified product description. **/
-      ProductDescription?: String;
-      /** The offering type filter value. Specify this parameter to show only the
+        ProductDescription?: String;
+        /** The offering type filter value. Specify this parameter to show only the
 available offerings matching the specified offering type.
 
 Valid Values: &quot;Partial Upfront&quot; | &quot;All Upfront&quot; | &quot;No Upfront&quot; **/
-      OfferingType?: String;
-      /** The Multi-AZ filter value. Specify this parameter to show only the available
+        OfferingType?: String;
+        /** The Multi-AZ filter value. Specify this parameter to show only the available
 offerings matching the specified Multi-AZ parameter. **/
-      MultiAZ?: BooleanOptional;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
-      /** The maximum number of records to include in the response. If more than the 
+        MultiAZ?: BooleanOptional;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more than the 
 MaxRecords value is available, a pagination token called a marker is included in
 the response so that the following results can be retrieved.
 
 Default: 100
 
 Constraints: Minimum 20, maximum 100. **/
-      MaxRecords?: IntegerOptional;
-      /** An optional pagination token provided by a previous request. If this parameter
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface DomainMembership {
-      /** The identifier of the Active Directory Domain. **/
-      Domain?: String;
-      /** The status of the DB instance&#x27;s Active Directory Domain membership, such as
+        /** The identifier of the Active Directory Domain. **/
+        Domain?: String;
+        /** The status of the DB instance&#x27;s Active Directory Domain membership, such as
 joined, pending-join, failed etc). **/
-      Status?: String;
-      /** The fully qualified domain name of the Active Directory Domain. **/
-      FQDN?: String;
-      /** The name of the IAM role to be used when making API calls to the Directory
+        Status?: String;
+        /** The fully qualified domain name of the Active Directory Domain. **/
+        FQDN?: String;
+        /** The name of the IAM role to be used when making API calls to the Directory
 Service. **/
-      IAMRoleName?: String;
+        IAMRoleName?: String;
     }
     export interface DomainNotFoundFault {
     }
     export interface DownloadDBLogFilePortionDetails {
-      /** Entries from the specified log file. **/
-      LogFileData?: String;
-      /** A pagination token that can be used in a subsequent DownloadDBLogFilePortion
+        /** Entries from the specified log file. **/
+        LogFileData?: String;
+        /** A pagination token that can be used in a subsequent DownloadDBLogFilePortion
 request. **/
-      Marker?: String;
-      /** Boolean value that if true, indicates there is more data to be downloaded. **/
-      AdditionalDataPending?: Boolean;
+        Marker?: String;
+        /** Boolean value that if true, indicates there is more data to be downloaded. **/
+        AdditionalDataPending?: Boolean;
     }
     export interface DownloadDBLogFilePortionMessage {
-      /** The customer-assigned name of the DB instance that contains the log files you
+        /** The customer-assigned name of the DB instance that contains the log files you
 want to list.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBInstanceIdentifier: String;
-      /** The name of the log file to be downloaded. **/
-      LogFileName: String;
-      /** The pagination token provided in the previous request or &quot;0&quot;. If the Marker
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBInstanceIdentifier: String;
+        /** The name of the log file to be downloaded. **/
+        LogFileName: String;
+        /** The pagination token provided in the previous request or &quot;0&quot;. If the Marker
 parameter is specified the response includes only records beyond the marker
 until the end of the file or up to NumberOfLines. **/
-      Marker?: String;
-      /** The number of lines to download. If the number of lines specified results in a
+        Marker?: String;
+        /** The number of lines to download. If the number of lines specified results in a
 file over 1 MB in size, the file will be truncated at 1 MB in size.
 
 If the NumberOfLines parameter is specified, then the block of lines returned
 can be from the beginning or the end of the log file, depending on the value of
 the Marker parameter. &amp;#42; If neither Marker or NumberOfLines are specified, the
- entire log file is returned up to a maximum of 10000 lines, starting with the
- most recent log entries first.
- 
- 
-* If NumberOfLines is specified and Marker is not
- specified, then the most recent lines from the end of the log file are
- returned.
- 
- 
-* If Marker is specified as &quot;0&quot;, then the specified number
- of lines from the beginning of the log file are returned.
- 
- 
-* You can download the log file in blocks of lines by
- specifying the size of the block using the NumberOfLines parameter, and by
- specifying a value of &quot;0&quot; for the Marker parameter in your first request.
- Include the Marker value returned in the response as the Marker value for the
- next request, continuing until the AdditionalDataPending response element
- returns false. **/
-      NumberOfLines?: Integer;
+   entire log file is returned up to a maximum of 10000 lines, starting with the
+   most recent log entries first.
+   
+   
+ * If NumberOfLines is specified and Marker is not
+   specified, then the most recent lines from the end of the log file are
+   returned.
+   
+   
+ * If Marker is specified as &quot;0&quot;, then the specified number
+   of lines from the beginning of the log file are returned.
+   
+   
+ * You can download the log file in blocks of lines by
+   specifying the size of the block using the NumberOfLines parameter, and by
+   specifying a value of &quot;0&quot; for the Marker parameter in your first request.
+   Include the Marker value returned in the response as the Marker value for the
+   next request, continuing until the AdditionalDataPending response element
+   returns false. **/
+        NumberOfLines?: Integer;
     }
     export interface EC2SecurityGroup {
-      /** Provides the status of the EC2 security group. Status can be &quot;authorizing&quot;,
+        /** Provides the status of the EC2 security group. Status can be &quot;authorizing&quot;,
 &quot;authorized&quot;, &quot;revoking&quot;, and &quot;revoked&quot;. **/
-      Status?: String;
-      /** Specifies the name of the EC2 security group. **/
-      EC2SecurityGroupName?: String;
-      /** Specifies the id of the EC2 security group. **/
-      EC2SecurityGroupId?: String;
-      /** Specifies the AWS ID of the owner of the EC2 security group specified in the 
+        Status?: String;
+        /** Specifies the name of the EC2 security group. **/
+        EC2SecurityGroupName?: String;
+        /** Specifies the id of the EC2 security group. **/
+        EC2SecurityGroupId?: String;
+        /** Specifies the AWS ID of the owner of the EC2 security group specified in the 
 EC2SecurityGroupName field. **/
-      EC2SecurityGroupOwnerId?: String;
+        EC2SecurityGroupOwnerId?: String;
     }
     export interface Endpoint {
-      /** Specifies the DNS address of the DB instance. **/
-      Address?: String;
-      /** Specifies the port that the database engine is listening on. **/
-      Port?: Integer;
-      /** Specifies the ID that Amazon Route 53 assigns when you create a hosted zone. **/
-      HostedZoneId?: String;
+        /** Specifies the DNS address of the DB instance. **/
+        Address?: String;
+        /** Specifies the port that the database engine is listening on. **/
+        Port?: Integer;
+        /** Specifies the ID that Amazon Route 53 assigns when you create a hosted zone. **/
+        HostedZoneId?: String;
     }
     export interface EngineDefaults {
-      /** Specifies the name of the DB parameter group family that the engine default
+        /** Specifies the name of the DB parameter group family that the engine default
 parameters apply to. **/
-      DBParameterGroupFamily?: String;
-      /** An optional pagination token provided by a previous EngineDefaults request. If
+        DBParameterGroupFamily?: String;
+        /** An optional pagination token provided by a previous EngineDefaults request. If
 this parameter is specified, the response includes only records beyond the
 marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
-      /** Contains a list of engine default parameters. **/
-      Parameters?: ParametersList;
+        Marker?: String;
+        /** Contains a list of engine default parameters. **/
+        Parameters?: ParametersList;
     }
     export interface Event {
-      /** Provides the identifier for the source of the event. **/
-      SourceIdentifier?: String;
-      /** Specifies the source type for this event. **/
-      SourceType?: SourceType;
-      /** Provides the text of this event. **/
-      Message?: String;
-      /** Specifies the category for the event. **/
-      EventCategories?: EventCategoriesList;
-      /** Specifies the date and time of the event. **/
-      Date?: TStamp;
+        /** Provides the identifier for the source of the event. **/
+        SourceIdentifier?: String;
+        /** Specifies the source type for this event. **/
+        SourceType?: SourceType;
+        /** Provides the text of this event. **/
+        Message?: String;
+        /** Specifies the category for the event. **/
+        EventCategories?: EventCategoriesList;
+        /** Specifies the date and time of the event. **/
+        Date?: TStamp;
     }
     export interface EventCategoriesMap {
-      /** The source type that the returned categories belong to **/
-      SourceType?: String;
-      /** The event categories for the specified source type **/
-      EventCategories?: EventCategoriesList;
+        /** The source type that the returned categories belong to **/
+        SourceType?: String;
+        /** The event categories for the specified source type **/
+        EventCategories?: EventCategoriesList;
     }
     export interface EventCategoriesMessage {
-      /** A list of EventCategoriesMap data types. **/
-      EventCategoriesMapList?: EventCategoriesMapList;
+        /** A list of EventCategoriesMap data types. **/
+        EventCategoriesMapList?: EventCategoriesMapList;
     }
     export interface EventSubscription {
-      /** The AWS customer account associated with the RDS event notification
+        /** The AWS customer account associated with the RDS event notification
 subscription. **/
-      CustomerAwsId?: String;
-      /** The RDS event notification subscription Id. **/
-      CustSubscriptionId?: String;
-      /** The topic ARN of the RDS event notification subscription. **/
-      SnsTopicArn?: String;
-      /** The status of the RDS event notification subscription.
+        CustomerAwsId?: String;
+        /** The RDS event notification subscription Id. **/
+        CustSubscriptionId?: String;
+        /** The topic ARN of the RDS event notification subscription. **/
+        SnsTopicArn?: String;
+        /** The status of the RDS event notification subscription.
 
 Constraints:
 
@@ -4195,64 +4195,64 @@ no-permission | topic-not-exist
 The status &quot;no-permission&quot; indicates that RDS no longer has permission to post
 to the SNS topic. The status &quot;topic-not-exist&quot; indicates that the topic was
 deleted after the subscription was created. **/
-      Status?: String;
-      /** The time the RDS event notification subscription was created. **/
-      SubscriptionCreationTime?: String;
-      /** The source type for the RDS event notification subscription. **/
-      SourceType?: String;
-      /** A list of source IDs for the RDS event notification subscription. **/
-      SourceIdsList?: SourceIdsList;
-      /** A list of event categories for the RDS event notification subscription. **/
-      EventCategoriesList?: EventCategoriesList;
-      /** A Boolean value indicating if the subscription is enabled. True indicates the
+        Status?: String;
+        /** The time the RDS event notification subscription was created. **/
+        SubscriptionCreationTime?: String;
+        /** The source type for the RDS event notification subscription. **/
+        SourceType?: String;
+        /** A list of source IDs for the RDS event notification subscription. **/
+        SourceIdsList?: SourceIdsList;
+        /** A list of event categories for the RDS event notification subscription. **/
+        EventCategoriesList?: EventCategoriesList;
+        /** A Boolean value indicating if the subscription is enabled. True indicates the
 subscription is enabled. **/
-      Enabled?: Boolean;
+        Enabled?: Boolean;
     }
     export interface EventSubscriptionQuotaExceededFault {
     }
     export interface EventSubscriptionsMessage {
-      /** An optional pagination token provided by a previous
+        /** An optional pagination token provided by a previous
 DescribeOrderableDBInstanceOptions request. If this parameter is specified, the
 response includes only records beyond the marker, up to the value specified by 
 MaxRecords . **/
-      Marker?: String;
-      /** A list of EventSubscriptions data types. **/
-      EventSubscriptionsList?: EventSubscriptionsList;
+        Marker?: String;
+        /** A list of EventSubscriptions data types. **/
+        EventSubscriptionsList?: EventSubscriptionsList;
     }
     export interface EventsMessage {
-      /** An optional pagination token provided by a previous Events request. If this
+        /** An optional pagination token provided by a previous Events request. If this
 parameter is specified, the response includes only records beyond the marker, up
 to the value specified by MaxRecords . **/
-      Marker?: String;
-      /** A list of Event instances. **/
-      Events?: EventList;
+        Marker?: String;
+        /** A list of Event instances. **/
+        Events?: EventList;
     }
     export interface FailoverDBClusterMessage {
-      /** A DB cluster identifier to force a failover for. This parameter is not
+        /** A DB cluster identifier to force a failover for. This parameter is not
 case-sensitive.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBClusterIdentifier?: String;
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBClusterIdentifier?: String;
     }
     export interface FailoverDBClusterResult {
-      DBCluster?: DBCluster;
+        DBCluster?: DBCluster;
     }
     export interface Filter {
-      /** This parameter is not currently supported. **/
-      Name: String;
-      /** This parameter is not currently supported. **/
-      Values: FilterValueList;
+        /** This parameter is not currently supported. **/
+        Name: String;
+        /** This parameter is not currently supported. **/
+        Values: FilterValueList;
     }
     export interface IPRange {
-      /** Specifies the status of the IP range. Status can be &quot;authorizing&quot;, &quot;authorized&quot;,
+        /** Specifies the status of the IP range. Status can be &quot;authorizing&quot;, &quot;authorized&quot;,
 &quot;revoking&quot;, and &quot;revoked&quot;. **/
-      Status?: String;
-      /** Specifies the IP range. **/
-      CIDRIP?: String;
+        Status?: String;
+        /** Specifies the IP range. **/
+        CIDRIP?: String;
     }
     export interface InstanceQuotaExceededFault {
     }
@@ -4293,38 +4293,38 @@ Constraints:
     export interface KMSKeyNotAccessibleFault {
     }
     export interface ListTagsForResourceMessage {
-      /** The Amazon RDS resource with tags to be listed. This value is an Amazon Resource
+        /** The Amazon RDS resource with tags to be listed. This value is an Amazon Resource
 Name (ARN). For information about creating an ARN, see Constructing an RDS
 Amazon Resource Name (ARN)
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
 . **/
-      ResourceName: String;
-      /** This parameter is not currently supported. **/
-      Filters?: FilterList;
+        ResourceName: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
     }
     export interface ModifyDBClusterMessage {
-      /** The DB cluster identifier for the cluster being modified. This parameter is not
+        /** The DB cluster identifier for the cluster being modified. This parameter is not
 case-sensitive.
 
 Constraints:
 
-&amp;#42; Must be the identifier for an existing DB cluster.
-* Must contain from 1 to 63 alphanumeric characters or hyphens.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens. **/
-      DBClusterIdentifier: String;
-      /** The new DB cluster identifier for the DB cluster when renaming a DB cluster.
+ &amp;#42; Must be the identifier for an existing DB cluster.
+ * Must contain from 1 to 63 alphanumeric characters or hyphens.
+ * First character must be a letter.
+ * Cannot end with a hyphen or contain two consecutive hyphens. **/
+        DBClusterIdentifier: String;
+        /** The new DB cluster identifier for the DB cluster when renaming a DB cluster.
 This value is stored as a lowercase string.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
 
 Example: my-cluster2 **/
-      NewDBClusterIdentifier?: String;
-      /** A value that specifies whether the modifications in this request and any pending
+        NewDBClusterIdentifier?: String;
+        /** A value that specifies whether the modifications in this request and any pending
 modifications are asynchronously applied as soon as possible, regardless of the 
 PreferredMaintenanceWindow setting for the DB cluster. If this parameter is set
 to false , changes to the DB cluster are applied during the next maintenance
@@ -4337,32 +4337,32 @@ are applied during the next maintenance window. All other changes are applied
 immediately, regardless of the value of the ApplyImmediately parameter.
 
 Default: false **/
-      ApplyImmediately?: Boolean;
-      /** The number of days for which automated backups are retained. You must specify a
+        ApplyImmediately?: Boolean;
+        /** The number of days for which automated backups are retained. You must specify a
 minimum value of 1.
 
 Default: 1
 
 Constraints:
 
-&amp;#42; Must be a value from 1 to 35 **/
-      BackupRetentionPeriod?: IntegerOptional;
-      /** The name of the DB cluster parameter group to use for the DB cluster. **/
-      DBClusterParameterGroupName?: String;
-      /** A lst of VPC security groups that the DB cluster will belong to. **/
-      VpcSecurityGroupIds?: VpcSecurityGroupIdList;
-      /** The port number on which the DB cluster accepts connections.
+ &amp;#42; Must be a value from 1 to 35 **/
+        BackupRetentionPeriod?: IntegerOptional;
+        /** The name of the DB cluster parameter group to use for the DB cluster. **/
+        DBClusterParameterGroupName?: String;
+        /** A lst of VPC security groups that the DB cluster will belong to. **/
+        VpcSecurityGroupIds?: VpcSecurityGroupIdList;
+        /** The port number on which the DB cluster accepts connections.
 
 Constraints: Value must be 1150-65535
 
 Default: The same port as the original DB cluster. **/
-      Port?: IntegerOptional;
-      /** The new password for the master database user. This password can contain any
+        Port?: IntegerOptional;
+        /** The new password for the master database user. This password can contain any
 printable ASCII character except &quot;/&quot;, &quot;&quot;&quot;, or &quot;@&quot;.
 
 Constraints: Must contain from 8 to 41 characters. **/
-      MasterUserPassword?: String;
-      /** A value that indicates that the DB cluster should be associated with the
+        MasterUserPassword?: String;
+        /** A value that indicates that the DB cluster should be associated with the
 specified option group. Changing this parameter does not result in an outage
 except in the following case, and the change is applied during the next
 maintenance window unless the ApplyImmediately parameter is set to true for this
@@ -4372,8 +4372,8 @@ are rejected but existing connections are not interrupted.
 
 Permanent options cannot be removed from an option group. The option group
 cannot be removed from a DB cluster once it is associated with a DB cluster. **/
-      OptionGroupName?: String;
-      /** The daily time range during which automated backups are created if automated
+        OptionGroupName?: String;
+        /** The daily time range during which automated backups are created if automated
 backups are enabled, using the BackupRetentionPeriod parameter.
 
 Default: A 30-minute window selected at random from an 8-hour block of time per
@@ -4384,12 +4384,12 @@ in the Amazon RDS User Guide.
 
 Constraints:
 
-&amp;#42; Must be in the format hh24:mi-hh24:mi .
-* Times should be in Universal Coordinated Time (UTC).
-* Must not conflict with the preferred maintenance window.
-* Must be at least 30 minutes. **/
-      PreferredBackupWindow?: String;
-      /** The weekly time range during which system maintenance can occur, in Universal
+ &amp;#42; Must be in the format hh24:mi-hh24:mi .
+ * Times should be in Universal Coordinated Time (UTC).
+ * Must not conflict with the preferred maintenance window.
+ * Must be at least 30 minutes. **/
+        PreferredBackupWindow?: String;
+        /** The weekly time range during which system maintenance can occur, in Universal
 Coordinated Time (UTC).
 
 Format: ddd:hh24:mi-ddd:hh24:mi
@@ -4403,28 +4403,28 @@ in the Amazon RDS User Guide.
 Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 
 Constraints: Minimum 30-minute window. **/
-      PreferredMaintenanceWindow?: String;
+        PreferredMaintenanceWindow?: String;
     }
     export interface ModifyDBClusterParameterGroupMessage {
-      /** The name of the DB cluster parameter group to modify. **/
-      DBClusterParameterGroupName: String;
-      /** A list of parameters in the DB cluster parameter group to modify. **/
-      Parameters: ParametersList;
+        /** The name of the DB cluster parameter group to modify. **/
+        DBClusterParameterGroupName: String;
+        /** A list of parameters in the DB cluster parameter group to modify. **/
+        Parameters: ParametersList;
     }
     export interface ModifyDBClusterResult {
-      DBCluster?: DBCluster;
+        DBCluster?: DBCluster;
     }
     export interface ModifyDBInstanceMessage {
-      /** The DB instance identifier. This value is stored as a lowercase string.
+        /** The DB instance identifier. This value is stored as a lowercase string.
 
 Constraints:
 
-&amp;#42; Must be the identifier for an existing DB instance
-* Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBInstanceIdentifier: String;
-      /** The new storage capacity of the RDS instance. Changing this setting does not
+ &amp;#42; Must be the identifier for an existing DB instance
+ * Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBInstanceIdentifier: String;
+        /** The new storage capacity of the RDS instance. Changing this setting does not
 result in an outage and the change is applied during the next maintenance window
 unless ApplyImmediately is set to true for this request.
 
@@ -4490,8 +4490,8 @@ the migration takes place, nightly backups for the instance will be suspended.
 No other Amazon RDS operations can take place for the instance, including
 modifying the instance, rebooting the instance, deleting the instance, creating
 a Read Replica for the instance, and creating a DB snapshot of the instance. **/
-      AllocatedStorage?: IntegerOptional;
-      /** The new compute and memory capacity of the DB instance. To determine the
+        AllocatedStorage?: IntegerOptional;
+        /** The new compute and memory capacity of the DB instance. To determine the
 instance classes that are available for a particular DB engine, use the 
 DescribeOrderableDBInstanceOptions action.
 
@@ -4507,27 +4507,27 @@ db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge |
 db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge |
 db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small |
 db.t2.medium | db.t2.large **/
-      DBInstanceClass?: String;
-      /** A list of DB security groups to authorize on this DB instance. Changing this
+        DBInstanceClass?: String;
+        /** A list of DB security groups to authorize on this DB instance. Changing this
 setting does not result in an outage and the change is asynchronously applied as
 soon as possible.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBSecurityGroups?: DBSecurityGroupNameList;
-      /** A list of EC2 VPC security groups to authorize on this DB instance. This change
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBSecurityGroups?: DBSecurityGroupNameList;
+        /** A list of EC2 VPC security groups to authorize on this DB instance. This change
 is asynchronously applied as soon as possible.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      VpcSecurityGroupIds?: VpcSecurityGroupIdList;
-      /** Specifies whether the modifications in this request and any pending
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        VpcSecurityGroupIds?: VpcSecurityGroupIdList;
+        /** Specifies whether the modifications in this request and any pending
 modifications are asynchronously applied as soon as possible, regardless of the 
 PreferredMaintenanceWindow setting for the DB instance.
 
@@ -4541,8 +4541,8 @@ to see the impact that setting ApplyImmediately to true or false has for each
 modified parameter and to determine when the changes will be applied.
 
 Default: false **/
-      ApplyImmediately?: Boolean;
-      /** The new password for the DB instance master user. Can be any printable ASCII
+        ApplyImmediately?: Boolean;
+        /** The new password for the DB instance master user. Can be any printable ASCII
 character except &quot;/&quot;, &quot;&quot;&quot;, or &quot;@&quot;.
 
 Changing this parameter does not result in an outage and the change is
@@ -4559,8 +4559,8 @@ characters (SQL Server).
 Amazon RDS API actions never return the password, so this action provides a way
 to regain access to a primary instance user if the password is lost. This
 includes restoring privileges that might have been accidentally revoked. **/
-      MasterUserPassword?: String;
-      /** The name of the DB parameter group to apply to the DB instance. Changing this
+        MasterUserPassword?: String;
+        /** The name of the DB parameter group to apply to the DB instance. Changing this
 setting does not result in an outage. The parameter group name itself is changed
 immediately, but the actual parameter changes are not applied until you reboot
 the instance without failover. The db instance will NOT be rebooted
@@ -4571,8 +4571,8 @@ Default: Uses existing setting
 
 Constraints: The DB parameter group must be in the same DB parameter group
 family as this DB instance. **/
-      DBParameterGroupName?: String;
-      /** The number of days to retain automated backups. Setting this parameter to a
+        DBParameterGroupName?: String;
+        /** The number of days to retain automated backups. Setting this parameter to a
 positive number enables backups. Setting this parameter to 0 disables automated
 backups.
 
@@ -4586,26 +4586,26 @@ Default: Uses existing setting
 
 Constraints:
 
-&amp;#42; Must be a value from 0 to 35
-* Can be specified for a MySQL Read Replica only if the source is running MySQL
- 5.6
-* Can be specified for a PostgreSQL Read Replica only if the source is running
- PostgreSQL 9.3.5
-* Cannot be set to 0 if the DB instance is a source to Read Replicas **/
-      BackupRetentionPeriod?: IntegerOptional;
-      /** The daily time range during which automated backups are created if automated
+ &amp;#42; Must be a value from 0 to 35
+ * Can be specified for a MySQL Read Replica only if the source is running MySQL
+   5.6
+ * Can be specified for a PostgreSQL Read Replica only if the source is running
+   PostgreSQL 9.3.5
+ * Cannot be set to 0 if the DB instance is a source to Read Replicas **/
+        BackupRetentionPeriod?: IntegerOptional;
+        /** The daily time range during which automated backups are created if automated
 backups are enabled, as determined by the BackupRetentionPeriod parameter.
 Changing this parameter does not result in an outage and the change is
 asynchronously applied as soon as possible.
 
 Constraints:
 
-&amp;#42; Must be in the format hh24:mi-hh24:mi
-* Times should be in Universal Time Coordinated (UTC)
-* Must not conflict with the preferred maintenance window
-* Must be at least 30 minutes **/
-      PreferredBackupWindow?: String;
-      /** The weekly time range (in UTC) during which system maintenance can occur, which
+ &amp;#42; Must be in the format hh24:mi-hh24:mi
+ * Times should be in Universal Time Coordinated (UTC)
+ * Must not conflict with the preferred maintenance window
+ * Must be at least 30 minutes **/
+        PreferredBackupWindow?: String;
+        /** The weekly time range (in UTC) during which system maintenance can occur, which
 might result in an outage. Changing this parameter does not result in an outage,
 except in the following situation, and the change is asynchronously applied as
 soon as possible. If there are pending actions that cause a reboot, and the
@@ -4621,8 +4621,8 @@ Format: ddd:hh24:mi-ddd:hh24:mi
 Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 
 Constraints: Must be at least 30 minutes **/
-      PreferredMaintenanceWindow?: String;
-      /** Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter
+        PreferredMaintenanceWindow?: String;
+        /** Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter
 does not result in an outage and the change is applied during the next
 maintenance window unless the ApplyImmediately parameter is set to true for this
 request.
@@ -4631,8 +4631,8 @@ Constraints: Cannot be specified if the DB instance is a Read Replica. This
 parameter cannot be used with SQL Server DB instances. Multi-AZ for SQL Server
 DB instances is set using the Mirroring option in an option group associated
 with the DB instance. **/
-      MultiAZ?: BooleanOptional;
-      /** The version number of the database engine to upgrade to. Changing this parameter
+        MultiAZ?: BooleanOptional;
+        /** The version number of the database engine to upgrade to. Changing this parameter
 results in an outage and the change is applied during the next maintenance
 window unless the ApplyImmediately parameter is set to true for this request.
 
@@ -4642,23 +4642,23 @@ engine version must be specified. The new DB parameter group can be the default
 for that DB parameter group family.
 
 For a list of valid engine versions, see CreateDBInstance . **/
-      EngineVersion?: String;
-      /** Indicates that major version upgrades are allowed. Changing this parameter does
+        EngineVersion?: String;
+        /** Indicates that major version upgrades are allowed. Changing this parameter does
 not result in an outage and the change is asynchronously applied as soon as
 possible.
 
 Constraints: This parameter must be set to true when specifying a value for the
 EngineVersion parameter that is a different major version than the DB instance&#x27;s
 current version. **/
-      AllowMajorVersionUpgrade?: Boolean;
-      /** Indicates that minor version upgrades will be applied automatically to the DB
+        AllowMajorVersionUpgrade?: Boolean;
+        /** Indicates that minor version upgrades will be applied automatically to the DB
 instance during the maintenance window. Changing this parameter does not result
 in an outage except in the following case and the change is asynchronously
 applied as soon as possible. An outage will result if this parameter is set to 
 true during the maintenance window, and a newer minor version is available, and
 RDS has enabled auto patching for that engine version. **/
-      AutoMinorVersionUpgrade?: BooleanOptional;
-      /** The new Provisioned IOPS (I/O operations per second) value for the RDS instance.
+        AutoMinorVersionUpgrade?: BooleanOptional;
+        /** The new Provisioned IOPS (I/O operations per second) value for the RDS instance.
 Changing this setting does not result in an outage and the change is applied
 during the next maintenance window unless the ApplyImmediately parameter is set
 to true for this request.
@@ -4689,8 +4689,8 @@ the migration takes place, nightly backups for the instance will be suspended.
 No other Amazon RDS operations can take place for the instance, including
 modifying the instance, rebooting the instance, deleting the instance, creating
 a Read Replica for the instance, and creating a DB snapshot of the instance. **/
-      Iops?: IntegerOptional;
-      /** Indicates that the DB instance should be associated with the specified option
+        Iops?: IntegerOptional;
+        /** Indicates that the DB instance should be associated with the specified option
 group. Changing this parameter does not result in an outage except in the
 following case and the change is applied during the next maintenance window
 unless the ApplyImmediately parameter is set to true for this request. If the
@@ -4701,8 +4701,8 @@ existing connections are not interrupted.
 Permanent options, such as the TDE option for Oracle Advanced Security TDE,
 cannot be removed from an option group, and that option group cannot be removed
 from a DB instance once it is associated with a DB instance **/
-      OptionGroupName?: String;
-      /** The new DB instance identifier for the DB instance when renaming a DB instance.
+        OptionGroupName?: String;
+        /** The new DB instance identifier for the DB instance when renaming a DB instance.
 When you change the DB instance identifier, an instance reboot will occur
 immediately if you set Apply Immediately to true, or will occur during the next
 maintenance window if Apply Immediately to false. This value is stored as a
@@ -4710,35 +4710,35 @@ lowercase string.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      NewDBInstanceIdentifier?: String;
-      /** Specifies the storage type to be associated with the DB instance.
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        NewDBInstanceIdentifier?: String;
+        /** Specifies the storage type to be associated with the DB instance.
 
 Valid values: standard | gp2 | io1
 
 If you specify io1 , you must also include a value for the Iops parameter.
 
 Default: io1 if the Iops parameter is specified; otherwise standard **/
-      StorageType?: String;
-      /** The ARN from the Key Store with which to associate the instance for TDE
+        StorageType?: String;
+        /** The ARN from the Key Store with which to associate the instance for TDE
 encryption. **/
-      TdeCredentialArn?: String;
-      /** The password for the given ARN from the Key Store in order to access the device. **/
-      TdeCredentialPassword?: String;
-      /** Indicates the certificate that needs to be associated with the instance. **/
-      CACertificateIdentifier?: String;
-      /** Specify the Active Directory Domain to move the instance to.
+        TdeCredentialArn?: String;
+        /** The password for the given ARN from the Key Store in order to access the device. **/
+        TdeCredentialPassword?: String;
+        /** Indicates the certificate that needs to be associated with the instance. **/
+        CACertificateIdentifier?: String;
+        /** Specify the Active Directory Domain to move the instance to.
 
 The specified Active Directory Domain must be created prior to this operation.
 Currently only a SQL Server instance can be created in a Active Directory
 Domain. **/
-      Domain?: String;
-      /** True to copy all tags from the DB instance to snapshots of the DB instance;
+        Domain?: String;
+        /** True to copy all tags from the DB instance to snapshots of the DB instance;
 otherwise false. The default is false. **/
-      CopyTagsToSnapshot?: BooleanOptional;
-      /** The interval, in seconds, between points when Enhanced Monitoring metrics are
+        CopyTagsToSnapshot?: BooleanOptional;
+        /** The interval, in seconds, between points when Enhanced Monitoring metrics are
 collected for the DB instance. To disable collecting Enhanced Monitoring
 metrics, specify 0. The default is 60.
 
@@ -4746,8 +4746,8 @@ If MonitoringRoleArn is specified, then you must also set MonitoringInterval to
 a value other than 0.
 
 Valid Values: 0, 1, 5, 10, 15, 30, 60 **/
-      MonitoringInterval?: IntegerOptional;
-      /** The port number on which the database accepts connections.
+        MonitoringInterval?: IntegerOptional;
+        /** The port number on which the database accepts connections.
 
 The value of the DBPortNumber parameter must not match any of the port values
 specified for options in the option group for the DB instance.
@@ -4793,8 +4793,8 @@ Amazon Aurora
 Default: 3306
 
 Valid Values: 1150-65535 **/
-      DBPortNumber?: IntegerOptional;
-      /** Boolean value that indicates if the DB instance has a publicly resolvable DNS
+        DBPortNumber?: IntegerOptional;
+        /** Boolean value that indicates if the DB instance has a publicly resolvable DNS
 name. Set to True to make the DB instance Internet-facing with a publicly
 resolvable DNS name, which resolves to a public IP address. Set to False to make
 the DB instance internal with a DNS name that resolves to a private IP address.
@@ -4807,8 +4807,8 @@ Changes to the PubliclyAccessible parameter are applied immediately regardless
 of the value of the ApplyImmediately parameter.
 
 Default: false **/
-      PubliclyAccessible?: BooleanOptional;
-      /** The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to
+        PubliclyAccessible?: BooleanOptional;
+        /** The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to
 CloudWatch Logs. For example, arn:aws:iam:123456789012:role/emaccess . For
 information on creating a monitoring role, go to To create an IAM role for
 Amazon RDS Enhanced Monitoring
@@ -4817,11 +4817,11 @@ Amazon RDS Enhanced Monitoring
 
 If MonitoringInterval is set to a value other than 0, then you must supply a 
 MonitoringRoleArn value. **/
-      MonitoringRoleArn?: String;
-      /** Specify the name of the IAM role to be used when making API calls to the
+        MonitoringRoleArn?: String;
+        /** Specify the name of the IAM role to be used when making API calls to the
 Directory Service. **/
-      DomainIAMRoleName?: String;
-      /** A value that specifies the order in which an Aurora Replica is promoted to the
+        DomainIAMRoleName?: String;
+        /** A value that specifies the order in which an Aurora Replica is promoted to the
 primary instance after a failure of the existing primary instance. For more
 information, see Fault Tolerance for an Aurora DB Cluster
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance] 
@@ -4830,22 +4830,22 @@ information, see Fault Tolerance for an Aurora DB Cluster
 Default: 1
 
 Valid Values: 0 - 15 **/
-      PromotionTier?: IntegerOptional;
+        PromotionTier?: IntegerOptional;
     }
     export interface ModifyDBInstanceResult {
-      DBInstance?: DBInstance;
+        DBInstance?: DBInstance;
     }
     export interface ModifyDBParameterGroupMessage {
-      /** The name of the DB parameter group.
+        /** The name of the DB parameter group.
 
 Constraints:
 
-&amp;#42; Must be the name of an existing DB parameter group
-* Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBParameterGroupName: String;
-      /** An array of parameter names, values, and the apply method for the parameter
+ &amp;#42; Must be the name of an existing DB parameter group
+ * Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBParameterGroupName: String;
+        /** An array of parameter names, values, and the apply method for the parameter
 update. At least one parameter name, value, and apply method must be supplied;
 subsequent arguments are optional. A maximum of 20 parameters can be modified in
 a single request.
@@ -4855,17 +4855,17 @@ Valid Values (for the application method): immediate | pending-reboot
 You can use the immediate value with dynamic parameters only. You can use the
 pending-reboot value for both dynamic and static parameters, and changes are
 applied when you reboot the DB instance without failover. **/
-      Parameters: ParametersList;
+        Parameters: ParametersList;
     }
     export interface ModifyDBSnapshotAttributeMessage {
-      /** The identifier for the DB snapshot to modify the attributes for. **/
-      DBSnapshotIdentifier: String;
-      /** The name of the DB snapshot attribute to modify.
+        /** The identifier for the DB snapshot to modify the attributes for. **/
+        DBSnapshotIdentifier: String;
+        /** The name of the DB snapshot attribute to modify.
 
 To manage authorization for other AWS accounts to copy or restore a manual DB
 snapshot, this value is restore . **/
-      AttributeName?: String;
-      /** A list of DB snapshot attributes to add to the attribute specified by 
+        AttributeName?: String;
+        /** A list of DB snapshot attributes to add to the attribute specified by 
 AttributeName .
 
 To authorize other AWS Accounts to copy or restore a manual snapshot, this is
@@ -4873,8 +4873,8 @@ one or more AWS account identifiers, or all to make the manual DB snapshot
 restorable by any AWS account. Do not add the all value for any manual DB
 snapshots that contain private information that you do not want to be available
 to all AWS accounts. **/
-      ValuesToAdd?: AttributeValueList;
-      /** A list of DB snapshot attributes to remove from the attribute specified by 
+        ValuesToAdd?: AttributeValueList;
+        /** A list of DB snapshot attributes to remove from the attribute specified by 
 AttributeName .
 
 To remove authorization for other AWS Accounts to copy or restore a manual
@@ -4882,356 +4882,356 @@ snapshot, this is one or more AWS account identifiers, or all to remove
 authorization for any AWS account to copy or restore the DB snapshot. If you
 specify all , AWS accounts that have their account identifier explicitly added
 to the restore attribute can still copy or restore the manual DB snapshot. **/
-      ValuesToRemove?: AttributeValueList;
+        ValuesToRemove?: AttributeValueList;
     }
     export interface ModifyDBSnapshotAttributeResult {
-      DBSnapshotAttributesResult?: DBSnapshotAttributesResult;
+        DBSnapshotAttributesResult?: DBSnapshotAttributesResult;
     }
     export interface ModifyDBSubnetGroupMessage {
-      /** The name for the DB subnet group. This value is stored as a lowercase string.
+        /** The name for the DB subnet group. This value is stored as a lowercase string.
 
 Constraints: Must contain no more than 255 alphanumeric characters, periods,
 underscores, spaces, or hyphens. Must not be default.
 
 Example: mySubnetgroup **/
-      DBSubnetGroupName: String;
-      /** The description for the DB subnet group. **/
-      DBSubnetGroupDescription?: String;
-      /** The EC2 subnet IDs for the DB subnet group. **/
-      SubnetIds: SubnetIdentifierList;
+        DBSubnetGroupName: String;
+        /** The description for the DB subnet group. **/
+        DBSubnetGroupDescription?: String;
+        /** The EC2 subnet IDs for the DB subnet group. **/
+        SubnetIds: SubnetIdentifierList;
     }
     export interface ModifyDBSubnetGroupResult {
-      DBSubnetGroup?: DBSubnetGroup;
+        DBSubnetGroup?: DBSubnetGroup;
     }
     export interface ModifyEventSubscriptionMessage {
-      /** The name of the RDS event notification subscription. **/
-      SubscriptionName: String;
-      /** The Amazon Resource Name (ARN) of the SNS topic created for event notification.
+        /** The name of the RDS event notification subscription. **/
+        SubscriptionName: String;
+        /** The Amazon Resource Name (ARN) of the SNS topic created for event notification.
 The ARN is created by Amazon SNS when you create a topic and subscribe to it. **/
-      SnsTopicArn?: String;
-      /** The type of source that will be generating the events. For example, if you want
+        SnsTopicArn?: String;
+        /** The type of source that will be generating the events. For example, if you want
 to be notified of events generated by a DB instance, you would set this
 parameter to db-instance. if this value is not specified, all events are
 returned.
 
 Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot **/
-      SourceType?: String;
-      /** A list of event categories for a SourceType that you want to subscribe to. You
+        SourceType?: String;
+        /** A list of event categories for a SourceType that you want to subscribe to. You
 can see a list of the categories for a given SourceType in the Events
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html] topic
 in the Amazon RDS User Guide or by using the DescribeEventCategories action. **/
-      EventCategories?: EventCategoriesList;
-      /** A Boolean value; set to true to activate the subscription. **/
-      Enabled?: BooleanOptional;
+        EventCategories?: EventCategoriesList;
+        /** A Boolean value; set to true to activate the subscription. **/
+        Enabled?: BooleanOptional;
     }
     export interface ModifyEventSubscriptionResult {
-      EventSubscription?: EventSubscription;
+        EventSubscription?: EventSubscription;
     }
     export interface ModifyOptionGroupMessage {
-      /** The name of the option group to be modified.
+        /** The name of the option group to be modified.
 
 Permanent options, such as the TDE option for Oracle Advanced Security TDE,
 cannot be removed from an option group, and that option group cannot be removed
 from a DB instance once it is associated with a DB instance **/
-      OptionGroupName: String;
-      /** Options in this list are added to the option group or, if already present, the
+        OptionGroupName: String;
+        /** Options in this list are added to the option group or, if already present, the
 specified configuration is used to update the existing configuration. **/
-      OptionsToInclude?: OptionConfigurationList;
-      /** Options in this list are removed from the option group. **/
-      OptionsToRemove?: OptionNamesList;
-      /** Indicates whether the changes should be applied immediately, or during the next
+        OptionsToInclude?: OptionConfigurationList;
+        /** Options in this list are removed from the option group. **/
+        OptionsToRemove?: OptionNamesList;
+        /** Indicates whether the changes should be applied immediately, or during the next
 maintenance window for each instance associated with the option group. **/
-      ApplyImmediately?: Boolean;
+        ApplyImmediately?: Boolean;
     }
     export interface ModifyOptionGroupResult {
-      OptionGroup?: OptionGroup;
+        OptionGroup?: OptionGroup;
     }
     export interface Option {
-      /** The name of the option. **/
-      OptionName?: String;
-      /** The description of the option. **/
-      OptionDescription?: String;
-      /** Indicate if this option is persistent. **/
-      Persistent?: Boolean;
-      /** Indicate if this option is permanent. **/
-      Permanent?: Boolean;
-      /** If required, the port configured for this option to use. **/
-      Port?: IntegerOptional;
-      /** The option settings for this option. **/
-      OptionSettings?: OptionSettingConfigurationList;
-      /** If the option requires access to a port, then this DB security group allows
+        /** The name of the option. **/
+        OptionName?: String;
+        /** The description of the option. **/
+        OptionDescription?: String;
+        /** Indicate if this option is persistent. **/
+        Persistent?: Boolean;
+        /** Indicate if this option is permanent. **/
+        Permanent?: Boolean;
+        /** If required, the port configured for this option to use. **/
+        Port?: IntegerOptional;
+        /** The option settings for this option. **/
+        OptionSettings?: OptionSettingConfigurationList;
+        /** If the option requires access to a port, then this DB security group allows
 access to the port. **/
-      DBSecurityGroupMemberships?: DBSecurityGroupMembershipList;
-      /** If the option requires access to a port, then this VPC security group allows
+        DBSecurityGroupMemberships?: DBSecurityGroupMembershipList;
+        /** If the option requires access to a port, then this VPC security group allows
 access to the port. **/
-      VpcSecurityGroupMemberships?: VpcSecurityGroupMembershipList;
+        VpcSecurityGroupMemberships?: VpcSecurityGroupMembershipList;
     }
     export interface OptionConfiguration {
-      /** The configuration of options to include in a group. **/
-      OptionName: String;
-      /** The optional port for the option. **/
-      Port?: IntegerOptional;
-      /** A list of DBSecurityGroupMemebrship name strings used for this option. **/
-      DBSecurityGroupMemberships?: DBSecurityGroupNameList;
-      /** A list of VpcSecurityGroupMemebrship name strings used for this option. **/
-      VpcSecurityGroupMemberships?: VpcSecurityGroupIdList;
-      /** The option settings to include in an option group. **/
-      OptionSettings?: OptionSettingsList;
+        /** The configuration of options to include in a group. **/
+        OptionName: String;
+        /** The optional port for the option. **/
+        Port?: IntegerOptional;
+        /** A list of DBSecurityGroupMemebrship name strings used for this option. **/
+        DBSecurityGroupMemberships?: DBSecurityGroupNameList;
+        /** A list of VpcSecurityGroupMemebrship name strings used for this option. **/
+        VpcSecurityGroupMemberships?: VpcSecurityGroupIdList;
+        /** The option settings to include in an option group. **/
+        OptionSettings?: OptionSettingsList;
     }
     export interface OptionGroup {
-      /** Specifies the name of the option group. **/
-      OptionGroupName?: String;
-      /** Provides a description of the option group. **/
-      OptionGroupDescription?: String;
-      /** Indicates the name of the engine that this option group can be applied to. **/
-      EngineName?: String;
-      /** Indicates the major engine version associated with this option group. **/
-      MajorEngineVersion?: String;
-      /** Indicates what options are available in the option group. **/
-      Options?: OptionsList;
-      /** Indicates whether this option group can be applied to both VPC and non-VPC
+        /** Specifies the name of the option group. **/
+        OptionGroupName?: String;
+        /** Provides a description of the option group. **/
+        OptionGroupDescription?: String;
+        /** Indicates the name of the engine that this option group can be applied to. **/
+        EngineName?: String;
+        /** Indicates the major engine version associated with this option group. **/
+        MajorEngineVersion?: String;
+        /** Indicates what options are available in the option group. **/
+        Options?: OptionsList;
+        /** Indicates whether this option group can be applied to both VPC and non-VPC
 instances. The value true indicates the option group can be applied to both VPC
 and non-VPC instances. **/
-      AllowsVpcAndNonVpcInstanceMemberships?: Boolean;
-      /** If AllowsVpcAndNonVpcInstanceMemberships is false , this field is blank. If 
+        AllowsVpcAndNonVpcInstanceMemberships?: Boolean;
+        /** If AllowsVpcAndNonVpcInstanceMemberships is false , this field is blank. If 
 AllowsVpcAndNonVpcInstanceMemberships is true and this field is blank, then this
 option group can be applied to both VPC and non-VPC instances. If this field
 contains a value, then this option group can only be applied to instances that
 are in the VPC indicated by this field. **/
-      VpcId?: String;
+        VpcId?: String;
     }
     export interface OptionGroupAlreadyExistsFault {
     }
     export interface OptionGroupMembership {
-      /** The name of the option group that the instance belongs to. **/
-      OptionGroupName?: String;
-      /** The status of the DB instance&#x27;s option group membership. Valid values are: 
+        /** The name of the option group that the instance belongs to. **/
+        OptionGroupName?: String;
+        /** The status of the DB instance&#x27;s option group membership. Valid values are: 
 in-sync , pending-apply , pending-removal , pending-maintenance-apply , 
 pending-maintenance-removal , applying , removing , and failed . **/
-      Status?: String;
+        Status?: String;
     }
     export interface OptionGroupNotFoundFault {
     }
     export interface OptionGroupOption {
-      /** The name of the option. **/
-      Name?: String;
-      /** The description of the option. **/
-      Description?: String;
-      /** The name of the engine that this option can be applied to. **/
-      EngineName?: String;
-      /** Indicates the major engine version that the option is available for. **/
-      MajorEngineVersion?: String;
-      /** The minimum required engine version for the option to be applied. **/
-      MinimumRequiredMinorEngineVersion?: String;
-      /** Specifies whether the option requires a port. **/
-      PortRequired?: Boolean;
-      /** If the option requires a port, specifies the default port for the option. **/
-      DefaultPort?: IntegerOptional;
-      /** List of all options that are prerequisites for this option. **/
-      OptionsDependedOn?: OptionsDependedOn;
-      /** A persistent option cannot be removed from the option group once the option
+        /** The name of the option. **/
+        Name?: String;
+        /** The description of the option. **/
+        Description?: String;
+        /** The name of the engine that this option can be applied to. **/
+        EngineName?: String;
+        /** Indicates the major engine version that the option is available for. **/
+        MajorEngineVersion?: String;
+        /** The minimum required engine version for the option to be applied. **/
+        MinimumRequiredMinorEngineVersion?: String;
+        /** Specifies whether the option requires a port. **/
+        PortRequired?: Boolean;
+        /** If the option requires a port, specifies the default port for the option. **/
+        DefaultPort?: IntegerOptional;
+        /** List of all options that are prerequisites for this option. **/
+        OptionsDependedOn?: OptionsDependedOn;
+        /** A persistent option cannot be removed from the option group once the option
 group is used, but this option can be removed from the db instance while
 modifying the related data and assigning another option group without this
 option. **/
-      Persistent?: Boolean;
-      /** A permanent option cannot be removed from the option group once the option group
+        Persistent?: Boolean;
+        /** A permanent option cannot be removed from the option group once the option group
 is used, and it cannot be removed from the db instance after assigning an option
 group with this permanent option. **/
-      Permanent?: Boolean;
-      /** Specifies the option settings that are available (and the default value) for
+        Permanent?: Boolean;
+        /** Specifies the option settings that are available (and the default value) for
 each option in an option group. **/
-      OptionGroupOptionSettings?: OptionGroupOptionSettingsList;
+        OptionGroupOptionSettings?: OptionGroupOptionSettingsList;
     }
     export interface OptionGroupOptionSetting {
-      /** The name of the option group option. **/
-      SettingName?: String;
-      /** The description of the option group option. **/
-      SettingDescription?: String;
-      /** The default value for the option group option. **/
-      DefaultValue?: String;
-      /** The DB engine specific parameter type for the option group option. **/
-      ApplyType?: String;
-      /** Indicates the acceptable values for the option group option. **/
-      AllowedValues?: String;
-      /** Boolean value where true indicates that this option group option can be changed
+        /** The name of the option group option. **/
+        SettingName?: String;
+        /** The description of the option group option. **/
+        SettingDescription?: String;
+        /** The default value for the option group option. **/
+        DefaultValue?: String;
+        /** The DB engine specific parameter type for the option group option. **/
+        ApplyType?: String;
+        /** Indicates the acceptable values for the option group option. **/
+        AllowedValues?: String;
+        /** Boolean value where true indicates that this option group option can be changed
 from the default value. **/
-      IsModifiable?: Boolean;
+        IsModifiable?: Boolean;
     }
     export interface OptionGroupOptionsMessage {
-      OptionGroupOptions?: OptionGroupOptionsList;
-      /** An optional pagination token provided by a previous request. If this parameter
+        OptionGroupOptions?: OptionGroupOptionsList;
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface OptionGroupQuotaExceededFault {
     }
     export interface OptionGroups {
-      /** List of option groups. **/
-      OptionGroupsList?: OptionGroupsList;
-      /** An optional pagination token provided by a previous request. If this parameter
+        /** List of option groups. **/
+        OptionGroupsList?: OptionGroupsList;
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface OptionSetting {
-      /** The name of the option that has settings that you can set. **/
-      Name?: String;
-      /** The current value of the option setting. **/
-      Value?: String;
-      /** The default value of the option setting. **/
-      DefaultValue?: String;
-      /** The description of the option setting. **/
-      Description?: String;
-      /** The DB engine specific parameter type. **/
-      ApplyType?: String;
-      /** The data type of the option setting. **/
-      DataType?: String;
-      /** The allowed values of the option setting. **/
-      AllowedValues?: String;
-      /** A Boolean value that, when true, indicates the option setting can be modified
+        /** The name of the option that has settings that you can set. **/
+        Name?: String;
+        /** The current value of the option setting. **/
+        Value?: String;
+        /** The default value of the option setting. **/
+        DefaultValue?: String;
+        /** The description of the option setting. **/
+        Description?: String;
+        /** The DB engine specific parameter type. **/
+        ApplyType?: String;
+        /** The data type of the option setting. **/
+        DataType?: String;
+        /** The allowed values of the option setting. **/
+        AllowedValues?: String;
+        /** A Boolean value that, when true, indicates the option setting can be modified
 from the default. **/
-      IsModifiable?: Boolean;
-      /** Indicates if the option setting is part of a collection. **/
-      IsCollection?: Boolean;
+        IsModifiable?: Boolean;
+        /** Indicates if the option setting is part of a collection. **/
+        IsCollection?: Boolean;
     }
     export interface OrderableDBInstanceOption {
-      /** The engine type of the orderable DB instance. **/
-      Engine?: String;
-      /** The engine version of the orderable DB instance. **/
-      EngineVersion?: String;
-      /** The DB instance class for the orderable DB instance. **/
-      DBInstanceClass?: String;
-      /** The license model for the orderable DB instance. **/
-      LicenseModel?: String;
-      /** A list of Availability Zones for the orderable DB instance. **/
-      AvailabilityZones?: AvailabilityZoneList;
-      /** Indicates whether this orderable DB instance is multi-AZ capable. **/
-      MultiAZCapable?: Boolean;
-      /** Indicates whether this orderable DB instance can have a Read Replica. **/
-      ReadReplicaCapable?: Boolean;
-      /** Indicates whether this is a VPC orderable DB instance. **/
-      Vpc?: Boolean;
-      /** Indicates whether this orderable DB instance supports encrypted storage. **/
-      SupportsStorageEncryption?: Boolean;
-      /** Indicates the storage type for this orderable DB instance. **/
-      StorageType?: String;
-      /** Indicates whether this orderable DB instance supports provisioned IOPS. **/
-      SupportsIops?: Boolean;
-      /** Indicates whether the DB instance supports enhanced monitoring at intervals from
+        /** The engine type of the orderable DB instance. **/
+        Engine?: String;
+        /** The engine version of the orderable DB instance. **/
+        EngineVersion?: String;
+        /** The DB instance class for the orderable DB instance. **/
+        DBInstanceClass?: String;
+        /** The license model for the orderable DB instance. **/
+        LicenseModel?: String;
+        /** A list of Availability Zones for the orderable DB instance. **/
+        AvailabilityZones?: AvailabilityZoneList;
+        /** Indicates whether this orderable DB instance is multi-AZ capable. **/
+        MultiAZCapable?: Boolean;
+        /** Indicates whether this orderable DB instance can have a Read Replica. **/
+        ReadReplicaCapable?: Boolean;
+        /** Indicates whether this is a VPC orderable DB instance. **/
+        Vpc?: Boolean;
+        /** Indicates whether this orderable DB instance supports encrypted storage. **/
+        SupportsStorageEncryption?: Boolean;
+        /** Indicates the storage type for this orderable DB instance. **/
+        StorageType?: String;
+        /** Indicates whether this orderable DB instance supports provisioned IOPS. **/
+        SupportsIops?: Boolean;
+        /** Indicates whether the DB instance supports enhanced monitoring at intervals from
 1 to 60 seconds. **/
-      SupportsEnhancedMonitoring?: Boolean;
+        SupportsEnhancedMonitoring?: Boolean;
     }
     export interface OrderableDBInstanceOptionsMessage {
-      /** An OrderableDBInstanceOption structure containing information about orderable
+        /** An OrderableDBInstanceOption structure containing information about orderable
 options for the DB instance. **/
-      OrderableDBInstanceOptions?: OrderableDBInstanceOptionsList;
-      /** An optional pagination token provided by a previous OrderableDBInstanceOptions
+        OrderableDBInstanceOptions?: OrderableDBInstanceOptionsList;
+        /** An optional pagination token provided by a previous OrderableDBInstanceOptions
 request. If this parameter is specified, the response includes only records
 beyond the marker, up to the value specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface Parameter {
-      /** Specifies the name of the parameter. **/
-      ParameterName?: String;
-      /** Specifies the value of the parameter. **/
-      ParameterValue?: String;
-      /** Provides a description of the parameter. **/
-      Description?: String;
-      /** Indicates the source of the parameter value. **/
-      Source?: String;
-      /** Specifies the engine specific parameters type. **/
-      ApplyType?: String;
-      /** Specifies the valid data type for the parameter. **/
-      DataType?: String;
-      /** Specifies the valid range of values for the parameter. **/
-      AllowedValues?: String;
-      /** Indicates whether ( true ) or not ( false ) the parameter can be modified. Some
+        /** Specifies the name of the parameter. **/
+        ParameterName?: String;
+        /** Specifies the value of the parameter. **/
+        ParameterValue?: String;
+        /** Provides a description of the parameter. **/
+        Description?: String;
+        /** Indicates the source of the parameter value. **/
+        Source?: String;
+        /** Specifies the engine specific parameters type. **/
+        ApplyType?: String;
+        /** Specifies the valid data type for the parameter. **/
+        DataType?: String;
+        /** Specifies the valid range of values for the parameter. **/
+        AllowedValues?: String;
+        /** Indicates whether ( true ) or not ( false ) the parameter can be modified. Some
 parameters have security or operational implications that prevent them from
 being changed. **/
-      IsModifiable?: Boolean;
-      /** The earliest engine version to which the parameter can apply. **/
-      MinimumEngineVersion?: String;
-      /** Indicates when to apply parameter updates. **/
-      ApplyMethod?: ApplyMethod;
+        IsModifiable?: Boolean;
+        /** The earliest engine version to which the parameter can apply. **/
+        MinimumEngineVersion?: String;
+        /** Indicates when to apply parameter updates. **/
+        ApplyMethod?: ApplyMethod;
     }
     export interface PendingMaintenanceAction {
-      /** The type of pending maintenance action that is available for the resource. **/
-      Action?: String;
-      /** The date of the maintenance window when the action will be applied. The
+        /** The type of pending maintenance action that is available for the resource. **/
+        Action?: String;
+        /** The date of the maintenance window when the action will be applied. The
 maintenance action will be applied to the resource during its first maintenance
 window after this date. If this date is specified, any next-maintenance opt-in
 requests are ignored. **/
-      AutoAppliedAfterDate?: TStamp;
-      /** The date when the maintenance action will be automatically applied. The
+        AutoAppliedAfterDate?: TStamp;
+        /** The date when the maintenance action will be automatically applied. The
 maintenance action will be applied to the resource on this date regardless of
 the maintenance window for the resource. If this date is specified, any 
 immediate opt-in requests are ignored. **/
-      ForcedApplyDate?: TStamp;
-      /** Indicates the type of opt-in request that has been received for the resource. **/
-      OptInStatus?: String;
-      /** The effective date when the pending maintenance action will be applied to the
+        ForcedApplyDate?: TStamp;
+        /** Indicates the type of opt-in request that has been received for the resource. **/
+        OptInStatus?: String;
+        /** The effective date when the pending maintenance action will be applied to the
 resource. This date takes into account opt-in requests received from the 
 ApplyPendingMaintenanceAction API, the AutoAppliedAfterDate , and the 
 ForcedApplyDate . This value is blank if an opt-in request has not been received
 and nothing has been specified as AutoAppliedAfterDate or ForcedApplyDate . **/
-      CurrentApplyDate?: TStamp;
-      /** A description providing more detail about the maintenance action. **/
-      Description?: String;
+        CurrentApplyDate?: TStamp;
+        /** A description providing more detail about the maintenance action. **/
+        Description?: String;
     }
     export interface PendingMaintenanceActionsMessage {
-      /** A list of the pending maintenance actions for the resource. **/
-      PendingMaintenanceActions?: PendingMaintenanceActions;
-      /** An optional pagination token provided by a previous 
+        /** A list of the pending maintenance actions for the resource. **/
+        PendingMaintenanceActions?: PendingMaintenanceActions;
+        /** An optional pagination token provided by a previous 
 DescribePendingMaintenanceActions request. If this parameter is specified, the
 response includes only records beyond the marker, up to a number of records
 specified by MaxRecords . **/
-      Marker?: String;
+        Marker?: String;
     }
     export interface PendingModifiedValues {
-      /** Contains the new DBInstanceClass for the DB instance that will be applied or is
+        /** Contains the new DBInstanceClass for the DB instance that will be applied or is
 in progress. **/
-      DBInstanceClass?: String;
-      /** Contains the new AllocatedStorage size for the DB instance that will be applied
+        DBInstanceClass?: String;
+        /** Contains the new AllocatedStorage size for the DB instance that will be applied
 or is in progress. **/
-      AllocatedStorage?: IntegerOptional;
-      /** Contains the pending or in-progress change of the master credentials for the DB
+        AllocatedStorage?: IntegerOptional;
+        /** Contains the pending or in-progress change of the master credentials for the DB
 instance. **/
-      MasterUserPassword?: String;
-      /** Specifies the pending port for the DB instance. **/
-      Port?: IntegerOptional;
-      /** Specifies the pending number of days for which automated backups are retained. **/
-      BackupRetentionPeriod?: IntegerOptional;
-      /** Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment. **/
-      MultiAZ?: BooleanOptional;
-      /** Indicates the database engine version. **/
-      EngineVersion?: String;
-      /** Specifies the new Provisioned IOPS value for the DB instance that will be
+        MasterUserPassword?: String;
+        /** Specifies the pending port for the DB instance. **/
+        Port?: IntegerOptional;
+        /** Specifies the pending number of days for which automated backups are retained. **/
+        BackupRetentionPeriod?: IntegerOptional;
+        /** Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment. **/
+        MultiAZ?: BooleanOptional;
+        /** Indicates the database engine version. **/
+        EngineVersion?: String;
+        /** Specifies the new Provisioned IOPS value for the DB instance that will be
 applied or is being applied. **/
-      Iops?: IntegerOptional;
-      /** Contains the new DBInstanceIdentifier for the DB instance that will be applied
+        Iops?: IntegerOptional;
+        /** Contains the new DBInstanceIdentifier for the DB instance that will be applied
 or is in progress. **/
-      DBInstanceIdentifier?: String;
-      /** Specifies the storage type to be associated with the DB instance. **/
-      StorageType?: String;
-      /** Specifies the identifier of the CA certificate for the DB instance. **/
-      CACertificateIdentifier?: String;
+        DBInstanceIdentifier?: String;
+        /** Specifies the storage type to be associated with the DB instance. **/
+        StorageType?: String;
+        /** Specifies the identifier of the CA certificate for the DB instance. **/
+        CACertificateIdentifier?: String;
     }
     export interface PointInTimeRestoreNotEnabledFault {
     }
     export interface PromoteReadReplicaMessage {
-      /** The DB instance identifier. This value is stored as a lowercase string.
+        /** The DB instance identifier. This value is stored as a lowercase string.
 
 Constraints:
 
-&amp;#42; Must be the identifier for an existing Read Replica DB instance
-* Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
+ &amp;#42; Must be the identifier for an existing Read Replica DB instance
+ * Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
 
 Example: mydbinstance **/
-      DBInstanceIdentifier: String;
-      /** The number of days to retain automated backups. Setting this parameter to a
+        DBInstanceIdentifier: String;
+        /** The number of days to retain automated backups. Setting this parameter to a
 positive number enables backups. Setting this parameter to 0 disables automated
 backups.
 
@@ -5239,9 +5239,9 @@ Default: 1
 
 Constraints:
 
-&amp;#42; Must be a value from 0 to 8 **/
-      BackupRetentionPeriod?: IntegerOptional;
-      /** The daily time range during which automated backups are created if automated
+ &amp;#42; Must be a value from 0 to 8 **/
+        BackupRetentionPeriod?: IntegerOptional;
+        /** The daily time range during which automated backups are created if automated
 backups are enabled, using the BackupRetentionPeriod parameter.
 
 Default: A 30-minute window selected at random from an 8-hour block of time per
@@ -5252,184 +5252,184 @@ in the Amazon RDS User Guide.
 
 Constraints:
 
-&amp;#42; Must be in the format hh24:mi-hh24:mi .
-* Times should be in Universal Coordinated Time (UTC).
-* Must not conflict with the preferred maintenance window.
-* Must be at least 30 minutes. **/
-      PreferredBackupWindow?: String;
+ &amp;#42; Must be in the format hh24:mi-hh24:mi .
+ * Times should be in Universal Coordinated Time (UTC).
+ * Must not conflict with the preferred maintenance window.
+ * Must be at least 30 minutes. **/
+        PreferredBackupWindow?: String;
     }
     export interface PromoteReadReplicaResult {
-      DBInstance?: DBInstance;
+        DBInstance?: DBInstance;
     }
     export interface ProvisionedIopsNotAvailableInAZFault {
     }
     export interface PurchaseReservedDBInstancesOfferingMessage {
-      /** The ID of the Reserved DB instance offering to purchase.
+        /** The ID of the Reserved DB instance offering to purchase.
 
 Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706 **/
-      ReservedDBInstancesOfferingId: String;
-      /** Customer-specified identifier to track this reservation.
+        ReservedDBInstancesOfferingId: String;
+        /** Customer-specified identifier to track this reservation.
 
 Example: myreservationID **/
-      ReservedDBInstanceId?: String;
-      /** The number of instances to reserve.
+        ReservedDBInstanceId?: String;
+        /** The number of instances to reserve.
 
 Default: 1 **/
-      DBInstanceCount?: IntegerOptional;
-      Tags?: TagList;
+        DBInstanceCount?: IntegerOptional;
+        Tags?: TagList;
     }
     export interface PurchaseReservedDBInstancesOfferingResult {
-      ReservedDBInstance?: ReservedDBInstance;
+        ReservedDBInstance?: ReservedDBInstance;
     }
     export interface RebootDBInstanceMessage {
-      /** The DB instance identifier. This parameter is stored as a lowercase string.
+        /** The DB instance identifier. This parameter is stored as a lowercase string.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBInstanceIdentifier: String;
-      /** When true , the reboot will be conducted through a MultiAZ failover.
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBInstanceIdentifier: String;
+        /** When true , the reboot will be conducted through a MultiAZ failover.
 
 Constraint: You cannot specify true if the instance is not configured for
 MultiAZ. **/
-      ForceFailover?: BooleanOptional;
+        ForceFailover?: BooleanOptional;
     }
     export interface RebootDBInstanceResult {
-      DBInstance?: DBInstance;
+        DBInstance?: DBInstance;
     }
     export interface RecurringCharge {
-      /** The amount of the recurring charge. **/
-      RecurringChargeAmount?: Double;
-      /** The frequency of the recurring charge. **/
-      RecurringChargeFrequency?: String;
+        /** The amount of the recurring charge. **/
+        RecurringChargeAmount?: Double;
+        /** The frequency of the recurring charge. **/
+        RecurringChargeFrequency?: String;
     }
     export interface RemoveSourceIdentifierFromSubscriptionMessage {
-      /** The name of the RDS event notification subscription you want to remove a source
+        /** The name of the RDS event notification subscription you want to remove a source
 identifier from. **/
-      SubscriptionName: String;
-      /** The source identifier to be removed from the subscription, such as the DB
+        SubscriptionName: String;
+        /** The source identifier to be removed from the subscription, such as the DB
 instance identifier for a DB instance or the name of a security group. **/
-      SourceIdentifier: String;
+        SourceIdentifier: String;
     }
     export interface RemoveSourceIdentifierFromSubscriptionResult {
-      EventSubscription?: EventSubscription;
+        EventSubscription?: EventSubscription;
     }
     export interface RemoveTagsFromResourceMessage {
-      /** The Amazon RDS resource the tags will be removed from. This value is an Amazon
+        /** The Amazon RDS resource the tags will be removed from. This value is an Amazon
 Resource Name (ARN). For information about creating an ARN, see Constructing an
 RDS Amazon Resource Name (ARN)
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
 . **/
-      ResourceName: String;
-      /** The tag key (name) of the tag to be removed. **/
-      TagKeys: KeyList;
+        ResourceName: String;
+        /** The tag key (name) of the tag to be removed. **/
+        TagKeys: KeyList;
     }
     export interface ReservedDBInstance {
-      /** The unique identifier for the reservation. **/
-      ReservedDBInstanceId?: String;
-      /** The offering identifier. **/
-      ReservedDBInstancesOfferingId?: String;
-      /** The DB instance class for the reserved DB instance. **/
-      DBInstanceClass?: String;
-      /** The time the reservation started. **/
-      StartTime?: TStamp;
-      /** The duration of the reservation in seconds. **/
-      Duration?: Integer;
-      /** The fixed price charged for this reserved DB instance. **/
-      FixedPrice?: Double;
-      /** The hourly price charged for this reserved DB instance. **/
-      UsagePrice?: Double;
-      /** The currency code for the reserved DB instance. **/
-      CurrencyCode?: String;
-      /** The number of reserved DB instances. **/
-      DBInstanceCount?: Integer;
-      /** The description of the reserved DB instance. **/
-      ProductDescription?: String;
-      /** The offering type of this reserved DB instance. **/
-      OfferingType?: String;
-      /** Indicates if the reservation applies to Multi-AZ deployments. **/
-      MultiAZ?: Boolean;
-      /** The state of the reserved DB instance. **/
-      State?: String;
-      /** The recurring price charged to run this reserved DB instance. **/
-      RecurringCharges?: RecurringChargeList;
+        /** The unique identifier for the reservation. **/
+        ReservedDBInstanceId?: String;
+        /** The offering identifier. **/
+        ReservedDBInstancesOfferingId?: String;
+        /** The DB instance class for the reserved DB instance. **/
+        DBInstanceClass?: String;
+        /** The time the reservation started. **/
+        StartTime?: TStamp;
+        /** The duration of the reservation in seconds. **/
+        Duration?: Integer;
+        /** The fixed price charged for this reserved DB instance. **/
+        FixedPrice?: Double;
+        /** The hourly price charged for this reserved DB instance. **/
+        UsagePrice?: Double;
+        /** The currency code for the reserved DB instance. **/
+        CurrencyCode?: String;
+        /** The number of reserved DB instances. **/
+        DBInstanceCount?: Integer;
+        /** The description of the reserved DB instance. **/
+        ProductDescription?: String;
+        /** The offering type of this reserved DB instance. **/
+        OfferingType?: String;
+        /** Indicates if the reservation applies to Multi-AZ deployments. **/
+        MultiAZ?: Boolean;
+        /** The state of the reserved DB instance. **/
+        State?: String;
+        /** The recurring price charged to run this reserved DB instance. **/
+        RecurringCharges?: RecurringChargeList;
     }
     export interface ReservedDBInstanceAlreadyExistsFault {
     }
     export interface ReservedDBInstanceMessage {
-      /** An optional pagination token provided by a previous request. If this parameter
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
-      /** A list of reserved DB instances. **/
-      ReservedDBInstances?: ReservedDBInstanceList;
+        Marker?: String;
+        /** A list of reserved DB instances. **/
+        ReservedDBInstances?: ReservedDBInstanceList;
     }
     export interface ReservedDBInstanceNotFoundFault {
     }
     export interface ReservedDBInstanceQuotaExceededFault {
     }
     export interface ReservedDBInstancesOffering {
-      /** The offering identifier. **/
-      ReservedDBInstancesOfferingId?: String;
-      /** The DB instance class for the reserved DB instance. **/
-      DBInstanceClass?: String;
-      /** The duration of the offering in seconds. **/
-      Duration?: Integer;
-      /** The fixed price charged for this offering. **/
-      FixedPrice?: Double;
-      /** The hourly price charged for this offering. **/
-      UsagePrice?: Double;
-      /** The currency code for the reserved DB instance offering. **/
-      CurrencyCode?: String;
-      /** The database engine used by the offering. **/
-      ProductDescription?: String;
-      /** The offering type. **/
-      OfferingType?: String;
-      /** Indicates if the offering applies to Multi-AZ deployments. **/
-      MultiAZ?: Boolean;
-      /** The recurring price charged to run this reserved DB instance. **/
-      RecurringCharges?: RecurringChargeList;
+        /** The offering identifier. **/
+        ReservedDBInstancesOfferingId?: String;
+        /** The DB instance class for the reserved DB instance. **/
+        DBInstanceClass?: String;
+        /** The duration of the offering in seconds. **/
+        Duration?: Integer;
+        /** The fixed price charged for this offering. **/
+        FixedPrice?: Double;
+        /** The hourly price charged for this offering. **/
+        UsagePrice?: Double;
+        /** The currency code for the reserved DB instance offering. **/
+        CurrencyCode?: String;
+        /** The database engine used by the offering. **/
+        ProductDescription?: String;
+        /** The offering type. **/
+        OfferingType?: String;
+        /** Indicates if the offering applies to Multi-AZ deployments. **/
+        MultiAZ?: Boolean;
+        /** The recurring price charged to run this reserved DB instance. **/
+        RecurringCharges?: RecurringChargeList;
     }
     export interface ReservedDBInstancesOfferingMessage {
-      /** An optional pagination token provided by a previous request. If this parameter
+        /** An optional pagination token provided by a previous request. If this parameter
 is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
-      Marker?: String;
-      /** A list of reserved DB instance offerings. **/
-      ReservedDBInstancesOfferings?: ReservedDBInstancesOfferingList;
+        Marker?: String;
+        /** A list of reserved DB instance offerings. **/
+        ReservedDBInstancesOfferings?: ReservedDBInstancesOfferingList;
     }
     export interface ReservedDBInstancesOfferingNotFoundFault {
     }
     export interface ResetDBClusterParameterGroupMessage {
-      /** The name of the DB cluster parameter group to reset. **/
-      DBClusterParameterGroupName: String;
-      /** A value that is set to true to reset all parameters in the DB cluster parameter
+        /** The name of the DB cluster parameter group to reset. **/
+        DBClusterParameterGroupName: String;
+        /** A value that is set to true to reset all parameters in the DB cluster parameter
 group to their default values, and false otherwise. You cannot use this
 parameter if there is a list of parameter names specified for the Parameters 
 parameter. **/
-      ResetAllParameters?: Boolean;
-      /** A list of parameter names in the DB cluster parameter group to reset to the
+        ResetAllParameters?: Boolean;
+        /** A list of parameter names in the DB cluster parameter group to reset to the
 default values. You cannot use this parameter if the ResetAllParameters 
 parameter is set to true . **/
-      Parameters?: ParametersList;
+        Parameters?: ParametersList;
     }
     export interface ResetDBParameterGroupMessage {
-      /** The name of the DB parameter group.
+        /** The name of the DB parameter group.
 
 Constraints:
 
-&amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBParameterGroupName: String;
-      /** Specifies whether ( true ) or not ( false ) to reset all parameters in the DB
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBParameterGroupName: String;
+        /** Specifies whether ( true ) or not ( false ) to reset all parameters in the DB
 parameter group to default values.
 
 Default: true **/
-      ResetAllParameters?: Boolean;
-      /** An array of parameter names, values, and the apply method for the parameter
+        ResetAllParameters?: Boolean;
+        /** An array of parameter names, values, and the apply method for the parameter
 update. At least one parameter name, value, and apply method must be supplied;
 subsequent arguments are optional. A maximum of 20 parameters can be modified in
 a single request.
@@ -5453,70 +5453,70 @@ applied when DB instance reboots.
 Oracle
 
 Valid Values (for Apply method): pending-reboot **/
-      Parameters?: ParametersList;
+        Parameters?: ParametersList;
     }
     export interface ResourceNotFoundFault {
     }
     export interface ResourcePendingMaintenanceActions {
-      /** The ARN of the resource that has pending maintenance actions. **/
-      ResourceIdentifier?: String;
-      /** A list that provides details about the pending maintenance actions for the
+        /** The ARN of the resource that has pending maintenance actions. **/
+        ResourceIdentifier?: String;
+        /** A list that provides details about the pending maintenance actions for the
 resource. **/
-      PendingMaintenanceActionDetails?: PendingMaintenanceActionDetails;
+        PendingMaintenanceActionDetails?: PendingMaintenanceActionDetails;
     }
     export interface RestoreDBClusterFromSnapshotMessage {
-      /** Provides the list of EC2 Availability Zones that instances in the restored DB
+        /** Provides the list of EC2 Availability Zones that instances in the restored DB
 cluster can be created in. **/
-      AvailabilityZones?: AvailabilityZones;
-      /** The name of the DB cluster to create from the DB cluster snapshot. This
+        AvailabilityZones?: AvailabilityZones;
+        /** The name of the DB cluster to create from the DB cluster snapshot. This
 parameter isn&#x27;t case-sensitive.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 255 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
+ &amp;#42; Must contain from 1 to 255 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
 
 Example: my-snapshot-id **/
-      DBClusterIdentifier: String;
-      /** The identifier for the DB cluster snapshot to restore from.
+        DBClusterIdentifier: String;
+        /** The identifier for the DB cluster snapshot to restore from.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      SnapshotIdentifier: String;
-      /** The database engine to use for the new DB cluster.
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        SnapshotIdentifier: String;
+        /** The database engine to use for the new DB cluster.
 
 Default: The same as source
 
 Constraint: Must be compatible with the engine of the source **/
-      Engine: String;
-      /** The version of the database engine to use for the new DB cluster. **/
-      EngineVersion?: String;
-      /** The port number on which the new DB cluster accepts connections.
+        Engine: String;
+        /** The version of the database engine to use for the new DB cluster. **/
+        EngineVersion?: String;
+        /** The port number on which the new DB cluster accepts connections.
 
 Constraints: Value must be 1150-65535
 
 Default: The same port as the original DB cluster. **/
-      Port?: IntegerOptional;
-      /** The name of the DB subnet group to use for the new DB cluster.
+        Port?: IntegerOptional;
+        /** The name of the DB subnet group to use for the new DB cluster.
 
 Constraints: Must contain no more than 255 alphanumeric characters, periods,
 underscores, spaces, or hyphens. Must not be default.
 
 Example: mySubnetgroup **/
-      DBSubnetGroupName?: String;
-      /** The database name for the restored DB cluster. **/
-      DatabaseName?: String;
-      /** The name of the option group to use for the restored DB cluster. **/
-      OptionGroupName?: String;
-      /** A list of VPC security groups that the new DB cluster will belong to. **/
-      VpcSecurityGroupIds?: VpcSecurityGroupIdList;
-      /** The tags to be assigned to the restored DB cluster. **/
-      Tags?: TagList;
-      /** The KMS key identifier to use when restoring an encrypted DB cluster from an
+        DBSubnetGroupName?: String;
+        /** The database name for the restored DB cluster. **/
+        DatabaseName?: String;
+        /** The name of the option group to use for the restored DB cluster. **/
+        OptionGroupName?: String;
+        /** A list of VPC security groups that the new DB cluster will belong to. **/
+        VpcSecurityGroupIds?: VpcSecurityGroupIdList;
+        /** The tags to be assigned to the restored DB cluster. **/
+        Tags?: TagList;
+        /** The KMS key identifier to use when restoring an encrypted DB cluster from an
 encrypted DB cluster snapshot.
 
 The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption
@@ -5527,74 +5527,74 @@ key alias instead of the ARN for the KMS encryption key.
 If you do not specify a value for the KmsKeyId parameter, then the following
 will occur:
 
-&amp;#42; If the DB cluster snapshot is encrypted, then the restored DB cluster is
- encrypted using the KMS key that was used to encrypt the DB cluster snapshot.
-* If the DB cluster snapshot is not encrypted, then the restored DB cluster is
- not encrypted.
+ &amp;#42; If the DB cluster snapshot is encrypted, then the restored DB cluster is
+   encrypted using the KMS key that was used to encrypt the DB cluster snapshot.
+ * If the DB cluster snapshot is not encrypted, then the restored DB cluster is
+   not encrypted.
 
 If SnapshotIdentifier refers to a DB cluster snapshot that is not encrypted, and
 you specify a value for the KmsKeyId parameter, then the restore request is
 rejected. **/
-      KmsKeyId?: String;
+        KmsKeyId?: String;
     }
     export interface RestoreDBClusterFromSnapshotResult {
-      DBCluster?: DBCluster;
+        DBCluster?: DBCluster;
     }
     export interface RestoreDBClusterToPointInTimeMessage {
-      /** The name of the new DB cluster to be created.
+        /** The name of the new DB cluster to be created.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      DBClusterIdentifier: String;
-      /** The identifier of the source DB cluster from which to restore.
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBClusterIdentifier: String;
+        /** The identifier of the source DB cluster from which to restore.
 
 Constraints:
 
-&amp;#42; Must be the identifier of an existing database instance
-* Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      SourceDBClusterIdentifier: String;
-      /** The date and time to restore the DB cluster to.
+ &amp;#42; Must be the identifier of an existing database instance
+ * Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        SourceDBClusterIdentifier: String;
+        /** The date and time to restore the DB cluster to.
 
 Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
 
 Constraints:
 
-&amp;#42; Must be before the latest restorable time for the DB instance
-* Cannot be specified if UseLatestRestorableTime parameter is true
+ &amp;#42; Must be before the latest restorable time for the DB instance
+ * Cannot be specified if UseLatestRestorableTime parameter is true
 
 Example: 2015-03-07T23:45:00Z **/
-      RestoreToTime?: TStamp;
-      /** A value that is set to true to restore the DB cluster to the latest restorable
+        RestoreToTime?: TStamp;
+        /** A value that is set to true to restore the DB cluster to the latest restorable
 backup time, and false otherwise.
 
 Default: false
 
 Constraints: Cannot be specified if RestoreToTime parameter is provided. **/
-      UseLatestRestorableTime?: Boolean;
-      /** The port number on which the new DB cluster accepts connections.
+        UseLatestRestorableTime?: Boolean;
+        /** The port number on which the new DB cluster accepts connections.
 
 Constraints: Value must be 1150-65535
 
 Default: The same port as the original DB cluster. **/
-      Port?: IntegerOptional;
-      /** The DB subnet group name to use for the new DB cluster.
+        Port?: IntegerOptional;
+        /** The DB subnet group name to use for the new DB cluster.
 
 Constraints: Must contain no more than 255 alphanumeric characters, periods,
 underscores, spaces, or hyphens. Must not be default.
 
 Example: mySubnetgroup **/
-      DBSubnetGroupName?: String;
-      /** The name of the option group for the new DB cluster. **/
-      OptionGroupName?: String;
-      /** A lst of VPC security groups that the new DB cluster belongs to. **/
-      VpcSecurityGroupIds?: VpcSecurityGroupIdList;
-      Tags?: TagList;
-      /** The KMS key identifier to use when restoring an encrypted DB cluster from an
+        DBSubnetGroupName?: String;
+        /** The name of the option group for the new DB cluster. **/
+        OptionGroupName?: String;
+        /** A lst of VPC security groups that the new DB cluster belongs to. **/
+        VpcSecurityGroupIds?: VpcSecurityGroupIdList;
+        Tags?: TagList;
+        /** The KMS key identifier to use when restoring an encrypted DB cluster from an
 encrypted DB cluster.
 
 The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption
@@ -5610,42 +5610,42 @@ parameter.
 If you do not specify a value for the KmsKeyId parameter, then the following
 will occur:
 
-&amp;#42; If the DB cluster is encrypted, then the restored DB cluster is encrypted
- using the KMS key that was used to encrypt the source DB cluster.
+ &amp;#42; If the DB cluster is encrypted, then the restored DB cluster is encrypted
+   using the KMS key that was used to encrypt the source DB cluster.
 
 If the DB cluster is not encrypted, then the restored DB cluster is not
 encrypted.If DBClusterIdentifier refers to a DB cluster that is note encrypted, then the
 restore request is rejected. **/
-      KmsKeyId?: String;
+        KmsKeyId?: String;
     }
     export interface RestoreDBClusterToPointInTimeResult {
-      DBCluster?: DBCluster;
+        DBCluster?: DBCluster;
     }
     export interface RestoreDBInstanceFromDBSnapshotMessage {
-      /** Name of the DB instance to create from the DB snapshot. This parameter isn&#x27;t
+        /** Name of the DB instance to create from the DB snapshot. This parameter isn&#x27;t
 case-sensitive.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for SQL
- Server)
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for SQL
+   Server)
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
 
 Example: my-snapshot-id **/
-      DBInstanceIdentifier: String;
-      /** The identifier for the DB snapshot to restore from.
+        DBInstanceIdentifier: String;
+        /** The identifier for the DB snapshot to restore from.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 255 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
+ &amp;#42; Must contain from 1 to 255 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens
 
 If you are restoring from a shared manual DB snapshot, the DBSnapshotIdentifier 
 must be the ARN of the shared DB snapshot. **/
-      DBSnapshotIdentifier: String;
-      /** The compute and memory capacity of the Amazon RDS DB instance.
+        DBSnapshotIdentifier: String;
+        /** The compute and memory capacity of the Amazon RDS DB instance.
 
 Valid Values: db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
 db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large |
@@ -5653,14 +5653,14 @@ db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge |
 db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge |
 db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium |
 db.t2.large **/
-      DBInstanceClass?: String;
-      /** The port number on which the database accepts connections.
+        DBInstanceClass?: String;
+        /** The port number on which the database accepts connections.
 
 Default: The same port as the original DB instance
 
 Constraints: Value must be 1150-65535 **/
-      Port?: IntegerOptional;
-      /** The EC2 Availability Zone that the database instance will be created in.
+        Port?: IntegerOptional;
+        /** The EC2 Availability Zone that the database instance will be created in.
 
 Default: A random, system-chosen Availability Zone.
 
@@ -5668,20 +5668,20 @@ Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ
 parameter is set to true .
 
 Example: us-east-1a **/
-      AvailabilityZone?: String;
-      /** The DB subnet group name to use for the new instance.
+        AvailabilityZone?: String;
+        /** The DB subnet group name to use for the new instance.
 
 Constraints: Must contain no more than 255 alphanumeric characters, periods,
 underscores, spaces, or hyphens. Must not be default.
 
 Example: mySubnetgroup **/
-      DBSubnetGroupName?: String;
-      /** Specifies if the DB instance is a Multi-AZ deployment.
+        DBSubnetGroupName?: String;
+        /** Specifies if the DB instance is a Multi-AZ deployment.
 
 Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ
 parameter is set to true . **/
-      MultiAZ?: BooleanOptional;
-      /** Specifies the accessibility options for the DB instance. A value of true
+        MultiAZ?: BooleanOptional;
+        /** Specifies the accessibility options for the DB instance. A value of true
 specifies an Internet-facing instance with a publicly resolvable DNS name, which
 resolves to a public IP address. A value of false specifies an internal instance
 with a DNS name that resolves to a private IP address.
@@ -5689,29 +5689,29 @@ with a DNS name that resolves to a private IP address.
 Default: The default behavior varies depending on whether a VPC has been
 requested or not. The following list shows the default behavior in each case.
 
-&amp;#42; Default VPC: true
-* VPC: false
+ &amp;#42; Default VPC: true
+ * VPC: false
 
 If no DB subnet group has been specified as part of the request and the
 PubliclyAccessible value has not been set, the DB instance will be publicly
 accessible. If a specific DB subnet group has been specified as part of the
 request and the PubliclyAccessible value has not been set, the DB instance will
 be private. **/
-      PubliclyAccessible?: BooleanOptional;
-      /** Indicates that minor version upgrades will be applied automatically to the DB
+        PubliclyAccessible?: BooleanOptional;
+        /** Indicates that minor version upgrades will be applied automatically to the DB
 instance during the maintenance window. **/
-      AutoMinorVersionUpgrade?: BooleanOptional;
-      /** License model information for the restored DB instance.
+        AutoMinorVersionUpgrade?: BooleanOptional;
+        /** License model information for the restored DB instance.
 
 Default: Same as source.
 
 Valid values: license-included | bring-your-own-license | general-public-license **/
-      LicenseModel?: String;
-      /** The database name for the restored DB instance.
+        LicenseModel?: String;
+        /** The database name for the restored DB instance.
 
 This parameter doesn&#x27;t apply to the MySQL or MariaDB engines. **/
-      DBName?: String;
-      /** The database engine to use for the new instance.
+        DBName?: String;
+        /** The database engine to use for the new instance.
 
 Default: The same as source
 
@@ -5719,8 +5719,8 @@ Constraint: Must be compatible with the engine of the source
 
 Valid Values: MySQL | mariadb | oracle-se1 | oracle-se | oracle-ee | 
 sqlserver-ee | sqlserver-se | sqlserver-ex | sqlserver-web | postgres | aurora **/
-      Engine?: String;
-      /** Specifies the amount of provisioned IOPS for the DB instance, expressed in I/O
+        Engine?: String;
+        /** Specifies the amount of provisioned IOPS for the DB instance, expressed in I/O
 operations per second. If this parameter is not specified, the IOPS value will
 be taken from the backup. If this parameter is set to 0, the new instance will
 be converted to a non-PIOPS instance, which will take additional time, though
@@ -5731,76 +5731,76 @@ Constraints: Must be an integer greater than 1000.
 SQL Server
 
 Setting the IOPS value for the SQL Server database engine is not supported. **/
-      Iops?: IntegerOptional;
-      /** The name of the option group to be used for the restored DB instance.
+        Iops?: IntegerOptional;
+        /** The name of the option group to be used for the restored DB instance.
 
 Permanent options, such as the TDE option for Oracle Advanced Security TDE,
 cannot be removed from an option group, and that option group cannot be removed
 from a DB instance once it is associated with a DB instance **/
-      OptionGroupName?: String;
-      Tags?: TagList;
-      /** Specifies the storage type to be associated with the DB instance.
+        OptionGroupName?: String;
+        Tags?: TagList;
+        /** Specifies the storage type to be associated with the DB instance.
 
 Valid values: standard | gp2 | io1
 
 If you specify io1 , you must also include a value for the Iops parameter.
 
 Default: io1 if the Iops parameter is specified; otherwise standard **/
-      StorageType?: String;
-      /** The ARN from the Key Store with which to associate the instance for TDE
+        StorageType?: String;
+        /** The ARN from the Key Store with which to associate the instance for TDE
 encryption. **/
-      TdeCredentialArn?: String;
-      /** The password for the given ARN from the Key Store in order to access the device. **/
-      TdeCredentialPassword?: String;
-      /** Specify the Active Directory Domain to restore the instance in. **/
-      Domain?: String;
-      /** True to copy all tags from the restored DB instance to snapshots of the DB
+        TdeCredentialArn?: String;
+        /** The password for the given ARN from the Key Store in order to access the device. **/
+        TdeCredentialPassword?: String;
+        /** Specify the Active Directory Domain to restore the instance in. **/
+        Domain?: String;
+        /** True to copy all tags from the restored DB instance to snapshots of the DB
 instance; otherwise false. The default is false. **/
-      CopyTagsToSnapshot?: BooleanOptional;
-      /** Specify the name of the IAM role to be used when making API calls to the
+        CopyTagsToSnapshot?: BooleanOptional;
+        /** Specify the name of the IAM role to be used when making API calls to the
 Directory Service. **/
-      DomainIAMRoleName?: String;
+        DomainIAMRoleName?: String;
     }
     export interface RestoreDBInstanceFromDBSnapshotResult {
-      DBInstance?: DBInstance;
+        DBInstance?: DBInstance;
     }
     export interface RestoreDBInstanceToPointInTimeMessage {
-      /** The identifier of the source DB instance from which to restore.
+        /** The identifier of the source DB instance from which to restore.
 
 Constraints:
 
-&amp;#42; Must be the identifier of an existing database instance
-* Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      SourceDBInstanceIdentifier: String;
-      /** The name of the new database instance to be created.
+ &amp;#42; Must be the identifier of an existing database instance
+ * Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        SourceDBInstanceIdentifier: String;
+        /** The name of the new database instance to be created.
 
 Constraints:
 
-&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
-      TargetDBInstanceIdentifier: String;
-      /** The date and time to restore from.
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+ * First character must be a letter
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        TargetDBInstanceIdentifier: String;
+        /** The date and time to restore from.
 
 Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
 
 Constraints:
 
-&amp;#42; Must be before the latest restorable time for the DB instance
-* Cannot be specified if UseLatestRestorableTime parameter is true
+ &amp;#42; Must be before the latest restorable time for the DB instance
+ * Cannot be specified if UseLatestRestorableTime parameter is true
 
 Example: 2009-09-07T23:45:00Z **/
-      RestoreTime?: TStamp;
-      /** Specifies whether ( true ) or not ( false ) the DB instance is restored from the
+        RestoreTime?: TStamp;
+        /** Specifies whether ( true ) or not ( false ) the DB instance is restored from the
 latest backup time.
 
 Default: false
 
 Constraints: Cannot be specified if RestoreTime parameter is provided. **/
-      UseLatestRestorableTime?: Boolean;
-      /** The compute and memory capacity of the Amazon RDS DB instance.
+        UseLatestRestorableTime?: Boolean;
+        /** The compute and memory capacity of the Amazon RDS DB instance.
 
 Valid Values: db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |
 db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large |
@@ -5810,14 +5810,14 @@ db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium |
 db.t2.large
 
 Default: The same DBInstanceClass as the original DB instance. **/
-      DBInstanceClass?: String;
-      /** The port number on which the database accepts connections.
+        DBInstanceClass?: String;
+        /** The port number on which the database accepts connections.
 
 Constraints: Value must be 1150-65535
 
 Default: The same port as the original DB instance. **/
-      Port?: IntegerOptional;
-      /** The EC2 Availability Zone that the database instance will be created in.
+        Port?: IntegerOptional;
+        /** The EC2 Availability Zone that the database instance will be created in.
 
 Default: A random, system-chosen Availability Zone.
 
@@ -5825,20 +5825,20 @@ Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ
 parameter is set to true.
 
 Example: us-east-1a **/
-      AvailabilityZone?: String;
-      /** The DB subnet group name to use for the new instance.
+        AvailabilityZone?: String;
+        /** The DB subnet group name to use for the new instance.
 
 Constraints: Must contain no more than 255 alphanumeric characters, periods,
 underscores, spaces, or hyphens. Must not be default.
 
 Example: mySubnetgroup **/
-      DBSubnetGroupName?: String;
-      /** Specifies if the DB instance is a Multi-AZ deployment.
+        DBSubnetGroupName?: String;
+        /** Specifies if the DB instance is a Multi-AZ deployment.
 
 Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ
 parameter is set to true . **/
-      MultiAZ?: BooleanOptional;
-      /** Specifies the accessibility options for the DB instance. A value of true
+        MultiAZ?: BooleanOptional;
+        /** Specifies the accessibility options for the DB instance. A value of true
 specifies an Internet-facing instance with a publicly resolvable DNS name, which
 resolves to a public IP address. A value of false specifies an internal instance
 with a DNS name that resolves to a private IP address.
@@ -5846,29 +5846,29 @@ with a DNS name that resolves to a private IP address.
 Default: The default behavior varies depending on whether a VPC has been
 requested or not. The following list shows the default behavior in each case.
 
-&amp;#42; Default VPC: true
-* VPC: false
+ &amp;#42; Default VPC: true
+ * VPC: false
 
 If no DB subnet group has been specified as part of the request and the
 PubliclyAccessible value has not been set, the DB instance will be publicly
 accessible. If a specific DB subnet group has been specified as part of the
 request and the PubliclyAccessible value has not been set, the DB instance will
 be private. **/
-      PubliclyAccessible?: BooleanOptional;
-      /** Indicates that minor version upgrades will be applied automatically to the DB
+        PubliclyAccessible?: BooleanOptional;
+        /** Indicates that minor version upgrades will be applied automatically to the DB
 instance during the maintenance window. **/
-      AutoMinorVersionUpgrade?: BooleanOptional;
-      /** License model information for the restored DB instance.
+        AutoMinorVersionUpgrade?: BooleanOptional;
+        /** License model information for the restored DB instance.
 
 Default: Same as source.
 
 Valid values: license-included | bring-your-own-license | general-public-license **/
-      LicenseModel?: String;
-      /** The database name for the restored DB instance.
+        LicenseModel?: String;
+        /** The database name for the restored DB instance.
 
 This parameter is not used for the MySQL or MariaDB engines. **/
-      DBName?: String;
-      /** The database engine to use for the new instance.
+        DBName?: String;
+        /** The database engine to use for the new instance.
 
 Default: The same as source
 
@@ -5876,8 +5876,8 @@ Constraint: Must be compatible with the engine of the source
 
 Valid Values: MySQL | mariadb | oracle-se1 | oracle-se | oracle-ee | 
 sqlserver-ee | sqlserver-se | sqlserver-ex | sqlserver-web | postgres | aurora **/
-      Engine?: String;
-      /** The amount of Provisioned IOPS (input/output operations per second) to be
+        Engine?: String;
+        /** The amount of Provisioned IOPS (input/output operations per second) to be
 initially allocated for the DB instance.
 
 Constraints: Must be an integer greater than 1000.
@@ -5885,63 +5885,63 @@ Constraints: Must be an integer greater than 1000.
 SQL Server
 
 Setting the IOPS value for the SQL Server database engine is not supported. **/
-      Iops?: IntegerOptional;
-      /** The name of the option group to be used for the restored DB instance.
+        Iops?: IntegerOptional;
+        /** The name of the option group to be used for the restored DB instance.
 
 Permanent options, such as the TDE option for Oracle Advanced Security TDE,
 cannot be removed from an option group, and that option group cannot be removed
 from a DB instance once it is associated with a DB instance **/
-      OptionGroupName?: String;
-      /** True to copy all tags from the restored DB instance to snapshots of the DB
+        OptionGroupName?: String;
+        /** True to copy all tags from the restored DB instance to snapshots of the DB
 instance; otherwise false. The default is false. **/
-      CopyTagsToSnapshot?: BooleanOptional;
-      Tags?: TagList;
-      /** Specifies the storage type to be associated with the DB instance.
+        CopyTagsToSnapshot?: BooleanOptional;
+        Tags?: TagList;
+        /** Specifies the storage type to be associated with the DB instance.
 
 Valid values: standard | gp2 | io1
 
 If you specify io1 , you must also include a value for the Iops parameter.
 
 Default: io1 if the Iops parameter is specified; otherwise standard **/
-      StorageType?: String;
-      /** The ARN from the Key Store with which to associate the instance for TDE
+        StorageType?: String;
+        /** The ARN from the Key Store with which to associate the instance for TDE
 encryption. **/
-      TdeCredentialArn?: String;
-      /** The password for the given ARN from the Key Store in order to access the device. **/
-      TdeCredentialPassword?: String;
-      /** Specify the Active Directory Domain to restore the instance in. **/
-      Domain?: String;
-      /** Specify the name of the IAM role to be used when making API calls to the
+        TdeCredentialArn?: String;
+        /** The password for the given ARN from the Key Store in order to access the device. **/
+        TdeCredentialPassword?: String;
+        /** Specify the Active Directory Domain to restore the instance in. **/
+        Domain?: String;
+        /** Specify the name of the IAM role to be used when making API calls to the
 Directory Service. **/
-      DomainIAMRoleName?: String;
+        DomainIAMRoleName?: String;
     }
     export interface RestoreDBInstanceToPointInTimeResult {
-      DBInstance?: DBInstance;
+        DBInstance?: DBInstance;
     }
     export interface RevokeDBSecurityGroupIngressMessage {
-      /** The name of the DB security group to revoke ingress from. **/
-      DBSecurityGroupName: String;
-      /** The IP range to revoke access from. Must be a valid CIDR range. If CIDRIP is
+        /** The name of the DB security group to revoke ingress from. **/
+        DBSecurityGroupName: String;
+        /** The IP range to revoke access from. Must be a valid CIDR range. If CIDRIP is
 specified, EC2SecurityGroupName , EC2SecurityGroupId and EC2SecurityGroupOwnerId 
 cannot be provided. **/
-      CIDRIP?: String;
-      /** The name of the EC2 security group to revoke access from. For VPC DB security
+        CIDRIP?: String;
+        /** The name of the EC2 security group to revoke access from. For VPC DB security
 groups, EC2SecurityGroupId must be provided. Otherwise, EC2SecurityGroupOwnerId
 and either EC2SecurityGroupName or EC2SecurityGroupId must be provided. **/
-      EC2SecurityGroupName?: String;
-      /** The id of the EC2 security group to revoke access from. For VPC DB security
+        EC2SecurityGroupName?: String;
+        /** The id of the EC2 security group to revoke access from. For VPC DB security
 groups, EC2SecurityGroupId must be provided. Otherwise, EC2SecurityGroupOwnerId
 and either EC2SecurityGroupName or EC2SecurityGroupId must be provided. **/
-      EC2SecurityGroupId?: String;
-      /** The AWS Account Number of the owner of the EC2 security group specified in the 
+        EC2SecurityGroupId?: String;
+        /** The AWS Account Number of the owner of the EC2 security group specified in the 
 EC2SecurityGroupName parameter. The AWS Access Key ID is not an acceptable
 value. For VPC DB security groups, EC2SecurityGroupId must be provided.
 Otherwise, EC2SecurityGroupOwnerId and either EC2SecurityGroupName or 
 EC2SecurityGroupId must be provided. **/
-      EC2SecurityGroupOwnerId?: String;
+        EC2SecurityGroupOwnerId?: String;
     }
     export interface RevokeDBSecurityGroupIngressResult {
-      DBSecurityGroup?: DBSecurityGroup;
+        DBSecurityGroup?: DBSecurityGroup;
     }
     export interface SNSInvalidTopicFault {
     }
@@ -5960,11 +5960,11 @@ EC2SecurityGroupId must be provided. **/
     export interface StorageTypeNotSupportedFault {
     }
     export interface Subnet {
-      /** Specifies the identifier of the subnet. **/
-      SubnetIdentifier?: String;
-      SubnetAvailabilityZone?: AvailabilityZone;
-      /** Specifies the status of the subnet. **/
-      SubnetStatus?: String;
+        /** Specifies the identifier of the subnet. **/
+        SubnetIdentifier?: String;
+        SubnetAvailabilityZone?: AvailabilityZone;
+        /** Specifies the status of the subnet. **/
+        SubnetStatus?: String;
     }
     export interface SubnetAlreadyInUse {
     }
@@ -5975,40 +5975,40 @@ EC2SecurityGroupId must be provided. **/
     export interface SubscriptionNotFoundFault {
     }
     export interface Tag {
-      /** A key is the required name of the tag. The string value can be from 1 to 128
+        /** A key is the required name of the tag. The string value can be from 1 to 128
 Unicode characters in length and cannot be prefixed with &quot;aws:&quot; or &quot;rds:&quot;. The
 string can only contain only the set of Unicode letters, digits, white-space,
 &#x27;_&#x27;, &#x27;.&#x27;, &#x27;/&#x27;, &#x27;=&#x27;, &#x27;+&#x27;, &#x27;-&#x27; (Java regex: &quot;^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]&amp;#42;)$&quot;). **/
-      Key?: String;
-      /** A value is the optional value of the tag. The string value can be from 1 to 256
+        Key?: String;
+        /** A value is the optional value of the tag. The string value can be from 1 to 256
 Unicode characters in length and cannot be prefixed with &quot;aws:&quot; or &quot;rds:&quot;. The
 string can only contain only the set of Unicode letters, digits, white-space,
 &#x27;_&#x27;, &#x27;.&#x27;, &#x27;/&#x27;, &#x27;=&#x27;, &#x27;+&#x27;, &#x27;-&#x27; (Java regex: &quot;^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]&amp;#42;)$&quot;). **/
-      Value?: String;
+        Value?: String;
     }
     export interface TagListMessage {
-      /** List of tags returned by the ListTagsForResource operation. **/
-      TagList?: TagList;
+        /** List of tags returned by the ListTagsForResource operation. **/
+        TagList?: TagList;
     }
     export interface UpgradeTarget {
-      /** The name of the upgrade target database engine. **/
-      Engine?: String;
-      /** The version number of the upgrade target database engine. **/
-      EngineVersion?: String;
-      /** The version of the database engine that a DB instance can be upgraded to. **/
-      Description?: String;
-      /** A value that indicates whether the target version will be applied to any source
+        /** The name of the upgrade target database engine. **/
+        Engine?: String;
+        /** The version number of the upgrade target database engine. **/
+        EngineVersion?: String;
+        /** The version of the database engine that a DB instance can be upgraded to. **/
+        Description?: String;
+        /** A value that indicates whether the target version will be applied to any source
 DB instances that have AutoMinorVersionUpgrade set to true. **/
-      AutoUpgrade?: Boolean;
-      /** A value that indicates whether a database engine will be upgraded to a major
+        AutoUpgrade?: Boolean;
+        /** A value that indicates whether a database engine will be upgraded to a major
 version. **/
-      IsMajorVersionUpgrade?: Boolean;
+        IsMajorVersionUpgrade?: Boolean;
     }
     export interface VpcSecurityGroupMembership {
-      /** The name of the VPC security group. **/
-      VpcSecurityGroupId?: String;
-      /** The status of the VPC security group. **/
-      Status?: String;
+        /** The name of the VPC security group. **/
+        VpcSecurityGroupId?: String;
+        /** The status of the VPC security group. **/
+        Status?: String;
     }
   }
 }

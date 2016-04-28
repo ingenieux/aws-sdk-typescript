@@ -7,16 +7,16 @@
 
 declare module "aws-sdk" {
 
-  /**
-    * apiVersion: 2015-02-01
-    * endpointPrefix: elasticfilesystem
-    * serviceAbbreviation: EFS
-    * signatureVersion: v4
-    * protocol: rest-json
-    *
-    * Amazon Elastic File System
-    *
-    */
+ /**
+   * apiVersion: 2015-02-01
+   * endpointPrefix: elasticfilesystem
+   * serviceAbbreviation: EFS
+   * signatureVersion: v4
+   * protocol: rest-json
+   *
+   * Amazon Elastic File System
+   *
+   */
   export class EFS extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
@@ -64,7 +64,7 @@ creation token you provided.
      * @error FileSystemLimitExceeded Returned if the AWS account has already created maximum number of file systems
 allowed per account.  
      */
-    createFileSystem(params: EFS.CreateFileSystemRequest, callback?: (err: EFS.BadRequest | EFS.InternalServerError | EFS.FileSystemAlreadyExists | EFS.FileSystemLimitExceeded | any, data: EFS.FileSystemDescription | any) => void): Request;
+    createFileSystem(params: EFS.CreateFileSystemRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemAlreadyExists|EFS.FileSystemLimitExceeded|any, data: EFS.FileSystemDescription|any) => void): Request;
     /**
      * Creates a mount target for a file system. You can then mount the file system on
 EC2 instances via the mount target.
@@ -185,7 +185,7 @@ five.
 VPC.  
      * @error UnsupportedAvailabilityZone   
      */
-    createMountTarget(params: EFS.CreateMountTargetRequest, callback?: (err: EFS.BadRequest | EFS.InternalServerError | EFS.FileSystemNotFound | EFS.IncorrectFileSystemLifeCycleState | EFS.MountTargetConflict | EFS.SubnetNotFound | EFS.NoFreeAddressesInSubnet | EFS.IpAddressInUse | EFS.NetworkInterfaceLimitExceeded | EFS.SecurityGroupLimitExceeded | EFS.SecurityGroupNotFound | EFS.UnsupportedAvailabilityZone | any, data: EFS.MountTargetDescription | any) => void): Request;
+    createMountTarget(params: EFS.CreateMountTargetRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|EFS.IncorrectFileSystemLifeCycleState|EFS.MountTargetConflict|EFS.SubnetNotFound|EFS.NoFreeAddressesInSubnet|EFS.IpAddressInUse|EFS.NetworkInterfaceLimitExceeded|EFS.SecurityGroupLimitExceeded|EFS.SecurityGroupNotFound|EFS.UnsupportedAvailabilityZone|any, data: EFS.MountTargetDescription|any) => void): Request;
     /**
      * Creates or overwrites tags associated with a file system. Each tag is a
 key-value pair. If a tag key specified in the request already exists on the file
@@ -201,7 +201,7 @@ parameter value or a missing required parameter.
      * @error FileSystemNotFound Returned if the specified FileSystemId does not exist in the requester&#x27;s AWS
 account.  
      */
-    createTags(params: EFS.CreateTagsRequest, callback?: (err: EFS.BadRequest | EFS.InternalServerError | EFS.FileSystemNotFound | any, data: any) => void): Request;
+    createTags(params: EFS.CreateTagsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any, data: any) => void): Request;
     /**
      * Deletes a file system, permanently severing access to its contents. Upon return,
 the file system no longer exists and you will not be able to access any contents
@@ -225,7 +225,7 @@ parameter value or a missing required parameter.
 account.  
      * @error FileSystemInUse Returned if a file system has mount targets.  
      */
-    deleteFileSystem(params: EFS.DeleteFileSystemRequest, callback?: (err: EFS.BadRequest | EFS.InternalServerError | EFS.FileSystemNotFound | EFS.FileSystemInUse | any, data: any) => void): Request;
+    deleteFileSystem(params: EFS.DeleteFileSystemRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|EFS.FileSystemInUse|any, data: any) => void): Request;
     /**
      * Deletes the specified mount target.
 
@@ -258,7 +258,7 @@ the call again.
      * @error MountTargetNotFound Returned if there is no mount target with the specified ID found in the caller&#x27;s
 account.  
      */
-    deleteMountTarget(params: EFS.DeleteMountTargetRequest, callback?: (err: EFS.BadRequest | EFS.InternalServerError | EFS.DependencyTimeout | EFS.MountTargetNotFound | any, data: any) => void): Request;
+    deleteMountTarget(params: EFS.DeleteMountTargetRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.DependencyTimeout|EFS.MountTargetNotFound|any, data: any) => void): Request;
     /**
      * Deletes the specified tags from a file system. If the DeleteTags request
 includes a tag key that does not exist, Amazon EFS ignores it; it is not an
@@ -275,7 +275,7 @@ parameter value or a missing required parameter.
      * @error FileSystemNotFound Returned if the specified FileSystemId does not exist in the requester&#x27;s AWS
 account.  
      */
-    deleteTags(params: EFS.DeleteTagsRequest, callback?: (err: EFS.BadRequest | EFS.InternalServerError | EFS.FileSystemNotFound | any, data: any) => void): Request;
+    deleteTags(params: EFS.DeleteTagsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any, data: any) => void): Request;
     /**
      * Returns the description of a specific Amazon EFS file system if either the file
 system CreationToken or the FileSystemId is provided; otherwise, returns
@@ -310,7 +310,7 @@ parameter value or a missing required parameter.
      * @error FileSystemNotFound Returned if the specified FileSystemId does not exist in the requester&#x27;s AWS
 account.  
      */
-    describeFileSystems(params: EFS.DescribeFileSystemsRequest, callback?: (err: EFS.BadRequest | EFS.InternalServerError | EFS.FileSystemNotFound | any, data: EFS.DescribeFileSystemsResponse | any) => void): Request;
+    describeFileSystems(params: EFS.DescribeFileSystemsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any, data: EFS.DescribeFileSystemsResponse|any) => void): Request;
     /**
      * Returns the security groups currently in effect for a mount target. This
 operation requires that the network interface of the mount target has been
@@ -330,7 +330,7 @@ parameter value or a missing required parameter.
 account.  
      * @error IncorrectMountTargetState Returned if the mount target is not in the correct state for the operation.  
      */
-    describeMountTargetSecurityGroups(params: EFS.DescribeMountTargetSecurityGroupsRequest, callback?: (err: EFS.BadRequest | EFS.InternalServerError | EFS.MountTargetNotFound | EFS.IncorrectMountTargetState | any, data: EFS.DescribeMountTargetSecurityGroupsResponse | any) => void): Request;
+    describeMountTargetSecurityGroups(params: EFS.DescribeMountTargetSecurityGroupsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.MountTargetNotFound|EFS.IncorrectMountTargetState|any, data: EFS.DescribeMountTargetSecurityGroupsResponse|any) => void): Request;
     /**
      * Returns the descriptions of all the current mount targets, or a specific mount
 target, for a file system. When requesting all of the current mount targets, the
@@ -349,7 +349,7 @@ account.
      * @error MountTargetNotFound Returned if there is no mount target with the specified ID found in the caller&#x27;s
 account.  
      */
-    describeMountTargets(params: EFS.DescribeMountTargetsRequest, callback?: (err: EFS.BadRequest | EFS.InternalServerError | EFS.FileSystemNotFound | EFS.MountTargetNotFound | any, data: EFS.DescribeMountTargetsResponse | any) => void): Request;
+    describeMountTargets(params: EFS.DescribeMountTargetsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|EFS.MountTargetNotFound|any, data: EFS.DescribeMountTargetsResponse|any) => void): Request;
     /**
      * Returns the tags associated with a file system. The order of tags returned in
 the response of one DescribeTags call, and the order of tags returned across the
@@ -364,7 +364,7 @@ parameter value or a missing required parameter.
      * @error FileSystemNotFound Returned if the specified FileSystemId does not exist in the requester&#x27;s AWS
 account.  
      */
-    describeTags(params: EFS.DescribeTagsRequest, callback?: (err: EFS.BadRequest | EFS.InternalServerError | EFS.FileSystemNotFound | any, data: EFS.DescribeTagsResponse | any) => void): Request;
+    describeTags(params: EFS.DescribeTagsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any, data: EFS.DescribeTagsResponse|any) => void): Request;
     /**
      * Modifies the set of security groups in effect for a mount target.
 
@@ -393,211 +393,211 @@ five.
      * @error SecurityGroupNotFound Returned if one of the specified security groups does not exist in the subnet&#x27;s
 VPC.  
      */
-    modifyMountTargetSecurityGroups(params: EFS.ModifyMountTargetSecurityGroupsRequest, callback?: (err: EFS.BadRequest | EFS.InternalServerError | EFS.MountTargetNotFound | EFS.IncorrectMountTargetState | EFS.SecurityGroupLimitExceeded | EFS.SecurityGroupNotFound | any, data: any) => void): Request;
+    modifyMountTargetSecurityGroups(params: EFS.ModifyMountTargetSecurityGroupsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.MountTargetNotFound|EFS.IncorrectMountTargetState|EFS.SecurityGroupLimitExceeded|EFS.SecurityGroupNotFound|any, data: any) => void): Request;
 
   }
 
   export module EFS {
-
+    
     export type AwsAccountId = string;
-
+    
     export type CreationToken = string;
-
+    
     export type ErrorCode = string;
-
+    
     export type ErrorMessage = string;
-
+    
     export type FileSystemDescriptions = FileSystemDescription[];
-
+    
     export type FileSystemId = string;
-
+    
     export type FileSystemSizeValue = number;
-
+    
     export type IpAddress = string;
-
+    
     export type LifeCycleState = string;
-
+    
     export type Marker = string;
-
+    
     export type MaxItems = number;
-
+    
     export type MountTargetCount = number;
-
+    
     export type MountTargetDescriptions = MountTargetDescription[];
-
+    
     export type MountTargetId = string;
-
+    
     export type NetworkInterfaceId = string;
-
+    
     export type SecurityGroup = string;
-
+    
     export type SecurityGroups = SecurityGroup[];
-
+    
     export type SubnetId = string;
-
+    
     export type TagKey = string;
-
+    
     export type TagKeys = TagKey[];
-
+    
     export type TagValue = string;
-
+    
     export type Tags = Tag[];
-
+    
     export type Timestamp = number;
 
     export interface BadRequest {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface CreateFileSystemRequest {
-      /** String of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent
+        /** String of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent
 creation. **/
-      CreationToken: CreationToken;
+        CreationToken: CreationToken;
     }
     export interface CreateMountTargetRequest {
-      /** The ID of the file system for which to create the mount target. **/
-      FileSystemId: FileSystemId;
-      /** The ID of the subnet to add the mount target in. **/
-      SubnetId: SubnetId;
-      /** A valid IPv4 address within the address range of the specified subnet. **/
-      IpAddress?: IpAddress;
-      /** Up to 5 VPC security group IDs, of the form &quot;sg-xxxxxxxx&quot;. These must be for the
+        /** The ID of the file system for which to create the mount target. **/
+        FileSystemId: FileSystemId;
+        /** The ID of the subnet to add the mount target in. **/
+        SubnetId: SubnetId;
+        /** A valid IPv4 address within the address range of the specified subnet. **/
+        IpAddress?: IpAddress;
+        /** Up to 5 VPC security group IDs, of the form &quot;sg-xxxxxxxx&quot;. These must be for the
 same VPC as subnet specified. **/
-      SecurityGroups?: SecurityGroups;
+        SecurityGroups?: SecurityGroups;
     }
     export interface CreateTagsRequest {
-      /** String. The ID of the file system whose tags you want to modify. This operation
+        /** String. The ID of the file system whose tags you want to modify. This operation
 modifies only the tags and not the file system. **/
-      FileSystemId: FileSystemId;
-      /** An array of Tag objects to add. Each Tag object is a key-value pair. **/
-      Tags: Tags;
+        FileSystemId: FileSystemId;
+        /** An array of Tag objects to add. Each Tag object is a key-value pair. **/
+        Tags: Tags;
     }
     export interface DeleteFileSystemRequest {
-      /** The ID of the file system you want to delete. **/
-      FileSystemId: FileSystemId;
+        /** The ID of the file system you want to delete. **/
+        FileSystemId: FileSystemId;
     }
     export interface DeleteMountTargetRequest {
-      /** String. The ID of the mount target to delete. **/
-      MountTargetId: MountTargetId;
+        /** String. The ID of the mount target to delete. **/
+        MountTargetId: MountTargetId;
     }
     export interface DeleteTagsRequest {
-      /** String. The ID of the file system whose tags you want to delete. **/
-      FileSystemId: FileSystemId;
-      /** A list of tag keys to delete. **/
-      TagKeys: TagKeys;
+        /** String. The ID of the file system whose tags you want to delete. **/
+        FileSystemId: FileSystemId;
+        /** A list of tag keys to delete. **/
+        TagKeys: TagKeys;
     }
     export interface DependencyTimeout {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface DescribeFileSystemsRequest {
-      /** Optional integer. Specifies the maximum number of file systems to return in the
+        /** Optional integer. Specifies the maximum number of file systems to return in the
 response. This parameter value must be greater than 0. The number of items
 Amazon EFS returns will be the minimum of the MaxItems parameter specified in
 the request and the service&#x27;s internal maximum number of items per page. **/
-      MaxItems?: MaxItems;
-      /** Optional string. Opaque pagination token returned from a previous 
+        MaxItems?: MaxItems;
+        /** Optional string. Opaque pagination token returned from a previous 
 DescribeFileSystems operation. If present, specifies to continue the list from
 where the returning call had left off. **/
-      Marker?: Marker;
-      /** Optional string. Restricts the list to the file system with this creation token
+        Marker?: Marker;
+        /** Optional string. Restricts the list to the file system with this creation token
 (you specify a creation token at the time of creating an Amazon EFS file
 system). **/
-      CreationToken?: CreationToken;
-      /** Optional string. File system ID whose description you want to retrieve. **/
-      FileSystemId?: FileSystemId;
+        CreationToken?: CreationToken;
+        /** Optional string. File system ID whose description you want to retrieve. **/
+        FileSystemId?: FileSystemId;
     }
     export interface DescribeFileSystemsResponse {
-      /** A string, present if provided by caller in the request. **/
-      Marker?: Marker;
-      /** An array of file system descriptions. **/
-      FileSystems?: FileSystemDescriptions;
-      /** A string, present if there are more file systems than returned in the response.
+        /** A string, present if provided by caller in the request. **/
+        Marker?: Marker;
+        /** An array of file system descriptions. **/
+        FileSystems?: FileSystemDescriptions;
+        /** A string, present if there are more file systems than returned in the response.
 You can use the NextMarker in the subsequent request to fetch the descriptions. **/
-      NextMarker?: Marker;
+        NextMarker?: Marker;
     }
     export interface DescribeMountTargetSecurityGroupsRequest {
-      /** The ID of the mount target whose security groups you want to retrieve. **/
-      MountTargetId: MountTargetId;
+        /** The ID of the mount target whose security groups you want to retrieve. **/
+        MountTargetId: MountTargetId;
     }
     export interface DescribeMountTargetSecurityGroupsResponse {
-      /** An array of security groups. **/
-      SecurityGroups: SecurityGroups;
+        /** An array of security groups. **/
+        SecurityGroups: SecurityGroups;
     }
     export interface DescribeMountTargetsRequest {
-      /** Optional. Maximum number of mount targets to return in the response. It must be
+        /** Optional. Maximum number of mount targets to return in the response. It must be
 an integer with a value greater than zero. **/
-      MaxItems?: MaxItems;
-      /** Optional. String. Opaque pagination token returned from a previous 
+        MaxItems?: MaxItems;
+        /** Optional. String. Opaque pagination token returned from a previous 
 DescribeMountTargets operation. If present, it specifies to continue the list
 from where the previous returning call left off. **/
-      Marker?: Marker;
-      /** Optional. String. The ID of the file system whose mount targets you want to
+        Marker?: Marker;
+        /** Optional. String. The ID of the file system whose mount targets you want to
 list. It must be included in your request if MountTargetId is not included. **/
-      FileSystemId?: FileSystemId;
-      /** Optional. String. The ID of the mount target that you want to have described. It
+        FileSystemId?: FileSystemId;
+        /** Optional. String. The ID of the mount target that you want to have described. It
 must be included in your request if FileSystemId is not included. **/
-      MountTargetId?: MountTargetId;
+        MountTargetId?: MountTargetId;
     }
     export interface DescribeMountTargetsResponse {
-      /** If the request included the Marker , the response returns that value in this
+        /** If the request included the Marker , the response returns that value in this
 field. **/
-      Marker?: Marker;
-      /** Returns the file system&#x27;s mount targets as an array of MountTargetDescription 
+        Marker?: Marker;
+        /** Returns the file system&#x27;s mount targets as an array of MountTargetDescription 
 objects. **/
-      MountTargets?: MountTargetDescriptions;
-      /** If a value is present, there are more mount targets to return. In a subsequent
+        MountTargets?: MountTargetDescriptions;
+        /** If a value is present, there are more mount targets to return. In a subsequent
 request, you can provide Marker in your request with this value to retrieve the
 next set of mount targets. **/
-      NextMarker?: Marker;
+        NextMarker?: Marker;
     }
     export interface DescribeTagsRequest {
-      /** Optional. Maximum number of file system tags to return in the response. It must
+        /** Optional. Maximum number of file system tags to return in the response. It must
 be an integer with a value greater than zero. **/
-      MaxItems?: MaxItems;
-      /** Optional. String. Opaque pagination token returned from a previous DescribeTags 
+        MaxItems?: MaxItems;
+        /** Optional. String. Opaque pagination token returned from a previous DescribeTags 
 operation. If present, it specifies to continue the list from where the previous
 call left off. **/
-      Marker?: Marker;
-      /** The ID of the file system whose tag set you want to retrieve. **/
-      FileSystemId: FileSystemId;
+        Marker?: Marker;
+        /** The ID of the file system whose tag set you want to retrieve. **/
+        FileSystemId: FileSystemId;
     }
     export interface DescribeTagsResponse {
-      /** If the request included a Marker , the response returns that value in this
+        /** If the request included a Marker , the response returns that value in this
 field. **/
-      Marker?: Marker;
-      /** Returns tags associated with the file system as an array of Tag objects. **/
-      Tags: Tags;
-      /** If a value is present, there are more tags to return. In a subsequent request,
+        Marker?: Marker;
+        /** Returns tags associated with the file system as an array of Tag objects. **/
+        Tags: Tags;
+        /** If a value is present, there are more tags to return. In a subsequent request,
 you can provide the value of NextMarker as the value of the Marker parameter in
 your next request to retrieve the next set of tags. **/
-      NextMarker?: Marker;
+        NextMarker?: Marker;
     }
     export interface FileSystemAlreadyExists {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
-      FileSystemId: FileSystemId;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
+        FileSystemId: FileSystemId;
     }
     export interface FileSystemDescription {
-      /** The AWS account that created the file system. If the file system was created by
+        /** The AWS account that created the file system. If the file system was created by
 an IAM user, the parent account to which the user belongs is the owner. **/
-      OwnerId: AwsAccountId;
-      /** Opaque string specified in the request. **/
-      CreationToken: CreationToken;
-      /** The file system ID assigned by Amazon EFS. **/
-      FileSystemId: FileSystemId;
-      /** The time at which the file system was created, in seconds, since
+        OwnerId: AwsAccountId;
+        /** Opaque string specified in the request. **/
+        CreationToken: CreationToken;
+        /** The file system ID assigned by Amazon EFS. **/
+        FileSystemId: FileSystemId;
+        /** The time at which the file system was created, in seconds, since
 1970-01-01T00:00:00Z. **/
-      CreationTime: Timestamp;
-      /** A predefined string value that indicates the lifecycle phase of the file system. **/
-      LifeCycleState: LifeCycleState;
-      /** You can add tags to a file system (see CreateTags ) including a &quot;Name&quot; tag. If
+        CreationTime: Timestamp;
+        /** A predefined string value that indicates the lifecycle phase of the file system. **/
+        LifeCycleState: LifeCycleState;
+        /** You can add tags to a file system (see CreateTags ) including a &quot;Name&quot; tag. If
 the file system has a &quot;Name&quot; tag, Amazon EFS returns the value in this field. **/
-      Name?: TagValue;
-      /** The current number of mount targets (see CreateMountTarget ) the file system
+        Name?: TagValue;
+        /** The current number of mount targets (see CreateMountTarget ) the file system
 has. **/
-      NumberOfMountTargets: MountTargetCount;
-      /** This object provides the latest known metered size of data stored in the file
+        NumberOfMountTargets: MountTargetCount;
+        /** This object provides the latest known metered size of data stored in the file
 system, in bytes, in its Value field, and the time at which that size was
 determined in its Timestamp field. The Timestamp value is the integer number of
 seconds since 1970-01-01T00:00:00Z. Note that the value does not represent the
@@ -606,103 +606,103 @@ consistent when there are no writes to the file system. That is, the value will
 represent actual size only if the file system is not modified for a period
 longer than a couple of hours. Otherwise, the value is not the exact size the
 file system was at any instant in time. **/
-      SizeInBytes: FileSystemSize;
+        SizeInBytes: FileSystemSize;
     }
     export interface FileSystemInUse {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface FileSystemLimitExceeded {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface FileSystemNotFound {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface FileSystemSize {
-      /** The latest known metered size, in bytes, of data stored in the file system. **/
-      Value: FileSystemSizeValue;
-      /** The time at which the size of data, returned in the Value field, was determined.
+        /** The latest known metered size, in bytes, of data stored in the file system. **/
+        Value: FileSystemSizeValue;
+        /** The time at which the size of data, returned in the Value field, was determined.
 The value is the integer number of seconds since 1970-01-01T00:00:00Z. **/
-      Timestamp?: Timestamp;
+        Timestamp?: Timestamp;
     }
     export interface IncorrectFileSystemLifeCycleState {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface IncorrectMountTargetState {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface InternalServerError {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface IpAddressInUse {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface ModifyMountTargetSecurityGroupsRequest {
-      /** The ID of the mount target whose security groups you want to modify. **/
-      MountTargetId: MountTargetId;
-      /** An array of up to five VPC security group IDs. **/
-      SecurityGroups?: SecurityGroups;
+        /** The ID of the mount target whose security groups you want to modify. **/
+        MountTargetId: MountTargetId;
+        /** An array of up to five VPC security group IDs. **/
+        SecurityGroups?: SecurityGroups;
     }
     export interface MountTargetConflict {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface MountTargetDescription {
-      /** The AWS account ID that owns the resource. **/
-      OwnerId?: AwsAccountId;
-      /** The system-assigned mount target ID. **/
-      MountTargetId: MountTargetId;
-      /** The ID of the file system for which the mount target is intended. **/
-      FileSystemId: FileSystemId;
-      /** The ID of the subnet that the mount target is in. **/
-      SubnetId: SubnetId;
-      /** The lifecycle state the mount target is in. **/
-      LifeCycleState: LifeCycleState;
-      /** The address at which the file system may be mounted via the mount target. **/
-      IpAddress?: IpAddress;
-      /** The ID of the network interface that Amazon EFS created when it created the
+        /** The AWS account ID that owns the resource. **/
+        OwnerId?: AwsAccountId;
+        /** The system-assigned mount target ID. **/
+        MountTargetId: MountTargetId;
+        /** The ID of the file system for which the mount target is intended. **/
+        FileSystemId: FileSystemId;
+        /** The ID of the subnet that the mount target is in. **/
+        SubnetId: SubnetId;
+        /** The lifecycle state the mount target is in. **/
+        LifeCycleState: LifeCycleState;
+        /** The address at which the file system may be mounted via the mount target. **/
+        IpAddress?: IpAddress;
+        /** The ID of the network interface that Amazon EFS created when it created the
 mount target. **/
-      NetworkInterfaceId?: NetworkInterfaceId;
+        NetworkInterfaceId?: NetworkInterfaceId;
     }
     export interface MountTargetNotFound {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface NetworkInterfaceLimitExceeded {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface NoFreeAddressesInSubnet {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface SecurityGroupLimitExceeded {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface SecurityGroupNotFound {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface SubnetNotFound {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
     export interface Tag {
-      /** Tag key, a string. The key must not start with &quot;aws:&quot;. **/
-      Key: TagKey;
-      /** Value of the tag key. **/
-      Value: TagValue;
+        /** Tag key, a string. The key must not start with &quot;aws:&quot;. **/
+        Key: TagKey;
+        /** Value of the tag key. **/
+        Value: TagValue;
     }
     export interface UnsupportedAvailabilityZone {
-      ErrorCode: ErrorCode;
-      Message?: ErrorMessage;
+        ErrorCode: ErrorCode;
+        Message?: ErrorMessage;
     }
   }
 }
