@@ -21,15 +21,12 @@ declare module "aws-sdk" {
     constructor(options?: any);
     endpoint: Endpoint;
     /**
-     * This operation checks the availability of one domain name. You can access this
-API without authenticating. Note that if the availability status of a domain is
-pending, you must submit another request to determine the availability of the
-domain name.
+     * This operation checks the availability of one domain name. Note that if the
+availability status of a domain is pending, you must submit another request to
+determine the availability of the domain name.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
+     * @error InvalidInput   
+     * @error UnsupportedTLD   
      */
     checkDomainAvailability(params: Route53Domains.CheckDomainAvailabilityRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.CheckDomainAvailabilityResponse|any) => void): Request;
     /**
@@ -38,12 +35,9 @@ may not be a valid domain name or belong to the requester account.
 All tag operations are eventually consistent; subsequent operations may not
 immediately represent all issued operations.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error OperationLimitExceeded The number of operations or jobs running exceeded the allowed threshold for the
-account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
+     * @error InvalidInput   
+     * @error OperationLimitExceeded   
+     * @error UnsupportedTLD   
      */
     deleteTagsForDomain(params: Route53Domains.DeleteTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DeleteTagsForDomainResponse|any) => void): Request;
     /**
@@ -54,10 +48,8 @@ Caution! Amazon Route 53 doesn&#x27;t have a manual renewal process, so if you
 disable automatic renewal, registration for the domain will not be renewed when
 the expiration date passes, and you will lose control of the domain name.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
+     * @error InvalidInput   
+     * @error UnsupportedTLD   
      */
     disableDomainAutoRenew(params: Route53Domains.DisableDomainAutoRenewRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DisableDomainAutoRenewResponse|any) => void): Request;
     /**
@@ -68,14 +60,11 @@ a different registrar. Successful submission returns an operation ID that you
 can use to track the progress and completion of the action. If the request is
 not completed successfully, the domain registrant will be notified by email.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error DuplicateRequest The request is already in progress for the domain.  
-     * @error TLDRulesViolation The top-level domain does not support this operation.  
-     * @error OperationLimitExceeded The number of operations or jobs running exceeded the allowed threshold for the
-account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
+     * @error InvalidInput   
+     * @error DuplicateRequest   
+     * @error TLDRulesViolation   
+     * @error OperationLimitExceeded   
+     * @error UnsupportedTLD   
      */
     disableDomainTransferLock(params: Route53Domains.DisableDomainTransferLockRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DisableDomainTransferLockResponse|any) => void): Request;
     /**
@@ -90,12 +79,11 @@ on the website for our registrar partner, Gandi. Route 53 requires that you
 renew before the end of the renewal period that is listed on the Gandi website
 so we can complete processing before the deadline.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
+     * @error InvalidInput   
+     * @error UnsupportedTLD   
+     * @error TLDRulesViolation   
      */
-    enableDomainAutoRenew(params: Route53Domains.EnableDomainAutoRenewRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.EnableDomainAutoRenewResponse|any) => void): Request;
+    enableDomainAutoRenew(params: Route53Domains.EnableDomainAutoRenewRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.TLDRulesViolation|any, data: Route53Domains.EnableDomainAutoRenewResponse|any) => void): Request;
     /**
      * This operation sets the transfer lock on the domain (specifically the 
 clientTransferProhibited status) to prevent domain transfers. Successful
@@ -103,50 +91,52 @@ submission returns an operation ID that you can use to track the progress and
 completion of the action. If the request is not completed successfully, the
 domain registrant will be notified by email.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error DuplicateRequest The request is already in progress for the domain.  
-     * @error TLDRulesViolation The top-level domain does not support this operation.  
-     * @error OperationLimitExceeded The number of operations or jobs running exceeded the allowed threshold for the
-account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
+     * @error InvalidInput   
+     * @error DuplicateRequest   
+     * @error TLDRulesViolation   
+     * @error OperationLimitExceeded   
+     * @error UnsupportedTLD   
      */
     enableDomainTransferLock(params: Route53Domains.EnableDomainTransferLockRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.EnableDomainTransferLockResponse|any) => void): Request;
+    /**
+     * For operations that require confirmation that the email address for the
+registrant contact is valid, such as registering a new domain, this operation
+returns information about whether the registrant contact has responded.
+
+If you want us to resend the email, use the ResendContactReachabilityEmail 
+operation.
+     *
+     * @error InvalidInput   
+     * @error OperationLimitExceeded   
+     * @error UnsupportedTLD   
+     */
+    getContactReachabilityStatus(params: Route53Domains.GetContactReachabilityStatusRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.GetContactReachabilityStatusResponse|any) => void): Request;
     /**
      * This operation returns detailed information about the domain. The domain&#x27;s
 contact information is also returned as part of the output.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
+     * @error InvalidInput   
+     * @error UnsupportedTLD   
      */
     getDomainDetail(params: Route53Domains.GetDomainDetailRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.GetDomainDetailResponse|any) => void): Request;
     /**
      * This operation returns the current status of an operation that is not completed.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
+     * @error InvalidInput   
      */
     getOperationDetail(params: Route53Domains.GetOperationDetailRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.GetOperationDetailResponse|any) => void): Request;
     /**
      * This operation returns all the domain names registered with Amazon Route 53 for
 the current AWS account.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
+     * @error InvalidInput   
      */
     listDomains(params: Route53Domains.ListDomainsRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.ListDomainsResponse|any) => void): Request;
     /**
      * This operation returns the operation IDs of operations that are not yet
 complete.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
+     * @error InvalidInput   
      */
     listOperations(params: Route53Domains.ListOperationsRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.ListOperationsResponse|any) => void): Request;
     /**
@@ -156,12 +146,9 @@ domain.
 All tag operations are eventually consistent; subsequent operations may not
 immediately represent all issued operations.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error OperationLimitExceeded The number of operations or jobs running exceeded the allowed threshold for the
-account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
+     * @error InvalidInput   
+     * @error OperationLimitExceeded   
+     * @error UnsupportedTLD   
      */
     listTagsForDomain(params: Route53Domains.ListTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.ListTagsForDomainResponse|any) => void): Request;
     /**
@@ -188,25 +175,31 @@ When you register a domain, Amazon Route 53 does the following:
    information, see Amazon Route 53 Pricing
    [http://aws.amazon.com/route53/pricing/] .
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
-     * @error DuplicateRequest The request is already in progress for the domain.  
-     * @error TLDRulesViolation The top-level domain does not support this operation.  
-     * @error DomainLimitExceeded The number of domains has exceeded the allowed threshold for the account.  
-     * @error OperationLimitExceeded The number of operations or jobs running exceeded the allowed threshold for the
-account.  
+     * @error InvalidInput   
+     * @error UnsupportedTLD   
+     * @error DuplicateRequest   
+     * @error TLDRulesViolation   
+     * @error DomainLimitExceeded   
+     * @error OperationLimitExceeded   
      */
     registerDomain(params: Route53Domains.RegisterDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any, data: Route53Domains.RegisterDomainResponse|any) => void): Request;
+    /**
+     * For operations that require confirmation that the email address for the
+registrant contact is valid, such as registering a new domain, this operation
+resends the confirmation email to the current email address for the registrant
+contact.
+     *
+     * @error InvalidInput   
+     * @error OperationLimitExceeded   
+     * @error UnsupportedTLD   
+     */
+    resendContactReachabilityEmail(params: Route53Domains.ResendContactReachabilityEmailRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.ResendContactReachabilityEmailResponse|any) => void): Request;
     /**
      * This operation returns the AuthCode for the domain. To transfer a domain to
 another registrar, you provide this value to the new registrar.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
+     * @error InvalidInput   
+     * @error UnsupportedTLD   
      */
     retrieveDomainAuthCode(params: Route53Domains.RetrieveDomainAuthCodeRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.RetrieveDomainAuthCodeResponse|any) => void): Request;
     /**
@@ -236,15 +229,12 @@ that you can use to track the progress and completion of the action. If the
 transfer doesn&#x27;t complete successfully, the domain registrant will be notified
 by email.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
-     * @error DuplicateRequest The request is already in progress for the domain.  
-     * @error TLDRulesViolation The top-level domain does not support this operation.  
-     * @error DomainLimitExceeded The number of domains has exceeded the allowed threshold for the account.  
-     * @error OperationLimitExceeded The number of operations or jobs running exceeded the allowed threshold for the
-account.  
+     * @error InvalidInput   
+     * @error UnsupportedTLD   
+     * @error DuplicateRequest   
+     * @error TLDRulesViolation   
+     * @error DomainLimitExceeded   
+     * @error OperationLimitExceeded   
      */
     transferDomain(params: Route53Domains.TransferDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any, data: Route53Domains.TransferDomainResponse|any) => void): Request;
     /**
@@ -256,14 +246,11 @@ If the update is successful, this method returns an operation ID that you can
 use to track the progress and completion of the action. If the request is not
 completed successfully, the domain registrant will be notified by email.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error DuplicateRequest The request is already in progress for the domain.  
-     * @error TLDRulesViolation The top-level domain does not support this operation.  
-     * @error OperationLimitExceeded The number of operations or jobs running exceeded the allowed threshold for the
-account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
+     * @error InvalidInput   
+     * @error DuplicateRequest   
+     * @error TLDRulesViolation   
+     * @error OperationLimitExceeded   
+     * @error UnsupportedTLD   
      */
     updateDomainContact(params: Route53Domains.UpdateDomainContactRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainContactResponse|any) => void): Request;
     /**
@@ -279,14 +266,11 @@ ID that you can use with GetOperationDetail to track the progress and completion
 of the action. If the request is not completed successfully, the domain
 registrant will be notified by email.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error DuplicateRequest The request is already in progress for the domain.  
-     * @error TLDRulesViolation The top-level domain does not support this operation.  
-     * @error OperationLimitExceeded The number of operations or jobs running exceeded the allowed threshold for the
-account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
+     * @error InvalidInput   
+     * @error DuplicateRequest   
+     * @error TLDRulesViolation   
+     * @error OperationLimitExceeded   
+     * @error UnsupportedTLD   
      */
     updateDomainContactPrivacy(params: Route53Domains.UpdateDomainContactPrivacyRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainContactPrivacyResponse|any) => void): Request;
     /**
@@ -299,14 +283,11 @@ If successful, this operation returns an operation ID that you can use to track
 the progress and completion of the action. If the request is not completed
 successfully, the domain registrant will be notified by email.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error DuplicateRequest The request is already in progress for the domain.  
-     * @error TLDRulesViolation The top-level domain does not support this operation.  
-     * @error OperationLimitExceeded The number of operations or jobs running exceeded the allowed threshold for the
-account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
+     * @error InvalidInput   
+     * @error DuplicateRequest   
+     * @error TLDRulesViolation   
+     * @error OperationLimitExceeded   
+     * @error UnsupportedTLD   
      */
     updateDomainNameservers(params: Route53Domains.UpdateDomainNameserversRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainNameserversResponse|any) => void): Request;
     /**
@@ -315,12 +296,9 @@ account.
 All tag operations are eventually consistent; subsequent operations may not
 immediately represent all issued operations.
      *
-     * @error InvalidInput The requested item is not acceptable. For example, for an OperationId it may
-refer to the ID of an operation that is already completed. For a domain name, it
-may not be a valid domain name or belong to the requester account.  
-     * @error OperationLimitExceeded The number of operations or jobs running exceeded the allowed threshold for the
-account.  
-     * @error UnsupportedTLD Amazon Route 53 does not support this top-level domain.  
+     * @error InvalidInput   
+     * @error OperationLimitExceeded   
+     * @error UnsupportedTLD   
      */
     updateTagsForDomain(params: Route53Domains.UpdateTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateTagsForDomainResponse|any) => void): Request;
 
@@ -391,6 +369,8 @@ account.
     export type PageMarker = string;
     
     export type PageMaxItems = number;
+    
+    export type ReachabilityStatus = string;
     
     export type RegistrarName = string;
     
@@ -587,7 +567,7 @@ Type: String
 Default: None
 
 Constraints: Phone number must be specified in the format &quot;+[country dialing
-code].[number including any area code&gt;]&quot;. For example, a US phone number might
+code].[number including any area code ]&quot;. For example, a US phone number might
 appear as &quot;+1.1234567890&quot; .
 
 Parents: RegistrantContact , AdminContact , TechContact
@@ -643,9 +623,9 @@ Type: String
 Default: None
 
 Constraints: The domain name can contain only the letters a through z, the
-numbers 0 through 9, and hyphen (-). Hyphens are allowed only when theyaposre
-surrounded by letters, numbers, or other hyphens. You canapost specify a hyphen
-at the beginning or end of a label. To specify an Internationalized Domain Name,
+numbers 0 through 9, and hyphen (-). Hyphens are allowed only when they&#x27;re
+surrounded by letters, numbers, or other hyphens. You can&#x27;t specify a hyphen at
+the beginning or end of a label. To specify an Internationalized Domain Name,
 you must convert the name to Punycode.
 
 Required: Yes **/
@@ -658,7 +638,7 @@ Default: None
 
 Required: No
 
-&#x27;&gt; **/
+&#x27; **/
         TagsToDelete: TagKeyList;
     }
     export interface DeleteTagsForDomainResponse {
@@ -761,9 +741,10 @@ Default: None
 
 Valid values: DUNS_NUMBER | BRAND_NUMBER | BIRTH_DEPARTMENT | 
 BIRTH_DATE_IN_YYYY_MM_DD | BIRTH_COUNTRY | BIRTH_CITY | DOCUMENT_NUMBER | 
-AU_ID_NUMBER | AU_ID_TYPE | CA_LEGAL_TYPE | ES_IDENTIFICATION | 
-ES_IDENTIFICATION_TYPE | ES_LEGAL_FORM | FI_BUSINESS_NUMBER | FI_ID_NUMBER | 
-IT_PIN | RU_PASSPORT_DATA | SE_ID_NUMBER | SG_ID_NUMBER | VAT_NUMBER
+AU_ID_NUMBER | AU_ID_TYPE | CA_LEGAL_TYPE | CA_BUSINESS_ENTITY_TYPE | 
+ES_IDENTIFICATION | ES_IDENTIFICATION_TYPE | ES_LEGAL_FORM | FI_BUSINESS_NUMBER 
+| FI_ID_NUMBER | IT_PIN | RU_PASSPORT_DATA | SE_ID_NUMBER | SG_ID_NUMBER | 
+VAT_NUMBER
 
 Parent: ExtraParams
 
@@ -782,6 +763,30 @@ Parent: ExtraParams
 
 Required: Yes **/
         Value: ExtraParamValue;
+    }
+    export interface GetContactReachabilityStatusRequest {
+        /** The name of the domain for which you want to know whether the registrant contact
+has confirmed that the email address is valid.
+
+Type: String
+
+Default: None
+
+Required: Yes **/
+        domainName?: DomainName;
+    }
+    export interface GetContactReachabilityStatusResponse {
+        /** The domain name for which you requested the reachability status. **/
+        domainName?: DomainName;
+        /** Whether the registrant contact has responded. PENDING indicates that we sent the
+confirmation email and haven&#x27;t received a response yet, DONE indicates that we
+sent the email and got confirmation from the registrant contact, and EXPIRED 
+indicates that the time limit expired before the registrant contact responded.
+
+Type: String
+
+Valid values: PENDING , DONE , EXPIRED **/
+        status?: ReachabilityStatus;
     }
     export interface GetDomainDetailRequest {
         /** The name of a domain.
@@ -1217,6 +1222,28 @@ Default: None
 Constraints: Maximum 255 characters. **/
         OperationId: OperationId;
     }
+    export interface ResendContactReachabilityEmailRequest {
+        /** The name of the domain for which you want Amazon Route 53 to resend a
+confirmation email to the registrant contact.
+
+Type: String
+
+Default: None
+
+Required: Yes **/
+        domainName?: DomainName;
+    }
+    export interface ResendContactReachabilityEmailResponse {
+        /** The domain name for which you requested a confirmation email. **/
+        domainName?: DomainName;
+        /** The email address for the registrant contact at the time that we sent the
+verification email. **/
+        emailAddress?: Email;
+        /** True if the email address for the registrant contact has already been verified,
+and false otherwise. If the email address has already been verified, we don&#x27;t
+send another confirmation email. **/
+        isAlreadyVerified?: Boolean;
+    }
     export interface RetrieveDomainAuthCodeRequest {
         /** The name of a domain.
 
@@ -1560,9 +1587,9 @@ Type: String
 Default: None
 
 Constraints: The domain name can contain only the letters a through z, the
-numbers 0 through 9, and hyphen (-). Hyphens are allowed only when theyaposre
-surrounded by letters, numbers, or other hyphens. You canapost specify a hyphen
-at the beginning or end of a label. To specify an Internationalized Domain Name,
+numbers 0 through 9, and hyphen (-). Hyphens are allowed only when they&#x27;re
+surrounded by letters, numbers, or other hyphens. You can&#x27;t specify a hyphen at
+the beginning or end of a label. To specify an Internationalized Domain Name,
 you must convert the name to Punycode.
 
 Required: Yes **/
@@ -1576,7 +1603,7 @@ Default: None
 
 Required: No
 
-&#x27;&gt;Each tag includes the following elements:
+&#x27;Each tag includes the following elements:
 
  &amp;#42; Key
    

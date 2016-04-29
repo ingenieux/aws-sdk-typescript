@@ -1697,6 +1697,8 @@ deployment commands. **/
         AppId?: String;
         /** The instance IDs for the deployment targets. **/
         InstanceIds?: Strings;
+        /** The layer IDs for the deployment targets. **/
+        LayerIds?: Strings;
         /** A DeploymentCommand object that specifies the deployment command and any
 associated arguments. **/
         Command: DeploymentCommand;
@@ -1817,6 +1819,19 @@ The default setting is INHERIT . To specify an agent version, you must use the
 complete version number, not the abbreviated number shown on the console. For a
 list of available agent version numbers, call DescribeAgentVersions . **/
         AgentVersion?: String;
+        /** The instance&#x27;s tenancy option. The default option is no tenancy, or if the
+instance is running in a VPC, inherit tenancy settings from the VPC. The
+following are valid values for this parameter: dedicated , default , or host .
+Because there are costs associated with changes in tenancy options, we recommend
+that you research tenancy options before choosing them for your instances. For
+more information about dedicated hosts, see Dedicated Hosts Overview
+[https://aws.amazon.com/ec2/dedicated-hosts/] and Amazon EC2 Dedicated Hosts
+[https://aws.amazon.com/ec2/dedicated-hosts/] . For more information about
+dedicated instances, see Dedicated Instances
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html] 
+and Amazon EC2 Dedicated Instances
+[https://aws.amazon.com/ec2/purchasing-options/dedicated-instances/] . **/
+        Tenancy?: String;
     }
     export interface CreateInstanceResult {
         /** The instance ID. **/
@@ -2745,6 +2760,8 @@ Device
         Status?: String;
         /** The instance&#x27;s subnet ID; applicable only if the stack is running in a VPC. **/
         SubnetId?: String;
+        /** The instance&#x27;s tenancy option, such as dedicated or host . **/
+        Tenancy?: String;
         /** The instance&#x27;s virtualization type: paravirtual or hvm . **/
         VirtualizationType?: VirtualizationType;
     }
@@ -3707,7 +3724,7 @@ For more information, see Managing User Permissions
         Size?: Integer;
         /** The device name. **/
         Device?: String;
-        /** The volume mount point. For example &quot;/dev/sdh&quot;. **/
+        /** The volume mount point. For example, &quot;/mnt/disk1&quot;. **/
         MountPoint?: String;
         /** The AWS region. For more information about AWS regions, see Regions and
 Endpoints [http://docs.aws.amazon.com/general/latest/gr/rande.html] . **/
