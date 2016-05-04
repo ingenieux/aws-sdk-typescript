@@ -18,7 +18,7 @@ declare module "aws-sdk" {
 provides descriptions of the actions and data types for AWS CodePipeline. Some
 functionality for your pipeline is only configurable through the API. For
 additional information, see the AWS CodePipeline User Guide
-[http://docs.aws.amazon.com/pipelines/latest/userguide/welcome.html] .
+[http://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html] .
 
 You can use the AWS CodePipeline API to work with pipelines, stages, actions,
 gates, and transitions, as described below.
@@ -38,6 +38,8 @@ You can work with pipelines by calling: &amp;#42; CreatePipeline , which creates
  * UpdatePipeline , which updates a pipeline with edits or changes to the
    structure of the pipeline.
 
+
+
 Pipelines include stages , which are which are logical groupings of gates and
 actions. Each stage contains one or more actions that must complete before the
 next stage begins. A stage will result in success or failure. If a stage fails,
@@ -48,9 +50,9 @@ GetPipelineState , which displays the status of a pipeline, including the status
 of stages in the pipeline, or GetPipeline , which returns the entire structure
 of the pipeline, including the stages of that pipeline. For more information
 about the structure of stages and actions, also refer to the AWS CodePipeline
-Pipeline Structure Reference .
-
-
+Pipeline Structure Reference
+[http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html] 
+.
 
 Pipeline stages include actions , which are categorized into categories such as
 source or build actions performed within a stage of a pipeline. For example, you
@@ -112,41 +114,39 @@ need to work with the following items:
      * Returns information about a specified job and whether that job has been received
 by the job worker. Only used for custom actions.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error InvalidNonceException The specified nonce was specified in an invalid format.  
-     * @error JobNotFoundException The specified job was specified in an invalid format or cannot be found.  
+     * @error ValidationException   
+     * @error InvalidNonceException   
+     * @error JobNotFoundException   
      */
     acknowledgeJob(params: CodePipeline.AcknowledgeJobInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidNonceException|CodePipeline.JobNotFoundException|any, data: CodePipeline.AcknowledgeJobOutput|any) => void): Request;
     /**
      * Confirms a job worker has received the specified job. Only used for partner
 actions.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error InvalidNonceException The specified nonce was specified in an invalid format.  
-     * @error JobNotFoundException The specified job was specified in an invalid format or cannot be found.  
-     * @error InvalidClientTokenException The client token was specified in an invalid format  
+     * @error ValidationException   
+     * @error InvalidNonceException   
+     * @error JobNotFoundException   
+     * @error InvalidClientTokenException   
      */
     acknowledgeThirdPartyJob(params: CodePipeline.AcknowledgeThirdPartyJobInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidNonceException|CodePipeline.JobNotFoundException|CodePipeline.InvalidClientTokenException|any, data: CodePipeline.AcknowledgeThirdPartyJobOutput|any) => void): Request;
     /**
      * Creates a new custom action that can be used in all pipelines associated with
 the AWS account. Only used for custom actions.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error LimitExceededException The number of pipelines associated with the AWS account has exceeded the limit
-allowed for the account.  
+     * @error ValidationException   
+     * @error LimitExceededException   
      */
     createCustomActionType(params: CodePipeline.CreateCustomActionTypeInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.LimitExceededException|any, data: CodePipeline.CreateCustomActionTypeOutput|any) => void): Request;
     /**
      * Creates a pipeline.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error PipelineNameInUseException The specified pipeline name is already in use.  
-     * @error InvalidStageDeclarationException The specified stage declaration was specified in an invalid format.  
-     * @error InvalidActionDeclarationException The specified action declaration was specified in an invalid format.  
-     * @error InvalidBlockerDeclarationException The specified gate declaration was specified in an invalid format.  
-     * @error InvalidStructureException The specified structure was specified in an invalid format.  
-     * @error LimitExceededException The number of pipelines associated with the AWS account has exceeded the limit
-allowed for the account.  
+     * @error ValidationException   
+     * @error PipelineNameInUseException   
+     * @error InvalidStageDeclarationException   
+     * @error InvalidActionDeclarationException   
+     * @error InvalidBlockerDeclarationException   
+     * @error InvalidStructureException   
+     * @error LimitExceededException   
      */
     createPipeline(params: CodePipeline.CreatePipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNameInUseException|CodePipeline.InvalidStageDeclarationException|CodePipeline.InvalidActionDeclarationException|CodePipeline.InvalidBlockerDeclarationException|CodePipeline.InvalidStructureException|CodePipeline.LimitExceededException|any, data: CodePipeline.CreatePipelineOutput|any) => void): Request;
     /**
@@ -156,30 +156,30 @@ after the action is marked for deletion. Only used for custom actions.
 You cannot recreate a custom action after it has been deleted unless you
 increase the version number of the action.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
+     * @error ValidationException   
      */
     deleteCustomActionType(params: CodePipeline.DeleteCustomActionTypeInput, callback?: (err: CodePipeline.ValidationException|any, data: any) => void): Request;
     /**
      * Deletes the specified pipeline.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
+     * @error ValidationException   
      */
     deletePipeline(params: CodePipeline.DeletePipelineInput, callback?: (err: CodePipeline.ValidationException|any, data: any) => void): Request;
     /**
      * Prevents artifacts in a pipeline from transitioning to the next stage in the
 pipeline.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error PipelineNotFoundException The specified pipeline was specified in an invalid format or cannot be found.  
-     * @error StageNotFoundException The specified stage was specified in an invalid format or cannot be found.  
+     * @error ValidationException   
+     * @error PipelineNotFoundException   
+     * @error StageNotFoundException   
      */
     disableStageTransition(params: CodePipeline.DisableStageTransitionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|any, data: any) => void): Request;
     /**
      * Enables artifacts in a pipeline to transition to a stage in a pipeline.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error PipelineNotFoundException The specified pipeline was specified in an invalid format or cannot be found.  
-     * @error StageNotFoundException The specified stage was specified in an invalid format or cannot be found.  
+     * @error ValidationException   
+     * @error PipelineNotFoundException   
+     * @error StageNotFoundException   
      */
     enableStageTransition(params: CodePipeline.EnableStageTransitionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|any, data: any) => void): Request;
     /**
@@ -190,8 +190,8 @@ Amazon S3 bucket used to store artifacts for the pipeline, if the action
 requires access to that Amazon S3 bucket for input or output artifacts.
 Additionally, this API returns any secret values defined for the action.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error JobNotFoundException The specified job was specified in an invalid format or cannot be found.  
+     * @error ValidationException   
+     * @error JobNotFoundException   
      */
     getJobDetails(params: CodePipeline.GetJobDetailsInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|any, data: CodePipeline.GetJobDetailsOutput|any) => void): Request;
     /**
@@ -199,18 +199,17 @@ Additionally, this API returns any secret values defined for the action.
 to return the entire structure of a pipeline in JSON format, which can then be
 modified and used to update the pipeline structure with UpdatePipeline .
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error PipelineNotFoundException The specified pipeline was specified in an invalid format or cannot be found.  
-     * @error PipelineVersionNotFoundException The specified pipeline version was specified in an invalid format or cannot be
-found.  
+     * @error ValidationException   
+     * @error PipelineNotFoundException   
+     * @error PipelineVersionNotFoundException   
      */
     getPipeline(params: CodePipeline.GetPipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.PipelineVersionNotFoundException|any, data: CodePipeline.GetPipelineOutput|any) => void): Request;
     /**
      * Returns information about the state of a pipeline, including the stages,
 actions, and details about the last run of the pipeline.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error PipelineNotFoundException The specified pipeline was specified in an invalid format or cannot be found.  
+     * @error ValidationException   
+     * @error PipelineNotFoundException   
      */
     getPipelineState(params: CodePipeline.GetPipelineStateInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|any, data: CodePipeline.GetPipelineStateOutput|any) => void): Request;
     /**
@@ -222,26 +221,24 @@ Amazon S3 bucket used to store artifacts for the pipeline, if the action
 requires access to that Amazon S3 bucket for input or output artifacts.
 Additionally, this API returns any secret values defined for the action.
      *
-     * @error JobNotFoundException The specified job was specified in an invalid format or cannot be found.  
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error InvalidClientTokenException The client token was specified in an invalid format  
-     * @error InvalidJobException The specified job was specified in an invalid format or cannot be found.  
+     * @error JobNotFoundException   
+     * @error ValidationException   
+     * @error InvalidClientTokenException   
+     * @error InvalidJobException   
      */
     getThirdPartyJobDetails(params: CodePipeline.GetThirdPartyJobDetailsInput, callback?: (err: CodePipeline.JobNotFoundException|CodePipeline.ValidationException|CodePipeline.InvalidClientTokenException|CodePipeline.InvalidJobException|any, data: CodePipeline.GetThirdPartyJobDetailsOutput|any) => void): Request;
     /**
      * Gets a summary of all AWS CodePipeline action types associated with your
 account.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error InvalidNextTokenException The next token was specified in an invalid format. Make sure that the next token
-you provided is the token returned by a previous call.  
+     * @error ValidationException   
+     * @error InvalidNextTokenException   
      */
     listActionTypes(params: CodePipeline.ListActionTypesInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidNextTokenException|any, data: CodePipeline.ListActionTypesOutput|any) => void): Request;
     /**
      * Gets a summary of all of the pipelines associated with your account.
      *
-     * @error InvalidNextTokenException The next token was specified in an invalid format. Make sure that the next token
-you provided is the token returned by a previous call.  
+     * @error InvalidNextTokenException   
      */
     listPipelines(params: CodePipeline.ListPipelinesInput, callback?: (err: CodePipeline.InvalidNextTokenException|any, data: CodePipeline.ListPipelinesOutput|any) => void): Request;
     /**
@@ -252,8 +249,8 @@ Amazon S3 bucket used to store artifacts for the pipeline, if the action
 requires access to that Amazon S3 bucket for input or output artifacts.
 Additionally, this API returns any secret values defined for the action.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error ActionTypeNotFoundException The specified action type cannot be found.  
+     * @error ValidationException   
+     * @error ActionTypeNotFoundException   
      */
     pollForJobs(params: CodePipeline.PollForJobsInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.ActionTypeNotFoundException|any, data: CodePipeline.PollForJobsOutput|any) => void): Request;
     /**
@@ -264,63 +261,63 @@ When this API is called, AWS CodePipeline returns temporary credentials for the
 Amazon S3 bucket used to store artifacts for the pipeline, if the action
 requires access to that Amazon S3 bucket for input or output artifacts.
      *
-     * @error ActionTypeNotFoundException The specified action type cannot be found.  
-     * @error ValidationException The validation was specified in an invalid format.  
+     * @error ActionTypeNotFoundException   
+     * @error ValidationException   
      */
     pollForThirdPartyJobs(params: CodePipeline.PollForThirdPartyJobsInput, callback?: (err: CodePipeline.ActionTypeNotFoundException|CodePipeline.ValidationException|any, data: CodePipeline.PollForThirdPartyJobsOutput|any) => void): Request;
     /**
      * Provides information to AWS CodePipeline about new revisions to a source.
      *
-     * @error PipelineNotFoundException The specified pipeline was specified in an invalid format or cannot be found.  
-     * @error StageNotFoundException The specified stage was specified in an invalid format or cannot be found.  
-     * @error ActionNotFoundException The specified action cannot be found.  
-     * @error ValidationException The validation was specified in an invalid format.  
+     * @error PipelineNotFoundException   
+     * @error StageNotFoundException   
+     * @error ActionNotFoundException   
+     * @error ValidationException   
      */
     putActionRevision(params: CodePipeline.PutActionRevisionInput, callback?: (err: CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|CodePipeline.ActionNotFoundException|CodePipeline.ValidationException|any, data: CodePipeline.PutActionRevisionOutput|any) => void): Request;
     /**
      * Represents the failure of a job as returned to the pipeline by a job worker.
 Only used for custom actions.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error JobNotFoundException The specified job was specified in an invalid format or cannot be found.  
-     * @error InvalidJobStateException The specified job state was specified in an invalid format.  
+     * @error ValidationException   
+     * @error JobNotFoundException   
+     * @error InvalidJobStateException   
      */
     putJobFailureResult(params: CodePipeline.PutJobFailureResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|any, data: any) => void): Request;
     /**
      * Represents the success of a job as returned to the pipeline by a job worker.
 Only used for custom actions.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error JobNotFoundException The specified job was specified in an invalid format or cannot be found.  
-     * @error InvalidJobStateException The specified job state was specified in an invalid format.  
+     * @error ValidationException   
+     * @error JobNotFoundException   
+     * @error InvalidJobStateException   
      */
     putJobSuccessResult(params: CodePipeline.PutJobSuccessResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|any, data: any) => void): Request;
     /**
      * Represents the failure of a third party job as returned to the pipeline by a job
 worker. Only used for partner actions.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error JobNotFoundException The specified job was specified in an invalid format or cannot be found.  
-     * @error InvalidJobStateException The specified job state was specified in an invalid format.  
-     * @error InvalidClientTokenException The client token was specified in an invalid format  
+     * @error ValidationException   
+     * @error JobNotFoundException   
+     * @error InvalidJobStateException   
+     * @error InvalidClientTokenException   
      */
     putThirdPartyJobFailureResult(params: CodePipeline.PutThirdPartyJobFailureResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|CodePipeline.InvalidClientTokenException|any, data: any) => void): Request;
     /**
      * Represents the success of a third party job as returned to the pipeline by a job
 worker. Only used for partner actions.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error JobNotFoundException The specified job was specified in an invalid format or cannot be found.  
-     * @error InvalidJobStateException The specified job state was specified in an invalid format.  
-     * @error InvalidClientTokenException The client token was specified in an invalid format  
+     * @error ValidationException   
+     * @error JobNotFoundException   
+     * @error InvalidJobStateException   
+     * @error InvalidClientTokenException   
      */
     putThirdPartyJobSuccessResult(params: CodePipeline.PutThirdPartyJobSuccessResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|CodePipeline.InvalidClientTokenException|any, data: any) => void): Request;
     /**
      * Starts the specified pipeline. Specifically, it begins processing the latest
 commit to the source location specified as part of the pipeline.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error PipelineNotFoundException The specified pipeline was specified in an invalid format or cannot be found.  
+     * @error ValidationException   
+     * @error PipelineNotFoundException   
      */
     startPipelineExecution(params: CodePipeline.StartPipelineExecutionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|any, data: CodePipeline.StartPipelineExecutionOutput|any) => void): Request;
     /**
@@ -329,11 +326,11 @@ file with the pipeline structure in conjunction with UpdatePipeline to provide
 the full structure of the pipeline. Updating the pipeline increases the version
 number of the pipeline by 1.
      *
-     * @error ValidationException The validation was specified in an invalid format.  
-     * @error InvalidStageDeclarationException The specified stage declaration was specified in an invalid format.  
-     * @error InvalidActionDeclarationException The specified action declaration was specified in an invalid format.  
-     * @error InvalidBlockerDeclarationException The specified gate declaration was specified in an invalid format.  
-     * @error InvalidStructureException The specified structure was specified in an invalid format.  
+     * @error ValidationException   
+     * @error InvalidStageDeclarationException   
+     * @error InvalidActionDeclarationException   
+     * @error InvalidBlockerDeclarationException   
+     * @error InvalidStructureException   
      */
     updatePipeline(params: CodePipeline.UpdatePipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidStageDeclarationException|CodePipeline.InvalidActionDeclarationException|CodePipeline.InvalidBlockerDeclarationException|CodePipeline.InvalidStructureException|any, data: CodePipeline.UpdatePipelineOutput|any) => void): Request;
 
@@ -455,11 +452,7 @@ number of the pipeline by 1.
     
     export type Revision = string;
     
-    export type RevisionChangeId = string;
-    
     export type RevisionChangeIdentifier = string;
-    
-    export type RevisionId = string;
     
     export type RoleArn = string;
     
@@ -608,10 +601,10 @@ for example an external repository URL. **/
     export interface ActionRevision {
         /** The system-generated unique ID that identifies the revision number of the
 action. **/
-        revisionId: RevisionId;
+        revisionId: Revision;
         /** The unique identifier of the change that set the state to this revision, for
 example a deployment ID or timestamp. **/
-        revisionChangeId?: RevisionChangeId;
+        revisionChangeId: RevisionChangeIdentifier;
         /** The date and time when the most recent version of the action was created, in
 timestamp format. **/
         created: Timestamp;
@@ -702,28 +695,36 @@ commit ID (GitHub) or a revision ID (Amazon S3). **/
         /** The location for storing the artifacts for a pipeline, such as an S3 bucket or
 folder. **/
         location: ArtifactStoreLocation;
-        /** The AWS Key Management Service (AWS KMS) key used to encrypt the data in the
-artifact store. If this is undefined, the default key for Amazon S3 is used. **/
+        /** The encryption key used to encrypt the data in the artifact store, such as an
+AWS Key Management Service (AWS KMS) key. If this is undefined, the default key
+for Amazon S3 is used. **/
         encryptionKey?: EncryptionKey;
     }
     export interface BlockerDeclaration {
-        /** The name of the gate declaration. **/
+        /** Reserved for future use. **/
         name: BlockerName;
-        /** The type of the gate declaration. **/
+        /** Reserved for future use. **/
         type: BlockerType;
     }
     export interface CreateCustomActionTypeInput {
-        /** The category of the custom action, such as a source action or a build action. **/
+        /** The category of the custom action, such as a source action or a build action.
+
+Although Source is listed as a valid value, it is not currently functional. This
+value is reserved for future use. **/
         category: ActionCategory;
         /** The provider of the service used in the custom action, such as AWS CodeDeploy. **/
         provider: ActionProvider;
-        /** The version number of the custom action.
-
-A newly-created custom action is always assigned a version number of 1 . This is
-required. **/
+        /** The version number of the custom action. **/
         version: Version;
         settings?: ActionTypeSettings;
-        /** The configuration properties for the custom action. **/
+        /** The configuration properties for the custom action.
+
+You can refer to a name in the configuration properties of the custom action
+within the URL templates by following the format of {Config: name }, as long as
+the configuration property is both required and not secret. For more
+information, see Create a Custom Action for a Pipeline
+[http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html] 
+. **/
         configurationProperties?: ActionConfigurationPropertyList;
         inputArtifactDetails: ArtifactDetails;
         outputArtifactDetails: ArtifactDetails;
@@ -785,9 +786,11 @@ will be allowed to transition to the next stage (outbound). **/
         transitionType: StageTransitionType;
     }
     export interface EncryptionKey {
-        /** The ID of the AWS KMS key. **/
+        /** The ID used to identify the key. For an AWS KMS key, this is the key ID or key
+ARN. **/
         id: EncryptionKeyId;
-        /** The type of AWS KMS key, such as a customer master key. **/
+        /** The type of encryption key, such as an AWS Key Management Service (AWS KMS) key.
+When creating or updating a pipeline, the value must be set to &#x27;KMS&#x27;. **/
         type: EncryptionKeyType;
     }
     export interface ErrorDetails {
@@ -1061,8 +1064,11 @@ returned from PollForJobs. **/
         /** The ID of the current revision of the artifact successfully worked upon by the
 job. **/
         currentRevision?: CurrentRevision;
-        /** A system-generated token, such as a AWS CodeDeploy deployment ID, that the
-successful job used to complete a job asynchronously. **/
+        /** A token generated by a job worker, such as an AWS CodeDeploy deployment ID, that
+a successful job provides to identify a custom action in progress. Future jobs
+will use this token in order to identify the running instance of the action. It
+can be reused to return additional information about the progress of the custom
+action. When the action is complete, no continuation token should be supplied. **/
         continuationToken?: ContinuationToken;
         /** The execution details of the successful job, such as the actions taken by the
 job worker. **/
@@ -1085,8 +1091,11 @@ PollForThirdPartyJobs. **/
 the calling entity is allowed access to the job and its details. **/
         clientToken: ClientToken;
         currentRevision?: CurrentRevision;
-        /** A system-generated token, such as a AWS CodeDeploy deployment ID, that a job
-uses in order to continue the job asynchronously. **/
+        /** A token generated by a job worker, such as an AWS CodeDeploy deployment ID, that
+a successful job provides to identify a partner action in progress. Future jobs
+will use this token in order to identify the running instance of the action. It
+can be reused to return additional information about the progress of the partner
+action. When the action is complete, no continuation token should be supplied. **/
         continuationToken?: ContinuationToken;
         executionDetails?: ExecutionDetails;
     }
@@ -1104,7 +1113,7 @@ object in the bucket. **/
     export interface StageDeclaration {
         /** The name of the stage. **/
         name: StageName;
-        /** The gates included in a stage. **/
+        /** Reserved for future use. **/
         blockers?: StageBlockerDeclarationList;
         /** The actions included in a stage. **/
         actions: StageActionDeclarationList;
@@ -1152,8 +1161,9 @@ user when the action is created. **/
         /** A system-generated token, such as a AWS CodeDeploy deployment ID, that a job
 requires in order to continue the job asynchronously. **/
         continuationToken?: ContinuationToken;
-        /** The AWS Key Management Service (AWS KMS) key used to encrypt and decrypt data in
-the artifact store for the pipeline. **/
+        /** The encryption key used to encrypt and decrypt data in the artifact store for
+the pipeline, such as an AWS Key Management Service (AWS KMS) key. This is
+optional and might not be present. **/
         encryptionKey?: EncryptionKey;
     }
     export interface ThirdPartyJobDetails {

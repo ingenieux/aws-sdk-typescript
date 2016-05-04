@@ -660,7 +660,6 @@ truncated. **/
         date: Timestamp;
         /** The event for which a notification is sent. **/
         event: InspectorEvent;
-        /**  **/
         message?: Message;
         /** The Boolean value that specifies whether the notification represents an error. **/
         error: Bool;
@@ -915,7 +914,6 @@ specified resource. **/
         schemaVersion?: NumericVersion;
         /** The data element is set to &quot;Inspector&quot;. **/
         service?: ServiceName;
-        /**  **/
         serviceAttributes?: InspectorServiceAttributes;
         /** The type of the host from which the finding is generated. **/
         assetType?: AssetType;

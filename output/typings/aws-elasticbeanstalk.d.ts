@@ -105,9 +105,10 @@ Related Topics
  * ListAvailableSolutionStacks
      *
      * @error InsufficientPrivilegesException   
+     * @error TooManyBucketsException   
      * @error TooManyConfigurationTemplatesException   
      */
-    createConfigurationTemplate(params: ElasticBeanstalk.CreateConfigurationTemplateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.TooManyConfigurationTemplatesException|any, data: ElasticBeanstalk.ConfigurationSettingsDescription|any) => void): Request;
+    createConfigurationTemplate(params: ElasticBeanstalk.CreateConfigurationTemplateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.TooManyBucketsException|ElasticBeanstalk.TooManyConfigurationTemplatesException|any, data: ElasticBeanstalk.ConfigurationSettingsDescription|any) => void): Request;
     /**
      * Launches an environment for the specified application using the specified
 configuration.
@@ -188,8 +189,9 @@ description includes the values the options, their default values, and an
 indication of the required action on a running environment if an option value is
 changed.
      *
+     * @error TooManyBucketsException   
      */
-    describeConfigurationOptions(params: ElasticBeanstalk.DescribeConfigurationOptionsMessage, callback?: (err: any, data: ElasticBeanstalk.ConfigurationOptionsDescription|any) => void): Request;
+    describeConfigurationOptions(params: ElasticBeanstalk.DescribeConfigurationOptionsMessage, callback?: (err: ElasticBeanstalk.TooManyBucketsException|any, data: ElasticBeanstalk.ConfigurationOptionsDescription|any) => void): Request;
     /**
      * Returns a description of the settings for the specified configuration set, that
 is, either a configuration template or the configuration set associated with a
@@ -205,8 +207,9 @@ Related Topics
 
  &amp;#42; DeleteEnvironmentConfiguration
      *
+     * @error TooManyBucketsException   
      */
-    describeConfigurationSettings(params: ElasticBeanstalk.DescribeConfigurationSettingsMessage, callback?: (err: any, data: ElasticBeanstalk.ConfigurationSettingsDescriptions|any) => void): Request;
+    describeConfigurationSettings(params: ElasticBeanstalk.DescribeConfigurationSettingsMessage, callback?: (err: ElasticBeanstalk.TooManyBucketsException|any, data: ElasticBeanstalk.ConfigurationSettingsDescriptions|any) => void): Request;
     /**
      * Returns information about the overall health of the specified environment. The 
 DescribeEnvironmentHealth operation is only available with AWS Elastic Beanstalk
@@ -339,8 +342,9 @@ unchanged. To clear such properties, specify an empty string.Related Topics
  &amp;#42; DescribeConfigurationOptions
      *
      * @error InsufficientPrivilegesException   
+     * @error TooManyBucketsException   
      */
-    updateConfigurationTemplate(params: ElasticBeanstalk.UpdateConfigurationTemplateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.ConfigurationSettingsDescription|any) => void): Request;
+    updateConfigurationTemplate(params: ElasticBeanstalk.UpdateConfigurationTemplateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.TooManyBucketsException|any, data: ElasticBeanstalk.ConfigurationSettingsDescription|any) => void): Request;
     /**
      * Updates the environment description, deploys a new application version, updates
 the configuration settings to an entirely new configuration template, or updates
@@ -355,8 +359,9 @@ this environment returns two setting descriptions with different
 DeploymentStatus values.
      *
      * @error InsufficientPrivilegesException   
+     * @error TooManyBucketsException   
      */
-    updateEnvironment(params: ElasticBeanstalk.UpdateEnvironmentMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.EnvironmentDescription|any) => void): Request;
+    updateEnvironment(params: ElasticBeanstalk.UpdateEnvironmentMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.TooManyBucketsException|any, data: ElasticBeanstalk.EnvironmentDescription|any) => void): Request;
     /**
      * Takes a set of configuration settings and either a configuration template or
 environment, and determines whether those values are valid.
@@ -365,8 +370,9 @@ This action returns a list of messages indicating any errors or warnings
 associated with the selection of option values.
      *
      * @error InsufficientPrivilegesException   
+     * @error TooManyBucketsException   
      */
-    validateConfigurationSettings(params: ElasticBeanstalk.ValidateConfigurationSettingsMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.ConfigurationSettingsValidationMessages|any) => void): Request;
+    validateConfigurationSettings(params: ElasticBeanstalk.ValidateConfigurationSettingsMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.TooManyBucketsException|any, data: ElasticBeanstalk.ConfigurationSettingsValidationMessages|any) => void): Request;
 
   }
 
