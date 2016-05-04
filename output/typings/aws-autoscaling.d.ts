@@ -37,7 +37,7 @@ in the Auto Scaling Developer Guide .
      *
      * @error ResourceContentionFault   
      */
-    attachInstances(params: AutoScaling.AttachInstancesQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    attachInstances(params: AutoScaling.AttachInstancesQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Attaches one or more load balancers to the specified Auto Scaling group.
 
@@ -51,7 +51,7 @@ in the Auto Scaling Developer Guide .
      *
      * @error ResourceContentionFault   
      */
-    attachLoadBalancers(params: AutoScaling.AttachLoadBalancersType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.AttachLoadBalancersResultType|any) => void): Request;
+    attachLoadBalancers(params: AutoScaling.AttachLoadBalancersType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.AttachLoadBalancersResultType|any) => void): Request<AutoScaling.AttachLoadBalancersResultType|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Completes the lifecycle action for the specified token or instance with the
 specified result.
@@ -77,7 +77,7 @@ in the Auto Scaling Developer Guide .
      *
      * @error ResourceContentionFault   
      */
-    completeLifecycleAction(params: AutoScaling.CompleteLifecycleActionType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.CompleteLifecycleActionAnswer|any) => void): Request;
+    completeLifecycleAction(params: AutoScaling.CompleteLifecycleActionType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.CompleteLifecycleActionAnswer|any) => void): Request<AutoScaling.CompleteLifecycleActionAnswer|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Creates an Auto Scaling group with the specified name and attributes.
 
@@ -93,7 +93,7 @@ in the Auto Scaling Developer Guide .
      * @error LimitExceededFault   
      * @error ResourceContentionFault   
      */
-    createAutoScalingGroup(params: AutoScaling.CreateAutoScalingGroupType, callback?: (err: AutoScaling.AlreadyExistsFault|AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    createAutoScalingGroup(params: AutoScaling.CreateAutoScalingGroupType, callback?: (err: AutoScaling.AlreadyExistsFault|AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.AlreadyExistsFault|AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Creates a launch configuration.
 
@@ -109,7 +109,7 @@ in the Auto Scaling Developer Guide .
      * @error LimitExceededFault   
      * @error ResourceContentionFault   
      */
-    createLaunchConfiguration(params: AutoScaling.CreateLaunchConfigurationType, callback?: (err: AutoScaling.AlreadyExistsFault|AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    createLaunchConfiguration(params: AutoScaling.CreateLaunchConfigurationType, callback?: (err: AutoScaling.AlreadyExistsFault|AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.AlreadyExistsFault|AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Creates or updates tags for the specified Auto Scaling group.
 
@@ -124,7 +124,7 @@ the Auto Scaling Developer Guide .
      * @error AlreadyExistsFault   
      * @error ResourceContentionFault   
      */
-    createOrUpdateTags(params: AutoScaling.CreateOrUpdateTagsType, callback?: (err: AutoScaling.LimitExceededFault|AutoScaling.AlreadyExistsFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    createOrUpdateTags(params: AutoScaling.CreateOrUpdateTagsType, callback?: (err: AutoScaling.LimitExceededFault|AutoScaling.AlreadyExistsFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.LimitExceededFault|AutoScaling.AlreadyExistsFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Deletes the specified Auto Scaling group.
 
@@ -146,7 +146,7 @@ Scaling group to zero.
      * @error ResourceInUseFault   
      * @error ResourceContentionFault   
      */
-    deleteAutoScalingGroup(params: AutoScaling.DeleteAutoScalingGroupType, callback?: (err: AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceInUseFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    deleteAutoScalingGroup(params: AutoScaling.DeleteAutoScalingGroupType, callback?: (err: AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceInUseFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceInUseFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Deletes the specified launch configuration.
 
@@ -156,7 +156,7 @@ this call completes, the launch configuration is no longer available for use.
      * @error ResourceInUseFault   
      * @error ResourceContentionFault   
      */
-    deleteLaunchConfiguration(params: AutoScaling.LaunchConfigurationNameType, callback?: (err: AutoScaling.ResourceInUseFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    deleteLaunchConfiguration(params: AutoScaling.LaunchConfigurationNameType, callback?: (err: AutoScaling.ResourceInUseFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ResourceInUseFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Deletes the specified lifecycle hook.
 
@@ -165,13 +165,13 @@ ABANDON for launching instances, CONTINUE for terminating instances).
      *
      * @error ResourceContentionFault   
      */
-    deleteLifecycleHook(params: AutoScaling.DeleteLifecycleHookType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DeleteLifecycleHookAnswer|any) => void): Request;
+    deleteLifecycleHook(params: AutoScaling.DeleteLifecycleHookType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DeleteLifecycleHookAnswer|any) => void): Request<AutoScaling.DeleteLifecycleHookAnswer|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Deletes the specified notification.
      *
      * @error ResourceContentionFault   
      */
-    deleteNotificationConfiguration(params: AutoScaling.DeleteNotificationConfigurationType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    deleteNotificationConfiguration(params: AutoScaling.DeleteNotificationConfigurationType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Deletes the specified Auto Scaling policy.
 
@@ -180,19 +180,19 @@ alarm, even if it no longer has an associated action.
      *
      * @error ResourceContentionFault   
      */
-    deletePolicy(params: AutoScaling.DeletePolicyType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    deletePolicy(params: AutoScaling.DeletePolicyType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Deletes the specified scheduled action.
      *
      * @error ResourceContentionFault   
      */
-    deleteScheduledAction(params: AutoScaling.DeleteScheduledActionType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    deleteScheduledAction(params: AutoScaling.DeleteScheduledActionType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Deletes the specified tags.
      *
      * @error ResourceContentionFault   
      */
-    deleteTags(params: AutoScaling.DeleteTagsType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    deleteTags(params: AutoScaling.DeleteTagsType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes the current Auto Scaling resource limits for your AWS account.
 
@@ -202,13 +202,13 @@ the Amazon Web Services General Reference .
      *
      * @error ResourceContentionFault   
      */
-    describeAccountLimits(callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeAccountLimitsAnswer|any) => void): Request;
+    describeAccountLimits(callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeAccountLimitsAnswer|any) => void): Request<AutoScaling.DescribeAccountLimitsAnswer|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes the policy adjustment types for use with PutScalingPolicy .
      *
      * @error ResourceContentionFault   
      */
-    describeAdjustmentTypes(callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeAdjustmentTypesAnswer|any) => void): Request;
+    describeAdjustmentTypes(callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeAdjustmentTypesAnswer|any) => void): Request<AutoScaling.DescribeAdjustmentTypesAnswer|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes one or more Auto Scaling groups. If a list of names is not provided,
 the call describes all Auto Scaling groups.
@@ -216,7 +216,7 @@ the call describes all Auto Scaling groups.
      * @error InvalidNextToken   
      * @error ResourceContentionFault   
      */
-    describeAutoScalingGroups(params: AutoScaling.AutoScalingGroupNamesType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.AutoScalingGroupsType|any) => void): Request;
+    describeAutoScalingGroups(params: AutoScaling.AutoScalingGroupNamesType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.AutoScalingGroupsType|any) => void): Request<AutoScaling.AutoScalingGroupsType|any,AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes one or more Auto Scaling instances. If a list is not provided, the
 call describes all instances.
@@ -224,13 +224,13 @@ call describes all instances.
      * @error InvalidNextToken   
      * @error ResourceContentionFault   
      */
-    describeAutoScalingInstances(params: AutoScaling.DescribeAutoScalingInstancesType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.AutoScalingInstancesType|any) => void): Request;
+    describeAutoScalingInstances(params: AutoScaling.DescribeAutoScalingInstancesType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.AutoScalingInstancesType|any) => void): Request<AutoScaling.AutoScalingInstancesType|any,AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes the notification types that are supported by Auto Scaling.
      *
      * @error ResourceContentionFault   
      */
-    describeAutoScalingNotificationTypes(callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeAutoScalingNotificationTypesAnswer|any) => void): Request;
+    describeAutoScalingNotificationTypes(callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeAutoScalingNotificationTypesAnswer|any) => void): Request<AutoScaling.DescribeAutoScalingNotificationTypesAnswer|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes one or more launch configurations. If you omit the list of names, then
 the call describes all launch configurations.
@@ -238,25 +238,25 @@ the call describes all launch configurations.
      * @error InvalidNextToken   
      * @error ResourceContentionFault   
      */
-    describeLaunchConfigurations(params: AutoScaling.LaunchConfigurationNamesType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.LaunchConfigurationsType|any) => void): Request;
+    describeLaunchConfigurations(params: AutoScaling.LaunchConfigurationNamesType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.LaunchConfigurationsType|any) => void): Request<AutoScaling.LaunchConfigurationsType|any,AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes the available types of lifecycle hooks.
      *
      * @error ResourceContentionFault   
      */
-    describeLifecycleHookTypes(callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeLifecycleHookTypesAnswer|any) => void): Request;
+    describeLifecycleHookTypes(callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeLifecycleHookTypesAnswer|any) => void): Request<AutoScaling.DescribeLifecycleHookTypesAnswer|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes the lifecycle hooks for the specified Auto Scaling group.
      *
      * @error ResourceContentionFault   
      */
-    describeLifecycleHooks(params: AutoScaling.DescribeLifecycleHooksType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeLifecycleHooksAnswer|any) => void): Request;
+    describeLifecycleHooks(params: AutoScaling.DescribeLifecycleHooksType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeLifecycleHooksAnswer|any) => void): Request<AutoScaling.DescribeLifecycleHooksAnswer|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes the load balancers for the specified Auto Scaling group.
      *
      * @error ResourceContentionFault   
      */
-    describeLoadBalancers(params: AutoScaling.DescribeLoadBalancersRequest, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeLoadBalancersResponse|any) => void): Request;
+    describeLoadBalancers(params: AutoScaling.DescribeLoadBalancersRequest, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeLoadBalancersResponse|any) => void): Request<AutoScaling.DescribeLoadBalancersResponse|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes the available CloudWatch metrics for Auto Scaling.
 
@@ -265,7 +265,7 @@ explicitly request this metric when calling EnableMetricsCollection .
      *
      * @error ResourceContentionFault   
      */
-    describeMetricCollectionTypes(callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeMetricCollectionTypesAnswer|any) => void): Request;
+    describeMetricCollectionTypes(callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeMetricCollectionTypesAnswer|any) => void): Request<AutoScaling.DescribeMetricCollectionTypesAnswer|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes the notification actions associated with the specified Auto Scaling
 group.
@@ -273,14 +273,14 @@ group.
      * @error InvalidNextToken   
      * @error ResourceContentionFault   
      */
-    describeNotificationConfigurations(params: AutoScaling.DescribeNotificationConfigurationsType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeNotificationConfigurationsAnswer|any) => void): Request;
+    describeNotificationConfigurations(params: AutoScaling.DescribeNotificationConfigurationsType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeNotificationConfigurationsAnswer|any) => void): Request<AutoScaling.DescribeNotificationConfigurationsAnswer|any,AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes the policies for the specified Auto Scaling group.
      *
      * @error InvalidNextToken   
      * @error ResourceContentionFault   
      */
-    describePolicies(params: AutoScaling.DescribePoliciesType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.PoliciesType|any) => void): Request;
+    describePolicies(params: AutoScaling.DescribePoliciesType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.PoliciesType|any) => void): Request<AutoScaling.PoliciesType|any,AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes one or more scaling activities for the specified Auto Scaling group.
 If you omit the ActivityIds , the call returns all activities from the past six
@@ -290,14 +290,14 @@ appear first on the list.
      * @error InvalidNextToken   
      * @error ResourceContentionFault   
      */
-    describeScalingActivities(params: AutoScaling.DescribeScalingActivitiesType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.ActivitiesType|any) => void): Request;
+    describeScalingActivities(params: AutoScaling.DescribeScalingActivitiesType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.ActivitiesType|any) => void): Request<AutoScaling.ActivitiesType|any,AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes the scaling process types for use with ResumeProcesses and 
 SuspendProcesses .
      *
      * @error ResourceContentionFault   
      */
-    describeScalingProcessTypes(callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.ProcessesType|any) => void): Request;
+    describeScalingProcessTypes(callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.ProcessesType|any) => void): Request<AutoScaling.ProcessesType|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes the actions scheduled for your Auto Scaling group that haven&#x27;t run. To
 describe the actions that have already run, use DescribeScalingActivities .
@@ -305,7 +305,7 @@ describe the actions that have already run, use DescribeScalingActivities .
      * @error InvalidNextToken   
      * @error ResourceContentionFault   
      */
-    describeScheduledActions(params: AutoScaling.DescribeScheduledActionsType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.ScheduledActionsType|any) => void): Request;
+    describeScheduledActions(params: AutoScaling.DescribeScheduledActionsType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.ScheduledActionsType|any) => void): Request<AutoScaling.ScheduledActionsType|any,AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes the specified tags.
 
@@ -321,13 +321,13 @@ special message is returned.
      * @error InvalidNextToken   
      * @error ResourceContentionFault   
      */
-    describeTags(params: AutoScaling.DescribeTagsType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.TagsType|any) => void): Request;
+    describeTags(params: AutoScaling.DescribeTagsType, callback?: (err: AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any, data: AutoScaling.TagsType|any) => void): Request<AutoScaling.TagsType|any,AutoScaling.InvalidNextToken|AutoScaling.ResourceContentionFault|any>;
     /**
      * Describes the termination policies supported by Auto Scaling.
      *
      * @error ResourceContentionFault   
      */
-    describeTerminationPolicyTypes(callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeTerminationPolicyTypesAnswer|any) => void): Request;
+    describeTerminationPolicyTypes(callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DescribeTerminationPolicyTypesAnswer|any) => void): Request<AutoScaling.DescribeTerminationPolicyTypesAnswer|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Removes one or more instances from the specified Auto Scaling group.
 
@@ -343,7 +343,7 @@ in the Auto Scaling Developer Guide .
      *
      * @error ResourceContentionFault   
      */
-    detachInstances(params: AutoScaling.DetachInstancesQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DetachInstancesAnswer|any) => void): Request;
+    detachInstances(params: AutoScaling.DetachInstancesQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DetachInstancesAnswer|any) => void): Request<AutoScaling.DetachInstancesAnswer|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Removes one or more load balancers from the specified Auto Scaling group.
 
@@ -354,14 +354,14 @@ Note that the instances remain running.
      *
      * @error ResourceContentionFault   
      */
-    detachLoadBalancers(params: AutoScaling.DetachLoadBalancersType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DetachLoadBalancersResultType|any) => void): Request;
+    detachLoadBalancers(params: AutoScaling.DetachLoadBalancersType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.DetachLoadBalancersResultType|any) => void): Request<AutoScaling.DetachLoadBalancersResultType|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Disables monitoring of the specified metrics for the specified Auto Scaling
 group.
      *
      * @error ResourceContentionFault   
      */
-    disableMetricsCollection(params: AutoScaling.DisableMetricsCollectionQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    disableMetricsCollection(params: AutoScaling.DisableMetricsCollectionQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Enables monitoring of the specified metrics for the specified Auto Scaling
 group.
@@ -371,7 +371,7 @@ configuration for the group is set to True .
      *
      * @error ResourceContentionFault   
      */
-    enableMetricsCollection(params: AutoScaling.EnableMetricsCollectionQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    enableMetricsCollection(params: AutoScaling.EnableMetricsCollectionQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Moves the specified instances into Standby mode.
 
@@ -381,14 +381,14 @@ in the Auto Scaling Developer Guide .
      *
      * @error ResourceContentionFault   
      */
-    enterStandby(params: AutoScaling.EnterStandbyQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.EnterStandbyAnswer|any) => void): Request;
+    enterStandby(params: AutoScaling.EnterStandbyQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.EnterStandbyAnswer|any) => void): Request<AutoScaling.EnterStandbyAnswer|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Executes the specified policy.
      *
      * @error ScalingActivityInProgressFault   
      * @error ResourceContentionFault   
      */
-    executePolicy(params: AutoScaling.ExecutePolicyType, callback?: (err: AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    executePolicy(params: AutoScaling.ExecutePolicyType, callback?: (err: AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Moves the specified instances out of Standby mode.
 
@@ -398,7 +398,7 @@ in the Auto Scaling Developer Guide .
      *
      * @error ResourceContentionFault   
      */
-    exitStandby(params: AutoScaling.ExitStandbyQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.ExitStandbyAnswer|any) => void): Request;
+    exitStandby(params: AutoScaling.ExitStandbyQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.ExitStandbyAnswer|any) => void): Request<AutoScaling.ExitStandbyAnswer|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Creates or updates a lifecycle hook for the specified Auto Scaling Group.
 
@@ -434,7 +434,7 @@ Amazon Web Services General Reference .
      * @error LimitExceededFault   
      * @error ResourceContentionFault   
      */
-    putLifecycleHook(params: AutoScaling.PutLifecycleHookType, callback?: (err: AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: AutoScaling.PutLifecycleHookAnswer|any) => void): Request;
+    putLifecycleHook(params: AutoScaling.PutLifecycleHookType, callback?: (err: AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: AutoScaling.PutLifecycleHookAnswer|any) => void): Request<AutoScaling.PutLifecycleHookAnswer|any,AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Configures an Auto Scaling group to send notifications when specified events
 take place. Subscribers to this topic can have messages for events delivered to
@@ -450,7 +450,7 @@ This configuration overwrites an existing configuration.
      * @error LimitExceededFault   
      * @error ResourceContentionFault   
      */
-    putNotificationConfiguration(params: AutoScaling.PutNotificationConfigurationType, callback?: (err: AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    putNotificationConfiguration(params: AutoScaling.PutNotificationConfigurationType, callback?: (err: AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Creates or updates a policy for an Auto Scaling group. To update an existing
 policy, use the existing policy name and set the parameters you want to change.
@@ -466,7 +466,7 @@ Amazon Web Services General Reference .
      * @error LimitExceededFault   
      * @error ResourceContentionFault   
      */
-    putScalingPolicy(params: AutoScaling.PutScalingPolicyType, callback?: (err: AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: AutoScaling.PolicyARNType|any) => void): Request;
+    putScalingPolicy(params: AutoScaling.PutScalingPolicyType, callback?: (err: AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: AutoScaling.PolicyARNType|any) => void): Request<AutoScaling.PolicyARNType|any,AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Creates or updates a scheduled scaling action for an Auto Scaling group. When
 updating a scheduled scaling action, if you leave a parameter unspecified, the
@@ -480,7 +480,7 @@ in the Auto Scaling Developer Guide .
      * @error LimitExceededFault   
      * @error ResourceContentionFault   
      */
-    putScheduledUpdateGroupAction(params: AutoScaling.PutScheduledUpdateGroupActionType, callback?: (err: AutoScaling.AlreadyExistsFault|AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    putScheduledUpdateGroupAction(params: AutoScaling.PutScheduledUpdateGroupActionType, callback?: (err: AutoScaling.AlreadyExistsFault|AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.AlreadyExistsFault|AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Records a heartbeat for the lifecycle action associated with the specified token
 or instance. This extends the timeout by the length of time defined using 
@@ -507,7 +507,7 @@ in the Auto Scaling Developer Guide .
      *
      * @error ResourceContentionFault   
      */
-    recordLifecycleActionHeartbeat(params: AutoScaling.RecordLifecycleActionHeartbeatType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.RecordLifecycleActionHeartbeatAnswer|any) => void): Request;
+    recordLifecycleActionHeartbeat(params: AutoScaling.RecordLifecycleActionHeartbeatType, callback?: (err: AutoScaling.ResourceContentionFault|any, data: AutoScaling.RecordLifecycleActionHeartbeatAnswer|any) => void): Request<AutoScaling.RecordLifecycleActionHeartbeatAnswer|any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Resumes the specified suspended Auto Scaling processes, or all suspended
 process, for the specified Auto Scaling group.
@@ -519,7 +519,7 @@ in the Auto Scaling Developer Guide .
      * @error ResourceInUseFault   
      * @error ResourceContentionFault   
      */
-    resumeProcesses(params: AutoScaling.ScalingProcessQuery, callback?: (err: AutoScaling.ResourceInUseFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    resumeProcesses(params: AutoScaling.ScalingProcessQuery, callback?: (err: AutoScaling.ResourceInUseFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ResourceInUseFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Sets the size of the specified Auto Scaling group.
 
@@ -530,7 +530,7 @@ in the Auto Scaling Developer Guide .
      * @error ScalingActivityInProgressFault   
      * @error ResourceContentionFault   
      */
-    setDesiredCapacity(params: AutoScaling.SetDesiredCapacityType, callback?: (err: AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    setDesiredCapacity(params: AutoScaling.SetDesiredCapacityType, callback?: (err: AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Sets the health status of the specified instance.
 
@@ -540,7 +540,7 @@ in the Auto Scaling Developer Guide .
      *
      * @error ResourceContentionFault   
      */
-    setInstanceHealth(params: AutoScaling.SetInstanceHealthQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    setInstanceHealth(params: AutoScaling.SetInstanceHealthQuery, callback?: (err: AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ResourceContentionFault|any>;
     /**
      * Updates the instance protection settings of the specified instances.
 
@@ -551,7 +551,7 @@ in the Auto Scaling Developer Guide .
      * @error LimitExceededFault   
      * @error ResourceContentionFault   
      */
-    setInstanceProtection(params: AutoScaling.SetInstanceProtectionQuery, callback?: (err: AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: AutoScaling.SetInstanceProtectionAnswer|any) => void): Request;
+    setInstanceProtection(params: AutoScaling.SetInstanceProtectionQuery, callback?: (err: AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any, data: AutoScaling.SetInstanceProtectionAnswer|any) => void): Request<AutoScaling.SetInstanceProtectionAnswer|any,AutoScaling.LimitExceededFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Suspends the specified Auto Scaling processes, or all processes, for the
 specified Auto Scaling group.
@@ -568,7 +568,7 @@ in the Auto Scaling Developer Guide .
      * @error ResourceInUseFault   
      * @error ResourceContentionFault   
      */
-    suspendProcesses(params: AutoScaling.ScalingProcessQuery, callback?: (err: AutoScaling.ResourceInUseFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    suspendProcesses(params: AutoScaling.ScalingProcessQuery, callback?: (err: AutoScaling.ResourceInUseFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ResourceInUseFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Terminates the specified instance and optionally adjusts the desired group size.
 
@@ -578,7 +578,7 @@ immediately.
      * @error ScalingActivityInProgressFault   
      * @error ResourceContentionFault   
      */
-    terminateInstanceInAutoScalingGroup(params: AutoScaling.TerminateInstanceInAutoScalingGroupType, callback?: (err: AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any, data: AutoScaling.ActivityType|any) => void): Request;
+    terminateInstanceInAutoScalingGroup(params: AutoScaling.TerminateInstanceInAutoScalingGroupType, callback?: (err: AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any, data: AutoScaling.ActivityType|any) => void): Request<AutoScaling.ActivityType|any,AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any>;
     /**
      * Updates the configuration for the specified Auto Scaling group.
 
@@ -610,7 +610,7 @@ Note the following:
      * @error ScalingActivityInProgressFault   
      * @error ResourceContentionFault   
      */
-    updateAutoScalingGroup(params: AutoScaling.UpdateAutoScalingGroupType, callback?: (err: AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request;
+    updateAutoScalingGroup(params: AutoScaling.UpdateAutoScalingGroupType, callback?: (err: AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any, data: any) => void): Request<any,AutoScaling.ScalingActivityInProgressFault|AutoScaling.ResourceContentionFault|any>;
 
   }
 

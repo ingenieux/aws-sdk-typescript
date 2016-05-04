@@ -29,7 +29,7 @@ warehousing.
      *
      * @error InternalServerError   
      */
-    addInstanceGroups(params: EMR.AddInstanceGroupsInput, callback?: (err: EMR.InternalServerError|any, data: EMR.AddInstanceGroupsOutput|any) => void): Request;
+    addInstanceGroups(params: EMR.AddInstanceGroupsInput, callback?: (err: EMR.InternalServerError|any, data: EMR.AddInstanceGroupsOutput|any) => void): Request<EMR.AddInstanceGroupsOutput|any,EMR.InternalServerError|any>;
     /**
      * AddJobFlowSteps adds new steps to a running job flow. A maximum of 256 steps are
 allowed in each job flow.
@@ -58,7 +58,7 @@ STARTING, BOOTSTRAPPING, RUNNING, or WAITING.
      *
      * @error InternalServerError   
      */
-    addJobFlowSteps(params: EMR.AddJobFlowStepsInput, callback?: (err: EMR.InternalServerError|any, data: EMR.AddJobFlowStepsOutput|any) => void): Request;
+    addJobFlowSteps(params: EMR.AddJobFlowStepsInput, callback?: (err: EMR.InternalServerError|any, data: EMR.AddJobFlowStepsOutput|any) => void): Request<EMR.AddJobFlowStepsOutput|any,EMR.InternalServerError|any>;
     /**
      * Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters
 in various ways, such as grouping clusters to track your Amazon EMR resource
@@ -69,7 +69,7 @@ allocation costs. For more information, see Tagging Amazon EMR Resources
      * @error InternalServerException   
      * @error InvalidRequestException   
      */
-    addTags(params: EMR.AddTagsInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.AddTagsOutput|any) => void): Request;
+    addTags(params: EMR.AddTagsInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.AddTagsOutput|any) => void): Request<EMR.AddTagsOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
     /**
      * Provides cluster-level details including status, hardware and software
 configuration, VPC settings, and so on. For information about the cluster steps,
@@ -78,7 +78,7 @@ see ListSteps .
      * @error InternalServerException   
      * @error InvalidRequestException   
      */
-    describeCluster(params: EMR.DescribeClusterInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.DescribeClusterOutput|any) => void): Request;
+    describeCluster(params: EMR.DescribeClusterInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.DescribeClusterOutput|any) => void): Request<EMR.DescribeClusterOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
     /**
      * This API is deprecated and will eventually be removed. We recommend you use 
 ListClusters , DescribeCluster , ListSteps , ListInstanceGroups and 
@@ -102,21 +102,21 @@ Amazon Elastic MapReduce can return a maximum of 512 job flow descriptions.
      *
      * @error InternalServerError   
      */
-    describeJobFlows(params: EMR.DescribeJobFlowsInput, callback?: (err: EMR.InternalServerError|any, data: EMR.DescribeJobFlowsOutput|any) => void): Request;
+    describeJobFlows(params: EMR.DescribeJobFlowsInput, callback?: (err: EMR.InternalServerError|any, data: EMR.DescribeJobFlowsOutput|any) => void): Request<EMR.DescribeJobFlowsOutput|any,EMR.InternalServerError|any>;
     /**
      * Provides more detail about the cluster step.
      *
      * @error InternalServerException   
      * @error InvalidRequestException   
      */
-    describeStep(params: EMR.DescribeStepInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.DescribeStepOutput|any) => void): Request;
+    describeStep(params: EMR.DescribeStepInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.DescribeStepOutput|any) => void): Request<EMR.DescribeStepOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
     /**
      * Provides information about the bootstrap actions associated with a cluster.
      *
      * @error InternalServerException   
      * @error InvalidRequestException   
      */
-    listBootstrapActions(params: EMR.ListBootstrapActionsInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.ListBootstrapActionsOutput|any) => void): Request;
+    listBootstrapActions(params: EMR.ListBootstrapActionsInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.ListBootstrapActionsOutput|any) => void): Request<EMR.ListBootstrapActionsOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
     /**
      * Provides the status of all clusters visible to this AWS account. Allows you to
 filter the list of clusters based on certain criteria; for example, filtering by
@@ -127,14 +127,14 @@ across multiple ListClusters calls.
      * @error InternalServerException   
      * @error InvalidRequestException   
      */
-    listClusters(params: EMR.ListClustersInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.ListClustersOutput|any) => void): Request;
+    listClusters(params: EMR.ListClustersInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.ListClustersOutput|any) => void): Request<EMR.ListClustersOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
     /**
      * Provides all available details about the instance groups in a cluster.
      *
      * @error InternalServerException   
      * @error InvalidRequestException   
      */
-    listInstanceGroups(params: EMR.ListInstanceGroupsInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.ListInstanceGroupsOutput|any) => void): Request;
+    listInstanceGroups(params: EMR.ListInstanceGroupsInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.ListInstanceGroupsOutput|any) => void): Request<EMR.ListInstanceGroupsOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
     /**
      * Provides information about the cluster instances that Amazon EMR provisions on
 behalf of a user when it creates the cluster. For example, this operation
@@ -145,14 +145,14 @@ instances, etc.
      * @error InternalServerException   
      * @error InvalidRequestException   
      */
-    listInstances(params: EMR.ListInstancesInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.ListInstancesOutput|any) => void): Request;
+    listInstances(params: EMR.ListInstancesInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.ListInstancesOutput|any) => void): Request<EMR.ListInstancesOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
     /**
      * Provides a list of steps for the cluster.
      *
      * @error InternalServerException   
      * @error InvalidRequestException   
      */
-    listSteps(params: EMR.ListStepsInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.ListStepsOutput|any) => void): Request;
+    listSteps(params: EMR.ListStepsInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.ListStepsOutput|any) => void): Request<EMR.ListStepsOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
     /**
      * ModifyInstanceGroups modifies the number of nodes and configuration settings of
 an instance group. The input parameters include the new target instance count
@@ -161,7 +161,7 @@ atomically.
      *
      * @error InternalServerError   
      */
-    modifyInstanceGroups(params: EMR.ModifyInstanceGroupsInput, callback?: (err: EMR.InternalServerError|any, data: any) => void): Request;
+    modifyInstanceGroups(params: EMR.ModifyInstanceGroupsInput, callback?: (err: EMR.InternalServerError|any, data: any) => void): Request<any,EMR.InternalServerError|any>;
     /**
      * Removes tags from an Amazon EMR resource. Tags make it easier to associate
 clusters in various ways, such as grouping clusters to track your Amazon EMR
@@ -175,7 +175,7 @@ The following example removes the stack tag with value Prod from a cluster:
      * @error InternalServerException   
      * @error InvalidRequestException   
      */
-    removeTags(params: EMR.RemoveTagsInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.RemoveTagsOutput|any) => void): Request;
+    removeTags(params: EMR.RemoveTagsInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.RemoveTagsOutput|any) => void): Request<EMR.RemoveTagsOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
     /**
      * RunJobFlow creates and starts running a new job flow. The job flow will run the
 steps specified. Once the job flow completes, the cluster is stopped and the
@@ -206,7 +206,7 @@ results.
      *
      * @error InternalServerError   
      */
-    runJobFlow(params: EMR.RunJobFlowInput, callback?: (err: EMR.InternalServerError|any, data: EMR.RunJobFlowOutput|any) => void): Request;
+    runJobFlow(params: EMR.RunJobFlowInput, callback?: (err: EMR.InternalServerError|any, data: EMR.RunJobFlowOutput|any) => void): Request<EMR.RunJobFlowOutput|any,EMR.InternalServerError|any>;
     /**
      * SetTerminationProtection locks a job flow so the Amazon EC2 instances in the
 cluster cannot be terminated by user intervention, an API call, or in the event
@@ -229,7 +229,7 @@ in the Amazon Elastic MapReduce Developer&#x27;s Guide.
      *
      * @error InternalServerError   
      */
-    setTerminationProtection(params: EMR.SetTerminationProtectionInput, callback?: (err: EMR.InternalServerError|any, data: any) => void): Request;
+    setTerminationProtection(params: EMR.SetTerminationProtectionInput, callback?: (err: EMR.InternalServerError|any, data: any) => void): Request<any,EMR.InternalServerError|any>;
     /**
      * Sets whether all AWS Identity and Access Management (IAM) users under your
 account can access the specified job flows. This action works on running job
@@ -240,7 +240,7 @@ that owns the job flow.
      *
      * @error InternalServerError   
      */
-    setVisibleToAllUsers(params: EMR.SetVisibleToAllUsersInput, callback?: (err: EMR.InternalServerError|any, data: any) => void): Request;
+    setVisibleToAllUsers(params: EMR.SetVisibleToAllUsersInput, callback?: (err: EMR.InternalServerError|any, data: any) => void): Request<any,EMR.InternalServerError|any>;
     /**
      * TerminateJobFlows shuts a list of job flows down. When a job flow is shut down,
 any step not yet completed is canceled and the EC2 instances on which the job
@@ -254,7 +254,7 @@ resources, such as Amazon EC2 instances.
      *
      * @error InternalServerError   
      */
-    terminateJobFlows(params: EMR.TerminateJobFlowsInput, callback?: (err: EMR.InternalServerError|any, data: any) => void): Request;
+    terminateJobFlows(params: EMR.TerminateJobFlowsInput, callback?: (err: EMR.InternalServerError|any, data: any) => void): Request<any,EMR.InternalServerError|any>;
 
   }
 

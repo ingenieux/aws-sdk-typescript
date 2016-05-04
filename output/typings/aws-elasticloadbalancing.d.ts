@@ -51,7 +51,7 @@ in the Elastic Load Balancing Developer Guide .
 been reached.  
      * @error DuplicateTagKeysException A tag key was specified more than once.  
      */
-    addTags(params: ELB.AddTagsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|any, data: ELB.AddTagsOutput|any) => void): Request;
+    addTags(params: ELB.AddTagsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|any, data: ELB.AddTagsOutput|any) => void): Request<ELB.AddTagsOutput|any,ELB.AccessPointNotFoundException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|any>;
     /**
      * Associates one or more security groups with your load balancer in a virtual
 private cloud (VPC). The specified security groups override the previously
@@ -65,7 +65,7 @@ in the Elastic Load Balancing Developer Guide .
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      * @error InvalidSecurityGroupException One or more of the specified security groups do not exist.  
      */
-    applySecurityGroupsToLoadBalancer(params: ELB.ApplySecurityGroupsToLoadBalancerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|ELB.InvalidSecurityGroupException|any, data: ELB.ApplySecurityGroupsToLoadBalancerOutput|any) => void): Request;
+    applySecurityGroupsToLoadBalancer(params: ELB.ApplySecurityGroupsToLoadBalancerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|ELB.InvalidSecurityGroupException|any, data: ELB.ApplySecurityGroupsToLoadBalancerOutput|any) => void): Request<ELB.ApplySecurityGroupsToLoadBalancerOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|ELB.InvalidSecurityGroupException|any>;
     /**
      * Adds one or more subnets to the set of configured subnets for the specified load
 balancer.
@@ -80,7 +80,7 @@ in the Elastic Load Balancing Developer Guide .
      * @error SubnetNotFoundException One or more of the specified subnets do not exist.  
      * @error InvalidSubnetException The specified VPC has no associated Internet gateway.  
      */
-    attachLoadBalancerToSubnets(params: ELB.AttachLoadBalancerToSubnetsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|any, data: ELB.AttachLoadBalancerToSubnetsOutput|any) => void): Request;
+    attachLoadBalancerToSubnets(params: ELB.AttachLoadBalancerToSubnetsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|any, data: ELB.AttachLoadBalancerToSubnetsOutput|any) => void): Request<ELB.AttachLoadBalancerToSubnetsOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|any>;
     /**
      * Specifies the health check settings to use when evaluating the health state of
 your back-end instances.
@@ -91,7 +91,7 @@ in the Elastic Load Balancing Developer Guide .
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      */
-    configureHealthCheck(params: ELB.ConfigureHealthCheckInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.ConfigureHealthCheckOutput|any) => void): Request;
+    configureHealthCheck(params: ELB.ConfigureHealthCheckInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.ConfigureHealthCheckOutput|any) => void): Request<ELB.ConfigureHealthCheckOutput|any,ELB.AccessPointNotFoundException|any>;
     /**
      * Generates a stickiness policy with sticky session lifetimes that follow that of
 an application-generated cookie. This policy can be associated only with
@@ -115,7 +115,7 @@ in the Elastic Load Balancing Developer Guide .
      * @error TooManyPoliciesException The quota for the number of policies for this load balancer has been reached.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    createAppCookieStickinessPolicy(params: ELB.CreateAppCookieStickinessPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateAppCookieStickinessPolicyOutput|any) => void): Request;
+    createAppCookieStickinessPolicy(params: ELB.CreateAppCookieStickinessPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateAppCookieStickinessPolicyOutput|any) => void): Request<ELB.CreateAppCookieStickinessPolicyOutput|any,ELB.AccessPointNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any>;
     /**
      * Generates a stickiness policy with sticky session lifetimes controlled by the
 lifetime of the browser (user-agent) or a specified expiration period. This
@@ -141,7 +141,7 @@ in the Elastic Load Balancing Developer Guide .
      * @error TooManyPoliciesException The quota for the number of policies for this load balancer has been reached.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    createLBCookieStickinessPolicy(params: ELB.CreateLBCookieStickinessPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateLBCookieStickinessPolicyOutput|any) => void): Request;
+    createLBCookieStickinessPolicy(params: ELB.CreateLBCookieStickinessPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateLBCookieStickinessPolicyOutput|any) => void): Request<ELB.CreateLBCookieStickinessPolicyOutput|any,ELB.AccessPointNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any>;
     /**
      * Creates a load balancer.
 
@@ -172,7 +172,7 @@ for load balancers in a VPC.
 been reached.  
      * @error DuplicateTagKeysException A tag key was specified more than once.  
      */
-    createLoadBalancer(params: ELB.CreateAccessPointInput, callback?: (err: ELB.DuplicateAccessPointNameException|ELB.TooManyAccessPointsException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|ELB.InvalidSecurityGroupException|ELB.InvalidSchemeException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|any, data: ELB.CreateAccessPointOutput|any) => void): Request;
+    createLoadBalancer(params: ELB.CreateAccessPointInput, callback?: (err: ELB.DuplicateAccessPointNameException|ELB.TooManyAccessPointsException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|ELB.InvalidSecurityGroupException|ELB.InvalidSchemeException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|any, data: ELB.CreateAccessPointOutput|any) => void): Request<ELB.CreateAccessPointOutput|any,ELB.DuplicateAccessPointNameException|ELB.TooManyAccessPointsException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|ELB.InvalidSecurityGroupException|ELB.InvalidSchemeException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|any>;
     /**
      * Creates one or more listeners for the specified load balancer. If a listener
 with the specified port does not already exist, it is created; otherwise, the
@@ -191,7 +191,7 @@ SSLCertificateId .
 and Access Management (IAM).  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    createLoadBalancerListeners(params: ELB.CreateLoadBalancerListenerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.DuplicateListenerException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateLoadBalancerListenerOutput|any) => void): Request;
+    createLoadBalancerListeners(params: ELB.CreateLoadBalancerListenerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.DuplicateListenerException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateLoadBalancerListenerOutput|any) => void): Request<ELB.CreateLoadBalancerListenerOutput|any,ELB.AccessPointNotFoundException|ELB.DuplicateListenerException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|any>;
     /**
      * Creates a policy with the specified attributes for the specified load balancer.
 
@@ -205,7 +205,7 @@ on the policy type.
      * @error TooManyPoliciesException The quota for the number of policies for this load balancer has been reached.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    createLoadBalancerPolicy(params: ELB.CreateLoadBalancerPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyTypeNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateLoadBalancerPolicyOutput|any) => void): Request;
+    createLoadBalancerPolicy(params: ELB.CreateLoadBalancerPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyTypeNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateLoadBalancerPolicyOutput|any) => void): Request<ELB.CreateLoadBalancerPolicyOutput|any,ELB.AccessPointNotFoundException|ELB.PolicyTypeNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any>;
     /**
      * Deletes the specified load balancer.
 
@@ -219,13 +219,13 @@ If the load balancer does not exist or has already been deleted, the call to
 DeleteLoadBalancer still succeeds.
      *
      */
-    deleteLoadBalancer(params: ELB.DeleteAccessPointInput, callback?: (err: any, data: ELB.DeleteAccessPointOutput|any) => void): Request;
+    deleteLoadBalancer(params: ELB.DeleteAccessPointInput, callback?: (err: any, data: ELB.DeleteAccessPointOutput|any) => void): Request<ELB.DeleteAccessPointOutput|any,any>;
     /**
      * Deletes the specified listeners from the specified load balancer.
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      */
-    deleteLoadBalancerListeners(params: ELB.DeleteLoadBalancerListenerInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.DeleteLoadBalancerListenerOutput|any) => void): Request;
+    deleteLoadBalancerListeners(params: ELB.DeleteLoadBalancerListenerInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.DeleteLoadBalancerListenerOutput|any) => void): Request<ELB.DeleteLoadBalancerListenerOutput|any,ELB.AccessPointNotFoundException|any>;
     /**
      * Deletes the specified policy from the specified load balancer. This policy must
 not be enabled for any listeners.
@@ -233,7 +233,7 @@ not be enabled for any listeners.
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    deleteLoadBalancerPolicy(params: ELB.DeleteLoadBalancerPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.DeleteLoadBalancerPolicyOutput|any) => void): Request;
+    deleteLoadBalancerPolicy(params: ELB.DeleteLoadBalancerPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.DeleteLoadBalancerPolicyOutput|any) => void): Request<ELB.DeleteLoadBalancerPolicyOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any>;
     /**
      * Deregisters the specified instances from the specified load balancer. After the
 instance is deregistered, it no longer receives traffic from the load balancer.
@@ -248,7 +248,7 @@ in the Elastic Load Balancing Developer Guide .
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error InvalidEndPointException The specified endpoint is not valid.  
      */
-    deregisterInstancesFromLoadBalancer(params: ELB.DeregisterEndPointsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any, data: ELB.DeregisterEndPointsOutput|any) => void): Request;
+    deregisterInstancesFromLoadBalancer(params: ELB.DeregisterEndPointsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any, data: ELB.DeregisterEndPointsOutput|any) => void): Request<ELB.DeregisterEndPointsOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any>;
     /**
      * Describes the state of the specified instances registered with the specified
 load balancer. If no instances are specified, the call describes the state of
@@ -258,14 +258,14 @@ instances.
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error InvalidEndPointException The specified endpoint is not valid.  
      */
-    describeInstanceHealth(params: ELB.DescribeEndPointStateInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any, data: ELB.DescribeEndPointStateOutput|any) => void): Request;
+    describeInstanceHealth(params: ELB.DescribeEndPointStateInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any, data: ELB.DescribeEndPointStateOutput|any) => void): Request<ELB.DescribeEndPointStateOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any>;
     /**
      * Describes the attributes for the specified load balancer.
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error LoadBalancerAttributeNotFoundException The specified load balancer attribute does not exist.  
      */
-    describeLoadBalancerAttributes(params: ELB.DescribeLoadBalancerAttributesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.LoadBalancerAttributeNotFoundException|any, data: ELB.DescribeLoadBalancerAttributesOutput|any) => void): Request;
+    describeLoadBalancerAttributes(params: ELB.DescribeLoadBalancerAttributesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.LoadBalancerAttributeNotFoundException|any, data: ELB.DescribeLoadBalancerAttributesOutput|any) => void): Request<ELB.DescribeLoadBalancerAttributesOutput|any,ELB.AccessPointNotFoundException|ELB.LoadBalancerAttributeNotFoundException|any>;
     /**
      * Describes the specified policies.
 
@@ -279,7 +279,7 @@ the sample policies have the ELBSample- prefix.
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error PolicyNotFoundException One or more of the specified policies do not exist.  
      */
-    describeLoadBalancerPolicies(params: ELB.DescribeLoadBalancerPoliciesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|any, data: ELB.DescribeLoadBalancerPoliciesOutput|any) => void): Request;
+    describeLoadBalancerPolicies(params: ELB.DescribeLoadBalancerPoliciesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|any, data: ELB.DescribeLoadBalancerPoliciesOutput|any) => void): Request<ELB.DescribeLoadBalancerPoliciesOutput|any,ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|any>;
     /**
      * Describes the specified load balancer policy types.
 
@@ -288,20 +288,20 @@ configurations for a load balancer.
      *
      * @error PolicyTypeNotFoundException One or more of the specified policy types do not exist.  
      */
-    describeLoadBalancerPolicyTypes(params: ELB.DescribeLoadBalancerPolicyTypesInput, callback?: (err: ELB.PolicyTypeNotFoundException|any, data: ELB.DescribeLoadBalancerPolicyTypesOutput|any) => void): Request;
+    describeLoadBalancerPolicyTypes(params: ELB.DescribeLoadBalancerPolicyTypesInput, callback?: (err: ELB.PolicyTypeNotFoundException|any, data: ELB.DescribeLoadBalancerPolicyTypesOutput|any) => void): Request<ELB.DescribeLoadBalancerPolicyTypesOutput|any,ELB.PolicyTypeNotFoundException|any>;
     /**
      * Describes the specified the load balancers. If no load balancers are specified,
 the call describes all of your load balancers.
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      */
-    describeLoadBalancers(params: ELB.DescribeAccessPointsInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.DescribeAccessPointsOutput|any) => void): Request;
+    describeLoadBalancers(params: ELB.DescribeAccessPointsInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.DescribeAccessPointsOutput|any) => void): Request<ELB.DescribeAccessPointsOutput|any,ELB.AccessPointNotFoundException|any>;
     /**
      * Describes the tags associated with the specified load balancers.
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      */
-    describeTags(params: ELB.DescribeTagsInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.DescribeTagsOutput|any) => void): Request;
+    describeTags(params: ELB.DescribeTagsInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.DescribeTagsOutput|any) => void): Request<ELB.DescribeTagsOutput|any,ELB.AccessPointNotFoundException|any>;
     /**
      * Removes the specified subnets from the set of configured subnets for the load
 balancer.
@@ -313,7 +313,7 @@ balances the traffic among the remaining routable subnets.
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    detachLoadBalancerFromSubnets(params: ELB.DetachLoadBalancerFromSubnetsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.DetachLoadBalancerFromSubnetsOutput|any) => void): Request;
+    detachLoadBalancerFromSubnets(params: ELB.DetachLoadBalancerFromSubnetsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.DetachLoadBalancerFromSubnetsOutput|any) => void): Request<ELB.DetachLoadBalancerFromSubnetsOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any>;
     /**
      * Removes the specified Availability Zones from the set of Availability Zones for
 the specified load balancer.
@@ -332,7 +332,7 @@ in the Elastic Load Balancing Developer Guide .
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    disableAvailabilityZonesForLoadBalancer(params: ELB.RemoveAvailabilityZonesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.RemoveAvailabilityZonesOutput|any) => void): Request;
+    disableAvailabilityZonesForLoadBalancer(params: ELB.RemoveAvailabilityZonesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.RemoveAvailabilityZonesOutput|any) => void): Request<ELB.RemoveAvailabilityZonesOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any>;
     /**
      * Adds the specified Availability Zones to the set of Availability Zones for the
 specified load balancer.
@@ -346,7 +346,7 @@ in the Elastic Load Balancing Developer Guide .
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      */
-    enableAvailabilityZonesForLoadBalancer(params: ELB.AddAvailabilityZonesInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.AddAvailabilityZonesOutput|any) => void): Request;
+    enableAvailabilityZonesForLoadBalancer(params: ELB.AddAvailabilityZonesInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.AddAvailabilityZonesOutput|any) => void): Request<ELB.AddAvailabilityZonesOutput|any,ELB.AccessPointNotFoundException|any>;
     /**
      * Modifies the attributes of the specified load balancer.
 
@@ -371,7 +371,7 @@ Guide :
      * @error LoadBalancerAttributeNotFoundException The specified load balancer attribute does not exist.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    modifyLoadBalancerAttributes(params: ELB.ModifyLoadBalancerAttributesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.LoadBalancerAttributeNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.ModifyLoadBalancerAttributesOutput|any) => void): Request;
+    modifyLoadBalancerAttributes(params: ELB.ModifyLoadBalancerAttributesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.LoadBalancerAttributeNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.ModifyLoadBalancerAttributesOutput|any) => void): Request<ELB.ModifyLoadBalancerAttributesOutput|any,ELB.AccessPointNotFoundException|ELB.LoadBalancerAttributeNotFoundException|ELB.InvalidConfigurationRequestException|any>;
     /**
      * Adds the specified instances to the specified load balancer.
 
@@ -407,13 +407,13 @@ in the Elastic Load Balancing Developer Guide .
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error InvalidEndPointException The specified endpoint is not valid.  
      */
-    registerInstancesWithLoadBalancer(params: ELB.RegisterEndPointsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any, data: ELB.RegisterEndPointsOutput|any) => void): Request;
+    registerInstancesWithLoadBalancer(params: ELB.RegisterEndPointsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any, data: ELB.RegisterEndPointsOutput|any) => void): Request<ELB.RegisterEndPointsOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any>;
     /**
      * Removes one or more tags from the specified load balancer.
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      */
-    removeTags(params: ELB.RemoveTagsInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.RemoveTagsOutput|any) => void): Request;
+    removeTags(params: ELB.RemoveTagsInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.RemoveTagsOutput|any) => void): Request<ELB.RemoveTagsOutput|any,ELB.AccessPointNotFoundException|any>;
     /**
      * Sets the certificate that terminates the specified listener&#x27;s SSL connections.
 The specified certificate replaces any prior certificate that was used on the
@@ -430,7 +430,7 @@ and Access Management (IAM).
      * @error ListenerNotFoundException The load balancer does not have a listener configured at the specified port.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    setLoadBalancerListenerSSLCertificate(params: ELB.SetLoadBalancerListenerSSLCertificateInput, callback?: (err: ELB.CertificateNotFoundException|ELB.AccessPointNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerListenerSSLCertificateOutput|any) => void): Request;
+    setLoadBalancerListenerSSLCertificate(params: ELB.SetLoadBalancerListenerSSLCertificateInput, callback?: (err: ELB.CertificateNotFoundException|ELB.AccessPointNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerListenerSSLCertificateOutput|any) => void): Request<ELB.SetLoadBalancerListenerSSLCertificateOutput|any,ELB.CertificateNotFoundException|ELB.AccessPointNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|any>;
     /**
      * Replaces the set of policies associated with the specified port on which the
 back-end server is listening with a new set of policies. At this time, only the
@@ -448,7 +448,7 @@ the policy is associated with the back-end server.
      * @error PolicyNotFoundException One or more of the specified policies do not exist.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    setLoadBalancerPoliciesForBackendServer(params: ELB.SetLoadBalancerPoliciesForBackendServerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerPoliciesForBackendServerOutput|any) => void): Request;
+    setLoadBalancerPoliciesForBackendServer(params: ELB.SetLoadBalancerPoliciesForBackendServerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerPoliciesForBackendServerOutput|any) => void): Request<ELB.SetLoadBalancerPoliciesForBackendServerOutput|any,ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|ELB.InvalidConfigurationRequestException|any>;
     /**
      * Associates, updates, or disables a policy with a listener for the specified load
 balancer. You can associate multiple policies with a listener.
@@ -458,7 +458,7 @@ balancer. You can associate multiple policies with a listener.
      * @error ListenerNotFoundException The load balancer does not have a listener configured at the specified port.  
      * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
      */
-    setLoadBalancerPoliciesOfListener(params: ELB.SetLoadBalancerPoliciesOfListenerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerPoliciesOfListenerOutput|any) => void): Request;
+    setLoadBalancerPoliciesOfListener(params: ELB.SetLoadBalancerPoliciesOfListenerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerPoliciesOfListenerOutput|any) => void): Request<ELB.SetLoadBalancerPoliciesOfListenerOutput|any,ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|any>;
 
   }
 

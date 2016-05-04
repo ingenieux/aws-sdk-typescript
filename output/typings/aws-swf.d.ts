@@ -67,7 +67,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    countClosedWorkflowExecutions(params: SWF.CountClosedWorkflowExecutionsInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowExecutionCount|any) => void): Request;
+    countClosedWorkflowExecutions(params: SWF.CountClosedWorkflowExecutionsInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowExecutionCount|any) => void): Request<SWF.WorkflowExecutionCount|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Returns the number of open workflow executions within the given domain that meet
 the specified filtering criteria.
@@ -102,7 +102,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    countOpenWorkflowExecutions(params: SWF.CountOpenWorkflowExecutionsInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowExecutionCount|any) => void): Request;
+    countOpenWorkflowExecutions(params: SWF.CountOpenWorkflowExecutionsInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowExecutionCount|any) => void): Request<SWF.WorkflowExecutionCount|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Returns the estimated number of activity tasks in the specified task list. The
 count returned is an approximation and is not guaranteed to be exact. If you
@@ -133,7 +133,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    countPendingActivityTasks(params: SWF.CountPendingActivityTasksInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.PendingTaskCount|any) => void): Request;
+    countPendingActivityTasks(params: SWF.CountPendingActivityTasksInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.PendingTaskCount|any) => void): Request<SWF.PendingTaskCount|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Returns the estimated number of decision tasks in the specified task list. The
 count returned is an approximation and is not guaranteed to be exact. If you
@@ -164,7 +164,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    countPendingDecisionTasks(params: SWF.CountPendingDecisionTasksInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.PendingTaskCount|any) => void): Request;
+    countPendingDecisionTasks(params: SWF.CountPendingDecisionTasksInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.PendingTaskCount|any) => void): Request<SWF.PendingTaskCount|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Deprecates the specified activity type . After an activity type has been
 deprecated, you cannot create new tasks of that activity type. Tasks of this
@@ -200,7 +200,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    deprecateActivityType(params: SWF.DeprecateActivityTypeInput, callback?: (err: SWF.UnknownResourceFault|SWF.TypeDeprecatedFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
+    deprecateActivityType(params: SWF.DeprecateActivityTypeInput, callback?: (err: SWF.UnknownResourceFault|SWF.TypeDeprecatedFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request<any,SWF.UnknownResourceFault|SWF.TypeDeprecatedFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Deprecates the specified domain. After a domain has been deprecated it cannot be
 used to create new workflow executions or register new types. However, you can
@@ -233,7 +233,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    deprecateDomain(params: SWF.DeprecateDomainInput, callback?: (err: SWF.UnknownResourceFault|SWF.DomainDeprecatedFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
+    deprecateDomain(params: SWF.DeprecateDomainInput, callback?: (err: SWF.UnknownResourceFault|SWF.DomainDeprecatedFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request<any,SWF.UnknownResourceFault|SWF.DomainDeprecatedFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Deprecates the specified workflow type . After a workflow type has been
 deprecated, you cannot create new executions of that type. Executions that were
@@ -270,7 +270,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    deprecateWorkflowType(params: SWF.DeprecateWorkflowTypeInput, callback?: (err: SWF.UnknownResourceFault|SWF.TypeDeprecatedFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
+    deprecateWorkflowType(params: SWF.DeprecateWorkflowTypeInput, callback?: (err: SWF.UnknownResourceFault|SWF.TypeDeprecatedFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request<any,SWF.UnknownResourceFault|SWF.TypeDeprecatedFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Returns information about the specified activity type. This includes
 configuration settings provided when the type was registered and other general
@@ -304,7 +304,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    describeActivityType(params: SWF.DescribeActivityTypeInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.ActivityTypeDetail|any) => void): Request;
+    describeActivityType(params: SWF.DescribeActivityTypeInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.ActivityTypeDetail|any) => void): Request<SWF.ActivityTypeDetail|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Returns information about the specified domain, including description and
 status.
@@ -332,7 +332,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    describeDomain(params: SWF.DescribeDomainInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.DomainDetail|any) => void): Request;
+    describeDomain(params: SWF.DescribeDomainInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.DomainDetail|any) => void): Request<SWF.DomainDetail|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Returns information about the specified workflow execution including its type
 and some statistics.
@@ -361,7 +361,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    describeWorkflowExecution(params: SWF.DescribeWorkflowExecutionInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowExecutionDetail|any) => void): Request;
+    describeWorkflowExecution(params: SWF.DescribeWorkflowExecutionInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowExecutionDetail|any) => void): Request<SWF.WorkflowExecutionDetail|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Returns information about the specified workflow type . This includes
 configuration settings specified when the type was registered and other
@@ -395,7 +395,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    describeWorkflowType(params: SWF.DescribeWorkflowTypeInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowTypeDetail|any) => void): Request;
+    describeWorkflowType(params: SWF.DescribeWorkflowTypeInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowTypeDetail|any) => void): Request<SWF.WorkflowTypeDetail|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Returns the history of the specified workflow execution. The results may be
 split into multiple pages. To retrieve subsequent pages, make the call again
@@ -425,7 +425,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    getWorkflowExecutionHistory(params: SWF.GetWorkflowExecutionHistoryInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.History|any) => void): Request;
+    getWorkflowExecutionHistory(params: SWF.GetWorkflowExecutionHistoryInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.History|any) => void): Request<SWF.History|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Returns information about all activities registered in the specified domain that
 match the specified name and registration status. The result includes
@@ -456,7 +456,7 @@ action.
 operation (region or domain). This could happen if the named resource was never
 created or is no longer available for this operation.  
      */
-    listActivityTypes(params: SWF.ListActivityTypesInput, callback?: (err: SWF.OperationNotPermittedFault|SWF.UnknownResourceFault|any, data: SWF.ActivityTypeInfos|any) => void): Request;
+    listActivityTypes(params: SWF.ListActivityTypesInput, callback?: (err: SWF.OperationNotPermittedFault|SWF.UnknownResourceFault|any, data: SWF.ActivityTypeInfos|any) => void): Request<SWF.ActivityTypeInfos|any,SWF.OperationNotPermittedFault|SWF.UnknownResourceFault|any>;
     /**
      * Returns a list of closed workflow executions in the specified domain that meet
 the filtering criteria. The results may be split into multiple pages. To
@@ -493,7 +493,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    listClosedWorkflowExecutions(params: SWF.ListClosedWorkflowExecutionsInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowExecutionInfos|any) => void): Request;
+    listClosedWorkflowExecutions(params: SWF.ListClosedWorkflowExecutionsInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowExecutionInfos|any) => void): Request<SWF.WorkflowExecutionInfos|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Returns the list of domains registered in the account. The results may be split
 into multiple pages. To retrieve subsequent pages, make the call again using the
@@ -521,7 +521,7 @@ Manage Access to Amazon SWF Workflows
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    listDomains(params: SWF.ListDomainsInput, callback?: (err: SWF.OperationNotPermittedFault|any, data: SWF.DomainInfos|any) => void): Request;
+    listDomains(params: SWF.ListDomainsInput, callback?: (err: SWF.OperationNotPermittedFault|any, data: SWF.DomainInfos|any) => void): Request<SWF.DomainInfos|any,SWF.OperationNotPermittedFault|any>;
     /**
      * Returns a list of open workflow executions in the specified domain that meet the
 filtering criteria. The results may be split into multiple pages. To retrieve
@@ -558,7 +558,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    listOpenWorkflowExecutions(params: SWF.ListOpenWorkflowExecutionsInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowExecutionInfos|any) => void): Request;
+    listOpenWorkflowExecutions(params: SWF.ListOpenWorkflowExecutionsInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.WorkflowExecutionInfos|any) => void): Request<SWF.WorkflowExecutionInfos|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Returns information about workflow types in the specified domain. The results
 may be split into multiple pages that can be retrieved by making the call
@@ -587,7 +587,7 @@ action.
 operation (region or domain). This could happen if the named resource was never
 created or is no longer available for this operation.  
      */
-    listWorkflowTypes(params: SWF.ListWorkflowTypesInput, callback?: (err: SWF.OperationNotPermittedFault|SWF.UnknownResourceFault|any, data: SWF.WorkflowTypeInfos|any) => void): Request;
+    listWorkflowTypes(params: SWF.ListWorkflowTypesInput, callback?: (err: SWF.OperationNotPermittedFault|SWF.UnknownResourceFault|any, data: SWF.WorkflowTypeInfos|any) => void): Request<SWF.WorkflowTypeInfos|any,SWF.OperationNotPermittedFault|SWF.UnknownResourceFault|any>;
     /**
      * Used by workers to get an ActivityTask from the specified activity taskList .
 This initiates a long poll, where the service holds the HTTP connection open and
@@ -627,7 +627,7 @@ action.
 address this fault you should either clean up unused resources or increase the
 limit by contacting AWS.  
      */
-    pollForActivityTask(params: SWF.PollForActivityTaskInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|SWF.LimitExceededFault|any, data: SWF.ActivityTask|any) => void): Request;
+    pollForActivityTask(params: SWF.PollForActivityTaskInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|SWF.LimitExceededFault|any, data: SWF.ActivityTask|any) => void): Request<SWF.ActivityTask|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|SWF.LimitExceededFault|any>;
     /**
      * Used by deciders to get a DecisionTask from the specified decision taskList . A
 decision task may be returned for any open workflow execution that is using the
@@ -674,7 +674,7 @@ action.
 address this fault you should either clean up unused resources or increase the
 limit by contacting AWS.  
      */
-    pollForDecisionTask(params: SWF.PollForDecisionTaskInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|SWF.LimitExceededFault|any, data: SWF.DecisionTask|any) => void): Request;
+    pollForDecisionTask(params: SWF.PollForDecisionTaskInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|SWF.LimitExceededFault|any, data: SWF.DecisionTask|any) => void): Request<SWF.DecisionTask|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|SWF.LimitExceededFault|any>;
     /**
      * Used by activity workers to report to the service that the ActivityTask 
 represented by the specified taskToken is still making progress. The worker can
@@ -723,7 +723,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    recordActivityTaskHeartbeat(params: SWF.RecordActivityTaskHeartbeatInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.ActivityTaskStatus|any) => void): Request;
+    recordActivityTaskHeartbeat(params: SWF.RecordActivityTaskHeartbeatInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: SWF.ActivityTaskStatus|any) => void): Request<SWF.ActivityTaskStatus|any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Registers a new activity type along with its configuration settings in the
 specified domain.
@@ -765,7 +765,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    registerActivityType(params: SWF.RegisterActivityTypeInput, callback?: (err: SWF.TypeAlreadyExistsFault|SWF.LimitExceededFault|SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
+    registerActivityType(params: SWF.RegisterActivityTypeInput, callback?: (err: SWF.TypeAlreadyExistsFault|SWF.LimitExceededFault|SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request<any,SWF.TypeAlreadyExistsFault|SWF.LimitExceededFault|SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Registers a new domain.
 
@@ -795,7 +795,7 @@ limit by contacting AWS.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    registerDomain(params: SWF.RegisterDomainInput, callback?: (err: SWF.DomainAlreadyExistsFault|SWF.LimitExceededFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
+    registerDomain(params: SWF.RegisterDomainInput, callback?: (err: SWF.DomainAlreadyExistsFault|SWF.LimitExceededFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request<any,SWF.DomainAlreadyExistsFault|SWF.LimitExceededFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Registers a new workflow type and its configuration settings in the specified
 domain.
@@ -840,7 +840,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    registerWorkflowType(params: SWF.RegisterWorkflowTypeInput, callback?: (err: SWF.TypeAlreadyExistsFault|SWF.LimitExceededFault|SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
+    registerWorkflowType(params: SWF.RegisterWorkflowTypeInput, callback?: (err: SWF.TypeAlreadyExistsFault|SWF.LimitExceededFault|SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request<any,SWF.TypeAlreadyExistsFault|SWF.LimitExceededFault|SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Records a WorkflowExecutionCancelRequested event in the currently running
 workflow execution identified by the given domain, workflowId, and runId. This
@@ -875,7 +875,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    requestCancelWorkflowExecution(params: SWF.RequestCancelWorkflowExecutionInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
+    requestCancelWorkflowExecution(params: SWF.RequestCancelWorkflowExecutionInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request<any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Used by workers to tell the service that the ActivityTask identified by the 
 taskToken was successfully canceled. Additional details can be optionally
@@ -917,7 +917,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    respondActivityTaskCanceled(params: SWF.RespondActivityTaskCanceledInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
+    respondActivityTaskCanceled(params: SWF.RespondActivityTaskCanceledInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request<any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Used by workers to tell the service that the ActivityTask identified by the 
 taskToken completed successfully with a result (if provided). The result appears
@@ -958,7 +958,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    respondActivityTaskCompleted(params: SWF.RespondActivityTaskCompletedInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
+    respondActivityTaskCompleted(params: SWF.RespondActivityTaskCompletedInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request<any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Used by workers to tell the service that the ActivityTask identified by the 
 taskToken has failed with reason (if specified). The reason and details appear
@@ -995,7 +995,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    respondActivityTaskFailed(params: SWF.RespondActivityTaskFailedInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
+    respondActivityTaskFailed(params: SWF.RespondActivityTaskFailedInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request<any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Used by deciders to tell the service that the DecisionTask identified by the 
 taskToken has successfully completed. The decisions argument specifies the list
@@ -1022,7 +1022,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    respondDecisionTaskCompleted(params: SWF.RespondDecisionTaskCompletedInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
+    respondDecisionTaskCompleted(params: SWF.RespondDecisionTaskCompletedInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request<any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Records a WorkflowExecutionSignaled event in the workflow execution history and
 creates a decision task for the workflow execution identified by the given
@@ -1055,7 +1055,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    signalWorkflowExecution(params: SWF.SignalWorkflowExecutionInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
+    signalWorkflowExecution(params: SWF.SignalWorkflowExecutionInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request<any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
     /**
      * Starts an execution of the workflow type in the specified domain using the
 provided workflowId and input data.
@@ -1103,7 +1103,7 @@ limit by contacting AWS.
 action.  
      * @error DefaultUndefinedFault   
      */
-    startWorkflowExecution(params: SWF.StartWorkflowExecutionInput, callback?: (err: SWF.UnknownResourceFault|SWF.TypeDeprecatedFault|SWF.WorkflowExecutionAlreadyStartedFault|SWF.LimitExceededFault|SWF.OperationNotPermittedFault|SWF.DefaultUndefinedFault|any, data: SWF.Run|any) => void): Request;
+    startWorkflowExecution(params: SWF.StartWorkflowExecutionInput, callback?: (err: SWF.UnknownResourceFault|SWF.TypeDeprecatedFault|SWF.WorkflowExecutionAlreadyStartedFault|SWF.LimitExceededFault|SWF.OperationNotPermittedFault|SWF.DefaultUndefinedFault|any, data: SWF.Run|any) => void): Request<SWF.Run|any,SWF.UnknownResourceFault|SWF.TypeDeprecatedFault|SWF.WorkflowExecutionAlreadyStartedFault|SWF.LimitExceededFault|SWF.OperationNotPermittedFault|SWF.DefaultUndefinedFault|any>;
     /**
      * Records a WorkflowExecutionTerminated event and forces closure of the workflow
 execution identified by the given domain, runId, and workflowId. The child
@@ -1139,7 +1139,7 @@ created or is no longer available for this operation.
      * @error OperationNotPermittedFault Returned when the caller does not have sufficient permissions to invoke the
 action.  
      */
-    terminateWorkflowExecution(params: SWF.TerminateWorkflowExecutionInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request;
+    terminateWorkflowExecution(params: SWF.TerminateWorkflowExecutionInput, callback?: (err: SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any, data: any) => void): Request<any,SWF.UnknownResourceFault|SWF.OperationNotPermittedFault|any>;
 
   }
 

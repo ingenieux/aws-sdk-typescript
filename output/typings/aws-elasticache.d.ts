@@ -49,7 +49,7 @@ Tags in Amazon ElastiCache
      * @error TagQuotaPerResourceExceeded   
      * @error InvalidARNFault   
      */
-    addTagsToResource(params: ElastiCache.AddTagsToResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidARNFault|any, data: ElastiCache.TagListMessage|any) => void): Request;
+    addTagsToResource(params: ElastiCache.AddTagsToResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidARNFault|any, data: ElastiCache.TagListMessage|any) => void): Request<ElastiCache.TagListMessage|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidARNFault|any>;
     /**
      * The AuthorizeCacheSecurityGroupIngress action allows network ingress to a cache
 security group. Applications using ElastiCache must be running on Amazon EC2,
@@ -64,7 +64,7 @@ an ElastiCache cluster in another region.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    authorizeCacheSecurityGroupIngress(params: ElastiCache.AuthorizeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.AuthorizationAlreadyExistsFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.AuthorizeCacheSecurityGroupIngressResult|any) => void): Request;
+    authorizeCacheSecurityGroupIngress(params: ElastiCache.AuthorizeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.AuthorizationAlreadyExistsFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.AuthorizeCacheSecurityGroupIngressResult|any) => void): Request<ElastiCache.AuthorizeCacheSecurityGroupIngressResult|any,ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.AuthorizationAlreadyExistsFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The CopySnapshot action makes a copy of an existing snapshot.
      *
@@ -75,7 +75,7 @@ an ElastiCache cluster in another region.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    copySnapshot(params: ElastiCache.CopySnapshotMessage, callback?: (err: ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CopySnapshotResult|any) => void): Request;
+    copySnapshot(params: ElastiCache.CopySnapshotMessage, callback?: (err: ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CopySnapshotResult|any) => void): Request<ElastiCache.CopySnapshotResult|any,ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The CreateCacheCluster action creates a cache cluster. All nodes in the cache
 cluster run the same protocol-compliant cache engine software, either Memcached
@@ -96,7 +96,7 @@ or Redis.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    createCacheCluster(params: ElastiCache.CreateCacheClusterMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.CacheClusterAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheClusterResult|any) => void): Request;
+    createCacheCluster(params: ElastiCache.CreateCacheClusterMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.CacheClusterAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheClusterResult|any) => void): Request<ElastiCache.CreateCacheClusterResult|any,ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.CacheClusterAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The CreateCacheParameterGroup action creates a new cache parameter group. A
 cache parameter group is a collection of parameters that you apply to all of the
@@ -108,7 +108,7 @@ nodes in a cache cluster.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    createCacheParameterGroup(params: ElastiCache.CreateCacheParameterGroupMessage, callback?: (err: ElastiCache.CacheParameterGroupQuotaExceededFault|ElastiCache.CacheParameterGroupAlreadyExistsFault|ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheParameterGroupResult|any) => void): Request;
+    createCacheParameterGroup(params: ElastiCache.CreateCacheParameterGroupMessage, callback?: (err: ElastiCache.CacheParameterGroupQuotaExceededFault|ElastiCache.CacheParameterGroupAlreadyExistsFault|ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheParameterGroupResult|any) => void): Request<ElastiCache.CreateCacheParameterGroupResult|any,ElastiCache.CacheParameterGroupQuotaExceededFault|ElastiCache.CacheParameterGroupAlreadyExistsFault|ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The CreateCacheSecurityGroup action creates a new cache security group. Use a
 cache security group to control access to one or more cache clusters.
@@ -125,7 +125,7 @@ see CreateCacheSubnetGroup
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    createCacheSecurityGroup(params: ElastiCache.CreateCacheSecurityGroupMessage, callback?: (err: ElastiCache.CacheSecurityGroupAlreadyExistsFault|ElastiCache.CacheSecurityGroupQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheSecurityGroupResult|any) => void): Request;
+    createCacheSecurityGroup(params: ElastiCache.CreateCacheSecurityGroupMessage, callback?: (err: ElastiCache.CacheSecurityGroupAlreadyExistsFault|ElastiCache.CacheSecurityGroupQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheSecurityGroupResult|any) => void): Request<ElastiCache.CreateCacheSecurityGroupResult|any,ElastiCache.CacheSecurityGroupAlreadyExistsFault|ElastiCache.CacheSecurityGroupQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The CreateCacheSubnetGroup action creates a new cache subnet group.
 
@@ -137,7 +137,7 @@ Private Cloud (VPC).
      * @error CacheSubnetQuotaExceededFault   
      * @error InvalidSubnet   
      */
-    createCacheSubnetGroup(params: ElastiCache.CreateCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupAlreadyExistsFault|ElastiCache.CacheSubnetGroupQuotaExceededFault|ElastiCache.CacheSubnetQuotaExceededFault|ElastiCache.InvalidSubnet|any, data: ElastiCache.CreateCacheSubnetGroupResult|any) => void): Request;
+    createCacheSubnetGroup(params: ElastiCache.CreateCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupAlreadyExistsFault|ElastiCache.CacheSubnetGroupQuotaExceededFault|ElastiCache.CacheSubnetQuotaExceededFault|ElastiCache.InvalidSubnet|any, data: ElastiCache.CreateCacheSubnetGroupResult|any) => void): Request<ElastiCache.CreateCacheSubnetGroupResult|any,ElastiCache.CacheSubnetGroupAlreadyExistsFault|ElastiCache.CacheSubnetGroupQuotaExceededFault|ElastiCache.CacheSubnetQuotaExceededFault|ElastiCache.InvalidSubnet|any>;
     /**
      * The CreateReplicationGroup action creates a replication group. A replication
 group is a collection of cache clusters, where one of the cache clusters is a
@@ -166,7 +166,7 @@ Note: This action is valid only for Redis.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    createReplicationGroup(params: ElastiCache.CreateReplicationGroupMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.ReplicationGroupAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateReplicationGroupResult|any) => void): Request;
+    createReplicationGroup(params: ElastiCache.CreateReplicationGroupMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.ReplicationGroupAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateReplicationGroupResult|any) => void): Request<ElastiCache.CreateReplicationGroupResult|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.ReplicationGroupAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The CreateSnapshot action creates a copy of an entire cache cluster at a
 specific moment in time.
@@ -179,7 +179,7 @@ specific moment in time.
      * @error InvalidParameterCombinationException   
      * @error InvalidParameterValueException   
      */
-    createSnapshot(params: ElastiCache.CreateSnapshotMessage, callback?: (err: ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any, data: ElastiCache.CreateSnapshotResult|any) => void): Request;
+    createSnapshot(params: ElastiCache.CreateSnapshotMessage, callback?: (err: ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any, data: ElastiCache.CreateSnapshotResult|any) => void): Request<ElastiCache.CreateSnapshotResult|any,ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any>;
     /**
      * The DeleteCacheCluster action deletes a previously provisioned cache cluster. 
 DeleteCacheCluster deletes all associated cache nodes, node endpoints and the
@@ -198,7 +198,7 @@ of a replication group that has Multi-AZ mode enabled.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    deleteCacheCluster(params: ElastiCache.DeleteCacheClusterMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteCacheClusterResult|any) => void): Request;
+    deleteCacheCluster(params: ElastiCache.DeleteCacheClusterMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteCacheClusterResult|any) => void): Request<ElastiCache.DeleteCacheClusterResult|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The DeleteCacheParameterGroup action deletes the specified cache parameter
 group. You cannot delete a cache parameter group if it is associated with any
@@ -209,7 +209,7 @@ cache clusters.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    deleteCacheParameterGroup(params: ElastiCache.DeleteCacheParameterGroupMessage, callback?: (err: ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: any) => void): Request;
+    deleteCacheParameterGroup(params: ElastiCache.DeleteCacheParameterGroupMessage, callback?: (err: ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: any) => void): Request<any,ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The DeleteCacheSecurityGroup action deletes a cache security group.
 
@@ -221,7 +221,7 @@ clusters.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    deleteCacheSecurityGroup(params: ElastiCache.DeleteCacheSecurityGroupMessage, callback?: (err: ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: any) => void): Request;
+    deleteCacheSecurityGroup(params: ElastiCache.DeleteCacheSecurityGroupMessage, callback?: (err: ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: any) => void): Request<any,ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The DeleteCacheSubnetGroup action deletes a cache subnet group.
 
@@ -231,7 +231,7 @@ clusters.
      * @error CacheSubnetGroupInUse   
      * @error CacheSubnetGroupNotFoundFault   
      */
-    deleteCacheSubnetGroup(params: ElastiCache.DeleteCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupInUse|ElastiCache.CacheSubnetGroupNotFoundFault|any, data: any) => void): Request;
+    deleteCacheSubnetGroup(params: ElastiCache.DeleteCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupInUse|ElastiCache.CacheSubnetGroupNotFoundFault|any, data: any) => void): Request<any,ElastiCache.CacheSubnetGroupInUse|ElastiCache.CacheSubnetGroupNotFoundFault|any>;
     /**
      * The DeleteReplicationGroup action deletes an existing replication group. By
 default, this action deletes the entire replication group, including the primary
@@ -250,7 +250,7 @@ this action.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    deleteReplicationGroup(params: ElastiCache.DeleteReplicationGroupMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteReplicationGroupResult|any) => void): Request;
+    deleteReplicationGroup(params: ElastiCache.DeleteReplicationGroupMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteReplicationGroupResult|any) => void): Request<ElastiCache.DeleteReplicationGroupResult|any,ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The DeleteSnapshot action deletes an existing snapshot. When you receive a
 successful response from this action, ElastiCache immediately begins deleting
@@ -261,7 +261,7 @@ the snapshot; you cannot cancel or revert this action.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    deleteSnapshot(params: ElastiCache.DeleteSnapshotMessage, callback?: (err: ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteSnapshotResult|any) => void): Request;
+    deleteSnapshot(params: ElastiCache.DeleteSnapshotMessage, callback?: (err: ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteSnapshotResult|any) => void): Request<ElastiCache.DeleteSnapshotResult|any,ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The DescribeCacheClusters action returns information about all provisioned cache
 clusters if no cache cluster identifier is specified, or about a specific cache
@@ -290,13 +290,13 @@ information for the removed nodes is displayed.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    describeCacheClusters(params: ElastiCache.DescribeCacheClustersMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheClusterMessage|any) => void): Request;
+    describeCacheClusters(params: ElastiCache.DescribeCacheClustersMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheClusterMessage|any) => void): Request<ElastiCache.CacheClusterMessage|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The DescribeCacheEngineVersions action returns a list of the available cache
 engines and their versions.
      *
      */
-    describeCacheEngineVersions(params: ElastiCache.DescribeCacheEngineVersionsMessage, callback?: (err: any, data: ElastiCache.CacheEngineVersionMessage|any) => void): Request;
+    describeCacheEngineVersions(params: ElastiCache.DescribeCacheEngineVersionsMessage, callback?: (err: any, data: ElastiCache.CacheEngineVersionMessage|any) => void): Request<ElastiCache.CacheEngineVersionMessage|any,any>;
     /**
      * The DescribeCacheParameterGroups action returns a list of cache parameter group
 descriptions. If a cache parameter group name is specified, the list will
@@ -306,7 +306,7 @@ contain only the descriptions for that group.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    describeCacheParameterGroups(params: ElastiCache.DescribeCacheParameterGroupsMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupsMessage|any) => void): Request;
+    describeCacheParameterGroups(params: ElastiCache.DescribeCacheParameterGroupsMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupsMessage|any) => void): Request<ElastiCache.CacheParameterGroupsMessage|any,ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The DescribeCacheParameters action returns the detailed parameter list for a
 particular cache parameter group.
@@ -315,7 +315,7 @@ particular cache parameter group.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    describeCacheParameters(params: ElastiCache.DescribeCacheParametersMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupDetails|any) => void): Request;
+    describeCacheParameters(params: ElastiCache.DescribeCacheParametersMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupDetails|any) => void): Request<ElastiCache.CacheParameterGroupDetails|any,ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The DescribeCacheSecurityGroups action returns a list of cache security group
 descriptions. If a cache security group name is specified, the list will contain
@@ -325,7 +325,7 @@ only the description of that group.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    describeCacheSecurityGroups(params: ElastiCache.DescribeCacheSecurityGroupsMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheSecurityGroupMessage|any) => void): Request;
+    describeCacheSecurityGroups(params: ElastiCache.DescribeCacheSecurityGroupsMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheSecurityGroupMessage|any) => void): Request<ElastiCache.CacheSecurityGroupMessage|any,ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The DescribeCacheSubnetGroups action returns a list of cache subnet group
 descriptions. If a subnet group name is specified, the list will contain only
@@ -333,7 +333,7 @@ the description of that group.
      *
      * @error CacheSubnetGroupNotFoundFault   
      */
-    describeCacheSubnetGroups(params: ElastiCache.DescribeCacheSubnetGroupsMessage, callback?: (err: ElastiCache.CacheSubnetGroupNotFoundFault|any, data: ElastiCache.CacheSubnetGroupMessage|any) => void): Request;
+    describeCacheSubnetGroups(params: ElastiCache.DescribeCacheSubnetGroupsMessage, callback?: (err: ElastiCache.CacheSubnetGroupNotFoundFault|any, data: ElastiCache.CacheSubnetGroupMessage|any) => void): Request<ElastiCache.CacheSubnetGroupMessage|any,ElastiCache.CacheSubnetGroupNotFoundFault|any>;
     /**
      * The DescribeEngineDefaultParameters action returns the default engine and system
 parameter information for the specified cache engine.
@@ -341,7 +341,7 @@ parameter information for the specified cache engine.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    describeEngineDefaultParameters(params: ElastiCache.DescribeEngineDefaultParametersMessage, callback?: (err: ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DescribeEngineDefaultParametersResult|any) => void): Request;
+    describeEngineDefaultParameters(params: ElastiCache.DescribeEngineDefaultParametersMessage, callback?: (err: ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DescribeEngineDefaultParametersResult|any) => void): Request<ElastiCache.DescribeEngineDefaultParametersResult|any,ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The DescribeEvents action returns events related to cache clusters, cache
 security groups, and cache parameter groups. You can obtain events specific to a
@@ -354,7 +354,7 @@ however, you can retrieve up to 14 days&#x27; worth of events if necessary.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    describeEvents(params: ElastiCache.DescribeEventsMessage, callback?: (err: ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.EventsMessage|any) => void): Request;
+    describeEvents(params: ElastiCache.DescribeEventsMessage, callback?: (err: ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.EventsMessage|any) => void): Request<ElastiCache.EventsMessage|any,ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The DescribeReplicationGroups action returns information about a particular
 replication group. If no identifier is specified, DescribeReplicationGroups 
@@ -364,7 +364,7 @@ returns information about all replication groups.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    describeReplicationGroups(params: ElastiCache.DescribeReplicationGroupsMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReplicationGroupMessage|any) => void): Request;
+    describeReplicationGroups(params: ElastiCache.DescribeReplicationGroupsMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReplicationGroupMessage|any) => void): Request<ElastiCache.ReplicationGroupMessage|any,ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The DescribeReservedCacheNodes action returns information about reserved cache
 nodes for this account, or about a specified reserved cache node.
@@ -373,7 +373,7 @@ nodes for this account, or about a specified reserved cache node.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    describeReservedCacheNodes(params: ElastiCache.DescribeReservedCacheNodesMessage, callback?: (err: ElastiCache.ReservedCacheNodeNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReservedCacheNodeMessage|any) => void): Request;
+    describeReservedCacheNodes(params: ElastiCache.DescribeReservedCacheNodesMessage, callback?: (err: ElastiCache.ReservedCacheNodeNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReservedCacheNodeMessage|any) => void): Request<ElastiCache.ReservedCacheNodeMessage|any,ElastiCache.ReservedCacheNodeNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The DescribeReservedCacheNodesOfferings action lists available reserved cache
 node offerings.
@@ -382,7 +382,7 @@ node offerings.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    describeReservedCacheNodesOfferings(params: ElastiCache.DescribeReservedCacheNodesOfferingsMessage, callback?: (err: ElastiCache.ReservedCacheNodesOfferingNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReservedCacheNodesOfferingMessage|any) => void): Request;
+    describeReservedCacheNodesOfferings(params: ElastiCache.DescribeReservedCacheNodesOfferingsMessage, callback?: (err: ElastiCache.ReservedCacheNodesOfferingNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReservedCacheNodesOfferingMessage|any) => void): Request<ElastiCache.ReservedCacheNodesOfferingMessage|any,ElastiCache.ReservedCacheNodesOfferingNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The DescribeSnapshots action returns information about cache cluster snapshots.
 By default, DescribeSnapshots lists all of your snapshots; it can optionally
@@ -394,7 +394,7 @@ cache cluster.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    describeSnapshots(params: ElastiCache.DescribeSnapshotsMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DescribeSnapshotsListMessage|any) => void): Request;
+    describeSnapshots(params: ElastiCache.DescribeSnapshotsMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DescribeSnapshotsListMessage|any) => void): Request<ElastiCache.DescribeSnapshotsListMessage|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The ListAllowedNodeTypeModifications action lists all available node types that
 you can scale your Redis cluster&#x27;s or replication group&#x27;s current node type up
@@ -409,7 +409,7 @@ be one of the node types returned by this action.
      * @error InvalidParameterCombinationException   
      * @error InvalidParameterValueException   
      */
-    listAllowedNodeTypeModifications(params: ElastiCache.ListAllowedNodeTypeModificationsMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any, data: ElastiCache.AllowedNodeTypeModificationsMessage|any) => void): Request;
+    listAllowedNodeTypeModifications(params: ElastiCache.ListAllowedNodeTypeModificationsMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any, data: ElastiCache.AllowedNodeTypeModificationsMessage|any) => void): Request<ElastiCache.AllowedNodeTypeModificationsMessage|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any>;
     /**
      * The ListTagsForResource action lists all cost allocation tags currently on the
 named resource. A cost allocation tag is a key-value pair where the key is
@@ -425,7 +425,7 @@ For more information, see Using Cost Allocation Tags in Amazon ElastiCache
      * @error SnapshotNotFoundFault   
      * @error InvalidARNFault   
      */
-    listTagsForResource(params: ElastiCache.ListTagsForResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|any, data: ElastiCache.TagListMessage|any) => void): Request;
+    listTagsForResource(params: ElastiCache.ListTagsForResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|any, data: ElastiCache.TagListMessage|any) => void): Request<ElastiCache.TagListMessage|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|any>;
     /**
      * The ModifyCacheCluster action modifies the settings for a cache cluster. You can
 use this action to change one or more cluster configuration parameters by
@@ -443,7 +443,7 @@ specifying the parameters and the new values.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    modifyCacheCluster(params: ElastiCache.ModifyCacheClusterMessage, callback?: (err: ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ModifyCacheClusterResult|any) => void): Request;
+    modifyCacheCluster(params: ElastiCache.ModifyCacheClusterMessage, callback?: (err: ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ModifyCacheClusterResult|any) => void): Request<ElastiCache.ModifyCacheClusterResult|any,ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The ModifyCacheParameterGroup action modifies the parameters of a cache
 parameter group. You can modify up to 20 parameters in a single request by
@@ -454,7 +454,7 @@ submitting a list parameter name and value pairs.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    modifyCacheParameterGroup(params: ElastiCache.ModifyCacheParameterGroupMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupNameMessage|any) => void): Request;
+    modifyCacheParameterGroup(params: ElastiCache.ModifyCacheParameterGroupMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupNameMessage|any) => void): Request<ElastiCache.CacheParameterGroupNameMessage|any,ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The ModifyCacheSubnetGroup action modifies an existing cache subnet group.
      *
@@ -463,7 +463,7 @@ submitting a list parameter name and value pairs.
      * @error SubnetInUse   
      * @error InvalidSubnet   
      */
-    modifyCacheSubnetGroup(params: ElastiCache.ModifyCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.CacheSubnetQuotaExceededFault|ElastiCache.SubnetInUse|ElastiCache.InvalidSubnet|any, data: ElastiCache.ModifyCacheSubnetGroupResult|any) => void): Request;
+    modifyCacheSubnetGroup(params: ElastiCache.ModifyCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.CacheSubnetQuotaExceededFault|ElastiCache.SubnetInUse|ElastiCache.InvalidSubnet|any, data: ElastiCache.ModifyCacheSubnetGroupResult|any) => void): Request<ElastiCache.ModifyCacheSubnetGroupResult|any,ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.CacheSubnetQuotaExceededFault|ElastiCache.SubnetInUse|ElastiCache.InvalidSubnet|any>;
     /**
      * The ModifyReplicationGroup action modifies the settings for a replication group.
      *
@@ -481,7 +481,7 @@ submitting a list parameter name and value pairs.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    modifyReplicationGroup(params: ElastiCache.ModifyReplicationGroupMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ModifyReplicationGroupResult|any) => void): Request;
+    modifyReplicationGroup(params: ElastiCache.ModifyReplicationGroupMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ModifyReplicationGroupResult|any) => void): Request<ElastiCache.ModifyReplicationGroupResult|any,ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The PurchaseReservedCacheNodesOffering action allows you to purchase a reserved
 cache node offering.
@@ -492,7 +492,7 @@ cache node offering.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    purchaseReservedCacheNodesOffering(params: ElastiCache.PurchaseReservedCacheNodesOfferingMessage, callback?: (err: ElastiCache.ReservedCacheNodesOfferingNotFoundFault|ElastiCache.ReservedCacheNodeAlreadyExistsFault|ElastiCache.ReservedCacheNodeQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.PurchaseReservedCacheNodesOfferingResult|any) => void): Request;
+    purchaseReservedCacheNodesOffering(params: ElastiCache.PurchaseReservedCacheNodesOfferingMessage, callback?: (err: ElastiCache.ReservedCacheNodesOfferingNotFoundFault|ElastiCache.ReservedCacheNodeAlreadyExistsFault|ElastiCache.ReservedCacheNodeQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.PurchaseReservedCacheNodesOfferingResult|any) => void): Request<ElastiCache.PurchaseReservedCacheNodesOfferingResult|any,ElastiCache.ReservedCacheNodesOfferingNotFoundFault|ElastiCache.ReservedCacheNodeAlreadyExistsFault|ElastiCache.ReservedCacheNodeQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The RebootCacheCluster action reboots some, or all, of the cache nodes within a
 provisioned cache cluster. This API will apply any modified cache parameter
@@ -508,7 +508,7 @@ When the reboot is complete, a cache cluster event is created.
      * @error InvalidCacheClusterStateFault   
      * @error CacheClusterNotFoundFault   
      */
-    rebootCacheCluster(params: ElastiCache.RebootCacheClusterMessage, callback?: (err: ElastiCache.InvalidCacheClusterStateFault|ElastiCache.CacheClusterNotFoundFault|any, data: ElastiCache.RebootCacheClusterResult|any) => void): Request;
+    rebootCacheCluster(params: ElastiCache.RebootCacheClusterMessage, callback?: (err: ElastiCache.InvalidCacheClusterStateFault|ElastiCache.CacheClusterNotFoundFault|any, data: ElastiCache.RebootCacheClusterResult|any) => void): Request<ElastiCache.RebootCacheClusterResult|any,ElastiCache.InvalidCacheClusterStateFault|ElastiCache.CacheClusterNotFoundFault|any>;
     /**
      * The RemoveTagsFromResource action removes the tags identified by the TagKeys 
 list from the named resource.
@@ -518,7 +518,7 @@ list from the named resource.
      * @error InvalidARNFault   
      * @error TagNotFoundFault   
      */
-    removeTagsFromResource(params: ElastiCache.RemoveTagsFromResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|ElastiCache.TagNotFoundFault|any, data: ElastiCache.TagListMessage|any) => void): Request;
+    removeTagsFromResource(params: ElastiCache.RemoveTagsFromResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|ElastiCache.TagNotFoundFault|any, data: ElastiCache.TagListMessage|any) => void): Request<ElastiCache.TagListMessage|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|ElastiCache.TagNotFoundFault|any>;
     /**
      * The ResetCacheParameterGroup action modifies the parameters of a cache parameter
 group to the engine or system default value. You can reset specific parameters
@@ -530,7 +530,7 @@ group, specify the ResetAllParameters and CacheParameterGroupName parameters.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    resetCacheParameterGroup(params: ElastiCache.ResetCacheParameterGroupMessage, callback?: (err: ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupNameMessage|any) => void): Request;
+    resetCacheParameterGroup(params: ElastiCache.ResetCacheParameterGroupMessage, callback?: (err: ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupNameMessage|any) => void): Request<ElastiCache.CacheParameterGroupNameMessage|any,ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
      * The RevokeCacheSecurityGroupIngress action revokes ingress from a cache security
 group. Use this action to disallow access from an Amazon EC2 security group that
@@ -542,7 +542,7 @@ had been previously authorized.
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    revokeCacheSecurityGroupIngress(params: ElastiCache.RevokeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.AuthorizationNotFoundFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.RevokeCacheSecurityGroupIngressResult|any) => void): Request;
+    revokeCacheSecurityGroupIngress(params: ElastiCache.RevokeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.AuthorizationNotFoundFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.RevokeCacheSecurityGroupIngressResult|any) => void): Request<ElastiCache.RevokeCacheSecurityGroupIngressResult|any,ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.AuthorizationNotFoundFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
 
   }
 

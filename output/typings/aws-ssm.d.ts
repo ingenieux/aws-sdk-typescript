@@ -146,7 +146,7 @@ stopped.
      * @error InvalidInstanceId   
      * @error DuplicateInstanceId   
      */
-    cancelCommand(params: SSM.CancelCommandRequest, callback?: (err: SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.DuplicateInstanceId|any, data: SSM.CancelCommandResult|any) => void): Request;
+    cancelCommand(params: SSM.CancelCommandRequest, callback?: (err: SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.DuplicateInstanceId|any, data: SSM.CancelCommandResult|any) => void): Request<SSM.CancelCommandResult|any,SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.DuplicateInstanceId|any>;
     /**
      * Associates the specified SSM document with the specified instance.
 
@@ -164,7 +164,7 @@ document, the system throws the AssociationAlreadyExists exception.
      * @error UnsupportedPlatformType   
      * @error InvalidParameters   
      */
-    createAssociation(params: SSM.CreateAssociationRequest, callback?: (err: SSM.AssociationAlreadyExists|SSM.AssociationLimitExceeded|SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidInstanceId|SSM.UnsupportedPlatformType|SSM.InvalidParameters|any, data: SSM.CreateAssociationResult|any) => void): Request;
+    createAssociation(params: SSM.CreateAssociationRequest, callback?: (err: SSM.AssociationAlreadyExists|SSM.AssociationLimitExceeded|SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidInstanceId|SSM.UnsupportedPlatformType|SSM.InvalidParameters|any, data: SSM.CreateAssociationResult|any) => void): Request<SSM.CreateAssociationResult|any,SSM.AssociationAlreadyExists|SSM.AssociationLimitExceeded|SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidInstanceId|SSM.UnsupportedPlatformType|SSM.InvalidParameters|any>;
     /**
      * Associates the specified SSM document with the specified instances.
 
@@ -182,7 +182,7 @@ document, the system throws the AssociationAlreadyExists exception.
      * @error AssociationLimitExceeded   
      * @error UnsupportedPlatformType   
      */
-    createAssociationBatch(params: SSM.CreateAssociationBatchRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidInstanceId|SSM.InvalidParameters|SSM.DuplicateInstanceId|SSM.AssociationLimitExceeded|SSM.UnsupportedPlatformType|any, data: SSM.CreateAssociationBatchResult|any) => void): Request;
+    createAssociationBatch(params: SSM.CreateAssociationBatchRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidInstanceId|SSM.InvalidParameters|SSM.DuplicateInstanceId|SSM.AssociationLimitExceeded|SSM.UnsupportedPlatformType|any, data: SSM.CreateAssociationBatchResult|any) => void): Request<SSM.CreateAssociationBatchResult|any,SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidInstanceId|SSM.InvalidParameters|SSM.DuplicateInstanceId|SSM.AssociationLimitExceeded|SSM.UnsupportedPlatformType|any>;
     /**
      * Creates an SSM document.
 
@@ -195,7 +195,7 @@ with one or more running instances.
      * @error InvalidDocumentContent   
      * @error DocumentLimitExceeded   
      */
-    createDocument(params: SSM.CreateDocumentRequest, callback?: (err: SSM.DocumentAlreadyExists|SSM.MaxDocumentSizeExceeded|SSM.InternalServerError|SSM.InvalidDocumentContent|SSM.DocumentLimitExceeded|any, data: SSM.CreateDocumentResult|any) => void): Request;
+    createDocument(params: SSM.CreateDocumentRequest, callback?: (err: SSM.DocumentAlreadyExists|SSM.MaxDocumentSizeExceeded|SSM.InternalServerError|SSM.InvalidDocumentContent|SSM.DocumentLimitExceeded|any, data: SSM.CreateDocumentResult|any) => void): Request<SSM.CreateDocumentResult|any,SSM.DocumentAlreadyExists|SSM.MaxDocumentSizeExceeded|SSM.InternalServerError|SSM.InvalidDocumentContent|SSM.DocumentLimitExceeded|any>;
     /**
      * Disassociates the specified SSM document from the specified instance.
 
@@ -210,7 +210,7 @@ desired configuration and associate it with the instance.
      * @error InvalidInstanceId   
      * @error TooManyUpdates   
      */
-    deleteAssociation(params: SSM.DeleteAssociationRequest, callback?: (err: SSM.AssociationDoesNotExist|SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidInstanceId|SSM.TooManyUpdates|any, data: SSM.DeleteAssociationResult|any) => void): Request;
+    deleteAssociation(params: SSM.DeleteAssociationRequest, callback?: (err: SSM.AssociationDoesNotExist|SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidInstanceId|SSM.TooManyUpdates|any, data: SSM.DeleteAssociationResult|any) => void): Request<SSM.DeleteAssociationResult|any,SSM.AssociationDoesNotExist|SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidInstanceId|SSM.TooManyUpdates|any>;
     /**
      * Deletes the SSM document and all instance associations to the document.
 
@@ -221,7 +221,7 @@ to disassociate all instances that are associated with the document.
      * @error InvalidDocument   
      * @error AssociatedInstances   
      */
-    deleteDocument(params: SSM.DeleteDocumentRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|SSM.AssociatedInstances|any, data: SSM.DeleteDocumentResult|any) => void): Request;
+    deleteDocument(params: SSM.DeleteDocumentRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|SSM.AssociatedInstances|any, data: SSM.DeleteDocumentResult|any) => void): Request<SSM.DeleteDocumentResult|any,SSM.InternalServerError|SSM.InvalidDocument|SSM.AssociatedInstances|any>;
     /**
      * Describes the associations for the specified SSM document or instance.
      *
@@ -230,14 +230,14 @@ to disassociate all instances that are associated with the document.
      * @error InvalidDocument   
      * @error InvalidInstanceId   
      */
-    describeAssociation(params: SSM.DescribeAssociationRequest, callback?: (err: SSM.AssociationDoesNotExist|SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidInstanceId|any, data: SSM.DescribeAssociationResult|any) => void): Request;
+    describeAssociation(params: SSM.DescribeAssociationRequest, callback?: (err: SSM.AssociationDoesNotExist|SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidInstanceId|any, data: SSM.DescribeAssociationResult|any) => void): Request<SSM.DescribeAssociationResult|any,SSM.AssociationDoesNotExist|SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidInstanceId|any>;
     /**
      * Describes the specified SSM document.
      *
      * @error InternalServerError   
      * @error InvalidDocument   
      */
-    describeDocument(params: SSM.DescribeDocumentRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|any, data: SSM.DescribeDocumentResult|any) => void): Request;
+    describeDocument(params: SSM.DescribeDocumentRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|any, data: SSM.DescribeDocumentResult|any) => void): Request<SSM.DescribeDocumentResult|any,SSM.InternalServerError|SSM.InvalidDocument|any>;
     /**
      * Describes one or more of your instances. You can use this to get information
 about instances like the operating system platform, the SSM agent version,
@@ -252,21 +252,21 @@ instance that you do not own, you receive an error.
      * @error InvalidInstanceInformationFilterValue   
      * @error InvalidFilterKey   
      */
-    describeInstanceInformation(params: SSM.DescribeInstanceInformationRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidNextToken|SSM.InvalidInstanceInformationFilterValue|SSM.InvalidFilterKey|any, data: SSM.DescribeInstanceInformationResult|any) => void): Request;
+    describeInstanceInformation(params: SSM.DescribeInstanceInformationRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidNextToken|SSM.InvalidInstanceInformationFilterValue|SSM.InvalidFilterKey|any, data: SSM.DescribeInstanceInformationResult|any) => void): Request<SSM.DescribeInstanceInformationResult|any,SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidNextToken|SSM.InvalidInstanceInformationFilterValue|SSM.InvalidFilterKey|any>;
     /**
      * Gets the contents of the specified SSM document.
      *
      * @error InternalServerError   
      * @error InvalidDocument   
      */
-    getDocument(params: SSM.GetDocumentRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|any, data: SSM.GetDocumentResult|any) => void): Request;
+    getDocument(params: SSM.GetDocumentRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|any, data: SSM.GetDocumentResult|any) => void): Request<SSM.GetDocumentResult|any,SSM.InternalServerError|SSM.InvalidDocument|any>;
     /**
      * Lists the associations for the specified SSM document or instance.
      *
      * @error InternalServerError   
      * @error InvalidNextToken   
      */
-    listAssociations(params: SSM.ListAssociationsRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidNextToken|any, data: SSM.ListAssociationsResult|any) => void): Request;
+    listAssociations(params: SSM.ListAssociationsRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidNextToken|any, data: SSM.ListAssociationsResult|any) => void): Request<SSM.ListAssociationsResult|any,SSM.InternalServerError|SSM.InvalidNextToken|any>;
     /**
      * An invocation is copy of a command sent to a specific instance. A command can
 apply to one or more instances. A command invocation applies to one instance.
@@ -279,7 +279,7 @@ ListCommandInvocations provide status about command execution.
      * @error InvalidFilterKey   
      * @error InvalidNextToken   
      */
-    listCommandInvocations(params: SSM.ListCommandInvocationsRequest, callback?: (err: SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidFilterKey|SSM.InvalidNextToken|any, data: SSM.ListCommandInvocationsResult|any) => void): Request;
+    listCommandInvocations(params: SSM.ListCommandInvocationsRequest, callback?: (err: SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidFilterKey|SSM.InvalidNextToken|any, data: SSM.ListCommandInvocationsResult|any) => void): Request<SSM.ListCommandInvocationsResult|any,SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidFilterKey|SSM.InvalidNextToken|any>;
     /**
      * Lists the commands requested by users of the AWS account.
      *
@@ -288,7 +288,7 @@ ListCommandInvocations provide status about command execution.
      * @error InvalidFilterKey   
      * @error InvalidNextToken   
      */
-    listCommands(params: SSM.ListCommandsRequest, callback?: (err: SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidFilterKey|SSM.InvalidNextToken|any, data: SSM.ListCommandsResult|any) => void): Request;
+    listCommands(params: SSM.ListCommandsRequest, callback?: (err: SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidFilterKey|SSM.InvalidNextToken|any, data: SSM.ListCommandsResult|any) => void): Request<SSM.ListCommandsResult|any,SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidFilterKey|SSM.InvalidNextToken|any>;
     /**
      * Describes one or more of your SSM documents.
      *
@@ -296,7 +296,7 @@ ListCommandInvocations provide status about command execution.
      * @error InvalidNextToken   
      * @error InvalidFilterKey   
      */
-    listDocuments(params: SSM.ListDocumentsRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidNextToken|SSM.InvalidFilterKey|any, data: SSM.ListDocumentsResult|any) => void): Request;
+    listDocuments(params: SSM.ListDocumentsRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidNextToken|SSM.InvalidFilterKey|any, data: SSM.ListDocumentsResult|any) => void): Request<SSM.ListDocumentsResult|any,SSM.InternalServerError|SSM.InvalidNextToken|SSM.InvalidFilterKey|any>;
     /**
      * Executes commands on one or more remote instances.
      *
@@ -307,7 +307,7 @@ ListCommandInvocations provide status about command execution.
      * @error InvalidParameters   
      * @error UnsupportedPlatformType   
      */
-    sendCommand(params: SSM.SendCommandRequest, callback?: (err: SSM.DuplicateInstanceId|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.InvalidOutputFolder|SSM.InvalidParameters|SSM.UnsupportedPlatformType|any, data: SSM.SendCommandResult|any) => void): Request;
+    sendCommand(params: SSM.SendCommandRequest, callback?: (err: SSM.DuplicateInstanceId|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.InvalidOutputFolder|SSM.InvalidParameters|SSM.UnsupportedPlatformType|any, data: SSM.SendCommandResult|any) => void): Request<SSM.SendCommandResult|any,SSM.DuplicateInstanceId|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.InvalidOutputFolder|SSM.InvalidParameters|SSM.UnsupportedPlatformType|any>;
     /**
      * Updates the status of the SSM document associated with the specified instance.
      *
@@ -318,7 +318,7 @@ ListCommandInvocations provide status about command execution.
      * @error StatusUnchanged   
      * @error TooManyUpdates   
      */
-    updateAssociationStatus(params: SSM.UpdateAssociationStatusRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.AssociationDoesNotExist|SSM.StatusUnchanged|SSM.TooManyUpdates|any, data: SSM.UpdateAssociationStatusResult|any) => void): Request;
+    updateAssociationStatus(params: SSM.UpdateAssociationStatusRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.AssociationDoesNotExist|SSM.StatusUnchanged|SSM.TooManyUpdates|any, data: SSM.UpdateAssociationStatusResult|any) => void): Request<SSM.UpdateAssociationStatusResult|any,SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.AssociationDoesNotExist|SSM.StatusUnchanged|SSM.TooManyUpdates|any>;
 
   }
 

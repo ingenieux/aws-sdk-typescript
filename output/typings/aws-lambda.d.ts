@@ -53,7 +53,7 @@ This operation requires permission for the lambda:AddPermission action.
      * @error PolicyLengthExceededException   
      * @error TooManyRequestsException   
      */
-    addPermission(params: Lambda.AddPermissionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.ResourceConflictException|Lambda.InvalidParameterValueException|Lambda.PolicyLengthExceededException|Lambda.TooManyRequestsException|any, data: Lambda.AddPermissionResponse|any) => void): Request;
+    addPermission(params: Lambda.AddPermissionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.ResourceConflictException|Lambda.InvalidParameterValueException|Lambda.PolicyLengthExceededException|Lambda.TooManyRequestsException|any, data: Lambda.AddPermissionResponse|any) => void): Request<Lambda.AddPermissionResponse|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.ResourceConflictException|Lambda.InvalidParameterValueException|Lambda.PolicyLengthExceededException|Lambda.TooManyRequestsException|any>;
     /**
      * Creates an alias that points to the specified Lambda function version. For more
 information, see Introduction to AWS Lambda Aliases
@@ -68,7 +68,7 @@ lambda:CreateAlias action.
      * @error InvalidParameterValueException   
      * @error TooManyRequestsException   
      */
-    createAlias(params: Lambda.CreateAliasRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.ResourceConflictException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.AliasConfiguration|any) => void): Request;
+    createAlias(params: Lambda.CreateAliasRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.ResourceConflictException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.AliasConfiguration|any) => void): Request<Lambda.AliasConfiguration|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.ResourceConflictException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any>;
     /**
      * Identifies a stream as an event source for a Lambda function. It can be either
 an Amazon Kinesis stream or an Amazon DynamoDB stream. AWS Lambda invokes the
@@ -104,7 +104,7 @@ action.
      * @error TooManyRequestsException   
      * @error ResourceNotFoundException   
      */
-    createEventSourceMapping(params: Lambda.CreateEventSourceMappingRequest, callback?: (err: Lambda.ServiceException|Lambda.InvalidParameterValueException|Lambda.ResourceConflictException|Lambda.TooManyRequestsException|Lambda.ResourceNotFoundException|any, data: Lambda.EventSourceMappingConfiguration|any) => void): Request;
+    createEventSourceMapping(params: Lambda.CreateEventSourceMappingRequest, callback?: (err: Lambda.ServiceException|Lambda.InvalidParameterValueException|Lambda.ResourceConflictException|Lambda.TooManyRequestsException|Lambda.ResourceNotFoundException|any, data: Lambda.EventSourceMappingConfiguration|any) => void): Request<Lambda.EventSourceMappingConfiguration|any,Lambda.ServiceException|Lambda.InvalidParameterValueException|Lambda.ResourceConflictException|Lambda.TooManyRequestsException|Lambda.ResourceNotFoundException|any>;
     /**
      * Creates a new Lambda function. The function metadata is created from the request
 parameters, and the code for the function is provided by a .zip file in the
@@ -125,7 +125,7 @@ This operation requires permission for the lambda:CreateFunction action.
      * @error TooManyRequestsException   
      * @error CodeStorageExceededException   
      */
-    createFunction(params: Lambda.CreateFunctionRequest, callback?: (err: Lambda.ServiceException|Lambda.InvalidParameterValueException|Lambda.ResourceNotFoundException|Lambda.ResourceConflictException|Lambda.TooManyRequestsException|Lambda.CodeStorageExceededException|any, data: Lambda.FunctionConfiguration|any) => void): Request;
+    createFunction(params: Lambda.CreateFunctionRequest, callback?: (err: Lambda.ServiceException|Lambda.InvalidParameterValueException|Lambda.ResourceNotFoundException|Lambda.ResourceConflictException|Lambda.TooManyRequestsException|Lambda.CodeStorageExceededException|any, data: Lambda.FunctionConfiguration|any) => void): Request<Lambda.FunctionConfiguration|any,Lambda.ServiceException|Lambda.InvalidParameterValueException|Lambda.ResourceNotFoundException|Lambda.ResourceConflictException|Lambda.TooManyRequestsException|Lambda.CodeStorageExceededException|any>;
     /**
      * Deletes the specified Lambda function alias. For more information, see 
 Introduction to AWS Lambda Aliases
@@ -137,7 +137,7 @@ This requires permission for the lambda:DeleteAlias action.
      * @error InvalidParameterValueException   
      * @error TooManyRequestsException   
      */
-    deleteAlias(params: Lambda.DeleteAliasRequest, callback?: (err: Lambda.ServiceException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: any) => void): Request;
+    deleteAlias(params: Lambda.DeleteAliasRequest, callback?: (err: Lambda.ServiceException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: any) => void): Request<any,Lambda.ServiceException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any>;
     /**
      * Removes an event source mapping. This means AWS Lambda will no longer invoke the
 function for events in the associated source.
@@ -150,7 +150,7 @@ action.
      * @error InvalidParameterValueException   
      * @error TooManyRequestsException   
      */
-    deleteEventSourceMapping(params: Lambda.DeleteEventSourceMappingRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.EventSourceMappingConfiguration|any) => void): Request;
+    deleteEventSourceMapping(params: Lambda.DeleteEventSourceMappingRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.EventSourceMappingConfiguration|any) => void): Request<Lambda.EventSourceMappingConfiguration|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any>;
     /**
      * Deletes the specified Lambda function code and configuration.
 
@@ -173,7 +173,7 @@ This operation requires permission for the lambda:DeleteFunction action.
      * @error InvalidParameterValueException   
      * @error ResourceConflictException   
      */
-    deleteFunction(params: Lambda.DeleteFunctionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.ResourceConflictException|any, data: any) => void): Request;
+    deleteFunction(params: Lambda.DeleteFunctionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.ResourceConflictException|any, data: any) => void): Request<any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.ResourceConflictException|any>;
     /**
      * Returns the specified alias information such as the alias ARN, description, and
 function version it is pointing to. For more information, see Introduction to
@@ -187,7 +187,7 @@ This requires permission for the lambda:GetAlias action.
      * @error InvalidParameterValueException   
      * @error TooManyRequestsException   
      */
-    getAlias(params: Lambda.GetAliasRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.AliasConfiguration|any) => void): Request;
+    getAlias(params: Lambda.GetAliasRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.AliasConfiguration|any) => void): Request<Lambda.AliasConfiguration|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any>;
     /**
      * Returns configuration information for the specified event source mapping (see 
 CreateEventSourceMapping ).
@@ -199,7 +199,7 @@ This operation requires permission for the lambda:GetEventSourceMapping action.
      * @error InvalidParameterValueException   
      * @error TooManyRequestsException   
      */
-    getEventSourceMapping(params: Lambda.GetEventSourceMappingRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.EventSourceMappingConfiguration|any) => void): Request;
+    getEventSourceMapping(params: Lambda.GetEventSourceMappingRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.EventSourceMappingConfiguration|any) => void): Request<Lambda.EventSourceMappingConfiguration|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any>;
     /**
      * Returns the configuration information of the Lambda function and a presigned URL
 link to the .zip file you uploaded with CreateFunction so you can download the
@@ -221,7 +221,7 @@ This operation requires permission for the lambda:GetFunction action.
      * @error TooManyRequestsException   
      * @error InvalidParameterValueException   
      */
-    getFunction(params: Lambda.GetFunctionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any, data: Lambda.GetFunctionResponse|any) => void): Request;
+    getFunction(params: Lambda.GetFunctionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any, data: Lambda.GetFunctionResponse|any) => void): Request<Lambda.GetFunctionResponse|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any>;
     /**
      * Returns the configuration information of the Lambda function. This the same
 information you provided as parameters when uploading the function by using 
@@ -242,7 +242,7 @@ operation.
      * @error TooManyRequestsException   
      * @error InvalidParameterValueException   
      */
-    getFunctionConfiguration(params: Lambda.GetFunctionConfigurationRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any, data: Lambda.FunctionConfiguration|any) => void): Request;
+    getFunctionConfiguration(params: Lambda.GetFunctionConfigurationRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any, data: Lambda.FunctionConfiguration|any) => void): Request<Lambda.FunctionConfiguration|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any>;
     /**
      * Returns the resource policy associated with the specified Lambda function.
 
@@ -261,7 +261,7 @@ You need permission for the lambda:GetPolicy action.
      * @error TooManyRequestsException   
      * @error InvalidParameterValueException   
      */
-    getPolicy(params: Lambda.GetPolicyRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any, data: Lambda.GetPolicyResponse|any) => void): Request;
+    getPolicy(params: Lambda.GetPolicyRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any, data: Lambda.GetPolicyResponse|any) => void): Request<Lambda.GetPolicyResponse|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|any>;
     /**
      * Invokes a specific Lambda function.
 
@@ -290,7 +290,7 @@ This operation requires permission for the lambda:InvokeFunction action.
      * @error InvalidSubnetIDException   
      * @error InvalidSecurityGroupIDException   
      */
-    invoke(params: Lambda.InvocationRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|Lambda.RequestTooLargeException|Lambda.UnsupportedMediaTypeException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.EC2UnexpectedException|Lambda.SubnetIPAddressLimitReachedException|Lambda.ENILimitReachedException|Lambda.EC2ThrottledException|Lambda.EC2AccessDeniedException|Lambda.InvalidSubnetIDException|Lambda.InvalidSecurityGroupIDException|any, data: Lambda.InvocationResponse|any) => void): Request;
+    invoke(params: Lambda.InvocationRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|Lambda.RequestTooLargeException|Lambda.UnsupportedMediaTypeException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.EC2UnexpectedException|Lambda.SubnetIPAddressLimitReachedException|Lambda.ENILimitReachedException|Lambda.EC2ThrottledException|Lambda.EC2AccessDeniedException|Lambda.InvalidSubnetIDException|Lambda.InvalidSecurityGroupIDException|any, data: Lambda.InvocationResponse|any) => void): Request<Lambda.InvocationResponse|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|Lambda.RequestTooLargeException|Lambda.UnsupportedMediaTypeException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.EC2UnexpectedException|Lambda.SubnetIPAddressLimitReachedException|Lambda.ENILimitReachedException|Lambda.EC2ThrottledException|Lambda.EC2AccessDeniedException|Lambda.InvalidSubnetIDException|Lambda.InvalidSecurityGroupIDException|any>;
     /**
      * This API is deprecated. We recommend you use Invoke API (see Invoke ).Submits an
 invocation request to AWS Lambda. Upon receiving the request, Lambda executes
@@ -303,7 +303,7 @@ This operation requires permission for the lambda:InvokeFunction action.
      * @error ResourceNotFoundException   
      * @error InvalidRequestContentException   
      */
-    invokeAsync(params: Lambda.InvokeAsyncRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|any, data: Lambda.InvokeAsyncResponse|any) => void): Request;
+    invokeAsync(params: Lambda.InvokeAsyncRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|any, data: Lambda.InvokeAsyncResponse|any) => void): Request<Lambda.InvokeAsyncResponse|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|any>;
     /**
      * Returns list of aliases created for a Lambda function. For each alias, the
 response includes information such as the alias ARN, description, alias name,
@@ -318,7 +318,7 @@ This requires permission for the lambda:ListAliases action.
      * @error InvalidParameterValueException   
      * @error TooManyRequestsException   
      */
-    listAliases(params: Lambda.ListAliasesRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.ListAliasesResponse|any) => void): Request;
+    listAliases(params: Lambda.ListAliasesRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.ListAliasesResponse|any) => void): Request<Lambda.ListAliasesResponse|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any>;
     /**
      * Returns a list of event source mappings you created using the 
 CreateEventSourceMapping (see CreateEventSourceMapping ).
@@ -340,7 +340,7 @@ action.
      * @error InvalidParameterValueException   
      * @error TooManyRequestsException   
      */
-    listEventSourceMappings(params: Lambda.ListEventSourceMappingsRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.ListEventSourceMappingsResponse|any) => void): Request;
+    listEventSourceMappings(params: Lambda.ListEventSourceMappingsRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.ListEventSourceMappingsResponse|any) => void): Request<Lambda.ListEventSourceMappingsResponse|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any>;
     /**
      * Returns a list of your Lambda functions. For each function, the response
 includes the function configuration information. You must use GetFunction to
@@ -356,7 +356,7 @@ AWS Lambda Function Versioning and Aliases
      * @error ServiceException   
      * @error TooManyRequestsException   
      */
-    listFunctions(params: Lambda.ListFunctionsRequest, callback?: (err: Lambda.ServiceException|Lambda.TooManyRequestsException|any, data: Lambda.ListFunctionsResponse|any) => void): Request;
+    listFunctions(params: Lambda.ListFunctionsRequest, callback?: (err: Lambda.ServiceException|Lambda.TooManyRequestsException|any, data: Lambda.ListFunctionsResponse|any) => void): Request<Lambda.ListFunctionsResponse|any,Lambda.ServiceException|Lambda.TooManyRequestsException|any>;
     /**
      * List all versions of a function. For information about the versioning feature,
 see AWS Lambda Function Versioning and Aliases
@@ -367,7 +367,7 @@ see AWS Lambda Function Versioning and Aliases
      * @error InvalidParameterValueException   
      * @error TooManyRequestsException   
      */
-    listVersionsByFunction(params: Lambda.ListVersionsByFunctionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.ListVersionsByFunctionResponse|any) => void): Request;
+    listVersionsByFunction(params: Lambda.ListVersionsByFunctionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.ListVersionsByFunctionResponse|any) => void): Request<Lambda.ListVersionsByFunctionResponse|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any>;
     /**
      * Publishes a version of your function from the current snapshot of $LATEST. That
 is, AWS Lambda takes a snapshot of the function code and configuration
@@ -382,7 +382,7 @@ feature, see AWS Lambda Function Versioning and Aliases
      * @error TooManyRequestsException   
      * @error CodeStorageExceededException   
      */
-    publishVersion(params: Lambda.PublishVersionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|Lambda.CodeStorageExceededException|any, data: Lambda.FunctionConfiguration|any) => void): Request;
+    publishVersion(params: Lambda.PublishVersionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|Lambda.CodeStorageExceededException|any, data: Lambda.FunctionConfiguration|any) => void): Request<Lambda.FunctionConfiguration|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|Lambda.CodeStorageExceededException|any>;
     /**
      * You can remove individual permissions from an resource policy associated with a
 Lambda function by providing a statement ID that you provided when you added the
@@ -404,7 +404,7 @@ You need permission for the lambda:RemovePermission action.
      * @error InvalidParameterValueException   
      * @error TooManyRequestsException   
      */
-    removePermission(params: Lambda.RemovePermissionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: any) => void): Request;
+    removePermission(params: Lambda.RemovePermissionRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: any) => void): Request<any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any>;
     /**
      * Using this API you can update the function version to which the alias points and
 the alias description. For more information, see Introduction to AWS Lambda
@@ -417,7 +417,7 @@ This requires permission for the lambda:UpdateAlias action.
      * @error InvalidParameterValueException   
      * @error TooManyRequestsException   
      */
-    updateAlias(params: Lambda.UpdateAliasRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.AliasConfiguration|any) => void): Request;
+    updateAlias(params: Lambda.UpdateAliasRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.AliasConfiguration|any) => void): Request<Lambda.AliasConfiguration|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any>;
     /**
      * You can update an event source mapping. This is useful if you want to change the
 parameters of the existing mapping without losing your position in the stream.
@@ -444,7 +444,7 @@ action.
      * @error TooManyRequestsException   
      * @error ResourceConflictException   
      */
-    updateEventSourceMapping(params: Lambda.UpdateEventSourceMappingRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|Lambda.ResourceConflictException|any, data: Lambda.EventSourceMappingConfiguration|any) => void): Request;
+    updateEventSourceMapping(params: Lambda.UpdateEventSourceMappingRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|Lambda.ResourceConflictException|any, data: Lambda.EventSourceMappingConfiguration|any) => void): Request<Lambda.EventSourceMappingConfiguration|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|Lambda.ResourceConflictException|any>;
     /**
      * Updates the code for the specified Lambda function. This operation must only be
 used on an existing Lambda function and cannot be used to update the function
@@ -463,7 +463,7 @@ This operation requires permission for the lambda:UpdateFunctionCode action.
      * @error TooManyRequestsException   
      * @error CodeStorageExceededException   
      */
-    updateFunctionCode(params: Lambda.UpdateFunctionCodeRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|Lambda.CodeStorageExceededException|any, data: Lambda.FunctionConfiguration|any) => void): Request;
+    updateFunctionCode(params: Lambda.UpdateFunctionCodeRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|Lambda.CodeStorageExceededException|any, data: Lambda.FunctionConfiguration|any) => void): Request<Lambda.FunctionConfiguration|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|Lambda.CodeStorageExceededException|any>;
     /**
      * Updates the configuration parameters for the specified Lambda function by using
 the values provided in the request. You provide only the parameters you want to
@@ -483,7 +483,7 @@ action.
      * @error InvalidParameterValueException   
      * @error TooManyRequestsException   
      */
-    updateFunctionConfiguration(params: Lambda.UpdateFunctionConfigurationRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.FunctionConfiguration|any) => void): Request;
+    updateFunctionConfiguration(params: Lambda.UpdateFunctionConfigurationRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any, data: Lambda.FunctionConfiguration|any) => void): Request<Lambda.FunctionConfiguration|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidParameterValueException|Lambda.TooManyRequestsException|any>;
 
   }
 

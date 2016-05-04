@@ -86,7 +86,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    abortMultipartUpload(params: Glacier.AbortMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    abortMultipartUpload(params: Glacier.AbortMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request<any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation aborts the vault locking process if the vault lock is not in the 
 Locked state. If the vault lock is in the Locked state when this operation is
@@ -112,7 +112,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    abortVaultLock(params: Glacier.AbortVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    abortVaultLock(params: Glacier.AbortVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request<any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation adds the specified tags to a vault. Each tag is composed of a key
 and a value. Each vault can have up to 10 tags. If your request would cause the
@@ -129,7 +129,7 @@ not exist.
      * @error LimitExceededException Returned if the request results in a vault or account limit being exceeded.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    addTagsToVault(params: Glacier.AddTagsToVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.LimitExceededException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    addTagsToVault(params: Glacier.AddTagsToVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.LimitExceededException|Glacier.ServiceUnavailableException|any, data: any) => void): Request<any,Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.LimitExceededException|Glacier.ServiceUnavailableException|any>;
     /**
      * You call this operation to inform Amazon Glacier that all the archive parts have
 been uploaded and that Amazon Glacier can now assemble the archive from the
@@ -187,7 +187,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    completeMultipartUpload(params: Glacier.CompleteMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ArchiveCreationOutput|any) => void): Request;
+    completeMultipartUpload(params: Glacier.CompleteMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ArchiveCreationOutput|any) => void): Request<Glacier.ArchiveCreationOutput|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation completes the vault locking process by transitioning the vault
 lock from the InProgress state to the Locked state, which causes the vault lock
@@ -212,7 +212,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    completeVaultLock(params: Glacier.CompleteVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    completeVaultLock(params: Glacier.CompleteVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request<any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation creates a new vault with the specified name. The name of the
 vault must be unique within a region for an AWS account. You can create up to
@@ -253,7 +253,7 @@ Amazon Glacier Developer Guide .
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      * @error LimitExceededException Returned if the request results in a vault or account limit being exceeded.  
      */
-    createVault(params: Glacier.CreateVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|Glacier.LimitExceededException|any, data: Glacier.CreateVaultOutput|any) => void): Request;
+    createVault(params: Glacier.CreateVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|Glacier.LimitExceededException|any, data: Glacier.CreateVaultOutput|any) => void): Request<Glacier.CreateVaultOutput|any,Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|Glacier.LimitExceededException|any>;
     /**
      * This operation deletes an archive from a vault. Subsequent requests to initiate
 a retrieval of this archive will fail. Archive retrievals that are in progress
@@ -290,7 +290,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    deleteArchive(params: Glacier.DeleteArchiveInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    deleteArchive(params: Glacier.DeleteArchiveInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request<any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation deletes a vault. Amazon Glacier will delete a vault only if there
 are no archives in the vault as of the last inventory and there have been no
@@ -326,7 +326,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    deleteVault(params: Glacier.DeleteVaultInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    deleteVault(params: Glacier.DeleteVaultInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request<any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation deletes the access policy associated with the specified vault.
 The operation is eventually consistent; that is, it might take some time for
@@ -344,7 +344,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    deleteVaultAccessPolicy(params: Glacier.DeleteVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    deleteVaultAccessPolicy(params: Glacier.DeleteVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request<any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation deletes the notification configuration set for a vault. The
 operation is eventually consistent; that is, it might take some time for Amazon
@@ -371,7 +371,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    deleteVaultNotifications(params: Glacier.DeleteVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    deleteVaultNotifications(params: Glacier.DeleteVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request<any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation returns information about a job you previously initiated,
 including the job initiation date, the user who initiated the job, the job
@@ -406,7 +406,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    describeJob(params: Glacier.DescribeJobInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GlacierJobDescription|any) => void): Request;
+    describeJob(params: Glacier.DescribeJobInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GlacierJobDescription|any) => void): Request<Glacier.GlacierJobDescription|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation returns information about a vault, including the vault&#x27;s Amazon
 Resource Name (ARN), the date the vault was created, the number of archives it
@@ -440,7 +440,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    describeVault(params: Glacier.DescribeVaultInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.DescribeVaultOutput|any) => void): Request;
+    describeVault(params: Glacier.DescribeVaultInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.DescribeVaultOutput|any) => void): Request<Glacier.DescribeVaultOutput|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation returns the current data retrieval policy for the account and
 region specified in the GET request. For more information about data retrieval
@@ -452,7 +452,7 @@ policies, see Amazon Glacier Data Retrieval Policies
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    getDataRetrievalPolicy(params: Glacier.GetDataRetrievalPolicyInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetDataRetrievalPolicyOutput|any) => void): Request;
+    getDataRetrievalPolicy(params: Glacier.GetDataRetrievalPolicyInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetDataRetrievalPolicyOutput|any) => void): Request<Glacier.GetDataRetrievalPolicyOutput|any,Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation downloads the output of the job you initiated using InitiateJob .
 Depending on the job type you specified when you initiated the job, the output
@@ -515,7 +515,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    getJobOutput(params: Glacier.GetJobOutputInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetJobOutputOutput|any) => void): Request;
+    getJobOutput(params: Glacier.GetJobOutputInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetJobOutputOutput|any) => void): Request<Glacier.GetJobOutputOutput|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation retrieves the access-policy subresource set on the vault; for
 more information on setting this subresource, see Set Vault Access Policy (PUT
@@ -532,7 +532,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    getVaultAccessPolicy(params: Glacier.GetVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetVaultAccessPolicyOutput|any) => void): Request;
+    getVaultAccessPolicy(params: Glacier.GetVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetVaultAccessPolicyOutput|any) => void): Request<Glacier.GetVaultAccessPolicyOutput|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation retrieves the following attributes from the lock-policy 
 subresource set on the specified vault: &amp;#42; The vault lock policy set on the
@@ -571,7 +571,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    getVaultLock(params: Glacier.GetVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetVaultLockOutput|any) => void): Request;
+    getVaultLock(params: Glacier.GetVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetVaultLockOutput|any) => void): Request<Glacier.GetVaultLockOutput|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation retrieves the notification-configuration subresource of the
 specified vault.
@@ -604,7 +604,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    getVaultNotifications(params: Glacier.GetVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetVaultNotificationsOutput|any) => void): Request;
+    getVaultNotifications(params: Glacier.GetVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.GetVaultNotificationsOutput|any) => void): Request<Glacier.GetVaultNotificationsOutput|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation initiates a job of the specified type. In this release, you can
 initiate a job to retrieve either an archive or a vault inventory (a list of
@@ -745,7 +745,7 @@ rate limit. For more information about data retrieval policies,
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    initiateJob(params: Glacier.InitiateJobInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.PolicyEnforcedException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.InitiateJobOutput|any) => void): Request;
+    initiateJob(params: Glacier.InitiateJobInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.PolicyEnforcedException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.InitiateJobOutput|any) => void): Request<Glacier.InitiateJobOutput|any,Glacier.ResourceNotFoundException|Glacier.PolicyEnforcedException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation initiates a multipart upload. Amazon Glacier creates a multipart
 upload resource and returns its ID in the response. The multipart upload ID is
@@ -792,7 +792,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    initiateMultipartUpload(params: Glacier.InitiateMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.InitiateMultipartUploadOutput|any) => void): Request;
+    initiateMultipartUpload(params: Glacier.InitiateMultipartUploadInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.InitiateMultipartUploadOutput|any) => void): Request<Glacier.InitiateMultipartUploadOutput|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation initiates the vault locking process by doing the following: &amp;#42; 
    Installing a vault lock policy on the specified vault.
@@ -839,7 +839,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    initiateVaultLock(params: Glacier.InitiateVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.InitiateVaultLockOutput|any) => void): Request;
+    initiateVaultLock(params: Glacier.InitiateVaultLockInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.InitiateVaultLockOutput|any) => void): Request<Glacier.InitiateVaultLockOutput|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation lists jobs for a vault, including jobs that are in-progress and
 jobs that have recently finished.
@@ -890,7 +890,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    listJobs(params: Glacier.ListJobsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListJobsOutput|any) => void): Request;
+    listJobs(params: Glacier.ListJobsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListJobsOutput|any) => void): Request<Glacier.ListJobsOutput|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation lists in-progress multipart uploads for the specified vault. An
 in-progress multipart upload is a multipart upload that has been initiated by an 
@@ -932,7 +932,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    listMultipartUploads(params: Glacier.ListMultipartUploadsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListMultipartUploadsOutput|any) => void): Request;
+    listMultipartUploads(params: Glacier.ListMultipartUploadsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListMultipartUploadsOutput|any) => void): Request<Glacier.ListMultipartUploadsOutput|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation lists the parts of an archive that have been uploaded in a
 specific multipart upload. You can make this request at any time during an
@@ -969,7 +969,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    listParts(params: Glacier.ListPartsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListPartsOutput|any) => void): Request;
+    listParts(params: Glacier.ListPartsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListPartsOutput|any) => void): Request<Glacier.ListPartsOutput|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation lists all the tags attached to a vault. The operation returns an
 empty map if there are no tags. For more information about tags, see Tagging
@@ -982,7 +982,7 @@ Amazon Glacier Resources
 not exist.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    listTagsForVault(params: Glacier.ListTagsForVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.ServiceUnavailableException|any, data: Glacier.ListTagsForVaultOutput|any) => void): Request;
+    listTagsForVault(params: Glacier.ListTagsForVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.ServiceUnavailableException|any, data: Glacier.ListTagsForVaultOutput|any) => void): Request<Glacier.ListTagsForVaultOutput|any,Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation lists all vaults owned by the calling user&#x27;s account. The list
 returned in the response is ASCII-sorted by vault name.
@@ -1016,7 +1016,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    listVaults(params: Glacier.ListVaultsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListVaultsOutput|any) => void): Request;
+    listVaults(params: Glacier.ListVaultsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: Glacier.ListVaultsOutput|any) => void): Request<Glacier.ListVaultsOutput|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation removes one or more tags from the set of tags attached to a
 vault. For more information about tags, see Tagging Amazon Glacier Resources
@@ -1030,7 +1030,7 @@ tags attached to the vault.
 not exist.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    removeTagsFromVault(params: Glacier.RemoveTagsFromVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    removeTagsFromVault(params: Glacier.RemoveTagsFromVaultInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.ServiceUnavailableException|any, data: any) => void): Request<any,Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ResourceNotFoundException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation sets and then enacts a data retrieval policy in the region
 specified in the PUT request. You can set one policy per region for an AWS
@@ -1047,7 +1047,7 @@ policies, see Amazon Glacier Data Retrieval Policies
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    setDataRetrievalPolicy(params: Glacier.SetDataRetrievalPolicyInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    setDataRetrievalPolicy(params: Glacier.SetDataRetrievalPolicyInput, callback?: (err: Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request<any,Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation configures an access policy for a vault and will overwrite an
 existing policy. To configure a vault access policy, send a PUT request to the 
@@ -1063,7 +1063,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    setVaultAccessPolicy(params: Glacier.SetVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    setVaultAccessPolicy(params: Glacier.SetVaultAccessPolicyInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request<any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation configures notifications that will be sent when specific events
 happen to a vault. By default, you don&#x27;t get any notifications.
@@ -1107,7 +1107,7 @@ not exist.
      * @error MissingParameterValueException Returned if a required header or parameter is missing from the request.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    setVaultNotifications(params: Glacier.SetVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request;
+    setVaultNotifications(params: Glacier.SetVaultNotificationsInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any, data: any) => void): Request<any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation adds an archive to a vault. This is a synchronous operation, and
 for a successful upload, your data is durably persisted. Amazon Glacier returns
@@ -1160,7 +1160,7 @@ not exist.
 the upload.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    uploadArchive(params: Glacier.UploadArchiveInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.RequestTimeoutException|Glacier.ServiceUnavailableException|any, data: Glacier.ArchiveCreationOutput|any) => void): Request;
+    uploadArchive(params: Glacier.UploadArchiveInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.RequestTimeoutException|Glacier.ServiceUnavailableException|any, data: Glacier.ArchiveCreationOutput|any) => void): Request<Glacier.ArchiveCreationOutput|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.RequestTimeoutException|Glacier.ServiceUnavailableException|any>;
     /**
      * This operation uploads a part of an archive. You can upload archive parts in any
 order. You can also upload them in parallel. You can upload up to 10,000 parts
@@ -1223,7 +1223,7 @@ not exist.
 the upload.  
      * @error ServiceUnavailableException Returned if the service cannot complete the request.  
      */
-    uploadMultipartPart(params: Glacier.UploadMultipartPartInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.RequestTimeoutException|Glacier.ServiceUnavailableException|any, data: Glacier.UploadMultipartPartOutput|any) => void): Request;
+    uploadMultipartPart(params: Glacier.UploadMultipartPartInput, callback?: (err: Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.RequestTimeoutException|Glacier.ServiceUnavailableException|any, data: Glacier.UploadMultipartPartOutput|any) => void): Request<Glacier.UploadMultipartPartOutput|any,Glacier.ResourceNotFoundException|Glacier.InvalidParameterValueException|Glacier.MissingParameterValueException|Glacier.RequestTimeoutException|Glacier.ServiceUnavailableException|any>;
 
     /**
      * Found on JS Sources - Sorry for the inconvenience :)

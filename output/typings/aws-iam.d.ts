@@ -85,7 +85,7 @@ existing client ID to the provider.
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    addClientIDToOpenIDConnectProvider(params: IAM.AddClientIDToOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    addClientIDToOpenIDConnectProvider(params: IAM.AddClientIDToOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Adds the specified role to the specified instance profile. For more information
 about roles, go to Working with Roles
@@ -98,7 +98,7 @@ more information about instance profiles, go to About Instance Profiles
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    addRoleToInstanceProfile(params: IAM.AddRoleToInstanceProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    addRoleToInstanceProfile(params: IAM.AddRoleToInstanceProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Adds the specified user to the specified group.
      *
@@ -106,7 +106,7 @@ more information about instance profiles, go to About Instance Profiles
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    addUserToGroup(params: IAM.AddUserToGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    addUserToGroup(params: IAM.AddUserToGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Attaches the specified managed policy to the specified group.
 
@@ -123,7 +123,7 @@ in the IAM User Guide .
      * @error InvalidInputException   
      * @error ServiceFailureException   
      */
-    attachGroupPolicy(params: IAM.AttachGroupPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    attachGroupPolicy(params: IAM.AttachGroupPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any>;
     /**
      * Attaches the specified managed policy to the specified role.
 
@@ -144,7 +144,7 @@ in the IAM User Guide .
      * @error InvalidInputException   
      * @error ServiceFailureException   
      */
-    attachRolePolicy(params: IAM.AttachRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    attachRolePolicy(params: IAM.AttachRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any>;
     /**
      * Attaches the specified managed policy to the specified user.
 
@@ -161,7 +161,7 @@ in the IAM User Guide .
      * @error InvalidInputException   
      * @error ServiceFailureException   
      */
-    attachUserPolicy(params: IAM.AttachUserPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    attachUserPolicy(params: IAM.AttachUserPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any>;
     /**
      * Changes the password of the IAM user who is calling this action. The root
 account password is not affected by this action.
@@ -178,7 +178,7 @@ the IAM User Guide .
      * @error PasswordPolicyViolationException   
      * @error ServiceFailureException   
      */
-    changePassword(params: IAM.ChangePasswordRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidUserTypeException|IAM.LimitExceededException|IAM.EntityTemporarilyUnmodifiableException|IAM.PasswordPolicyViolationException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    changePassword(params: IAM.ChangePasswordRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidUserTypeException|IAM.LimitExceededException|IAM.EntityTemporarilyUnmodifiableException|IAM.PasswordPolicyViolationException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.InvalidUserTypeException|IAM.LimitExceededException|IAM.EntityTemporarilyUnmodifiableException|IAM.PasswordPolicyViolationException|IAM.ServiceFailureException|any>;
     /**
      * Creates a new AWS secret access key and corresponding AWS access key ID for the
 specified user. The default status for new keys is Active .
@@ -202,7 +202,7 @@ can delete the access keys for the associated user and then create new keys.
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    createAccessKey(params: IAM.CreateAccessKeyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateAccessKeyResponse|any) => void): Request;
+    createAccessKey(params: IAM.CreateAccessKeyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateAccessKeyResponse|any) => void): Request<IAM.CreateAccessKeyResponse|any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Creates an alias for your AWS account. For information about using an AWS
 account alias, see Using an Alias for Your AWS Account ID
@@ -213,7 +213,7 @@ User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    createAccountAlias(params: IAM.CreateAccountAliasRequest, callback?: (err: IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    createAccountAlias(params: IAM.CreateAccountAliasRequest, callback?: (err: IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Creates a new group.
 
@@ -227,7 +227,7 @@ the IAM User Guide .
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    createGroup(params: IAM.CreateGroupRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.CreateGroupResponse|any) => void): Request;
+    createGroup(params: IAM.CreateGroupRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.CreateGroupResponse|any) => void): Request<IAM.CreateGroupResponse|any,IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Creates a new instance profile. For information about instance profiles, go to 
 About Instance Profiles
@@ -242,7 +242,7 @@ the IAM User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    createInstanceProfile(params: IAM.CreateInstanceProfileRequest, callback?: (err: IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateInstanceProfileResponse|any) => void): Request;
+    createInstanceProfile(params: IAM.CreateInstanceProfileRequest, callback?: (err: IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateInstanceProfileResponse|any) => void): Request<IAM.CreateInstanceProfileResponse|any,IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Creates a password for the specified user, giving the user the ability to access
 AWS services through the AWS Management Console. For more information about
@@ -256,7 +256,7 @@ the Using IAM guide.
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    createLoginProfile(params: IAM.CreateLoginProfileRequest, callback?: (err: IAM.EntityAlreadyExistsException|IAM.NoSuchEntityException|IAM.PasswordPolicyViolationException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateLoginProfileResponse|any) => void): Request;
+    createLoginProfile(params: IAM.CreateLoginProfileRequest, callback?: (err: IAM.EntityAlreadyExistsException|IAM.NoSuchEntityException|IAM.PasswordPolicyViolationException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateLoginProfileResponse|any) => void): Request<IAM.CreateLoginProfileResponse|any,IAM.EntityAlreadyExistsException|IAM.NoSuchEntityException|IAM.PasswordPolicyViolationException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Creates an IAM entity to describe an identity provider (IdP) that supports 
 OpenID Connect (OIDC) [http://openid.net/connect/] .
@@ -281,7 +281,7 @@ CreateOpenIDConnectProvider action to highly-privileged users.
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    createOpenIDConnectProvider(params: IAM.CreateOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateOpenIDConnectProviderResponse|any) => void): Request;
+    createOpenIDConnectProvider(params: IAM.CreateOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateOpenIDConnectProviderResponse|any) => void): Request<IAM.CreateOpenIDConnectProviderResponse|any,IAM.InvalidInputException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Creates a new managed policy for your AWS account.
 
@@ -302,7 +302,7 @@ in the IAM User Guide .
      * @error MalformedPolicyDocumentException   
      * @error ServiceFailureException   
      */
-    createPolicy(params: IAM.CreatePolicyRequest, callback?: (err: IAM.InvalidInputException|IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedPolicyDocumentException|IAM.ServiceFailureException|any, data: IAM.CreatePolicyResponse|any) => void): Request;
+    createPolicy(params: IAM.CreatePolicyRequest, callback?: (err: IAM.InvalidInputException|IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedPolicyDocumentException|IAM.ServiceFailureException|any, data: IAM.CreatePolicyResponse|any) => void): Request<IAM.CreatePolicyResponse|any,IAM.InvalidInputException|IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedPolicyDocumentException|IAM.ServiceFailureException|any>;
     /**
      * Creates a new version of the specified managed policy. To update a managed
 policy, you create a new policy version. A managed policy can have up to five
@@ -324,7 +324,7 @@ in the IAM User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    createPolicyVersion(params: IAM.CreatePolicyVersionRequest, callback?: (err: IAM.NoSuchEntityException|IAM.MalformedPolicyDocumentException|IAM.InvalidInputException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreatePolicyVersionResponse|any) => void): Request;
+    createPolicyVersion(params: IAM.CreatePolicyVersionRequest, callback?: (err: IAM.NoSuchEntityException|IAM.MalformedPolicyDocumentException|IAM.InvalidInputException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreatePolicyVersionResponse|any) => void): Request<IAM.CreatePolicyVersionResponse|any,IAM.NoSuchEntityException|IAM.MalformedPolicyDocumentException|IAM.InvalidInputException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Creates a new role for your AWS account. For more information about roles, go to 
 Working with Roles
@@ -339,7 +339,7 @@ the IAM User Guide .
      * @error MalformedPolicyDocumentException   
      * @error ServiceFailureException   
      */
-    createRole(params: IAM.CreateRoleRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedPolicyDocumentException|IAM.ServiceFailureException|any, data: IAM.CreateRoleResponse|any) => void): Request;
+    createRole(params: IAM.CreateRoleRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedPolicyDocumentException|IAM.ServiceFailureException|any, data: IAM.CreateRoleResponse|any) => void): Request<IAM.CreateRoleResponse|any,IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedPolicyDocumentException|IAM.ServiceFailureException|any>;
     /**
      * Creates an IAM entity to describe an identity provider (IdP) that supports SAML
 2.0.
@@ -371,7 +371,7 @@ in the IAM User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    createSAMLProvider(params: IAM.CreateSAMLProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateSAMLProviderResponse|any) => void): Request;
+    createSAMLProvider(params: IAM.CreateSAMLProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.CreateSAMLProviderResponse|any) => void): Request<IAM.CreateSAMLProviderResponse|any,IAM.InvalidInputException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Creates a new user for your AWS account.
 
@@ -385,7 +385,7 @@ the IAM User Guide .
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    createUser(params: IAM.CreateUserRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.CreateUserResponse|any) => void): Request;
+    createUser(params: IAM.CreateUserRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.CreateUserResponse|any) => void): Request<IAM.CreateUserResponse|any,IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Creates a new virtual MFA device for the AWS account. After creating the virtual
 MFA, use EnableMFADevice to attach the MFA device to an IAM user. For more
@@ -408,7 +408,7 @@ that the information is destroyed following secure procedures.
      * @error EntityAlreadyExistsException   
      * @error ServiceFailureException   
      */
-    createVirtualMFADevice(params: IAM.CreateVirtualMFADeviceRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.ServiceFailureException|any, data: IAM.CreateVirtualMFADeviceResponse|any) => void): Request;
+    createVirtualMFADevice(params: IAM.CreateVirtualMFADeviceRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.ServiceFailureException|any, data: IAM.CreateVirtualMFADeviceResponse|any) => void): Request<IAM.CreateVirtualMFADeviceResponse|any,IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.ServiceFailureException|any>;
     /**
      * Deactivates the specified MFA device and removes it from association with the
 user name for which it was originally enabled.
@@ -423,7 +423,7 @@ Using IAM guide.
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    deactivateMFADevice(params: IAM.DeactivateMFADeviceRequest, callback?: (err: IAM.EntityTemporarilyUnmodifiableException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deactivateMFADevice(params: IAM.DeactivateMFADeviceRequest, callback?: (err: IAM.EntityTemporarilyUnmodifiableException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.EntityTemporarilyUnmodifiableException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the access key associated with the specified user.
 
@@ -436,7 +436,7 @@ credentials even if the AWS account has no associated users.
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    deleteAccessKey(params: IAM.DeleteAccessKeyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteAccessKey(params: IAM.DeleteAccessKeyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the specified AWS account alias. For information about using an AWS
 account alias, see Using an Alias for Your AWS Account ID
@@ -447,7 +447,7 @@ User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    deleteAccountAlias(params: IAM.DeleteAccountAliasRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteAccountAlias(params: IAM.DeleteAccountAliasRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the password policy for the AWS account.
      *
@@ -455,7 +455,7 @@ User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    deleteAccountPasswordPolicy(callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteAccountPasswordPolicy(callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the specified group. The group must not contain any users or have any
 attached policies.
@@ -465,7 +465,7 @@ attached policies.
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    deleteGroup(params: IAM.DeleteGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteGroup(params: IAM.DeleteGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the specified inline policy that is embedded in the specified group.
 
@@ -479,7 +479,7 @@ in the IAM User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    deleteGroupPolicy(params: IAM.DeleteGroupPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteGroupPolicy(params: IAM.DeleteGroupPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the specified instance profile. The instance profile must not have an
 associated role.
@@ -495,7 +495,7 @@ instance.For more information about instance profiles, go to About Instance Prof
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    deleteInstanceProfile(params: IAM.DeleteInstanceProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteInstanceProfile(params: IAM.DeleteInstanceProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the password for the specified user, which terminates the user&#x27;s ability
 to access AWS services through the AWS Management Console.
@@ -510,7 +510,7 @@ making keys inactive or deleting them, see UpdateAccessKey and DeleteAccessKey .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    deleteLoginProfile(params: IAM.DeleteLoginProfileRequest, callback?: (err: IAM.EntityTemporarilyUnmodifiableException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteLoginProfile(params: IAM.DeleteLoginProfileRequest, callback?: (err: IAM.EntityTemporarilyUnmodifiableException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.EntityTemporarilyUnmodifiableException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Deletes an IAM OpenID Connect identity provider.
 
@@ -525,7 +525,7 @@ action for a provider that was already deleted.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    deleteOpenIDConnectProvider(params: IAM.DeleteOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteOpenIDConnectProvider(params: IAM.DeleteOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the specified managed policy.
 
@@ -557,7 +557,7 @@ in the IAM User Guide .
      * @error DeleteConflictException   
      * @error ServiceFailureException   
      */
-    deletePolicy(params: IAM.DeletePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.DeleteConflictException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deletePolicy(params: IAM.DeletePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.DeleteConflictException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.DeleteConflictException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the specified version of the specified managed policy.
 
@@ -576,7 +576,7 @@ in the IAM User Guide .
      * @error DeleteConflictException   
      * @error ServiceFailureException   
      */
-    deletePolicyVersion(params: IAM.DeletePolicyVersionRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.DeleteConflictException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deletePolicyVersion(params: IAM.DeletePolicyVersionRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.DeleteConflictException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.DeleteConflictException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the specified role. The role must not have any policies attached. For
 more information about roles, go to Working with Roles
@@ -591,7 +591,7 @@ running instance will break any applications running on the instance.
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    deleteRole(params: IAM.DeleteRoleRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteRole(params: IAM.DeleteRoleRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the specified inline policy that is embedded in the specified role.
 
@@ -605,7 +605,7 @@ in the IAM User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    deleteRolePolicy(params: IAM.DeleteRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteRolePolicy(params: IAM.DeleteRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Deletes a SAML provider.
 
@@ -621,7 +621,7 @@ This operation requires Signature Version 4
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    deleteSAMLProvider(params: IAM.DeleteSAMLProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteSAMLProvider(params: IAM.DeleteSAMLProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.InvalidInputException|IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the specified SSH public key.
 
@@ -634,7 +634,7 @@ in the AWS CodeCommit User Guide .
      *
      * @error NoSuchEntityException   
      */
-    deleteSSHPublicKey(params: IAM.DeleteSSHPublicKeyRequest, callback?: (err: IAM.NoSuchEntityException|any, data: any) => void): Request;
+    deleteSSHPublicKey(params: IAM.DeleteSSHPublicKeyRequest, callback?: (err: IAM.NoSuchEntityException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|any>;
     /**
      * Deletes the specified server certificate.
 
@@ -659,7 +659,7 @@ in the Elastic Load Balancing API Reference .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    deleteServerCertificate(params: IAM.DeleteServerCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteServerCertificate(params: IAM.DeleteServerCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the specified signing certificate associated with the specified user.
 
@@ -672,7 +672,7 @@ credentials even if the AWS account has no associated users.
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    deleteSigningCertificate(params: IAM.DeleteSigningCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteSigningCertificate(params: IAM.DeleteSigningCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the specified user. The user must not belong to any groups, have any
 keys or signing certificates, or have any attached policies.
@@ -682,7 +682,7 @@ keys or signing certificates, or have any attached policies.
      * @error DeleteConflictException   
      * @error ServiceFailureException   
      */
-    deleteUser(params: IAM.DeleteUserRequest, callback?: (err: IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteUser(params: IAM.DeleteUserRequest, callback?: (err: IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.ServiceFailureException|any>;
     /**
      * Deletes the specified inline policy that is embedded in the specified user.
 
@@ -696,7 +696,7 @@ in the IAM User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    deleteUserPolicy(params: IAM.DeleteUserPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteUserPolicy(params: IAM.DeleteUserPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Deletes a virtual MFA device.
 
@@ -708,7 +708,7 @@ information about deactivating MFA devices, see DeactivateMFADevice .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    deleteVirtualMFADevice(params: IAM.DeleteVirtualMFADeviceRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    deleteVirtualMFADevice(params: IAM.DeleteVirtualMFADeviceRequest, callback?: (err: IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.DeleteConflictException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Removes the specified managed policy from the specified group.
 
@@ -723,7 +723,7 @@ in the IAM User Guide .
      * @error InvalidInputException   
      * @error ServiceFailureException   
      */
-    detachGroupPolicy(params: IAM.DetachGroupPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    detachGroupPolicy(params: IAM.DetachGroupPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any>;
     /**
      * Removes the specified managed policy from the specified role.
 
@@ -738,7 +738,7 @@ in the IAM User Guide .
      * @error InvalidInputException   
      * @error ServiceFailureException   
      */
-    detachRolePolicy(params: IAM.DetachRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    detachRolePolicy(params: IAM.DetachRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any>;
     /**
      * Removes the specified managed policy from the specified user.
 
@@ -753,7 +753,7 @@ in the IAM User Guide .
      * @error InvalidInputException   
      * @error ServiceFailureException   
      */
-    detachUserPolicy(params: IAM.DetachUserPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    detachUserPolicy(params: IAM.DetachUserPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.InvalidInputException|IAM.ServiceFailureException|any>;
     /**
      * Enables the specified MFA device and associates it with the specified user name.
 When enabled, the MFA device is required for every subsequent login by the user
@@ -766,7 +766,7 @@ name associated with the device.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    enableMFADevice(params: IAM.EnableMFADeviceRequest, callback?: (err: IAM.EntityAlreadyExistsException|IAM.EntityTemporarilyUnmodifiableException|IAM.InvalidAuthenticationCodeException|IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    enableMFADevice(params: IAM.EnableMFADeviceRequest, callback?: (err: IAM.EntityAlreadyExistsException|IAM.EntityTemporarilyUnmodifiableException|IAM.InvalidAuthenticationCodeException|IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.EntityAlreadyExistsException|IAM.EntityTemporarilyUnmodifiableException|IAM.InvalidAuthenticationCodeException|IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Generates a credential report for the AWS account. For more information about
 the credential report, see Getting Credential Reports
@@ -776,7 +776,7 @@ IAM User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    generateCredentialReport(callback?: (err: IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.GenerateCredentialReportResponse|any) => void): Request;
+    generateCredentialReport(callback?: (err: IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.GenerateCredentialReportResponse|any) => void): Request<IAM.GenerateCredentialReportResponse|any,IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Retrieves information about when the specified access key was last used. The
 information includes the date and time of last use, along with the AWS service
@@ -784,7 +784,7 @@ and region that were specified in the last request made with that key.
      *
      * @error NoSuchEntityException   
      */
-    getAccessKeyLastUsed(params: IAM.GetAccessKeyLastUsedRequest, callback?: (err: IAM.NoSuchEntityException|any, data: IAM.GetAccessKeyLastUsedResponse|any) => void): Request;
+    getAccessKeyLastUsed(params: IAM.GetAccessKeyLastUsedRequest, callback?: (err: IAM.NoSuchEntityException|any, data: IAM.GetAccessKeyLastUsedResponse|any) => void): Request<IAM.GetAccessKeyLastUsedResponse|any,IAM.NoSuchEntityException|any>;
     /**
      * Retrieves information about all IAM users, groups, roles, and policies in your
 account, including their relationships to one another. Use this API to obtain a
@@ -796,7 +796,7 @@ paginate the results using the MaxItems and Marker parameters.
      *
      * @error ServiceFailureException   
      */
-    getAccountAuthorizationDetails(params: IAM.GetAccountAuthorizationDetailsRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.GetAccountAuthorizationDetailsResponse|any) => void): Request;
+    getAccountAuthorizationDetails(params: IAM.GetAccountAuthorizationDetailsRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.GetAccountAuthorizationDetailsResponse|any) => void): Request<IAM.GetAccountAuthorizationDetailsResponse|any,IAM.ServiceFailureException|any>;
     /**
      * Retrieves the password policy for the AWS account. For more information about
 using a password policy, go to Managing an IAM Password Policy
@@ -806,7 +806,7 @@ using a password policy, go to Managing an IAM Password Policy
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    getAccountPasswordPolicy(callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetAccountPasswordPolicyResponse|any) => void): Request;
+    getAccountPasswordPolicy(callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetAccountPasswordPolicyResponse|any) => void): Request<IAM.GetAccountPasswordPolicyResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Retrieves information about IAM entity usage and IAM quotas in the AWS account.
 
@@ -817,7 +817,7 @@ the IAM User Guide .
      *
      * @error ServiceFailureException   
      */
-    getAccountSummary(callback?: (err: IAM.ServiceFailureException|any, data: IAM.GetAccountSummaryResponse|any) => void): Request;
+    getAccountSummary(callback?: (err: IAM.ServiceFailureException|any, data: IAM.GetAccountSummaryResponse|any) => void): Request<IAM.GetAccountSummaryResponse|any,IAM.ServiceFailureException|any>;
     /**
      * Gets a list of all of the context keys referenced in Condition elements in the
 input policies. The policies are supplied as a list of one or more strings. To
@@ -834,7 +834,7 @@ request.
      *
      * @error InvalidInputException   
      */
-    getContextKeysForCustomPolicy(params: IAM.GetContextKeysForCustomPolicyRequest, callback?: (err: IAM.InvalidInputException|any, data: IAM.GetContextKeysForPolicyResponse|any) => void): Request;
+    getContextKeysForCustomPolicy(params: IAM.GetContextKeysForCustomPolicyRequest, callback?: (err: IAM.InvalidInputException|any, data: IAM.GetContextKeysForPolicyResponse|any) => void): Request<IAM.GetContextKeysForPolicyResponse|any,IAM.InvalidInputException|any>;
     /**
      * Gets a list of all of the context keys referenced in Condition elements in all
 of the IAM policies attached to the specified IAM entity. The entity can be an
@@ -858,7 +858,7 @@ SimulatePrincipalPolicy .
      * @error NoSuchEntityException   
      * @error InvalidInputException   
      */
-    getContextKeysForPrincipalPolicy(params: IAM.GetContextKeysForPrincipalPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|any, data: IAM.GetContextKeysForPolicyResponse|any) => void): Request;
+    getContextKeysForPrincipalPolicy(params: IAM.GetContextKeysForPrincipalPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|any, data: IAM.GetContextKeysForPolicyResponse|any) => void): Request<IAM.GetContextKeysForPolicyResponse|any,IAM.NoSuchEntityException|IAM.InvalidInputException|any>;
     /**
      * Retrieves a credential report for the AWS account. For more information about
 the credential report, see Getting Credential Reports
@@ -870,7 +870,7 @@ IAM User Guide .
      * @error CredentialReportNotReadyException   
      * @error ServiceFailureException   
      */
-    getCredentialReport(callback?: (err: IAM.CredentialReportNotPresentException|IAM.CredentialReportExpiredException|IAM.CredentialReportNotReadyException|IAM.ServiceFailureException|any, data: IAM.GetCredentialReportResponse|any) => void): Request;
+    getCredentialReport(callback?: (err: IAM.CredentialReportNotPresentException|IAM.CredentialReportExpiredException|IAM.CredentialReportNotReadyException|IAM.ServiceFailureException|any, data: IAM.GetCredentialReportResponse|any) => void): Request<IAM.GetCredentialReportResponse|any,IAM.CredentialReportNotPresentException|IAM.CredentialReportExpiredException|IAM.CredentialReportNotReadyException|IAM.ServiceFailureException|any>;
     /**
      * Returns a list of users that are in the specified group. You can paginate the
 results using the MaxItems and Marker parameters.
@@ -878,7 +878,7 @@ results using the MaxItems and Marker parameters.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    getGroup(params: IAM.GetGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetGroupResponse|any) => void): Request;
+    getGroup(params: IAM.GetGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetGroupResponse|any) => void): Request<IAM.GetGroupResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Retrieves the specified inline policy document that is embedded in the specified
 group.
@@ -896,7 +896,7 @@ in the IAM User Guide .
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    getGroupPolicy(params: IAM.GetGroupPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetGroupPolicyResponse|any) => void): Request;
+    getGroupPolicy(params: IAM.GetGroupPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetGroupPolicyResponse|any) => void): Request<IAM.GetGroupPolicyResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Retrieves information about the specified instance profile, including the
 instance profile&#x27;s path, GUID, ARN, and role. For more information about
@@ -909,7 +909,7 @@ For more information about ARNs, go to ARNs
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    getInstanceProfile(params: IAM.GetInstanceProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetInstanceProfileResponse|any) => void): Request;
+    getInstanceProfile(params: IAM.GetInstanceProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetInstanceProfileResponse|any) => void): Request<IAM.GetInstanceProfileResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Retrieves the user name and password-creation date for the specified user. If
 the user has not been assigned a password, the action returns a 404 ( 
@@ -918,7 +918,7 @@ NoSuchEntity ) error.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    getLoginProfile(params: IAM.GetLoginProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetLoginProfileResponse|any) => void): Request;
+    getLoginProfile(params: IAM.GetLoginProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetLoginProfileResponse|any) => void): Request<IAM.GetLoginProfileResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Returns information about the specified OpenID Connect provider.
      *
@@ -926,7 +926,7 @@ NoSuchEntity ) error.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    getOpenIDConnectProvider(params: IAM.GetOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetOpenIDConnectProviderResponse|any) => void): Request;
+    getOpenIDConnectProvider(params: IAM.GetOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetOpenIDConnectProviderResponse|any) => void): Request<IAM.GetOpenIDConnectProviderResponse|any,IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Retrieves information about the specified managed policy, including the policy&#x27;s
 default version and the total number of users, groups, and roles that the policy
@@ -948,7 +948,7 @@ in the IAM User Guide .
      * @error InvalidInputException   
      * @error ServiceFailureException   
      */
-    getPolicy(params: IAM.GetPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.GetPolicyResponse|any) => void): Request;
+    getPolicy(params: IAM.GetPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.GetPolicyResponse|any) => void): Request<IAM.GetPolicyResponse|any,IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any>;
     /**
      * Retrieves information about the specified version of the specified managed
 policy, including the policy document.
@@ -968,7 +968,7 @@ in the IAM User Guide .
      * @error InvalidInputException   
      * @error ServiceFailureException   
      */
-    getPolicyVersion(params: IAM.GetPolicyVersionRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.GetPolicyVersionResponse|any) => void): Request;
+    getPolicyVersion(params: IAM.GetPolicyVersionRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.GetPolicyVersionResponse|any) => void): Request<IAM.GetPolicyVersionResponse|any,IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any>;
     /**
      * Retrieves information about the specified role, including the role&#x27;s path, GUID,
 ARN, and the policy granting permission to assume the role. For more information
@@ -980,7 +980,7 @@ about ARNs, go to ARNs
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    getRole(params: IAM.GetRoleRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetRoleResponse|any) => void): Request;
+    getRole(params: IAM.GetRoleRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetRoleResponse|any) => void): Request<IAM.GetRoleResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Retrieves the specified inline policy document that is embedded with the
 specified role.
@@ -1002,7 +1002,7 @@ Federate Identities
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    getRolePolicy(params: IAM.GetRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetRolePolicyResponse|any) => void): Request;
+    getRolePolicy(params: IAM.GetRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetRolePolicyResponse|any) => void): Request<IAM.GetRolePolicyResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Returns the SAML provider metadocument that was uploaded when the provider was
 created or updated.
@@ -1014,7 +1014,7 @@ This operation requires Signature Version 4
      * @error InvalidInputException   
      * @error ServiceFailureException   
      */
-    getSAMLProvider(params: IAM.GetSAMLProviderRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.GetSAMLProviderResponse|any) => void): Request;
+    getSAMLProvider(params: IAM.GetSAMLProviderRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.GetSAMLProviderResponse|any) => void): Request<IAM.GetSAMLProviderResponse|any,IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any>;
     /**
      * Retrieves the specified SSH public key, including metadata about the key.
 
@@ -1028,7 +1028,7 @@ in the AWS CodeCommit User Guide .
      * @error NoSuchEntityException   
      * @error UnrecognizedPublicKeyEncodingException   
      */
-    getSSHPublicKey(params: IAM.GetSSHPublicKeyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.UnrecognizedPublicKeyEncodingException|any, data: IAM.GetSSHPublicKeyResponse|any) => void): Request;
+    getSSHPublicKey(params: IAM.GetSSHPublicKeyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.UnrecognizedPublicKeyEncodingException|any, data: IAM.GetSSHPublicKeyResponse|any) => void): Request<IAM.GetSSHPublicKeyResponse|any,IAM.NoSuchEntityException|IAM.UnrecognizedPublicKeyEncodingException|any>;
     /**
      * Retrieves information about the specified server certificate.
 
@@ -1041,7 +1041,7 @@ in the IAM User Guide .
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    getServerCertificate(params: IAM.GetServerCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetServerCertificateResponse|any) => void): Request;
+    getServerCertificate(params: IAM.GetServerCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetServerCertificateResponse|any) => void): Request<IAM.GetServerCertificateResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Retrieves information about the specified user, including the user&#x27;s creation
 date, path, unique ID, and ARN.
@@ -1052,7 +1052,7 @@ on the AWS access key ID used to sign the request.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    getUser(params: IAM.GetUserRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetUserResponse|any) => void): Request;
+    getUser(params: IAM.GetUserRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetUserResponse|any) => void): Request<IAM.GetUserResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Retrieves the specified inline policy document that is embedded in the specified
 user.
@@ -1070,7 +1070,7 @@ in the IAM User Guide .
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    getUserPolicy(params: IAM.GetUserPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetUserPolicyResponse|any) => void): Request;
+    getUserPolicy(params: IAM.GetUserPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.GetUserPolicyResponse|any) => void): Request<IAM.GetUserPolicyResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Returns information about the access key IDs associated with the specified user.
 If there are none, the action returns an empty list.
@@ -1089,7 +1089,7 @@ only during key and user creation.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    listAccessKeys(params: IAM.ListAccessKeysRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListAccessKeysResponse|any) => void): Request;
+    listAccessKeys(params: IAM.ListAccessKeysRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListAccessKeysResponse|any) => void): Request<IAM.ListAccessKeysResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Lists the account alias associated with the account (Note: you can have only
 one). For information about using an AWS account alias, see Using an Alias for
@@ -1099,7 +1099,7 @@ User Guide .
      *
      * @error ServiceFailureException   
      */
-    listAccountAliases(params: IAM.ListAccountAliasesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListAccountAliasesResponse|any) => void): Request;
+    listAccountAliases(params: IAM.ListAccountAliasesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListAccountAliasesResponse|any) => void): Request<IAM.ListAccountAliasesResponse|any,IAM.ServiceFailureException|any>;
     /**
      * Lists all managed policies that are attached to the specified group.
 
@@ -1119,7 +1119,7 @@ returns an empty list.
      * @error InvalidInputException   
      * @error ServiceFailureException   
      */
-    listAttachedGroupPolicies(params: IAM.ListAttachedGroupPoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListAttachedGroupPoliciesResponse|any) => void): Request;
+    listAttachedGroupPolicies(params: IAM.ListAttachedGroupPoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListAttachedGroupPoliciesResponse|any) => void): Request<IAM.ListAttachedGroupPoliciesResponse|any,IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any>;
     /**
      * Lists all managed policies that are attached to the specified role.
 
@@ -1139,7 +1139,7 @@ returns an empty list.
      * @error InvalidInputException   
      * @error ServiceFailureException   
      */
-    listAttachedRolePolicies(params: IAM.ListAttachedRolePoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListAttachedRolePoliciesResponse|any) => void): Request;
+    listAttachedRolePolicies(params: IAM.ListAttachedRolePoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListAttachedRolePoliciesResponse|any) => void): Request<IAM.ListAttachedRolePoliciesResponse|any,IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any>;
     /**
      * Lists all managed policies that are attached to the specified user.
 
@@ -1159,7 +1159,7 @@ returns an empty list.
      * @error InvalidInputException   
      * @error ServiceFailureException   
      */
-    listAttachedUserPolicies(params: IAM.ListAttachedUserPoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListAttachedUserPoliciesResponse|any) => void): Request;
+    listAttachedUserPolicies(params: IAM.ListAttachedUserPoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListAttachedUserPoliciesResponse|any) => void): Request<IAM.ListAttachedUserPoliciesResponse|any,IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any>;
     /**
      * Lists all users, groups, and roles that the specified managed policy is attached
 to.
@@ -1174,7 +1174,7 @@ You can paginate the results using the MaxItems and Marker parameters.
      * @error InvalidInputException   
      * @error ServiceFailureException   
      */
-    listEntitiesForPolicy(params: IAM.ListEntitiesForPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListEntitiesForPolicyResponse|any) => void): Request;
+    listEntitiesForPolicy(params: IAM.ListEntitiesForPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListEntitiesForPolicyResponse|any) => void): Request<IAM.ListEntitiesForPolicyResponse|any,IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any>;
     /**
      * Lists the names of the inline policies that are embedded in the specified group.
 
@@ -1191,7 +1191,7 @@ empty list.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    listGroupPolicies(params: IAM.ListGroupPoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListGroupPoliciesResponse|any) => void): Request;
+    listGroupPolicies(params: IAM.ListGroupPoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListGroupPoliciesResponse|any) => void): Request<IAM.ListGroupPoliciesResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Lists the groups that have the specified path prefix.
 
@@ -1199,7 +1199,7 @@ You can paginate the results using the MaxItems and Marker parameters.
      *
      * @error ServiceFailureException   
      */
-    listGroups(params: IAM.ListGroupsRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListGroupsResponse|any) => void): Request;
+    listGroups(params: IAM.ListGroupsRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListGroupsResponse|any) => void): Request<IAM.ListGroupsResponse|any,IAM.ServiceFailureException|any>;
     /**
      * Lists the groups the specified user belongs to.
 
@@ -1208,7 +1208,7 @@ You can paginate the results using the MaxItems and Marker parameters.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    listGroupsForUser(params: IAM.ListGroupsForUserRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListGroupsForUserResponse|any) => void): Request;
+    listGroupsForUser(params: IAM.ListGroupsForUserRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListGroupsForUserResponse|any) => void): Request<IAM.ListGroupsForUserResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Lists the instance profiles that have the specified path prefix. If there are
 none, the action returns an empty list. For more information about instance
@@ -1219,7 +1219,7 @@ You can paginate the results using the MaxItems and Marker parameters.
      *
      * @error ServiceFailureException   
      */
-    listInstanceProfiles(params: IAM.ListInstanceProfilesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListInstanceProfilesResponse|any) => void): Request;
+    listInstanceProfiles(params: IAM.ListInstanceProfilesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListInstanceProfilesResponse|any) => void): Request<IAM.ListInstanceProfilesResponse|any,IAM.ServiceFailureException|any>;
     /**
      * Lists the instance profiles that have the specified associated role. If there
 are none, the action returns an empty list. For more information about instance
@@ -1231,7 +1231,7 @@ You can paginate the results using the MaxItems and Marker parameters.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    listInstanceProfilesForRole(params: IAM.ListInstanceProfilesForRoleRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListInstanceProfilesForRoleResponse|any) => void): Request;
+    listInstanceProfilesForRole(params: IAM.ListInstanceProfilesForRoleRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListInstanceProfilesForRoleResponse|any) => void): Request<IAM.ListInstanceProfilesForRoleResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Lists the MFA devices. If the request includes the user name, then this action
 lists all the MFA devices associated with the specified user name. If you do not
@@ -1243,13 +1243,13 @@ You can paginate the results using the MaxItems and Marker parameters.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    listMFADevices(params: IAM.ListMFADevicesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListMFADevicesResponse|any) => void): Request;
+    listMFADevices(params: IAM.ListMFADevicesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListMFADevicesResponse|any) => void): Request<IAM.ListMFADevicesResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Lists information about the OpenID Connect providers in the AWS account.
      *
      * @error ServiceFailureException   
      */
-    listOpenIDConnectProviders(params: IAM.ListOpenIDConnectProvidersRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListOpenIDConnectProvidersResponse|any) => void): Request;
+    listOpenIDConnectProviders(params: IAM.ListOpenIDConnectProvidersRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListOpenIDConnectProvidersResponse|any) => void): Request<IAM.ListOpenIDConnectProvidersResponse|any,IAM.ServiceFailureException|any>;
     /**
      * Lists all the managed policies that are available to your account, including
 your own customer managed policies and all AWS managed policies.
@@ -1268,7 +1268,7 @@ in the IAM User Guide .
      *
      * @error ServiceFailureException   
      */
-    listPolicies(params: IAM.ListPoliciesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListPoliciesResponse|any) => void): Request;
+    listPolicies(params: IAM.ListPoliciesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListPoliciesResponse|any) => void): Request<IAM.ListPoliciesResponse|any,IAM.ServiceFailureException|any>;
     /**
      * Lists information about the versions of the specified managed policy, including
 the version that is set as the policy&#x27;s default version.
@@ -1282,7 +1282,7 @@ in the IAM User Guide .
      * @error InvalidInputException   
      * @error ServiceFailureException   
      */
-    listPolicyVersions(params: IAM.ListPolicyVersionsRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListPolicyVersionsResponse|any) => void): Request;
+    listPolicyVersions(params: IAM.ListPolicyVersionsRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any, data: IAM.ListPolicyVersionsResponse|any) => void): Request<IAM.ListPolicyVersionsResponse|any,IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.ServiceFailureException|any>;
     /**
      * Lists the names of the inline policies that are embedded in the specified role.
 
@@ -1299,7 +1299,7 @@ empty list.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    listRolePolicies(params: IAM.ListRolePoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListRolePoliciesResponse|any) => void): Request;
+    listRolePolicies(params: IAM.ListRolePoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListRolePoliciesResponse|any) => void): Request<IAM.ListRolePoliciesResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Lists the roles that have the specified path prefix. If there are none, the
 action returns an empty list. For more information about roles, go to Working
@@ -1310,7 +1310,7 @@ You can paginate the results using the MaxItems and Marker parameters.
      *
      * @error ServiceFailureException   
      */
-    listRoles(params: IAM.ListRolesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListRolesResponse|any) => void): Request;
+    listRoles(params: IAM.ListRolesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListRolesResponse|any) => void): Request<IAM.ListRolesResponse|any,IAM.ServiceFailureException|any>;
     /**
      * Lists the SAML providers in the account.
 
@@ -1319,7 +1319,7 @@ This operation requires Signature Version 4
      *
      * @error ServiceFailureException   
      */
-    listSAMLProviders(params: IAM.ListSAMLProvidersRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListSAMLProvidersResponse|any) => void): Request;
+    listSAMLProviders(params: IAM.ListSAMLProvidersRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListSAMLProvidersResponse|any) => void): Request<IAM.ListSAMLProvidersResponse|any,IAM.ServiceFailureException|any>;
     /**
      * Returns information about the SSH public keys associated with the specified IAM
 user. If there are none, the action returns an empty list.
@@ -1336,7 +1336,7 @@ the results using the MaxItems and Marker parameters.
      *
      * @error NoSuchEntityException   
      */
-    listSSHPublicKeys(params: IAM.ListSSHPublicKeysRequest, callback?: (err: IAM.NoSuchEntityException|any, data: IAM.ListSSHPublicKeysResponse|any) => void): Request;
+    listSSHPublicKeys(params: IAM.ListSSHPublicKeysRequest, callback?: (err: IAM.NoSuchEntityException|any, data: IAM.ListSSHPublicKeysResponse|any) => void): Request<IAM.ListSSHPublicKeysResponse|any,IAM.NoSuchEntityException|any>;
     /**
      * Lists the server certificates that have the specified path prefix. If none
 exist, the action returns an empty list.
@@ -1351,7 +1351,7 @@ in the IAM User Guide .
      *
      * @error ServiceFailureException   
      */
-    listServerCertificates(params: IAM.ListServerCertificatesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListServerCertificatesResponse|any) => void): Request;
+    listServerCertificates(params: IAM.ListServerCertificatesRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListServerCertificatesResponse|any) => void): Request<IAM.ListServerCertificatesResponse|any,IAM.ServiceFailureException|any>;
     /**
      * Returns information about the signing certificates associated with the specified
 user. If there are none, the action returns an empty list.
@@ -1367,7 +1367,7 @@ root credentials even if the AWS account has no associated users.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    listSigningCertificates(params: IAM.ListSigningCertificatesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListSigningCertificatesResponse|any) => void): Request;
+    listSigningCertificates(params: IAM.ListSigningCertificatesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListSigningCertificatesResponse|any) => void): Request<IAM.ListSigningCertificatesResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Lists the names of the inline policies embedded in the specified user.
 
@@ -1384,7 +1384,7 @@ empty list.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    listUserPolicies(params: IAM.ListUserPoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListUserPoliciesResponse|any) => void): Request;
+    listUserPolicies(params: IAM.ListUserPoliciesRequest, callback?: (err: IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.ListUserPoliciesResponse|any) => void): Request<IAM.ListUserPoliciesResponse|any,IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Lists the IAM users that have the specified path prefix. If no path prefix is
 specified, the action returns all users in the AWS account. If there are none,
@@ -1394,7 +1394,7 @@ You can paginate the results using the MaxItems and Marker parameters.
      *
      * @error ServiceFailureException   
      */
-    listUsers(params: IAM.ListUsersRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListUsersResponse|any) => void): Request;
+    listUsers(params: IAM.ListUsersRequest, callback?: (err: IAM.ServiceFailureException|any, data: IAM.ListUsersResponse|any) => void): Request<IAM.ListUsersResponse|any,IAM.ServiceFailureException|any>;
     /**
      * Lists the virtual MFA devices under the AWS account by assignment status. If you
 do not specify an assignment status, the action returns a list of all virtual
@@ -1403,7 +1403,7 @@ MFA devices. Assignment status can be Assigned , Unassigned , or Any .
 You can paginate the results using the MaxItems and Marker parameters.
      *
      */
-    listVirtualMFADevices(params: IAM.ListVirtualMFADevicesRequest, callback?: (err: any, data: IAM.ListVirtualMFADevicesResponse|any) => void): Request;
+    listVirtualMFADevices(params: IAM.ListVirtualMFADevicesRequest, callback?: (err: any, data: IAM.ListVirtualMFADevicesResponse|any) => void): Request<IAM.ListVirtualMFADevicesResponse|any,any>;
     /**
      * Adds (or updates) an inline policy document that is embedded in the specified
 group.
@@ -1431,7 +1431,7 @@ Using IAM guide.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    putGroupPolicy(params: IAM.PutGroupPolicyRequest, callback?: (err: IAM.LimitExceededException|IAM.MalformedPolicyDocumentException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    putGroupPolicy(params: IAM.PutGroupPolicyRequest, callback?: (err: IAM.LimitExceededException|IAM.MalformedPolicyDocumentException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.LimitExceededException|IAM.MalformedPolicyDocumentException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Adds (or updates) an inline policy document that is embedded in the specified
 role.
@@ -1466,7 +1466,7 @@ Using IAM guide.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    putRolePolicy(params: IAM.PutRolePolicyRequest, callback?: (err: IAM.LimitExceededException|IAM.MalformedPolicyDocumentException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    putRolePolicy(params: IAM.PutRolePolicyRequest, callback?: (err: IAM.LimitExceededException|IAM.MalformedPolicyDocumentException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.LimitExceededException|IAM.MalformedPolicyDocumentException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Adds (or updates) an inline policy document that is embedded in the specified
 user.
@@ -1494,7 +1494,7 @@ Using IAM guide.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    putUserPolicy(params: IAM.PutUserPolicyRequest, callback?: (err: IAM.LimitExceededException|IAM.MalformedPolicyDocumentException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    putUserPolicy(params: IAM.PutUserPolicyRequest, callback?: (err: IAM.LimitExceededException|IAM.MalformedPolicyDocumentException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.LimitExceededException|IAM.MalformedPolicyDocumentException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Removes the specified client ID (also known as audience) from the list of client
 IDs registered for the specified IAM OpenID Connect provider.
@@ -1506,7 +1506,7 @@ remove a client ID that was removed previously.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    removeClientIDFromOpenIDConnectProvider(params: IAM.RemoveClientIDFromOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    removeClientIDFromOpenIDConnectProvider(params: IAM.RemoveClientIDFromOpenIDConnectProviderRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Removes the specified role from the specified instance profile.
 
@@ -1522,7 +1522,7 @@ more information about instance profiles, go to About Instance Profiles
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    removeRoleFromInstanceProfile(params: IAM.RemoveRoleFromInstanceProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    removeRoleFromInstanceProfile(params: IAM.RemoveRoleFromInstanceProfileRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Removes the specified user from the specified group.
      *
@@ -1530,7 +1530,7 @@ more information about instance profiles, go to About Instance Profiles
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    removeUserFromGroup(params: IAM.RemoveUserFromGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    removeUserFromGroup(params: IAM.RemoveUserFromGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Synchronizes the specified MFA device with AWS servers.
 
@@ -1544,7 +1544,7 @@ Using IAM guide.
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    resyncMFADevice(params: IAM.ResyncMFADeviceRequest, callback?: (err: IAM.InvalidAuthenticationCodeException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    resyncMFADevice(params: IAM.ResyncMFADeviceRequest, callback?: (err: IAM.InvalidAuthenticationCodeException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.InvalidAuthenticationCodeException|IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Sets the specified version of the specified policy as the policy&#x27;s default
 (operative) version.
@@ -1563,7 +1563,7 @@ in the IAM User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    setDefaultPolicyVersion(params: IAM.SetDefaultPolicyVersionRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    setDefaultPolicyVersion(params: IAM.SetDefaultPolicyVersionRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Simulate how a set of IAM policies and optionally a resource-based policy works
 with a list of API actions and AWS resources to determine the policies&#x27;
@@ -1587,7 +1587,7 @@ the results.
      * @error InvalidInputException   
      * @error PolicyEvaluationException   
      */
-    simulateCustomPolicy(params: IAM.SimulateCustomPolicyRequest, callback?: (err: IAM.InvalidInputException|IAM.PolicyEvaluationException|any, data: IAM.SimulatePolicyResponse|any) => void): Request;
+    simulateCustomPolicy(params: IAM.SimulateCustomPolicyRequest, callback?: (err: IAM.InvalidInputException|IAM.PolicyEvaluationException|any, data: IAM.SimulatePolicyResponse|any) => void): Request<IAM.SimulatePolicyResponse|any,IAM.InvalidInputException|IAM.PolicyEvaluationException|any>;
     /**
      * Simulate how a set of IAM policies attached to an IAM entity works with a list
 of API actions and AWS resources to determine the policies&#x27; effective
@@ -1622,7 +1622,7 @@ paginate the results.
      * @error InvalidInputException   
      * @error PolicyEvaluationException   
      */
-    simulatePrincipalPolicy(params: IAM.SimulatePrincipalPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.PolicyEvaluationException|any, data: IAM.SimulatePolicyResponse|any) => void): Request;
+    simulatePrincipalPolicy(params: IAM.SimulatePrincipalPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.PolicyEvaluationException|any, data: IAM.SimulatePolicyResponse|any) => void): Request<IAM.SimulatePolicyResponse|any,IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.PolicyEvaluationException|any>;
     /**
      * Changes the status of the specified access key from Active to Inactive, or vice
 versa. This action can be used to disable a user&#x27;s key as part of a key rotation
@@ -1641,7 +1641,7 @@ the IAM User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    updateAccessKey(params: IAM.UpdateAccessKeyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    updateAccessKey(params: IAM.UpdateAccessKeyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Updates the password policy settings for the AWS account.
 
@@ -1659,7 +1659,7 @@ in the IAM User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    updateAccountPasswordPolicy(params: IAM.UpdateAccountPasswordPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.MalformedPolicyDocumentException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    updateAccountPasswordPolicy(params: IAM.UpdateAccountPasswordPolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.MalformedPolicyDocumentException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.MalformedPolicyDocumentException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Updates the policy that grants an entity permission to assume a role. For more
 information about roles, go to Using Roles to Delegate Permissions and Federate
@@ -1671,7 +1671,7 @@ Identities [http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html]
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    updateAssumeRolePolicy(params: IAM.UpdateAssumeRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.MalformedPolicyDocumentException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    updateAssumeRolePolicy(params: IAM.UpdateAssumeRolePolicyRequest, callback?: (err: IAM.NoSuchEntityException|IAM.MalformedPolicyDocumentException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.MalformedPolicyDocumentException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Updates the name and/or the path of the specified group.
 
@@ -1690,7 +1690,7 @@ information about permissions, see Permissions and Policies
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    updateGroup(params: IAM.UpdateGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    updateGroup(params: IAM.UpdateGroupRequest, callback?: (err: IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Changes the password for the specified user.
 
@@ -1705,7 +1705,7 @@ the IAM User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    updateLoginProfile(params: IAM.UpdateLoginProfileRequest, callback?: (err: IAM.EntityTemporarilyUnmodifiableException|IAM.NoSuchEntityException|IAM.PasswordPolicyViolationException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    updateLoginProfile(params: IAM.UpdateLoginProfileRequest, callback?: (err: IAM.EntityTemporarilyUnmodifiableException|IAM.NoSuchEntityException|IAM.PasswordPolicyViolationException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.EntityTemporarilyUnmodifiableException|IAM.NoSuchEntityException|IAM.PasswordPolicyViolationException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Replaces the existing list of server certificate thumbprints with a new list.
 
@@ -1726,7 +1726,7 @@ highly-privileged users.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    updateOpenIDConnectProviderThumbprint(params: IAM.UpdateOpenIDConnectProviderThumbprintRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    updateOpenIDConnectProviderThumbprint(params: IAM.UpdateOpenIDConnectProviderThumbprintRequest, callback?: (err: IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.InvalidInputException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
     /**
      * Updates the metadata document for an existing SAML provider.
 
@@ -1738,7 +1738,7 @@ This operation requires Signature Version 4
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    updateSAMLProvider(params: IAM.UpdateSAMLProviderRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.UpdateSAMLProviderResponse|any) => void): Request;
+    updateSAMLProvider(params: IAM.UpdateSAMLProviderRequest, callback?: (err: IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: IAM.UpdateSAMLProviderResponse|any) => void): Request<IAM.UpdateSAMLProviderResponse|any,IAM.NoSuchEntityException|IAM.InvalidInputException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Sets the status of the specified SSH public key to active or inactive. SSH
 public keys that are inactive cannot be used for authentication. This action can
@@ -1753,7 +1753,7 @@ in the AWS CodeCommit User Guide .
      *
      * @error NoSuchEntityException   
      */
-    updateSSHPublicKey(params: IAM.UpdateSSHPublicKeyRequest, callback?: (err: IAM.NoSuchEntityException|any, data: any) => void): Request;
+    updateSSHPublicKey(params: IAM.UpdateSSHPublicKeyRequest, callback?: (err: IAM.NoSuchEntityException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|any>;
     /**
      * Updates the name and/or the path of the specified server certificate.
 
@@ -1779,7 +1779,7 @@ IAM User Guide .
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    updateServerCertificate(params: IAM.UpdateServerCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    updateServerCertificate(params: IAM.UpdateServerCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.EntityAlreadyExistsException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Changes the status of the specified signing certificate from active to disabled,
 or vice versa. This action can be used to disable a user&#x27;s signing certificate
@@ -1794,7 +1794,7 @@ root credentials even if the AWS account has no associated users.
      * @error LimitExceededException   
      * @error ServiceFailureException   
      */
-    updateSigningCertificate(params: IAM.UpdateSigningCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    updateSigningCertificate(params: IAM.UpdateSigningCertificateRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.ServiceFailureException|any>;
     /**
      * Updates the name and/or the path of the specified user.
 
@@ -1816,7 +1816,7 @@ information about permissions, see Permissions and Policies
      * @error EntityTemporarilyUnmodifiableException   
      * @error ServiceFailureException   
      */
-    updateUser(params: IAM.UpdateUserRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.EntityTemporarilyUnmodifiableException|IAM.ServiceFailureException|any, data: any) => void): Request;
+    updateUser(params: IAM.UpdateUserRequest, callback?: (err: IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.EntityTemporarilyUnmodifiableException|IAM.ServiceFailureException|any, data: any) => void): Request<any,IAM.NoSuchEntityException|IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.EntityTemporarilyUnmodifiableException|IAM.ServiceFailureException|any>;
     /**
      * Uploads an SSH public key and associates it with the specified IAM user.
 
@@ -1833,7 +1833,7 @@ in the AWS CodeCommit User Guide .
      * @error DuplicateSSHPublicKeyException   
      * @error UnrecognizedPublicKeyEncodingException   
      */
-    uploadSSHPublicKey(params: IAM.UploadSSHPublicKeyRequest, callback?: (err: IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.InvalidPublicKeyException|IAM.DuplicateSSHPublicKeyException|IAM.UnrecognizedPublicKeyEncodingException|any, data: IAM.UploadSSHPublicKeyResponse|any) => void): Request;
+    uploadSSHPublicKey(params: IAM.UploadSSHPublicKeyRequest, callback?: (err: IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.InvalidPublicKeyException|IAM.DuplicateSSHPublicKeyException|IAM.UnrecognizedPublicKeyEncodingException|any, data: IAM.UploadSSHPublicKeyResponse|any) => void): Request<IAM.UploadSSHPublicKeyResponse|any,IAM.LimitExceededException|IAM.NoSuchEntityException|IAM.InvalidPublicKeyException|IAM.DuplicateSSHPublicKeyException|IAM.UnrecognizedPublicKeyEncodingException|any>;
     /**
      * Uploads a server certificate entity for the AWS account. The server certificate
 entity includes a public key certificate, a private key, and an optional
@@ -1866,7 +1866,7 @@ User Guide .
      * @error KeyPairMismatchException   
      * @error ServiceFailureException   
      */
-    uploadServerCertificate(params: IAM.UploadServerCertificateRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedCertificateException|IAM.KeyPairMismatchException|IAM.ServiceFailureException|any, data: IAM.UploadServerCertificateResponse|any) => void): Request;
+    uploadServerCertificate(params: IAM.UploadServerCertificateRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedCertificateException|IAM.KeyPairMismatchException|IAM.ServiceFailureException|any, data: IAM.UploadServerCertificateResponse|any) => void): Request<IAM.UploadServerCertificateResponse|any,IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedCertificateException|IAM.KeyPairMismatchException|IAM.ServiceFailureException|any>;
     /**
      * Uploads an X.509 signing certificate and associates it with the specified user.
 Some AWS services use X.509 signing certificates to validate requests that are
@@ -1895,7 +1895,7 @@ Using IAM guide.
      * @error NoSuchEntityException   
      * @error ServiceFailureException   
      */
-    uploadSigningCertificate(params: IAM.UploadSigningCertificateRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedCertificateException|IAM.InvalidCertificateException|IAM.DuplicateCertificateException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.UploadSigningCertificateResponse|any) => void): Request;
+    uploadSigningCertificate(params: IAM.UploadSigningCertificateRequest, callback?: (err: IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedCertificateException|IAM.InvalidCertificateException|IAM.DuplicateCertificateException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any, data: IAM.UploadSigningCertificateResponse|any) => void): Request<IAM.UploadSigningCertificateResponse|any,IAM.LimitExceededException|IAM.EntityAlreadyExistsException|IAM.MalformedCertificateException|IAM.InvalidCertificateException|IAM.DuplicateCertificateException|IAM.NoSuchEntityException|IAM.ServiceFailureException|any>;
 
   }
 

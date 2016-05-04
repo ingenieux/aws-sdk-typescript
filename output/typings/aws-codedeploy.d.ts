@@ -84,7 +84,7 @@ Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
      * @error InstanceLimitExceededException   
      * @error InstanceNotRegisteredException   
      */
-    addTagsToOnPremisesInstances(params: CodeDeploy.AddTagsToOnPremisesInstancesInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.TagRequiredException|CodeDeploy.InvalidTagException|CodeDeploy.TagLimitExceededException|CodeDeploy.InstanceLimitExceededException|CodeDeploy.InstanceNotRegisteredException|any, data: any) => void): Request;
+    addTagsToOnPremisesInstances(params: CodeDeploy.AddTagsToOnPremisesInstancesInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.TagRequiredException|CodeDeploy.InvalidTagException|CodeDeploy.TagLimitExceededException|CodeDeploy.InstanceLimitExceededException|CodeDeploy.InstanceNotRegisteredException|any, data: any) => void): Request<any,CodeDeploy.InstanceNameRequiredException|CodeDeploy.TagRequiredException|CodeDeploy.InvalidTagException|CodeDeploy.TagLimitExceededException|CodeDeploy.InstanceLimitExceededException|CodeDeploy.InstanceNotRegisteredException|any>;
     /**
      * Gets information about one or more application revisions.
      *
@@ -95,7 +95,7 @@ Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
      * @error InvalidRevisionException   
      * @error BatchLimitExceededException   
      */
-    batchGetApplicationRevisions(params: CodeDeploy.BatchGetApplicationRevisionsInput, callback?: (err: CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetApplicationRevisionsOutput|any) => void): Request;
+    batchGetApplicationRevisions(params: CodeDeploy.BatchGetApplicationRevisionsInput, callback?: (err: CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetApplicationRevisionsOutput|any) => void): Request<CodeDeploy.BatchGetApplicationRevisionsOutput|any,CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|CodeDeploy.BatchLimitExceededException|any>;
     /**
      * Gets information about one or more applications.
      *
@@ -104,7 +104,7 @@ Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
      * @error ApplicationDoesNotExistException   
      * @error BatchLimitExceededException   
      */
-    batchGetApplications(params: CodeDeploy.BatchGetApplicationsInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetApplicationsOutput|any) => void): Request;
+    batchGetApplications(params: CodeDeploy.BatchGetApplicationsInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetApplicationsOutput|any) => void): Request<CodeDeploy.BatchGetApplicationsOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.BatchLimitExceededException|any>;
     /**
      * Get information about one or more deployment groups.
      *
@@ -115,7 +115,7 @@ Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
      * @error InvalidDeploymentGroupNameException   
      * @error BatchLimitExceededException   
      */
-    batchGetDeploymentGroups(params: CodeDeploy.BatchGetDeploymentGroupsInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetDeploymentGroupsOutput|any) => void): Request;
+    batchGetDeploymentGroups(params: CodeDeploy.BatchGetDeploymentGroupsInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetDeploymentGroupsOutput|any) => void): Request<CodeDeploy.BatchGetDeploymentGroupsOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.BatchLimitExceededException|any>;
     /**
      * Gets information about one or more instance that are part of a deployment group.
      *
@@ -126,7 +126,7 @@ Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
      * @error InvalidInstanceNameException   
      * @error BatchLimitExceededException   
      */
-    batchGetDeploymentInstances(params: CodeDeploy.BatchGetDeploymentInstancesInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.InstanceIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetDeploymentInstancesOutput|any) => void): Request;
+    batchGetDeploymentInstances(params: CodeDeploy.BatchGetDeploymentInstancesInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.InstanceIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetDeploymentInstancesOutput|any) => void): Request<CodeDeploy.BatchGetDeploymentInstancesOutput|any,CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.InstanceIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.BatchLimitExceededException|any>;
     /**
      * Gets information about one or more deployments.
      *
@@ -134,7 +134,7 @@ Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
      * @error InvalidDeploymentIdException   
      * @error BatchLimitExceededException   
      */
-    batchGetDeployments(params: CodeDeploy.BatchGetDeploymentsInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetDeploymentsOutput|any) => void): Request;
+    batchGetDeployments(params: CodeDeploy.BatchGetDeploymentsInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetDeploymentsOutput|any) => void): Request<CodeDeploy.BatchGetDeploymentsOutput|any,CodeDeploy.DeploymentIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.BatchLimitExceededException|any>;
     /**
      * Gets information about one or more on-premises instances.
      *
@@ -142,7 +142,7 @@ Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
      * @error InvalidInstanceNameException   
      * @error BatchLimitExceededException   
      */
-    batchGetOnPremisesInstances(params: CodeDeploy.BatchGetOnPremisesInstancesInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetOnPremisesInstancesOutput|any) => void): Request;
+    batchGetOnPremisesInstances(params: CodeDeploy.BatchGetOnPremisesInstancesInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.BatchLimitExceededException|any, data: CodeDeploy.BatchGetOnPremisesInstancesOutput|any) => void): Request<CodeDeploy.BatchGetOnPremisesInstancesOutput|any,CodeDeploy.InstanceNameRequiredException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.BatchLimitExceededException|any>;
     /**
      * Creates an application.
      *
@@ -151,7 +151,7 @@ Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
      * @error ApplicationAlreadyExistsException   
      * @error ApplicationLimitExceededException   
      */
-    createApplication(params: CodeDeploy.CreateApplicationInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationAlreadyExistsException|CodeDeploy.ApplicationLimitExceededException|any, data: CodeDeploy.CreateApplicationOutput|any) => void): Request;
+    createApplication(params: CodeDeploy.CreateApplicationInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationAlreadyExistsException|CodeDeploy.ApplicationLimitExceededException|any, data: CodeDeploy.CreateApplicationOutput|any) => void): Request<CodeDeploy.CreateApplicationOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationAlreadyExistsException|CodeDeploy.ApplicationLimitExceededException|any>;
     /**
      * Deploys an application revision through the specified deployment group.
      *
@@ -168,7 +168,7 @@ Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
      * @error DescriptionTooLongException   
      * @error DeploymentLimitExceededException   
      */
-    createDeployment(params: CodeDeploy.CreateDeploymentInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.DescriptionTooLongException|CodeDeploy.DeploymentLimitExceededException|any, data: CodeDeploy.CreateDeploymentOutput|any) => void): Request;
+    createDeployment(params: CodeDeploy.CreateDeploymentInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.DescriptionTooLongException|CodeDeploy.DeploymentLimitExceededException|any, data: CodeDeploy.CreateDeploymentOutput|any) => void): Request<CodeDeploy.CreateDeploymentOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.DescriptionTooLongException|CodeDeploy.DeploymentLimitExceededException|any>;
     /**
      * Creates a deployment configuration.
      *
@@ -178,7 +178,7 @@ Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
      * @error InvalidMinimumHealthyHostValueException   
      * @error DeploymentConfigLimitExceededException   
      */
-    createDeploymentConfig(params: CodeDeploy.CreateDeploymentConfigInput, callback?: (err: CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigNameRequiredException|CodeDeploy.DeploymentConfigAlreadyExistsException|CodeDeploy.InvalidMinimumHealthyHostValueException|CodeDeploy.DeploymentConfigLimitExceededException|any, data: CodeDeploy.CreateDeploymentConfigOutput|any) => void): Request;
+    createDeploymentConfig(params: CodeDeploy.CreateDeploymentConfigInput, callback?: (err: CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigNameRequiredException|CodeDeploy.DeploymentConfigAlreadyExistsException|CodeDeploy.InvalidMinimumHealthyHostValueException|CodeDeploy.DeploymentConfigLimitExceededException|any, data: CodeDeploy.CreateDeploymentConfigOutput|any) => void): Request<CodeDeploy.CreateDeploymentConfigOutput|any,CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigNameRequiredException|CodeDeploy.DeploymentConfigAlreadyExistsException|CodeDeploy.InvalidMinimumHealthyHostValueException|CodeDeploy.DeploymentConfigLimitExceededException|any>;
     /**
      * Creates a deployment group to which application revisions will be deployed.
      *
@@ -200,14 +200,14 @@ Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
      * @error InvalidTriggerConfigException   
      * @error TriggerTargetsLimitExceededException   
      */
-    createDeploymentGroup(params: CodeDeploy.CreateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.RoleRequiredException|CodeDeploy.InvalidRoleException|CodeDeploy.DeploymentGroupLimitExceededException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|any, data: CodeDeploy.CreateDeploymentGroupOutput|any) => void): Request;
+    createDeploymentGroup(params: CodeDeploy.CreateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.RoleRequiredException|CodeDeploy.InvalidRoleException|CodeDeploy.DeploymentGroupLimitExceededException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|any, data: CodeDeploy.CreateDeploymentGroupOutput|any) => void): Request<CodeDeploy.CreateDeploymentGroupOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.RoleRequiredException|CodeDeploy.InvalidRoleException|CodeDeploy.DeploymentGroupLimitExceededException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|any>;
     /**
      * Deletes an application.
      *
      * @error ApplicationNameRequiredException   
      * @error InvalidApplicationNameException   
      */
-    deleteApplication(params: CodeDeploy.DeleteApplicationInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|any, data: any) => void): Request;
+    deleteApplication(params: CodeDeploy.DeleteApplicationInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|any, data: any) => void): Request<any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|any>;
     /**
      * Deletes a deployment configuration.
 
@@ -219,7 +219,7 @@ Predefined configurations cannot be deleted.
      * @error DeploymentConfigInUseException   
      * @error InvalidOperationException   
      */
-    deleteDeploymentConfig(params: CodeDeploy.DeleteDeploymentConfigInput, callback?: (err: CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigNameRequiredException|CodeDeploy.DeploymentConfigInUseException|CodeDeploy.InvalidOperationException|any, data: any) => void): Request;
+    deleteDeploymentConfig(params: CodeDeploy.DeleteDeploymentConfigInput, callback?: (err: CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigNameRequiredException|CodeDeploy.DeploymentConfigInUseException|CodeDeploy.InvalidOperationException|any, data: any) => void): Request<any,CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigNameRequiredException|CodeDeploy.DeploymentConfigInUseException|CodeDeploy.InvalidOperationException|any>;
     /**
      * Deletes a deployment group.
      *
@@ -229,14 +229,14 @@ Predefined configurations cannot be deleted.
      * @error InvalidDeploymentGroupNameException   
      * @error InvalidRoleException   
      */
-    deleteDeploymentGroup(params: CodeDeploy.DeleteDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.InvalidRoleException|any, data: CodeDeploy.DeleteDeploymentGroupOutput|any) => void): Request;
+    deleteDeploymentGroup(params: CodeDeploy.DeleteDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.InvalidRoleException|any, data: CodeDeploy.DeleteDeploymentGroupOutput|any) => void): Request<CodeDeploy.DeleteDeploymentGroupOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.InvalidRoleException|any>;
     /**
      * Deregisters an on-premises instance.
      *
      * @error InstanceNameRequiredException   
      * @error InvalidInstanceNameException   
      */
-    deregisterOnPremisesInstance(params: CodeDeploy.DeregisterOnPremisesInstanceInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.InvalidInstanceNameException|any, data: any) => void): Request;
+    deregisterOnPremisesInstance(params: CodeDeploy.DeregisterOnPremisesInstanceInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.InvalidInstanceNameException|any, data: any) => void): Request<any,CodeDeploy.InstanceNameRequiredException|CodeDeploy.InvalidInstanceNameException|any>;
     /**
      * Gets information about an application.
      *
@@ -244,7 +244,7 @@ Predefined configurations cannot be deleted.
      * @error InvalidApplicationNameException   
      * @error ApplicationDoesNotExistException   
      */
-    getApplication(params: CodeDeploy.GetApplicationInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|any, data: CodeDeploy.GetApplicationOutput|any) => void): Request;
+    getApplication(params: CodeDeploy.GetApplicationInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|any, data: CodeDeploy.GetApplicationOutput|any) => void): Request<CodeDeploy.GetApplicationOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|any>;
     /**
      * Gets information about an application revision.
      *
@@ -255,7 +255,7 @@ Predefined configurations cannot be deleted.
      * @error RevisionRequiredException   
      * @error InvalidRevisionException   
      */
-    getApplicationRevision(params: CodeDeploy.GetApplicationRevisionInput, callback?: (err: CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.RevisionDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|any, data: CodeDeploy.GetApplicationRevisionOutput|any) => void): Request;
+    getApplicationRevision(params: CodeDeploy.GetApplicationRevisionInput, callback?: (err: CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.RevisionDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|any, data: CodeDeploy.GetApplicationRevisionOutput|any) => void): Request<CodeDeploy.GetApplicationRevisionOutput|any,CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.RevisionDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|any>;
     /**
      * Gets information about a deployment.
      *
@@ -263,7 +263,7 @@ Predefined configurations cannot be deleted.
      * @error InvalidDeploymentIdException   
      * @error DeploymentDoesNotExistException   
      */
-    getDeployment(params: CodeDeploy.GetDeploymentInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.DeploymentDoesNotExistException|any, data: CodeDeploy.GetDeploymentOutput|any) => void): Request;
+    getDeployment(params: CodeDeploy.GetDeploymentInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.DeploymentDoesNotExistException|any, data: CodeDeploy.GetDeploymentOutput|any) => void): Request<CodeDeploy.GetDeploymentOutput|any,CodeDeploy.DeploymentIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.DeploymentDoesNotExistException|any>;
     /**
      * Gets information about a deployment configuration.
      *
@@ -271,7 +271,7 @@ Predefined configurations cannot be deleted.
      * @error DeploymentConfigNameRequiredException   
      * @error DeploymentConfigDoesNotExistException   
      */
-    getDeploymentConfig(params: CodeDeploy.GetDeploymentConfigInput, callback?: (err: CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigNameRequiredException|CodeDeploy.DeploymentConfigDoesNotExistException|any, data: CodeDeploy.GetDeploymentConfigOutput|any) => void): Request;
+    getDeploymentConfig(params: CodeDeploy.GetDeploymentConfigInput, callback?: (err: CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigNameRequiredException|CodeDeploy.DeploymentConfigDoesNotExistException|any, data: CodeDeploy.GetDeploymentConfigOutput|any) => void): Request<CodeDeploy.GetDeploymentConfigOutput|any,CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigNameRequiredException|CodeDeploy.DeploymentConfigDoesNotExistException|any>;
     /**
      * Gets information about a deployment group.
      *
@@ -282,7 +282,7 @@ Predefined configurations cannot be deleted.
      * @error InvalidDeploymentGroupNameException   
      * @error DeploymentGroupDoesNotExistException   
      */
-    getDeploymentGroup(params: CodeDeploy.GetDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|any, data: CodeDeploy.GetDeploymentGroupOutput|any) => void): Request;
+    getDeploymentGroup(params: CodeDeploy.GetDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|any, data: CodeDeploy.GetDeploymentGroupOutput|any) => void): Request<CodeDeploy.GetDeploymentGroupOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|any>;
     /**
      * Gets information about an instance as part of a deployment.
      *
@@ -293,7 +293,7 @@ Predefined configurations cannot be deleted.
      * @error InstanceDoesNotExistException   
      * @error InvalidInstanceNameException   
      */
-    getDeploymentInstance(params: CodeDeploy.GetDeploymentInstanceInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.InstanceIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InstanceDoesNotExistException|CodeDeploy.InvalidInstanceNameException|any, data: CodeDeploy.GetDeploymentInstanceOutput|any) => void): Request;
+    getDeploymentInstance(params: CodeDeploy.GetDeploymentInstanceInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.InstanceIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InstanceDoesNotExistException|CodeDeploy.InvalidInstanceNameException|any, data: CodeDeploy.GetDeploymentInstanceOutput|any) => void): Request<CodeDeploy.GetDeploymentInstanceOutput|any,CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.InstanceIdRequiredException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InstanceDoesNotExistException|CodeDeploy.InvalidInstanceNameException|any>;
     /**
      * Gets information about an on-premises instance.
      *
@@ -301,7 +301,7 @@ Predefined configurations cannot be deleted.
      * @error InstanceNotRegisteredException   
      * @error InvalidInstanceNameException   
      */
-    getOnPremisesInstance(params: CodeDeploy.GetOnPremisesInstanceInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.InstanceNotRegisteredException|CodeDeploy.InvalidInstanceNameException|any, data: CodeDeploy.GetOnPremisesInstanceOutput|any) => void): Request;
+    getOnPremisesInstance(params: CodeDeploy.GetOnPremisesInstanceInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.InstanceNotRegisteredException|CodeDeploy.InvalidInstanceNameException|any, data: CodeDeploy.GetOnPremisesInstanceOutput|any) => void): Request<CodeDeploy.GetOnPremisesInstanceOutput|any,CodeDeploy.InstanceNameRequiredException|CodeDeploy.InstanceNotRegisteredException|CodeDeploy.InvalidInstanceNameException|any>;
     /**
      * Lists information about revisions for an application.
      *
@@ -316,19 +316,19 @@ Predefined configurations cannot be deleted.
      * @error InvalidDeployedStateFilterException   
      * @error InvalidNextTokenException   
      */
-    listApplicationRevisions(params: CodeDeploy.ListApplicationRevisionsInput, callback?: (err: CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.InvalidSortByException|CodeDeploy.InvalidSortOrderException|CodeDeploy.InvalidBucketNameFilterException|CodeDeploy.InvalidKeyPrefixFilterException|CodeDeploy.BucketNameFilterRequiredException|CodeDeploy.InvalidDeployedStateFilterException|CodeDeploy.InvalidNextTokenException|any, data: CodeDeploy.ListApplicationRevisionsOutput|any) => void): Request;
+    listApplicationRevisions(params: CodeDeploy.ListApplicationRevisionsInput, callback?: (err: CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.InvalidSortByException|CodeDeploy.InvalidSortOrderException|CodeDeploy.InvalidBucketNameFilterException|CodeDeploy.InvalidKeyPrefixFilterException|CodeDeploy.BucketNameFilterRequiredException|CodeDeploy.InvalidDeployedStateFilterException|CodeDeploy.InvalidNextTokenException|any, data: CodeDeploy.ListApplicationRevisionsOutput|any) => void): Request<CodeDeploy.ListApplicationRevisionsOutput|any,CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.InvalidSortByException|CodeDeploy.InvalidSortOrderException|CodeDeploy.InvalidBucketNameFilterException|CodeDeploy.InvalidKeyPrefixFilterException|CodeDeploy.BucketNameFilterRequiredException|CodeDeploy.InvalidDeployedStateFilterException|CodeDeploy.InvalidNextTokenException|any>;
     /**
      * Lists the applications registered with the applicable IAM user or AWS account.
      *
      * @error InvalidNextTokenException   
      */
-    listApplications(params: CodeDeploy.ListApplicationsInput, callback?: (err: CodeDeploy.InvalidNextTokenException|any, data: CodeDeploy.ListApplicationsOutput|any) => void): Request;
+    listApplications(params: CodeDeploy.ListApplicationsInput, callback?: (err: CodeDeploy.InvalidNextTokenException|any, data: CodeDeploy.ListApplicationsOutput|any) => void): Request<CodeDeploy.ListApplicationsOutput|any,CodeDeploy.InvalidNextTokenException|any>;
     /**
      * Lists the deployment configurations with the applicable IAM user or AWS account.
      *
      * @error InvalidNextTokenException   
      */
-    listDeploymentConfigs(params: CodeDeploy.ListDeploymentConfigsInput, callback?: (err: CodeDeploy.InvalidNextTokenException|any, data: CodeDeploy.ListDeploymentConfigsOutput|any) => void): Request;
+    listDeploymentConfigs(params: CodeDeploy.ListDeploymentConfigsInput, callback?: (err: CodeDeploy.InvalidNextTokenException|any, data: CodeDeploy.ListDeploymentConfigsOutput|any) => void): Request<CodeDeploy.ListDeploymentConfigsOutput|any,CodeDeploy.InvalidNextTokenException|any>;
     /**
      * Lists the deployment groups for an application registered with the applicable
 IAM user or AWS account.
@@ -338,7 +338,7 @@ IAM user or AWS account.
      * @error ApplicationDoesNotExistException   
      * @error InvalidNextTokenException   
      */
-    listDeploymentGroups(params: CodeDeploy.ListDeploymentGroupsInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidNextTokenException|any, data: CodeDeploy.ListDeploymentGroupsOutput|any) => void): Request;
+    listDeploymentGroups(params: CodeDeploy.ListDeploymentGroupsInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidNextTokenException|any, data: CodeDeploy.ListDeploymentGroupsOutput|any) => void): Request<CodeDeploy.ListDeploymentGroupsOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidNextTokenException|any>;
     /**
      * Lists the instance for a deployment associated with the applicable IAM user or
 AWS account.
@@ -350,7 +350,7 @@ AWS account.
      * @error InvalidDeploymentIdException   
      * @error InvalidInstanceStatusException   
      */
-    listDeploymentInstances(params: CodeDeploy.ListDeploymentInstancesInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentNotStartedException|CodeDeploy.InvalidNextTokenException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InvalidInstanceStatusException|any, data: CodeDeploy.ListDeploymentInstancesOutput|any) => void): Request;
+    listDeploymentInstances(params: CodeDeploy.ListDeploymentInstancesInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentNotStartedException|CodeDeploy.InvalidNextTokenException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InvalidInstanceStatusException|any, data: CodeDeploy.ListDeploymentInstancesOutput|any) => void): Request<CodeDeploy.ListDeploymentInstancesOutput|any,CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentNotStartedException|CodeDeploy.InvalidNextTokenException|CodeDeploy.InvalidDeploymentIdException|CodeDeploy.InvalidInstanceStatusException|any>;
     /**
      * Lists the deployments in a deployment group for an application registered with
 the applicable IAM user or AWS account.
@@ -365,7 +365,7 @@ the applicable IAM user or AWS account.
      * @error InvalidDeploymentStatusException   
      * @error InvalidNextTokenException   
      */
-    listDeployments(params: CodeDeploy.ListDeploymentsInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidTimeRangeException|CodeDeploy.InvalidDeploymentStatusException|CodeDeploy.InvalidNextTokenException|any, data: CodeDeploy.ListDeploymentsOutput|any) => void): Request;
+    listDeployments(params: CodeDeploy.ListDeploymentsInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidTimeRangeException|CodeDeploy.InvalidDeploymentStatusException|CodeDeploy.InvalidNextTokenException|any, data: CodeDeploy.ListDeploymentsOutput|any) => void): Request<CodeDeploy.ListDeploymentsOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidTimeRangeException|CodeDeploy.InvalidDeploymentStatusException|CodeDeploy.InvalidNextTokenException|any>;
     /**
      * Gets a list of names for one or more on-premises instances.
 
@@ -377,7 +377,7 @@ on-premises instance names, use the registration status parameter.
      * @error InvalidTagFilterException   
      * @error InvalidNextTokenException   
      */
-    listOnPremisesInstances(params: CodeDeploy.ListOnPremisesInstancesInput, callback?: (err: CodeDeploy.InvalidRegistrationStatusException|CodeDeploy.InvalidTagFilterException|CodeDeploy.InvalidNextTokenException|any, data: CodeDeploy.ListOnPremisesInstancesOutput|any) => void): Request;
+    listOnPremisesInstances(params: CodeDeploy.ListOnPremisesInstancesInput, callback?: (err: CodeDeploy.InvalidRegistrationStatusException|CodeDeploy.InvalidTagFilterException|CodeDeploy.InvalidNextTokenException|any, data: CodeDeploy.ListOnPremisesInstancesOutput|any) => void): Request<CodeDeploy.ListOnPremisesInstancesOutput|any,CodeDeploy.InvalidRegistrationStatusException|CodeDeploy.InvalidTagFilterException|CodeDeploy.InvalidNextTokenException|any>;
     /**
      * Registers with AWS CodeDeploy a revision for the specified application.
      *
@@ -388,7 +388,7 @@ on-premises instance names, use the registration status parameter.
      * @error RevisionRequiredException   
      * @error InvalidRevisionException   
      */
-    registerApplicationRevision(params: CodeDeploy.RegisterApplicationRevisionInput, callback?: (err: CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.DescriptionTooLongException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|any, data: any) => void): Request;
+    registerApplicationRevision(params: CodeDeploy.RegisterApplicationRevisionInput, callback?: (err: CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.DescriptionTooLongException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|any, data: any) => void): Request<any,CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.DescriptionTooLongException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|any>;
     /**
      * Registers an on-premises instance.
      *
@@ -399,7 +399,7 @@ on-premises instance names, use the registration status parameter.
      * @error InvalidInstanceNameException   
      * @error InvalidIamUserArnException   
      */
-    registerOnPremisesInstance(params: CodeDeploy.RegisterOnPremisesInstanceInput, callback?: (err: CodeDeploy.InstanceNameAlreadyRegisteredException|CodeDeploy.IamUserArnAlreadyRegisteredException|CodeDeploy.InstanceNameRequiredException|CodeDeploy.IamUserArnRequiredException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.InvalidIamUserArnException|any, data: any) => void): Request;
+    registerOnPremisesInstance(params: CodeDeploy.RegisterOnPremisesInstanceInput, callback?: (err: CodeDeploy.InstanceNameAlreadyRegisteredException|CodeDeploy.IamUserArnAlreadyRegisteredException|CodeDeploy.InstanceNameRequiredException|CodeDeploy.IamUserArnRequiredException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.InvalidIamUserArnException|any, data: any) => void): Request<any,CodeDeploy.InstanceNameAlreadyRegisteredException|CodeDeploy.IamUserArnAlreadyRegisteredException|CodeDeploy.InstanceNameRequiredException|CodeDeploy.IamUserArnRequiredException|CodeDeploy.InvalidInstanceNameException|CodeDeploy.InvalidIamUserArnException|any>;
     /**
      * Removes one or more tags from one or more on-premises instances.
      *
@@ -410,7 +410,7 @@ on-premises instance names, use the registration status parameter.
      * @error InstanceLimitExceededException   
      * @error InstanceNotRegisteredException   
      */
-    removeTagsFromOnPremisesInstances(params: CodeDeploy.RemoveTagsFromOnPremisesInstancesInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.TagRequiredException|CodeDeploy.InvalidTagException|CodeDeploy.TagLimitExceededException|CodeDeploy.InstanceLimitExceededException|CodeDeploy.InstanceNotRegisteredException|any, data: any) => void): Request;
+    removeTagsFromOnPremisesInstances(params: CodeDeploy.RemoveTagsFromOnPremisesInstancesInput, callback?: (err: CodeDeploy.InstanceNameRequiredException|CodeDeploy.TagRequiredException|CodeDeploy.InvalidTagException|CodeDeploy.TagLimitExceededException|CodeDeploy.InstanceLimitExceededException|CodeDeploy.InstanceNotRegisteredException|any, data: any) => void): Request<any,CodeDeploy.InstanceNameRequiredException|CodeDeploy.TagRequiredException|CodeDeploy.InvalidTagException|CodeDeploy.TagLimitExceededException|CodeDeploy.InstanceLimitExceededException|CodeDeploy.InstanceNotRegisteredException|any>;
     /**
      * Attempts to stop an ongoing deployment.
      *
@@ -419,7 +419,7 @@ on-premises instance names, use the registration status parameter.
      * @error DeploymentAlreadyCompletedException   
      * @error InvalidDeploymentIdException   
      */
-    stopDeployment(params: CodeDeploy.StopDeploymentInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentAlreadyCompletedException|CodeDeploy.InvalidDeploymentIdException|any, data: CodeDeploy.StopDeploymentOutput|any) => void): Request;
+    stopDeployment(params: CodeDeploy.StopDeploymentInput, callback?: (err: CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentAlreadyCompletedException|CodeDeploy.InvalidDeploymentIdException|any, data: CodeDeploy.StopDeploymentOutput|any) => void): Request<CodeDeploy.StopDeploymentOutput|any,CodeDeploy.DeploymentIdRequiredException|CodeDeploy.DeploymentDoesNotExistException|CodeDeploy.DeploymentAlreadyCompletedException|CodeDeploy.InvalidDeploymentIdException|any>;
     /**
      * Changes the name of an application.
      *
@@ -428,7 +428,7 @@ on-premises instance names, use the registration status parameter.
      * @error ApplicationAlreadyExistsException   
      * @error ApplicationDoesNotExistException   
      */
-    updateApplication(params: CodeDeploy.UpdateApplicationInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationAlreadyExistsException|CodeDeploy.ApplicationDoesNotExistException|any, data: any) => void): Request;
+    updateApplication(params: CodeDeploy.UpdateApplicationInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationAlreadyExistsException|CodeDeploy.ApplicationDoesNotExistException|any, data: any) => void): Request<any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationAlreadyExistsException|CodeDeploy.ApplicationDoesNotExistException|any>;
     /**
      * Changes information about a deployment group.
      *
@@ -449,7 +449,7 @@ on-premises instance names, use the registration status parameter.
      * @error InvalidTriggerConfigException   
      * @error TriggerTargetsLimitExceededException   
      */
-    updateDeploymentGroup(params: CodeDeploy.UpdateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.InvalidRoleException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|any, data: CodeDeploy.UpdateDeploymentGroupOutput|any) => void): Request;
+    updateDeploymentGroup(params: CodeDeploy.UpdateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.InvalidRoleException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|any, data: CodeDeploy.UpdateDeploymentGroupOutput|any) => void): Request<CodeDeploy.UpdateDeploymentGroupOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.InvalidRoleException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|any>;
 
   }
 

@@ -33,7 +33,7 @@ Condition statement in an IAM policy for DMS.
      *
      * @error ResourceNotFoundFault   
      */
-    addTagsToResource(params: DMS.AddTagsToResourceMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.AddTagsToResourceResponse|any) => void): Request;
+    addTagsToResource(params: DMS.AddTagsToResourceMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.AddTagsToResourceResponse|any) => void): Request<DMS.AddTagsToResourceResponse|any,DMS.ResourceNotFoundFault|any>;
     /**
      * Creates an endpoint using the provided settings.
      *
@@ -41,7 +41,7 @@ Condition statement in an IAM policy for DMS.
      * @error ResourceAlreadyExistsFault   
      * @error ResourceQuotaExceededFault   
      */
-    createEndpoint(params: DMS.CreateEndpointMessage, callback?: (err: DMS.KMSKeyNotAccessibleFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceQuotaExceededFault|any, data: DMS.CreateEndpointResponse|any) => void): Request;
+    createEndpoint(params: DMS.CreateEndpointMessage, callback?: (err: DMS.KMSKeyNotAccessibleFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceQuotaExceededFault|any, data: DMS.CreateEndpointResponse|any) => void): Request<DMS.CreateEndpointResponse|any,DMS.KMSKeyNotAccessibleFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceQuotaExceededFault|any>;
     /**
      * Creates the replication instance using the specified parameters.
      *
@@ -56,7 +56,7 @@ Condition statement in an IAM policy for DMS.
      * @error InvalidSubnet   
      * @error KMSKeyNotAccessibleFault   
      */
-    createReplicationInstance(params: DMS.CreateReplicationInstanceMessage, callback?: (err: DMS.AccessDeniedFault|DMS.ResourceAlreadyExistsFault|DMS.InsufficientResourceCapacityFault|DMS.ResourceQuotaExceededFault|DMS.StorageQuotaExceededFault|DMS.ResourceNotFoundFault|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidResourceStateFault|DMS.InvalidSubnet|DMS.KMSKeyNotAccessibleFault|any, data: DMS.CreateReplicationInstanceResponse|any) => void): Request;
+    createReplicationInstance(params: DMS.CreateReplicationInstanceMessage, callback?: (err: DMS.AccessDeniedFault|DMS.ResourceAlreadyExistsFault|DMS.InsufficientResourceCapacityFault|DMS.ResourceQuotaExceededFault|DMS.StorageQuotaExceededFault|DMS.ResourceNotFoundFault|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidResourceStateFault|DMS.InvalidSubnet|DMS.KMSKeyNotAccessibleFault|any, data: DMS.CreateReplicationInstanceResponse|any) => void): Request<DMS.CreateReplicationInstanceResponse|any,DMS.AccessDeniedFault|DMS.ResourceAlreadyExistsFault|DMS.InsufficientResourceCapacityFault|DMS.ResourceQuotaExceededFault|DMS.StorageQuotaExceededFault|DMS.ResourceNotFoundFault|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidResourceStateFault|DMS.InvalidSubnet|DMS.KMSKeyNotAccessibleFault|any>;
     /**
      * Creates a replication subnet group given a list of the subnet IDs in a VPC.
      *
@@ -67,7 +67,7 @@ Condition statement in an IAM policy for DMS.
      * @error ReplicationSubnetGroupDoesNotCoverEnoughAZs   
      * @error InvalidSubnet   
      */
-    createReplicationSubnetGroup(params: DMS.CreateReplicationSubnetGroupMessage, callback?: (err: DMS.AccessDeniedFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceNotFoundFault|DMS.ResourceQuotaExceededFault|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidSubnet|any, data: DMS.CreateReplicationSubnetGroupResponse|any) => void): Request;
+    createReplicationSubnetGroup(params: DMS.CreateReplicationSubnetGroupMessage, callback?: (err: DMS.AccessDeniedFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceNotFoundFault|DMS.ResourceQuotaExceededFault|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidSubnet|any, data: DMS.CreateReplicationSubnetGroupResponse|any) => void): Request<DMS.CreateReplicationSubnetGroupResponse|any,DMS.AccessDeniedFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceNotFoundFault|DMS.ResourceQuotaExceededFault|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidSubnet|any>;
     /**
      * Creates a replication task using the specified parameters.
      *
@@ -77,7 +77,7 @@ Condition statement in an IAM policy for DMS.
      * @error KMSKeyNotAccessibleFault   
      * @error ResourceQuotaExceededFault   
      */
-    createReplicationTask(params: DMS.CreateReplicationTaskMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceNotFoundFault|DMS.KMSKeyNotAccessibleFault|DMS.ResourceQuotaExceededFault|any, data: DMS.CreateReplicationTaskResponse|any) => void): Request;
+    createReplicationTask(params: DMS.CreateReplicationTaskMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceNotFoundFault|DMS.KMSKeyNotAccessibleFault|DMS.ResourceQuotaExceededFault|any, data: DMS.CreateReplicationTaskResponse|any) => void): Request<DMS.CreateReplicationTaskResponse|any,DMS.InvalidResourceStateFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceNotFoundFault|DMS.KMSKeyNotAccessibleFault|DMS.ResourceQuotaExceededFault|any>;
     /**
      * Deletes the specified endpoint.
 
@@ -87,7 +87,7 @@ endpoint.
      * @error ResourceNotFoundFault   
      * @error InvalidResourceStateFault   
      */
-    deleteEndpoint(params: DMS.DeleteEndpointMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any, data: DMS.DeleteEndpointResponse|any) => void): Request;
+    deleteEndpoint(params: DMS.DeleteEndpointMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any, data: DMS.DeleteEndpointResponse|any) => void): Request<DMS.DeleteEndpointResponse|any,DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any>;
     /**
      * Deletes the specified replication instance.
 
@@ -97,21 +97,21 @@ instance before you can delete it.
      * @error InvalidResourceStateFault   
      * @error ResourceNotFoundFault   
      */
-    deleteReplicationInstance(params: DMS.DeleteReplicationInstanceMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any, data: DMS.DeleteReplicationInstanceResponse|any) => void): Request;
+    deleteReplicationInstance(params: DMS.DeleteReplicationInstanceMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any, data: DMS.DeleteReplicationInstanceResponse|any) => void): Request<DMS.DeleteReplicationInstanceResponse|any,DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any>;
     /**
      * Deletes a subnet group.
      *
      * @error InvalidResourceStateFault   
      * @error ResourceNotFoundFault   
      */
-    deleteReplicationSubnetGroup(params: DMS.DeleteReplicationSubnetGroupMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any, data: DMS.DeleteReplicationSubnetGroupResponse|any) => void): Request;
+    deleteReplicationSubnetGroup(params: DMS.DeleteReplicationSubnetGroupMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any, data: DMS.DeleteReplicationSubnetGroupResponse|any) => void): Request<DMS.DeleteReplicationSubnetGroupResponse|any,DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any>;
     /**
      * Deletes the specified replication task.
      *
      * @error ResourceNotFoundFault   
      * @error InvalidResourceStateFault   
      */
-    deleteReplicationTask(params: DMS.DeleteReplicationTaskMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any, data: DMS.DeleteReplicationTaskResponse|any) => void): Request;
+    deleteReplicationTask(params: DMS.DeleteReplicationTaskMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any, data: DMS.DeleteReplicationTaskResponse|any) => void): Request<DMS.DeleteReplicationTaskResponse|any,DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any>;
     /**
      * Lists all of the AWS DMS attributes for a customer account. The attributes
 include AWS DMS quotas for the account, such as the number of replication
@@ -121,7 +121,7 @@ usage toward that quota, and the quota&#x27;s maximum value.
 This command does not take any parameters.
      *
      */
-    describeAccountAttributes(params: DMS.DescribeAccountAttributesMessage, callback?: (err: any, data: DMS.DescribeAccountAttributesResponse|any) => void): Request;
+    describeAccountAttributes(params: DMS.DescribeAccountAttributesMessage, callback?: (err: any, data: DMS.DescribeAccountAttributesResponse|any) => void): Request<DMS.DescribeAccountAttributesResponse|any,any>;
     /**
      * Describes the status of the connections that have been made between the
 replication instance and an endpoint. Connections are created when you test an
@@ -129,58 +129,58 @@ endpoint.
      *
      * @error ResourceNotFoundFault   
      */
-    describeConnections(params: DMS.DescribeConnectionsMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.DescribeConnectionsResponse|any) => void): Request;
+    describeConnections(params: DMS.DescribeConnectionsMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.DescribeConnectionsResponse|any) => void): Request<DMS.DescribeConnectionsResponse|any,DMS.ResourceNotFoundFault|any>;
     /**
      * Returns information about the type of endpoints available.
      *
      */
-    describeEndpointTypes(params: DMS.DescribeEndpointTypesMessage, callback?: (err: any, data: DMS.DescribeEndpointTypesResponse|any) => void): Request;
+    describeEndpointTypes(params: DMS.DescribeEndpointTypesMessage, callback?: (err: any, data: DMS.DescribeEndpointTypesResponse|any) => void): Request<DMS.DescribeEndpointTypesResponse|any,any>;
     /**
      * Returns information about the endpoints for your account in the current region.
      *
      * @error ResourceNotFoundFault   
      */
-    describeEndpoints(params: DMS.DescribeEndpointsMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.DescribeEndpointsResponse|any) => void): Request;
+    describeEndpoints(params: DMS.DescribeEndpointsMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.DescribeEndpointsResponse|any) => void): Request<DMS.DescribeEndpointsResponse|any,DMS.ResourceNotFoundFault|any>;
     /**
      * Returns information about the replication instance types that can be created in
 the specified region.
      *
      */
-    describeOrderableReplicationInstances(params: DMS.DescribeOrderableReplicationInstancesMessage, callback?: (err: any, data: DMS.DescribeOrderableReplicationInstancesResponse|any) => void): Request;
+    describeOrderableReplicationInstances(params: DMS.DescribeOrderableReplicationInstancesMessage, callback?: (err: any, data: DMS.DescribeOrderableReplicationInstancesResponse|any) => void): Request<DMS.DescribeOrderableReplicationInstancesResponse|any,any>;
     /**
      * Returns the status of the RefreshSchemas operation.
      *
      * @error InvalidResourceStateFault   
      * @error ResourceNotFoundFault   
      */
-    describeRefreshSchemasStatus(params: DMS.DescribeRefreshSchemasStatusMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any, data: DMS.DescribeRefreshSchemasStatusResponse|any) => void): Request;
+    describeRefreshSchemasStatus(params: DMS.DescribeRefreshSchemasStatusMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any, data: DMS.DescribeRefreshSchemasStatusResponse|any) => void): Request<DMS.DescribeRefreshSchemasStatusResponse|any,DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any>;
     /**
      * Returns information about replication instances for your account in the current
 region.
      *
      * @error ResourceNotFoundFault   
      */
-    describeReplicationInstances(params: DMS.DescribeReplicationInstancesMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.DescribeReplicationInstancesResponse|any) => void): Request;
+    describeReplicationInstances(params: DMS.DescribeReplicationInstancesMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.DescribeReplicationInstancesResponse|any) => void): Request<DMS.DescribeReplicationInstancesResponse|any,DMS.ResourceNotFoundFault|any>;
     /**
      * Returns information about the replication subnet groups.
      *
      * @error ResourceNotFoundFault   
      */
-    describeReplicationSubnetGroups(params: DMS.DescribeReplicationSubnetGroupsMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.DescribeReplicationSubnetGroupsResponse|any) => void): Request;
+    describeReplicationSubnetGroups(params: DMS.DescribeReplicationSubnetGroupsMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.DescribeReplicationSubnetGroupsResponse|any) => void): Request<DMS.DescribeReplicationSubnetGroupsResponse|any,DMS.ResourceNotFoundFault|any>;
     /**
      * Returns information about replication tasks for your account in the current
 region.
      *
      * @error ResourceNotFoundFault   
      */
-    describeReplicationTasks(params: DMS.DescribeReplicationTasksMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.DescribeReplicationTasksResponse|any) => void): Request;
+    describeReplicationTasks(params: DMS.DescribeReplicationTasksMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.DescribeReplicationTasksResponse|any) => void): Request<DMS.DescribeReplicationTasksResponse|any,DMS.ResourceNotFoundFault|any>;
     /**
      * Returns information about the schema for the specified endpoint.
      *
      * @error InvalidResourceStateFault   
      * @error ResourceNotFoundFault   
      */
-    describeSchemas(params: DMS.DescribeSchemasMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any, data: DMS.DescribeSchemasResponse|any) => void): Request;
+    describeSchemas(params: DMS.DescribeSchemasMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any, data: DMS.DescribeSchemasResponse|any) => void): Request<DMS.DescribeSchemasResponse|any,DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any>;
     /**
      * Returns table statistics on the database migration task, including table name,
 rows inserted, rows updated, and rows deleted.
@@ -188,13 +188,13 @@ rows inserted, rows updated, and rows deleted.
      * @error ResourceNotFoundFault   
      * @error InvalidResourceStateFault   
      */
-    describeTableStatistics(params: DMS.DescribeTableStatisticsMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any, data: DMS.DescribeTableStatisticsResponse|any) => void): Request;
+    describeTableStatistics(params: DMS.DescribeTableStatisticsMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any, data: DMS.DescribeTableStatisticsResponse|any) => void): Request<DMS.DescribeTableStatisticsResponse|any,DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any>;
     /**
      * Lists all tags for an AWS DMS resource.
      *
      * @error ResourceNotFoundFault   
      */
-    listTagsForResource(params: DMS.ListTagsForResourceMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.ListTagsForResourceResponse|any) => void): Request;
+    listTagsForResource(params: DMS.ListTagsForResourceMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.ListTagsForResourceResponse|any) => void): Request<DMS.ListTagsForResourceResponse|any,DMS.ResourceNotFoundFault|any>;
     /**
      * Modifies the specified endpoint.
      *
@@ -203,7 +203,7 @@ rows inserted, rows updated, and rows deleted.
      * @error ResourceAlreadyExistsFault   
      * @error KMSKeyNotAccessibleFault   
      */
-    modifyEndpoint(params: DMS.ModifyEndpointMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|DMS.ResourceAlreadyExistsFault|DMS.KMSKeyNotAccessibleFault|any, data: DMS.ModifyEndpointResponse|any) => void): Request;
+    modifyEndpoint(params: DMS.ModifyEndpointMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|DMS.ResourceAlreadyExistsFault|DMS.KMSKeyNotAccessibleFault|any, data: DMS.ModifyEndpointResponse|any) => void): Request<DMS.ModifyEndpointResponse|any,DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|DMS.ResourceAlreadyExistsFault|DMS.KMSKeyNotAccessibleFault|any>;
     /**
      * Modifies the replication instance to apply new settings. You can change one or
 more parameters by specifying these parameters and the new values in the
@@ -218,7 +218,7 @@ Some settings are applied during the maintenance window.
      * @error StorageQuotaExceededFault   
      * @error UpgradeDependencyFailureFault   
      */
-    modifyReplicationInstance(params: DMS.ModifyReplicationInstanceMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceNotFoundFault|DMS.InsufficientResourceCapacityFault|DMS.StorageQuotaExceededFault|DMS.UpgradeDependencyFailureFault|any, data: DMS.ModifyReplicationInstanceResponse|any) => void): Request;
+    modifyReplicationInstance(params: DMS.ModifyReplicationInstanceMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceNotFoundFault|DMS.InsufficientResourceCapacityFault|DMS.StorageQuotaExceededFault|DMS.UpgradeDependencyFailureFault|any, data: DMS.ModifyReplicationInstanceResponse|any) => void): Request<DMS.ModifyReplicationInstanceResponse|any,DMS.InvalidResourceStateFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceNotFoundFault|DMS.InsufficientResourceCapacityFault|DMS.StorageQuotaExceededFault|DMS.UpgradeDependencyFailureFault|any>;
     /**
      * Modifies the settings for the specified replication subnet group.
      *
@@ -228,7 +228,7 @@ Some settings are applied during the maintenance window.
      * @error ReplicationSubnetGroupDoesNotCoverEnoughAZs   
      * @error InvalidSubnet   
      */
-    modifyReplicationSubnetGroup(params: DMS.ModifyReplicationSubnetGroupMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.ResourceQuotaExceededFault|DMS.SubnetAlreadyInUse|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidSubnet|any, data: DMS.ModifyReplicationSubnetGroupResponse|any) => void): Request;
+    modifyReplicationSubnetGroup(params: DMS.ModifyReplicationSubnetGroupMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.ResourceQuotaExceededFault|DMS.SubnetAlreadyInUse|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidSubnet|any, data: DMS.ModifyReplicationSubnetGroupResponse|any) => void): Request<DMS.ModifyReplicationSubnetGroupResponse|any,DMS.ResourceNotFoundFault|DMS.ResourceQuotaExceededFault|DMS.SubnetAlreadyInUse|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidSubnet|any>;
     /**
      * Populates the schema for the specified endpoint. This is an asynchronous
 operation and can take several minutes. You can check the status of this
@@ -239,27 +239,27 @@ operation by calling the DescribeRefreshSchemasStatus operation.
      * @error KMSKeyNotAccessibleFault   
      * @error ResourceQuotaExceededFault   
      */
-    refreshSchemas(params: DMS.RefreshSchemasMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|DMS.KMSKeyNotAccessibleFault|DMS.ResourceQuotaExceededFault|any, data: DMS.RefreshSchemasResponse|any) => void): Request;
+    refreshSchemas(params: DMS.RefreshSchemasMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|DMS.KMSKeyNotAccessibleFault|DMS.ResourceQuotaExceededFault|any, data: DMS.RefreshSchemasResponse|any) => void): Request<DMS.RefreshSchemasResponse|any,DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|DMS.KMSKeyNotAccessibleFault|DMS.ResourceQuotaExceededFault|any>;
     /**
      * Removes metadata tags from a DMS resource.
      *
      * @error ResourceNotFoundFault   
      */
-    removeTagsFromResource(params: DMS.RemoveTagsFromResourceMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.RemoveTagsFromResourceResponse|any) => void): Request;
+    removeTagsFromResource(params: DMS.RemoveTagsFromResourceMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.RemoveTagsFromResourceResponse|any) => void): Request<DMS.RemoveTagsFromResourceResponse|any,DMS.ResourceNotFoundFault|any>;
     /**
      * Starts the replication task.
      *
      * @error ResourceNotFoundFault   
      * @error InvalidResourceStateFault   
      */
-    startReplicationTask(params: DMS.StartReplicationTaskMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any, data: DMS.StartReplicationTaskResponse|any) => void): Request;
+    startReplicationTask(params: DMS.StartReplicationTaskMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any, data: DMS.StartReplicationTaskResponse|any) => void): Request<DMS.StartReplicationTaskResponse|any,DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any>;
     /**
      * Stops the replication task.
      *
      * @error ResourceNotFoundFault   
      * @error InvalidResourceStateFault   
      */
-    stopReplicationTask(params: DMS.StopReplicationTaskMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any, data: DMS.StopReplicationTaskResponse|any) => void): Request;
+    stopReplicationTask(params: DMS.StopReplicationTaskMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any, data: DMS.StopReplicationTaskResponse|any) => void): Request<DMS.StopReplicationTaskResponse|any,DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any>;
     /**
      * Tests the connection between the replication instance and the endpoint.
      *
@@ -268,7 +268,7 @@ operation by calling the DescribeRefreshSchemasStatus operation.
      * @error KMSKeyNotAccessibleFault   
      * @error ResourceQuotaExceededFault   
      */
-    testConnection(params: DMS.TestConnectionMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|DMS.KMSKeyNotAccessibleFault|DMS.ResourceQuotaExceededFault|any, data: DMS.TestConnectionResponse|any) => void): Request;
+    testConnection(params: DMS.TestConnectionMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|DMS.KMSKeyNotAccessibleFault|DMS.ResourceQuotaExceededFault|any, data: DMS.TestConnectionResponse|any) => void): Request<DMS.TestConnectionResponse|any,DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|DMS.KMSKeyNotAccessibleFault|DMS.ResourceQuotaExceededFault|any>;
 
   }
 

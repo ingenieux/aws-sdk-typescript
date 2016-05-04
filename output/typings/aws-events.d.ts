@@ -46,14 +46,14 @@ effect.
      * @error ConcurrentModificationException This exception occurs if there is concurrent modification on rule or target.  
      * @error InternalException This exception occurs due to unexpected causes.  
      */
-    deleteRule(params: CloudWatchEvents.DeleteRuleRequest, callback?: (err: CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any, data: any) => void): Request;
+    deleteRule(params: CloudWatchEvents.DeleteRuleRequest, callback?: (err: CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any, data: any) => void): Request<any,CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any>;
     /**
      * Describes the details of the specified rule.
      *
      * @error ResourceNotFoundException The rule does not exist.  
      * @error InternalException This exception occurs due to unexpected causes.  
      */
-    describeRule(params: CloudWatchEvents.DescribeRuleRequest, callback?: (err: CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.InternalException|any, data: CloudWatchEvents.DescribeRuleResponse|any) => void): Request;
+    describeRule(params: CloudWatchEvents.DescribeRuleRequest, callback?: (err: CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.InternalException|any, data: CloudWatchEvents.DescribeRuleResponse|any) => void): Request<CloudWatchEvents.DescribeRuleResponse|any,CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.InternalException|any>;
     /**
      * Disables a rule. A disabled rule won&#x27;t match any events, and won&#x27;t self-trigger
 if it has a schedule expression.
@@ -66,7 +66,7 @@ effect.
      * @error ConcurrentModificationException This exception occurs if there is concurrent modification on rule or target.  
      * @error InternalException This exception occurs due to unexpected causes.  
      */
-    disableRule(params: CloudWatchEvents.DisableRuleRequest, callback?: (err: CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any, data: any) => void): Request;
+    disableRule(params: CloudWatchEvents.DisableRuleRequest, callback?: (err: CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any, data: any) => void): Request<any,CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any>;
     /**
      * Enables a rule. If the rule does not exist, the operation fails.
 
@@ -78,7 +78,7 @@ changes to take effect.
      * @error ConcurrentModificationException This exception occurs if there is concurrent modification on rule or target.  
      * @error InternalException This exception occurs due to unexpected causes.  
      */
-    enableRule(params: CloudWatchEvents.EnableRuleRequest, callback?: (err: CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any, data: any) => void): Request;
+    enableRule(params: CloudWatchEvents.EnableRuleRequest, callback?: (err: CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any, data: any) => void): Request<any,CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any>;
     /**
      * Lists the names of the rules that the given target is put to. You can see which
 of the rules in Amazon CloudWatch Events can invoke a specific target in your
@@ -89,7 +89,7 @@ returned as null.
      *
      * @error InternalException This exception occurs due to unexpected causes.  
      */
-    listRuleNamesByTarget(params: CloudWatchEvents.ListRuleNamesByTargetRequest, callback?: (err: CloudWatchEvents.InternalException|any, data: CloudWatchEvents.ListRuleNamesByTargetResponse|any) => void): Request;
+    listRuleNamesByTarget(params: CloudWatchEvents.ListRuleNamesByTargetRequest, callback?: (err: CloudWatchEvents.InternalException|any, data: CloudWatchEvents.ListRuleNamesByTargetResponse|any) => void): Request<CloudWatchEvents.ListRuleNamesByTargetResponse|any,CloudWatchEvents.InternalException|any>;
     /**
      * Lists the Amazon CloudWatch Events rules in your account. You can either list
 all the rules or you can provide a prefix to match to the rule names. If you
@@ -99,21 +99,21 @@ ListRules until the NextToken in the response is returned as null.
      *
      * @error InternalException This exception occurs due to unexpected causes.  
      */
-    listRules(params: CloudWatchEvents.ListRulesRequest, callback?: (err: CloudWatchEvents.InternalException|any, data: CloudWatchEvents.ListRulesResponse|any) => void): Request;
+    listRules(params: CloudWatchEvents.ListRulesRequest, callback?: (err: CloudWatchEvents.InternalException|any, data: CloudWatchEvents.ListRulesResponse|any) => void): Request<CloudWatchEvents.ListRulesResponse|any,CloudWatchEvents.InternalException|any>;
     /**
      * Lists of targets assigned to the rule.
      *
      * @error ResourceNotFoundException The rule does not exist.  
      * @error InternalException This exception occurs due to unexpected causes.  
      */
-    listTargetsByRule(params: CloudWatchEvents.ListTargetsByRuleRequest, callback?: (err: CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.InternalException|any, data: CloudWatchEvents.ListTargetsByRuleResponse|any) => void): Request;
+    listTargetsByRule(params: CloudWatchEvents.ListTargetsByRuleRequest, callback?: (err: CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.InternalException|any, data: CloudWatchEvents.ListTargetsByRuleResponse|any) => void): Request<CloudWatchEvents.ListTargetsByRuleResponse|any,CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.InternalException|any>;
     /**
      * Sends custom events to Amazon CloudWatch Events so that they can be matched to
 rules.
      *
      * @error InternalException This exception occurs due to unexpected causes.  
      */
-    putEvents(params: CloudWatchEvents.PutEventsRequest, callback?: (err: CloudWatchEvents.InternalException|any, data: CloudWatchEvents.PutEventsResponse|any) => void): Request;
+    putEvents(params: CloudWatchEvents.PutEventsRequest, callback?: (err: CloudWatchEvents.InternalException|any, data: CloudWatchEvents.PutEventsResponse|any) => void): Request<CloudWatchEvents.PutEventsResponse|any,CloudWatchEvents.InternalException|any>;
     /**
      * Creates or updates a rule. Rules are enabled by default, or based on value of
 the State parameter. You can disable a rule using DisableRule .
@@ -139,7 +139,7 @@ rule than allowed by default.
      * @error ConcurrentModificationException This exception occurs if there is concurrent modification on rule or target.  
      * @error InternalException This exception occurs due to unexpected causes.  
      */
-    putRule(params: CloudWatchEvents.PutRuleRequest, callback?: (err: CloudWatchEvents.InvalidEventPatternException|CloudWatchEvents.LimitExceededException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any, data: CloudWatchEvents.PutRuleResponse|any) => void): Request;
+    putRule(params: CloudWatchEvents.PutRuleRequest, callback?: (err: CloudWatchEvents.InvalidEventPatternException|CloudWatchEvents.LimitExceededException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any, data: CloudWatchEvents.PutRuleResponse|any) => void): Request<CloudWatchEvents.PutRuleResponse|any,CloudWatchEvents.InvalidEventPatternException|CloudWatchEvents.LimitExceededException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any>;
     /**
      * Adds target(s) to a rule. Targets are the resources that can be invoked when a
 rule is triggered. For example, AWS Lambda functions, Amazon Kinesis streams,
@@ -176,7 +176,7 @@ time for changes to take effect.
 rule than allowed by default.  
      * @error InternalException This exception occurs due to unexpected causes.  
      */
-    putTargets(params: CloudWatchEvents.PutTargetsRequest, callback?: (err: CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.LimitExceededException|CloudWatchEvents.InternalException|any, data: CloudWatchEvents.PutTargetsResponse|any) => void): Request;
+    putTargets(params: CloudWatchEvents.PutTargetsRequest, callback?: (err: CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.LimitExceededException|CloudWatchEvents.InternalException|any, data: CloudWatchEvents.PutTargetsResponse|any) => void): Request<CloudWatchEvents.PutTargetsResponse|any,CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.LimitExceededException|CloudWatchEvents.InternalException|any>;
     /**
      * Removes target(s) from a rule so that when the rule is triggered, those targets
 will no longer be invoked.
@@ -189,7 +189,7 @@ for changes to take effect.
      * @error ConcurrentModificationException This exception occurs if there is concurrent modification on rule or target.  
      * @error InternalException This exception occurs due to unexpected causes.  
      */
-    removeTargets(params: CloudWatchEvents.RemoveTargetsRequest, callback?: (err: CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any, data: CloudWatchEvents.RemoveTargetsResponse|any) => void): Request;
+    removeTargets(params: CloudWatchEvents.RemoveTargetsRequest, callback?: (err: CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any, data: CloudWatchEvents.RemoveTargetsResponse|any) => void): Request<CloudWatchEvents.RemoveTargetsResponse|any,CloudWatchEvents.ResourceNotFoundException|CloudWatchEvents.ConcurrentModificationException|CloudWatchEvents.InternalException|any>;
     /**
      * Tests whether an event pattern matches the provided event.
 
@@ -201,7 +201,7 @@ patterns so that they match the ARN syntax in the event you want to match.
      * @error InvalidEventPatternException The event pattern is invalid.  
      * @error InternalException This exception occurs due to unexpected causes.  
      */
-    testEventPattern(params: CloudWatchEvents.TestEventPatternRequest, callback?: (err: CloudWatchEvents.InvalidEventPatternException|CloudWatchEvents.InternalException|any, data: CloudWatchEvents.TestEventPatternResponse|any) => void): Request;
+    testEventPattern(params: CloudWatchEvents.TestEventPatternRequest, callback?: (err: CloudWatchEvents.InvalidEventPatternException|CloudWatchEvents.InternalException|any, data: CloudWatchEvents.TestEventPatternResponse|any) => void): Request<CloudWatchEvents.TestEventPatternResponse|any,CloudWatchEvents.InvalidEventPatternException|CloudWatchEvents.InternalException|any>;
 
   }
 

@@ -30,7 +30,7 @@ cloud.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    createDevicePool(params: DeviceFarm.CreateDevicePoolRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.CreateDevicePoolResult|any) => void): Request;
+    createDevicePool(params: DeviceFarm.CreateDevicePoolRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.CreateDevicePoolResult|any) => void): Request<DeviceFarm.CreateDevicePoolResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Creates a new project.
      *
@@ -39,7 +39,7 @@ cloud.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    createProject(params: DeviceFarm.CreateProjectRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.CreateProjectResult|any) => void): Request;
+    createProject(params: DeviceFarm.CreateProjectRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.CreateProjectResult|any) => void): Request<DeviceFarm.CreateProjectResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Uploads an app or test scripts.
      *
@@ -48,7 +48,7 @@ cloud.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    createUpload(params: DeviceFarm.CreateUploadRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.CreateUploadResult|any) => void): Request;
+    createUpload(params: DeviceFarm.CreateUploadRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.CreateUploadResult|any) => void): Request<DeviceFarm.CreateUploadResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Deletes a device pool given the pool ARN. Does not allow deletion of curated
 pools owned by the system.
@@ -58,7 +58,7 @@ pools owned by the system.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    deleteDevicePool(params: DeviceFarm.DeleteDevicePoolRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.DeleteDevicePoolResult|any) => void): Request;
+    deleteDevicePool(params: DeviceFarm.DeleteDevicePoolRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.DeleteDevicePoolResult|any) => void): Request<DeviceFarm.DeleteDevicePoolResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Deletes an AWS Device Farm project, given the project ARN.
 
@@ -69,7 +69,7 @@ Note Deleting this resource does not stop an in-progress run.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    deleteProject(params: DeviceFarm.DeleteProjectRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.DeleteProjectResult|any) => void): Request;
+    deleteProject(params: DeviceFarm.DeleteProjectRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.DeleteProjectResult|any) => void): Request<DeviceFarm.DeleteProjectResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Deletes the run, given the run ARN.
 
@@ -80,7 +80,7 @@ Note Deleting this resource does not stop an in-progress run.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    deleteRun(params: DeviceFarm.DeleteRunRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.DeleteRunResult|any) => void): Request;
+    deleteRun(params: DeviceFarm.DeleteRunRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.DeleteRunResult|any) => void): Request<DeviceFarm.DeleteRunResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Deletes an upload given the upload ARN.
      *
@@ -89,7 +89,7 @@ Note Deleting this resource does not stop an in-progress run.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    deleteUpload(params: DeviceFarm.DeleteUploadRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.DeleteUploadResult|any) => void): Request;
+    deleteUpload(params: DeviceFarm.DeleteUploadRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.DeleteUploadResult|any) => void): Request<DeviceFarm.DeleteUploadResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Returns the number of unmetered iOS and/or unmetered Android devices that have
 been purchased by the account.
@@ -99,7 +99,7 @@ been purchased by the account.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    getAccountSettings(params: DeviceFarm.GetAccountSettingsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetAccountSettingsResult|any) => void): Request;
+    getAccountSettings(params: DeviceFarm.GetAccountSettingsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetAccountSettingsResult|any) => void): Request<DeviceFarm.GetAccountSettingsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about a unique device type.
      *
@@ -108,7 +108,7 @@ been purchased by the account.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    getDevice(params: DeviceFarm.GetDeviceRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetDeviceResult|any) => void): Request;
+    getDevice(params: DeviceFarm.GetDeviceRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetDeviceResult|any) => void): Request<DeviceFarm.GetDeviceResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about a device pool.
      *
@@ -117,7 +117,7 @@ been purchased by the account.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    getDevicePool(params: DeviceFarm.GetDevicePoolRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetDevicePoolResult|any) => void): Request;
+    getDevicePool(params: DeviceFarm.GetDevicePoolRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetDevicePoolResult|any) => void): Request<DeviceFarm.GetDevicePoolResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about compatibility with a device pool.
      *
@@ -126,7 +126,7 @@ been purchased by the account.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    getDevicePoolCompatibility(params: DeviceFarm.GetDevicePoolCompatibilityRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetDevicePoolCompatibilityResult|any) => void): Request;
+    getDevicePoolCompatibility(params: DeviceFarm.GetDevicePoolCompatibilityRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetDevicePoolCompatibilityResult|any) => void): Request<DeviceFarm.GetDevicePoolCompatibilityResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about a job.
      *
@@ -135,7 +135,7 @@ been purchased by the account.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    getJob(params: DeviceFarm.GetJobRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetJobResult|any) => void): Request;
+    getJob(params: DeviceFarm.GetJobRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetJobResult|any) => void): Request<DeviceFarm.GetJobResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets the current status and future status of all offerings purchased by an AWS
 account. The response indicates how many offerings are currently available and
@@ -150,7 +150,7 @@ you believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    getOfferingStatus(params: DeviceFarm.GetOfferingStatusRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetOfferingStatusResult|any) => void): Request;
+    getOfferingStatus(params: DeviceFarm.GetOfferingStatusRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetOfferingStatusResult|any) => void): Request<DeviceFarm.GetOfferingStatusResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about a project.
      *
@@ -159,7 +159,7 @@ you believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    getProject(params: DeviceFarm.GetProjectRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetProjectResult|any) => void): Request;
+    getProject(params: DeviceFarm.GetProjectRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetProjectResult|any) => void): Request<DeviceFarm.GetProjectResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about a run.
      *
@@ -168,7 +168,7 @@ you believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    getRun(params: DeviceFarm.GetRunRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetRunResult|any) => void): Request;
+    getRun(params: DeviceFarm.GetRunRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetRunResult|any) => void): Request<DeviceFarm.GetRunResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about a suite.
      *
@@ -177,7 +177,7 @@ you believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    getSuite(params: DeviceFarm.GetSuiteRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetSuiteResult|any) => void): Request;
+    getSuite(params: DeviceFarm.GetSuiteRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetSuiteResult|any) => void): Request<DeviceFarm.GetSuiteResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about a test.
      *
@@ -186,7 +186,7 @@ you believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    getTest(params: DeviceFarm.GetTestRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetTestResult|any) => void): Request;
+    getTest(params: DeviceFarm.GetTestRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetTestResult|any) => void): Request<DeviceFarm.GetTestResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about an upload.
      *
@@ -195,7 +195,7 @@ you believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    getUpload(params: DeviceFarm.GetUploadRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetUploadResult|any) => void): Request;
+    getUpload(params: DeviceFarm.GetUploadRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetUploadResult|any) => void): Request<DeviceFarm.GetUploadResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about artifacts.
      *
@@ -204,7 +204,7 @@ you believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    listArtifacts(params: DeviceFarm.ListArtifactsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListArtifactsResult|any) => void): Request;
+    listArtifacts(params: DeviceFarm.ListArtifactsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListArtifactsResult|any) => void): Request<DeviceFarm.ListArtifactsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about device pools.
      *
@@ -213,7 +213,7 @@ you believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    listDevicePools(params: DeviceFarm.ListDevicePoolsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListDevicePoolsResult|any) => void): Request;
+    listDevicePools(params: DeviceFarm.ListDevicePoolsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListDevicePoolsResult|any) => void): Request<DeviceFarm.ListDevicePoolsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about unique device types.
      *
@@ -222,7 +222,7 @@ you believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    listDevices(params: DeviceFarm.ListDevicesRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListDevicesResult|any) => void): Request;
+    listDevices(params: DeviceFarm.ListDevicesRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListDevicesResult|any) => void): Request<DeviceFarm.ListDevicesResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about jobs.
      *
@@ -231,7 +231,7 @@ you believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    listJobs(params: DeviceFarm.ListJobsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListJobsResult|any) => void): Request;
+    listJobs(params: DeviceFarm.ListJobsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListJobsResult|any) => void): Request<DeviceFarm.ListJobsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Returns a list of all historical purchases, renewals, and system renewal
 transactions for an AWS account. The list is paginated and ordered by a
@@ -246,7 +246,7 @@ you believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    listOfferingTransactions(params: DeviceFarm.ListOfferingTransactionsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListOfferingTransactionsResult|any) => void): Request;
+    listOfferingTransactions(params: DeviceFarm.ListOfferingTransactionsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListOfferingTransactionsResult|any) => void): Request<DeviceFarm.ListOfferingTransactionsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Returns a list of products or offerings that the user can manage through the
 API. Each offering record indicates the recurring price per unit and the
@@ -261,7 +261,7 @@ believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    listOfferings(params: DeviceFarm.ListOfferingsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListOfferingsResult|any) => void): Request;
+    listOfferings(params: DeviceFarm.ListOfferingsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListOfferingsResult|any) => void): Request<DeviceFarm.ListOfferingsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about projects.
      *
@@ -270,7 +270,7 @@ believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    listProjects(params: DeviceFarm.ListProjectsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListProjectsResult|any) => void): Request;
+    listProjects(params: DeviceFarm.ListProjectsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListProjectsResult|any) => void): Request<DeviceFarm.ListProjectsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about runs.
      *
@@ -279,7 +279,7 @@ believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    listRuns(params: DeviceFarm.ListRunsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListRunsResult|any) => void): Request;
+    listRuns(params: DeviceFarm.ListRunsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListRunsResult|any) => void): Request<DeviceFarm.ListRunsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about samples.
      *
@@ -288,7 +288,7 @@ believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    listSamples(params: DeviceFarm.ListSamplesRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListSamplesResult|any) => void): Request;
+    listSamples(params: DeviceFarm.ListSamplesRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListSamplesResult|any) => void): Request<DeviceFarm.ListSamplesResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about suites.
      *
@@ -297,7 +297,7 @@ believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    listSuites(params: DeviceFarm.ListSuitesRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListSuitesResult|any) => void): Request;
+    listSuites(params: DeviceFarm.ListSuitesRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListSuitesResult|any) => void): Request<DeviceFarm.ListSuitesResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about tests.
      *
@@ -306,7 +306,7 @@ believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    listTests(params: DeviceFarm.ListTestsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListTestsResult|any) => void): Request;
+    listTests(params: DeviceFarm.ListTestsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListTestsResult|any) => void): Request<DeviceFarm.ListTestsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about unique problems.
      *
@@ -315,7 +315,7 @@ believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    listUniqueProblems(params: DeviceFarm.ListUniqueProblemsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListUniqueProblemsResult|any) => void): Request;
+    listUniqueProblems(params: DeviceFarm.ListUniqueProblemsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListUniqueProblemsResult|any) => void): Request<DeviceFarm.ListUniqueProblemsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about uploads.
      *
@@ -324,7 +324,7 @@ believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    listUploads(params: DeviceFarm.ListUploadsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListUploadsResult|any) => void): Request;
+    listUploads(params: DeviceFarm.ListUploadsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListUploadsResult|any) => void): Request<DeviceFarm.ListUploadsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Immediately purchases offerings for an AWS account. Offerings renew with the
 latest total purchased quantity for an offering, unless the renewal was
@@ -339,7 +339,7 @@ invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    purchaseOffering(params: DeviceFarm.PurchaseOfferingRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.PurchaseOfferingResult|any) => void): Request;
+    purchaseOffering(params: DeviceFarm.PurchaseOfferingRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.PurchaseOfferingResult|any) => void): Request<DeviceFarm.PurchaseOfferingResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Explicitly sets the quantity of devices to renew for an offering, starting from
 the effectiveDate of the next period. The API returns a NotEligible error if the
@@ -353,7 +353,7 @@ believe that you should be able to invoke this operation.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    renewOffering(params: DeviceFarm.RenewOfferingRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.RenewOfferingResult|any) => void): Request;
+    renewOffering(params: DeviceFarm.RenewOfferingRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.RenewOfferingResult|any) => void): Request<DeviceFarm.RenewOfferingResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.NotEligibleException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Schedules a run.
      *
@@ -363,7 +363,7 @@ believe that you should be able to invoke this operation.
      * @error IdempotencyException   
      * @error ServiceAccountException   
      */
-    scheduleRun(params: DeviceFarm.ScheduleRunRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.IdempotencyException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ScheduleRunResult|any) => void): Request;
+    scheduleRun(params: DeviceFarm.ScheduleRunRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.IdempotencyException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ScheduleRunResult|any) => void): Request<DeviceFarm.ScheduleRunResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.IdempotencyException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Initiates a stop request for the current test run. AWS Device Farm will
 immediately stop the run on devices where tests have not started executing, and
@@ -377,7 +377,7 @@ any tests that were in progress or already completed.
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    stopRun(params: DeviceFarm.StopRunRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.StopRunResult|any) => void): Request;
+    stopRun(params: DeviceFarm.StopRunRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.StopRunResult|any) => void): Request<DeviceFarm.StopRunResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Modifies the name, description, and rules in a device pool given the attributes
 and the pool ARN. Rule updates are all-or-nothing, meaning they can only be
@@ -388,7 +388,7 @@ updated as a whole (or not at all).
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    updateDevicePool(params: DeviceFarm.UpdateDevicePoolRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.UpdateDevicePoolResult|any) => void): Request;
+    updateDevicePool(params: DeviceFarm.UpdateDevicePoolRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.UpdateDevicePoolResult|any) => void): Request<DeviceFarm.UpdateDevicePoolResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Modifies the specified project name, given the project ARN and a new name.
      *
@@ -397,7 +397,7 @@ updated as a whole (or not at all).
      * @error LimitExceededException   
      * @error ServiceAccountException   
      */
-    updateProject(params: DeviceFarm.UpdateProjectRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.UpdateProjectResult|any) => void): Request;
+    updateProject(params: DeviceFarm.UpdateProjectRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.UpdateProjectResult|any) => void): Request<DeviceFarm.UpdateProjectResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
 
   }
 

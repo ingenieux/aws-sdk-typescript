@@ -33,7 +33,7 @@ existing tags that correspond to the specified tag keys.
      * @error InvalidArgumentException   
      * @error LimitExceededException   
      */
-    addTagsToStream(params: Kinesis.AddTagsToStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request;
+    addTagsToStream(params: Kinesis.AddTagsToStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request<any,Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any>;
     /**
      * Creates an Amazon Kinesis stream. A stream captures and transports data records
 that are continuously emitted from different data sources or producers .
@@ -78,7 +78,7 @@ CreateStream has a limit of 5 transactions per second per account.
      * @error LimitExceededException   
      * @error InvalidArgumentException   
      */
-    createStream(params: Kinesis.CreateStreamInput, callback?: (err: Kinesis.ResourceInUseException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any, data: any) => void): Request;
+    createStream(params: Kinesis.CreateStreamInput, callback?: (err: Kinesis.ResourceInUseException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any, data: any) => void): Request<any,Kinesis.ResourceInUseException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any>;
     /**
      * Decreases the Amazon Kinesis stream&#x27;s retention period, which is the length of
 time data records are accessible after they are added to the stream. The minimum
@@ -93,7 +93,7 @@ that is older than 24 hours is inaccessible.
      * @error LimitExceededException   
      * @error InvalidArgumentException   
      */
-    decreaseStreamRetentionPeriod(params: Kinesis.DecreaseStreamRetentionPeriodInput, callback?: (err: Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any, data: any) => void): Request;
+    decreaseStreamRetentionPeriod(params: Kinesis.DecreaseStreamRetentionPeriodInput, callback?: (err: Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any, data: any) => void): Request<any,Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any>;
     /**
      * Deletes an Amazon Kinesis stream and all its shards and data. You must shut down
 any applications that are operating on the stream before you delete the stream.
@@ -119,7 +119,7 @@ DeleteStream has a limit of 5 transactions per second per account.
      * @error ResourceNotFoundException   
      * @error LimitExceededException   
      */
-    deleteStream(params: Kinesis.DeleteStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|any, data: any) => void): Request;
+    deleteStream(params: Kinesis.DeleteStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|any, data: any) => void): Request<any,Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|any>;
     /**
      * Describes the specified Amazon Kinesis stream.
 
@@ -150,7 +150,7 @@ DescribeStream has a limit of 10 transactions per second per account.
      * @error ResourceNotFoundException   
      * @error LimitExceededException   
      */
-    describeStream(params: Kinesis.DescribeStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|any, data: Kinesis.DescribeStreamOutput|any) => void): Request;
+    describeStream(params: Kinesis.DescribeStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|any, data: Kinesis.DescribeStreamOutput|any) => void): Request<Kinesis.DescribeStreamOutput|any,Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|any>;
     /**
      * Disables enhanced monitoring.
      *
@@ -159,7 +159,7 @@ DescribeStream has a limit of 10 transactions per second per account.
      * @error ResourceInUseException   
      * @error ResourceNotFoundException   
      */
-    disableEnhancedMonitoring(params: Kinesis.DisableEnhancedMonitoringInput, callback?: (err: Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|any, data: Kinesis.EnhancedMonitoringOutput|any) => void): Request;
+    disableEnhancedMonitoring(params: Kinesis.DisableEnhancedMonitoringInput, callback?: (err: Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|any, data: Kinesis.EnhancedMonitoringOutput|any) => void): Request<Kinesis.EnhancedMonitoringOutput|any,Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|any>;
     /**
      * Enables enhanced Amazon Kinesis stream monitoring for shard-level metrics.
      *
@@ -168,7 +168,7 @@ DescribeStream has a limit of 10 transactions per second per account.
      * @error ResourceInUseException   
      * @error ResourceNotFoundException   
      */
-    enableEnhancedMonitoring(params: Kinesis.EnableEnhancedMonitoringInput, callback?: (err: Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|any, data: Kinesis.EnhancedMonitoringOutput|any) => void): Request;
+    enableEnhancedMonitoring(params: Kinesis.EnableEnhancedMonitoringInput, callback?: (err: Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|any, data: Kinesis.EnhancedMonitoringOutput|any) => void): Request<Kinesis.EnhancedMonitoringOutput|any,Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|any>;
     /**
      * Gets data records from an Amazon Kinesis stream&#x27;s shard.
 
@@ -230,7 +230,7 @@ order.
      * @error ProvisionedThroughputExceededException   
      * @error ExpiredIteratorException   
      */
-    getRecords(params: Kinesis.GetRecordsInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|Kinesis.ExpiredIteratorException|any, data: Kinesis.GetRecordsOutput|any) => void): Request;
+    getRecords(params: Kinesis.GetRecordsInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|Kinesis.ExpiredIteratorException|any, data: Kinesis.GetRecordsOutput|any) => void): Request<Kinesis.GetRecordsOutput|any,Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|Kinesis.ExpiredIteratorException|any>;
     /**
      * Gets an Amazon Kinesis shard iterator. A shard iterator expires five minutes
 after it is returned to the requester.
@@ -276,7 +276,7 @@ shard.
      * @error InvalidArgumentException   
      * @error ProvisionedThroughputExceededException   
      */
-    getShardIterator(params: Kinesis.GetShardIteratorInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any, data: Kinesis.GetShardIteratorOutput|any) => void): Request;
+    getShardIterator(params: Kinesis.GetShardIteratorInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any, data: Kinesis.GetShardIteratorOutput|any) => void): Request<Kinesis.GetShardIteratorOutput|any,Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any>;
     /**
      * Increases the Amazon Kinesis stream&#x27;s retention period, which is the length of
 time data records are accessible after they are added to the stream. The maximum
@@ -295,7 +295,7 @@ applications.
      * @error LimitExceededException   
      * @error InvalidArgumentException   
      */
-    increaseStreamRetentionPeriod(params: Kinesis.IncreaseStreamRetentionPeriodInput, callback?: (err: Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any, data: any) => void): Request;
+    increaseStreamRetentionPeriod(params: Kinesis.IncreaseStreamRetentionPeriodInput, callback?: (err: Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any, data: any) => void): Request<any,Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any>;
     /**
      * Lists your Amazon Kinesis streams.
 
@@ -316,7 +316,7 @@ ListStreams has a limit of 5 transactions per second per account.
      *
      * @error LimitExceededException   
      */
-    listStreams(params: Kinesis.ListStreamsInput, callback?: (err: Kinesis.LimitExceededException|any, data: Kinesis.ListStreamsOutput|any) => void): Request;
+    listStreams(params: Kinesis.ListStreamsInput, callback?: (err: Kinesis.LimitExceededException|any, data: Kinesis.ListStreamsOutput|any) => void): Request<Kinesis.ListStreamsOutput|any,Kinesis.LimitExceededException|any>;
     /**
      * Lists the tags for the specified Amazon Kinesis stream.
      *
@@ -324,7 +324,7 @@ ListStreams has a limit of 5 transactions per second per account.
      * @error InvalidArgumentException   
      * @error LimitExceededException   
      */
-    listTagsForStream(params: Kinesis.ListTagsForStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: Kinesis.ListTagsForStreamOutput|any) => void): Request;
+    listTagsForStream(params: Kinesis.ListTagsForStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: Kinesis.ListTagsForStreamOutput|any) => void): Request<Kinesis.ListTagsForStreamOutput|any,Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any>;
     /**
      * Merges two adjacent shards in an Amazon Kinesis stream and combines them into a
 single shard to reduce the stream&#x27;s capacity to ingest and transport data. Two
@@ -370,7 +370,7 @@ MergeShards has limit of 5 transactions per second per account.
      * @error InvalidArgumentException   
      * @error LimitExceededException   
      */
-    mergeShards(params: Kinesis.MergeShardsInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request;
+    mergeShards(params: Kinesis.MergeShardsInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request<any,Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any>;
     /**
      * Writes a single data record into an Amazon Kinesis stream. Call PutRecord to
 send data into the stream for real-time ingestion and subsequent processing, one
@@ -418,7 +418,7 @@ to a stream.
      * @error InvalidArgumentException   
      * @error ProvisionedThroughputExceededException   
      */
-    putRecord(params: Kinesis.PutRecordInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any, data: Kinesis.PutRecordOutput|any) => void): Request;
+    putRecord(params: Kinesis.PutRecordInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any, data: Kinesis.PutRecordOutput|any) => void): Request<Kinesis.PutRecordOutput|any,Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any>;
     /**
      * Writes multiple data records into an Amazon Kinesis stream in a single call
 (also referred to as a PutRecords request). Use this operation to send data into
@@ -490,7 +490,7 @@ IncreaseStreamRetentionPeriod operations.
      * @error InvalidArgumentException   
      * @error ProvisionedThroughputExceededException   
      */
-    putRecords(params: Kinesis.PutRecordsInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any, data: Kinesis.PutRecordsOutput|any) => void): Request;
+    putRecords(params: Kinesis.PutRecordsInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any, data: Kinesis.PutRecordsOutput|any) => void): Request<Kinesis.PutRecordsOutput|any,Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any>;
     /**
      * Removes tags from the specified Amazon Kinesis stream. Removed tags are deleted
 and cannot be recovered after this operation successfully completes.
@@ -502,7 +502,7 @@ If you specify a tag that does not exist, it is ignored.
      * @error InvalidArgumentException   
      * @error LimitExceededException   
      */
-    removeTagsFromStream(params: Kinesis.RemoveTagsFromStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request;
+    removeTagsFromStream(params: Kinesis.RemoveTagsFromStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request<any,Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any>;
     /**
      * Splits a shard into two new shards in the Amazon Kinesis stream to increase the
 stream&#x27;s capacity to ingest and transport data. SplitShard is called when there
@@ -559,7 +559,7 @@ SplitShard has limit of 5 transactions per second per account.
      * @error InvalidArgumentException   
      * @error LimitExceededException   
      */
-    splitShard(params: Kinesis.SplitShardInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request;
+    splitShard(params: Kinesis.SplitShardInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request<any,Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any>;
 
   }
 

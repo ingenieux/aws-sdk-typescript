@@ -34,7 +34,7 @@ s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish, iam:GetRolePolicy.
      *
      * @error MarketplaceCommerceAnalyticsException   
      */
-    generateDataSet(params: MarketplaceCommerceAnalytics.GenerateDataSetRequest, callback?: (err: MarketplaceCommerceAnalytics.MarketplaceCommerceAnalyticsException|any, data: MarketplaceCommerceAnalytics.GenerateDataSetResult|any) => void): Request;
+    generateDataSet(params: MarketplaceCommerceAnalytics.GenerateDataSetRequest, callback?: (err: MarketplaceCommerceAnalytics.MarketplaceCommerceAnalyticsException|any, data: MarketplaceCommerceAnalytics.GenerateDataSetResult|any) => void): Request<MarketplaceCommerceAnalytics.GenerateDataSetResult|any,MarketplaceCommerceAnalytics.MarketplaceCommerceAnalyticsException|any>;
 
   }
 

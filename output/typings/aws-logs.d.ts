@@ -60,7 +60,7 @@ You can use CloudWatch Logs to:
      * @error InvalidOperationException   
      * @error ServiceUnavailableException   
      */
-    cancelExportTask(params: CloudWatchLogs.CancelExportTaskRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.InvalidOperationException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
+    cancelExportTask(params: CloudWatchLogs.CancelExportTaskRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.InvalidOperationException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request<any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.InvalidOperationException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Creates an ExportTask which allows you to efficiently export data from a Log
 Group to your Amazon S3 bucket.
@@ -81,7 +81,7 @@ a prefix that will be used as the Amazon S3 key prefix for all exported objects.
      * @error ResourceNotFoundException   
      * @error ResourceAlreadyExistsException   
      */
-    createExportTask(params: CloudWatchLogs.CreateExportTaskRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ResourceAlreadyExistsException|any, data: CloudWatchLogs.CreateExportTaskResponse|any) => void): Request;
+    createExportTask(params: CloudWatchLogs.CreateExportTaskRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ResourceAlreadyExistsException|any, data: CloudWatchLogs.CreateExportTaskResponse|any) => void): Request<CloudWatchLogs.CreateExportTaskResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ResourceAlreadyExistsException|any>;
     /**
      * Creates a new log group with the specified name. The name of the log group must
 be unique within a region for an AWS account. You can create up to 500 log
@@ -99,7 +99,7 @@ You must use the following guidelines when naming a log group: &amp;#42; Log gro
      * @error OperationAbortedException   
      * @error ServiceUnavailableException   
      */
-    createLogGroup(params: CloudWatchLogs.CreateLogGroupRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceAlreadyExistsException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
+    createLogGroup(params: CloudWatchLogs.CreateLogGroupRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceAlreadyExistsException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request<any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceAlreadyExistsException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Creates a new log stream in the specified log group. The name of the log stream
 must be unique within the log group. There is no limit on the number of log
@@ -115,7 +115,7 @@ You must use the following guidelines when naming a log stream: &amp;#42; Log st
      * @error ResourceNotFoundException   
      * @error ServiceUnavailableException   
      */
-    createLogStream(params: CloudWatchLogs.CreateLogStreamRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceAlreadyExistsException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
+    createLogStream(params: CloudWatchLogs.CreateLogStreamRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceAlreadyExistsException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request<any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceAlreadyExistsException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Deletes the destination with the specified name and eventually disables all the
 subscription filters that publish to it. This will not delete the physical
@@ -126,7 +126,7 @@ resource encapsulated by the destination.
      * @error OperationAbortedException   
      * @error ServiceUnavailableException   
      */
-    deleteDestination(params: CloudWatchLogs.DeleteDestinationRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
+    deleteDestination(params: CloudWatchLogs.DeleteDestinationRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request<any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Deletes the log group with the specified name and permanently deletes all the
 archived log events associated with it.
@@ -136,7 +136,7 @@ archived log events associated with it.
      * @error OperationAbortedException   
      * @error ServiceUnavailableException   
      */
-    deleteLogGroup(params: CloudWatchLogs.DeleteLogGroupRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
+    deleteLogGroup(params: CloudWatchLogs.DeleteLogGroupRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request<any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Deletes a log stream and permanently deletes all the archived log events
 associated with it.
@@ -146,7 +146,7 @@ associated with it.
      * @error OperationAbortedException   
      * @error ServiceUnavailableException   
      */
-    deleteLogStream(params: CloudWatchLogs.DeleteLogStreamRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
+    deleteLogStream(params: CloudWatchLogs.DeleteLogStreamRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request<any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Deletes a metric filter associated with the specified log group.
      *
@@ -155,7 +155,7 @@ associated with it.
      * @error OperationAbortedException   
      * @error ServiceUnavailableException   
      */
-    deleteMetricFilter(params: CloudWatchLogs.DeleteMetricFilterRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
+    deleteMetricFilter(params: CloudWatchLogs.DeleteMetricFilterRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request<any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Deletes the retention policy of the specified log group. Log events would not
 expire if they belong to log groups without a retention policy.
@@ -165,7 +165,7 @@ expire if they belong to log groups without a retention policy.
      * @error OperationAbortedException   
      * @error ServiceUnavailableException   
      */
-    deleteRetentionPolicy(params: CloudWatchLogs.DeleteRetentionPolicyRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
+    deleteRetentionPolicy(params: CloudWatchLogs.DeleteRetentionPolicyRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request<any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Deletes a subscription filter associated with the specified log group.
      *
@@ -174,7 +174,7 @@ expire if they belong to log groups without a retention policy.
      * @error OperationAbortedException   
      * @error ServiceUnavailableException   
      */
-    deleteSubscriptionFilter(params: CloudWatchLogs.DeleteSubscriptionFilterRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
+    deleteSubscriptionFilter(params: CloudWatchLogs.DeleteSubscriptionFilterRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request<any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Returns all the destinations that are associated with the AWS account making the
 request. The list returned in the response is ASCII-sorted by destination name.
@@ -187,7 +187,7 @@ response by specifying the limit parameter in the request.
      * @error InvalidParameterException   
      * @error ServiceUnavailableException   
      */
-    describeDestinations(params: CloudWatchLogs.DescribeDestinationsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.DescribeDestinationsResponse|any) => void): Request;
+    describeDestinations(params: CloudWatchLogs.DescribeDestinationsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.DescribeDestinationsResponse|any) => void): Request<CloudWatchLogs.DescribeDestinationsResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Returns all the export tasks that are associated with the AWS account making the
 request. The export tasks can be filtered based on TaskId or TaskStatus .
@@ -201,7 +201,7 @@ request.
      * @error InvalidParameterException   
      * @error ServiceUnavailableException   
      */
-    describeExportTasks(params: CloudWatchLogs.DescribeExportTasksRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.DescribeExportTasksResponse|any) => void): Request;
+    describeExportTasks(params: CloudWatchLogs.DescribeExportTasksRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.DescribeExportTasksResponse|any) => void): Request<CloudWatchLogs.DescribeExportTasksResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Returns all the log groups that are associated with the AWS account making the
 request. The list returned in the response is ASCII-sorted by log group name.
@@ -214,7 +214,7 @@ specifying the limit parameter in the request.
      * @error InvalidParameterException   
      * @error ServiceUnavailableException   
      */
-    describeLogGroups(params: CloudWatchLogs.DescribeLogGroupsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.DescribeLogGroupsResponse|any) => void): Request;
+    describeLogGroups(params: CloudWatchLogs.DescribeLogGroupsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.DescribeLogGroupsResponse|any) => void): Request<CloudWatchLogs.DescribeLogGroupsResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Returns all the log streams that are associated with the specified log group.
 The list returned in the response is ASCII-sorted by log stream name.
@@ -229,7 +229,7 @@ five transactions per second, after which transactions are throttled.
      * @error ResourceNotFoundException   
      * @error ServiceUnavailableException   
      */
-    describeLogStreams(params: CloudWatchLogs.DescribeLogStreamsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.DescribeLogStreamsResponse|any) => void): Request;
+    describeLogStreams(params: CloudWatchLogs.DescribeLogStreamsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.DescribeLogStreamsResponse|any) => void): Request<CloudWatchLogs.DescribeLogStreamsResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Returns all the metrics filters associated with the specified log group. The
 list returned in the response is ASCII-sorted by filter name.
@@ -243,7 +243,7 @@ response by specifying the limit parameter in the request.
      * @error ResourceNotFoundException   
      * @error ServiceUnavailableException   
      */
-    describeMetricFilters(params: CloudWatchLogs.DescribeMetricFiltersRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.DescribeMetricFiltersResponse|any) => void): Request;
+    describeMetricFilters(params: CloudWatchLogs.DescribeMetricFiltersRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.DescribeMetricFiltersResponse|any) => void): Request<CloudWatchLogs.DescribeMetricFiltersResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Returns all the subscription filters associated with the specified log group.
 The list returned in the response is ASCII-sorted by filter name.
@@ -257,7 +257,7 @@ returned in the response by specifying the limit parameter in the request.
      * @error ResourceNotFoundException   
      * @error ServiceUnavailableException   
      */
-    describeSubscriptionFilters(params: CloudWatchLogs.DescribeSubscriptionFiltersRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.DescribeSubscriptionFiltersResponse|any) => void): Request;
+    describeSubscriptionFilters(params: CloudWatchLogs.DescribeSubscriptionFiltersRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.DescribeSubscriptionFiltersResponse|any) => void): Request<CloudWatchLogs.DescribeSubscriptionFiltersResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Retrieves log events, optionally filtered by a filter pattern from the specified
 log group. You can provide an optional time range to filter the results on the
@@ -278,7 +278,7 @@ events to return in a page.
      * @error ResourceNotFoundException   
      * @error ServiceUnavailableException   
      */
-    filterLogEvents(params: CloudWatchLogs.FilterLogEventsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.FilterLogEventsResponse|any) => void): Request;
+    filterLogEvents(params: CloudWatchLogs.FilterLogEventsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.FilterLogEventsResponse|any) => void): Request<CloudWatchLogs.FilterLogEventsResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Retrieves log events from the specified log stream. You can provide an optional
 time range to filter the results on the event timestamp .
@@ -295,7 +295,7 @@ request.
      * @error ResourceNotFoundException   
      * @error ServiceUnavailableException   
      */
-    getLogEvents(params: CloudWatchLogs.GetLogEventsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.GetLogEventsResponse|any) => void): Request;
+    getLogEvents(params: CloudWatchLogs.GetLogEventsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.GetLogEventsResponse|any) => void): Request<CloudWatchLogs.GetLogEventsResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Creates or updates a Destination . A destination encapsulates a physical
 resource (such as a Kinesis stream) and allows you to subscribe to a real-time
@@ -313,7 +313,7 @@ owner must call PutDestinationPolicy after PutDestination.
      * @error OperationAbortedException   
      * @error ServiceUnavailableException   
      */
-    putDestination(params: CloudWatchLogs.PutDestinationRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.PutDestinationResponse|any) => void): Request;
+    putDestination(params: CloudWatchLogs.PutDestinationRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.PutDestinationResponse|any) => void): Request<CloudWatchLogs.PutDestinationResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Creates or updates an access policy associated with an existing Destination . An
 access policy is an IAM policy document
@@ -325,7 +325,7 @@ destination.
      * @error OperationAbortedException   
      * @error ServiceUnavailableException   
      */
-    putDestinationPolicy(params: CloudWatchLogs.PutDestinationPolicyRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
+    putDestinationPolicy(params: CloudWatchLogs.PutDestinationPolicyRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request<any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Uploads a batch of log events to the specified log stream.
 
@@ -356,7 +356,7 @@ The batch of events must satisfy the following constraints: &amp;#42; The maximu
      * @error OperationAbortedException   
      * @error ServiceUnavailableException   
      */
-    putLogEvents(params: CloudWatchLogs.PutLogEventsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.InvalidSequenceTokenException|CloudWatchLogs.DataAlreadyAcceptedException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.PutLogEventsResponse|any) => void): Request;
+    putLogEvents(params: CloudWatchLogs.PutLogEventsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.InvalidSequenceTokenException|CloudWatchLogs.DataAlreadyAcceptedException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.PutLogEventsResponse|any) => void): Request<CloudWatchLogs.PutLogEventsResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.InvalidSequenceTokenException|CloudWatchLogs.DataAlreadyAcceptedException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Creates or updates a metric filter and associates it with the specified log
 group. Metric filters allow you to configure rules to extract metric data from
@@ -371,7 +371,7 @@ The maximum number of metric filters that can be associated with a log group is
      * @error LimitExceededException   
      * @error ServiceUnavailableException   
      */
-    putMetricFilter(params: CloudWatchLogs.PutMetricFilterRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
+    putMetricFilter(params: CloudWatchLogs.PutMetricFilterRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request<any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Sets the retention of the specified log group. A retention policy allows you to
 configure the number of days you want to retain log events in the specified log
@@ -382,7 +382,7 @@ group.
      * @error OperationAbortedException   
      * @error ServiceUnavailableException   
      */
-    putRetentionPolicy(params: CloudWatchLogs.PutRetentionPolicyRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
+    putRetentionPolicy(params: CloudWatchLogs.PutRetentionPolicyRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request<any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Creates or updates a subscription filter and associates it with the specified
 log group. Subscription filters allow you to subscribe to a real-time stream of
@@ -410,7 +410,7 @@ Currently there can only be one subscription filter associated with a log group.
      * @error LimitExceededException   
      * @error ServiceUnavailableException   
      */
-    putSubscriptionFilter(params: CloudWatchLogs.PutSubscriptionFilterRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request;
+    putSubscriptionFilter(params: CloudWatchLogs.PutSubscriptionFilterRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.ServiceUnavailableException|any, data: any) => void): Request<any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.LimitExceededException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Tests the filter pattern of a metric filter against a sample of log event
 messages. You can use this operation to validate the correctness of a metric
@@ -419,7 +419,7 @@ filter pattern.
      * @error InvalidParameterException   
      * @error ServiceUnavailableException   
      */
-    testMetricFilter(params: CloudWatchLogs.TestMetricFilterRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.TestMetricFilterResponse|any) => void): Request;
+    testMetricFilter(params: CloudWatchLogs.TestMetricFilterRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.TestMetricFilterResponse|any) => void): Request<CloudWatchLogs.TestMetricFilterResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.ServiceUnavailableException|any>;
 
   }
 

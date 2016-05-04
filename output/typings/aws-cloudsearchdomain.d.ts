@@ -56,7 +56,7 @@ Amazon CloudSearch console.
      *
      * @error SearchException   
      */
-    search(params: CloudSearchDomain.SearchRequest, callback?: (err: CloudSearchDomain.SearchException|any, data: CloudSearchDomain.SearchResponse|any) => void): Request;
+    search(params: CloudSearchDomain.SearchRequest, callback?: (err: CloudSearchDomain.SearchException|any, data: CloudSearchDomain.SearchResponse|any) => void): Request<CloudSearchDomain.SearchResponse|any,CloudSearchDomain.SearchException|any>;
     /**
      * Retrieves autocomplete suggestions for a partial query string. You can use
 suggestions enable you to display likely matches before users finish typing. In
@@ -79,7 +79,7 @@ Amazon CloudSearch console.
      *
      * @error SearchException   
      */
-    suggest(params: CloudSearchDomain.SuggestRequest, callback?: (err: CloudSearchDomain.SearchException|any, data: CloudSearchDomain.SuggestResponse|any) => void): Request;
+    suggest(params: CloudSearchDomain.SuggestRequest, callback?: (err: CloudSearchDomain.SearchException|any, data: CloudSearchDomain.SuggestResponse|any) => void): Request<CloudSearchDomain.SuggestResponse|any,CloudSearchDomain.SearchException|any>;
     /**
      * Posts a batch of documents to a search domain for indexing. A document batch is
 a collection of add and delete operations that represent the documents you want
@@ -108,7 +108,7 @@ in the Amazon CloudSearch Developer Guide .
      *
      * @error DocumentServiceException   
      */
-    uploadDocuments(params: CloudSearchDomain.UploadDocumentsRequest, callback?: (err: CloudSearchDomain.DocumentServiceException|any, data: CloudSearchDomain.UploadDocumentsResponse|any) => void): Request;
+    uploadDocuments(params: CloudSearchDomain.UploadDocumentsRequest, callback?: (err: CloudSearchDomain.DocumentServiceException|any, data: CloudSearchDomain.UploadDocumentsResponse|any) => void): Request<CloudSearchDomain.UploadDocumentsResponse|any,CloudSearchDomain.DocumentServiceException|any>;
 
   }
 

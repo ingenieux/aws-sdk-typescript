@@ -64,7 +64,7 @@ creation token you provided.
      * @error FileSystemLimitExceeded Returned if the AWS account has already created maximum number of file systems
 allowed per account.  
      */
-    createFileSystem(params: EFS.CreateFileSystemRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemAlreadyExists|EFS.FileSystemLimitExceeded|any, data: EFS.FileSystemDescription|any) => void): Request;
+    createFileSystem(params: EFS.CreateFileSystemRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemAlreadyExists|EFS.FileSystemLimitExceeded|any, data: EFS.FileSystemDescription|any) => void): Request<EFS.FileSystemDescription|any,EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemAlreadyExists|EFS.FileSystemLimitExceeded|any>;
     /**
      * Creates a mount target for a file system. You can then mount the file system on
 EC2 instances via the mount target.
@@ -185,7 +185,7 @@ five.
 VPC.  
      * @error UnsupportedAvailabilityZone   
      */
-    createMountTarget(params: EFS.CreateMountTargetRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|EFS.IncorrectFileSystemLifeCycleState|EFS.MountTargetConflict|EFS.SubnetNotFound|EFS.NoFreeAddressesInSubnet|EFS.IpAddressInUse|EFS.NetworkInterfaceLimitExceeded|EFS.SecurityGroupLimitExceeded|EFS.SecurityGroupNotFound|EFS.UnsupportedAvailabilityZone|any, data: EFS.MountTargetDescription|any) => void): Request;
+    createMountTarget(params: EFS.CreateMountTargetRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|EFS.IncorrectFileSystemLifeCycleState|EFS.MountTargetConflict|EFS.SubnetNotFound|EFS.NoFreeAddressesInSubnet|EFS.IpAddressInUse|EFS.NetworkInterfaceLimitExceeded|EFS.SecurityGroupLimitExceeded|EFS.SecurityGroupNotFound|EFS.UnsupportedAvailabilityZone|any, data: EFS.MountTargetDescription|any) => void): Request<EFS.MountTargetDescription|any,EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|EFS.IncorrectFileSystemLifeCycleState|EFS.MountTargetConflict|EFS.SubnetNotFound|EFS.NoFreeAddressesInSubnet|EFS.IpAddressInUse|EFS.NetworkInterfaceLimitExceeded|EFS.SecurityGroupLimitExceeded|EFS.SecurityGroupNotFound|EFS.UnsupportedAvailabilityZone|any>;
     /**
      * Creates or overwrites tags associated with a file system. Each tag is a
 key-value pair. If a tag key specified in the request already exists on the file
@@ -201,7 +201,7 @@ parameter value or a missing required parameter.
      * @error FileSystemNotFound Returned if the specified FileSystemId does not exist in the requester&#x27;s AWS
 account.  
      */
-    createTags(params: EFS.CreateTagsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any, data: any) => void): Request;
+    createTags(params: EFS.CreateTagsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any, data: any) => void): Request<any,EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any>;
     /**
      * Deletes a file system, permanently severing access to its contents. Upon return,
 the file system no longer exists and you will not be able to access any contents
@@ -225,7 +225,7 @@ parameter value or a missing required parameter.
 account.  
      * @error FileSystemInUse Returned if a file system has mount targets.  
      */
-    deleteFileSystem(params: EFS.DeleteFileSystemRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|EFS.FileSystemInUse|any, data: any) => void): Request;
+    deleteFileSystem(params: EFS.DeleteFileSystemRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|EFS.FileSystemInUse|any, data: any) => void): Request<any,EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|EFS.FileSystemInUse|any>;
     /**
      * Deletes the specified mount target.
 
@@ -258,7 +258,7 @@ the call again.
      * @error MountTargetNotFound Returned if there is no mount target with the specified ID found in the caller&#x27;s
 account.  
      */
-    deleteMountTarget(params: EFS.DeleteMountTargetRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.DependencyTimeout|EFS.MountTargetNotFound|any, data: any) => void): Request;
+    deleteMountTarget(params: EFS.DeleteMountTargetRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.DependencyTimeout|EFS.MountTargetNotFound|any, data: any) => void): Request<any,EFS.BadRequest|EFS.InternalServerError|EFS.DependencyTimeout|EFS.MountTargetNotFound|any>;
     /**
      * Deletes the specified tags from a file system. If the DeleteTags request
 includes a tag key that does not exist, Amazon EFS ignores it; it is not an
@@ -275,7 +275,7 @@ parameter value or a missing required parameter.
      * @error FileSystemNotFound Returned if the specified FileSystemId does not exist in the requester&#x27;s AWS
 account.  
      */
-    deleteTags(params: EFS.DeleteTagsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any, data: any) => void): Request;
+    deleteTags(params: EFS.DeleteTagsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any, data: any) => void): Request<any,EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any>;
     /**
      * Returns the description of a specific Amazon EFS file system if either the file
 system CreationToken or the FileSystemId is provided; otherwise, returns
@@ -310,7 +310,7 @@ parameter value or a missing required parameter.
      * @error FileSystemNotFound Returned if the specified FileSystemId does not exist in the requester&#x27;s AWS
 account.  
      */
-    describeFileSystems(params: EFS.DescribeFileSystemsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any, data: EFS.DescribeFileSystemsResponse|any) => void): Request;
+    describeFileSystems(params: EFS.DescribeFileSystemsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any, data: EFS.DescribeFileSystemsResponse|any) => void): Request<EFS.DescribeFileSystemsResponse|any,EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any>;
     /**
      * Returns the security groups currently in effect for a mount target. This
 operation requires that the network interface of the mount target has been
@@ -330,7 +330,7 @@ parameter value or a missing required parameter.
 account.  
      * @error IncorrectMountTargetState Returned if the mount target is not in the correct state for the operation.  
      */
-    describeMountTargetSecurityGroups(params: EFS.DescribeMountTargetSecurityGroupsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.MountTargetNotFound|EFS.IncorrectMountTargetState|any, data: EFS.DescribeMountTargetSecurityGroupsResponse|any) => void): Request;
+    describeMountTargetSecurityGroups(params: EFS.DescribeMountTargetSecurityGroupsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.MountTargetNotFound|EFS.IncorrectMountTargetState|any, data: EFS.DescribeMountTargetSecurityGroupsResponse|any) => void): Request<EFS.DescribeMountTargetSecurityGroupsResponse|any,EFS.BadRequest|EFS.InternalServerError|EFS.MountTargetNotFound|EFS.IncorrectMountTargetState|any>;
     /**
      * Returns the descriptions of all the current mount targets, or a specific mount
 target, for a file system. When requesting all of the current mount targets, the
@@ -349,7 +349,7 @@ account.
      * @error MountTargetNotFound Returned if there is no mount target with the specified ID found in the caller&#x27;s
 account.  
      */
-    describeMountTargets(params: EFS.DescribeMountTargetsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|EFS.MountTargetNotFound|any, data: EFS.DescribeMountTargetsResponse|any) => void): Request;
+    describeMountTargets(params: EFS.DescribeMountTargetsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|EFS.MountTargetNotFound|any, data: EFS.DescribeMountTargetsResponse|any) => void): Request<EFS.DescribeMountTargetsResponse|any,EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|EFS.MountTargetNotFound|any>;
     /**
      * Returns the tags associated with a file system. The order of tags returned in
 the response of one DescribeTags call, and the order of tags returned across the
@@ -364,7 +364,7 @@ parameter value or a missing required parameter.
      * @error FileSystemNotFound Returned if the specified FileSystemId does not exist in the requester&#x27;s AWS
 account.  
      */
-    describeTags(params: EFS.DescribeTagsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any, data: EFS.DescribeTagsResponse|any) => void): Request;
+    describeTags(params: EFS.DescribeTagsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any, data: EFS.DescribeTagsResponse|any) => void): Request<EFS.DescribeTagsResponse|any,EFS.BadRequest|EFS.InternalServerError|EFS.FileSystemNotFound|any>;
     /**
      * Modifies the set of security groups in effect for a mount target.
 
@@ -393,7 +393,7 @@ five.
      * @error SecurityGroupNotFound Returned if one of the specified security groups does not exist in the subnet&#x27;s
 VPC.  
      */
-    modifyMountTargetSecurityGroups(params: EFS.ModifyMountTargetSecurityGroupsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.MountTargetNotFound|EFS.IncorrectMountTargetState|EFS.SecurityGroupLimitExceeded|EFS.SecurityGroupNotFound|any, data: any) => void): Request;
+    modifyMountTargetSecurityGroups(params: EFS.ModifyMountTargetSecurityGroupsRequest, callback?: (err: EFS.BadRequest|EFS.InternalServerError|EFS.MountTargetNotFound|EFS.IncorrectMountTargetState|EFS.SecurityGroupLimitExceeded|EFS.SecurityGroupNotFound|any, data: any) => void): Request<any,EFS.BadRequest|EFS.InternalServerError|EFS.MountTargetNotFound|EFS.IncorrectMountTargetState|EFS.SecurityGroupLimitExceeded|EFS.SecurityGroupNotFound|any>;
 
   }
 

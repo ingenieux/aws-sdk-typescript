@@ -220,7 +220,7 @@ in the Amazon DynamoDB Developer Guide .
      * @error ResourceNotFoundException   
      * @error InternalServerError   
      */
-    batchGetItem(params: DynamoDB.BatchGetItemInput, callback?: (err: DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any, data: DynamoDB.BatchGetItemOutput|any) => void): Request;
+    batchGetItem(params: DynamoDB.BatchGetItemInput, callback?: (err: DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any, data: DynamoDB.BatchGetItemOutput|any) => void): Request<DynamoDB.BatchGetItemOutput|any,DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any>;
     /**
      * The BatchWriteItem operation puts or deletes multiple items in one or more
 tables. A single call to BatchWriteItem can write up to 16 MB of data, which can
@@ -302,7 +302,7 @@ operation:
      * @error ItemCollectionSizeLimitExceededException   
      * @error InternalServerError   
      */
-    batchWriteItem(params: DynamoDB.BatchWriteItemInput, callback?: (err: DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.BatchWriteItemOutput|any) => void): Request;
+    batchWriteItem(params: DynamoDB.BatchWriteItemInput, callback?: (err: DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.BatchWriteItemOutput|any) => void): Request<DynamoDB.BatchWriteItemOutput|any,DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any>;
     /**
      * The CreateTable operation adds a new table to your account. In an AWS account,
 table names must be unique within each region. That is, you can have two tables
@@ -324,7 +324,7 @@ You can use the DescribeTable API to check the table status.
      * @error LimitExceededException   
      * @error InternalServerError   
      */
-    createTable(params: DynamoDB.CreateTableInput, callback?: (err: DynamoDB.ResourceInUseException|DynamoDB.LimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.CreateTableOutput|any) => void): Request;
+    createTable(params: DynamoDB.CreateTableInput, callback?: (err: DynamoDB.ResourceInUseException|DynamoDB.LimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.CreateTableOutput|any) => void): Request<DynamoDB.CreateTableOutput|any,DynamoDB.ResourceInUseException|DynamoDB.LimitExceededException|DynamoDB.InternalServerError|any>;
     /**
      * Deletes a single item in a table by primary key. You can perform a conditional
 delete operation that deletes the item if it exists, or if it has an expected
@@ -347,7 +347,7 @@ the item is not deleted.
      * @error ItemCollectionSizeLimitExceededException   
      * @error InternalServerError   
      */
-    deleteItem(params: DynamoDB.DeleteItemInput, callback?: (err: DynamoDB.ConditionalCheckFailedException|DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.DeleteItemOutput|any) => void): Request;
+    deleteItem(params: DynamoDB.DeleteItemInput, callback?: (err: DynamoDB.ConditionalCheckFailedException|DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.DeleteItemOutput|any) => void): Request<DynamoDB.DeleteItemOutput|any,DynamoDB.ConditionalCheckFailedException|DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any>;
     /**
      * The DeleteTable operation deletes a table and all of its items. After a 
 DeleteTable request, the specified table is in the DELETING state until DynamoDB
@@ -374,7 +374,7 @@ Use the DescribeTable API to check the status of the table.
      * @error LimitExceededException   
      * @error InternalServerError   
      */
-    deleteTable(params: DynamoDB.DeleteTableInput, callback?: (err: DynamoDB.ResourceInUseException|DynamoDB.ResourceNotFoundException|DynamoDB.LimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.DeleteTableOutput|any) => void): Request;
+    deleteTable(params: DynamoDB.DeleteTableInput, callback?: (err: DynamoDB.ResourceInUseException|DynamoDB.ResourceNotFoundException|DynamoDB.LimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.DeleteTableOutput|any) => void): Request<DynamoDB.DeleteTableOutput|any,DynamoDB.ResourceInUseException|DynamoDB.ResourceNotFoundException|DynamoDB.LimitExceededException|DynamoDB.InternalServerError|any>;
     /**
      * Returns the current provisioned-capacity limits for your AWS account in a
 region, both for the region as a whole and for any one DynamoDB table that you
@@ -433,7 +433,7 @@ The DescribeLimits Request element has no content.
      *
      * @error InternalServerError   
      */
-    describeLimits(params: DynamoDB.DescribeLimitsInput, callback?: (err: DynamoDB.InternalServerError|any, data: DynamoDB.DescribeLimitsOutput|any) => void): Request;
+    describeLimits(params: DynamoDB.DescribeLimitsInput, callback?: (err: DynamoDB.InternalServerError|any, data: DynamoDB.DescribeLimitsOutput|any) => void): Request<DynamoDB.DescribeLimitsOutput|any,DynamoDB.InternalServerError|any>;
     /**
      * Returns information about the table, including the current status of the table,
 when it was created, the primary key schema, and any indexes on the table.
@@ -447,7 +447,7 @@ try the DescribeTable request again.
      * @error ResourceNotFoundException   
      * @error InternalServerError   
      */
-    describeTable(params: DynamoDB.DescribeTableInput, callback?: (err: DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any, data: DynamoDB.DescribeTableOutput|any) => void): Request;
+    describeTable(params: DynamoDB.DescribeTableInput, callback?: (err: DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any, data: DynamoDB.DescribeTableOutput|any) => void): Request<DynamoDB.DescribeTableOutput|any,DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any>;
     /**
      * The GetItem operation returns a set of attributes for the item with the given
 primary key. If there is no matching item, GetItem does not return any data.
@@ -461,7 +461,7 @@ read, it always returns the last updated value.
      * @error ResourceNotFoundException   
      * @error InternalServerError   
      */
-    getItem(params: DynamoDB.GetItemInput, callback?: (err: DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any, data: DynamoDB.GetItemOutput|any) => void): Request;
+    getItem(params: DynamoDB.GetItemInput, callback?: (err: DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any, data: DynamoDB.GetItemOutput|any) => void): Request<DynamoDB.GetItemOutput|any,DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any>;
     /**
      * Returns an array of table names associated with the current account and
 endpoint. The output from ListTables is paginated, with each page returning a
@@ -469,7 +469,7 @@ maximum of 100 table names.
      *
      * @error InternalServerError   
      */
-    listTables(params: DynamoDB.ListTablesInput, callback?: (err: DynamoDB.InternalServerError|any, data: DynamoDB.ListTablesOutput|any) => void): Request;
+    listTables(params: DynamoDB.ListTablesInput, callback?: (err: DynamoDB.InternalServerError|any, data: DynamoDB.ListTablesOutput|any) => void): Request<DynamoDB.ListTablesOutput|any,DynamoDB.InternalServerError|any>;
     /**
      * Creates a new item, or replaces an old item with a new item. If an item that has
 the same primary key as the new item already exists in the specified table, the
@@ -506,7 +506,7 @@ in the Amazon DynamoDB Developer Guide .
      * @error ItemCollectionSizeLimitExceededException   
      * @error InternalServerError   
      */
-    putItem(params: DynamoDB.PutItemInput, callback?: (err: DynamoDB.ConditionalCheckFailedException|DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.PutItemOutput|any) => void): Request;
+    putItem(params: DynamoDB.PutItemInput, callback?: (err: DynamoDB.ConditionalCheckFailedException|DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.PutItemOutput|any) => void): Request<DynamoDB.PutItemOutput|any,DynamoDB.ConditionalCheckFailedException|DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any>;
     /**
      * A Query operation uses the primary key of a table or a secondary index to
 directly access items from that table or index.
@@ -538,7 +538,7 @@ ConsistentRead when querying a global secondary index.
      * @error ResourceNotFoundException   
      * @error InternalServerError   
      */
-    query(params: DynamoDB.QueryInput, callback?: (err: DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any, data: DynamoDB.QueryOutput|any) => void): Request;
+    query(params: DynamoDB.QueryInput, callback?: (err: DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any, data: DynamoDB.QueryOutput|any) => void): Request<DynamoDB.QueryOutput|any,DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any>;
     /**
      * The Scan operation returns one or more items and item attributes by accessing
 every item in a table or a secondary index. To have DynamoDB return fewer items,
@@ -567,7 +567,7 @@ parameter to true .
      * @error ResourceNotFoundException   
      * @error InternalServerError   
      */
-    scan(params: DynamoDB.ScanInput, callback?: (err: DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any, data: DynamoDB.ScanOutput|any) => void): Request;
+    scan(params: DynamoDB.ScanInput, callback?: (err: DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any, data: DynamoDB.ScanOutput|any) => void): Request<DynamoDB.ScanOutput|any,DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.InternalServerError|any>;
     /**
      * Edits an existing item&#x27;s attributes, or adds a new item to the table if it does
 not already exist. You can put, delete, or add attribute values. You can also
@@ -584,7 +584,7 @@ using the ReturnValues parameter.
      * @error ItemCollectionSizeLimitExceededException   
      * @error InternalServerError   
      */
-    updateItem(params: DynamoDB.UpdateItemInput, callback?: (err: DynamoDB.ConditionalCheckFailedException|DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.UpdateItemOutput|any) => void): Request;
+    updateItem(params: DynamoDB.UpdateItemInput, callback?: (err: DynamoDB.ConditionalCheckFailedException|DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.UpdateItemOutput|any) => void): Request<DynamoDB.UpdateItemOutput|any,DynamoDB.ConditionalCheckFailedException|DynamoDB.ProvisionedThroughputExceededException|DynamoDB.ResourceNotFoundException|DynamoDB.ItemCollectionSizeLimitExceededException|DynamoDB.InternalServerError|any>;
     /**
      * Modifies the provisioned throughput settings, global secondary indexes, or
 DynamoDB Streams settings for a given table.
@@ -615,7 +615,7 @@ UpdateTable operation is complete.
      * @error LimitExceededException   
      * @error InternalServerError   
      */
-    updateTable(params: DynamoDB.UpdateTableInput, callback?: (err: DynamoDB.ResourceInUseException|DynamoDB.ResourceNotFoundException|DynamoDB.LimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.UpdateTableOutput|any) => void): Request;
+    updateTable(params: DynamoDB.UpdateTableInput, callback?: (err: DynamoDB.ResourceInUseException|DynamoDB.ResourceNotFoundException|DynamoDB.LimitExceededException|DynamoDB.InternalServerError|any, data: DynamoDB.UpdateTableOutput|any) => void): Request<DynamoDB.UpdateTableOutput|any,DynamoDB.ResourceInUseException|DynamoDB.ResourceNotFoundException|DynamoDB.LimitExceededException|DynamoDB.InternalServerError|any>;
 
   }
 
