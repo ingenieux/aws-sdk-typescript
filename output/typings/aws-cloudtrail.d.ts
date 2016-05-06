@@ -22,15 +22,17 @@ delivers log files to an Amazon S3 bucket. The recorded information includes the
 identity of the user, the start time of the AWS API call, the source IP address,
 the request parameters, and the response elements returned by the service.
 
-As an alternative to using the API, you can use one of the AWS SDKs, which
-consist of libraries and sample code for various programming languages and
-platforms (Java, Ruby, .NET, iOS, Android, etc.). The SDKs provide a convenient
-way to create programmatic access to AWSCloudTrail. For example, the SDKs take
-care of cryptographically signing requests, managing errors, and retrying
-requests automatically. For information about the AWS SDKs, including how to
-download and install them, see the Tools for Amazon Web Services page
-[http://aws.amazon.com/tools/] .See the CloudTrail User Guide for information
-about the data that is included with each AWS API call listed in the log files.
+As an alternative to the API, you can use one of the AWS SDKs, which consist of
+libraries and sample code for various programming languages and platforms (Java,
+Ruby, .NET, iOS, Android, etc.). The SDKs provide a convenient way to create
+programmatic access to AWSCloudTrail. For example, the SDKs take care of
+cryptographically signing requests, managing errors, and retrying requests
+automatically. For information about the AWS SDKs, including how to download and
+install them, see the Tools for Amazon Web Services page
+[http://aws.amazon.com/tools/] .
+
+See the CloudTrail User Guide for information about the data that is included
+with each AWS API call listed in the log files.
    *
    */
   export class CloudTrail extends Service {
@@ -127,9 +129,7 @@ corresponding public key.
      */
     listPublicKeys(params: CloudTrail.ListPublicKeysRequest, callback?: (err: CloudTrail.InvalidTimeRangeException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|CloudTrail.InvalidTokenException|any, data: CloudTrail.ListPublicKeysResponse|any) => void): Request;
     /**
-     * Lists the tags for the specified trail or trails in the current region.
-
-Lists the tags for the trail in the current region.
+     * Lists the tags for the trail in the current region.
      *
      * @error ResourceNotFoundException   
      * @error CloudTrailARNInvalidException   
@@ -152,9 +152,10 @@ number of results returned is 10, with a maximum of 50 possible. The response
 includes a token that you can use to get the next page of results.
 
 The rate of lookup requests is limited to one per second per account. If this
-limit is exceeded, a throttling error occurs. Events that occurred during the
-selected time range will not be available for lookup if CloudTrail logging was
-not enabled when the events occurred.
+limit is exceeded, a throttling error occurs.
+
+Events that occurred during the selected time range will not be available for
+lookup if CloudTrail logging was not enabled when the events occurred.
      *
      * @error InvalidLookupAttributesException   
      * @error InvalidTimeRangeException   
@@ -269,8 +270,9 @@ otherwise, an InvalidHomeRegionException is thrown.
 
     export interface AddTagsRequest {
         /** Specifies the ARN of the trail to which one or more tags will be added. The
-format of a trail ARN is arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail 
-. **/
+format of a trail ARN is:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         ResourceId: String;
         /** Contains a list of CloudTrail tags, up to a limit of 10. **/
         TagsList?: TagsList;
@@ -286,10 +288,18 @@ format of a trail ARN is arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail
 
  &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
    underscores (_), or dashes (-)
+   
+   
  * Start with a letter or number, and end with a letter or number
+   
+   
  * Be between 3 and 128 characters
+   
+   
  * Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
    my--namespace are invalid.
+   
+   
  * Not be in IP address format (for example, 192.168.5.4) **/
         Name: String;
         /** Specifies the name of the Amazon S3 bucket designated for publishing log files.
@@ -338,8 +348,14 @@ alias, a fully specified ARN to a key, or a globally unique identifier.
 Examples:
 
  &amp;#42; alias/MyAliasName
+   
+   
  * arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+   
+   
  * arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
+   
+   
  * 12345678-1234-1234-1234-123456789012 **/
         KmsKeyId?: String;
     }
@@ -354,15 +370,22 @@ CloudTrail Log Files
 [http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html] 
 . **/
         S3KeyPrefix?: String;
-        /** Specifies the name of the Amazon SNS topic defined for notification of log file
-delivery. **/
+        /** Specifies the name of the Amazon SNS topic that CloudTrail uses to send
+notifications when log files are delivered. **/
         SnsTopicName?: String;
+        /** Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
+notifications when log files are delivered. The format of a topic ARN is:
+
+arn:aws:sns:us-east-1:123456789012:MyTopic **/
+        SnsTopicARN?: String;
         /** Specifies whether the trail is publishing events from global services such as
 IAM to the log files. **/
         IncludeGlobalServiceEvents?: Boolean;
         /** Specifies whether the trail exists in one region or in all regions. **/
         IsMultiRegionTrail?: Boolean;
-        /** Specifies the ARN of the trail that was created. **/
+        /** Specifies the ARN of the trail that was created. The format of a trail ARN is:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         TrailARN?: String;
         /** Specifies whether log file integrity validation is enabled. **/
         LogFileValidationEnabled?: Boolean;
@@ -380,22 +403,31 @@ arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 **/
     }
     export interface DeleteTrailRequest {
         /** Specifies the name or the CloudTrail ARN of the trail to be deleted. The format
-of a trail ARN is arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail . **/
+of a trail ARN is:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         Name: String;
     }
     export interface DeleteTrailResponse {
     }
     export interface DescribeTrailsRequest {
         /** Specifies a list of trail names, trail ARNs, or both, of the trails to describe.
-The format of a trail ARN is 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail . If an empty list is
-specified, information for the trail in the current region is returned.
+The format of a trail ARN is:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail
+
+If an empty list is specified, information for the trail in the current region
+is returned.
 
  &amp;#42; If an empty list is specified and IncludeShadowTrails is false, then
    information for all trails in the current region is returned.
+   
+   
  * If an empty list is specified and IncludeShadowTrails is null or true, then
    information for all trails in the current region and any associated shadow
    trails in other regions is returned.
+   
+   
 
 If one or more trail names are specified, information is returned only if the
 names match the names of trails belonging only to the current region. To return
@@ -428,8 +460,10 @@ returned. **/
     export interface GetTrailStatusRequest {
         /** Specifies the name or the CloudTrail ARN of the trail for which you are
 requesting status. To get the status of a shadow trail (a replication of the
-trail in another region), you must specify its ARN. The format of a trail ARN is 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail . **/
+trail in another region), you must specify its ARN. The format of a trail ARN
+is:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         Name: String;
     }
     export interface GetTrailStatusResponse {
@@ -557,8 +591,9 @@ The returned public keys may have validity time ranges that overlap. **/
     }
     export interface ListTagsRequest {
         /** Specifies a list of trail ARNs whose tags will be listed. The list has a limit
-of 20 ARNs. The format of a trail ARN is 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail . **/
+of 20 ARNs. The format of a trail ARN is:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         ResourceIdList: ResourceIdList;
         /** Reserved for future use. **/
         NextToken?: String;
@@ -624,7 +659,9 @@ the call with NextToken should include those same parameters. **/
     }
     export interface RemoveTagsRequest {
         /** Specifies the ARN of the trail from which tags should be removed. The format of
-a trail ARN is arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail . **/
+a trail ARN is:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         ResourceId: String;
         /** Specifies a list of tags to be removed. **/
         TagsList?: TagsList;
@@ -659,16 +696,18 @@ resource name might be &quot;auto-scaling-test-group&quot; for an Auto Scaling G
     }
     export interface StartLoggingRequest {
         /** Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs
-AWS API calls. The format of a trail ARN is 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail . **/
+AWS API calls. The format of a trail ARN is:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         Name: String;
     }
     export interface StartLoggingResponse {
     }
     export interface StopLoggingRequest {
         /** Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will
-stop logging AWS API calls. The format of a trail ARN is 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail . **/
+stop logging AWS API calls. The format of a trail ARN is:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         Name: String;
     }
     export interface StopLoggingResponse {
@@ -698,10 +737,14 @@ CloudTrail Log Files
 [http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html] 
 .The maximum length is 200 characters. **/
         S3KeyPrefix?: String;
-        /** Name of the existing Amazon SNS topic that CloudTrail uses to notify the account
-owner when new CloudTrail log files have been delivered. The maximum length is
-256 characters. **/
+        /** Specifies the name of the Amazon SNS topic that CloudTrail uses to send
+notifications when log files are delivered. **/
         SnsTopicName?: String;
+        /** Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
+notifications when log files are delivered. The format of a topic ARN is:
+
+arn:aws:sns:us-east-1:123456789012:MyTopic **/
+        SnsTopicARN?: String;
         /** Set to True to include AWS API calls from AWS global services such as IAM.
 Otherwise, False . **/
         IncludeGlobalServiceEvents?: Boolean;
@@ -709,8 +752,9 @@ Otherwise, False . **/
         IsMultiRegionTrail?: Boolean;
         /** The region in which the trail was created. **/
         HomeRegion?: String;
-        /** The Amazon Resource Name of the trail. The TrailARN format is 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail . **/
+        /** Specifies the ARN of the trail. The format of a trail ARN is:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         TrailARN?: String;
         /** Specifies whether log file validation is enabled. **/
         LogFileValidationEnabled?: Boolean;
@@ -740,14 +784,25 @@ string must meet the following requirements:
 
  &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
    underscores (_), or dashes (-)
+   
+   
  * Start with a letter or number, and end with a letter or number
+   
+   
  * Be between 3 and 128 characters
+   
+   
  * Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
    my--namespace are invalid.
+   
+   
  * Not be in IP address format (for example, 192.168.5.4)
+   
+   
 
-If Name is a trail ARN, it must be in the format 
-arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail . **/
+If Name is a trail ARN, it must be in the format:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         Name: String;
         /** Specifies the name of the Amazon S3 bucket designated for publishing log files.
 See Amazon S3 Bucket Naming Requirements
@@ -798,8 +853,14 @@ alias, a fully specified ARN to a key, or a globally unique identifier.
 Examples:
 
  &amp;#42; alias/MyAliasName
+   
+   
  * arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+   
+   
  * arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
+   
+   
  * 12345678-1234-1234-1234-123456789012 **/
         KmsKeyId?: String;
     }
@@ -814,15 +875,22 @@ CloudTrail Log Files
 [http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html] 
 . **/
         S3KeyPrefix?: String;
-        /** Specifies the name of the Amazon SNS topic defined for notification of log file
-delivery. **/
+        /** Specifies the name of the Amazon SNS topic that CloudTrail uses to send
+notifications when log files are delivered. **/
         SnsTopicName?: String;
+        /** Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
+notifications when log files are delivered. The format of a topic ARN is:
+
+arn:aws:sns:us-east-1:123456789012:MyTopic **/
+        SnsTopicARN?: String;
         /** Specifies whether the trail is publishing events from global services such as
 IAM to the log files. **/
         IncludeGlobalServiceEvents?: Boolean;
         /** Specifies whether the trail exists in one region or in all regions. **/
         IsMultiRegionTrail?: Boolean;
-        /** Specifies the ARN of the trail that was updated. **/
+        /** Specifies the ARN of the trail that was updated. The format of a trail ARN is:
+
+arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
         TrailARN?: String;
         /** Specifies whether log file integrity validation is enabled. **/
         LogFileValidationEnabled?: Boolean;

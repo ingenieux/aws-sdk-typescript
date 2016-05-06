@@ -48,6 +48,10 @@ If the number of tasks running in a service drops below desiredCount , Amazon
 ECS spawns another instantiation of the task in the specified cluster. To update
 an existing service, see UpdateService .
 
+In addition to maintaining the desired count of tasks in your service, you can
+optionally run your service behind a load balancer. The load balancer
+distributes traffic across the tasks that are associated with the service.
+
 You can optionally specify a deployment configuration for your service. During a
 deployment (which is triggered by changing the task definition of a service with
 an UpdateService operation), the service scheduler uses the 
@@ -147,8 +151,10 @@ Deregistering a container instance removes the instance from a cluster, but it
 does not terminate the EC2 instance; if you are finished using the instance, be
 sure to terminate it in the Amazon EC2 console to stop billing.
 
-When you terminate a container instance, it is automatically deregistered from
-your cluster.
+If you terminate a running container instance with a connected Amazon ECS
+container agent, the agent automatically deregisters the instance from your
+cluster (stopped container instances or instances with disconnected agents are
+not automatically deregistered when terminated).
      *
      * @error ServerException   
      * @error ClientException   
@@ -563,7 +569,7 @@ Null , but this could change in future revisions for expandability). **/
         /** The Amazon Resource Name (ARN) that identifies the cluster. The ARN contains the 
 arn:aws:ecs namespace, followed by the region of the cluster, the AWS account ID
 of the cluster owner, the cluster namespace, and then the cluster name. For
-example, arn:aws:ecs: region : 012345678910 :cluster/ test . **/
+example, arn:aws:ecs: region : 012345678910 :cluster/ test .. **/
         clusterArn?: String;
         /** A user-generated string that you use to identify your cluster. **/
         clusterName?: String;
@@ -628,8 +634,12 @@ parameter of docker run [https://docs.docker.com/reference/commandline/run/] .
 
  &amp;#42; Images in official repositories on Docker Hub use a single name (for example, 
    ubuntu or mongo ).
+   
+   
  * Images in other repositories on Docker Hub are qualified with an organization
    name (for example, amazon/amazon-ecs-agent ).
+   
+   
  * Images in other online repositories are qualified further by a domain name
    (for example, quay.io/assemblyline/ubuntu ). **/
         image?: String;
@@ -670,6 +680,8 @@ version:
    passed to Docker as 0, which Docker then converts to 1,024 CPU shares. CPU
    values of 1 are passed to Docker as 1, which the Linux kernel converts to 2
    CPU shares.
+   
+   
  * Agent versions greater than or equal to 1.2.0: Null, zero, and CPU values of
    1 are passed to Docker as 2. **/
         cpu?: Integer;
@@ -717,12 +729,19 @@ port assignments are visible in the Network Bindings section of a container
 description of a selected task in the Amazon ECS console, or the networkBindings 
 section DescribeTasks responses. **/
         portMappings?: PortMappingList;
-        /** If the essential parameter of a container is marked as true , the failure of
-that container stops the task. If the essential parameter of a container is
-marked as false , then its failure does not affect the rest of the containers in
-a task. If this parameter is omitted, a container is assumed to be essential.
+        /** If the essential parameter of a container is marked as true , and that container
+fails or stops for any reason, all other containers that are part of the task
+are stopped. If the essential parameter of a container is marked as false , then
+its failure does not affect the rest of the containers in a task. If this
+parameter is omitted, a container is assumed to be essential.
 
-All tasks must have at least one essential container. **/
+All tasks must have at least one essential container. If you have an application
+that is composed of multiple containers, you should group containers that are
+used for a common purpose into components, and separate the different components
+into multiple task definitions. For more information, see Application
+Architecture
+[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html] 
+in the Amazon EC2 Container Service Developer Guide . **/
         essential?: BoxedBoolean;
         /** Early versions of the Amazon ECS container agent do not properly handle 
 entryPoint parameters. If you have problems using entryPoint , update your
@@ -854,7 +873,7 @@ The Amazon ECS container agent running on a container instance must register
 with the ECS_SELINUX_CAPABLE=true or ECS_APPARMOR_CAPABLE=true environment
 variables before containers placed on that instance can use these security
 options. For more information, see Amazon ECS Container Agent Configuration
-[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/developerguide/ecs-agent-config.html] 
+[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html] 
 in the Amazon EC2 Container Service Developer Guide . **/
         dockerSecurityOptions?: StringList;
         /** A key/value map of labels to add to the container. This parameter maps to Labels 
@@ -886,19 +905,33 @@ LogConfig in the Create a container
 section of the Docker Remote API
 [https://docs.docker.com/reference/api/docker_remote_api_v1.19/] and the 
 --log-driver option to docker run
-[https://docs.docker.com/reference/commandline/run/] . Valid log drivers are
-displayed in the LogConfiguration data type. This parameter requires version
-1.18 of the Docker Remote API or greater on your container instance. To check
-the Docker Remote API version on your container instance, log into your
-container instance and run the following command: sudo docker version | grep
-&quot;Server API version&quot;
+[https://docs.docker.com/reference/commandline/run/] . By default, containers
+use the same logging driver that the Docker daemon uses; however the container
+may use a different logging driver than the Docker daemon by specifying a log
+driver with this parameter in the container definition. To use a different
+logging driver for a container, the log system must be configured properly on
+the container instance (or on a different log server for remote logging
+options). For more information on the options for different supported log
+drivers, see Configure logging drivers
+[https://docs.docker.com/engine/admin/logging/overview/] in the Docker
+documentation.
+
+Amazon ECS currently supports a subset of the logging drivers available to the
+Docker daemon (shown in the LogConfiguration data type). Currently unsupported
+log drivers may be available in future releases of the Amazon ECS container
+agent.
+
+This parameter requires version 1.18 of the Docker Remote API or greater on your
+container instance. To check the Docker Remote API version on your container
+instance, log into your container instance and run the following command: sudo
+docker version | grep &quot;Server API version&quot;
 
 The Amazon ECS container agent running on a container instance must register the
 logging drivers available on that instance with the 
 ECS_AVAILABLE_LOGGING_DRIVERS environment variable before containers placed on
 that instance can use these log configuration options. For more information, see 
 Amazon ECS Container Agent Configuration
-[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/developerguide/ecs-agent-config.html] 
+[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html] 
 in the Amazon EC2 Container Service Developer Guide . **/
         logConfiguration?: LogConfiguration;
     }
@@ -972,9 +1005,20 @@ region or across multiple regions. **/
 of the task definition to run in your service. If a revision is not specified,
 the latest ACTIVE revision is used. **/
         taskDefinition: String;
-        /** A list of load balancer objects, containing the load balancer name, the
-container name (as it appears in a container definition), and the container port
-to access from the load balancer. **/
+        /** A load balancer object representing the load balancer to use with your service.
+
+For Elastic Load Balancing standard load balancers, this object must contain the
+load balancer name, the container name (as it appears in a container
+definition), and the container port to access from the load balancer. When a
+task from this service is placed on a container instance, the container instance
+is registered with the load balancer specified here.
+
+For Elastic Load Balancing application load balancers, this object must contain
+the load balancer target group ARN, the container name (as it appears in a
+container definition), and the container port to access from the load balancer.
+When a task from this service is placed on a container instance, the container
+instance and port combination is registered as a target in the target group
+specified here. **/
         loadBalancers?: LoadBalancers;
         /** The number of instantiations of the specified task definition to place and keep
 running on your cluster. **/
@@ -1150,7 +1194,7 @@ assumed. **/
         /** The container instance ID or full Amazon Resource Name (ARN) of the container
 instance. The ARN contains the arn:aws:ecs namespace, followed by the region of
 the container instance, the AWS account ID of the container instance owner, the 
-container-instance namespace, and then the container instance ID. For example,
+container-instance namespace, and then the container instance ID. For example, 
 arn:aws:ecs: region : aws_account_id :container-instance/ container_instance_ID 
 . **/
         containerInstance?: String;
@@ -1452,7 +1496,9 @@ value is false . **/
         /** The port number on the container that is bound to the user-specified or
 automatically assigned host port. If you specify a container port and not a host
 port, your container automatically receives a host port in the ephemeral port
-range (for more information, see hostPort ). **/
+range (for more information, see hostPort ). Port mappings that are
+automatically assigned in this way do not count toward the 50 reserved ports
+limit of a container instance. **/
         containerPort?: Integer;
         /** The port number on the container instance to reserve for your container. You can
 specify a non-reserved host port for your container port mapping, or you can
@@ -1475,7 +1521,8 @@ specified in a running task is also reserved while the task is running (after a
 task stops, the host port is released).The current reserved ports are displayed
 in the remainingResources of DescribeContainerInstances output, and a container
 instance may have up to 50 reserved ports at a time, including the default
-reserved ports (automatically assigned ports do not count toward this limit). **/
+reserved ports (automatically assigned ports do not count toward the 50 reserved
+ports limit). **/
         hostPort?: Integer;
         /** The protocol used for the port mapping. Valid values are tcp and udp . The
 default is tcp . **/
@@ -1597,11 +1644,11 @@ hyphens, and underscores are allowed. Service names must be unique within a
 cluster, but you can have similarly named services in multiple clusters within a
 region or across multiple regions. **/
         serviceName?: String;
-        /** The Amazon Resource Name (ARN) of the of the cluster that hosts the service. **/
+        /** The Amazon Resource Name (ARN) of the cluster that hosts the service. **/
         clusterArn?: String;
-        /** A list of load balancer objects, containing the load balancer name, the
-container name (as it appears in a container definition), and the container port
-to access from the load balancer. **/
+        /** A list of Elastic Load Balancing load balancer objects, containing the load
+balancer name, the container name (as it appears in a container definition), and
+the container port to access from the load balancer. **/
         loadBalancers?: LoadBalancers;
         /** The status of the service. The valid values are ACTIVE , DRAINING , or INACTIVE 
 . **/
@@ -1624,12 +1671,13 @@ deployment and the ordering of stopping and starting tasks. **/
         /** The current state of deployments for the service. **/
         deployments?: Deployments;
         /** The Amazon Resource Name (ARN) of the IAM role associated with the service that
-allows the Amazon ECS container agent to register container instances with a
-load balancer. **/
+allows the Amazon ECS container agent to register container instances with an
+Elastic Load Balancing load balancer. **/
         roleArn?: String;
         /** The event stream for your service. A maximum of 100 of the latest events are
 displayed. **/
         events?: ServiceEvents;
+        createdAt?: Timestamp;
     }
     export interface ServiceEvent {
         /** The ID string of the event. **/
@@ -1741,10 +1789,9 @@ request. **/
     export interface Task {
         /** The Amazon Resource Name (ARN) of the task. **/
         taskArn?: String;
-        /** The Amazon Resource Name (ARN) of the of the cluster that hosts the task. **/
+        /** The Amazon Resource Name (ARN) of the cluster that hosts the task. **/
         clusterArn?: String;
-        /** The Amazon Resource Name (ARN) of the of the task definition that creates the
-task. **/
+        /** The Amazon Resource Name (ARN) of the task definition that creates the task. **/
         taskDefinitionArn?: String;
         /** The Amazon Resource Name (ARN) of the container instances that host the task. **/
         containerInstanceArn?: String;
@@ -1773,12 +1820,12 @@ transitioned from the RUNNING state to the STOPPED state). **/
         stoppedAt?: Timestamp;
     }
     export interface TaskDefinition {
-        /** The full Amazon Resource Name (ARN) of the of the task definition. **/
+        /** The full Amazon Resource Name (ARN) of the task definition. **/
         taskDefinitionArn?: String;
         /** A list of container definitions in JSON format that describe the different
 containers that make up your task. For more information about container
 definition parameters and defaults, see Amazon ECS Task Definitions
-[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html] 
+[http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AmazonECS/latest/developerguidetask_defintions.html] 
 in the Amazon EC2 Container Service Developer Guide . **/
         containerDefinitions?: ContainerDefinitions;
         /** The family of your task definition, used as the definition name. **/
@@ -1791,7 +1838,7 @@ task definition in the same family, the revision value always increases by one
         revision?: Integer;
         /** The list of volumes in a task. For more information about volume definition
 parameters and defaults, see Amazon ECS Task Definitions
-[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html] 
+[http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AmazonECS/latest/developerguidetask_defintions.html] 
 in the Amazon EC2 Container Service Developer Guide . **/
         volumes?: VolumeList;
         /** The status of the task definition. **/

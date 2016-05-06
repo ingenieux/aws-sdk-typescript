@@ -72,9 +72,10 @@ internet.
      *
      * @error UnauthorizedException   
      * @error BadRequestException   
+     * @error ConflictException   
      * @error TooManyRequestsException   
      */
-    createDomainName(params: APIGateway.CreateDomainNameRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainName|any) => void): Request;
+    createDomainName(params: APIGateway.CreateDomainNameRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainName|any) => void): Request;
     /**
      * Adds a new Model resource to an existing RestApi resource.
      *
@@ -219,9 +220,10 @@ are no Stage resources associated with it.
      * @error UnauthorizedException   
      * @error NotFoundException   
      * @error BadRequestException   
+     * @error ConflictException   
      * @error TooManyRequestsException   
      */
-    deleteResource(params: APIGateway.DeleteResourceRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
+    deleteResource(params: APIGateway.DeleteResourceRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any, data: any) => void): Request;
     /**
      * Deletes the specified API.
      *
@@ -516,10 +518,11 @@ an external API definition file.
      *
      * @error UnauthorizedException   
      * @error BadRequestException   
+     * @error ConflictException   
      * @error NotFoundException   
      * @error TooManyRequestsException   
      */
-    putIntegration(params: APIGateway.PutIntegrationRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Integration|any) => void): Request;
+    putIntegration(params: APIGateway.PutIntegrationRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Integration|any) => void): Request;
     /**
      * Represents a put integration.
      *
@@ -561,10 +564,11 @@ existing API.
      *
      * @error UnauthorizedException   
      * @error LimitExceededException   
+     * @error NotFoundException   
      * @error BadRequestException   
      * @error TooManyRequestsException   
      */
-    putRestApi(params: APIGateway.PutRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.RestApi|any) => void): Request;
+    putRestApi(params: APIGateway.PutRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.RestApi|any) => void): Request;
     /**
      * Simulate the execution of an Authorizer in your RestApi with headers,
 parameters, and an incoming request body.
@@ -647,9 +651,10 @@ an incoming request body.
      * @error UnauthorizedException   
      * @error NotFoundException   
      * @error BadRequestException   
+     * @error ConflictException   
      * @error TooManyRequestsException   
      */
-    updateDomainName(params: APIGateway.UpdateDomainNameRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainName|any) => void): Request;
+    updateDomainName(params: APIGateway.UpdateDomainNameRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainName|any) => void): Request;
     /**
      * Represents an update integration.
      *
@@ -665,19 +670,21 @@ an incoming request body.
      *
      * @error UnauthorizedException   
      * @error NotFoundException   
+     * @error ConflictException   
      * @error BadRequestException   
      * @error TooManyRequestsException   
      */
-    updateIntegrationResponse(params: APIGateway.UpdateIntegrationResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.IntegrationResponse|any) => void): Request;
+    updateIntegrationResponse(params: APIGateway.UpdateIntegrationResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.IntegrationResponse|any) => void): Request;
     /**
      * Updates an existing Method resource.
      *
      * @error UnauthorizedException   
      * @error NotFoundException   
      * @error BadRequestException   
+     * @error ConflictException   
      * @error TooManyRequestsException   
      */
-    updateMethod(params: APIGateway.UpdateMethodRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Method|any) => void): Request;
+    updateMethod(params: APIGateway.UpdateMethodRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any, data: APIGateway.Method|any) => void): Request;
     /**
      * Updates an existing MethodResponse resource.
      *
@@ -695,9 +702,10 @@ an incoming request body.
      * @error UnauthorizedException   
      * @error NotFoundException   
      * @error BadRequestException   
+     * @error ConflictException   
      * @error TooManyRequestsException   
      */
-    updateModel(params: APIGateway.UpdateModelRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Model|any) => void): Request;
+    updateModel(params: APIGateway.UpdateModelRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any, data: APIGateway.Model|any) => void): Request;
     /**
      * Changes information about a Resource resource.
      *
@@ -1473,8 +1481,27 @@ match the pattern integration.request.{location}.{name} , where location is
 either querystring, path, or header. name must be a valid, unique parameter
 name. **/
         requestParameters?: MapOfStringToString;
-        /** Specifies the integration&#x27;s request templates. **/
+        /** Represents a map of Velocity templates that are applied on the request payload
+based on the value of the Content-Type header sent by the client. The content
+type value is the key in this map, and the template (as a String) is the value. **/
         requestTemplates?: MapOfStringToString;
+        /** Specifies the pass-through behavior for incoming requests based on the
+Content-Type header in the request, and the available requestTemplates defined
+on the Integration. There are three valid values: WHEN_NO_MATCH , 
+WHEN_NO_TEMPLATES , and NEVER .
+
+
+
+WHEN_NO_MATCH passes the request body for unmapped content types through to the
+Integration backend without transformation.
+
+NEVER rejects unmapped content types with an HTTP 415 &#x27;Unsupported Media Type&#x27;
+response.
+
+WHEN_NO_TEMPLATES will allow pass-through when the Integration has NO content
+types mapped to templates. However if there is at least one content type
+defined, unmapped content types will be rejected with the same 415 response. **/
+        passthroughBehavior?: String;
         /** Specifies the integration&#x27;s cache namespace. **/
         cacheNamespace?: String;
         /** Specifies the integration&#x27;s cache key parameters. **/
@@ -1673,10 +1700,27 @@ match the pattern integration.request.{location}.{name} , where location is
 either querystring, path, or header. name must be a valid, unique parameter
 name. **/
         requestParameters?: MapOfStringToString;
-        /** Specifies the templates used to transform the method request body. Request
-templates are represented as a key/value map, with a content-type as the key and
-a template as the value. **/
+        /** Represents a map of Velocity templates that are applied on the request payload
+based on the value of the Content-Type header sent by the client. The content
+type value is the key in this map, and the template (as a String) is the value. **/
         requestTemplates?: MapOfStringToString;
+        /** Specifies the pass-through behavior for incoming requests based on the
+Content-Type header in the request, and the available requestTemplates defined
+on the Integration. There are three valid values: WHEN_NO_MATCH , 
+WHEN_NO_TEMPLATES , and NEVER .
+
+
+
+WHEN_NO_MATCH passes the request body for unmapped content types through to the
+Integration backend without transformation.
+
+NEVER rejects unmapped content types with an HTTP 415 &#x27;Unsupported Media Type&#x27;
+response.
+
+WHEN_NO_TEMPLATES will allow pass-through when the Integration has NO content
+types mapped to templates. However if there is at least one content type
+defined, unmapped content types will be rejected with the same 415 response. **/
+        passthroughBehavior?: String;
         /** Specifies a put integration input&#x27;s cache namespace. **/
         cacheNamespace?: String;
         /** Specifies a put integration input&#x27;s cache key parameters. **/
