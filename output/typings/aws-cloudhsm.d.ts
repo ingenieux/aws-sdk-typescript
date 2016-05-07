@@ -30,7 +30,7 @@ resource.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    addTagsToResource(params: CloudHSM.AddTagsToResourceRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.AddTagsToResourceResponse|any) => void): Request;
+    addTagsToResource(params: CloudHSM.AddTagsToResourceRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.AddTagsToResourceResponse|any) => void): Request<CloudHSM.AddTagsToResourceResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Creates a high-availability partition group. A high-availability partition group
 is a group of partitions that spans multiple physical HSMs.
@@ -39,7 +39,7 @@ is a group of partitions that spans multiple physical HSMs.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    createHapg(params: CloudHSM.CreateHapgRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.CreateHapgResponse|any) => void): Request;
+    createHapg(params: CloudHSM.CreateHapgRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.CreateHapgResponse|any) => void): Request<CloudHSM.CreateHapgResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Creates an uninitialized HSM instance.
 
@@ -57,7 +57,7 @@ initialized when the status changes to RUNNING .
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    createHsm(params: CloudHSM.CreateHsmRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.CreateHsmResponse|any) => void): Request;
+    createHsm(params: CloudHSM.CreateHsmRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.CreateHsmResponse|any) => void): Request<CloudHSM.CreateHsmResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Creates an HSM client.
      *
@@ -65,7 +65,7 @@ initialized when the status changes to RUNNING .
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    createLunaClient(params: CloudHSM.CreateLunaClientRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.CreateLunaClientResponse|any) => void): Request;
+    createLunaClient(params: CloudHSM.CreateLunaClientRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.CreateLunaClientResponse|any) => void): Request<CloudHSM.CreateLunaClientResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Deletes a high-availability partition group.
      *
@@ -73,7 +73,7 @@ initialized when the status changes to RUNNING .
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    deleteHapg(params: CloudHSM.DeleteHapgRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.DeleteHapgResponse|any) => void): Request;
+    deleteHapg(params: CloudHSM.DeleteHapgRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.DeleteHapgResponse|any) => void): Request<CloudHSM.DeleteHapgResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Deletes an HSM. After completion, this operation cannot be undone and your key
 material cannot be recovered.
@@ -82,7 +82,7 @@ material cannot be recovered.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    deleteHsm(params: CloudHSM.DeleteHsmRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.DeleteHsmResponse|any) => void): Request;
+    deleteHsm(params: CloudHSM.DeleteHsmRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.DeleteHsmResponse|any) => void): Request<CloudHSM.DeleteHsmResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Deletes a client.
      *
@@ -90,7 +90,7 @@ material cannot be recovered.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    deleteLunaClient(params: CloudHSM.DeleteLunaClientRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.DeleteLunaClientResponse|any) => void): Request;
+    deleteLunaClient(params: CloudHSM.DeleteLunaClientRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.DeleteLunaClientResponse|any) => void): Request<CloudHSM.DeleteLunaClientResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Retrieves information about a high-availability partition group.
      *
@@ -98,7 +98,7 @@ material cannot be recovered.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    describeHapg(params: CloudHSM.DescribeHapgRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.DescribeHapgResponse|any) => void): Request;
+    describeHapg(params: CloudHSM.DescribeHapgRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.DescribeHapgResponse|any) => void): Request<CloudHSM.DescribeHapgResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Retrieves information about an HSM. You can identify the HSM by its ARN or its
 serial number.
@@ -107,7 +107,7 @@ serial number.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    describeHsm(params: CloudHSM.DescribeHsmRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.DescribeHsmResponse|any) => void): Request;
+    describeHsm(params: CloudHSM.DescribeHsmRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.DescribeHsmResponse|any) => void): Request<CloudHSM.DescribeHsmResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Retrieves information about an HSM client.
      *
@@ -115,7 +115,7 @@ serial number.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    describeLunaClient(params: CloudHSM.DescribeLunaClientRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.DescribeLunaClientResponse|any) => void): Request;
+    describeLunaClient(params: CloudHSM.DescribeLunaClientRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.DescribeLunaClientResponse|any) => void): Request<CloudHSM.DescribeLunaClientResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Gets the configuration files necessary to connect to all high availability
 partition groups the client is associated with.
@@ -124,7 +124,7 @@ partition groups the client is associated with.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    getConfig(params: CloudHSM.GetConfigRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.GetConfigResponse|any) => void): Request;
+    getConfig(params: CloudHSM.GetConfigRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.GetConfigResponse|any) => void): Request<CloudHSM.GetConfigResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Lists the Availability Zones that have available AWS CloudHSM capacity.
      *
@@ -132,7 +132,7 @@ partition groups the client is associated with.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    listAvailableZones(params: CloudHSM.ListAvailableZonesRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ListAvailableZonesResponse|any) => void): Request;
+    listAvailableZones(params: CloudHSM.ListAvailableZonesRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ListAvailableZonesResponse|any) => void): Request<CloudHSM.ListAvailableZonesResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Lists the high-availability partition groups for the account.
 
@@ -144,7 +144,7 @@ that you pass in the next call to ListHapgs to retrieve the next set of items.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    listHapgs(params: CloudHSM.ListHapgsRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ListHapgsResponse|any) => void): Request;
+    listHapgs(params: CloudHSM.ListHapgsRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ListHapgsResponse|any) => void): Request<CloudHSM.ListHapgsResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Retrieves the identifiers of all of the HSMs provisioned for the current
 customer.
@@ -157,7 +157,7 @@ that you pass in the next call to ListHsms to retrieve the next set of items.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    listHsms(params: CloudHSM.ListHsmsRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ListHsmsResponse|any) => void): Request;
+    listHsms(params: CloudHSM.ListHsmsRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ListHsmsResponse|any) => void): Request<CloudHSM.ListHsmsResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Lists all of the clients.
 
@@ -170,7 +170,7 @@ items.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    listLunaClients(params: CloudHSM.ListLunaClientsRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ListLunaClientsResponse|any) => void): Request;
+    listLunaClients(params: CloudHSM.ListLunaClientsRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ListLunaClientsResponse|any) => void): Request<CloudHSM.ListLunaClientsResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Returns a list of all tags for the specified AWS CloudHSM resource.
      *
@@ -178,7 +178,7 @@ items.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    listTagsForResource(params: CloudHSM.ListTagsForResourceRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ListTagsForResourceResponse|any) => void): Request;
+    listTagsForResource(params: CloudHSM.ListTagsForResourceRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ListTagsForResourceResponse|any) => void): Request<CloudHSM.ListTagsForResourceResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Modifies an existing high-availability partition group.
      *
@@ -186,7 +186,7 @@ items.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    modifyHapg(params: CloudHSM.ModifyHapgRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ModifyHapgResponse|any) => void): Request;
+    modifyHapg(params: CloudHSM.ModifyHapgRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ModifyHapgResponse|any) => void): Request<CloudHSM.ModifyHapgResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Modifies an HSM.
 
@@ -199,7 +199,7 @@ availability, and consider executing this operation during a maintenance window.
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    modifyHsm(params: CloudHSM.ModifyHsmRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ModifyHsmResponse|any) => void): Request;
+    modifyHsm(params: CloudHSM.ModifyHsmRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.ModifyHsmResponse|any) => void): Request<CloudHSM.ModifyHsmResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
     /**
      * Modifies the certificate used by the client.
 
@@ -208,7 +208,7 @@ the client&#x27;s HSMs.
      *
      * @error CloudHsmServiceException   
      */
-    modifyLunaClient(params: CloudHSM.ModifyLunaClientRequest, callback?: (err: CloudHSM.CloudHsmServiceException|any, data: CloudHSM.ModifyLunaClientResponse|any) => void): Request;
+    modifyLunaClient(params: CloudHSM.ModifyLunaClientRequest, callback?: (err: CloudHSM.CloudHsmServiceException|any, data: CloudHSM.ModifyLunaClientResponse|any) => void): Request<CloudHSM.ModifyLunaClientResponse|any,CloudHSM.CloudHsmServiceException|any>;
     /**
      * Removes one or more tags from the specified AWS CloudHSM resource.
 
@@ -219,7 +219,7 @@ overwrite the value for an existing tag, use AddTagsToResource .
      * @error CloudHsmInternalException   
      * @error InvalidRequestException   
      */
-    removeTagsFromResource(params: CloudHSM.RemoveTagsFromResourceRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.RemoveTagsFromResourceResponse|any) => void): Request;
+    removeTagsFromResource(params: CloudHSM.RemoveTagsFromResourceRequest, callback?: (err: CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any, data: CloudHSM.RemoveTagsFromResourceResponse|any) => void): Request<CloudHSM.RemoveTagsFromResourceResponse|any,CloudHSM.CloudHsmServiceException|CloudHSM.CloudHsmInternalException|CloudHSM.InvalidRequestException|any>;
 
   }
 

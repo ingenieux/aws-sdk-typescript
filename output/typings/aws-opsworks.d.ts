@@ -83,7 +83,7 @@ permissions, see Managing User Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    assignInstance(params: OpsWorks.AssignInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    assignInstance(params: OpsWorks.AssignInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Assigns one of the stack&#x27;s registered Amazon EBS volumes to a specified
 instance. The volume must first be registered with the stack by calling 
@@ -102,7 +102,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    assignVolume(params: OpsWorks.AssignVolumeRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    assignVolume(params: OpsWorks.AssignVolumeRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Associates one of the stack&#x27;s registered Elastic IP addresses with a specified
 instance. The address must first be registered with the stack by calling 
@@ -119,7 +119,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    associateElasticIp(params: OpsWorks.AssociateElasticIpRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    associateElasticIp(params: OpsWorks.AssociateElasticIpRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Attaches an Elastic Load Balancing load balancer to a specified layer. For more
 information, see Elastic Load Balancing
@@ -141,7 +141,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    attachElasticLoadBalancer(params: OpsWorks.AttachElasticLoadBalancerRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    attachElasticLoadBalancer(params: OpsWorks.AttachElasticLoadBalancerRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Creates a clone of a specified stack. For more information, see Clone a Stack
 [http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html] 
@@ -156,7 +156,7 @@ permissions, see Managing User Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    cloneStack(params: OpsWorks.CloneStackRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.CloneStackResult|any) => void): Request;
+    cloneStack(params: OpsWorks.CloneStackRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.CloneStackResult|any) => void): Request<OpsWorks.CloneStackResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Creates an app for a specified stack. For more information, see Creating Apps
 [http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html] 
@@ -172,7 +172,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    createApp(params: OpsWorks.CreateAppRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.CreateAppResult|any) => void): Request;
+    createApp(params: OpsWorks.CreateAppRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.CreateAppResult|any) => void): Request<OpsWorks.CreateAppResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Runs deployment or stack commands. For more information, see Deploying Apps
 [http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html] 
@@ -190,7 +190,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    createDeployment(params: OpsWorks.CreateDeploymentRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.CreateDeploymentResult|any) => void): Request;
+    createDeployment(params: OpsWorks.CreateDeploymentRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.CreateDeploymentResult|any) => void): Request<OpsWorks.CreateDeploymentResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Creates an instance in a specified stack. For more information, see Adding an
 Instance to a Layer
@@ -207,7 +207,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    createInstance(params: OpsWorks.CreateInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.CreateInstanceResult|any) => void): Request;
+    createInstance(params: OpsWorks.CreateInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.CreateInstanceResult|any) => void): Request<OpsWorks.CreateInstanceResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Creates a layer. For more information, see How to Create a Layer
 [http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html] 
@@ -230,7 +230,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    createLayer(params: OpsWorks.CreateLayerRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.CreateLayerResult|any) => void): Request;
+    createLayer(params: OpsWorks.CreateLayerRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.CreateLayerResult|any) => void): Request<OpsWorks.CreateLayerResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Creates a new stack. For more information, see Create a New Stack
 [http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-edit.html] .
@@ -243,7 +243,7 @@ permissions, see Managing User Permissions
      *
      * @error ValidationException   
      */
-    createStack(params: OpsWorks.CreateStackRequest, callback?: (err: OpsWorks.ValidationException|any, data: OpsWorks.CreateStackResult|any) => void): Request;
+    createStack(params: OpsWorks.CreateStackRequest, callback?: (err: OpsWorks.ValidationException|any, data: OpsWorks.CreateStackResult|any) => void): Request<OpsWorks.CreateStackResult|any,OpsWorks.ValidationException|any>;
     /**
      * Creates a new user profile.
 
@@ -255,7 +255,7 @@ permissions, see Managing User Permissions
      *
      * @error ValidationException   
      */
-    createUserProfile(params: OpsWorks.CreateUserProfileRequest, callback?: (err: OpsWorks.ValidationException|any, data: OpsWorks.CreateUserProfileResult|any) => void): Request;
+    createUserProfile(params: OpsWorks.CreateUserProfileRequest, callback?: (err: OpsWorks.ValidationException|any, data: OpsWorks.CreateUserProfileResult|any) => void): Request<OpsWorks.CreateUserProfileResult|any,OpsWorks.ValidationException|any>;
     /**
      * Deletes a specified app.
 
@@ -269,7 +269,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    deleteApp(params: OpsWorks.DeleteAppRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    deleteApp(params: OpsWorks.DeleteAppRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Deletes a specified instance, which terminates the associated Amazon EC2
 instance. You must stop an instance before you can delete it.
@@ -288,7 +288,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    deleteInstance(params: OpsWorks.DeleteInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    deleteInstance(params: OpsWorks.DeleteInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Deletes a specified layer. You must first stop and then delete all associated
 instances or unassign registered instances. For more information, see How to
@@ -306,7 +306,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    deleteLayer(params: OpsWorks.DeleteLayerRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    deleteLayer(params: OpsWorks.DeleteLayerRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Deletes a specified stack. You must first delete all instances, layers, and apps
 or deregister registered instances. For more information, see Shut Down a Stack
@@ -323,7 +323,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    deleteStack(params: OpsWorks.DeleteStackRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    deleteStack(params: OpsWorks.DeleteStackRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Deletes a user profile.
 
@@ -336,7 +336,7 @@ permissions, see Managing User Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    deleteUserProfile(params: OpsWorks.DeleteUserProfileRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    deleteUserProfile(params: OpsWorks.DeleteUserProfileRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Deregisters a specified Amazon ECS cluster from a stack. For more information,
 see Resource Management
@@ -352,7 +352,7 @@ permissions. For more information on user permissions, see
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    deregisterEcsCluster(params: OpsWorks.DeregisterEcsClusterRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    deregisterEcsCluster(params: OpsWorks.DeregisterEcsClusterRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Deregisters a specified Elastic IP address. The address can then be registered
 by another stack. For more information, see Resource Management
@@ -368,7 +368,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    deregisterElasticIp(params: OpsWorks.DeregisterElasticIpRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    deregisterElasticIp(params: OpsWorks.DeregisterElasticIpRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Deregister a registered Amazon EC2 or on-premises instance. This action removes
 the instance from the stack and returns it to your control. This action can not
@@ -384,7 +384,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    deregisterInstance(params: OpsWorks.DeregisterInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    deregisterInstance(params: OpsWorks.DeregisterInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Deregisters an Amazon RDS instance.
 
@@ -398,7 +398,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    deregisterRdsDbInstance(params: OpsWorks.DeregisterRdsDbInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    deregisterRdsDbInstance(params: OpsWorks.DeregisterRdsDbInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Deregisters an Amazon EBS volume. The volume can then be registered by another
 stack. For more information, see Resource Management
@@ -414,7 +414,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    deregisterVolume(params: OpsWorks.DeregisterVolumeRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    deregisterVolume(params: OpsWorks.DeregisterVolumeRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Describes the available AWS OpsWorks agent versions. You must specify a stack ID
 or a configuration manager. DescribeAgentVersions returns a list of available
@@ -423,7 +423,7 @@ agent versions for the specified stack or configuration manager.
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeAgentVersions(params: OpsWorks.DescribeAgentVersionsRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeAgentVersionsResult|any) => void): Request;
+    describeAgentVersions(params: OpsWorks.DescribeAgentVersionsRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeAgentVersionsResult|any) => void): Request<OpsWorks.DescribeAgentVersionsResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Requests a description of a specified set of apps.
 
@@ -439,7 +439,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeApps(params: OpsWorks.DescribeAppsRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeAppsResult|any) => void): Request;
+    describeApps(params: OpsWorks.DescribeAppsRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeAppsResult|any) => void): Request<OpsWorks.DescribeAppsResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Describes the results of specified commands.
 
@@ -455,7 +455,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeCommands(params: OpsWorks.DescribeCommandsRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeCommandsResult|any) => void): Request;
+    describeCommands(params: OpsWorks.DescribeCommandsRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeCommandsResult|any) => void): Request<OpsWorks.DescribeCommandsResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Requests a description of a specified set of deployments.
 
@@ -471,7 +471,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeDeployments(params: OpsWorks.DescribeDeploymentsRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeDeploymentsResult|any) => void): Request;
+    describeDeployments(params: OpsWorks.DescribeDeploymentsRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeDeploymentsResult|any) => void): Request<OpsWorks.DescribeDeploymentsResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Describes Amazon ECS clusters that are registered with a stack. If you specify
 only a stack ID, you can use the MaxResults and NextToken parameters to paginate
@@ -488,7 +488,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeEcsClusters(params: OpsWorks.DescribeEcsClustersRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeEcsClustersResult|any) => void): Request;
+    describeEcsClusters(params: OpsWorks.DescribeEcsClustersRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeEcsClustersResult|any) => void): Request<OpsWorks.DescribeEcsClustersResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Describes Elastic IP addresses
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html] 
@@ -506,7 +506,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeElasticIps(params: OpsWorks.DescribeElasticIpsRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeElasticIpsResult|any) => void): Request;
+    describeElasticIps(params: OpsWorks.DescribeElasticIpsRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeElasticIpsResult|any) => void): Request<OpsWorks.DescribeElasticIpsResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Describes a stack&#x27;s Elastic Load Balancing instances.
 
@@ -522,7 +522,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeElasticLoadBalancers(params: OpsWorks.DescribeElasticLoadBalancersRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeElasticLoadBalancersResult|any) => void): Request;
+    describeElasticLoadBalancers(params: OpsWorks.DescribeElasticLoadBalancersRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeElasticLoadBalancersResult|any) => void): Request<OpsWorks.DescribeElasticLoadBalancersResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Requests a description of a set of instances.
 
@@ -538,7 +538,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeInstances(params: OpsWorks.DescribeInstancesRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeInstancesResult|any) => void): Request;
+    describeInstances(params: OpsWorks.DescribeInstancesRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeInstancesResult|any) => void): Request<OpsWorks.DescribeInstancesResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Requests a description of one or more layers in a specified stack.
 
@@ -554,7 +554,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeLayers(params: OpsWorks.DescribeLayersRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeLayersResult|any) => void): Request;
+    describeLayers(params: OpsWorks.DescribeLayersRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeLayersResult|any) => void): Request<OpsWorks.DescribeLayersResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Describes load-based auto scaling configurations for specified layers.
 
@@ -570,7 +570,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeLoadBasedAutoScaling(params: OpsWorks.DescribeLoadBasedAutoScalingRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeLoadBasedAutoScalingResult|any) => void): Request;
+    describeLoadBasedAutoScaling(params: OpsWorks.DescribeLoadBasedAutoScalingRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeLoadBasedAutoScalingResult|any) => void): Request<OpsWorks.DescribeLoadBasedAutoScalingResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Describes a user&#x27;s SSH information.
 
@@ -581,7 +581,7 @@ information on user permissions, see Managing User Permissions
 .
      *
      */
-    describeMyUserProfile(callback?: (err: any, data: OpsWorks.DescribeMyUserProfileResult|any) => void): Request;
+    describeMyUserProfile(callback?: (err: any, data: OpsWorks.DescribeMyUserProfileResult|any) => void): Request<OpsWorks.DescribeMyUserProfileResult|any,any>;
     /**
      * Describes the permissions for a specified stack.
 
@@ -595,7 +595,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describePermissions(params: OpsWorks.DescribePermissionsRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribePermissionsResult|any) => void): Request;
+    describePermissions(params: OpsWorks.DescribePermissionsRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribePermissionsResult|any) => void): Request<OpsWorks.DescribePermissionsResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Describe an instance&#x27;s RAID arrays.
 
@@ -611,7 +611,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeRaidArrays(params: OpsWorks.DescribeRaidArraysRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeRaidArraysResult|any) => void): Request;
+    describeRaidArrays(params: OpsWorks.DescribeRaidArraysRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeRaidArraysResult|any) => void): Request<OpsWorks.DescribeRaidArraysResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Describes Amazon RDS instances.
 
@@ -625,7 +625,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeRdsDbInstances(params: OpsWorks.DescribeRdsDbInstancesRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeRdsDbInstancesResult|any) => void): Request;
+    describeRdsDbInstances(params: OpsWorks.DescribeRdsDbInstancesRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeRdsDbInstancesResult|any) => void): Request<OpsWorks.DescribeRdsDbInstancesResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Describes AWS OpsWorks service errors.
 
@@ -639,7 +639,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeServiceErrors(params: OpsWorks.DescribeServiceErrorsRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeServiceErrorsResult|any) => void): Request;
+    describeServiceErrors(params: OpsWorks.DescribeServiceErrorsRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeServiceErrorsResult|any) => void): Request<OpsWorks.DescribeServiceErrorsResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Requests a description of a stack&#x27;s provisioning parameters.
 
@@ -653,7 +653,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeStackProvisioningParameters(params: OpsWorks.DescribeStackProvisioningParametersRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeStackProvisioningParametersResult|any) => void): Request;
+    describeStackProvisioningParameters(params: OpsWorks.DescribeStackProvisioningParametersRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeStackProvisioningParametersResult|any) => void): Request<OpsWorks.DescribeStackProvisioningParametersResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Describes the number of layers and apps in a specified stack, and the number of
 instances in each state, such as running_setup or online .
@@ -668,7 +668,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeStackSummary(params: OpsWorks.DescribeStackSummaryRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeStackSummaryResult|any) => void): Request;
+    describeStackSummary(params: OpsWorks.DescribeStackSummaryRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeStackSummaryResult|any) => void): Request<OpsWorks.DescribeStackSummaryResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Requests a description of one or more stacks.
 
@@ -682,7 +682,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeStacks(params: OpsWorks.DescribeStacksRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeStacksResult|any) => void): Request;
+    describeStacks(params: OpsWorks.DescribeStacksRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeStacksResult|any) => void): Request<OpsWorks.DescribeStacksResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Describes time-based auto scaling configurations for specified instances.
 
@@ -698,7 +698,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeTimeBasedAutoScaling(params: OpsWorks.DescribeTimeBasedAutoScalingRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeTimeBasedAutoScalingResult|any) => void): Request;
+    describeTimeBasedAutoScaling(params: OpsWorks.DescribeTimeBasedAutoScalingRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeTimeBasedAutoScalingResult|any) => void): Request<OpsWorks.DescribeTimeBasedAutoScalingResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Describe specified users.
 
@@ -711,7 +711,7 @@ permissions, see Managing User Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeUserProfiles(params: OpsWorks.DescribeUserProfilesRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeUserProfilesResult|any) => void): Request;
+    describeUserProfiles(params: OpsWorks.DescribeUserProfilesRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeUserProfilesResult|any) => void): Request<OpsWorks.DescribeUserProfilesResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Describes an instance&#x27;s Amazon EBS volumes.
 
@@ -727,7 +727,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    describeVolumes(params: OpsWorks.DescribeVolumesRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeVolumesResult|any) => void): Request;
+    describeVolumes(params: OpsWorks.DescribeVolumesRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.DescribeVolumesResult|any) => void): Request<OpsWorks.DescribeVolumesResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Detaches a specified Elastic Load Balancing instance from its layer.
 
@@ -740,7 +740,7 @@ Permissions
      *
      * @error ResourceNotFoundException   
      */
-    detachElasticLoadBalancer(params: OpsWorks.DetachElasticLoadBalancerRequest, callback?: (err: OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    detachElasticLoadBalancer(params: OpsWorks.DetachElasticLoadBalancerRequest, callback?: (err: OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ResourceNotFoundException|any>;
     /**
      * Disassociates an Elastic IP address from its instance. The address remains
 registered with the stack. For more information, see Resource Management
@@ -756,7 +756,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    disassociateElasticIp(params: OpsWorks.DisassociateElasticIpRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    disassociateElasticIp(params: OpsWorks.DisassociateElasticIpRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Gets a generated host name for the specified layer, based on the current host
 name theme.
@@ -771,7 +771,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    getHostnameSuggestion(params: OpsWorks.GetHostnameSuggestionRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.GetHostnameSuggestionResult|any) => void): Request;
+    getHostnameSuggestion(params: OpsWorks.GetHostnameSuggestionRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.GetHostnameSuggestionResult|any) => void): Request<OpsWorks.GetHostnameSuggestionResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * This action can be used only with Windows stacks.Grants RDP access to a Windows
 instance for a specified time period.
@@ -779,7 +779,7 @@ instance for a specified time period.
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    grantAccess(params: OpsWorks.GrantAccessRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.GrantAccessResult|any) => void): Request;
+    grantAccess(params: OpsWorks.GrantAccessRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.GrantAccessResult|any) => void): Request<OpsWorks.GrantAccessResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Reboots a specified instance. For more information, see Starting, Stopping, and
 Rebooting Instances
@@ -796,7 +796,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    rebootInstance(params: OpsWorks.RebootInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    rebootInstance(params: OpsWorks.RebootInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Registers a specified Amazon ECS cluster with a stack. You can register only one
 cluster with a stack. A cluster can be registered with only one stack. For more
@@ -814,7 +814,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    registerEcsCluster(params: OpsWorks.RegisterEcsClusterRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.RegisterEcsClusterResult|any) => void): Request;
+    registerEcsCluster(params: OpsWorks.RegisterEcsClusterRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.RegisterEcsClusterResult|any) => void): Request<OpsWorks.RegisterEcsClusterResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Registers an Elastic IP address with a specified stack. An address can be
 registered with only one stack at a time. If the address is already registered,
@@ -832,7 +832,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    registerElasticIp(params: OpsWorks.RegisterElasticIpRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.RegisterElasticIpResult|any) => void): Request;
+    registerElasticIp(params: OpsWorks.RegisterElasticIpRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.RegisterElasticIpResult|any) => void): Request<OpsWorks.RegisterElasticIpResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Registers instances with a specified stack that were created outside of AWS
 OpsWorks.
@@ -854,7 +854,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    registerInstance(params: OpsWorks.RegisterInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.RegisterInstanceResult|any) => void): Request;
+    registerInstance(params: OpsWorks.RegisterInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.RegisterInstanceResult|any) => void): Request<OpsWorks.RegisterInstanceResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Registers an Amazon RDS instance with a stack.
 
@@ -868,7 +868,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    registerRdsDbInstance(params: OpsWorks.RegisterRdsDbInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    registerRdsDbInstance(params: OpsWorks.RegisterRdsDbInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Registers an Amazon EBS volume with a specified stack. A volume can be
 registered with only one stack at a time. If the volume is already registered,
@@ -886,7 +886,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    registerVolume(params: OpsWorks.RegisterVolumeRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.RegisterVolumeResult|any) => void): Request;
+    registerVolume(params: OpsWorks.RegisterVolumeRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.RegisterVolumeResult|any) => void): Request<OpsWorks.RegisterVolumeResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Specify the load-based auto scaling configuration for a specified layer. For
 more information, see Managing Load with Time-based and Load-based Instances
@@ -908,7 +908,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    setLoadBasedAutoScaling(params: OpsWorks.SetLoadBasedAutoScalingRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    setLoadBasedAutoScaling(params: OpsWorks.SetLoadBasedAutoScalingRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Specifies a user&#x27;s permissions. For more information, see Security and
 Permissions
@@ -924,7 +924,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    setPermission(params: OpsWorks.SetPermissionRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    setPermission(params: OpsWorks.SetPermissionRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Specify the time-based auto scaling configuration for a specified instance. For
 more information, see Managing Load with Time-based and Load-based Instances
@@ -941,7 +941,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    setTimeBasedAutoScaling(params: OpsWorks.SetTimeBasedAutoScalingRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    setTimeBasedAutoScaling(params: OpsWorks.SetTimeBasedAutoScalingRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Starts a specified instance. For more information, see Starting, Stopping, and
 Rebooting Instances
@@ -958,7 +958,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    startInstance(params: OpsWorks.StartInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    startInstance(params: OpsWorks.StartInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Starts a stack&#x27;s instances.
 
@@ -972,7 +972,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    startStack(params: OpsWorks.StartStackRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    startStack(params: OpsWorks.StartStackRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Stops a specified instance. When you stop a standard instance, the data
 disappears and must be reinstalled when you restart the instance. You can stop
@@ -991,7 +991,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    stopInstance(params: OpsWorks.StopInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    stopInstance(params: OpsWorks.StopInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Stops a specified stack.
 
@@ -1005,7 +1005,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    stopStack(params: OpsWorks.StopStackRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    stopStack(params: OpsWorks.StopStackRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Unassigns a registered instance from all of it&#x27;s layers. The instance remains in
 the stack as an unassigned instance and can be assigned to another layer, as
@@ -1022,7 +1022,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    unassignInstance(params: OpsWorks.UnassignInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    unassignInstance(params: OpsWorks.UnassignInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Unassigns an assigned Amazon EBS volume. The volume remains registered with the
 stack. For more information, see Resource Management
@@ -1038,7 +1038,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    unassignVolume(params: OpsWorks.UnassignVolumeRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    unassignVolume(params: OpsWorks.UnassignVolumeRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Updates a specified app.
 
@@ -1052,7 +1052,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    updateApp(params: OpsWorks.UpdateAppRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    updateApp(params: OpsWorks.UpdateAppRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Updates a registered Elastic IP address&#x27;s name. For more information, see 
 Resource Management
@@ -1068,7 +1068,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    updateElasticIp(params: OpsWorks.UpdateElasticIpRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    updateElasticIp(params: OpsWorks.UpdateElasticIpRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Updates a specified instance.
 
@@ -1082,7 +1082,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    updateInstance(params: OpsWorks.UpdateInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    updateInstance(params: OpsWorks.UpdateInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Updates a specified layer.
 
@@ -1096,7 +1096,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    updateLayer(params: OpsWorks.UpdateLayerRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    updateLayer(params: OpsWorks.UpdateLayerRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Updates a user&#x27;s SSH public key.
 
@@ -1108,7 +1108,7 @@ information on user permissions, see Managing User Permissions
      *
      * @error ValidationException   
      */
-    updateMyUserProfile(params: OpsWorks.UpdateMyUserProfileRequest, callback?: (err: OpsWorks.ValidationException|any, data: any) => void): Request;
+    updateMyUserProfile(params: OpsWorks.UpdateMyUserProfileRequest, callback?: (err: OpsWorks.ValidationException|any, data: any) => void): Request<any,OpsWorks.ValidationException|any>;
     /**
      * Updates an Amazon RDS instance.
 
@@ -1122,7 +1122,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    updateRdsDbInstance(params: OpsWorks.UpdateRdsDbInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    updateRdsDbInstance(params: OpsWorks.UpdateRdsDbInstanceRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Updates a specified stack.
 
@@ -1136,7 +1136,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    updateStack(params: OpsWorks.UpdateStackRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    updateStack(params: OpsWorks.UpdateStackRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Updates a specified user profile.
 
@@ -1149,7 +1149,7 @@ permissions, see Managing User Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    updateUserProfile(params: OpsWorks.UpdateUserProfileRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    updateUserProfile(params: OpsWorks.UpdateUserProfileRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
      * Updates an Amazon EBS volume&#x27;s name or mount point. For more information, see 
 Resource Management
@@ -1165,7 +1165,7 @@ Permissions
      * @error ValidationException   
      * @error ResourceNotFoundException   
      */
-    updateVolume(params: OpsWorks.UpdateVolumeRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request;
+    updateVolume(params: OpsWorks.UpdateVolumeRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: any) => void): Request<any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
 
   }
 

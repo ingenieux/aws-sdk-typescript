@@ -118,7 +118,7 @@ by the job worker. Only used for custom actions.
      * @error InvalidNonceException   
      * @error JobNotFoundException   
      */
-    acknowledgeJob(params: CodePipeline.AcknowledgeJobInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidNonceException|CodePipeline.JobNotFoundException|any, data: CodePipeline.AcknowledgeJobOutput|any) => void): Request;
+    acknowledgeJob(params: CodePipeline.AcknowledgeJobInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidNonceException|CodePipeline.JobNotFoundException|any, data: CodePipeline.AcknowledgeJobOutput|any) => void): Request<CodePipeline.AcknowledgeJobOutput|any,CodePipeline.ValidationException|CodePipeline.InvalidNonceException|CodePipeline.JobNotFoundException|any>;
     /**
      * Confirms a job worker has received the specified job. Only used for partner
 actions.
@@ -128,7 +128,7 @@ actions.
      * @error JobNotFoundException   
      * @error InvalidClientTokenException   
      */
-    acknowledgeThirdPartyJob(params: CodePipeline.AcknowledgeThirdPartyJobInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidNonceException|CodePipeline.JobNotFoundException|CodePipeline.InvalidClientTokenException|any, data: CodePipeline.AcknowledgeThirdPartyJobOutput|any) => void): Request;
+    acknowledgeThirdPartyJob(params: CodePipeline.AcknowledgeThirdPartyJobInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidNonceException|CodePipeline.JobNotFoundException|CodePipeline.InvalidClientTokenException|any, data: CodePipeline.AcknowledgeThirdPartyJobOutput|any) => void): Request<CodePipeline.AcknowledgeThirdPartyJobOutput|any,CodePipeline.ValidationException|CodePipeline.InvalidNonceException|CodePipeline.JobNotFoundException|CodePipeline.InvalidClientTokenException|any>;
     /**
      * Creates a new custom action that can be used in all pipelines associated with
 the AWS account. Only used for custom actions.
@@ -136,7 +136,7 @@ the AWS account. Only used for custom actions.
      * @error ValidationException   
      * @error LimitExceededException   
      */
-    createCustomActionType(params: CodePipeline.CreateCustomActionTypeInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.LimitExceededException|any, data: CodePipeline.CreateCustomActionTypeOutput|any) => void): Request;
+    createCustomActionType(params: CodePipeline.CreateCustomActionTypeInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.LimitExceededException|any, data: CodePipeline.CreateCustomActionTypeOutput|any) => void): Request<CodePipeline.CreateCustomActionTypeOutput|any,CodePipeline.ValidationException|CodePipeline.LimitExceededException|any>;
     /**
      * Creates a pipeline.
      *
@@ -148,7 +148,7 @@ the AWS account. Only used for custom actions.
      * @error InvalidStructureException   
      * @error LimitExceededException   
      */
-    createPipeline(params: CodePipeline.CreatePipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNameInUseException|CodePipeline.InvalidStageDeclarationException|CodePipeline.InvalidActionDeclarationException|CodePipeline.InvalidBlockerDeclarationException|CodePipeline.InvalidStructureException|CodePipeline.LimitExceededException|any, data: CodePipeline.CreatePipelineOutput|any) => void): Request;
+    createPipeline(params: CodePipeline.CreatePipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNameInUseException|CodePipeline.InvalidStageDeclarationException|CodePipeline.InvalidActionDeclarationException|CodePipeline.InvalidBlockerDeclarationException|CodePipeline.InvalidStructureException|CodePipeline.LimitExceededException|any, data: CodePipeline.CreatePipelineOutput|any) => void): Request<CodePipeline.CreatePipelineOutput|any,CodePipeline.ValidationException|CodePipeline.PipelineNameInUseException|CodePipeline.InvalidStageDeclarationException|CodePipeline.InvalidActionDeclarationException|CodePipeline.InvalidBlockerDeclarationException|CodePipeline.InvalidStructureException|CodePipeline.LimitExceededException|any>;
     /**
      * Marks a custom action as deleted. PollForJobs for the custom action will fail
 after the action is marked for deletion. Only used for custom actions.
@@ -158,13 +158,13 @@ increase the version number of the action.
      *
      * @error ValidationException   
      */
-    deleteCustomActionType(params: CodePipeline.DeleteCustomActionTypeInput, callback?: (err: CodePipeline.ValidationException|any, data: any) => void): Request;
+    deleteCustomActionType(params: CodePipeline.DeleteCustomActionTypeInput, callback?: (err: CodePipeline.ValidationException|any, data: any) => void): Request<any,CodePipeline.ValidationException|any>;
     /**
      * Deletes the specified pipeline.
      *
      * @error ValidationException   
      */
-    deletePipeline(params: CodePipeline.DeletePipelineInput, callback?: (err: CodePipeline.ValidationException|any, data: any) => void): Request;
+    deletePipeline(params: CodePipeline.DeletePipelineInput, callback?: (err: CodePipeline.ValidationException|any, data: any) => void): Request<any,CodePipeline.ValidationException|any>;
     /**
      * Prevents artifacts in a pipeline from transitioning to the next stage in the
 pipeline.
@@ -173,7 +173,7 @@ pipeline.
      * @error PipelineNotFoundException   
      * @error StageNotFoundException   
      */
-    disableStageTransition(params: CodePipeline.DisableStageTransitionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|any, data: any) => void): Request;
+    disableStageTransition(params: CodePipeline.DisableStageTransitionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|any, data: any) => void): Request<any,CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|any>;
     /**
      * Enables artifacts in a pipeline to transition to a stage in a pipeline.
      *
@@ -181,7 +181,7 @@ pipeline.
      * @error PipelineNotFoundException   
      * @error StageNotFoundException   
      */
-    enableStageTransition(params: CodePipeline.EnableStageTransitionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|any, data: any) => void): Request;
+    enableStageTransition(params: CodePipeline.EnableStageTransitionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|any, data: any) => void): Request<any,CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|any>;
     /**
      * Returns information about a job. Only used for custom actions.
 
@@ -193,7 +193,7 @@ Additionally, this API returns any secret values defined for the action.
      * @error ValidationException   
      * @error JobNotFoundException   
      */
-    getJobDetails(params: CodePipeline.GetJobDetailsInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|any, data: CodePipeline.GetJobDetailsOutput|any) => void): Request;
+    getJobDetails(params: CodePipeline.GetJobDetailsInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|any, data: CodePipeline.GetJobDetailsOutput|any) => void): Request<CodePipeline.GetJobDetailsOutput|any,CodePipeline.ValidationException|CodePipeline.JobNotFoundException|any>;
     /**
      * Returns the metadata, structure, stages, and actions of a pipeline. Can be used
 to return the entire structure of a pipeline in JSON format, which can then be
@@ -203,7 +203,7 @@ modified and used to update the pipeline structure with UpdatePipeline .
      * @error PipelineNotFoundException   
      * @error PipelineVersionNotFoundException   
      */
-    getPipeline(params: CodePipeline.GetPipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.PipelineVersionNotFoundException|any, data: CodePipeline.GetPipelineOutput|any) => void): Request;
+    getPipeline(params: CodePipeline.GetPipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.PipelineVersionNotFoundException|any, data: CodePipeline.GetPipelineOutput|any) => void): Request<CodePipeline.GetPipelineOutput|any,CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.PipelineVersionNotFoundException|any>;
     /**
      * Returns information about the state of a pipeline, including the stages,
 actions, and details about the last run of the pipeline.
@@ -211,7 +211,7 @@ actions, and details about the last run of the pipeline.
      * @error ValidationException   
      * @error PipelineNotFoundException   
      */
-    getPipelineState(params: CodePipeline.GetPipelineStateInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|any, data: CodePipeline.GetPipelineStateOutput|any) => void): Request;
+    getPipelineState(params: CodePipeline.GetPipelineStateInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|any, data: CodePipeline.GetPipelineStateOutput|any) => void): Request<CodePipeline.GetPipelineStateOutput|any,CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|any>;
     /**
      * Requests the details of a job for a third party action. Only used for partner
 actions.
@@ -226,7 +226,7 @@ Additionally, this API returns any secret values defined for the action.
      * @error InvalidClientTokenException   
      * @error InvalidJobException   
      */
-    getThirdPartyJobDetails(params: CodePipeline.GetThirdPartyJobDetailsInput, callback?: (err: CodePipeline.JobNotFoundException|CodePipeline.ValidationException|CodePipeline.InvalidClientTokenException|CodePipeline.InvalidJobException|any, data: CodePipeline.GetThirdPartyJobDetailsOutput|any) => void): Request;
+    getThirdPartyJobDetails(params: CodePipeline.GetThirdPartyJobDetailsInput, callback?: (err: CodePipeline.JobNotFoundException|CodePipeline.ValidationException|CodePipeline.InvalidClientTokenException|CodePipeline.InvalidJobException|any, data: CodePipeline.GetThirdPartyJobDetailsOutput|any) => void): Request<CodePipeline.GetThirdPartyJobDetailsOutput|any,CodePipeline.JobNotFoundException|CodePipeline.ValidationException|CodePipeline.InvalidClientTokenException|CodePipeline.InvalidJobException|any>;
     /**
      * Gets a summary of all AWS CodePipeline action types associated with your
 account.
@@ -234,13 +234,13 @@ account.
      * @error ValidationException   
      * @error InvalidNextTokenException   
      */
-    listActionTypes(params: CodePipeline.ListActionTypesInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidNextTokenException|any, data: CodePipeline.ListActionTypesOutput|any) => void): Request;
+    listActionTypes(params: CodePipeline.ListActionTypesInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidNextTokenException|any, data: CodePipeline.ListActionTypesOutput|any) => void): Request<CodePipeline.ListActionTypesOutput|any,CodePipeline.ValidationException|CodePipeline.InvalidNextTokenException|any>;
     /**
      * Gets a summary of all of the pipelines associated with your account.
      *
      * @error InvalidNextTokenException   
      */
-    listPipelines(params: CodePipeline.ListPipelinesInput, callback?: (err: CodePipeline.InvalidNextTokenException|any, data: CodePipeline.ListPipelinesOutput|any) => void): Request;
+    listPipelines(params: CodePipeline.ListPipelinesInput, callback?: (err: CodePipeline.InvalidNextTokenException|any, data: CodePipeline.ListPipelinesOutput|any) => void): Request<CodePipeline.ListPipelinesOutput|any,CodePipeline.InvalidNextTokenException|any>;
     /**
      * Returns information about any jobs for AWS CodePipeline to act upon.
 
@@ -252,7 +252,7 @@ Additionally, this API returns any secret values defined for the action.
      * @error ValidationException   
      * @error ActionTypeNotFoundException   
      */
-    pollForJobs(params: CodePipeline.PollForJobsInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.ActionTypeNotFoundException|any, data: CodePipeline.PollForJobsOutput|any) => void): Request;
+    pollForJobs(params: CodePipeline.PollForJobsInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.ActionTypeNotFoundException|any, data: CodePipeline.PollForJobsOutput|any) => void): Request<CodePipeline.PollForJobsOutput|any,CodePipeline.ValidationException|CodePipeline.ActionTypeNotFoundException|any>;
     /**
      * Determines whether there are any third party jobs for a job worker to act on.
 Only used for partner actions.
@@ -264,7 +264,7 @@ requires access to that Amazon S3 bucket for input or output artifacts.
      * @error ActionTypeNotFoundException   
      * @error ValidationException   
      */
-    pollForThirdPartyJobs(params: CodePipeline.PollForThirdPartyJobsInput, callback?: (err: CodePipeline.ActionTypeNotFoundException|CodePipeline.ValidationException|any, data: CodePipeline.PollForThirdPartyJobsOutput|any) => void): Request;
+    pollForThirdPartyJobs(params: CodePipeline.PollForThirdPartyJobsInput, callback?: (err: CodePipeline.ActionTypeNotFoundException|CodePipeline.ValidationException|any, data: CodePipeline.PollForThirdPartyJobsOutput|any) => void): Request<CodePipeline.PollForThirdPartyJobsOutput|any,CodePipeline.ActionTypeNotFoundException|CodePipeline.ValidationException|any>;
     /**
      * Provides information to AWS CodePipeline about new revisions to a source.
      *
@@ -273,7 +273,7 @@ requires access to that Amazon S3 bucket for input or output artifacts.
      * @error ActionNotFoundException   
      * @error ValidationException   
      */
-    putActionRevision(params: CodePipeline.PutActionRevisionInput, callback?: (err: CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|CodePipeline.ActionNotFoundException|CodePipeline.ValidationException|any, data: CodePipeline.PutActionRevisionOutput|any) => void): Request;
+    putActionRevision(params: CodePipeline.PutActionRevisionInput, callback?: (err: CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|CodePipeline.ActionNotFoundException|CodePipeline.ValidationException|any, data: CodePipeline.PutActionRevisionOutput|any) => void): Request<CodePipeline.PutActionRevisionOutput|any,CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|CodePipeline.ActionNotFoundException|CodePipeline.ValidationException|any>;
     /**
      * Represents the failure of a job as returned to the pipeline by a job worker.
 Only used for custom actions.
@@ -282,7 +282,7 @@ Only used for custom actions.
      * @error JobNotFoundException   
      * @error InvalidJobStateException   
      */
-    putJobFailureResult(params: CodePipeline.PutJobFailureResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|any, data: any) => void): Request;
+    putJobFailureResult(params: CodePipeline.PutJobFailureResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|any, data: any) => void): Request<any,CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|any>;
     /**
      * Represents the success of a job as returned to the pipeline by a job worker.
 Only used for custom actions.
@@ -291,7 +291,7 @@ Only used for custom actions.
      * @error JobNotFoundException   
      * @error InvalidJobStateException   
      */
-    putJobSuccessResult(params: CodePipeline.PutJobSuccessResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|any, data: any) => void): Request;
+    putJobSuccessResult(params: CodePipeline.PutJobSuccessResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|any, data: any) => void): Request<any,CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|any>;
     /**
      * Represents the failure of a third party job as returned to the pipeline by a job
 worker. Only used for partner actions.
@@ -301,7 +301,7 @@ worker. Only used for partner actions.
      * @error InvalidJobStateException   
      * @error InvalidClientTokenException   
      */
-    putThirdPartyJobFailureResult(params: CodePipeline.PutThirdPartyJobFailureResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|CodePipeline.InvalidClientTokenException|any, data: any) => void): Request;
+    putThirdPartyJobFailureResult(params: CodePipeline.PutThirdPartyJobFailureResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|CodePipeline.InvalidClientTokenException|any, data: any) => void): Request<any,CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|CodePipeline.InvalidClientTokenException|any>;
     /**
      * Represents the success of a third party job as returned to the pipeline by a job
 worker. Only used for partner actions.
@@ -311,7 +311,7 @@ worker. Only used for partner actions.
      * @error InvalidJobStateException   
      * @error InvalidClientTokenException   
      */
-    putThirdPartyJobSuccessResult(params: CodePipeline.PutThirdPartyJobSuccessResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|CodePipeline.InvalidClientTokenException|any, data: any) => void): Request;
+    putThirdPartyJobSuccessResult(params: CodePipeline.PutThirdPartyJobSuccessResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|CodePipeline.InvalidClientTokenException|any, data: any) => void): Request<any,CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|CodePipeline.InvalidClientTokenException|any>;
     /**
      * Starts the specified pipeline. Specifically, it begins processing the latest
 commit to the source location specified as part of the pipeline.
@@ -319,7 +319,7 @@ commit to the source location specified as part of the pipeline.
      * @error ValidationException   
      * @error PipelineNotFoundException   
      */
-    startPipelineExecution(params: CodePipeline.StartPipelineExecutionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|any, data: CodePipeline.StartPipelineExecutionOutput|any) => void): Request;
+    startPipelineExecution(params: CodePipeline.StartPipelineExecutionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|any, data: CodePipeline.StartPipelineExecutionOutput|any) => void): Request<CodePipeline.StartPipelineExecutionOutput|any,CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|any>;
     /**
      * Updates a specified pipeline with edits or changes to its structure. Use a JSON
 file with the pipeline structure in conjunction with UpdatePipeline to provide
@@ -332,7 +332,7 @@ number of the pipeline by 1.
      * @error InvalidBlockerDeclarationException   
      * @error InvalidStructureException   
      */
-    updatePipeline(params: CodePipeline.UpdatePipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidStageDeclarationException|CodePipeline.InvalidActionDeclarationException|CodePipeline.InvalidBlockerDeclarationException|CodePipeline.InvalidStructureException|any, data: CodePipeline.UpdatePipelineOutput|any) => void): Request;
+    updatePipeline(params: CodePipeline.UpdatePipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.InvalidStageDeclarationException|CodePipeline.InvalidActionDeclarationException|CodePipeline.InvalidBlockerDeclarationException|CodePipeline.InvalidStructureException|any, data: CodePipeline.UpdatePipelineOutput|any) => void): Request<CodePipeline.UpdatePipelineOutput|any,CodePipeline.ValidationException|CodePipeline.InvalidStageDeclarationException|CodePipeline.InvalidActionDeclarationException|CodePipeline.InvalidBlockerDeclarationException|CodePipeline.InvalidStructureException|any>;
 
   }
 

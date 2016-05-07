@@ -45,7 +45,7 @@ the stack rolls back the update and reverts to the previous stack configuration.
 You can cancel only stacks that are in the UPDATE_IN_PROGRESS state.
      *
      */
-    cancelUpdateStack(params: CloudFormation.CancelUpdateStackInput, callback?: (err: any, data: any) => void): Request;
+    cancelUpdateStack(params: CloudFormation.CancelUpdateStackInput, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * For a specified stack that is in the UPDATE_ROLLBACK_FAILED state, continues
 rolling it back to the UPDATE_ROLLBACK_COMPLETE state. Depending on the cause of
@@ -63,7 +63,7 @@ database was deleted, it assumes that the database instance still exists and
 attempts to roll back to it, causing the update rollback to fail.
      *
      */
-    continueUpdateRollback(params: CloudFormation.ContinueUpdateRollbackInput, callback?: (err: any, data: CloudFormation.ContinueUpdateRollbackOutput|any) => void): Request;
+    continueUpdateRollback(params: CloudFormation.ContinueUpdateRollbackInput, callback?: (err: any, data: CloudFormation.ContinueUpdateRollbackOutput|any) => void): Request<CloudFormation.ContinueUpdateRollbackOutput|any,any>;
     /**
      * Creates a list of changes for a stack. AWS CloudFormation generates the change
 set by comparing the stack&#x27;s information with the information that you submit. A
@@ -84,7 +84,7 @@ action.
      * @error InsufficientCapabilitiesException   
      * @error LimitExceededException   
      */
-    createChangeSet(params: CloudFormation.CreateChangeSetInput, callback?: (err: CloudFormation.AlreadyExistsException|CloudFormation.InsufficientCapabilitiesException|CloudFormation.LimitExceededException|any, data: CloudFormation.CreateChangeSetOutput|any) => void): Request;
+    createChangeSet(params: CloudFormation.CreateChangeSetInput, callback?: (err: CloudFormation.AlreadyExistsException|CloudFormation.InsufficientCapabilitiesException|CloudFormation.LimitExceededException|any, data: CloudFormation.CreateChangeSetOutput|any) => void): Request<CloudFormation.CreateChangeSetOutput|any,CloudFormation.AlreadyExistsException|CloudFormation.InsufficientCapabilitiesException|CloudFormation.LimitExceededException|any>;
     /**
      * Creates a stack as specified in the template. After the call completes
 successfully, the stack creation starts. You can check the status of the stack
@@ -94,7 +94,7 @@ via the DescribeStacks API.
      * @error AlreadyExistsException   
      * @error InsufficientCapabilitiesException   
      */
-    createStack(params: CloudFormation.CreateStackInput, callback?: (err: CloudFormation.LimitExceededException|CloudFormation.AlreadyExistsException|CloudFormation.InsufficientCapabilitiesException|any, data: CloudFormation.CreateStackOutput|any) => void): Request;
+    createStack(params: CloudFormation.CreateStackInput, callback?: (err: CloudFormation.LimitExceededException|CloudFormation.AlreadyExistsException|CloudFormation.InsufficientCapabilitiesException|any, data: CloudFormation.CreateStackOutput|any) => void): Request<CloudFormation.CreateStackOutput|any,CloudFormation.LimitExceededException|CloudFormation.AlreadyExistsException|CloudFormation.InsufficientCapabilitiesException|any>;
     /**
      * Deletes the specified change set. Deleting change sets ensures that no one
 executes the wrong change set.
@@ -103,20 +103,20 @@ If the call successfully completes, AWS CloudFormation successfully deleted the
 change set.
      *
      */
-    deleteChangeSet(params: CloudFormation.DeleteChangeSetInput, callback?: (err: any, data: CloudFormation.DeleteChangeSetOutput|any) => void): Request;
+    deleteChangeSet(params: CloudFormation.DeleteChangeSetInput, callback?: (err: any, data: CloudFormation.DeleteChangeSetOutput|any) => void): Request<CloudFormation.DeleteChangeSetOutput|any,any>;
     /**
      * Deletes a specified stack. Once the call completes successfully, stack deletion
 starts. Deleted stacks do not show up in the DescribeStacks API if the deletion
 has been completed successfully.
      *
      */
-    deleteStack(params: CloudFormation.DeleteStackInput, callback?: (err: any, data: any) => void): Request;
+    deleteStack(params: CloudFormation.DeleteStackInput, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Retrieves your account&#x27;s AWS CloudFormation limits, such as the maximum number
 of stacks that you can create in your account.
      *
      */
-    describeAccountLimits(params: CloudFormation.DescribeAccountLimitsInput, callback?: (err: any, data: CloudFormation.DescribeAccountLimitsOutput|any) => void): Request;
+    describeAccountLimits(params: CloudFormation.DescribeAccountLimitsInput, callback?: (err: any, data: CloudFormation.DescribeAccountLimitsOutput|any) => void): Request<CloudFormation.DescribeAccountLimitsOutput|any,any>;
     /**
      * Returns the inputs for the change set and a list of changes that AWS
 CloudFormation will make if you execute the change set. For more information,
@@ -126,7 +126,7 @@ in the AWS CloudFormation User Guide.
      *
      * @error ChangeSetNotFoundException   
      */
-    describeChangeSet(params: CloudFormation.DescribeChangeSetInput, callback?: (err: CloudFormation.ChangeSetNotFoundException|any, data: CloudFormation.DescribeChangeSetOutput|any) => void): Request;
+    describeChangeSet(params: CloudFormation.DescribeChangeSetInput, callback?: (err: CloudFormation.ChangeSetNotFoundException|any, data: CloudFormation.DescribeChangeSetOutput|any) => void): Request<CloudFormation.DescribeChangeSetOutput|any,CloudFormation.ChangeSetNotFoundException|any>;
     /**
      * Returns all stack related events for a specified stack. For more information
 about a stack&#x27;s event history, go to Stacks
@@ -137,7 +137,7 @@ You can list events for stacks that have failed to create or have been deleted
 by specifying the unique stack identifier (stack ID).
      *
      */
-    describeStackEvents(params: CloudFormation.DescribeStackEventsInput, callback?: (err: any, data: CloudFormation.DescribeStackEventsOutput|any) => void): Request;
+    describeStackEvents(params: CloudFormation.DescribeStackEventsInput, callback?: (err: any, data: CloudFormation.DescribeStackEventsOutput|any) => void): Request<CloudFormation.DescribeStackEventsOutput|any,any>;
     /**
      * Returns a description of the specified resource in the specified stack.
 
@@ -145,7 +145,7 @@ For deleted stacks, DescribeStackResource returns resource information for up to
 90 days after the stack has been deleted.
      *
      */
-    describeStackResource(params: CloudFormation.DescribeStackResourceInput, callback?: (err: any, data: CloudFormation.DescribeStackResourceOutput|any) => void): Request;
+    describeStackResource(params: CloudFormation.DescribeStackResourceInput, callback?: (err: any, data: CloudFormation.DescribeStackResourceOutput|any) => void): Request<CloudFormation.DescribeStackResourceOutput|any,any>;
     /**
      * Returns AWS resource descriptions for running and deleted stacks. If StackName 
 is specified, all the associated resources that are part of the stack are
@@ -166,20 +166,20 @@ A ValidationError is returned if you specify both StackName and
 PhysicalResourceId in the same request.
      *
      */
-    describeStackResources(params: CloudFormation.DescribeStackResourcesInput, callback?: (err: any, data: CloudFormation.DescribeStackResourcesOutput|any) => void): Request;
+    describeStackResources(params: CloudFormation.DescribeStackResourcesInput, callback?: (err: any, data: CloudFormation.DescribeStackResourcesOutput|any) => void): Request<CloudFormation.DescribeStackResourcesOutput|any,any>;
     /**
      * Returns the description for the specified stack; if no stack name was specified,
 then it returns the description for all the stacks created.
      *
      */
-    describeStacks(params: CloudFormation.DescribeStacksInput, callback?: (err: any, data: CloudFormation.DescribeStacksOutput|any) => void): Request;
+    describeStacks(params: CloudFormation.DescribeStacksInput, callback?: (err: any, data: CloudFormation.DescribeStacksOutput|any) => void): Request<CloudFormation.DescribeStacksOutput|any,any>;
     /**
      * Returns the estimated monthly cost of a template. The return value is an AWS
 Simple Monthly Calculator URL with a query string that describes the resources
 required to run the template.
      *
      */
-    estimateTemplateCost(params: CloudFormation.EstimateTemplateCostInput, callback?: (err: any, data: CloudFormation.EstimateTemplateCostOutput|any) => void): Request;
+    estimateTemplateCost(params: CloudFormation.EstimateTemplateCostInput, callback?: (err: any, data: CloudFormation.EstimateTemplateCostOutput|any) => void): Request<CloudFormation.EstimateTemplateCostOutput|any,any>;
     /**
      * Updates a stack using the input information that was provided when the specified
 change set was created. After the call successfully completes, AWS
@@ -196,13 +196,13 @@ overrides the current policy.
      * @error InvalidChangeSetStatusException   
      * @error ChangeSetNotFoundException   
      */
-    executeChangeSet(params: CloudFormation.ExecuteChangeSetInput, callback?: (err: CloudFormation.InvalidChangeSetStatusException|CloudFormation.ChangeSetNotFoundException|any, data: CloudFormation.ExecuteChangeSetOutput|any) => void): Request;
+    executeChangeSet(params: CloudFormation.ExecuteChangeSetInput, callback?: (err: CloudFormation.InvalidChangeSetStatusException|CloudFormation.ChangeSetNotFoundException|any, data: CloudFormation.ExecuteChangeSetOutput|any) => void): Request<CloudFormation.ExecuteChangeSetOutput|any,CloudFormation.InvalidChangeSetStatusException|CloudFormation.ChangeSetNotFoundException|any>;
     /**
      * Returns the stack policy for a specified stack. If a stack doesn&#x27;t have a
 policy, a null value is returned.
      *
      */
-    getStackPolicy(params: CloudFormation.GetStackPolicyInput, callback?: (err: any, data: CloudFormation.GetStackPolicyOutput|any) => void): Request;
+    getStackPolicy(params: CloudFormation.GetStackPolicyInput, callback?: (err: any, data: CloudFormation.GetStackPolicyOutput|any) => void): Request<CloudFormation.GetStackPolicyOutput|any,any>;
     /**
      * Returns the template body for a specified stack. You can get the template for
 running or deleted stacks.
@@ -213,7 +213,7 @@ stack has been deleted.
 If the template does not exist, a ValidationError is returned.
      *
      */
-    getTemplate(params: CloudFormation.GetTemplateInput, callback?: (err: any, data: CloudFormation.GetTemplateOutput|any) => void): Request;
+    getTemplate(params: CloudFormation.GetTemplateInput, callback?: (err: any, data: CloudFormation.GetTemplateOutput|any) => void): Request<CloudFormation.GetTemplateOutput|any,any>;
     /**
      * Returns information about a new or existing template. The GetTemplateSummary 
 action is useful for viewing parameter information, such as default parameter
@@ -227,14 +227,14 @@ to 90 days after the stack has been deleted. If the template does not exist, a
 ValidationError is returned.
      *
      */
-    getTemplateSummary(params: CloudFormation.GetTemplateSummaryInput, callback?: (err: any, data: CloudFormation.GetTemplateSummaryOutput|any) => void): Request;
+    getTemplateSummary(params: CloudFormation.GetTemplateSummaryInput, callback?: (err: any, data: CloudFormation.GetTemplateSummaryOutput|any) => void): Request<CloudFormation.GetTemplateSummaryOutput|any,any>;
     /**
      * Returns the ID and status of each active change set for a stack. For example,
 AWS CloudFormation lists change sets that are in the CREATE_IN_PROGRESS or 
 CREATE_PENDING state.
      *
      */
-    listChangeSets(params: CloudFormation.ListChangeSetsInput, callback?: (err: any, data: CloudFormation.ListChangeSetsOutput|any) => void): Request;
+    listChangeSets(params: CloudFormation.ListChangeSetsInput, callback?: (err: any, data: CloudFormation.ListChangeSetsOutput|any) => void): Request<CloudFormation.ListChangeSetsOutput|any,any>;
     /**
      * Returns descriptions of all resources of the specified stack.
 
@@ -242,7 +242,7 @@ For deleted stacks, ListStackResources returns resource information for up to 90
 days after the stack has been deleted.
      *
      */
-    listStackResources(params: CloudFormation.ListStackResourcesInput, callback?: (err: any, data: CloudFormation.ListStackResourcesOutput|any) => void): Request;
+    listStackResources(params: CloudFormation.ListStackResourcesInput, callback?: (err: any, data: CloudFormation.ListStackResourcesOutput|any) => void): Request<CloudFormation.ListStackResourcesOutput|any,any>;
     /**
      * Returns the summary information for stacks whose status matches the specified
 StackStatusFilter. Summary information for stacks that have been deleted is kept
@@ -251,12 +251,12 @@ summary information for all stacks is returned (including existing stacks and
 stacks that have been deleted).
      *
      */
-    listStacks(params: CloudFormation.ListStacksInput, callback?: (err: any, data: CloudFormation.ListStacksOutput|any) => void): Request;
+    listStacks(params: CloudFormation.ListStacksInput, callback?: (err: any, data: CloudFormation.ListStacksOutput|any) => void): Request<CloudFormation.ListStacksOutput|any,any>;
     /**
      * Sets a stack policy for a specified stack.
      *
      */
-    setStackPolicy(params: CloudFormation.SetStackPolicyInput, callback?: (err: any, data: any) => void): Request;
+    setStackPolicy(params: CloudFormation.SetStackPolicyInput, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Sends a signal to the specified resource with a success or failure status. You
 can use the SignalResource API in conjunction with a creation policy or update
@@ -266,7 +266,7 @@ exceeded. The SignalResource API is useful in cases where you want to send
 signals from anywhere other than an Amazon EC2 instance.
      *
      */
-    signalResource(params: CloudFormation.SignalResourceInput, callback?: (err: any, data: any) => void): Request;
+    signalResource(params: CloudFormation.SignalResourceInput, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Updates a stack as specified in the template. After the call completes
 successfully, the stack update starts. You can check the status of the stack via
@@ -282,12 +282,12 @@ monitoring the progress of the update, see Updating a Stack
      *
      * @error InsufficientCapabilitiesException   
      */
-    updateStack(params: CloudFormation.UpdateStackInput, callback?: (err: CloudFormation.InsufficientCapabilitiesException|any, data: CloudFormation.UpdateStackOutput|any) => void): Request;
+    updateStack(params: CloudFormation.UpdateStackInput, callback?: (err: CloudFormation.InsufficientCapabilitiesException|any, data: CloudFormation.UpdateStackOutput|any) => void): Request<CloudFormation.UpdateStackOutput|any,CloudFormation.InsufficientCapabilitiesException|any>;
     /**
      * Validates a specified template.
      *
      */
-    validateTemplate(params: CloudFormation.ValidateTemplateInput, callback?: (err: any, data: CloudFormation.ValidateTemplateOutput|any) => void): Request;
+    validateTemplate(params: CloudFormation.ValidateTemplateInput, callback?: (err: any, data: CloudFormation.ValidateTemplateOutput|any) => void): Request<CloudFormation.ValidateTemplateOutput|any,any>;
 
   }
 

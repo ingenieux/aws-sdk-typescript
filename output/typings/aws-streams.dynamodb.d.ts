@@ -69,7 +69,7 @@ closed and can no longer receive more data.
      * @error ResourceNotFoundException The operation tried to access a nonexistent stream.  
      * @error InternalServerError An error occurred on the server side.  
      */
-    describeStream(params: DynamoDBStreams.DescribeStreamInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|any, data: DynamoDBStreams.DescribeStreamOutput|any) => void): Request;
+    describeStream(params: DynamoDBStreams.DescribeStreamInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|any, data: DynamoDBStreams.DescribeStreamOutput|any) => void): Request<DynamoDBStreams.DescribeStreamOutput|any,DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|any>;
     /**
      * Retrieves the stream records from a given shard.
 
@@ -107,7 +107,7 @@ You might receive a TrimmedDataAccessException if:
    request, a stream record in the shard exceeds the 24 hour period and is
    trimmed. This causes the iterator to access a record that no longer exists.  
      */
-    getRecords(params: DynamoDBStreams.GetRecordsInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.LimitExceededException|DynamoDBStreams.InternalServerError|DynamoDBStreams.ExpiredIteratorException|DynamoDBStreams.TrimmedDataAccessException|any, data: DynamoDBStreams.GetRecordsOutput|any) => void): Request;
+    getRecords(params: DynamoDBStreams.GetRecordsInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.LimitExceededException|DynamoDBStreams.InternalServerError|DynamoDBStreams.ExpiredIteratorException|DynamoDBStreams.TrimmedDataAccessException|any, data: DynamoDBStreams.GetRecordsOutput|any) => void): Request<DynamoDBStreams.GetRecordsOutput|any,DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.LimitExceededException|DynamoDBStreams.InternalServerError|DynamoDBStreams.ExpiredIteratorException|DynamoDBStreams.TrimmedDataAccessException|any>;
     /**
      * Returns a shard iterator. A shard iterator provides information about how to
 retrieve the stream records from within a shard. Use the shard iterator in a
@@ -129,7 +129,7 @@ You might receive a TrimmedDataAccessException if:
    request, a stream record in the shard exceeds the 24 hour period and is
    trimmed. This causes the iterator to access a record that no longer exists.  
      */
-    getShardIterator(params: DynamoDBStreams.GetShardIteratorInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|DynamoDBStreams.TrimmedDataAccessException|any, data: DynamoDBStreams.GetShardIteratorOutput|any) => void): Request;
+    getShardIterator(params: DynamoDBStreams.GetShardIteratorInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|DynamoDBStreams.TrimmedDataAccessException|any, data: DynamoDBStreams.GetShardIteratorOutput|any) => void): Request<DynamoDBStreams.GetShardIteratorOutput|any,DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|DynamoDBStreams.TrimmedDataAccessException|any>;
     /**
      * Returns an array of stream ARNs associated with the current account and
 endpoint. If the TableName parameter is present, then ListStreams will return
@@ -140,7 +140,7 @@ You can call ListStreams at a maximum rate of 5 times per second.
      * @error ResourceNotFoundException The operation tried to access a nonexistent stream.  
      * @error InternalServerError An error occurred on the server side.  
      */
-    listStreams(params: DynamoDBStreams.ListStreamsInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|any, data: DynamoDBStreams.ListStreamsOutput|any) => void): Request;
+    listStreams(params: DynamoDBStreams.ListStreamsInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|any, data: DynamoDBStreams.ListStreamsOutput|any) => void): Request<DynamoDBStreams.ListStreamsOutput|any,DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|any>;
 
   }
 

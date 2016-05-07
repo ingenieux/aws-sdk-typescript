@@ -36,7 +36,7 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
      * @error InvalidParameterException   
      * @error ServerException   
      */
-    batchCheckLayerAvailability(params: ECR.BatchCheckLayerAvailabilityRequest, callback?: (err: ECR.RepositoryNotFoundException|ECR.InvalidParameterException|ECR.ServerException|any, data: ECR.BatchCheckLayerAvailabilityResponse|any) => void): Request;
+    batchCheckLayerAvailability(params: ECR.BatchCheckLayerAvailabilityRequest, callback?: (err: ECR.RepositoryNotFoundException|ECR.InvalidParameterException|ECR.ServerException|any, data: ECR.BatchCheckLayerAvailabilityResponse|any) => void): Request<ECR.BatchCheckLayerAvailabilityResponse|any,ECR.RepositoryNotFoundException|ECR.InvalidParameterException|ECR.ServerException|any>;
     /**
      * Deletes a list of specified images within a specified repository. Images are
 specified with either imageTag or imageDigest .
@@ -45,7 +45,7 @@ specified with either imageTag or imageDigest .
      * @error InvalidParameterException   
      * @error RepositoryNotFoundException   
      */
-    batchDeleteImage(params: ECR.BatchDeleteImageRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.BatchDeleteImageResponse|any) => void): Request;
+    batchDeleteImage(params: ECR.BatchDeleteImageRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.BatchDeleteImageResponse|any) => void): Request<ECR.BatchDeleteImageResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any>;
     /**
      * Gets detailed information for specified images within a specified repository.
 Images are specified with either imageTag or imageDigest .
@@ -54,7 +54,7 @@ Images are specified with either imageTag or imageDigest .
      * @error InvalidParameterException   
      * @error RepositoryNotFoundException   
      */
-    batchGetImage(params: ECR.BatchGetImageRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.BatchGetImageResponse|any) => void): Request;
+    batchGetImage(params: ECR.BatchGetImageRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.BatchGetImageResponse|any) => void): Request<ECR.BatchGetImageResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any>;
     /**
      * Inform Amazon ECR that the image layer upload for a specified registry,
 repository name, and upload ID, has completed. You can optionally provide a 
@@ -72,7 +72,7 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
      * @error LayerAlreadyExistsException   
      * @error EmptyUploadException   
      */
-    completeLayerUpload(params: ECR.CompleteLayerUploadRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.UploadNotFoundException|ECR.InvalidLayerException|ECR.LayerPartTooSmallException|ECR.LayerAlreadyExistsException|ECR.EmptyUploadException|any, data: ECR.CompleteLayerUploadResponse|any) => void): Request;
+    completeLayerUpload(params: ECR.CompleteLayerUploadRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.UploadNotFoundException|ECR.InvalidLayerException|ECR.LayerPartTooSmallException|ECR.LayerAlreadyExistsException|ECR.EmptyUploadException|any, data: ECR.CompleteLayerUploadResponse|any) => void): Request<ECR.CompleteLayerUploadResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.UploadNotFoundException|ECR.InvalidLayerException|ECR.LayerPartTooSmallException|ECR.LayerAlreadyExistsException|ECR.EmptyUploadException|any>;
     /**
      * Creates an image repository.
      *
@@ -81,7 +81,7 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
      * @error RepositoryAlreadyExistsException   
      * @error LimitExceededException   
      */
-    createRepository(params: ECR.CreateRepositoryRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryAlreadyExistsException|ECR.LimitExceededException|any, data: ECR.CreateRepositoryResponse|any) => void): Request;
+    createRepository(params: ECR.CreateRepositoryRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryAlreadyExistsException|ECR.LimitExceededException|any, data: ECR.CreateRepositoryResponse|any) => void): Request<ECR.CreateRepositoryResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryAlreadyExistsException|ECR.LimitExceededException|any>;
     /**
      * Deletes an existing image repository. If a repository contains images, you must
 use the force option to delete it.
@@ -91,7 +91,7 @@ use the force option to delete it.
      * @error RepositoryNotFoundException   
      * @error RepositoryNotEmptyException   
      */
-    deleteRepository(params: ECR.DeleteRepositoryRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.RepositoryNotEmptyException|any, data: ECR.DeleteRepositoryResponse|any) => void): Request;
+    deleteRepository(params: ECR.DeleteRepositoryRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.RepositoryNotEmptyException|any, data: ECR.DeleteRepositoryResponse|any) => void): Request<ECR.DeleteRepositoryResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.RepositoryNotEmptyException|any>;
     /**
      * Deletes the repository policy from a specified repository.
      *
@@ -100,7 +100,7 @@ use the force option to delete it.
      * @error RepositoryNotFoundException   
      * @error RepositoryPolicyNotFoundException   
      */
-    deleteRepositoryPolicy(params: ECR.DeleteRepositoryPolicyRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.RepositoryPolicyNotFoundException|any, data: ECR.DeleteRepositoryPolicyResponse|any) => void): Request;
+    deleteRepositoryPolicy(params: ECR.DeleteRepositoryPolicyRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.RepositoryPolicyNotFoundException|any, data: ECR.DeleteRepositoryPolicyResponse|any) => void): Request<ECR.DeleteRepositoryPolicyResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.RepositoryPolicyNotFoundException|any>;
     /**
      * Describes image repositories in a registry.
      *
@@ -108,7 +108,7 @@ use the force option to delete it.
      * @error InvalidParameterException   
      * @error RepositoryNotFoundException   
      */
-    describeRepositories(params: ECR.DescribeRepositoriesRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.DescribeRepositoriesResponse|any) => void): Request;
+    describeRepositories(params: ECR.DescribeRepositoriesRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.DescribeRepositoriesResponse|any) => void): Request<ECR.DescribeRepositoriesResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any>;
     /**
      * Retrieves a token that is valid for a specified registry for 12 hours. This
 command allows you to use the docker CLI to push and pull images with Amazon
@@ -122,7 +122,7 @@ login process.
      * @error ServerException   
      * @error InvalidParameterException   
      */
-    getAuthorizationToken(params: ECR.GetAuthorizationTokenRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|any, data: ECR.GetAuthorizationTokenResponse|any) => void): Request;
+    getAuthorizationToken(params: ECR.GetAuthorizationTokenRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|any, data: ECR.GetAuthorizationTokenResponse|any) => void): Request<ECR.GetAuthorizationTokenResponse|any,ECR.ServerException|ECR.InvalidParameterException|any>;
     /**
      * Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer.
 You can only get URLs for image layers that are referenced in an image.
@@ -136,7 +136,7 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
      * @error LayerInaccessibleException   
      * @error RepositoryNotFoundException   
      */
-    getDownloadUrlForLayer(params: ECR.GetDownloadUrlForLayerRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.LayersNotFoundException|ECR.LayerInaccessibleException|ECR.RepositoryNotFoundException|any, data: ECR.GetDownloadUrlForLayerResponse|any) => void): Request;
+    getDownloadUrlForLayer(params: ECR.GetDownloadUrlForLayerRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.LayersNotFoundException|ECR.LayerInaccessibleException|ECR.RepositoryNotFoundException|any, data: ECR.GetDownloadUrlForLayerResponse|any) => void): Request<ECR.GetDownloadUrlForLayerResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.LayersNotFoundException|ECR.LayerInaccessibleException|ECR.RepositoryNotFoundException|any>;
     /**
      * Retrieves the repository policy for a specified repository.
      *
@@ -145,7 +145,7 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
      * @error RepositoryNotFoundException   
      * @error RepositoryPolicyNotFoundException   
      */
-    getRepositoryPolicy(params: ECR.GetRepositoryPolicyRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.RepositoryPolicyNotFoundException|any, data: ECR.GetRepositoryPolicyResponse|any) => void): Request;
+    getRepositoryPolicy(params: ECR.GetRepositoryPolicyRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.RepositoryPolicyNotFoundException|any, data: ECR.GetRepositoryPolicyResponse|any) => void): Request<ECR.GetRepositoryPolicyResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.RepositoryPolicyNotFoundException|any>;
     /**
      * Notify Amazon ECR that you intend to upload an image layer.
 
@@ -156,7 +156,7 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
      * @error InvalidParameterException   
      * @error RepositoryNotFoundException   
      */
-    initiateLayerUpload(params: ECR.InitiateLayerUploadRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.InitiateLayerUploadResponse|any) => void): Request;
+    initiateLayerUpload(params: ECR.InitiateLayerUploadRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.InitiateLayerUploadResponse|any) => void): Request<ECR.InitiateLayerUploadResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any>;
     /**
      * Lists all the image IDs for a given repository.
      *
@@ -164,7 +164,7 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
      * @error InvalidParameterException   
      * @error RepositoryNotFoundException   
      */
-    listImages(params: ECR.ListImagesRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.ListImagesResponse|any) => void): Request;
+    listImages(params: ECR.ListImagesRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.ListImagesResponse|any) => void): Request<ECR.ListImagesResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any>;
     /**
      * Creates or updates the image manifest associated with an image.
 
@@ -178,7 +178,7 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
      * @error LayersNotFoundException   
      * @error LimitExceededException   
      */
-    putImage(params: ECR.PutImageRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.ImageAlreadyExistsException|ECR.LayersNotFoundException|ECR.LimitExceededException|any, data: ECR.PutImageResponse|any) => void): Request;
+    putImage(params: ECR.PutImageRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.ImageAlreadyExistsException|ECR.LayersNotFoundException|ECR.LimitExceededException|any, data: ECR.PutImageResponse|any) => void): Request<ECR.PutImageResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.ImageAlreadyExistsException|ECR.LayersNotFoundException|ECR.LimitExceededException|any>;
     /**
      * Applies a repository policy on a specified repository to control access
 permissions.
@@ -187,7 +187,7 @@ permissions.
      * @error InvalidParameterException   
      * @error RepositoryNotFoundException   
      */
-    setRepositoryPolicy(params: ECR.SetRepositoryPolicyRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.SetRepositoryPolicyResponse|any) => void): Request;
+    setRepositoryPolicy(params: ECR.SetRepositoryPolicyRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.SetRepositoryPolicyResponse|any) => void): Request<ECR.SetRepositoryPolicyResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any>;
     /**
      * Uploads an image layer part to Amazon ECR.
 
@@ -201,7 +201,7 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
      * @error UploadNotFoundException   
      * @error LimitExceededException   
      */
-    uploadLayerPart(params: ECR.UploadLayerPartRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.InvalidLayerPartException|ECR.RepositoryNotFoundException|ECR.UploadNotFoundException|ECR.LimitExceededException|any, data: ECR.UploadLayerPartResponse|any) => void): Request;
+    uploadLayerPart(params: ECR.UploadLayerPartRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.InvalidLayerPartException|ECR.RepositoryNotFoundException|ECR.UploadNotFoundException|ECR.LimitExceededException|any, data: ECR.UploadLayerPartResponse|any) => void): Request<ECR.UploadLayerPartResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.InvalidLayerPartException|ECR.RepositoryNotFoundException|ECR.UploadNotFoundException|ECR.LimitExceededException|any>;
 
   }
 

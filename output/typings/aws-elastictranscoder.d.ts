@@ -38,7 +38,7 @@ attempting to delete a pipeline that is currently in use.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    cancelJob(params: ElasticTranscoder.CancelJobRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CancelJobResponse|any) => void): Request;
+    cancelJob(params: ElasticTranscoder.CancelJobRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CancelJobResponse|any) => void): Request<ElasticTranscoder.CancelJobResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * When you create a job, Elastic Transcoder returns JSON data that includes the
 values that you specified plus information about the job that is created.
@@ -59,7 +59,7 @@ pipelines exceeds the maximum allowed.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    createJob(params: ElasticTranscoder.CreateJobRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CreateJobResponse|any) => void): Request;
+    createJob(params: ElasticTranscoder.CreateJobRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CreateJobResponse|any) => void): Request<ElasticTranscoder.CreateJobResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The CreatePipeline operation creates a pipeline with settings that you specify.
      *
@@ -74,7 +74,7 @@ pipelines exceeds the maximum allowed.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    createPipeline(params: ElasticTranscoder.CreatePipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CreatePipelineResponse|any) => void): Request;
+    createPipeline(params: ElasticTranscoder.CreatePipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CreatePipelineResponse|any) => void): Request<ElasticTranscoder.CreatePipelineResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The CreatePreset operation creates a preset with settings that you specify.
 
@@ -99,7 +99,7 @@ pipelines exceeds the maximum allowed.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    createPreset(params: ElasticTranscoder.CreatePresetRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CreatePresetResponse|any) => void): Request;
+    createPreset(params: ElasticTranscoder.CreatePresetRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CreatePresetResponse|any) => void): Request<ElasticTranscoder.CreatePresetResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The DeletePipeline operation removes a pipeline.
 
@@ -118,7 +118,7 @@ attempting to delete a pipeline that is currently in use.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    deletePipeline(params: ElasticTranscoder.DeletePipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.DeletePipelineResponse|any) => void): Request;
+    deletePipeline(params: ElasticTranscoder.DeletePipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.DeletePipelineResponse|any) => void): Request<ElasticTranscoder.DeletePipelineResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The DeletePreset operation removes a preset that you&#x27;ve added in an AWS region.
 
@@ -133,7 +133,7 @@ created.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    deletePreset(params: ElasticTranscoder.DeletePresetRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.DeletePresetResponse|any) => void): Request;
+    deletePreset(params: ElasticTranscoder.DeletePresetRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.DeletePresetResponse|any) => void): Request<ElasticTranscoder.DeletePresetResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The ListJobsByPipeline operation gets a list of the jobs currently in a
 pipeline.
@@ -151,7 +151,7 @@ created.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    listJobsByPipeline(params: ElasticTranscoder.ListJobsByPipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ListJobsByPipelineResponse|any) => void): Request;
+    listJobsByPipeline(params: ElasticTranscoder.ListJobsByPipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ListJobsByPipelineResponse|any) => void): Request<ElasticTranscoder.ListJobsByPipelineResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The ListJobsByStatus operation gets a list of jobs that have a specified status.
 The response body contains one element for each job that satisfies the search
@@ -166,7 +166,7 @@ created.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    listJobsByStatus(params: ElasticTranscoder.ListJobsByStatusRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ListJobsByStatusResponse|any) => void): Request;
+    listJobsByStatus(params: ElasticTranscoder.ListJobsByStatusRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ListJobsByStatusResponse|any) => void): Request<ElasticTranscoder.ListJobsByStatusResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The ListPipelines operation gets a list of the pipelines associated with the
 current AWS account.
@@ -177,7 +177,7 @@ current AWS account.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    listPipelines(params: ElasticTranscoder.ListPipelinesRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ListPipelinesResponse|any) => void): Request;
+    listPipelines(params: ElasticTranscoder.ListPipelinesRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ListPipelinesResponse|any) => void): Request<ElasticTranscoder.ListPipelinesResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The ListPresets operation gets a list of the default presets included with
 Elastic Transcoder and the presets that you&#x27;ve added in an AWS region.
@@ -188,7 +188,7 @@ Elastic Transcoder and the presets that you&#x27;ve added in an AWS region.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    listPresets(params: ElasticTranscoder.ListPresetsRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ListPresetsResponse|any) => void): Request;
+    listPresets(params: ElasticTranscoder.ListPresetsRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ListPresetsResponse|any) => void): Request<ElasticTranscoder.ListPresetsResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The ReadJob operation returns detailed information about a job.
      *
@@ -201,7 +201,7 @@ created.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    readJob(params: ElasticTranscoder.ReadJobRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ReadJobResponse|any) => void): Request;
+    readJob(params: ElasticTranscoder.ReadJobRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ReadJobResponse|any) => void): Request<ElasticTranscoder.ReadJobResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The ReadPipeline operation gets detailed information about a pipeline.
      *
@@ -214,7 +214,7 @@ created.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    readPipeline(params: ElasticTranscoder.ReadPipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ReadPipelineResponse|any) => void): Request;
+    readPipeline(params: ElasticTranscoder.ReadPipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ReadPipelineResponse|any) => void): Request<ElasticTranscoder.ReadPipelineResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The ReadPreset operation gets detailed information about a preset.
      *
@@ -227,7 +227,7 @@ created.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    readPreset(params: ElasticTranscoder.ReadPresetRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ReadPresetResponse|any) => void): Request;
+    readPreset(params: ElasticTranscoder.ReadPresetRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ReadPresetResponse|any) => void): Request<ElasticTranscoder.ReadPresetResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The TestRole operation tests the IAM role used to create the pipeline.
 
@@ -246,7 +246,7 @@ created.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    testRole(params: ElasticTranscoder.TestRoleRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.TestRoleResponse|any) => void): Request;
+    testRole(params: ElasticTranscoder.TestRoleRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.TestRoleResponse|any) => void): Request<ElasticTranscoder.TestRoleResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * Use the UpdatePipeline operation to update settings for a pipeline. When you
 change pipeline settings, your changes take effect immediately. Jobs that you
@@ -264,7 +264,7 @@ created.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    updatePipeline(params: ElasticTranscoder.UpdatePipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.UpdatePipelineResponse|any) => void): Request;
+    updatePipeline(params: ElasticTranscoder.UpdatePipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.UpdatePipelineResponse|any) => void): Request<ElasticTranscoder.UpdatePipelineResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * With the UpdatePipelineNotifications operation, you can update Amazon Simple
 Notification Service (Amazon SNS) notifications for a pipeline.
@@ -283,7 +283,7 @@ attempting to delete a pipeline that is currently in use.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    updatePipelineNotifications(params: ElasticTranscoder.UpdatePipelineNotificationsRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.UpdatePipelineNotificationsResponse|any) => void): Request;
+    updatePipelineNotifications(params: ElasticTranscoder.UpdatePipelineNotificationsRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.UpdatePipelineNotificationsResponse|any) => void): Request<ElasticTranscoder.UpdatePipelineNotificationsResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the
 pipeline stops or restarts the processing of jobs.
@@ -305,7 +305,7 @@ attempting to delete a pipeline that is currently in use.
      * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
 the request.  
      */
-    updatePipelineStatus(params: ElasticTranscoder.UpdatePipelineStatusRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.UpdatePipelineStatusResponse|any) => void): Request;
+    updatePipelineStatus(params: ElasticTranscoder.UpdatePipelineStatusRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.UpdatePipelineStatusResponse|any) => void): Request<ElasticTranscoder.UpdatePipelineStatusResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
 
   }
 

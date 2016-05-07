@@ -71,7 +71,7 @@ in the Amazon Redshift Cluster Management Guide .
      * @error AuthorizationAlreadyExistsFault   
      * @error AuthorizationQuotaExceededFault   
      */
-    authorizeClusterSecurityGroupIngress(params: Redshift.AuthorizeClusterSecurityGroupIngressMessage, callback?: (err: Redshift.ClusterSecurityGroupNotFoundFault|Redshift.InvalidClusterSecurityGroupStateFault|Redshift.AuthorizationAlreadyExistsFault|Redshift.AuthorizationQuotaExceededFault|any, data: Redshift.AuthorizeClusterSecurityGroupIngressResult|any) => void): Request;
+    authorizeClusterSecurityGroupIngress(params: Redshift.AuthorizeClusterSecurityGroupIngressMessage, callback?: (err: Redshift.ClusterSecurityGroupNotFoundFault|Redshift.InvalidClusterSecurityGroupStateFault|Redshift.AuthorizationAlreadyExistsFault|Redshift.AuthorizationQuotaExceededFault|any, data: Redshift.AuthorizeClusterSecurityGroupIngressResult|any) => void): Request<Redshift.AuthorizeClusterSecurityGroupIngressResult|any,Redshift.ClusterSecurityGroupNotFoundFault|Redshift.InvalidClusterSecurityGroupStateFault|Redshift.AuthorizationAlreadyExistsFault|Redshift.AuthorizationQuotaExceededFault|any>;
     /**
      * Authorizes the specified AWS customer account to restore the specified snapshot.
 
@@ -87,7 +87,7 @@ the Amazon Redshift Cluster Management Guide .
      * @error InvalidClusterSnapshotStateFault   
      * @error LimitExceededFault   
      */
-    authorizeSnapshotAccess(params: Redshift.AuthorizeSnapshotAccessMessage, callback?: (err: Redshift.ClusterSnapshotNotFoundFault|Redshift.AuthorizationAlreadyExistsFault|Redshift.AuthorizationQuotaExceededFault|Redshift.DependentServiceRequestThrottlingFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.LimitExceededFault|any, data: Redshift.AuthorizeSnapshotAccessResult|any) => void): Request;
+    authorizeSnapshotAccess(params: Redshift.AuthorizeSnapshotAccessMessage, callback?: (err: Redshift.ClusterSnapshotNotFoundFault|Redshift.AuthorizationAlreadyExistsFault|Redshift.AuthorizationQuotaExceededFault|Redshift.DependentServiceRequestThrottlingFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.LimitExceededFault|any, data: Redshift.AuthorizeSnapshotAccessResult|any) => void): Request<Redshift.AuthorizeSnapshotAccessResult|any,Redshift.ClusterSnapshotNotFoundFault|Redshift.AuthorizationAlreadyExistsFault|Redshift.AuthorizationQuotaExceededFault|Redshift.DependentServiceRequestThrottlingFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.LimitExceededFault|any>;
     /**
      * Copies the specified automated cluster snapshot to a new manual cluster
 snapshot. The source must be an automated snapshot and it must be in the
@@ -109,7 +109,7 @@ the Amazon Redshift Cluster Management Guide .
      * @error InvalidClusterSnapshotStateFault   
      * @error ClusterSnapshotQuotaExceededFault   
      */
-    copyClusterSnapshot(params: Redshift.CopyClusterSnapshotMessage, callback?: (err: Redshift.ClusterSnapshotAlreadyExistsFault|Redshift.ClusterSnapshotNotFoundFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.ClusterSnapshotQuotaExceededFault|any, data: Redshift.CopyClusterSnapshotResult|any) => void): Request;
+    copyClusterSnapshot(params: Redshift.CopyClusterSnapshotMessage, callback?: (err: Redshift.ClusterSnapshotAlreadyExistsFault|Redshift.ClusterSnapshotNotFoundFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.ClusterSnapshotQuotaExceededFault|any, data: Redshift.CopyClusterSnapshotResult|any) => void): Request<Redshift.CopyClusterSnapshotResult|any,Redshift.ClusterSnapshotAlreadyExistsFault|Redshift.ClusterSnapshotNotFoundFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.ClusterSnapshotQuotaExceededFault|any>;
     /**
      * Creates a new cluster. To create the cluster in virtual private cloud (VPC), you
 must provide cluster subnet group name. If you don&#x27;t provide a cluster subnet
@@ -140,7 +140,7 @@ the Amazon Redshift Cluster Management Guide .
      * @error LimitExceededFault   
      * @error DependentServiceRequestThrottlingFault   
      */
-    createCluster(params: Redshift.CreateClusterMessage, callback?: (err: Redshift.ClusterAlreadyExistsFault|Redshift.InsufficientClusterCapacityFault|Redshift.ClusterParameterGroupNotFoundFault|Redshift.ClusterSecurityGroupNotFoundFault|Redshift.ClusterQuotaExceededFault|Redshift.NumberOfNodesQuotaExceededFault|Redshift.NumberOfNodesPerClusterLimitExceededFault|Redshift.ClusterSubnetGroupNotFoundFault|Redshift.InvalidVPCNetworkStateFault|Redshift.InvalidClusterSubnetGroupStateFault|Redshift.InvalidSubnet|Redshift.UnauthorizedOperation|Redshift.HsmClientCertificateNotFoundFault|Redshift.HsmConfigurationNotFoundFault|Redshift.InvalidElasticIpFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|Redshift.LimitExceededFault|Redshift.DependentServiceRequestThrottlingFault|any, data: Redshift.CreateClusterResult|any) => void): Request;
+    createCluster(params: Redshift.CreateClusterMessage, callback?: (err: Redshift.ClusterAlreadyExistsFault|Redshift.InsufficientClusterCapacityFault|Redshift.ClusterParameterGroupNotFoundFault|Redshift.ClusterSecurityGroupNotFoundFault|Redshift.ClusterQuotaExceededFault|Redshift.NumberOfNodesQuotaExceededFault|Redshift.NumberOfNodesPerClusterLimitExceededFault|Redshift.ClusterSubnetGroupNotFoundFault|Redshift.InvalidVPCNetworkStateFault|Redshift.InvalidClusterSubnetGroupStateFault|Redshift.InvalidSubnet|Redshift.UnauthorizedOperation|Redshift.HsmClientCertificateNotFoundFault|Redshift.HsmConfigurationNotFoundFault|Redshift.InvalidElasticIpFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|Redshift.LimitExceededFault|Redshift.DependentServiceRequestThrottlingFault|any, data: Redshift.CreateClusterResult|any) => void): Request<Redshift.CreateClusterResult|any,Redshift.ClusterAlreadyExistsFault|Redshift.InsufficientClusterCapacityFault|Redshift.ClusterParameterGroupNotFoundFault|Redshift.ClusterSecurityGroupNotFoundFault|Redshift.ClusterQuotaExceededFault|Redshift.NumberOfNodesQuotaExceededFault|Redshift.NumberOfNodesPerClusterLimitExceededFault|Redshift.ClusterSubnetGroupNotFoundFault|Redshift.InvalidVPCNetworkStateFault|Redshift.InvalidClusterSubnetGroupStateFault|Redshift.InvalidSubnet|Redshift.UnauthorizedOperation|Redshift.HsmClientCertificateNotFoundFault|Redshift.HsmConfigurationNotFoundFault|Redshift.InvalidElasticIpFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|Redshift.LimitExceededFault|Redshift.DependentServiceRequestThrottlingFault|any>;
     /**
      * Creates an Amazon Redshift parameter group.
 
@@ -160,7 +160,7 @@ in the Amazon Redshift Cluster Management Guide .
      * @error TagLimitExceededFault   
      * @error InvalidTagFault   
      */
-    createClusterParameterGroup(params: Redshift.CreateClusterParameterGroupMessage, callback?: (err: Redshift.ClusterParameterGroupQuotaExceededFault|Redshift.ClusterParameterGroupAlreadyExistsFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any, data: Redshift.CreateClusterParameterGroupResult|any) => void): Request;
+    createClusterParameterGroup(params: Redshift.CreateClusterParameterGroupMessage, callback?: (err: Redshift.ClusterParameterGroupQuotaExceededFault|Redshift.ClusterParameterGroupAlreadyExistsFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any, data: Redshift.CreateClusterParameterGroupResult|any) => void): Request<Redshift.CreateClusterParameterGroupResult|any,Redshift.ClusterParameterGroupQuotaExceededFault|Redshift.ClusterParameterGroupAlreadyExistsFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any>;
     /**
      * Creates a new Amazon Redshift security group. You use security groups to control
 access to non-VPC clusters.
@@ -175,7 +175,7 @@ in the Amazon Redshift Cluster Management Guide .
      * @error TagLimitExceededFault   
      * @error InvalidTagFault   
      */
-    createClusterSecurityGroup(params: Redshift.CreateClusterSecurityGroupMessage, callback?: (err: Redshift.ClusterSecurityGroupAlreadyExistsFault|Redshift.ClusterSecurityGroupQuotaExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any, data: Redshift.CreateClusterSecurityGroupResult|any) => void): Request;
+    createClusterSecurityGroup(params: Redshift.CreateClusterSecurityGroupMessage, callback?: (err: Redshift.ClusterSecurityGroupAlreadyExistsFault|Redshift.ClusterSecurityGroupQuotaExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any, data: Redshift.CreateClusterSecurityGroupResult|any) => void): Request<Redshift.CreateClusterSecurityGroupResult|any,Redshift.ClusterSecurityGroupAlreadyExistsFault|Redshift.ClusterSecurityGroupQuotaExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any>;
     /**
      * Creates a manual snapshot of the specified cluster. The cluster must be in the 
 available state.
@@ -192,7 +192,7 @@ the Amazon Redshift Cluster Management Guide .
      * @error TagLimitExceededFault   
      * @error InvalidTagFault   
      */
-    createClusterSnapshot(params: Redshift.CreateClusterSnapshotMessage, callback?: (err: Redshift.ClusterSnapshotAlreadyExistsFault|Redshift.InvalidClusterStateFault|Redshift.ClusterNotFoundFault|Redshift.ClusterSnapshotQuotaExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any, data: Redshift.CreateClusterSnapshotResult|any) => void): Request;
+    createClusterSnapshot(params: Redshift.CreateClusterSnapshotMessage, callback?: (err: Redshift.ClusterSnapshotAlreadyExistsFault|Redshift.InvalidClusterStateFault|Redshift.ClusterNotFoundFault|Redshift.ClusterSnapshotQuotaExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any, data: Redshift.CreateClusterSnapshotResult|any) => void): Request<Redshift.CreateClusterSnapshotResult|any,Redshift.ClusterSnapshotAlreadyExistsFault|Redshift.InvalidClusterStateFault|Redshift.ClusterNotFoundFault|Redshift.ClusterSnapshotQuotaExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any>;
     /**
      * Creates a new Amazon Redshift subnet group. You must provide a list of one or
 more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when
@@ -211,7 +211,7 @@ in the Amazon Redshift Cluster Management Guide .
      * @error InvalidTagFault   
      * @error DependentServiceRequestThrottlingFault   
      */
-    createClusterSubnetGroup(params: Redshift.CreateClusterSubnetGroupMessage, callback?: (err: Redshift.ClusterSubnetGroupAlreadyExistsFault|Redshift.ClusterSubnetGroupQuotaExceededFault|Redshift.ClusterSubnetQuotaExceededFault|Redshift.InvalidSubnet|Redshift.UnauthorizedOperation|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|Redshift.DependentServiceRequestThrottlingFault|any, data: Redshift.CreateClusterSubnetGroupResult|any) => void): Request;
+    createClusterSubnetGroup(params: Redshift.CreateClusterSubnetGroupMessage, callback?: (err: Redshift.ClusterSubnetGroupAlreadyExistsFault|Redshift.ClusterSubnetGroupQuotaExceededFault|Redshift.ClusterSubnetQuotaExceededFault|Redshift.InvalidSubnet|Redshift.UnauthorizedOperation|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|Redshift.DependentServiceRequestThrottlingFault|any, data: Redshift.CreateClusterSubnetGroupResult|any) => void): Request<Redshift.CreateClusterSubnetGroupResult|any,Redshift.ClusterSubnetGroupAlreadyExistsFault|Redshift.ClusterSubnetGroupQuotaExceededFault|Redshift.ClusterSubnetQuotaExceededFault|Redshift.InvalidSubnet|Redshift.UnauthorizedOperation|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|Redshift.DependentServiceRequestThrottlingFault|any>;
     /**
      * Creates an Amazon Redshift event notification subscription. This action requires
 an ARN (Amazon Resource Name) of an Amazon SNS topic created by either the
@@ -248,7 +248,7 @@ a source type if you specify a source ID.
      * @error TagLimitExceededFault   
      * @error InvalidTagFault   
      */
-    createEventSubscription(params: Redshift.CreateEventSubscriptionMessage, callback?: (err: Redshift.EventSubscriptionQuotaExceededFault|Redshift.SubscriptionAlreadyExistFault|Redshift.SNSInvalidTopicFault|Redshift.SNSNoAuthorizationFault|Redshift.SNSTopicArnNotFoundFault|Redshift.SubscriptionEventIdNotFoundFault|Redshift.SubscriptionCategoryNotFoundFault|Redshift.SubscriptionSeverityNotFoundFault|Redshift.SourceNotFoundFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any, data: Redshift.CreateEventSubscriptionResult|any) => void): Request;
+    createEventSubscription(params: Redshift.CreateEventSubscriptionMessage, callback?: (err: Redshift.EventSubscriptionQuotaExceededFault|Redshift.SubscriptionAlreadyExistFault|Redshift.SNSInvalidTopicFault|Redshift.SNSNoAuthorizationFault|Redshift.SNSTopicArnNotFoundFault|Redshift.SubscriptionEventIdNotFoundFault|Redshift.SubscriptionCategoryNotFoundFault|Redshift.SubscriptionSeverityNotFoundFault|Redshift.SourceNotFoundFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any, data: Redshift.CreateEventSubscriptionResult|any) => void): Request<Redshift.CreateEventSubscriptionResult|any,Redshift.EventSubscriptionQuotaExceededFault|Redshift.SubscriptionAlreadyExistFault|Redshift.SNSInvalidTopicFault|Redshift.SNSNoAuthorizationFault|Redshift.SNSTopicArnNotFoundFault|Redshift.SubscriptionEventIdNotFoundFault|Redshift.SubscriptionCategoryNotFoundFault|Redshift.SubscriptionSeverityNotFoundFault|Redshift.SourceNotFoundFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any>;
     /**
      * Creates an HSM client certificate that an Amazon Redshift cluster will use to
 connect to the client&#x27;s HSM in order to store and retrieve the keys used to
@@ -266,7 +266,7 @@ in the Amazon Redshift Cluster Management Guide.
      * @error TagLimitExceededFault   
      * @error InvalidTagFault   
      */
-    createHsmClientCertificate(params: Redshift.CreateHsmClientCertificateMessage, callback?: (err: Redshift.HsmClientCertificateAlreadyExistsFault|Redshift.HsmClientCertificateQuotaExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any, data: Redshift.CreateHsmClientCertificateResult|any) => void): Request;
+    createHsmClientCertificate(params: Redshift.CreateHsmClientCertificateMessage, callback?: (err: Redshift.HsmClientCertificateAlreadyExistsFault|Redshift.HsmClientCertificateQuotaExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any, data: Redshift.CreateHsmClientCertificateResult|any) => void): Request<Redshift.CreateHsmClientCertificateResult|any,Redshift.HsmClientCertificateAlreadyExistsFault|Redshift.HsmClientCertificateQuotaExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any>;
     /**
      * Creates an HSM configuration that contains the information required by an Amazon
 Redshift cluster to store and use database encryption keys in a Hardware
@@ -284,7 +284,7 @@ Amazon Redshift Cluster Management Guide.
      * @error TagLimitExceededFault   
      * @error InvalidTagFault   
      */
-    createHsmConfiguration(params: Redshift.CreateHsmConfigurationMessage, callback?: (err: Redshift.HsmConfigurationAlreadyExistsFault|Redshift.HsmConfigurationQuotaExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any, data: Redshift.CreateHsmConfigurationResult|any) => void): Request;
+    createHsmConfiguration(params: Redshift.CreateHsmConfigurationMessage, callback?: (err: Redshift.HsmConfigurationAlreadyExistsFault|Redshift.HsmConfigurationQuotaExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any, data: Redshift.CreateHsmConfigurationResult|any) => void): Request<Redshift.CreateHsmConfigurationResult|any,Redshift.HsmConfigurationAlreadyExistsFault|Redshift.HsmConfigurationQuotaExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|any>;
     /**
      * Creates a snapshot copy grant that permits Amazon Redshift to use a customer
 master key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied
@@ -302,7 +302,7 @@ in the Amazon Redshift Cluster Management Guide .
      * @error InvalidTagFault   
      * @error DependentServiceRequestThrottlingFault   
      */
-    createSnapshotCopyGrant(params: Redshift.CreateSnapshotCopyGrantMessage, callback?: (err: Redshift.SnapshotCopyGrantAlreadyExistsFault|Redshift.SnapshotCopyGrantQuotaExceededFault|Redshift.LimitExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|Redshift.DependentServiceRequestThrottlingFault|any, data: Redshift.CreateSnapshotCopyGrantResult|any) => void): Request;
+    createSnapshotCopyGrant(params: Redshift.CreateSnapshotCopyGrantMessage, callback?: (err: Redshift.SnapshotCopyGrantAlreadyExistsFault|Redshift.SnapshotCopyGrantQuotaExceededFault|Redshift.LimitExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|Redshift.DependentServiceRequestThrottlingFault|any, data: Redshift.CreateSnapshotCopyGrantResult|any) => void): Request<Redshift.CreateSnapshotCopyGrantResult|any,Redshift.SnapshotCopyGrantAlreadyExistsFault|Redshift.SnapshotCopyGrantQuotaExceededFault|Redshift.LimitExceededFault|Redshift.TagLimitExceededFault|Redshift.InvalidTagFault|Redshift.DependentServiceRequestThrottlingFault|any>;
     /**
      * Adds one or more tags to a specified resource.
 
@@ -316,7 +316,7 @@ key will be updated with the new value.
      * @error ResourceNotFoundFault   
      * @error InvalidTagFault   
      */
-    createTags(params: Redshift.CreateTagsMessage, callback?: (err: Redshift.TagLimitExceededFault|Redshift.ResourceNotFoundFault|Redshift.InvalidTagFault|any, data: any) => void): Request;
+    createTags(params: Redshift.CreateTagsMessage, callback?: (err: Redshift.TagLimitExceededFault|Redshift.ResourceNotFoundFault|Redshift.InvalidTagFault|any, data: any) => void): Request<any,Redshift.TagLimitExceededFault|Redshift.ResourceNotFoundFault|Redshift.InvalidTagFault|any>;
     /**
      * Deletes a previously provisioned cluster. A successful response from the web
 service indicates that the request was received correctly. Use DescribeClusters 
@@ -342,7 +342,7 @@ the Amazon Redshift Cluster Management Guide .
      * @error ClusterSnapshotAlreadyExistsFault   
      * @error ClusterSnapshotQuotaExceededFault   
      */
-    deleteCluster(params: Redshift.DeleteClusterMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.InvalidClusterStateFault|Redshift.ClusterSnapshotAlreadyExistsFault|Redshift.ClusterSnapshotQuotaExceededFault|any, data: Redshift.DeleteClusterResult|any) => void): Request;
+    deleteCluster(params: Redshift.DeleteClusterMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.InvalidClusterStateFault|Redshift.ClusterSnapshotAlreadyExistsFault|Redshift.ClusterSnapshotQuotaExceededFault|any, data: Redshift.DeleteClusterResult|any) => void): Request<Redshift.DeleteClusterResult|any,Redshift.ClusterNotFoundFault|Redshift.InvalidClusterStateFault|Redshift.ClusterSnapshotAlreadyExistsFault|Redshift.ClusterSnapshotQuotaExceededFault|any>;
     /**
      * Deletes a specified Amazon Redshift parameter group. You cannot delete a
 parameter group if it is associated with a cluster.
@@ -350,7 +350,7 @@ parameter group if it is associated with a cluster.
      * @error InvalidClusterParameterGroupStateFault   
      * @error ClusterParameterGroupNotFoundFault   
      */
-    deleteClusterParameterGroup(params: Redshift.DeleteClusterParameterGroupMessage, callback?: (err: Redshift.InvalidClusterParameterGroupStateFault|Redshift.ClusterParameterGroupNotFoundFault|any, data: any) => void): Request;
+    deleteClusterParameterGroup(params: Redshift.DeleteClusterParameterGroupMessage, callback?: (err: Redshift.InvalidClusterParameterGroupStateFault|Redshift.ClusterParameterGroupNotFoundFault|any, data: any) => void): Request<any,Redshift.InvalidClusterParameterGroupStateFault|Redshift.ClusterParameterGroupNotFoundFault|any>;
     /**
      * Deletes an Amazon Redshift security group.
 
@@ -363,7 +363,7 @@ in the Amazon Redshift Cluster Management Guide .
      * @error InvalidClusterSecurityGroupStateFault   
      * @error ClusterSecurityGroupNotFoundFault   
      */
-    deleteClusterSecurityGroup(params: Redshift.DeleteClusterSecurityGroupMessage, callback?: (err: Redshift.InvalidClusterSecurityGroupStateFault|Redshift.ClusterSecurityGroupNotFoundFault|any, data: any) => void): Request;
+    deleteClusterSecurityGroup(params: Redshift.DeleteClusterSecurityGroupMessage, callback?: (err: Redshift.InvalidClusterSecurityGroupStateFault|Redshift.ClusterSecurityGroupNotFoundFault|any, data: any) => void): Request<any,Redshift.InvalidClusterSecurityGroupStateFault|Redshift.ClusterSecurityGroupNotFoundFault|any>;
     /**
      * Deletes the specified manual snapshot. The snapshot must be in the available 
 state, with no other users authorized to access the snapshot.
@@ -377,7 +377,7 @@ before you can delete the snapshot.
      * @error InvalidClusterSnapshotStateFault   
      * @error ClusterSnapshotNotFoundFault   
      */
-    deleteClusterSnapshot(params: Redshift.DeleteClusterSnapshotMessage, callback?: (err: Redshift.InvalidClusterSnapshotStateFault|Redshift.ClusterSnapshotNotFoundFault|any, data: Redshift.DeleteClusterSnapshotResult|any) => void): Request;
+    deleteClusterSnapshot(params: Redshift.DeleteClusterSnapshotMessage, callback?: (err: Redshift.InvalidClusterSnapshotStateFault|Redshift.ClusterSnapshotNotFoundFault|any, data: Redshift.DeleteClusterSnapshotResult|any) => void): Request<Redshift.DeleteClusterSnapshotResult|any,Redshift.InvalidClusterSnapshotStateFault|Redshift.ClusterSnapshotNotFoundFault|any>;
     /**
      * Deletes the specified cluster subnet group.
      *
@@ -385,35 +385,35 @@ before you can delete the snapshot.
      * @error InvalidClusterSubnetStateFault   
      * @error ClusterSubnetGroupNotFoundFault   
      */
-    deleteClusterSubnetGroup(params: Redshift.DeleteClusterSubnetGroupMessage, callback?: (err: Redshift.InvalidClusterSubnetGroupStateFault|Redshift.InvalidClusterSubnetStateFault|Redshift.ClusterSubnetGroupNotFoundFault|any, data: any) => void): Request;
+    deleteClusterSubnetGroup(params: Redshift.DeleteClusterSubnetGroupMessage, callback?: (err: Redshift.InvalidClusterSubnetGroupStateFault|Redshift.InvalidClusterSubnetStateFault|Redshift.ClusterSubnetGroupNotFoundFault|any, data: any) => void): Request<any,Redshift.InvalidClusterSubnetGroupStateFault|Redshift.InvalidClusterSubnetStateFault|Redshift.ClusterSubnetGroupNotFoundFault|any>;
     /**
      * Deletes an Amazon Redshift event notification subscription.
      *
      * @error SubscriptionNotFoundFault   
      * @error InvalidSubscriptionStateFault   
      */
-    deleteEventSubscription(params: Redshift.DeleteEventSubscriptionMessage, callback?: (err: Redshift.SubscriptionNotFoundFault|Redshift.InvalidSubscriptionStateFault|any, data: any) => void): Request;
+    deleteEventSubscription(params: Redshift.DeleteEventSubscriptionMessage, callback?: (err: Redshift.SubscriptionNotFoundFault|Redshift.InvalidSubscriptionStateFault|any, data: any) => void): Request<any,Redshift.SubscriptionNotFoundFault|Redshift.InvalidSubscriptionStateFault|any>;
     /**
      * Deletes the specified HSM client certificate.
      *
      * @error InvalidHsmClientCertificateStateFault   
      * @error HsmClientCertificateNotFoundFault   
      */
-    deleteHsmClientCertificate(params: Redshift.DeleteHsmClientCertificateMessage, callback?: (err: Redshift.InvalidHsmClientCertificateStateFault|Redshift.HsmClientCertificateNotFoundFault|any, data: any) => void): Request;
+    deleteHsmClientCertificate(params: Redshift.DeleteHsmClientCertificateMessage, callback?: (err: Redshift.InvalidHsmClientCertificateStateFault|Redshift.HsmClientCertificateNotFoundFault|any, data: any) => void): Request<any,Redshift.InvalidHsmClientCertificateStateFault|Redshift.HsmClientCertificateNotFoundFault|any>;
     /**
      * Deletes the specified Amazon Redshift HSM configuration.
      *
      * @error InvalidHsmConfigurationStateFault   
      * @error HsmConfigurationNotFoundFault   
      */
-    deleteHsmConfiguration(params: Redshift.DeleteHsmConfigurationMessage, callback?: (err: Redshift.InvalidHsmConfigurationStateFault|Redshift.HsmConfigurationNotFoundFault|any, data: any) => void): Request;
+    deleteHsmConfiguration(params: Redshift.DeleteHsmConfigurationMessage, callback?: (err: Redshift.InvalidHsmConfigurationStateFault|Redshift.HsmConfigurationNotFoundFault|any, data: any) => void): Request<any,Redshift.InvalidHsmConfigurationStateFault|Redshift.HsmConfigurationNotFoundFault|any>;
     /**
      * Deletes the specified snapshot copy grant.
      *
      * @error InvalidSnapshotCopyGrantStateFault   
      * @error SnapshotCopyGrantNotFoundFault   
      */
-    deleteSnapshotCopyGrant(params: Redshift.DeleteSnapshotCopyGrantMessage, callback?: (err: Redshift.InvalidSnapshotCopyGrantStateFault|Redshift.SnapshotCopyGrantNotFoundFault|any, data: any) => void): Request;
+    deleteSnapshotCopyGrant(params: Redshift.DeleteSnapshotCopyGrantMessage, callback?: (err: Redshift.InvalidSnapshotCopyGrantStateFault|Redshift.SnapshotCopyGrantNotFoundFault|any, data: any) => void): Request<any,Redshift.InvalidSnapshotCopyGrantStateFault|Redshift.SnapshotCopyGrantNotFoundFault|any>;
     /**
      * Deletes a tag or tags from a resource. You must provide the ARN of the resource
 from which you want to delete the tag or tags.
@@ -421,7 +421,7 @@ from which you want to delete the tag or tags.
      * @error ResourceNotFoundFault   
      * @error InvalidTagFault   
      */
-    deleteTags(params: Redshift.DeleteTagsMessage, callback?: (err: Redshift.ResourceNotFoundFault|Redshift.InvalidTagFault|any, data: any) => void): Request;
+    deleteTags(params: Redshift.DeleteTagsMessage, callback?: (err: Redshift.ResourceNotFoundFault|Redshift.InvalidTagFault|any, data: any) => void): Request<any,Redshift.ResourceNotFoundFault|Redshift.InvalidTagFault|any>;
     /**
      * Returns a list of Amazon Redshift parameter groups, including parameter groups
 you created and the default parameter group. For each parameter group, the
@@ -447,7 +447,7 @@ them.
      * @error ClusterParameterGroupNotFoundFault   
      * @error InvalidTagFault   
      */
-    describeClusterParameterGroups(params: Redshift.DescribeClusterParameterGroupsMessage, callback?: (err: Redshift.ClusterParameterGroupNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.ClusterParameterGroupsMessage|any) => void): Request;
+    describeClusterParameterGroups(params: Redshift.DescribeClusterParameterGroupsMessage, callback?: (err: Redshift.ClusterParameterGroupNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.ClusterParameterGroupsMessage|any) => void): Request<Redshift.ClusterParameterGroupsMessage|any,Redshift.ClusterParameterGroupNotFoundFault|Redshift.InvalidTagFault|any>;
     /**
      * Returns a detailed list of parameters contained within the specified Amazon
 Redshift parameter group. For each parameter the response includes information
@@ -465,7 +465,7 @@ in the Amazon Redshift Cluster Management Guide .
      *
      * @error ClusterParameterGroupNotFoundFault   
      */
-    describeClusterParameters(params: Redshift.DescribeClusterParametersMessage, callback?: (err: Redshift.ClusterParameterGroupNotFoundFault|any, data: Redshift.ClusterParameterGroupDetails|any) => void): Request;
+    describeClusterParameters(params: Redshift.DescribeClusterParametersMessage, callback?: (err: Redshift.ClusterParameterGroupNotFoundFault|any, data: Redshift.ClusterParameterGroupDetails|any) => void): Request<Redshift.ClusterParameterGroupDetails|any,Redshift.ClusterParameterGroupNotFoundFault|any>;
     /**
      * Returns information about Amazon Redshift security groups. If the name of a
 security group is specified, the response will contain only information about
@@ -489,7 +489,7 @@ them.
      * @error ClusterSecurityGroupNotFoundFault   
      * @error InvalidTagFault   
      */
-    describeClusterSecurityGroups(params: Redshift.DescribeClusterSecurityGroupsMessage, callback?: (err: Redshift.ClusterSecurityGroupNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.ClusterSecurityGroupMessage|any) => void): Request;
+    describeClusterSecurityGroups(params: Redshift.DescribeClusterSecurityGroupsMessage, callback?: (err: Redshift.ClusterSecurityGroupNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.ClusterSecurityGroupMessage|any) => void): Request<Redshift.ClusterSecurityGroupMessage|any,Redshift.ClusterSecurityGroupNotFoundFault|Redshift.InvalidTagFault|any>;
     /**
      * Returns one or more snapshot objects, which contain metadata about your cluster
 snapshots. By default, this operation returns information about all snapshots of
@@ -509,7 +509,7 @@ regardless of whether they have tag keys or values associated with them.
      * @error ClusterSnapshotNotFoundFault   
      * @error InvalidTagFault   
      */
-    describeClusterSnapshots(params: Redshift.DescribeClusterSnapshotsMessage, callback?: (err: Redshift.ClusterSnapshotNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.SnapshotMessage|any) => void): Request;
+    describeClusterSnapshots(params: Redshift.DescribeClusterSnapshotsMessage, callback?: (err: Redshift.ClusterSnapshotNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.SnapshotMessage|any) => void): Request<Redshift.SnapshotMessage|any,Redshift.ClusterSnapshotNotFoundFault|Redshift.InvalidTagFault|any>;
     /**
      * Returns one or more cluster subnet group objects, which contain metadata about
 your cluster subnet groups. By default, this operation returns information about
@@ -528,7 +528,7 @@ them.
      * @error ClusterSubnetGroupNotFoundFault   
      * @error InvalidTagFault   
      */
-    describeClusterSubnetGroups(params: Redshift.DescribeClusterSubnetGroupsMessage, callback?: (err: Redshift.ClusterSubnetGroupNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.ClusterSubnetGroupMessage|any) => void): Request;
+    describeClusterSubnetGroups(params: Redshift.DescribeClusterSubnetGroupsMessage, callback?: (err: Redshift.ClusterSubnetGroupNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.ClusterSubnetGroupMessage|any) => void): Request<Redshift.ClusterSubnetGroupMessage|any,Redshift.ClusterSubnetGroupNotFoundFault|Redshift.InvalidTagFault|any>;
     /**
      * Returns descriptions of the available Amazon Redshift cluster versions. You can
 call this operation even before creating any clusters to learn more about the
@@ -538,7 +538,7 @@ Amazon Redshift Clusters
 the Amazon Redshift Cluster Management Guide
      *
      */
-    describeClusterVersions(params: Redshift.DescribeClusterVersionsMessage, callback?: (err: any, data: Redshift.ClusterVersionsMessage|any) => void): Request;
+    describeClusterVersions(params: Redshift.DescribeClusterVersionsMessage, callback?: (err: any, data: Redshift.ClusterVersionsMessage|any) => void): Request<Redshift.ClusterVersionsMessage|any,any>;
     /**
      * Returns properties of provisioned clusters including general cluster properties,
 cluster database properties, maintenance and backup properties, and security and
@@ -559,7 +559,7 @@ regardless of whether they have tag keys or values associated with them.
      * @error ClusterNotFoundFault   
      * @error InvalidTagFault   
      */
-    describeClusters(params: Redshift.DescribeClustersMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.ClustersMessage|any) => void): Request;
+    describeClusters(params: Redshift.DescribeClustersMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.ClustersMessage|any) => void): Request<Redshift.ClustersMessage|any,Redshift.ClusterNotFoundFault|Redshift.InvalidTagFault|any>;
     /**
      * Returns a list of parameter settings for the specified parameter group family.
 
@@ -569,7 +569,7 @@ Redshift Parameter Groups
 in the Amazon Redshift Cluster Management Guide .
      *
      */
-    describeDefaultClusterParameters(params: Redshift.DescribeDefaultClusterParametersMessage, callback?: (err: any, data: Redshift.DescribeDefaultClusterParametersResult|any) => void): Request;
+    describeDefaultClusterParameters(params: Redshift.DescribeDefaultClusterParametersMessage, callback?: (err: any, data: Redshift.DescribeDefaultClusterParametersResult|any) => void): Request<Redshift.DescribeDefaultClusterParametersResult|any,any>;
     /**
      * Displays a list of event categories for all event source types, or for a
 specified source type. For a list of the event categories and source types, go
@@ -578,7 +578,7 @@ to Amazon Redshift Event Notifications
 .
      *
      */
-    describeEventCategories(params: Redshift.DescribeEventCategoriesMessage, callback?: (err: any, data: Redshift.EventCategoriesMessage|any) => void): Request;
+    describeEventCategories(params: Redshift.DescribeEventCategoriesMessage, callback?: (err: any, data: Redshift.EventCategoriesMessage|any) => void): Request<Redshift.EventCategoriesMessage|any,any>;
     /**
      * Lists descriptions of all the Amazon Redshift event notifications subscription
 for a customer account. If you specify a subscription name, lists the
@@ -586,7 +586,7 @@ description for that subscription.
      *
      * @error SubscriptionNotFoundFault   
      */
-    describeEventSubscriptions(params: Redshift.DescribeEventSubscriptionsMessage, callback?: (err: Redshift.SubscriptionNotFoundFault|any, data: Redshift.EventSubscriptionsMessage|any) => void): Request;
+    describeEventSubscriptions(params: Redshift.DescribeEventSubscriptionsMessage, callback?: (err: Redshift.SubscriptionNotFoundFault|any, data: Redshift.EventSubscriptionsMessage|any) => void): Request<Redshift.EventSubscriptionsMessage|any,Redshift.SubscriptionNotFoundFault|any>;
     /**
      * Returns events related to clusters, security groups, snapshots, and parameter
 groups for the past 14 days. Events specific to a particular cluster, security
@@ -594,7 +594,7 @@ group, snapshot or parameter group can be obtained by providing the name as a
 parameter. By default, the past hour of events are returned.
      *
      */
-    describeEvents(params: Redshift.DescribeEventsMessage, callback?: (err: any, data: Redshift.EventsMessage|any) => void): Request;
+    describeEvents(params: Redshift.DescribeEventsMessage, callback?: (err: any, data: Redshift.EventsMessage|any) => void): Request<Redshift.EventsMessage|any,any>;
     /**
      * Returns information about the specified HSM client certificate. If no
 certificate ID is specified, returns information about all the HSM certificates
@@ -613,7 +613,7 @@ associated with them.
      * @error HsmClientCertificateNotFoundFault   
      * @error InvalidTagFault   
      */
-    describeHsmClientCertificates(params: Redshift.DescribeHsmClientCertificatesMessage, callback?: (err: Redshift.HsmClientCertificateNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.HsmClientCertificateMessage|any) => void): Request;
+    describeHsmClientCertificates(params: Redshift.DescribeHsmClientCertificatesMessage, callback?: (err: Redshift.HsmClientCertificateNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.HsmClientCertificateMessage|any) => void): Request<Redshift.HsmClientCertificateMessage|any,Redshift.HsmClientCertificateNotFoundFault|Redshift.InvalidTagFault|any>;
     /**
      * Returns information about the specified Amazon Redshift HSM configuration. If no
 configuration ID is specified, returns information about all the HSM
@@ -632,14 +632,14 @@ them.
      * @error HsmConfigurationNotFoundFault   
      * @error InvalidTagFault   
      */
-    describeHsmConfigurations(params: Redshift.DescribeHsmConfigurationsMessage, callback?: (err: Redshift.HsmConfigurationNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.HsmConfigurationMessage|any) => void): Request;
+    describeHsmConfigurations(params: Redshift.DescribeHsmConfigurationsMessage, callback?: (err: Redshift.HsmConfigurationNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.HsmConfigurationMessage|any) => void): Request<Redshift.HsmConfigurationMessage|any,Redshift.HsmConfigurationNotFoundFault|Redshift.InvalidTagFault|any>;
     /**
      * Describes whether information, such as queries and connection attempts, is being
 logged for the specified Amazon Redshift cluster.
      *
      * @error ClusterNotFoundFault   
      */
-    describeLoggingStatus(params: Redshift.DescribeLoggingStatusMessage, callback?: (err: Redshift.ClusterNotFoundFault|any, data: Redshift.LoggingStatus|any) => void): Request;
+    describeLoggingStatus(params: Redshift.DescribeLoggingStatusMessage, callback?: (err: Redshift.ClusterNotFoundFault|any, data: Redshift.LoggingStatus|any) => void): Request<Redshift.LoggingStatus|any,Redshift.ClusterNotFoundFault|any>;
     /**
      * Returns a list of orderable cluster options. Before you create a new cluster you
 can use this operation to find what options are available, such as the EC2
@@ -652,7 +652,7 @@ more information about managing clusters, go to Amazon Redshift Clusters
 the Amazon Redshift Cluster Management Guide
      *
      */
-    describeOrderableClusterOptions(params: Redshift.DescribeOrderableClusterOptionsMessage, callback?: (err: any, data: Redshift.OrderableClusterOptionsMessage|any) => void): Request;
+    describeOrderableClusterOptions(params: Redshift.DescribeOrderableClusterOptionsMessage, callback?: (err: any, data: Redshift.OrderableClusterOptionsMessage|any) => void): Request<Redshift.OrderableClusterOptionsMessage|any,any>;
     /**
      * Returns a list of the available reserved node offerings by Amazon Redshift with
 their descriptions including the node type, the fixed and recurring costs of
@@ -670,13 +670,13 @@ in the Amazon Redshift Cluster Management Guide .
      * @error ReservedNodeOfferingNotFoundFault   
      * @error UnsupportedOperationFault   
      */
-    describeReservedNodeOfferings(params: Redshift.DescribeReservedNodeOfferingsMessage, callback?: (err: Redshift.ReservedNodeOfferingNotFoundFault|Redshift.UnsupportedOperationFault|any, data: Redshift.ReservedNodeOfferingsMessage|any) => void): Request;
+    describeReservedNodeOfferings(params: Redshift.DescribeReservedNodeOfferingsMessage, callback?: (err: Redshift.ReservedNodeOfferingNotFoundFault|Redshift.UnsupportedOperationFault|any, data: Redshift.ReservedNodeOfferingsMessage|any) => void): Request<Redshift.ReservedNodeOfferingsMessage|any,Redshift.ReservedNodeOfferingNotFoundFault|Redshift.UnsupportedOperationFault|any>;
     /**
      * Returns the descriptions of the reserved nodes.
      *
      * @error ReservedNodeNotFoundFault   
      */
-    describeReservedNodes(params: Redshift.DescribeReservedNodesMessage, callback?: (err: Redshift.ReservedNodeNotFoundFault|any, data: Redshift.ReservedNodesMessage|any) => void): Request;
+    describeReservedNodes(params: Redshift.DescribeReservedNodesMessage, callback?: (err: Redshift.ReservedNodeNotFoundFault|any, data: Redshift.ReservedNodesMessage|any) => void): Request<Redshift.ReservedNodesMessage|any,Redshift.ReservedNodeNotFoundFault|any>;
     /**
      * Returns information about the last resize operation for the specified cluster.
 If no resize operation has ever been initiated for the specified cluster, a HTTP
@@ -689,7 +689,7 @@ different number or type of nodes for the cluster.
      * @error ClusterNotFoundFault   
      * @error ResizeNotFoundFault   
      */
-    describeResize(params: Redshift.DescribeResizeMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.ResizeNotFoundFault|any, data: Redshift.ResizeProgressMessage|any) => void): Request;
+    describeResize(params: Redshift.DescribeResizeMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.ResizeNotFoundFault|any, data: Redshift.ResizeProgressMessage|any) => void): Request<Redshift.ResizeProgressMessage|any,Redshift.ClusterNotFoundFault|Redshift.ResizeNotFoundFault|any>;
     /**
      * Returns a list of snapshot copy grants owned by the AWS account in the
 destination region.
@@ -702,7 +702,7 @@ in the Amazon Redshift Cluster Management Guide .
      * @error SnapshotCopyGrantNotFoundFault   
      * @error InvalidTagFault   
      */
-    describeSnapshotCopyGrants(params: Redshift.DescribeSnapshotCopyGrantsMessage, callback?: (err: Redshift.SnapshotCopyGrantNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.SnapshotCopyGrantMessage|any) => void): Request;
+    describeSnapshotCopyGrants(params: Redshift.DescribeSnapshotCopyGrantsMessage, callback?: (err: Redshift.SnapshotCopyGrantNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.SnapshotCopyGrantMessage|any) => void): Request<Redshift.SnapshotCopyGrantMessage|any,Redshift.SnapshotCopyGrantNotFoundFault|Redshift.InvalidTagFault|any>;
     /**
      * Lists the status of one or more table restore requests made using the 
 RestoreTableFromClusterSnapshot API action. If you don&#x27;t specify a value for the 
@@ -714,7 +714,7 @@ the table specified by TableRestoreRequestId .
      * @error TableRestoreNotFoundFault   
      * @error ClusterNotFoundFault   
      */
-    describeTableRestoreStatus(params: Redshift.DescribeTableRestoreStatusMessage, callback?: (err: Redshift.TableRestoreNotFoundFault|Redshift.ClusterNotFoundFault|any, data: Redshift.TableRestoreStatusMessage|any) => void): Request;
+    describeTableRestoreStatus(params: Redshift.DescribeTableRestoreStatusMessage, callback?: (err: Redshift.TableRestoreNotFoundFault|Redshift.ClusterNotFoundFault|any, data: Redshift.TableRestoreStatusMessage|any) => void): Request<Redshift.TableRestoreStatusMessage|any,Redshift.TableRestoreNotFoundFault|Redshift.ClusterNotFoundFault|any>;
     /**
      * Returns a list of tags. You can return tags from a specific resource by
 specifying an ARN, or you can return all tags for a given type of resource, such
@@ -741,14 +741,14 @@ regardless of whether they have tag keys or values associated with them.
      * @error ResourceNotFoundFault   
      * @error InvalidTagFault   
      */
-    describeTags(params: Redshift.DescribeTagsMessage, callback?: (err: Redshift.ResourceNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.TaggedResourceListMessage|any) => void): Request;
+    describeTags(params: Redshift.DescribeTagsMessage, callback?: (err: Redshift.ResourceNotFoundFault|Redshift.InvalidTagFault|any, data: Redshift.TaggedResourceListMessage|any) => void): Request<Redshift.TaggedResourceListMessage|any,Redshift.ResourceNotFoundFault|Redshift.InvalidTagFault|any>;
     /**
      * Stops logging information, such as queries and connection attempts, for the
 specified Amazon Redshift cluster.
      *
      * @error ClusterNotFoundFault   
      */
-    disableLogging(params: Redshift.DisableLoggingMessage, callback?: (err: Redshift.ClusterNotFoundFault|any, data: Redshift.LoggingStatus|any) => void): Request;
+    disableLogging(params: Redshift.DisableLoggingMessage, callback?: (err: Redshift.ClusterNotFoundFault|any, data: Redshift.LoggingStatus|any) => void): Request<Redshift.LoggingStatus|any,Redshift.ClusterNotFoundFault|any>;
     /**
      * Disables the automatic copying of snapshots from one region to another region
 for a specified cluster.
@@ -762,7 +762,7 @@ Amazon Redshift permission to the CMK in the destination region.
      * @error InvalidClusterStateFault   
      * @error UnauthorizedOperation   
      */
-    disableSnapshotCopy(params: Redshift.DisableSnapshotCopyMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.SnapshotCopyAlreadyDisabledFault|Redshift.InvalidClusterStateFault|Redshift.UnauthorizedOperation|any, data: Redshift.DisableSnapshotCopyResult|any) => void): Request;
+    disableSnapshotCopy(params: Redshift.DisableSnapshotCopyMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.SnapshotCopyAlreadyDisabledFault|Redshift.InvalidClusterStateFault|Redshift.UnauthorizedOperation|any, data: Redshift.DisableSnapshotCopyResult|any) => void): Request<Redshift.DisableSnapshotCopyResult|any,Redshift.ClusterNotFoundFault|Redshift.SnapshotCopyAlreadyDisabledFault|Redshift.InvalidClusterStateFault|Redshift.UnauthorizedOperation|any>;
     /**
      * Starts logging information, such as queries and connection attempts, for the
 specified Amazon Redshift cluster.
@@ -773,7 +773,7 @@ specified Amazon Redshift cluster.
      * @error InvalidS3KeyPrefixFault   
      * @error InvalidS3BucketNameFault   
      */
-    enableLogging(params: Redshift.EnableLoggingMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.BucketNotFoundFault|Redshift.InsufficientS3BucketPolicyFault|Redshift.InvalidS3KeyPrefixFault|Redshift.InvalidS3BucketNameFault|any, data: Redshift.LoggingStatus|any) => void): Request;
+    enableLogging(params: Redshift.EnableLoggingMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.BucketNotFoundFault|Redshift.InsufficientS3BucketPolicyFault|Redshift.InvalidS3KeyPrefixFault|Redshift.InvalidS3BucketNameFault|any, data: Redshift.LoggingStatus|any) => void): Request<Redshift.LoggingStatus|any,Redshift.ClusterNotFoundFault|Redshift.BucketNotFoundFault|Redshift.InsufficientS3BucketPolicyFault|Redshift.InvalidS3KeyPrefixFault|Redshift.InvalidS3BucketNameFault|any>;
     /**
      * Enables the automatic copy of snapshots from one region to another region for a
 specified cluster.
@@ -789,7 +789,7 @@ specified cluster.
      * @error LimitExceededFault   
      * @error DependentServiceRequestThrottlingFault   
      */
-    enableSnapshotCopy(params: Redshift.EnableSnapshotCopyMessage, callback?: (err: Redshift.IncompatibleOrderableOptions|Redshift.InvalidClusterStateFault|Redshift.ClusterNotFoundFault|Redshift.CopyToRegionDisabledFault|Redshift.SnapshotCopyAlreadyEnabledFault|Redshift.UnknownSnapshotCopyRegionFault|Redshift.UnauthorizedOperation|Redshift.SnapshotCopyGrantNotFoundFault|Redshift.LimitExceededFault|Redshift.DependentServiceRequestThrottlingFault|any, data: Redshift.EnableSnapshotCopyResult|any) => void): Request;
+    enableSnapshotCopy(params: Redshift.EnableSnapshotCopyMessage, callback?: (err: Redshift.IncompatibleOrderableOptions|Redshift.InvalidClusterStateFault|Redshift.ClusterNotFoundFault|Redshift.CopyToRegionDisabledFault|Redshift.SnapshotCopyAlreadyEnabledFault|Redshift.UnknownSnapshotCopyRegionFault|Redshift.UnauthorizedOperation|Redshift.SnapshotCopyGrantNotFoundFault|Redshift.LimitExceededFault|Redshift.DependentServiceRequestThrottlingFault|any, data: Redshift.EnableSnapshotCopyResult|any) => void): Request<Redshift.EnableSnapshotCopyResult|any,Redshift.IncompatibleOrderableOptions|Redshift.InvalidClusterStateFault|Redshift.ClusterNotFoundFault|Redshift.CopyToRegionDisabledFault|Redshift.SnapshotCopyAlreadyEnabledFault|Redshift.UnknownSnapshotCopyRegionFault|Redshift.UnauthorizedOperation|Redshift.SnapshotCopyGrantNotFoundFault|Redshift.LimitExceededFault|Redshift.DependentServiceRequestThrottlingFault|any>;
     /**
      * Modifies the settings for a cluster. For example, you can add another security
 or parameter group, update the preferred maintenance window, or change the
@@ -820,7 +820,7 @@ the node type even if one of the parameters does not change.
      * @error DependentServiceRequestThrottlingFault   
      * @error InvalidElasticIpFault   
      */
-    modifyCluster(params: Redshift.ModifyClusterMessage, callback?: (err: Redshift.InvalidClusterStateFault|Redshift.InvalidClusterSecurityGroupStateFault|Redshift.ClusterNotFoundFault|Redshift.NumberOfNodesQuotaExceededFault|Redshift.ClusterSecurityGroupNotFoundFault|Redshift.ClusterParameterGroupNotFoundFault|Redshift.InsufficientClusterCapacityFault|Redshift.UnsupportedOptionFault|Redshift.UnauthorizedOperation|Redshift.HsmClientCertificateNotFoundFault|Redshift.HsmConfigurationNotFoundFault|Redshift.ClusterAlreadyExistsFault|Redshift.LimitExceededFault|Redshift.DependentServiceRequestThrottlingFault|Redshift.InvalidElasticIpFault|any, data: Redshift.ModifyClusterResult|any) => void): Request;
+    modifyCluster(params: Redshift.ModifyClusterMessage, callback?: (err: Redshift.InvalidClusterStateFault|Redshift.InvalidClusterSecurityGroupStateFault|Redshift.ClusterNotFoundFault|Redshift.NumberOfNodesQuotaExceededFault|Redshift.ClusterSecurityGroupNotFoundFault|Redshift.ClusterParameterGroupNotFoundFault|Redshift.InsufficientClusterCapacityFault|Redshift.UnsupportedOptionFault|Redshift.UnauthorizedOperation|Redshift.HsmClientCertificateNotFoundFault|Redshift.HsmConfigurationNotFoundFault|Redshift.ClusterAlreadyExistsFault|Redshift.LimitExceededFault|Redshift.DependentServiceRequestThrottlingFault|Redshift.InvalidElasticIpFault|any, data: Redshift.ModifyClusterResult|any) => void): Request<Redshift.ModifyClusterResult|any,Redshift.InvalidClusterStateFault|Redshift.InvalidClusterSecurityGroupStateFault|Redshift.ClusterNotFoundFault|Redshift.NumberOfNodesQuotaExceededFault|Redshift.ClusterSecurityGroupNotFoundFault|Redshift.ClusterParameterGroupNotFoundFault|Redshift.InsufficientClusterCapacityFault|Redshift.UnsupportedOptionFault|Redshift.UnauthorizedOperation|Redshift.HsmClientCertificateNotFoundFault|Redshift.HsmConfigurationNotFoundFault|Redshift.ClusterAlreadyExistsFault|Redshift.LimitExceededFault|Redshift.DependentServiceRequestThrottlingFault|Redshift.InvalidElasticIpFault|any>;
     /**
      * Modifies the list of AWS Identity and Access Management (IAM) roles that can be
 used by the cluster to access other AWS services.
@@ -830,7 +830,7 @@ A cluster can have up to 10 IAM roles associated at any time.
      * @error InvalidClusterStateFault   
      * @error ClusterNotFoundFault   
      */
-    modifyClusterIamRoles(params: Redshift.ModifyClusterIamRolesMessage, callback?: (err: Redshift.InvalidClusterStateFault|Redshift.ClusterNotFoundFault|any, data: Redshift.ModifyClusterIamRolesResult|any) => void): Request;
+    modifyClusterIamRoles(params: Redshift.ModifyClusterIamRolesMessage, callback?: (err: Redshift.InvalidClusterStateFault|Redshift.ClusterNotFoundFault|any, data: Redshift.ModifyClusterIamRolesResult|any) => void): Request<Redshift.ModifyClusterIamRolesResult|any,Redshift.InvalidClusterStateFault|Redshift.ClusterNotFoundFault|any>;
     /**
      * Modifies the parameters of a parameter group.
 
@@ -842,7 +842,7 @@ in the Amazon Redshift Cluster Management Guide .
      * @error ClusterParameterGroupNotFoundFault   
      * @error InvalidClusterParameterGroupStateFault   
      */
-    modifyClusterParameterGroup(params: Redshift.ModifyClusterParameterGroupMessage, callback?: (err: Redshift.ClusterParameterGroupNotFoundFault|Redshift.InvalidClusterParameterGroupStateFault|any, data: Redshift.ClusterParameterGroupNameMessage|any) => void): Request;
+    modifyClusterParameterGroup(params: Redshift.ModifyClusterParameterGroupMessage, callback?: (err: Redshift.ClusterParameterGroupNotFoundFault|Redshift.InvalidClusterParameterGroupStateFault|any, data: Redshift.ClusterParameterGroupNameMessage|any) => void): Request<Redshift.ClusterParameterGroupNameMessage|any,Redshift.ClusterParameterGroupNotFoundFault|Redshift.InvalidClusterParameterGroupStateFault|any>;
     /**
      * Modifies a cluster subnet group to include the specified list of VPC subnets.
 The operation replaces the existing list of subnets with the new list of
@@ -855,7 +855,7 @@ subnets.
      * @error UnauthorizedOperation   
      * @error DependentServiceRequestThrottlingFault   
      */
-    modifyClusterSubnetGroup(params: Redshift.ModifyClusterSubnetGroupMessage, callback?: (err: Redshift.ClusterSubnetGroupNotFoundFault|Redshift.ClusterSubnetQuotaExceededFault|Redshift.SubnetAlreadyInUse|Redshift.InvalidSubnet|Redshift.UnauthorizedOperation|Redshift.DependentServiceRequestThrottlingFault|any, data: Redshift.ModifyClusterSubnetGroupResult|any) => void): Request;
+    modifyClusterSubnetGroup(params: Redshift.ModifyClusterSubnetGroupMessage, callback?: (err: Redshift.ClusterSubnetGroupNotFoundFault|Redshift.ClusterSubnetQuotaExceededFault|Redshift.SubnetAlreadyInUse|Redshift.InvalidSubnet|Redshift.UnauthorizedOperation|Redshift.DependentServiceRequestThrottlingFault|any, data: Redshift.ModifyClusterSubnetGroupResult|any) => void): Request<Redshift.ModifyClusterSubnetGroupResult|any,Redshift.ClusterSubnetGroupNotFoundFault|Redshift.ClusterSubnetQuotaExceededFault|Redshift.SubnetAlreadyInUse|Redshift.InvalidSubnet|Redshift.UnauthorizedOperation|Redshift.DependentServiceRequestThrottlingFault|any>;
     /**
      * Modifies an existing Amazon Redshift event notification subscription.
      *
@@ -869,7 +869,7 @@ subnets.
      * @error SourceNotFoundFault   
      * @error InvalidSubscriptionStateFault   
      */
-    modifyEventSubscription(params: Redshift.ModifyEventSubscriptionMessage, callback?: (err: Redshift.SubscriptionNotFoundFault|Redshift.SNSInvalidTopicFault|Redshift.SNSNoAuthorizationFault|Redshift.SNSTopicArnNotFoundFault|Redshift.SubscriptionEventIdNotFoundFault|Redshift.SubscriptionCategoryNotFoundFault|Redshift.SubscriptionSeverityNotFoundFault|Redshift.SourceNotFoundFault|Redshift.InvalidSubscriptionStateFault|any, data: Redshift.ModifyEventSubscriptionResult|any) => void): Request;
+    modifyEventSubscription(params: Redshift.ModifyEventSubscriptionMessage, callback?: (err: Redshift.SubscriptionNotFoundFault|Redshift.SNSInvalidTopicFault|Redshift.SNSNoAuthorizationFault|Redshift.SNSTopicArnNotFoundFault|Redshift.SubscriptionEventIdNotFoundFault|Redshift.SubscriptionCategoryNotFoundFault|Redshift.SubscriptionSeverityNotFoundFault|Redshift.SourceNotFoundFault|Redshift.InvalidSubscriptionStateFault|any, data: Redshift.ModifyEventSubscriptionResult|any) => void): Request<Redshift.ModifyEventSubscriptionResult|any,Redshift.SubscriptionNotFoundFault|Redshift.SNSInvalidTopicFault|Redshift.SNSNoAuthorizationFault|Redshift.SNSTopicArnNotFoundFault|Redshift.SubscriptionEventIdNotFoundFault|Redshift.SubscriptionCategoryNotFoundFault|Redshift.SubscriptionSeverityNotFoundFault|Redshift.SourceNotFoundFault|Redshift.InvalidSubscriptionStateFault|any>;
     /**
      * Modifies the number of days to retain automated snapshots in the destination
 region after they are copied from the source region.
@@ -879,7 +879,7 @@ region after they are copied from the source region.
      * @error UnauthorizedOperation   
      * @error InvalidClusterStateFault   
      */
-    modifySnapshotCopyRetentionPeriod(params: Redshift.ModifySnapshotCopyRetentionPeriodMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.SnapshotCopyDisabledFault|Redshift.UnauthorizedOperation|Redshift.InvalidClusterStateFault|any, data: Redshift.ModifySnapshotCopyRetentionPeriodResult|any) => void): Request;
+    modifySnapshotCopyRetentionPeriod(params: Redshift.ModifySnapshotCopyRetentionPeriodMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.SnapshotCopyDisabledFault|Redshift.UnauthorizedOperation|Redshift.InvalidClusterStateFault|any, data: Redshift.ModifySnapshotCopyRetentionPeriodResult|any) => void): Request<Redshift.ModifySnapshotCopyRetentionPeriodResult|any,Redshift.ClusterNotFoundFault|Redshift.SnapshotCopyDisabledFault|Redshift.UnauthorizedOperation|Redshift.InvalidClusterStateFault|any>;
     /**
      * Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set
 of reserved node offerings. You can purchase one or more of the offerings. You
@@ -897,7 +897,7 @@ in the Amazon Redshift Cluster Management Guide .
      * @error ReservedNodeQuotaExceededFault   
      * @error UnsupportedOperationFault   
      */
-    purchaseReservedNodeOffering(params: Redshift.PurchaseReservedNodeOfferingMessage, callback?: (err: Redshift.ReservedNodeOfferingNotFoundFault|Redshift.ReservedNodeAlreadyExistsFault|Redshift.ReservedNodeQuotaExceededFault|Redshift.UnsupportedOperationFault|any, data: Redshift.PurchaseReservedNodeOfferingResult|any) => void): Request;
+    purchaseReservedNodeOffering(params: Redshift.PurchaseReservedNodeOfferingMessage, callback?: (err: Redshift.ReservedNodeOfferingNotFoundFault|Redshift.ReservedNodeAlreadyExistsFault|Redshift.ReservedNodeQuotaExceededFault|Redshift.UnsupportedOperationFault|any, data: Redshift.PurchaseReservedNodeOfferingResult|any) => void): Request<Redshift.PurchaseReservedNodeOfferingResult|any,Redshift.ReservedNodeOfferingNotFoundFault|Redshift.ReservedNodeAlreadyExistsFault|Redshift.ReservedNodeQuotaExceededFault|Redshift.UnsupportedOperationFault|any>;
     /**
      * Reboots a cluster. This action is taken as soon as possible. It results in a
 momentary outage to the cluster, during which the cluster status is set to 
@@ -910,7 +910,7 @@ the Amazon Redshift Cluster Management Guide
      * @error InvalidClusterStateFault   
      * @error ClusterNotFoundFault   
      */
-    rebootCluster(params: Redshift.RebootClusterMessage, callback?: (err: Redshift.InvalidClusterStateFault|Redshift.ClusterNotFoundFault|any, data: Redshift.RebootClusterResult|any) => void): Request;
+    rebootCluster(params: Redshift.RebootClusterMessage, callback?: (err: Redshift.InvalidClusterStateFault|Redshift.ClusterNotFoundFault|any, data: Redshift.RebootClusterResult|any) => void): Request<Redshift.RebootClusterResult|any,Redshift.InvalidClusterStateFault|Redshift.ClusterNotFoundFault|any>;
     /**
      * Sets one or more parameters of the specified parameter group to their default
 values and sets the source values of the parameters to &quot;engine-default&quot;. To
@@ -920,7 +920,7 @@ parameter changes to take effect you must reboot any associated clusters.
      * @error InvalidClusterParameterGroupStateFault   
      * @error ClusterParameterGroupNotFoundFault   
      */
-    resetClusterParameterGroup(params: Redshift.ResetClusterParameterGroupMessage, callback?: (err: Redshift.InvalidClusterParameterGroupStateFault|Redshift.ClusterParameterGroupNotFoundFault|any, data: Redshift.ClusterParameterGroupNameMessage|any) => void): Request;
+    resetClusterParameterGroup(params: Redshift.ResetClusterParameterGroupMessage, callback?: (err: Redshift.InvalidClusterParameterGroupStateFault|Redshift.ClusterParameterGroupNotFoundFault|any, data: Redshift.ClusterParameterGroupNameMessage|any) => void): Request<Redshift.ClusterParameterGroupNameMessage|any,Redshift.InvalidClusterParameterGroupStateFault|Redshift.ClusterParameterGroupNotFoundFault|any>;
     /**
      * Creates a new cluster from a snapshot. By default, Amazon Redshift creates the
 resulting cluster with the same configuration as the original cluster from which
@@ -961,7 +961,7 @@ the Amazon Redshift Cluster Management Guide .
      * @error LimitExceededFault   
      * @error DependentServiceRequestThrottlingFault   
      */
-    restoreFromClusterSnapshot(params: Redshift.RestoreFromClusterSnapshotMessage, callback?: (err: Redshift.AccessToSnapshotDeniedFault|Redshift.ClusterAlreadyExistsFault|Redshift.ClusterSnapshotNotFoundFault|Redshift.ClusterQuotaExceededFault|Redshift.InsufficientClusterCapacityFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.InvalidRestoreFault|Redshift.NumberOfNodesQuotaExceededFault|Redshift.NumberOfNodesPerClusterLimitExceededFault|Redshift.InvalidVPCNetworkStateFault|Redshift.InvalidClusterSubnetGroupStateFault|Redshift.InvalidSubnet|Redshift.ClusterSubnetGroupNotFoundFault|Redshift.UnauthorizedOperation|Redshift.HsmClientCertificateNotFoundFault|Redshift.HsmConfigurationNotFoundFault|Redshift.InvalidElasticIpFault|Redshift.ClusterParameterGroupNotFoundFault|Redshift.ClusterSecurityGroupNotFoundFault|Redshift.LimitExceededFault|Redshift.DependentServiceRequestThrottlingFault|any, data: Redshift.RestoreFromClusterSnapshotResult|any) => void): Request;
+    restoreFromClusterSnapshot(params: Redshift.RestoreFromClusterSnapshotMessage, callback?: (err: Redshift.AccessToSnapshotDeniedFault|Redshift.ClusterAlreadyExistsFault|Redshift.ClusterSnapshotNotFoundFault|Redshift.ClusterQuotaExceededFault|Redshift.InsufficientClusterCapacityFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.InvalidRestoreFault|Redshift.NumberOfNodesQuotaExceededFault|Redshift.NumberOfNodesPerClusterLimitExceededFault|Redshift.InvalidVPCNetworkStateFault|Redshift.InvalidClusterSubnetGroupStateFault|Redshift.InvalidSubnet|Redshift.ClusterSubnetGroupNotFoundFault|Redshift.UnauthorizedOperation|Redshift.HsmClientCertificateNotFoundFault|Redshift.HsmConfigurationNotFoundFault|Redshift.InvalidElasticIpFault|Redshift.ClusterParameterGroupNotFoundFault|Redshift.ClusterSecurityGroupNotFoundFault|Redshift.LimitExceededFault|Redshift.DependentServiceRequestThrottlingFault|any, data: Redshift.RestoreFromClusterSnapshotResult|any) => void): Request<Redshift.RestoreFromClusterSnapshotResult|any,Redshift.AccessToSnapshotDeniedFault|Redshift.ClusterAlreadyExistsFault|Redshift.ClusterSnapshotNotFoundFault|Redshift.ClusterQuotaExceededFault|Redshift.InsufficientClusterCapacityFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.InvalidRestoreFault|Redshift.NumberOfNodesQuotaExceededFault|Redshift.NumberOfNodesPerClusterLimitExceededFault|Redshift.InvalidVPCNetworkStateFault|Redshift.InvalidClusterSubnetGroupStateFault|Redshift.InvalidSubnet|Redshift.ClusterSubnetGroupNotFoundFault|Redshift.UnauthorizedOperation|Redshift.HsmClientCertificateNotFoundFault|Redshift.HsmConfigurationNotFoundFault|Redshift.InvalidElasticIpFault|Redshift.ClusterParameterGroupNotFoundFault|Redshift.ClusterSecurityGroupNotFoundFault|Redshift.LimitExceededFault|Redshift.DependentServiceRequestThrottlingFault|any>;
     /**
      * Creates a new table from a table in an Amazon Redshift cluster snapshot. You
 must create the new table within the Amazon Redshift cluster that the snapshot
@@ -985,7 +985,7 @@ snapshot.
      * @error InvalidClusterStateFault   
      * @error UnsupportedOperationFault   
      */
-    restoreTableFromClusterSnapshot(params: Redshift.RestoreTableFromClusterSnapshotMessage, callback?: (err: Redshift.ClusterSnapshotNotFoundFault|Redshift.InProgressTableRestoreQuotaExceededFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.InvalidTableRestoreArgumentFault|Redshift.ClusterNotFoundFault|Redshift.InvalidClusterStateFault|Redshift.UnsupportedOperationFault|any, data: Redshift.RestoreTableFromClusterSnapshotResult|any) => void): Request;
+    restoreTableFromClusterSnapshot(params: Redshift.RestoreTableFromClusterSnapshotMessage, callback?: (err: Redshift.ClusterSnapshotNotFoundFault|Redshift.InProgressTableRestoreQuotaExceededFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.InvalidTableRestoreArgumentFault|Redshift.ClusterNotFoundFault|Redshift.InvalidClusterStateFault|Redshift.UnsupportedOperationFault|any, data: Redshift.RestoreTableFromClusterSnapshotResult|any) => void): Request<Redshift.RestoreTableFromClusterSnapshotResult|any,Redshift.ClusterSnapshotNotFoundFault|Redshift.InProgressTableRestoreQuotaExceededFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.InvalidTableRestoreArgumentFault|Redshift.ClusterNotFoundFault|Redshift.InvalidClusterStateFault|Redshift.UnsupportedOperationFault|any>;
     /**
      * Revokes an ingress rule in an Amazon Redshift security group for a previously
 authorized IP range or Amazon EC2 security group. To add an ingress rule, see 
@@ -998,7 +998,7 @@ in the Amazon Redshift Cluster Management Guide .
      * @error AuthorizationNotFoundFault   
      * @error InvalidClusterSecurityGroupStateFault   
      */
-    revokeClusterSecurityGroupIngress(params: Redshift.RevokeClusterSecurityGroupIngressMessage, callback?: (err: Redshift.ClusterSecurityGroupNotFoundFault|Redshift.AuthorizationNotFoundFault|Redshift.InvalidClusterSecurityGroupStateFault|any, data: Redshift.RevokeClusterSecurityGroupIngressResult|any) => void): Request;
+    revokeClusterSecurityGroupIngress(params: Redshift.RevokeClusterSecurityGroupIngressMessage, callback?: (err: Redshift.ClusterSecurityGroupNotFoundFault|Redshift.AuthorizationNotFoundFault|Redshift.InvalidClusterSecurityGroupStateFault|any, data: Redshift.RevokeClusterSecurityGroupIngressResult|any) => void): Request<Redshift.RevokeClusterSecurityGroupIngressResult|any,Redshift.ClusterSecurityGroupNotFoundFault|Redshift.AuthorizationNotFoundFault|Redshift.InvalidClusterSecurityGroupStateFault|any>;
     /**
      * Removes the ability of the specified AWS customer account to restore the
 specified snapshot. If the account is currently restoring the snapshot, the
@@ -1013,7 +1013,7 @@ the Amazon Redshift Cluster Management Guide .
      * @error AuthorizationNotFoundFault   
      * @error ClusterSnapshotNotFoundFault   
      */
-    revokeSnapshotAccess(params: Redshift.RevokeSnapshotAccessMessage, callback?: (err: Redshift.AccessToSnapshotDeniedFault|Redshift.AuthorizationNotFoundFault|Redshift.ClusterSnapshotNotFoundFault|any, data: Redshift.RevokeSnapshotAccessResult|any) => void): Request;
+    revokeSnapshotAccess(params: Redshift.RevokeSnapshotAccessMessage, callback?: (err: Redshift.AccessToSnapshotDeniedFault|Redshift.AuthorizationNotFoundFault|Redshift.ClusterSnapshotNotFoundFault|any, data: Redshift.RevokeSnapshotAccessResult|any) => void): Request<Redshift.RevokeSnapshotAccessResult|any,Redshift.AccessToSnapshotDeniedFault|Redshift.AuthorizationNotFoundFault|Redshift.ClusterSnapshotNotFoundFault|any>;
     /**
      * Rotates the encryption keys for a cluster.
      *
@@ -1021,7 +1021,7 @@ the Amazon Redshift Cluster Management Guide .
      * @error InvalidClusterStateFault   
      * @error DependentServiceRequestThrottlingFault   
      */
-    rotateEncryptionKey(params: Redshift.RotateEncryptionKeyMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.InvalidClusterStateFault|Redshift.DependentServiceRequestThrottlingFault|any, data: Redshift.RotateEncryptionKeyResult|any) => void): Request;
+    rotateEncryptionKey(params: Redshift.RotateEncryptionKeyMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.InvalidClusterStateFault|Redshift.DependentServiceRequestThrottlingFault|any, data: Redshift.RotateEncryptionKeyResult|any) => void): Request<Redshift.RotateEncryptionKeyResult|any,Redshift.ClusterNotFoundFault|Redshift.InvalidClusterStateFault|Redshift.DependentServiceRequestThrottlingFault|any>;
 
   }
 

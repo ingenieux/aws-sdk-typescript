@@ -29,7 +29,7 @@ declare module "aws-sdk" {
      * @error InvalidArgument   
      * @error InconsistentQuantities   
      */
-    createCloudFrontOriginAccessIdentity(params: CloudFront.CreateCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFront.CloudFrontOriginAccessIdentityAlreadyExists|CloudFront.MissingBody|CloudFront.TooManyCloudFrontOriginAccessIdentities|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|any, data: CloudFront.CreateCloudFrontOriginAccessIdentityResult|any) => void): Request;
+    createCloudFrontOriginAccessIdentity(params: CloudFront.CreateCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFront.CloudFrontOriginAccessIdentityAlreadyExists|CloudFront.MissingBody|CloudFront.TooManyCloudFrontOriginAccessIdentities|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|any, data: CloudFront.CreateCloudFrontOriginAccessIdentityResult|any) => void): Request<CloudFront.CreateCloudFrontOriginAccessIdentityResult|any,CloudFront.CloudFrontOriginAccessIdentityAlreadyExists|CloudFront.MissingBody|CloudFront.TooManyCloudFrontOriginAccessIdentities|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|any>;
     /**
      * Create a new distribution.
      *
@@ -67,7 +67,7 @@ declare module "aws-sdk" {
      * @error InvalidWebACLId   
      * @error TooManyOriginCustomHeaders   
      */
-    createDistribution(params: CloudFront.CreateDistributionRequest, callback?: (err: CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|any, data: CloudFront.CreateDistributionResult|any) => void): Request;
+    createDistribution(params: CloudFront.CreateDistributionRequest, callback?: (err: CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|any, data: CloudFront.CreateDistributionResult|any) => void): Request<CloudFront.CreateDistributionResult|any,CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|any>;
     /**
      * Create a new invalidation.
      *
@@ -79,7 +79,7 @@ declare module "aws-sdk" {
      * @error TooManyInvalidationsInProgress   
      * @error InconsistentQuantities   
      */
-    createInvalidation(params: CloudFront.CreateInvalidationRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.MissingBody|CloudFront.InvalidArgument|CloudFront.NoSuchDistribution|CloudFront.BatchTooLarge|CloudFront.TooManyInvalidationsInProgress|CloudFront.InconsistentQuantities|any, data: CloudFront.CreateInvalidationResult|any) => void): Request;
+    createInvalidation(params: CloudFront.CreateInvalidationRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.MissingBody|CloudFront.InvalidArgument|CloudFront.NoSuchDistribution|CloudFront.BatchTooLarge|CloudFront.TooManyInvalidationsInProgress|CloudFront.InconsistentQuantities|any, data: CloudFront.CreateInvalidationResult|any) => void): Request<CloudFront.CreateInvalidationResult|any,CloudFront.AccessDenied|CloudFront.MissingBody|CloudFront.InvalidArgument|CloudFront.NoSuchDistribution|CloudFront.BatchTooLarge|CloudFront.TooManyInvalidationsInProgress|CloudFront.InconsistentQuantities|any>;
     /**
      * Create a new streaming distribution.
      *
@@ -96,7 +96,7 @@ declare module "aws-sdk" {
      * @error InvalidArgument   
      * @error InconsistentQuantities   
      */
-    createStreamingDistribution(params: CloudFront.CreateStreamingDistributionRequest, callback?: (err: CloudFront.CNAMEAlreadyExists|CloudFront.StreamingDistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.MissingBody|CloudFront.TooManyStreamingDistributionCNAMEs|CloudFront.TooManyStreamingDistributions|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|any, data: CloudFront.CreateStreamingDistributionResult|any) => void): Request;
+    createStreamingDistribution(params: CloudFront.CreateStreamingDistributionRequest, callback?: (err: CloudFront.CNAMEAlreadyExists|CloudFront.StreamingDistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.MissingBody|CloudFront.TooManyStreamingDistributionCNAMEs|CloudFront.TooManyStreamingDistributions|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|any, data: CloudFront.CreateStreamingDistributionResult|any) => void): Request<CloudFront.CreateStreamingDistributionResult|any,CloudFront.CNAMEAlreadyExists|CloudFront.StreamingDistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.MissingBody|CloudFront.TooManyStreamingDistributionCNAMEs|CloudFront.TooManyStreamingDistributions|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|any>;
     /**
      * Delete an origin access identity.
      *
@@ -106,7 +106,7 @@ declare module "aws-sdk" {
      * @error PreconditionFailed   
      * @error CloudFrontOriginAccessIdentityInUse   
      */
-    deleteCloudFrontOriginAccessIdentity(params: CloudFront.DeleteCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.InvalidIfMatchVersion|CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.PreconditionFailed|CloudFront.CloudFrontOriginAccessIdentityInUse|any, data: any) => void): Request;
+    deleteCloudFrontOriginAccessIdentity(params: CloudFront.DeleteCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.InvalidIfMatchVersion|CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.PreconditionFailed|CloudFront.CloudFrontOriginAccessIdentityInUse|any, data: any) => void): Request<any,CloudFront.AccessDenied|CloudFront.InvalidIfMatchVersion|CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.PreconditionFailed|CloudFront.CloudFrontOriginAccessIdentityInUse|any>;
     /**
      * Delete a distribution.
      *
@@ -116,7 +116,7 @@ declare module "aws-sdk" {
      * @error NoSuchDistribution   
      * @error PreconditionFailed   
      */
-    deleteDistribution(params: CloudFront.DeleteDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.DistributionNotDisabled|CloudFront.InvalidIfMatchVersion|CloudFront.NoSuchDistribution|CloudFront.PreconditionFailed|any, data: any) => void): Request;
+    deleteDistribution(params: CloudFront.DeleteDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.DistributionNotDisabled|CloudFront.InvalidIfMatchVersion|CloudFront.NoSuchDistribution|CloudFront.PreconditionFailed|any, data: any) => void): Request<any,CloudFront.AccessDenied|CloudFront.DistributionNotDisabled|CloudFront.InvalidIfMatchVersion|CloudFront.NoSuchDistribution|CloudFront.PreconditionFailed|any>;
     /**
      * Delete a streaming distribution.
      *
@@ -126,35 +126,35 @@ declare module "aws-sdk" {
      * @error NoSuchStreamingDistribution   
      * @error PreconditionFailed   
      */
-    deleteStreamingDistribution(params: CloudFront.DeleteStreamingDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.StreamingDistributionNotDisabled|CloudFront.InvalidIfMatchVersion|CloudFront.NoSuchStreamingDistribution|CloudFront.PreconditionFailed|any, data: any) => void): Request;
+    deleteStreamingDistribution(params: CloudFront.DeleteStreamingDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.StreamingDistributionNotDisabled|CloudFront.InvalidIfMatchVersion|CloudFront.NoSuchStreamingDistribution|CloudFront.PreconditionFailed|any, data: any) => void): Request<any,CloudFront.AccessDenied|CloudFront.StreamingDistributionNotDisabled|CloudFront.InvalidIfMatchVersion|CloudFront.NoSuchStreamingDistribution|CloudFront.PreconditionFailed|any>;
     /**
      * Get the information about an origin access identity.
      *
      * @error NoSuchCloudFrontOriginAccessIdentity   
      * @error AccessDenied   
      */
-    getCloudFrontOriginAccessIdentity(params: CloudFront.GetCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.AccessDenied|any, data: CloudFront.GetCloudFrontOriginAccessIdentityResult|any) => void): Request;
+    getCloudFrontOriginAccessIdentity(params: CloudFront.GetCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.AccessDenied|any, data: CloudFront.GetCloudFrontOriginAccessIdentityResult|any) => void): Request<CloudFront.GetCloudFrontOriginAccessIdentityResult|any,CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.AccessDenied|any>;
     /**
      * Get the configuration information about an origin access identity.
      *
      * @error NoSuchCloudFrontOriginAccessIdentity   
      * @error AccessDenied   
      */
-    getCloudFrontOriginAccessIdentityConfig(params: CloudFront.GetCloudFrontOriginAccessIdentityConfigRequest, callback?: (err: CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.AccessDenied|any, data: CloudFront.GetCloudFrontOriginAccessIdentityConfigResult|any) => void): Request;
+    getCloudFrontOriginAccessIdentityConfig(params: CloudFront.GetCloudFrontOriginAccessIdentityConfigRequest, callback?: (err: CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.AccessDenied|any, data: CloudFront.GetCloudFrontOriginAccessIdentityConfigResult|any) => void): Request<CloudFront.GetCloudFrontOriginAccessIdentityConfigResult|any,CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.AccessDenied|any>;
     /**
      * Get the information about a distribution.
      *
      * @error NoSuchDistribution   
      * @error AccessDenied   
      */
-    getDistribution(params: CloudFront.GetDistributionRequest, callback?: (err: CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetDistributionResult|any) => void): Request;
+    getDistribution(params: CloudFront.GetDistributionRequest, callback?: (err: CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetDistributionResult|any) => void): Request<CloudFront.GetDistributionResult|any,CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any>;
     /**
      * Get the configuration information about a distribution.
      *
      * @error NoSuchDistribution   
      * @error AccessDenied   
      */
-    getDistributionConfig(params: CloudFront.GetDistributionConfigRequest, callback?: (err: CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetDistributionConfigResult|any) => void): Request;
+    getDistributionConfig(params: CloudFront.GetDistributionConfigRequest, callback?: (err: CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetDistributionConfigResult|any) => void): Request<CloudFront.GetDistributionConfigResult|any,CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any>;
     /**
      * Get the information about an invalidation.
      *
@@ -162,40 +162,40 @@ declare module "aws-sdk" {
      * @error NoSuchDistribution   
      * @error AccessDenied   
      */
-    getInvalidation(params: CloudFront.GetInvalidationRequest, callback?: (err: CloudFront.NoSuchInvalidation|CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetInvalidationResult|any) => void): Request;
+    getInvalidation(params: CloudFront.GetInvalidationRequest, callback?: (err: CloudFront.NoSuchInvalidation|CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetInvalidationResult|any) => void): Request<CloudFront.GetInvalidationResult|any,CloudFront.NoSuchInvalidation|CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any>;
     /**
      * Get the information about a streaming distribution.
      *
      * @error NoSuchStreamingDistribution   
      * @error AccessDenied   
      */
-    getStreamingDistribution(params: CloudFront.GetStreamingDistributionRequest, callback?: (err: CloudFront.NoSuchStreamingDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetStreamingDistributionResult|any) => void): Request;
+    getStreamingDistribution(params: CloudFront.GetStreamingDistributionRequest, callback?: (err: CloudFront.NoSuchStreamingDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetStreamingDistributionResult|any) => void): Request<CloudFront.GetStreamingDistributionResult|any,CloudFront.NoSuchStreamingDistribution|CloudFront.AccessDenied|any>;
     /**
      * Get the configuration information about a streaming distribution.
      *
      * @error NoSuchStreamingDistribution   
      * @error AccessDenied   
      */
-    getStreamingDistributionConfig(params: CloudFront.GetStreamingDistributionConfigRequest, callback?: (err: CloudFront.NoSuchStreamingDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetStreamingDistributionConfigResult|any) => void): Request;
+    getStreamingDistributionConfig(params: CloudFront.GetStreamingDistributionConfigRequest, callback?: (err: CloudFront.NoSuchStreamingDistribution|CloudFront.AccessDenied|any, data: CloudFront.GetStreamingDistributionConfigResult|any) => void): Request<CloudFront.GetStreamingDistributionConfigResult|any,CloudFront.NoSuchStreamingDistribution|CloudFront.AccessDenied|any>;
     /**
      * List origin access identities.
      *
      * @error InvalidArgument   
      */
-    listCloudFrontOriginAccessIdentities(params: CloudFront.ListCloudFrontOriginAccessIdentitiesRequest, callback?: (err: CloudFront.InvalidArgument|any, data: CloudFront.ListCloudFrontOriginAccessIdentitiesResult|any) => void): Request;
+    listCloudFrontOriginAccessIdentities(params: CloudFront.ListCloudFrontOriginAccessIdentitiesRequest, callback?: (err: CloudFront.InvalidArgument|any, data: CloudFront.ListCloudFrontOriginAccessIdentitiesResult|any) => void): Request<CloudFront.ListCloudFrontOriginAccessIdentitiesResult|any,CloudFront.InvalidArgument|any>;
     /**
      * List distributions.
      *
      * @error InvalidArgument   
      */
-    listDistributions(params: CloudFront.ListDistributionsRequest, callback?: (err: CloudFront.InvalidArgument|any, data: CloudFront.ListDistributionsResult|any) => void): Request;
+    listDistributions(params: CloudFront.ListDistributionsRequest, callback?: (err: CloudFront.InvalidArgument|any, data: CloudFront.ListDistributionsResult|any) => void): Request<CloudFront.ListDistributionsResult|any,CloudFront.InvalidArgument|any>;
     /**
      * List the distributions that are associated with a specified AWS WAF web ACL.
      *
      * @error InvalidArgument   
      * @error InvalidWebACLId   
      */
-    listDistributionsByWebACLId(params: CloudFront.ListDistributionsByWebACLIdRequest, callback?: (err: CloudFront.InvalidArgument|CloudFront.InvalidWebACLId|any, data: CloudFront.ListDistributionsByWebACLIdResult|any) => void): Request;
+    listDistributionsByWebACLId(params: CloudFront.ListDistributionsByWebACLIdRequest, callback?: (err: CloudFront.InvalidArgument|CloudFront.InvalidWebACLId|any, data: CloudFront.ListDistributionsByWebACLIdResult|any) => void): Request<CloudFront.ListDistributionsByWebACLIdResult|any,CloudFront.InvalidArgument|CloudFront.InvalidWebACLId|any>;
     /**
      * List invalidation batches.
      *
@@ -203,13 +203,13 @@ declare module "aws-sdk" {
      * @error NoSuchDistribution   
      * @error AccessDenied   
      */
-    listInvalidations(params: CloudFront.ListInvalidationsRequest, callback?: (err: CloudFront.InvalidArgument|CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any, data: CloudFront.ListInvalidationsResult|any) => void): Request;
+    listInvalidations(params: CloudFront.ListInvalidationsRequest, callback?: (err: CloudFront.InvalidArgument|CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any, data: CloudFront.ListInvalidationsResult|any) => void): Request<CloudFront.ListInvalidationsResult|any,CloudFront.InvalidArgument|CloudFront.NoSuchDistribution|CloudFront.AccessDenied|any>;
     /**
      * List streaming distributions.
      *
      * @error InvalidArgument   
      */
-    listStreamingDistributions(params: CloudFront.ListStreamingDistributionsRequest, callback?: (err: CloudFront.InvalidArgument|any, data: CloudFront.ListStreamingDistributionsResult|any) => void): Request;
+    listStreamingDistributions(params: CloudFront.ListStreamingDistributionsRequest, callback?: (err: CloudFront.InvalidArgument|any, data: CloudFront.ListStreamingDistributionsResult|any) => void): Request<CloudFront.ListStreamingDistributionsResult|any,CloudFront.InvalidArgument|any>;
     /**
      * Update an origin access identity.
      *
@@ -222,7 +222,7 @@ declare module "aws-sdk" {
      * @error InvalidArgument   
      * @error InconsistentQuantities   
      */
-    updateCloudFrontOriginAccessIdentity(params: CloudFront.UpdateCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.PreconditionFailed|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|any, data: CloudFront.UpdateCloudFrontOriginAccessIdentityResult|any) => void): Request;
+    updateCloudFrontOriginAccessIdentity(params: CloudFront.UpdateCloudFrontOriginAccessIdentityRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.PreconditionFailed|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|any, data: CloudFront.UpdateCloudFrontOriginAccessIdentityResult|any) => void): Request<CloudFront.UpdateCloudFrontOriginAccessIdentityResult|any,CloudFront.AccessDenied|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchCloudFrontOriginAccessIdentity|CloudFront.PreconditionFailed|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|any>;
     /**
      * Update a distribution.
      *
@@ -260,7 +260,7 @@ declare module "aws-sdk" {
      * @error InvalidWebACLId   
      * @error TooManyOriginCustomHeaders   
      */
-    updateDistribution(params: CloudFront.UpdateDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.CNAMEAlreadyExists|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchDistribution|CloudFront.PreconditionFailed|CloudFront.TooManyDistributionCNAMEs|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidOriginAccessIdentity|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|any, data: CloudFront.UpdateDistributionResult|any) => void): Request;
+    updateDistribution(params: CloudFront.UpdateDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.CNAMEAlreadyExists|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchDistribution|CloudFront.PreconditionFailed|CloudFront.TooManyDistributionCNAMEs|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidOriginAccessIdentity|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|any, data: CloudFront.UpdateDistributionResult|any) => void): Request<CloudFront.UpdateDistributionResult|any,CloudFront.AccessDenied|CloudFront.CNAMEAlreadyExists|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchDistribution|CloudFront.PreconditionFailed|CloudFront.TooManyDistributionCNAMEs|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidOriginAccessIdentity|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|any>;
     /**
      * Update a streaming distribution.
      *
@@ -278,7 +278,7 @@ declare module "aws-sdk" {
      * @error TrustedSignerDoesNotExist   
      * @error InconsistentQuantities   
      */
-    updateStreamingDistribution(params: CloudFront.UpdateStreamingDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.CNAMEAlreadyExists|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchStreamingDistribution|CloudFront.PreconditionFailed|CloudFront.TooManyStreamingDistributionCNAMEs|CloudFront.InvalidArgument|CloudFront.InvalidOriginAccessIdentity|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InconsistentQuantities|any, data: CloudFront.UpdateStreamingDistributionResult|any) => void): Request;
+    updateStreamingDistribution(params: CloudFront.UpdateStreamingDistributionRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.CNAMEAlreadyExists|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchStreamingDistribution|CloudFront.PreconditionFailed|CloudFront.TooManyStreamingDistributionCNAMEs|CloudFront.InvalidArgument|CloudFront.InvalidOriginAccessIdentity|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InconsistentQuantities|any, data: CloudFront.UpdateStreamingDistributionResult|any) => void): Request<CloudFront.UpdateStreamingDistributionResult|any,CloudFront.AccessDenied|CloudFront.CNAMEAlreadyExists|CloudFront.IllegalUpdate|CloudFront.InvalidIfMatchVersion|CloudFront.MissingBody|CloudFront.NoSuchStreamingDistribution|CloudFront.PreconditionFailed|CloudFront.TooManyStreamingDistributionCNAMEs|CloudFront.InvalidArgument|CloudFront.InvalidOriginAccessIdentity|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InconsistentQuantities|any>;
 
     setupRequestListeners(...args: any[]): any
   }

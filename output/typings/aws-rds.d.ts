@@ -83,7 +83,7 @@ Amazon RDS User Guide
      * @error SubscriptionNotFoundFault   
      * @error SourceNotFoundFault   
      */
-    addSourceIdentifierToSubscription(params: RDS.AddSourceIdentifierToSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault|RDS.SourceNotFoundFault|any, data: RDS.AddSourceIdentifierToSubscriptionResult|any) => void): Request;
+    addSourceIdentifierToSubscription(params: RDS.AddSourceIdentifierToSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault|RDS.SourceNotFoundFault|any, data: RDS.AddSourceIdentifierToSubscriptionResult|any) => void): Request<RDS.AddSourceIdentifierToSubscriptionResult|any,RDS.SubscriptionNotFoundFault|RDS.SourceNotFoundFault|any>;
     /**
      * Adds metadata tags to an Amazon RDS resource. These tags can also be used with
 cost allocation reporting to track cost associated with Amazon RDS resources, or
@@ -96,14 +96,14 @@ Resources
      * @error DBInstanceNotFoundFault   
      * @error DBSnapshotNotFoundFault   
      */
-    addTagsToResource(params: RDS.AddTagsToResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: any) => void): Request;
+    addTagsToResource(params: RDS.AddTagsToResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: any) => void): Request<any,RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any>;
     /**
      * Applies a pending maintenance action to a resource (for example, to a DB
 instance).
      *
      * @error ResourceNotFoundFault   
      */
-    applyPendingMaintenanceAction(params: RDS.ApplyPendingMaintenanceActionMessage, callback?: (err: RDS.ResourceNotFoundFault|any, data: RDS.ApplyPendingMaintenanceActionResult|any) => void): Request;
+    applyPendingMaintenanceAction(params: RDS.ApplyPendingMaintenanceActionMessage, callback?: (err: RDS.ResourceNotFoundFault|any, data: RDS.ApplyPendingMaintenanceActionResult|any) => void): Request<RDS.ApplyPendingMaintenanceActionResult|any,RDS.ResourceNotFoundFault|any>;
     /**
      * Enables ingress to a DBSecurityGroup using one of two forms of authorization.
 First, EC2 or VPC security groups can be added to the DBSecurityGroup if the
@@ -125,7 +125,7 @@ For an overview of CIDR ranges, go to the Wikipedia Tutorial
      * @error AuthorizationAlreadyExistsFault   
      * @error AuthorizationQuotaExceededFault   
      */
-    authorizeDBSecurityGroupIngress(params: RDS.AuthorizeDBSecurityGroupIngressMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|RDS.AuthorizationAlreadyExistsFault|RDS.AuthorizationQuotaExceededFault|any, data: RDS.AuthorizeDBSecurityGroupIngressResult|any) => void): Request;
+    authorizeDBSecurityGroupIngress(params: RDS.AuthorizeDBSecurityGroupIngressMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|RDS.AuthorizationAlreadyExistsFault|RDS.AuthorizationQuotaExceededFault|any, data: RDS.AuthorizeDBSecurityGroupIngressResult|any) => void): Request<RDS.AuthorizeDBSecurityGroupIngressResult|any,RDS.DBSecurityGroupNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|RDS.AuthorizationAlreadyExistsFault|RDS.AuthorizationQuotaExceededFault|any>;
     /**
      * Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see 
 Aurora on Amazon RDS
@@ -136,7 +136,7 @@ Amazon RDS User Guide.
      * @error DBClusterSnapshotNotFoundFault   
      * @error InvalidDBClusterStateFault   
      */
-    copyDBClusterSnapshot(params: RDS.CopyDBClusterSnapshotMessage, callback?: (err: RDS.DBClusterSnapshotAlreadyExistsFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InvalidDBClusterStateFault|any, data: RDS.CopyDBClusterSnapshotResult|any) => void): Request;
+    copyDBClusterSnapshot(params: RDS.CopyDBClusterSnapshotMessage, callback?: (err: RDS.DBClusterSnapshotAlreadyExistsFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InvalidDBClusterStateFault|any, data: RDS.CopyDBClusterSnapshotResult|any) => void): Request<RDS.CopyDBClusterSnapshotResult|any,RDS.DBClusterSnapshotAlreadyExistsFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InvalidDBClusterStateFault|any>;
     /**
      * Copies the specified DB parameter group.
      *
@@ -144,7 +144,7 @@ Amazon RDS User Guide.
      * @error DBParameterGroupAlreadyExistsFault   
      * @error DBParameterGroupQuotaExceededFault   
      */
-    copyDBParameterGroup(params: RDS.CopyDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|RDS.DBParameterGroupAlreadyExistsFault|RDS.DBParameterGroupQuotaExceededFault|any, data: RDS.CopyDBParameterGroupResult|any) => void): Request;
+    copyDBParameterGroup(params: RDS.CopyDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|RDS.DBParameterGroupAlreadyExistsFault|RDS.DBParameterGroupQuotaExceededFault|any, data: RDS.CopyDBParameterGroupResult|any) => void): Request<RDS.CopyDBParameterGroupResult|any,RDS.DBParameterGroupNotFoundFault|RDS.DBParameterGroupAlreadyExistsFault|RDS.DBParameterGroupQuotaExceededFault|any>;
     /**
      * Copies the specified DB snapshot. The source DB snapshot must be in the
 &quot;available&quot; state.
@@ -158,7 +158,7 @@ SourceDBSnapshotIdentifier must be the ARN of the shared DB snapshot.
      * @error SnapshotQuotaExceededFault   
      * @error KMSKeyNotAccessibleFault   
      */
-    copyDBSnapshot(params: RDS.CopyDBSnapshotMessage, callback?: (err: RDS.DBSnapshotAlreadyExistsFault|RDS.DBSnapshotNotFoundFault|RDS.InvalidDBSnapshotStateFault|RDS.SnapshotQuotaExceededFault|RDS.KMSKeyNotAccessibleFault|any, data: RDS.CopyDBSnapshotResult|any) => void): Request;
+    copyDBSnapshot(params: RDS.CopyDBSnapshotMessage, callback?: (err: RDS.DBSnapshotAlreadyExistsFault|RDS.DBSnapshotNotFoundFault|RDS.InvalidDBSnapshotStateFault|RDS.SnapshotQuotaExceededFault|RDS.KMSKeyNotAccessibleFault|any, data: RDS.CopyDBSnapshotResult|any) => void): Request<RDS.CopyDBSnapshotResult|any,RDS.DBSnapshotAlreadyExistsFault|RDS.DBSnapshotNotFoundFault|RDS.InvalidDBSnapshotStateFault|RDS.SnapshotQuotaExceededFault|RDS.KMSKeyNotAccessibleFault|any>;
     /**
      * Copies the specified option group.
      *
@@ -166,7 +166,7 @@ SourceDBSnapshotIdentifier must be the ARN of the shared DB snapshot.
      * @error OptionGroupNotFoundFault   
      * @error OptionGroupQuotaExceededFault   
      */
-    copyOptionGroup(params: RDS.CopyOptionGroupMessage, callback?: (err: RDS.OptionGroupAlreadyExistsFault|RDS.OptionGroupNotFoundFault|RDS.OptionGroupQuotaExceededFault|any, data: RDS.CopyOptionGroupResult|any) => void): Request;
+    copyOptionGroup(params: RDS.CopyOptionGroupMessage, callback?: (err: RDS.OptionGroupAlreadyExistsFault|RDS.OptionGroupNotFoundFault|RDS.OptionGroupQuotaExceededFault|any, data: RDS.CopyOptionGroupResult|any) => void): Request<RDS.CopyOptionGroupResult|any,RDS.OptionGroupAlreadyExistsFault|RDS.OptionGroupNotFoundFault|RDS.OptionGroupQuotaExceededFault|any>;
     /**
      * Creates a new Amazon Aurora DB cluster. For more information on Amazon Aurora,
 see Aurora on Amazon RDS
@@ -186,7 +186,7 @@ Amazon RDS User Guide.
      * @error KMSKeyNotAccessibleFault   
      * @error DBClusterNotFoundFault   
      */
-    createDBCluster(params: RDS.CreateDBClusterMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.InsufficientStorageClusterCapacityFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|any, data: RDS.CreateDBClusterResult|any) => void): Request;
+    createDBCluster(params: RDS.CreateDBClusterMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.InsufficientStorageClusterCapacityFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|any, data: RDS.CreateDBClusterResult|any) => void): Request<RDS.CreateDBClusterResult|any,RDS.DBClusterAlreadyExistsFault|RDS.InsufficientStorageClusterCapacityFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|any>;
     /**
      * Creates a new DB cluster parameter group.
 
@@ -220,7 +220,7 @@ Amazon RDS User Guide.
      * @error DBParameterGroupQuotaExceededFault   
      * @error DBParameterGroupAlreadyExistsFault   
      */
-    createDBClusterParameterGroup(params: RDS.CreateDBClusterParameterGroupMessage, callback?: (err: RDS.DBParameterGroupQuotaExceededFault|RDS.DBParameterGroupAlreadyExistsFault|any, data: RDS.CreateDBClusterParameterGroupResult|any) => void): Request;
+    createDBClusterParameterGroup(params: RDS.CreateDBClusterParameterGroupMessage, callback?: (err: RDS.DBParameterGroupQuotaExceededFault|RDS.DBParameterGroupAlreadyExistsFault|any, data: RDS.CreateDBClusterParameterGroupResult|any) => void): Request<RDS.CreateDBClusterParameterGroupResult|any,RDS.DBParameterGroupQuotaExceededFault|RDS.DBParameterGroupAlreadyExistsFault|any>;
     /**
      * Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see 
 Aurora on Amazon RDS
@@ -233,7 +233,7 @@ Amazon RDS User Guide.
      * @error SnapshotQuotaExceededFault   
      * @error InvalidDBClusterSnapshotStateFault   
      */
-    createDBClusterSnapshot(params: RDS.CreateDBClusterSnapshotMessage, callback?: (err: RDS.DBClusterSnapshotAlreadyExistsFault|RDS.InvalidDBClusterStateFault|RDS.DBClusterNotFoundFault|RDS.SnapshotQuotaExceededFault|RDS.InvalidDBClusterSnapshotStateFault|any, data: RDS.CreateDBClusterSnapshotResult|any) => void): Request;
+    createDBClusterSnapshot(params: RDS.CreateDBClusterSnapshotMessage, callback?: (err: RDS.DBClusterSnapshotAlreadyExistsFault|RDS.InvalidDBClusterStateFault|RDS.DBClusterNotFoundFault|RDS.SnapshotQuotaExceededFault|RDS.InvalidDBClusterSnapshotStateFault|any, data: RDS.CreateDBClusterSnapshotResult|any) => void): Request<RDS.CreateDBClusterSnapshotResult|any,RDS.DBClusterSnapshotAlreadyExistsFault|RDS.InvalidDBClusterStateFault|RDS.DBClusterNotFoundFault|RDS.SnapshotQuotaExceededFault|RDS.InvalidDBClusterSnapshotStateFault|any>;
     /**
      * Creates a new DB instance.
      *
@@ -256,7 +256,7 @@ Amazon RDS User Guide.
      * @error KMSKeyNotAccessibleFault   
      * @error DomainNotFoundFault   
      */
-    createDBInstance(params: RDS.CreateDBInstanceMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.InsufficientDBInstanceCapacityFault|RDS.DBParameterGroupNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidDBClusterStateFault|RDS.InvalidSubnet|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.DBClusterNotFoundFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DomainNotFoundFault|any, data: RDS.CreateDBInstanceResult|any) => void): Request;
+    createDBInstance(params: RDS.CreateDBInstanceMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.InsufficientDBInstanceCapacityFault|RDS.DBParameterGroupNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidDBClusterStateFault|RDS.InvalidSubnet|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.DBClusterNotFoundFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DomainNotFoundFault|any, data: RDS.CreateDBInstanceResult|any) => void): Request<RDS.CreateDBInstanceResult|any,RDS.DBInstanceAlreadyExistsFault|RDS.InsufficientDBInstanceCapacityFault|RDS.DBParameterGroupNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidDBClusterStateFault|RDS.InvalidSubnet|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.DBClusterNotFoundFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DomainNotFoundFault|any>;
     /**
      * Creates a DB instance for a DB instance running MySQL, MariaDB, or PostgreSQL
 that acts as a Read Replica of a source DB instance.
@@ -287,7 +287,7 @@ The source DB instance must have backup retention enabled.
      * @error StorageTypeNotSupportedFault   
      * @error KMSKeyNotAccessibleFault   
      */
-    createDBInstanceReadReplica(params: RDS.CreateDBInstanceReadReplicaMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.InsufficientDBInstanceCapacityFault|RDS.DBParameterGroupNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBInstanceNotFoundFault|RDS.InvalidDBInstanceStateFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.DBSubnetGroupNotAllowedFault|RDS.InvalidDBSubnetGroupFault|RDS.StorageTypeNotSupportedFault|RDS.KMSKeyNotAccessibleFault|any, data: RDS.CreateDBInstanceReadReplicaResult|any) => void): Request;
+    createDBInstanceReadReplica(params: RDS.CreateDBInstanceReadReplicaMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.InsufficientDBInstanceCapacityFault|RDS.DBParameterGroupNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBInstanceNotFoundFault|RDS.InvalidDBInstanceStateFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.DBSubnetGroupNotAllowedFault|RDS.InvalidDBSubnetGroupFault|RDS.StorageTypeNotSupportedFault|RDS.KMSKeyNotAccessibleFault|any, data: RDS.CreateDBInstanceReadReplicaResult|any) => void): Request<RDS.CreateDBInstanceReadReplicaResult|any,RDS.DBInstanceAlreadyExistsFault|RDS.InsufficientDBInstanceCapacityFault|RDS.DBParameterGroupNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBInstanceNotFoundFault|RDS.InvalidDBInstanceStateFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.DBSubnetGroupNotAllowedFault|RDS.InvalidDBSubnetGroupFault|RDS.StorageTypeNotSupportedFault|RDS.KMSKeyNotAccessibleFault|any>;
     /**
      * Creates a new DB parameter group.
 
@@ -314,7 +314,7 @@ created or modified.
      * @error DBParameterGroupQuotaExceededFault   
      * @error DBParameterGroupAlreadyExistsFault   
      */
-    createDBParameterGroup(params: RDS.CreateDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupQuotaExceededFault|RDS.DBParameterGroupAlreadyExistsFault|any, data: RDS.CreateDBParameterGroupResult|any) => void): Request;
+    createDBParameterGroup(params: RDS.CreateDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupQuotaExceededFault|RDS.DBParameterGroupAlreadyExistsFault|any, data: RDS.CreateDBParameterGroupResult|any) => void): Request<RDS.CreateDBParameterGroupResult|any,RDS.DBParameterGroupQuotaExceededFault|RDS.DBParameterGroupAlreadyExistsFault|any>;
     /**
      * Creates a new DB security group. DB security groups control access to a DB
 instance.
@@ -323,7 +323,7 @@ instance.
      * @error DBSecurityGroupQuotaExceededFault   
      * @error DBSecurityGroupNotSupportedFault   
      */
-    createDBSecurityGroup(params: RDS.CreateDBSecurityGroupMessage, callback?: (err: RDS.DBSecurityGroupAlreadyExistsFault|RDS.DBSecurityGroupQuotaExceededFault|RDS.DBSecurityGroupNotSupportedFault|any, data: RDS.CreateDBSecurityGroupResult|any) => void): Request;
+    createDBSecurityGroup(params: RDS.CreateDBSecurityGroupMessage, callback?: (err: RDS.DBSecurityGroupAlreadyExistsFault|RDS.DBSecurityGroupQuotaExceededFault|RDS.DBSecurityGroupNotSupportedFault|any, data: RDS.CreateDBSecurityGroupResult|any) => void): Request<RDS.CreateDBSecurityGroupResult|any,RDS.DBSecurityGroupAlreadyExistsFault|RDS.DBSecurityGroupQuotaExceededFault|RDS.DBSecurityGroupNotSupportedFault|any>;
     /**
      * Creates a DBSnapshot. The source DBInstance must be in &quot;available&quot; state.
      *
@@ -332,7 +332,7 @@ instance.
      * @error DBInstanceNotFoundFault   
      * @error SnapshotQuotaExceededFault   
      */
-    createDBSnapshot(params: RDS.CreateDBSnapshotMessage, callback?: (err: RDS.DBSnapshotAlreadyExistsFault|RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|RDS.SnapshotQuotaExceededFault|any, data: RDS.CreateDBSnapshotResult|any) => void): Request;
+    createDBSnapshot(params: RDS.CreateDBSnapshotMessage, callback?: (err: RDS.DBSnapshotAlreadyExistsFault|RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|RDS.SnapshotQuotaExceededFault|any, data: RDS.CreateDBSnapshotResult|any) => void): Request<RDS.CreateDBSnapshotResult|any,RDS.DBSnapshotAlreadyExistsFault|RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|RDS.SnapshotQuotaExceededFault|any>;
     /**
      * Creates a new DB subnet group. DB subnet groups must contain at least one subnet
 in at least two AZs in the region.
@@ -343,7 +343,7 @@ in at least two AZs in the region.
      * @error DBSubnetGroupDoesNotCoverEnoughAZs   
      * @error InvalidSubnet   
      */
-    createDBSubnetGroup(params: RDS.CreateDBSubnetGroupMessage, callback?: (err: RDS.DBSubnetGroupAlreadyExistsFault|RDS.DBSubnetGroupQuotaExceededFault|RDS.DBSubnetQuotaExceededFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|any, data: RDS.CreateDBSubnetGroupResult|any) => void): Request;
+    createDBSubnetGroup(params: RDS.CreateDBSubnetGroupMessage, callback?: (err: RDS.DBSubnetGroupAlreadyExistsFault|RDS.DBSubnetGroupQuotaExceededFault|RDS.DBSubnetQuotaExceededFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|any, data: RDS.CreateDBSubnetGroupResult|any) => void): Request<RDS.CreateDBSubnetGroupResult|any,RDS.DBSubnetGroupAlreadyExistsFault|RDS.DBSubnetGroupQuotaExceededFault|RDS.DBSubnetQuotaExceededFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|any>;
     /**
      * Creates an RDS event notification subscription. This action requires a topic ARN
 (Amazon Resource Name) created by either the RDS console, the SNS console, or
@@ -372,14 +372,14 @@ from all RDS sources belonging to your customer account.
      * @error SubscriptionCategoryNotFoundFault   
      * @error SourceNotFoundFault   
      */
-    createEventSubscription(params: RDS.CreateEventSubscriptionMessage, callback?: (err: RDS.EventSubscriptionQuotaExceededFault|RDS.SubscriptionAlreadyExistFault|RDS.SNSInvalidTopicFault|RDS.SNSNoAuthorizationFault|RDS.SNSTopicArnNotFoundFault|RDS.SubscriptionCategoryNotFoundFault|RDS.SourceNotFoundFault|any, data: RDS.CreateEventSubscriptionResult|any) => void): Request;
+    createEventSubscription(params: RDS.CreateEventSubscriptionMessage, callback?: (err: RDS.EventSubscriptionQuotaExceededFault|RDS.SubscriptionAlreadyExistFault|RDS.SNSInvalidTopicFault|RDS.SNSNoAuthorizationFault|RDS.SNSTopicArnNotFoundFault|RDS.SubscriptionCategoryNotFoundFault|RDS.SourceNotFoundFault|any, data: RDS.CreateEventSubscriptionResult|any) => void): Request<RDS.CreateEventSubscriptionResult|any,RDS.EventSubscriptionQuotaExceededFault|RDS.SubscriptionAlreadyExistFault|RDS.SNSInvalidTopicFault|RDS.SNSNoAuthorizationFault|RDS.SNSTopicArnNotFoundFault|RDS.SubscriptionCategoryNotFoundFault|RDS.SourceNotFoundFault|any>;
     /**
      * Creates a new option group. You can create up to 20 option groups.
      *
      * @error OptionGroupAlreadyExistsFault   
      * @error OptionGroupQuotaExceededFault   
      */
-    createOptionGroup(params: RDS.CreateOptionGroupMessage, callback?: (err: RDS.OptionGroupAlreadyExistsFault|RDS.OptionGroupQuotaExceededFault|any, data: RDS.CreateOptionGroupResult|any) => void): Request;
+    createOptionGroup(params: RDS.CreateOptionGroupMessage, callback?: (err: RDS.OptionGroupAlreadyExistsFault|RDS.OptionGroupQuotaExceededFault|any, data: RDS.CreateOptionGroupResult|any) => void): Request<RDS.CreateOptionGroupResult|any,RDS.OptionGroupAlreadyExistsFault|RDS.OptionGroupQuotaExceededFault|any>;
     /**
      * The DeleteDBCluster action deletes a previously provisioned DB cluster. A
 successful response from the web service indicates the request was received
@@ -397,7 +397,7 @@ Amazon RDS User Guide.
      * @error SnapshotQuotaExceededFault   
      * @error InvalidDBClusterSnapshotStateFault   
      */
-    deleteDBCluster(params: RDS.DeleteDBClusterMessage, callback?: (err: RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|RDS.DBClusterSnapshotAlreadyExistsFault|RDS.SnapshotQuotaExceededFault|RDS.InvalidDBClusterSnapshotStateFault|any, data: RDS.DeleteDBClusterResult|any) => void): Request;
+    deleteDBCluster(params: RDS.DeleteDBClusterMessage, callback?: (err: RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|RDS.DBClusterSnapshotAlreadyExistsFault|RDS.SnapshotQuotaExceededFault|RDS.InvalidDBClusterSnapshotStateFault|any, data: RDS.DeleteDBClusterResult|any) => void): Request<RDS.DeleteDBClusterResult|any,RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|RDS.DBClusterSnapshotAlreadyExistsFault|RDS.SnapshotQuotaExceededFault|RDS.InvalidDBClusterSnapshotStateFault|any>;
     /**
      * Deletes a specified DB cluster parameter group. The DB cluster parameter group
 to be deleted cannot be associated with any DB clusters.
@@ -409,7 +409,7 @@ Amazon RDS User Guide.
      * @error InvalidDBParameterGroupStateFault   
      * @error DBParameterGroupNotFoundFault   
      */
-    deleteDBClusterParameterGroup(params: RDS.DeleteDBClusterParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: any) => void): Request;
+    deleteDBClusterParameterGroup(params: RDS.DeleteDBClusterParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: any) => void): Request<any,RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any>;
     /**
      * Deletes a DB cluster snapshot. If the snapshot is being copied, the copy
 operation is terminated.
@@ -422,7 +422,7 @@ Amazon RDS User Guide.
      * @error InvalidDBClusterSnapshotStateFault   
      * @error DBClusterSnapshotNotFoundFault   
      */
-    deleteDBClusterSnapshot(params: RDS.DeleteDBClusterSnapshotMessage, callback?: (err: RDS.InvalidDBClusterSnapshotStateFault|RDS.DBClusterSnapshotNotFoundFault|any, data: RDS.DeleteDBClusterSnapshotResult|any) => void): Request;
+    deleteDBClusterSnapshot(params: RDS.DeleteDBClusterSnapshotMessage, callback?: (err: RDS.InvalidDBClusterSnapshotStateFault|RDS.DBClusterSnapshotNotFoundFault|any, data: RDS.DeleteDBClusterSnapshotResult|any) => void): Request<RDS.DeleteDBClusterSnapshotResult|any,RDS.InvalidDBClusterSnapshotStateFault|RDS.DBClusterSnapshotNotFoundFault|any>;
     /**
      * The DeleteDBInstance action deletes a previously provisioned DB instance. A
 successful response from the web service indicates the request was received
@@ -445,7 +445,7 @@ the SkipFinalSnapshot parameter is set to &quot;true&quot;.
      * @error SnapshotQuotaExceededFault   
      * @error InvalidDBClusterStateFault   
      */
-    deleteDBInstance(params: RDS.DeleteDBInstanceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.InvalidDBInstanceStateFault|RDS.DBSnapshotAlreadyExistsFault|RDS.SnapshotQuotaExceededFault|RDS.InvalidDBClusterStateFault|any, data: RDS.DeleteDBInstanceResult|any) => void): Request;
+    deleteDBInstance(params: RDS.DeleteDBInstanceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.InvalidDBInstanceStateFault|RDS.DBSnapshotAlreadyExistsFault|RDS.SnapshotQuotaExceededFault|RDS.InvalidDBClusterStateFault|any, data: RDS.DeleteDBInstanceResult|any) => void): Request<RDS.DeleteDBInstanceResult|any,RDS.DBInstanceNotFoundFault|RDS.InvalidDBInstanceStateFault|RDS.DBSnapshotAlreadyExistsFault|RDS.SnapshotQuotaExceededFault|RDS.InvalidDBClusterStateFault|any>;
     /**
      * Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted cannot
 be associated with any DB instances.
@@ -453,7 +453,7 @@ be associated with any DB instances.
      * @error InvalidDBParameterGroupStateFault   
      * @error DBParameterGroupNotFoundFault   
      */
-    deleteDBParameterGroup(params: RDS.DeleteDBParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: any) => void): Request;
+    deleteDBParameterGroup(params: RDS.DeleteDBParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: any) => void): Request<any,RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any>;
     /**
      * Deletes a DB security group.
 
@@ -462,7 +462,7 @@ The specified DB security group must not be associated with any DB instances.
      * @error InvalidDBSecurityGroupStateFault   
      * @error DBSecurityGroupNotFoundFault   
      */
-    deleteDBSecurityGroup(params: RDS.DeleteDBSecurityGroupMessage, callback?: (err: RDS.InvalidDBSecurityGroupStateFault|RDS.DBSecurityGroupNotFoundFault|any, data: any) => void): Request;
+    deleteDBSecurityGroup(params: RDS.DeleteDBSecurityGroupMessage, callback?: (err: RDS.InvalidDBSecurityGroupStateFault|RDS.DBSecurityGroupNotFoundFault|any, data: any) => void): Request<any,RDS.InvalidDBSecurityGroupStateFault|RDS.DBSecurityGroupNotFoundFault|any>;
     /**
      * Deletes a DBSnapshot. If the snapshot is being copied, the copy operation is
 terminated.
@@ -472,7 +472,7 @@ The DBSnapshot must be in the available state to be deleted.
      * @error InvalidDBSnapshotStateFault   
      * @error DBSnapshotNotFoundFault   
      */
-    deleteDBSnapshot(params: RDS.DeleteDBSnapshotMessage, callback?: (err: RDS.InvalidDBSnapshotStateFault|RDS.DBSnapshotNotFoundFault|any, data: RDS.DeleteDBSnapshotResult|any) => void): Request;
+    deleteDBSnapshot(params: RDS.DeleteDBSnapshotMessage, callback?: (err: RDS.InvalidDBSnapshotStateFault|RDS.DBSnapshotNotFoundFault|any, data: RDS.DeleteDBSnapshotResult|any) => void): Request<RDS.DeleteDBSnapshotResult|any,RDS.InvalidDBSnapshotStateFault|RDS.DBSnapshotNotFoundFault|any>;
     /**
      * Deletes a DB subnet group.
 
@@ -483,21 +483,21 @@ instances.
      * @error InvalidDBSubnetStateFault   
      * @error DBSubnetGroupNotFoundFault   
      */
-    deleteDBSubnetGroup(params: RDS.DeleteDBSubnetGroupMessage, callback?: (err: RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidDBSubnetStateFault|RDS.DBSubnetGroupNotFoundFault|any, data: any) => void): Request;
+    deleteDBSubnetGroup(params: RDS.DeleteDBSubnetGroupMessage, callback?: (err: RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidDBSubnetStateFault|RDS.DBSubnetGroupNotFoundFault|any, data: any) => void): Request<any,RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidDBSubnetStateFault|RDS.DBSubnetGroupNotFoundFault|any>;
     /**
      * Deletes an RDS event notification subscription.
      *
      * @error SubscriptionNotFoundFault   
      * @error InvalidEventSubscriptionStateFault   
      */
-    deleteEventSubscription(params: RDS.DeleteEventSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault|RDS.InvalidEventSubscriptionStateFault|any, data: RDS.DeleteEventSubscriptionResult|any) => void): Request;
+    deleteEventSubscription(params: RDS.DeleteEventSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault|RDS.InvalidEventSubscriptionStateFault|any, data: RDS.DeleteEventSubscriptionResult|any) => void): Request<RDS.DeleteEventSubscriptionResult|any,RDS.SubscriptionNotFoundFault|RDS.InvalidEventSubscriptionStateFault|any>;
     /**
      * Deletes an existing option group.
      *
      * @error OptionGroupNotFoundFault   
      * @error InvalidOptionGroupStateFault   
      */
-    deleteOptionGroup(params: RDS.DeleteOptionGroupMessage, callback?: (err: RDS.OptionGroupNotFoundFault|RDS.InvalidOptionGroupStateFault|any, data: any) => void): Request;
+    deleteOptionGroup(params: RDS.DeleteOptionGroupMessage, callback?: (err: RDS.OptionGroupNotFoundFault|RDS.InvalidOptionGroupStateFault|any, data: any) => void): Request<any,RDS.OptionGroupNotFoundFault|RDS.InvalidOptionGroupStateFault|any>;
     /**
      * Lists all of the attributes for a customer account. The attributes include
 Amazon RDS quotas for the account, such as the number of DB instances allowed.
@@ -507,13 +507,13 @@ quota, and the quota&#x27;s maximum value.
 This command does not take any parameters.
      *
      */
-    describeAccountAttributes(params: RDS.DescribeAccountAttributesMessage, callback?: (err: any, data: RDS.AccountAttributesMessage|any) => void): Request;
+    describeAccountAttributes(params: RDS.DescribeAccountAttributesMessage, callback?: (err: any, data: RDS.AccountAttributesMessage|any) => void): Request<RDS.AccountAttributesMessage|any,any>;
     /**
      * Lists the set of CA certificates provided by Amazon RDS for this AWS account.
      *
      * @error CertificateNotFoundFault   
      */
-    describeCertificates(params: RDS.DescribeCertificatesMessage, callback?: (err: RDS.CertificateNotFoundFault|any, data: RDS.CertificateMessage|any) => void): Request;
+    describeCertificates(params: RDS.DescribeCertificatesMessage, callback?: (err: RDS.CertificateNotFoundFault|any, data: RDS.CertificateMessage|any) => void): Request<RDS.CertificateMessage|any,RDS.CertificateNotFoundFault|any>;
     /**
      * Returns a list of DBClusterParameterGroup descriptions. If a 
 DBClusterParameterGroupName parameter is specified, the list will contain only
@@ -525,7 +525,7 @@ Amazon RDS User Guide.
      *
      * @error DBParameterGroupNotFoundFault   
      */
-    describeDBClusterParameterGroups(params: RDS.DescribeDBClusterParameterGroupsMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBClusterParameterGroupsMessage|any) => void): Request;
+    describeDBClusterParameterGroups(params: RDS.DescribeDBClusterParameterGroupsMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBClusterParameterGroupsMessage|any) => void): Request<RDS.DBClusterParameterGroupsMessage|any,RDS.DBParameterGroupNotFoundFault|any>;
     /**
      * Returns the detailed parameter list for a particular DB cluster parameter group.
 
@@ -535,7 +535,7 @@ Amazon RDS User Guide.
      *
      * @error DBParameterGroupNotFoundFault   
      */
-    describeDBClusterParameters(params: RDS.DescribeDBClusterParametersMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBClusterParameterGroupDetails|any) => void): Request;
+    describeDBClusterParameters(params: RDS.DescribeDBClusterParametersMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBClusterParameterGroupDetails|any) => void): Request<RDS.DBClusterParameterGroupDetails|any,RDS.DBParameterGroupNotFoundFault|any>;
     /**
      * Returns information about DB cluster snapshots. This API supports pagination.
 
@@ -545,7 +545,7 @@ Amazon RDS User Guide.
      *
      * @error DBClusterSnapshotNotFoundFault   
      */
-    describeDBClusterSnapshots(params: RDS.DescribeDBClusterSnapshotsMessage, callback?: (err: RDS.DBClusterSnapshotNotFoundFault|any, data: RDS.DBClusterSnapshotMessage|any) => void): Request;
+    describeDBClusterSnapshots(params: RDS.DescribeDBClusterSnapshotsMessage, callback?: (err: RDS.DBClusterSnapshotNotFoundFault|any, data: RDS.DBClusterSnapshotMessage|any) => void): Request<RDS.DBClusterSnapshotMessage|any,RDS.DBClusterSnapshotNotFoundFault|any>;
     /**
      * Returns information about provisioned Aurora DB clusters. This API supports
 pagination.
@@ -556,25 +556,25 @@ Amazon RDS User Guide.
      *
      * @error DBClusterNotFoundFault   
      */
-    describeDBClusters(params: RDS.DescribeDBClustersMessage, callback?: (err: RDS.DBClusterNotFoundFault|any, data: RDS.DBClusterMessage|any) => void): Request;
+    describeDBClusters(params: RDS.DescribeDBClustersMessage, callback?: (err: RDS.DBClusterNotFoundFault|any, data: RDS.DBClusterMessage|any) => void): Request<RDS.DBClusterMessage|any,RDS.DBClusterNotFoundFault|any>;
     /**
      * Returns a list of the available DB engines.
      *
      */
-    describeDBEngineVersions(params: RDS.DescribeDBEngineVersionsMessage, callback?: (err: any, data: RDS.DBEngineVersionMessage|any) => void): Request;
+    describeDBEngineVersions(params: RDS.DescribeDBEngineVersionsMessage, callback?: (err: any, data: RDS.DBEngineVersionMessage|any) => void): Request<RDS.DBEngineVersionMessage|any,any>;
     /**
      * Returns information about provisioned RDS instances. This API supports
 pagination.
      *
      * @error DBInstanceNotFoundFault   
      */
-    describeDBInstances(params: RDS.DescribeDBInstancesMessage, callback?: (err: RDS.DBInstanceNotFoundFault|any, data: RDS.DBInstanceMessage|any) => void): Request;
+    describeDBInstances(params: RDS.DescribeDBInstancesMessage, callback?: (err: RDS.DBInstanceNotFoundFault|any, data: RDS.DBInstanceMessage|any) => void): Request<RDS.DBInstanceMessage|any,RDS.DBInstanceNotFoundFault|any>;
     /**
      * Returns a list of DB log files for the DB instance.
      *
      * @error DBInstanceNotFoundFault   
      */
-    describeDBLogFiles(params: RDS.DescribeDBLogFilesMessage, callback?: (err: RDS.DBInstanceNotFoundFault|any, data: RDS.DescribeDBLogFilesResponse|any) => void): Request;
+    describeDBLogFiles(params: RDS.DescribeDBLogFilesMessage, callback?: (err: RDS.DBInstanceNotFoundFault|any, data: RDS.DescribeDBLogFilesResponse|any) => void): Request<RDS.DescribeDBLogFilesResponse|any,RDS.DBInstanceNotFoundFault|any>;
     /**
      * Returns a list of DBParameterGroup descriptions. If a DBParameterGroupName is
 specified, the list will contain only the description of the specified DB
@@ -582,13 +582,13 @@ parameter group.
      *
      * @error DBParameterGroupNotFoundFault   
      */
-    describeDBParameterGroups(params: RDS.DescribeDBParameterGroupsMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBParameterGroupsMessage|any) => void): Request;
+    describeDBParameterGroups(params: RDS.DescribeDBParameterGroupsMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBParameterGroupsMessage|any) => void): Request<RDS.DBParameterGroupsMessage|any,RDS.DBParameterGroupNotFoundFault|any>;
     /**
      * Returns the detailed parameter list for a particular DB parameter group.
      *
      * @error DBParameterGroupNotFoundFault   
      */
-    describeDBParameters(params: RDS.DescribeDBParametersMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBParameterGroupDetails|any) => void): Request;
+    describeDBParameters(params: RDS.DescribeDBParametersMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBParameterGroupDetails|any) => void): Request<RDS.DBParameterGroupDetails|any,RDS.DBParameterGroupNotFoundFault|any>;
     /**
      * Returns a list of DBSecurityGroup descriptions. If a DBSecurityGroupName is
 specified, the list will contain only the descriptions of the specified DB
@@ -596,7 +596,7 @@ security group.
      *
      * @error DBSecurityGroupNotFoundFault   
      */
-    describeDBSecurityGroups(params: RDS.DescribeDBSecurityGroupsMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault|any, data: RDS.DBSecurityGroupMessage|any) => void): Request;
+    describeDBSecurityGroups(params: RDS.DescribeDBSecurityGroupsMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault|any, data: RDS.DBSecurityGroupMessage|any) => void): Request<RDS.DBSecurityGroupMessage|any,RDS.DBSecurityGroupNotFoundFault|any>;
     /**
      * Returns a list of DB snapshot attribute names and values for a manual DB
 snapshot.
@@ -613,13 +613,13 @@ ModifyDBSnapshotAttribute API.
      *
      * @error DBSnapshotNotFoundFault   
      */
-    describeDBSnapshotAttributes(params: RDS.DescribeDBSnapshotAttributesMessage, callback?: (err: RDS.DBSnapshotNotFoundFault|any, data: RDS.DescribeDBSnapshotAttributesResult|any) => void): Request;
+    describeDBSnapshotAttributes(params: RDS.DescribeDBSnapshotAttributesMessage, callback?: (err: RDS.DBSnapshotNotFoundFault|any, data: RDS.DescribeDBSnapshotAttributesResult|any) => void): Request<RDS.DescribeDBSnapshotAttributesResult|any,RDS.DBSnapshotNotFoundFault|any>;
     /**
      * Returns information about DB snapshots. This API supports pagination.
      *
      * @error DBSnapshotNotFoundFault   
      */
-    describeDBSnapshots(params: RDS.DescribeDBSnapshotsMessage, callback?: (err: RDS.DBSnapshotNotFoundFault|any, data: RDS.DBSnapshotMessage|any) => void): Request;
+    describeDBSnapshots(params: RDS.DescribeDBSnapshotsMessage, callback?: (err: RDS.DBSnapshotNotFoundFault|any, data: RDS.DBSnapshotMessage|any) => void): Request<RDS.DBSnapshotMessage|any,RDS.DBSnapshotNotFoundFault|any>;
     /**
      * Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is
 specified, the list will contain only the descriptions of the specified
@@ -630,7 +630,7 @@ For an overview of CIDR ranges, go to the Wikipedia Tutorial
      *
      * @error DBSubnetGroupNotFoundFault   
      */
-    describeDBSubnetGroups(params: RDS.DescribeDBSubnetGroupsMessage, callback?: (err: RDS.DBSubnetGroupNotFoundFault|any, data: RDS.DBSubnetGroupMessage|any) => void): Request;
+    describeDBSubnetGroups(params: RDS.DescribeDBSubnetGroupsMessage, callback?: (err: RDS.DBSubnetGroupNotFoundFault|any, data: RDS.DBSubnetGroupMessage|any) => void): Request<RDS.DBSubnetGroupMessage|any,RDS.DBSubnetGroupNotFoundFault|any>;
     /**
      * Returns the default engine and system parameter information for the cluster
 database engine.
@@ -640,13 +640,13 @@ For more information on Amazon Aurora, see Aurora on Amazon RDS
 Amazon RDS User Guide.
      *
      */
-    describeEngineDefaultClusterParameters(params: RDS.DescribeEngineDefaultClusterParametersMessage, callback?: (err: any, data: RDS.DescribeEngineDefaultClusterParametersResult|any) => void): Request;
+    describeEngineDefaultClusterParameters(params: RDS.DescribeEngineDefaultClusterParametersMessage, callback?: (err: any, data: RDS.DescribeEngineDefaultClusterParametersResult|any) => void): Request<RDS.DescribeEngineDefaultClusterParametersResult|any,any>;
     /**
      * Returns the default engine and system parameter information for the specified
 database engine.
      *
      */
-    describeEngineDefaultParameters(params: RDS.DescribeEngineDefaultParametersMessage, callback?: (err: any, data: RDS.DescribeEngineDefaultParametersResult|any) => void): Request;
+    describeEngineDefaultParameters(params: RDS.DescribeEngineDefaultParametersMessage, callback?: (err: any, data: RDS.DescribeEngineDefaultParametersResult|any) => void): Request<RDS.DescribeEngineDefaultParametersResult|any,any>;
     /**
      * Displays a list of categories for all event source types, or, if specified, for
 a specified source type. You can see a list of the event categories and source
@@ -655,7 +655,7 @@ types in the Events
 in the Amazon RDS User Guide.
      *
      */
-    describeEventCategories(params: RDS.DescribeEventCategoriesMessage, callback?: (err: any, data: RDS.EventCategoriesMessage|any) => void): Request;
+    describeEventCategories(params: RDS.DescribeEventCategoriesMessage, callback?: (err: any, data: RDS.EventCategoriesMessage|any) => void): Request<RDS.EventCategoriesMessage|any,any>;
     /**
      * Lists all the subscription descriptions for a customer account. The description
 for a subscription includes SubscriptionName, SNSTopicARN, CustomerID,
@@ -665,7 +665,7 @@ If you specify a SubscriptionName, lists the description for that subscription.
      *
      * @error SubscriptionNotFoundFault   
      */
-    describeEventSubscriptions(params: RDS.DescribeEventSubscriptionsMessage, callback?: (err: RDS.SubscriptionNotFoundFault|any, data: RDS.EventSubscriptionsMessage|any) => void): Request;
+    describeEventSubscriptions(params: RDS.DescribeEventSubscriptionsMessage, callback?: (err: RDS.SubscriptionNotFoundFault|any, data: RDS.EventSubscriptionsMessage|any) => void): Request<RDS.EventSubscriptionsMessage|any,RDS.SubscriptionNotFoundFault|any>;
     /**
      * Returns events related to DB instances, DB security groups, DB snapshots, and DB
 parameter groups for the past 14 days. Events specific to a particular DB
@@ -674,50 +674,50 @@ obtained by providing the name as a parameter. By default, the past hour of
 events are returned.
      *
      */
-    describeEvents(params: RDS.DescribeEventsMessage, callback?: (err: any, data: RDS.EventsMessage|any) => void): Request;
+    describeEvents(params: RDS.DescribeEventsMessage, callback?: (err: any, data: RDS.EventsMessage|any) => void): Request<RDS.EventsMessage|any,any>;
     /**
      * Describes all available options.
      *
      */
-    describeOptionGroupOptions(params: RDS.DescribeOptionGroupOptionsMessage, callback?: (err: any, data: RDS.OptionGroupOptionsMessage|any) => void): Request;
+    describeOptionGroupOptions(params: RDS.DescribeOptionGroupOptionsMessage, callback?: (err: any, data: RDS.OptionGroupOptionsMessage|any) => void): Request<RDS.OptionGroupOptionsMessage|any,any>;
     /**
      * Describes the available option groups.
      *
      * @error OptionGroupNotFoundFault   
      */
-    describeOptionGroups(params: RDS.DescribeOptionGroupsMessage, callback?: (err: RDS.OptionGroupNotFoundFault|any, data: RDS.OptionGroups|any) => void): Request;
+    describeOptionGroups(params: RDS.DescribeOptionGroupsMessage, callback?: (err: RDS.OptionGroupNotFoundFault|any, data: RDS.OptionGroups|any) => void): Request<RDS.OptionGroups|any,RDS.OptionGroupNotFoundFault|any>;
     /**
      * Returns a list of orderable DB instance options for the specified engine.
      *
      */
-    describeOrderableDBInstanceOptions(params: RDS.DescribeOrderableDBInstanceOptionsMessage, callback?: (err: any, data: RDS.OrderableDBInstanceOptionsMessage|any) => void): Request;
+    describeOrderableDBInstanceOptions(params: RDS.DescribeOrderableDBInstanceOptionsMessage, callback?: (err: any, data: RDS.OrderableDBInstanceOptionsMessage|any) => void): Request<RDS.OrderableDBInstanceOptionsMessage|any,any>;
     /**
      * Returns a list of resources (for example, DB instances) that have at least one
 pending maintenance action.
      *
      * @error ResourceNotFoundFault   
      */
-    describePendingMaintenanceActions(params: RDS.DescribePendingMaintenanceActionsMessage, callback?: (err: RDS.ResourceNotFoundFault|any, data: RDS.PendingMaintenanceActionsMessage|any) => void): Request;
+    describePendingMaintenanceActions(params: RDS.DescribePendingMaintenanceActionsMessage, callback?: (err: RDS.ResourceNotFoundFault|any, data: RDS.PendingMaintenanceActionsMessage|any) => void): Request<RDS.PendingMaintenanceActionsMessage|any,RDS.ResourceNotFoundFault|any>;
     /**
      * Returns information about reserved DB instances for this account, or about a
 specified reserved DB instance.
      *
      * @error ReservedDBInstanceNotFoundFault   
      */
-    describeReservedDBInstances(params: RDS.DescribeReservedDBInstancesMessage, callback?: (err: RDS.ReservedDBInstanceNotFoundFault|any, data: RDS.ReservedDBInstanceMessage|any) => void): Request;
+    describeReservedDBInstances(params: RDS.DescribeReservedDBInstancesMessage, callback?: (err: RDS.ReservedDBInstanceNotFoundFault|any, data: RDS.ReservedDBInstanceMessage|any) => void): Request<RDS.ReservedDBInstanceMessage|any,RDS.ReservedDBInstanceNotFoundFault|any>;
     /**
      * Lists available reserved DB instance offerings.
      *
      * @error ReservedDBInstancesOfferingNotFoundFault   
      */
-    describeReservedDBInstancesOfferings(params: RDS.DescribeReservedDBInstancesOfferingsMessage, callback?: (err: RDS.ReservedDBInstancesOfferingNotFoundFault|any, data: RDS.ReservedDBInstancesOfferingMessage|any) => void): Request;
+    describeReservedDBInstancesOfferings(params: RDS.DescribeReservedDBInstancesOfferingsMessage, callback?: (err: RDS.ReservedDBInstancesOfferingNotFoundFault|any, data: RDS.ReservedDBInstancesOfferingMessage|any) => void): Request<RDS.ReservedDBInstancesOfferingMessage|any,RDS.ReservedDBInstancesOfferingNotFoundFault|any>;
     /**
      * Downloads all or a portion of the specified log file, up to 1 MB in size.
      *
      * @error DBInstanceNotFoundFault   
      * @error DBLogFileNotFoundFault   
      */
-    downloadDBLogFilePortion(params: RDS.DownloadDBLogFilePortionMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBLogFileNotFoundFault|any, data: RDS.DownloadDBLogFilePortionDetails|any) => void): Request;
+    downloadDBLogFilePortion(params: RDS.DownloadDBLogFilePortionMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBLogFileNotFoundFault|any, data: RDS.DownloadDBLogFilePortionDetails|any) => void): Request<RDS.DownloadDBLogFilePortionDetails|any,RDS.DBInstanceNotFoundFault|RDS.DBLogFileNotFoundFault|any>;
     /**
      * Forces a failover for a DB cluster.
 
@@ -739,7 +739,7 @@ Amazon RDS User Guide.
      * @error DBClusterNotFoundFault   
      * @error InvalidDBClusterStateFault   
      */
-    failoverDBCluster(params: RDS.FailoverDBClusterMessage, callback?: (err: RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|any, data: RDS.FailoverDBClusterResult|any) => void): Request;
+    failoverDBCluster(params: RDS.FailoverDBClusterMessage, callback?: (err: RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|any, data: RDS.FailoverDBClusterResult|any) => void): Request<RDS.FailoverDBClusterResult|any,RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|any>;
     /**
      * Lists all tags on an Amazon RDS resource.
 
@@ -750,7 +750,7 @@ Resources
      * @error DBInstanceNotFoundFault   
      * @error DBSnapshotNotFoundFault   
      */
-    listTagsForResource(params: RDS.ListTagsForResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: RDS.TagListMessage|any) => void): Request;
+    listTagsForResource(params: RDS.ListTagsForResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: RDS.TagListMessage|any) => void): Request<RDS.TagListMessage|any,RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any>;
     /**
      * Modify a setting for an Amazon Aurora DB cluster. You can change one or more
 database configuration parameters by specifying these parameters and the new
@@ -771,7 +771,7 @@ Amazon RDS User Guide.
      * @error InvalidDBInstanceStateFault   
      * @error DBClusterAlreadyExistsFault   
      */
-    modifyDBCluster(params: RDS.ModifyDBClusterMessage, callback?: (err: RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.DBClusterParameterGroupNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|RDS.InvalidDBInstanceStateFault|RDS.DBClusterAlreadyExistsFault|any, data: RDS.ModifyDBClusterResult|any) => void): Request;
+    modifyDBCluster(params: RDS.ModifyDBClusterMessage, callback?: (err: RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.DBClusterParameterGroupNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|RDS.InvalidDBInstanceStateFault|RDS.DBClusterAlreadyExistsFault|any, data: RDS.ModifyDBClusterResult|any) => void): Request<RDS.ModifyDBClusterResult|any,RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.DBClusterParameterGroupNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|RDS.InvalidDBInstanceStateFault|RDS.DBClusterAlreadyExistsFault|any>;
     /**
      * Modifies the parameters of a DB cluster parameter group. To modify more than one
 parameter, submit a list of the following: ParameterName , ParameterValue , and 
@@ -799,7 +799,7 @@ to verify that your DB cluster parameter group has been created or modified.
      * @error DBParameterGroupNotFoundFault   
      * @error InvalidDBParameterGroupStateFault   
      */
-    modifyDBClusterParameterGroup(params: RDS.ModifyDBClusterParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any, data: RDS.DBClusterParameterGroupNameMessage|any) => void): Request;
+    modifyDBClusterParameterGroup(params: RDS.ModifyDBClusterParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any, data: RDS.DBClusterParameterGroupNameMessage|any) => void): Request<RDS.DBClusterParameterGroupNameMessage|any,RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any>;
     /**
      * Modify settings for a DB instance. You can change one or more database
 configuration parameters by specifying these parameters and the new values in
@@ -822,7 +822,7 @@ the request.
      * @error CertificateNotFoundFault   
      * @error DomainNotFoundFault   
      */
-    modifyDBInstance(params: RDS.ModifyDBInstanceMessage, callback?: (err: RDS.InvalidDBInstanceStateFault|RDS.InvalidDBSecurityGroupStateFault|RDS.DBInstanceAlreadyExistsFault|RDS.DBInstanceNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.DBParameterGroupNotFoundFault|RDS.InsufficientDBInstanceCapacityFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.DBUpgradeDependencyFailureFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.CertificateNotFoundFault|RDS.DomainNotFoundFault|any, data: RDS.ModifyDBInstanceResult|any) => void): Request;
+    modifyDBInstance(params: RDS.ModifyDBInstanceMessage, callback?: (err: RDS.InvalidDBInstanceStateFault|RDS.InvalidDBSecurityGroupStateFault|RDS.DBInstanceAlreadyExistsFault|RDS.DBInstanceNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.DBParameterGroupNotFoundFault|RDS.InsufficientDBInstanceCapacityFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.DBUpgradeDependencyFailureFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.CertificateNotFoundFault|RDS.DomainNotFoundFault|any, data: RDS.ModifyDBInstanceResult|any) => void): Request<RDS.ModifyDBInstanceResult|any,RDS.InvalidDBInstanceStateFault|RDS.InvalidDBSecurityGroupStateFault|RDS.DBInstanceAlreadyExistsFault|RDS.DBInstanceNotFoundFault|RDS.DBSecurityGroupNotFoundFault|RDS.DBParameterGroupNotFoundFault|RDS.InsufficientDBInstanceCapacityFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.DBUpgradeDependencyFailureFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.CertificateNotFoundFault|RDS.DomainNotFoundFault|any>;
     /**
      * Modifies the parameters of a DB parameter group. To modify more than one
 parameter, submit a list of the following: ParameterName , ParameterValue , and 
@@ -846,7 +846,7 @@ created or modified.
      * @error DBParameterGroupNotFoundFault   
      * @error InvalidDBParameterGroupStateFault   
      */
-    modifyDBParameterGroup(params: RDS.ModifyDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any, data: RDS.DBParameterGroupNameMessage|any) => void): Request;
+    modifyDBParameterGroup(params: RDS.ModifyDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any, data: RDS.DBParameterGroupNameMessage|any) => void): Request<RDS.DBParameterGroupNameMessage|any,RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any>;
     /**
      * Adds an attribute and values to, or removes an attribute and values from a
 manual DB snapshot.
@@ -868,7 +868,7 @@ If the manual DB snapshot is encrypted, it cannot be shared.
      * @error InvalidDBSnapshotStateFault   
      * @error SharedSnapshotQuotaExceededFault   
      */
-    modifyDBSnapshotAttribute(params: RDS.ModifyDBSnapshotAttributeMessage, callback?: (err: RDS.DBSnapshotNotFoundFault|RDS.InvalidDBSnapshotStateFault|RDS.SharedSnapshotQuotaExceededFault|any, data: RDS.ModifyDBSnapshotAttributeResult|any) => void): Request;
+    modifyDBSnapshotAttribute(params: RDS.ModifyDBSnapshotAttributeMessage, callback?: (err: RDS.DBSnapshotNotFoundFault|RDS.InvalidDBSnapshotStateFault|RDS.SharedSnapshotQuotaExceededFault|any, data: RDS.ModifyDBSnapshotAttributeResult|any) => void): Request<RDS.ModifyDBSnapshotAttributeResult|any,RDS.DBSnapshotNotFoundFault|RDS.InvalidDBSnapshotStateFault|RDS.SharedSnapshotQuotaExceededFault|any>;
     /**
      * Modifies an existing DB subnet group. DB subnet groups must contain at least one
 subnet in at least two AZs in the region.
@@ -879,7 +879,7 @@ subnet in at least two AZs in the region.
      * @error DBSubnetGroupDoesNotCoverEnoughAZs   
      * @error InvalidSubnet   
      */
-    modifyDBSubnetGroup(params: RDS.ModifyDBSubnetGroupMessage, callback?: (err: RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetQuotaExceededFault|RDS.SubnetAlreadyInUse|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|any, data: RDS.ModifyDBSubnetGroupResult|any) => void): Request;
+    modifyDBSubnetGroup(params: RDS.ModifyDBSubnetGroupMessage, callback?: (err: RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetQuotaExceededFault|RDS.SubnetAlreadyInUse|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|any, data: RDS.ModifyDBSubnetGroupResult|any) => void): Request<RDS.ModifyDBSubnetGroupResult|any,RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetQuotaExceededFault|RDS.SubnetAlreadyInUse|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|any>;
     /**
      * Modifies an existing RDS event notification subscription. Note that you cannot
 modify the source identifiers using this call; to change source identifiers for
@@ -897,14 +897,14 @@ in the Amazon RDS User Guide or by using the DescribeEventCategories action.
      * @error SNSTopicArnNotFoundFault   
      * @error SubscriptionCategoryNotFoundFault   
      */
-    modifyEventSubscription(params: RDS.ModifyEventSubscriptionMessage, callback?: (err: RDS.EventSubscriptionQuotaExceededFault|RDS.SubscriptionNotFoundFault|RDS.SNSInvalidTopicFault|RDS.SNSNoAuthorizationFault|RDS.SNSTopicArnNotFoundFault|RDS.SubscriptionCategoryNotFoundFault|any, data: RDS.ModifyEventSubscriptionResult|any) => void): Request;
+    modifyEventSubscription(params: RDS.ModifyEventSubscriptionMessage, callback?: (err: RDS.EventSubscriptionQuotaExceededFault|RDS.SubscriptionNotFoundFault|RDS.SNSInvalidTopicFault|RDS.SNSNoAuthorizationFault|RDS.SNSTopicArnNotFoundFault|RDS.SubscriptionCategoryNotFoundFault|any, data: RDS.ModifyEventSubscriptionResult|any) => void): Request<RDS.ModifyEventSubscriptionResult|any,RDS.EventSubscriptionQuotaExceededFault|RDS.SubscriptionNotFoundFault|RDS.SNSInvalidTopicFault|RDS.SNSNoAuthorizationFault|RDS.SNSTopicArnNotFoundFault|RDS.SubscriptionCategoryNotFoundFault|any>;
     /**
      * Modifies an existing option group.
      *
      * @error InvalidOptionGroupStateFault   
      * @error OptionGroupNotFoundFault   
      */
-    modifyOptionGroup(params: RDS.ModifyOptionGroupMessage, callback?: (err: RDS.InvalidOptionGroupStateFault|RDS.OptionGroupNotFoundFault|any, data: RDS.ModifyOptionGroupResult|any) => void): Request;
+    modifyOptionGroup(params: RDS.ModifyOptionGroupMessage, callback?: (err: RDS.InvalidOptionGroupStateFault|RDS.OptionGroupNotFoundFault|any, data: RDS.ModifyOptionGroupResult|any) => void): Request<RDS.ModifyOptionGroupResult|any,RDS.InvalidOptionGroupStateFault|RDS.OptionGroupNotFoundFault|any>;
     /**
      * Promotes a Read Replica DB instance to a standalone DB instance.
 
@@ -916,7 +916,7 @@ are taken based on your backup settings.
      * @error InvalidDBInstanceStateFault   
      * @error DBInstanceNotFoundFault   
      */
-    promoteReadReplica(params: RDS.PromoteReadReplicaMessage, callback?: (err: RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|any, data: RDS.PromoteReadReplicaResult|any) => void): Request;
+    promoteReadReplica(params: RDS.PromoteReadReplicaMessage, callback?: (err: RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|any, data: RDS.PromoteReadReplicaResult|any) => void): Request<RDS.PromoteReadReplicaResult|any,RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|any>;
     /**
      * Purchases a reserved DB instance offering.
      *
@@ -924,7 +924,7 @@ are taken based on your backup settings.
      * @error ReservedDBInstanceAlreadyExistsFault   
      * @error ReservedDBInstanceQuotaExceededFault   
      */
-    purchaseReservedDBInstancesOffering(params: RDS.PurchaseReservedDBInstancesOfferingMessage, callback?: (err: RDS.ReservedDBInstancesOfferingNotFoundFault|RDS.ReservedDBInstanceAlreadyExistsFault|RDS.ReservedDBInstanceQuotaExceededFault|any, data: RDS.PurchaseReservedDBInstancesOfferingResult|any) => void): Request;
+    purchaseReservedDBInstancesOffering(params: RDS.PurchaseReservedDBInstancesOfferingMessage, callback?: (err: RDS.ReservedDBInstancesOfferingNotFoundFault|RDS.ReservedDBInstanceAlreadyExistsFault|RDS.ReservedDBInstanceQuotaExceededFault|any, data: RDS.PurchaseReservedDBInstancesOfferingResult|any) => void): Request<RDS.PurchaseReservedDBInstancesOfferingResult|any,RDS.ReservedDBInstancesOfferingNotFoundFault|RDS.ReservedDBInstanceAlreadyExistsFault|RDS.ReservedDBInstanceQuotaExceededFault|any>;
     /**
      * Rebooting a DB instance restarts the database engine service. A reboot also
 applies to the DB instance any modifications to the associated DB parameter
@@ -947,7 +947,7 @@ rollback activity for in-transit transactions.
      * @error InvalidDBInstanceStateFault   
      * @error DBInstanceNotFoundFault   
      */
-    rebootDBInstance(params: RDS.RebootDBInstanceMessage, callback?: (err: RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|any, data: RDS.RebootDBInstanceResult|any) => void): Request;
+    rebootDBInstance(params: RDS.RebootDBInstanceMessage, callback?: (err: RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|any, data: RDS.RebootDBInstanceResult|any) => void): Request<RDS.RebootDBInstanceResult|any,RDS.InvalidDBInstanceStateFault|RDS.DBInstanceNotFoundFault|any>;
     /**
      * Removes a source identifier from an existing RDS event notification
 subscription.
@@ -955,7 +955,7 @@ subscription.
      * @error SubscriptionNotFoundFault   
      * @error SourceNotFoundFault   
      */
-    removeSourceIdentifierFromSubscription(params: RDS.RemoveSourceIdentifierFromSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault|RDS.SourceNotFoundFault|any, data: RDS.RemoveSourceIdentifierFromSubscriptionResult|any) => void): Request;
+    removeSourceIdentifierFromSubscription(params: RDS.RemoveSourceIdentifierFromSubscriptionMessage, callback?: (err: RDS.SubscriptionNotFoundFault|RDS.SourceNotFoundFault|any, data: RDS.RemoveSourceIdentifierFromSubscriptionResult|any) => void): Request<RDS.RemoveSourceIdentifierFromSubscriptionResult|any,RDS.SubscriptionNotFoundFault|RDS.SourceNotFoundFault|any>;
     /**
      * Removes metadata tags from an Amazon RDS resource.
 
@@ -966,7 +966,7 @@ Resources
      * @error DBInstanceNotFoundFault   
      * @error DBSnapshotNotFoundFault   
      */
-    removeTagsFromResource(params: RDS.RemoveTagsFromResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: any) => void): Request;
+    removeTagsFromResource(params: RDS.RemoveTagsFromResourceMessage, callback?: (err: RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any, data: any) => void): Request<any,RDS.DBInstanceNotFoundFault|RDS.DBSnapshotNotFoundFault|any>;
     /**
      * Modifies the parameters of a DB cluster parameter group to the default value. To
 reset specific parameters submit a list of the following: ParameterName and 
@@ -986,7 +986,7 @@ Amazon RDS User Guide.
      * @error InvalidDBParameterGroupStateFault   
      * @error DBParameterGroupNotFoundFault   
      */
-    resetDBClusterParameterGroup(params: RDS.ResetDBClusterParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBClusterParameterGroupNameMessage|any) => void): Request;
+    resetDBClusterParameterGroup(params: RDS.ResetDBClusterParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBClusterParameterGroupNameMessage|any) => void): Request<RDS.DBClusterParameterGroupNameMessage|any,RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any>;
     /**
      * Modifies the parameters of a DB parameter group to the engine/system default
 value. To reset specific parameters submit a list of the following: 
@@ -999,7 +999,7 @@ RebootDBInstance request.
      * @error InvalidDBParameterGroupStateFault   
      * @error DBParameterGroupNotFoundFault   
      */
-    resetDBParameterGroup(params: RDS.ResetDBParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBParameterGroupNameMessage|any) => void): Request;
+    resetDBParameterGroup(params: RDS.ResetDBParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBParameterGroupNameMessage|any) => void): Request<RDS.DBParameterGroupNameMessage|any,RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any>;
     /**
      * Creates a new DB cluster from a DB cluster snapshot. The target DB cluster is
 created from the source DB cluster restore point with the same configuration as
@@ -1028,7 +1028,7 @@ Amazon RDS User Guide.
      * @error OptionGroupNotFoundFault   
      * @error KMSKeyNotAccessibleFault   
      */
-    restoreDBClusterFromSnapshot(params: RDS.RestoreDBClusterFromSnapshotMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSnapshotNotFoundFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InsufficientDBClusterCapacityFault|RDS.InsufficientStorageClusterCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidSubnet|RDS.OptionGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|any, data: RDS.RestoreDBClusterFromSnapshotResult|any) => void): Request;
+    restoreDBClusterFromSnapshot(params: RDS.RestoreDBClusterFromSnapshotMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSnapshotNotFoundFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InsufficientDBClusterCapacityFault|RDS.InsufficientStorageClusterCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidSubnet|RDS.OptionGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|any, data: RDS.RestoreDBClusterFromSnapshotResult|any) => void): Request<RDS.RestoreDBClusterFromSnapshotResult|any,RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSnapshotNotFoundFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InsufficientDBClusterCapacityFault|RDS.InsufficientStorageClusterCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidSubnet|RDS.OptionGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|any>;
     /**
      * Restores a DB cluster to an arbitrary point in time. Users can restore to any
 point in time before LatestRestorableTime for up to BackupRetentionPeriod days.
@@ -1057,7 +1057,7 @@ Amazon RDS User Guide.
      * @error OptionGroupNotFoundFault   
      * @error KMSKeyNotAccessibleFault   
      */
-    restoreDBClusterToPointInTime(params: RDS.RestoreDBClusterToPointInTimeMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBClusterNotFoundFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InsufficientDBClusterCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidSubnet|RDS.OptionGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|any, data: RDS.RestoreDBClusterToPointInTimeResult|any) => void): Request;
+    restoreDBClusterToPointInTime(params: RDS.RestoreDBClusterToPointInTimeMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBClusterNotFoundFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InsufficientDBClusterCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidSubnet|RDS.OptionGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|any, data: RDS.RestoreDBClusterToPointInTimeResult|any) => void): Request<RDS.RestoreDBClusterToPointInTimeResult|any,RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBClusterNotFoundFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InsufficientDBClusterCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidSubnet|RDS.OptionGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|any>;
     /**
      * Creates a new DB instance from a DB snapshot. The target database is created
 from the source database restore point with the most of original configuration
@@ -1098,7 +1098,7 @@ must be the ARN of the shared DB snapshot.
      * @error DBSecurityGroupNotFoundFault   
      * @error DomainNotFoundFault   
      */
-    restoreDBInstanceFromDBSnapshot(params: RDS.RestoreDBInstanceFromDBSnapshotMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.DBSnapshotNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.InsufficientDBInstanceCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBSecurityGroupNotFoundFault|RDS.DomainNotFoundFault|any, data: RDS.RestoreDBInstanceFromDBSnapshotResult|any) => void): Request;
+    restoreDBInstanceFromDBSnapshot(params: RDS.RestoreDBInstanceFromDBSnapshotMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.DBSnapshotNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.InsufficientDBInstanceCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBSecurityGroupNotFoundFault|RDS.DomainNotFoundFault|any, data: RDS.RestoreDBInstanceFromDBSnapshotResult|any) => void): Request<RDS.RestoreDBInstanceFromDBSnapshotResult|any,RDS.DBInstanceAlreadyExistsFault|RDS.DBSnapshotNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.InsufficientDBInstanceCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBSecurityGroupNotFoundFault|RDS.DomainNotFoundFault|any>;
     /**
      * Restores a DB instance to an arbitrary point in time. You can restore to any
 point in time before the time identified by the LatestRestorableTime property.
@@ -1133,7 +1133,7 @@ deployment.
      * @error DBSecurityGroupNotFoundFault   
      * @error DomainNotFoundFault   
      */
-    restoreDBInstanceToPointInTime(params: RDS.RestoreDBInstanceToPointInTimeMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.DBInstanceNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.InsufficientDBInstanceCapacityFault|RDS.InvalidDBInstanceStateFault|RDS.PointInTimeRestoreNotEnabledFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBSecurityGroupNotFoundFault|RDS.DomainNotFoundFault|any, data: RDS.RestoreDBInstanceToPointInTimeResult|any) => void): Request;
+    restoreDBInstanceToPointInTime(params: RDS.RestoreDBInstanceToPointInTimeMessage, callback?: (err: RDS.DBInstanceAlreadyExistsFault|RDS.DBInstanceNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.InsufficientDBInstanceCapacityFault|RDS.InvalidDBInstanceStateFault|RDS.PointInTimeRestoreNotEnabledFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBSecurityGroupNotFoundFault|RDS.DomainNotFoundFault|any, data: RDS.RestoreDBInstanceToPointInTimeResult|any) => void): Request<RDS.RestoreDBInstanceToPointInTimeResult|any,RDS.DBInstanceAlreadyExistsFault|RDS.DBInstanceNotFoundFault|RDS.InstanceQuotaExceededFault|RDS.InsufficientDBInstanceCapacityFault|RDS.InvalidDBInstanceStateFault|RDS.PointInTimeRestoreNotEnabledFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBSubnetGroupDoesNotCoverEnoughAZs|RDS.InvalidSubnet|RDS.ProvisionedIopsNotAvailableInAZFault|RDS.OptionGroupNotFoundFault|RDS.StorageTypeNotSupportedFault|RDS.AuthorizationNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBSecurityGroupNotFoundFault|RDS.DomainNotFoundFault|any>;
     /**
      * Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or
 EC2 or VPC Security Groups. Required parameters for this API are one of CIDRIP,
@@ -1144,7 +1144,7 @@ EC2SecurityGroupName or EC2SecurityGroupId).
      * @error AuthorizationNotFoundFault   
      * @error InvalidDBSecurityGroupStateFault   
      */
-    revokeDBSecurityGroupIngress(params: RDS.RevokeDBSecurityGroupIngressMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault|RDS.AuthorizationNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|any, data: RDS.RevokeDBSecurityGroupIngressResult|any) => void): Request;
+    revokeDBSecurityGroupIngress(params: RDS.RevokeDBSecurityGroupIngressMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault|RDS.AuthorizationNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|any, data: RDS.RevokeDBSecurityGroupIngressResult|any) => void): Request<RDS.RevokeDBSecurityGroupIngressResult|any,RDS.DBSecurityGroupNotFoundFault|RDS.AuthorizationNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|any>;
 
   }
 

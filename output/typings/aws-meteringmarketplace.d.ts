@@ -40,7 +40,7 @@ simply returns the metering record ID.
      * @error DuplicateRequestException   
      * @error ThrottlingException   
      */
-    meterUsage(params: MarketplaceMetering.MeterUsageRequest, callback?: (err: MarketplaceMetering.InternalServiceErrorException|MarketplaceMetering.InvalidProductCodeException|MarketplaceMetering.InvalidUsageDimensionException|MarketplaceMetering.InvalidEndpointRegionException|MarketplaceMetering.TimestampOutOfBoundsException|MarketplaceMetering.DuplicateRequestException|MarketplaceMetering.ThrottlingException|any, data: MarketplaceMetering.MeterUsageResult|any) => void): Request;
+    meterUsage(params: MarketplaceMetering.MeterUsageRequest, callback?: (err: MarketplaceMetering.InternalServiceErrorException|MarketplaceMetering.InvalidProductCodeException|MarketplaceMetering.InvalidUsageDimensionException|MarketplaceMetering.InvalidEndpointRegionException|MarketplaceMetering.TimestampOutOfBoundsException|MarketplaceMetering.DuplicateRequestException|MarketplaceMetering.ThrottlingException|any, data: MarketplaceMetering.MeterUsageResult|any) => void): Request<MarketplaceMetering.MeterUsageResult|any,MarketplaceMetering.InternalServiceErrorException|MarketplaceMetering.InvalidProductCodeException|MarketplaceMetering.InvalidUsageDimensionException|MarketplaceMetering.InvalidEndpointRegionException|MarketplaceMetering.TimestampOutOfBoundsException|MarketplaceMetering.DuplicateRequestException|MarketplaceMetering.ThrottlingException|any>;
 
   }
 

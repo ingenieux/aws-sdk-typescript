@@ -87,7 +87,7 @@ attachments and 5 MB per attachment.
      * @error AttachmentLimitExceeded The limit for the number of attachment sets created in a short period of time
 has been exceeded.  
      */
-    addAttachmentsToSet(params: Support.AddAttachmentsToSetRequest, callback?: (err: Support.InternalServerError|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|Support.AttachmentSetSizeLimitExceeded|Support.AttachmentLimitExceeded|any, data: Support.AddAttachmentsToSetResponse|any) => void): Request;
+    addAttachmentsToSet(params: Support.AddAttachmentsToSetRequest, callback?: (err: Support.InternalServerError|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|Support.AttachmentSetSizeLimitExceeded|Support.AttachmentLimitExceeded|any, data: Support.AddAttachmentsToSetResponse|any) => void): Request<Support.AddAttachmentsToSetResponse|any,Support.InternalServerError|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|Support.AttachmentSetSizeLimitExceeded|Support.AttachmentLimitExceeded|any>;
     /**
      * Adds additional customer communication to an AWS Support case. You use the 
 CaseId value to identify the case to add communication to. You can list a set of
@@ -104,7 +104,7 @@ This operation implements a subset of the features of the AWS Support Center.
      * @error AttachmentSetExpired The expiration time of the attachment set has passed. The set expires 1 hour
 after it is created.  
      */
-    addCommunicationToCase(params: Support.AddCommunicationToCaseRequest, callback?: (err: Support.InternalServerError|Support.CaseIdNotFound|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|any, data: Support.AddCommunicationToCaseResponse|any) => void): Request;
+    addCommunicationToCase(params: Support.AddCommunicationToCaseRequest, callback?: (err: Support.InternalServerError|Support.CaseIdNotFound|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|any, data: Support.AddCommunicationToCaseResponse|any) => void): Request<Support.AddCommunicationToCaseResponse|any,Support.InternalServerError|Support.CaseIdNotFound|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|any>;
     /**
      * Creates a new case in the AWS Support Center. This operation is modeled on the
 behavior of the AWS Support Center Create Case
@@ -150,7 +150,7 @@ are used by the DescribeCases operation to retrieve existing AWS Support cases.
      * @error AttachmentSetExpired The expiration time of the attachment set has passed. The set expires 1 hour
 after it is created.  
      */
-    createCase(params: Support.CreateCaseRequest, callback?: (err: Support.InternalServerError|Support.CaseCreationLimitExceeded|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|any, data: Support.CreateCaseResponse|any) => void): Request;
+    createCase(params: Support.CreateCaseRequest, callback?: (err: Support.InternalServerError|Support.CaseCreationLimitExceeded|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|any, data: Support.CreateCaseResponse|any) => void): Request<Support.CreateCaseResponse|any,Support.InternalServerError|Support.CaseCreationLimitExceeded|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|any>;
     /**
      * Returns the attachment that has the specified ID. Attachment IDs are generated
 by the case management system when you add an attachment to a case or case
@@ -162,7 +162,7 @@ are returned by the DescribeCommunications operation.
 time has been exceeded.  
      * @error AttachmentIdNotFound An attachment with the specified ID could not be found.  
      */
-    describeAttachment(params: Support.DescribeAttachmentRequest, callback?: (err: Support.InternalServerError|Support.DescribeAttachmentLimitExceeded|Support.AttachmentIdNotFound|any, data: Support.DescribeAttachmentResponse|any) => void): Request;
+    describeAttachment(params: Support.DescribeAttachmentRequest, callback?: (err: Support.InternalServerError|Support.DescribeAttachmentLimitExceeded|Support.AttachmentIdNotFound|any, data: Support.DescribeAttachmentResponse|any) => void): Request<Support.DescribeAttachmentResponse|any,Support.InternalServerError|Support.DescribeAttachmentLimitExceeded|Support.AttachmentIdNotFound|any>;
     /**
      * Returns a list of cases that you specify by passing one or more case IDs. In
 addition, you can filter the cases by date by setting values for the AfterTime 
@@ -182,7 +182,7 @@ The response returns the following in JSON format:
      * @error InternalServerError An internal server error occurred.  
      * @error CaseIdNotFound The requested CaseId could not be located.  
      */
-    describeCases(params: Support.DescribeCasesRequest, callback?: (err: Support.InternalServerError|Support.CaseIdNotFound|any, data: Support.DescribeCasesResponse|any) => void): Request;
+    describeCases(params: Support.DescribeCasesRequest, callback?: (err: Support.InternalServerError|Support.CaseIdNotFound|any, data: Support.DescribeCasesResponse|any) => void): Request<Support.DescribeCasesResponse|any,Support.InternalServerError|Support.CaseIdNotFound|any>;
     /**
      * Returns communications (and attachments) for one or more support cases. You can
 use the AfterTime and BeforeTime parameters to filter by date. You can use the 
@@ -198,7 +198,7 @@ page, and use NextToken to specify the resumption of pagination.
      * @error InternalServerError An internal server error occurred.  
      * @error CaseIdNotFound The requested CaseId could not be located.  
      */
-    describeCommunications(params: Support.DescribeCommunicationsRequest, callback?: (err: Support.InternalServerError|Support.CaseIdNotFound|any, data: Support.DescribeCommunicationsResponse|any) => void): Request;
+    describeCommunications(params: Support.DescribeCommunicationsRequest, callback?: (err: Support.InternalServerError|Support.CaseIdNotFound|any, data: Support.DescribeCommunicationsResponse|any) => void): Request<Support.DescribeCommunicationsResponse|any,Support.InternalServerError|Support.CaseIdNotFound|any>;
     /**
      * Returns the current list of AWS services and a list of service categories that
 applies to each one. You then use service names and categories in your 
@@ -214,7 +214,7 @@ always have the most recent set of service and category codes.
      *
      * @error InternalServerError An internal server error occurred.  
      */
-    describeServices(params: Support.DescribeServicesRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeServicesResponse|any) => void): Request;
+    describeServices(params: Support.DescribeServicesRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeServicesResponse|any) => void): Request<Support.DescribeServicesResponse|any,Support.InternalServerError|any>;
     /**
      * Returns the list of severity levels that you can assign to an AWS Support case.
 The severity level for a case is also a field in the CaseDetails data type
@@ -222,14 +222,14 @@ included in any CreateCase request.
      *
      * @error InternalServerError An internal server error occurred.  
      */
-    describeSeverityLevels(params: Support.DescribeSeverityLevelsRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeSeverityLevelsResponse|any) => void): Request;
+    describeSeverityLevels(params: Support.DescribeSeverityLevelsRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeSeverityLevelsResponse|any) => void): Request<Support.DescribeSeverityLevelsResponse|any,Support.InternalServerError|any>;
     /**
      * Returns the refresh status of the Trusted Advisor checks that have the specified
 check IDs. Check IDs can be obtained by calling DescribeTrustedAdvisorChecks .
      *
      * @error InternalServerError An internal server error occurred.  
      */
-    describeTrustedAdvisorCheckRefreshStatuses(params: Support.DescribeTrustedAdvisorCheckRefreshStatusesRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorCheckRefreshStatusesResponse|any) => void): Request;
+    describeTrustedAdvisorCheckRefreshStatuses(params: Support.DescribeTrustedAdvisorCheckRefreshStatusesRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorCheckRefreshStatusesResponse|any) => void): Request<Support.DescribeTrustedAdvisorCheckRefreshStatusesResponse|any,Support.InternalServerError|any>;
     /**
      * Returns the results of the Trusted Advisor check that has the specified check
 ID. Check IDs can be obtained by calling DescribeTrustedAdvisorChecks .
@@ -250,7 +250,7 @@ In addition, the response contains these fields:
      *
      * @error InternalServerError An internal server error occurred.  
      */
-    describeTrustedAdvisorCheckResult(params: Support.DescribeTrustedAdvisorCheckResultRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorCheckResultResponse|any) => void): Request;
+    describeTrustedAdvisorCheckResult(params: Support.DescribeTrustedAdvisorCheckResultRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorCheckResultResponse|any) => void): Request<Support.DescribeTrustedAdvisorCheckResultResponse|any,Support.InternalServerError|any>;
     /**
      * Returns the summaries of the results of the Trusted Advisor checks that have the
 specified check IDs. Check IDs can be obtained by calling 
@@ -260,7 +260,7 @@ The response contains an array of TrustedAdvisorCheckSummary objects.
      *
      * @error InternalServerError An internal server error occurred.  
      */
-    describeTrustedAdvisorCheckSummaries(params: Support.DescribeTrustedAdvisorCheckSummariesRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorCheckSummariesResponse|any) => void): Request;
+    describeTrustedAdvisorCheckSummaries(params: Support.DescribeTrustedAdvisorCheckSummariesRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorCheckSummariesResponse|any) => void): Request<Support.DescribeTrustedAdvisorCheckSummariesResponse|any,Support.InternalServerError|any>;
     /**
      * Returns information about all available Trusted Advisor checks, including name,
 ID, category, description, and metadata. You must specify a language code;
@@ -269,7 +269,7 @@ contains a TrustedAdvisorCheckDescription for each check.
      *
      * @error InternalServerError An internal server error occurred.  
      */
-    describeTrustedAdvisorChecks(params: Support.DescribeTrustedAdvisorChecksRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorChecksResponse|any) => void): Request;
+    describeTrustedAdvisorChecks(params: Support.DescribeTrustedAdvisorChecksRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorChecksResponse|any) => void): Request<Support.DescribeTrustedAdvisorChecksResponse|any,Support.InternalServerError|any>;
     /**
      * Requests a refresh of the Trusted Advisor check that has the specified check ID.
 Check IDs can be obtained by calling DescribeTrustedAdvisorChecks .
@@ -285,7 +285,7 @@ these fields:
      *
      * @error InternalServerError An internal server error occurred.  
      */
-    refreshTrustedAdvisorCheck(params: Support.RefreshTrustedAdvisorCheckRequest, callback?: (err: Support.InternalServerError|any, data: Support.RefreshTrustedAdvisorCheckResponse|any) => void): Request;
+    refreshTrustedAdvisorCheck(params: Support.RefreshTrustedAdvisorCheckRequest, callback?: (err: Support.InternalServerError|any, data: Support.RefreshTrustedAdvisorCheckResponse|any) => void): Request<Support.RefreshTrustedAdvisorCheckResponse|any,Support.InternalServerError|any>;
     /**
      * Takes a CaseId and returns the initial state of the case along with the state of
 the case after the call to ResolveCase completed.
@@ -293,7 +293,7 @@ the case after the call to ResolveCase completed.
      * @error InternalServerError An internal server error occurred.  
      * @error CaseIdNotFound The requested CaseId could not be located.  
      */
-    resolveCase(params: Support.ResolveCaseRequest, callback?: (err: Support.InternalServerError|Support.CaseIdNotFound|any, data: Support.ResolveCaseResponse|any) => void): Request;
+    resolveCase(params: Support.ResolveCaseRequest, callback?: (err: Support.InternalServerError|Support.CaseIdNotFound|any, data: Support.ResolveCaseResponse|any) => void): Request<Support.ResolveCaseResponse|any,Support.InternalServerError|Support.CaseIdNotFound|any>;
 
   }
 

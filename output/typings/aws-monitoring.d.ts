@@ -40,7 +40,7 @@ health.
      *
      * @error ResourceNotFound   
      */
-    deleteAlarms(params: CloudWatch.DeleteAlarmsInput, callback?: (err: CloudWatch.ResourceNotFound|any, data: any) => void): Request;
+    deleteAlarms(params: CloudWatch.DeleteAlarmsInput, callback?: (err: CloudWatch.ResourceNotFound|any, data: any) => void): Request<any,CloudWatch.ResourceNotFound|any>;
     /**
      * Retrieves history for the specified alarm. Filter alarms by date range or item
 type. If an alarm name is not specified, Amazon CloudWatch returns histories for
@@ -51,7 +51,7 @@ you delete the alarm.
      *
      * @error InvalidNextToken   
      */
-    describeAlarmHistory(params: CloudWatch.DescribeAlarmHistoryInput, callback?: (err: CloudWatch.InvalidNextToken|any, data: CloudWatch.DescribeAlarmHistoryOutput|any) => void): Request;
+    describeAlarmHistory(params: CloudWatch.DescribeAlarmHistoryInput, callback?: (err: CloudWatch.InvalidNextToken|any, data: CloudWatch.DescribeAlarmHistoryOutput|any) => void): Request<CloudWatch.DescribeAlarmHistoryOutput|any,CloudWatch.InvalidNextToken|any>;
     /**
      * Retrieves alarms with the specified names. If no name is specified, all alarms
 for the user are returned. Alarms can be retrieved by using only a prefix for
@@ -59,24 +59,24 @@ the alarm name, the alarm state, or a prefix for any action.
      *
      * @error InvalidNextToken   
      */
-    describeAlarms(params: CloudWatch.DescribeAlarmsInput, callback?: (err: CloudWatch.InvalidNextToken|any, data: CloudWatch.DescribeAlarmsOutput|any) => void): Request;
+    describeAlarms(params: CloudWatch.DescribeAlarmsInput, callback?: (err: CloudWatch.InvalidNextToken|any, data: CloudWatch.DescribeAlarmsOutput|any) => void): Request<CloudWatch.DescribeAlarmsOutput|any,CloudWatch.InvalidNextToken|any>;
     /**
      * Retrieves all alarms for a single metric. Specify a statistic, period, or unit
 to filter the set of alarms further.
      *
      */
-    describeAlarmsForMetric(params: CloudWatch.DescribeAlarmsForMetricInput, callback?: (err: any, data: CloudWatch.DescribeAlarmsForMetricOutput|any) => void): Request;
+    describeAlarmsForMetric(params: CloudWatch.DescribeAlarmsForMetricInput, callback?: (err: any, data: CloudWatch.DescribeAlarmsForMetricOutput|any) => void): Request<CloudWatch.DescribeAlarmsForMetricOutput|any,any>;
     /**
      * Disables actions for the specified alarms. When an alarm&#x27;s actions are disabled
 the alarm&#x27;s state may change, but none of the alarm&#x27;s actions will execute.
      *
      */
-    disableAlarmActions(params: CloudWatch.DisableAlarmActionsInput, callback?: (err: any, data: any) => void): Request;
+    disableAlarmActions(params: CloudWatch.DisableAlarmActionsInput, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Enables actions for the specified alarms.
      *
      */
-    enableAlarmActions(params: CloudWatch.EnableAlarmActionsInput, callback?: (err: any, data: any) => void): Request;
+    enableAlarmActions(params: CloudWatch.EnableAlarmActionsInput, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Gets statistics for the specified metric.
 
@@ -113,7 +113,7 @@ in the Amazon CloudWatch Developer Guide .
      * @error InvalidParameterCombinationException   
      * @error InternalServiceFault   
      */
-    getMetricStatistics(params: CloudWatch.GetMetricStatisticsInput, callback?: (err: CloudWatch.InvalidParameterValueException|CloudWatch.MissingRequiredParameterException|CloudWatch.InvalidParameterCombinationException|CloudWatch.InternalServiceFault|any, data: CloudWatch.GetMetricStatisticsOutput|any) => void): Request;
+    getMetricStatistics(params: CloudWatch.GetMetricStatisticsInput, callback?: (err: CloudWatch.InvalidParameterValueException|CloudWatch.MissingRequiredParameterException|CloudWatch.InvalidParameterCombinationException|CloudWatch.InternalServiceFault|any, data: CloudWatch.GetMetricStatisticsOutput|any) => void): Request<CloudWatch.GetMetricStatisticsOutput|any,CloudWatch.InvalidParameterValueException|CloudWatch.MissingRequiredParameterException|CloudWatch.InvalidParameterCombinationException|CloudWatch.InternalServiceFault|any>;
     /**
      * Returns a list of valid metrics stored for the AWS account owner. Returned
 metrics can be used with GetMetricStatistics to obtain statistical data for a
@@ -128,7 +128,7 @@ metric, however, are available sooner using GetMetricStatistics .
      * @error InternalServiceFault   
      * @error InvalidParameterValueException   
      */
-    listMetrics(params: CloudWatch.ListMetricsInput, callback?: (err: CloudWatch.InternalServiceFault|CloudWatch.InvalidParameterValueException|any, data: CloudWatch.ListMetricsOutput|any) => void): Request;
+    listMetrics(params: CloudWatch.ListMetricsInput, callback?: (err: CloudWatch.InternalServiceFault|CloudWatch.InvalidParameterValueException|any, data: CloudWatch.ListMetricsOutput|any) => void): Request<CloudWatch.ListMetricsOutput|any,CloudWatch.InternalServiceFault|CloudWatch.InvalidParameterValueException|any>;
     /**
      * Creates or updates an alarm and associates it with the specified Amazon
 CloudWatch metric. Optionally, this operation can associate one or more Amazon
@@ -170,7 +170,7 @@ using alarm actions.
      *
      * @error LimitExceededFault   
      */
-    putMetricAlarm(params: CloudWatch.PutMetricAlarmInput, callback?: (err: CloudWatch.LimitExceededFault|any, data: any) => void): Request;
+    putMetricAlarm(params: CloudWatch.PutMetricAlarmInput, callback?: (err: CloudWatch.LimitExceededFault|any, data: any) => void): Request<any,CloudWatch.LimitExceededFault|any>;
     /**
      * Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch associates
 the data points with the specified metric. If the specified metric does not
@@ -193,7 +193,7 @@ hours to become available from submission time using GetMetricStatistics .
      * @error InvalidParameterCombinationException   
      * @error InternalServiceFault   
      */
-    putMetricData(params: CloudWatch.PutMetricDataInput, callback?: (err: CloudWatch.InvalidParameterValueException|CloudWatch.MissingRequiredParameterException|CloudWatch.InvalidParameterCombinationException|CloudWatch.InternalServiceFault|any, data: any) => void): Request;
+    putMetricData(params: CloudWatch.PutMetricDataInput, callback?: (err: CloudWatch.InvalidParameterValueException|CloudWatch.MissingRequiredParameterException|CloudWatch.InvalidParameterCombinationException|CloudWatch.InternalServiceFault|any, data: any) => void): Request<any,CloudWatch.InvalidParameterValueException|CloudWatch.MissingRequiredParameterException|CloudWatch.InvalidParameterCombinationException|CloudWatch.InternalServiceFault|any>;
     /**
      * Temporarily sets the state of an alarm. When the updated StateValue differs from
 the previous value, the action configured for the appropriate state is invoked.
@@ -208,7 +208,7 @@ DescribeAlarmHistory .
      * @error ResourceNotFound   
      * @error InvalidFormatFault   
      */
-    setAlarmState(params: CloudWatch.SetAlarmStateInput, callback?: (err: CloudWatch.ResourceNotFound|CloudWatch.InvalidFormatFault|any, data: any) => void): Request;
+    setAlarmState(params: CloudWatch.SetAlarmStateInput, callback?: (err: CloudWatch.ResourceNotFound|CloudWatch.InvalidFormatFault|any, data: any) => void): Request<any,CloudWatch.ResourceNotFound|CloudWatch.InvalidFormatFault|any>;
 
   }
 

@@ -38,7 +38,7 @@ track the progress of your change.
      * @error ConflictingDomainExists   
      * @error LimitsExceeded   
      */
-    associateVPCWithHostedZone(params: Route53.AssociateVPCWithHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.InvalidInput|Route53.PublicZoneVPCAssociation|Route53.ConflictingDomainExists|Route53.LimitsExceeded|any, data: Route53.AssociateVPCWithHostedZoneResponse|any) => void): Request;
+    associateVPCWithHostedZone(params: Route53.AssociateVPCWithHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.InvalidInput|Route53.PublicZoneVPCAssociation|Route53.ConflictingDomainExists|Route53.LimitsExceeded|any, data: Route53.AssociateVPCWithHostedZoneResponse|any) => void): Request<Route53.AssociateVPCWithHostedZoneResponse|any,Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.InvalidInput|Route53.PublicZoneVPCAssociation|Route53.ConflictingDomainExists|Route53.LimitsExceeded|any>;
     /**
      * Use this action to create or change your authoritative DNS information. To use
 this action, send a POST request to the / Route 53 API version /hostedzone/ 
@@ -73,7 +73,7 @@ Note the following limitations on a ChangeResourceRecordSets request:
      * @error InvalidInput   
      * @error PriorRequestNotComplete   
      */
-    changeResourceRecordSets(params: Route53.ChangeResourceRecordSetsRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.NoSuchHealthCheck|Route53.InvalidChangeBatch|Route53.InvalidInput|Route53.PriorRequestNotComplete|any, data: Route53.ChangeResourceRecordSetsResponse|any) => void): Request;
+    changeResourceRecordSets(params: Route53.ChangeResourceRecordSetsRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.NoSuchHealthCheck|Route53.InvalidChangeBatch|Route53.InvalidInput|Route53.PriorRequestNotComplete|any, data: Route53.ChangeResourceRecordSetsResponse|any) => void): Request<Route53.ChangeResourceRecordSetsResponse|any,Route53.NoSuchHostedZone|Route53.NoSuchHealthCheck|Route53.InvalidChangeBatch|Route53.InvalidInput|Route53.PriorRequestNotComplete|any>;
     /**
      * 
      *
@@ -83,7 +83,7 @@ Note the following limitations on a ChangeResourceRecordSets request:
      * @error PriorRequestNotComplete   
      * @error ThrottlingException   
      */
-    changeTagsForResource(params: Route53.ChangeTagsForResourceRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchHealthCheck|Route53.NoSuchHostedZone|Route53.PriorRequestNotComplete|Route53.ThrottlingException|any, data: Route53.ChangeTagsForResourceResponse|any) => void): Request;
+    changeTagsForResource(params: Route53.ChangeTagsForResourceRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchHealthCheck|Route53.NoSuchHostedZone|Route53.PriorRequestNotComplete|Route53.ThrottlingException|any, data: Route53.ChangeTagsForResourceResponse|any) => void): Request<Route53.ChangeTagsForResourceResponse|any,Route53.InvalidInput|Route53.NoSuchHealthCheck|Route53.NoSuchHostedZone|Route53.PriorRequestNotComplete|Route53.ThrottlingException|any>;
     /**
      * This action creates a new health check.
 
@@ -96,7 +96,7 @@ CreateHealthCheckResponse element that contains metadata about the health check.
      * @error HealthCheckAlreadyExists   
      * @error InvalidInput   
      */
-    createHealthCheck(params: Route53.CreateHealthCheckRequest, callback?: (err: Route53.TooManyHealthChecks|Route53.HealthCheckAlreadyExists|Route53.InvalidInput|any, data: Route53.CreateHealthCheckResponse|any) => void): Request;
+    createHealthCheck(params: Route53.CreateHealthCheckRequest, callback?: (err: Route53.TooManyHealthChecks|Route53.HealthCheckAlreadyExists|Route53.InvalidInput|any, data: Route53.CreateHealthCheckResponse|any) => void): Request<Route53.CreateHealthCheckResponse|any,Route53.TooManyHealthChecks|Route53.HealthCheckAlreadyExists|Route53.InvalidInput|any>;
     /**
      * This action creates a new hosted zone.
 
@@ -130,7 +130,7 @@ for the zone, instead of alloting a new one.
      * @error NoSuchDelegationSet   
      * @error DelegationSetNotReusable   
      */
-    createHostedZone(params: Route53.CreateHostedZoneRequest, callback?: (err: Route53.InvalidDomainName|Route53.HostedZoneAlreadyExists|Route53.TooManyHostedZones|Route53.InvalidVPCId|Route53.InvalidInput|Route53.DelegationSetNotAvailable|Route53.ConflictingDomainExists|Route53.NoSuchDelegationSet|Route53.DelegationSetNotReusable|any, data: Route53.CreateHostedZoneResponse|any) => void): Request;
+    createHostedZone(params: Route53.CreateHostedZoneRequest, callback?: (err: Route53.InvalidDomainName|Route53.HostedZoneAlreadyExists|Route53.TooManyHostedZones|Route53.InvalidVPCId|Route53.InvalidInput|Route53.DelegationSetNotAvailable|Route53.ConflictingDomainExists|Route53.NoSuchDelegationSet|Route53.DelegationSetNotReusable|any, data: Route53.CreateHostedZoneResponse|any) => void): Request<Route53.CreateHostedZoneResponse|any,Route53.InvalidDomainName|Route53.HostedZoneAlreadyExists|Route53.TooManyHostedZones|Route53.InvalidVPCId|Route53.InvalidInput|Route53.DelegationSetNotAvailable|Route53.ConflictingDomainExists|Route53.NoSuchDelegationSet|Route53.DelegationSetNotReusable|any>;
     /**
      * This action creates a reusable delegationSet.
 
@@ -151,7 +151,7 @@ associated with that particular hosted zone as reusable.
      * @error DelegationSetNotAvailable   
      * @error DelegationSetAlreadyReusable   
      */
-    createReusableDelegationSet(params: Route53.CreateReusableDelegationSetRequest, callback?: (err: Route53.DelegationSetAlreadyCreated|Route53.LimitsExceeded|Route53.HostedZoneNotFound|Route53.InvalidArgument|Route53.InvalidInput|Route53.DelegationSetNotAvailable|Route53.DelegationSetAlreadyReusable|any, data: Route53.CreateReusableDelegationSetResponse|any) => void): Request;
+    createReusableDelegationSet(params: Route53.CreateReusableDelegationSetRequest, callback?: (err: Route53.DelegationSetAlreadyCreated|Route53.LimitsExceeded|Route53.HostedZoneNotFound|Route53.InvalidArgument|Route53.InvalidInput|Route53.DelegationSetNotAvailable|Route53.DelegationSetAlreadyReusable|any, data: Route53.CreateReusableDelegationSetResponse|any) => void): Request<Route53.CreateReusableDelegationSetResponse|any,Route53.DelegationSetAlreadyCreated|Route53.LimitsExceeded|Route53.HostedZoneNotFound|Route53.InvalidArgument|Route53.InvalidInput|Route53.DelegationSetNotAvailable|Route53.DelegationSetAlreadyReusable|any>;
     /**
      * Creates a traffic policy, which you use to create multiple DNS resource record
 sets for one domain name (such as example.com) or one subdomain name (such as
@@ -168,7 +168,7 @@ traffic policy.
      * @error TrafficPolicyAlreadyExists   
      * @error InvalidTrafficPolicyDocument   
      */
-    createTrafficPolicy(params: Route53.CreateTrafficPolicyRequest, callback?: (err: Route53.InvalidInput|Route53.TooManyTrafficPolicies|Route53.TrafficPolicyAlreadyExists|Route53.InvalidTrafficPolicyDocument|any, data: Route53.CreateTrafficPolicyResponse|any) => void): Request;
+    createTrafficPolicy(params: Route53.CreateTrafficPolicyRequest, callback?: (err: Route53.InvalidInput|Route53.TooManyTrafficPolicies|Route53.TrafficPolicyAlreadyExists|Route53.InvalidTrafficPolicyDocument|any, data: Route53.CreateTrafficPolicyResponse|any) => void): Request<Route53.CreateTrafficPolicyResponse|any,Route53.InvalidInput|Route53.TooManyTrafficPolicies|Route53.TrafficPolicyAlreadyExists|Route53.InvalidTrafficPolicyDocument|any>;
     /**
      * Creates resource record sets in a specified hosted zone based on the settings in
 a specified traffic policy version. In addition, CreateTrafficPolicyInstance 
@@ -189,7 +189,7 @@ the traffic policy instance.
      * @error NoSuchTrafficPolicy   
      * @error TrafficPolicyInstanceAlreadyExists   
      */
-    createTrafficPolicyInstance(params: Route53.CreateTrafficPolicyInstanceRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|Route53.TooManyTrafficPolicyInstances|Route53.NoSuchTrafficPolicy|Route53.TrafficPolicyInstanceAlreadyExists|any, data: Route53.CreateTrafficPolicyInstanceResponse|any) => void): Request;
+    createTrafficPolicyInstance(params: Route53.CreateTrafficPolicyInstanceRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|Route53.TooManyTrafficPolicyInstances|Route53.NoSuchTrafficPolicy|Route53.TrafficPolicyInstanceAlreadyExists|any, data: Route53.CreateTrafficPolicyInstanceResponse|any) => void): Request<Route53.CreateTrafficPolicyInstanceResponse|any,Route53.NoSuchHostedZone|Route53.InvalidInput|Route53.TooManyTrafficPolicyInstances|Route53.NoSuchTrafficPolicy|Route53.TrafficPolicyInstanceAlreadyExists|any>;
     /**
      * Creates a new version of an existing traffic policy. When you create a new
 version of a traffic policy, you specify the ID of the traffic policy that you
@@ -210,7 +210,7 @@ new version of the traffic policy.
      * @error ConcurrentModification   
      * @error InvalidTrafficPolicyDocument   
      */
-    createTrafficPolicyVersion(params: Route53.CreateTrafficPolicyVersionRequest, callback?: (err: Route53.NoSuchTrafficPolicy|Route53.InvalidInput|Route53.ConcurrentModification|Route53.InvalidTrafficPolicyDocument|any, data: Route53.CreateTrafficPolicyVersionResponse|any) => void): Request;
+    createTrafficPolicyVersion(params: Route53.CreateTrafficPolicyVersionRequest, callback?: (err: Route53.NoSuchTrafficPolicy|Route53.InvalidInput|Route53.ConcurrentModification|Route53.InvalidTrafficPolicyDocument|any, data: Route53.CreateTrafficPolicyVersionResponse|any) => void): Request<Route53.CreateTrafficPolicyVersionResponse|any,Route53.NoSuchTrafficPolicy|Route53.InvalidInput|Route53.ConcurrentModification|Route53.InvalidTrafficPolicyDocument|any>;
     /**
      * This action deletes a health check. To delete a health check, send a DELETE 
 request to the / Route 53 API version /healthcheck/ health check ID resource.
@@ -227,7 +227,7 @@ see ChangeResourceRecordSets .
      * @error HealthCheckInUse   
      * @error InvalidInput   
      */
-    deleteHealthCheck(params: Route53.DeleteHealthCheckRequest, callback?: (err: Route53.NoSuchHealthCheck|Route53.HealthCheckInUse|Route53.InvalidInput|any, data: Route53.DeleteHealthCheckResponse|any) => void): Request;
+    deleteHealthCheck(params: Route53.DeleteHealthCheckRequest, callback?: (err: Route53.NoSuchHealthCheck|Route53.HealthCheckInUse|Route53.InvalidInput|any, data: Route53.DeleteHealthCheckResponse|any) => void): Request<Route53.DeleteHealthCheckResponse|any,Route53.NoSuchHealthCheck|Route53.HealthCheckInUse|Route53.InvalidInput|any>;
     /**
      * This action deletes a hosted zone. To delete a hosted zone, send a DELETE 
 request to the / Route 53 API version /hostedzone/ hosted zone ID resource.
@@ -249,7 +249,7 @@ hosted zone, see ChangeResourceRecordSets .
      * @error PriorRequestNotComplete   
      * @error InvalidInput   
      */
-    deleteHostedZone(params: Route53.DeleteHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.HostedZoneNotEmpty|Route53.PriorRequestNotComplete|Route53.InvalidInput|any, data: Route53.DeleteHostedZoneResponse|any) => void): Request;
+    deleteHostedZone(params: Route53.DeleteHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.HostedZoneNotEmpty|Route53.PriorRequestNotComplete|Route53.InvalidInput|any, data: Route53.DeleteHostedZoneResponse|any) => void): Request<Route53.DeleteHostedZoneResponse|any,Route53.NoSuchHostedZone|Route53.HostedZoneNotEmpty|Route53.PriorRequestNotComplete|Route53.InvalidInput|any>;
     /**
      * This action deletes a reusable delegation set. To delete a reusable delegation
 set, send a DELETE request to the / Route 53 API version /delegationset/ 
@@ -266,7 +266,7 @@ Amazon Route 53 will deny your request with a DelegationSetInUse error.
      * @error DelegationSetNotReusable   
      * @error InvalidInput   
      */
-    deleteReusableDelegationSet(params: Route53.DeleteReusableDelegationSetRequest, callback?: (err: Route53.NoSuchDelegationSet|Route53.DelegationSetInUse|Route53.DelegationSetNotReusable|Route53.InvalidInput|any, data: Route53.DeleteReusableDelegationSetResponse|any) => void): Request;
+    deleteReusableDelegationSet(params: Route53.DeleteReusableDelegationSetRequest, callback?: (err: Route53.NoSuchDelegationSet|Route53.DelegationSetInUse|Route53.DelegationSetNotReusable|Route53.InvalidInput|any, data: Route53.DeleteReusableDelegationSetResponse|any) => void): Request<Route53.DeleteReusableDelegationSetResponse|any,Route53.NoSuchDelegationSet|Route53.DelegationSetInUse|Route53.DelegationSetNotReusable|Route53.InvalidInput|any>;
     /**
      * Deletes a traffic policy. To delete a traffic policy, send a DELETE request to
 the / Route 53 API version /trafficpolicy resource.
@@ -276,7 +276,7 @@ the / Route 53 API version /trafficpolicy resource.
      * @error TrafficPolicyInUse   
      * @error ConcurrentModification   
      */
-    deleteTrafficPolicy(params: Route53.DeleteTrafficPolicyRequest, callback?: (err: Route53.NoSuchTrafficPolicy|Route53.InvalidInput|Route53.TrafficPolicyInUse|Route53.ConcurrentModification|any, data: Route53.DeleteTrafficPolicyResponse|any) => void): Request;
+    deleteTrafficPolicy(params: Route53.DeleteTrafficPolicyRequest, callback?: (err: Route53.NoSuchTrafficPolicy|Route53.InvalidInput|Route53.TrafficPolicyInUse|Route53.ConcurrentModification|any, data: Route53.DeleteTrafficPolicyResponse|any) => void): Request<Route53.DeleteTrafficPolicyResponse|any,Route53.NoSuchTrafficPolicy|Route53.InvalidInput|Route53.TrafficPolicyInUse|Route53.ConcurrentModification|any>;
     /**
      * Deletes a traffic policy instance and all of the resource record sets that
 Amazon Route 53 created when you created the instance.
@@ -292,7 +292,7 @@ instance.
      * @error InvalidInput   
      * @error PriorRequestNotComplete   
      */
-    deleteTrafficPolicyInstance(params: Route53.DeleteTrafficPolicyInstanceRequest, callback?: (err: Route53.NoSuchTrafficPolicyInstance|Route53.InvalidInput|Route53.PriorRequestNotComplete|any, data: Route53.DeleteTrafficPolicyInstanceResponse|any) => void): Request;
+    deleteTrafficPolicyInstance(params: Route53.DeleteTrafficPolicyInstanceRequest, callback?: (err: Route53.NoSuchTrafficPolicyInstance|Route53.InvalidInput|Route53.PriorRequestNotComplete|any, data: Route53.DeleteTrafficPolicyInstanceResponse|any) => void): Request<Route53.DeleteTrafficPolicyInstanceResponse|any,Route53.NoSuchTrafficPolicyInstance|Route53.InvalidInput|Route53.PriorRequestNotComplete|any>;
     /**
      * This action disassociates a VPC from an hosted zone.
 
@@ -310,7 +310,7 @@ to track the progress of your change.
      * @error LastVPCAssociation   
      * @error InvalidInput   
      */
-    disassociateVPCFromHostedZone(params: Route53.DisassociateVPCFromHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.VPCAssociationNotFound|Route53.LastVPCAssociation|Route53.InvalidInput|any, data: Route53.DisassociateVPCFromHostedZoneResponse|any) => void): Request;
+    disassociateVPCFromHostedZone(params: Route53.DisassociateVPCFromHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.VPCAssociationNotFound|Route53.LastVPCAssociation|Route53.InvalidInput|any, data: Route53.DisassociateVPCFromHostedZoneResponse|any) => void): Request<Route53.DisassociateVPCFromHostedZoneResponse|any,Route53.NoSuchHostedZone|Route53.InvalidVPCId|Route53.VPCAssociationNotFound|Route53.LastVPCAssociation|Route53.InvalidInput|any>;
     /**
      * This action returns the current status of a change batch request. The status is
 one of the following values:
@@ -325,14 +325,14 @@ servers.
      * @error NoSuchChange   
      * @error InvalidInput   
      */
-    getChange(params: Route53.GetChangeRequest, callback?: (err: Route53.NoSuchChange|Route53.InvalidInput|any, data: Route53.GetChangeResponse|any) => void): Request;
+    getChange(params: Route53.GetChangeRequest, callback?: (err: Route53.NoSuchChange|Route53.InvalidInput|any, data: Route53.GetChangeResponse|any) => void): Request<Route53.GetChangeResponse|any,Route53.NoSuchChange|Route53.InvalidInput|any>;
     /**
      * This action returns the status and changes of a change batch request.
      *
      * @error NoSuchChange   
      * @error InvalidInput   
      */
-    getChangeDetails(params: Route53.GetChangeDetailsRequest, callback?: (err: Route53.NoSuchChange|Route53.InvalidInput|any, data: Route53.GetChangeDetailsResponse|any) => void): Request;
+    getChangeDetails(params: Route53.GetChangeDetailsRequest, callback?: (err: Route53.NoSuchChange|Route53.InvalidInput|any, data: Route53.GetChangeDetailsResponse|any) => void): Request<Route53.GetChangeDetailsResponse|any,Route53.NoSuchChange|Route53.InvalidInput|any>;
     /**
      * To retrieve a list of the IP ranges used by Amazon Route 53 health checkers to
 check the health of your resources, send a GET request to the / Route 53 API
@@ -341,7 +341,7 @@ router and firewall rules to allow health checkers to check the health of your
 resources.
      *
      */
-    getCheckerIpRanges(params: Route53.GetCheckerIpRangesRequest, callback?: (err: any, data: Route53.GetCheckerIpRangesResponse|any) => void): Request;
+    getCheckerIpRanges(params: Route53.GetCheckerIpRangesRequest, callback?: (err: any, data: Route53.GetCheckerIpRangesResponse|any) => void): Request<Route53.GetCheckerIpRangesResponse|any,any>;
     /**
      * To retrieve a single geo location, send a GET request to the / Route 53 API
 version /geolocation resource with one of these options: continentcode |
@@ -350,7 +350,7 @@ countrycode | countrycode and subdivisioncode.
      * @error NoSuchGeoLocation   
      * @error InvalidInput   
      */
-    getGeoLocation(params: Route53.GetGeoLocationRequest, callback?: (err: Route53.NoSuchGeoLocation|Route53.InvalidInput|any, data: Route53.GetGeoLocationResponse|any) => void): Request;
+    getGeoLocation(params: Route53.GetGeoLocationRequest, callback?: (err: Route53.NoSuchGeoLocation|Route53.InvalidInput|any, data: Route53.GetGeoLocationResponse|any) => void): Request<Route53.GetGeoLocationResponse|any,Route53.NoSuchGeoLocation|Route53.InvalidInput|any>;
     /**
      * To retrieve the health check, send a GET request to the / Route 53 API version 
 /healthcheck/ health check ID resource.
@@ -359,13 +359,13 @@ countrycode | countrycode and subdivisioncode.
      * @error InvalidInput   
      * @error IncompatibleVersion   
      */
-    getHealthCheck(params: Route53.GetHealthCheckRequest, callback?: (err: Route53.NoSuchHealthCheck|Route53.InvalidInput|Route53.IncompatibleVersion|any, data: Route53.GetHealthCheckResponse|any) => void): Request;
+    getHealthCheck(params: Route53.GetHealthCheckRequest, callback?: (err: Route53.NoSuchHealthCheck|Route53.InvalidInput|Route53.IncompatibleVersion|any, data: Route53.GetHealthCheckResponse|any) => void): Request<Route53.GetHealthCheckResponse|any,Route53.NoSuchHealthCheck|Route53.InvalidInput|Route53.IncompatibleVersion|any>;
     /**
      * To retrieve a count of all your health checks, send a GET request to the / Route
 53 API version /healthcheckcount resource.
      *
      */
-    getHealthCheckCount(params: Route53.GetHealthCheckCountRequest, callback?: (err: any, data: Route53.GetHealthCheckCountResponse|any) => void): Request;
+    getHealthCheckCount(params: Route53.GetHealthCheckCountRequest, callback?: (err: any, data: Route53.GetHealthCheckCountResponse|any) => void): Request<Route53.GetHealthCheckCountResponse|any,any>;
     /**
      * If you want to learn why a health check is currently failing or why it failed
 most recently (if at all), you can get the failure reason for the most recent
@@ -375,7 +375,7 @@ check ID /lastfailurereason resource.
      * @error NoSuchHealthCheck   
      * @error InvalidInput   
      */
-    getHealthCheckLastFailureReason(params: Route53.GetHealthCheckLastFailureReasonRequest, callback?: (err: Route53.NoSuchHealthCheck|Route53.InvalidInput|any, data: Route53.GetHealthCheckLastFailureReasonResponse|any) => void): Request;
+    getHealthCheckLastFailureReason(params: Route53.GetHealthCheckLastFailureReasonRequest, callback?: (err: Route53.NoSuchHealthCheck|Route53.InvalidInput|any, data: Route53.GetHealthCheckLastFailureReasonResponse|any) => void): Request<Route53.GetHealthCheckLastFailureReasonResponse|any,Route53.NoSuchHealthCheck|Route53.InvalidInput|any>;
     /**
      * To retrieve the health check status, send a GET request to the / Route 53 API
 version /healthcheck/ health check ID /status resource. You can use this call to
@@ -384,7 +384,7 @@ get a health check&#x27;s current status.
      * @error NoSuchHealthCheck   
      * @error InvalidInput   
      */
-    getHealthCheckStatus(params: Route53.GetHealthCheckStatusRequest, callback?: (err: Route53.NoSuchHealthCheck|Route53.InvalidInput|any, data: Route53.GetHealthCheckStatusResponse|any) => void): Request;
+    getHealthCheckStatus(params: Route53.GetHealthCheckStatusRequest, callback?: (err: Route53.NoSuchHealthCheck|Route53.InvalidInput|any, data: Route53.GetHealthCheckStatusResponse|any) => void): Request<Route53.GetHealthCheckStatusResponse|any,Route53.NoSuchHealthCheck|Route53.InvalidInput|any>;
     /**
      * To retrieve the delegation set for a hosted zone, send a GET request to the / 
 Route 53 API version /hostedzone/ hosted zone ID resource. The delegation set is
@@ -394,14 +394,14 @@ you created it.
      * @error NoSuchHostedZone   
      * @error InvalidInput   
      */
-    getHostedZone(params: Route53.GetHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.GetHostedZoneResponse|any) => void): Request;
+    getHostedZone(params: Route53.GetHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.GetHostedZoneResponse|any) => void): Request<Route53.GetHostedZoneResponse|any,Route53.NoSuchHostedZone|Route53.InvalidInput|any>;
     /**
      * To retrieve a count of all your hosted zones, send a GET request to the / Route
 53 API version /hostedzonecount resource.
      *
      * @error InvalidInput   
      */
-    getHostedZoneCount(params: Route53.GetHostedZoneCountRequest, callback?: (err: Route53.InvalidInput|any, data: Route53.GetHostedZoneCountResponse|any) => void): Request;
+    getHostedZoneCount(params: Route53.GetHostedZoneCountRequest, callback?: (err: Route53.InvalidInput|any, data: Route53.GetHostedZoneCountResponse|any) => void): Request<Route53.GetHostedZoneCountResponse|any,Route53.InvalidInput|any>;
     /**
      * To retrieve the reusable delegation set, send a GET request to the / Route 53
 API version /delegationset/ delegation set ID resource.
@@ -410,7 +410,7 @@ API version /delegationset/ delegation set ID resource.
      * @error DelegationSetNotReusable   
      * @error InvalidInput   
      */
-    getReusableDelegationSet(params: Route53.GetReusableDelegationSetRequest, callback?: (err: Route53.NoSuchDelegationSet|Route53.DelegationSetNotReusable|Route53.InvalidInput|any, data: Route53.GetReusableDelegationSetResponse|any) => void): Request;
+    getReusableDelegationSet(params: Route53.GetReusableDelegationSetRequest, callback?: (err: Route53.NoSuchDelegationSet|Route53.DelegationSetNotReusable|Route53.InvalidInput|any, data: Route53.GetReusableDelegationSetResponse|any) => void): Request<Route53.GetReusableDelegationSetResponse|any,Route53.NoSuchDelegationSet|Route53.DelegationSetNotReusable|Route53.InvalidInput|any>;
     /**
      * Gets information about a specific traffic policy version. To get the
 information, send a GET request to the / Route 53 API version /trafficpolicy 
@@ -419,7 +419,7 @@ resource.
      * @error NoSuchTrafficPolicy   
      * @error InvalidInput   
      */
-    getTrafficPolicy(params: Route53.GetTrafficPolicyRequest, callback?: (err: Route53.NoSuchTrafficPolicy|Route53.InvalidInput|any, data: Route53.GetTrafficPolicyResponse|any) => void): Request;
+    getTrafficPolicy(params: Route53.GetTrafficPolicyRequest, callback?: (err: Route53.NoSuchTrafficPolicy|Route53.InvalidInput|any, data: Route53.GetTrafficPolicyResponse|any) => void): Request<Route53.GetTrafficPolicyResponse|any,Route53.NoSuchTrafficPolicy|Route53.InvalidInput|any>;
     /**
      * Gets information about a specified traffic policy instance.
 
@@ -434,7 +434,7 @@ see the State response element.
      * @error NoSuchTrafficPolicyInstance   
      * @error InvalidInput   
      */
-    getTrafficPolicyInstance(params: Route53.GetTrafficPolicyInstanceRequest, callback?: (err: Route53.NoSuchTrafficPolicyInstance|Route53.InvalidInput|any, data: Route53.GetTrafficPolicyInstanceResponse|any) => void): Request;
+    getTrafficPolicyInstance(params: Route53.GetTrafficPolicyInstanceRequest, callback?: (err: Route53.NoSuchTrafficPolicyInstance|Route53.InvalidInput|any, data: Route53.GetTrafficPolicyInstanceResponse|any) => void): Request<Route53.GetTrafficPolicyInstanceResponse|any,Route53.NoSuchTrafficPolicyInstance|Route53.InvalidInput|any>;
     /**
      * Gets the number of traffic policy instances that are associated with the current
 AWS account.
@@ -443,7 +443,7 @@ To get the number of traffic policy instances, send a GET request to the / Route
 53 API version /trafficpolicyinstancecount resource.
      *
      */
-    getTrafficPolicyInstanceCount(params: Route53.GetTrafficPolicyInstanceCountRequest, callback?: (err: any, data: Route53.GetTrafficPolicyInstanceCountResponse|any) => void): Request;
+    getTrafficPolicyInstanceCount(params: Route53.GetTrafficPolicyInstanceCountRequest, callback?: (err: any, data: Route53.GetTrafficPolicyInstanceCountResponse|any) => void): Request<Route53.GetTrafficPolicyInstanceCountResponse|any,any>;
     /**
      * This action gets the list of ChangeBatches in a given time period for a given
 hosted zone.
@@ -451,7 +451,7 @@ hosted zone.
      * @error NoSuchHostedZone   
      * @error InvalidInput   
      */
-    listChangeBatchesByHostedZone(params: Route53.ListChangeBatchesByHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.ListChangeBatchesByHostedZoneResponse|any) => void): Request;
+    listChangeBatchesByHostedZone(params: Route53.ListChangeBatchesByHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.ListChangeBatchesByHostedZoneResponse|any) => void): Request<Route53.ListChangeBatchesByHostedZoneResponse|any,Route53.NoSuchHostedZone|Route53.InvalidInput|any>;
     /**
      * This action gets the list of ChangeBatches in a given time period for a given
 hosted zone and RRSet.
@@ -459,7 +459,7 @@ hosted zone and RRSet.
      * @error NoSuchHostedZone   
      * @error InvalidInput   
      */
-    listChangeBatchesByRRSet(params: Route53.ListChangeBatchesByRRSetRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.ListChangeBatchesByRRSetResponse|any) => void): Request;
+    listChangeBatchesByRRSet(params: Route53.ListChangeBatchesByRRSetRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.ListChangeBatchesByRRSetResponse|any) => void): Request<Route53.ListChangeBatchesByRRSetResponse|any,Route53.NoSuchHostedZone|Route53.InvalidInput|any>;
     /**
      * To retrieve a list of supported geo locations, send a GET request to the / Route
 53 API version /geolocations resource. The response to this request includes a 
@@ -477,7 +477,7 @@ begins with.
      *
      * @error InvalidInput   
      */
-    listGeoLocations(params: Route53.ListGeoLocationsRequest, callback?: (err: Route53.InvalidInput|any, data: Route53.ListGeoLocationsResponse|any) => void): Request;
+    listGeoLocations(params: Route53.ListGeoLocationsRequest, callback?: (err: Route53.InvalidInput|any, data: Route53.ListGeoLocationsResponse|any) => void): Request<Route53.ListGeoLocationsResponse|any,Route53.InvalidInput|any>;
     /**
      * To retrieve a list of your health checks, send a GET request to the / Route 53
 API version /healthcheck resource. The response to this request includes a 
@@ -493,7 +493,7 @@ greater than 100, Amazon Route 53 returns only the first 100.
      * @error InvalidInput   
      * @error IncompatibleVersion   
      */
-    listHealthChecks(params: Route53.ListHealthChecksRequest, callback?: (err: Route53.InvalidInput|Route53.IncompatibleVersion|any, data: Route53.ListHealthChecksResponse|any) => void): Request;
+    listHealthChecks(params: Route53.ListHealthChecksRequest, callback?: (err: Route53.InvalidInput|Route53.IncompatibleVersion|any, data: Route53.ListHealthChecksResponse|any) => void): Request<Route53.ListHealthChecksResponse|any,Route53.InvalidInput|Route53.IncompatibleVersion|any>;
     /**
      * To retrieve a list of your hosted zones, send a GET request to the / Route 53
 API version /hostedzone resource. The response to this request includes a 
@@ -510,7 +510,7 @@ greater than 100, Amazon Route 53 returns only the first 100.
      * @error NoSuchDelegationSet   
      * @error DelegationSetNotReusable   
      */
-    listHostedZones(params: Route53.ListHostedZonesRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchDelegationSet|Route53.DelegationSetNotReusable|any, data: Route53.ListHostedZonesResponse|any) => void): Request;
+    listHostedZones(params: Route53.ListHostedZonesRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchDelegationSet|Route53.DelegationSetNotReusable|any, data: Route53.ListHostedZonesResponse|any) => void): Request<Route53.ListHostedZonesResponse|any,Route53.InvalidInput|Route53.NoSuchDelegationSet|Route53.DelegationSetNotReusable|any>;
     /**
      * To retrieve a list of your hosted zones in lexicographic order, send a GET 
 request to the / Route 53 API version /hostedzonesbyname resource. The response
@@ -527,7 +527,7 @@ greater than 100, Amazon Route 53 returns only the first 100.
      * @error InvalidInput   
      * @error InvalidDomainName   
      */
-    listHostedZonesByName(params: Route53.ListHostedZonesByNameRequest, callback?: (err: Route53.InvalidInput|Route53.InvalidDomainName|any, data: Route53.ListHostedZonesByNameResponse|any) => void): Request;
+    listHostedZonesByName(params: Route53.ListHostedZonesByNameRequest, callback?: (err: Route53.InvalidInput|Route53.InvalidDomainName|any, data: Route53.ListHostedZonesByNameResponse|any) => void): Request<Route53.ListHostedZonesByNameResponse|any,Route53.InvalidInput|Route53.InvalidDomainName|any>;
     /**
      * Imagine all the resource record sets in a zone listed out in front of you.
 Imagine them sorted lexicographically first by DNS name (with the labels
@@ -574,7 +574,7 @@ process.
      * @error NoSuchHostedZone   
      * @error InvalidInput   
      */
-    listResourceRecordSets(params: Route53.ListResourceRecordSetsRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.ListResourceRecordSetsResponse|any) => void): Request;
+    listResourceRecordSets(params: Route53.ListResourceRecordSetsRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.ListResourceRecordSetsResponse|any) => void): Request<Route53.ListResourceRecordSetsResponse|any,Route53.NoSuchHostedZone|Route53.InvalidInput|any>;
     /**
      * To retrieve a list of your reusable delegation sets, send a GET request to the / 
 Route 53 API version /delegationset resource. The response to this request
@@ -589,7 +589,7 @@ greater than 100, Amazon Route 53 returns only the first 100.
      *
      * @error InvalidInput   
      */
-    listReusableDelegationSets(params: Route53.ListReusableDelegationSetsRequest, callback?: (err: Route53.InvalidInput|any, data: Route53.ListReusableDelegationSetsResponse|any) => void): Request;
+    listReusableDelegationSets(params: Route53.ListReusableDelegationSetsRequest, callback?: (err: Route53.InvalidInput|any, data: Route53.ListReusableDelegationSetsResponse|any) => void): Request<Route53.ListReusableDelegationSetsResponse|any,Route53.InvalidInput|any>;
     /**
      * 
      *
@@ -599,7 +599,7 @@ greater than 100, Amazon Route 53 returns only the first 100.
      * @error PriorRequestNotComplete   
      * @error ThrottlingException   
      */
-    listTagsForResource(params: Route53.ListTagsForResourceRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchHealthCheck|Route53.NoSuchHostedZone|Route53.PriorRequestNotComplete|Route53.ThrottlingException|any, data: Route53.ListTagsForResourceResponse|any) => void): Request;
+    listTagsForResource(params: Route53.ListTagsForResourceRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchHealthCheck|Route53.NoSuchHostedZone|Route53.PriorRequestNotComplete|Route53.ThrottlingException|any, data: Route53.ListTagsForResourceResponse|any) => void): Request<Route53.ListTagsForResourceResponse|any,Route53.InvalidInput|Route53.NoSuchHealthCheck|Route53.NoSuchHostedZone|Route53.PriorRequestNotComplete|Route53.ThrottlingException|any>;
     /**
      * 
      *
@@ -609,7 +609,7 @@ greater than 100, Amazon Route 53 returns only the first 100.
      * @error PriorRequestNotComplete   
      * @error ThrottlingException   
      */
-    listTagsForResources(params: Route53.ListTagsForResourcesRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchHealthCheck|Route53.NoSuchHostedZone|Route53.PriorRequestNotComplete|Route53.ThrottlingException|any, data: Route53.ListTagsForResourcesResponse|any) => void): Request;
+    listTagsForResources(params: Route53.ListTagsForResourcesRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchHealthCheck|Route53.NoSuchHostedZone|Route53.PriorRequestNotComplete|Route53.ThrottlingException|any, data: Route53.ListTagsForResourcesResponse|any) => void): Request<Route53.ListTagsForResourcesResponse|any,Route53.InvalidInput|Route53.NoSuchHealthCheck|Route53.NoSuchHostedZone|Route53.PriorRequestNotComplete|Route53.ThrottlingException|any>;
     /**
      * Gets information about the latest version for every traffic policy that is
 associated with the current AWS account. To get the information, send a GET 
@@ -641,7 +641,7 @@ maxitems traffic policies to the next:
      *
      * @error InvalidInput   
      */
-    listTrafficPolicies(params: Route53.ListTrafficPoliciesRequest, callback?: (err: Route53.InvalidInput|any, data: Route53.ListTrafficPoliciesResponse|any) => void): Request;
+    listTrafficPolicies(params: Route53.ListTrafficPoliciesRequest, callback?: (err: Route53.InvalidInput|any, data: Route53.ListTrafficPoliciesResponse|any) => void): Request<Route53.ListTrafficPoliciesResponse|any,Route53.InvalidInput|any>;
     /**
      * Gets information about the traffic policy instances that you created by using
 the current AWS account.
@@ -680,7 +680,7 @@ MaxItems traffic policy instances to the next:
      * @error InvalidInput   
      * @error NoSuchTrafficPolicyInstance   
      */
-    listTrafficPolicyInstances(params: Route53.ListTrafficPolicyInstancesRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicyInstance|any, data: Route53.ListTrafficPolicyInstancesResponse|any) => void): Request;
+    listTrafficPolicyInstances(params: Route53.ListTrafficPolicyInstancesRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicyInstance|any, data: Route53.ListTrafficPolicyInstancesResponse|any) => void): Request<Route53.ListTrafficPolicyInstancesResponse|any,Route53.InvalidInput|Route53.NoSuchTrafficPolicyInstance|any>;
     /**
      * Gets information about the traffic policy instances that you created in a
 specified hosted zone.
@@ -719,7 +719,7 @@ MaxItems traffic policy instances to the next:
      * @error NoSuchTrafficPolicyInstance   
      * @error NoSuchHostedZone   
      */
-    listTrafficPolicyInstancesByHostedZone(params: Route53.ListTrafficPolicyInstancesByHostedZoneRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicyInstance|Route53.NoSuchHostedZone|any, data: Route53.ListTrafficPolicyInstancesByHostedZoneResponse|any) => void): Request;
+    listTrafficPolicyInstancesByHostedZone(params: Route53.ListTrafficPolicyInstancesByHostedZoneRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicyInstance|Route53.NoSuchHostedZone|any, data: Route53.ListTrafficPolicyInstancesByHostedZoneResponse|any) => void): Request<Route53.ListTrafficPolicyInstancesByHostedZoneResponse|any,Route53.InvalidInput|Route53.NoSuchTrafficPolicyInstance|Route53.NoSuchHostedZone|any>;
     /**
      * Gets information about the traffic policy instances that you created by using a
 specify traffic policy version.
@@ -763,7 +763,7 @@ MaxItems traffic policy instances to the next:
      * @error NoSuchTrafficPolicyInstance   
      * @error NoSuchTrafficPolicy   
      */
-    listTrafficPolicyInstancesByPolicy(params: Route53.ListTrafficPolicyInstancesByPolicyRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicyInstance|Route53.NoSuchTrafficPolicy|any, data: Route53.ListTrafficPolicyInstancesByPolicyResponse|any) => void): Request;
+    listTrafficPolicyInstancesByPolicy(params: Route53.ListTrafficPolicyInstancesByPolicyRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicyInstance|Route53.NoSuchTrafficPolicy|any, data: Route53.ListTrafficPolicyInstancesByPolicyResponse|any) => void): Request<Route53.ListTrafficPolicyInstancesByPolicyResponse|any,Route53.InvalidInput|Route53.NoSuchTrafficPolicyInstance|Route53.NoSuchTrafficPolicy|any>;
     /**
      * Gets information about all of the versions for a specified traffic policy. 
 ListTrafficPolicyVersions lists only versions that have not been deleted.
@@ -795,7 +795,7 @@ maxitems maxitems traffic policies to the next:
      * @error InvalidInput   
      * @error NoSuchTrafficPolicy   
      */
-    listTrafficPolicyVersions(params: Route53.ListTrafficPolicyVersionsRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicy|any, data: Route53.ListTrafficPolicyVersionsResponse|any) => void): Request;
+    listTrafficPolicyVersions(params: Route53.ListTrafficPolicyVersionsRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicy|any, data: Route53.ListTrafficPolicyVersionsResponse|any) => void): Request<Route53.ListTrafficPolicyVersionsResponse|any,Route53.InvalidInput|Route53.NoSuchTrafficPolicy|any>;
     /**
      * This action updates an existing health check.
 
@@ -809,7 +809,7 @@ check.
      * @error InvalidInput   
      * @error HealthCheckVersionMismatch   
      */
-    updateHealthCheck(params: Route53.UpdateHealthCheckRequest, callback?: (err: Route53.NoSuchHealthCheck|Route53.InvalidInput|Route53.HealthCheckVersionMismatch|any, data: Route53.UpdateHealthCheckResponse|any) => void): Request;
+    updateHealthCheck(params: Route53.UpdateHealthCheckRequest, callback?: (err: Route53.NoSuchHealthCheck|Route53.InvalidInput|Route53.HealthCheckVersionMismatch|any, data: Route53.UpdateHealthCheckResponse|any) => void): Request<Route53.UpdateHealthCheckResponse|any,Route53.NoSuchHealthCheck|Route53.InvalidInput|Route53.HealthCheckVersionMismatch|any>;
     /**
      * To update the hosted zone comment, send a POST request to the / Route 53 API
 version /hostedzone/ hosted zone ID resource. The request body must include a
@@ -821,7 +821,7 @@ The comment can have a maximum length of 256 characters.
      * @error NoSuchHostedZone   
      * @error InvalidInput   
      */
-    updateHostedZoneComment(params: Route53.UpdateHostedZoneCommentRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.UpdateHostedZoneCommentResponse|any) => void): Request;
+    updateHostedZoneComment(params: Route53.UpdateHostedZoneCommentRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.InvalidInput|any, data: Route53.UpdateHostedZoneCommentResponse|any) => void): Request<Route53.UpdateHostedZoneCommentResponse|any,Route53.NoSuchHostedZone|Route53.InvalidInput|any>;
     /**
      * Updates the comment for a specified traffic policy version.
 
@@ -835,7 +835,7 @@ UpdateTrafficPolicyCommentRequest element.
      * @error NoSuchTrafficPolicy   
      * @error ConcurrentModification   
      */
-    updateTrafficPolicyComment(params: Route53.UpdateTrafficPolicyCommentRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicy|Route53.ConcurrentModification|any, data: Route53.UpdateTrafficPolicyCommentResponse|any) => void): Request;
+    updateTrafficPolicyComment(params: Route53.UpdateTrafficPolicyCommentRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicy|Route53.ConcurrentModification|any, data: Route53.UpdateTrafficPolicyCommentResponse|any) => void): Request<Route53.UpdateTrafficPolicyCommentResponse|any,Route53.InvalidInput|Route53.NoSuchTrafficPolicy|Route53.ConcurrentModification|any>;
     /**
      * Updates the resource record sets in a specified hosted zone that were created
 based on the settings in a specified traffic policy version.
@@ -868,7 +868,7 @@ must include a document with an UpdateTrafficPolicyInstanceRequest element.
      * @error PriorRequestNotComplete   
      * @error ConflictingTypes   
      */
-    updateTrafficPolicyInstance(params: Route53.UpdateTrafficPolicyInstanceRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicy|Route53.NoSuchTrafficPolicyInstance|Route53.PriorRequestNotComplete|Route53.ConflictingTypes|any, data: Route53.UpdateTrafficPolicyInstanceResponse|any) => void): Request;
+    updateTrafficPolicyInstance(params: Route53.UpdateTrafficPolicyInstanceRequest, callback?: (err: Route53.InvalidInput|Route53.NoSuchTrafficPolicy|Route53.NoSuchTrafficPolicyInstance|Route53.PriorRequestNotComplete|Route53.ConflictingTypes|any, data: Route53.UpdateTrafficPolicyInstanceResponse|any) => void): Request<Route53.UpdateTrafficPolicyInstanceResponse|any,Route53.InvalidInput|Route53.NoSuchTrafficPolicy|Route53.NoSuchTrafficPolicyInstance|Route53.PriorRequestNotComplete|Route53.ConflictingTypes|any>;
 
   }
 

@@ -29,25 +29,25 @@ is empty.
      *
      * @error NoSuchUpload   
      */
-    abortMultipartUpload(params: S3.AbortMultipartUploadRequest, callback?: (err: S3.NoSuchUpload|any, data: S3.AbortMultipartUploadOutput|any) => void): Request;
+    abortMultipartUpload(params: S3.AbortMultipartUploadRequest, callback?: (err: S3.NoSuchUpload|any, data: S3.AbortMultipartUploadOutput|any) => void): Request<S3.AbortMultipartUploadOutput|any,S3.NoSuchUpload|any>;
     /**
      * Completes a multipart upload by assembling previously uploaded parts.
      *
      */
-    completeMultipartUpload(params: S3.CompleteMultipartUploadRequest, callback?: (err: any, data: S3.CompleteMultipartUploadOutput|any) => void): Request;
+    completeMultipartUpload(params: S3.CompleteMultipartUploadRequest, callback?: (err: any, data: S3.CompleteMultipartUploadOutput|any) => void): Request<S3.CompleteMultipartUploadOutput|any,any>;
     /**
      * Creates a copy of an object that is already stored in Amazon S3.
      *
      * @error ObjectNotInActiveTierError   
      */
-    copyObject(params: S3.CopyObjectRequest, callback?: (err: S3.ObjectNotInActiveTierError|any, data: S3.CopyObjectOutput|any) => void): Request;
+    copyObject(params: S3.CopyObjectRequest, callback?: (err: S3.ObjectNotInActiveTierError|any, data: S3.CopyObjectOutput|any) => void): Request<S3.CopyObjectOutput|any,S3.ObjectNotInActiveTierError|any>;
     /**
      * Creates a new bucket.
      *
      * @error BucketAlreadyExists   
      * @error BucketAlreadyOwnedByYou   
      */
-    createBucket(params: S3.CreateBucketRequest, callback?: (err: S3.BucketAlreadyExists|S3.BucketAlreadyOwnedByYou|any, data: S3.CreateBucketOutput|any) => void): Request;
+    createBucket(params: S3.CreateBucketRequest, callback?: (err: S3.BucketAlreadyExists|S3.BucketAlreadyOwnedByYou|any, data: S3.CreateBucketOutput|any) => void): Request<S3.CreateBucketOutput|any,S3.BucketAlreadyExists|S3.BucketAlreadyOwnedByYou|any>;
     /**
      * Initiates a multipart upload and returns an upload ID.
 
@@ -58,156 +58,156 @@ upload, Amazon S3 frees up the parts storage and stops charging you for the
 parts storage.
      *
      */
-    createMultipartUpload(params: S3.CreateMultipartUploadRequest, callback?: (err: any, data: S3.CreateMultipartUploadOutput|any) => void): Request;
+    createMultipartUpload(params: S3.CreateMultipartUploadRequest, callback?: (err: any, data: S3.CreateMultipartUploadOutput|any) => void): Request<S3.CreateMultipartUploadOutput|any,any>;
     /**
      * Deletes the bucket. All objects (including all object versions and Delete
 Markers) in the bucket must be deleted before the bucket itself can be deleted.
      *
      */
-    deleteBucket(params: S3.DeleteBucketRequest, callback?: (err: any, data: any) => void): Request;
+    deleteBucket(params: S3.DeleteBucketRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the cors configuration information set for the bucket.
      *
      */
-    deleteBucketCors(params: S3.DeleteBucketCorsRequest, callback?: (err: any, data: any) => void): Request;
+    deleteBucketCors(params: S3.DeleteBucketCorsRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the lifecycle configuration from the bucket.
      *
      */
-    deleteBucketLifecycle(params: S3.DeleteBucketLifecycleRequest, callback?: (err: any, data: any) => void): Request;
+    deleteBucketLifecycle(params: S3.DeleteBucketLifecycleRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the policy from the bucket.
      *
      */
-    deleteBucketPolicy(params: S3.DeleteBucketPolicyRequest, callback?: (err: any, data: any) => void): Request;
+    deleteBucketPolicy(params: S3.DeleteBucketPolicyRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the replication configuration from the bucket.
      *
      */
-    deleteBucketReplication(params: S3.DeleteBucketReplicationRequest, callback?: (err: any, data: any) => void): Request;
+    deleteBucketReplication(params: S3.DeleteBucketReplicationRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the tags from the bucket.
      *
      */
-    deleteBucketTagging(params: S3.DeleteBucketTaggingRequest, callback?: (err: any, data: any) => void): Request;
+    deleteBucketTagging(params: S3.DeleteBucketTaggingRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * This operation removes the website configuration from the bucket.
      *
      */
-    deleteBucketWebsite(params: S3.DeleteBucketWebsiteRequest, callback?: (err: any, data: any) => void): Request;
+    deleteBucketWebsite(params: S3.DeleteBucketWebsiteRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Removes the null version (if there is one) of an object and inserts a delete
 marker, which becomes the latest version of the object. If there isn&#x27;t a null
 version, Amazon S3 does not remove any objects.
      *
      */
-    deleteObject(params: S3.DeleteObjectRequest, callback?: (err: any, data: S3.DeleteObjectOutput|any) => void): Request;
+    deleteObject(params: S3.DeleteObjectRequest, callback?: (err: any, data: S3.DeleteObjectOutput|any) => void): Request<S3.DeleteObjectOutput|any,any>;
     /**
      * This operation enables you to delete multiple objects from a bucket using a
 single HTTP request. You may specify up to 1000 keys.
      *
      */
-    deleteObjects(params: S3.DeleteObjectsRequest, callback?: (err: any, data: S3.DeleteObjectsOutput|any) => void): Request;
+    deleteObjects(params: S3.DeleteObjectsRequest, callback?: (err: any, data: S3.DeleteObjectsOutput|any) => void): Request<S3.DeleteObjectsOutput|any,any>;
     /**
      * Returns the accelerate configuration of a bucket.
      *
      */
-    getBucketAccelerateConfiguration(params: S3.GetBucketAccelerateConfigurationRequest, callback?: (err: any, data: S3.GetBucketAccelerateConfigurationOutput|any) => void): Request;
+    getBucketAccelerateConfiguration(params: S3.GetBucketAccelerateConfigurationRequest, callback?: (err: any, data: S3.GetBucketAccelerateConfigurationOutput|any) => void): Request<S3.GetBucketAccelerateConfigurationOutput|any,any>;
     /**
      * Gets the access control policy for the bucket.
      *
      */
-    getBucketAcl(params: S3.GetBucketAclRequest, callback?: (err: any, data: S3.GetBucketAclOutput|any) => void): Request;
+    getBucketAcl(params: S3.GetBucketAclRequest, callback?: (err: any, data: S3.GetBucketAclOutput|any) => void): Request<S3.GetBucketAclOutput|any,any>;
     /**
      * Returns the cors configuration for the bucket.
      *
      */
-    getBucketCors(params: S3.GetBucketCorsRequest, callback?: (err: any, data: S3.GetBucketCorsOutput|any) => void): Request;
+    getBucketCors(params: S3.GetBucketCorsRequest, callback?: (err: any, data: S3.GetBucketCorsOutput|any) => void): Request<S3.GetBucketCorsOutput|any,any>;
     /**
      * Deprecated, see the GetBucketLifecycleConfiguration operation.
      *
      */
-    getBucketLifecycle(params: S3.GetBucketLifecycleRequest, callback?: (err: any, data: S3.GetBucketLifecycleOutput|any) => void): Request;
+    getBucketLifecycle(params: S3.GetBucketLifecycleRequest, callback?: (err: any, data: S3.GetBucketLifecycleOutput|any) => void): Request<S3.GetBucketLifecycleOutput|any,any>;
     /**
      * Returns the lifecycle configuration information set on the bucket.
      *
      */
-    getBucketLifecycleConfiguration(params: S3.GetBucketLifecycleConfigurationRequest, callback?: (err: any, data: S3.GetBucketLifecycleConfigurationOutput|any) => void): Request;
+    getBucketLifecycleConfiguration(params: S3.GetBucketLifecycleConfigurationRequest, callback?: (err: any, data: S3.GetBucketLifecycleConfigurationOutput|any) => void): Request<S3.GetBucketLifecycleConfigurationOutput|any,any>;
     /**
      * Returns the region the bucket resides in.
      *
      */
-    getBucketLocation(params: S3.GetBucketLocationRequest, callback?: (err: any, data: S3.GetBucketLocationOutput|any) => void): Request;
+    getBucketLocation(params: S3.GetBucketLocationRequest, callback?: (err: any, data: S3.GetBucketLocationOutput|any) => void): Request<S3.GetBucketLocationOutput|any,any>;
     /**
      * Returns the logging status of a bucket and the permissions users have to view
 and modify that status. To use GET, you must be the bucket owner.
      *
      */
-    getBucketLogging(params: S3.GetBucketLoggingRequest, callback?: (err: any, data: S3.GetBucketLoggingOutput|any) => void): Request;
+    getBucketLogging(params: S3.GetBucketLoggingRequest, callback?: (err: any, data: S3.GetBucketLoggingOutput|any) => void): Request<S3.GetBucketLoggingOutput|any,any>;
     /**
      * Deprecated, see the GetBucketNotificationConfiguration operation.
      *
      */
-    getBucketNotification(params: S3.GetBucketNotificationConfigurationRequest, callback?: (err: any, data: S3.NotificationConfigurationDeprecated|any) => void): Request;
+    getBucketNotification(params: S3.GetBucketNotificationConfigurationRequest, callback?: (err: any, data: S3.NotificationConfigurationDeprecated|any) => void): Request<S3.NotificationConfigurationDeprecated|any,any>;
     /**
      * Returns the notification configuration of a bucket.
      *
      */
-    getBucketNotificationConfiguration(params: S3.GetBucketNotificationConfigurationRequest, callback?: (err: any, data: S3.NotificationConfiguration|any) => void): Request;
+    getBucketNotificationConfiguration(params: S3.GetBucketNotificationConfigurationRequest, callback?: (err: any, data: S3.NotificationConfiguration|any) => void): Request<S3.NotificationConfiguration|any,any>;
     /**
      * Returns the policy of a specified bucket.
      *
      */
-    getBucketPolicy(params: S3.GetBucketPolicyRequest, callback?: (err: any, data: S3.GetBucketPolicyOutput|any) => void): Request;
+    getBucketPolicy(params: S3.GetBucketPolicyRequest, callback?: (err: any, data: S3.GetBucketPolicyOutput|any) => void): Request<S3.GetBucketPolicyOutput|any,any>;
     /**
      * Deprecated, see the GetBucketReplicationConfiguration operation.
      *
      */
-    getBucketReplication(params: S3.GetBucketReplicationRequest, callback?: (err: any, data: S3.GetBucketReplicationOutput|any) => void): Request;
+    getBucketReplication(params: S3.GetBucketReplicationRequest, callback?: (err: any, data: S3.GetBucketReplicationOutput|any) => void): Request<S3.GetBucketReplicationOutput|any,any>;
     /**
      * Returns the request payment configuration of a bucket.
      *
      */
-    getBucketRequestPayment(params: S3.GetBucketRequestPaymentRequest, callback?: (err: any, data: S3.GetBucketRequestPaymentOutput|any) => void): Request;
+    getBucketRequestPayment(params: S3.GetBucketRequestPaymentRequest, callback?: (err: any, data: S3.GetBucketRequestPaymentOutput|any) => void): Request<S3.GetBucketRequestPaymentOutput|any,any>;
     /**
      * Returns the tag set associated with the bucket.
      *
      */
-    getBucketTagging(params: S3.GetBucketTaggingRequest, callback?: (err: any, data: S3.GetBucketTaggingOutput|any) => void): Request;
+    getBucketTagging(params: S3.GetBucketTaggingRequest, callback?: (err: any, data: S3.GetBucketTaggingOutput|any) => void): Request<S3.GetBucketTaggingOutput|any,any>;
     /**
      * Returns the versioning state of a bucket.
      *
      */
-    getBucketVersioning(params: S3.GetBucketVersioningRequest, callback?: (err: any, data: S3.GetBucketVersioningOutput|any) => void): Request;
+    getBucketVersioning(params: S3.GetBucketVersioningRequest, callback?: (err: any, data: S3.GetBucketVersioningOutput|any) => void): Request<S3.GetBucketVersioningOutput|any,any>;
     /**
      * Returns the website configuration for a bucket.
      *
      */
-    getBucketWebsite(params: S3.GetBucketWebsiteRequest, callback?: (err: any, data: S3.GetBucketWebsiteOutput|any) => void): Request;
+    getBucketWebsite(params: S3.GetBucketWebsiteRequest, callback?: (err: any, data: S3.GetBucketWebsiteOutput|any) => void): Request<S3.GetBucketWebsiteOutput|any,any>;
     /**
      * Retrieves objects from Amazon S3.
      *
      * @error NoSuchKey   
      */
-    getObject(params: S3.GetObjectRequest, callback?: (err: S3.NoSuchKey|any, data: S3.GetObjectOutput|any) => void): Request;
+    getObject(params: S3.GetObjectRequest, callback?: (err: S3.NoSuchKey|any, data: S3.GetObjectOutput|any) => void): Request<S3.GetObjectOutput|any,S3.NoSuchKey|any>;
     /**
      * Returns the access control list (ACL) of an object.
      *
      * @error NoSuchKey   
      */
-    getObjectAcl(params: S3.GetObjectAclRequest, callback?: (err: S3.NoSuchKey|any, data: S3.GetObjectAclOutput|any) => void): Request;
+    getObjectAcl(params: S3.GetObjectAclRequest, callback?: (err: S3.NoSuchKey|any, data: S3.GetObjectAclOutput|any) => void): Request<S3.GetObjectAclOutput|any,S3.NoSuchKey|any>;
     /**
      * Return torrent files from a bucket.
      *
      */
-    getObjectTorrent(params: S3.GetObjectTorrentRequest, callback?: (err: any, data: S3.GetObjectTorrentOutput|any) => void): Request;
+    getObjectTorrent(params: S3.GetObjectTorrentRequest, callback?: (err: any, data: S3.GetObjectTorrentOutput|any) => void): Request<S3.GetObjectTorrentOutput|any,any>;
     /**
      * This operation is useful to determine if a bucket exists and you have permission
 to access it.
      *
      * @error NoSuchBucket   
      */
-    headBucket(params: S3.HeadBucketRequest, callback?: (err: S3.NoSuchBucket|any, data: any) => void): Request;
+    headBucket(params: S3.HeadBucketRequest, callback?: (err: S3.NoSuchBucket|any, data: any) => void): Request<any,S3.NoSuchBucket|any>;
     /**
      * The HEAD operation retrieves metadata from an object without returning the
 object itself. This operation is useful if you&#x27;re only interested in an object&#x27;s
@@ -215,22 +215,22 @@ metadata. To use HEAD, you must have READ access to the object.
      *
      * @error NoSuchKey   
      */
-    headObject(params: S3.HeadObjectRequest, callback?: (err: S3.NoSuchKey|any, data: S3.HeadObjectOutput|any) => void): Request;
+    headObject(params: S3.HeadObjectRequest, callback?: (err: S3.NoSuchKey|any, data: S3.HeadObjectOutput|any) => void): Request<S3.HeadObjectOutput|any,S3.NoSuchKey|any>;
     /**
      * Returns a list of all buckets owned by the authenticated sender of the request.
      *
      */
-    listBuckets(callback?: (err: any, data: S3.ListBucketsOutput|any) => void): Request;
+    listBuckets(callback?: (err: any, data: S3.ListBucketsOutput|any) => void): Request<S3.ListBucketsOutput|any,any>;
     /**
      * This operation lists in-progress multipart uploads.
      *
      */
-    listMultipartUploads(params: S3.ListMultipartUploadsRequest, callback?: (err: any, data: S3.ListMultipartUploadsOutput|any) => void): Request;
+    listMultipartUploads(params: S3.ListMultipartUploadsRequest, callback?: (err: any, data: S3.ListMultipartUploadsOutput|any) => void): Request<S3.ListMultipartUploadsOutput|any,any>;
     /**
      * Returns metadata about all of the versions of objects in a bucket.
      *
      */
-    listObjectVersions(params: S3.ListObjectVersionsRequest, callback?: (err: any, data: S3.ListObjectVersionsOutput|any) => void): Request;
+    listObjectVersions(params: S3.ListObjectVersionsRequest, callback?: (err: any, data: S3.ListObjectVersionsOutput|any) => void): Request<S3.ListObjectVersionsOutput|any,any>;
     /**
      * Returns some or all (up to 1000) of the objects in a bucket. You can use the
 request parameters as selection criteria to return a subset of the objects in a
@@ -238,7 +238,7 @@ bucket.
      *
      * @error NoSuchBucket   
      */
-    listObjects(params: S3.ListObjectsRequest, callback?: (err: S3.NoSuchBucket|any, data: S3.ListObjectsOutput|any) => void): Request;
+    listObjects(params: S3.ListObjectsRequest, callback?: (err: S3.NoSuchBucket|any, data: S3.ListObjectsOutput|any) => void): Request<S3.ListObjectsOutput|any,S3.NoSuchBucket|any>;
     /**
      * Returns some or all (up to 1000) of the objects in a bucket. You can use the
 request parameters as selection criteria to return a subset of the objects in a
@@ -247,67 +247,67 @@ use this revised API for new application development.
      *
      * @error NoSuchBucket   
      */
-    listObjectsV2(params: S3.ListObjectsV2Request, callback?: (err: S3.NoSuchBucket|any, data: S3.ListObjectsV2Output|any) => void): Request;
+    listObjectsV2(params: S3.ListObjectsV2Request, callback?: (err: S3.NoSuchBucket|any, data: S3.ListObjectsV2Output|any) => void): Request<S3.ListObjectsV2Output|any,S3.NoSuchBucket|any>;
     /**
      * Lists the parts that have been uploaded for a specific multipart upload.
      *
      */
-    listParts(params: S3.ListPartsRequest, callback?: (err: any, data: S3.ListPartsOutput|any) => void): Request;
+    listParts(params: S3.ListPartsRequest, callback?: (err: any, data: S3.ListPartsOutput|any) => void): Request<S3.ListPartsOutput|any,any>;
     /**
      * Sets the accelerate configuration of an existing bucket.
      *
      */
-    putBucketAccelerateConfiguration(params: S3.PutBucketAccelerateConfigurationRequest, callback?: (err: any, data: any) => void): Request;
+    putBucketAccelerateConfiguration(params: S3.PutBucketAccelerateConfigurationRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Sets the permissions on a bucket using access control lists (ACL).
      *
      */
-    putBucketAcl(params: S3.PutBucketAclRequest, callback?: (err: any, data: any) => void): Request;
+    putBucketAcl(params: S3.PutBucketAclRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Sets the cors configuration for a bucket.
      *
      */
-    putBucketCors(params: S3.PutBucketCorsRequest, callback?: (err: any, data: any) => void): Request;
+    putBucketCors(params: S3.PutBucketCorsRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deprecated, see the PutBucketLifecycleConfiguration operation.
      *
      */
-    putBucketLifecycle(params: S3.PutBucketLifecycleRequest, callback?: (err: any, data: any) => void): Request;
+    putBucketLifecycle(params: S3.PutBucketLifecycleRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Sets lifecycle configuration for your bucket. If a lifecycle configuration
 exists, it replaces it.
      *
      */
-    putBucketLifecycleConfiguration(params: S3.PutBucketLifecycleConfigurationRequest, callback?: (err: any, data: any) => void): Request;
+    putBucketLifecycleConfiguration(params: S3.PutBucketLifecycleConfigurationRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Set the logging parameters for a bucket and to specify permissions for who can
 view and modify the logging parameters. To set the logging status of a bucket,
 you must be the bucket owner.
      *
      */
-    putBucketLogging(params: S3.PutBucketLoggingRequest, callback?: (err: any, data: any) => void): Request;
+    putBucketLogging(params: S3.PutBucketLoggingRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deprecated, see the PutBucketNotificationConfiguraiton operation.
      *
      */
-    putBucketNotification(params: S3.PutBucketNotificationRequest, callback?: (err: any, data: any) => void): Request;
+    putBucketNotification(params: S3.PutBucketNotificationRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Enables notifications of specified events for a bucket.
      *
      */
-    putBucketNotificationConfiguration(params: S3.PutBucketNotificationConfigurationRequest, callback?: (err: any, data: any) => void): Request;
+    putBucketNotificationConfiguration(params: S3.PutBucketNotificationConfigurationRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Replaces a policy on a bucket. If the bucket already has a policy, the one in
 this request completely replaces it.
      *
      */
-    putBucketPolicy(params: S3.PutBucketPolicyRequest, callback?: (err: any, data: any) => void): Request;
+    putBucketPolicy(params: S3.PutBucketPolicyRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Creates a new replication configuration (or replaces an existing one, if
 present).
      *
      */
-    putBucketReplication(params: S3.PutBucketReplicationRequest, callback?: (err: any, data: any) => void): Request;
+    putBucketReplication(params: S3.PutBucketReplicationRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Sets the request payment configuration for a bucket. By default, the bucket
 owner pays for downloads from the bucket. This configuration parameter enables
@@ -317,41 +317,41 @@ found at
 http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html
      *
      */
-    putBucketRequestPayment(params: S3.PutBucketRequestPaymentRequest, callback?: (err: any, data: any) => void): Request;
+    putBucketRequestPayment(params: S3.PutBucketRequestPaymentRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Sets the tags for a bucket.
      *
      */
-    putBucketTagging(params: S3.PutBucketTaggingRequest, callback?: (err: any, data: any) => void): Request;
+    putBucketTagging(params: S3.PutBucketTaggingRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Sets the versioning state of an existing bucket. To set the versioning state,
 you must be the bucket owner.
      *
      */
-    putBucketVersioning(params: S3.PutBucketVersioningRequest, callback?: (err: any, data: any) => void): Request;
+    putBucketVersioning(params: S3.PutBucketVersioningRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Set the website configuration for a bucket.
      *
      */
-    putBucketWebsite(params: S3.PutBucketWebsiteRequest, callback?: (err: any, data: any) => void): Request;
+    putBucketWebsite(params: S3.PutBucketWebsiteRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Adds an object to a bucket.
      *
      */
-    putObject(params: S3.PutObjectRequest, callback?: (err: any, data: S3.PutObjectOutput|any) => void): Request;
+    putObject(params: S3.PutObjectRequest, callback?: (err: any, data: S3.PutObjectOutput|any) => void): Request<S3.PutObjectOutput|any,any>;
     /**
      * uses the acl subresource to set the access control list (ACL) permissions for an
 object that already exists in a bucket
      *
      * @error NoSuchKey   
      */
-    putObjectAcl(params: S3.PutObjectAclRequest, callback?: (err: S3.NoSuchKey|any, data: S3.PutObjectAclOutput|any) => void): Request;
+    putObjectAcl(params: S3.PutObjectAclRequest, callback?: (err: S3.NoSuchKey|any, data: S3.PutObjectAclOutput|any) => void): Request<S3.PutObjectAclOutput|any,S3.NoSuchKey|any>;
     /**
      * Restores an archived copy of an object back into Amazon S3
      *
      * @error ObjectAlreadyInActiveTierError   
      */
-    restoreObject(params: S3.RestoreObjectRequest, callback?: (err: S3.ObjectAlreadyInActiveTierError|any, data: S3.RestoreObjectOutput|any) => void): Request;
+    restoreObject(params: S3.RestoreObjectRequest, callback?: (err: S3.ObjectAlreadyInActiveTierError|any, data: S3.RestoreObjectOutput|any) => void): Request<S3.RestoreObjectOutput|any,S3.ObjectAlreadyInActiveTierError|any>;
     /**
      * Uploads a part in a multipart upload.
 
@@ -362,12 +362,12 @@ upload, Amazon S3 frees up the parts storage and stops charging you for the
 parts storage.
      *
      */
-    uploadPart(params: S3.UploadPartRequest, callback?: (err: any, data: S3.UploadPartOutput|any) => void): Request;
+    uploadPart(params: S3.UploadPartRequest, callback?: (err: any, data: S3.UploadPartOutput|any) => void): Request<S3.UploadPartOutput|any,any>;
     /**
      * Uploads a part by copying data from an existing object as data source.
      *
      */
-    uploadPartCopy(params: S3.UploadPartCopyRequest, callback?: (err: any, data: S3.UploadPartCopyOutput|any) => void): Request;
+    uploadPartCopy(params: S3.UploadPartCopyRequest, callback?: (err: any, data: S3.UploadPartCopyOutput|any) => void): Request<S3.UploadPartCopyOutput|any,any>;
 
     isValidAccelerateOperation(...args: any[]): any
     /**

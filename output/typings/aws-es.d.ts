@@ -40,7 +40,7 @@ Gives http status code of 409.
 failure (the failure is internal to the service) . Gives http status code of
 500.  
      */
-    addTags(params: ES.AddTagsRequest, callback?: (err: ES.BaseException|ES.LimitExceededException|ES.ValidationException|ES.InternalException|any, data: any) => void): Request;
+    addTags(params: ES.AddTagsRequest, callback?: (err: ES.BaseException|ES.LimitExceededException|ES.ValidationException|ES.InternalException|any, data: any) => void): Request<any,ES.BaseException|ES.LimitExceededException|ES.ValidationException|ES.InternalException|any>;
     /**
      * Creates a new Elasticsearch domain. For more information, see Creating
 Elasticsearch Domains
@@ -61,7 +61,7 @@ Gives http status code of 409.
 of 400.  
      * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
      */
-    createElasticsearchDomain(params: ES.CreateElasticsearchDomainRequest, callback?: (err: ES.BaseException|ES.DisabledOperationException|ES.InternalException|ES.InvalidTypeException|ES.LimitExceededException|ES.ResourceAlreadyExistsException|ES.ValidationException|any, data: ES.CreateElasticsearchDomainResponse|any) => void): Request;
+    createElasticsearchDomain(params: ES.CreateElasticsearchDomainRequest, callback?: (err: ES.BaseException|ES.DisabledOperationException|ES.InternalException|ES.InvalidTypeException|ES.LimitExceededException|ES.ResourceAlreadyExistsException|ES.ValidationException|any, data: ES.CreateElasticsearchDomainResponse|any) => void): Request<ES.CreateElasticsearchDomainResponse|any,ES.BaseException|ES.DisabledOperationException|ES.InternalException|ES.InvalidTypeException|ES.LimitExceededException|ES.ResourceAlreadyExistsException|ES.ValidationException|any>;
     /**
      * Permanently deletes the specified Elasticsearch domain and all of its data. Once
 a domain is deleted, it cannot be recovered.
@@ -74,7 +74,7 @@ failure (the failure is internal to the service) . Gives http status code of
 http status code of 400.  
      * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
      */
-    deleteElasticsearchDomain(params: ES.DeleteElasticsearchDomainRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any, data: ES.DeleteElasticsearchDomainResponse|any) => void): Request;
+    deleteElasticsearchDomain(params: ES.DeleteElasticsearchDomainRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any, data: ES.DeleteElasticsearchDomainResponse|any) => void): Request<ES.DeleteElasticsearchDomainResponse|any,ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any>;
     /**
      * Returns domain configuration information about the specified Elasticsearch
 domain, including the domain ID, domain endpoint, and domain ARN.
@@ -87,7 +87,7 @@ failure (the failure is internal to the service) . Gives http status code of
 http status code of 400.  
      * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
      */
-    describeElasticsearchDomain(params: ES.DescribeElasticsearchDomainRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any, data: ES.DescribeElasticsearchDomainResponse|any) => void): Request;
+    describeElasticsearchDomain(params: ES.DescribeElasticsearchDomainRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any, data: ES.DescribeElasticsearchDomainResponse|any) => void): Request<ES.DescribeElasticsearchDomainResponse|any,ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any>;
     /**
      * Provides cluster configuration information about the specified Elasticsearch
 domain, such as the state, creation date, update version, and update date for
@@ -101,7 +101,7 @@ failure (the failure is internal to the service) . Gives http status code of
 http status code of 400.  
      * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
      */
-    describeElasticsearchDomainConfig(params: ES.DescribeElasticsearchDomainConfigRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any, data: ES.DescribeElasticsearchDomainConfigResponse|any) => void): Request;
+    describeElasticsearchDomainConfig(params: ES.DescribeElasticsearchDomainConfigRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any, data: ES.DescribeElasticsearchDomainConfigResponse|any) => void): Request<ES.DescribeElasticsearchDomainConfigResponse|any,ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any>;
     /**
      * Returns domain configuration information about the specified Elasticsearch
 domains, including the domain ID, domain endpoint, and domain ARN.
@@ -112,7 +112,7 @@ failure (the failure is internal to the service) . Gives http status code of
 500.  
      * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
      */
-    describeElasticsearchDomains(params: ES.DescribeElasticsearchDomainsRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.ValidationException|any, data: ES.DescribeElasticsearchDomainsResponse|any) => void): Request;
+    describeElasticsearchDomains(params: ES.DescribeElasticsearchDomainsRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.ValidationException|any, data: ES.DescribeElasticsearchDomainsResponse|any) => void): Request<ES.DescribeElasticsearchDomainsResponse|any,ES.BaseException|ES.InternalException|ES.ValidationException|any>;
     /**
      * Returns the name of all Elasticsearch domains owned by the current user&#x27;s
 account.
@@ -120,7 +120,7 @@ account.
      * @error BaseException An error occurred while processing the request.  
      * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
      */
-    listDomainNames(callback?: (err: ES.BaseException|ES.ValidationException|any, data: ES.ListDomainNamesResponse|any) => void): Request;
+    listDomainNames(callback?: (err: ES.BaseException|ES.ValidationException|any, data: ES.ListDomainNamesResponse|any) => void): Request<ES.ListDomainNamesResponse|any,ES.BaseException|ES.ValidationException|any>;
     /**
      * Returns all tags for the given Elasticsearch domain.
      *
@@ -132,7 +132,7 @@ http status code of 400.
 failure (the failure is internal to the service) . Gives http status code of
 500.  
      */
-    listTags(params: ES.ListTagsRequest, callback?: (err: ES.BaseException|ES.ResourceNotFoundException|ES.ValidationException|ES.InternalException|any, data: ES.ListTagsResponse|any) => void): Request;
+    listTags(params: ES.ListTagsRequest, callback?: (err: ES.BaseException|ES.ResourceNotFoundException|ES.ValidationException|ES.InternalException|any, data: ES.ListTagsResponse|any) => void): Request<ES.ListTagsResponse|any,ES.BaseException|ES.ResourceNotFoundException|ES.ValidationException|ES.InternalException|any>;
     /**
      * Removes the specified set of tags from the specified Elasticsearch domain.
      *
@@ -142,7 +142,7 @@ failure (the failure is internal to the service) . Gives http status code of
 failure (the failure is internal to the service) . Gives http status code of
 500.  
      */
-    removeTags(params: ES.RemoveTagsRequest, callback?: (err: ES.BaseException|ES.ValidationException|ES.InternalException|any, data: any) => void): Request;
+    removeTags(params: ES.RemoveTagsRequest, callback?: (err: ES.BaseException|ES.ValidationException|ES.InternalException|any, data: any) => void): Request<any,ES.BaseException|ES.ValidationException|ES.InternalException|any>;
     /**
      * Modifies the cluster configuration of the specified Elasticsearch domain,
 setting as setting the instance type and the number of instances.
@@ -159,7 +159,7 @@ Gives http status code of 409.
 http status code of 400.  
      * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
      */
-    updateElasticsearchDomainConfig(params: ES.UpdateElasticsearchDomainConfigRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.InvalidTypeException|ES.LimitExceededException|ES.ResourceNotFoundException|ES.ValidationException|any, data: ES.UpdateElasticsearchDomainConfigResponse|any) => void): Request;
+    updateElasticsearchDomainConfig(params: ES.UpdateElasticsearchDomainConfigRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.InvalidTypeException|ES.LimitExceededException|ES.ResourceNotFoundException|ES.ValidationException|any, data: ES.UpdateElasticsearchDomainConfigResponse|any) => void): Request<ES.UpdateElasticsearchDomainConfigResponse|any,ES.BaseException|ES.InternalException|ES.InvalidTypeException|ES.LimitExceededException|ES.ResourceNotFoundException|ES.ValidationException|any>;
 
   }
 

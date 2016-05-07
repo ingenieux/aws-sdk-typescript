@@ -46,7 +46,7 @@ complete.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    acceptCertificateTransfer(params: Iot.AcceptCertificateTransferRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.TransferAlreadyCompletedException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+    acceptCertificateTransfer(params: Iot.AcceptCertificateTransferRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.TransferAlreadyCompletedException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request<any,Iot.ResourceNotFoundException|Iot.TransferAlreadyCompletedException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Attaches the specified policy to the specified principal (certificate or other
 credential).
@@ -59,7 +59,7 @@ credential).
      * @error InternalFailureException An unexpected error has occurred.  
      * @error LimitExceededException The number of attached entities exceeds the limit.  
      */
-    attachPrincipalPolicy(params: Iot.AttachPrincipalPolicyRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.LimitExceededException|any, data: any) => void): Request;
+    attachPrincipalPolicy(params: Iot.AttachPrincipalPolicyRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.LimitExceededException|any, data: any) => void): Request<any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.LimitExceededException|any>;
     /**
      * Attaches the specified principal to the specified thing.
      *
@@ -70,7 +70,7 @@ credential).
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    attachThingPrincipal(params: Iot.AttachThingPrincipalRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.AttachThingPrincipalResponse|any) => void): Request;
+    attachThingPrincipal(params: Iot.AttachThingPrincipalRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.AttachThingPrincipalResponse|any) => void): Request<Iot.AttachThingPrincipalResponse|any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Cancels a pending transfer for the specified certificate.
 
@@ -92,7 +92,7 @@ complete.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    cancelCertificateTransfer(params: Iot.CancelCertificateTransferRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.TransferAlreadyCompletedException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+    cancelCertificateTransfer(params: Iot.CancelCertificateTransferRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.TransferAlreadyCompletedException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request<any,Iot.ResourceNotFoundException|Iot.TransferAlreadyCompletedException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Creates an X.509 certificate using the specified certificate signing request.
 
@@ -139,7 +139,7 @@ my-csr-directory is:
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    createCertificateFromCsr(params: Iot.CreateCertificateFromCsrRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.CreateCertificateFromCsrResponse|any) => void): Request;
+    createCertificateFromCsr(params: Iot.CreateCertificateFromCsrRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.CreateCertificateFromCsrResponse|any) => void): Request<Iot.CreateCertificateFromCsrResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued
 public key.
@@ -153,7 +153,7 @@ so it is important to keep it in a secure location.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    createKeysAndCertificate(params: Iot.CreateKeysAndCertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.CreateKeysAndCertificateResponse|any) => void): Request;
+    createKeysAndCertificate(params: Iot.CreateKeysAndCertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.CreateKeysAndCertificateResponse|any) => void): Request<Iot.CreateKeysAndCertificateResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Creates an AWS IoT policy.
 
@@ -169,7 +169,7 @@ default version.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    createPolicy(params: Iot.CreatePolicyRequest, callback?: (err: Iot.ResourceAlreadyExistsException|Iot.MalformedPolicyException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.CreatePolicyResponse|any) => void): Request;
+    createPolicy(params: Iot.CreatePolicyRequest, callback?: (err: Iot.ResourceAlreadyExistsException|Iot.MalformedPolicyException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.CreatePolicyResponse|any) => void): Request<Iot.CreatePolicyResponse|any,Iot.ResourceAlreadyExistsException|Iot.MalformedPolicyException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Creates a new version of the specified AWS IoT policy. To update a policy,
 create a new policy version. A managed policy can have up to five versions. If
@@ -189,7 +189,7 @@ for the certificates to which the policy is attached).
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    createPolicyVersion(params: Iot.CreatePolicyVersionRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.MalformedPolicyException|Iot.VersionsLimitExceededException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.CreatePolicyVersionResponse|any) => void): Request;
+    createPolicyVersion(params: Iot.CreatePolicyVersionRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.MalformedPolicyException|Iot.VersionsLimitExceededException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.CreatePolicyVersionResponse|any) => void): Request<Iot.CreatePolicyVersionResponse|any,Iot.ResourceNotFoundException|Iot.MalformedPolicyException|Iot.VersionsLimitExceededException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Creates a thing in the Thing Registry.
      *
@@ -200,7 +200,7 @@ for the certificates to which the policy is attached).
      * @error InternalFailureException An unexpected error has occurred.  
      * @error ResourceAlreadyExistsException The resource already exists.  
      */
-    createThing(params: Iot.CreateThingRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceAlreadyExistsException|any, data: Iot.CreateThingResponse|any) => void): Request;
+    createThing(params: Iot.CreateThingRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceAlreadyExistsException|any, data: Iot.CreateThingResponse|any) => void): Request<Iot.CreateThingResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceAlreadyExistsException|any>;
     /**
      * Creates a rule. Creating rules is an administrator-level action. Any user who
 has permission to create rules will be able to access data processed by the
@@ -212,7 +212,7 @@ rule.
      * @error ResourceAlreadyExistsException The resource already exists.  
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      */
-    createTopicRule(params: Iot.CreateTopicRuleRequest, callback?: (err: Iot.SqlParseException|Iot.InternalException|Iot.InvalidRequestException|Iot.ResourceAlreadyExistsException|Iot.ServiceUnavailableException|any, data: any) => void): Request;
+    createTopicRule(params: Iot.CreateTopicRuleRequest, callback?: (err: Iot.SqlParseException|Iot.InternalException|Iot.InvalidRequestException|Iot.ResourceAlreadyExistsException|Iot.ServiceUnavailableException|any, data: any) => void): Request<any,Iot.SqlParseException|Iot.InternalException|Iot.InvalidRequestException|Iot.ResourceAlreadyExistsException|Iot.ServiceUnavailableException|any>;
     /**
      * Deletes a registered CA certificate.
      *
@@ -224,7 +224,7 @@ rule.
      * @error InternalFailureException An unexpected error has occurred.  
      * @error ResourceNotFoundException The specified resource does not exist.  
      */
-    deleteCACertificate(params: Iot.DeleteCACertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.CertificateStateException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.DeleteCACertificateResponse|any) => void): Request;
+    deleteCACertificate(params: Iot.DeleteCACertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.CertificateStateException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.DeleteCACertificateResponse|any) => void): Request<Iot.DeleteCACertificateResponse|any,Iot.InvalidRequestException|Iot.CertificateStateException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any>;
     /**
      * Deletes the specified certificate.
 
@@ -242,7 +242,7 @@ UpdateCertificate API to set the certificate to the INACTIVE status.
      * @error InternalFailureException An unexpected error has occurred.  
      * @error ResourceNotFoundException The specified resource does not exist.  
      */
-    deleteCertificate(params: Iot.DeleteCertificateRequest, callback?: (err: Iot.CertificateStateException|Iot.DeleteConflictException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: any) => void): Request;
+    deleteCertificate(params: Iot.DeleteCertificateRequest, callback?: (err: Iot.CertificateStateException|Iot.DeleteConflictException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: any) => void): Request<any,Iot.CertificateStateException|Iot.DeleteConflictException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any>;
     /**
      * Deletes the specified policy.
 
@@ -264,7 +264,7 @@ it.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    deletePolicy(params: Iot.DeletePolicyRequest, callback?: (err: Iot.DeleteConflictException|Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+    deletePolicy(params: Iot.DeletePolicyRequest, callback?: (err: Iot.DeleteConflictException|Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request<any,Iot.DeleteConflictException|Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Deletes the specified version of the specified policy. You cannot delete the
 default version of a policy using this API. To delete the default version of a
@@ -279,7 +279,7 @@ the default version, use ListPolicyVersions.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    deletePolicyVersion(params: Iot.DeletePolicyVersionRequest, callback?: (err: Iot.DeleteConflictException|Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+    deletePolicyVersion(params: Iot.DeletePolicyVersionRequest, callback?: (err: Iot.DeleteConflictException|Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request<any,Iot.DeleteConflictException|Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Deletes a CA certificate registration code.
      *
@@ -289,7 +289,7 @@ the default version, use ListPolicyVersions.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    deleteRegistrationCode(params: Iot.DeleteRegistrationCodeRequest, callback?: (err: Iot.ThrottlingException|Iot.ResourceNotFoundException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DeleteRegistrationCodeResponse|any) => void): Request;
+    deleteRegistrationCode(params: Iot.DeleteRegistrationCodeRequest, callback?: (err: Iot.ThrottlingException|Iot.ResourceNotFoundException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DeleteRegistrationCodeResponse|any) => void): Request<Iot.DeleteRegistrationCodeResponse|any,Iot.ThrottlingException|Iot.ResourceNotFoundException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Deletes the specified thing from the Thing Registry.
      *
@@ -300,7 +300,7 @@ the default version, use ListPolicyVersions.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    deleteThing(params: Iot.DeleteThingRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DeleteThingResponse|any) => void): Request;
+    deleteThing(params: Iot.DeleteThingRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DeleteThingResponse|any) => void): Request<Iot.DeleteThingResponse|any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Deletes the specified rule.
      *
@@ -309,7 +309,7 @@ the default version, use ListPolicyVersions.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error UnauthorizedException You are not authorized to perform this operation.  
      */
-    deleteTopicRule(params: Iot.DeleteTopicRuleRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: any) => void): Request;
+    deleteTopicRule(params: Iot.DeleteTopicRuleRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: any) => void): Request<any,Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any>;
     /**
      * Describes a registered CA certificate.
      *
@@ -320,7 +320,7 @@ the default version, use ListPolicyVersions.
      * @error InternalFailureException An unexpected error has occurred.  
      * @error ResourceNotFoundException The specified resource does not exist.  
      */
-    describeCACertificate(params: Iot.DescribeCACertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.DescribeCACertificateResponse|any) => void): Request;
+    describeCACertificate(params: Iot.DescribeCACertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.DescribeCACertificateResponse|any) => void): Request<Iot.DescribeCACertificateResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any>;
     /**
      * Gets information about the specified certificate.
      *
@@ -331,7 +331,7 @@ the default version, use ListPolicyVersions.
      * @error InternalFailureException An unexpected error has occurred.  
      * @error ResourceNotFoundException The specified resource does not exist.  
      */
-    describeCertificate(params: Iot.DescribeCertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.DescribeCertificateResponse|any) => void): Request;
+    describeCertificate(params: Iot.DescribeCertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.DescribeCertificateResponse|any) => void): Request<Iot.DescribeCertificateResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any>;
     /**
      * Returns a unique endpoint specific to the AWS account making the call. You
 specify the following URI when updating state information for your thing:
@@ -341,7 +341,7 @@ https:// endpoint /things/ thingName /shadow.
      * @error UnauthorizedException You are not authorized to perform this operation.  
      * @error ThrottlingException The rate exceeds the limit.  
      */
-    describeEndpoint(params: Iot.DescribeEndpointRequest, callback?: (err: Iot.InternalFailureException|Iot.UnauthorizedException|Iot.ThrottlingException|any, data: Iot.DescribeEndpointResponse|any) => void): Request;
+    describeEndpoint(params: Iot.DescribeEndpointRequest, callback?: (err: Iot.InternalFailureException|Iot.UnauthorizedException|Iot.ThrottlingException|any, data: Iot.DescribeEndpointResponse|any) => void): Request<Iot.DescribeEndpointResponse|any,Iot.InternalFailureException|Iot.UnauthorizedException|Iot.ThrottlingException|any>;
     /**
      * Gets information about the specified thing.
      *
@@ -352,7 +352,7 @@ https:// endpoint /things/ thingName /shadow.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    describeThing(params: Iot.DescribeThingRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DescribeThingResponse|any) => void): Request;
+    describeThing(params: Iot.DescribeThingRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DescribeThingResponse|any) => void): Request<Iot.DescribeThingResponse|any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Removes the specified policy from the specified certificate.
      *
@@ -363,7 +363,7 @@ https:// endpoint /things/ thingName /shadow.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    detachPrincipalPolicy(params: Iot.DetachPrincipalPolicyRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+    detachPrincipalPolicy(params: Iot.DetachPrincipalPolicyRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request<any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Detaches the specified principal from the specified thing.
      *
@@ -374,7 +374,7 @@ https:// endpoint /things/ thingName /shadow.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    detachThingPrincipal(params: Iot.DetachThingPrincipalRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DetachThingPrincipalResponse|any) => void): Request;
+    detachThingPrincipal(params: Iot.DetachThingPrincipalRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DetachThingPrincipalResponse|any) => void): Request<Iot.DetachThingPrincipalResponse|any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Disables the specified rule.
      *
@@ -383,7 +383,7 @@ https:// endpoint /things/ thingName /shadow.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error UnauthorizedException You are not authorized to perform this operation.  
      */
-    disableTopicRule(params: Iot.DisableTopicRuleRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: any) => void): Request;
+    disableTopicRule(params: Iot.DisableTopicRuleRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: any) => void): Request<any,Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any>;
     /**
      * Enables the specified rule.
      *
@@ -392,7 +392,7 @@ https:// endpoint /things/ thingName /shadow.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error UnauthorizedException You are not authorized to perform this operation.  
      */
-    enableTopicRule(params: Iot.EnableTopicRuleRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: any) => void): Request;
+    enableTopicRule(params: Iot.EnableTopicRuleRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: any) => void): Request<any,Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any>;
     /**
      * Gets the logging options.
      *
@@ -400,7 +400,7 @@ https:// endpoint /things/ thingName /shadow.
      * @error InvalidRequestException The request is not valid.  
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      */
-    getLoggingOptions(params: Iot.GetLoggingOptionsRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|any, data: Iot.GetLoggingOptionsResponse|any) => void): Request;
+    getLoggingOptions(params: Iot.GetLoggingOptionsRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|any, data: Iot.GetLoggingOptionsResponse|any) => void): Request<Iot.GetLoggingOptionsResponse|any,Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|any>;
     /**
      * Gets information about the specified policy with the policy document of the
 default version.
@@ -412,7 +412,7 @@ default version.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    getPolicy(params: Iot.GetPolicyRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.GetPolicyResponse|any) => void): Request;
+    getPolicy(params: Iot.GetPolicyRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.GetPolicyResponse|any) => void): Request<Iot.GetPolicyResponse|any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Gets information about the specified policy version.
      *
@@ -423,7 +423,7 @@ default version.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    getPolicyVersion(params: Iot.GetPolicyVersionRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.GetPolicyVersionResponse|any) => void): Request;
+    getPolicyVersion(params: Iot.GetPolicyVersionRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.GetPolicyVersionResponse|any) => void): Request<Iot.GetPolicyVersionResponse|any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Gets a registration code used to register a CA certificate with AWS IoT.
      *
@@ -432,7 +432,7 @@ default version.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    getRegistrationCode(params: Iot.GetRegistrationCodeRequest, callback?: (err: Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.GetRegistrationCodeResponse|any) => void): Request;
+    getRegistrationCode(params: Iot.GetRegistrationCodeRequest, callback?: (err: Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.GetRegistrationCodeResponse|any) => void): Request<Iot.GetRegistrationCodeResponse|any,Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Gets information about the specified rule.
      *
@@ -441,7 +441,7 @@ default version.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error UnauthorizedException You are not authorized to perform this operation.  
      */
-    getTopicRule(params: Iot.GetTopicRuleRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: Iot.GetTopicRuleResponse|any) => void): Request;
+    getTopicRule(params: Iot.GetTopicRuleRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: Iot.GetTopicRuleResponse|any) => void): Request<Iot.GetTopicRuleResponse|any,Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any>;
     /**
      * Lists the CA certificates registered for your AWS account.
 
@@ -454,7 +454,7 @@ returned marker to retrieve additional results.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    listCACertificates(params: Iot.ListCACertificatesRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListCACertificatesResponse|any) => void): Request;
+    listCACertificates(params: Iot.ListCACertificatesRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListCACertificatesResponse|any) => void): Request<Iot.ListCACertificatesResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Lists the certificates registered in your AWS account.
 
@@ -467,7 +467,7 @@ returned marker to retrieve additional results.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    listCertificates(params: Iot.ListCertificatesRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListCertificatesResponse|any) => void): Request;
+    listCertificates(params: Iot.ListCertificatesRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListCertificatesResponse|any) => void): Request<Iot.ListCertificatesResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * List the device certificates signed by the specified CA certificate.
      *
@@ -477,7 +477,7 @@ returned marker to retrieve additional results.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    listCertificatesByCA(params: Iot.ListCertificatesByCARequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListCertificatesByCAResponse|any) => void): Request;
+    listCertificatesByCA(params: Iot.ListCertificatesByCARequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListCertificatesByCAResponse|any) => void): Request<Iot.ListCertificatesByCAResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Lists your policies.
      *
@@ -487,7 +487,7 @@ returned marker to retrieve additional results.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    listPolicies(params: Iot.ListPoliciesRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPoliciesResponse|any) => void): Request;
+    listPolicies(params: Iot.ListPoliciesRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPoliciesResponse|any) => void): Request<Iot.ListPoliciesResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Lists the versions of the specified policy, and identifies the default version.
      *
@@ -498,7 +498,7 @@ returned marker to retrieve additional results.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    listPolicyVersions(params: Iot.ListPolicyVersionsRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPolicyVersionsResponse|any) => void): Request;
+    listPolicyVersions(params: Iot.ListPolicyVersionsRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPolicyVersionsResponse|any) => void): Request<Iot.ListPolicyVersionsResponse|any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Lists the policies attached to the specified principal. If you use an Cognito
 identity, the ID must be in AmazonCognito Identity format
@@ -512,7 +512,7 @@ identity, the ID must be in AmazonCognito Identity format
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    listPrincipalPolicies(params: Iot.ListPrincipalPoliciesRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPrincipalPoliciesResponse|any) => void): Request;
+    listPrincipalPolicies(params: Iot.ListPrincipalPoliciesRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPrincipalPoliciesResponse|any) => void): Request<Iot.ListPrincipalPoliciesResponse|any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Lists the things associated with the specified principal.
      *
@@ -522,7 +522,7 @@ identity, the ID must be in AmazonCognito Identity format
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    listPrincipalThings(params: Iot.ListPrincipalThingsRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPrincipalThingsResponse|any) => void): Request;
+    listPrincipalThings(params: Iot.ListPrincipalThingsRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPrincipalThingsResponse|any) => void): Request<Iot.ListPrincipalThingsResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Lists the principals associated with the specified thing.
      *
@@ -532,7 +532,7 @@ identity, the ID must be in AmazonCognito Identity format
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    listThingPrincipals(params: Iot.ListThingPrincipalsRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListThingPrincipalsResponse|any) => void): Request;
+    listThingPrincipals(params: Iot.ListThingPrincipalsRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListThingPrincipalsResponse|any) => void): Request<Iot.ListThingPrincipalsResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Lists your things. You can pass an AttributeName or AttributeValue to filter
 your things (for example, &quot;ListThings where AttributeName=Color and
@@ -544,7 +544,7 @@ AttributeValue=Red&quot;).
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    listThings(params: Iot.ListThingsRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListThingsResponse|any) => void): Request;
+    listThings(params: Iot.ListThingsRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListThingsResponse|any) => void): Request<Iot.ListThingsResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Lists the rules for the specific topic.
      *
@@ -552,7 +552,7 @@ AttributeValue=Red&quot;).
      * @error InvalidRequestException The request is not valid.  
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      */
-    listTopicRules(params: Iot.ListTopicRulesRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|any, data: Iot.ListTopicRulesResponse|any) => void): Request;
+    listTopicRules(params: Iot.ListTopicRulesRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|any, data: Iot.ListTopicRulesResponse|any) => void): Request<Iot.ListTopicRulesResponse|any,Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|any>;
     /**
      * Registers a CA certificate with AWS IoT. This CA certificate can then be used to
 sign device certificates, which can be then registered with AWS IoT. You can
@@ -572,7 +572,7 @@ certificates with the RegisterCertificate API.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    registerCACertificate(params: Iot.RegisterCACertificateRequest, callback?: (err: Iot.ResourceAlreadyExistsException|Iot.RegistrationCodeValidationException|Iot.InvalidRequestException|Iot.CertificateValidationException|Iot.ThrottlingException|Iot.LimitExceededException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.RegisterCACertificateResponse|any) => void): Request;
+    registerCACertificate(params: Iot.RegisterCACertificateRequest, callback?: (err: Iot.ResourceAlreadyExistsException|Iot.RegistrationCodeValidationException|Iot.InvalidRequestException|Iot.CertificateValidationException|Iot.ThrottlingException|Iot.LimitExceededException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.RegisterCACertificateResponse|any) => void): Request<Iot.RegisterCACertificateResponse|any,Iot.ResourceAlreadyExistsException|Iot.RegistrationCodeValidationException|Iot.InvalidRequestException|Iot.CertificateValidationException|Iot.ThrottlingException|Iot.LimitExceededException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Registers a device certificate with AWS IoT. If you have more than one CA
 certificate that has the same subject field, you must specify the CA certificate
@@ -590,7 +590,7 @@ CA certificate that has the same subject field and public key.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    registerCertificate(params: Iot.RegisterCertificateRequest, callback?: (err: Iot.ResourceAlreadyExistsException|Iot.InvalidRequestException|Iot.CertificateValidationException|Iot.CertificateStateException|Iot.CertificateConflictException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.RegisterCertificateResponse|any) => void): Request;
+    registerCertificate(params: Iot.RegisterCertificateRequest, callback?: (err: Iot.ResourceAlreadyExistsException|Iot.InvalidRequestException|Iot.CertificateValidationException|Iot.CertificateStateException|Iot.CertificateConflictException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.RegisterCertificateResponse|any) => void): Request<Iot.RegisterCertificateResponse|any,Iot.ResourceAlreadyExistsException|Iot.InvalidRequestException|Iot.CertificateValidationException|Iot.CertificateStateException|Iot.CertificateConflictException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Rejects a pending certificate transfer. After AWS IoT rejects a certificate
 transfer, the certificate status changes from PENDING_TRANSFER to INACTIVE .
@@ -611,7 +611,7 @@ complete.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    rejectCertificateTransfer(params: Iot.RejectCertificateTransferRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.TransferAlreadyCompletedException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+    rejectCertificateTransfer(params: Iot.RejectCertificateTransferRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.TransferAlreadyCompletedException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request<any,Iot.ResourceNotFoundException|Iot.TransferAlreadyCompletedException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Replaces the specified rule. You must specify all parameters for the new rule.
 Creating rules is an administrator-level action. Any user who has permission to
@@ -623,7 +623,7 @@ create rules will be able to access data processed by the rule.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error UnauthorizedException You are not authorized to perform this operation.  
      */
-    replaceTopicRule(params: Iot.ReplaceTopicRuleRequest, callback?: (err: Iot.SqlParseException|Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: any) => void): Request;
+    replaceTopicRule(params: Iot.ReplaceTopicRuleRequest, callback?: (err: Iot.SqlParseException|Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: any) => void): Request<any,Iot.SqlParseException|Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any>;
     /**
      * Sets the specified version of the specified policy as the policy&#x27;s default
 (operative) version. This action affects all certificates to which the policy is
@@ -637,7 +637,7 @@ ListPrincipalPolicy API.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    setDefaultPolicyVersion(params: Iot.SetDefaultPolicyVersionRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+    setDefaultPolicyVersion(params: Iot.SetDefaultPolicyVersionRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request<any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Sets the logging options.
      *
@@ -645,7 +645,7 @@ ListPrincipalPolicy API.
      * @error InvalidRequestException The request is not valid.  
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      */
-    setLoggingOptions(params: Iot.SetLoggingOptionsRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|any, data: any) => void): Request;
+    setLoggingOptions(params: Iot.SetLoggingOptionsRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|any, data: any) => void): Request<any,Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|any>;
     /**
      * Transfers the specified certificate to the specified AWS account.
 
@@ -670,7 +670,7 @@ attached.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    transferCertificate(params: Iot.TransferCertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.ResourceNotFoundException|Iot.CertificateStateException|Iot.TransferConflictException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.TransferCertificateResponse|any) => void): Request;
+    transferCertificate(params: Iot.TransferCertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.ResourceNotFoundException|Iot.CertificateStateException|Iot.TransferConflictException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.TransferCertificateResponse|any) => void): Request<Iot.TransferCertificateResponse|any,Iot.InvalidRequestException|Iot.ResourceNotFoundException|Iot.CertificateStateException|Iot.TransferConflictException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Updates a registered CA certificate.
      *
@@ -681,7 +681,7 @@ attached.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    updateCACertificate(params: Iot.UpdateCACertificateRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+    updateCACertificate(params: Iot.UpdateCACertificateRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request<any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Updates the status of the specified certificate. This operation is idempotent.
 
@@ -700,7 +700,7 @@ a certificate.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    updateCertificate(params: Iot.UpdateCertificateRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.CertificateStateException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request;
+    updateCertificate(params: Iot.UpdateCertificateRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.CertificateStateException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: any) => void): Request<any,Iot.ResourceNotFoundException|Iot.CertificateStateException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Updates the data for a thing.
      *
@@ -711,7 +711,7 @@ a certificate.
      * @error InternalFailureException An unexpected error has occurred.  
      * @error ResourceNotFoundException The specified resource does not exist.  
      */
-    updateThing(params: Iot.UpdateThingRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.UpdateThingResponse|any) => void): Request;
+    updateThing(params: Iot.UpdateThingRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.UpdateThingResponse|any) => void): Request<Iot.UpdateThingResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any>;
 
   }
 

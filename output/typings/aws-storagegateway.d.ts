@@ -70,7 +70,7 @@ You must turn on the gateway VM before you can activate your gateway.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    activateGateway(params: StorageGateway.ActivateGatewayInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ActivateGatewayOutput|any) => void): Request;
+    activateGateway(params: StorageGateway.ActivateGatewayInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ActivateGatewayOutput|any) => void): Request<StorageGateway.ActivateGatewayOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Configures one or more gateway local disks as cache for a cached-volume gateway.
 This operation is supported only for the gateway-cached volume architecture (see 
@@ -84,7 +84,7 @@ want to add cache, and one or more disk IDs that you want to configure as cache.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    addCache(params: StorageGateway.AddCacheInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.AddCacheOutput|any) => void): Request;
+    addCache(params: StorageGateway.AddCacheInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.AddCacheOutput|any) => void): Request<StorageGateway.AddCacheOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Adds one or more tags to the specified resource. You use tags to add metadata to
 resources, which you can use to categorize these resources. For example, you can
@@ -110,7 +110,7 @@ volumes that are recovered to a new gateway maintain their tags.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    addTagsToResource(params: StorageGateway.AddTagsToResourceInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.AddTagsToResourceOutput|any) => void): Request;
+    addTagsToResource(params: StorageGateway.AddTagsToResourceInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.AddTagsToResourceOutput|any) => void): Request<StorageGateway.AddTagsToResourceOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Configures one or more gateway local disks as upload buffer for a specified
 gateway. This operation is supported for both the gateway-stored and
@@ -123,7 +123,7 @@ as upload buffer.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    addUploadBuffer(params: StorageGateway.AddUploadBufferInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.AddUploadBufferOutput|any) => void): Request;
+    addUploadBuffer(params: StorageGateway.AddUploadBufferInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.AddUploadBufferOutput|any) => void): Request<StorageGateway.AddUploadBufferOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Configures one or more gateway local disks as working storage for a gateway.
 This operation is supported only for the gateway-stored volume architecture.
@@ -140,7 +140,7 @@ as working storage.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    addWorkingStorage(params: StorageGateway.AddWorkingStorageInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.AddWorkingStorageOutput|any) => void): Request;
+    addWorkingStorage(params: StorageGateway.AddWorkingStorageInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.AddWorkingStorageOutput|any) => void): Request<StorageGateway.AddWorkingStorageOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the
 archiving process is initiated.
@@ -148,7 +148,7 @@ archiving process is initiated.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    cancelArchival(params: StorageGateway.CancelArchivalInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CancelArchivalOutput|any) => void): Request;
+    cancelArchival(params: StorageGateway.CancelArchivalInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CancelArchivalOutput|any) => void): Request<StorageGateway.CancelArchivalOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a
 gateway after the retrieval process is initiated. The virtual tape is returned
@@ -157,7 +157,7 @@ to the VTS.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    cancelRetrieval(params: StorageGateway.CancelRetrievalInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CancelRetrievalOutput|any) => void): Request;
+    cancelRetrieval(params: StorageGateway.CancelRetrievalInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CancelRetrievalOutput|any) => void): Request<StorageGateway.CancelRetrievalOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Creates a cached volume on a specified cached gateway. This operation is
 supported only for the gateway-cached volume architecture.
@@ -174,7 +174,7 @@ target.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    createCachediSCSIVolume(params: StorageGateway.CreateCachediSCSIVolumeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateCachediSCSIVolumeOutput|any) => void): Request;
+    createCachediSCSIVolume(params: StorageGateway.CreateCachediSCSIVolumeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateCachediSCSIVolumeOutput|any) => void): Request<StorageGateway.CreateCachediSCSIVolumeOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Initiates a snapshot of a volume.
 
@@ -202,7 +202,7 @@ information, see DescribeSnapshots or DeleteSnapshot in the EC2 API reference
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    createSnapshot(params: StorageGateway.CreateSnapshotInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateSnapshotOutput|any) => void): Request;
+    createSnapshot(params: StorageGateway.CreateSnapshotInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateSnapshotOutput|any) => void): Request<StorageGateway.CreateSnapshotOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Initiates a snapshot of a gateway from a volume recovery point. This operation
 is supported only for the gateway-cached volume architecture.
@@ -225,7 +225,7 @@ information, in Amazon Elastic Compute Cloud API Reference .
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    createSnapshotFromVolumeRecoveryPoint(params: StorageGateway.CreateSnapshotFromVolumeRecoveryPointInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateSnapshotFromVolumeRecoveryPointOutput|any) => void): Request;
+    createSnapshotFromVolumeRecoveryPoint(params: StorageGateway.CreateSnapshotFromVolumeRecoveryPointInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateSnapshotFromVolumeRecoveryPointOutput|any) => void): Request<StorageGateway.CreateSnapshotFromVolumeRecoveryPointOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Creates a volume on a specified gateway. This operation is supported only for
 the gateway-stored volume architecture.
@@ -244,7 +244,7 @@ volume target.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    createStorediSCSIVolume(params: StorageGateway.CreateStorediSCSIVolumeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateStorediSCSIVolumeOutput|any) => void): Request;
+    createStorediSCSIVolume(params: StorageGateway.CreateStorediSCSIVolumeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateStorediSCSIVolumeOutput|any) => void): Request<StorageGateway.CreateStorediSCSIVolumeOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Creates a virtual tape by using your own barcode. You write data to the virtual
 tape and then archive the tape.
@@ -255,7 +255,7 @@ tape. Use the AddCache operation to add cache storage to a gateway.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    createTapeWithBarcode(params: StorageGateway.CreateTapeWithBarcodeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateTapeWithBarcodeOutput|any) => void): Request;
+    createTapeWithBarcode(params: StorageGateway.CreateTapeWithBarcodeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateTapeWithBarcodeOutput|any) => void): Request<StorageGateway.CreateTapeWithBarcodeOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Creates one or more virtual tapes. You write data to the virtual tapes and then
 archive the tapes.
@@ -266,7 +266,7 @@ tapes. Use the AddCache operation to add cache storage to a gateway.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    createTapes(params: StorageGateway.CreateTapesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateTapesOutput|any) => void): Request;
+    createTapes(params: StorageGateway.CreateTapesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.CreateTapesOutput|any) => void): Request<StorageGateway.CreateTapesOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Deletes the bandwidth rate limits of a gateway. You can delete either the upload
 and download bandwidth rate limit, or you can delete both. If you delete only
@@ -276,7 +276,7 @@ to work with, use the Amazon Resource Name (ARN) of the gateway in your request.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    deleteBandwidthRateLimit(params: StorageGateway.DeleteBandwidthRateLimitInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteBandwidthRateLimitOutput|any) => void): Request;
+    deleteBandwidthRateLimit(params: StorageGateway.DeleteBandwidthRateLimitInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteBandwidthRateLimitOutput|any) => void): Request<StorageGateway.DeleteBandwidthRateLimitOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a
 specified iSCSI target and initiator pair.
@@ -284,7 +284,7 @@ specified iSCSI target and initiator pair.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    deleteChapCredentials(params: StorageGateway.DeleteChapCredentialsInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteChapCredentialsOutput|any) => void): Request;
+    deleteChapCredentials(params: StorageGateway.DeleteChapCredentialsInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteChapCredentialsOutput|any) => void): Request<StorageGateway.DeleteChapCredentialsOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Deletes a gateway. To specify which gateway to delete, use the Amazon Resource
 Name (ARN) of the gateway in your request. The operation deletes the gateway;
@@ -307,7 +307,7 @@ For more information, see the AWS Storage Gateway Detail Page
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    deleteGateway(params: StorageGateway.DeleteGatewayInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteGatewayOutput|any) => void): Request;
+    deleteGateway(params: StorageGateway.DeleteGatewayInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteGatewayOutput|any) => void): Request<StorageGateway.DeleteGatewayOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Deletes a snapshot of a volume.
 
@@ -324,21 +324,21 @@ Compute Cloud API Reference .
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    deleteSnapshotSchedule(params: StorageGateway.DeleteSnapshotScheduleInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteSnapshotScheduleOutput|any) => void): Request;
+    deleteSnapshotSchedule(params: StorageGateway.DeleteSnapshotScheduleInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteSnapshotScheduleOutput|any) => void): Request<StorageGateway.DeleteSnapshotScheduleOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Deletes the specified virtual tape.
      *
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    deleteTape(params: StorageGateway.DeleteTapeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteTapeOutput|any) => void): Request;
+    deleteTape(params: StorageGateway.DeleteTapeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteTapeOutput|any) => void): Request<StorageGateway.DeleteTapeOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Deletes the specified virtual tape from the virtual tape shelf (VTS).
      *
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    deleteTapeArchive(params: StorageGateway.DeleteTapeArchiveInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteTapeArchiveOutput|any) => void): Request;
+    deleteTapeArchive(params: StorageGateway.DeleteTapeArchiveInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteTapeArchiveOutput|any) => void): Request<StorageGateway.DeleteTapeArchiveOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Deletes the specified gateway volume that you previously created using the 
 CreateCachediSCSIVolume or CreateStorediSCSIVolume API. For gateway-stored
@@ -359,7 +359,7 @@ volume you want to delete.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    deleteVolume(params: StorageGateway.DeleteVolumeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteVolumeOutput|any) => void): Request;
+    deleteVolume(params: StorageGateway.DeleteVolumeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DeleteVolumeOutput|any) => void): Request<StorageGateway.DeleteVolumeOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Returns the bandwidth rate limits of a gateway. By default, these limits are not
 set, which means no bandwidth rate limiting is in effect.
@@ -372,7 +372,7 @@ the Amazon Resource Name (ARN) of the gateway in your request.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    describeBandwidthRateLimit(params: StorageGateway.DescribeBandwidthRateLimitInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeBandwidthRateLimitOutput|any) => void): Request;
+    describeBandwidthRateLimit(params: StorageGateway.DescribeBandwidthRateLimitInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeBandwidthRateLimitOutput|any) => void): Request<StorageGateway.DescribeBandwidthRateLimitOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Returns information about the cache of a gateway. This operation is supported
 only for the gateway-cached volume architecture.
@@ -383,7 +383,7 @@ amount of cache allocated and used.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    describeCache(params: StorageGateway.DescribeCacheInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeCacheOutput|any) => void): Request;
+    describeCache(params: StorageGateway.DescribeCacheInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeCacheOutput|any) => void): Request<StorageGateway.DescribeCacheOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Returns a description of the gateway volumes specified in the request. This
 operation is supported only for the gateway-cached volume architecture.
@@ -395,7 +395,7 @@ Amazon Resource Name (ARN).
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    describeCachediSCSIVolumes(params: StorageGateway.DescribeCachediSCSIVolumesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeCachediSCSIVolumesOutput|any) => void): Request;
+    describeCachediSCSIVolumes(params: StorageGateway.DescribeCachediSCSIVolumesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeCachediSCSIVolumesOutput|any) => void): Request<StorageGateway.DescribeCachediSCSIVolumesOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Returns an array of Challenge-Handshake Authentication Protocol (CHAP)
 credentials information for a specified iSCSI target, one for each
@@ -404,7 +404,7 @@ target-initiator pair.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    describeChapCredentials(params: StorageGateway.DescribeChapCredentialsInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeChapCredentialsOutput|any) => void): Request;
+    describeChapCredentials(params: StorageGateway.DescribeChapCredentialsInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeChapCredentialsOutput|any) => void): Request<StorageGateway.DescribeChapCredentialsOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Returns metadata about a gateway such as its name, network interfaces,
 configured time zone, and the state (whether the gateway is running or not). To
@@ -414,7 +414,7 @@ gateway in your request.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    describeGatewayInformation(params: StorageGateway.DescribeGatewayInformationInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeGatewayInformationOutput|any) => void): Request;
+    describeGatewayInformation(params: StorageGateway.DescribeGatewayInformationInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeGatewayInformationOutput|any) => void): Request<StorageGateway.DescribeGatewayInformationOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Returns your gateway&#x27;s weekly maintenance start time including the day and time
 of the week. Note that values are in terms of the gateway&#x27;s time zone.
@@ -422,7 +422,7 @@ of the week. Note that values are in terms of the gateway&#x27;s time zone.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    describeMaintenanceStartTime(params: StorageGateway.DescribeMaintenanceStartTimeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeMaintenanceStartTimeOutput|any) => void): Request;
+    describeMaintenanceStartTime(params: StorageGateway.DescribeMaintenanceStartTimeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeMaintenanceStartTimeOutput|any) => void): Request<StorageGateway.DescribeMaintenanceStartTimeOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Describes the snapshot schedule for the specified gateway volume. The snapshot
 schedule information includes intervals at which snapshots are automatically
@@ -431,7 +431,7 @@ initiated on the volume.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    describeSnapshotSchedule(params: StorageGateway.DescribeSnapshotScheduleInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeSnapshotScheduleOutput|any) => void): Request;
+    describeSnapshotSchedule(params: StorageGateway.DescribeSnapshotScheduleInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeSnapshotScheduleOutput|any) => void): Request<StorageGateway.DescribeSnapshotScheduleOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Returns the description of the gateway volumes specified in the request. The
 list of gateway volumes in the request must be from one gateway. In the response
@@ -440,7 +440,7 @@ Amazon Storage Gateway returns volume information sorted by volume ARNs.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    describeStorediSCSIVolumes(params: StorageGateway.DescribeStorediSCSIVolumesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeStorediSCSIVolumesOutput|any) => void): Request;
+    describeStorediSCSIVolumes(params: StorageGateway.DescribeStorediSCSIVolumesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeStorediSCSIVolumesOutput|any) => void): Request<StorageGateway.DescribeStorediSCSIVolumesOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Returns a description of specified virtual tapes in the virtual tape shelf
 (VTS).
@@ -451,7 +451,7 @@ description of all virtual tapes found in the VTS associated with your account.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    describeTapeArchives(params: StorageGateway.DescribeTapeArchivesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeTapeArchivesOutput|any) => void): Request;
+    describeTapeArchives(params: StorageGateway.DescribeTapeArchivesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeTapeArchivesOutput|any) => void): Request<StorageGateway.DescribeTapeArchivesOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Returns a list of virtual tape recovery points that are available for the
 specified gateway-VTL.
@@ -463,7 +463,7 @@ have recovery points can be recovered to a new gateway.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    describeTapeRecoveryPoints(params: StorageGateway.DescribeTapeRecoveryPointsInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeTapeRecoveryPointsOutput|any) => void): Request;
+    describeTapeRecoveryPoints(params: StorageGateway.DescribeTapeRecoveryPointsInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeTapeRecoveryPointsOutput|any) => void): Request<StorageGateway.DescribeTapeRecoveryPointsOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Returns a description of the specified Amazon Resource Name (ARN) of virtual
 tapes. If a TapeARN is not specified, returns a description of all virtual tapes
@@ -472,7 +472,7 @@ associated with the specified gateway.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    describeTapes(params: StorageGateway.DescribeTapesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeTapesOutput|any) => void): Request;
+    describeTapes(params: StorageGateway.DescribeTapesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeTapesOutput|any) => void): Request<StorageGateway.DescribeTapesOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Returns information about the upload buffer of a gateway. This operation is
 supported for both the gateway-stored and gateway-cached volume architectures.
@@ -483,7 +483,7 @@ it includes the amount of upload buffer space allocated and used.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    describeUploadBuffer(params: StorageGateway.DescribeUploadBufferInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeUploadBufferOutput|any) => void): Request;
+    describeUploadBuffer(params: StorageGateway.DescribeUploadBufferInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeUploadBufferOutput|any) => void): Request<StorageGateway.DescribeUploadBufferOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Returns a description of virtual tape library (VTL) devices for the specified
 gateway. In the response, AWS Storage Gateway returns VTL device information.
@@ -493,7 +493,7 @@ The list of VTL devices must be from one gateway.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    describeVTLDevices(params: StorageGateway.DescribeVTLDevicesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeVTLDevicesOutput|any) => void): Request;
+    describeVTLDevices(params: StorageGateway.DescribeVTLDevicesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeVTLDevicesOutput|any) => void): Request<StorageGateway.DescribeVTLDevicesOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Returns information about the working storage of a gateway. This operation is
 supported only for the gateway-stored volume architecture. This operation is
@@ -509,7 +509,7 @@ includes the amount of working storage allocated and used.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    describeWorkingStorage(params: StorageGateway.DescribeWorkingStorageInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeWorkingStorageOutput|any) => void): Request;
+    describeWorkingStorage(params: StorageGateway.DescribeWorkingStorageInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DescribeWorkingStorageOutput|any) => void): Request<StorageGateway.DescribeWorkingStorageOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Disables a gateway when the gateway is no longer functioning. For example, if
 your gateway VM is damaged, you can disable the gateway so you can recover
@@ -522,7 +522,7 @@ Once a gateway is disabled it cannot be enabled.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    disableGateway(params: StorageGateway.DisableGatewayInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DisableGatewayOutput|any) => void): Request;
+    disableGateway(params: StorageGateway.DisableGatewayInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.DisableGatewayOutput|any) => void): Request<StorageGateway.DisableGatewayOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Lists gateways owned by an AWS account in a region specified in the request. The
 returned list is ordered by gateway Amazon Resource Name (ARN).
@@ -538,7 +538,7 @@ that you can specify in your next request to fetch the next page of gateways.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    listGateways(params: StorageGateway.ListGatewaysInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListGatewaysOutput|any) => void): Request;
+    listGateways(params: StorageGateway.ListGatewaysInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListGatewaysOutput|any) => void): Request<StorageGateway.ListGatewaysOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Returns a list of the gateway&#x27;s local disks. To specify which gateway to
 describe, you use the Amazon Resource Name (ARN) of the gateway in the body of
@@ -554,14 +554,14 @@ metadata or the disk content is corrupted).
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    listLocalDisks(params: StorageGateway.ListLocalDisksInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListLocalDisksOutput|any) => void): Request;
+    listLocalDisks(params: StorageGateway.ListLocalDisksInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListLocalDisksOutput|any) => void): Request<StorageGateway.ListLocalDisksOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Lists the tags that have been added to the specified resource.
      *
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    listTagsForResource(params: StorageGateway.ListTagsForResourceInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListTagsForResourceOutput|any) => void): Request;
+    listTagsForResource(params: StorageGateway.ListTagsForResourceInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListTagsForResourceOutput|any) => void): Request<StorageGateway.ListTagsForResourceOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Lists iSCSI initiators that are connected to a volume. You can use this
 operation to determine whether a volume is being used or not.
@@ -569,7 +569,7 @@ operation to determine whether a volume is being used or not.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    listVolumeInitiators(params: StorageGateway.ListVolumeInitiatorsInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListVolumeInitiatorsOutput|any) => void): Request;
+    listVolumeInitiators(params: StorageGateway.ListVolumeInitiatorsInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListVolumeInitiatorsOutput|any) => void): Request<StorageGateway.ListVolumeInitiatorsOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Lists the recovery points for a specified gateway. This operation is supported
 only for the gateway-cached volume architecture.
@@ -582,7 +582,7 @@ CreateSnapshotFromVolumeRecoveryPoint operation.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    listVolumeRecoveryPoints(params: StorageGateway.ListVolumeRecoveryPointsInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListVolumeRecoveryPointsOutput|any) => void): Request;
+    listVolumeRecoveryPoints(params: StorageGateway.ListVolumeRecoveryPointsInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListVolumeRecoveryPointsOutput|any) => void): Request<StorageGateway.ListVolumeRecoveryPointsOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN.
 The response includes only the volume ARNs. If you want additional volume
@@ -598,14 +598,14 @@ volumes.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    listVolumes(params: StorageGateway.ListVolumesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListVolumesOutput|any) => void): Request;
+    listVolumes(params: StorageGateway.ListVolumesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListVolumesOutput|any) => void): Request<StorageGateway.ListVolumesOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Removes one or more tags from the specified resource.
      *
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    removeTagsFromResource(params: StorageGateway.RemoveTagsFromResourceInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.RemoveTagsFromResourceOutput|any) => void): Request;
+    removeTagsFromResource(params: StorageGateway.RemoveTagsFromResourceInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.RemoveTagsFromResourceOutput|any) => void): Request<StorageGateway.RemoveTagsFromResourceOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Resets all cache disks that have encountered a error and makes the disks
 available for reconfiguration as cache storage. If your cache disk encounters a
@@ -622,7 +622,7 @@ one new cache disk for your gateway to function properly.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    resetCache(params: StorageGateway.ResetCacheInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ResetCacheOutput|any) => void): Request;
+    resetCache(params: StorageGateway.ResetCacheInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ResetCacheOutput|any) => void): Request<StorageGateway.ResetCacheOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a
 gateway-VTL. Virtual tapes archived in the VTS are not associated with any
@@ -636,7 +636,7 @@ to another gateway.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    retrieveTapeArchive(params: StorageGateway.RetrieveTapeArchiveInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.RetrieveTapeArchiveOutput|any) => void): Request;
+    retrieveTapeArchive(params: StorageGateway.RetrieveTapeArchiveInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.RetrieveTapeArchiveOutput|any) => void): Request<StorageGateway.RetrieveTapeArchiveOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Retrieves the recovery point for the specified virtual tape.
 
@@ -651,7 +651,7 @@ charge for retrieving recovery points.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    retrieveTapeRecoveryPoint(params: StorageGateway.RetrieveTapeRecoveryPointInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.RetrieveTapeRecoveryPointOutput|any) => void): Request;
+    retrieveTapeRecoveryPoint(params: StorageGateway.RetrieveTapeRecoveryPointInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.RetrieveTapeRecoveryPointOutput|any) => void): Request<StorageGateway.RetrieveTapeRecoveryPointOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Sets the password for your VM local console. When you log in to the local
 console for the first time, you log in to the VM with the default credentials.
@@ -661,7 +661,7 @@ password to set a new password.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    setLocalConsolePassword(params: StorageGateway.SetLocalConsolePasswordInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.SetLocalConsolePasswordOutput|any) => void): Request;
+    setLocalConsolePassword(params: StorageGateway.SetLocalConsolePasswordInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.SetLocalConsolePasswordOutput|any) => void): Request<StorageGateway.SetLocalConsolePasswordOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Shuts down a gateway. To specify which gateway to shut down, use the Amazon
 Resource Name (ARN) of the gateway in the body of your request.
@@ -686,7 +686,7 @@ associated with the gateway.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    shutdownGateway(params: StorageGateway.ShutdownGatewayInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ShutdownGatewayOutput|any) => void): Request;
+    shutdownGateway(params: StorageGateway.ShutdownGatewayInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ShutdownGatewayOutput|any) => void): Request<StorageGateway.ShutdownGatewayOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Starts a gateway that you previously shut down (see ShutdownGateway ). After the
 gateway starts, you can then make other API calls, your applications can read
@@ -702,7 +702,7 @@ start, use the Amazon Resource Name (ARN) of the gateway in your request.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    startGateway(params: StorageGateway.StartGatewayInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.StartGatewayOutput|any) => void): Request;
+    startGateway(params: StorageGateway.StartGatewayInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.StartGatewayOutput|any) => void): Request<StorageGateway.StartGatewayOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Updates the bandwidth rate limits of a gateway. You can update both the upload
 and download bandwidth rate limit or specify only one of the two. If you don&#x27;t
@@ -718,7 +718,7 @@ gateway in your request.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    updateBandwidthRateLimit(params: StorageGateway.UpdateBandwidthRateLimitInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateBandwidthRateLimitOutput|any) => void): Request;
+    updateBandwidthRateLimit(params: StorageGateway.UpdateBandwidthRateLimitInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateBandwidthRateLimitOutput|any) => void): Request<StorageGateway.UpdateBandwidthRateLimitOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a
 specified iSCSI target. By default, a gateway does not have CHAP enabled;
@@ -730,7 +730,7 @@ closed and initiators must reconnect with the new credentials.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    updateChapCredentials(params: StorageGateway.UpdateChapCredentialsInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateChapCredentialsOutput|any) => void): Request;
+    updateChapCredentials(params: StorageGateway.UpdateChapCredentialsInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateChapCredentialsOutput|any) => void): Request<StorageGateway.UpdateChapCredentialsOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Updates a gateway&#x27;s metadata, which includes the gateway&#x27;s name and time zone.
 To specify which gateway to update, use the Amazon Resource Name (ARN) of the
@@ -743,7 +743,7 @@ gateway has no effect on the gateway&#x27;s ARN.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    updateGatewayInformation(params: StorageGateway.UpdateGatewayInformationInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateGatewayInformationOutput|any) => void): Request;
+    updateGatewayInformation(params: StorageGateway.UpdateGatewayInformationInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateGatewayInformationOutput|any) => void): Request<StorageGateway.UpdateGatewayInformationOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Updates the gateway virtual machine (VM) software. The request immediately
 triggers the software update.
@@ -763,7 +763,7 @@ and Customizing Your Linux iSCSI Settings
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    updateGatewaySoftwareNow(params: StorageGateway.UpdateGatewaySoftwareNowInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateGatewaySoftwareNowOutput|any) => void): Request;
+    updateGatewaySoftwareNow(params: StorageGateway.UpdateGatewaySoftwareNowInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateGatewaySoftwareNowOutput|any) => void): Request<StorageGateway.UpdateGatewaySoftwareNowOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Updates a gateway&#x27;s weekly maintenance start time information, including day and
 time of the week. The maintenance time is the time in your gateway&#x27;s time zone.
@@ -771,7 +771,7 @@ time of the week. The maintenance time is the time in your gateway&#x27;s time z
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    updateMaintenanceStartTime(params: StorageGateway.UpdateMaintenanceStartTimeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateMaintenanceStartTimeOutput|any) => void): Request;
+    updateMaintenanceStartTime(params: StorageGateway.UpdateMaintenanceStartTimeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateMaintenanceStartTimeOutput|any) => void): Request<StorageGateway.UpdateMaintenanceStartTimeOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Updates a snapshot schedule configured for a gateway volume.
 
@@ -786,7 +786,7 @@ snapshot to begin on a day and the frequency (in hours) of snapshots.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    updateSnapshotSchedule(params: StorageGateway.UpdateSnapshotScheduleInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateSnapshotScheduleOutput|any) => void): Request;
+    updateSnapshotSchedule(params: StorageGateway.UpdateSnapshotScheduleInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateSnapshotScheduleOutput|any) => void): Request<StorageGateway.UpdateSnapshotScheduleOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
      * Updates the type of medium changer in a gateway-VTL. When you activate a
 gateway-VTL, you select a medium changer type for the gateway-VTL. This
@@ -796,7 +796,7 @@ gateway-VTL is activated.
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
      */
-    updateVTLDeviceType(params: StorageGateway.UpdateVTLDeviceTypeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateVTLDeviceTypeOutput|any) => void): Request;
+    updateVTLDeviceType(params: StorageGateway.UpdateVTLDeviceTypeInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.UpdateVTLDeviceTypeOutput|any) => void): Request<StorageGateway.UpdateVTLDeviceTypeOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
 
   }
 

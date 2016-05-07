@@ -29,7 +29,7 @@ This operation is asynchronous and returns before the WorkSpaces are created.
      *
      * @error ResourceLimitExceededException Your resource limits have been exceeded.  
      */
-    createWorkspaces(params: WorkSpaces.CreateWorkspacesRequest, callback?: (err: WorkSpaces.ResourceLimitExceededException|any, data: WorkSpaces.CreateWorkspacesResult|any) => void): Request;
+    createWorkspaces(params: WorkSpaces.CreateWorkspacesRequest, callback?: (err: WorkSpaces.ResourceLimitExceededException|any, data: WorkSpaces.CreateWorkspacesResult|any) => void): Request<WorkSpaces.CreateWorkspacesResult|any,WorkSpaces.ResourceLimitExceededException|any>;
     /**
      * Obtains information about the WorkSpace bundles that are available to your
 account in the specified region.
@@ -44,7 +44,7 @@ retrieve the next set of items.
      *
      * @error InvalidParameterValuesException One or more parameter values are not valid.  
      */
-    describeWorkspaceBundles(params: WorkSpaces.DescribeWorkspaceBundlesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|any, data: WorkSpaces.DescribeWorkspaceBundlesResult|any) => void): Request;
+    describeWorkspaceBundles(params: WorkSpaces.DescribeWorkspaceBundlesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|any, data: WorkSpaces.DescribeWorkspaceBundlesResult|any) => void): Request<WorkSpaces.DescribeWorkspaceBundlesResult|any,WorkSpaces.InvalidParameterValuesException|any>;
     /**
      * Retrieves information about the AWS Directory Service directories in the region
 that are registered with Amazon WorkSpaces and are available to your account.
@@ -56,7 +56,7 @@ retrieve the next set of items.
      *
      * @error InvalidParameterValuesException One or more parameter values are not valid.  
      */
-    describeWorkspaceDirectories(params: WorkSpaces.DescribeWorkspaceDirectoriesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|any, data: WorkSpaces.DescribeWorkspaceDirectoriesResult|any) => void): Request;
+    describeWorkspaceDirectories(params: WorkSpaces.DescribeWorkspaceDirectoriesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|any, data: WorkSpaces.DescribeWorkspaceDirectoriesResult|any) => void): Request<WorkSpaces.DescribeWorkspaceDirectoriesResult|any,WorkSpaces.InvalidParameterValuesException|any>;
     /**
      * Obtains information about the specified WorkSpaces.
 
@@ -71,7 +71,7 @@ retrieve the next set of items.
      * @error InvalidParameterValuesException One or more parameter values are not valid.  
      * @error ResourceUnavailableException The specified resource is not available.  
      */
-    describeWorkspaces(params: WorkSpaces.DescribeWorkspacesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|WorkSpaces.ResourceUnavailableException|any, data: WorkSpaces.DescribeWorkspacesResult|any) => void): Request;
+    describeWorkspaces(params: WorkSpaces.DescribeWorkspacesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|WorkSpaces.ResourceUnavailableException|any, data: WorkSpaces.DescribeWorkspacesResult|any) => void): Request<WorkSpaces.DescribeWorkspacesResult|any,WorkSpaces.InvalidParameterValuesException|WorkSpaces.ResourceUnavailableException|any>;
     /**
      * Reboots the specified WorkSpaces.
 
@@ -82,7 +82,7 @@ This operation is asynchronous and will return before the WorkSpaces have
 rebooted.
      *
      */
-    rebootWorkspaces(params: WorkSpaces.RebootWorkspacesRequest, callback?: (err: any, data: WorkSpaces.RebootWorkspacesResult|any) => void): Request;
+    rebootWorkspaces(params: WorkSpaces.RebootWorkspacesRequest, callback?: (err: any, data: WorkSpaces.RebootWorkspacesResult|any) => void): Request<WorkSpaces.RebootWorkspacesResult|any,any>;
     /**
      * Rebuilds the specified WorkSpaces.
 
@@ -104,7 +104,7 @@ This operation is asynchronous and will return before the WorkSpaces have been
 completely rebuilt.
      *
      */
-    rebuildWorkspaces(params: WorkSpaces.RebuildWorkspacesRequest, callback?: (err: any, data: WorkSpaces.RebuildWorkspacesResult|any) => void): Request;
+    rebuildWorkspaces(params: WorkSpaces.RebuildWorkspacesRequest, callback?: (err: any, data: WorkSpaces.RebuildWorkspacesResult|any) => void): Request<WorkSpaces.RebuildWorkspacesResult|any,any>;
     /**
      * Terminates the specified WorkSpaces.
 
@@ -118,7 +118,7 @@ This operation is asynchronous and will return before the WorkSpaces have been
 completely terminated.
      *
      */
-    terminateWorkspaces(params: WorkSpaces.TerminateWorkspacesRequest, callback?: (err: any, data: WorkSpaces.TerminateWorkspacesResult|any) => void): Request;
+    terminateWorkspaces(params: WorkSpaces.TerminateWorkspacesRequest, callback?: (err: any, data: WorkSpaces.TerminateWorkspacesResult|any) => void): Request<WorkSpaces.TerminateWorkspacesResult|any,any>;
 
   }
 

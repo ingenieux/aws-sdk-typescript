@@ -174,7 +174,7 @@ devices produces.
      * @error PackedPolicyTooLargeException   
      * @error RegionDisabledException   
      */
-    assumeRole(params: STS.AssumeRoleRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.RegionDisabledException|any, data: STS.AssumeRoleResponse|any) => void): Request;
+    assumeRole(params: STS.AssumeRoleRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.RegionDisabledException|any, data: STS.AssumeRoleResponse|any) => void): Request<STS.AssumeRoleResponse|any,STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.RegionDisabledException|any>;
     /**
      * Returns a set of temporary security credentials for users who have been
 authenticated via a SAML authentication response. This operation provides a
@@ -259,7 +259,7 @@ For more information, see the following resources:
      * @error ExpiredTokenException   
      * @error RegionDisabledException   
      */
-    assumeRoleWithSAML(params: STS.AssumeRoleWithSAMLRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.IDPRejectedClaimException|STS.InvalidIdentityTokenException|STS.ExpiredTokenException|STS.RegionDisabledException|any, data: STS.AssumeRoleWithSAMLResponse|any) => void): Request;
+    assumeRoleWithSAML(params: STS.AssumeRoleWithSAMLRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.IDPRejectedClaimException|STS.InvalidIdentityTokenException|STS.ExpiredTokenException|STS.RegionDisabledException|any, data: STS.AssumeRoleWithSAMLResponse|any) => void): Request<STS.AssumeRoleWithSAMLResponse|any,STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.IDPRejectedClaimException|STS.InvalidIdentityTokenException|STS.ExpiredTokenException|STS.RegionDisabledException|any>;
     /**
      * Returns a set of temporary security credentials for users who have been
 authenticated in a mobile or web application with a web identity provider, such
@@ -368,7 +368,7 @@ AssumeRoleWithWebIdentity API, see the following resources:
      * @error ExpiredTokenException   
      * @error RegionDisabledException   
      */
-    assumeRoleWithWebIdentity(params: STS.AssumeRoleWithWebIdentityRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.IDPRejectedClaimException|STS.IDPCommunicationErrorException|STS.InvalidIdentityTokenException|STS.ExpiredTokenException|STS.RegionDisabledException|any, data: STS.AssumeRoleWithWebIdentityResponse|any) => void): Request;
+    assumeRoleWithWebIdentity(params: STS.AssumeRoleWithWebIdentityRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.IDPRejectedClaimException|STS.IDPCommunicationErrorException|STS.InvalidIdentityTokenException|STS.ExpiredTokenException|STS.RegionDisabledException|any, data: STS.AssumeRoleWithWebIdentityResponse|any) => void): Request<STS.AssumeRoleWithWebIdentityResponse|any,STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.IDPRejectedClaimException|STS.IDPCommunicationErrorException|STS.InvalidIdentityTokenException|STS.ExpiredTokenException|STS.RegionDisabledException|any>;
     /**
      * Decodes additional information about the authorization status of a request from
 an encoded message returned in response to an AWS request.
@@ -410,13 +410,13 @@ The decoded message includes the following type of information:
      *
      * @error InvalidAuthorizationMessageException   
      */
-    decodeAuthorizationMessage(params: STS.DecodeAuthorizationMessageRequest, callback?: (err: STS.InvalidAuthorizationMessageException|any, data: STS.DecodeAuthorizationMessageResponse|any) => void): Request;
+    decodeAuthorizationMessage(params: STS.DecodeAuthorizationMessageRequest, callback?: (err: STS.InvalidAuthorizationMessageException|any, data: STS.DecodeAuthorizationMessageResponse|any) => void): Request<STS.DecodeAuthorizationMessageResponse|any,STS.InvalidAuthorizationMessageException|any>;
     /**
      * Returns details about the IAM identity whose credentials are used to call the
 API.
      *
      */
-    getCallerIdentity(params: STS.GetCallerIdentityRequest, callback?: (err: any, data: STS.GetCallerIdentityResponse|any) => void): Request;
+    getCallerIdentity(params: STS.GetCallerIdentityRequest, callback?: (err: any, data: STS.GetCallerIdentityResponse|any) => void): Request<STS.GetCallerIdentityResponse|any,any>;
     /**
      * Returns a set of temporary security credentials (consisting of an access key ID,
 a secret access key, and a security token) for a federated user. A typical use
@@ -512,7 +512,7 @@ credentials, see GetFederationToken—Federation Through a Custom Identity Broke
      * @error PackedPolicyTooLargeException   
      * @error RegionDisabledException   
      */
-    getFederationToken(params: STS.GetFederationTokenRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.RegionDisabledException|any, data: STS.GetFederationTokenResponse|any) => void): Request;
+    getFederationToken(params: STS.GetFederationTokenRequest, callback?: (err: STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.RegionDisabledException|any, data: STS.GetFederationTokenResponse|any) => void): Request<STS.GetFederationTokenResponse|any,STS.MalformedPolicyDocumentException|STS.PackedPolicyTooLargeException|STS.RegionDisabledException|any>;
     /**
      * Returns a set of temporary credentials for an AWS account or IAM user. The
 credentials consist of an access key ID, a secret access key, and a security
@@ -569,7 +569,7 @@ in the IAM User Guide .
      *
      * @error RegionDisabledException   
      */
-    getSessionToken(params: STS.GetSessionTokenRequest, callback?: (err: STS.RegionDisabledException|any, data: STS.GetSessionTokenResponse|any) => void): Request;
+    getSessionToken(params: STS.GetSessionTokenRequest, callback?: (err: STS.RegionDisabledException|any, data: STS.GetSessionTokenResponse|any) => void): Request<STS.GetSessionTokenResponse|any,STS.RegionDisabledException|any>;
 
     /**
      * Found on JS Sources - Sorry for the inconvenience :)

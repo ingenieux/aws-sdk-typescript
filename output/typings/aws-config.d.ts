@@ -60,7 +60,7 @@ You can check the state of a rule by using the DescribeConfigRules request.
      * @error NoSuchConfigRuleException   
      * @error ResourceInUseException   
      */
-    deleteConfigRule(params: ConfigService.DeleteConfigRuleRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|ConfigService.ResourceInUseException|any, data: any) => void): Request;
+    deleteConfigRule(params: ConfigService.DeleteConfigRuleRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|ConfigService.ResourceInUseException|any, data: any) => void): Request<any,ConfigService.NoSuchConfigRuleException|ConfigService.ResourceInUseException|any>;
     /**
      * Deletes the specified delivery channel.
 
@@ -72,7 +72,7 @@ action.
      * @error NoSuchDeliveryChannelException   
      * @error LastDeliveryChannelDeleteFailedException   
      */
-    deleteDeliveryChannel(params: ConfigService.DeleteDeliveryChannelRequest, callback?: (err: ConfigService.NoSuchDeliveryChannelException|ConfigService.LastDeliveryChannelDeleteFailedException|any, data: any) => void): Request;
+    deleteDeliveryChannel(params: ConfigService.DeleteDeliveryChannelRequest, callback?: (err: ConfigService.NoSuchDeliveryChannelException|ConfigService.LastDeliveryChannelDeleteFailedException|any, data: any) => void): Request<any,ConfigService.NoSuchDeliveryChannelException|ConfigService.LastDeliveryChannelDeleteFailedException|any>;
     /**
      * Schedules delivery of a configuration snapshot to the Amazon S3 bucket in the
 specified delivery channel. After the delivery has started, AWS Config sends
@@ -87,7 +87,7 @@ following notifications using an Amazon SNS topic that you have specified.
      * @error NoAvailableConfigurationRecorderException   
      * @error NoRunningConfigurationRecorderException   
      */
-    deliverConfigSnapshot(params: ConfigService.DeliverConfigSnapshotRequest, callback?: (err: ConfigService.NoSuchDeliveryChannelException|ConfigService.NoAvailableConfigurationRecorderException|ConfigService.NoRunningConfigurationRecorderException|any, data: ConfigService.DeliverConfigSnapshotResponse|any) => void): Request;
+    deliverConfigSnapshot(params: ConfigService.DeliverConfigSnapshotRequest, callback?: (err: ConfigService.NoSuchDeliveryChannelException|ConfigService.NoAvailableConfigurationRecorderException|ConfigService.NoRunningConfigurationRecorderException|any, data: ConfigService.DeliverConfigSnapshotResponse|any) => void): Request<ConfigService.DeliverConfigSnapshotResponse|any,ConfigService.NoSuchDeliveryChannelException|ConfigService.NoAvailableConfigurationRecorderException|ConfigService.NoRunningConfigurationRecorderException|any>;
     /**
      * Indicates whether the specified AWS Config rules are compliant. If a rule is
 noncompliant, this action returns the number of AWS resources that do not comply
@@ -115,7 +115,7 @@ INSUFFICIENT_DATA . This result might indicate one of the following conditions: 
      * @error InvalidParameterValueException   
      * @error NoSuchConfigRuleException   
      */
-    describeComplianceByConfigRule(params: ConfigService.DescribeComplianceByConfigRuleRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.NoSuchConfigRuleException|any, data: ConfigService.DescribeComplianceByConfigRuleResponse|any) => void): Request;
+    describeComplianceByConfigRule(params: ConfigService.DescribeComplianceByConfigRuleRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.NoSuchConfigRuleException|any, data: ConfigService.DescribeComplianceByConfigRuleResponse|any) => void): Request<ConfigService.DescribeComplianceByConfigRuleResponse|any,ConfigService.InvalidParameterValueException|ConfigService.NoSuchConfigRuleException|any>;
     /**
      * Indicates whether the specified AWS resources are compliant. If a resource is
 noncompliant, this action returns the number of AWS Config rules that the
@@ -144,7 +144,7 @@ about the rules that evaluate the resource: &amp;#42; AWS Config has never invok
      * @error InvalidParameterValueException   
      * @error InvalidNextTokenException   
      */
-    describeComplianceByResource(params: ConfigService.DescribeComplianceByResourceRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.InvalidNextTokenException|any, data: ConfigService.DescribeComplianceByResourceResponse|any) => void): Request;
+    describeComplianceByResource(params: ConfigService.DescribeComplianceByResourceRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.InvalidNextTokenException|any, data: ConfigService.DescribeComplianceByResourceResponse|any) => void): Request<ConfigService.DescribeComplianceByResourceResponse|any,ConfigService.InvalidParameterValueException|ConfigService.InvalidNextTokenException|any>;
     /**
      * Returns status information for each of your AWS managed Config rules. The status
 includes information such as the last time AWS Config invoked the rule, the last
@@ -153,13 +153,13 @@ failure.
      *
      * @error NoSuchConfigRuleException   
      */
-    describeConfigRuleEvaluationStatus(params: ConfigService.DescribeConfigRuleEvaluationStatusRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|any, data: ConfigService.DescribeConfigRuleEvaluationStatusResponse|any) => void): Request;
+    describeConfigRuleEvaluationStatus(params: ConfigService.DescribeConfigRuleEvaluationStatusRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|any, data: ConfigService.DescribeConfigRuleEvaluationStatusResponse|any) => void): Request<ConfigService.DescribeConfigRuleEvaluationStatusResponse|any,ConfigService.NoSuchConfigRuleException|any>;
     /**
      * Returns details about your AWS Config rules.
      *
      * @error NoSuchConfigRuleException   
      */
-    describeConfigRules(params: ConfigService.DescribeConfigRulesRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|any, data: ConfigService.DescribeConfigRulesResponse|any) => void): Request;
+    describeConfigRules(params: ConfigService.DescribeConfigRulesRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|any, data: ConfigService.DescribeConfigRulesResponse|any) => void): Request<ConfigService.DescribeConfigRulesResponse|any,ConfigService.NoSuchConfigRuleException|any>;
     /**
      * Returns the current status of the specified configuration recorder. If a
 configuration recorder is not specified, this action returns the status of all
@@ -169,7 +169,7 @@ Currently, you can specify only one configuration recorder per account.
      *
      * @error NoSuchConfigurationRecorderException   
      */
-    describeConfigurationRecorderStatus(params: ConfigService.DescribeConfigurationRecorderStatusRequest, callback?: (err: ConfigService.NoSuchConfigurationRecorderException|any, data: ConfigService.DescribeConfigurationRecorderStatusResponse|any) => void): Request;
+    describeConfigurationRecorderStatus(params: ConfigService.DescribeConfigurationRecorderStatusRequest, callback?: (err: ConfigService.NoSuchConfigurationRecorderException|any, data: ConfigService.DescribeConfigurationRecorderStatusResponse|any) => void): Request<ConfigService.DescribeConfigurationRecorderStatusResponse|any,ConfigService.NoSuchConfigurationRecorderException|any>;
     /**
      * Returns the name of one or more specified configuration recorders. If the
 recorder name is not specified, this action returns the names of all the
@@ -179,7 +179,7 @@ Currently, you can specify only one configuration recorder per account.
      *
      * @error NoSuchConfigurationRecorderException   
      */
-    describeConfigurationRecorders(params: ConfigService.DescribeConfigurationRecordersRequest, callback?: (err: ConfigService.NoSuchConfigurationRecorderException|any, data: ConfigService.DescribeConfigurationRecordersResponse|any) => void): Request;
+    describeConfigurationRecorders(params: ConfigService.DescribeConfigurationRecordersRequest, callback?: (err: ConfigService.NoSuchConfigurationRecorderException|any, data: ConfigService.DescribeConfigurationRecordersResponse|any) => void): Request<ConfigService.DescribeConfigurationRecordersResponse|any,ConfigService.NoSuchConfigurationRecorderException|any>;
     /**
      * Returns the current status of the specified delivery channel. If a delivery
 channel is not specified, this action returns the current status of all delivery
@@ -189,7 +189,7 @@ Currently, you can specify only one delivery channel per account.
      *
      * @error NoSuchDeliveryChannelException   
      */
-    describeDeliveryChannelStatus(params: ConfigService.DescribeDeliveryChannelStatusRequest, callback?: (err: ConfigService.NoSuchDeliveryChannelException|any, data: ConfigService.DescribeDeliveryChannelStatusResponse|any) => void): Request;
+    describeDeliveryChannelStatus(params: ConfigService.DescribeDeliveryChannelStatusRequest, callback?: (err: ConfigService.NoSuchDeliveryChannelException|any, data: ConfigService.DescribeDeliveryChannelStatusResponse|any) => void): Request<ConfigService.DescribeDeliveryChannelStatusResponse|any,ConfigService.NoSuchDeliveryChannelException|any>;
     /**
      * Returns details about the specified delivery channel. If a delivery channel is
 not specified, this action returns the details of all delivery channels
@@ -199,7 +199,7 @@ Currently, you can specify only one delivery channel per account.
      *
      * @error NoSuchDeliveryChannelException   
      */
-    describeDeliveryChannels(params: ConfigService.DescribeDeliveryChannelsRequest, callback?: (err: ConfigService.NoSuchDeliveryChannelException|any, data: ConfigService.DescribeDeliveryChannelsResponse|any) => void): Request;
+    describeDeliveryChannels(params: ConfigService.DescribeDeliveryChannelsRequest, callback?: (err: ConfigService.NoSuchDeliveryChannelException|any, data: ConfigService.DescribeDeliveryChannelsResponse|any) => void): Request<ConfigService.DescribeDeliveryChannelsResponse|any,ConfigService.NoSuchDeliveryChannelException|any>;
     /**
      * Returns the evaluation results for the specified AWS Config rule. The results
 indicate which AWS resources were evaluated by the rule, when each resource was
@@ -209,7 +209,7 @@ last evaluated, and whether each resource complies with the rule.
      * @error InvalidNextTokenException   
      * @error NoSuchConfigRuleException   
      */
-    getComplianceDetailsByConfigRule(params: ConfigService.GetComplianceDetailsByConfigRuleRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.InvalidNextTokenException|ConfigService.NoSuchConfigRuleException|any, data: ConfigService.GetComplianceDetailsByConfigRuleResponse|any) => void): Request;
+    getComplianceDetailsByConfigRule(params: ConfigService.GetComplianceDetailsByConfigRuleRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.InvalidNextTokenException|ConfigService.NoSuchConfigRuleException|any, data: ConfigService.GetComplianceDetailsByConfigRuleResponse|any) => void): Request<ConfigService.GetComplianceDetailsByConfigRuleResponse|any,ConfigService.InvalidParameterValueException|ConfigService.InvalidNextTokenException|ConfigService.NoSuchConfigRuleException|any>;
     /**
      * Returns the evaluation results for the specified AWS resource. The results
 indicate which AWS Config rules were used to evaluate the resource, when each
@@ -217,13 +217,13 @@ rule was last used, and whether the resource complies with each rule.
      *
      * @error InvalidParameterValueException   
      */
-    getComplianceDetailsByResource(params: ConfigService.GetComplianceDetailsByResourceRequest, callback?: (err: ConfigService.InvalidParameterValueException|any, data: ConfigService.GetComplianceDetailsByResourceResponse|any) => void): Request;
+    getComplianceDetailsByResource(params: ConfigService.GetComplianceDetailsByResourceRequest, callback?: (err: ConfigService.InvalidParameterValueException|any, data: ConfigService.GetComplianceDetailsByResourceResponse|any) => void): Request<ConfigService.GetComplianceDetailsByResourceResponse|any,ConfigService.InvalidParameterValueException|any>;
     /**
      * Returns the number of AWS Config rules that are compliant and noncompliant, up
 to a maximum of 25 for each.
      *
      */
-    getComplianceSummaryByConfigRule(callback?: (err: any, data: ConfigService.GetComplianceSummaryByConfigRuleResponse|any) => void): Request;
+    getComplianceSummaryByConfigRule(callback?: (err: any, data: ConfigService.GetComplianceSummaryByConfigRuleResponse|any) => void): Request<ConfigService.GetComplianceSummaryByConfigRuleResponse|any,any>;
     /**
      * Returns the number of resources that are compliant and the number that are
 noncompliant. You can specify one or more resource types to get these numbers
@@ -231,7 +231,7 @@ for each resource type. The maximum number returned is 100.
      *
      * @error InvalidParameterValueException   
      */
-    getComplianceSummaryByResourceType(params: ConfigService.GetComplianceSummaryByResourceTypeRequest, callback?: (err: ConfigService.InvalidParameterValueException|any, data: ConfigService.GetComplianceSummaryByResourceTypeResponse|any) => void): Request;
+    getComplianceSummaryByResourceType(params: ConfigService.GetComplianceSummaryByResourceTypeRequest, callback?: (err: ConfigService.InvalidParameterValueException|any, data: ConfigService.GetComplianceSummaryByResourceTypeResponse|any) => void): Request<ConfigService.GetComplianceSummaryByResourceTypeResponse|any,ConfigService.InvalidParameterValueException|any>;
     /**
      * Returns a list of configuration items for the specified resource. The list
 contains details about each state of the resource during the specified time
@@ -254,7 +254,7 @@ such cases, you can make another call, using the nextToken .
      * @error NoAvailableConfigurationRecorderException   
      * @error ResourceNotDiscoveredException   
      */
-    getResourceConfigHistory(params: ConfigService.GetResourceConfigHistoryRequest, callback?: (err: ConfigService.ValidationException|ConfigService.InvalidTimeRangeException|ConfigService.InvalidLimitException|ConfigService.InvalidNextTokenException|ConfigService.NoAvailableConfigurationRecorderException|ConfigService.ResourceNotDiscoveredException|any, data: ConfigService.GetResourceConfigHistoryResponse|any) => void): Request;
+    getResourceConfigHistory(params: ConfigService.GetResourceConfigHistoryRequest, callback?: (err: ConfigService.ValidationException|ConfigService.InvalidTimeRangeException|ConfigService.InvalidLimitException|ConfigService.InvalidNextTokenException|ConfigService.NoAvailableConfigurationRecorderException|ConfigService.ResourceNotDiscoveredException|any, data: ConfigService.GetResourceConfigHistoryResponse|any) => void): Request<ConfigService.GetResourceConfigHistoryResponse|any,ConfigService.ValidationException|ConfigService.InvalidTimeRangeException|ConfigService.InvalidLimitException|ConfigService.InvalidNextTokenException|ConfigService.NoAvailableConfigurationRecorderException|ConfigService.ResourceNotDiscoveredException|any>;
     /**
      * Accepts a resource type and returns a list of resource identifiers for the
 resources of that type. A resource identifier includes the resource type, ID,
@@ -275,7 +275,7 @@ parameter.
      * @error InvalidNextTokenException   
      * @error NoAvailableConfigurationRecorderException   
      */
-    listDiscoveredResources(params: ConfigService.ListDiscoveredResourcesRequest, callback?: (err: ConfigService.ValidationException|ConfigService.InvalidLimitException|ConfigService.InvalidNextTokenException|ConfigService.NoAvailableConfigurationRecorderException|any, data: ConfigService.ListDiscoveredResourcesResponse|any) => void): Request;
+    listDiscoveredResources(params: ConfigService.ListDiscoveredResourcesRequest, callback?: (err: ConfigService.ValidationException|ConfigService.InvalidLimitException|ConfigService.InvalidNextTokenException|ConfigService.NoAvailableConfigurationRecorderException|any, data: ConfigService.ListDiscoveredResourcesResponse|any) => void): Request<ConfigService.ListDiscoveredResourcesResponse|any,ConfigService.ValidationException|ConfigService.InvalidLimitException|ConfigService.InvalidNextTokenException|ConfigService.NoAvailableConfigurationRecorderException|any>;
     /**
      * Adds or updates an AWS Config rule for evaluating whether your AWS resources
 comply with your desired configurations.
@@ -318,7 +318,7 @@ in the AWS Config Developer Guide .
      * @error ResourceInUseException   
      * @error InsufficientPermissionsException   
      */
-    putConfigRule(params: ConfigService.PutConfigRuleRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.MaxNumberOfConfigRulesExceededException|ConfigService.ResourceInUseException|ConfigService.InsufficientPermissionsException|any, data: any) => void): Request;
+    putConfigRule(params: ConfigService.PutConfigRuleRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.MaxNumberOfConfigRulesExceededException|ConfigService.ResourceInUseException|ConfigService.InsufficientPermissionsException|any, data: any) => void): Request<any,ConfigService.InvalidParameterValueException|ConfigService.MaxNumberOfConfigRulesExceededException|ConfigService.ResourceInUseException|ConfigService.InsufficientPermissionsException|any>;
     /**
      * Creates a new configuration recorder to record the selected resource
 configurations.
@@ -337,7 +337,7 @@ the default is to record all supported resource types.
      * @error InvalidRoleException   
      * @error InvalidRecordingGroupException   
      */
-    putConfigurationRecorder(params: ConfigService.PutConfigurationRecorderRequest, callback?: (err: ConfigService.MaxNumberOfConfigurationRecordersExceededException|ConfigService.InvalidConfigurationRecorderNameException|ConfigService.InvalidRoleException|ConfigService.InvalidRecordingGroupException|any, data: any) => void): Request;
+    putConfigurationRecorder(params: ConfigService.PutConfigurationRecorderRequest, callback?: (err: ConfigService.MaxNumberOfConfigurationRecordersExceededException|ConfigService.InvalidConfigurationRecorderNameException|ConfigService.InvalidRoleException|ConfigService.InvalidRecordingGroupException|any, data: any) => void): Request<any,ConfigService.MaxNumberOfConfigurationRecordersExceededException|ConfigService.InvalidConfigurationRecorderNameException|ConfigService.InvalidRoleException|ConfigService.InvalidRecordingGroupException|any>;
     /**
      * Creates a new delivery channel object to deliver the configuration information
 to an Amazon S3 bucket, and to an Amazon SNS topic.
@@ -359,7 +359,7 @@ Currently, you can specify only one delivery channel per account.
      * @error InvalidSNSTopicARNException   
      * @error InsufficientDeliveryPolicyException   
      */
-    putDeliveryChannel(params: ConfigService.PutDeliveryChannelRequest, callback?: (err: ConfigService.MaxNumberOfDeliveryChannelsExceededException|ConfigService.NoAvailableConfigurationRecorderException|ConfigService.InvalidDeliveryChannelNameException|ConfigService.NoSuchBucketException|ConfigService.InvalidS3KeyPrefixException|ConfigService.InvalidSNSTopicARNException|ConfigService.InsufficientDeliveryPolicyException|any, data: any) => void): Request;
+    putDeliveryChannel(params: ConfigService.PutDeliveryChannelRequest, callback?: (err: ConfigService.MaxNumberOfDeliveryChannelsExceededException|ConfigService.NoAvailableConfigurationRecorderException|ConfigService.InvalidDeliveryChannelNameException|ConfigService.NoSuchBucketException|ConfigService.InvalidS3KeyPrefixException|ConfigService.InvalidSNSTopicARNException|ConfigService.InsufficientDeliveryPolicyException|any, data: any) => void): Request<any,ConfigService.MaxNumberOfDeliveryChannelsExceededException|ConfigService.NoAvailableConfigurationRecorderException|ConfigService.InvalidDeliveryChannelNameException|ConfigService.NoSuchBucketException|ConfigService.InvalidS3KeyPrefixException|ConfigService.InvalidSNSTopicARNException|ConfigService.InsufficientDeliveryPolicyException|any>;
     /**
      * Used by an AWS Lambda function to deliver evaluation results to AWS Config. This
 action is required in every AWS Lambda function that is invoked by an AWS Config
@@ -369,7 +369,7 @@ rule.
      * @error InvalidResultTokenException   
      * @error NoSuchConfigRuleException   
      */
-    putEvaluations(params: ConfigService.PutEvaluationsRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.InvalidResultTokenException|ConfigService.NoSuchConfigRuleException|any, data: ConfigService.PutEvaluationsResponse|any) => void): Request;
+    putEvaluations(params: ConfigService.PutEvaluationsRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.InvalidResultTokenException|ConfigService.NoSuchConfigRuleException|any, data: ConfigService.PutEvaluationsResponse|any) => void): Request<ConfigService.PutEvaluationsResponse|any,ConfigService.InvalidParameterValueException|ConfigService.InvalidResultTokenException|ConfigService.NoSuchConfigRuleException|any>;
     /**
      * Starts recording configurations of the AWS resources you have selected to record
 in your AWS account.
@@ -380,14 +380,14 @@ configuration recorder.
      * @error NoSuchConfigurationRecorderException   
      * @error NoAvailableDeliveryChannelException   
      */
-    startConfigurationRecorder(params: ConfigService.StartConfigurationRecorderRequest, callback?: (err: ConfigService.NoSuchConfigurationRecorderException|ConfigService.NoAvailableDeliveryChannelException|any, data: any) => void): Request;
+    startConfigurationRecorder(params: ConfigService.StartConfigurationRecorderRequest, callback?: (err: ConfigService.NoSuchConfigurationRecorderException|ConfigService.NoAvailableDeliveryChannelException|any, data: any) => void): Request<any,ConfigService.NoSuchConfigurationRecorderException|ConfigService.NoAvailableDeliveryChannelException|any>;
     /**
      * Stops recording configurations of the AWS resources you have selected to record
 in your AWS account.
      *
      * @error NoSuchConfigurationRecorderException   
      */
-    stopConfigurationRecorder(params: ConfigService.StopConfigurationRecorderRequest, callback?: (err: ConfigService.NoSuchConfigurationRecorderException|any, data: any) => void): Request;
+    stopConfigurationRecorder(params: ConfigService.StopConfigurationRecorderRequest, callback?: (err: ConfigService.NoSuchConfigurationRecorderException|any, data: any) => void): Request<any,ConfigService.NoSuchConfigurationRecorderException|any>;
 
   }
 

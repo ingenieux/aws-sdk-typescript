@@ -30,7 +30,7 @@ the peer VPC. Use the DescribeVpcPeeringConnections request to view your
 outstanding VPC peering connection requests.
      *
      */
-    acceptVpcPeeringConnection(params: EC2.AcceptVpcPeeringConnectionRequest, callback?: (err: any, data: EC2.AcceptVpcPeeringConnectionResult|any) => void): Request;
+    acceptVpcPeeringConnection(params: EC2.AcceptVpcPeeringConnectionRequest, callback?: (err: any, data: EC2.AcceptVpcPeeringConnectionResult|any) => void): Request<EC2.AcceptVpcPeeringConnectionResult|any,any>;
     /**
      * Acquires an Elastic IP address.
 
@@ -40,14 +40,14 @@ For more information, see Elastic IP Addresses
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    allocateAddress(params: EC2.AllocateAddressRequest, callback?: (err: any, data: EC2.AllocateAddressResult|any) => void): Request;
+    allocateAddress(params: EC2.AllocateAddressRequest, callback?: (err: any, data: EC2.AllocateAddressResult|any) => void): Request<EC2.AllocateAddressResult|any,any>;
     /**
      * Allocates a Dedicated host to your account. At minimum you need to specify the
 instance size type, Availability Zone, and quantity of hosts you want to
 allocate.
      *
      */
-    allocateHosts(params: EC2.AllocateHostsRequest, callback?: (err: any, data: EC2.AllocateHostsResult|any) => void): Request;
+    allocateHosts(params: EC2.AllocateHostsRequest, callback?: (err: any, data: EC2.AllocateHostsResult|any) => void): Request<EC2.AllocateHostsResult|any,any>;
     /**
      * Assigns one or more secondary private IP addresses to the specified network
 interface. You can specify one or more specific secondary IP addresses, or you
@@ -64,7 +64,7 @@ in the Amazon Elastic Compute Cloud User Guide .
 AssignPrivateIpAddresses is available only in EC2-VPC.
      *
      */
-    assignPrivateIpAddresses(params: EC2.AssignPrivateIpAddressesRequest, callback?: (err: any, data: any) => void): Request;
+    assignPrivateIpAddresses(params: EC2.AssignPrivateIpAddressesRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Associates an Elastic IP address with an instance or a network interface.
 
@@ -86,7 +86,7 @@ This is an idempotent operation. If you perform the operation more than once,
 Amazon EC2 doesn&#x27;t return an error.
      *
      */
-    associateAddress(params: EC2.AssociateAddressRequest, callback?: (err: any, data: EC2.AssociateAddressResult|any) => void): Request;
+    associateAddress(params: EC2.AssociateAddressRequest, callback?: (err: any, data: EC2.AssociateAddressResult|any) => void): Request<EC2.AssociateAddressResult|any,any>;
     /**
      * Associates a set of DHCP options (that you&#x27;ve previously created) with the
 specified VPC, or associates no DHCP options with the VPC.
@@ -102,7 +102,7 @@ For more information, see DHCP Options Sets
 the Amazon Virtual Private Cloud User Guide .
      *
      */
-    associateDhcpOptions(params: EC2.AssociateDhcpOptionsRequest, callback?: (err: any, data: any) => void): Request;
+    associateDhcpOptions(params: EC2.AssociateDhcpOptionsRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Associates a subnet with a route table. The subnet and route table must be in
 the same VPC. This association causes traffic originating from the subnet to be
@@ -115,7 +115,7 @@ For more information about route tables, see Route Tables
 the Amazon Virtual Private Cloud User Guide .
      *
      */
-    associateRouteTable(params: EC2.AssociateRouteTableRequest, callback?: (err: any, data: EC2.AssociateRouteTableResult|any) => void): Request;
+    associateRouteTable(params: EC2.AssociateRouteTableRequest, callback?: (err: any, data: EC2.AssociateRouteTableResult|any) => void): Request<EC2.AssociateRouteTableResult|any,any>;
     /**
      * Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more
 of the VPC&#x27;s security groups. You cannot link an EC2-Classic instance to more
@@ -131,7 +131,7 @@ Linking your instance to a VPC is sometimes referred to as attaching your
 instance.
      *
      */
-    attachClassicLinkVpc(params: EC2.AttachClassicLinkVpcRequest, callback?: (err: any, data: EC2.AttachClassicLinkVpcResult|any) => void): Request;
+    attachClassicLinkVpc(params: EC2.AttachClassicLinkVpcRequest, callback?: (err: any, data: EC2.AttachClassicLinkVpcResult|any) => void): Request<EC2.AttachClassicLinkVpcResult|any,any>;
     /**
      * Attaches an Internet gateway to a VPC, enabling connectivity between the
 Internet and the VPC. For more information about your VPC and Internet gateway,
@@ -139,12 +139,12 @@ see the Amazon Virtual Private Cloud User Guide
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/] .
      *
      */
-    attachInternetGateway(params: EC2.AttachInternetGatewayRequest, callback?: (err: any, data: any) => void): Request;
+    attachInternetGateway(params: EC2.AttachInternetGatewayRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Attaches a network interface to an instance.
      *
      */
-    attachNetworkInterface(params: EC2.AttachNetworkInterfaceRequest, callback?: (err: any, data: EC2.AttachNetworkInterfaceResult|any) => void): Request;
+    attachNetworkInterface(params: EC2.AttachNetworkInterfaceRequest, callback?: (err: any, data: EC2.AttachNetworkInterfaceResult|any) => void): Request<EC2.AttachNetworkInterfaceResult|any,any>;
     /**
      * Attaches an EBS volume to a running or stopped instance and exposes it to the
 instance with the specified device name.
@@ -186,7 +186,7 @@ For more information about EBS volumes, see Attaching Amazon EBS Volumes
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    attachVolume(params: EC2.AttachVolumeRequest, callback?: (err: any, data: EC2.VolumeAttachment|any) => void): Request;
+    attachVolume(params: EC2.AttachVolumeRequest, callback?: (err: any, data: EC2.VolumeAttachment|any) => void): Request<EC2.VolumeAttachment|any,any>;
     /**
      * Attaches a virtual private gateway to a VPC. For more information, see Adding a
 Hardware Virtual Private Gateway to Your VPC
@@ -194,7 +194,7 @@ Hardware Virtual Private Gateway to Your VPC
 Amazon Virtual Private Cloud User Guide .
      *
      */
-    attachVpnGateway(params: EC2.AttachVpnGatewayRequest, callback?: (err: any, data: EC2.AttachVpnGatewayResult|any) => void): Request;
+    attachVpnGateway(params: EC2.AttachVpnGatewayRequest, callback?: (err: any, data: EC2.AttachVpnGatewayResult|any) => void): Request<EC2.AttachVpnGatewayResult|any,any>;
     /**
      * [EC2-VPC only] Adds one or more egress rules to a security group for use with a
 VPC. Specifically, this action permits instances to send traffic to one or more
@@ -217,7 +217,7 @@ Rule changes are propagated to affected instances as quickly as possible.
 However, a small delay might occur.
      *
      */
-    authorizeSecurityGroupEgress(params: EC2.AuthorizeSecurityGroupEgressRequest, callback?: (err: any, data: any) => void): Request;
+    authorizeSecurityGroupEgress(params: EC2.AuthorizeSecurityGroupEgressRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Adds one or more ingress rules to a security group.
 
@@ -240,7 +240,7 @@ access a security group in your VPC, or gives one or more other security groups
 The security groups must all be for the same VPC.
      *
      */
-    authorizeSecurityGroupIngress(params: EC2.AuthorizeSecurityGroupIngressRequest, callback?: (err: any, data: any) => void): Request;
+    authorizeSecurityGroupIngress(params: EC2.AuthorizeSecurityGroupIngressRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Bundles an Amazon instance store-backed Windows instance.
 
@@ -255,12 +255,12 @@ For more information, see Creating an Instance Store-Backed Windows AMI
 .
      *
      */
-    bundleInstance(params: EC2.BundleInstanceRequest, callback?: (err: any, data: EC2.BundleInstanceResult|any) => void): Request;
+    bundleInstance(params: EC2.BundleInstanceRequest, callback?: (err: any, data: EC2.BundleInstanceResult|any) => void): Request<EC2.BundleInstanceResult|any,any>;
     /**
      * Cancels a bundling operation for an instance store-backed Windows instance.
      *
      */
-    cancelBundleTask(params: EC2.CancelBundleTaskRequest, callback?: (err: any, data: EC2.CancelBundleTaskResult|any) => void): Request;
+    cancelBundleTask(params: EC2.CancelBundleTaskRequest, callback?: (err: any, data: EC2.CancelBundleTaskResult|any) => void): Request<EC2.CancelBundleTaskResult|any,any>;
     /**
      * Cancels an active conversion task. The task can be the import of an instance or
 volume. The action removes all artifacts of the conversion, including a
@@ -274,7 +274,7 @@ Machine to Amazon EC2
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    cancelConversionTask(params: EC2.CancelConversionRequest, callback?: (err: any, data: any) => void): Request;
+    cancelConversionTask(params: EC2.CancelConversionRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Cancels an active export task. The request removes all artifacts of the export,
 including any partially-created Amazon S3 objects. If the export task is
@@ -282,12 +282,12 @@ complete or is in the process of transferring the final disk image, the command
 fails and returns an error.
      *
      */
-    cancelExportTask(params: EC2.CancelExportTaskRequest, callback?: (err: any, data: any) => void): Request;
+    cancelExportTask(params: EC2.CancelExportTaskRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Cancels an in-process import virtual machine or import snapshot task.
      *
      */
-    cancelImportTask(params: EC2.CancelImportTaskRequest, callback?: (err: any, data: EC2.CancelImportTaskResult|any) => void): Request;
+    cancelImportTask(params: EC2.CancelImportTaskRequest, callback?: (err: any, data: EC2.CancelImportTaskResult|any) => void): Request<EC2.CancelImportTaskResult|any,any>;
     /**
      * Cancels the specified Reserved Instance listing in the Reserved Instance
 Marketplace.
@@ -297,7 +297,7 @@ For more information, see Reserved Instance Marketplace
 the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    cancelReservedInstancesListing(params: EC2.CancelReservedInstancesListingRequest, callback?: (err: any, data: EC2.CancelReservedInstancesListingResult|any) => void): Request;
+    cancelReservedInstancesListing(params: EC2.CancelReservedInstancesListingRequest, callback?: (err: any, data: EC2.CancelReservedInstancesListingResult|any) => void): Request<EC2.CancelReservedInstancesListingResult|any,any>;
     /**
      * Cancels the specified Spot fleet requests.
 
@@ -309,7 +309,7 @@ cancelled_running state and the instances continue to run until they are
 interrupted or you terminate them manually.
      *
      */
-    cancelSpotFleetRequests(params: EC2.CancelSpotFleetRequestsRequest, callback?: (err: any, data: EC2.CancelSpotFleetRequestsResponse|any) => void): Request;
+    cancelSpotFleetRequests(params: EC2.CancelSpotFleetRequestsRequest, callback?: (err: any, data: EC2.CancelSpotFleetRequestsResponse|any) => void): Request<EC2.CancelSpotFleetRequestsResponse|any,any>;
     /**
      * Cancels one or more Spot instance requests. Spot instances are instances that
 Amazon EC2 starts on your behalf when the bid price that you specify exceeds the
@@ -323,7 +323,7 @@ Canceling a Spot instance request does not terminate running Spot instances
 associated with the request.
      *
      */
-    cancelSpotInstanceRequests(params: EC2.CancelSpotInstanceRequestsRequest, callback?: (err: any, data: EC2.CancelSpotInstanceRequestsResult|any) => void): Request;
+    cancelSpotInstanceRequests(params: EC2.CancelSpotInstanceRequestsRequest, callback?: (err: any, data: EC2.CancelSpotInstanceRequestsResult|any) => void): Request<EC2.CancelSpotInstanceRequestsResult|any,any>;
     /**
      * Determines whether a product code is associated with an instance. This action
 can only be used by the owner of the product code. It is useful when a product
@@ -331,7 +331,7 @@ code owner needs to verify whether another user&#x27;s instance is eligible for
 support.
      *
      */
-    confirmProductInstance(params: EC2.ConfirmProductInstanceRequest, callback?: (err: any, data: EC2.ConfirmProductInstanceResult|any) => void): Request;
+    confirmProductInstance(params: EC2.ConfirmProductInstanceRequest, callback?: (err: any, data: EC2.ConfirmProductInstanceResult|any) => void): Request<EC2.ConfirmProductInstanceResult|any,any>;
     /**
      * Initiates the copy of an AMI from the specified source region to the current
 region. You specify the destination region by using its endpoint when making the
@@ -342,7 +342,7 @@ For more information, see Copying AMIs
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    copyImage(params: EC2.CopyImageRequest, callback?: (err: any, data: EC2.CopyImageResult|any) => void): Request;
+    copyImage(params: EC2.CopyImageRequest, callback?: (err: any, data: EC2.CopyImageResult|any) => void): Request<EC2.CopyImageResult|any,any>;
     /**
      * Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You
 can copy the snapshot within the same region or from one region to another. You
@@ -360,7 +360,7 @@ For more information, see Copying an Amazon EBS Snapshot
 the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    copySnapshot(params: EC2.CopySnapshotRequest, callback?: (err: any, data: EC2.CopySnapshotResult|any) => void): Request;
+    copySnapshot(params: EC2.CopySnapshotRequest, callback?: (err: any, data: EC2.CopySnapshotResult|any) => void): Request<EC2.CopySnapshotResult|any,any>;
     /**
      * Provides information to AWS about your VPN customer gateway device. The customer
 gateway is the appliance at your end of the VPN connection. (The device on the
@@ -390,7 +390,7 @@ requests return information about the existing customer gateway. The subsequent
 requests do not create new customer gateway resources.
      *
      */
-    createCustomerGateway(params: EC2.CreateCustomerGatewayRequest, callback?: (err: any, data: EC2.CreateCustomerGatewayResult|any) => void): Request;
+    createCustomerGateway(params: EC2.CreateCustomerGatewayRequest, callback?: (err: any, data: EC2.CreateCustomerGatewayResult|any) => void): Request<EC2.CreateCustomerGatewayResult|any,any>;
     /**
      * Creates a set of DHCP options for your VPC. After creating the set, you must
 associate it with the VPC, causing all existing and new instances that you
@@ -439,7 +439,7 @@ Sets
 the Amazon Virtual Private Cloud User Guide .
      *
      */
-    createDhcpOptions(params: EC2.CreateDhcpOptionsRequest, callback?: (err: any, data: EC2.CreateDhcpOptionsResult|any) => void): Request;
+    createDhcpOptions(params: EC2.CreateDhcpOptionsRequest, callback?: (err: any, data: EC2.CreateDhcpOptionsResult|any) => void): Request<EC2.CreateDhcpOptionsResult|any,any>;
     /**
      * Creates one or more flow logs to capture IP traffic for a specific network
 interface, subnet, or VPC. Flow logs are delivered to a specified log group in
@@ -453,7 +453,7 @@ In your request, you must also specify an IAM role that has permission to
 publish logs to CloudWatch Logs.
      *
      */
-    createFlowLogs(params: EC2.CreateFlowLogsRequest, callback?: (err: any, data: EC2.CreateFlowLogsResult|any) => void): Request;
+    createFlowLogs(params: EC2.CreateFlowLogsRequest, callback?: (err: any, data: EC2.CreateFlowLogsResult|any) => void): Request<EC2.CreateFlowLogsResult|any,any>;
     /**
      * Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is
 either running or stopped.
@@ -468,7 +468,7 @@ For more information, see Creating Amazon EBS-Backed Linux AMIs
 the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    createImage(params: EC2.CreateImageRequest, callback?: (err: any, data: EC2.CreateImageResult|any) => void): Request;
+    createImage(params: EC2.CreateImageRequest, callback?: (err: any, data: EC2.CreateImageResult|any) => void): Request<EC2.CreateImageResult|any,any>;
     /**
      * Exports a running or stopped instance to an S3 bucket.
 
@@ -479,7 +479,7 @@ Instances
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    createInstanceExportTask(params: EC2.CreateInstanceExportTaskRequest, callback?: (err: any, data: EC2.CreateInstanceExportTaskResult|any) => void): Request;
+    createInstanceExportTask(params: EC2.CreateInstanceExportTaskRequest, callback?: (err: any, data: EC2.CreateInstanceExportTaskResult|any) => void): Request<EC2.CreateInstanceExportTaskResult|any,any>;
     /**
      * Creates an Internet gateway for use with a VPC. After creating the Internet
 gateway, you attach it to a VPC using AttachInternetGateway .
@@ -489,7 +489,7 @@ Private Cloud User Guide
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/] .
      *
      */
-    createInternetGateway(params: EC2.CreateInternetGatewayRequest, callback?: (err: any, data: EC2.CreateInternetGatewayResult|any) => void): Request;
+    createInternetGateway(params: EC2.CreateInternetGatewayRequest, callback?: (err: any, data: EC2.CreateInternetGatewayResult|any) => void): Request<EC2.CreateInternetGatewayResult|any,any>;
     /**
      * Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores the
 public key and displays the private key for you to save to a file. The private
@@ -506,7 +506,7 @@ For more information about key pairs, see Key Pairs
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    createKeyPair(params: EC2.CreateKeyPairRequest, callback?: (err: any, data: EC2.KeyPair|any) => void): Request;
+    createKeyPair(params: EC2.CreateKeyPairRequest, callback?: (err: any, data: EC2.KeyPair|any) => void): Request<EC2.KeyPair|any,any>;
     /**
      * Creates a NAT gateway in the specified subnet. A NAT gateway can be used to
 enable instances in a private subnet to connect to the Internet. This action
@@ -516,7 +516,7 @@ from the IP address range of the subnet. For more information, see NAT Gateways
 the Amazon Virtual Private Cloud User Guide .
      *
      */
-    createNatGateway(params: EC2.CreateNatGatewayRequest, callback?: (err: any, data: EC2.CreateNatGatewayResult|any) => void): Request;
+    createNatGateway(params: EC2.CreateNatGatewayRequest, callback?: (err: any, data: EC2.CreateNatGatewayResult|any) => void): Request<EC2.CreateNatGatewayResult|any,any>;
     /**
      * Creates a network ACL in a VPC. Network ACLs provide an optional layer of
 security (in addition to security groups) for the instances in your VPC.
@@ -526,7 +526,7 @@ For more information about network ACLs, see Network ACLs
 Amazon Virtual Private Cloud User Guide .
      *
      */
-    createNetworkAcl(params: EC2.CreateNetworkAclRequest, callback?: (err: any, data: EC2.CreateNetworkAclResult|any) => void): Request;
+    createNetworkAcl(params: EC2.CreateNetworkAclRequest, callback?: (err: any, data: EC2.CreateNetworkAclResult|any) => void): Request<EC2.CreateNetworkAclResult|any,any>;
     /**
      * Creates an entry (a rule) in a network ACL with the specified rule number. Each
 network ACL has a set of numbered ingress rules and a separate set of numbered
@@ -548,7 +548,7 @@ For more information about network ACLs, see Network ACLs
 Amazon Virtual Private Cloud User Guide .
      *
      */
-    createNetworkAclEntry(params: EC2.CreateNetworkAclEntryRequest, callback?: (err: any, data: any) => void): Request;
+    createNetworkAclEntry(params: EC2.CreateNetworkAclEntryRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Creates a network interface in the specified subnet.
 
@@ -557,7 +557,7 @@ For more information about network interfaces, see Elastic Network Interfaces
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    createNetworkInterface(params: EC2.CreateNetworkInterfaceRequest, callback?: (err: any, data: EC2.CreateNetworkInterfaceResult|any) => void): Request;
+    createNetworkInterface(params: EC2.CreateNetworkInterfaceRequest, callback?: (err: any, data: EC2.CreateNetworkInterfaceResult|any) => void): Request<EC2.CreateNetworkInterfaceResult|any,any>;
     /**
      * Creates a placement group that you launch cluster instances into. You must give
 the group a name that&#x27;s unique within the scope of your account.
@@ -568,7 +568,7 @@ Instances
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    createPlacementGroup(params: EC2.CreatePlacementGroupRequest, callback?: (err: any, data: any) => void): Request;
+    createPlacementGroup(params: EC2.CreatePlacementGroupRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Creates a listing for Amazon EC2 Reserved Instances to be sold in the Reserved
 Instance Marketplace. You can submit one Reserved Instance listing at a time. To
@@ -593,7 +593,7 @@ For more information, see Reserved Instance Marketplace
 the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    createReservedInstancesListing(params: EC2.CreateReservedInstancesListingRequest, callback?: (err: any, data: EC2.CreateReservedInstancesListingResult|any) => void): Request;
+    createReservedInstancesListing(params: EC2.CreateReservedInstancesListingRequest, callback?: (err: any, data: EC2.CreateReservedInstancesListingResult|any) => void): Request<EC2.CreateReservedInstancesListingResult|any,any>;
     /**
      * Creates a route in a route table within a VPC.
 
@@ -621,7 +621,7 @@ For more information about route tables, see Route Tables
 the Amazon Virtual Private Cloud User Guide .
      *
      */
-    createRoute(params: EC2.CreateRouteRequest, callback?: (err: any, data: EC2.CreateRouteResult|any) => void): Request;
+    createRoute(params: EC2.CreateRouteRequest, callback?: (err: any, data: EC2.CreateRouteResult|any) => void): Request<EC2.CreateRouteResult|any,any>;
     /**
      * Creates a route table for the specified VPC. After you create a route table, you
 can add routes and associate the table with a subnet.
@@ -631,7 +631,7 @@ For more information about route tables, see Route Tables
 the Amazon Virtual Private Cloud User Guide .
      *
      */
-    createRouteTable(params: EC2.CreateRouteTableRequest, callback?: (err: any, data: EC2.CreateRouteTableResult|any) => void): Request;
+    createRouteTable(params: EC2.CreateRouteTableRequest, callback?: (err: any, data: EC2.CreateRouteTableResult|any) => void): Request<EC2.CreateRouteTableResult|any,any>;
     /**
      * Creates a security group.
 
@@ -663,7 +663,7 @@ AuthorizeSecurityGroupIngress , AuthorizeSecurityGroupEgress ,
 RevokeSecurityGroupIngress , and RevokeSecurityGroupEgress .
      *
      */
-    createSecurityGroup(params: EC2.CreateSecurityGroupRequest, callback?: (err: any, data: EC2.CreateSecurityGroupResult|any) => void): Request;
+    createSecurityGroup(params: EC2.CreateSecurityGroupRequest, callback?: (err: any, data: EC2.CreateSecurityGroupResult|any) => void): Request<EC2.CreateSecurityGroupResult|any,any>;
     /**
      * Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use
 snapshots for backups, to make copies of EBS volumes, and to save data before
@@ -697,7 +697,7 @@ EBS Encryption
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    createSnapshot(params: EC2.CreateSnapshotRequest, callback?: (err: any, data: EC2.Snapshot|any) => void): Request;
+    createSnapshot(params: EC2.CreateSnapshotRequest, callback?: (err: any, data: EC2.Snapshot|any) => void): Request<EC2.Snapshot|any,any>;
     /**
      * Creates a data feed for Spot instances, enabling you to view Spot instance usage
 logs. You can create one data feed per AWS account. For more information, see 
@@ -706,7 +706,7 @@ Spot Instance Data Feed
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    createSpotDatafeedSubscription(params: EC2.CreateSpotDatafeedSubscriptionRequest, callback?: (err: any, data: EC2.CreateSpotDatafeedSubscriptionResult|any) => void): Request;
+    createSpotDatafeedSubscription(params: EC2.CreateSpotDatafeedSubscriptionRequest, callback?: (err: any, data: EC2.CreateSpotDatafeedSubscriptionResult|any) => void): Request<EC2.CreateSpotDatafeedSubscriptionResult|any,any>;
     /**
      * Creates a subnet in an existing VPC.
 
@@ -735,7 +735,7 @@ For more information about subnets, see Your VPC and Subnets
 Amazon Virtual Private Cloud User Guide .
      *
      */
-    createSubnet(params: EC2.CreateSubnetRequest, callback?: (err: any, data: EC2.CreateSubnetResult|any) => void): Request;
+    createSubnet(params: EC2.CreateSubnetRequest, callback?: (err: any, data: EC2.CreateSubnetResult|any) => void): Request<EC2.CreateSubnetResult|any,any>;
     /**
      * Adds or overwrites one or more tags for the specified Amazon EC2 resource or
 resources. Each resource can have a maximum of 10 tags. Each tag consists of a
@@ -750,7 +750,7 @@ Supported Resource-Level Permissions for Amazon EC2 API Actions
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    createTags(params: EC2.CreateTagsRequest, callback?: (err: any, data: any) => void): Request;
+    createTags(params: EC2.CreateTagsRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Creates an EBS volume that can be attached to an instance in the same
 Availability Zone. The volume is created in the regional endpoint that you send
@@ -772,7 +772,7 @@ For more information, see Creating or Restoring an Amazon EBS Volume
 the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    createVolume(params: EC2.CreateVolumeRequest, callback?: (err: any, data: EC2.Volume|any) => void): Request;
+    createVolume(params: EC2.CreateVolumeRequest, callback?: (err: any, data: EC2.Volume|any) => void): Request<EC2.Volume|any,any>;
     /**
      * Creates a VPC with the specified CIDR block.
 
@@ -795,7 +795,7 @@ see Dedicated Instances
 in the Amazon Virtual Private Cloud User Guide .
      *
      */
-    createVpc(params: EC2.CreateVpcRequest, callback?: (err: any, data: EC2.CreateVpcResult|any) => void): Request;
+    createVpc(params: EC2.CreateVpcRequest, callback?: (err: any, data: EC2.CreateVpcResult|any) => void): Request<EC2.CreateVpcResult|any,any>;
     /**
      * Creates a VPC endpoint for a specified AWS service. An endpoint enables you to
 create a private connection between your VPC and another AWS service in your
@@ -806,7 +806,7 @@ tables that use the endpoint.
 Currently, only endpoints to Amazon S3 are supported.
      *
      */
-    createVpcEndpoint(params: EC2.CreateVpcEndpointRequest, callback?: (err: any, data: EC2.CreateVpcEndpointResult|any) => void): Request;
+    createVpcEndpoint(params: EC2.CreateVpcEndpointRequest, callback?: (err: any, data: EC2.CreateVpcEndpointResult|any) => void): Request<EC2.CreateVpcEndpointResult|any,any>;
     /**
      * Requests a VPC peering connection between two VPCs: a requester VPC that you own
 and a peer VPC with which to create the connection. The peer VPC can belong to
@@ -821,7 +821,7 @@ A CreateVpcPeeringConnection request between VPCs with overlapping CIDR blocks
 results in the VPC peering connection having a status of failed .
      *
      */
-    createVpcPeeringConnection(params: EC2.CreateVpcPeeringConnectionRequest, callback?: (err: any, data: EC2.CreateVpcPeeringConnectionResult|any) => void): Request;
+    createVpcPeeringConnection(params: EC2.CreateVpcPeeringConnectionRequest, callback?: (err: any, data: EC2.CreateVpcPeeringConnectionResult|any) => void): Request<EC2.CreateVpcPeeringConnectionResult|any,any>;
     /**
      * Creates a VPN connection between an existing virtual private gateway and a VPN
 customer gateway. The only supported connection type is ipsec.1 .
@@ -846,7 +846,7 @@ Private Gateway to Your VPC
 Amazon Virtual Private Cloud User Guide .
      *
      */
-    createVpnConnection(params: EC2.CreateVpnConnectionRequest, callback?: (err: any, data: EC2.CreateVpnConnectionResult|any) => void): Request;
+    createVpnConnection(params: EC2.CreateVpnConnectionRequest, callback?: (err: any, data: EC2.CreateVpnConnectionResult|any) => void): Request<EC2.CreateVpnConnectionResult|any,any>;
     /**
      * Creates a static route associated with a VPN connection between an existing
 virtual private gateway and a VPN customer gateway. The static route allows
@@ -859,7 +859,7 @@ Private Gateway to Your VPC
 Amazon Virtual Private Cloud User Guide .
      *
      */
-    createVpnConnectionRoute(params: EC2.CreateVpnConnectionRouteRequest, callback?: (err: any, data: any) => void): Request;
+    createVpnConnectionRoute(params: EC2.CreateVpnConnectionRouteRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Creates a virtual private gateway. A virtual private gateway is the endpoint on
 the VPC side of your VPN connection. You can create a virtual private gateway
@@ -871,13 +871,13 @@ Virtual Private Gateway to Your VPC
 Amazon Virtual Private Cloud User Guide .
      *
      */
-    createVpnGateway(params: EC2.CreateVpnGatewayRequest, callback?: (err: any, data: EC2.CreateVpnGatewayResult|any) => void): Request;
+    createVpnGateway(params: EC2.CreateVpnGatewayRequest, callback?: (err: any, data: EC2.CreateVpnGatewayResult|any) => void): Request<EC2.CreateVpnGatewayResult|any,any>;
     /**
      * Deletes the specified customer gateway. You must delete the VPN connection
 before you can delete the customer gateway.
      *
      */
-    deleteCustomerGateway(params: EC2.DeleteCustomerGatewayRequest, callback?: (err: any, data: any) => void): Request;
+    deleteCustomerGateway(params: EC2.DeleteCustomerGatewayRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified set of DHCP options. You must disassociate the set of DHCP
 options before you can delete it. You can disassociate the set of DHCP options
@@ -885,48 +885,48 @@ by associating either a new set of options or the default set of options with
 the VPC.
      *
      */
-    deleteDhcpOptions(params: EC2.DeleteDhcpOptionsRequest, callback?: (err: any, data: any) => void): Request;
+    deleteDhcpOptions(params: EC2.DeleteDhcpOptionsRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes one or more flow logs.
      *
      */
-    deleteFlowLogs(params: EC2.DeleteFlowLogsRequest, callback?: (err: any, data: EC2.DeleteFlowLogsResult|any) => void): Request;
+    deleteFlowLogs(params: EC2.DeleteFlowLogsRequest, callback?: (err: any, data: EC2.DeleteFlowLogsResult|any) => void): Request<EC2.DeleteFlowLogsResult|any,any>;
     /**
      * Deletes the specified Internet gateway. You must detach the Internet gateway
 from the VPC before you can delete it.
      *
      */
-    deleteInternetGateway(params: EC2.DeleteInternetGatewayRequest, callback?: (err: any, data: any) => void): Request;
+    deleteInternetGateway(params: EC2.DeleteInternetGatewayRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified key pair, by removing the public key from Amazon EC2.
      *
      */
-    deleteKeyPair(params: EC2.DeleteKeyPairRequest, callback?: (err: any, data: any) => void): Request;
+    deleteKeyPair(params: EC2.DeleteKeyPairRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified NAT gateway. Deleting a NAT gateway disassociates its
 Elastic IP address, but does not release the address from your account. Deleting
 a NAT gateway does not delete any NAT gateway routes in your route tables.
      *
      */
-    deleteNatGateway(params: EC2.DeleteNatGatewayRequest, callback?: (err: any, data: EC2.DeleteNatGatewayResult|any) => void): Request;
+    deleteNatGateway(params: EC2.DeleteNatGatewayRequest, callback?: (err: any, data: EC2.DeleteNatGatewayResult|any) => void): Request<EC2.DeleteNatGatewayResult|any,any>;
     /**
      * Deletes the specified network ACL. You can&#x27;t delete the ACL if it&#x27;s associated
 with any subnets. You can&#x27;t delete the default network ACL.
      *
      */
-    deleteNetworkAcl(params: EC2.DeleteNetworkAclRequest, callback?: (err: any, data: any) => void): Request;
+    deleteNetworkAcl(params: EC2.DeleteNetworkAclRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified ingress or egress entry (rule) from the specified network
 ACL.
      *
      */
-    deleteNetworkAclEntry(params: EC2.DeleteNetworkAclEntryRequest, callback?: (err: any, data: any) => void): Request;
+    deleteNetworkAclEntry(params: EC2.DeleteNetworkAclEntryRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified network interface. You must detach the network interface
 before you can delete it.
      *
      */
-    deleteNetworkInterface(params: EC2.DeleteNetworkInterfaceRequest, callback?: (err: any, data: any) => void): Request;
+    deleteNetworkInterface(params: EC2.DeleteNetworkInterfaceRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified placement group. You must terminate all instances in the
 placement group before you can delete the placement group. For more information
@@ -935,18 +935,18 @@ about placement groups and cluster instances, see Cluster Instances
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    deletePlacementGroup(params: EC2.DeletePlacementGroupRequest, callback?: (err: any, data: any) => void): Request;
+    deletePlacementGroup(params: EC2.DeletePlacementGroupRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified route from the specified route table.
      *
      */
-    deleteRoute(params: EC2.DeleteRouteRequest, callback?: (err: any, data: any) => void): Request;
+    deleteRoute(params: EC2.DeleteRouteRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified route table. You must disassociate the route table from
 any subnets before you can delete it. You can&#x27;t delete the main route table.
      *
      */
-    deleteRouteTable(params: EC2.DeleteRouteTableRequest, callback?: (err: any, data: any) => void): Request;
+    deleteRouteTable(params: EC2.DeleteRouteTableRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes a security group.
 
@@ -955,7 +955,7 @@ or is referenced by another security group, the operation fails with
 InvalidGroup.InUse in EC2-Classic or DependencyViolation in EC2-VPC.
      *
      */
-    deleteSecurityGroup(params: EC2.DeleteSecurityGroupRequest, callback?: (err: any, data: any) => void): Request;
+    deleteSecurityGroup(params: EC2.DeleteSecurityGroupRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified snapshot.
 
@@ -975,18 +975,18 @@ For more information, see Deleting an Amazon EBS Snapshot
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    deleteSnapshot(params: EC2.DeleteSnapshotRequest, callback?: (err: any, data: any) => void): Request;
+    deleteSnapshot(params: EC2.DeleteSnapshotRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the data feed for Spot instances.
      *
      */
-    deleteSpotDatafeedSubscription(params: EC2.DeleteSpotDatafeedSubscriptionRequest, callback?: (err: any, data: any) => void): Request;
+    deleteSpotDatafeedSubscription(params: EC2.DeleteSpotDatafeedSubscriptionRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified subnet. You must terminate all running instances in the
 subnet before you can delete the subnet.
      *
      */
-    deleteSubnet(params: EC2.DeleteSubnetRequest, callback?: (err: any, data: any) => void): Request;
+    deleteSubnet(params: EC2.DeleteSubnetRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified set of tags from the specified set of resources. This call
 is designed to follow a DescribeTags request.
@@ -996,7 +996,7 @@ For more information about tags, see Tagging Your Resources
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    deleteTags(params: EC2.DeleteTagsRequest, callback?: (err: any, data: any) => void): Request;
+    deleteTags(params: EC2.DeleteTagsRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified EBS volume. The volume must be in the available state (not
 attached to an instance).
@@ -1008,7 +1008,7 @@ For more information, see Deleting an Amazon EBS Volume
 the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    deleteVolume(params: EC2.DeleteVolumeRequest, callback?: (err: any, data: any) => void): Request;
+    deleteVolume(params: EC2.DeleteVolumeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified VPC. You must detach or delete all gateways and resources
 that are associated with the VPC before you can delete it. For example, you must
@@ -1017,13 +1017,13 @@ associated with the VPC (except the default one), delete all route tables
 associated with the VPC (except the default one), and so on.
      *
      */
-    deleteVpc(params: EC2.DeleteVpcRequest, callback?: (err: any, data: any) => void): Request;
+    deleteVpc(params: EC2.DeleteVpcRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes one or more specified VPC endpoints. Deleting the endpoint also deletes
 the endpoint routes in the route tables that were associated with the endpoint.
      *
      */
-    deleteVpcEndpoints(params: EC2.DeleteVpcEndpointsRequest, callback?: (err: any, data: EC2.DeleteVpcEndpointsResult|any) => void): Request;
+    deleteVpcEndpoints(params: EC2.DeleteVpcEndpointsRequest, callback?: (err: any, data: EC2.DeleteVpcEndpointsResult|any) => void): Request<EC2.DeleteVpcEndpointsResult|any,any>;
     /**
      * Deletes a VPC peering connection. Either the owner of the requester VPC or the
 owner of the peer VPC can delete the VPC peering connection if it&#x27;s in the 
@@ -1031,7 +1031,7 @@ active state. The owner of the requester VPC can delete a VPC peering connection
 in the pending-acceptance state.
      *
      */
-    deleteVpcPeeringConnection(params: EC2.DeleteVpcPeeringConnectionRequest, callback?: (err: any, data: EC2.DeleteVpcPeeringConnectionResult|any) => void): Request;
+    deleteVpcPeeringConnection(params: EC2.DeleteVpcPeeringConnectionRequest, callback?: (err: any, data: EC2.DeleteVpcPeeringConnectionResult|any) => void): Request<EC2.DeleteVpcPeeringConnectionResult|any,any>;
     /**
      * Deletes the specified VPN connection.
 
@@ -1045,7 +1045,7 @@ customer gateway using the new configuration information returned with the new
 VPN connection ID.
      *
      */
-    deleteVpnConnection(params: EC2.DeleteVpnConnectionRequest, callback?: (err: any, data: any) => void): Request;
+    deleteVpnConnection(params: EC2.DeleteVpnConnectionRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified static route associated with a VPN connection between an
 existing virtual private gateway and a VPN customer gateway. The static route
@@ -1053,7 +1053,7 @@ allows traffic to be routed from the virtual private gateway to the VPN customer
 gateway.
      *
      */
-    deleteVpnConnectionRoute(params: EC2.DeleteVpnConnectionRouteRequest, callback?: (err: any, data: any) => void): Request;
+    deleteVpnConnectionRoute(params: EC2.DeleteVpnConnectionRouteRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deletes the specified virtual private gateway. We recommend that before you
 delete a virtual private gateway, you detach it from the VPC and delete the VPN
@@ -1062,7 +1062,7 @@ you plan to delete and recreate the VPN connection between your VPC and your
 network.
      *
      */
-    deleteVpnGateway(params: EC2.DeleteVpnGatewayRequest, callback?: (err: any, data: any) => void): Request;
+    deleteVpnGateway(params: EC2.DeleteVpnGatewayRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Deregisters the specified AMI. After you deregister an AMI, it can&#x27;t be used to
 launch new instances.
@@ -1070,7 +1070,7 @@ launch new instances.
 This command does not delete the AMI.
      *
      */
-    deregisterImage(params: EC2.DeregisterImageRequest, callback?: (err: any, data: any) => void): Request;
+    deregisterImage(params: EC2.DeregisterImageRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Describes attributes of your AWS account. The following are the supported
 account attributes:
@@ -1097,7 +1097,7 @@ account attributes:
    allocate for use with EC2-VPC.
      *
      */
-    describeAccountAttributes(params: EC2.DescribeAccountAttributesRequest, callback?: (err: any, data: EC2.DescribeAccountAttributesResult|any) => void): Request;
+    describeAccountAttributes(params: EC2.DescribeAccountAttributesRequest, callback?: (err: any, data: EC2.DescribeAccountAttributesResult|any) => void): Request<EC2.DescribeAccountAttributesResult|any,any>;
     /**
      * Describes one or more of your Elastic IP addresses.
 
@@ -1107,7 +1107,7 @@ For more information, see Elastic IP Addresses
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    describeAddresses(params: EC2.DescribeAddressesRequest, callback?: (err: any, data: EC2.DescribeAddressesResult|any) => void): Request;
+    describeAddresses(params: EC2.DescribeAddressesRequest, callback?: (err: any, data: EC2.DescribeAddressesResult|any) => void): Request<EC2.DescribeAddressesResult|any,any>;
     /**
      * Describes one or more of the Availability Zones that are available to you. The
 results include zones only for the region you&#x27;re currently using. If there is an
@@ -1119,7 +1119,7 @@ For more information, see Regions and Availability Zones
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    describeAvailabilityZones(params: EC2.DescribeAvailabilityZonesRequest, callback?: (err: any, data: EC2.DescribeAvailabilityZonesResult|any) => void): Request;
+    describeAvailabilityZones(params: EC2.DescribeAvailabilityZonesRequest, callback?: (err: any, data: EC2.DescribeAvailabilityZonesResult|any) => void): Request<EC2.DescribeAvailabilityZonesResult|any,any>;
     /**
      * Describes one or more of your bundling tasks.
 
@@ -1129,7 +1129,7 @@ RegisterImage with the Amazon S3 bucket name and image manifest name you
 provided to the bundle task.
      *
      */
-    describeBundleTasks(params: EC2.DescribeBundleTasksRequest, callback?: (err: any, data: EC2.DescribeBundleTasksResult|any) => void): Request;
+    describeBundleTasks(params: EC2.DescribeBundleTasksRequest, callback?: (err: any, data: EC2.DescribeBundleTasksResult|any) => void): Request<EC2.DescribeBundleTasksResult|any,any>;
     /**
      * Describes one or more of your linked EC2-Classic instances. This request only
 returns information about EC2-Classic instances linked to a VPC through
@@ -1137,7 +1137,7 @@ ClassicLink; you cannot use this request to return information about other
 instances.
      *
      */
-    describeClassicLinkInstances(params: EC2.DescribeClassicLinkInstancesRequest, callback?: (err: any, data: EC2.DescribeClassicLinkInstancesResult|any) => void): Request;
+    describeClassicLinkInstances(params: EC2.DescribeClassicLinkInstancesRequest, callback?: (err: any, data: EC2.DescribeClassicLinkInstancesResult|any) => void): Request<EC2.DescribeClassicLinkInstancesResult|any,any>;
     /**
      * Describes one or more of your conversion tasks. For more information, see Using
 the Command Line Tools to Import Your Virtual Machine to Amazon EC2
@@ -1149,7 +1149,7 @@ Import Manifest
 [http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html] .
      *
      */
-    describeConversionTasks(params: EC2.DescribeConversionTasksRequest, callback?: (err: any, data: EC2.DescribeConversionTasksResult|any) => void): Request;
+    describeConversionTasks(params: EC2.DescribeConversionTasksRequest, callback?: (err: any, data: EC2.DescribeConversionTasksResult|any) => void): Request<EC2.DescribeConversionTasksResult|any,any>;
     /**
      * Describes one or more of your VPN customer gateways.
 
@@ -1159,7 +1159,7 @@ Private Gateway to Your VPC
 Amazon Virtual Private Cloud User Guide .
      *
      */
-    describeCustomerGateways(params: EC2.DescribeCustomerGatewaysRequest, callback?: (err: any, data: EC2.DescribeCustomerGatewaysResult|any) => void): Request;
+    describeCustomerGateways(params: EC2.DescribeCustomerGatewaysRequest, callback?: (err: any, data: EC2.DescribeCustomerGatewaysResult|any) => void): Request<EC2.DescribeCustomerGatewaysResult|any,any>;
     /**
      * Describes one or more of your DHCP options sets.
 
@@ -1168,19 +1168,19 @@ For more information about DHCP options sets, see DHCP Options Sets
 the Amazon Virtual Private Cloud User Guide .
      *
      */
-    describeDhcpOptions(params: EC2.DescribeDhcpOptionsRequest, callback?: (err: any, data: EC2.DescribeDhcpOptionsResult|any) => void): Request;
+    describeDhcpOptions(params: EC2.DescribeDhcpOptionsRequest, callback?: (err: any, data: EC2.DescribeDhcpOptionsResult|any) => void): Request<EC2.DescribeDhcpOptionsResult|any,any>;
     /**
      * Describes one or more of your export tasks.
      *
      */
-    describeExportTasks(params: EC2.DescribeExportTasksRequest, callback?: (err: any, data: EC2.DescribeExportTasksResult|any) => void): Request;
+    describeExportTasks(params: EC2.DescribeExportTasksRequest, callback?: (err: any, data: EC2.DescribeExportTasksResult|any) => void): Request<EC2.DescribeExportTasksResult|any,any>;
     /**
      * Describes one or more flow logs. To view the information in your flow logs (the
 log streams for the network interfaces), you must use the CloudWatch Logs
 console or the CloudWatch Logs API.
      *
      */
-    describeFlowLogs(params: EC2.DescribeFlowLogsRequest, callback?: (err: any, data: EC2.DescribeFlowLogsResult|any) => void): Request;
+    describeFlowLogs(params: EC2.DescribeFlowLogsRequest, callback?: (err: any, data: EC2.DescribeFlowLogsResult|any) => void): Request<EC2.DescribeFlowLogsResult|any,any>;
     /**
      * Describes one or more of your Dedicated hosts.
 
@@ -1189,7 +1189,7 @@ using. All listed instances consume capacity on your Dedicated host. Dedicated
 hosts that have recently been released will be listed with the state released .
      *
      */
-    describeHosts(params: EC2.DescribeHostsRequest, callback?: (err: any, data: EC2.DescribeHostsResult|any) => void): Request;
+    describeHosts(params: EC2.DescribeHostsRequest, callback?: (err: any, data: EC2.DescribeHostsResult|any) => void): Request<EC2.DescribeHostsResult|any,any>;
     /**
      * Describes the ID format settings for your resources on a per-region basis, for
 example, to view which resource types are enabled for longer IDs. This request
@@ -1207,13 +1207,13 @@ users, regardless of these settings and provided that they have permission to
 use the relevant Describe command for the resource type.
      *
      */
-    describeIdFormat(params: EC2.DescribeIdFormatRequest, callback?: (err: any, data: EC2.DescribeIdFormatResult|any) => void): Request;
+    describeIdFormat(params: EC2.DescribeIdFormatRequest, callback?: (err: any, data: EC2.DescribeIdFormatResult|any) => void): Request<EC2.DescribeIdFormatResult|any,any>;
     /**
      * Describes the specified attribute of the specified AMI. You can specify only one
 attribute at a time.
      *
      */
-    describeImageAttribute(params: EC2.DescribeImageAttributeRequest, callback?: (err: any, data: EC2.ImageAttribute|any) => void): Request;
+    describeImageAttribute(params: EC2.DescribeImageAttributeRequest, callback?: (err: any, data: EC2.ImageAttribute|any) => void): Request<EC2.ImageAttribute|any,any>;
     /**
      * Describes one or more of the images (AMIs, AKIs, and ARIs) available to you.
 Images available to you include public images, private images that you own, and
@@ -1224,18 +1224,18 @@ Deregistered images are included in the returned results for an unspecified
 interval after deregistration.
      *
      */
-    describeImages(params: EC2.DescribeImagesRequest, callback?: (err: any, data: EC2.DescribeImagesResult|any) => void): Request;
+    describeImages(params: EC2.DescribeImagesRequest, callback?: (err: any, data: EC2.DescribeImagesResult|any) => void): Request<EC2.DescribeImagesResult|any,any>;
     /**
      * Displays details about an import virtual machine or import snapshot tasks that
 are already created.
      *
      */
-    describeImportImageTasks(params: EC2.DescribeImportImageTasksRequest, callback?: (err: any, data: EC2.DescribeImportImageTasksResult|any) => void): Request;
+    describeImportImageTasks(params: EC2.DescribeImportImageTasksRequest, callback?: (err: any, data: EC2.DescribeImportImageTasksResult|any) => void): Request<EC2.DescribeImportImageTasksResult|any,any>;
     /**
      * Describes your import snapshot tasks.
      *
      */
-    describeImportSnapshotTasks(params: EC2.DescribeImportSnapshotTasksRequest, callback?: (err: any, data: EC2.DescribeImportSnapshotTasksResult|any) => void): Request;
+    describeImportSnapshotTasks(params: EC2.DescribeImportSnapshotTasksRequest, callback?: (err: any, data: EC2.DescribeImportSnapshotTasksResult|any) => void): Request<EC2.DescribeImportSnapshotTasksResult|any,any>;
     /**
      * Describes the specified attribute of the specified instance. You can specify
 only one attribute at a time. Valid attribute values are: instanceType | kernel 
@@ -1244,7 +1244,7 @@ only one attribute at a time. Valid attribute values are: instanceType | kernel
 groupSet | ebsOptimized | sriovNetSupport
      *
      */
-    describeInstanceAttribute(params: EC2.DescribeInstanceAttributeRequest, callback?: (err: any, data: EC2.InstanceAttribute|any) => void): Request;
+    describeInstanceAttribute(params: EC2.DescribeInstanceAttributeRequest, callback?: (err: any, data: EC2.InstanceAttribute|any) => void): Request<EC2.InstanceAttribute|any,any>;
     /**
      * Describes the status of one or more instances. By default, only running
 instances are described, unless specified otherwise.
@@ -1274,7 +1274,7 @@ Instance status includes the following components:
    in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    describeInstanceStatus(params: EC2.DescribeInstanceStatusRequest, callback?: (err: any, data: EC2.DescribeInstanceStatusResult|any) => void): Request;
+    describeInstanceStatus(params: EC2.DescribeInstanceStatusRequest, callback?: (err: any, data: EC2.DescribeInstanceStatusResult|any) => void): Request<EC2.DescribeInstanceStatusResult|any,any>;
     /**
      * Describes one or more of your instances.
 
@@ -1288,12 +1288,12 @@ Recently terminated instances might appear in the returned results. This
 interval is usually less than one hour.
      *
      */
-    describeInstances(params: EC2.DescribeInstancesRequest, callback?: (err: any, data: EC2.DescribeInstancesResult|any) => void): Request;
+    describeInstances(params: EC2.DescribeInstancesRequest, callback?: (err: any, data: EC2.DescribeInstancesResult|any) => void): Request<EC2.DescribeInstancesResult|any,any>;
     /**
      * Describes one or more of your Internet gateways.
      *
      */
-    describeInternetGateways(params: EC2.DescribeInternetGatewaysRequest, callback?: (err: any, data: EC2.DescribeInternetGatewaysResult|any) => void): Request;
+    describeInternetGateways(params: EC2.DescribeInternetGatewaysRequest, callback?: (err: any, data: EC2.DescribeInternetGatewaysResult|any) => void): Request<EC2.DescribeInternetGatewaysResult|any,any>;
     /**
      * Describes one or more of your key pairs.
 
@@ -1302,7 +1302,7 @@ For more information about key pairs, see Key Pairs
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    describeKeyPairs(params: EC2.DescribeKeyPairsRequest, callback?: (err: any, data: EC2.DescribeKeyPairsResult|any) => void): Request;
+    describeKeyPairs(params: EC2.DescribeKeyPairsRequest, callback?: (err: any, data: EC2.DescribeKeyPairsResult|any) => void): Request<EC2.DescribeKeyPairsResult|any,any>;
     /**
      * Describes your Elastic IP addresses that are being moved to the EC2-VPC
 platform, or that are being restored to the EC2-Classic platform. This request
@@ -1310,12 +1310,12 @@ does not return information about any other Elastic IP addresses in your
 account.
      *
      */
-    describeMovingAddresses(params: EC2.DescribeMovingAddressesRequest, callback?: (err: any, data: EC2.DescribeMovingAddressesResult|any) => void): Request;
+    describeMovingAddresses(params: EC2.DescribeMovingAddressesRequest, callback?: (err: any, data: EC2.DescribeMovingAddressesResult|any) => void): Request<EC2.DescribeMovingAddressesResult|any,any>;
     /**
      * Describes one or more of the your NAT gateways.
      *
      */
-    describeNatGateways(params: EC2.DescribeNatGatewaysRequest, callback?: (err: any, data: EC2.DescribeNatGatewaysResult|any) => void): Request;
+    describeNatGateways(params: EC2.DescribeNatGatewaysRequest, callback?: (err: any, data: EC2.DescribeNatGatewaysResult|any) => void): Request<EC2.DescribeNatGatewaysResult|any,any>;
     /**
      * Describes one or more of your network ACLs.
 
@@ -1324,18 +1324,18 @@ For more information about network ACLs, see Network ACLs
 Amazon Virtual Private Cloud User Guide .
      *
      */
-    describeNetworkAcls(params: EC2.DescribeNetworkAclsRequest, callback?: (err: any, data: EC2.DescribeNetworkAclsResult|any) => void): Request;
+    describeNetworkAcls(params: EC2.DescribeNetworkAclsRequest, callback?: (err: any, data: EC2.DescribeNetworkAclsResult|any) => void): Request<EC2.DescribeNetworkAclsResult|any,any>;
     /**
      * Describes a network interface attribute. You can specify only one attribute at a
 time.
      *
      */
-    describeNetworkInterfaceAttribute(params: EC2.DescribeNetworkInterfaceAttributeRequest, callback?: (err: any, data: EC2.DescribeNetworkInterfaceAttributeResult|any) => void): Request;
+    describeNetworkInterfaceAttribute(params: EC2.DescribeNetworkInterfaceAttributeRequest, callback?: (err: any, data: EC2.DescribeNetworkInterfaceAttributeResult|any) => void): Request<EC2.DescribeNetworkInterfaceAttributeResult|any,any>;
     /**
      * Describes one or more of your network interfaces.
      *
      */
-    describeNetworkInterfaces(params: EC2.DescribeNetworkInterfacesRequest, callback?: (err: any, data: EC2.DescribeNetworkInterfacesResult|any) => void): Request;
+    describeNetworkInterfaces(params: EC2.DescribeNetworkInterfacesRequest, callback?: (err: any, data: EC2.DescribeNetworkInterfacesResult|any) => void): Request<EC2.DescribeNetworkInterfacesResult|any,any>;
     /**
      * Describes one or more of your placement groups. For more information about
 placement groups and cluster instances, see Cluster Instances
@@ -1343,7 +1343,7 @@ placement groups and cluster instances, see Cluster Instances
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    describePlacementGroups(params: EC2.DescribePlacementGroupsRequest, callback?: (err: any, data: EC2.DescribePlacementGroupsResult|any) => void): Request;
+    describePlacementGroups(params: EC2.DescribePlacementGroupsRequest, callback?: (err: any, data: EC2.DescribePlacementGroupsResult|any) => void): Request<EC2.DescribePlacementGroupsResult|any,any>;
     /**
      * Describes available AWS services in a prefix list format, which includes the
 prefix list name and prefix list ID of the service and the IP address range for
@@ -1352,7 +1352,7 @@ group rule that allows traffic from a VPC to access an AWS service through a VPC
 endpoint.
      *
      */
-    describePrefixLists(params: EC2.DescribePrefixListsRequest, callback?: (err: any, data: EC2.DescribePrefixListsResult|any) => void): Request;
+    describePrefixLists(params: EC2.DescribePrefixListsRequest, callback?: (err: any, data: EC2.DescribePrefixListsResult|any) => void): Request<EC2.DescribePrefixListsResult|any,any>;
     /**
      * Describes one or more regions that are currently available to you.
 
@@ -1360,7 +1360,7 @@ For a list of the regions supported by Amazon EC2, see Regions and Endpoints
 [http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region] .
      *
      */
-    describeRegions(params: EC2.DescribeRegionsRequest, callback?: (err: any, data: EC2.DescribeRegionsResult|any) => void): Request;
+    describeRegions(params: EC2.DescribeRegionsRequest, callback?: (err: any, data: EC2.DescribeRegionsResult|any) => void): Request<EC2.DescribeRegionsResult|any,any>;
     /**
      * Describes one or more of the Reserved Instances that you purchased.
 
@@ -1369,7 +1369,7 @@ For more information about Reserved Instances, see Reserved Instances
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    describeReservedInstances(params: EC2.DescribeReservedInstancesRequest, callback?: (err: any, data: EC2.DescribeReservedInstancesResult|any) => void): Request;
+    describeReservedInstances(params: EC2.DescribeReservedInstancesRequest, callback?: (err: any, data: EC2.DescribeReservedInstancesResult|any) => void): Request<EC2.DescribeReservedInstancesResult|any,any>;
     /**
      * Describes your account&#x27;s Reserved Instance listings in the Reserved Instance
 Marketplace.
@@ -1395,7 +1395,7 @@ For more information, see Reserved Instance Marketplace
 the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    describeReservedInstancesListings(params: EC2.DescribeReservedInstancesListingsRequest, callback?: (err: any, data: EC2.DescribeReservedInstancesListingsResult|any) => void): Request;
+    describeReservedInstancesListings(params: EC2.DescribeReservedInstancesListingsRequest, callback?: (err: any, data: EC2.DescribeReservedInstancesListingsResult|any) => void): Request<EC2.DescribeReservedInstancesListingsResult|any,any>;
     /**
      * Describes the modifications made to your Reserved Instances. If no parameter is
 specified, information about all your Reserved Instances modification requests
@@ -1407,7 +1407,7 @@ For more information, see Modifying Reserved Instances
 Amazon Elastic Compute Cloud User Guide.
      *
      */
-    describeReservedInstancesModifications(params: EC2.DescribeReservedInstancesModificationsRequest, callback?: (err: any, data: EC2.DescribeReservedInstancesModificationsResult|any) => void): Request;
+    describeReservedInstancesModifications(params: EC2.DescribeReservedInstancesModificationsRequest, callback?: (err: any, data: EC2.DescribeReservedInstancesModificationsResult|any) => void): Request<EC2.DescribeReservedInstancesModificationsResult|any,any>;
     /**
      * Describes Reserved Instance offerings that are available for purchase. With
 Reserved Instances, you purchase the right to launch instances for a period of
@@ -1424,7 +1424,7 @@ For more information, see Reserved Instance Marketplace
 the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    describeReservedInstancesOfferings(params: EC2.DescribeReservedInstancesOfferingsRequest, callback?: (err: any, data: EC2.DescribeReservedInstancesOfferingsResult|any) => void): Request;
+    describeReservedInstancesOfferings(params: EC2.DescribeReservedInstancesOfferingsRequest, callback?: (err: any, data: EC2.DescribeReservedInstancesOfferingsResult|any) => void): Request<EC2.DescribeReservedInstancesOfferingsResult|any,any>;
     /**
      * Describes one or more of your route tables.
 
@@ -1438,7 +1438,7 @@ For more information about route tables, see Route Tables
 the Amazon Virtual Private Cloud User Guide .
      *
      */
-    describeRouteTables(params: EC2.DescribeRouteTablesRequest, callback?: (err: any, data: EC2.DescribeRouteTablesResult|any) => void): Request;
+    describeRouteTables(params: EC2.DescribeRouteTablesRequest, callback?: (err: any, data: EC2.DescribeRouteTablesResult|any) => void): Request<EC2.DescribeRouteTablesResult|any,any>;
     /**
      * Finds available schedules that meet the specified criteria.
 
@@ -1451,12 +1451,12 @@ After you find a schedule that meets your needs, call PurchaseScheduledInstances
 to purchase Scheduled Instances with that schedule.
      *
      */
-    describeScheduledInstanceAvailability(params: EC2.DescribeScheduledInstanceAvailabilityRequest, callback?: (err: any, data: EC2.DescribeScheduledInstanceAvailabilityResult|any) => void): Request;
+    describeScheduledInstanceAvailability(params: EC2.DescribeScheduledInstanceAvailabilityRequest, callback?: (err: any, data: EC2.DescribeScheduledInstanceAvailabilityResult|any) => void): Request<EC2.DescribeScheduledInstanceAvailabilityResult|any,any>;
     /**
      * Describes one or more of your Scheduled Instances.
      *
      */
-    describeScheduledInstances(params: EC2.DescribeScheduledInstancesRequest, callback?: (err: any, data: EC2.DescribeScheduledInstancesResult|any) => void): Request;
+    describeScheduledInstances(params: EC2.DescribeScheduledInstancesRequest, callback?: (err: any, data: EC2.DescribeScheduledInstancesResult|any) => void): Request<EC2.DescribeScheduledInstancesResult|any,any>;
     /**
      * Describes one or more of your security groups.
 
@@ -1468,7 +1468,7 @@ in the Amazon Elastic Compute Cloud User Guide and Security Groups for Your VPC
 in the Amazon Virtual Private Cloud User Guide .
      *
      */
-    describeSecurityGroups(params: EC2.DescribeSecurityGroupsRequest, callback?: (err: any, data: EC2.DescribeSecurityGroupsResult|any) => void): Request;
+    describeSecurityGroups(params: EC2.DescribeSecurityGroupsRequest, callback?: (err: any, data: EC2.DescribeSecurityGroupsResult|any) => void): Request<EC2.DescribeSecurityGroupsResult|any,any>;
     /**
      * Describes the specified attribute of the specified snapshot. You can specify
 only one attribute at a time.
@@ -1478,7 +1478,7 @@ For more information about EBS snapshots, see Amazon EBS Snapshots
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    describeSnapshotAttribute(params: EC2.DescribeSnapshotAttributeRequest, callback?: (err: any, data: EC2.DescribeSnapshotAttributeResult|any) => void): Request;
+    describeSnapshotAttribute(params: EC2.DescribeSnapshotAttributeRequest, callback?: (err: any, data: EC2.DescribeSnapshotAttributeResult|any) => void): Request<EC2.DescribeSnapshotAttributeResult|any,any>;
     /**
      * Describes one or more of the EBS snapshots available to you. Available snapshots
 include public snapshots available for any AWS account to launch, private
@@ -1533,7 +1533,7 @@ For more information about EBS snapshots, see Amazon EBS Snapshots
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    describeSnapshots(params: EC2.DescribeSnapshotsRequest, callback?: (err: any, data: EC2.DescribeSnapshotsResult|any) => void): Request;
+    describeSnapshots(params: EC2.DescribeSnapshotsRequest, callback?: (err: any, data: EC2.DescribeSnapshotsResult|any) => void): Request<EC2.DescribeSnapshotsResult|any,any>;
     /**
      * Describes the data feed for Spot instances. For more information, see Spot
 Instance Data Feed
@@ -1541,12 +1541,12 @@ Instance Data Feed
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    describeSpotDatafeedSubscription(params: EC2.DescribeSpotDatafeedSubscriptionRequest, callback?: (err: any, data: EC2.DescribeSpotDatafeedSubscriptionResult|any) => void): Request;
+    describeSpotDatafeedSubscription(params: EC2.DescribeSpotDatafeedSubscriptionRequest, callback?: (err: any, data: EC2.DescribeSpotDatafeedSubscriptionResult|any) => void): Request<EC2.DescribeSpotDatafeedSubscriptionResult|any,any>;
     /**
      * Describes the running instances for the specified Spot fleet.
      *
      */
-    describeSpotFleetInstances(params: EC2.DescribeSpotFleetInstancesRequest, callback?: (err: any, data: EC2.DescribeSpotFleetInstancesResponse|any) => void): Request;
+    describeSpotFleetInstances(params: EC2.DescribeSpotFleetInstancesRequest, callback?: (err: any, data: EC2.DescribeSpotFleetInstancesResponse|any) => void): Request<EC2.DescribeSpotFleetInstancesResponse|any,any>;
     /**
      * Describes the events for the specified Spot fleet request during the specified
 time.
@@ -1556,12 +1556,12 @@ This ensures that you can query by the last evaluated time and not miss a
 recorded event.
      *
      */
-    describeSpotFleetRequestHistory(params: EC2.DescribeSpotFleetRequestHistoryRequest, callback?: (err: any, data: EC2.DescribeSpotFleetRequestHistoryResponse|any) => void): Request;
+    describeSpotFleetRequestHistory(params: EC2.DescribeSpotFleetRequestHistoryRequest, callback?: (err: any, data: EC2.DescribeSpotFleetRequestHistoryResponse|any) => void): Request<EC2.DescribeSpotFleetRequestHistoryResponse|any,any>;
     /**
      * Describes your Spot fleet requests.
      *
      */
-    describeSpotFleetRequests(params: EC2.DescribeSpotFleetRequestsRequest, callback?: (err: any, data: EC2.DescribeSpotFleetRequestsResponse|any) => void): Request;
+    describeSpotFleetRequests(params: EC2.DescribeSpotFleetRequestsRequest, callback?: (err: any, data: EC2.DescribeSpotFleetRequestsResponse|any) => void): Request<EC2.DescribeSpotFleetRequestsResponse|any,any>;
     /**
      * Describes the Spot instance requests that belong to your account. Spot instances
 are instances that Amazon EC2 launches when the bid price that you specify
@@ -1578,7 +1578,7 @@ Alternatively, you can use DescribeInstances with a filter to look for instances
 where the instance lifecycle is spot .
      *
      */
-    describeSpotInstanceRequests(params: EC2.DescribeSpotInstanceRequestsRequest, callback?: (err: any, data: EC2.DescribeSpotInstanceRequestsResult|any) => void): Request;
+    describeSpotInstanceRequests(params: EC2.DescribeSpotInstanceRequestsRequest, callback?: (err: any, data: EC2.DescribeSpotInstanceRequestsResult|any) => void): Request<EC2.DescribeSpotInstanceRequestsResult|any,any>;
     /**
      * Describes the Spot price history. The prices returned are listed in
 chronological order, from the oldest to the most recent, for up to the past 90
@@ -1592,7 +1592,7 @@ price changed. The price is valid within the time period that you specified; the
 response merely indicates the last time that the price changed.
      *
      */
-    describeSpotPriceHistory(params: EC2.DescribeSpotPriceHistoryRequest, callback?: (err: any, data: EC2.DescribeSpotPriceHistoryResult|any) => void): Request;
+    describeSpotPriceHistory(params: EC2.DescribeSpotPriceHistoryRequest, callback?: (err: any, data: EC2.DescribeSpotPriceHistoryResult|any) => void): Request<EC2.DescribeSpotPriceHistoryResult|any,any>;
     /**
      * Describes one or more of your subnets.
 
@@ -1601,7 +1601,7 @@ For more information about subnets, see Your VPC and Subnets
 Amazon Virtual Private Cloud User Guide .
      *
      */
-    describeSubnets(params: EC2.DescribeSubnetsRequest, callback?: (err: any, data: EC2.DescribeSubnetsResult|any) => void): Request;
+    describeSubnets(params: EC2.DescribeSubnetsRequest, callback?: (err: any, data: EC2.DescribeSubnetsResult|any) => void): Request<EC2.DescribeSubnetsResult|any,any>;
     /**
      * Describes one or more of the tags for your EC2 resources.
 
@@ -1610,7 +1610,7 @@ For more information about tags, see Tagging Your Resources
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    describeTags(params: EC2.DescribeTagsRequest, callback?: (err: any, data: EC2.DescribeTagsResult|any) => void): Request;
+    describeTags(params: EC2.DescribeTagsRequest, callback?: (err: any, data: EC2.DescribeTagsResult|any) => void): Request<EC2.DescribeTagsResult|any,any>;
     /**
      * Describes the specified attribute of the specified volume. You can specify only
 one attribute at a time.
@@ -1620,7 +1620,7 @@ For more information about EBS volumes, see Amazon EBS Volumes
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    describeVolumeAttribute(params: EC2.DescribeVolumeAttributeRequest, callback?: (err: any, data: EC2.DescribeVolumeAttributeResult|any) => void): Request;
+    describeVolumeAttribute(params: EC2.DescribeVolumeAttributeRequest, callback?: (err: any, data: EC2.DescribeVolumeAttributeResult|any) => void): Request<EC2.DescribeVolumeAttributeResult|any,any>;
     /**
      * Describes the status of the specified volumes. Volume status provides the result
 of the checks performed on your volumes to determine events that can impair the
@@ -1660,7 +1660,7 @@ volume state. Therefore, volume status does not indicate volumes in the error
 state (for example, when a volume is incapable of accepting I/O.)
      *
      */
-    describeVolumeStatus(params: EC2.DescribeVolumeStatusRequest, callback?: (err: any, data: EC2.DescribeVolumeStatusResult|any) => void): Request;
+    describeVolumeStatus(params: EC2.DescribeVolumeStatusRequest, callback?: (err: any, data: EC2.DescribeVolumeStatusResult|any) => void): Request<EC2.DescribeVolumeStatusResult|any,any>;
     /**
      * Describes the specified EBS volumes.
 
@@ -1676,18 +1676,18 @@ For more information about EBS volumes, see Amazon EBS Volumes
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    describeVolumes(params: EC2.DescribeVolumesRequest, callback?: (err: any, data: EC2.DescribeVolumesResult|any) => void): Request;
+    describeVolumes(params: EC2.DescribeVolumesRequest, callback?: (err: any, data: EC2.DescribeVolumesResult|any) => void): Request<EC2.DescribeVolumesResult|any,any>;
     /**
      * Describes the specified attribute of the specified VPC. You can specify only one
 attribute at a time.
      *
      */
-    describeVpcAttribute(params: EC2.DescribeVpcAttributeRequest, callback?: (err: any, data: EC2.DescribeVpcAttributeResult|any) => void): Request;
+    describeVpcAttribute(params: EC2.DescribeVpcAttributeRequest, callback?: (err: any, data: EC2.DescribeVpcAttributeResult|any) => void): Request<EC2.DescribeVpcAttributeResult|any,any>;
     /**
      * Describes the ClassicLink status of one or more VPCs.
      *
      */
-    describeVpcClassicLink(params: EC2.DescribeVpcClassicLinkRequest, callback?: (err: any, data: EC2.DescribeVpcClassicLinkResult|any) => void): Request;
+    describeVpcClassicLink(params: EC2.DescribeVpcClassicLinkRequest, callback?: (err: any, data: EC2.DescribeVpcClassicLinkResult|any) => void): Request<EC2.DescribeVpcClassicLinkResult|any,any>;
     /**
      * Describes the ClassicLink DNS support status of one or more VPCs. If enabled,
 the DNS hostname of a linked EC2-Classic instance resolves to its private IP
@@ -1699,28 +1699,28 @@ about ClassicLink, see ClassicLink
 Amazon Elastic Compute Cloud User Guide.
      *
      */
-    describeVpcClassicLinkDnsSupport(params: EC2.DescribeVpcClassicLinkDnsSupportRequest, callback?: (err: any, data: EC2.DescribeVpcClassicLinkDnsSupportResult|any) => void): Request;
+    describeVpcClassicLinkDnsSupport(params: EC2.DescribeVpcClassicLinkDnsSupportRequest, callback?: (err: any, data: EC2.DescribeVpcClassicLinkDnsSupportResult|any) => void): Request<EC2.DescribeVpcClassicLinkDnsSupportResult|any,any>;
     /**
      * Describes all supported AWS services that can be specified when creating a VPC
 endpoint.
      *
      */
-    describeVpcEndpointServices(params: EC2.DescribeVpcEndpointServicesRequest, callback?: (err: any, data: EC2.DescribeVpcEndpointServicesResult|any) => void): Request;
+    describeVpcEndpointServices(params: EC2.DescribeVpcEndpointServicesRequest, callback?: (err: any, data: EC2.DescribeVpcEndpointServicesResult|any) => void): Request<EC2.DescribeVpcEndpointServicesResult|any,any>;
     /**
      * Describes one or more of your VPC endpoints.
      *
      */
-    describeVpcEndpoints(params: EC2.DescribeVpcEndpointsRequest, callback?: (err: any, data: EC2.DescribeVpcEndpointsResult|any) => void): Request;
+    describeVpcEndpoints(params: EC2.DescribeVpcEndpointsRequest, callback?: (err: any, data: EC2.DescribeVpcEndpointsResult|any) => void): Request<EC2.DescribeVpcEndpointsResult|any,any>;
     /**
      * Describes one or more of your VPC peering connections.
      *
      */
-    describeVpcPeeringConnections(params: EC2.DescribeVpcPeeringConnectionsRequest, callback?: (err: any, data: EC2.DescribeVpcPeeringConnectionsResult|any) => void): Request;
+    describeVpcPeeringConnections(params: EC2.DescribeVpcPeeringConnectionsRequest, callback?: (err: any, data: EC2.DescribeVpcPeeringConnectionsResult|any) => void): Request<EC2.DescribeVpcPeeringConnectionsResult|any,any>;
     /**
      * Describes one or more of your VPCs.
      *
      */
-    describeVpcs(params: EC2.DescribeVpcsRequest, callback?: (err: any, data: EC2.DescribeVpcsResult|any) => void): Request;
+    describeVpcs(params: EC2.DescribeVpcsRequest, callback?: (err: any, data: EC2.DescribeVpcsResult|any) => void): Request<EC2.DescribeVpcsResult|any,any>;
     /**
      * Describes one or more of your VPN connections.
 
@@ -1730,7 +1730,7 @@ Private Gateway to Your VPC
 Amazon Virtual Private Cloud User Guide .
      *
      */
-    describeVpnConnections(params: EC2.DescribeVpnConnectionsRequest, callback?: (err: any, data: EC2.DescribeVpnConnectionsResult|any) => void): Request;
+    describeVpnConnections(params: EC2.DescribeVpnConnectionsRequest, callback?: (err: any, data: EC2.DescribeVpnConnectionsResult|any) => void): Request<EC2.DescribeVpnConnectionsResult|any,any>;
     /**
      * Describes one or more of your virtual private gateways.
 
@@ -1740,26 +1740,26 @@ Hardware VPN to Your VPC
 Amazon Virtual Private Cloud User Guide .
      *
      */
-    describeVpnGateways(params: EC2.DescribeVpnGatewaysRequest, callback?: (err: any, data: EC2.DescribeVpnGatewaysResult|any) => void): Request;
+    describeVpnGateways(params: EC2.DescribeVpnGatewaysRequest, callback?: (err: any, data: EC2.DescribeVpnGatewaysResult|any) => void): Request<EC2.DescribeVpnGatewaysResult|any,any>;
     /**
      * Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance
 has been unlinked, the VPC security groups are no longer associated with it. An
 instance is automatically unlinked from a VPC when it&#x27;s stopped.
      *
      */
-    detachClassicLinkVpc(params: EC2.DetachClassicLinkVpcRequest, callback?: (err: any, data: EC2.DetachClassicLinkVpcResult|any) => void): Request;
+    detachClassicLinkVpc(params: EC2.DetachClassicLinkVpcRequest, callback?: (err: any, data: EC2.DetachClassicLinkVpcResult|any) => void): Request<EC2.DetachClassicLinkVpcResult|any,any>;
     /**
      * Detaches an Internet gateway from a VPC, disabling connectivity between the
 Internet and the VPC. The VPC must not contain any running instances with
 Elastic IP addresses.
      *
      */
-    detachInternetGateway(params: EC2.DetachInternetGatewayRequest, callback?: (err: any, data: any) => void): Request;
+    detachInternetGateway(params: EC2.DetachInternetGatewayRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Detaches a network interface from an instance.
      *
      */
-    detachNetworkInterface(params: EC2.DetachNetworkInterfaceRequest, callback?: (err: any, data: any) => void): Request;
+    detachNetworkInterface(params: EC2.DetachNetworkInterfaceRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Detaches an EBS volume from an instance. Make sure to unmount any file systems
 on the device within your operating system before detaching the volume. Failure
@@ -1777,7 +1777,7 @@ For more information, see Detaching an Amazon EBS Volume
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    detachVolume(params: EC2.DetachVolumeRequest, callback?: (err: any, data: EC2.VolumeAttachment|any) => void): Request;
+    detachVolume(params: EC2.DetachVolumeRequest, callback?: (err: any, data: EC2.VolumeAttachment|any) => void): Request<EC2.VolumeAttachment|any,any>;
     /**
      * Detaches a virtual private gateway from a VPC. You do this if you&#x27;re planning to
 turn off the VPC and not use it anymore. You can confirm a virtual private
@@ -1789,19 +1789,19 @@ You must wait for the attachment&#x27;s state to switch to detached before you c
 delete the VPC or attach a different VPC to the virtual private gateway.
      *
      */
-    detachVpnGateway(params: EC2.DetachVpnGatewayRequest, callback?: (err: any, data: any) => void): Request;
+    detachVpnGateway(params: EC2.DetachVpnGatewayRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Disables a virtual private gateway (VGW) from propagating routes to a specified
 route table of a VPC.
      *
      */
-    disableVgwRoutePropagation(params: EC2.DisableVgwRoutePropagationRequest, callback?: (err: any, data: any) => void): Request;
+    disableVgwRoutePropagation(params: EC2.DisableVgwRoutePropagationRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that
 has EC2-Classic instances linked to it.
      *
      */
-    disableVpcClassicLink(params: EC2.DisableVpcClassicLinkRequest, callback?: (err: any, data: EC2.DisableVpcClassicLinkResult|any) => void): Request;
+    disableVpcClassicLink(params: EC2.DisableVpcClassicLinkRequest, callback?: (err: any, data: EC2.DisableVpcClassicLinkResult|any) => void): Request<EC2.DisableVpcClassicLinkResult|any,any>;
     /**
      * Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve
 to public IP addresses when addressed between a linked EC2-Classic instance and
@@ -1811,7 +1811,7 @@ ClassicLink, see ClassicLink
 Amazon Elastic Compute Cloud User Guide.
      *
      */
-    disableVpcClassicLinkDnsSupport(params: EC2.DisableVpcClassicLinkDnsSupportRequest, callback?: (err: any, data: EC2.DisableVpcClassicLinkDnsSupportResult|any) => void): Request;
+    disableVpcClassicLinkDnsSupport(params: EC2.DisableVpcClassicLinkDnsSupportRequest, callback?: (err: any, data: EC2.DisableVpcClassicLinkDnsSupportResult|any) => void): Request<EC2.DisableVpcClassicLinkDnsSupportResult|any,any>;
     /**
      * Disassociates an Elastic IP address from the instance or network interface it&#x27;s
 associated with.
@@ -1825,7 +1825,7 @@ This is an idempotent operation. If you perform the operation more than once,
 Amazon EC2 doesn&#x27;t return an error.
      *
      */
-    disassociateAddress(params: EC2.DisassociateAddressRequest, callback?: (err: any, data: any) => void): Request;
+    disassociateAddress(params: EC2.DisassociateAddressRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Disassociates a subnet from a route table.
 
@@ -1836,19 +1836,19 @@ information about route tables, see Route Tables
 the Amazon Virtual Private Cloud User Guide .
      *
      */
-    disassociateRouteTable(params: EC2.DisassociateRouteTableRequest, callback?: (err: any, data: any) => void): Request;
+    disassociateRouteTable(params: EC2.DisassociateRouteTableRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Enables a virtual private gateway (VGW) to propagate routes to the specified
 route table of a VPC.
      *
      */
-    enableVgwRoutePropagation(params: EC2.EnableVgwRoutePropagationRequest, callback?: (err: any, data: any) => void): Request;
+    enableVgwRoutePropagation(params: EC2.EnableVgwRoutePropagationRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Enables I/O operations for a volume that had I/O operations disabled because the
 data on the volume was potentially inconsistent.
      *
      */
-    enableVolumeIO(params: EC2.EnableVolumeIORequest, callback?: (err: any, data: any) => void): Request;
+    enableVolumeIO(params: EC2.EnableVolumeIORequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your
 ClassicLink-enabled VPC to allow communication over private IP addresses. You
@@ -1860,7 +1860,7 @@ ranges. For more information, see ClassicLink
 Amazon Elastic Compute Cloud User Guide.
      *
      */
-    enableVpcClassicLink(params: EC2.EnableVpcClassicLinkRequest, callback?: (err: any, data: EC2.EnableVpcClassicLinkResult|any) => void): Request;
+    enableVpcClassicLink(params: EC2.EnableVpcClassicLinkRequest, callback?: (err: any, data: EC2.EnableVpcClassicLinkResult|any) => void): Request<EC2.EnableVpcClassicLinkResult|any,any>;
     /**
      * Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled,
 the DNS hostname of a linked EC2-Classic instance resolves to its private IP
@@ -1872,7 +1872,7 @@ about ClassicLink, see ClassicLink
 Amazon Elastic Compute Cloud User Guide.
      *
      */
-    enableVpcClassicLinkDnsSupport(params: EC2.EnableVpcClassicLinkDnsSupportRequest, callback?: (err: any, data: EC2.EnableVpcClassicLinkDnsSupportResult|any) => void): Request;
+    enableVpcClassicLinkDnsSupport(params: EC2.EnableVpcClassicLinkDnsSupportRequest, callback?: (err: any, data: EC2.EnableVpcClassicLinkDnsSupportResult|any) => void): Request<EC2.EnableVpcClassicLinkDnsSupportResult|any,any>;
     /**
      * Gets the console output for the specified instance.
 
@@ -1894,7 +1894,7 @@ For Windows instances, the instance console output includes output from the
 EC2Config service.
      *
      */
-    getConsoleOutput(params: EC2.GetConsoleOutputRequest, callback?: (err: any, data: EC2.GetConsoleOutputResult|any) => void): Request;
+    getConsoleOutput(params: EC2.GetConsoleOutputRequest, callback?: (err: any, data: EC2.GetConsoleOutputResult|any) => void): Request<EC2.GetConsoleOutputResult|any,any>;
     /**
      * Retrieves the encrypted administrator password for an instance running Windows.
 
@@ -1911,13 +1911,13 @@ wait up to 15 minutes after launching an instance before trying to retrieve the
 generated password.
      *
      */
-    getPasswordData(params: EC2.GetPasswordDataRequest, callback?: (err: any, data: EC2.GetPasswordDataResult|any) => void): Request;
+    getPasswordData(params: EC2.GetPasswordDataRequest, callback?: (err: any, data: EC2.GetPasswordDataResult|any) => void): Request<EC2.GetPasswordDataResult|any,any>;
     /**
      * Import single or multi-volume disk images or EBS snapshots into an Amazon
 Machine Image (AMI).
      *
      */
-    importImage(params: EC2.ImportImageRequest, callback?: (err: any, data: EC2.ImportImageResult|any) => void): Request;
+    importImage(params: EC2.ImportImageRequest, callback?: (err: any, data: EC2.ImportImageResult|any) => void): Request<EC2.ImportImageResult|any,any>;
     /**
      * Creates an import instance task using metadata from the specified disk image. 
 ImportInstance only supports single-volume VMs. To import multi-volume VMs, use 
@@ -1932,7 +1932,7 @@ Import Manifest
 [http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html] .
      *
      */
-    importInstance(params: EC2.ImportInstanceRequest, callback?: (err: any, data: EC2.ImportInstanceResult|any) => void): Request;
+    importInstance(params: EC2.ImportInstanceRequest, callback?: (err: any, data: EC2.ImportInstanceResult|any) => void): Request<EC2.ImportInstanceResult|any,any>;
     /**
      * Imports the public key from an RSA key pair that you created with a third-party
 tool. Compare this with CreateKeyPair , in which AWS creates the key pair and
@@ -1945,12 +1945,12 @@ For more information about key pairs, see Key Pairs
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    importKeyPair(params: EC2.ImportKeyPairRequest, callback?: (err: any, data: EC2.ImportKeyPairResult|any) => void): Request;
+    importKeyPair(params: EC2.ImportKeyPairRequest, callback?: (err: any, data: EC2.ImportKeyPairResult|any) => void): Request<EC2.ImportKeyPairResult|any,any>;
     /**
      * Imports a disk into an EBS snapshot.
      *
      */
-    importSnapshot(params: EC2.ImportSnapshotRequest, callback?: (err: any, data: EC2.ImportSnapshotResult|any) => void): Request;
+    importSnapshot(params: EC2.ImportSnapshotRequest, callback?: (err: any, data: EC2.ImportSnapshotResult|any) => void): Request<EC2.ImportSnapshotResult|any,any>;
     /**
      * Creates an import volume task using metadata from the specified disk image.
 After importing the image, you then upload it using the ec2-import-volume 
@@ -1965,7 +1965,7 @@ Import Manifest
 [http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html] .
      *
      */
-    importVolume(params: EC2.ImportVolumeRequest, callback?: (err: any, data: EC2.ImportVolumeResult|any) => void): Request;
+    importVolume(params: EC2.ImportVolumeRequest, callback?: (err: any, data: EC2.ImportVolumeResult|any) => void): Request<EC2.ImportVolumeResult|any,any>;
     /**
      * Modify the auto-placement setting of a Dedicated host. When auto-placement is
 enabled, AWS will place instances that you launch with a tenancy of host , but
@@ -1976,7 +1976,7 @@ host. If no host ID is provided, the instance will be launched onto a suitable
 host which has auto-placement enabled.
      *
      */
-    modifyHosts(params: EC2.ModifyHostsRequest, callback?: (err: any, data: EC2.ModifyHostsResult|any) => void): Request;
+    modifyHosts(params: EC2.ModifyHostsRequest, callback?: (err: any, data: EC2.ModifyHostsResult|any) => void): Request<EC2.ModifyHostsResult|any,any>;
     /**
      * Modifies the ID format for the specified resource on a per-region basis. You can
 specify that resources should receive longer IDs (17-character IDs) when they
@@ -1997,7 +1997,7 @@ these settings and provided that they have permission to use the relevant
 Describe command for the resource type.
      *
      */
-    modifyIdFormat(params: EC2.ModifyIdFormatRequest, callback?: (err: any, data: any) => void): Request;
+    modifyIdFormat(params: EC2.ModifyIdFormatRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Modifies the specified attribute of the specified AMI. You can specify only one
 attribute at a time.
@@ -2006,7 +2006,7 @@ AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace
 product code cannot be made public.
      *
      */
-    modifyImageAttribute(params: EC2.ModifyImageAttributeRequest, callback?: (err: any, data: any) => void): Request;
+    modifyImageAttribute(params: EC2.ModifyImageAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Modifies the specified attribute of the specified instance. You can specify only
 one attribute at a time.
@@ -2017,7 +2017,7 @@ see Modifying Attributes of a Stopped Instance
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    modifyInstanceAttribute(params: EC2.ModifyInstanceAttributeRequest, callback?: (err: any, data: any) => void): Request;
+    modifyInstanceAttribute(params: EC2.ModifyInstanceAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Set the instance affinity value for a specific stopped instance and modify the
 instance tenancy setting.
@@ -2040,13 +2040,13 @@ the same request, but tenancy can only be modified on instances that are
 stopped.
      *
      */
-    modifyInstancePlacement(params: EC2.ModifyInstancePlacementRequest, callback?: (err: any, data: EC2.ModifyInstancePlacementResult|any) => void): Request;
+    modifyInstancePlacement(params: EC2.ModifyInstancePlacementRequest, callback?: (err: any, data: EC2.ModifyInstancePlacementResult|any) => void): Request<EC2.ModifyInstancePlacementResult|any,any>;
     /**
      * Modifies the specified network interface attribute. You can specify only one
 attribute at a time.
      *
      */
-    modifyNetworkInterfaceAttribute(params: EC2.ModifyNetworkInterfaceAttributeRequest, callback?: (err: any, data: any) => void): Request;
+    modifyNetworkInterfaceAttribute(params: EC2.ModifyNetworkInterfaceAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Modifies the Availability Zone, instance count, instance type, or network
 platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved
@@ -2058,7 +2058,7 @@ For more information, see Modifying Reserved Instances
 Amazon Elastic Compute Cloud User Guide.
      *
      */
-    modifyReservedInstances(params: EC2.ModifyReservedInstancesRequest, callback?: (err: any, data: EC2.ModifyReservedInstancesResult|any) => void): Request;
+    modifyReservedInstances(params: EC2.ModifyReservedInstancesRequest, callback?: (err: any, data: EC2.ModifyReservedInstancesResult|any) => void): Request<EC2.ModifyReservedInstancesResult|any,any>;
     /**
      * Adds or removes permission settings for the specified snapshot. You may add or
 remove specified AWS account IDs from a snapshot&#x27;s list of create volume
@@ -2072,7 +2072,7 @@ in the Amazon Elastic Compute Cloud User Guide .
 Snapshots with AWS Marketplace product codes cannot be made public.
      *
      */
-    modifySnapshotAttribute(params: EC2.ModifySnapshotAttributeRequest, callback?: (err: any, data: any) => void): Request;
+    modifySnapshotAttribute(params: EC2.ModifySnapshotAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Modifies the specified Spot fleet request.
 
@@ -2096,12 +2096,12 @@ fleet keep the fleet at its current size, but not replace any Spot instances
 that are interrupted or that you terminate manually.
      *
      */
-    modifySpotFleetRequest(params: EC2.ModifySpotFleetRequestRequest, callback?: (err: any, data: EC2.ModifySpotFleetRequestResponse|any) => void): Request;
+    modifySpotFleetRequest(params: EC2.ModifySpotFleetRequestRequest, callback?: (err: any, data: EC2.ModifySpotFleetRequestResponse|any) => void): Request<EC2.ModifySpotFleetRequestResponse|any,any>;
     /**
      * Modifies a subnet attribute.
      *
      */
-    modifySubnetAttribute(params: EC2.ModifySubnetAttributeRequest, callback?: (err: any, data: any) => void): Request;
+    modifySubnetAttribute(params: EC2.ModifySubnetAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Modifies a volume attribute.
 
@@ -2115,19 +2115,19 @@ you change this only for boot volumes or for volumes that are stateless or
 disposable.
      *
      */
-    modifyVolumeAttribute(params: EC2.ModifyVolumeAttributeRequest, callback?: (err: any, data: any) => void): Request;
+    modifyVolumeAttribute(params: EC2.ModifyVolumeAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Modifies the specified attribute of the specified VPC.
      *
      */
-    modifyVpcAttribute(params: EC2.ModifyVpcAttributeRequest, callback?: (err: any, data: any) => void): Request;
+    modifyVpcAttribute(params: EC2.ModifyVpcAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Modifies attributes of a specified VPC endpoint. You can modify the policy
 associated with the endpoint, and you can add and remove route tables associated
 with the endpoint.
      *
      */
-    modifyVpcEndpoint(params: EC2.ModifyVpcEndpointRequest, callback?: (err: any, data: EC2.ModifyVpcEndpointResult|any) => void): Request;
+    modifyVpcEndpoint(params: EC2.ModifyVpcEndpointRequest, callback?: (err: any, data: EC2.ModifyVpcEndpointResult|any) => void): Request<EC2.ModifyVpcEndpointResult|any,any>;
     /**
      * Modifies the VPC peering connection options on one side of a VPC peering
 connection. You can do the following:
@@ -2151,7 +2151,7 @@ accepter and requester for a VPC peering connection, use the
 DescribeVpcPeeringConnections command.
      *
      */
-    modifyVpcPeeringConnectionOptions(params: EC2.ModifyVpcPeeringConnectionOptionsRequest, callback?: (err: any, data: EC2.ModifyVpcPeeringConnectionOptionsResult|any) => void): Request;
+    modifyVpcPeeringConnectionOptions(params: EC2.ModifyVpcPeeringConnectionOptionsRequest, callback?: (err: any, data: EC2.ModifyVpcPeeringConnectionOptionsResult|any) => void): Request<EC2.ModifyVpcPeeringConnectionOptionsResult|any,any>;
     /**
      * Enables monitoring for a running instance. For more information about monitoring
 instances, see Monitoring Your Instances and Volumes
@@ -2159,7 +2159,7 @@ instances, see Monitoring Your Instances and Volumes
 the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    monitorInstances(params: EC2.MonitorInstancesRequest, callback?: (err: any, data: EC2.MonitorInstancesResult|any) => void): Request;
+    monitorInstances(params: EC2.MonitorInstancesRequest, callback?: (err: any, data: EC2.MonitorInstancesResult|any) => void): Request<EC2.MonitorInstancesResult|any,any>;
     /**
      * Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC
 platform. The Elastic IP address must be allocated to your account for more than
@@ -2172,7 +2172,7 @@ that&#x27;s associated with a reverse DNS record. Contact AWS account and billin
 support to remove the reverse DNS record.
      *
      */
-    moveAddressToVpc(params: EC2.MoveAddressToVpcRequest, callback?: (err: any, data: EC2.MoveAddressToVpcResult|any) => void): Request;
+    moveAddressToVpc(params: EC2.MoveAddressToVpcRequest, callback?: (err: any, data: EC2.MoveAddressToVpcResult|any) => void): Request<EC2.MoveAddressToVpcResult|any,any>;
     /**
      * Purchases a Reserved Instance for use with your account. With Reserved
 Instances, you obtain a capacity reservation for a certain instance
@@ -2191,7 +2191,7 @@ and Reserved Instance Marketplace
 the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    purchaseReservedInstancesOffering(params: EC2.PurchaseReservedInstancesOfferingRequest, callback?: (err: any, data: EC2.PurchaseReservedInstancesOfferingResult|any) => void): Request;
+    purchaseReservedInstancesOffering(params: EC2.PurchaseReservedInstancesOfferingRequest, callback?: (err: any, data: EC2.PurchaseReservedInstancesOfferingResult|any) => void): Request<EC2.PurchaseReservedInstancesOfferingResult|any,any>;
     /**
      * Purchases one or more Scheduled Instances with the specified schedule.
 
@@ -2205,7 +2205,7 @@ After you purchase a Scheduled Instance, you can&#x27;t cancel, modify, or resel
 your purchase.
      *
      */
-    purchaseScheduledInstances(params: EC2.PurchaseScheduledInstancesRequest, callback?: (err: any, data: EC2.PurchaseScheduledInstancesResult|any) => void): Request;
+    purchaseScheduledInstances(params: EC2.PurchaseScheduledInstancesRequest, callback?: (err: any, data: EC2.PurchaseScheduledInstancesResult|any) => void): Request<EC2.PurchaseScheduledInstancesResult|any,any>;
     /**
      * Requests a reboot of one or more instances. This operation is asynchronous; it
 only queues a request to reboot the specified instances. The operation succeeds
@@ -2221,7 +2221,7 @@ Rebooting Instances
 the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    rebootInstances(params: EC2.RebootInstancesRequest, callback?: (err: any, data: any) => void): Request;
+    rebootInstances(params: EC2.RebootInstancesRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Registers an AMI. When you&#x27;re creating an AMI, this is the final step you must
 complete before you can launch an instance from the AMI. For more information
@@ -2259,7 +2259,7 @@ You can&#x27;t register an image where a secondary (non-root) snapshot has AWS
 Marketplace product codes.
      *
      */
-    registerImage(params: EC2.RegisterImageRequest, callback?: (err: any, data: EC2.RegisterImageResult|any) => void): Request;
+    registerImage(params: EC2.RegisterImageRequest, callback?: (err: any, data: EC2.RegisterImageResult|any) => void): Request<EC2.RegisterImageResult|any,any>;
     /**
      * Rejects a VPC peering connection request. The VPC peering connection must be in
 the pending-acceptance state. Use the DescribeVpcPeeringConnections request to
@@ -2268,7 +2268,7 @@ peering connection, or to delete a VPC peering connection request that you
 initiated, use DeleteVpcPeeringConnection .
      *
      */
-    rejectVpcPeeringConnection(params: EC2.RejectVpcPeeringConnectionRequest, callback?: (err: any, data: EC2.RejectVpcPeeringConnectionResult|any) => void): Request;
+    rejectVpcPeeringConnection(params: EC2.RejectVpcPeeringConnectionRequest, callback?: (err: any, data: EC2.RejectVpcPeeringConnectionResult|any) => void): Request<EC2.RejectVpcPeeringConnectionResult|any,any>;
     /**
      * Releases the specified Elastic IP address.
 
@@ -2287,7 +2287,7 @@ address before you try to release it. Otherwise, Amazon EC2 returns an error (
 InvalidIPAddress.InUse ).
      *
      */
-    releaseAddress(params: EC2.ReleaseAddressRequest, callback?: (err: any, data: any) => void): Request;
+    releaseAddress(params: EC2.ReleaseAddressRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * When you no longer want to use a Dedicated host it can be released. On-Demand
 billing is stopped and the host goes into released state. The host ID of
@@ -2302,7 +2302,7 @@ allocate new Dedicated hosts. Try waiting a few minutes, and then try again.
 Released hosts will still appear in a DescribeHosts response.
      *
      */
-    releaseHosts(params: EC2.ReleaseHostsRequest, callback?: (err: any, data: EC2.ReleaseHostsResult|any) => void): Request;
+    releaseHosts(params: EC2.ReleaseHostsRequest, callback?: (err: any, data: EC2.ReleaseHostsResult|any) => void): Request<EC2.ReleaseHostsResult|any,any>;
     /**
      * Changes which network ACL a subnet is associated with. By default when you
 create a subnet, it&#x27;s automatically associated with the default network ACL. For
@@ -2311,7 +2311,7 @@ more information about network ACLs, see Network ACLs
 Amazon Virtual Private Cloud User Guide .
      *
      */
-    replaceNetworkAclAssociation(params: EC2.ReplaceNetworkAclAssociationRequest, callback?: (err: any, data: EC2.ReplaceNetworkAclAssociationResult|any) => void): Request;
+    replaceNetworkAclAssociation(params: EC2.ReplaceNetworkAclAssociationRequest, callback?: (err: any, data: EC2.ReplaceNetworkAclAssociationResult|any) => void): Request<EC2.ReplaceNetworkAclAssociationResult|any,any>;
     /**
      * Replaces an entry (rule) in a network ACL. For more information about network
 ACLs, see Network ACLs
@@ -2319,7 +2319,7 @@ ACLs, see Network ACLs
 Amazon Virtual Private Cloud User Guide .
      *
      */
-    replaceNetworkAclEntry(params: EC2.ReplaceNetworkAclEntryRequest, callback?: (err: any, data: any) => void): Request;
+    replaceNetworkAclEntry(params: EC2.ReplaceNetworkAclEntryRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Replaces an existing route within a route table in a VPC. You must provide only
 one of the following: Internet gateway or virtual private gateway, NAT instance,
@@ -2330,7 +2330,7 @@ For more information about route tables, see Route Tables
 the Amazon Virtual Private Cloud User Guide .
      *
      */
-    replaceRoute(params: EC2.ReplaceRouteRequest, callback?: (err: any, data: any) => void): Request;
+    replaceRoute(params: EC2.ReplaceRouteRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Changes the route table associated with a given subnet in a VPC. After the
 operation completes, the subnet uses the routes in the new route table it&#x27;s
@@ -2343,7 +2343,7 @@ route table in the VPC. You just specify the main route table&#x27;s association
 and the route table to be the new main route table.
      *
      */
-    replaceRouteTableAssociation(params: EC2.ReplaceRouteTableAssociationRequest, callback?: (err: any, data: EC2.ReplaceRouteTableAssociationResult|any) => void): Request;
+    replaceRouteTableAssociation(params: EC2.ReplaceRouteTableAssociationRequest, callback?: (err: any, data: EC2.ReplaceRouteTableAssociationResult|any) => void): Request<EC2.ReplaceRouteTableAssociationResult|any,any>;
     /**
      * Submits feedback about the status of an instance. The instance must be in the 
 running state. If your experience with the instance differs from the instance
@@ -2355,7 +2355,7 @@ Use of this action does not change the value returned by DescribeInstanceStatus
 .
      *
      */
-    reportInstanceStatus(params: EC2.ReportInstanceStatusRequest, callback?: (err: any, data: any) => void): Request;
+    reportInstanceStatus(params: EC2.ReportInstanceStatusRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Creates a Spot fleet request.
 
@@ -2377,7 +2377,7 @@ For more information, see Spot Fleet Requests
 the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    requestSpotFleet(params: EC2.RequestSpotFleetRequest, callback?: (err: any, data: EC2.RequestSpotFleetResponse|any) => void): Request;
+    requestSpotFleet(params: EC2.RequestSpotFleetRequest, callback?: (err: any, data: EC2.RequestSpotFleetResponse|any) => void): Request<EC2.RequestSpotFleetResponse|any,any>;
     /**
      * Creates a Spot instance request. Spot instances are instances that Amazon EC2
 launches when the bid price that you specify exceeds the current Spot price.
@@ -2388,14 +2388,14 @@ Instance Requests
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    requestSpotInstances(params: EC2.RequestSpotInstancesRequest, callback?: (err: any, data: EC2.RequestSpotInstancesResult|any) => void): Request;
+    requestSpotInstances(params: EC2.RequestSpotInstancesRequest, callback?: (err: any, data: EC2.RequestSpotInstancesResult|any) => void): Request<EC2.RequestSpotInstancesResult|any,any>;
     /**
      * Resets an attribute of an AMI to its default value.
 
 The productCodes attribute can&#x27;t be reset.
      *
      */
-    resetImageAttribute(params: EC2.ResetImageAttributeRequest, callback?: (err: any, data: any) => void): Request;
+    resetImageAttribute(params: EC2.ResetImageAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Resets an attribute of an instance to its default value. To reset the kernel or 
 ramdisk , the instance must be in a stopped state. To reset the SourceDestCheck 
@@ -2409,13 +2409,13 @@ Instances
 the Amazon Virtual Private Cloud User Guide .
      *
      */
-    resetInstanceAttribute(params: EC2.ResetInstanceAttributeRequest, callback?: (err: any, data: any) => void): Request;
+    resetInstanceAttribute(params: EC2.ResetInstanceAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Resets a network interface attribute. You can specify only one attribute at a
 time.
      *
      */
-    resetNetworkInterfaceAttribute(params: EC2.ResetNetworkInterfaceAttributeRequest, callback?: (err: any, data: any) => void): Request;
+    resetNetworkInterfaceAttribute(params: EC2.ResetNetworkInterfaceAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Resets permission settings for the specified snapshot.
 
@@ -2424,7 +2424,7 @@ For more information on modifying snapshot permissions, see Sharing Snapshots
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    resetSnapshotAttribute(params: EC2.ResetSnapshotAttributeRequest, callback?: (err: any, data: any) => void): Request;
+    resetSnapshotAttribute(params: EC2.ResetSnapshotAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Restores an Elastic IP address that was previously moved to the EC2-VPC platform
 back to the EC2-Classic platform. You cannot move an Elastic IP address that was
@@ -2434,7 +2434,7 @@ IP address that&#x27;s associated with a reverse DNS record. Contact AWS account
 billing support to remove the reverse DNS record.
      *
      */
-    restoreAddressToClassic(params: EC2.RestoreAddressToClassicRequest, callback?: (err: any, data: EC2.RestoreAddressToClassicResult|any) => void): Request;
+    restoreAddressToClassic(params: EC2.RestoreAddressToClassicRequest, callback?: (err: any, data: EC2.RestoreAddressToClassicResult|any) => void): Request<EC2.RestoreAddressToClassicResult|any,any>;
     /**
      * [EC2-VPC only] Removes one or more egress rules from a security group for
 EC2-VPC. This action doesn&#x27;t apply to security groups for use in EC2-Classic.
@@ -2450,7 +2450,7 @@ Rule changes are propagated to instances within the security group as quickly as
 possible. However, a small delay might occur.
      *
      */
-    revokeSecurityGroupEgress(params: EC2.RevokeSecurityGroupEgressRequest, callback?: (err: any, data: any) => void): Request;
+    revokeSecurityGroupEgress(params: EC2.RevokeSecurityGroupEgressRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Removes one or more ingress rules from a security group. The values that you
 specify in the revoke request (for example, ports) must match the existing
@@ -2465,7 +2465,7 @@ Rule changes are propagated to instances within the security group as quickly as
 possible. However, a small delay might occur.
      *
      */
-    revokeSecurityGroupIngress(params: EC2.RevokeSecurityGroupIngressRequest, callback?: (err: any, data: any) => void): Request;
+    revokeSecurityGroupIngress(params: EC2.RevokeSecurityGroupIngressRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Launches the specified number of instances using an AMI for which you have
 permissions.
@@ -2518,7 +2518,7 @@ Immediately Terminates
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    runInstances(params: EC2.RunInstancesRequest, callback?: (err: any, data: EC2.Reservation|any) => void): Request;
+    runInstances(params: EC2.RunInstancesRequest, callback?: (err: any, data: EC2.Reservation|any) => void): Request<EC2.Reservation|any,any>;
     /**
      * Launches the specified Scheduled Instances.
 
@@ -2534,7 +2534,7 @@ Instances
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    runScheduledInstances(params: EC2.RunScheduledInstancesRequest, callback?: (err: any, data: EC2.RunScheduledInstancesResult|any) => void): Request;
+    runScheduledInstances(params: EC2.RunScheduledInstancesRequest, callback?: (err: any, data: EC2.RunScheduledInstancesResult|any) => void): Request<EC2.RunScheduledInstancesResult|any,any>;
     /**
      * Starts an Amazon EBS-backed AMI that you&#x27;ve previously stopped.
 
@@ -2558,7 +2558,7 @@ For more information, see Stopping Instances
 Amazon Elastic Compute Cloud User Guide .
      *
      */
-    startInstances(params: EC2.StartInstancesRequest, callback?: (err: any, data: EC2.StartInstancesResult|any) => void): Request;
+    startInstances(params: EC2.StartInstancesRequest, callback?: (err: any, data: EC2.StartInstancesResult|any) => void): Request<EC2.StartInstancesResult|any,any>;
     /**
      * Stops an Amazon EBS-backed instance.
 
@@ -2590,7 +2590,7 @@ Instance
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    stopInstances(params: EC2.StopInstancesRequest, callback?: (err: any, data: EC2.StopInstancesResult|any) => void): Request;
+    stopInstances(params: EC2.StopInstancesRequest, callback?: (err: any, data: EC2.StopInstancesResult|any) => void): Request<EC2.StopInstancesResult|any,any>;
     /**
      * Shuts down one or more instances. This operation is idempotent; if you terminate
 an instance more than once, each call succeeds.
@@ -2618,12 +2618,12 @@ Instance
 in the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    terminateInstances(params: EC2.TerminateInstancesRequest, callback?: (err: any, data: EC2.TerminateInstancesResult|any) => void): Request;
+    terminateInstances(params: EC2.TerminateInstancesRequest, callback?: (err: any, data: EC2.TerminateInstancesResult|any) => void): Request<EC2.TerminateInstancesResult|any,any>;
     /**
      * Unassigns one or more secondary private IP addresses from a network interface.
      *
      */
-    unassignPrivateIpAddresses(params: EC2.UnassignPrivateIpAddressesRequest, callback?: (err: any, data: any) => void): Request;
+    unassignPrivateIpAddresses(params: EC2.UnassignPrivateIpAddressesRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Disables monitoring for a running instance. For more information about
 monitoring instances, see Monitoring Your Instances and Volumes
@@ -2631,7 +2631,7 @@ monitoring instances, see Monitoring Your Instances and Volumes
 the Amazon Elastic Compute Cloud User Guide .
      *
      */
-    unmonitorInstances(params: EC2.UnmonitorInstancesRequest, callback?: (err: any, data: EC2.UnmonitorInstancesResult|any) => void): Request;
+    unmonitorInstances(params: EC2.UnmonitorInstancesRequest, callback?: (err: any, data: EC2.UnmonitorInstancesResult|any) => void): Request<EC2.UnmonitorInstancesResult|any,any>;
 
   }
 

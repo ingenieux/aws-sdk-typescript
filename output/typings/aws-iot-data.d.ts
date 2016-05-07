@@ -41,7 +41,7 @@ in the AWS IoT Developer Guide .
      * @error MethodNotAllowedException   
      * @error UnsupportedDocumentEncodingException   
      */
-    deleteThingShadow(params: IotData.DeleteThingShadowRequest, callback?: (err: IotData.ResourceNotFoundException|IotData.InvalidRequestException|IotData.ThrottlingException|IotData.UnauthorizedException|IotData.ServiceUnavailableException|IotData.InternalFailureException|IotData.MethodNotAllowedException|IotData.UnsupportedDocumentEncodingException|any, data: IotData.DeleteThingShadowResponse|any) => void): Request;
+    deleteThingShadow(params: IotData.DeleteThingShadowRequest, callback?: (err: IotData.ResourceNotFoundException|IotData.InvalidRequestException|IotData.ThrottlingException|IotData.UnauthorizedException|IotData.ServiceUnavailableException|IotData.InternalFailureException|IotData.MethodNotAllowedException|IotData.UnsupportedDocumentEncodingException|any, data: IotData.DeleteThingShadowResponse|any) => void): Request<IotData.DeleteThingShadowResponse|any,IotData.ResourceNotFoundException|IotData.InvalidRequestException|IotData.ThrottlingException|IotData.UnauthorizedException|IotData.ServiceUnavailableException|IotData.InternalFailureException|IotData.MethodNotAllowedException|IotData.UnsupportedDocumentEncodingException|any>;
     /**
      * Gets the thing shadow for the specified thing.
 
@@ -58,7 +58,7 @@ in the AWS IoT Developer Guide .
      * @error MethodNotAllowedException   
      * @error UnsupportedDocumentEncodingException   
      */
-    getThingShadow(params: IotData.GetThingShadowRequest, callback?: (err: IotData.InvalidRequestException|IotData.ResourceNotFoundException|IotData.ThrottlingException|IotData.UnauthorizedException|IotData.ServiceUnavailableException|IotData.InternalFailureException|IotData.MethodNotAllowedException|IotData.UnsupportedDocumentEncodingException|any, data: IotData.GetThingShadowResponse|any) => void): Request;
+    getThingShadow(params: IotData.GetThingShadowRequest, callback?: (err: IotData.InvalidRequestException|IotData.ResourceNotFoundException|IotData.ThrottlingException|IotData.UnauthorizedException|IotData.ServiceUnavailableException|IotData.InternalFailureException|IotData.MethodNotAllowedException|IotData.UnsupportedDocumentEncodingException|any, data: IotData.GetThingShadowResponse|any) => void): Request<IotData.GetThingShadowResponse|any,IotData.InvalidRequestException|IotData.ResourceNotFoundException|IotData.ThrottlingException|IotData.UnauthorizedException|IotData.ServiceUnavailableException|IotData.InternalFailureException|IotData.MethodNotAllowedException|IotData.UnsupportedDocumentEncodingException|any>;
     /**
      * Publishes state information.
 
@@ -71,7 +71,7 @@ the AWS IoT Developer Guide .
      * @error UnauthorizedException   
      * @error MethodNotAllowedException   
      */
-    publish(params: IotData.PublishRequest, callback?: (err: IotData.InternalFailureException|IotData.InvalidRequestException|IotData.UnauthorizedException|IotData.MethodNotAllowedException|any, data: any) => void): Request;
+    publish(params: IotData.PublishRequest, callback?: (err: IotData.InternalFailureException|IotData.InvalidRequestException|IotData.UnauthorizedException|IotData.MethodNotAllowedException|any, data: any) => void): Request<any,IotData.InternalFailureException|IotData.InvalidRequestException|IotData.UnauthorizedException|IotData.MethodNotAllowedException|any>;
     /**
      * Updates the thing shadow for the specified thing.
 
@@ -89,7 +89,7 @@ in the AWS IoT Developer Guide .
      * @error MethodNotAllowedException   
      * @error UnsupportedDocumentEncodingException   
      */
-    updateThingShadow(params: IotData.UpdateThingShadowRequest, callback?: (err: IotData.ConflictException|IotData.RequestEntityTooLargeException|IotData.InvalidRequestException|IotData.ThrottlingException|IotData.UnauthorizedException|IotData.ServiceUnavailableException|IotData.InternalFailureException|IotData.MethodNotAllowedException|IotData.UnsupportedDocumentEncodingException|any, data: IotData.UpdateThingShadowResponse|any) => void): Request;
+    updateThingShadow(params: IotData.UpdateThingShadowRequest, callback?: (err: IotData.ConflictException|IotData.RequestEntityTooLargeException|IotData.InvalidRequestException|IotData.ThrottlingException|IotData.UnauthorizedException|IotData.ServiceUnavailableException|IotData.InternalFailureException|IotData.MethodNotAllowedException|IotData.UnsupportedDocumentEncodingException|any, data: IotData.UpdateThingShadowResponse|any) => void): Request<IotData.UpdateThingShadowResponse|any,IotData.ConflictException|IotData.RequestEntityTooLargeException|IotData.InvalidRequestException|IotData.ThrottlingException|IotData.UnauthorizedException|IotData.ServiceUnavailableException|IotData.InternalFailureException|IotData.MethodNotAllowedException|IotData.UnsupportedDocumentEncodingException|any>;
 
   }
 

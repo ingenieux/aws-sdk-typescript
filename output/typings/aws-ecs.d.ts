@@ -41,7 +41,7 @@ your own cluster with a unique name with the CreateCluster action.
      * @error ClientException   
      * @error InvalidParameterException   
      */
-    createCluster(params: ECS.CreateClusterRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.CreateClusterResponse|any) => void): Request;
+    createCluster(params: ECS.CreateClusterRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.CreateClusterResponse|any) => void): Request<ECS.CreateClusterResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any>;
     /**
      * Runs and maintains a desired number of tasks from a specified task definition.
 If the number of tasks running in a service drops below desiredCount , Amazon
@@ -100,7 +100,7 @@ across the Availability Zones in your cluster with the following logic:
      * @error InvalidParameterException   
      * @error ClusterNotFoundException   
      */
-    createService(params: ECS.CreateServiceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.CreateServiceResponse|any) => void): Request;
+    createService(params: ECS.CreateServiceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.CreateServiceResponse|any) => void): Request<ECS.CreateServiceResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
     /**
      * Deletes the specified cluster. You must deregister all container instances from
 this cluster before you may delete it. You can list the container instances in a
@@ -114,7 +114,7 @@ DeregisterContainerInstance .
      * @error ClusterContainsContainerInstancesException   
      * @error ClusterContainsServicesException   
      */
-    deleteCluster(params: ECS.DeleteClusterRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ClusterContainsContainerInstancesException|ECS.ClusterContainsServicesException|any, data: ECS.DeleteClusterResponse|any) => void): Request;
+    deleteCluster(params: ECS.DeleteClusterRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ClusterContainsContainerInstancesException|ECS.ClusterContainsServicesException|any, data: ECS.DeleteClusterResponse|any) => void): Request<ECS.DeleteClusterResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ClusterContainsContainerInstancesException|ECS.ClusterContainsServicesException|any>;
     /**
      * Deletes a specified service within a cluster. You can delete a service if you
 have no running tasks in it and the desired task count is zero. If the service
@@ -137,7 +137,7 @@ API operations on those services will return a ServiceNotFoundException error.
      * @error ClusterNotFoundException   
      * @error ServiceNotFoundException   
      */
-    deleteService(params: ECS.DeleteServiceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ServiceNotFoundException|any, data: ECS.DeleteServiceResponse|any) => void): Request;
+    deleteService(params: ECS.DeleteServiceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ServiceNotFoundException|any, data: ECS.DeleteServiceResponse|any) => void): Request<ECS.DeleteServiceResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ServiceNotFoundException|any>;
     /**
      * Deregisters an Amazon ECS container instance from the specified cluster. This
 instance is no longer available to run tasks.
@@ -161,7 +161,7 @@ not automatically deregistered when terminated).
      * @error InvalidParameterException   
      * @error ClusterNotFoundException   
      */
-    deregisterContainerInstance(params: ECS.DeregisterContainerInstanceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.DeregisterContainerInstanceResponse|any) => void): Request;
+    deregisterContainerInstance(params: ECS.DeregisterContainerInstanceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.DeregisterContainerInstanceResponse|any) => void): Request<ECS.DeregisterContainerInstanceResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
     /**
      * Deregisters the specified task definition by family and revision. Upon
 deregistration, the task definition is marked as INACTIVE . Existing tasks and
@@ -178,7 +178,7 @@ deregistration where these restrictions have not yet taken effect).
      * @error ClientException   
      * @error InvalidParameterException   
      */
-    deregisterTaskDefinition(params: ECS.DeregisterTaskDefinitionRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.DeregisterTaskDefinitionResponse|any) => void): Request;
+    deregisterTaskDefinition(params: ECS.DeregisterTaskDefinitionRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.DeregisterTaskDefinitionResponse|any) => void): Request<ECS.DeregisterTaskDefinitionResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any>;
     /**
      * Describes one or more of your clusters.
      *
@@ -186,7 +186,7 @@ deregistration where these restrictions have not yet taken effect).
      * @error ClientException   
      * @error InvalidParameterException   
      */
-    describeClusters(params: ECS.DescribeClustersRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.DescribeClustersResponse|any) => void): Request;
+    describeClusters(params: ECS.DescribeClustersRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.DescribeClustersResponse|any) => void): Request<ECS.DescribeClustersResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any>;
     /**
      * Describes Amazon EC2 Container Service container instances. Returns metadata
 about registered and remaining resources on each container instance requested.
@@ -196,7 +196,7 @@ about registered and remaining resources on each container instance requested.
      * @error InvalidParameterException   
      * @error ClusterNotFoundException   
      */
-    describeContainerInstances(params: ECS.DescribeContainerInstancesRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.DescribeContainerInstancesResponse|any) => void): Request;
+    describeContainerInstances(params: ECS.DescribeContainerInstancesRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.DescribeContainerInstancesResponse|any) => void): Request<ECS.DescribeContainerInstancesResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
     /**
      * Describes the specified services running in your cluster.
      *
@@ -205,7 +205,7 @@ about registered and remaining resources on each container instance requested.
      * @error InvalidParameterException   
      * @error ClusterNotFoundException   
      */
-    describeServices(params: ECS.DescribeServicesRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.DescribeServicesResponse|any) => void): Request;
+    describeServices(params: ECS.DescribeServicesRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.DescribeServicesResponse|any) => void): Request<ECS.DescribeServicesResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
     /**
      * Describes a task definition. You can specify a family and revision to find
 information about a specific task definition, or you can simply specify the
@@ -218,7 +218,7 @@ references them.
      * @error ClientException   
      * @error InvalidParameterException   
      */
-    describeTaskDefinition(params: ECS.DescribeTaskDefinitionRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.DescribeTaskDefinitionResponse|any) => void): Request;
+    describeTaskDefinition(params: ECS.DescribeTaskDefinitionRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.DescribeTaskDefinitionResponse|any) => void): Request<ECS.DescribeTaskDefinitionResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any>;
     /**
      * Describes a specified task or tasks.
      *
@@ -227,7 +227,7 @@ references them.
      * @error InvalidParameterException   
      * @error ClusterNotFoundException   
      */
-    describeTasks(params: ECS.DescribeTasksRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.DescribeTasksResponse|any) => void): Request;
+    describeTasks(params: ECS.DescribeTasksRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.DescribeTasksResponse|any) => void): Request<ECS.DescribeTasksResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
     /**
      * This action is only used by the Amazon EC2 Container Service agent, and it is
 not intended for use outside of the agent.
@@ -238,7 +238,7 @@ updates.
      * @error ServerException   
      * @error ClientException   
      */
-    discoverPollEndpoint(params: ECS.DiscoverPollEndpointRequest, callback?: (err: ECS.ServerException|ECS.ClientException|any, data: ECS.DiscoverPollEndpointResponse|any) => void): Request;
+    discoverPollEndpoint(params: ECS.DiscoverPollEndpointRequest, callback?: (err: ECS.ServerException|ECS.ClientException|any, data: ECS.DiscoverPollEndpointResponse|any) => void): Request<ECS.DiscoverPollEndpointResponse|any,ECS.ServerException|ECS.ClientException|any>;
     /**
      * Returns a list of existing clusters.
      *
@@ -246,7 +246,7 @@ updates.
      * @error ClientException   
      * @error InvalidParameterException   
      */
-    listClusters(params: ECS.ListClustersRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.ListClustersResponse|any) => void): Request;
+    listClusters(params: ECS.ListClustersRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.ListClustersResponse|any) => void): Request<ECS.ListClustersResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any>;
     /**
      * Returns a list of container instances in a specified cluster.
      *
@@ -255,7 +255,7 @@ updates.
      * @error InvalidParameterException   
      * @error ClusterNotFoundException   
      */
-    listContainerInstances(params: ECS.ListContainerInstancesRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.ListContainerInstancesResponse|any) => void): Request;
+    listContainerInstances(params: ECS.ListContainerInstancesRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.ListContainerInstancesResponse|any) => void): Request<ECS.ListContainerInstancesResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
     /**
      * Lists the services that are running in a specified cluster.
      *
@@ -264,7 +264,7 @@ updates.
      * @error InvalidParameterException   
      * @error ClusterNotFoundException   
      */
-    listServices(params: ECS.ListServicesRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.ListServicesResponse|any) => void): Request;
+    listServices(params: ECS.ListServicesRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.ListServicesResponse|any) => void): Request<ECS.ListServicesResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
     /**
      * Returns a list of task definition families that are registered to your account
 (which may include task definition families that no longer have any ACTIVE task
@@ -274,7 +274,7 @@ definitions). You can filter the results with the familyPrefix parameter.
      * @error ClientException   
      * @error InvalidParameterException   
      */
-    listTaskDefinitionFamilies(params: ECS.ListTaskDefinitionFamiliesRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.ListTaskDefinitionFamiliesResponse|any) => void): Request;
+    listTaskDefinitionFamilies(params: ECS.ListTaskDefinitionFamiliesRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.ListTaskDefinitionFamiliesResponse|any) => void): Request<ECS.ListTaskDefinitionFamiliesResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any>;
     /**
      * Returns a list of task definitions that are registered to your account. You can
 filter the results by family name with the familyPrefix parameter or by status
@@ -284,7 +284,7 @@ with the status parameter.
      * @error ClientException   
      * @error InvalidParameterException   
      */
-    listTaskDefinitions(params: ECS.ListTaskDefinitionsRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.ListTaskDefinitionsResponse|any) => void): Request;
+    listTaskDefinitions(params: ECS.ListTaskDefinitionsRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.ListTaskDefinitionsResponse|any) => void): Request<ECS.ListTaskDefinitionsResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any>;
     /**
      * Returns a list of tasks for a specified cluster. You can filter the results by
 family name, by a particular container instance, or by the desired status of the
@@ -296,7 +296,7 @@ task with the family , containerInstance , and desiredStatus parameters.
      * @error ClusterNotFoundException   
      * @error ServiceNotFoundException   
      */
-    listTasks(params: ECS.ListTasksRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ServiceNotFoundException|any, data: ECS.ListTasksResponse|any) => void): Request;
+    listTasks(params: ECS.ListTasksRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ServiceNotFoundException|any, data: ECS.ListTasksResponse|any) => void): Request<ECS.ListTasksResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ServiceNotFoundException|any>;
     /**
      * This action is only used by the Amazon EC2 Container Service agent, and it is
 not intended for use outside of the agent.
@@ -307,7 +307,7 @@ available to place containers on.
      * @error ServerException   
      * @error ClientException   
      */
-    registerContainerInstance(params: ECS.RegisterContainerInstanceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|any, data: ECS.RegisterContainerInstanceResponse|any) => void): Request;
+    registerContainerInstance(params: ECS.RegisterContainerInstanceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|any, data: ECS.RegisterContainerInstanceResponse|any) => void): Request<ECS.RegisterContainerInstanceResponse|any,ECS.ServerException|ECS.ClientException|any>;
     /**
      * Registers a new task definition from the supplied family and 
 containerDefinitions . Optionally, you can add data volumes to your containers
@@ -320,7 +320,7 @@ in the Amazon EC2 Container Service Developer Guide .
      * @error ClientException   
      * @error InvalidParameterException   
      */
-    registerTaskDefinition(params: ECS.RegisterTaskDefinitionRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.RegisterTaskDefinitionResponse|any) => void): Request;
+    registerTaskDefinition(params: ECS.RegisterTaskDefinitionRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any, data: ECS.RegisterTaskDefinitionResponse|any) => void): Request<ECS.RegisterTaskDefinitionResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|any>;
     /**
      * Start a task using random placement and the default Amazon ECS scheduler. To use
 your own scheduler or place a task on a specific container instance, use 
@@ -333,7 +333,7 @@ The count parameter is limited to 10 tasks per call.
      * @error InvalidParameterException   
      * @error ClusterNotFoundException   
      */
-    runTask(params: ECS.RunTaskRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.RunTaskResponse|any) => void): Request;
+    runTask(params: ECS.RunTaskRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.RunTaskResponse|any) => void): Request<ECS.RunTaskResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
     /**
      * Starts a new task from the specified task definition on the specified container
 instance or instances. To use the default Amazon ECS scheduler to place your
@@ -346,7 +346,7 @@ The list of container instances to start tasks on is limited to 10.
      * @error InvalidParameterException   
      * @error ClusterNotFoundException   
      */
-    startTask(params: ECS.StartTaskRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.StartTaskResponse|any) => void): Request;
+    startTask(params: ECS.StartTaskRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.StartTaskResponse|any) => void): Request<ECS.StartTaskResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
     /**
      * Stops a running task.
 
@@ -361,7 +361,7 @@ receiving it, no SIGKILL is sent.
      * @error InvalidParameterException   
      * @error ClusterNotFoundException   
      */
-    stopTask(params: ECS.StopTaskRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.StopTaskResponse|any) => void): Request;
+    stopTask(params: ECS.StopTaskRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any, data: ECS.StopTaskResponse|any) => void): Request<ECS.StopTaskResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|any>;
     /**
      * This action is only used by the Amazon EC2 Container Service agent, and it is
 not intended for use outside of the agent.
@@ -371,7 +371,7 @@ Sent to acknowledge that a container changed states.
      * @error ServerException   
      * @error ClientException   
      */
-    submitContainerStateChange(params: ECS.SubmitContainerStateChangeRequest, callback?: (err: ECS.ServerException|ECS.ClientException|any, data: ECS.SubmitContainerStateChangeResponse|any) => void): Request;
+    submitContainerStateChange(params: ECS.SubmitContainerStateChangeRequest, callback?: (err: ECS.ServerException|ECS.ClientException|any, data: ECS.SubmitContainerStateChangeResponse|any) => void): Request<ECS.SubmitContainerStateChangeResponse|any,ECS.ServerException|ECS.ClientException|any>;
     /**
      * This action is only used by the Amazon EC2 Container Service agent, and it is
 not intended for use outside of the agent.
@@ -381,7 +381,7 @@ Sent to acknowledge that a task changed states.
      * @error ServerException   
      * @error ClientException   
      */
-    submitTaskStateChange(params: ECS.SubmitTaskStateChangeRequest, callback?: (err: ECS.ServerException|ECS.ClientException|any, data: ECS.SubmitTaskStateChangeResponse|any) => void): Request;
+    submitTaskStateChange(params: ECS.SubmitTaskStateChangeRequest, callback?: (err: ECS.ServerException|ECS.ClientException|any, data: ECS.SubmitTaskStateChangeResponse|any) => void): Request<ECS.SubmitTaskStateChangeResponse|any,ECS.ServerException|ECS.ClientException|any>;
     /**
      * Updates the Amazon ECS container agent on a specified container instance.
 Updating the Amazon ECS container agent does not interrupt running tasks or
@@ -404,7 +404,7 @@ in the Amazon EC2 Container Service Developer Guide .
      * @error NoUpdateAvailableException   
      * @error MissingVersionException   
      */
-    updateContainerAgent(params: ECS.UpdateContainerAgentRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.UpdateInProgressException|ECS.NoUpdateAvailableException|ECS.MissingVersionException|any, data: ECS.UpdateContainerAgentResponse|any) => void): Request;
+    updateContainerAgent(params: ECS.UpdateContainerAgentRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.UpdateInProgressException|ECS.NoUpdateAvailableException|ECS.MissingVersionException|any, data: ECS.UpdateContainerAgentResponse|any) => void): Request<ECS.UpdateContainerAgentResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.UpdateInProgressException|ECS.NoUpdateAvailableException|ECS.MissingVersionException|any>;
     /**
      * Modifies the desired count, deployment configuration, or task definition used in
 a service.
@@ -469,7 +469,7 @@ across the Availability Zones in your cluster with the following logic:
      * @error ServiceNotFoundException   
      * @error ServiceNotActiveException   
      */
-    updateService(params: ECS.UpdateServiceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ServiceNotFoundException|ECS.ServiceNotActiveException|any, data: ECS.UpdateServiceResponse|any) => void): Request;
+    updateService(params: ECS.UpdateServiceRequest, callback?: (err: ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ServiceNotFoundException|ECS.ServiceNotActiveException|any, data: ECS.UpdateServiceResponse|any) => void): Request<ECS.UpdateServiceResponse|any,ECS.ServerException|ECS.ClientException|ECS.InvalidParameterException|ECS.ClusterNotFoundException|ECS.ServiceNotFoundException|ECS.ServiceNotActiveException|any>;
 
   }
 

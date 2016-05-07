@@ -28,7 +28,7 @@ per custom event, and any number of attribute or metric values.
      *
      * @error BadRequestException An exception object returned when a request fails.  
      */
-    putEvents(params: MobileAnalytics.PutEventsInput, callback?: (err: MobileAnalytics.BadRequestException|any, data: any) => void): Request;
+    putEvents(params: MobileAnalytics.PutEventsInput, callback?: (err: MobileAnalytics.BadRequestException|any, data: any) => void): Request<any,MobileAnalytics.BadRequestException|any>;
 
   }
 

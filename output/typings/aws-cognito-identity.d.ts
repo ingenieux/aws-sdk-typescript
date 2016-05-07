@@ -72,7 +72,7 @@ You must use AWS Developer credentials to call this API.
      * @error InternalErrorException   
      * @error LimitExceededException   
      */
-    createIdentityPool(params: CognitoIdentity.CreateIdentityPoolInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.LimitExceededException|any, data: CognitoIdentity.IdentityPool|any) => void): Request;
+    createIdentityPool(params: CognitoIdentity.CreateIdentityPoolInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.LimitExceededException|any, data: CognitoIdentity.IdentityPool|any) => void): Request<CognitoIdentity.IdentityPool|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.LimitExceededException|any>;
     /**
      * Deletes identities from an identity pool. You can specify a list of 1-60
 identities that you want to delete.
@@ -83,7 +83,7 @@ You must use AWS Developer credentials to call this API.
      * @error TooManyRequestsException   
      * @error InternalErrorException   
      */
-    deleteIdentities(params: CognitoIdentity.DeleteIdentitiesInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.DeleteIdentitiesResponse|any) => void): Request;
+    deleteIdentities(params: CognitoIdentity.DeleteIdentitiesInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.DeleteIdentitiesResponse|any) => void): Request<CognitoIdentity.DeleteIdentitiesResponse|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any>;
     /**
      * Deletes a user pool. Once a pool is deleted, users will not be able to
 authenticate with the pool.
@@ -96,7 +96,7 @@ You must use AWS Developer credentials to call this API.
      * @error TooManyRequestsException   
      * @error InternalErrorException   
      */
-    deleteIdentityPool(params: CognitoIdentity.DeleteIdentityPoolInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: any) => void): Request;
+    deleteIdentityPool(params: CognitoIdentity.DeleteIdentityPoolInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: any) => void): Request<any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any>;
     /**
      * Returns metadata related to the given identity, including when the identity was
 created and any associated linked logins.
@@ -109,7 +109,7 @@ You must use AWS Developer credentials to call this API.
      * @error TooManyRequestsException   
      * @error InternalErrorException   
      */
-    describeIdentity(params: CognitoIdentity.DescribeIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.IdentityDescription|any) => void): Request;
+    describeIdentity(params: CognitoIdentity.DescribeIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.IdentityDescription|any) => void): Request<CognitoIdentity.IdentityDescription|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any>;
     /**
      * Gets details about a particular identity pool, including the pool name, ID
 description, creation date, and current number of users.
@@ -122,7 +122,7 @@ You must use AWS Developer credentials to call this API.
      * @error TooManyRequestsException   
      * @error InternalErrorException   
      */
-    describeIdentityPool(params: CognitoIdentity.DescribeIdentityPoolInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.IdentityPool|any) => void): Request;
+    describeIdentityPool(params: CognitoIdentity.DescribeIdentityPoolInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.IdentityPool|any) => void): Request<CognitoIdentity.IdentityPool|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any>;
     /**
      * Returns credentials for the provided identity ID. Any provided logins will be
 validated against supported login providers. If the token is for
@@ -140,7 +140,7 @@ This is a public API. You do not need any credentials to call this API.
      * @error InternalErrorException   
      * @error ExternalServiceException   
      */
-    getCredentialsForIdentity(params: CognitoIdentity.GetCredentialsForIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InvalidIdentityPoolConfigurationException|CognitoIdentity.InternalErrorException|CognitoIdentity.ExternalServiceException|any, data: CognitoIdentity.GetCredentialsForIdentityResponse|any) => void): Request;
+    getCredentialsForIdentity(params: CognitoIdentity.GetCredentialsForIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InvalidIdentityPoolConfigurationException|CognitoIdentity.InternalErrorException|CognitoIdentity.ExternalServiceException|any, data: CognitoIdentity.GetCredentialsForIdentityResponse|any) => void): Request<CognitoIdentity.GetCredentialsForIdentityResponse|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InvalidIdentityPoolConfigurationException|CognitoIdentity.InternalErrorException|CognitoIdentity.ExternalServiceException|any>;
     /**
      * Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an
 implicit linked account.
@@ -156,7 +156,7 @@ This is a public API. You do not need any credentials to call this API.
      * @error LimitExceededException   
      * @error ExternalServiceException   
      */
-    getId(params: CognitoIdentity.GetIdInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.LimitExceededException|CognitoIdentity.ExternalServiceException|any, data: CognitoIdentity.GetIdResponse|any) => void): Request;
+    getId(params: CognitoIdentity.GetIdInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.LimitExceededException|CognitoIdentity.ExternalServiceException|any, data: CognitoIdentity.GetIdResponse|any) => void): Request<CognitoIdentity.GetIdResponse|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.LimitExceededException|CognitoIdentity.ExternalServiceException|any>;
     /**
      * Gets the roles for an identity pool.
 
@@ -169,7 +169,7 @@ You must use AWS Developer credentials to call this API.
      * @error TooManyRequestsException   
      * @error InternalErrorException   
      */
-    getIdentityPoolRoles(params: CognitoIdentity.GetIdentityPoolRolesInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.GetIdentityPoolRolesResponse|any) => void): Request;
+    getIdentityPoolRoles(params: CognitoIdentity.GetIdentityPoolRolesInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.GetIdentityPoolRolesResponse|any) => void): Request<CognitoIdentity.GetIdentityPoolRolesResponse|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any>;
     /**
      * Gets an OpenID token, using a known Cognito ID. This known Cognito ID is
 returned by GetId . You can optionally add additional logins for the identity.
@@ -187,7 +187,7 @@ This is a public API. You do not need any credentials to call this API.
      * @error InternalErrorException   
      * @error ExternalServiceException   
      */
-    getOpenIdToken(params: CognitoIdentity.GetOpenIdTokenInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ExternalServiceException|any, data: CognitoIdentity.GetOpenIdTokenResponse|any) => void): Request;
+    getOpenIdToken(params: CognitoIdentity.GetOpenIdTokenInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ExternalServiceException|any, data: CognitoIdentity.GetOpenIdTokenResponse|any) => void): Request<CognitoIdentity.GetOpenIdTokenResponse|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ExternalServiceException|any>;
     /**
      * Registers (or retrieves) a Cognito IdentityId and an OpenID Connect token for a
 user authenticated by your backend authentication process. Supplying multiple
@@ -214,7 +214,7 @@ You must use AWS Developer credentials to call this API.
      * @error InternalErrorException   
      * @error DeveloperUserAlreadyRegisteredException   
      */
-    getOpenIdTokenForDeveloperIdentity(params: CognitoIdentity.GetOpenIdTokenForDeveloperIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.DeveloperUserAlreadyRegisteredException|any, data: CognitoIdentity.GetOpenIdTokenForDeveloperIdentityResponse|any) => void): Request;
+    getOpenIdTokenForDeveloperIdentity(params: CognitoIdentity.GetOpenIdTokenForDeveloperIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.DeveloperUserAlreadyRegisteredException|any, data: CognitoIdentity.GetOpenIdTokenForDeveloperIdentityResponse|any) => void): Request<CognitoIdentity.GetOpenIdTokenForDeveloperIdentityResponse|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.DeveloperUserAlreadyRegisteredException|any>;
     /**
      * Lists the identities in a pool.
 
@@ -226,7 +226,7 @@ You must use AWS Developer credentials to call this API.
      * @error TooManyRequestsException   
      * @error InternalErrorException   
      */
-    listIdentities(params: CognitoIdentity.ListIdentitiesInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.ListIdentitiesResponse|any) => void): Request;
+    listIdentities(params: CognitoIdentity.ListIdentitiesInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.ListIdentitiesResponse|any) => void): Request<CognitoIdentity.ListIdentitiesResponse|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any>;
     /**
      * Lists all of the Cognito identity pools registered for your account.
 
@@ -237,7 +237,7 @@ You must use AWS Developer credentials to call this API.
      * @error TooManyRequestsException   
      * @error InternalErrorException   
      */
-    listIdentityPools(params: CognitoIdentity.ListIdentityPoolsInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.ListIdentityPoolsResponse|any) => void): Request;
+    listIdentityPools(params: CognitoIdentity.ListIdentityPoolsInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.ListIdentityPoolsResponse|any) => void): Request<CognitoIdentity.ListIdentityPoolsResponse|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any>;
     /**
      * Retrieves the IdentityID associated with a DeveloperUserIdentifier or the list
 of DeveloperUserIdentifier s associated with an IdentityId for an existing
@@ -257,7 +257,7 @@ You must use AWS Developer credentials to call this API.
      * @error TooManyRequestsException   
      * @error InternalErrorException   
      */
-    lookupDeveloperIdentity(params: CognitoIdentity.LookupDeveloperIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.LookupDeveloperIdentityResponse|any) => void): Request;
+    lookupDeveloperIdentity(params: CognitoIdentity.LookupDeveloperIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.LookupDeveloperIdentityResponse|any) => void): Request<CognitoIdentity.LookupDeveloperIdentityResponse|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any>;
     /**
      * Merges two users having different IdentityId s, existing in the same identity
 pool, and identified by the same developer provider. You can use this action to
@@ -277,7 +277,7 @@ You must use AWS Developer credentials to call this API.
      * @error TooManyRequestsException   
      * @error InternalErrorException   
      */
-    mergeDeveloperIdentities(params: CognitoIdentity.MergeDeveloperIdentitiesInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.MergeDeveloperIdentitiesResponse|any) => void): Request;
+    mergeDeveloperIdentities(params: CognitoIdentity.MergeDeveloperIdentitiesInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: CognitoIdentity.MergeDeveloperIdentitiesResponse|any) => void): Request<CognitoIdentity.MergeDeveloperIdentitiesResponse|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any>;
     /**
      * Sets the roles for an identity pool. These roles are used when making calls to 
 GetCredentialsForIdentity action.
@@ -292,7 +292,7 @@ You must use AWS Developer credentials to call this API.
      * @error InternalErrorException   
      * @error ConcurrentModificationException   
      */
-    setIdentityPoolRoles(params: CognitoIdentity.SetIdentityPoolRolesInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ConcurrentModificationException|any, data: any) => void): Request;
+    setIdentityPoolRoles(params: CognitoIdentity.SetIdentityPoolRolesInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ConcurrentModificationException|any, data: any) => void): Request<any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ConcurrentModificationException|any>;
     /**
      * Unlinks a DeveloperUserIdentifier from an existing identity. Unlinked developer
 users will be considered new identities next time they are seen. If, for a given
@@ -308,7 +308,7 @@ You must use AWS Developer credentials to call this API.
      * @error TooManyRequestsException   
      * @error InternalErrorException   
      */
-    unlinkDeveloperIdentity(params: CognitoIdentity.UnlinkDeveloperIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: any) => void): Request;
+    unlinkDeveloperIdentity(params: CognitoIdentity.UnlinkDeveloperIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any, data: any) => void): Request<any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|any>;
     /**
      * Unlinks a federated identity from an existing account. Unlinked logins will be
 considered new identities next time they are seen. Removing the last linked
@@ -324,7 +324,7 @@ This is a public API. You do not need any credentials to call this API.
      * @error InternalErrorException   
      * @error ExternalServiceException   
      */
-    unlinkIdentity(params: CognitoIdentity.UnlinkIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ExternalServiceException|any, data: any) => void): Request;
+    unlinkIdentity(params: CognitoIdentity.UnlinkIdentityInput, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ExternalServiceException|any, data: any) => void): Request<any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ExternalServiceException|any>;
     /**
      * Updates a user pool.
 
@@ -339,7 +339,7 @@ You must use AWS Developer credentials to call this API.
      * @error ConcurrentModificationException   
      * @error LimitExceededException   
      */
-    updateIdentityPool(params: CognitoIdentity.IdentityPool, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ConcurrentModificationException|CognitoIdentity.LimitExceededException|any, data: CognitoIdentity.IdentityPool|any) => void): Request;
+    updateIdentityPool(params: CognitoIdentity.IdentityPool, callback?: (err: CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ConcurrentModificationException|CognitoIdentity.LimitExceededException|any, data: CognitoIdentity.IdentityPool|any) => void): Request<CognitoIdentity.IdentityPool|any,CognitoIdentity.InvalidParameterException|CognitoIdentity.ResourceNotFoundException|CognitoIdentity.NotAuthorizedException|CognitoIdentity.ResourceConflictException|CognitoIdentity.TooManyRequestsException|CognitoIdentity.InternalErrorException|CognitoIdentity.ConcurrentModificationException|CognitoIdentity.LimitExceededException|any>;
 
     getOpenIdToken(...args: any[]): any
     getId(...args: any[]): any
