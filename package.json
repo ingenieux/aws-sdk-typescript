@@ -1,6 +1,6 @@
 {
   "name": "aws-sdk-typescript",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Aldrin Leal <aldrin+npmjs@leal.eng.br>",
   "description": "aws-sdk bindings for typescript",
   "homepage": "https://github.com/ingenieux/aws-sdk-typescript/",
