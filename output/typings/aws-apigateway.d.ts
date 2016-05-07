@@ -75,7 +75,7 @@ internet.
      * @error ConflictException   
      * @error TooManyRequestsException   
      */
-    createDomainName(params: APIGateway.CreateDomainNameRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainName|any) => void): Request<APIGateway.DomainName|any,APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
+    createDomainName(params: APIGateway.CreateDomainNameRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainName|any) => void): Request<APIGateway.DomainName|any,APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any>;
     /**
      * Adds a new Model resource to an existing RestApi resource.
      *
@@ -223,7 +223,7 @@ are no Stage resources associated with it.
      * @error ConflictException   
      * @error TooManyRequestsException   
      */
-    deleteResource(params: APIGateway.DeleteResourceRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
+    deleteResource(params: APIGateway.DeleteResourceRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any>;
     /**
      * Deletes the specified API.
      *
@@ -522,7 +522,7 @@ an external API definition file.
      * @error NotFoundException   
      * @error TooManyRequestsException   
      */
-    putIntegration(params: APIGateway.PutIntegrationRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Integration|any) => void): Request<APIGateway.Integration|any,APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    putIntegration(params: APIGateway.PutIntegrationRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Integration|any) => void): Request<APIGateway.Integration|any,APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
     /**
      * Represents a put integration.
      *
@@ -568,7 +568,7 @@ existing API.
      * @error BadRequestException   
      * @error TooManyRequestsException   
      */
-    putRestApi(params: APIGateway.PutRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.RestApi|any) => void): Request<APIGateway.RestApi|any,APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
+    putRestApi(params: APIGateway.PutRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.RestApi|any) => void): Request<APIGateway.RestApi|any,APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
     /**
      * Simulate the execution of an Authorizer in your RestApi with headers,
 parameters, and an incoming request body.
@@ -654,7 +654,7 @@ an incoming request body.
      * @error ConflictException   
      * @error TooManyRequestsException   
      */
-    updateDomainName(params: APIGateway.UpdateDomainNameRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainName|any) => void): Request<APIGateway.DomainName|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
+    updateDomainName(params: APIGateway.UpdateDomainNameRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any, data: APIGateway.DomainName|any) => void): Request<APIGateway.DomainName|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any>;
     /**
      * Represents an update integration.
      *
@@ -674,7 +674,7 @@ an incoming request body.
      * @error BadRequestException   
      * @error TooManyRequestsException   
      */
-    updateIntegrationResponse(params: APIGateway.UpdateIntegrationResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.IntegrationResponse|any) => void): Request<APIGateway.IntegrationResponse|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
+    updateIntegrationResponse(params: APIGateway.UpdateIntegrationResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.IntegrationResponse|any) => void): Request<APIGateway.IntegrationResponse|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
     /**
      * Updates an existing Method resource.
      *
@@ -684,7 +684,7 @@ an incoming request body.
      * @error ConflictException   
      * @error TooManyRequestsException   
      */
-    updateMethod(params: APIGateway.UpdateMethodRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Method|any) => void): Request<APIGateway.Method|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
+    updateMethod(params: APIGateway.UpdateMethodRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any, data: APIGateway.Method|any) => void): Request<APIGateway.Method|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any>;
     /**
      * Updates an existing MethodResponse resource.
      *
@@ -705,7 +705,7 @@ an incoming request body.
      * @error ConflictException   
      * @error TooManyRequestsException   
      */
-    updateModel(params: APIGateway.UpdateModelRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Model|any) => void): Request<APIGateway.Model|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
+    updateModel(params: APIGateway.UpdateModelRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any, data: APIGateway.Model|any) => void): Request<APIGateway.Model|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.TooManyRequestsException|any>;
     /**
      * Changes information about a Resource resource.
      *

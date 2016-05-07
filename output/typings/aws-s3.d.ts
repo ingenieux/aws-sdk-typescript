@@ -247,7 +247,7 @@ use this revised API for new application development.
      *
      * @error NoSuchBucket   
      */
-    listObjectsV2(params: S3.ListObjectsV2Request, callback?: (err: S3.NoSuchBucket|any, data: S3.ListObjectsV2Output|any) => void): Request;
+    listObjectsV2(params: S3.ListObjectsV2Request, callback?: (err: S3.NoSuchBucket|any, data: S3.ListObjectsV2Output|any) => void): Request<S3.ListObjectsV2Output|any,S3.NoSuchBucket|any>;
     /**
      * Lists the parts that have been uploaded for a specific multipart upload.
      *
