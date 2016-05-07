@@ -53,7 +53,7 @@ ListTagsForCertificate action.
      * @error InvalidTagException   
      * @error TooManyTagsException   
      */
-    addTagsToCertificate(params: ACM.AddTagsToCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.InvalidArnException|ACM.InvalidTagException|ACM.TooManyTagsException|any, data: any) => void): Request;
+    addTagsToCertificate(params: ACM.AddTagsToCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.InvalidArnException|ACM.InvalidTagException|ACM.TooManyTagsException|any, data: any) => void): Request<any,ACM.ResourceNotFoundException|ACM.InvalidArnException|ACM.InvalidTagException|ACM.TooManyTagsException|any>;
     /**
      * Deletes an ACM Certificate and its associated private key. If this action
 succeeds, the certificate no longer appears in the list of ACM Certificates that
@@ -69,7 +69,7 @@ be removed.
      * @error ResourceInUseException   
      * @error InvalidArnException   
      */
-    deleteCertificate(params: ACM.DeleteCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.ResourceInUseException|ACM.InvalidArnException|any, data: any) => void): Request;
+    deleteCertificate(params: ACM.DeleteCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.ResourceInUseException|ACM.InvalidArnException|any, data: any) => void): Request<any,ACM.ResourceNotFoundException|ACM.ResourceInUseException|ACM.InvalidArnException|any>;
     /**
      * Returns a list of the fields contained in the specified ACM Certificate. For
 example, this action returns the certificate status, a flag that indicates
@@ -80,7 +80,7 @@ input by its Amazon Resource Name (ARN).
      * @error ResourceNotFoundException   
      * @error InvalidArnException   
      */
-    describeCertificate(params: ACM.DescribeCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.InvalidArnException|any, data: ACM.DescribeCertificateResponse|any) => void): Request;
+    describeCertificate(params: ACM.DescribeCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.InvalidArnException|any, data: ACM.DescribeCertificateResponse|any) => void): Request<ACM.DescribeCertificateResponse|any,ACM.ResourceNotFoundException|ACM.InvalidArnException|any>;
     /**
      * Retrieves an ACM Certificate and certificate chain for the certificate specified
 by an ARN. The chain is an ordered list of certificates that contains the root
@@ -96,7 +96,7 @@ Amazon CloudFront.
      * @error RequestInProgressException   
      * @error InvalidArnException   
      */
-    getCertificate(params: ACM.GetCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.RequestInProgressException|ACM.InvalidArnException|any, data: ACM.GetCertificateResponse|any) => void): Request;
+    getCertificate(params: ACM.GetCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.RequestInProgressException|ACM.InvalidArnException|any, data: ACM.GetCertificateResponse|any) => void): Request<ACM.GetCertificateResponse|any,ACM.ResourceNotFoundException|ACM.RequestInProgressException|ACM.InvalidArnException|any>;
     /**
      * Retrieves a list of the ACM Certificate ARNs, and the domain name for each ARN,
 owned by the calling account. You can filter the list based on the 
@@ -106,7 +106,7 @@ marker from the response object in your next call to the ListCertificates action
 to retrieve the next set of certificate ARNs.
      *
      */
-    listCertificates(params: ACM.ListCertificatesRequest, callback?: (err: any, data: ACM.ListCertificatesResponse|any) => void): Request;
+    listCertificates(params: ACM.ListCertificatesRequest, callback?: (err: any, data: ACM.ListCertificatesResponse|any) => void): Request<ACM.ListCertificatesResponse|any,any>;
     /**
      * Lists the tags that have been applied to the ACM Certificate. Use the
 certificate ARN to specify the certificate. To add a tag to an ACM Certificate,
@@ -116,7 +116,7 @@ RemoveTagsFromCertificate action.
      * @error ResourceNotFoundException   
      * @error InvalidArnException   
      */
-    listTagsForCertificate(params: ACM.ListTagsForCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.InvalidArnException|any, data: ACM.ListTagsForCertificateResponse|any) => void): Request;
+    listTagsForCertificate(params: ACM.ListTagsForCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.InvalidArnException|any, data: ACM.ListTagsForCertificateResponse|any) => void): Request<ACM.ListTagsForCertificateResponse|any,ACM.ResourceNotFoundException|ACM.InvalidArnException|any>;
     /**
      * Remove one or more tags from an ACM Certificate. A tag consists of a key-value
 pair. If you do not specify the value portion of the tag when calling this
@@ -131,7 +131,7 @@ ListTagsForCertificate action.
      * @error InvalidArnException   
      * @error InvalidTagException   
      */
-    removeTagsFromCertificate(params: ACM.RemoveTagsFromCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.InvalidArnException|ACM.InvalidTagException|any, data: any) => void): Request;
+    removeTagsFromCertificate(params: ACM.RemoveTagsFromCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.InvalidArnException|ACM.InvalidTagException|any, data: any) => void): Request<any,ACM.ResourceNotFoundException|ACM.InvalidArnException|ACM.InvalidTagException|any>;
     /**
      * Requests an ACM Certificate for use with other AWS services. To request an ACM
 Certificate, you must specify the fully qualified domain name (FQDN) for your
@@ -145,7 +145,7 @@ the AWS Certificate Manager User Guide
      * @error LimitExceededException   
      * @error InvalidDomainValidationOptionsException   
      */
-    requestCertificate(params: ACM.RequestCertificateRequest, callback?: (err: ACM.LimitExceededException|ACM.InvalidDomainValidationOptionsException|any, data: ACM.RequestCertificateResponse|any) => void): Request;
+    requestCertificate(params: ACM.RequestCertificateRequest, callback?: (err: ACM.LimitExceededException|ACM.InvalidDomainValidationOptionsException|any, data: ACM.RequestCertificateResponse|any) => void): Request<ACM.RequestCertificateResponse|any,ACM.LimitExceededException|ACM.InvalidDomainValidationOptionsException|any>;
     /**
      * Resends the email that requests domain ownership validation. The domain owner or
 an authorized representative must approve the ACM Certificate before it can be
@@ -162,7 +162,7 @@ validation mail, you must request a new certificate.
      * @error InvalidArnException   
      * @error InvalidDomainValidationOptionsException   
      */
-    resendValidationEmail(params: ACM.ResendValidationEmailRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.InvalidStateException|ACM.InvalidArnException|ACM.InvalidDomainValidationOptionsException|any, data: any) => void): Request;
+    resendValidationEmail(params: ACM.ResendValidationEmailRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.InvalidStateException|ACM.InvalidArnException|ACM.InvalidDomainValidationOptionsException|any, data: any) => void): Request<any,ACM.ResourceNotFoundException|ACM.InvalidStateException|ACM.InvalidArnException|ACM.InvalidDomainValidationOptionsException|any>;
 
   }
 

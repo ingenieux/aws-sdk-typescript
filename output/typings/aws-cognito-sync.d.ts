@@ -59,7 +59,7 @@ given identity pool.
      * @error AlreadyStreamedException An exception thrown when a bulk publish operation is requested less than 24
 hours after a previous bulk publish operation completed successfully.  
      */
-    bulkPublish(params: CognitoSync.BulkPublishRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.DuplicateRequestException|CognitoSync.AlreadyStreamedException|any, data: CognitoSync.BulkPublishResponse|any) => void): Request;
+    bulkPublish(params: CognitoSync.BulkPublishRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.DuplicateRequestException|CognitoSync.AlreadyStreamedException|any, data: CognitoSync.BulkPublishResponse|any) => void): Request<CognitoSync.BulkPublishResponse|any,CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.DuplicateRequestException|CognitoSync.AlreadyStreamedException|any>;
     /**
      * Deletes the specific dataset. The dataset will be deleted permanently, and the
 action can&#x27;t be undone. Datasets that this dataset was merged with will no
@@ -77,7 +77,7 @@ Identity or with developer credentials.
      * @error ResourceConflictException Thrown if an update can&#x27;t be applied because the resource was changed by another
 call and this would result in a conflict.  
      */
-    deleteDataset(params: CognitoSync.DeleteDatasetRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|CognitoSync.ResourceConflictException|any, data: CognitoSync.DeleteDatasetResponse|any) => void): Request;
+    deleteDataset(params: CognitoSync.DeleteDatasetRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|CognitoSync.ResourceConflictException|any, data: CognitoSync.DeleteDatasetResponse|any) => void): Request<CognitoSync.DeleteDatasetResponse|any,CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|CognitoSync.ResourceConflictException|any>;
     /**
      * Gets meta data about a dataset by identity and dataset name. With Amazon Cognito
 Sync, each identity has access only to its own data. Thus, the credentials used
@@ -93,7 +93,7 @@ credentials to make this API call.
      * @error InternalErrorException Indicates an internal service error.  
      * @error TooManyRequestsException Thrown if the request is throttled.  
      */
-    describeDataset(params: CognitoSync.DescribeDatasetRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.DescribeDatasetResponse|any) => void): Request;
+    describeDataset(params: CognitoSync.DescribeDatasetRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.DescribeDatasetResponse|any) => void): Request<CognitoSync.DescribeDatasetResponse|any,CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any>;
     /**
      * Gets usage details (for example, data storage) about a particular identity pool.
 
@@ -106,7 +106,7 @@ with the temporary user credentials provided by Cognito Identity.
      * @error InternalErrorException Indicates an internal service error.  
      * @error TooManyRequestsException Thrown if the request is throttled.  
      */
-    describeIdentityPoolUsage(params: CognitoSync.DescribeIdentityPoolUsageRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.DescribeIdentityPoolUsageResponse|any) => void): Request;
+    describeIdentityPoolUsage(params: CognitoSync.DescribeIdentityPoolUsageRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.DescribeIdentityPoolUsageResponse|any) => void): Request<CognitoSync.DescribeIdentityPoolUsageResponse|any,CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any>;
     /**
      * Gets usage information for an identity, including number of datasets and data
 usage.
@@ -120,7 +120,7 @@ Identity or with developer credentials.
      * @error InternalErrorException Indicates an internal service error.  
      * @error TooManyRequestsException Thrown if the request is throttled.  
      */
-    describeIdentityUsage(params: CognitoSync.DescribeIdentityUsageRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.DescribeIdentityUsageResponse|any) => void): Request;
+    describeIdentityUsage(params: CognitoSync.DescribeIdentityUsageRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.DescribeIdentityUsageResponse|any) => void): Request<CognitoSync.DescribeIdentityUsageResponse|any,CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any>;
     /**
      * Get the status of the last BulkPublish operation for an identity pool.
 
@@ -132,7 +132,7 @@ with the temporary user credentials provided by Cognito Identity.
      * @error ResourceNotFoundException Thrown if the resource doesn&#x27;t exist.  
      * @error InternalErrorException Indicates an internal service error.  
      */
-    getBulkPublishDetails(params: CognitoSync.GetBulkPublishDetailsRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|any, data: CognitoSync.GetBulkPublishDetailsResponse|any) => void): Request;
+    getBulkPublishDetails(params: CognitoSync.GetBulkPublishDetailsRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|any, data: CognitoSync.GetBulkPublishDetailsResponse|any) => void): Request<CognitoSync.GetBulkPublishDetailsResponse|any,CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|any>;
     /**
      * Gets the events and the corresponding Lambda functions associated with an
 identity pool.
@@ -146,7 +146,7 @@ with the temporary user credentials provided by Cognito Identity.
      * @error InternalErrorException Indicates an internal service error.  
      * @error TooManyRequestsException Thrown if the request is throttled.  
      */
-    getCognitoEvents(params: CognitoSync.GetCognitoEventsRequest, callback?: (err: CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.NotAuthorizedException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.GetCognitoEventsResponse|any) => void): Request;
+    getCognitoEvents(params: CognitoSync.GetCognitoEventsRequest, callback?: (err: CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.NotAuthorizedException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.GetCognitoEventsResponse|any) => void): Request<CognitoSync.GetCognitoEventsResponse|any,CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.NotAuthorizedException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any>;
     /**
      * Gets the configuration settings of an identity pool.
 
@@ -159,7 +159,7 @@ with the temporary user credentials provided by Cognito Identity.
      * @error InternalErrorException Indicates an internal service error.  
      * @error TooManyRequestsException Thrown if the request is throttled.  
      */
-    getIdentityPoolConfiguration(params: CognitoSync.GetIdentityPoolConfigurationRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.GetIdentityPoolConfigurationResponse|any) => void): Request;
+    getIdentityPoolConfiguration(params: CognitoSync.GetIdentityPoolConfigurationRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.GetIdentityPoolConfigurationResponse|any) => void): Request<CognitoSync.GetIdentityPoolConfigurationResponse|any,CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any>;
     /**
      * Lists datasets for an identity. With Amazon Cognito Sync, each identity has
 access only to its own data. Thus, the credentials used to make this API call
@@ -174,7 +174,7 @@ credentials to make this API call.
      * @error InternalErrorException Indicates an internal service error.  
      * @error TooManyRequestsException Thrown if the request is throttled.  
      */
-    listDatasets(params: CognitoSync.ListDatasetsRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.ListDatasetsResponse|any) => void): Request;
+    listDatasets(params: CognitoSync.ListDatasetsRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.ListDatasetsResponse|any) => void): Request<CognitoSync.ListDatasetsResponse|any,CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any>;
     /**
      * Gets a list of identity pools registered with Cognito.
 
@@ -187,7 +187,7 @@ Identity.
      * @error InternalErrorException Indicates an internal service error.  
      * @error TooManyRequestsException Thrown if the request is throttled.  
      */
-    listIdentityPoolUsage(params: CognitoSync.ListIdentityPoolUsageRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.ListIdentityPoolUsageResponse|any) => void): Request;
+    listIdentityPoolUsage(params: CognitoSync.ListIdentityPoolUsageRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.ListIdentityPoolUsageResponse|any) => void): Request<CognitoSync.ListIdentityPoolUsageResponse|any,CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any>;
     /**
      * Gets paginated records, optionally changed after a particular sync count for a
 dataset and identity. With Amazon Cognito Sync, each identity has access only to
@@ -203,7 +203,7 @@ credentials to make this API call.
      * @error TooManyRequestsException Thrown if the request is throttled.  
      * @error InternalErrorException Indicates an internal service error.  
      */
-    listRecords(params: CognitoSync.ListRecordsRequest, callback?: (err: CognitoSync.InvalidParameterException|CognitoSync.NotAuthorizedException|CognitoSync.TooManyRequestsException|CognitoSync.InternalErrorException|any, data: CognitoSync.ListRecordsResponse|any) => void): Request;
+    listRecords(params: CognitoSync.ListRecordsRequest, callback?: (err: CognitoSync.InvalidParameterException|CognitoSync.NotAuthorizedException|CognitoSync.TooManyRequestsException|CognitoSync.InternalErrorException|any, data: CognitoSync.ListRecordsResponse|any) => void): Request<CognitoSync.ListRecordsResponse|any,CognitoSync.InvalidParameterException|CognitoSync.NotAuthorizedException|CognitoSync.TooManyRequestsException|CognitoSync.InternalErrorException|any>;
     /**
      * Registers a device to receive push sync notifications.
 
@@ -217,7 +217,7 @@ Identity. You cannot call this API with developer credentials.
      * @error InvalidConfigurationException   
      * @error TooManyRequestsException Thrown if the request is throttled.  
      */
-    registerDevice(params: CognitoSync.RegisterDeviceRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.InvalidConfigurationException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.RegisterDeviceResponse|any) => void): Request;
+    registerDevice(params: CognitoSync.RegisterDeviceRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.InvalidConfigurationException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.RegisterDeviceResponse|any) => void): Request<CognitoSync.RegisterDeviceResponse|any,CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.InvalidConfigurationException|CognitoSync.TooManyRequestsException|any>;
     /**
      * Sets the AWS Lambda function for a given event type for an identity pool. This
 request only updates the key/value pair specified. Other key/values pairs are
@@ -233,7 +233,7 @@ with the temporary user credentials provided by Cognito Identity.
      * @error InternalErrorException Indicates an internal service error.  
      * @error TooManyRequestsException Thrown if the request is throttled.  
      */
-    setCognitoEvents(params: CognitoSync.SetCognitoEventsRequest, callback?: (err: CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.NotAuthorizedException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: any) => void): Request;
+    setCognitoEvents(params: CognitoSync.SetCognitoEventsRequest, callback?: (err: CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.NotAuthorizedException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any, data: any) => void): Request<any,CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.NotAuthorizedException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|any>;
     /**
      * Sets the necessary configuration for push sync.
 
@@ -247,7 +247,7 @@ with the temporary user credentials provided by Cognito Identity.
      * @error TooManyRequestsException Thrown if the request is throttled.  
      * @error ConcurrentModificationException Thrown if there are parallel requests to modify a resource.  
      */
-    setIdentityPoolConfiguration(params: CognitoSync.SetIdentityPoolConfigurationRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|CognitoSync.ConcurrentModificationException|any, data: CognitoSync.SetIdentityPoolConfigurationResponse|any) => void): Request;
+    setIdentityPoolConfiguration(params: CognitoSync.SetIdentityPoolConfigurationRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|CognitoSync.ConcurrentModificationException|any, data: CognitoSync.SetIdentityPoolConfigurationResponse|any) => void): Request<CognitoSync.SetIdentityPoolConfigurationResponse|any,CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.TooManyRequestsException|CognitoSync.ConcurrentModificationException|any>;
     /**
      * Subscribes to receive notifications when a dataset is modified by another
 device.
@@ -262,7 +262,7 @@ Identity. You cannot call this API with developer credentials.
      * @error InvalidConfigurationException   
      * @error TooManyRequestsException Thrown if the request is throttled.  
      */
-    subscribeToDataset(params: CognitoSync.SubscribeToDatasetRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.InvalidConfigurationException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.SubscribeToDatasetResponse|any) => void): Request;
+    subscribeToDataset(params: CognitoSync.SubscribeToDatasetRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.InvalidConfigurationException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.SubscribeToDatasetResponse|any) => void): Request<CognitoSync.SubscribeToDatasetResponse|any,CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.InvalidConfigurationException|CognitoSync.TooManyRequestsException|any>;
     /**
      * Unsubscribes from receiving notifications when a dataset is modified by another
 device.
@@ -277,7 +277,7 @@ Identity. You cannot call this API with developer credentials.
      * @error InvalidConfigurationException   
      * @error TooManyRequestsException Thrown if the request is throttled.  
      */
-    unsubscribeFromDataset(params: CognitoSync.UnsubscribeFromDatasetRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.InvalidConfigurationException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.UnsubscribeFromDatasetResponse|any) => void): Request;
+    unsubscribeFromDataset(params: CognitoSync.UnsubscribeFromDatasetRequest, callback?: (err: CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.InvalidConfigurationException|CognitoSync.TooManyRequestsException|any, data: CognitoSync.UnsubscribeFromDatasetResponse|any) => void): Request<CognitoSync.UnsubscribeFromDatasetResponse|any,CognitoSync.NotAuthorizedException|CognitoSync.InvalidParameterException|CognitoSync.ResourceNotFoundException|CognitoSync.InternalErrorException|CognitoSync.InvalidConfigurationException|CognitoSync.TooManyRequestsException|any>;
     /**
      * Posts updates to records and adds and deletes records for a dataset and user.
 
@@ -307,7 +307,7 @@ call and this would result in a conflict.
      * @error TooManyRequestsException Thrown if the request is throttled.  
      * @error InternalErrorException Indicates an internal service error.  
      */
-    updateRecords(params: CognitoSync.UpdateRecordsRequest, callback?: (err: CognitoSync.InvalidParameterException|CognitoSync.LimitExceededException|CognitoSync.NotAuthorizedException|CognitoSync.ResourceNotFoundException|CognitoSync.ResourceConflictException|CognitoSync.InvalidLambdaFunctionOutputException|CognitoSync.LambdaThrottledException|CognitoSync.TooManyRequestsException|CognitoSync.InternalErrorException|any, data: CognitoSync.UpdateRecordsResponse|any) => void): Request;
+    updateRecords(params: CognitoSync.UpdateRecordsRequest, callback?: (err: CognitoSync.InvalidParameterException|CognitoSync.LimitExceededException|CognitoSync.NotAuthorizedException|CognitoSync.ResourceNotFoundException|CognitoSync.ResourceConflictException|CognitoSync.InvalidLambdaFunctionOutputException|CognitoSync.LambdaThrottledException|CognitoSync.TooManyRequestsException|CognitoSync.InternalErrorException|any, data: CognitoSync.UpdateRecordsResponse|any) => void): Request<CognitoSync.UpdateRecordsResponse|any,CognitoSync.InvalidParameterException|CognitoSync.LimitExceededException|CognitoSync.NotAuthorizedException|CognitoSync.ResourceNotFoundException|CognitoSync.ResourceConflictException|CognitoSync.InvalidLambdaFunctionOutputException|CognitoSync.LambdaThrottledException|CognitoSync.TooManyRequestsException|CognitoSync.InternalErrorException|any>;
 
   }
 

@@ -90,7 +90,7 @@ declare module "aws-sdk" {
     makeRequest(operation:string, params:Object, callback:(error?:Error, data?:any) => void): void;
     makeUnauthenticatedRequest(operation:string, params:Object, callback: (error?:Error, data?:any) => void): void;
     setupRequestListeners(): void;
-    waitFor(state:string, params:Object, callback:(error?:Error, data?:any) => void): void;
+    waitFor(state:string, params:Object, callback?:(error?:Error, data?:any) => void): Request<any,any>;
   }
 
   export module CognitoIdentity {
@@ -114,13 +114,14 @@ declare module "aws-sdk" {
     constructor(params: CognitoIdentity.CognitoIdentityCredentialsParams);
   }
 
-  export class Request extends EventEmitter {
+  export class Request<R,E> extends EventEmitter {
     constructor(service:Service, operation:string, params:Object);
 
-    on(event: string, listener: Function):Request;
+    on(event: string, listener: Function):Request<any,any>;
     httpRequest: HttpRequest;
     startTime: Date;
-    abort(): Request;
+    abort(): Request<any,any>;
+    promise(): Promise<R>;
     createReadStream(): ReadableStream;
     eachItem(callback:Function): void;
     eachPage(callback: (err:Error, data:any, done?:() => void) => boolean|void): void;
@@ -223,7 +224,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      batchGet(params: any, callback?: (err: any, data: any) => void): Request;
+      batchGet(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
 
       /**
       * Puts or deletes multiple items in one or more tables by delegating
@@ -265,7 +266,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      batchWrite(params: any, callback?: (err: any, data: any) => void): Request;
+      batchWrite(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
 
       /**
       * Deletes a single item in a table by primary key by delegating to
@@ -292,7 +293,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      delete(params: any, callback?: (err: any, data: any) => void): Request;
+      delete(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
 
       /**
       * Returns a set of attributes for the item with the given primary key
@@ -318,7 +319,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      get(params: any, callback?: (err: any, data: any) => void): Request;
+      get(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
 
       /**
       * Creates a new item, or replaces an old item with a new item by
@@ -349,7 +350,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      put(params: any, callback?: (err: any, data: any) => void): Request;
+      put(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
 
       /**
       * Edits an existing item's attributes, or adds a new item to the table if
@@ -381,7 +382,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      update(params: any, callback?: (err: any, data: any) => void): Request;
+      update(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
 
       /**
       * Returns one or more items and item attributes by accessing every item
@@ -406,7 +407,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      scan(params: any, callback?: (err: any, data: any) => void): Request;
+      scan(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
 
       /**
       * Directly access items from a table by primary key or a secondary index.
@@ -434,7 +435,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      query(params: any, callback?: (err: any, data: any) => void): Request;
+      query(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
 
       /**
       * Creates a set of elements inferring the type of set from
@@ -463,7 +464,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      createSet(params: any, callback?: (err: any, data: any) => void): Request;
+      createSet(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
     }
   }
 }

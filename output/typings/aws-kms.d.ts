@@ -117,7 +117,7 @@ AWS Key Management Service Developer Guide .
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    cancelKeyDeletion(params: KMS.CancelKeyDeletionRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.CancelKeyDeletionResponse|any) => void): Request;
+    cancelKeyDeletion(params: KMS.CancelKeyDeletionRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.CancelKeyDeletionResponse|any) => void): Request<KMS.CancelKeyDeletionResponse|any,KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Creates a display name for a customer master key. An alias can be used to
 identify a key and should be unique. The console enforces a one-to-one mapping
@@ -140,7 +140,7 @@ To map an alias to a different key, call UpdateAlias .
      * @error LimitExceededException   
      * @error KMSInvalidStateException   
      */
-    createAlias(params: KMS.CreateAliasRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.AlreadyExistsException|KMS.NotFoundException|KMS.InvalidAliasNameException|KMS.KMSInternalException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+    createAlias(params: KMS.CreateAliasRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.AlreadyExistsException|KMS.NotFoundException|KMS.InvalidAliasNameException|KMS.KMSInternalException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.DependencyTimeoutException|KMS.AlreadyExistsException|KMS.NotFoundException|KMS.InvalidAliasNameException|KMS.KMSInternalException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any>;
     /**
      * Adds a grant to a key to specify who can use the key and under what conditions.
 Grants are alternate permission mechanisms to key policies.
@@ -158,7 +158,7 @@ Key Management Service Developer Guide .
      * @error LimitExceededException   
      * @error KMSInvalidStateException   
      */
-    createGrant(params: KMS.CreateGrantRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.KMSInternalException|KMS.InvalidGrantTokenException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any, data: KMS.CreateGrantResponse|any) => void): Request;
+    createGrant(params: KMS.CreateGrantRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.KMSInternalException|KMS.InvalidGrantTokenException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any, data: KMS.CreateGrantResponse|any) => void): Request<KMS.CreateGrantResponse|any,KMS.NotFoundException|KMS.DisabledException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.KMSInternalException|KMS.InvalidGrantTokenException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any>;
     /**
      * Creates a customer master key (CMK).
 
@@ -181,7 +181,7 @@ between CMKs and DEKs, see the following:
      * @error KMSInternalException   
      * @error LimitExceededException   
      */
-    createKey(params: KMS.CreateKeyRequest, callback?: (err: KMS.MalformedPolicyDocumentException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.UnsupportedOperationException|KMS.KMSInternalException|KMS.LimitExceededException|any, data: KMS.CreateKeyResponse|any) => void): Request;
+    createKey(params: KMS.CreateKeyRequest, callback?: (err: KMS.MalformedPolicyDocumentException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.UnsupportedOperationException|KMS.KMSInternalException|KMS.LimitExceededException|any, data: KMS.CreateKeyResponse|any) => void): Request<KMS.CreateKeyResponse|any,KMS.MalformedPolicyDocumentException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.UnsupportedOperationException|KMS.KMSInternalException|KMS.LimitExceededException|any>;
     /**
      * Decrypts ciphertext. Ciphertext is plaintext that has been previously encrypted
 by using any of the following functions:
@@ -213,7 +213,7 @@ you should scope the resource to specific keys or to specific trusted accounts.
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    decrypt(params: KMS.DecryptRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidCiphertextException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.DecryptResponse|any) => void): Request;
+    decrypt(params: KMS.DecryptRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidCiphertextException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.DecryptResponse|any) => void): Request<KMS.DecryptResponse|any,KMS.NotFoundException|KMS.DisabledException|KMS.InvalidCiphertextException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Deletes the specified alias. To map an alias to a different key, call 
 UpdateAlias .
@@ -223,7 +223,7 @@ UpdateAlias .
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    deleteAlias(params: KMS.DeleteAliasRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+    deleteAlias(params: KMS.DeleteAliasRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Provides detailed information about the specified customer master key.
      *
@@ -232,7 +232,7 @@ UpdateAlias .
      * @error DependencyTimeoutException   
      * @error KMSInternalException   
      */
-    describeKey(params: KMS.DescribeKeyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|any, data: KMS.DescribeKeyResponse|any) => void): Request;
+    describeKey(params: KMS.DescribeKeyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|any, data: KMS.DescribeKeyResponse|any) => void): Request<KMS.DescribeKeyResponse|any,KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|any>;
     /**
      * Sets the state of a customer master key (CMK) to disabled, thereby preventing
 its use for cryptographic operations. For more information about how key state
@@ -246,7 +246,7 @@ AWS Key Management Service Developer Guide .
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    disableKey(params: KMS.DisableKeyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+    disableKey(params: KMS.DisableKeyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Disables rotation of the specified key.
      *
@@ -257,7 +257,7 @@ AWS Key Management Service Developer Guide .
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    disableKeyRotation(params: KMS.DisableKeyRotationRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+    disableKeyRotation(params: KMS.DisableKeyRotationRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Marks a key as enabled, thereby permitting its use.
      *
@@ -268,7 +268,7 @@ AWS Key Management Service Developer Guide .
      * @error LimitExceededException   
      * @error KMSInvalidStateException   
      */
-    enableKey(params: KMS.EnableKeyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+    enableKey(params: KMS.EnableKeyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any>;
     /**
      * Enables rotation of the specified customer master key.
      *
@@ -279,7 +279,7 @@ AWS Key Management Service Developer Guide .
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    enableKeyRotation(params: KMS.EnableKeyRotationRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+    enableKeyRotation(params: KMS.EnableKeyRotationRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Encrypts plaintext into ciphertext by using a customer master key. The Encrypt 
 function has two primary use cases:
@@ -315,7 +315,7 @@ the key encrypted under the customer master key (CMK) of your choosing.
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    encrypt(params: KMS.EncryptRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.EncryptResponse|any) => void): Request;
+    encrypt(params: KMS.EncryptRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.EncryptResponse|any) => void): Request<KMS.EncryptResponse|any,KMS.NotFoundException|KMS.DisabledException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Generates a data key that you can use in your application to locally encrypt
 data. This call returns a plaintext version of the key in the Plaintext field of
@@ -358,7 +358,7 @@ CloudTrail, and you can use this log to help track the use of particular data.
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    generateDataKey(params: KMS.GenerateDataKeyRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.GenerateDataKeyResponse|any) => void): Request;
+    generateDataKey(params: KMS.GenerateDataKeyRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.GenerateDataKeyResponse|any) => void): Request<KMS.GenerateDataKeyResponse|any,KMS.NotFoundException|KMS.DisabledException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Returns a data key encrypted by a customer master key without the plaintext copy
 of that key. Otherwise, this API functions exactly like GenerateDataKey . You
@@ -374,14 +374,14 @@ key be made available without exposing the plaintext copy of that key.
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    generateDataKeyWithoutPlaintext(params: KMS.GenerateDataKeyWithoutPlaintextRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.GenerateDataKeyWithoutPlaintextResponse|any) => void): Request;
+    generateDataKeyWithoutPlaintext(params: KMS.GenerateDataKeyWithoutPlaintextRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.GenerateDataKeyWithoutPlaintextResponse|any) => void): Request<KMS.GenerateDataKeyWithoutPlaintextResponse|any,KMS.NotFoundException|KMS.DisabledException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Generates an unpredictable byte string.
      *
      * @error DependencyTimeoutException   
      * @error KMSInternalException   
      */
-    generateRandom(params: KMS.GenerateRandomRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.KMSInternalException|any, data: KMS.GenerateRandomResponse|any) => void): Request;
+    generateRandom(params: KMS.GenerateRandomRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.KMSInternalException|any, data: KMS.GenerateRandomResponse|any) => void): Request<KMS.GenerateRandomResponse|any,KMS.DependencyTimeoutException|KMS.KMSInternalException|any>;
     /**
      * Retrieves a policy attached to the specified key.
      *
@@ -391,7 +391,7 @@ key be made available without exposing the plaintext copy of that key.
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    getKeyPolicy(params: KMS.GetKeyPolicyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.GetKeyPolicyResponse|any) => void): Request;
+    getKeyPolicy(params: KMS.GetKeyPolicyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.GetKeyPolicyResponse|any) => void): Request<KMS.GetKeyPolicyResponse|any,KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Retrieves a Boolean value that indicates whether key rotation is enabled for the
 specified key.
@@ -402,7 +402,7 @@ specified key.
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    getKeyRotationStatus(params: KMS.GetKeyRotationStatusRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.GetKeyRotationStatusResponse|any) => void): Request;
+    getKeyRotationStatus(params: KMS.GetKeyRotationStatusRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.GetKeyRotationStatusResponse|any) => void): Request<KMS.GetKeyRotationStatusResponse|any,KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Lists all of the key aliases in the account.
      *
@@ -410,7 +410,7 @@ specified key.
      * @error InvalidMarkerException   
      * @error KMSInternalException   
      */
-    listAliases(params: KMS.ListAliasesRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.InvalidMarkerException|KMS.KMSInternalException|any, data: KMS.ListAliasesResponse|any) => void): Request;
+    listAliases(params: KMS.ListAliasesRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.InvalidMarkerException|KMS.KMSInternalException|any, data: KMS.ListAliasesResponse|any) => void): Request<KMS.ListAliasesResponse|any,KMS.DependencyTimeoutException|KMS.InvalidMarkerException|KMS.KMSInternalException|any>;
     /**
      * List the grants for a specified key.
      *
@@ -421,7 +421,7 @@ specified key.
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    listGrants(params: KMS.ListGrantsRequest, callback?: (err: KMS.NotFoundException|KMS.DependencyTimeoutException|KMS.InvalidMarkerException|KMS.InvalidArnException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.ListGrantsResponse|any) => void): Request;
+    listGrants(params: KMS.ListGrantsRequest, callback?: (err: KMS.NotFoundException|KMS.DependencyTimeoutException|KMS.InvalidMarkerException|KMS.InvalidArnException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.ListGrantsResponse|any) => void): Request<KMS.ListGrantsResponse|any,KMS.NotFoundException|KMS.DependencyTimeoutException|KMS.InvalidMarkerException|KMS.InvalidArnException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Retrieves a list of policies attached to a key.
      *
@@ -431,14 +431,14 @@ specified key.
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    listKeyPolicies(params: KMS.ListKeyPoliciesRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.ListKeyPoliciesResponse|any) => void): Request;
+    listKeyPolicies(params: KMS.ListKeyPoliciesRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.ListKeyPoliciesResponse|any) => void): Request<KMS.ListKeyPoliciesResponse|any,KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Lists the customer master keys.
      *
      * @error DependencyTimeoutException   
      * @error KMSInternalException   
      */
-    listKeys(params: KMS.ListKeysRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.KMSInternalException|any, data: KMS.ListKeysResponse|any) => void): Request;
+    listKeys(params: KMS.ListKeysRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.KMSInternalException|any, data: KMS.ListKeysResponse|any) => void): Request<KMS.ListKeysResponse|any,KMS.DependencyTimeoutException|KMS.KMSInternalException|any>;
     /**
      * Returns a list of all grants for which the grant&#x27;s RetiringPrincipal matches the
 one specified.
@@ -452,7 +452,7 @@ grant, use RetireGrant .
      * @error NotFoundException   
      * @error KMSInternalException   
      */
-    listRetirableGrants(params: KMS.ListRetirableGrantsRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.InvalidMarkerException|KMS.InvalidArnException|KMS.NotFoundException|KMS.KMSInternalException|any, data: KMS.ListGrantsResponse|any) => void): Request;
+    listRetirableGrants(params: KMS.ListRetirableGrantsRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.InvalidMarkerException|KMS.InvalidArnException|KMS.NotFoundException|KMS.KMSInternalException|any, data: KMS.ListGrantsResponse|any) => void): Request<KMS.ListGrantsResponse|any,KMS.DependencyTimeoutException|KMS.InvalidMarkerException|KMS.InvalidArnException|KMS.NotFoundException|KMS.KMSInternalException|any>;
     /**
      * Attaches a key policy to the specified customer master key (CMK).
 
@@ -469,7 +469,7 @@ AWS Key Management Service Developer Guide .
      * @error LimitExceededException   
      * @error KMSInvalidStateException   
      */
-    putKeyPolicy(params: KMS.PutKeyPolicyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.MalformedPolicyDocumentException|KMS.DependencyTimeoutException|KMS.UnsupportedOperationException|KMS.KMSInternalException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+    putKeyPolicy(params: KMS.PutKeyPolicyRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.MalformedPolicyDocumentException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.UnsupportedOperationException|KMS.KMSInternalException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.NotFoundException|KMS.InvalidArnException|KMS.MalformedPolicyDocumentException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.UnsupportedOperationException|KMS.KMSInternalException|KMS.LimitExceededException|KMS.KMSInvalidStateException|any>;
     /**
      * Encrypts data on the server side with a new customer master key without exposing
 the plaintext of the data on the client side. The data is first decrypted and
@@ -493,7 +493,7 @@ included manually when you set a policy by using the PutKeyPolicy function.
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    reEncrypt(params: KMS.ReEncryptRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidCiphertextException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.ReEncryptResponse|any) => void): Request;
+    reEncrypt(params: KMS.ReEncryptRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidCiphertextException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.ReEncryptResponse|any) => void): Request<KMS.ReEncryptResponse|any,KMS.NotFoundException|KMS.DisabledException|KMS.InvalidCiphertextException|KMS.KeyUnavailableException|KMS.DependencyTimeoutException|KMS.InvalidKeyUsageException|KMS.InvalidGrantTokenException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Retires a grant. You can retire a grant when you&#x27;re done using it to clean up.
 You should revoke a grant when you intend to actively deny operations that
@@ -521,7 +521,7 @@ grant. Both are returned by the CreateGrant function.
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    retireGrant(params: KMS.RetireGrantRequest, callback?: (err: KMS.InvalidGrantTokenException|KMS.InvalidGrantIdException|KMS.NotFoundException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+    retireGrant(params: KMS.RetireGrantRequest, callback?: (err: KMS.InvalidGrantTokenException|KMS.InvalidGrantIdException|KMS.NotFoundException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.InvalidGrantTokenException|KMS.InvalidGrantIdException|KMS.NotFoundException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Revokes a grant. You can revoke a grant to actively deny operations that depend
 on it.
@@ -533,7 +533,7 @@ on it.
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    revokeGrant(params: KMS.RevokeGrantRequest, callback?: (err: KMS.NotFoundException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.InvalidGrantIdException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+    revokeGrant(params: KMS.RevokeGrantRequest, callback?: (err: KMS.NotFoundException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.InvalidGrantIdException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.NotFoundException|KMS.DependencyTimeoutException|KMS.InvalidArnException|KMS.InvalidGrantIdException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Schedules the deletion of a customer master key (CMK). You may provide a waiting
 period, specified in days, before deletion occurs. If you do not provide a
@@ -558,7 +558,7 @@ AWS Key Management Service Developer Guide .
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    scheduleKeyDeletion(params: KMS.ScheduleKeyDeletionRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.ScheduleKeyDeletionResponse|any) => void): Request;
+    scheduleKeyDeletion(params: KMS.ScheduleKeyDeletionRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.ScheduleKeyDeletionResponse|any) => void): Request<KMS.ScheduleKeyDeletionResponse|any,KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Updates an alias to map it to a different key.
 
@@ -578,7 +578,7 @@ same region.
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    updateAlias(params: KMS.UpdateAliasRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+    updateAlias(params: KMS.UpdateAliasRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
      * Updates the description of a key.
      *
@@ -588,7 +588,7 @@ same region.
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
      */
-    updateKeyDescription(params: KMS.UpdateKeyDescriptionRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request;
+    updateKeyDescription(params: KMS.UpdateKeyDescriptionRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
 
   }
 

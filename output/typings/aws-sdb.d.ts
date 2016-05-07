@@ -61,7 +61,7 @@ The following limitations are enforced for this operation: &amp;#42; 1 MB reques
    BatchDeleteAttributes operation
      *
      */
-    batchDeleteAttributes(params: SimpleDB.BatchDeleteAttributesRequest, callback?: (err: any, data: any) => void): Request;
+    batchDeleteAttributes(params: SimpleDB.BatchDeleteAttributesRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * The BatchPutAttributes operation creates or replaces attributes within one or
 more items. By using this operation, the client can perform multiple 
@@ -119,7 +119,7 @@ The following limitations are enforced for this operation: &amp;#42; 256 attribu
      * @error NumberSubmittedItemsExceeded Too many items exist in a single call.  
      * @error NumberSubmittedAttributesExceeded Too many attributes exist in a single call.  
      */
-    batchPutAttributes(params: SimpleDB.BatchPutAttributesRequest, callback?: (err: SimpleDB.DuplicateItemName|SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.NumberItemAttributesExceeded|SimpleDB.NumberDomainAttributesExceeded|SimpleDB.NumberDomainBytesExceeded|SimpleDB.NumberSubmittedItemsExceeded|SimpleDB.NumberSubmittedAttributesExceeded|any, data: any) => void): Request;
+    batchPutAttributes(params: SimpleDB.BatchPutAttributesRequest, callback?: (err: SimpleDB.DuplicateItemName|SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.NumberItemAttributesExceeded|SimpleDB.NumberDomainAttributesExceeded|SimpleDB.NumberDomainBytesExceeded|SimpleDB.NumberSubmittedItemsExceeded|SimpleDB.NumberSubmittedAttributesExceeded|any, data: any) => void): Request<any,SimpleDB.DuplicateItemName|SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.NumberItemAttributesExceeded|SimpleDB.NumberDomainAttributesExceeded|SimpleDB.NumberDomainBytesExceeded|SimpleDB.NumberSubmittedItemsExceeded|SimpleDB.NumberSubmittedAttributesExceeded|any>;
     /**
      * The CreateDomain operation creates a new domain. The domain name should be
 unique among the domains associated with the Access Key ID provided in the
@@ -137,7 +137,7 @@ http://aws.amazon.com/contact-us/simpledb-limit-request/
      * @error MissingParameter The request must contain the specified missing parameter.  
      * @error NumberDomainsExceeded Too many domains exist per this account.  
      */
-    createDomain(params: SimpleDB.CreateDomainRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NumberDomainsExceeded|any, data: any) => void): Request;
+    createDomain(params: SimpleDB.CreateDomainRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NumberDomainsExceeded|any, data: any) => void): Request<any,SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NumberDomainsExceeded|any>;
     /**
      * Deletes one or more attributes associated with an item. If all attributes of the
 item are deleted, the item is deleted.
@@ -156,7 +156,7 @@ not return updated item data.
      * @error NoSuchDomain The specified domain does not exist.  
      * @error AttributeDoesNotExist The specified attribute does not exist.  
      */
-    deleteAttributes(params: SimpleDB.DeleteAttributesRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.AttributeDoesNotExist|any, data: any) => void): Request;
+    deleteAttributes(params: SimpleDB.DeleteAttributesRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.AttributeDoesNotExist|any, data: any) => void): Request<any,SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.AttributeDoesNotExist|any>;
     /**
      * The DeleteDomain operation deletes a domain. Any items (and their attributes) in
 the domain are deleted as well. The DeleteDomain operation might take 10 or more
@@ -167,7 +167,7 @@ multiple times using the same domain name will not result in an error response.
      *
      * @error MissingParameter The request must contain the specified missing parameter.  
      */
-    deleteDomain(params: SimpleDB.DeleteDomainRequest, callback?: (err: SimpleDB.MissingParameter|any, data: any) => void): Request;
+    deleteDomain(params: SimpleDB.DeleteDomainRequest, callback?: (err: SimpleDB.MissingParameter|any, data: any) => void): Request<any,SimpleDB.MissingParameter|any>;
     /**
      * Returns information about the domain, including when the domain was created, the
 number of items and attributes in the domain, and the size of the attribute
@@ -176,7 +176,7 @@ names and values.
      * @error MissingParameter The request must contain the specified missing parameter.  
      * @error NoSuchDomain The specified domain does not exist.  
      */
-    domainMetadata(params: SimpleDB.DomainMetadataRequest, callback?: (err: SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|any, data: SimpleDB.DomainMetadataResult|any) => void): Request;
+    domainMetadata(params: SimpleDB.DomainMetadataRequest, callback?: (err: SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|any, data: SimpleDB.DomainMetadataResult|any) => void): Request<SimpleDB.DomainMetadataResult|any,SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|any>;
     /**
      * Returns all of the attributes associated with the specified item. Optionally,
 the attributes returned can be limited to one or more attributes by specifying
@@ -193,7 +193,7 @@ attributes for the item are returned.
      * @error MissingParameter The request must contain the specified missing parameter.  
      * @error NoSuchDomain The specified domain does not exist.  
      */
-    getAttributes(params: SimpleDB.GetAttributesRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|any, data: SimpleDB.GetAttributesResult|any) => void): Request;
+    getAttributes(params: SimpleDB.GetAttributesRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|any, data: SimpleDB.GetAttributesResult|any) => void): Request<SimpleDB.GetAttributesResult|any,SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|any>;
     /**
      * The ListDomains operation lists all domains associated with the Access Key ID.
 It returns domain names up to the limit set by MaxNumberOfDomains
@@ -205,7 +205,7 @@ names with each successive operation call.
      * @error InvalidParameterValue The value for a parameter is invalid.  
      * @error InvalidNextToken The specified NextToken is not valid.  
      */
-    listDomains(params: SimpleDB.ListDomainsRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.InvalidNextToken|any, data: SimpleDB.ListDomainsResult|any) => void): Request;
+    listDomains(params: SimpleDB.ListDomainsRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.InvalidNextToken|any, data: SimpleDB.ListDomainsResult|any) => void): Request<SimpleDB.ListDomainsResult|any,SimpleDB.InvalidParameterValue|SimpleDB.InvalidNextToken|any>;
     /**
      * The PutAttributes operation creates or replaces attributes in an item. The
 client may specify new attributes using a combination of the Attribute.X.Name 
@@ -250,7 +250,7 @@ The following limitations are enforced for this operation: &amp;#42; 256 total a
      * @error NumberItemAttributesExceeded Too many attributes in this item.  
      * @error AttributeDoesNotExist The specified attribute does not exist.  
      */
-    putAttributes(params: SimpleDB.PutAttributesRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.NumberDomainAttributesExceeded|SimpleDB.NumberDomainBytesExceeded|SimpleDB.NumberItemAttributesExceeded|SimpleDB.AttributeDoesNotExist|any, data: any) => void): Request;
+    putAttributes(params: SimpleDB.PutAttributesRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.NumberDomainAttributesExceeded|SimpleDB.NumberDomainBytesExceeded|SimpleDB.NumberItemAttributesExceeded|SimpleDB.AttributeDoesNotExist|any, data: any) => void): Request<any,SimpleDB.InvalidParameterValue|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.NumberDomainAttributesExceeded|SimpleDB.NumberDomainBytesExceeded|SimpleDB.NumberItemAttributesExceeded|SimpleDB.AttributeDoesNotExist|any>;
     /**
      * The Select operation returns a set of attributes for ItemNames that match the
 select expression. Select is similar to the standard SQL SELECT statement.
@@ -275,7 +275,7 @@ Create Amazon SimpleDB Queries in the Developer Guide.
 query expression.  
      * @error TooManyRequestedAttributes Too many attributes requested.  
      */
-    select(params: SimpleDB.SelectRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.InvalidNextToken|SimpleDB.InvalidNumberPredicates|SimpleDB.InvalidNumberValueTests|SimpleDB.InvalidQueryExpression|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.RequestTimeout|SimpleDB.TooManyRequestedAttributes|any, data: SimpleDB.SelectResult|any) => void): Request;
+    select(params: SimpleDB.SelectRequest, callback?: (err: SimpleDB.InvalidParameterValue|SimpleDB.InvalidNextToken|SimpleDB.InvalidNumberPredicates|SimpleDB.InvalidNumberValueTests|SimpleDB.InvalidQueryExpression|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.RequestTimeout|SimpleDB.TooManyRequestedAttributes|any, data: SimpleDB.SelectResult|any) => void): Request<SimpleDB.SelectResult|any,SimpleDB.InvalidParameterValue|SimpleDB.InvalidNextToken|SimpleDB.InvalidNumberPredicates|SimpleDB.InvalidNumberValueTests|SimpleDB.InvalidQueryExpression|SimpleDB.MissingParameter|SimpleDB.NoSuchDomain|SimpleDB.RequestTimeout|SimpleDB.TooManyRequestedAttributes|any>;
 
   }
 

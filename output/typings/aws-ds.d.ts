@@ -30,7 +30,7 @@ errors.
      * @error ClientException   
      * @error ServiceException   
      */
-    connectDirectory(params: DirectoryService.ConnectDirectoryRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.ConnectDirectoryResult|any) => void): Request;
+    connectDirectory(params: DirectoryService.ConnectDirectoryRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.ConnectDirectoryResult|any) => void): Request<DirectoryService.ConnectDirectoryResult|any,DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Creates an alias for a directory and assigns the alias to the directory. The
 alias is used to construct the access URL for the directory, such as http:// 
@@ -45,7 +45,7 @@ operation should only be used when absolutely necessary.
      * @error ClientException   
      * @error ServiceException   
      */
-    createAlias(params: DirectoryService.CreateAliasRequest, callback?: (err: DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateAliasResult|any) => void): Request;
+    createAlias(params: DirectoryService.CreateAliasRequest, callback?: (err: DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateAliasResult|any) => void): Request<DirectoryService.CreateAliasResult|any,DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Creates a computer account in the specified directory, and joins the computer to
 the directory.
@@ -59,7 +59,7 @@ the directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    createComputer(params: DirectoryService.CreateComputerRequest, callback?: (err: DirectoryService.AuthenticationFailedException|DirectoryService.DirectoryUnavailableException|DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateComputerResult|any) => void): Request;
+    createComputer(params: DirectoryService.CreateComputerRequest, callback?: (err: DirectoryService.AuthenticationFailedException|DirectoryService.DirectoryUnavailableException|DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateComputerResult|any) => void): Request<DirectoryService.CreateComputerResult|any,DirectoryService.AuthenticationFailedException|DirectoryService.DirectoryUnavailableException|DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Creates a conditional forwarder associated with your AWS directory. Conditional
 forwarders are required in order to set up a trust relationship with another
@@ -73,7 +73,7 @@ domain. The conditional forwarder points to the trusted domain.
      * @error ClientException   
      * @error ServiceException   
      */
-    createConditionalForwarder(params: DirectoryService.CreateConditionalForwarderRequest, callback?: (err: DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateConditionalForwarderResult|any) => void): Request;
+    createConditionalForwarder(params: DirectoryService.CreateConditionalForwarderRequest, callback?: (err: DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateConditionalForwarderResult|any) => void): Request<DirectoryService.CreateConditionalForwarderResult|any,DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Creates a Simple AD directory.
      *
@@ -82,7 +82,7 @@ domain. The conditional forwarder points to the trusted domain.
      * @error ClientException   
      * @error ServiceException   
      */
-    createDirectory(params: DirectoryService.CreateDirectoryRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateDirectoryResult|any) => void): Request;
+    createDirectory(params: DirectoryService.CreateDirectoryRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateDirectoryResult|any) => void): Request<DirectoryService.CreateDirectoryResult|any,DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Creates a Microsoft AD in the AWS cloud.
      *
@@ -92,7 +92,7 @@ domain. The conditional forwarder points to the trusted domain.
      * @error ServiceException   
      * @error UnsupportedOperationException   
      */
-    createMicrosoftAD(params: DirectoryService.CreateMicrosoftADRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.CreateMicrosoftADResult|any) => void): Request;
+    createMicrosoftAD(params: DirectoryService.CreateMicrosoftADRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.CreateMicrosoftADResult|any) => void): Request<DirectoryService.CreateMicrosoftADResult|any,DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any>;
     /**
      * Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.
 
@@ -104,7 +104,7 @@ You cannot take snapshots of AD Connector directories.
      * @error ClientException   
      * @error ServiceException   
      */
-    createSnapshot(params: DirectoryService.CreateSnapshotRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.SnapshotLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateSnapshotResult|any) => void): Request;
+    createSnapshot(params: DirectoryService.CreateSnapshotRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.SnapshotLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.CreateSnapshotResult|any) => void): Request<DirectoryService.CreateSnapshotResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.SnapshotLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * AWS Directory Service for Microsoft Active Directory allows you to configure
 trust relationships. For example, you can establish a trust between your
@@ -122,7 +122,7 @@ between a Microsoft AD in the AWS cloud and an external domain.
      * @error ServiceException   
      * @error UnsupportedOperationException   
      */
-    createTrust(params: DirectoryService.CreateTrustRequest, callback?: (err: DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.CreateTrustResult|any) => void): Request;
+    createTrust(params: DirectoryService.CreateTrustRequest, callback?: (err: DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.CreateTrustResult|any) => void): Request<DirectoryService.CreateTrustResult|any,DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any>;
     /**
      * Deletes a conditional forwarder that has been set up for your AWS directory.
      *
@@ -133,7 +133,7 @@ between a Microsoft AD in the AWS cloud and an external domain.
      * @error ClientException   
      * @error ServiceException   
      */
-    deleteConditionalForwarder(params: DirectoryService.DeleteConditionalForwarderRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DeleteConditionalForwarderResult|any) => void): Request;
+    deleteConditionalForwarder(params: DirectoryService.DeleteConditionalForwarderRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DeleteConditionalForwarderResult|any) => void): Request<DirectoryService.DeleteConditionalForwarderResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Deletes an AWS Directory Service directory.
      *
@@ -141,7 +141,7 @@ between a Microsoft AD in the AWS cloud and an external domain.
      * @error ClientException   
      * @error ServiceException   
      */
-    deleteDirectory(params: DirectoryService.DeleteDirectoryRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DeleteDirectoryResult|any) => void): Request;
+    deleteDirectory(params: DirectoryService.DeleteDirectoryRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DeleteDirectoryResult|any) => void): Request<DirectoryService.DeleteDirectoryResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Deletes a directory snapshot.
      *
@@ -150,7 +150,7 @@ between a Microsoft AD in the AWS cloud and an external domain.
      * @error ClientException   
      * @error ServiceException   
      */
-    deleteSnapshot(params: DirectoryService.DeleteSnapshotRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DeleteSnapshotResult|any) => void): Request;
+    deleteSnapshot(params: DirectoryService.DeleteSnapshotRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DeleteSnapshotResult|any) => void): Request<DirectoryService.DeleteSnapshotResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Deletes an existing trust relationship between your Microsoft AD in the AWS
 cloud and an external domain.
@@ -161,7 +161,7 @@ cloud and an external domain.
      * @error ServiceException   
      * @error UnsupportedOperationException   
      */
-    deleteTrust(params: DirectoryService.DeleteTrustRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.DeleteTrustResult|any) => void): Request;
+    deleteTrust(params: DirectoryService.DeleteTrustRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.DeleteTrustResult|any) => void): Request<DirectoryService.DeleteTrustResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any>;
     /**
      * Removes the specified directory as a publisher to the specified SNS topic.
      *
@@ -170,7 +170,7 @@ cloud and an external domain.
      * @error ClientException   
      * @error ServiceException   
      */
-    deregisterEventTopic(params: DirectoryService.DeregisterEventTopicRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DeregisterEventTopicResult|any) => void): Request;
+    deregisterEventTopic(params: DirectoryService.DeregisterEventTopicRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DeregisterEventTopicResult|any) => void): Request<DirectoryService.DeregisterEventTopicResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Obtains information about the conditional forwarders for this account.
 
@@ -184,7 +184,7 @@ describes all conditional forwarders for the specified directory ID.
      * @error ClientException   
      * @error ServiceException   
      */
-    describeConditionalForwarders(params: DirectoryService.DescribeConditionalForwardersRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DescribeConditionalForwardersResult|any) => void): Request;
+    describeConditionalForwarders(params: DirectoryService.DescribeConditionalForwardersRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DescribeConditionalForwardersResult|any) => void): Request<DirectoryService.DescribeConditionalForwardersResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Obtains information about the directories that belong to this account.
 
@@ -206,7 +206,7 @@ parameter.
      * @error ClientException   
      * @error ServiceException   
      */
-    describeDirectories(params: DirectoryService.DescribeDirectoriesRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.InvalidNextTokenException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DescribeDirectoriesResult|any) => void): Request;
+    describeDirectories(params: DirectoryService.DescribeDirectoriesRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.InvalidNextTokenException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DescribeDirectoriesResult|any) => void): Request<DirectoryService.DescribeDirectoriesResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.InvalidNextTokenException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Obtains information about which SNS topics receive status messages from the
 specified directory.
@@ -219,7 +219,7 @@ request describes all of the associations in the account.
      * @error ClientException   
      * @error ServiceException   
      */
-    describeEventTopics(params: DirectoryService.DescribeEventTopicsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DescribeEventTopicsResult|any) => void): Request;
+    describeEventTopics(params: DirectoryService.DescribeEventTopicsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DescribeEventTopicsResult|any) => void): Request<DirectoryService.DescribeEventTopicsResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Obtains information about the directory snapshots that belong to this account.
 
@@ -237,7 +237,7 @@ parameter.
      * @error ClientException   
      * @error ServiceException   
      */
-    describeSnapshots(params: DirectoryService.DescribeSnapshotsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.InvalidNextTokenException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DescribeSnapshotsResult|any) => void): Request;
+    describeSnapshots(params: DirectoryService.DescribeSnapshotsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.InvalidNextTokenException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DescribeSnapshotsResult|any) => void): Request<DirectoryService.DescribeSnapshotsResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.InvalidNextTokenException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Obtains information about the trust relationships for this account.
 
@@ -251,7 +251,7 @@ request describes all the trust relationships belonging to the account.
      * @error ServiceException   
      * @error UnsupportedOperationException   
      */
-    describeTrusts(params: DirectoryService.DescribeTrustsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidNextTokenException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.DescribeTrustsResult|any) => void): Request;
+    describeTrusts(params: DirectoryService.DescribeTrustsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidNextTokenException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.DescribeTrustsResult|any) => void): Request<DirectoryService.DescribeTrustsResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidNextTokenException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any>;
     /**
      * Disables multi-factor authentication (MFA) with the Remote Authentication Dial
 In User Service (RADIUS) server for an AD Connector directory.
@@ -260,7 +260,7 @@ In User Service (RADIUS) server for an AD Connector directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    disableRadius(params: DirectoryService.DisableRadiusRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DisableRadiusResult|any) => void): Request;
+    disableRadius(params: DirectoryService.DisableRadiusRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DisableRadiusResult|any) => void): Request<DirectoryService.DisableRadiusResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Disables single-sign on for a directory.
      *
@@ -270,7 +270,7 @@ In User Service (RADIUS) server for an AD Connector directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    disableSso(params: DirectoryService.DisableSsoRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InsufficientPermissionsException|DirectoryService.AuthenticationFailedException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DisableSsoResult|any) => void): Request;
+    disableSso(params: DirectoryService.DisableSsoRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InsufficientPermissionsException|DirectoryService.AuthenticationFailedException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.DisableSsoResult|any) => void): Request<DirectoryService.DisableSsoResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InsufficientPermissionsException|DirectoryService.AuthenticationFailedException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Enables multi-factor authentication (MFA) with the Remote Authentication Dial In
 User Service (RADIUS) server for an AD Connector directory.
@@ -281,7 +281,7 @@ User Service (RADIUS) server for an AD Connector directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    enableRadius(params: DirectoryService.EnableRadiusRequest, callback?: (err: DirectoryService.InvalidParameterException|DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.EnableRadiusResult|any) => void): Request;
+    enableRadius(params: DirectoryService.EnableRadiusRequest, callback?: (err: DirectoryService.InvalidParameterException|DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.EnableRadiusResult|any) => void): Request<DirectoryService.EnableRadiusResult|any,DirectoryService.InvalidParameterException|DirectoryService.EntityAlreadyExistsException|DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Enables single-sign on for a directory.
      *
@@ -291,7 +291,7 @@ User Service (RADIUS) server for an AD Connector directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    enableSso(params: DirectoryService.EnableSsoRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InsufficientPermissionsException|DirectoryService.AuthenticationFailedException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.EnableSsoResult|any) => void): Request;
+    enableSso(params: DirectoryService.EnableSsoRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InsufficientPermissionsException|DirectoryService.AuthenticationFailedException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.EnableSsoResult|any) => void): Request<DirectoryService.EnableSsoResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InsufficientPermissionsException|DirectoryService.AuthenticationFailedException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Obtains directory limit information for the current region.
      *
@@ -299,7 +299,7 @@ User Service (RADIUS) server for an AD Connector directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    getDirectoryLimits(params: DirectoryService.GetDirectoryLimitsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.GetDirectoryLimitsResult|any) => void): Request;
+    getDirectoryLimits(params: DirectoryService.GetDirectoryLimitsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.GetDirectoryLimitsResult|any) => void): Request<DirectoryService.GetDirectoryLimitsResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Obtains the manual snapshot limits for a directory.
      *
@@ -307,7 +307,7 @@ User Service (RADIUS) server for an AD Connector directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    getSnapshotLimits(params: DirectoryService.GetSnapshotLimitsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.GetSnapshotLimitsResult|any) => void): Request;
+    getSnapshotLimits(params: DirectoryService.GetSnapshotLimitsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.GetSnapshotLimitsResult|any) => void): Request<DirectoryService.GetSnapshotLimitsResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Associates a directory with an SNS topic. This establishes the directory as a
 publisher to the specified SNS topic. You can then receive email or text (SMS)
@@ -320,7 +320,7 @@ also receive a notification when the directory returns to an Active status.
      * @error ClientException   
      * @error ServiceException   
      */
-    registerEventTopic(params: DirectoryService.RegisterEventTopicRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.RegisterEventTopicResult|any) => void): Request;
+    registerEventTopic(params: DirectoryService.RegisterEventTopicRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.RegisterEventTopicResult|any) => void): Request<DirectoryService.RegisterEventTopicResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Restores a directory using an existing directory snapshot.
 
@@ -337,7 +337,7 @@ value changes to Active , the restore operation is complete.
      * @error ClientException   
      * @error ServiceException   
      */
-    restoreFromSnapshot(params: DirectoryService.RestoreFromSnapshotRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.RestoreFromSnapshotResult|any) => void): Request;
+    restoreFromSnapshot(params: DirectoryService.RestoreFromSnapshotRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.RestoreFromSnapshotResult|any) => void): Request<DirectoryService.RestoreFromSnapshotResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Updates a conditional forwarder that has been set up for your AWS directory.
      *
@@ -348,7 +348,7 @@ value changes to Active , the restore operation is complete.
      * @error ClientException   
      * @error ServiceException   
      */
-    updateConditionalForwarder(params: DirectoryService.UpdateConditionalForwarderRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.UpdateConditionalForwarderResult|any) => void): Request;
+    updateConditionalForwarder(params: DirectoryService.UpdateConditionalForwarderRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.UpdateConditionalForwarderResult|any) => void): Request<DirectoryService.UpdateConditionalForwarderResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.DirectoryUnavailableException|DirectoryService.InvalidParameterException|DirectoryService.UnsupportedOperationException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Updates the Remote Authentication Dial In User Service (RADIUS) server
 information for an AD Connector directory.
@@ -358,7 +358,7 @@ information for an AD Connector directory.
      * @error ClientException   
      * @error ServiceException   
      */
-    updateRadius(params: DirectoryService.UpdateRadiusRequest, callback?: (err: DirectoryService.InvalidParameterException|DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.UpdateRadiusResult|any) => void): Request;
+    updateRadius(params: DirectoryService.UpdateRadiusRequest, callback?: (err: DirectoryService.InvalidParameterException|DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.UpdateRadiusResult|any) => void): Request<DirectoryService.UpdateRadiusResult|any,DirectoryService.InvalidParameterException|DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * AWS Directory Service for Microsoft Active Directory allows you to configure and
 verify trust relationships.
@@ -372,7 +372,7 @@ cloud and an external domain.
      * @error ServiceException   
      * @error UnsupportedOperationException   
      */
-    verifyTrust(params: DirectoryService.VerifyTrustRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.VerifyTrustResult|any) => void): Request;
+    verifyTrust(params: DirectoryService.VerifyTrustRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any, data: DirectoryService.VerifyTrustResult|any) => void): Request<DirectoryService.VerifyTrustResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|DirectoryService.UnsupportedOperationException|any>;
 
   }
 

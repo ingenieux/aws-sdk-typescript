@@ -53,7 +53,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFStaleDataException   
      * @error WAFLimitsExceededException   
      */
-    createByteMatchSet(params: WAF.CreateByteMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.CreateByteMatchSetResponse|any) => void): Request;
+    createByteMatchSet(params: WAF.CreateByteMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.CreateByteMatchSetResponse|any) => void): Request<WAF.CreateByteMatchSetResponse|any,WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any>;
     /**
      * Creates an IPSet , which you use to specify which web requests you want to allow
 or block based on the IP addresses that the requests originate from. For
@@ -83,7 +83,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFInvalidParameterException   
      * @error WAFLimitsExceededException   
      */
-    createIPSet(params: WAF.CreateIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateIPSetResponse|any) => void): Request;
+    createIPSet(params: WAF.CreateIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateIPSetResponse|any) => void): Request<WAF.CreateIPSetResponse|any,WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any>;
     /**
      * Creates a Rule , which contains the IPSet objects, ByteMatchSet objects, and
 other predicates that identify the requests that you want to block. If you add
@@ -124,7 +124,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFInvalidParameterException   
      * @error WAFLimitsExceededException   
      */
-    createRule(params: WAF.CreateRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateRuleResponse|any) => void): Request;
+    createRule(params: WAF.CreateRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateRuleResponse|any) => void): Request<WAF.CreateRuleResponse|any,WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any>;
     /**
      * Creates a SizeConstraintSet . You then use UpdateSizeConstraintSet to identify
 the part of a web request that you want AWS WAF to check for length, such as the
@@ -155,7 +155,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFInvalidParameterException   
      * @error WAFLimitsExceededException   
      */
-    createSizeConstraintSet(params: WAF.CreateSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateSizeConstraintSetResponse|any) => void): Request;
+    createSizeConstraintSet(params: WAF.CreateSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateSizeConstraintSetResponse|any) => void): Request<WAF.CreateSizeConstraintSetResponse|any,WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any>;
     /**
      * Creates a SqlInjectionMatchSet , which you use to allow, block, or count
 requests that contain snippets of SQL code in a specified part of web requests.
@@ -183,7 +183,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFStaleDataException   
      * @error WAFLimitsExceededException   
      */
-    createSqlInjectionMatchSet(params: WAF.CreateSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.CreateSqlInjectionMatchSetResponse|any) => void): Request;
+    createSqlInjectionMatchSet(params: WAF.CreateSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.CreateSqlInjectionMatchSetResponse|any) => void): Request<WAF.CreateSqlInjectionMatchSetResponse|any,WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any>;
     /**
      * Creates a WebACL , which contains the Rules that identify the CloudFront web
 requests that you want to allow, block, or count. AWS WAF evaluates Rules in
@@ -220,7 +220,7 @@ Guide [http://docs.aws.amazon.com/waf/latest/developerguide/] .
      * @error WAFInvalidParameterException   
      * @error WAFLimitsExceededException   
      */
-    createWebACL(params: WAF.CreateWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateWebACLResponse|any) => void): Request;
+    createWebACL(params: WAF.CreateWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any, data: WAF.CreateWebACLResponse|any) => void): Request<WAF.CreateWebACLResponse|any,WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFDisallowedNameException|WAF.WAFInvalidParameterException|WAF.WAFLimitsExceededException|any>;
     /**
      * Creates an XssMatchSet , which you use to allow, block, or count requests that
 contain cross-site scripting attacks in the specified part of web requests. AWS
@@ -247,7 +247,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFStaleDataException   
      * @error WAFLimitsExceededException   
      */
-    createXssMatchSet(params: WAF.CreateXssMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.CreateXssMatchSetResponse|any) => void): Request;
+    createXssMatchSet(params: WAF.CreateXssMatchSetRequest, callback?: (err: WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.CreateXssMatchSetResponse|any) => void): Request<WAF.CreateXssMatchSetResponse|any,WAF.WAFDisallowedNameException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidParameterException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any>;
     /**
      * Permanently deletes a ByteMatchSet . You can&#x27;t delete a ByteMatchSet if it&#x27;s
 still used in any Rules or if it still includes any ByteMatchTuple objects (any
@@ -270,7 +270,7 @@ To permanently delete a ByteMatchSet , perform the following steps:
      * @error WAFStaleDataException   
      * @error WAFNonEmptyEntityException   
      */
-    deleteByteMatchSet(params: WAF.DeleteByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteByteMatchSetResponse|any) => void): Request;
+    deleteByteMatchSet(params: WAF.DeleteByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteByteMatchSetResponse|any) => void): Request<WAF.DeleteByteMatchSetResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any>;
     /**
      * Permanently deletes an IPSet . You can&#x27;t delete an IPSet if it&#x27;s still used in
 any Rules or if it still includes any IP addresses.
@@ -292,7 +292,7 @@ To permanently delete an IPSet from AWS WAF, perform the following steps:
      * @error WAFReferencedItemException   
      * @error WAFNonEmptyEntityException   
      */
-    deleteIPSet(params: WAF.DeleteIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteIPSetResponse|any) => void): Request;
+    deleteIPSet(params: WAF.DeleteIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteIPSetResponse|any) => void): Request<WAF.DeleteIPSetResponse|any,WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any>;
     /**
      * Permanently deletes a Rule . You can&#x27;t delete a Rule if it&#x27;s still used in any 
 WebACL objects or if it still includes any predicates, such as ByteMatchSet 
@@ -315,7 +315,7 @@ To permanently delete a Rule from AWS WAF, perform the following steps:
      * @error WAFReferencedItemException   
      * @error WAFNonEmptyEntityException   
      */
-    deleteRule(params: WAF.DeleteRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteRuleResponse|any) => void): Request;
+    deleteRule(params: WAF.DeleteRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteRuleResponse|any) => void): Request<WAF.DeleteRuleResponse|any,WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any>;
     /**
      * Permanently deletes a SizeConstraintSet . You can&#x27;t delete a SizeConstraintSet 
 if it&#x27;s still used in any Rules or if it still includes any SizeConstraint 
@@ -338,7 +338,7 @@ To permanently delete a SizeConstraintSet , perform the following steps:
      * @error WAFReferencedItemException   
      * @error WAFNonEmptyEntityException   
      */
-    deleteSizeConstraintSet(params: WAF.DeleteSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteSizeConstraintSetResponse|any) => void): Request;
+    deleteSizeConstraintSet(params: WAF.DeleteSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteSizeConstraintSetResponse|any) => void): Request<WAF.DeleteSizeConstraintSetResponse|any,WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any>;
     /**
      * Permanently deletes a SqlInjectionMatchSet . You can&#x27;t delete a 
 SqlInjectionMatchSet if it&#x27;s still used in any Rules or if it still contains any 
@@ -362,7 +362,7 @@ steps:
      * @error WAFStaleDataException   
      * @error WAFNonEmptyEntityException   
      */
-    deleteSqlInjectionMatchSet(params: WAF.DeleteSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteSqlInjectionMatchSetResponse|any) => void): Request;
+    deleteSqlInjectionMatchSet(params: WAF.DeleteSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteSqlInjectionMatchSetResponse|any) => void): Request<WAF.DeleteSqlInjectionMatchSetResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any>;
     /**
      * Permanently deletes a WebACL . You can&#x27;t delete a WebACL if it still contains
 any Rules .
@@ -382,7 +382,7 @@ To delete a WebACL , perform the following steps:
      * @error WAFReferencedItemException   
      * @error WAFNonEmptyEntityException   
      */
-    deleteWebACL(params: WAF.DeleteWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteWebACLResponse|any) => void): Request;
+    deleteWebACL(params: WAF.DeleteWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteWebACLResponse|any) => void): Request<WAF.DeleteWebACLResponse|any,WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFNonEmptyEntityException|any>;
     /**
      * Permanently deletes an XssMatchSet . You can&#x27;t delete an XssMatchSet if it&#x27;s
 still used in any Rules or if it still contains any XssMatchTuple objects.
@@ -404,7 +404,7 @@ To permanently delete an XssMatchSet from AWS WAF, perform the following steps:
      * @error WAFStaleDataException   
      * @error WAFNonEmptyEntityException   
      */
-    deleteXssMatchSet(params: WAF.DeleteXssMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteXssMatchSetResponse|any) => void): Request;
+    deleteXssMatchSet(params: WAF.DeleteXssMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any, data: WAF.DeleteXssMatchSetResponse|any) => void): Request<WAF.DeleteXssMatchSetResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFStaleDataException|WAF.WAFNonEmptyEntityException|any>;
     /**
      * Returns the ByteMatchSet specified by ByteMatchSetId .
      *
@@ -412,7 +412,7 @@ To permanently delete an XssMatchSet from AWS WAF, perform the following steps:
      * @error WAFInvalidAccountException   
      * @error WAFNonexistentItemException   
      */
-    getByteMatchSet(params: WAF.GetByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetByteMatchSetResponse|any) => void): Request;
+    getByteMatchSet(params: WAF.GetByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetByteMatchSetResponse|any) => void): Request<WAF.GetByteMatchSetResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any>;
     /**
      * When you want to create, update, or delete AWS WAF objects, get a change token
 and include the change token in the create, update, or delete request. Change
@@ -432,7 +432,7 @@ determine the status of your change token.
      *
      * @error WAFInternalErrorException   
      */
-    getChangeToken(params: WAF.GetChangeTokenRequest, callback?: (err: WAF.WAFInternalErrorException|any, data: WAF.GetChangeTokenResponse|any) => void): Request;
+    getChangeToken(params: WAF.GetChangeTokenRequest, callback?: (err: WAF.WAFInternalErrorException|any, data: WAF.GetChangeTokenResponse|any) => void): Request<WAF.GetChangeTokenResponse|any,WAF.WAFInternalErrorException|any>;
     /**
      * Returns the status of a ChangeToken that you got by calling GetChangeToken . 
 ChangeTokenStatus is one of the following values:
@@ -447,7 +447,7 @@ ChangeTokenStatus is one of the following values:
      * @error WAFNonexistentItemException   
      * @error WAFInternalErrorException   
      */
-    getChangeTokenStatus(params: WAF.GetChangeTokenStatusRequest, callback?: (err: WAF.WAFNonexistentItemException|WAF.WAFInternalErrorException|any, data: WAF.GetChangeTokenStatusResponse|any) => void): Request;
+    getChangeTokenStatus(params: WAF.GetChangeTokenStatusRequest, callback?: (err: WAF.WAFNonexistentItemException|WAF.WAFInternalErrorException|any, data: WAF.GetChangeTokenStatusResponse|any) => void): Request<WAF.GetChangeTokenStatusResponse|any,WAF.WAFNonexistentItemException|WAF.WAFInternalErrorException|any>;
     /**
      * Returns the IPSet that is specified by IPSetId .
      *
@@ -455,7 +455,7 @@ ChangeTokenStatus is one of the following values:
      * @error WAFInvalidAccountException   
      * @error WAFNonexistentItemException   
      */
-    getIPSet(params: WAF.GetIPSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetIPSetResponse|any) => void): Request;
+    getIPSet(params: WAF.GetIPSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetIPSetResponse|any) => void): Request<WAF.GetIPSetResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any>;
     /**
      * Returns the Rule that is specified by the RuleId that you included in the 
 GetRule request.
@@ -464,7 +464,7 @@ GetRule request.
      * @error WAFInvalidAccountException   
      * @error WAFNonexistentItemException   
      */
-    getRule(params: WAF.GetRuleRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetRuleResponse|any) => void): Request;
+    getRule(params: WAF.GetRuleRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetRuleResponse|any) => void): Request<WAF.GetRuleResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any>;
     /**
      * Gets detailed information about a specified number of requests--a sample--that
 AWS WAF randomly selects from among the first 5,000 requests that your AWS
@@ -481,7 +481,7 @@ the actual period during which AWS WAF selected the requests in the sample.
      * @error WAFNonexistentItemException   
      * @error WAFInternalErrorException   
      */
-    getSampledRequests(params: WAF.GetSampledRequestsRequest, callback?: (err: WAF.WAFNonexistentItemException|WAF.WAFInternalErrorException|any, data: WAF.GetSampledRequestsResponse|any) => void): Request;
+    getSampledRequests(params: WAF.GetSampledRequestsRequest, callback?: (err: WAF.WAFNonexistentItemException|WAF.WAFInternalErrorException|any, data: WAF.GetSampledRequestsResponse|any) => void): Request<WAF.GetSampledRequestsResponse|any,WAF.WAFNonexistentItemException|WAF.WAFInternalErrorException|any>;
     /**
      * Returns the SizeConstraintSet specified by SizeConstraintSetId .
      *
@@ -489,7 +489,7 @@ the actual period during which AWS WAF selected the requests in the sample.
      * @error WAFInvalidAccountException   
      * @error WAFNonexistentItemException   
      */
-    getSizeConstraintSet(params: WAF.GetSizeConstraintSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetSizeConstraintSetResponse|any) => void): Request;
+    getSizeConstraintSet(params: WAF.GetSizeConstraintSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetSizeConstraintSetResponse|any) => void): Request<WAF.GetSizeConstraintSetResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any>;
     /**
      * Returns the SqlInjectionMatchSet that is specified by SqlInjectionMatchSetId .
      *
@@ -497,7 +497,7 @@ the actual period during which AWS WAF selected the requests in the sample.
      * @error WAFInvalidAccountException   
      * @error WAFNonexistentItemException   
      */
-    getSqlInjectionMatchSet(params: WAF.GetSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetSqlInjectionMatchSetResponse|any) => void): Request;
+    getSqlInjectionMatchSet(params: WAF.GetSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetSqlInjectionMatchSetResponse|any) => void): Request<WAF.GetSqlInjectionMatchSetResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any>;
     /**
      * Returns the WebACL that is specified by WebACLId .
      *
@@ -505,7 +505,7 @@ the actual period during which AWS WAF selected the requests in the sample.
      * @error WAFInvalidAccountException   
      * @error WAFNonexistentItemException   
      */
-    getWebACL(params: WAF.GetWebACLRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetWebACLResponse|any) => void): Request;
+    getWebACL(params: WAF.GetWebACLRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetWebACLResponse|any) => void): Request<WAF.GetWebACLResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any>;
     /**
      * Returns the XssMatchSet that is specified by XssMatchSetId .
      *
@@ -513,56 +513,56 @@ the actual period during which AWS WAF selected the requests in the sample.
      * @error WAFInvalidAccountException   
      * @error WAFNonexistentItemException   
      */
-    getXssMatchSet(params: WAF.GetXssMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetXssMatchSetResponse|any) => void): Request;
+    getXssMatchSet(params: WAF.GetXssMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any, data: WAF.GetXssMatchSetResponse|any) => void): Request<WAF.GetXssMatchSetResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFNonexistentItemException|any>;
     /**
      * Returns an array of ByteMatchSetSummary objects.
      *
      * @error WAFInternalErrorException   
      * @error WAFInvalidAccountException   
      */
-    listByteMatchSets(params: WAF.ListByteMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListByteMatchSetsResponse|any) => void): Request;
+    listByteMatchSets(params: WAF.ListByteMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListByteMatchSetsResponse|any) => void): Request<WAF.ListByteMatchSetsResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any>;
     /**
      * Returns an array of IPSetSummary objects in the response.
      *
      * @error WAFInternalErrorException   
      * @error WAFInvalidAccountException   
      */
-    listIPSets(params: WAF.ListIPSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListIPSetsResponse|any) => void): Request;
+    listIPSets(params: WAF.ListIPSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListIPSetsResponse|any) => void): Request<WAF.ListIPSetsResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any>;
     /**
      * Returns an array of RuleSummary objects.
      *
      * @error WAFInternalErrorException   
      * @error WAFInvalidAccountException   
      */
-    listRules(params: WAF.ListRulesRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListRulesResponse|any) => void): Request;
+    listRules(params: WAF.ListRulesRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListRulesResponse|any) => void): Request<WAF.ListRulesResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any>;
     /**
      * Returns an array of SizeConstraintSetSummary objects.
      *
      * @error WAFInternalErrorException   
      * @error WAFInvalidAccountException   
      */
-    listSizeConstraintSets(params: WAF.ListSizeConstraintSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListSizeConstraintSetsResponse|any) => void): Request;
+    listSizeConstraintSets(params: WAF.ListSizeConstraintSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListSizeConstraintSetsResponse|any) => void): Request<WAF.ListSizeConstraintSetsResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any>;
     /**
      * Returns an array of SqlInjectionMatchSet objects.
      *
      * @error WAFInternalErrorException   
      * @error WAFInvalidAccountException   
      */
-    listSqlInjectionMatchSets(params: WAF.ListSqlInjectionMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListSqlInjectionMatchSetsResponse|any) => void): Request;
+    listSqlInjectionMatchSets(params: WAF.ListSqlInjectionMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListSqlInjectionMatchSetsResponse|any) => void): Request<WAF.ListSqlInjectionMatchSetsResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any>;
     /**
      * Returns an array of WebACLSummary objects in the response.
      *
      * @error WAFInternalErrorException   
      * @error WAFInvalidAccountException   
      */
-    listWebACLs(params: WAF.ListWebACLsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListWebACLsResponse|any) => void): Request;
+    listWebACLs(params: WAF.ListWebACLsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListWebACLsResponse|any) => void): Request<WAF.ListWebACLsResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any>;
     /**
      * Returns an array of XssMatchSet objects.
      *
      * @error WAFInternalErrorException   
      * @error WAFInvalidAccountException   
      */
-    listXssMatchSets(params: WAF.ListXssMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListXssMatchSetsResponse|any) => void): Request;
+    listXssMatchSets(params: WAF.ListXssMatchSetsRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any, data: WAF.ListXssMatchSetsResponse|any) => void): Request<WAF.ListXssMatchSetsResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|any>;
     /**
      * Inserts or deletes ByteMatchTuple objects (filters) in a ByteMatchSet . For each 
 ByteMatchTuple object, you specify the following values:
@@ -606,7 +606,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFStaleDataException   
      * @error WAFLimitsExceededException   
      */
-    updateByteMatchSet(params: WAF.UpdateByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateByteMatchSetResponse|any) => void): Request;
+    updateByteMatchSet(params: WAF.UpdateByteMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateByteMatchSetResponse|any) => void): Request<WAF.UpdateByteMatchSetResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any>;
     /**
      * Inserts or deletes IPSetDescriptor objects in an IPSet . For each 
 IPSetDescriptor object, you specify the following values:
@@ -654,7 +654,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFReferencedItemException   
      * @error WAFLimitsExceededException   
      */
-    updateIPSet(params: WAF.UpdateIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateIPSetResponse|any) => void): Request;
+    updateIPSet(params: WAF.UpdateIPSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateIPSetResponse|any) => void): Request<WAF.UpdateIPSetResponse|any,WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any>;
     /**
      * Inserts or deletes Predicate objects in a Rule . Each Predicate object
 identifies a predicate, such as a ByteMatchSet or an IPSet , that specifies the
@@ -697,7 +697,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFReferencedItemException   
      * @error WAFLimitsExceededException   
      */
-    updateRule(params: WAF.UpdateRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateRuleResponse|any) => void): Request;
+    updateRule(params: WAF.UpdateRuleRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateRuleResponse|any) => void): Request<WAF.UpdateRuleResponse|any,WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any>;
     /**
      * Inserts or deletes SizeConstraint objects (filters) in a SizeConstraintSet . For
 each SizeConstraint object, you specify the following values:
@@ -745,7 +745,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFReferencedItemException   
      * @error WAFLimitsExceededException   
      */
-    updateSizeConstraintSet(params: WAF.UpdateSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateSizeConstraintSetResponse|any) => void): Request;
+    updateSizeConstraintSet(params: WAF.UpdateSizeConstraintSetRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateSizeConstraintSetResponse|any) => void): Request<WAF.UpdateSizeConstraintSetResponse|any,WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any>;
     /**
      * Inserts or deletes SqlInjectionMatchTuple objects (filters) in a 
 SqlInjectionMatchSet . For each SqlInjectionMatchTuple object, you specify the
@@ -786,7 +786,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFStaleDataException   
      * @error WAFLimitsExceededException   
      */
-    updateSqlInjectionMatchSet(params: WAF.UpdateSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateSqlInjectionMatchSetResponse|any) => void): Request;
+    updateSqlInjectionMatchSet(params: WAF.UpdateSqlInjectionMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateSqlInjectionMatchSetResponse|any) => void): Request<WAF.UpdateSqlInjectionMatchSetResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any>;
     /**
      * Inserts or deletes ActivatedRule objects in a WebACL . Each Rule identifies web
 requests that you want to allow, block, or count. When you update a WebACL , you
@@ -838,7 +838,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFReferencedItemException   
      * @error WAFLimitsExceededException   
      */
-    updateWebACL(params: WAF.UpdateWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateWebACLResponse|any) => void): Request;
+    updateWebACL(params: WAF.UpdateWebACLRequest, callback?: (err: WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateWebACLResponse|any) => void): Request<WAF.UpdateWebACLResponse|any,WAF.WAFStaleDataException|WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFReferencedItemException|WAF.WAFLimitsExceededException|any>;
     /**
      * Inserts or deletes XssMatchTuple objects (filters) in an XssMatchSet . For each 
 XssMatchTuple object, you specify the following values:
@@ -878,7 +878,7 @@ requests, see the AWS WAF Developer Guide
      * @error WAFStaleDataException   
      * @error WAFLimitsExceededException   
      */
-    updateXssMatchSet(params: WAF.UpdateXssMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateXssMatchSetResponse|any) => void): Request;
+    updateXssMatchSet(params: WAF.UpdateXssMatchSetRequest, callback?: (err: WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any, data: WAF.UpdateXssMatchSetResponse|any) => void): Request<WAF.UpdateXssMatchSetResponse|any,WAF.WAFInternalErrorException|WAF.WAFInvalidAccountException|WAF.WAFInvalidOperationException|WAF.WAFInvalidParameterException|WAF.WAFNonexistentContainerException|WAF.WAFNonexistentItemException|WAF.WAFStaleDataException|WAF.WAFLimitsExceededException|any>;
 
   }
 

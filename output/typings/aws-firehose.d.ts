@@ -79,7 +79,7 @@ in the Amazon Kinesis Firehose Developer Guide .
      * @error LimitExceededException   
      * @error ResourceInUseException   
      */
-    createDeliveryStream(params: Firehose.CreateDeliveryStreamInput, callback?: (err: Firehose.InvalidArgumentException|Firehose.LimitExceededException|Firehose.ResourceInUseException|any, data: Firehose.CreateDeliveryStreamOutput|any) => void): Request;
+    createDeliveryStream(params: Firehose.CreateDeliveryStreamInput, callback?: (err: Firehose.InvalidArgumentException|Firehose.LimitExceededException|Firehose.ResourceInUseException|any, data: Firehose.CreateDeliveryStreamOutput|any) => void): Request<Firehose.CreateDeliveryStreamOutput|any,Firehose.InvalidArgumentException|Firehose.LimitExceededException|Firehose.ResourceInUseException|any>;
     /**
      * Deletes a delivery stream and its data.
 
@@ -97,7 +97,7 @@ applications that are sending records before deleting a delivery stream.
      * @error ResourceInUseException   
      * @error ResourceNotFoundException   
      */
-    deleteDeliveryStream(params: Firehose.DeleteDeliveryStreamInput, callback?: (err: Firehose.ResourceInUseException|Firehose.ResourceNotFoundException|any, data: Firehose.DeleteDeliveryStreamOutput|any) => void): Request;
+    deleteDeliveryStream(params: Firehose.DeleteDeliveryStreamInput, callback?: (err: Firehose.ResourceInUseException|Firehose.ResourceNotFoundException|any, data: Firehose.DeleteDeliveryStreamOutput|any) => void): Request<Firehose.DeleteDeliveryStreamOutput|any,Firehose.ResourceInUseException|Firehose.ResourceNotFoundException|any>;
     /**
      * Describes the specified delivery stream and gets the status. For example, after
 your delivery stream is created, call DescribeDeliveryStream to see if the
@@ -105,7 +105,7 @@ delivery stream is ACTIVE and therefore ready for data to be sent to it.
      *
      * @error ResourceNotFoundException   
      */
-    describeDeliveryStream(params: Firehose.DescribeDeliveryStreamInput, callback?: (err: Firehose.ResourceNotFoundException|any, data: Firehose.DescribeDeliveryStreamOutput|any) => void): Request;
+    describeDeliveryStream(params: Firehose.DescribeDeliveryStreamInput, callback?: (err: Firehose.ResourceNotFoundException|any, data: Firehose.DescribeDeliveryStreamOutput|any) => void): Request<Firehose.DescribeDeliveryStreamOutput|any,Firehose.ResourceNotFoundException|any>;
     /**
      * Lists your delivery streams.
 
@@ -118,7 +118,7 @@ the last delivery stream returned in the call in the
 ExclusiveStartDeliveryStreamName parameter of a subsequent call.
      *
      */
-    listDeliveryStreams(params: Firehose.ListDeliveryStreamsInput, callback?: (err: any, data: Firehose.ListDeliveryStreamsOutput|any) => void): Request;
+    listDeliveryStreams(params: Firehose.ListDeliveryStreamsInput, callback?: (err: any, data: Firehose.ListDeliveryStreamsOutput|any) => void): Request<Firehose.ListDeliveryStreamsOutput|any,any>;
     /**
      * Writes a single data record into an Amazon Kinesis Firehose delivery stream. To
 write multiple data records into a delivery stream, use PutRecordBatch .
@@ -159,7 +159,7 @@ is no longer available.
      * @error InvalidArgumentException   
      * @error ServiceUnavailableException   
      */
-    putRecord(params: Firehose.PutRecordInput, callback?: (err: Firehose.ResourceNotFoundException|Firehose.InvalidArgumentException|Firehose.ServiceUnavailableException|any, data: Firehose.PutRecordOutput|any) => void): Request;
+    putRecord(params: Firehose.PutRecordInput, callback?: (err: Firehose.ResourceNotFoundException|Firehose.InvalidArgumentException|Firehose.ServiceUnavailableException|any, data: Firehose.PutRecordOutput|any) => void): Request<Firehose.PutRecordOutput|any,Firehose.ResourceNotFoundException|Firehose.InvalidArgumentException|Firehose.ServiceUnavailableException|any>;
     /**
      * Writes multiple data records into a delivery stream in a single call, which can
 achieve higher throughput per producer than when writing single records. To
@@ -223,7 +223,7 @@ is no longer available.
      * @error InvalidArgumentException   
      * @error ServiceUnavailableException   
      */
-    putRecordBatch(params: Firehose.PutRecordBatchInput, callback?: (err: Firehose.ResourceNotFoundException|Firehose.InvalidArgumentException|Firehose.ServiceUnavailableException|any, data: Firehose.PutRecordBatchOutput|any) => void): Request;
+    putRecordBatch(params: Firehose.PutRecordBatchInput, callback?: (err: Firehose.ResourceNotFoundException|Firehose.InvalidArgumentException|Firehose.ServiceUnavailableException|any, data: Firehose.PutRecordBatchOutput|any) => void): Request<Firehose.PutRecordBatchOutput|any,Firehose.ResourceNotFoundException|Firehose.InvalidArgumentException|Firehose.ServiceUnavailableException|any>;
     /**
      * Updates the specified destination of the specified delivery stream. Note:
 Switching between Elasticsearch and other services is not supported. For
@@ -263,7 +263,7 @@ UpdateDestination operation.
      * @error ResourceNotFoundException   
      * @error ConcurrentModificationException   
      */
-    updateDestination(params: Firehose.UpdateDestinationInput, callback?: (err: Firehose.InvalidArgumentException|Firehose.ResourceInUseException|Firehose.ResourceNotFoundException|Firehose.ConcurrentModificationException|any, data: Firehose.UpdateDestinationOutput|any) => void): Request;
+    updateDestination(params: Firehose.UpdateDestinationInput, callback?: (err: Firehose.InvalidArgumentException|Firehose.ResourceInUseException|Firehose.ResourceNotFoundException|Firehose.ConcurrentModificationException|any, data: Firehose.UpdateDestinationOutput|any) => void): Request<Firehose.UpdateDestinationOutput|any,Firehose.InvalidArgumentException|Firehose.ResourceInUseException|Firehose.ResourceNotFoundException|Firehose.ConcurrentModificationException|any>;
 
   }
 

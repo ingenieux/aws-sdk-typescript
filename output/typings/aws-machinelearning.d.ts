@@ -41,7 +41,7 @@ the results are available in the location specified by the OutputUri parameter.
 from retrying a request using a parameter that was not present in the original
 request.  
      */
-    createBatchPrediction(params: MachineLearning.CreateBatchPredictionInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateBatchPredictionOutput|any) => void): Request;
+    createBatchPrediction(params: MachineLearning.CreateBatchPredictionInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateBatchPredictionOutput|any) => void): Request<MachineLearning.CreateBatchPredictionOutput|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any>;
     /**
      * Creates a DataSource object from an Amazon Relational Database Service
 [http://aws.amazon.com/rds/] (Amazon RDS). A DataSource references data that can
@@ -65,7 +65,7 @@ GetDataSource operation response.
 from retrying a request using a parameter that was not present in the original
 request.  
      */
-    createDataSourceFromRDS(params: MachineLearning.CreateDataSourceFromRDSInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateDataSourceFromRDSOutput|any) => void): Request;
+    createDataSourceFromRDS(params: MachineLearning.CreateDataSourceFromRDSInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateDataSourceFromRDSOutput|any) => void): Request<MachineLearning.CreateDataSourceFromRDSOutput|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any>;
     /**
      * Creates a DataSource from Amazon Redshift [http://aws.amazon.com/redshift/] . A 
 DataSource references data that can be used to perform either CreateMLModel , 
@@ -104,7 +104,7 @@ Learning Developer Guide.
 from retrying a request using a parameter that was not present in the original
 request.  
      */
-    createDataSourceFromRedshift(params: MachineLearning.CreateDataSourceFromRedshiftInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateDataSourceFromRedshiftOutput|any) => void): Request;
+    createDataSourceFromRedshift(params: MachineLearning.CreateDataSourceFromRedshiftInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateDataSourceFromRedshiftOutput|any) => void): Request<MachineLearning.CreateDataSourceFromRedshiftOutput|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any>;
     /**
      * Creates a DataSource object. A DataSource references data that can be used to
 perform CreateMLModel , CreateEvaluation , or CreateBatchPrediction operations.
@@ -144,7 +144,7 @@ Machine Learning Developer Guide
 from retrying a request using a parameter that was not present in the original
 request.  
      */
-    createDataSourceFromS3(params: MachineLearning.CreateDataSourceFromS3Input, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateDataSourceFromS3Output|any) => void): Request;
+    createDataSourceFromS3(params: MachineLearning.CreateDataSourceFromS3Input, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateDataSourceFromS3Output|any) => void): Request<MachineLearning.CreateDataSourceFromS3Output|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any>;
     /**
      * Creates a new Evaluation of an MLModel . An MLModel is evaluated on a set of
 observations associated to a DataSource . Like a DataSource for an MLModel , the 
@@ -169,7 +169,7 @@ during the creation operation.
 from retrying a request using a parameter that was not present in the original
 request.  
      */
-    createEvaluation(params: MachineLearning.CreateEvaluationInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateEvaluationOutput|any) => void): Request;
+    createEvaluation(params: MachineLearning.CreateEvaluationInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateEvaluationOutput|any) => void): Request<MachineLearning.CreateEvaluationOutput|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any>;
     /**
      * Creates a new MLModel using the data files and the recipe as information
 sources.
@@ -195,7 +195,7 @@ CreateDataSourceFromS3 , or CreateDataSourceFromRedshift operations.
 from retrying a request using a parameter that was not present in the original
 request.  
      */
-    createMLModel(params: MachineLearning.CreateMLModelInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateMLModelOutput|any) => void): Request;
+    createMLModel(params: MachineLearning.CreateMLModelInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any, data: MachineLearning.CreateMLModelOutput|any) => void): Request<MachineLearning.CreateMLModelOutput|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|MachineLearning.IdempotentParameterMismatchException|any>;
     /**
      * Creates a real-time endpoint for the MLModel . The endpoint contains the URI of
 the MLModel ; that is, the location to send real-time prediction requests for
@@ -205,7 +205,7 @@ the specified MLModel .
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    createRealtimeEndpoint(params: MachineLearning.CreateRealtimeEndpointInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.CreateRealtimeEndpointOutput|any) => void): Request;
+    createRealtimeEndpoint(params: MachineLearning.CreateRealtimeEndpointInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.CreateRealtimeEndpointOutput|any) => void): Request<MachineLearning.CreateRealtimeEndpointOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Assigns the DELETED status to a BatchPrediction , rendering it unusable.
 
@@ -219,7 +219,7 @@ Caution: The result of the DeleteBatchPrediction operation is irreversible.
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    deleteBatchPrediction(params: MachineLearning.DeleteBatchPredictionInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.DeleteBatchPredictionOutput|any) => void): Request;
+    deleteBatchPrediction(params: MachineLearning.DeleteBatchPredictionInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.DeleteBatchPredictionOutput|any) => void): Request<MachineLearning.DeleteBatchPredictionOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Assigns the DELETED status to a DataSource , rendering it unusable.
 
@@ -232,7 +232,7 @@ Caution: The results of the DeleteDataSource operation are irreversible.
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    deleteDataSource(params: MachineLearning.DeleteDataSourceInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.DeleteDataSourceOutput|any) => void): Request;
+    deleteDataSource(params: MachineLearning.DeleteDataSourceInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.DeleteDataSourceOutput|any) => void): Request<MachineLearning.DeleteDataSourceOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Assigns the DELETED status to an Evaluation , rendering it unusable.
 
@@ -245,7 +245,7 @@ Caution: The results of the DeleteEvaluation operation are irreversible.
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    deleteEvaluation(params: MachineLearning.DeleteEvaluationInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.DeleteEvaluationOutput|any) => void): Request;
+    deleteEvaluation(params: MachineLearning.DeleteEvaluationInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.DeleteEvaluationOutput|any) => void): Request<MachineLearning.DeleteEvaluationOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Assigns the DELETED status to an MLModel , rendering it unusable.
 
@@ -258,7 +258,7 @@ Caution: The result of the DeleteMLModel operation is irreversible.
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    deleteMLModel(params: MachineLearning.DeleteMLModelInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.DeleteMLModelOutput|any) => void): Request;
+    deleteMLModel(params: MachineLearning.DeleteMLModelInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.DeleteMLModelOutput|any) => void): Request<MachineLearning.DeleteMLModelOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Deletes a real time endpoint of an MLModel .
      *
@@ -266,7 +266,7 @@ Caution: The result of the DeleteMLModel operation is irreversible.
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    deleteRealtimeEndpoint(params: MachineLearning.DeleteRealtimeEndpointInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.DeleteRealtimeEndpointOutput|any) => void): Request;
+    deleteRealtimeEndpoint(params: MachineLearning.DeleteRealtimeEndpointInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.DeleteRealtimeEndpointOutput|any) => void): Request<MachineLearning.DeleteRealtimeEndpointOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Returns a list of BatchPrediction operations that match the search criteria in
 the request.
@@ -274,14 +274,14 @@ the request.
      * @error InvalidInputException An error on the client occurred. Typically, the cause is an invalid input value.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    describeBatchPredictions(params: MachineLearning.DescribeBatchPredictionsInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|any, data: MachineLearning.DescribeBatchPredictionsOutput|any) => void): Request;
+    describeBatchPredictions(params: MachineLearning.DescribeBatchPredictionsInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|any, data: MachineLearning.DescribeBatchPredictionsOutput|any) => void): Request<MachineLearning.DescribeBatchPredictionsOutput|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|any>;
     /**
      * Returns a list of DataSource that match the search criteria in the request.
      *
      * @error InvalidInputException An error on the client occurred. Typically, the cause is an invalid input value.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    describeDataSources(params: MachineLearning.DescribeDataSourcesInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|any, data: MachineLearning.DescribeDataSourcesOutput|any) => void): Request;
+    describeDataSources(params: MachineLearning.DescribeDataSourcesInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|any, data: MachineLearning.DescribeDataSourcesOutput|any) => void): Request<MachineLearning.DescribeDataSourcesOutput|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|any>;
     /**
      * Returns a list of DescribeEvaluations that match the search criteria in the
 request.
@@ -289,14 +289,14 @@ request.
      * @error InvalidInputException An error on the client occurred. Typically, the cause is an invalid input value.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    describeEvaluations(params: MachineLearning.DescribeEvaluationsInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|any, data: MachineLearning.DescribeEvaluationsOutput|any) => void): Request;
+    describeEvaluations(params: MachineLearning.DescribeEvaluationsInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|any, data: MachineLearning.DescribeEvaluationsOutput|any) => void): Request<MachineLearning.DescribeEvaluationsOutput|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|any>;
     /**
      * Returns a list of MLModel that match the search criteria in the request.
      *
      * @error InvalidInputException An error on the client occurred. Typically, the cause is an invalid input value.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    describeMLModels(params: MachineLearning.DescribeMLModelsInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|any, data: MachineLearning.DescribeMLModelsOutput|any) => void): Request;
+    describeMLModels(params: MachineLearning.DescribeMLModelsInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.InternalServerException|any, data: MachineLearning.DescribeMLModelsOutput|any) => void): Request<MachineLearning.DescribeMLModelsOutput|any,MachineLearning.InvalidInputException|MachineLearning.InternalServerException|any>;
     /**
      * Returns a BatchPrediction that includes detailed metadata, status, and data file
 information for a Batch Prediction request.
@@ -305,7 +305,7 @@ information for a Batch Prediction request.
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    getBatchPrediction(params: MachineLearning.GetBatchPredictionInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.GetBatchPredictionOutput|any) => void): Request;
+    getBatchPrediction(params: MachineLearning.GetBatchPredictionInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.GetBatchPredictionOutput|any) => void): Request<MachineLearning.GetBatchPredictionOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Returns a DataSource that includes metadata and data file information, as well
 as the current status of the DataSource .
@@ -318,7 +318,7 @@ to the normal format.
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    getDataSource(params: MachineLearning.GetDataSourceInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.GetDataSourceOutput|any) => void): Request;
+    getDataSource(params: MachineLearning.GetDataSourceInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.GetDataSourceOutput|any) => void): Request<MachineLearning.GetDataSourceOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Returns an Evaluation that includes metadata as well as the current status of
 the Evaluation .
@@ -327,7 +327,7 @@ the Evaluation .
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    getEvaluation(params: MachineLearning.GetEvaluationInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.GetEvaluationOutput|any) => void): Request;
+    getEvaluation(params: MachineLearning.GetEvaluationInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.GetEvaluationOutput|any) => void): Request<MachineLearning.GetEvaluationOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Returns an MLModel that includes detailed metadata, and data source information
 as well as the current status of the MLModel .
@@ -338,7 +338,7 @@ GetMLModel provides results in normal or verbose format.
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    getMLModel(params: MachineLearning.GetMLModelInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.GetMLModelOutput|any) => void): Request;
+    getMLModel(params: MachineLearning.GetMLModelInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.GetMLModelOutput|any) => void): Request<MachineLearning.GetMLModelOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Generates a prediction for the observation using the specified ML Model .
 
@@ -352,7 +352,7 @@ occur when listing objects such as DataSource .
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      * @error PredictorNotMountedException The exception is thrown when a predict request is made to an unmounted MLModel .  
      */
-    predict(params: MachineLearning.PredictInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.LimitExceededException|MachineLearning.InternalServerException|MachineLearning.PredictorNotMountedException|any, data: MachineLearning.PredictOutput|any) => void): Request;
+    predict(params: MachineLearning.PredictInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.LimitExceededException|MachineLearning.InternalServerException|MachineLearning.PredictorNotMountedException|any, data: MachineLearning.PredictOutput|any) => void): Request<MachineLearning.PredictOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.LimitExceededException|MachineLearning.InternalServerException|MachineLearning.PredictorNotMountedException|any>;
     /**
      * Updates the BatchPredictionName of a BatchPrediction .
 
@@ -363,7 +363,7 @@ data element.
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    updateBatchPrediction(params: MachineLearning.UpdateBatchPredictionInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateBatchPredictionOutput|any) => void): Request;
+    updateBatchPrediction(params: MachineLearning.UpdateBatchPredictionInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateBatchPredictionOutput|any) => void): Request<MachineLearning.UpdateBatchPredictionOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Updates the DataSourceName of a DataSource .
 
@@ -374,7 +374,7 @@ element.
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    updateDataSource(params: MachineLearning.UpdateDataSourceInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateDataSourceOutput|any) => void): Request;
+    updateDataSource(params: MachineLearning.UpdateDataSourceInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateDataSourceOutput|any) => void): Request<MachineLearning.UpdateDataSourceOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Updates the EvaluationName of an Evaluation .
 
@@ -385,7 +385,7 @@ element.
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    updateEvaluation(params: MachineLearning.UpdateEvaluationInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateEvaluationOutput|any) => void): Request;
+    updateEvaluation(params: MachineLearning.UpdateEvaluationInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateEvaluationOutput|any) => void): Request<MachineLearning.UpdateEvaluationOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
     /**
      * Updates the MLModelName and the ScoreThreshold of an MLModel .
 
@@ -396,7 +396,7 @@ element.
      * @error ResourceNotFoundException A specified resource cannot be located.  
      * @error InternalServerException An error on the server occurred when trying to process a request.  
      */
-    updateMLModel(params: MachineLearning.UpdateMLModelInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateMLModelOutput|any) => void): Request;
+    updateMLModel(params: MachineLearning.UpdateMLModelInput, callback?: (err: MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any, data: MachineLearning.UpdateMLModelOutput|any) => void): Request<MachineLearning.UpdateMLModelOutput|any,MachineLearning.InvalidInputException|MachineLearning.ResourceNotFoundException|MachineLearning.InternalServerException|any>;
 
   }
 

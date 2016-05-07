@@ -28,7 +28,7 @@ determine the availability of the domain name.
      * @error InvalidInput   
      * @error UnsupportedTLD   
      */
-    checkDomainAvailability(params: Route53Domains.CheckDomainAvailabilityRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.CheckDomainAvailabilityResponse|any) => void): Request;
+    checkDomainAvailability(params: Route53Domains.CheckDomainAvailabilityRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.CheckDomainAvailabilityResponse|any) => void): Request<Route53Domains.CheckDomainAvailabilityResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any>;
     /**
      * This operation deletes the specified tags for a domain.
 
@@ -39,7 +39,7 @@ immediately represent all issued operations.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    deleteTagsForDomain(params: Route53Domains.DeleteTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DeleteTagsForDomainResponse|any) => void): Request;
+    deleteTagsForDomain(params: Route53Domains.DeleteTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DeleteTagsForDomainResponse|any) => void): Request<Route53Domains.DeleteTagsForDomainResponse|any,Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
     /**
      * This operation disables automatic renewal of domain registration for the
 specified domain.
@@ -51,7 +51,7 @@ the expiration date passes, and you will lose control of the domain name.
      * @error InvalidInput   
      * @error UnsupportedTLD   
      */
-    disableDomainAutoRenew(params: Route53Domains.DisableDomainAutoRenewRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DisableDomainAutoRenewResponse|any) => void): Request;
+    disableDomainAutoRenew(params: Route53Domains.DisableDomainAutoRenewRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DisableDomainAutoRenewResponse|any) => void): Request<Route53Domains.DisableDomainAutoRenewResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any>;
     /**
      * This operation removes the transfer lock on the domain (specifically the 
 clientTransferProhibited status) to allow domain transfers. We recommend you
@@ -66,7 +66,7 @@ not completed successfully, the domain registrant will be notified by email.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    disableDomainTransferLock(params: Route53Domains.DisableDomainTransferLockRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DisableDomainTransferLockResponse|any) => void): Request;
+    disableDomainTransferLock(params: Route53Domains.DisableDomainTransferLockRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DisableDomainTransferLockResponse|any) => void): Request<Route53Domains.DisableDomainTransferLockResponse|any,Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
     /**
      * This operation configures Amazon Route 53 to automatically renew the specified
 domain before the domain registration expires. The cost of renewing your domain
@@ -83,7 +83,7 @@ so we can complete processing before the deadline.
      * @error UnsupportedTLD   
      * @error TLDRulesViolation   
      */
-    enableDomainAutoRenew(params: Route53Domains.EnableDomainAutoRenewRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.TLDRulesViolation|any, data: Route53Domains.EnableDomainAutoRenewResponse|any) => void): Request;
+    enableDomainAutoRenew(params: Route53Domains.EnableDomainAutoRenewRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.TLDRulesViolation|any, data: Route53Domains.EnableDomainAutoRenewResponse|any) => void): Request<Route53Domains.EnableDomainAutoRenewResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.TLDRulesViolation|any>;
     /**
      * This operation sets the transfer lock on the domain (specifically the 
 clientTransferProhibited status) to prevent domain transfers. Successful
@@ -97,7 +97,7 @@ domain registrant will be notified by email.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    enableDomainTransferLock(params: Route53Domains.EnableDomainTransferLockRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.EnableDomainTransferLockResponse|any) => void): Request;
+    enableDomainTransferLock(params: Route53Domains.EnableDomainTransferLockRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.EnableDomainTransferLockResponse|any) => void): Request<Route53Domains.EnableDomainTransferLockResponse|any,Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
     /**
      * For operations that require confirmation that the email address for the
 registrant contact is valid, such as registering a new domain, this operation
@@ -110,7 +110,7 @@ operation.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    getContactReachabilityStatus(params: Route53Domains.GetContactReachabilityStatusRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.GetContactReachabilityStatusResponse|any) => void): Request;
+    getContactReachabilityStatus(params: Route53Domains.GetContactReachabilityStatusRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.GetContactReachabilityStatusResponse|any) => void): Request<Route53Domains.GetContactReachabilityStatusResponse|any,Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
     /**
      * This operation returns detailed information about the domain. The domain&#x27;s
 contact information is also returned as part of the output.
@@ -118,27 +118,27 @@ contact information is also returned as part of the output.
      * @error InvalidInput   
      * @error UnsupportedTLD   
      */
-    getDomainDetail(params: Route53Domains.GetDomainDetailRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.GetDomainDetailResponse|any) => void): Request;
+    getDomainDetail(params: Route53Domains.GetDomainDetailRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.GetDomainDetailResponse|any) => void): Request<Route53Domains.GetDomainDetailResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any>;
     /**
      * This operation returns the current status of an operation that is not completed.
      *
      * @error InvalidInput   
      */
-    getOperationDetail(params: Route53Domains.GetOperationDetailRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.GetOperationDetailResponse|any) => void): Request;
+    getOperationDetail(params: Route53Domains.GetOperationDetailRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.GetOperationDetailResponse|any) => void): Request<Route53Domains.GetOperationDetailResponse|any,Route53Domains.InvalidInput|any>;
     /**
      * This operation returns all the domain names registered with Amazon Route 53 for
 the current AWS account.
      *
      * @error InvalidInput   
      */
-    listDomains(params: Route53Domains.ListDomainsRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.ListDomainsResponse|any) => void): Request;
+    listDomains(params: Route53Domains.ListDomainsRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.ListDomainsResponse|any) => void): Request<Route53Domains.ListDomainsResponse|any,Route53Domains.InvalidInput|any>;
     /**
      * This operation returns the operation IDs of operations that are not yet
 complete.
      *
      * @error InvalidInput   
      */
-    listOperations(params: Route53Domains.ListOperationsRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.ListOperationsResponse|any) => void): Request;
+    listOperations(params: Route53Domains.ListOperationsRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.ListOperationsResponse|any) => void): Request<Route53Domains.ListOperationsResponse|any,Route53Domains.InvalidInput|any>;
     /**
      * This operation returns all of the tags that are associated with the specified
 domain.
@@ -150,7 +150,7 @@ immediately represent all issued operations.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    listTagsForDomain(params: Route53Domains.ListTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.ListTagsForDomainResponse|any) => void): Request;
+    listTagsForDomain(params: Route53Domains.ListTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.ListTagsForDomainResponse|any) => void): Request<Route53Domains.ListTagsForDomainResponse|any,Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
     /**
      * This operation registers a domain. Domains are registered by the AWS registrar
 partner, Gandi. For some top-level domains (TLDs), this operation requires extra
@@ -182,7 +182,7 @@ When you register a domain, Amazon Route 53 does the following:
      * @error DomainLimitExceeded   
      * @error OperationLimitExceeded   
      */
-    registerDomain(params: Route53Domains.RegisterDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any, data: Route53Domains.RegisterDomainResponse|any) => void): Request;
+    registerDomain(params: Route53Domains.RegisterDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any, data: Route53Domains.RegisterDomainResponse|any) => void): Request<Route53Domains.RegisterDomainResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any>;
     /**
      * For operations that require confirmation that the email address for the
 registrant contact is valid, such as registering a new domain, this operation
@@ -193,7 +193,7 @@ contact.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    resendContactReachabilityEmail(params: Route53Domains.ResendContactReachabilityEmailRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.ResendContactReachabilityEmailResponse|any) => void): Request;
+    resendContactReachabilityEmail(params: Route53Domains.ResendContactReachabilityEmailRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.ResendContactReachabilityEmailResponse|any) => void): Request<Route53Domains.ResendContactReachabilityEmailResponse|any,Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
     /**
      * This operation returns the AuthCode for the domain. To transfer a domain to
 another registrar, you provide this value to the new registrar.
@@ -201,7 +201,7 @@ another registrar, you provide this value to the new registrar.
      * @error InvalidInput   
      * @error UnsupportedTLD   
      */
-    retrieveDomainAuthCode(params: Route53Domains.RetrieveDomainAuthCodeRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.RetrieveDomainAuthCodeResponse|any) => void): Request;
+    retrieveDomainAuthCode(params: Route53Domains.RetrieveDomainAuthCodeRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.RetrieveDomainAuthCodeResponse|any) => void): Request<Route53Domains.RetrieveDomainAuthCodeResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any>;
     /**
      * This operation transfers a domain from another registrar to Amazon Route 53.
 When the transfer is complete, the domain is registered with the AWS registrar
@@ -236,7 +236,7 @@ by email.
      * @error DomainLimitExceeded   
      * @error OperationLimitExceeded   
      */
-    transferDomain(params: Route53Domains.TransferDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any, data: Route53Domains.TransferDomainResponse|any) => void): Request;
+    transferDomain(params: Route53Domains.TransferDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any, data: Route53Domains.TransferDomainResponse|any) => void): Request<Route53Domains.TransferDomainResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any>;
     /**
      * This operation updates the contact information for a particular domain.
 Information for at least one contact (registrant, administrator, or technical)
@@ -252,7 +252,7 @@ completed successfully, the domain registrant will be notified by email.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    updateDomainContact(params: Route53Domains.UpdateDomainContactRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainContactResponse|any) => void): Request;
+    updateDomainContact(params: Route53Domains.UpdateDomainContactRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainContactResponse|any) => void): Request<Route53Domains.UpdateDomainContactResponse|any,Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
     /**
      * This operation updates the specified domain contact&#x27;s privacy setting. When the
 privacy option is enabled, personal information such as postal or email address
@@ -272,7 +272,7 @@ registrant will be notified by email.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    updateDomainContactPrivacy(params: Route53Domains.UpdateDomainContactPrivacyRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainContactPrivacyResponse|any) => void): Request;
+    updateDomainContactPrivacy(params: Route53Domains.UpdateDomainContactPrivacyRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainContactPrivacyResponse|any) => void): Request<Route53Domains.UpdateDomainContactPrivacyResponse|any,Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
     /**
      * This operation replaces the current set of name servers for the domain with the
 specified set of name servers. If you use Amazon Route 53 as your DNS service,
@@ -289,7 +289,7 @@ successfully, the domain registrant will be notified by email.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    updateDomainNameservers(params: Route53Domains.UpdateDomainNameserversRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainNameserversResponse|any) => void): Request;
+    updateDomainNameservers(params: Route53Domains.UpdateDomainNameserversRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainNameserversResponse|any) => void): Request<Route53Domains.UpdateDomainNameserversResponse|any,Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
     /**
      * This operation adds or updates tags for a specified domain.
 
@@ -300,7 +300,7 @@ immediately represent all issued operations.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    updateTagsForDomain(params: Route53Domains.UpdateTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateTagsForDomainResponse|any) => void): Request;
+    updateTagsForDomain(params: Route53Domains.UpdateTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateTagsForDomainResponse|any) => void): Request<Route53Domains.UpdateTagsForDomainResponse|any,Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
 
   }
 

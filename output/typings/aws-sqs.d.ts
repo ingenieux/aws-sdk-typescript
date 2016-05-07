@@ -82,7 +82,7 @@ returns this error if the maximum number of messages inflight has already been
 reached. AddPermission returns this error if the maximum number of permissions
 for the queue has already been reached.  
      */
-    addPermission(params: SQS.AddPermissionRequest, callback?: (err: SQS.OverLimit|any, data: any) => void): Request;
+    addPermission(params: SQS.AddPermissionRequest, callback?: (err: SQS.OverLimit|any, data: any) => void): Request<any,SQS.OverLimit|any>;
     /**
      * Changes the visibility timeout of a specified message in a queue to a new value.
 The maximum allowed timeout value you can set the value to is 12 hours. This
@@ -120,7 +120,7 @@ the value you set with the ChangeMessageVisibility action.
      * @error MessageNotInflight The message referred to is not in flight.  
      * @error ReceiptHandleIsInvalid The receipt handle provided is not valid.  
      */
-    changeMessageVisibility(params: SQS.ChangeMessageVisibilityRequest, callback?: (err: SQS.MessageNotInflight|SQS.ReceiptHandleIsInvalid|any, data: any) => void): Request;
+    changeMessageVisibility(params: SQS.ChangeMessageVisibilityRequest, callback?: (err: SQS.MessageNotInflight|SQS.ReceiptHandleIsInvalid|any, data: any) => void): Request<any,SQS.MessageNotInflight|SQS.ReceiptHandleIsInvalid|any>;
     /**
      * Changes the visibility timeout of multiple messages. This is a batch version of 
 ChangeMessageVisibility . The result of the action on each message is reported
@@ -141,7 +141,7 @@ this:&amp;Attribute.1=this
      * @error BatchEntryIdsNotDistinct Two or more batch entries have the same Id in the request.  
      * @error InvalidBatchEntryId The Id of a batch entry in a batch request does not abide by the specification.  
      */
-    changeMessageVisibilityBatch(params: SQS.ChangeMessageVisibilityBatchRequest, callback?: (err: SQS.TooManyEntriesInBatchRequest|SQS.EmptyBatchRequest|SQS.BatchEntryIdsNotDistinct|SQS.InvalidBatchEntryId|any, data: SQS.ChangeMessageVisibilityBatchResult|any) => void): Request;
+    changeMessageVisibilityBatch(params: SQS.ChangeMessageVisibilityBatchRequest, callback?: (err: SQS.TooManyEntriesInBatchRequest|SQS.EmptyBatchRequest|SQS.BatchEntryIdsNotDistinct|SQS.InvalidBatchEntryId|any, data: SQS.ChangeMessageVisibilityBatchResult|any) => void): Request<SQS.ChangeMessageVisibilityBatchResult|any,SQS.TooManyEntriesInBatchRequest|SQS.EmptyBatchRequest|SQS.BatchEntryIdsNotDistinct|SQS.InvalidBatchEntryId|any>;
     /**
      * Creates a new queue, or returns the URL of an existing one. When you request 
 CreateQueue , you provide a name for the queue. To successfully create a new
@@ -176,7 +176,7 @@ with the same name.
 request includes attributes whose values differ from those of the existing
 queue.  
      */
-    createQueue(params: SQS.CreateQueueRequest, callback?: (err: SQS.QueueDeletedRecently|SQS.QueueNameExists|any, data: SQS.CreateQueueResult|any) => void): Request;
+    createQueue(params: SQS.CreateQueueRequest, callback?: (err: SQS.QueueDeletedRecently|SQS.QueueNameExists|any, data: SQS.CreateQueueResult|any) => void): Request<SQS.CreateQueueResult|any,SQS.QueueDeletedRecently|SQS.QueueNameExists|any>;
     /**
      * Deletes the specified message from the specified queue. You specify the message
 by using the message&#x27;s receipt handle and not the message ID you received when
@@ -201,7 +201,7 @@ particular message more than once is not a problem.
      * @error InvalidIdFormat The receipt handle is not valid for the current version.  
      * @error ReceiptHandleIsInvalid The receipt handle provided is not valid.  
      */
-    deleteMessage(params: SQS.DeleteMessageRequest, callback?: (err: SQS.InvalidIdFormat|SQS.ReceiptHandleIsInvalid|any, data: any) => void): Request;
+    deleteMessage(params: SQS.DeleteMessageRequest, callback?: (err: SQS.InvalidIdFormat|SQS.ReceiptHandleIsInvalid|any, data: any) => void): Request<any,SQS.InvalidIdFormat|SQS.ReceiptHandleIsInvalid|any>;
     /**
      * Deletes up to ten messages from the specified queue. This is a batch version of 
 DeleteMessage . The result of the delete action on each message is reported
@@ -222,7 +222,7 @@ parameter list with two elements looks like this:&amp;Attribute.1=this
      * @error BatchEntryIdsNotDistinct Two or more batch entries have the same Id in the request.  
      * @error InvalidBatchEntryId The Id of a batch entry in a batch request does not abide by the specification.  
      */
-    deleteMessageBatch(params: SQS.DeleteMessageBatchRequest, callback?: (err: SQS.TooManyEntriesInBatchRequest|SQS.EmptyBatchRequest|SQS.BatchEntryIdsNotDistinct|SQS.InvalidBatchEntryId|any, data: SQS.DeleteMessageBatchResult|any) => void): Request;
+    deleteMessageBatch(params: SQS.DeleteMessageBatchRequest, callback?: (err: SQS.TooManyEntriesInBatchRequest|SQS.EmptyBatchRequest|SQS.BatchEntryIdsNotDistinct|SQS.InvalidBatchEntryId|any, data: SQS.DeleteMessageBatchResult|any) => void): Request<SQS.DeleteMessageBatchResult|any,SQS.TooManyEntriesInBatchRequest|SQS.EmptyBatchRequest|SQS.BatchEntryIdsNotDistinct|SQS.InvalidBatchEntryId|any>;
     /**
      * Deletes the queue specified by the queue URL , regardless of whether the queue
 is empty. If the specified queue does not exist, Amazon SQS returns a successful
@@ -243,7 +243,7 @@ days. For more information, see How Amazon SQS Queues Work
 in the Amazon SQS Developer Guide .
      *
      */
-    deleteQueue(params: SQS.DeleteQueueRequest, callback?: (err: any, data: any) => void): Request;
+    deleteQueue(params: SQS.DeleteQueueRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Gets attributes for the specified queue. The following attributes are supported: &amp;#42; 
    All - returns all values.
@@ -308,7 +308,7 @@ are specified using the param.n notation. Values of n are integers starting from
      *
      * @error InvalidAttributeName The attribute referred to does not exist.  
      */
-    getQueueAttributes(params: SQS.GetQueueAttributesRequest, callback?: (err: SQS.InvalidAttributeName|any, data: SQS.GetQueueAttributesResult|any) => void): Request;
+    getQueueAttributes(params: SQS.GetQueueAttributesRequest, callback?: (err: SQS.InvalidAttributeName|any, data: SQS.GetQueueAttributesResult|any) => void): Request<SQS.GetQueueAttributesResult|any,SQS.InvalidAttributeName|any>;
     /**
      * Returns the URL of an existing queue. This action provides a simple way to
 retrieve the URL of an Amazon SQS queue.
@@ -322,7 +322,7 @@ in the Amazon SQS Developer Guide .
      *
      * @error QueueDoesNotExist The queue referred to does not exist.  
      */
-    getQueueUrl(params: SQS.GetQueueUrlRequest, callback?: (err: SQS.QueueDoesNotExist|any, data: SQS.GetQueueUrlResult|any) => void): Request;
+    getQueueUrl(params: SQS.GetQueueUrlRequest, callback?: (err: SQS.QueueDoesNotExist|any, data: SQS.GetQueueUrlResult|any) => void): Request<SQS.GetQueueUrlResult|any,SQS.QueueDoesNotExist|any>;
     /**
      * Returns a list of your queues that have the RedrivePolicy queue attribute
 configured with a dead letter queue.
@@ -334,14 +334,14 @@ Letter Queues
      *
      * @error QueueDoesNotExist The queue referred to does not exist.  
      */
-    listDeadLetterSourceQueues(params: SQS.ListDeadLetterSourceQueuesRequest, callback?: (err: SQS.QueueDoesNotExist|any, data: SQS.ListDeadLetterSourceQueuesResult|any) => void): Request;
+    listDeadLetterSourceQueues(params: SQS.ListDeadLetterSourceQueuesRequest, callback?: (err: SQS.QueueDoesNotExist|any, data: SQS.ListDeadLetterSourceQueuesResult|any) => void): Request<SQS.ListDeadLetterSourceQueuesResult|any,SQS.QueueDoesNotExist|any>;
     /**
      * Returns a list of your queues. The maximum number of queues that can be returned
 is 1000. If you specify a value for the optional QueueNamePrefix parameter, only
 queues with a name beginning with the specified value are returned.
      *
      */
-    listQueues(params: SQS.ListQueuesRequest, callback?: (err: any, data: SQS.ListQueuesResult|any) => void): Request;
+    listQueues(params: SQS.ListQueuesRequest, callback?: (err: any, data: SQS.ListQueuesResult|any) => void): Request<SQS.ListQueuesResult|any,any>;
     /**
      * Deletes the messages in a queue specified by the queue URL .
 
@@ -357,7 +357,7 @@ was called may be received, but will be deleted within the next minute.
 within the last 60 seconds, the time it can take to delete the messages in the
 queue.  
      */
-    purgeQueue(params: SQS.PurgeQueueRequest, callback?: (err: SQS.QueueDoesNotExist|SQS.PurgeQueueInProgress|any, data: any) => void): Request;
+    purgeQueue(params: SQS.PurgeQueueRequest, callback?: (err: SQS.QueueDoesNotExist|SQS.PurgeQueueInProgress|any, data: any) => void): Request<any,SQS.QueueDoesNotExist|SQS.PurgeQueueInProgress|any>;
     /**
      * Retrieves one or more messages, with a maximum limit of 10 messages, from the
 specified queue. Long poll support is enabled by using the WaitTimeSeconds 
@@ -417,13 +417,13 @@ returns this error if the maximum number of messages inflight has already been
 reached. AddPermission returns this error if the maximum number of permissions
 for the queue has already been reached.  
      */
-    receiveMessage(params: SQS.ReceiveMessageRequest, callback?: (err: SQS.OverLimit|any, data: SQS.ReceiveMessageResult|any) => void): Request;
+    receiveMessage(params: SQS.ReceiveMessageRequest, callback?: (err: SQS.OverLimit|any, data: SQS.ReceiveMessageResult|any) => void): Request<SQS.ReceiveMessageResult|any,SQS.OverLimit|any>;
     /**
      * Revokes any permissions in the queue policy that matches the specified Label 
 parameter. Only the owner of the queue can remove permissions.
      *
      */
-    removePermission(params: SQS.RemovePermissionRequest, callback?: (err: any, data: any) => void): Request;
+    removePermission(params: SQS.RemovePermissionRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Delivers a message to the specified queue. With Amazon SQS, you now have the
 ability to send large payload messages that are up to 256KB (262,144 bytes) in
@@ -442,7 +442,7 @@ rejected.
      * @error InvalidMessageContents The message contains characters outside the allowed set.  
      * @error UnsupportedOperation Error code 400. Unsupported operation.  
      */
-    sendMessage(params: SQS.SendMessageRequest, callback?: (err: SQS.InvalidMessageContents|SQS.UnsupportedOperation|any, data: SQS.SendMessageResult|any) => void): Request;
+    sendMessage(params: SQS.SendMessageRequest, callback?: (err: SQS.InvalidMessageContents|SQS.UnsupportedOperation|any, data: SQS.SendMessageResult|any) => void): Request<SQS.SendMessageResult|any,SQS.InvalidMessageContents|SQS.UnsupportedOperation|any>;
     /**
      * Delivers up to ten messages to the specified queue. This is a batch version of 
 SendMessage . The result of the send action on each message is reported
@@ -478,7 +478,7 @@ this:&amp;Attribute.1=this
      * @error InvalidBatchEntryId The Id of a batch entry in a batch request does not abide by the specification.  
      * @error UnsupportedOperation Error code 400. Unsupported operation.  
      */
-    sendMessageBatch(params: SQS.SendMessageBatchRequest, callback?: (err: SQS.TooManyEntriesInBatchRequest|SQS.EmptyBatchRequest|SQS.BatchEntryIdsNotDistinct|SQS.BatchRequestTooLong|SQS.InvalidBatchEntryId|SQS.UnsupportedOperation|any, data: SQS.SendMessageBatchResult|any) => void): Request;
+    sendMessageBatch(params: SQS.SendMessageBatchRequest, callback?: (err: SQS.TooManyEntriesInBatchRequest|SQS.EmptyBatchRequest|SQS.BatchEntryIdsNotDistinct|SQS.BatchRequestTooLong|SQS.InvalidBatchEntryId|SQS.UnsupportedOperation|any, data: SQS.SendMessageBatchResult|any) => void): Request<SQS.SendMessageBatchResult|any,SQS.TooManyEntriesInBatchRequest|SQS.EmptyBatchRequest|SQS.BatchEntryIdsNotDistinct|SQS.BatchRequestTooLong|SQS.InvalidBatchEntryId|SQS.UnsupportedOperation|any>;
     /**
      * Sets the value of one or more queue attributes. When you change a queue&#x27;s
 attributes, the change can take up to 60 seconds for most of the attributes to
@@ -491,7 +491,7 @@ attributes gracefully.
      *
      * @error InvalidAttributeName The attribute referred to does not exist.  
      */
-    setQueueAttributes(params: SQS.SetQueueAttributesRequest, callback?: (err: SQS.InvalidAttributeName|any, data: any) => void): Request;
+    setQueueAttributes(params: SQS.SetQueueAttributesRequest, callback?: (err: SQS.InvalidAttributeName|any, data: any) => void): Request<any,SQS.InvalidAttributeName|any>;
 
   }
 

@@ -39,7 +39,7 @@ connection on the given interconnect.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    allocateConnectionOnInterconnect(params: DirectConnect.AllocateConnectionOnInterconnectRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connection|any) => void): Request;
+    allocateConnectionOnInterconnect(params: DirectConnect.AllocateConnectionOnInterconnectRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connection|any) => void): Request<DirectConnect.Connection|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Provisions a private virtual interface to be owned by a different customer.
 
@@ -54,7 +54,7 @@ not be available for handling traffic.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    allocatePrivateVirtualInterface(params: DirectConnect.AllocatePrivateVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterface|any) => void): Request;
+    allocatePrivateVirtualInterface(params: DirectConnect.AllocatePrivateVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterface|any) => void): Request<DirectConnect.VirtualInterface|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Provisions a public virtual interface to be owned by a different customer.
 
@@ -69,7 +69,7 @@ not be available for handling traffic.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    allocatePublicVirtualInterface(params: DirectConnect.AllocatePublicVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterface|any) => void): Request;
+    allocatePublicVirtualInterface(params: DirectConnect.AllocatePublicVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterface|any) => void): Request<DirectConnect.VirtualInterface|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Confirm the creation of a hosted connection on an interconnect.
 
@@ -80,7 +80,7 @@ creation of the hosted connection.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    confirmConnection(params: DirectConnect.ConfirmConnectionRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.ConfirmConnectionResponse|any) => void): Request;
+    confirmConnection(params: DirectConnect.ConfirmConnectionRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.ConfirmConnectionResponse|any) => void): Request<DirectConnect.ConfirmConnectionResponse|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Accept ownership of a private virtual interface created by another customer.
 
@@ -91,7 +91,7 @@ available for handling traffic.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    confirmPrivateVirtualInterface(params: DirectConnect.ConfirmPrivateVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.ConfirmPrivateVirtualInterfaceResponse|any) => void): Request;
+    confirmPrivateVirtualInterface(params: DirectConnect.ConfirmPrivateVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.ConfirmPrivateVirtualInterfaceResponse|any) => void): Request<DirectConnect.ConfirmPrivateVirtualInterfaceResponse|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Accept ownership of a public virtual interface created by another customer.
 
@@ -101,7 +101,7 @@ interface will be created and made available for handling traffic.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    confirmPublicVirtualInterface(params: DirectConnect.ConfirmPublicVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.ConfirmPublicVirtualInterfaceResponse|any) => void): Request;
+    confirmPublicVirtualInterface(params: DirectConnect.ConfirmPublicVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.ConfirmPublicVirtualInterfaceResponse|any) => void): Request<DirectConnect.ConfirmPublicVirtualInterfaceResponse|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Creates a new connection between the customer network and a specific AWS Direct
 Connect location.
@@ -117,7 +117,7 @@ connectivity to other regions.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    createConnection(params: DirectConnect.CreateConnectionRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connection|any) => void): Request;
+    createConnection(params: DirectConnect.CreateConnectionRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connection|any) => void): Request<DirectConnect.Connection|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Creates a new interconnect between a AWS Direct Connect partner&#x27;s network and a
 specific AWS Direct Connect location.
@@ -138,7 +138,7 @@ connection, using the VLAN assigned to them by the AWS Direct Connect partner.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    createInterconnect(params: DirectConnect.CreateInterconnectRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Interconnect|any) => void): Request;
+    createInterconnect(params: DirectConnect.CreateInterconnectRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Interconnect|any) => void): Request<DirectConnect.Interconnect|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Creates a new private virtual interface. A virtual interface is the VLAN that
 transports AWS Direct Connect traffic. A private virtual interface supports
@@ -147,7 +147,7 @@ sending traffic to a single virtual private cloud (VPC).
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    createPrivateVirtualInterface(params: DirectConnect.CreatePrivateVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterface|any) => void): Request;
+    createPrivateVirtualInterface(params: DirectConnect.CreatePrivateVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterface|any) => void): Request<DirectConnect.VirtualInterface|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Creates a new public virtual interface. A virtual interface is the VLAN that
 transports AWS Direct Connect traffic. A public virtual interface supports
@@ -157,7 +157,7 @@ sending traffic to public services of AWS such as Amazon Simple Storage Service
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    createPublicVirtualInterface(params: DirectConnect.CreatePublicVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterface|any) => void): Request;
+    createPublicVirtualInterface(params: DirectConnect.CreatePublicVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterface|any) => void): Request<DirectConnect.VirtualInterface|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Deletes the connection.
 
@@ -169,21 +169,21 @@ Direct Connect location.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    deleteConnection(params: DirectConnect.DeleteConnectionRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connection|any) => void): Request;
+    deleteConnection(params: DirectConnect.DeleteConnectionRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connection|any) => void): Request<DirectConnect.Connection|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Deletes the specified interconnect.
      *
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    deleteInterconnect(params: DirectConnect.DeleteInterconnectRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.DeleteInterconnectResponse|any) => void): Request;
+    deleteInterconnect(params: DirectConnect.DeleteInterconnectRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.DeleteInterconnectResponse|any) => void): Request<DirectConnect.DeleteInterconnectResponse|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Deletes a virtual interface.
      *
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    deleteVirtualInterface(params: DirectConnect.DeleteVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.DeleteVirtualInterfaceResponse|any) => void): Request;
+    deleteVirtualInterface(params: DirectConnect.DeleteVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.DeleteVirtualInterfaceResponse|any) => void): Request<DirectConnect.DeleteVirtualInterfaceResponse|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Displays all connections in this region.
 
@@ -193,7 +193,7 @@ connection.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    describeConnections(params: DirectConnect.DescribeConnectionsRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connections|any) => void): Request;
+    describeConnections(params: DirectConnect.DescribeConnectionsRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connections|any) => void): Request<DirectConnect.Connections|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Return a list of connections that have been provisioned on the given
 interconnect.
@@ -201,7 +201,7 @@ interconnect.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    describeConnectionsOnInterconnect(params: DirectConnect.DescribeConnectionsOnInterconnectRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connections|any) => void): Request;
+    describeConnectionsOnInterconnect(params: DirectConnect.DescribeConnectionsOnInterconnectRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connections|any) => void): Request<DirectConnect.Connections|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Returns a list of interconnects owned by the AWS account.
 
@@ -211,7 +211,7 @@ interconnect.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    describeInterconnects(params: DirectConnect.DescribeInterconnectsRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Interconnects|any) => void): Request;
+    describeInterconnects(params: DirectConnect.DescribeInterconnectsRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Interconnects|any) => void): Request<DirectConnect.Interconnects|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Returns the list of AWS Direct Connect locations in the current AWS region.
 These are the locations that may be selected when calling CreateConnection or
@@ -220,7 +220,7 @@ CreateInterconnect.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    describeLocations(callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Locations|any) => void): Request;
+    describeLocations(callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Locations|any) => void): Request<DirectConnect.Locations|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Returns a list of virtual private gateways owned by the AWS account.
 
@@ -233,7 +233,7 @@ action.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    describeVirtualGateways(callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualGateways|any) => void): Request;
+    describeVirtualGateways(callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualGateways|any) => void): Request<DirectConnect.VirtualGateways|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Displays all virtual interfaces for an AWS account. Virtual interfaces deleted
 fewer than 15 minutes before DescribeVirtualInterfaces is called are also
@@ -251,7 +251,7 @@ only this particular virtual interface will be returned.
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
      */
-    describeVirtualInterfaces(params: DirectConnect.DescribeVirtualInterfacesRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterfaces|any) => void): Request;
+    describeVirtualInterfaces(params: DirectConnect.DescribeVirtualInterfacesRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterfaces|any) => void): Request<DirectConnect.VirtualInterfaces|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
 
   }
 

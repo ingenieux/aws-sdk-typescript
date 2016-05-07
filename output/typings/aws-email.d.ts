@@ -42,7 +42,7 @@ This action is throttled at one request per second.
      * @error AlreadyExistsException   
      * @error LimitExceededException   
      */
-    cloneReceiptRuleSet(params: SES.CloneReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException|SES.AlreadyExistsException|SES.LimitExceededException|any, data: SES.CloneReceiptRuleSetResponse|any) => void): Request;
+    cloneReceiptRuleSet(params: SES.CloneReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException|SES.AlreadyExistsException|SES.LimitExceededException|any, data: SES.CloneReceiptRuleSetResponse|any) => void): Request<SES.CloneReceiptRuleSetResponse|any,SES.RuleSetDoesNotExistException|SES.AlreadyExistsException|SES.LimitExceededException|any>;
     /**
      * Creates a new IP address filter.
 
@@ -56,7 +56,7 @@ This action is throttled at one request per second.
      * @error LimitExceededException   
      * @error AlreadyExistsException   
      */
-    createReceiptFilter(params: SES.CreateReceiptFilterRequest, callback?: (err: SES.LimitExceededException|SES.AlreadyExistsException|any, data: SES.CreateReceiptFilterResponse|any) => void): Request;
+    createReceiptFilter(params: SES.CreateReceiptFilterRequest, callback?: (err: SES.LimitExceededException|SES.AlreadyExistsException|any, data: SES.CreateReceiptFilterResponse|any) => void): Request<SES.CreateReceiptFilterResponse|any,SES.LimitExceededException|SES.AlreadyExistsException|any>;
     /**
      * Creates a receipt rule.
 
@@ -75,7 +75,7 @@ This action is throttled at one request per second.
      * @error RuleSetDoesNotExistException   
      * @error LimitExceededException   
      */
-    createReceiptRule(params: SES.CreateReceiptRuleRequest, callback?: (err: SES.InvalidSnsTopicException|SES.InvalidS3ConfigurationException|SES.InvalidLambdaFunctionException|SES.AlreadyExistsException|SES.RuleDoesNotExistException|SES.RuleSetDoesNotExistException|SES.LimitExceededException|any, data: SES.CreateReceiptRuleResponse|any) => void): Request;
+    createReceiptRule(params: SES.CreateReceiptRuleRequest, callback?: (err: SES.InvalidSnsTopicException|SES.InvalidS3ConfigurationException|SES.InvalidLambdaFunctionException|SES.AlreadyExistsException|SES.RuleDoesNotExistException|SES.RuleSetDoesNotExistException|SES.LimitExceededException|any, data: SES.CreateReceiptRuleResponse|any) => void): Request<SES.CreateReceiptRuleResponse|any,SES.InvalidSnsTopicException|SES.InvalidS3ConfigurationException|SES.InvalidLambdaFunctionException|SES.AlreadyExistsException|SES.RuleDoesNotExistException|SES.RuleSetDoesNotExistException|SES.LimitExceededException|any>;
     /**
      * Creates an empty receipt rule set.
 
@@ -89,7 +89,7 @@ This action is throttled at one request per second.
      * @error AlreadyExistsException   
      * @error LimitExceededException   
      */
-    createReceiptRuleSet(params: SES.CreateReceiptRuleSetRequest, callback?: (err: SES.AlreadyExistsException|SES.LimitExceededException|any, data: SES.CreateReceiptRuleSetResponse|any) => void): Request;
+    createReceiptRuleSet(params: SES.CreateReceiptRuleSetRequest, callback?: (err: SES.AlreadyExistsException|SES.LimitExceededException|any, data: SES.CreateReceiptRuleSetResponse|any) => void): Request<SES.CreateReceiptRuleSetResponse|any,SES.AlreadyExistsException|SES.LimitExceededException|any>;
     /**
      * Deletes the specified identity (email address or domain) from the list of
 verified identities.
@@ -97,7 +97,7 @@ verified identities.
 This action is throttled at one request per second.
      *
      */
-    deleteIdentity(params: SES.DeleteIdentityRequest, callback?: (err: any, data: SES.DeleteIdentityResponse|any) => void): Request;
+    deleteIdentity(params: SES.DeleteIdentityRequest, callback?: (err: any, data: SES.DeleteIdentityResponse|any) => void): Request<SES.DeleteIdentityResponse|any,any>;
     /**
      * Deletes the specified sending authorization policy for the given identity (email
 address or domain). This API returns successfully even if a policy with the
@@ -113,7 +113,7 @@ about using sending authorization, see the Amazon SES Developer Guide
 This action is throttled at one request per second.
      *
      */
-    deleteIdentityPolicy(params: SES.DeleteIdentityPolicyRequest, callback?: (err: any, data: SES.DeleteIdentityPolicyResponse|any) => void): Request;
+    deleteIdentityPolicy(params: SES.DeleteIdentityPolicyRequest, callback?: (err: any, data: SES.DeleteIdentityPolicyResponse|any) => void): Request<SES.DeleteIdentityPolicyResponse|any,any>;
     /**
      * Deletes the specified IP address filter.
 
@@ -125,7 +125,7 @@ Guide
 This action is throttled at one request per second.
      *
      */
-    deleteReceiptFilter(params: SES.DeleteReceiptFilterRequest, callback?: (err: any, data: SES.DeleteReceiptFilterResponse|any) => void): Request;
+    deleteReceiptFilter(params: SES.DeleteReceiptFilterRequest, callback?: (err: any, data: SES.DeleteReceiptFilterResponse|any) => void): Request<SES.DeleteReceiptFilterResponse|any,any>;
     /**
      * Deletes the specified receipt rule.
 
@@ -137,7 +137,7 @@ This action is throttled at one request per second.
      *
      * @error RuleSetDoesNotExistException   
      */
-    deleteReceiptRule(params: SES.DeleteReceiptRuleRequest, callback?: (err: SES.RuleSetDoesNotExistException|any, data: SES.DeleteReceiptRuleResponse|any) => void): Request;
+    deleteReceiptRule(params: SES.DeleteReceiptRuleRequest, callback?: (err: SES.RuleSetDoesNotExistException|any, data: SES.DeleteReceiptRuleResponse|any) => void): Request<SES.DeleteReceiptRuleResponse|any,SES.RuleSetDoesNotExistException|any>;
     /**
      * Deletes the specified receipt rule set and all of the receipt rules it contains.
 
@@ -150,7 +150,7 @@ This action is throttled at one request per second.
      *
      * @error CannotDeleteException   
      */
-    deleteReceiptRuleSet(params: SES.DeleteReceiptRuleSetRequest, callback?: (err: SES.CannotDeleteException|any, data: SES.DeleteReceiptRuleSetResponse|any) => void): Request;
+    deleteReceiptRuleSet(params: SES.DeleteReceiptRuleSetRequest, callback?: (err: SES.CannotDeleteException|any, data: SES.DeleteReceiptRuleSetResponse|any) => void): Request<SES.DeleteReceiptRuleSetResponse|any,SES.CannotDeleteException|any>;
     /**
      * Deletes the specified email address from the list of verified addresses.
 
@@ -159,7 +159,7 @@ release of Domain Verification. The DeleteIdentity action is now preferred.This
 action is throttled at one request per second.
      *
      */
-    deleteVerifiedEmailAddress(params: SES.DeleteVerifiedEmailAddressRequest, callback?: (err: any, data: any) => void): Request;
+    deleteVerifiedEmailAddress(params: SES.DeleteVerifiedEmailAddressRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Returns the metadata and receipt rules for the receipt rule set that is
 currently active.
@@ -172,7 +172,7 @@ Guide
 This action is throttled at one request per second.
      *
      */
-    describeActiveReceiptRuleSet(params: SES.DescribeActiveReceiptRuleSetRequest, callback?: (err: any, data: SES.DescribeActiveReceiptRuleSetResponse|any) => void): Request;
+    describeActiveReceiptRuleSet(params: SES.DescribeActiveReceiptRuleSetRequest, callback?: (err: any, data: SES.DescribeActiveReceiptRuleSetResponse|any) => void): Request<SES.DescribeActiveReceiptRuleSetResponse|any,any>;
     /**
      * Returns the details of the specified receipt rule.
 
@@ -186,7 +186,7 @@ This action is throttled at one request per second.
      * @error RuleDoesNotExistException   
      * @error RuleSetDoesNotExistException   
      */
-    describeReceiptRule(params: SES.DescribeReceiptRuleRequest, callback?: (err: SES.RuleDoesNotExistException|SES.RuleSetDoesNotExistException|any, data: SES.DescribeReceiptRuleResponse|any) => void): Request;
+    describeReceiptRule(params: SES.DescribeReceiptRuleRequest, callback?: (err: SES.RuleDoesNotExistException|SES.RuleSetDoesNotExistException|any, data: SES.DescribeReceiptRuleResponse|any) => void): Request<SES.DescribeReceiptRuleResponse|any,SES.RuleDoesNotExistException|SES.RuleSetDoesNotExistException|any>;
     /**
      * Returns the details of the specified receipt rule set.
 
@@ -199,7 +199,7 @@ This action is throttled at one request per second.
      *
      * @error RuleSetDoesNotExistException   
      */
-    describeReceiptRuleSet(params: SES.DescribeReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException|any, data: SES.DescribeReceiptRuleSetResponse|any) => void): Request;
+    describeReceiptRuleSet(params: SES.DescribeReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException|any, data: SES.DescribeReceiptRuleSetResponse|any) => void): Request<SES.DescribeReceiptRuleSetResponse|any,SES.RuleSetDoesNotExistException|any>;
     /**
      * Returns the current status of Easy DKIM signing for an entity. For domain name
 identities, this action also returns the DKIM tokens that are required for Easy
@@ -225,7 +225,7 @@ Amazon SES Developer Guide
 .
      *
      */
-    getIdentityDkimAttributes(params: SES.GetIdentityDkimAttributesRequest, callback?: (err: any, data: SES.GetIdentityDkimAttributesResponse|any) => void): Request;
+    getIdentityDkimAttributes(params: SES.GetIdentityDkimAttributesRequest, callback?: (err: any, data: SES.GetIdentityDkimAttributesResponse|any) => void): Request<SES.GetIdentityDkimAttributesResponse|any,any>;
     /**
      * Returns the custom MAIL FROM attributes for a list of identities (email
 addresses and/or domains).
@@ -234,7 +234,7 @@ This action is throttled at one request per second and can only get custom MAIL
 FROM attributes for up to 100 identities at a time.
      *
      */
-    getIdentityMailFromDomainAttributes(params: SES.GetIdentityMailFromDomainAttributesRequest, callback?: (err: any, data: SES.GetIdentityMailFromDomainAttributesResponse|any) => void): Request;
+    getIdentityMailFromDomainAttributes(params: SES.GetIdentityMailFromDomainAttributesRequest, callback?: (err: any, data: SES.GetIdentityMailFromDomainAttributesResponse|any) => void): Request<SES.GetIdentityMailFromDomainAttributesResponse|any,any>;
     /**
      * Given a list of verified identities (email addresses and/or domains), returns a
 structure describing identity notification attributes.
@@ -247,7 +247,7 @@ SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html] .
      *
      */
-    getIdentityNotificationAttributes(params: SES.GetIdentityNotificationAttributesRequest, callback?: (err: any, data: SES.GetIdentityNotificationAttributesResponse|any) => void): Request;
+    getIdentityNotificationAttributes(params: SES.GetIdentityNotificationAttributesRequest, callback?: (err: any, data: SES.GetIdentityNotificationAttributesResponse|any) => void): Request<SES.GetIdentityNotificationAttributesResponse|any,any>;
     /**
      * Returns the requested sending authorization policies for the given identity
 (email address or domain). The policies are returned as a map of policy names to
@@ -263,7 +263,7 @@ about using sending authorization, see the Amazon SES Developer Guide
 This action is throttled at one request per second.
      *
      */
-    getIdentityPolicies(params: SES.GetIdentityPoliciesRequest, callback?: (err: any, data: SES.GetIdentityPoliciesResponse|any) => void): Request;
+    getIdentityPolicies(params: SES.GetIdentityPoliciesRequest, callback?: (err: any, data: SES.GetIdentityPoliciesResponse|any) => void): Request<SES.GetIdentityPoliciesResponse|any,any>;
     /**
      * Given a list of identities (email addresses and/or domains), returns the
 verification status and (for domain identities) the verification token for each
@@ -273,14 +273,14 @@ This action is throttled at one request per second and can only get verification
 attributes for up to 100 identities at a time.
      *
      */
-    getIdentityVerificationAttributes(params: SES.GetIdentityVerificationAttributesRequest, callback?: (err: any, data: SES.GetIdentityVerificationAttributesResponse|any) => void): Request;
+    getIdentityVerificationAttributes(params: SES.GetIdentityVerificationAttributesRequest, callback?: (err: any, data: SES.GetIdentityVerificationAttributesResponse|any) => void): Request<SES.GetIdentityVerificationAttributesResponse|any,any>;
     /**
      * Returns the user&#x27;s current sending limits.
 
 This action is throttled at one request per second.
      *
      */
-    getSendQuota(callback?: (err: any, data: SES.GetSendQuotaResponse|any) => void): Request;
+    getSendQuota(callback?: (err: any, data: SES.GetSendQuotaResponse|any) => void): Request<SES.GetSendQuotaResponse|any,any>;
     /**
      * Returns the user&#x27;s sending statistics. The result is a list of data points,
 representing the last two weeks of sending activity.
@@ -290,7 +290,7 @@ Each data point in the list contains statistics for a 15-minute interval.
 This action is throttled at one request per second.
      *
      */
-    getSendStatistics(callback?: (err: any, data: SES.GetSendStatisticsResponse|any) => void): Request;
+    getSendStatistics(callback?: (err: any, data: SES.GetSendStatisticsResponse|any) => void): Request<SES.GetSendStatisticsResponse|any,any>;
     /**
      * Returns a list containing all of the identities (email addresses and domains)
 for a specific AWS Account, regardless of verification status.
@@ -298,7 +298,7 @@ for a specific AWS Account, regardless of verification status.
 This action is throttled at one request per second.
      *
      */
-    listIdentities(params: SES.ListIdentitiesRequest, callback?: (err: any, data: SES.ListIdentitiesResponse|any) => void): Request;
+    listIdentities(params: SES.ListIdentitiesRequest, callback?: (err: any, data: SES.ListIdentitiesResponse|any) => void): Request<SES.ListIdentitiesResponse|any,any>;
     /**
      * Returns a list of sending authorization policies that are attached to the given
 identity (email address or domain). This API returns only a list. If you want
@@ -314,7 +314,7 @@ about using sending authorization, see the Amazon SES Developer Guide
 This action is throttled at one request per second.
      *
      */
-    listIdentityPolicies(params: SES.ListIdentityPoliciesRequest, callback?: (err: any, data: SES.ListIdentityPoliciesResponse|any) => void): Request;
+    listIdentityPolicies(params: SES.ListIdentityPoliciesRequest, callback?: (err: any, data: SES.ListIdentityPoliciesResponse|any) => void): Request<SES.ListIdentityPoliciesResponse|any,any>;
     /**
      * Lists the IP address filters associated with your account.
 
@@ -326,7 +326,7 @@ Guide
 This action is throttled at one request per second.
      *
      */
-    listReceiptFilters(params: SES.ListReceiptFiltersRequest, callback?: (err: any, data: SES.ListReceiptFiltersResponse|any) => void): Request;
+    listReceiptFilters(params: SES.ListReceiptFiltersRequest, callback?: (err: any, data: SES.ListReceiptFiltersResponse|any) => void): Request<SES.ListReceiptFiltersResponse|any,any>;
     /**
      * Lists the receipt rule sets that exist under your AWS account. If there are
 additional receipt rule sets to be retrieved, you will receive a NextToken that
@@ -341,7 +341,7 @@ Guide
 This action is throttled at one request per second.
      *
      */
-    listReceiptRuleSets(params: SES.ListReceiptRuleSetsRequest, callback?: (err: any, data: SES.ListReceiptRuleSetsResponse|any) => void): Request;
+    listReceiptRuleSets(params: SES.ListReceiptRuleSetsRequest, callback?: (err: any, data: SES.ListReceiptRuleSetsResponse|any) => void): Request<SES.ListReceiptRuleSetsResponse|any,any>;
     /**
      * Returns a list containing all of the email addresses that have been verified.
 
@@ -350,7 +350,7 @@ release of Domain Verification. The ListIdentities action is now preferred.This
 action is throttled at one request per second.
      *
      */
-    listVerifiedEmailAddresses(callback?: (err: any, data: SES.ListVerifiedEmailAddressesResponse|any) => void): Request;
+    listVerifiedEmailAddresses(callback?: (err: any, data: SES.ListVerifiedEmailAddressesResponse|any) => void): Request<SES.ListVerifiedEmailAddressesResponse|any,any>;
     /**
      * Adds or updates a sending authorization policy for the specified identity (email
 address or domain).
@@ -366,7 +366,7 @@ This action is throttled at one request per second.
      *
      * @error InvalidPolicyException   
      */
-    putIdentityPolicy(params: SES.PutIdentityPolicyRequest, callback?: (err: SES.InvalidPolicyException|any, data: SES.PutIdentityPolicyResponse|any) => void): Request;
+    putIdentityPolicy(params: SES.PutIdentityPolicyRequest, callback?: (err: SES.InvalidPolicyException|any, data: SES.PutIdentityPolicyResponse|any) => void): Request<SES.PutIdentityPolicyResponse|any,SES.InvalidPolicyException|any>;
     /**
      * Reorders the receipt rules within a receipt rule set.
 
@@ -382,7 +382,7 @@ This action is throttled at one request per second.
      * @error RuleSetDoesNotExistException   
      * @error RuleDoesNotExistException   
      */
-    reorderReceiptRuleSet(params: SES.ReorderReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException|SES.RuleDoesNotExistException|any, data: SES.ReorderReceiptRuleSetResponse|any) => void): Request;
+    reorderReceiptRuleSet(params: SES.ReorderReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException|SES.RuleDoesNotExistException|any, data: SES.ReorderReceiptRuleSetResponse|any) => void): Request<SES.ReorderReceiptRuleSetResponse|any,SES.RuleSetDoesNotExistException|SES.RuleDoesNotExistException|any>;
     /**
      * Generates and sends a bounce message to the sender of an email you received
 through Amazon SES. You can only use this API on an email up to 24 hours after
@@ -397,7 +397,7 @@ This action is throttled at one request per second.
      *
      * @error MessageRejected   
      */
-    sendBounce(params: SES.SendBounceRequest, callback?: (err: SES.MessageRejected|any, data: SES.SendBounceResponse|any) => void): Request;
+    sendBounce(params: SES.SendBounceRequest, callback?: (err: SES.MessageRejected|any, data: SES.SendBounceResponse|any) => void): Request<SES.SendBounceResponse|any,SES.MessageRejected|any>;
     /**
      * Composes an email message based on input data, and then immediately queues the
 message for sending.
@@ -428,7 +428,7 @@ There are several important points to know about SendEmail :
      * @error MessageRejected   
      * @error MailFromDomainNotVerifiedException   
      */
-    sendEmail(params: SES.SendEmailRequest, callback?: (err: SES.MessageRejected|SES.MailFromDomainNotVerifiedException|any, data: SES.SendEmailResponse|any) => void): Request;
+    sendEmail(params: SES.SendEmailRequest, callback?: (err: SES.MessageRejected|SES.MailFromDomainNotVerifiedException|any, data: SES.SendEmailResponse|any) => void): Request<SES.SendEmailResponse|any,SES.MessageRejected|SES.MailFromDomainNotVerifiedException|any>;
     /**
      * Sends an email message, with header and content specified by the client. The 
 SendRawEmail action is useful for sending multipart MIME emails. The raw text of
@@ -484,7 +484,7 @@ There are several important points to know about SendRawEmail :
      * @error MessageRejected   
      * @error MailFromDomainNotVerifiedException   
      */
-    sendRawEmail(params: SES.SendRawEmailRequest, callback?: (err: SES.MessageRejected|SES.MailFromDomainNotVerifiedException|any, data: SES.SendRawEmailResponse|any) => void): Request;
+    sendRawEmail(params: SES.SendRawEmailRequest, callback?: (err: SES.MessageRejected|SES.MailFromDomainNotVerifiedException|any, data: SES.SendRawEmailResponse|any) => void): Request<SES.SendRawEmailResponse|any,SES.MessageRejected|SES.MailFromDomainNotVerifiedException|any>;
     /**
      * Sets the specified receipt rule set as the active receipt rule set.
 
@@ -498,7 +498,7 @@ This action is throttled at one request per second.
      *
      * @error RuleSetDoesNotExistException   
      */
-    setActiveReceiptRuleSet(params: SES.SetActiveReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException|any, data: SES.SetActiveReceiptRuleSetResponse|any) => void): Request;
+    setActiveReceiptRuleSet(params: SES.SetActiveReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException|any, data: SES.SetActiveReceiptRuleSetResponse|any) => void): Request<SES.SetActiveReceiptRuleSetResponse|any,SES.RuleSetDoesNotExistException|any>;
     /**
      * Enables or disables Easy DKIM signing of email sent from an identity:
 
@@ -518,7 +518,7 @@ For more information about Easy DKIM signing, go to the Amazon SES Developer
 Guide [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html] .
      *
      */
-    setIdentityDkimEnabled(params: SES.SetIdentityDkimEnabledRequest, callback?: (err: any, data: SES.SetIdentityDkimEnabledResponse|any) => void): Request;
+    setIdentityDkimEnabled(params: SES.SetIdentityDkimEnabledRequest, callback?: (err: any, data: SES.SetIdentityDkimEnabledResponse|any) => void): Request<SES.SetIdentityDkimEnabledResponse|any,any>;
     /**
      * Given an identity (email address or domain), enables or disables whether Amazon
 SES forwards bounce and complaint notifications as email. Feedback forwarding
@@ -534,7 +534,7 @@ SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html] .
      *
      */
-    setIdentityFeedbackForwardingEnabled(params: SES.SetIdentityFeedbackForwardingEnabledRequest, callback?: (err: any, data: SES.SetIdentityFeedbackForwardingEnabledResponse|any) => void): Request;
+    setIdentityFeedbackForwardingEnabled(params: SES.SetIdentityFeedbackForwardingEnabledRequest, callback?: (err: any, data: SES.SetIdentityFeedbackForwardingEnabledResponse|any) => void): Request<SES.SetIdentityFeedbackForwardingEnabledResponse|any,any>;
     /**
      * Enables or disables the custom MAIL FROM domain setup for a verified identity
 (email address or domain).
@@ -547,7 +547,7 @@ more information, see the Amazon SES Developer Guide
 action is throttled at one request per second.
      *
      */
-    setIdentityMailFromDomain(params: SES.SetIdentityMailFromDomainRequest, callback?: (err: any, data: SES.SetIdentityMailFromDomainResponse|any) => void): Request;
+    setIdentityMailFromDomain(params: SES.SetIdentityMailFromDomainRequest, callback?: (err: any, data: SES.SetIdentityMailFromDomainResponse|any) => void): Request<SES.SetIdentityMailFromDomainResponse|any,any>;
     /**
      * Given an identity (email address or domain), sets the Amazon Simple Notification
 Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint,
@@ -563,7 +563,7 @@ Guide [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html]
 .
      *
      */
-    setIdentityNotificationTopic(params: SES.SetIdentityNotificationTopicRequest, callback?: (err: any, data: SES.SetIdentityNotificationTopicResponse|any) => void): Request;
+    setIdentityNotificationTopic(params: SES.SetIdentityNotificationTopicRequest, callback?: (err: any, data: SES.SetIdentityNotificationTopicResponse|any) => void): Request<SES.SetIdentityNotificationTopicResponse|any,any>;
     /**
      * Sets the position of the specified receipt rule in the receipt rule set.
 
@@ -576,7 +576,7 @@ This action is throttled at one request per second.
      * @error RuleSetDoesNotExistException   
      * @error RuleDoesNotExistException   
      */
-    setReceiptRulePosition(params: SES.SetReceiptRulePositionRequest, callback?: (err: SES.RuleSetDoesNotExistException|SES.RuleDoesNotExistException|any, data: SES.SetReceiptRulePositionResponse|any) => void): Request;
+    setReceiptRulePosition(params: SES.SetReceiptRulePositionRequest, callback?: (err: SES.RuleSetDoesNotExistException|SES.RuleDoesNotExistException|any, data: SES.SetReceiptRulePositionResponse|any) => void): Request<SES.SetReceiptRulePositionResponse|any,SES.RuleSetDoesNotExistException|SES.RuleDoesNotExistException|any>;
     /**
      * Updates a receipt rule.
 
@@ -593,7 +593,7 @@ This action is throttled at one request per second.
      * @error RuleDoesNotExistException   
      * @error LimitExceededException   
      */
-    updateReceiptRule(params: SES.UpdateReceiptRuleRequest, callback?: (err: SES.InvalidSnsTopicException|SES.InvalidS3ConfigurationException|SES.InvalidLambdaFunctionException|SES.RuleSetDoesNotExistException|SES.RuleDoesNotExistException|SES.LimitExceededException|any, data: SES.UpdateReceiptRuleResponse|any) => void): Request;
+    updateReceiptRule(params: SES.UpdateReceiptRuleRequest, callback?: (err: SES.InvalidSnsTopicException|SES.InvalidS3ConfigurationException|SES.InvalidLambdaFunctionException|SES.RuleSetDoesNotExistException|SES.RuleDoesNotExistException|SES.LimitExceededException|any, data: SES.UpdateReceiptRuleResponse|any) => void): Request<SES.UpdateReceiptRuleResponse|any,SES.InvalidSnsTopicException|SES.InvalidS3ConfigurationException|SES.InvalidLambdaFunctionException|SES.RuleSetDoesNotExistException|SES.RuleDoesNotExistException|SES.LimitExceededException|any>;
     /**
      * Returns a set of DKIM tokens for a domain. DKIM tokens are character strings
 that represent your domain&#x27;s identity. Using these tokens, you will need to
@@ -614,14 +614,14 @@ Amazon SES Developer Guide
 .
      *
      */
-    verifyDomainDkim(params: SES.VerifyDomainDkimRequest, callback?: (err: any, data: SES.VerifyDomainDkimResponse|any) => void): Request;
+    verifyDomainDkim(params: SES.VerifyDomainDkimRequest, callback?: (err: any, data: SES.VerifyDomainDkimResponse|any) => void): Request<SES.VerifyDomainDkimResponse|any,any>;
     /**
      * Verifies a domain.
 
 This action is throttled at one request per second.
      *
      */
-    verifyDomainIdentity(params: SES.VerifyDomainIdentityRequest, callback?: (err: any, data: SES.VerifyDomainIdentityResponse|any) => void): Request;
+    verifyDomainIdentity(params: SES.VerifyDomainIdentityRequest, callback?: (err: any, data: SES.VerifyDomainIdentityResponse|any) => void): Request<SES.VerifyDomainIdentityResponse|any,any>;
     /**
      * Verifies an email address. This action causes a confirmation email message to be
 sent to the specified address.
@@ -631,7 +631,7 @@ Domain Verification. The VerifyEmailIdentity action is now preferred.This action
 is throttled at one request per second.
      *
      */
-    verifyEmailAddress(params: SES.VerifyEmailAddressRequest, callback?: (err: any, data: any) => void): Request;
+    verifyEmailAddress(params: SES.VerifyEmailAddressRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Verifies an email address. This action causes a confirmation email message to be
 sent to the specified address.
@@ -639,7 +639,7 @@ sent to the specified address.
 This action is throttled at one request per second.
      *
      */
-    verifyEmailIdentity(params: SES.VerifyEmailIdentityRequest, callback?: (err: any, data: SES.VerifyEmailIdentityResponse|any) => void): Request;
+    verifyEmailIdentity(params: SES.VerifyEmailIdentityRequest, callback?: (err: any, data: SES.VerifyEmailIdentityResponse|any) => void): Request<SES.VerifyEmailIdentityResponse|any,any>;
 
   }
 

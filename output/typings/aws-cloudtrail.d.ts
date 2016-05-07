@@ -55,7 +55,7 @@ its home region).
      * @error UnsupportedOperationException   
      * @error OperationNotPermittedException   
      */
-    addTags(params: CloudTrail.AddTagsRequest, callback?: (err: CloudTrail.ResourceNotFoundException|CloudTrail.CloudTrailARNInvalidException|CloudTrail.ResourceTypeNotSupportedException|CloudTrail.TagsLimitExceededException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidTagParameterException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.AddTagsResponse|any) => void): Request;
+    addTags(params: CloudTrail.AddTagsRequest, callback?: (err: CloudTrail.ResourceNotFoundException|CloudTrail.CloudTrailARNInvalidException|CloudTrail.ResourceTypeNotSupportedException|CloudTrail.TagsLimitExceededException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidTagParameterException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.AddTagsResponse|any) => void): Request<CloudTrail.AddTagsResponse|any,CloudTrail.ResourceNotFoundException|CloudTrail.CloudTrailARNInvalidException|CloudTrail.ResourceTypeNotSupportedException|CloudTrail.TagsLimitExceededException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidTagParameterException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any>;
     /**
      * Creates a trail that specifies the settings for delivery of log data to an
 Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective
@@ -82,7 +82,7 @@ of the region in which they were created.
      * @error UnsupportedOperationException   
      * @error OperationNotPermittedException   
      */
-    createTrail(params: CloudTrail.CreateTrailRequest, callback?: (err: CloudTrail.MaximumNumberOfTrailsExceededException|CloudTrail.TrailAlreadyExistsException|CloudTrail.S3BucketDoesNotExistException|CloudTrail.InsufficientS3BucketPolicyException|CloudTrail.InsufficientSnsTopicPolicyException|CloudTrail.InsufficientEncryptionPolicyException|CloudTrail.InvalidS3BucketNameException|CloudTrail.InvalidS3PrefixException|CloudTrail.InvalidSnsTopicNameException|CloudTrail.InvalidKmsKeyIdException|CloudTrail.InvalidTrailNameException|CloudTrail.TrailNotProvidedException|CloudTrail.InvalidParameterCombinationException|CloudTrail.KmsKeyNotFoundException|CloudTrail.KmsKeyDisabledException|CloudTrail.InvalidCloudWatchLogsLogGroupArnException|CloudTrail.InvalidCloudWatchLogsRoleArnException|CloudTrail.CloudWatchLogsDeliveryUnavailableException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.CreateTrailResponse|any) => void): Request;
+    createTrail(params: CloudTrail.CreateTrailRequest, callback?: (err: CloudTrail.MaximumNumberOfTrailsExceededException|CloudTrail.TrailAlreadyExistsException|CloudTrail.S3BucketDoesNotExistException|CloudTrail.InsufficientS3BucketPolicyException|CloudTrail.InsufficientSnsTopicPolicyException|CloudTrail.InsufficientEncryptionPolicyException|CloudTrail.InvalidS3BucketNameException|CloudTrail.InvalidS3PrefixException|CloudTrail.InvalidSnsTopicNameException|CloudTrail.InvalidKmsKeyIdException|CloudTrail.InvalidTrailNameException|CloudTrail.TrailNotProvidedException|CloudTrail.InvalidParameterCombinationException|CloudTrail.KmsKeyNotFoundException|CloudTrail.KmsKeyDisabledException|CloudTrail.InvalidCloudWatchLogsLogGroupArnException|CloudTrail.InvalidCloudWatchLogsRoleArnException|CloudTrail.CloudWatchLogsDeliveryUnavailableException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.CreateTrailResponse|any) => void): Request<CloudTrail.CreateTrailResponse|any,CloudTrail.MaximumNumberOfTrailsExceededException|CloudTrail.TrailAlreadyExistsException|CloudTrail.S3BucketDoesNotExistException|CloudTrail.InsufficientS3BucketPolicyException|CloudTrail.InsufficientSnsTopicPolicyException|CloudTrail.InsufficientEncryptionPolicyException|CloudTrail.InvalidS3BucketNameException|CloudTrail.InvalidS3PrefixException|CloudTrail.InvalidSnsTopicNameException|CloudTrail.InvalidKmsKeyIdException|CloudTrail.InvalidTrailNameException|CloudTrail.TrailNotProvidedException|CloudTrail.InvalidParameterCombinationException|CloudTrail.KmsKeyNotFoundException|CloudTrail.KmsKeyDisabledException|CloudTrail.InvalidCloudWatchLogsLogGroupArnException|CloudTrail.InvalidCloudWatchLogsRoleArnException|CloudTrail.CloudWatchLogsDeliveryUnavailableException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any>;
     /**
      * Deletes a trail. This operation must be called from the region in which the
 trail was created. DeleteTrail cannot be called on the shadow trails (replicated
@@ -92,7 +92,7 @@ trails in other regions) of a trail that is enabled in all regions.
      * @error InvalidTrailNameException   
      * @error InvalidHomeRegionException   
      */
-    deleteTrail(params: CloudTrail.DeleteTrailRequest, callback?: (err: CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidHomeRegionException|any, data: CloudTrail.DeleteTrailResponse|any) => void): Request;
+    deleteTrail(params: CloudTrail.DeleteTrailRequest, callback?: (err: CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidHomeRegionException|any, data: CloudTrail.DeleteTrailResponse|any) => void): Request<CloudTrail.DeleteTrailResponse|any,CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidHomeRegionException|any>;
     /**
      * Retrieves settings for the trail associated with the current region for your
 account.
@@ -100,7 +100,7 @@ account.
      * @error UnsupportedOperationException   
      * @error OperationNotPermittedException   
      */
-    describeTrails(params: CloudTrail.DescribeTrailsRequest, callback?: (err: CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.DescribeTrailsResponse|any) => void): Request;
+    describeTrails(params: CloudTrail.DescribeTrailsRequest, callback?: (err: CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.DescribeTrailsResponse|any) => void): Request<CloudTrail.DescribeTrailsResponse|any,CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any>;
     /**
      * Returns a JSON-formatted list of information about the specified trail. Fields
 include information on delivery errors, Amazon SNS and Amazon S3 errors, and
@@ -111,7 +111,7 @@ operation on each region.
      * @error TrailNotFoundException   
      * @error InvalidTrailNameException   
      */
-    getTrailStatus(params: CloudTrail.GetTrailStatusRequest, callback?: (err: CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|any, data: CloudTrail.GetTrailStatusResponse|any) => void): Request;
+    getTrailStatus(params: CloudTrail.GetTrailStatusRequest, callback?: (err: CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|any, data: CloudTrail.GetTrailStatusResponse|any) => void): Request<CloudTrail.GetTrailStatusResponse|any,CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|any>;
     /**
      * Returns all public keys whose private keys were used to sign the digest files
 within the specified time range. The public key is needed to validate digest
@@ -127,7 +127,7 @@ corresponding public key.
      * @error OperationNotPermittedException   
      * @error InvalidTokenException   
      */
-    listPublicKeys(params: CloudTrail.ListPublicKeysRequest, callback?: (err: CloudTrail.InvalidTimeRangeException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|CloudTrail.InvalidTokenException|any, data: CloudTrail.ListPublicKeysResponse|any) => void): Request;
+    listPublicKeys(params: CloudTrail.ListPublicKeysRequest, callback?: (err: CloudTrail.InvalidTimeRangeException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|CloudTrail.InvalidTokenException|any, data: CloudTrail.ListPublicKeysResponse|any) => void): Request<CloudTrail.ListPublicKeysResponse|any,CloudTrail.InvalidTimeRangeException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|CloudTrail.InvalidTokenException|any>;
     /**
      * Lists the tags for the trail in the current region.
      *
@@ -139,7 +139,7 @@ corresponding public key.
      * @error OperationNotPermittedException   
      * @error InvalidTokenException   
      */
-    listTags(params: CloudTrail.ListTagsRequest, callback?: (err: CloudTrail.ResourceNotFoundException|CloudTrail.CloudTrailARNInvalidException|CloudTrail.ResourceTypeNotSupportedException|CloudTrail.InvalidTrailNameException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|CloudTrail.InvalidTokenException|any, data: CloudTrail.ListTagsResponse|any) => void): Request;
+    listTags(params: CloudTrail.ListTagsRequest, callback?: (err: CloudTrail.ResourceNotFoundException|CloudTrail.CloudTrailARNInvalidException|CloudTrail.ResourceTypeNotSupportedException|CloudTrail.InvalidTrailNameException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|CloudTrail.InvalidTokenException|any, data: CloudTrail.ListTagsResponse|any) => void): Request<CloudTrail.ListTagsResponse|any,CloudTrail.ResourceNotFoundException|CloudTrail.CloudTrailARNInvalidException|CloudTrail.ResourceTypeNotSupportedException|CloudTrail.InvalidTrailNameException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|CloudTrail.InvalidTokenException|any>;
     /**
      * Looks up API activity events captured by CloudTrail that create, update, or
 delete resources in your account. Events for a region can be looked up for the
@@ -162,7 +162,7 @@ lookup if CloudTrail logging was not enabled when the events occurred.
      * @error InvalidMaxResultsException   
      * @error InvalidNextTokenException   
      */
-    lookupEvents(params: CloudTrail.LookupEventsRequest, callback?: (err: CloudTrail.InvalidLookupAttributesException|CloudTrail.InvalidTimeRangeException|CloudTrail.InvalidMaxResultsException|CloudTrail.InvalidNextTokenException|any, data: CloudTrail.LookupEventsResponse|any) => void): Request;
+    lookupEvents(params: CloudTrail.LookupEventsRequest, callback?: (err: CloudTrail.InvalidLookupAttributesException|CloudTrail.InvalidTimeRangeException|CloudTrail.InvalidMaxResultsException|CloudTrail.InvalidNextTokenException|any, data: CloudTrail.LookupEventsResponse|any) => void): Request<CloudTrail.LookupEventsResponse|any,CloudTrail.InvalidLookupAttributesException|CloudTrail.InvalidTimeRangeException|CloudTrail.InvalidMaxResultsException|CloudTrail.InvalidNextTokenException|any>;
     /**
      * Removes the specified tags from a trail.
      *
@@ -174,7 +174,7 @@ lookup if CloudTrail logging was not enabled when the events occurred.
      * @error UnsupportedOperationException   
      * @error OperationNotPermittedException   
      */
-    removeTags(params: CloudTrail.RemoveTagsRequest, callback?: (err: CloudTrail.ResourceNotFoundException|CloudTrail.CloudTrailARNInvalidException|CloudTrail.ResourceTypeNotSupportedException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidTagParameterException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.RemoveTagsResponse|any) => void): Request;
+    removeTags(params: CloudTrail.RemoveTagsRequest, callback?: (err: CloudTrail.ResourceNotFoundException|CloudTrail.CloudTrailARNInvalidException|CloudTrail.ResourceTypeNotSupportedException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidTagParameterException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.RemoveTagsResponse|any) => void): Request<CloudTrail.RemoveTagsResponse|any,CloudTrail.ResourceNotFoundException|CloudTrail.CloudTrailARNInvalidException|CloudTrail.ResourceTypeNotSupportedException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidTagParameterException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any>;
     /**
      * Starts the recording of AWS API calls and log file delivery for a trail. For a
 trail that is enabled in all regions, this operation must be called from the
@@ -186,7 +186,7 @@ all regions.
      * @error InvalidTrailNameException   
      * @error InvalidHomeRegionException   
      */
-    startLogging(params: CloudTrail.StartLoggingRequest, callback?: (err: CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidHomeRegionException|any, data: CloudTrail.StartLoggingResponse|any) => void): Request;
+    startLogging(params: CloudTrail.StartLoggingRequest, callback?: (err: CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidHomeRegionException|any, data: CloudTrail.StartLoggingResponse|any) => void): Request<CloudTrail.StartLoggingResponse|any,CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidHomeRegionException|any>;
     /**
      * Suspends the recording of AWS API calls and log file delivery for the specified
 trail. Under most circumstances, there is no need to use this action. You can
@@ -200,7 +200,7 @@ trails in other regions) of a trail enabled in all regions.
      * @error InvalidTrailNameException   
      * @error InvalidHomeRegionException   
      */
-    stopLogging(params: CloudTrail.StopLoggingRequest, callback?: (err: CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidHomeRegionException|any, data: CloudTrail.StopLoggingResponse|any) => void): Request;
+    stopLogging(params: CloudTrail.StopLoggingRequest, callback?: (err: CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidHomeRegionException|any, data: CloudTrail.StopLoggingResponse|any) => void): Request<CloudTrail.StopLoggingResponse|any,CloudTrail.TrailNotFoundException|CloudTrail.InvalidTrailNameException|CloudTrail.InvalidHomeRegionException|any>;
     /**
      * Updates the settings that specify delivery of log files. Changes to a trail do
 not require stopping the CloudTrail service. Use this action to designate an
@@ -230,7 +230,7 @@ otherwise, an InvalidHomeRegionException is thrown.
      * @error UnsupportedOperationException   
      * @error OperationNotPermittedException   
      */
-    updateTrail(params: CloudTrail.UpdateTrailRequest, callback?: (err: CloudTrail.S3BucketDoesNotExistException|CloudTrail.InsufficientS3BucketPolicyException|CloudTrail.InsufficientSnsTopicPolicyException|CloudTrail.InsufficientEncryptionPolicyException|CloudTrail.TrailNotFoundException|CloudTrail.InvalidS3BucketNameException|CloudTrail.InvalidS3PrefixException|CloudTrail.InvalidSnsTopicNameException|CloudTrail.InvalidKmsKeyIdException|CloudTrail.InvalidTrailNameException|CloudTrail.TrailNotProvidedException|CloudTrail.InvalidParameterCombinationException|CloudTrail.InvalidHomeRegionException|CloudTrail.KmsKeyNotFoundException|CloudTrail.KmsKeyDisabledException|CloudTrail.InvalidCloudWatchLogsLogGroupArnException|CloudTrail.InvalidCloudWatchLogsRoleArnException|CloudTrail.CloudWatchLogsDeliveryUnavailableException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.UpdateTrailResponse|any) => void): Request;
+    updateTrail(params: CloudTrail.UpdateTrailRequest, callback?: (err: CloudTrail.S3BucketDoesNotExistException|CloudTrail.InsufficientS3BucketPolicyException|CloudTrail.InsufficientSnsTopicPolicyException|CloudTrail.InsufficientEncryptionPolicyException|CloudTrail.TrailNotFoundException|CloudTrail.InvalidS3BucketNameException|CloudTrail.InvalidS3PrefixException|CloudTrail.InvalidSnsTopicNameException|CloudTrail.InvalidKmsKeyIdException|CloudTrail.InvalidTrailNameException|CloudTrail.TrailNotProvidedException|CloudTrail.InvalidParameterCombinationException|CloudTrail.InvalidHomeRegionException|CloudTrail.KmsKeyNotFoundException|CloudTrail.KmsKeyDisabledException|CloudTrail.InvalidCloudWatchLogsLogGroupArnException|CloudTrail.InvalidCloudWatchLogsRoleArnException|CloudTrail.CloudWatchLogsDeliveryUnavailableException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.UpdateTrailResponse|any) => void): Request<CloudTrail.UpdateTrailResponse|any,CloudTrail.S3BucketDoesNotExistException|CloudTrail.InsufficientS3BucketPolicyException|CloudTrail.InsufficientSnsTopicPolicyException|CloudTrail.InsufficientEncryptionPolicyException|CloudTrail.TrailNotFoundException|CloudTrail.InvalidS3BucketNameException|CloudTrail.InvalidS3PrefixException|CloudTrail.InvalidSnsTopicNameException|CloudTrail.InvalidKmsKeyIdException|CloudTrail.InvalidTrailNameException|CloudTrail.TrailNotProvidedException|CloudTrail.InvalidParameterCombinationException|CloudTrail.InvalidHomeRegionException|CloudTrail.KmsKeyNotFoundException|CloudTrail.KmsKeyDisabledException|CloudTrail.InvalidCloudWatchLogsLogGroupArnException|CloudTrail.InvalidCloudWatchLogsRoleArnException|CloudTrail.CloudWatchLogsDeliveryUnavailableException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any>;
 
   }
 

@@ -38,7 +38,7 @@ accessKeyId value. The manifest and the request authentication must use the same
 AWS Access Key ID.  
      * @error InvalidVersionException The client tool version is invalid.  
      */
-    cancelJob(params: ImportExport.CancelJobInput, callback?: (err: ImportExport.InvalidJobIdException|ImportExport.ExpiredJobIdException|ImportExport.CanceledJobIdException|ImportExport.UnableToCancelJobIdException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidVersionException|any, data: ImportExport.CancelJobOutput|any) => void): Request;
+    cancelJob(params: ImportExport.CancelJobInput, callback?: (err: ImportExport.InvalidJobIdException|ImportExport.ExpiredJobIdException|ImportExport.CanceledJobIdException|ImportExport.UnableToCancelJobIdException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidVersionException|any, data: ImportExport.CancelJobOutput|any) => void): Request<ImportExport.CancelJobOutput|any,ImportExport.InvalidJobIdException|ImportExport.ExpiredJobIdException|ImportExport.CanceledJobIdException|ImportExport.UnableToCancelJobIdException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidVersionException|any>;
     /**
      * This operation initiates the process of scheduling an upload or download of your
 data. You include in the request a manifest that describes the data transfer
@@ -71,7 +71,7 @@ particular use case.
      * @error InvalidJobIdException The JOBID was missing, not found, or not associated with the AWS account.  
      * @error InvalidVersionException The client tool version is invalid.  
      */
-    createJob(params: ImportExport.CreateJobInput, callback?: (err: ImportExport.MissingParameterException|ImportExport.InvalidParameterException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidAddressException|ImportExport.InvalidManifestFieldException|ImportExport.MissingManifestFieldException|ImportExport.NoSuchBucketException|ImportExport.MissingCustomsException|ImportExport.InvalidCustomsException|ImportExport.InvalidFileSystemException|ImportExport.MultipleRegionsException|ImportExport.BucketPermissionException|ImportExport.MalformedManifestException|ImportExport.CreateJobQuotaExceededException|ImportExport.InvalidJobIdException|ImportExport.InvalidVersionException|any, data: ImportExport.CreateJobOutput|any) => void): Request;
+    createJob(params: ImportExport.CreateJobInput, callback?: (err: ImportExport.MissingParameterException|ImportExport.InvalidParameterException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidAddressException|ImportExport.InvalidManifestFieldException|ImportExport.MissingManifestFieldException|ImportExport.NoSuchBucketException|ImportExport.MissingCustomsException|ImportExport.InvalidCustomsException|ImportExport.InvalidFileSystemException|ImportExport.MultipleRegionsException|ImportExport.BucketPermissionException|ImportExport.MalformedManifestException|ImportExport.CreateJobQuotaExceededException|ImportExport.InvalidJobIdException|ImportExport.InvalidVersionException|any, data: ImportExport.CreateJobOutput|any) => void): Request<ImportExport.CreateJobOutput|any,ImportExport.MissingParameterException|ImportExport.InvalidParameterException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidAddressException|ImportExport.InvalidManifestFieldException|ImportExport.MissingManifestFieldException|ImportExport.NoSuchBucketException|ImportExport.MissingCustomsException|ImportExport.InvalidCustomsException|ImportExport.InvalidFileSystemException|ImportExport.MultipleRegionsException|ImportExport.BucketPermissionException|ImportExport.MalformedManifestException|ImportExport.CreateJobQuotaExceededException|ImportExport.InvalidJobIdException|ImportExport.InvalidVersionException|any>;
     /**
      * This operation generates a pre-paid UPS shipping label that you will use to ship
 your device to AWS for processing.
@@ -86,7 +86,7 @@ AWS Access Key ID.
      * @error InvalidVersionException The client tool version is invalid.  
      * @error InvalidParameterException One or more parameters had an invalid value.  
      */
-    getShippingLabel(params: ImportExport.GetShippingLabelInput, callback?: (err: ImportExport.InvalidJobIdException|ImportExport.ExpiredJobIdException|ImportExport.CanceledJobIdException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidAddressException|ImportExport.InvalidVersionException|ImportExport.InvalidParameterException|any, data: ImportExport.GetShippingLabelOutput|any) => void): Request;
+    getShippingLabel(params: ImportExport.GetShippingLabelInput, callback?: (err: ImportExport.InvalidJobIdException|ImportExport.ExpiredJobIdException|ImportExport.CanceledJobIdException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidAddressException|ImportExport.InvalidVersionException|ImportExport.InvalidParameterException|any, data: ImportExport.GetShippingLabelOutput|any) => void): Request<ImportExport.GetShippingLabelOutput|any,ImportExport.InvalidJobIdException|ImportExport.ExpiredJobIdException|ImportExport.CanceledJobIdException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidAddressException|ImportExport.InvalidVersionException|ImportExport.InvalidParameterException|any>;
     /**
      * This operation returns information about a job, including where the job is in
 the processing pipeline, the status of the results, and the signature value
@@ -100,7 +100,7 @@ accessKeyId value. The manifest and the request authentication must use the same
 AWS Access Key ID.  
      * @error InvalidVersionException The client tool version is invalid.  
      */
-    getStatus(params: ImportExport.GetStatusInput, callback?: (err: ImportExport.InvalidJobIdException|ImportExport.ExpiredJobIdException|ImportExport.CanceledJobIdException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidVersionException|any, data: ImportExport.GetStatusOutput|any) => void): Request;
+    getStatus(params: ImportExport.GetStatusInput, callback?: (err: ImportExport.InvalidJobIdException|ImportExport.ExpiredJobIdException|ImportExport.CanceledJobIdException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidVersionException|any, data: ImportExport.GetStatusOutput|any) => void): Request<ImportExport.GetStatusOutput|any,ImportExport.InvalidJobIdException|ImportExport.ExpiredJobIdException|ImportExport.CanceledJobIdException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidVersionException|any>;
     /**
      * This operation returns the jobs associated with the requester. AWS Import/Export
 lists the jobs in reverse chronological order based on the date of creation. For
@@ -113,7 +113,7 @@ accessKeyId value. The manifest and the request authentication must use the same
 AWS Access Key ID.  
      * @error InvalidVersionException The client tool version is invalid.  
      */
-    listJobs(params: ImportExport.ListJobsInput, callback?: (err: ImportExport.InvalidParameterException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidVersionException|any, data: ImportExport.ListJobsOutput|any) => void): Request;
+    listJobs(params: ImportExport.ListJobsInput, callback?: (err: ImportExport.InvalidParameterException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidVersionException|any, data: ImportExport.ListJobsOutput|any) => void): Request<ImportExport.ListJobsOutput|any,ImportExport.InvalidParameterException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidVersionException|any>;
     /**
      * You use this operation to change the parameters specified in the original
 manifest file by supplying a new manifest file. The manifest file attached to
@@ -146,7 +146,7 @@ to buckets from one region. Please correct and resubmit.
      * @error UnableToUpdateJobIdException AWS Import/Export cannot update the job  
      * @error InvalidVersionException The client tool version is invalid.  
      */
-    updateJob(params: ImportExport.UpdateJobInput, callback?: (err: ImportExport.MissingParameterException|ImportExport.InvalidParameterException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidAddressException|ImportExport.InvalidManifestFieldException|ImportExport.InvalidJobIdException|ImportExport.MissingManifestFieldException|ImportExport.NoSuchBucketException|ImportExport.ExpiredJobIdException|ImportExport.CanceledJobIdException|ImportExport.MissingCustomsException|ImportExport.InvalidCustomsException|ImportExport.InvalidFileSystemException|ImportExport.MultipleRegionsException|ImportExport.BucketPermissionException|ImportExport.MalformedManifestException|ImportExport.UnableToUpdateJobIdException|ImportExport.InvalidVersionException|any, data: ImportExport.UpdateJobOutput|any) => void): Request;
+    updateJob(params: ImportExport.UpdateJobInput, callback?: (err: ImportExport.MissingParameterException|ImportExport.InvalidParameterException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidAddressException|ImportExport.InvalidManifestFieldException|ImportExport.InvalidJobIdException|ImportExport.MissingManifestFieldException|ImportExport.NoSuchBucketException|ImportExport.ExpiredJobIdException|ImportExport.CanceledJobIdException|ImportExport.MissingCustomsException|ImportExport.InvalidCustomsException|ImportExport.InvalidFileSystemException|ImportExport.MultipleRegionsException|ImportExport.BucketPermissionException|ImportExport.MalformedManifestException|ImportExport.UnableToUpdateJobIdException|ImportExport.InvalidVersionException|any, data: ImportExport.UpdateJobOutput|any) => void): Request<ImportExport.UpdateJobOutput|any,ImportExport.MissingParameterException|ImportExport.InvalidParameterException|ImportExport.InvalidAccessKeyIdException|ImportExport.InvalidAddressException|ImportExport.InvalidManifestFieldException|ImportExport.InvalidJobIdException|ImportExport.MissingManifestFieldException|ImportExport.NoSuchBucketException|ImportExport.ExpiredJobIdException|ImportExport.CanceledJobIdException|ImportExport.MissingCustomsException|ImportExport.InvalidCustomsException|ImportExport.InvalidFileSystemException|ImportExport.MultipleRegionsException|ImportExport.BucketPermissionException|ImportExport.MalformedManifestException|ImportExport.UnableToUpdateJobIdException|ImportExport.InvalidVersionException|any>;
 
   }
 

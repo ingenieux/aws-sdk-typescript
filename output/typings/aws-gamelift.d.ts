@@ -126,7 +126,7 @@ back-off period.
      * @error LimitExceededException The requested operation would cause the resource to exceed the allowed service
 limit. Please resolve the issue before retrying.  
      */
-    createAlias(params: GameLift.CreateAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.ConflictException|GameLift.InternalServiceException|GameLift.LimitExceededException|any, data: GameLift.CreateAliasOutput|any) => void): Request;
+    createAlias(params: GameLift.CreateAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.ConflictException|GameLift.InternalServiceException|GameLift.LimitExceededException|any, data: GameLift.CreateAliasOutput|any) => void): Request<GameLift.CreateAliasOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.ConflictException|GameLift.InternalServiceException|GameLift.LimitExceededException|any>;
     /**
      * Initializes a new build record and generates information required to upload a
 game build to Amazon GameLift. Once the build record has been created and is in
@@ -157,7 +157,7 @@ retrying this request.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    createBuild(params: GameLift.CreateBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.ConflictException|GameLift.InternalServiceException|any, data: GameLift.CreateBuildOutput|any) => void): Request;
+    createBuild(params: GameLift.CreateBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.ConflictException|GameLift.InternalServiceException|any, data: GameLift.CreateBuildOutput|any) => void): Request<GameLift.CreateBuildOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.ConflictException|GameLift.InternalServiceException|any>;
     /**
      * Creates a new fleet to host game servers. A fleet consists of a set of Amazon
 Elastic Compute Cloud (Amazon EC2) instances of a certain type, which defines
@@ -209,7 +209,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    createFleet(params: GameLift.CreateFleetInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.ConflictException|GameLift.LimitExceededException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.CreateFleetOutput|any) => void): Request;
+    createFleet(params: GameLift.CreateFleetInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.ConflictException|GameLift.LimitExceededException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.CreateFleetOutput|any) => void): Request<GameLift.CreateFleetOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.ConflictException|GameLift.LimitExceededException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
      * Creates a multiplayer game session for players. This action creates a game
 session record and assigns the new session to an instance in the specified
@@ -248,7 +248,7 @@ should not be retried by clients.
 new game session. Such requests should only be retried once the fleet capacity
 has been increased.  
      */
-    createGameSession(params: GameLift.CreateGameSessionInput, callback?: (err: GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidFleetStatusException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.FleetCapacityExceededException|any, data: GameLift.CreateGameSessionOutput|any) => void): Request;
+    createGameSession(params: GameLift.CreateGameSessionInput, callback?: (err: GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidFleetStatusException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.FleetCapacityExceededException|any, data: GameLift.CreateGameSessionOutput|any) => void): Request<GameLift.CreateGameSessionOutput|any,GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidFleetStatusException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.FleetCapacityExceededException|any>;
     /**
      * Adds a player to a game session and creates a player session record. A game
 session must be in an ACTIVE state, have a creation policy of ALLOW_ALL, and
@@ -278,7 +278,7 @@ correct the invalid parameters before retrying.
      * @error NotFoundException A service resource associated with the request could not be found. Such requests
 should not be retried by clients.  
      */
-    createPlayerSession(params: GameLift.CreatePlayerSessionInput, callback?: (err: GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any, data: GameLift.CreatePlayerSessionOutput|any) => void): Request;
+    createPlayerSession(params: GameLift.CreatePlayerSessionInput, callback?: (err: GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any, data: GameLift.CreatePlayerSessionOutput|any) => void): Request<GameLift.CreatePlayerSessionOutput|any,GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any>;
     /**
      * Adds a group of players to a game session. Similar to CreatePlayerSession , this
 action allows you to add multiple players in a single call, which is useful for
@@ -310,7 +310,7 @@ correct the invalid parameters before retrying.
      * @error NotFoundException A service resource associated with the request could not be found. Such requests
 should not be retried by clients.  
      */
-    createPlayerSessions(params: GameLift.CreatePlayerSessionsInput, callback?: (err: GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any, data: GameLift.CreatePlayerSessionsOutput|any) => void): Request;
+    createPlayerSessions(params: GameLift.CreatePlayerSessionsInput, callback?: (err: GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any, data: GameLift.CreatePlayerSessionsOutput|any) => void): Request<GameLift.CreatePlayerSessionsOutput|any,GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any>;
     /**
      * Deletes an alias. This action removes all record of the alias; game clients
 attempting to access a game server using the deleted alias receive an error. To
@@ -326,7 +326,7 @@ correct the invalid parameters before retrying.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    deleteAlias(params: GameLift.DeleteAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any, data: any) => void): Request;
+    deleteAlias(params: GameLift.DeleteAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any, data: any) => void): Request<any,GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any>;
     /**
      * Deletes a build. This action permanently deletes the build record and any
 uploaded build files.
@@ -345,7 +345,7 @@ back-off period.
      * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Please
 correct the invalid parameters before retrying.  
      */
-    deleteBuild(params: GameLift.DeleteBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidRequestException|any, data: any) => void): Request;
+    deleteBuild(params: GameLift.DeleteBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidRequestException|any, data: any) => void): Request<any,GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidRequestException|any>;
     /**
      * Deletes everything related to a fleet. Before deleting a fleet, you must set the
 fleet&#x27;s desired capacity to zero. See UpdateFleetCapacity .
@@ -369,7 +369,7 @@ correct the invalid parameters before retrying.
 resource associated with the request and/or the fleet. Please resolve the
 conflict before retrying.  
      */
-    deleteFleet(params: GameLift.DeleteFleetInput, callback?: (err: GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidFleetStatusException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InvalidFleetStatusException|any, data: any) => void): Request;
+    deleteFleet(params: GameLift.DeleteFleetInput, callback?: (err: GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidFleetStatusException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InvalidFleetStatusException|any, data: any) => void): Request<any,GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidFleetStatusException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InvalidFleetStatusException|any>;
     /**
      * Deletes a fleet scaling policy. This action means that the policy is no longer
 in force and removes all record of it. To delete a scaling policy, specify both
@@ -385,7 +385,7 @@ valid authentication credentials.
      * @error NotFoundException A service resource associated with the request could not be found. Such requests
 should not be retried by clients.  
      */
-    deleteScalingPolicy(params: GameLift.DeleteScalingPolicyInput, callback?: (err: GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any, data: any) => void): Request;
+    deleteScalingPolicy(params: GameLift.DeleteScalingPolicyInput, callback?: (err: GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any, data: any) => void): Request<any,GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any>;
     /**
      * Retrieves properties for a specified alias. To get the alias, specify an alias
 ID. If successful, an Alias object is returned.
@@ -400,7 +400,7 @@ should not be retried by clients.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    describeAlias(params: GameLift.DescribeAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.DescribeAliasOutput|any) => void): Request;
+    describeAlias(params: GameLift.DescribeAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.DescribeAliasOutput|any) => void): Request<GameLift.DescribeAliasOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
     /**
      * Retrieves properties for a build. To get a build record, specify a build ID. If
 successful, an object containing the build properties is returned.
@@ -415,7 +415,7 @@ should not be retried by clients.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    describeBuild(params: GameLift.DescribeBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.DescribeBuildOutput|any) => void): Request;
+    describeBuild(params: GameLift.DescribeBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.DescribeBuildOutput|any) => void): Request<GameLift.DescribeBuildOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
     /**
      * Retrieves the following information for the specified EC2 instance type:
 
@@ -434,7 +434,7 @@ back-off period.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    describeEC2InstanceLimits(params: GameLift.DescribeEC2InstanceLimitsInput, callback?: (err: GameLift.InvalidRequestException|GameLift.InternalServiceException|GameLift.UnauthorizedException|any, data: GameLift.DescribeEC2InstanceLimitsOutput|any) => void): Request;
+    describeEC2InstanceLimits(params: GameLift.DescribeEC2InstanceLimitsInput, callback?: (err: GameLift.InvalidRequestException|GameLift.InternalServiceException|GameLift.UnauthorizedException|any, data: GameLift.DescribeEC2InstanceLimitsOutput|any) => void): Request<GameLift.DescribeEC2InstanceLimitsOutput|any,GameLift.InvalidRequestException|GameLift.InternalServiceException|GameLift.UnauthorizedException|any>;
     /**
      * Retrieves fleet properties, including metadata, status, and configuration, for
 one or more fleets. You can request attributes for all fleets, or specify a list
@@ -458,7 +458,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    describeFleetAttributes(params: GameLift.DescribeFleetAttributesInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetAttributesOutput|any) => void): Request;
+    describeFleetAttributes(params: GameLift.DescribeFleetAttributesInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetAttributesOutput|any) => void): Request<GameLift.DescribeFleetAttributesOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
      * Retrieves the current status of fleet capacity for one or more fleets. This
 information includes the number of instances that have been requested for the
@@ -483,7 +483,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    describeFleetCapacity(params: GameLift.DescribeFleetCapacityInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetCapacityOutput|any) => void): Request;
+    describeFleetCapacity(params: GameLift.DescribeFleetCapacityInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetCapacityOutput|any) => void): Request<GameLift.DescribeFleetCapacityOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
      * Retrieves entries from the fleet event log. You can specify a time range to
 limit the result set. Use the pagination parameters to retrieve results as a set
@@ -500,7 +500,7 @@ valid authentication credentials.
      * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Please
 correct the invalid parameters before retrying.  
      */
-    describeFleetEvents(params: GameLift.DescribeFleetEventsInput, callback?: (err: GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any, data: GameLift.DescribeFleetEventsOutput|any) => void): Request;
+    describeFleetEvents(params: GameLift.DescribeFleetEventsInput, callback?: (err: GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any, data: GameLift.DescribeFleetEventsOutput|any) => void): Request<GameLift.DescribeFleetEventsOutput|any,GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any>;
     /**
      * Retrieves the port settings for a fleet. Port settings are used to limit
 incoming traffic access to game servers in the fleet. To get a fleet&#x27;s port
@@ -518,7 +518,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    describeFleetPortSettings(params: GameLift.DescribeFleetPortSettingsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetPortSettingsOutput|any) => void): Request;
+    describeFleetPortSettings(params: GameLift.DescribeFleetPortSettingsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetPortSettingsOutput|any) => void): Request<GameLift.DescribeFleetPortSettingsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
      * Retrieves utilization statistics for one or more fleets. You can request
 utilization data for all fleets, or specify a list of one or more fleet IDs.
@@ -541,7 +541,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    describeFleetUtilization(params: GameLift.DescribeFleetUtilizationInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetUtilizationOutput|any) => void): Request;
+    describeFleetUtilization(params: GameLift.DescribeFleetUtilizationInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetUtilizationOutput|any) => void): Request<GameLift.DescribeFleetUtilizationOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
      * Retrieves properties, including the protection policy in force, for one or more
 game sessions. This action can be used in several ways: (1) provide a 
@@ -570,7 +570,7 @@ exception is the message defined in the TerminalRoutingStrategy itself. Such
 requests should only be retried if the routing strategy for the specified alias
 is modified.  
      */
-    describeGameSessionDetails(params: GameLift.DescribeGameSessionDetailsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any, data: GameLift.DescribeGameSessionDetailsOutput|any) => void): Request;
+    describeGameSessionDetails(params: GameLift.DescribeGameSessionDetailsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any, data: GameLift.DescribeGameSessionDetailsOutput|any) => void): Request<GameLift.DescribeGameSessionDetailsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any>;
     /**
      * Retrieves properties for one or more game sessions. This action can be used in
 several ways: (1) provide a GameSessionId to request properties for a specific
@@ -598,7 +598,7 @@ exception is the message defined in the TerminalRoutingStrategy itself. Such
 requests should only be retried if the routing strategy for the specified alias
 is modified.  
      */
-    describeGameSessions(params: GameLift.DescribeGameSessionsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any, data: GameLift.DescribeGameSessionsOutput|any) => void): Request;
+    describeGameSessions(params: GameLift.DescribeGameSessionsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any, data: GameLift.DescribeGameSessionsOutput|any) => void): Request<GameLift.DescribeGameSessionsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any>;
     /**
      * Retrieves properties for one or more player sessions. This action can be used in
 several ways: (1) provide a PlayerSessionId parameter to request properties for
@@ -623,7 +623,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    describePlayerSessions(params: GameLift.DescribePlayerSessionsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribePlayerSessionsOutput|any) => void): Request;
+    describePlayerSessions(params: GameLift.DescribePlayerSessionsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribePlayerSessionsOutput|any) => void): Request<GameLift.DescribePlayerSessionsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
      * Retrieves all scaling policies applied to a fleet.
 
@@ -642,7 +642,7 @@ valid authentication credentials.
      * @error NotFoundException A service resource associated with the request could not be found. Such requests
 should not be retried by clients.  
      */
-    describeScalingPolicies(params: GameLift.DescribeScalingPoliciesInput, callback?: (err: GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any, data: GameLift.DescribeScalingPoliciesOutput|any) => void): Request;
+    describeScalingPolicies(params: GameLift.DescribeScalingPoliciesInput, callback?: (err: GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any, data: GameLift.DescribeScalingPoliciesOutput|any) => void): Request<GameLift.DescribeScalingPoliciesOutput|any,GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any>;
     /**
      * Retrieves the location of stored game session logs for a specified game session.
 When a game session is terminated, Amazon GameLift automatically stores the logs
@@ -662,7 +662,7 @@ valid authentication credentials.
      * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Please
 correct the invalid parameters before retrying.  
      */
-    getGameSessionLogUrl(params: GameLift.GetGameSessionLogUrlInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any, data: GameLift.GetGameSessionLogUrlOutput|any) => void): Request;
+    getGameSessionLogUrl(params: GameLift.GetGameSessionLogUrlInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any, data: GameLift.GetGameSessionLogUrlOutput|any) => void): Request<GameLift.GetGameSessionLogUrlOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any>;
     /**
      * Retrieves a collection of alias records for this AWS account. You can filter the
 result set by alias name and/or routing strategy type. Use the pagination
@@ -678,7 +678,7 @@ correct the invalid parameters before retrying.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    listAliases(params: GameLift.ListAliasesInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any, data: GameLift.ListAliasesOutput|any) => void): Request;
+    listAliases(params: GameLift.ListAliasesInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any, data: GameLift.ListAliasesOutput|any) => void): Request<GameLift.ListAliasesOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any>;
     /**
      * Retrieves build records for all builds associated with an AWS account. You can
 filter the result set by build status. Use the pagination parameters to retrieve
@@ -694,7 +694,7 @@ correct the invalid parameters before retrying.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    listBuilds(params: GameLift.ListBuildsInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any, data: GameLift.ListBuildsOutput|any) => void): Request;
+    listBuilds(params: GameLift.ListBuildsInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any, data: GameLift.ListBuildsOutput|any) => void): Request<GameLift.ListBuildsOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any>;
     /**
      * Retrieves a collection of fleet records for this AWS account. You can filter the
 result set by build ID. Use the pagination parameters to retrieve results in
@@ -712,7 +712,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    listFleets(params: GameLift.ListFleetsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.ListFleetsOutput|any) => void): Request;
+    listFleets(params: GameLift.ListFleetsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.ListFleetsOutput|any) => void): Request<GameLift.ListFleetsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
      * Creates or updates a scaling policy for a fleet. An active scaling policy
 prompts GameLift to track a certain metric for a fleet and automatically change
@@ -747,7 +747,7 @@ valid authentication credentials.
      * @error NotFoundException A service resource associated with the request could not be found. Such requests
 should not be retried by clients.  
      */
-    putScalingPolicy(params: GameLift.PutScalingPolicyInput, callback?: (err: GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any, data: GameLift.PutScalingPolicyOutput|any) => void): Request;
+    putScalingPolicy(params: GameLift.PutScalingPolicyInput, callback?: (err: GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any, data: GameLift.PutScalingPolicyOutput|any) => void): Request<GameLift.PutScalingPolicyOutput|any,GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any>;
     /**
      * Retrieves a fresh set of upload credentials and the assigned Amazon S3 storage
 location for a specific build. Valid credentials are required to upload your
@@ -773,7 +773,7 @@ should not be retried by clients.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    requestUploadCredentials(params: GameLift.RequestUploadCredentialsInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.RequestUploadCredentialsOutput|any) => void): Request;
+    requestUploadCredentials(params: GameLift.RequestUploadCredentialsInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.RequestUploadCredentialsOutput|any) => void): Request<GameLift.RequestUploadCredentialsOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
     /**
      * Retrieves the fleet ID that a specified alias is currently pointing to.
      *
@@ -792,7 +792,7 @@ is modified.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    resolveAlias(params: GameLift.ResolveAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.TerminalRoutingStrategyException|GameLift.InternalServiceException|any, data: GameLift.ResolveAliasOutput|any) => void): Request;
+    resolveAlias(params: GameLift.ResolveAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.TerminalRoutingStrategyException|GameLift.InternalServiceException|any, data: GameLift.ResolveAliasOutput|any) => void): Request<GameLift.ResolveAliasOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.TerminalRoutingStrategyException|GameLift.InternalServiceException|any>;
     /**
      * Updates properties for an alias. To update properties, specify the alias ID to
 be updated and provide the information to be changed. To reassign an alias to
@@ -809,7 +809,7 @@ should not be retried by clients.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    updateAlias(params: GameLift.UpdateAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.UpdateAliasOutput|any) => void): Request;
+    updateAlias(params: GameLift.UpdateAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.UpdateAliasOutput|any) => void): Request<GameLift.UpdateAliasOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
     /**
      * Updates metadata in a build record, including the build name and version. To
 update the metadata, specify the build ID to update and provide the new values.
@@ -825,7 +825,7 @@ should not be retried by clients.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    updateBuild(params: GameLift.UpdateBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.UpdateBuildOutput|any) => void): Request;
+    updateBuild(params: GameLift.UpdateBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.UpdateBuildOutput|any) => void): Request<GameLift.UpdateBuildOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
     /**
      * Updates fleet properties, including name and description, for a fleet. To update
 metadata, specify the fleet ID and the property values you want to change. If
@@ -849,7 +849,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    updateFleetAttributes(params: GameLift.UpdateFleetAttributesInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.InvalidFleetStatusException|GameLift.LimitExceededException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.UpdateFleetAttributesOutput|any) => void): Request;
+    updateFleetAttributes(params: GameLift.UpdateFleetAttributesInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.InvalidFleetStatusException|GameLift.LimitExceededException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.UpdateFleetAttributesOutput|any) => void): Request<GameLift.UpdateFleetAttributesOutput|any,GameLift.NotFoundException|GameLift.ConflictException|GameLift.InvalidFleetStatusException|GameLift.LimitExceededException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
      * Updates capacity settings for a fleet. Use this action to specify the number of
 EC2 instances (hosts) you want this fleet to contain. Before calling this
@@ -887,7 +887,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    updateFleetCapacity(params: GameLift.UpdateFleetCapacityInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.LimitExceededException|GameLift.InvalidFleetStatusException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.UpdateFleetCapacityOutput|any) => void): Request;
+    updateFleetCapacity(params: GameLift.UpdateFleetCapacityInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.LimitExceededException|GameLift.InvalidFleetStatusException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.UpdateFleetCapacityOutput|any) => void): Request<GameLift.UpdateFleetCapacityOutput|any,GameLift.NotFoundException|GameLift.ConflictException|GameLift.LimitExceededException|GameLift.InvalidFleetStatusException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
      * Updates port settings for a fleet. To update settings, specify the fleet ID to
 be updated and list the permissions you want to update. List the permissions you
@@ -914,7 +914,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    updateFleetPortSettings(params: GameLift.UpdateFleetPortSettingsInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.InvalidFleetStatusException|GameLift.LimitExceededException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.UpdateFleetPortSettingsOutput|any) => void): Request;
+    updateFleetPortSettings(params: GameLift.UpdateFleetPortSettingsInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.InvalidFleetStatusException|GameLift.LimitExceededException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.UpdateFleetPortSettingsOutput|any) => void): Request<GameLift.UpdateFleetPortSettingsOutput|any,GameLift.NotFoundException|GameLift.ConflictException|GameLift.InvalidFleetStatusException|GameLift.LimitExceededException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
      * Updates game session properties. This includes the session name, maximum player
 count, protection policy, which controls whether or not an active game session
@@ -939,7 +939,7 @@ should not be retried by clients without resolving the conflict.
      * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Please
 correct the invalid parameters before retrying.  
      */
-    updateGameSession(params: GameLift.UpdateGameSessionInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.InvalidRequestException|any, data: GameLift.UpdateGameSessionOutput|any) => void): Request;
+    updateGameSession(params: GameLift.UpdateGameSessionInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.InvalidRequestException|any, data: GameLift.UpdateGameSessionOutput|any) => void): Request<GameLift.UpdateGameSessionOutput|any,GameLift.NotFoundException|GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.InvalidRequestException|any>;
 
   }
 

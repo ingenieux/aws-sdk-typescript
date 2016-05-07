@@ -58,7 +58,7 @@ account identifiers.
 the signature was generated with the correct credentials, and that you haven&#x27;t
 exceeded any of the service limits for your account.  
      */
-    activatePipeline(params: DataPipeline.ActivatePipelineInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.ActivatePipelineOutput|any) => void): Request;
+    activatePipeline(params: DataPipeline.ActivatePipelineInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.ActivatePipelineOutput|any) => void): Request<DataPipeline.ActivatePipelineOutput|any,DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any>;
     /**
      * Adds or modifies tags for the specified pipeline.
      *
@@ -70,7 +70,7 @@ exceeded any of the service limits for your account.
 account identifiers.  
      * @error PipelineDeletedException The specified pipeline has been deleted.  
      */
-    addTags(params: DataPipeline.AddTagsInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.AddTagsOutput|any) => void): Request;
+    addTags(params: DataPipeline.AddTagsInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.AddTagsOutput|any) => void): Request<DataPipeline.AddTagsOutput|any,DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any>;
     /**
      * Creates a new, empty pipeline. Use PutPipelineDefinition to populate the
 pipeline.
@@ -80,7 +80,7 @@ pipeline.
 the signature was generated with the correct credentials, and that you haven&#x27;t
 exceeded any of the service limits for your account.  
      */
-    createPipeline(params: DataPipeline.CreatePipelineInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.CreatePipelineOutput|any) => void): Request;
+    createPipeline(params: DataPipeline.CreatePipelineInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.CreatePipelineOutput|any) => void): Request<DataPipeline.CreatePipelineOutput|any,DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any>;
     /**
      * Deactivates the specified running pipeline. The pipeline is set to the 
 DEACTIVATING state until the deactivation process completes.
@@ -97,7 +97,7 @@ account identifiers.
 the signature was generated with the correct credentials, and that you haven&#x27;t
 exceeded any of the service limits for your account.  
      */
-    deactivatePipeline(params: DataPipeline.DeactivatePipelineInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.DeactivatePipelineOutput|any) => void): Request;
+    deactivatePipeline(params: DataPipeline.DeactivatePipelineInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.DeactivatePipelineOutput|any) => void): Request<DataPipeline.DeactivatePipelineOutput|any,DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any>;
     /**
      * Deletes a pipeline, its pipeline definition, and its run history. AWS Data
 Pipeline attempts to cancel instances associated with the pipeline that are
@@ -115,7 +115,7 @@ account identifiers.
 the signature was generated with the correct credentials, and that you haven&#x27;t
 exceeded any of the service limits for your account.  
      */
-    deletePipeline(params: DataPipeline.DeletePipelineInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: any) => void): Request;
+    deletePipeline(params: DataPipeline.DeletePipelineInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: any) => void): Request<any,DataPipeline.PipelineNotFoundException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any>;
     /**
      * Gets the object definitions for a set of objects associated with the pipeline.
 Object definitions are composed of a set of fields that define the properties of
@@ -129,7 +129,7 @@ exceeded any of the service limits for your account.
 account identifiers.  
      * @error PipelineDeletedException The specified pipeline has been deleted.  
      */
-    describeObjects(params: DataPipeline.DescribeObjectsInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.DescribeObjectsOutput|any) => void): Request;
+    describeObjects(params: DataPipeline.DescribeObjectsInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.DescribeObjectsOutput|any) => void): Request<DataPipeline.DescribeObjectsOutput|any,DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any>;
     /**
      * Retrieves metadata about one or more pipelines. The information retrieved
 includes the name of the pipeline, the pipeline identifier, its current state,
@@ -149,7 +149,7 @@ account identifiers.
 the signature was generated with the correct credentials, and that you haven&#x27;t
 exceeded any of the service limits for your account.  
      */
-    describePipelines(params: DataPipeline.DescribePipelinesInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.DescribePipelinesOutput|any) => void): Request;
+    describePipelines(params: DataPipeline.DescribePipelinesInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.DescribePipelinesOutput|any) => void): Request<DataPipeline.DescribePipelinesOutput|any,DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any>;
     /**
      * Task runners call EvaluateExpression to evaluate a string in the context of the
 specified object. For example, a task runner can evaluate SQL queries stored in
@@ -164,7 +164,7 @@ exceeded any of the service limits for your account.
 account identifiers.  
      * @error PipelineDeletedException The specified pipeline has been deleted.  
      */
-    evaluateExpression(params: DataPipeline.EvaluateExpressionInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.TaskNotFoundException|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.EvaluateExpressionOutput|any) => void): Request;
+    evaluateExpression(params: DataPipeline.EvaluateExpressionInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.TaskNotFoundException|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.EvaluateExpressionOutput|any) => void): Request<DataPipeline.EvaluateExpressionOutput|any,DataPipeline.InternalServiceError|DataPipeline.TaskNotFoundException|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any>;
     /**
      * Gets the definition of the specified pipeline. You can call 
 GetPipelineDefinition to retrieve the pipeline definition that you provided
@@ -178,7 +178,7 @@ exceeded any of the service limits for your account.
 account identifiers.  
      * @error PipelineDeletedException The specified pipeline has been deleted.  
      */
-    getPipelineDefinition(params: DataPipeline.GetPipelineDefinitionInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.GetPipelineDefinitionOutput|any) => void): Request;
+    getPipelineDefinition(params: DataPipeline.GetPipelineDefinitionInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.GetPipelineDefinitionOutput|any) => void): Request<DataPipeline.GetPipelineDefinitionOutput|any,DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any>;
     /**
      * Lists the pipeline identifiers for all active pipelines that you have permission
 to access.
@@ -188,7 +188,7 @@ to access.
 the signature was generated with the correct credentials, and that you haven&#x27;t
 exceeded any of the service limits for your account.  
      */
-    listPipelines(params: DataPipeline.ListPipelinesInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.ListPipelinesOutput|any) => void): Request;
+    listPipelines(params: DataPipeline.ListPipelinesInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.ListPipelinesOutput|any) => void): Request<DataPipeline.ListPipelinesOutput|any,DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any>;
     /**
      * Task runners call PollForTask to receive a task to perform from AWS Data
 Pipeline. The task runner specifies which tasks it can perform by setting a
@@ -210,7 +210,7 @@ the signature was generated with the correct credentials, and that you haven&#x2
 exceeded any of the service limits for your account.  
      * @error TaskNotFoundException The specified task was not found.  
      */
-    pollForTask(params: DataPipeline.PollForTaskInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.TaskNotFoundException|any, data: DataPipeline.PollForTaskOutput|any) => void): Request;
+    pollForTask(params: DataPipeline.PollForTaskInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.TaskNotFoundException|any, data: DataPipeline.PollForTaskOutput|any) => void): Request<DataPipeline.PollForTaskOutput|any,DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.TaskNotFoundException|any>;
     /**
      * Adds tasks, schedules, and preconditions to the specified pipeline. You can use 
 PutPipelineDefinition to populate a new pipeline.
@@ -235,7 +235,7 @@ exceeded any of the service limits for your account.
 account identifiers.  
      * @error PipelineDeletedException The specified pipeline has been deleted.  
      */
-    putPipelineDefinition(params: DataPipeline.PutPipelineDefinitionInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.PutPipelineDefinitionOutput|any) => void): Request;
+    putPipelineDefinition(params: DataPipeline.PutPipelineDefinitionInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.PutPipelineDefinitionOutput|any) => void): Request<DataPipeline.PutPipelineDefinitionOutput|any,DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any>;
     /**
      * Queries the specified pipeline for the names of objects that match the specified
 set of conditions.
@@ -248,7 +248,7 @@ account identifiers.
 the signature was generated with the correct credentials, and that you haven&#x27;t
 exceeded any of the service limits for your account.  
      */
-    queryObjects(params: DataPipeline.QueryObjectsInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.QueryObjectsOutput|any) => void): Request;
+    queryObjects(params: DataPipeline.QueryObjectsInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.QueryObjectsOutput|any) => void): Request<DataPipeline.QueryObjectsOutput|any,DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any>;
     /**
      * Removes existing tags from the specified pipeline.
      *
@@ -260,7 +260,7 @@ exceeded any of the service limits for your account.
 account identifiers.  
      * @error PipelineDeletedException The specified pipeline has been deleted.  
      */
-    removeTags(params: DataPipeline.RemoveTagsInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.RemoveTagsOutput|any) => void): Request;
+    removeTags(params: DataPipeline.RemoveTagsInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.RemoveTagsOutput|any) => void): Request<DataPipeline.RemoveTagsOutput|any,DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any>;
     /**
      * Task runners call ReportTaskProgress when assigned a task to acknowledge that it
 has the task. If the web service does not receive this acknowledgement within 2
@@ -284,7 +284,7 @@ exceeded any of the service limits for your account.
 account identifiers.  
      * @error PipelineDeletedException The specified pipeline has been deleted.  
      */
-    reportTaskProgress(params: DataPipeline.ReportTaskProgressInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.TaskNotFoundException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.ReportTaskProgressOutput|any) => void): Request;
+    reportTaskProgress(params: DataPipeline.ReportTaskProgressInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.TaskNotFoundException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.ReportTaskProgressOutput|any) => void): Request<DataPipeline.ReportTaskProgressOutput|any,DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.TaskNotFoundException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any>;
     /**
      * Task runners call ReportTaskRunnerHeartbeat every 15 minutes to indicate that
 they are operational. If the AWS Data Pipeline Task Runner is launched on a
@@ -296,7 +296,7 @@ detect when the task runner application has failed and restart a new instance.
 the signature was generated with the correct credentials, and that you haven&#x27;t
 exceeded any of the service limits for your account.  
      */
-    reportTaskRunnerHeartbeat(params: DataPipeline.ReportTaskRunnerHeartbeatInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.ReportTaskRunnerHeartbeatOutput|any) => void): Request;
+    reportTaskRunnerHeartbeat(params: DataPipeline.ReportTaskRunnerHeartbeatInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: DataPipeline.ReportTaskRunnerHeartbeatOutput|any) => void): Request<DataPipeline.ReportTaskRunnerHeartbeatOutput|any,DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any>;
     /**
      * Requests that the status of the specified physical or logical pipeline objects
 be updated in the specified pipeline. This update might not occur immediately,
@@ -312,7 +312,7 @@ account identifiers.
 the signature was generated with the correct credentials, and that you haven&#x27;t
 exceeded any of the service limits for your account.  
      */
-    setStatus(params: DataPipeline.SetStatusInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: any) => void): Request;
+    setStatus(params: DataPipeline.SetStatusInput, callback?: (err: DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any, data: any) => void): Request<any,DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|any>;
     /**
      * Task runners call SetTaskStatus to notify AWS Data Pipeline that a task is
 completed and provide information about the final status. A task runner makes
@@ -329,7 +329,7 @@ exceeded any of the service limits for your account.
 account identifiers.  
      * @error PipelineDeletedException The specified pipeline has been deleted.  
      */
-    setTaskStatus(params: DataPipeline.SetTaskStatusInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.TaskNotFoundException|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.SetTaskStatusOutput|any) => void): Request;
+    setTaskStatus(params: DataPipeline.SetTaskStatusInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.TaskNotFoundException|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.SetTaskStatusOutput|any) => void): Request<DataPipeline.SetTaskStatusOutput|any,DataPipeline.InternalServiceError|DataPipeline.TaskNotFoundException|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any>;
     /**
      * Validates the specified pipeline definition to ensure that it is well formed and
 can be run without error.
@@ -342,7 +342,7 @@ exceeded any of the service limits for your account.
 account identifiers.  
      * @error PipelineDeletedException The specified pipeline has been deleted.  
      */
-    validatePipelineDefinition(params: DataPipeline.ValidatePipelineDefinitionInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.ValidatePipelineDefinitionOutput|any) => void): Request;
+    validatePipelineDefinition(params: DataPipeline.ValidatePipelineDefinitionInput, callback?: (err: DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any, data: DataPipeline.ValidatePipelineDefinitionOutput|any) => void): Request<DataPipeline.ValidatePipelineDefinitionOutput|any,DataPipeline.InternalServiceError|DataPipeline.InvalidRequestException|DataPipeline.PipelineNotFoundException|DataPipeline.PipelineDeletedException|any>;
 
   }
 

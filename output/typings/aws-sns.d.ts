@@ -43,7 +43,7 @@ constraints.
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      * @error NotFoundException Indicates that the requested resource does not exist.  
      */
-    addPermission(params: SNS.AddPermissionInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request;
+    addPermission(params: SNS.AddPermissionInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request<any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any>;
     /**
      * Verifies an endpoint owner&#x27;s intent to receive messages by validating the token
 sent to the endpoint by an earlier Subscribe action. If the token is valid, the
@@ -59,7 +59,7 @@ constraints.
      * @error InternalErrorException Indicates an internal service error.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    confirmSubscription(params: SNS.ConfirmSubscriptionInput, callback?: (err: SNS.SubscriptionLimitExceededException|SNS.InvalidParameterException|SNS.NotFoundException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.ConfirmSubscriptionResponse|any) => void): Request;
+    confirmSubscription(params: SNS.ConfirmSubscriptionInput, callback?: (err: SNS.SubscriptionLimitExceededException|SNS.InvalidParameterException|SNS.NotFoundException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.ConfirmSubscriptionResponse|any) => void): Request<SNS.ConfirmSubscriptionResponse|any,SNS.SubscriptionLimitExceededException|SNS.InvalidParameterException|SNS.NotFoundException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any>;
     /**
      * Creates a platform application object for one of the supported push notification
 services, such as APNS and GCM, to which devices and mobile apps may register.
@@ -81,7 +81,7 @@ constraints.
      * @error InternalErrorException Indicates an internal service error.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    createPlatformApplication(params: SNS.CreatePlatformApplicationInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.CreatePlatformApplicationResponse|any) => void): Request;
+    createPlatformApplication(params: SNS.CreatePlatformApplicationInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.CreatePlatformApplicationResponse|any) => void): Request<SNS.CreatePlatformApplicationResponse|any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any>;
     /**
      * Creates an endpoint for a device and mobile app on one of the supported push
 notification services, such as GCM and APNS. CreatePlatformEndpoint requires the
@@ -105,7 +105,7 @@ constraints.
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      * @error NotFoundException Indicates that the requested resource does not exist.  
      */
-    createPlatformEndpoint(params: SNS.CreatePlatformEndpointInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: SNS.CreateEndpointResponse|any) => void): Request;
+    createPlatformEndpoint(params: SNS.CreatePlatformEndpointInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: SNS.CreateEndpointResponse|any) => void): Request<SNS.CreateEndpointResponse|any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any>;
     /**
      * Creates a topic to which notifications can be published. Users can create at
 most 3000 topics. For more information, see http://aws.amazon.com/sns
@@ -119,7 +119,7 @@ constraints.
      * @error InternalErrorException Indicates an internal service error.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    createTopic(params: SNS.CreateTopicInput, callback?: (err: SNS.InvalidParameterException|SNS.TopicLimitExceededException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.CreateTopicResponse|any) => void): Request;
+    createTopic(params: SNS.CreateTopicInput, callback?: (err: SNS.InvalidParameterException|SNS.TopicLimitExceededException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.CreateTopicResponse|any) => void): Request<SNS.CreateTopicResponse|any,SNS.InvalidParameterException|SNS.TopicLimitExceededException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any>;
     /**
      * Deletes the endpoint from Amazon SNS. This action is idempotent. For more
 information, see Using Amazon SNS Mobile Push Notifications
@@ -130,7 +130,7 @@ constraints.
      * @error InternalErrorException Indicates an internal service error.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    deleteEndpoint(params: SNS.DeleteEndpointInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: any) => void): Request;
+    deleteEndpoint(params: SNS.DeleteEndpointInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: any) => void): Request<any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any>;
     /**
      * Deletes a platform application object for one of the supported push notification
 services, such as APNS and GCM. For more information, see Using Amazon SNS
@@ -142,7 +142,7 @@ constraints.
      * @error InternalErrorException Indicates an internal service error.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    deletePlatformApplication(params: SNS.DeletePlatformApplicationInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: any) => void): Request;
+    deletePlatformApplication(params: SNS.DeletePlatformApplicationInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: any) => void): Request<any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any>;
     /**
      * Deletes a topic and all its subscriptions. Deleting a topic might prevent some
 messages previously sent to the topic from being delivered to subscribers. This
@@ -155,7 +155,7 @@ constraints.
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      * @error NotFoundException Indicates that the requested resource does not exist.  
      */
-    deleteTopic(params: SNS.DeleteTopicInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request;
+    deleteTopic(params: SNS.DeleteTopicInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request<any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any>;
     /**
      * Retrieves the endpoint attributes for a device on one of the supported push
 notification services, such as GCM and APNS. For more information, see Using
@@ -168,7 +168,7 @@ constraints.
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      * @error NotFoundException Indicates that the requested resource does not exist.  
      */
-    getEndpointAttributes(params: SNS.GetEndpointAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: SNS.GetEndpointAttributesResponse|any) => void): Request;
+    getEndpointAttributes(params: SNS.GetEndpointAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: SNS.GetEndpointAttributesResponse|any) => void): Request<SNS.GetEndpointAttributesResponse|any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any>;
     /**
      * Retrieves the attributes of the platform application object for the supported
 push notification services, such as APNS and GCM. For more information, see 
@@ -181,7 +181,7 @@ constraints.
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      * @error NotFoundException Indicates that the requested resource does not exist.  
      */
-    getPlatformApplicationAttributes(params: SNS.GetPlatformApplicationAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: SNS.GetPlatformApplicationAttributesResponse|any) => void): Request;
+    getPlatformApplicationAttributes(params: SNS.GetPlatformApplicationAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: SNS.GetPlatformApplicationAttributesResponse|any) => void): Request<SNS.GetPlatformApplicationAttributesResponse|any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any>;
     /**
      * Returns all of the properties of a subscription.
      *
@@ -191,7 +191,7 @@ constraints.
      * @error NotFoundException Indicates that the requested resource does not exist.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    getSubscriptionAttributes(params: SNS.GetSubscriptionAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any, data: SNS.GetSubscriptionAttributesResponse|any) => void): Request;
+    getSubscriptionAttributes(params: SNS.GetSubscriptionAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any, data: SNS.GetSubscriptionAttributesResponse|any) => void): Request<SNS.GetSubscriptionAttributesResponse|any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any>;
     /**
      * Returns all of the properties of a topic. Topic properties returned might differ
 based on the authorization of the user.
@@ -202,7 +202,7 @@ constraints.
      * @error NotFoundException Indicates that the requested resource does not exist.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    getTopicAttributes(params: SNS.GetTopicAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any, data: SNS.GetTopicAttributesResponse|any) => void): Request;
+    getTopicAttributes(params: SNS.GetTopicAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any, data: SNS.GetTopicAttributesResponse|any) => void): Request<SNS.GetTopicAttributesResponse|any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any>;
     /**
      * Lists the endpoints and endpoint attributes for devices in a supported push
 notification service, such as GCM and APNS. The results for 
@@ -220,7 +220,7 @@ constraints.
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      * @error NotFoundException Indicates that the requested resource does not exist.  
      */
-    listEndpointsByPlatformApplication(params: SNS.ListEndpointsByPlatformApplicationInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: SNS.ListEndpointsByPlatformApplicationResponse|any) => void): Request;
+    listEndpointsByPlatformApplication(params: SNS.ListEndpointsByPlatformApplicationInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: SNS.ListEndpointsByPlatformApplicationResponse|any) => void): Request<SNS.ListEndpointsByPlatformApplicationResponse|any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any>;
     /**
      * Lists the platform application objects for the supported push notification
 services, such as APNS and GCM. The results for ListPlatformApplications are
@@ -237,7 +237,7 @@ constraints.
      * @error InternalErrorException Indicates an internal service error.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    listPlatformApplications(params: SNS.ListPlatformApplicationsInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.ListPlatformApplicationsResponse|any) => void): Request;
+    listPlatformApplications(params: SNS.ListPlatformApplicationsInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.ListPlatformApplicationsResponse|any) => void): Request<SNS.ListPlatformApplicationsResponse|any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any>;
     /**
      * Returns a list of the requester&#x27;s subscriptions. Each call returns a limited
 list of subscriptions, up to 100. If there are more subscriptions, a NextToken 
@@ -249,7 +249,7 @@ constraints.
      * @error InternalErrorException Indicates an internal service error.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    listSubscriptions(params: SNS.ListSubscriptionsInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.ListSubscriptionsResponse|any) => void): Request;
+    listSubscriptions(params: SNS.ListSubscriptionsInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.ListSubscriptionsResponse|any) => void): Request<SNS.ListSubscriptionsResponse|any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any>;
     /**
      * Returns a list of the subscriptions to a specific topic. Each call returns a
 limited list of subscriptions, up to 100. If there are more subscriptions, a 
@@ -262,7 +262,7 @@ constraints.
      * @error NotFoundException Indicates that the requested resource does not exist.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    listSubscriptionsByTopic(params: SNS.ListSubscriptionsByTopicInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any, data: SNS.ListSubscriptionsByTopicResponse|any) => void): Request;
+    listSubscriptionsByTopic(params: SNS.ListSubscriptionsByTopicInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any, data: SNS.ListSubscriptionsByTopicResponse|any) => void): Request<SNS.ListSubscriptionsByTopicResponse|any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any>;
     /**
      * Returns a list of the requester&#x27;s topics. Each call returns a limited list of
 topics, up to 100. If there are more topics, a NextToken is also returned. Use
@@ -273,7 +273,7 @@ constraints.
      * @error InternalErrorException Indicates an internal service error.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    listTopics(params: SNS.ListTopicsInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.ListTopicsResponse|any) => void): Request;
+    listTopics(params: SNS.ListTopicsInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.ListTopicsResponse|any) => void): Request<SNS.ListTopicsResponse|any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any>;
     /**
      * Sends a message to all of a topic&#x27;s subscribed endpoints. When a messageId is
 returned, the message has been saved and Amazon SNS will attempt to deliver it
@@ -296,7 +296,7 @@ constraints.
      * @error PlatformApplicationDisabledException Exception error indicating platform application disabled.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    publish(params: SNS.PublishInput, callback?: (err: SNS.InvalidParameterException|SNS.InvalidParameterValueException|SNS.InternalErrorException|SNS.NotFoundException|SNS.EndpointDisabledException|SNS.PlatformApplicationDisabledException|SNS.AuthorizationErrorException|any, data: SNS.PublishResponse|any) => void): Request;
+    publish(params: SNS.PublishInput, callback?: (err: SNS.InvalidParameterException|SNS.InvalidParameterValueException|SNS.InternalErrorException|SNS.NotFoundException|SNS.EndpointDisabledException|SNS.PlatformApplicationDisabledException|SNS.AuthorizationErrorException|any, data: SNS.PublishResponse|any) => void): Request<SNS.PublishResponse|any,SNS.InvalidParameterException|SNS.InvalidParameterValueException|SNS.InternalErrorException|SNS.NotFoundException|SNS.EndpointDisabledException|SNS.PlatformApplicationDisabledException|SNS.AuthorizationErrorException|any>;
     /**
      * Removes a statement from a topic&#x27;s access control policy.
      *
@@ -306,7 +306,7 @@ constraints.
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      * @error NotFoundException Indicates that the requested resource does not exist.  
      */
-    removePermission(params: SNS.RemovePermissionInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request;
+    removePermission(params: SNS.RemovePermissionInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request<any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any>;
     /**
      * Sets the attributes for an endpoint for a device on one of the supported push
 notification services, such as GCM and APNS. For more information, see Using
@@ -319,7 +319,7 @@ constraints.
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      * @error NotFoundException Indicates that the requested resource does not exist.  
      */
-    setEndpointAttributes(params: SNS.SetEndpointAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request;
+    setEndpointAttributes(params: SNS.SetEndpointAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request<any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any>;
     /**
      * Sets the attributes of the platform application object for the supported push
 notification services, such as APNS and GCM. For more information, see Using
@@ -332,7 +332,7 @@ constraints.
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      * @error NotFoundException Indicates that the requested resource does not exist.  
      */
-    setPlatformApplicationAttributes(params: SNS.SetPlatformApplicationAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request;
+    setPlatformApplicationAttributes(params: SNS.SetPlatformApplicationAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request<any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any>;
     /**
      * Allows a subscription owner to set an attribute of the topic to a new value.
      *
@@ -342,7 +342,7 @@ constraints.
      * @error NotFoundException Indicates that the requested resource does not exist.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    setSubscriptionAttributes(params: SNS.SetSubscriptionAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any, data: any) => void): Request;
+    setSubscriptionAttributes(params: SNS.SetSubscriptionAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any, data: any) => void): Request<any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any>;
     /**
      * Allows a topic owner to set an attribute of the topic to a new value.
      *
@@ -352,7 +352,7 @@ constraints.
      * @error NotFoundException Indicates that the requested resource does not exist.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    setTopicAttributes(params: SNS.SetTopicAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any, data: any) => void): Request;
+    setTopicAttributes(params: SNS.SetTopicAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any, data: any) => void): Request<any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any>;
     /**
      * Prepares to subscribe an endpoint by sending the endpoint a confirmation
 message. To actually create a subscription, the endpoint owner must call the 
@@ -367,7 +367,7 @@ constraints.
      * @error NotFoundException Indicates that the requested resource does not exist.  
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      */
-    subscribe(params: SNS.SubscribeInput, callback?: (err: SNS.SubscriptionLimitExceededException|SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any, data: SNS.SubscribeResponse|any) => void): Request;
+    subscribe(params: SNS.SubscribeInput, callback?: (err: SNS.SubscriptionLimitExceededException|SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any, data: SNS.SubscribeResponse|any) => void): Request<SNS.SubscribeResponse|any,SNS.SubscriptionLimitExceededException|SNS.InvalidParameterException|SNS.InternalErrorException|SNS.NotFoundException|SNS.AuthorizationErrorException|any>;
     /**
      * Deletes a subscription. If the subscription requires authentication for
 deletion, only the owner of the subscription or the topic&#x27;s owner can
@@ -382,7 +382,7 @@ constraints.
      * @error AuthorizationErrorException Indicates that the user has been denied access to the requested resource.  
      * @error NotFoundException Indicates that the requested resource does not exist.  
      */
-    unsubscribe(params: SNS.UnsubscribeInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request;
+    unsubscribe(params: SNS.UnsubscribeInput, callback?: (err: SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any, data: any) => void): Request<any,SNS.InvalidParameterException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.NotFoundException|any>;
 
   }
 

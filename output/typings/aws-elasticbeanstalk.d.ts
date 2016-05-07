@@ -44,7 +44,7 @@ deployment.
      *
      * @error InsufficientPrivilegesException   
      */
-    abortEnvironmentUpdate(params: ElasticBeanstalk.AbortEnvironmentUpdateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: any) => void): Request;
+    abortEnvironmentUpdate(params: ElasticBeanstalk.AbortEnvironmentUpdateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: any) => void): Request<any,ElasticBeanstalk.InsufficientPrivilegesException|any>;
     /**
      * Applies a scheduled managed action immediately. A managed action can be applied
 only if its status is Scheduled . Get the status and action ID of a managed
@@ -53,12 +53,12 @@ action with DescribeEnvironmentManagedActions .
      * @error ElasticBeanstalkServiceException   
      * @error ManagedActionInvalidStateException   
      */
-    applyEnvironmentManagedAction(params: ElasticBeanstalk.ApplyEnvironmentManagedActionRequest, callback?: (err: ElasticBeanstalk.ElasticBeanstalkServiceException|ElasticBeanstalk.ManagedActionInvalidStateException|any, data: ElasticBeanstalk.ApplyEnvironmentManagedActionResult|any) => void): Request;
+    applyEnvironmentManagedAction(params: ElasticBeanstalk.ApplyEnvironmentManagedActionRequest, callback?: (err: ElasticBeanstalk.ElasticBeanstalkServiceException|ElasticBeanstalk.ManagedActionInvalidStateException|any, data: ElasticBeanstalk.ApplyEnvironmentManagedActionResult|any) => void): Request<ElasticBeanstalk.ApplyEnvironmentManagedActionResult|any,ElasticBeanstalk.ElasticBeanstalkServiceException|ElasticBeanstalk.ManagedActionInvalidStateException|any>;
     /**
      * Checks if the specified CNAME is available.
      *
      */
-    checkDNSAvailability(params: ElasticBeanstalk.CheckDNSAvailabilityMessage, callback?: (err: any, data: ElasticBeanstalk.CheckDNSAvailabilityResultMessage|any) => void): Request;
+    checkDNSAvailability(params: ElasticBeanstalk.CheckDNSAvailabilityMessage, callback?: (err: any, data: ElasticBeanstalk.CheckDNSAvailabilityResultMessage|any) => void): Request<ElasticBeanstalk.CheckDNSAvailabilityResultMessage|any,any>;
     /**
      * Create or update a group of environments that each run a separate component of a
 single application. Takes a list of version labels that specify application
@@ -71,14 +71,14 @@ for details.
      * @error TooManyEnvironmentsException   
      * @error InsufficientPrivilegesException   
      */
-    composeEnvironments(params: ElasticBeanstalk.ComposeEnvironmentsMessage, callback?: (err: ElasticBeanstalk.TooManyEnvironmentsException|ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.EnvironmentDescriptionsMessage|any) => void): Request;
+    composeEnvironments(params: ElasticBeanstalk.ComposeEnvironmentsMessage, callback?: (err: ElasticBeanstalk.TooManyEnvironmentsException|ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.EnvironmentDescriptionsMessage|any) => void): Request<ElasticBeanstalk.EnvironmentDescriptionsMessage|any,ElasticBeanstalk.TooManyEnvironmentsException|ElasticBeanstalk.InsufficientPrivilegesException|any>;
     /**
      * Creates an application that has one configuration template named default and no
 application versions.
      *
      * @error TooManyApplicationsException   
      */
-    createApplication(params: ElasticBeanstalk.CreateApplicationMessage, callback?: (err: ElasticBeanstalk.TooManyApplicationsException|any, data: ElasticBeanstalk.ApplicationDescriptionMessage|any) => void): Request;
+    createApplication(params: ElasticBeanstalk.CreateApplicationMessage, callback?: (err: ElasticBeanstalk.TooManyApplicationsException|any, data: ElasticBeanstalk.ApplicationDescriptionMessage|any) => void): Request<ElasticBeanstalk.ApplicationDescriptionMessage|any,ElasticBeanstalk.TooManyApplicationsException|any>;
     /**
      * Creates an application version for the specified application.
 
@@ -92,7 +92,7 @@ from the application version.
      * @error InsufficientPrivilegesException   
      * @error S3LocationNotInServiceRegionException   
      */
-    createApplicationVersion(params: ElasticBeanstalk.CreateApplicationVersionMessage, callback?: (err: ElasticBeanstalk.TooManyApplicationsException|ElasticBeanstalk.TooManyApplicationVersionsException|ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.S3LocationNotInServiceRegionException|any, data: ElasticBeanstalk.ApplicationVersionDescriptionMessage|any) => void): Request;
+    createApplicationVersion(params: ElasticBeanstalk.CreateApplicationVersionMessage, callback?: (err: ElasticBeanstalk.TooManyApplicationsException|ElasticBeanstalk.TooManyApplicationVersionsException|ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.S3LocationNotInServiceRegionException|any, data: ElasticBeanstalk.ApplicationVersionDescriptionMessage|any) => void): Request<ElasticBeanstalk.ApplicationVersionDescriptionMessage|any,ElasticBeanstalk.TooManyApplicationsException|ElasticBeanstalk.TooManyApplicationVersionsException|ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.S3LocationNotInServiceRegionException|any>;
     /**
      * Creates a configuration template. Templates are associated with a specific
 application and are used to deploy different versions of the application with
@@ -108,7 +108,7 @@ Related Topics
      * @error TooManyBucketsException   
      * @error TooManyConfigurationTemplatesException   
      */
-    createConfigurationTemplate(params: ElasticBeanstalk.CreateConfigurationTemplateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.TooManyBucketsException|ElasticBeanstalk.TooManyConfigurationTemplatesException|any, data: ElasticBeanstalk.ConfigurationSettingsDescription|any) => void): Request;
+    createConfigurationTemplate(params: ElasticBeanstalk.CreateConfigurationTemplateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.TooManyConfigurationTemplatesException|any, data: ElasticBeanstalk.ConfigurationSettingsDescription|any) => void): Request<ElasticBeanstalk.ConfigurationSettingsDescription|any,ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.TooManyConfigurationTemplatesException|any>;
     /**
      * Launches an environment for the specified application using the specified
 configuration.
@@ -116,7 +116,7 @@ configuration.
      * @error TooManyEnvironmentsException   
      * @error InsufficientPrivilegesException   
      */
-    createEnvironment(params: ElasticBeanstalk.CreateEnvironmentMessage, callback?: (err: ElasticBeanstalk.TooManyEnvironmentsException|ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.EnvironmentDescription|any) => void): Request;
+    createEnvironment(params: ElasticBeanstalk.CreateEnvironmentMessage, callback?: (err: ElasticBeanstalk.TooManyEnvironmentsException|ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.EnvironmentDescription|any) => void): Request<ElasticBeanstalk.EnvironmentDescription|any,ElasticBeanstalk.TooManyEnvironmentsException|ElasticBeanstalk.InsufficientPrivilegesException|any>;
     /**
      * Creates the Amazon S3 storage location for the account.
 
@@ -126,7 +126,7 @@ This location is used to store user log files.
      * @error S3SubscriptionRequiredException   
      * @error InsufficientPrivilegesException   
      */
-    createStorageLocation(callback?: (err: ElasticBeanstalk.TooManyBucketsException|ElasticBeanstalk.S3SubscriptionRequiredException|ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.CreateStorageLocationResultMessage|any) => void): Request;
+    createStorageLocation(callback?: (err: ElasticBeanstalk.TooManyBucketsException|ElasticBeanstalk.S3SubscriptionRequiredException|ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.CreateStorageLocationResultMessage|any) => void): Request<ElasticBeanstalk.CreateStorageLocationResultMessage|any,ElasticBeanstalk.TooManyBucketsException|ElasticBeanstalk.S3SubscriptionRequiredException|ElasticBeanstalk.InsufficientPrivilegesException|any>;
     /**
      * Deletes the specified application along with all associated versions and
 configurations. The application versions will not be deleted from your Amazon S3
@@ -136,7 +136,7 @@ You cannot delete an application that has a running environment.
      *
      * @error OperationInProgressException   
      */
-    deleteApplication(params: ElasticBeanstalk.DeleteApplicationMessage, callback?: (err: ElasticBeanstalk.OperationInProgressException|any, data: any) => void): Request;
+    deleteApplication(params: ElasticBeanstalk.DeleteApplicationMessage, callback?: (err: ElasticBeanstalk.OperationInProgressException|any, data: any) => void): Request<any,ElasticBeanstalk.OperationInProgressException|any>;
     /**
      * Deletes the specified version from the specified application.
 
@@ -148,7 +148,7 @@ environment.
      * @error OperationInProgressException   
      * @error S3LocationNotInServiceRegionException   
      */
-    deleteApplicationVersion(params: ElasticBeanstalk.DeleteApplicationVersionMessage, callback?: (err: ElasticBeanstalk.SourceBundleDeletionException|ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.OperationInProgressException|ElasticBeanstalk.S3LocationNotInServiceRegionException|any, data: any) => void): Request;
+    deleteApplicationVersion(params: ElasticBeanstalk.DeleteApplicationVersionMessage, callback?: (err: ElasticBeanstalk.SourceBundleDeletionException|ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.OperationInProgressException|ElasticBeanstalk.S3LocationNotInServiceRegionException|any, data: any) => void): Request<any,ElasticBeanstalk.SourceBundleDeletionException|ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.OperationInProgressException|ElasticBeanstalk.S3LocationNotInServiceRegionException|any>;
     /**
      * Deletes the specified configuration template.
 
@@ -158,7 +158,7 @@ the template without affecting the running environment.
      *
      * @error OperationInProgressException   
      */
-    deleteConfigurationTemplate(params: ElasticBeanstalk.DeleteConfigurationTemplateMessage, callback?: (err: ElasticBeanstalk.OperationInProgressException|any, data: any) => void): Request;
+    deleteConfigurationTemplate(params: ElasticBeanstalk.DeleteConfigurationTemplateMessage, callback?: (err: ElasticBeanstalk.OperationInProgressException|any, data: any) => void): Request<any,ElasticBeanstalk.OperationInProgressException|any>;
     /**
      * Deletes the draft configuration associated with the running environment.
 
@@ -170,18 +170,18 @@ deployment is in process or has failed. The draft configuration remains in
 existence until it is deleted with this action.
      *
      */
-    deleteEnvironmentConfiguration(params: ElasticBeanstalk.DeleteEnvironmentConfigurationMessage, callback?: (err: any, data: any) => void): Request;
+    deleteEnvironmentConfiguration(params: ElasticBeanstalk.DeleteEnvironmentConfigurationMessage, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Retrieve a list of application versions stored in your AWS Elastic Beanstalk
 storage bucket.
      *
      */
-    describeApplicationVersions(params: ElasticBeanstalk.DescribeApplicationVersionsMessage, callback?: (err: any, data: ElasticBeanstalk.ApplicationVersionDescriptionsMessage|any) => void): Request;
+    describeApplicationVersions(params: ElasticBeanstalk.DescribeApplicationVersionsMessage, callback?: (err: any, data: ElasticBeanstalk.ApplicationVersionDescriptionsMessage|any) => void): Request<ElasticBeanstalk.ApplicationVersionDescriptionsMessage|any,any>;
     /**
      * Returns the descriptions of existing applications.
      *
      */
-    describeApplications(params: ElasticBeanstalk.DescribeApplicationsMessage, callback?: (err: any, data: ElasticBeanstalk.ApplicationDescriptionsMessage|any) => void): Request;
+    describeApplications(params: ElasticBeanstalk.DescribeApplicationsMessage, callback?: (err: any, data: ElasticBeanstalk.ApplicationDescriptionsMessage|any) => void): Request<ElasticBeanstalk.ApplicationDescriptionsMessage|any,any>;
     /**
      * Describes the configuration options that are used in a particular configuration
 template or environment, or that a specified solution stack defines. The
@@ -191,7 +191,7 @@ changed.
      *
      * @error TooManyBucketsException   
      */
-    describeConfigurationOptions(params: ElasticBeanstalk.DescribeConfigurationOptionsMessage, callback?: (err: ElasticBeanstalk.TooManyBucketsException|any, data: ElasticBeanstalk.ConfigurationOptionsDescription|any) => void): Request;
+    describeConfigurationOptions(params: ElasticBeanstalk.DescribeConfigurationOptionsMessage, callback?: (err: any, data: ElasticBeanstalk.ConfigurationOptionsDescription|any) => void): Request<ElasticBeanstalk.ConfigurationOptionsDescription|any,any>;
     /**
      * Returns a description of the settings for the specified configuration set, that
 is, either a configuration template or the configuration set associated with a
@@ -209,7 +209,7 @@ Related Topics
      *
      * @error TooManyBucketsException   
      */
-    describeConfigurationSettings(params: ElasticBeanstalk.DescribeConfigurationSettingsMessage, callback?: (err: ElasticBeanstalk.TooManyBucketsException|any, data: ElasticBeanstalk.ConfigurationSettingsDescriptions|any) => void): Request;
+    describeConfigurationSettings(params: ElasticBeanstalk.DescribeConfigurationSettingsMessage, callback?: (err: any, data: ElasticBeanstalk.ConfigurationSettingsDescriptions|any) => void): Request<ElasticBeanstalk.ConfigurationSettingsDescriptions|any,any>;
     /**
      * Returns information about the overall health of the specified environment. The 
 DescribeEnvironmentHealth operation is only available with AWS Elastic Beanstalk
@@ -218,37 +218,37 @@ Enhanced Health.
      * @error InvalidRequestException   
      * @error ElasticBeanstalkServiceException   
      */
-    describeEnvironmentHealth(params: ElasticBeanstalk.DescribeEnvironmentHealthRequest, callback?: (err: ElasticBeanstalk.InvalidRequestException|ElasticBeanstalk.ElasticBeanstalkServiceException|any, data: ElasticBeanstalk.DescribeEnvironmentHealthResult|any) => void): Request;
+    describeEnvironmentHealth(params: ElasticBeanstalk.DescribeEnvironmentHealthRequest, callback?: (err: ElasticBeanstalk.InvalidRequestException|ElasticBeanstalk.ElasticBeanstalkServiceException|any, data: ElasticBeanstalk.DescribeEnvironmentHealthResult|any) => void): Request<ElasticBeanstalk.DescribeEnvironmentHealthResult|any,ElasticBeanstalk.InvalidRequestException|ElasticBeanstalk.ElasticBeanstalkServiceException|any>;
     /**
      * Lists an environment&#x27;s completed and failed managed actions.
      *
      * @error ElasticBeanstalkServiceException   
      */
-    describeEnvironmentManagedActionHistory(params: ElasticBeanstalk.DescribeEnvironmentManagedActionHistoryRequest, callback?: (err: ElasticBeanstalk.ElasticBeanstalkServiceException|any, data: ElasticBeanstalk.DescribeEnvironmentManagedActionHistoryResult|any) => void): Request;
+    describeEnvironmentManagedActionHistory(params: ElasticBeanstalk.DescribeEnvironmentManagedActionHistoryRequest, callback?: (err: ElasticBeanstalk.ElasticBeanstalkServiceException|any, data: ElasticBeanstalk.DescribeEnvironmentManagedActionHistoryResult|any) => void): Request<ElasticBeanstalk.DescribeEnvironmentManagedActionHistoryResult|any,ElasticBeanstalk.ElasticBeanstalkServiceException|any>;
     /**
      * Lists an environment&#x27;s upcoming and in-progress managed actions.
      *
      * @error ElasticBeanstalkServiceException   
      */
-    describeEnvironmentManagedActions(params: ElasticBeanstalk.DescribeEnvironmentManagedActionsRequest, callback?: (err: ElasticBeanstalk.ElasticBeanstalkServiceException|any, data: ElasticBeanstalk.DescribeEnvironmentManagedActionsResult|any) => void): Request;
+    describeEnvironmentManagedActions(params: ElasticBeanstalk.DescribeEnvironmentManagedActionsRequest, callback?: (err: ElasticBeanstalk.ElasticBeanstalkServiceException|any, data: ElasticBeanstalk.DescribeEnvironmentManagedActionsResult|any) => void): Request<ElasticBeanstalk.DescribeEnvironmentManagedActionsResult|any,ElasticBeanstalk.ElasticBeanstalkServiceException|any>;
     /**
      * Returns AWS resources for this environment.
      *
      * @error InsufficientPrivilegesException   
      */
-    describeEnvironmentResources(params: ElasticBeanstalk.DescribeEnvironmentResourcesMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.EnvironmentResourceDescriptionsMessage|any) => void): Request;
+    describeEnvironmentResources(params: ElasticBeanstalk.DescribeEnvironmentResourcesMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.EnvironmentResourceDescriptionsMessage|any) => void): Request<ElasticBeanstalk.EnvironmentResourceDescriptionsMessage|any,ElasticBeanstalk.InsufficientPrivilegesException|any>;
     /**
      * Returns descriptions for existing environments.
      *
      */
-    describeEnvironments(params: ElasticBeanstalk.DescribeEnvironmentsMessage, callback?: (err: any, data: ElasticBeanstalk.EnvironmentDescriptionsMessage|any) => void): Request;
+    describeEnvironments(params: ElasticBeanstalk.DescribeEnvironmentsMessage, callback?: (err: any, data: ElasticBeanstalk.EnvironmentDescriptionsMessage|any) => void): Request<ElasticBeanstalk.EnvironmentDescriptionsMessage|any,any>;
     /**
      * Returns list of event descriptions matching criteria up to the last 6 weeks.
 
 This action returns the most recent 1,000 events from the specified NextToken .
      *
      */
-    describeEvents(params: ElasticBeanstalk.DescribeEventsMessage, callback?: (err: any, data: ElasticBeanstalk.EventDescriptionsMessage|any) => void): Request;
+    describeEvents(params: ElasticBeanstalk.DescribeEventsMessage, callback?: (err: any, data: ElasticBeanstalk.EventDescriptionsMessage|any) => void): Request<ElasticBeanstalk.EventDescriptionsMessage|any,any>;
     /**
      * Returns more detailed information about the health of the specified instances
 (for example, CPU utilization, load average, and causes). The 
@@ -258,19 +258,19 @@ Enhanced Health.
      * @error InvalidRequestException   
      * @error ElasticBeanstalkServiceException   
      */
-    describeInstancesHealth(params: ElasticBeanstalk.DescribeInstancesHealthRequest, callback?: (err: ElasticBeanstalk.InvalidRequestException|ElasticBeanstalk.ElasticBeanstalkServiceException|any, data: ElasticBeanstalk.DescribeInstancesHealthResult|any) => void): Request;
+    describeInstancesHealth(params: ElasticBeanstalk.DescribeInstancesHealthRequest, callback?: (err: ElasticBeanstalk.InvalidRequestException|ElasticBeanstalk.ElasticBeanstalkServiceException|any, data: ElasticBeanstalk.DescribeInstancesHealthResult|any) => void): Request<ElasticBeanstalk.DescribeInstancesHealthResult|any,ElasticBeanstalk.InvalidRequestException|ElasticBeanstalk.ElasticBeanstalkServiceException|any>;
     /**
      * Returns a list of the available solution stack names.
      *
      */
-    listAvailableSolutionStacks(callback?: (err: any, data: ElasticBeanstalk.ListAvailableSolutionStacksResultMessage|any) => void): Request;
+    listAvailableSolutionStacks(callback?: (err: any, data: ElasticBeanstalk.ListAvailableSolutionStacksResultMessage|any) => void): Request<ElasticBeanstalk.ListAvailableSolutionStacksResultMessage|any,any>;
     /**
      * Deletes and recreates all of the AWS resources (for example: the Auto Scaling
 group, load balancer, etc.) for a specified environment and forces a restart.
      *
      * @error InsufficientPrivilegesException   
      */
-    rebuildEnvironment(params: ElasticBeanstalk.RebuildEnvironmentMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: any) => void): Request;
+    rebuildEnvironment(params: ElasticBeanstalk.RebuildEnvironmentMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: any) => void): Request<any,ElasticBeanstalk.InsufficientPrivilegesException|any>;
     /**
      * Initiates a request to compile the specified type of information of the deployed
 environment.
@@ -289,13 +289,13 @@ Related Topics
  &amp;#42; RetrieveEnvironmentInfo
      *
      */
-    requestEnvironmentInfo(params: ElasticBeanstalk.RequestEnvironmentInfoMessage, callback?: (err: any, data: any) => void): Request;
+    requestEnvironmentInfo(params: ElasticBeanstalk.RequestEnvironmentInfoMessage, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Causes the environment to restart the application container server running on
 each Amazon EC2 instance.
      *
      */
-    restartAppServer(params: ElasticBeanstalk.RestartAppServerMessage, callback?: (err: any, data: any) => void): Request;
+    restartAppServer(params: ElasticBeanstalk.RestartAppServerMessage, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Retrieves the compiled information from a RequestEnvironmentInfo request.
 
@@ -304,18 +304,18 @@ Related Topics
  &amp;#42; RequestEnvironmentInfo
      *
      */
-    retrieveEnvironmentInfo(params: ElasticBeanstalk.RetrieveEnvironmentInfoMessage, callback?: (err: any, data: ElasticBeanstalk.RetrieveEnvironmentInfoResultMessage|any) => void): Request;
+    retrieveEnvironmentInfo(params: ElasticBeanstalk.RetrieveEnvironmentInfoMessage, callback?: (err: any, data: ElasticBeanstalk.RetrieveEnvironmentInfoResultMessage|any) => void): Request<ElasticBeanstalk.RetrieveEnvironmentInfoResultMessage|any,any>;
     /**
      * Swaps the CNAMEs of two environments.
      *
      */
-    swapEnvironmentCNAMEs(params: ElasticBeanstalk.SwapEnvironmentCNAMEsMessage, callback?: (err: any, data: any) => void): Request;
+    swapEnvironmentCNAMEs(params: ElasticBeanstalk.SwapEnvironmentCNAMEsMessage, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Terminates the specified environment.
      *
      * @error InsufficientPrivilegesException   
      */
-    terminateEnvironment(params: ElasticBeanstalk.TerminateEnvironmentMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.EnvironmentDescription|any) => void): Request;
+    terminateEnvironment(params: ElasticBeanstalk.TerminateEnvironmentMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.EnvironmentDescription|any) => void): Request<ElasticBeanstalk.EnvironmentDescription|any,ElasticBeanstalk.InsufficientPrivilegesException|any>;
     /**
      * Updates the specified application to have the specified properties.
 
@@ -323,7 +323,7 @@ If a property (for example, description ) is not provided, the value remains
 unchanged. To clear these properties, specify an empty string.
      *
      */
-    updateApplication(params: ElasticBeanstalk.UpdateApplicationMessage, callback?: (err: any, data: ElasticBeanstalk.ApplicationDescriptionMessage|any) => void): Request;
+    updateApplication(params: ElasticBeanstalk.UpdateApplicationMessage, callback?: (err: any, data: ElasticBeanstalk.ApplicationDescriptionMessage|any) => void): Request<ElasticBeanstalk.ApplicationDescriptionMessage|any,any>;
     /**
      * Updates the specified application version to have the specified properties.
 
@@ -331,7 +331,7 @@ If a property (for example, description ) is not provided, the value remains
 unchanged. To clear properties, specify an empty string.
      *
      */
-    updateApplicationVersion(params: ElasticBeanstalk.UpdateApplicationVersionMessage, callback?: (err: any, data: ElasticBeanstalk.ApplicationVersionDescriptionMessage|any) => void): Request;
+    updateApplicationVersion(params: ElasticBeanstalk.UpdateApplicationVersionMessage, callback?: (err: any, data: ElasticBeanstalk.ApplicationVersionDescriptionMessage|any) => void): Request<ElasticBeanstalk.ApplicationVersionDescriptionMessage|any,any>;
     /**
      * Updates the specified configuration template to have the specified properties or
 configuration option values.
@@ -344,7 +344,7 @@ unchanged. To clear such properties, specify an empty string.Related Topics
      * @error InsufficientPrivilegesException   
      * @error TooManyBucketsException   
      */
-    updateConfigurationTemplate(params: ElasticBeanstalk.UpdateConfigurationTemplateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.TooManyBucketsException|any, data: ElasticBeanstalk.ConfigurationSettingsDescription|any) => void): Request;
+    updateConfigurationTemplate(params: ElasticBeanstalk.UpdateConfigurationTemplateMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.ConfigurationSettingsDescription|any) => void): Request<ElasticBeanstalk.ConfigurationSettingsDescription|any,ElasticBeanstalk.InsufficientPrivilegesException|any>;
     /**
      * Updates the environment description, deploys a new application version, updates
 the configuration settings to an entirely new configuration template, or updates
@@ -361,7 +361,7 @@ DeploymentStatus values.
      * @error InsufficientPrivilegesException   
      * @error TooManyBucketsException   
      */
-    updateEnvironment(params: ElasticBeanstalk.UpdateEnvironmentMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.TooManyBucketsException|any, data: ElasticBeanstalk.EnvironmentDescription|any) => void): Request;
+    updateEnvironment(params: ElasticBeanstalk.UpdateEnvironmentMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.EnvironmentDescription|any) => void): Request<ElasticBeanstalk.EnvironmentDescription|any,ElasticBeanstalk.InsufficientPrivilegesException|any>;
     /**
      * Takes a set of configuration settings and either a configuration template or
 environment, and determines whether those values are valid.
@@ -372,7 +372,7 @@ associated with the selection of option values.
      * @error InsufficientPrivilegesException   
      * @error TooManyBucketsException   
      */
-    validateConfigurationSettings(params: ElasticBeanstalk.ValidateConfigurationSettingsMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|ElasticBeanstalk.TooManyBucketsException|any, data: ElasticBeanstalk.ConfigurationSettingsValidationMessages|any) => void): Request;
+    validateConfigurationSettings(params: ElasticBeanstalk.ValidateConfigurationSettingsMessage, callback?: (err: ElasticBeanstalk.InsufficientPrivilegesException|any, data: ElasticBeanstalk.ConfigurationSettingsValidationMessages|any) => void): Request<ElasticBeanstalk.ConfigurationSettingsValidationMessages|any,ElasticBeanstalk.InsufficientPrivilegesException|any>;
 
   }
 

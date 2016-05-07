@@ -69,7 +69,9 @@ function copyCommonDefs() {
 
   var template = handlebars.compile(templateContent);
 
-  var commonContent = template({services: Object.keys(metadata)});
+  var commonContent = template({
+    services: Object.keys(metadata)
+  });
 
   fs.writeFileSync('output/typings/aws-sdk-common.d.ts', commonContent);
 }
@@ -209,3 +211,4 @@ generateServiceDefinitions();
 generateModuleFile();
 
 updateTypingsJson();
+

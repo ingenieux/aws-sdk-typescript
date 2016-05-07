@@ -41,7 +41,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    buildSuggesters(params: CloudSearch.BuildSuggestersRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.BuildSuggestersResponse|any) => void): Request;
+    buildSuggesters(params: CloudSearch.BuildSuggestersRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.BuildSuggestersResponse|any) => void): Request<CloudSearch.BuildSuggestersResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Creates a new search domain. For more information, see Creating a Search Domain
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html] 
@@ -53,7 +53,7 @@ persists, report an issue from the Service Health Dashboard
 [http://status.aws.amazon.com/] .  
      * @error LimitExceededException The request was rejected because a resource limit has already been met.  
      */
-    createDomain(params: CloudSearch.CreateDomainRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|any, data: CloudSearch.CreateDomainResponse|any) => void): Request;
+    createDomain(params: CloudSearch.CreateDomainRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|any, data: CloudSearch.CreateDomainResponse|any) => void): Request<CloudSearch.CreateDomainResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|any>;
     /**
      * Configures an analysis scheme that can be applied to a text or text-array field
 to define language-specific text processing options. For more information, see 
@@ -70,7 +70,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    defineAnalysisScheme(params: CloudSearch.DefineAnalysisSchemeRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DefineAnalysisSchemeResponse|any) => void): Request;
+    defineAnalysisScheme(params: CloudSearch.DefineAnalysisSchemeRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DefineAnalysisSchemeResponse|any) => void): Request<CloudSearch.DefineAnalysisSchemeResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Configures an Expression for the search domain. Used to create new expressions
 and modify existing ones. If the expression exists, the new configuration
@@ -87,7 +87,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    defineExpression(params: CloudSearch.DefineExpressionRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DefineExpressionResponse|any) => void): Request;
+    defineExpression(params: CloudSearch.DefineExpressionRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DefineExpressionResponse|any) => void): Request<CloudSearch.DefineExpressionResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Configures an IndexField for the search domain. Used to create new fields and
 modify existing ones. You must specify the name of the domain you are
@@ -108,7 +108,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    defineIndexField(params: CloudSearch.DefineIndexFieldRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DefineIndexFieldResponse|any) => void): Request;
+    defineIndexField(params: CloudSearch.DefineIndexFieldRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DefineIndexFieldResponse|any) => void): Request<CloudSearch.DefineIndexFieldResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Configures a suggester for a domain. A suggester enables you to display possible
 matches before users finish typing their queries. When you configure a
@@ -127,7 +127,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    defineSuggester(params: CloudSearch.DefineSuggesterRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DefineSuggesterResponse|any) => void): Request;
+    defineSuggester(params: CloudSearch.DefineSuggesterRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DefineSuggesterResponse|any) => void): Request<CloudSearch.DefineSuggesterResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Deletes an analysis scheme. For more information, see Configuring Analysis
 Schemes
@@ -142,7 +142,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    deleteAnalysisScheme(params: CloudSearch.DeleteAnalysisSchemeRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DeleteAnalysisSchemeResponse|any) => void): Request;
+    deleteAnalysisScheme(params: CloudSearch.DeleteAnalysisSchemeRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DeleteAnalysisSchemeResponse|any) => void): Request<CloudSearch.DeleteAnalysisSchemeResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Permanently deletes a search domain and all of its data. Once a domain has been
 deleted, it cannot be recovered. For more information, see Deleting a Search
@@ -155,7 +155,7 @@ in the Amazon CloudSearch Developer Guide .
 persists, report an issue from the Service Health Dashboard
 [http://status.aws.amazon.com/] .  
      */
-    deleteDomain(params: CloudSearch.DeleteDomainRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|any, data: CloudSearch.DeleteDomainResponse|any) => void): Request;
+    deleteDomain(params: CloudSearch.DeleteDomainRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|any, data: CloudSearch.DeleteDomainResponse|any) => void): Request<CloudSearch.DeleteDomainResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|any>;
     /**
      * Removes an Expression from the search domain. For more information, see 
 Configuring Expressions
@@ -170,7 +170,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    deleteExpression(params: CloudSearch.DeleteExpressionRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DeleteExpressionResponse|any) => void): Request;
+    deleteExpression(params: CloudSearch.DeleteExpressionRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DeleteExpressionResponse|any) => void): Request<CloudSearch.DeleteExpressionResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Removes an IndexField from the search domain. For more information, see 
 Configuring Index Fields
@@ -185,7 +185,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    deleteIndexField(params: CloudSearch.DeleteIndexFieldRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DeleteIndexFieldResponse|any) => void): Request;
+    deleteIndexField(params: CloudSearch.DeleteIndexFieldRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DeleteIndexFieldResponse|any) => void): Request<CloudSearch.DeleteIndexFieldResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Deletes a suggester. For more information, see Getting Search Suggestions
 [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html] 
@@ -199,7 +199,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    deleteSuggester(params: CloudSearch.DeleteSuggesterRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DeleteSuggesterResponse|any) => void): Request;
+    deleteSuggester(params: CloudSearch.DeleteSuggesterRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DeleteSuggesterResponse|any) => void): Request<CloudSearch.DeleteSuggesterResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Gets the analysis schemes configured for a domain. An analysis scheme defines
 language-specific text processing options for a text field. Can be limited to
@@ -217,7 +217,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    describeAnalysisSchemes(params: CloudSearch.DescribeAnalysisSchemesRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeAnalysisSchemesResponse|any) => void): Request;
+    describeAnalysisSchemes(params: CloudSearch.DescribeAnalysisSchemesRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeAnalysisSchemesResponse|any) => void): Request<CloudSearch.DescribeAnalysisSchemesResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Gets the availability options configured for a domain. By default, shows the
 configuration with any pending changes. Set the Deployed option to true to show
@@ -236,7 +236,7 @@ persists, report an issue from the Service Health Dashboard
 not exist.  
      * @error DisabledOperationException The request was rejected because it attempted an operation which is not enabled.  
      */
-    describeAvailabilityOptions(params: CloudSearch.DescribeAvailabilityOptionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.DisabledOperationException|any, data: CloudSearch.DescribeAvailabilityOptionsResponse|any) => void): Request;
+    describeAvailabilityOptions(params: CloudSearch.DescribeAvailabilityOptionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.DisabledOperationException|any, data: CloudSearch.DescribeAvailabilityOptionsResponse|any) => void): Request<CloudSearch.DescribeAvailabilityOptionsResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.DisabledOperationException|any>;
     /**
      * Gets information about the search domains owned by this account. Can be limited
 to specific domains. Shows all domains by default. To get the number of
@@ -251,7 +251,7 @@ in the Amazon CloudSearch Developer Guide .
 persists, report an issue from the Service Health Dashboard
 [http://status.aws.amazon.com/] .  
      */
-    describeDomains(params: CloudSearch.DescribeDomainsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|any, data: CloudSearch.DescribeDomainsResponse|any) => void): Request;
+    describeDomains(params: CloudSearch.DescribeDomainsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|any, data: CloudSearch.DescribeDomainsResponse|any) => void): Request<CloudSearch.DescribeDomainsResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|any>;
     /**
      * Gets the expressions configured for the search domain. Can be limited to
 specific expressions by name. By default, shows all expressions and includes any
@@ -268,7 +268,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    describeExpressions(params: CloudSearch.DescribeExpressionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeExpressionsResponse|any) => void): Request;
+    describeExpressions(params: CloudSearch.DescribeExpressionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeExpressionsResponse|any) => void): Request<CloudSearch.DescribeExpressionsResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Gets information about the index fields configured for the search domain. Can be
 limited to specific fields by name. By default, shows all fields and includes
@@ -285,7 +285,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    describeIndexFields(params: CloudSearch.DescribeIndexFieldsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeIndexFieldsResponse|any) => void): Request;
+    describeIndexFields(params: CloudSearch.DescribeIndexFieldsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeIndexFieldsResponse|any) => void): Request<CloudSearch.DescribeIndexFieldsResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Gets the scaling parameters configured for a domain. A domain&#x27;s scaling
 parameters specify the desired search instance type and replication count. For
@@ -300,7 +300,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    describeScalingParameters(params: CloudSearch.DescribeScalingParametersRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeScalingParametersResponse|any) => void): Request;
+    describeScalingParameters(params: CloudSearch.DescribeScalingParametersRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeScalingParametersResponse|any) => void): Request<CloudSearch.DescribeScalingParametersResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Gets information about the access policies that control access to the domain&#x27;s
 document and search endpoints. By default, shows the configuration with any
@@ -317,7 +317,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    describeServiceAccessPolicies(params: CloudSearch.DescribeServiceAccessPoliciesRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeServiceAccessPoliciesResponse|any) => void): Request;
+    describeServiceAccessPolicies(params: CloudSearch.DescribeServiceAccessPoliciesRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeServiceAccessPoliciesResponse|any) => void): Request<CloudSearch.DescribeServiceAccessPoliciesResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Gets the suggesters configured for a domain. A suggester enables you to display
 possible matches before users finish typing their queries. Can be limited to
@@ -335,7 +335,7 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    describeSuggesters(params: CloudSearch.DescribeSuggestersRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeSuggestersResponse|any) => void): Request;
+    describeSuggesters(params: CloudSearch.DescribeSuggestersRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.DescribeSuggestersResponse|any) => void): Request<CloudSearch.DescribeSuggestersResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Tells the search domain to start indexing its documents using the latest
 indexing options. This operation must be invoked to activate options whose 
@@ -348,13 +348,13 @@ persists, report an issue from the Service Health Dashboard
      * @error ResourceNotFoundException The request was rejected because it attempted to reference a resource that does
 not exist.  
      */
-    indexDocuments(params: CloudSearch.IndexDocumentsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.IndexDocumentsResponse|any) => void): Request;
+    indexDocuments(params: CloudSearch.IndexDocumentsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any, data: CloudSearch.IndexDocumentsResponse|any) => void): Request<CloudSearch.IndexDocumentsResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.ResourceNotFoundException|any>;
     /**
      * Lists all search domains owned by an account.
      *
      * @error BaseException An error occurred while processing the request.  
      */
-    listDomainNames(callback?: (err: CloudSearch.BaseException|any, data: CloudSearch.ListDomainNamesResponse|any) => void): Request;
+    listDomainNames(callback?: (err: CloudSearch.BaseException|any, data: CloudSearch.ListDomainNamesResponse|any) => void): Request<CloudSearch.ListDomainNamesResponse|any,CloudSearch.BaseException|any>;
     /**
      * Configures the availability options for a domain. Enabling the Multi-AZ option
 expands an Amazon CloudSearch domain to an additional Availability Zone in the
@@ -374,7 +374,7 @@ persists, report an issue from the Service Health Dashboard
 not exist.  
      * @error DisabledOperationException The request was rejected because it attempted an operation which is not enabled.  
      */
-    updateAvailabilityOptions(params: CloudSearch.UpdateAvailabilityOptionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.DisabledOperationException|any, data: CloudSearch.UpdateAvailabilityOptionsResponse|any) => void): Request;
+    updateAvailabilityOptions(params: CloudSearch.UpdateAvailabilityOptionsRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.DisabledOperationException|any, data: CloudSearch.UpdateAvailabilityOptionsResponse|any) => void): Request<CloudSearch.UpdateAvailabilityOptionsResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.InvalidTypeException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.DisabledOperationException|any>;
     /**
      * Configures scaling parameters for a domain. A domain&#x27;s scaling parameters
 specify the desired search instance type and replication count. Amazon
@@ -394,7 +394,7 @@ persists, report an issue from the Service Health Dashboard
 not exist.  
      * @error InvalidTypeException The request was rejected because it specified an invalid type definition.  
      */
-    updateScalingParameters(params: CloudSearch.UpdateScalingParametersRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.InvalidTypeException|any, data: CloudSearch.UpdateScalingParametersResponse|any) => void): Request;
+    updateScalingParameters(params: CloudSearch.UpdateScalingParametersRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.InvalidTypeException|any, data: CloudSearch.UpdateScalingParametersResponse|any) => void): Request<CloudSearch.UpdateScalingParametersResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.InvalidTypeException|any>;
     /**
      * Configures the access rules that control access to the domain&#x27;s document and
 search endpoints. For more information, see Configuring Access for an Amazon
@@ -411,7 +411,7 @@ persists, report an issue from the Service Health Dashboard
 not exist.  
      * @error InvalidTypeException The request was rejected because it specified an invalid type definition.  
      */
-    updateServiceAccessPolicies(params: CloudSearch.UpdateServiceAccessPoliciesRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.InvalidTypeException|any, data: CloudSearch.UpdateServiceAccessPoliciesResponse|any) => void): Request;
+    updateServiceAccessPolicies(params: CloudSearch.UpdateServiceAccessPoliciesRequest, callback?: (err: CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.InvalidTypeException|any, data: CloudSearch.UpdateServiceAccessPoliciesResponse|any) => void): Request<CloudSearch.UpdateServiceAccessPoliciesResponse|any,CloudSearch.BaseException|CloudSearch.InternalException|CloudSearch.LimitExceededException|CloudSearch.ResourceNotFoundException|CloudSearch.InvalidTypeException|any>;
 
   }
 
