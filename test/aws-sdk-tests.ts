@@ -1,4 +1,4 @@
-///<reference path="../typings/main/ambient/node/index.d.ts" />
+///<reference path="../typings/main.d.ts" />
 ///<reference path="../output/typings/aws-sdk.d.ts" />
 ///<reference path="../output/typings/aws-s3.d.ts" />
 ///<reference path="../output/typings/aws-sqs.d.ts" />

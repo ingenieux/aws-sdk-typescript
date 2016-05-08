@@ -4,6 +4,7 @@
   "devDependencies": {},
   "ambient": true,
   "ambientDevDependencies": {
+    "es6-promise": "registry:dt/es6-promise#0.0.0+20160423074304",
     "esprima": "registry:dt/esprima#2.1.0+20160317120654",
     "estree": "registry:dt/estree#0.0.0+20160317120654",
     "glob": "registry:dt/glob#5.0.10+20160317120654",
@@ -11,7 +12,7 @@
     "html-to-text": "registry:dt/html-to-text#1.4.0+20151110020217",
     "minimatch": "registry:dt/minimatch#2.0.8+20160317120654",
     "mustache": "registry:dt/mustache#0.8.2+20160316155526",
-    "node": "registry:dt/node#4.0.0+20160330064709"
+    "node": "registry:dt/node#4.0.0+20160505172921"
   },
   "files": [
     "output/typings/aws-acm.d.ts",

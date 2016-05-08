@@ -1,6 +1,6 @@
 {
   "name": "aws-sdk-typescript",
-  "version": "0.0.4",
+  "private": true,
   "author": "Aldrin Leal <aldrin+npmjs@leal.eng.br>",
   "description": "aws-sdk bindings for typescript",
   "homepage": "https://github.com/ingenieux/aws-sdk-typescript/",
@@ -34,20 +34,20 @@
     "escodegen": "^1.8.0",
     "esprima": "^2.7.1",
     "estraverse": "^4.1.1",
-    "glob": "^5.0.10",
+    "glob": "^5.0.15",
     "gulp": "^3.9.1",
     "gulp-cli": "^1.2.1",
-    "gulp-shell": "^0.2.5",
+    "gulp-shell": "^0.2.11",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-typescript": "^2.12.1",
     "handlebars": "^3.0.3",
     "html-to-text": "^2.1.0",
     "jsstana": "^0.1.6",
-    "run-sequence": "^0.3.6",
+    "run-sequence": "^0.3.7",
     "source-map-support": "^0.4.0",
-    "typescript": "^1.8.9",
+    "typescript": "^1.8.10",
     "typescript-formatter": "^2.1.0",
-    "typings": "^0.7.9"
+    "typings": "^0.7.12"
   },
   "scripts": {
     "prepublish": "gulp buildrun && npm run-script format",
