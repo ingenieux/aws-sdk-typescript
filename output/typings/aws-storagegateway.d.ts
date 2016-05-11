@@ -27,29 +27,59 @@ Reference :
    [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayHTTPRequestsHeaders.html] 
    : Describes the required headers that you must send with every POST request
    to AWS Storage Gateway.
+   
+   
  * Signing Requests
    [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewaySigningRequests.html] 
    : AWS Storage Gateway requires that you authenticate every request you send;
    this topic describes how sign such a request.
+   
+   
  * Error Responses
    [http://docs.aws.amazon.com/storagegateway/latest/userguide/APIErrorResponses.html] 
    : Provides reference information about AWS Storage Gateway errors.
+   
+   
  * Operations in AWS Storage Gateway
    [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPIOperations.html] 
    : Contains detailed descriptions of all AWS Storage Gateway operations, their
    request parameters, response elements, possible errors, and examples of
    requests and responses.
+   
+   
  * AWS Storage Gateway Regions and Endpoints
    [http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html] :
    Provides a list of each of the s and endpoints available for use with AWS
    Storage Gateway.
+   
+   
 
 AWS Storage Gateway resource IDs are in uppercase. When you use these resource
 IDs with the Amazon EC2 API, EC2 expects resource IDs in lowercase. You must
 change your resource ID to lowercase to use it with the EC2 API. For example, in
-Storage Gateway the ID for a volume might be vol-1122AABB. When you use this ID
-with the EC2 API, you must change it to vol-1122aabb. Otherwise, the EC2 API
+Storage Gateway the ID for a volume might be vol-1122AABB . When you use this ID
+with the EC2 API, you must change it to vol-1122aabb . Otherwise, the EC2 API
 might not behave as expected.
+
+IDs for Storage Gateway volumes and Amazon EBS snapshots created from gateway
+volumes are changing to a longer format. Starting in December 2016, all new
+volumes and snapshots will be created with a 17-character string. Starting in
+April 2016, you will be able to use these longer IDs so you can test your
+systems with the new format. For more information, see Longer EC2 and EBS
+Resource IDs [https://aws.amazon.com/ec2/faqs/#longer-ids] .
+
+For example, a volume ARN with the longer volume ID format will look like this:
+
+
+arn:aws:storagegateway:us-west-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABBCCDDEEFFG 
+.
+
+A snapshot ID with the longer ID format will look like this: 
+snap-78e226633445566ee .
+
+For more information, see Announcement: Heads-up – Longer AWS Storage Gateway
+volume and snapshot IDs coming in 2016
+[https://forums.aws.amazon.com/ann.jspa?annID=3557] .
    *
    */
   export class StorageGateway extends Service {
@@ -163,10 +193,11 @@ to the VTS.
 supported only for the gateway-cached volume architecture.
 
 Cache storage must be allocated to the gateway before you can create a cached
-volume. Use the AddCache operation to add cache storage to a gateway.In the
-request, you must specify the gateway, size of the volume in bytes, the iSCSI
-target name, an IP address on which to expose the target, and a unique client
-token. In response, AWS Storage Gateway creates the volume and returns
+volume. Use the AddCache operation to add cache storage to a gateway.
+
+In the request, you must specify the gateway, size of the volume in bytes, the
+iSCSI target name, an IP address on which to expose the target, and a unique
+client token. In response, AWS Storage Gateway creates the volume and returns
 information about it such as the volume Amazon Resource Name (ARN), its size,
 and the iSCSI target ARN that initiators can use to connect to the volume
 target.
@@ -198,6 +229,11 @@ snapshot.
 To list or delete a snapshot, you must use the Amazon EC2 API. For more
 information, see DescribeSnapshots or DeleteSnapshot in the EC2 API reference
 [http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html] .
+
+Volume and snapshot IDs are changing to a longer length ID format. For more
+information, see the important note on the Welcome
+[http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html] 
+page.
      *
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
@@ -563,6 +599,22 @@ metadata or the disk content is corrupted).
      */
     listTagsForResource(params: StorageGateway.ListTagsForResourceInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListTagsForResourceOutput|any) => void): Request<StorageGateway.ListTagsForResourceOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
     /**
+     * Lists virtual tapes in your virtual tape library (VTL) and your virtual tape
+shelf (VTS). You specify the tapes to list by specifying one or more tape Amazon
+Resource Names (ARNs). If you don&#x27;t specify a tape ARN, the operation lists all
+virtual tapes in both your VTL and VTS.
+
+This operation supports pagination. By default, the operation returns a maximum
+of up to 100 tapes. You can optionally specify the Limit parameter in the body
+to limit the number of tapes in the response. If the number of tapes returned in
+the response is truncated, the response includes a Marker element that you can
+use in your subsequent request to retrieve the next set of tapes.
+     *
+     * @error InvalidGatewayRequestException   
+     * @error InternalServerError   
+     */
+    listTapes(params: StorageGateway.ListTapesInput, callback?: (err: StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any, data: StorageGateway.ListTapesOutput|any) => void): Request<StorageGateway.ListTapesOutput|any,StorageGateway.InvalidGatewayRequestException|StorageGateway.InternalServerError|any>;
+    /**
      * Lists iSCSI initiators that are connected to a volume. You can use this
 operation to determine whether a volume is being used or not.
      *
@@ -670,18 +722,20 @@ The operation shuts down the gateway service component running in the storage
 gateway&#x27;s virtual machine (VM) and not the VM.
 
 If you want to shut down the VM, it is recommended that you first shut down the
-gateway component in the VM to avoid unpredictable conditions.After the gateway
-is shutdown, you cannot call any other API except StartGateway , 
-DescribeGatewayInformation , and ListGateways . For more information, see 
+gateway component in the VM to avoid unpredictable conditions.
+
+After the gateway is shutdown, you cannot call any other API except StartGateway 
+, DescribeGatewayInformation , and ListGateways . For more information, see 
 ActivateGateway . Your applications cannot read from or write to the gateway&#x27;s
 storage volumes, and there are no snapshots taken.
 
 When you make a shutdown request, you will get a 200 OK success response
 immediately. However, it might take some time for the gateway to shut down. You
 can call the DescribeGatewayInformation API to check the status. For more
-information, see ActivateGateway .If do not intend to use the gateway again, you
-must delete the gateway (using DeleteGateway ) to no longer pay software charges
-associated with the gateway.
+information, see ActivateGateway .
+
+If do not intend to use the gateway again, you must delete the gateway (using 
+DeleteGateway ) to no longer pay software charges associated with the gateway.
      *
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
@@ -696,8 +750,10 @@ snapshot backups.
 When you make a request, you will get a 200 OK success response immediately.
 However, it might take some time for the gateway to be ready. You should call 
 DescribeGatewayInformation and check the status before making any additional API
-calls. For more information, see ActivateGateway .To specify which gateway to
-start, use the Amazon Resource Name (ARN) of the gateway in your request.
+calls. For more information, see ActivateGateway .
+
+To specify which gateway to start, use the Amazon Resource Name (ARN) of the
+gateway in your request.
      *
      * @error InvalidGatewayRequestException   
      * @error InternalServerError   
@@ -750,7 +806,8 @@ triggers the software update.
 
 When you make this request, you get a 200 OK success response immediately.
 However, it might take some time for the update to complete. You can call 
-DescribeGatewayInformation to verify the gateway is in the STATE_RUNNING state. 
+DescribeGatewayInformation to verify the gateway is in the STATE_RUNNING state.
+
 A software update forces a system restart of your gateway. You can minimize the
 chance of any disruption to your applications by increasing your iSCSI
 Initiators&#x27; timeouts. For more information about increasing iSCSI Initiator
@@ -914,6 +971,8 @@ gateway-VTL is activated.
     
     export type TapeDriveType = string;
     
+    export type TapeInfos = TapeInfo[];
+    
     export type TapeRecoveryPointInfos = TapeRecoveryPointInfo[];
     
     export type TapeRecoveryPointStatus = string;
@@ -986,9 +1045,9 @@ endpoints for AWS Storage Gateway, see Regions and Endpoints
 [http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region] in the 
 Amazon Web Services Glossary .
 
-Valid Values : &quot;us-east-1&quot;, &quot;us-west-1&quot;, &quot;us-west-2&quot;, &quot;eu-west-1&quot;,
-&quot;eu-central-1&quot;, &quot;ap-northeast-1&quot;, &quot;ap-southeast-1&quot;, &quot;ap-southeast-2&quot;,
-&quot;sa-east-1&quot; **/
+Valid Values: &quot;us-east-1&quot;, &quot;us-west-1&quot;, &quot;us-west-2&quot;, &quot;eu-west-1&quot;,
+&quot;eu-central-1&quot;, &quot;ap-northeast-1&quot;, &quot;ap-northeast-2&quot;, &quot;ap-southeast-1&quot;,
+&quot;ap-southeast-2&quot;, &quot;sa-east-1&quot; **/
         GatewayRegion: RegionId;
         /** A value that defines the type of gateway to activate. The type specified is
 critical to all later functions of the gateway and cannot be changed after
@@ -997,12 +1056,12 @@ activation. The default value is STORED . **/
         /** The value that indicates the type of tape drive to use for gateway-VTL. This
 field is optional.
 
-Valid Values : &quot;IBM-ULT3580-TD5&quot; **/
+Valid Values: &quot;IBM-ULT3580-TD5&quot; **/
         TapeDriveType?: TapeDriveType;
         /** The value that indicates the type of medium changer to use for gateway-VTL. This
 field is optional.
 
-Valid Values : &quot;STK-L700&quot;, &quot;AWS-Gateway-VTL&quot; **/
+Valid Values: &quot;STK-L700&quot;, &quot;AWS-Gateway-VTL&quot; **/
         MediumChangerType?: MediumChangerType;
     }
     export interface ActivateGatewayOutput {
@@ -1082,7 +1141,7 @@ canceled. **/
     export interface ChapInfo {
         /** The Amazon Resource Name (ARN) of the volume.
 
-Valid Values : 50 to 500 lowercase letters, numbers, periods (.), and hyphens
+Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
 (-). **/
         TargetARN?: TargetARN;
         /** The secret key that the initiator (for example, the Windows client) must provide
@@ -1149,7 +1208,7 @@ in the Amazon Elastic Compute Cloud API Reference . **/
         /** Specify this field as true if you want to preserve the data on the local disk.
 Otherwise, specifying this field as false creates an empty volume.
 
-Valid Values : true, false **/
+Valid Values: true, false **/
         PreserveExistingData: boolean;
         /** The name of the iSCSI target used by initiators to connect to the target and as
 a suffix for the target ARN. For example, specifying TargetName as myvolume 
@@ -1161,7 +1220,7 @@ The target name must be unique across all volumes of a gateway. **/
 IPv4 addresses are accepted. Use DescribeGatewayInformation to get a list of the
 network interfaces available on a gateway.
 
-Valid Values : A valid IP address. **/
+Valid Values: A valid IP address. **/
         NetworkInterfaceId: NetworkInterfaceId;
     }
     export interface CreateStorediSCSIVolumeOutput {
@@ -1346,8 +1405,8 @@ information is provided in a JSON object with the following fields:
     }
     export interface DescribeGatewayInformationOutput {
         GatewayARN?: GatewayARN;
-        /** The unique identifier assigned to your gateway during activation. This id
-becomes part of the gateway Amazon Resources Name (ARN) which you use as input
+        /** The unique identifier assigned to your gateway during activation. This ID
+becomes part of the gateway Amazon Resource Name (ARN), which you use as input
 for other operations. **/
         GatewayId?: GatewayId;
         /** The name you configured for your gateway. **/
@@ -1556,15 +1615,27 @@ name(iqn) of a tape drive or media changer target. **/
         DiskAllocationResource?: string;
     }
     export interface GatewayInfo {
+        /** The unique identifier assigned to your gateway during activation. This ID
+becomes part of the gateway Amazon Resource Name (ARN), which you use as input
+for other operations. **/
+        GatewayId?: GatewayId;
+        /** The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation to
+return a list of gateways for your account and region. **/
         GatewayARN?: GatewayARN;
+        /** The type of the gateway. **/
         GatewayType?: GatewayType;
+        /** The state of the gateway.
+
+Valid Values: DISABLED or ACTIVE **/
         GatewayOperationalState?: GatewayOperationalState;
+        /** The name of the gateway. **/
         GatewayName?: string;
     }
     export interface InternalServerError {
         /** A human-readable message describing the error that occurred. **/
         message?: string;
-        /** A StorageGatewayError that provides more detail about the cause of the error. **/
+        /** A StorageGatewayError that provides more information about the cause of the
+error. **/
         error?: StorageGatewayError;
     }
     export interface InvalidGatewayRequestException {
@@ -1611,6 +1682,22 @@ of tags. **/
         /** An array that contains the tags for the specified resource. **/
         Tags?: Tags;
     }
+    export interface ListTapesInput {
+        TapeARNs?: TapeARNs;
+        /** A string that indicates the position at which to begin the returned list of
+tapes. **/
+        Marker?: Marker;
+        /** An optional number limit for the tapes in the list returned by this call. **/
+        Limit?: PositiveIntObject;
+    }
+    export interface ListTapesOutput {
+        TapeInfos?: TapeInfos;
+        /** A string that indicates the position at which to begin returning the next list
+of tapes. Use the marker in your next request to continue pagination of tapes.
+If there are no more tapes to list, this element does not appear in the response
+body. **/
+        Marker?: Marker;
+    }
     export interface ListVolumeInitiatorsInput {
         /** The Amazon Resource Name (ARN) of the volume. Use the ListVolumes operation to
 return a list of gateway volumes for the gateway. **/
@@ -1629,7 +1716,7 @@ the gateway. **/
         VolumeRecoveryPointInfos?: VolumeRecoveryPointInfos;
     }
     export interface ListVolumesInput {
-        GatewayARN: GatewayARN;
+        GatewayARN?: GatewayARN;
         /** A string that indicates the position at which to begin the returned list of
 volumes. Obtain the marker from the response of a previous List iSCSI Volumes
 request. **/
@@ -1777,6 +1864,19 @@ The virtual tape is retrieved from the virtual tape shelf (VTS). **/
         /** The current state of the archived virtual tape. **/
         TapeStatus?: TapeArchiveStatus;
     }
+    export interface TapeInfo {
+        /** The Amazon Resource Name (ARN) of a virtual tape. **/
+        TapeARN?: TapeARN;
+        /** The barcode that identifies a specific virtual tape. **/
+        TapeBarcode?: TapeBarcode;
+        /** The size, in bytes, of a virtual tape. **/
+        TapeSizeInBytes?: TapeSize;
+        /** The status of the tape. **/
+        TapeStatus?: TapeStatus;
+        /** The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation to
+return a list of gateways for your account and region. **/
+        GatewayARN?: GatewayARN;
+    }
     export interface TapeRecoveryPointInfo {
         /** The Amazon Resource Name (ARN) of the virtual tape. **/
         TapeARN?: TapeARN;
@@ -1872,6 +1972,7 @@ gateway. **/
         Description?: Description;
     }
     export interface UpdateSnapshotScheduleOutput {
+        /**  **/
         VolumeARN?: VolumeARN;
     }
     export interface UpdateVTLDeviceTypeInput {
@@ -1879,7 +1980,7 @@ gateway. **/
         VTLDeviceARN: VTLDeviceARN;
         /** The type of medium changer you want to select.
 
-Valid Values : &quot;STK-L700&quot;, &quot;AWS-Gateway-VTL&quot; **/
+Valid Values: &quot;STK-L700&quot;, &quot;AWS-Gateway-VTL&quot; **/
         DeviceType: DeviceType;
     }
     export interface UpdateVTLDeviceTypeOutput {
@@ -1897,8 +1998,35 @@ media changer). **/
         DeviceiSCSIAttributes?: DeviceiSCSIAttributes;
     }
     export interface VolumeInfo {
+        /** The Amazon Resource Name (ARN) for the storage volume. For example, the
+following is a valid ARN:
+
+
+arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB
+
+Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
+(-). **/
         VolumeARN?: VolumeARN;
+        /** The unique identifier assigned to the volume. This ID becomes part of the volume
+Amazon Resource Name (ARN), which you use as input for other operations.
+
+Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
+(-). **/
+        VolumeId?: VolumeId;
+        GatewayARN?: GatewayARN;
+        /** The unique identifier assigned to your gateway during activation. This ID
+becomes part of the gateway Amazon Resource Name (ARN), which you use as input
+for other operations.
+
+Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
+(-). **/
+        GatewayId?: GatewayId;
         VolumeType?: VolumeType;
+        /** The size, in bytes, of the volume.
+
+Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
+(-). **/
+        VolumeSizeInBytes?: long;
     }
     export interface VolumeRecoveryPointInfo {
         VolumeARN?: VolumeARN;

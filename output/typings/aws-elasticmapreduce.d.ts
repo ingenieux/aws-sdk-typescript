@@ -332,6 +332,8 @@ resources, such as Amazon EC2 instances.
     
     export type InstanceStateChangeReasonCode = string;
     
+    export type InstanceStateList = InstanceState[];
+    
     export type InstanceType = string;
     
     export type Integer = number;
@@ -1046,6 +1048,9 @@ error. **/
         InstanceGroupId?: InstanceGroupId;
         /** The type of instance group for which to list the instances. **/
         InstanceGroupTypes?: InstanceGroupTypeList;
+        /** A list of instance states that will filter the instances returned with this
+request. **/
+        InstanceStates?: InstanceStateList;
         /** The pagination token that indicates the next set of results to retrieve. **/
         Marker?: Marker;
     }

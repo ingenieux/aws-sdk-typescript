@@ -250,10 +250,11 @@ in the Elastic Load Balancing Developer Guide .
      */
     deregisterInstancesFromLoadBalancer(params: ELB.DeregisterEndPointsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any, data: ELB.DeregisterEndPointsOutput|any) => void): Request<ELB.DeregisterEndPointsOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any>;
     /**
-     * Describes the state of the specified instances registered with the specified
+     * Describes the state of the specified instances with respect to the specified
 load balancer. If no instances are specified, the call describes the state of
-all instances registered with the load balancer, not including any terminated
-instances.
+all instances that are currently registered with the load balancer. If instances
+are specified, their state is returned even if they are no longer registered
+with the load balancer. The state of terminated instances is not returned.
      *
      * @error AccessPointNotFoundException The specified load balancer does not exist.  
      * @error InvalidEndPointException The specified endpoint is not valid.  
@@ -382,9 +383,9 @@ instances to that VPC and then register the linked EC2-Classic instances with
 the load balancer in the VPC.
 
 Note that RegisterInstanceWithLoadBalancer completes when the request has been
-registered. Instance registration happens shortly afterwards. To check the state
-of the registered instances, use DescribeLoadBalancers or DescribeInstanceHealth 
-.
+registered. Instance registration takes a little time to complete. To check the
+state of the registered instances, use DescribeLoadBalancers or 
+DescribeInstanceHealth .
 
 After the instance is registered, it starts receiving traffic and requests from
 the load balancer. Any instance that is not in one of the Availability Zones
@@ -709,9 +710,9 @@ been sent over the connection) before it is closed by the load balancer. **/
     export interface CreateAccessPointInput {
         /** The name of the load balancer.
 
-This name must be unique within your AWS account, must have a maximum of 32
-characters, must contain only alphanumeric characters or hyphens, and cannot
-begin or end with a hyphen. **/
+This name must be unique within your set of load balancers for the region, must
+have a maximum of 32 characters, must contain only alphanumeric characters or
+hyphens, and cannot begin or end with a hyphen. **/
         LoadBalancerName: AccessPointName;
         /** The listeners.
 
@@ -758,8 +759,9 @@ in the Elastic Load Balancing Developer Guide . **/
     export interface CreateAppCookieStickinessPolicyInput {
         /** The name of the load balancer. **/
         LoadBalancerName: AccessPointName;
-        /** The name of the policy being created. This name must be unique within the set of
-policies for this load balancer. **/
+        /** The name of the policy being created. Policy names must consist of alphanumeric
+characters and dashes (-). This name must be unique within the set of policies
+for this load balancer. **/
         PolicyName: PolicyName;
         /** The name of the application cookie used for stickiness. **/
         CookieName: CookieName;
@@ -769,8 +771,9 @@ policies for this load balancer. **/
     export interface CreateLBCookieStickinessPolicyInput {
         /** The name of the load balancer. **/
         LoadBalancerName: AccessPointName;
-        /** The name of the policy being created. This name must be unique within the set of
-policies for this load balancer. **/
+        /** The name of the policy being created. Policy names must consist of alphanumeric
+characters and dashes (-). This name must be unique within the set of policies
+for this load balancer. **/
         PolicyName: PolicyName;
         /** The time period, in seconds, after which the cookie should be considered stale.
 If you do not specify this parameter, the sticky session lasts for the duration
@@ -1033,8 +1036,9 @@ duration of the browser session. **/
         /** The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or
 SSL. **/
         Protocol: Protocol;
-        /** The port on which the load balancer is listening. The supported ports are: 25,
-80, 443, 465, 587, and 1024-65535. **/
+        /** The port on which the load balancer is listening. On EC2-VPC, you can specify
+any port from the range 1-65535. On EC2-Classic, you can specify any port from
+the following list: 25, 80, 443, 465, 587, 1024-65535. **/
         LoadBalancerPort: AccessPointPort;
         /** The protocol to use for routing traffic to back-end instances: HTTP, HTTPS, TCP,
 or SSL.

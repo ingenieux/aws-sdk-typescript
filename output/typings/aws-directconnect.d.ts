@@ -35,6 +35,8 @@ use it to access public AWS services in all US Regions and AWS GovCloud (US).
 
 Allocates a VLAN number and a specified amount of bandwidth for use by a hosted
 connection on the given interconnect.
+
+This is intended for use by AWS Direct Connect partners only.
      *
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
@@ -134,6 +136,8 @@ For each end customer, the AWS Direct Connect partner provisions a connection on
 their interconnect by calling AllocateConnectionOnInterconnect. The end customer
 can then connect to AWS resources by creating a virtual interface on their
 connection, using the VLAN assigned to them by the AWS Direct Connect partner.
+
+This is intended for use by AWS Direct Connect partners only.
      *
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
@@ -172,6 +176,8 @@ Direct Connect location.
     deleteConnection(params: DirectConnect.DeleteConnectionRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connection|any) => void): Request<DirectConnect.Connection|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Deletes the specified interconnect.
+
+This is intended for use by AWS Direct Connect partners only.
      *
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
@@ -197,6 +203,8 @@ connection.
     /**
      * Return a list of connections that have been provisioned on the given
 interconnect.
+
+This is intended for use by AWS Direct Connect partners only.
      *
      * @error DirectConnectServerException   
      * @error DirectConnectClientException   
@@ -326,7 +334,9 @@ only this particular virtual interface will be returned.
 
 Example: &quot; 500Mbps &quot;
 
-Default: None **/
+Default: None
+
+Values: 50M, 100M, 200M, 300M, 400M, or 500M **/
         bandwidth: Bandwidth;
         /** Name of the provisioned connection.
 
@@ -410,6 +420,7 @@ Default: None **/
         virtualInterfaceState?: VirtualInterfaceState;
     }
     export interface Connection {
+        /** The AWS account that will own the new connection. **/
         ownerAccount?: OwnerAccount;
         connectionId?: ConnectionId;
         connectionName?: ConnectionName;
@@ -423,6 +434,8 @@ Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
 Default: None **/
         bandwidth?: Bandwidth;
         vlan?: VLAN;
+        /** The name of the AWS Direct Connect service provider associated with the
+connection. **/
         partnerName?: PartnerName;
     }
     export interface Connections {
@@ -589,6 +602,7 @@ Example: 10.10.10.0/24,10.10.11.0/24 **/
         virtualGateways?: VirtualGatewayList;
     }
     export interface VirtualInterface {
+        /** The AWS account that will own the new virtual interface. **/
         ownerAccount?: OwnerAccount;
         virtualInterfaceId?: VirtualInterfaceId;
         location?: LocationCode;
