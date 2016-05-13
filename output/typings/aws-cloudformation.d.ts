@@ -31,8 +31,8 @@ For more information about this product, go to the CloudFormation Product Page
 
 Amazon CloudFormation makes use of other AWS products. If you need additional
 technical information about a specific AWS product, you can find the product&#x27;s
-technical documentation at http://docs.aws.amazon.com/documentation/
-[http://docs.aws.amazon.com/documentation/] .
+technical documentation at http://docs.aws.amazon.com/
+[http://docs.aws.amazon.com/] .
    *
    */
   export class CloudFormation extends Service {
@@ -102,8 +102,9 @@ executes the wrong change set.
 If the call successfully completes, AWS CloudFormation successfully deleted the
 change set.
      *
+     * @error InvalidChangeSetStatusException   
      */
-    deleteChangeSet(params: CloudFormation.DeleteChangeSetInput, callback?: (err: any, data: CloudFormation.DeleteChangeSetOutput|any) => void): Request<CloudFormation.DeleteChangeSetOutput|any,any>;
+    deleteChangeSet(params: CloudFormation.DeleteChangeSetInput, callback?: (err: CloudFormation.InvalidChangeSetStatusException|any, data: CloudFormation.DeleteChangeSetOutput|any) => void): Request<CloudFormation.DeleteChangeSetOutput|any,CloudFormation.InvalidChangeSetStatusException|any>;
     /**
      * Deletes a specified stack. Once the call completes successfully, stack deletion
 starts. Deleted stacks do not show up in the DescribeStacks API if the deletion
@@ -128,8 +129,8 @@ in the AWS CloudFormation User Guide.
      */
     describeChangeSet(params: CloudFormation.DescribeChangeSetInput, callback?: (err: CloudFormation.ChangeSetNotFoundException|any, data: CloudFormation.DescribeChangeSetOutput|any) => void): Request<CloudFormation.DescribeChangeSetOutput|any,CloudFormation.ChangeSetNotFoundException|any>;
     /**
-     * Returns all stack related events for a specified stack. For more information
-about a stack&#x27;s event history, go to Stacks
+     * Returns all stack related events for a specified stack in reverse chronological
+order. For more information about a stack&#x27;s event history, go to Stacks
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html] 
 in the AWS CloudFormation User Guide.
 
@@ -153,7 +154,9 @@ returned. If PhysicalResourceId is specified, the associated resources of the
 stack that the resource belongs to are returned.
 
 Only the first 100 resources will be returned. If your stack has more resources
-than this, you should use ListStackResources instead.For deleted stacks, DescribeStackResources returns resource information for up
+than this, you should use ListStackResources instead.
+
+For deleted stacks, DescribeStackResources returns resource information for up
 to 90 days after the stack has been deleted.
 
 You must specify either StackName or PhysicalResourceId , but not both. In
@@ -341,6 +344,8 @@ monitoring the progress of the update, see Updating a Stack
     
     export type EventId = string;
     
+    export type ExecutionStatus = string;
+    
     export type LastUpdatedTime = number;
     
     export type LimitName = string;
@@ -494,6 +499,11 @@ CloudFormation will perform. **/
         ChangeSetId?: ChangeSetId;
         /** The name of the change set. **/
         ChangeSetName?: ChangeSetName;
+        /** If the change set execution status is AVAILABLE , you can execute the change
+set. If you can’t execute the change set, the status indicates why. For example,
+a change set might be in an UNAVAILABLE state because AWS CloudFormation is
+still creating it or in an OBSOLETE state because the stack was already updated. **/
+        ExecutionStatus?: ExecutionStatus;
         /** The state of the change set, such as CREATE_IN_PROGRESS , CREATE_COMPLETE , or 
 FAILED . **/
         Status?: ChangeSetStatus;
@@ -645,7 +655,7 @@ back. **/
         TimeoutInMinutes?: TimeoutMinutes;
         /** The Simple Notification Service (SNS) topic ARNs to publish stack related
 events. You can find your SNS topic ARNs using the SNS console
-[http://console.aws.amazon.com/sns] or your Command Line Interface (CLI). **/
+[https://console.aws.amazon.com/sns] or your Command Line Interface (CLI). **/
         NotificationARNs?: NotificationARNs;
         /** A list of capabilities that you must specify before AWS CloudFormation can
 create certain stacks. Some stack templates might include resources that can
@@ -777,6 +787,11 @@ data type. **/
         Parameters?: Parameters;
         /** The start time when the change set was created, in UTC. **/
         CreationTime?: CreationTime;
+        /** If the change set execution status is AVAILABLE , you can execute the change
+set. If you can’t execute the change set, the status indicates why. For example,
+a change set might be in an UNAVAILABLE state because AWS CloudFormation is
+still creating it or in an OBSOLETE state because the stack was already updated. **/
+        ExecutionStatus?: ExecutionStatus;
         /** The current status of the change set, such as CREATE_IN_PROGRESS , 
 CREATE_COMPLETE , or FAILED . **/
         Status?: ChangeSetStatus;
@@ -804,7 +819,11 @@ always interchangeable:
 
  &amp;#42; Running stacks: You can specify either the stack&#x27;s name or its unique stack
    ID.
+   
+   
  * Deleted stacks: You must specify the unique stack ID.
+   
+   
 
 Default: There is no default value. **/
         StackName?: StackName;
@@ -824,7 +843,11 @@ always interchangeable:
 
  &amp;#42; Running stacks: You can specify either the stack&#x27;s name or its unique stack
    ID.
+   
+   
  * Deleted stacks: You must specify the unique stack ID.
+   
+   
 
 Default: There is no default value. **/
         StackName: StackName;
@@ -844,7 +867,11 @@ always interchangeable:
 
  &amp;#42; Running stacks: You can specify either the stack&#x27;s name or its unique stack
    ID.
+   
+   
  * Deleted stacks: You must specify the unique stack ID.
+   
+   
 
 Default: There is no default value.
 
@@ -879,7 +906,11 @@ always interchangeable:
 
  &amp;#42; Running stacks: You can specify either the stack&#x27;s name or its unique stack
    ID.
+   
+   
  * Deleted stacks: You must specify the unique stack ID.
+   
+   
 
 Default: There is no default value. **/
         StackName?: StackName;
@@ -947,7 +978,11 @@ always interchangeable:
 
  &amp;#42; Running stacks: You can specify either the stack&#x27;s name or its unique stack
    ID.
+   
+   
  * Deleted stacks: You must specify the unique stack ID.
+   
+   
 
 Default: There is no default value. **/
         StackName: StackName;
@@ -1038,7 +1073,11 @@ always interchangeable:
 
  &amp;#42; Running stacks: You can specify either the stack&#x27;s name or its unique stack
    ID.
+   
+   
  * Deleted stacks: You must specify the unique stack ID.
+   
+   
 
 Default: There is no default value. **/
         StackName: StackName;
@@ -1165,13 +1204,21 @@ groups:
 
  &amp;#42; ResourceReference entities are Ref intrinsic functions that refer to
    resources in the template, such as { &quot;Ref&quot; : &quot;MyEC2InstanceResource&quot; } .
+   
+   
  * ParameterReference entities are Ref intrinsic functions that get template
    parameter values, such as { &quot;Ref&quot; : &quot;MyPasswordParameter&quot; } .
+   
+   
  * ResourceAttribute entities are Fn::GetAtt intrinsic functions that get
    resource attribute values, such as { &quot;Fn::GetAtt&quot; : [
    &quot;MyEC2InstanceResource&quot;, &quot;PublicDnsName&quot; ] } .
+   
+   
  * DirectModification entities are changes that are made directly to the
    template.
+   
+   
  * Automatic entities are AWS::CloudFormation::Stack resource types, which are
    also known as nested stacks. If you made no changes to the 
    AWS::CloudFormation::Stack resource, AWS CloudFormation sets the ChangeSource 
@@ -1255,6 +1302,8 @@ stack has been updated at least once. **/
         /** Boolean to enable or disable rollback on stack creation failures:
 
  &amp;#42; true : disable rollback
+   
+   
  * false : enable rollback **/
         DisableRollback?: DisableRollback;
         /** SNS topic ARNs to which stack related events are published. **/

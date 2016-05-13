@@ -14,22 +14,28 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * Simple Systems Manager (SSM) enables you to remotely manage the configuration of
-your Amazon EC2 instance. Using SSM, you can run scripts or commands using
-either EC2 Run Command or SSM Config. (SSM Config is currently available only
-for Windows instances.)
+   * This is the Amazon Simple Systems Manager (SSM) API Reference. SSM enables you
+to remotely manage the configuration of your Amazon EC2 instance using scripts
+or commands with either an on-demand solution called SSM Run Command or a
+lightweight instance configuration solution called SSM Config .
 
+This references is intended to be used with the SSM User Guide for Linux
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/execute-remote-commands.html] 
+or Windows
+[http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/execute-remote-commands.html] 
+.
 
+Run Command
 
-Run CommandRun Command provides an on-demand experience for executing commands.
-You can use pre-defined Amazon SSM documents to perform the actions listed later
-in this section, or you can create your own documents. With these documents, you
-can remotely configure your instances by sending commands using the Commands 
-page in the Amazon EC2 console [http://console.aws.amazon.com/ec2/] , AWS Tools
-for Windows PowerShell
+Run Command provides an on-demand experience for executing commands. You can use
+pre-defined Amazon SSM documents to perform the actions listed later in this
+section, or you can create your own documents. With these documents, you can
+remotely configure your instances by sending commands using the Commands page in
+the Amazon EC2 console [http://console.aws.amazon.com/ec2/] , AWS Tools for
+Windows PowerShell
 [http://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html] 
-, or the AWS CLI
-[http://docs.aws.amazon.com/cli/latest/reference/ssm/index.html] .
+, the AWS CLI [http://docs.aws.amazon.com/cli/latest/reference/ssm/index.html] ,
+or AWS SDKs.
 
 Run Command reports the status of the command execution for each instance
 targeted by a command. You can also audit the command execution to understand
@@ -44,85 +50,85 @@ or Windows
 
 
 
-SSM ConfigSSM Config is a lightweight instance configuration solution. SSM
-Config is currently only available for Windows instances. With SSM Config, you
-can specify a setup configuration for your instances. SSM Config is similar to
-EC2 User Data, which is another way of running one-time scripts or applying
-settings during instance launch. SSM Config is an extension of this capability.
-Using SSM documents, you can specify which actions the system should perform on
-your instances, including which applications to install, which AWS Directory
-Service directory to join, which Microsoft PowerShell modules to install, etc.
-If an instance is missing one or more of these configurations, the system makes
-those changes. By default, the system checks every five minutes to see if there
-is a new configuration to apply as defined in a new SSM document. If so, the
-system updates the instances accordingly. In this way, you can remotely maintain
-a consistent configuration baseline on your instances. SSM Config is available
+SSM Config
+
+SSM Config is a lightweight instance configuration solution. SSM Config is
+currently only available for Windows instances. With SSM Config, you can specify
+a setup configuration for your instances. SSM Config is similar to EC2 User
+Data, which is another way of running one-time scripts or applying settings
+during instance launch. SSM Config is an extension of this capability. Using SSM
+documents, you can specify which actions the system should perform on your
+instances, including which applications to install, which AWS Directory Service
+directory to join, which Microsoft PowerShell modules to install, etc. If an
+instance is missing one or more of these configurations, the system makes those
+changes. By default, the system checks every five minutes to see if there is a
+new configuration to apply as defined in a new SSM document. If so, the system
+updates the instances accordingly. In this way, you can remotely maintain a
+consistent configuration baseline on your instances. SSM Config is available
 using the AWS CLI or the AWS Tools for Windows PowerShell. For more information,
 see Managing Windows Instance Configuration
 [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-configuration-manage.html] 
 .
 
-SSM Config and Run Command include the following pre-defined documents.
-
-Amazon Pre-defined SSM Documents Name Description PlatformAWS-RunShellScript
-
-Run shell scripts
+SSM Config and SSM Run Command include the following pre-defined documents.
 
 Linux
 
-AWS-UpdateSSMAgent
+ &amp;#42; AWS-RunShellScript to run shell scripts
+   
+   
+ * AWS-UpdateSSMAgent to update the Amazon SSM agent
+   
+   
 
-Update the Amazon SSM agent
 
-Linux
-
-AWS-JoinDirectoryServiceDomain
-
-Join an AWS Directory
-
-Windows
-
-AWS-RunPowerShellScript
-
-Run PowerShell commands or scripts
 
 Windows
 
-AWS-UpdateEC2Config
-
-Update the EC2Config service
-
-Windows
-
-AWS-ConfigureWindowsUpdate
-
-Configure Windows Update settings
-
-Windows
-
-AWS-InstallApplication
-
-Install, repair, or uninstall software using an MSI package
-
-Windows
-
-AWS-InstallPowerShellModule
-
-Install PowerShell modules
-
-Windows
-
-AWS-ConfigureCloudWatch
-
-Configure Amazon CloudWatch Logs to monitor applications and systems
-
-Windows
+ * AWS-JoinDirectoryServiceDomain to join an AWS Directory
+   
+   
+ * AWS-RunPowerShellScript to run PowerShell commands or scripts
+   
+   
+ * AWS-UpdateEC2Config to update the EC2Config service
+   
+   
+ * AWS-ConfigureWindowsUpdate to configure Windows Update settings
+   
+   
+ * AWS-InstallApplication to install, repair, or uninstall software using an MSI
+   package
+   
+   
+ * AWS-InstallPowerShellModule to install PowerShell modules
+   
+   
+ * AWS-ConfigureCloudWatch to configure Amazon CloudWatch Logs to monitor
+   applications and systems
+   
+   
+ * AWS-ListWindowsInventory to collect information about an EC2 instance running
+   in Windows.
+   
+   
+ * AWS-FindWindowsUpdates to scan an instance and determines which updates are
+   missing.
+   
+   
+ * AWS-InstallMissingWindowsUpdates to install missing updates on your EC2
+   instance.
+   
+   
+ * AWS-InstallSpecificWindowsUpdates to install one or more specific updates.
+   
+   
 
 The commands or scripts specified in SSM documents run with administrative
 privilege on your instances because the Amazon SSM agent runs as root on Linux
 and the EC2Config service runs in the Local System account on Windows. If a user
 has permission to execute any of the pre-defined SSM documents (any document
-that begins with AWS-&amp;#42;) then that user also has administrator access to the
+that begins with AWS-*) then that user also has administrator access to the
 instance. Delegate access to SSM and Run Command judiciously. This becomes
 extremely important if you create your own SSM documents. Amazon Web Services
 does not provide guidance about how to create secure SSM documents. You create
@@ -132,6 +138,21 @@ especially the AWS-RunShellScript document on Linux and the
 AWS-RunPowerShellScript document on Windows, to trusted administrators only. You
 can create SSM documents for specific tasks and delegate access to
 non-administrators.
+
+For information about creating and sharing SSM documents, see the following
+topics in the SSM User Guide:
+
+ * Creating SSM Documents
+   [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-ssm-doc.html] and 
+   Sharing SSM Documents
+   [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssm-sharing.html] (Linux)
+   
+   
+ * Creating SSM Documents
+   [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/create-ssm-doc.html] 
+   and Sharing SSM Documents
+   [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ssm-sharing.html] 
+   (Windows)
    *
    */
   export class SSM extends Service {
@@ -142,11 +163,12 @@ non-administrators.
 guarantee that the command will be terminated and the underlying process
 stopped.
      *
+     * @error InternalServerError   
      * @error InvalidCommandId   
      * @error InvalidInstanceId   
      * @error DuplicateInstanceId   
      */
-    cancelCommand(params: SSM.CancelCommandRequest, callback?: (err: SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.DuplicateInstanceId|any, data: SSM.CancelCommandResult|any) => void): Request<SSM.CancelCommandResult|any,SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.DuplicateInstanceId|any>;
+    cancelCommand(params: SSM.CancelCommandRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.DuplicateInstanceId|any, data: SSM.CancelCommandResult|any) => void): Request<SSM.CancelCommandResult|any,SSM.InternalServerError|SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.DuplicateInstanceId|any>;
     /**
      * Associates the specified SSM document with the specified instance.
 
@@ -219,9 +241,10 @@ to disassociate all instances that are associated with the document.
      *
      * @error InternalServerError   
      * @error InvalidDocument   
+     * @error InvalidDocumentOperation   
      * @error AssociatedInstances   
      */
-    deleteDocument(params: SSM.DeleteDocumentRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|SSM.AssociatedInstances|any, data: SSM.DeleteDocumentResult|any) => void): Request<SSM.DeleteDocumentResult|any,SSM.InternalServerError|SSM.InvalidDocument|SSM.AssociatedInstances|any>;
+    deleteDocument(params: SSM.DeleteDocumentRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidDocumentOperation|SSM.AssociatedInstances|any, data: SSM.DeleteDocumentResult|any) => void): Request<SSM.DeleteDocumentResult|any,SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidDocumentOperation|SSM.AssociatedInstances|any>;
     /**
      * Describes the associations for the specified SSM document or instance.
      *
@@ -238,6 +261,16 @@ to disassociate all instances that are associated with the document.
      * @error InvalidDocument   
      */
     describeDocument(params: SSM.DescribeDocumentRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|any, data: SSM.DescribeDocumentResult|any) => void): Request<SSM.DescribeDocumentResult|any,SSM.InternalServerError|SSM.InvalidDocument|any>;
+    /**
+     * Describes the permissions for an SSM document. If you created the document, you
+are the owner. If a document is shared, it can either be shared privately (by
+specifying a user’s AWS account ID) or publicly ( All ).
+     *
+     * @error InternalServerError   
+     * @error InvalidDocument   
+     * @error InvalidPermissionType   
+     */
+    describeDocumentPermission(params: SSM.DescribeDocumentPermissionRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidPermissionType|any, data: SSM.DescribeDocumentPermissionResponse|any) => void): Request<SSM.DescribeDocumentPermissionResponse|any,SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidPermissionType|any>;
     /**
      * Describes one or more of your instances. You can use this to get information
 about instances like the operating system platform, the SSM agent version,
@@ -274,21 +307,23 @@ For example, if a user executes SendCommand against three instances, then a
 command invocation is created for each requested instance ID.
 ListCommandInvocations provide status about command execution.
      *
+     * @error InternalServerError   
      * @error InvalidCommandId   
      * @error InvalidInstanceId   
      * @error InvalidFilterKey   
      * @error InvalidNextToken   
      */
-    listCommandInvocations(params: SSM.ListCommandInvocationsRequest, callback?: (err: SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidFilterKey|SSM.InvalidNextToken|any, data: SSM.ListCommandInvocationsResult|any) => void): Request<SSM.ListCommandInvocationsResult|any,SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidFilterKey|SSM.InvalidNextToken|any>;
+    listCommandInvocations(params: SSM.ListCommandInvocationsRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidFilterKey|SSM.InvalidNextToken|any, data: SSM.ListCommandInvocationsResult|any) => void): Request<SSM.ListCommandInvocationsResult|any,SSM.InternalServerError|SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidFilterKey|SSM.InvalidNextToken|any>;
     /**
      * Lists the commands requested by users of the AWS account.
      *
+     * @error InternalServerError   
      * @error InvalidCommandId   
      * @error InvalidInstanceId   
      * @error InvalidFilterKey   
      * @error InvalidNextToken   
      */
-    listCommands(params: SSM.ListCommandsRequest, callback?: (err: SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidFilterKey|SSM.InvalidNextToken|any, data: SSM.ListCommandsResult|any) => void): Request<SSM.ListCommandsResult|any,SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidFilterKey|SSM.InvalidNextToken|any>;
+    listCommands(params: SSM.ListCommandsRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidFilterKey|SSM.InvalidNextToken|any, data: SSM.ListCommandsResult|any) => void): Request<SSM.ListCommandsResult|any,SSM.InternalServerError|SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.InvalidFilterKey|SSM.InvalidNextToken|any>;
     /**
      * Describes one or more of your SSM documents.
      *
@@ -298,16 +333,30 @@ ListCommandInvocations provide status about command execution.
      */
     listDocuments(params: SSM.ListDocumentsRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidNextToken|SSM.InvalidFilterKey|any, data: SSM.ListDocumentsResult|any) => void): Request<SSM.ListDocumentsResult|any,SSM.InternalServerError|SSM.InvalidNextToken|SSM.InvalidFilterKey|any>;
     /**
+     * Share a document publicly or privately. If you share a document privately, you
+must specify the AWS user account IDs for those people who can use the document.
+If you share a document publicly, you must specify All as the account ID.
+     *
+     * @error InternalServerError   
+     * @error InvalidDocument   
+     * @error InvalidPermissionType   
+     * @error DocumentPermissionLimit   
+     * @error DocumentLimitExceeded   
+     */
+    modifyDocumentPermission(params: SSM.ModifyDocumentPermissionRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidPermissionType|SSM.DocumentPermissionLimit|SSM.DocumentLimitExceeded|any, data: SSM.ModifyDocumentPermissionResponse|any) => void): Request<SSM.ModifyDocumentPermissionResponse|any,SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidPermissionType|SSM.DocumentPermissionLimit|SSM.DocumentLimitExceeded|any>;
+    /**
      * Executes commands on one or more remote instances.
      *
      * @error DuplicateInstanceId   
+     * @error InternalServerError   
      * @error InvalidInstanceId   
      * @error InvalidDocument   
      * @error InvalidOutputFolder   
      * @error InvalidParameters   
      * @error UnsupportedPlatformType   
+     * @error MaxDocumentSizeExceeded   
      */
-    sendCommand(params: SSM.SendCommandRequest, callback?: (err: SSM.DuplicateInstanceId|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.InvalidOutputFolder|SSM.InvalidParameters|SSM.UnsupportedPlatformType|any, data: SSM.SendCommandResult|any) => void): Request<SSM.SendCommandResult|any,SSM.DuplicateInstanceId|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.InvalidOutputFolder|SSM.InvalidParameters|SSM.UnsupportedPlatformType|any>;
+    sendCommand(params: SSM.SendCommandRequest, callback?: (err: SSM.DuplicateInstanceId|SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.InvalidOutputFolder|SSM.InvalidParameters|SSM.UnsupportedPlatformType|SSM.MaxDocumentSizeExceeded|any, data: SSM.SendCommandResult|any) => void): Request<SSM.SendCommandResult|any,SSM.DuplicateInstanceId|SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.InvalidOutputFolder|SSM.InvalidParameters|SSM.UnsupportedPlatformType|SSM.MaxDocumentSizeExceeded|any>;
     /**
      * Updates the status of the SSM document associated with the specified instance.
      *
@@ -323,6 +372,10 @@ ListCommandInvocations provide status about command execution.
   }
 
   export module SSM {
+    
+    export type AccountId = string;
+    
+    export type AccountIdList = AccountId[];
     
     export type AssociationDescriptionList = AssociationDescription[];
     
@@ -374,6 +427,8 @@ ListCommandInvocations provide status about command execution.
     
     export type DescriptionInDocument = string;
     
+    export type DocumentARN = string;
+    
     export type DocumentContent = string;
     
     export type DocumentFilterKey = string;
@@ -382,9 +437,15 @@ ListCommandInvocations provide status about command execution.
     
     export type DocumentFilterValue = string;
     
+    export type DocumentHash = string;
+    
+    export type DocumentHashType = string;
+    
     export type DocumentIdentifierList = DocumentIdentifier[];
     
     export type DocumentName = string;
+    
+    export type DocumentOwner = string;
     
     export type DocumentParameterDefaultValue = string;
     
@@ -395,6 +456,8 @@ ListCommandInvocations provide status about command execution.
     export type DocumentParameterName = string;
     
     export type DocumentParameterType = string;
+    
+    export type DocumentPermissionType = string;
     
     export type DocumentSha1 = string;
     
@@ -419,6 +482,8 @@ ListCommandInvocations provide status about command execution.
     export type InstanceInformationList = InstanceInformation[];
     
     export type InvocationTraceOutput = string;
+    
+    export type ListDocumentsMaxResults = number;
     
     export type MaxResults = number;
     
@@ -604,7 +669,7 @@ executions should be stored. This was requested when issuing the command. **/
     export interface CreateAssociationRequest {
         /** The name of the SSM document. **/
         Name: DocumentName;
-        /** The Windows Server instance ID. **/
+        /** The instance ID. **/
         InstanceId: InstanceId;
         /** The parameters for the documents runtime configuration. **/
         Parameters?: Parameters;
@@ -614,9 +679,7 @@ executions should be stored. This was requested when issuing the command. **/
         AssociationDescription?: AssociationDescription;
     }
     export interface CreateDocumentRequest {
-        /** A valid JSON string. For more information about the contents of this string, see 
-SSM Document
-[http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html] . **/
+        /** A valid JSON string. **/
         Content: DocumentContent;
         /** A name for the SSM document. **/
         Name: DocumentName;
@@ -642,16 +705,27 @@ SSM Document
     export interface DescribeAssociationRequest {
         /** The name of the SSM document. **/
         Name: DocumentName;
-        /** The Windows Server instance ID. **/
+        /** The instance ID. **/
         InstanceId: InstanceId;
     }
     export interface DescribeAssociationResult {
         /** Information about the association. **/
         AssociationDescription?: AssociationDescription;
     }
+    export interface DescribeDocumentPermissionRequest {
+        /** The name of the document for which you are the owner. **/
+        Name: DocumentName;
+        /** The permission type for the document. The permission type can be Share . **/
+        PermissionType: DocumentPermissionType;
+    }
+    export interface DescribeDocumentPermissionResponse {
+        /** The account IDs that have permission to use this document. The ID can be either
+an AWS account or All . **/
+        AccountIds?: AccountIdList;
+    }
     export interface DescribeDocumentRequest {
         /** The name of the SSM document. **/
-        Name: DocumentName;
+        Name: DocumentARN;
     }
     export interface DescribeDocumentResult {
         /** Information about the SSM document. **/
@@ -675,12 +749,23 @@ additional items to return, the string is empty. **/
         NextToken?: NextToken;
     }
     export interface DocumentAlreadyExists {
+        Message?: String;
     }
     export interface DocumentDescription {
         /** The SHA1 hash of the document, which you can use for verification purposes. **/
         Sha1?: DocumentSha1;
+        /** The Sha256 or Sha1 hash created by the system when the document was created.
+
+Sha1 hashes have been deprecated. **/
+        Hash?: DocumentHash;
+        /** Sha256 or Sha1.
+
+Sha1 hashes have been deprecated. **/
+        HashType?: DocumentHashType;
         /** The name of the SSM document. **/
-        Name?: DocumentName;
+        Name?: DocumentARN;
+        /** The AWS user account of the person who created the document. **/
+        Owner?: DocumentOwner;
         /** The date when the SSM document was created. **/
         CreatedDate?: DateTime;
         /** The status of the SSM document. **/
@@ -700,11 +785,14 @@ additional items to return, the string is empty. **/
     }
     export interface DocumentIdentifier {
         /** The name of the SSM document. **/
-        Name?: DocumentName;
+        Name?: DocumentARN;
+        /** The AWS user account of the person who created the document. **/
+        Owner?: DocumentOwner;
         /** The operating system platform. **/
         PlatformTypes?: PlatformTypeList;
     }
     export interface DocumentLimitExceeded {
+        Message?: String;
     }
     export interface DocumentParameter {
         /** The name of the parameter. **/
@@ -718,6 +806,9 @@ whether or not the parameter is optional. **/
 default value are required. Parameters with a default value are optional. **/
         DefaultValue?: DocumentParameterDefaultValue;
     }
+    export interface DocumentPermissionLimit {
+        Message?: String;
+    }
     export interface DuplicateInstanceId {
     }
     export interface FailedCreateAssociation {
@@ -730,11 +821,11 @@ default value are required. Parameters with a default value are optional. **/
     }
     export interface GetDocumentRequest {
         /** The name of the SSM document. **/
-        Name: DocumentName;
+        Name: DocumentARN;
     }
     export interface GetDocumentResult {
         /** The name of the SSM document. **/
-        Name?: DocumentName;
+        Name?: DocumentARN;
         /** The contents of the SSM document. **/
         Content?: DocumentContent;
     }
@@ -763,8 +854,7 @@ default value are required. Parameters with a default value are optional. **/
         valueSet: InstanceInformationFilterValueSet;
     }
     export interface InternalServerError {
-        /** An error occurred on the server side. **/
-        message?: String;
+        Message?: String;
     }
     export interface InvalidCommandId {
     }
@@ -773,15 +863,19 @@ default value are required. Parameters with a default value are optional. **/
 This exception can be issued by CreateAssociation, CreateAssociationBatch,
 DeleteAssociation, DeleteDocument, DescribeAssociation, DescribeDocument,
 GetDocument, SendCommand, or UpdateAssociationStatus. **/
-        message?: String;
+        Message?: String;
     }
     export interface InvalidDocumentContent {
         /** A description of the validation error. **/
-        message?: String;
+        Message?: String;
+    }
+    export interface InvalidDocumentOperation {
+        Message?: String;
     }
     export interface InvalidFilterKey {
     }
     export interface InvalidInstanceId {
+        Message?: String;
     }
     export interface InvalidInstanceInformationFilterValue {
         message?: String;
@@ -791,10 +885,10 @@ GetDocument, SendCommand, or UpdateAssociationStatus. **/
     export interface InvalidOutputFolder {
     }
     export interface InvalidParameters {
-        /** The parameter values entered by the user do not work in the SSM document. For
-example, incorrect type. This exception can be issued by CreateAssociation,
-CreateAssociationBatch, or SendCommand. **/
-        message?: String;
+        Message?: String;
+    }
+    export interface InvalidPermissionType {
+        Message?: String;
     }
     export interface ListAssociationsRequest {
         /** One or more filters. Use a filter to return a more specific list of results. **/
@@ -867,7 +961,7 @@ token from a previous call.) **/
         DocumentFilterList?: DocumentFilterList;
         /** The maximum number of items to return for this call. The call also returns a
 token that you can specify in a subsequent call to get the next set of results. **/
-        MaxResults?: MaxResults;
+        MaxResults?: ListDocumentsMaxResults;
         /** The token for the next set of items to return. (You received this token from a
 previous call.) **/
         NextToken?: NextToken;
@@ -880,13 +974,38 @@ additional items to return, the string is empty. **/
         NextToken?: NextToken;
     }
     export interface MaxDocumentSizeExceeded {
+        Message?: String;
+    }
+    export interface ModifyDocumentPermissionRequest {
+        /** The name of the document that you want to share. **/
+        Name: DocumentName;
+        /** The permission type for the document. The permission type can be Share . **/
+        PermissionType: DocumentPermissionType;
+        /** The AWS user accounts that should have access to the document. The account IDs
+can either be a group of account IDs or All . **/
+        AccountIdsToAdd?: AccountIdList;
+        /** The AWS user accounts that should no longer have access to the document. The AWS
+user account can either be a group of account IDs or All . This action has a
+higher priority than AccountIdsToAdd . If you specify an account ID to add and
+the same ID to remove, the system removes access to the document. **/
+        AccountIdsToRemove?: AccountIdList;
+    }
+    export interface ModifyDocumentPermissionResponse {
     }
     export interface SendCommandRequest {
         /** Required. The instance IDs where the command should execute. **/
         InstanceIds: InstanceIdList;
         /** Required. The name of the SSM document to execute. This can be an SSM public
 document or a custom document. **/
-        DocumentName: DocumentName;
+        DocumentName: DocumentARN;
+        /** The Sha256 or Sha1 hash created by the system when the document was created.
+
+Sha1 hashes have been deprecated. **/
+        DocumentHash?: DocumentHash;
+        /** Sha256 or Sha1.
+
+Sha1 hashes have been deprecated. **/
+        DocumentHashType?: DocumentHashType;
         /** If this time is reached and the command has not already started executing, it
 will not execute. **/
         TimeoutSeconds?: TimeoutSeconds;
@@ -912,7 +1031,7 @@ used future references to this request. **/
     export interface TooManyUpdates {
     }
     export interface UnsupportedPlatformType {
-        message?: String;
+        Message?: String;
     }
     export interface UpdateAssociationStatusRequest {
         /** The name of the SSM document. **/

@@ -34,6 +34,7 @@
     "output/typings/aws-datapipeline.d.ts",
     "output/typings/aws-devicefarm.d.ts",
     "output/typings/aws-directconnect.d.ts",
+    "output/typings/aws-discovery.d.ts",
     "output/typings/aws-dms.d.ts",
     "output/typings/aws-ds.d.ts",
     "output/typings/aws-dynamodb.d.ts",

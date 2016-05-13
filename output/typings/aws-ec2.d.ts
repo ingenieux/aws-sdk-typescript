@@ -1458,6 +1458,12 @@ to purchase Scheduled Instances with that schedule.
      */
     describeScheduledInstances(params: EC2.DescribeScheduledInstancesRequest, callback?: (err: any, data: EC2.DescribeScheduledInstancesResult|any) => void): Request<EC2.DescribeScheduledInstancesResult|any,any>;
     /**
+     * [EC2-VPC only] Describes the VPCs on the other side of a VPC peering connection
+that are referencing the security groups you&#x27;ve specified in this request.
+     *
+     */
+    describeSecurityGroupReferences(params: EC2.DescribeSecurityGroupReferencesRequest, callback?: (err: any, data: EC2.DescribeSecurityGroupReferencesResult|any) => void): Request<EC2.DescribeSecurityGroupReferencesResult|any,any>;
+    /**
      * Describes one or more of your security groups.
 
 A security group is for use with instances either in the EC2-Classic platform or
@@ -1593,6 +1599,14 @@ response merely indicates the last time that the price changed.
      *
      */
     describeSpotPriceHistory(params: EC2.DescribeSpotPriceHistoryRequest, callback?: (err: any, data: EC2.DescribeSpotPriceHistoryResult|any) => void): Request<EC2.DescribeSpotPriceHistoryResult|any,any>;
+    /**
+     * [EC2-VPC only] Describes the stale security group rules for security groups in a
+specified VPC. Rules are stale when they reference a deleted security group in a
+peer VPC, or a security group in a peer VPC for which the VPC peering connection
+has been deleted.
+     *
+     */
+    describeStaleSecurityGroups(params: EC2.DescribeStaleSecurityGroupsRequest, callback?: (err: any, data: EC2.DescribeStaleSecurityGroupsResult|any) => void): Request<EC2.DescribeStaleSecurityGroupsResult|any,any>;
     /**
      * Describes one or more of your subnets.
 
@@ -2398,10 +2412,10 @@ The productCodes attribute can&#x27;t be reset.
     resetImageAttribute(params: EC2.ResetImageAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Resets an attribute of an instance to its default value. To reset the kernel or 
-ramdisk , the instance must be in a stopped state. To reset the SourceDestCheck 
+ramdisk , the instance must be in a stopped state. To reset the sourceDestCheck 
 , the instance can be either running or stopped.
 
-The SourceDestCheck attribute controls whether source/destination checking is
+The sourceDestCheck attribute controls whether source/destination checking is
 enabled. The default value is true , which means checking is enabled. This value
 must be false for a NAT instance to perform NAT. For more information, see NAT
 Instances
@@ -2584,8 +2598,10 @@ instances, see Instance Lifecycle
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html] 
 in the Amazon Elastic Compute Cloud User Guide .
 
-For more information about troubleshooting, see Troubleshooting Stopping Your
-Instance
+When you stop an instance, we attempt to shut it down forcibly after a short
+while. If your instance appears stuck in the stopping state after a period of
+time, there may be an issue with the underlying host computer. For more
+information, see Troubleshooting Stopping Your Instance
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html] 
 in the Amazon Elastic Compute Cloud User Guide .
      *
@@ -2769,6 +2785,8 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type GroupIdentifierList = GroupIdentifier[];
     
+    export type GroupIds = String[];
+    
     export type GroupNameStringList = String[];
     
     export type HistoryRecords = HistoryRecord[];
@@ -2851,6 +2869,8 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type IpRangeList = IpRange[];
     
+    export type IpRanges = String[];
+    
     export type KeyNameStringList = String[];
     
     export type KeyPairList = KeyPairInfo[];
@@ -2924,6 +2944,8 @@ the Amazon Elastic Compute Cloud User Guide .
     export type PlatformValues = string;
     
     export type PrefixListIdList = PrefixListId[];
+    
+    export type PrefixListIdSet = String[];
     
     export type PrefixListSet = PrefixList[];
     
@@ -3035,6 +3057,8 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type SecurityGroupList = SecurityGroup[];
     
+    export type SecurityGroupReferences = SecurityGroupReference[];
+    
     export type SecurityGroupStringList = String[];
     
     export type ShutdownBehavior = string;
@@ -3060,6 +3084,10 @@ the Amazon Elastic Compute Cloud User Guide .
     export type SpotInstanceType = string;
     
     export type SpotPriceHistoryList = SpotPrice[];
+    
+    export type StaleIpPermissionSet = StaleIpPermission[];
+    
+    export type StaleSecurityGroupSet = StaleSecurityGroup[];
     
     export type State = string;
     
@@ -3096,6 +3124,8 @@ the Amazon Elastic Compute Cloud User Guide .
     export type UserGroupStringList = String[];
     
     export type UserIdGroupPairList = UserIdGroupPair[];
+    
+    export type UserIdGroupPairSet = UserIdGroupPair[];
     
     export type UserIdStringList = String[];
     
@@ -3899,7 +3929,9 @@ UnauthorizedOperation . **/
         DhcpOptions?: DhcpOptions;
     }
     export interface CreateFlowLogsRequest {
-        /** One or more subnet, network interface, or VPC IDs. **/
+        /** One or more subnet, network interface, or VPC IDs.
+
+Constraints: Maximum of 1000 resources **/
         ResourceIds: ValueStringList;
         /** The type of resource on which to create the flow log. **/
         ResourceType: FlowLogsResourceType;
@@ -5687,7 +5719,7 @@ Default: Describes all your instances. **/
         /** The maximum number of results to return in a single call. To retrieve the
 remaining results, make another call with the returned NextToken value. This
 value can be between 5 and 1000. You cannot specify this parameter and the
-instance IDs parameter in the same call. **/
+instance IDs parameter or tag filters in the same call. **/
         MaxResults?: Integer;
     }
     export interface DescribeInstancesResult {
@@ -6590,6 +6622,19 @@ there are no more results to return. **/
         /** Information about the Scheduled Instances. **/
         ScheduledInstanceSet?: ScheduledInstanceSet;
     }
+    export interface DescribeSecurityGroupReferencesRequest {
+        /** Checks whether you have the required permissions for the operation, without
+actually making the request, and provides an error response. If you have the
+required permissions, the error response is DryRunOperation. Otherwise, it is
+UnauthorizedOperation. **/
+        DryRun?: Boolean;
+        /** One or more security group IDs in your account. **/
+        GroupId: GroupIds;
+    }
+    export interface DescribeSecurityGroupReferencesResult {
+        /** Information about the VPCs with the referencing security groups. **/
+        SecurityGroupReferenceSet?: SecurityGroupReferences;
+    }
     export interface DescribeSecurityGroupsRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
@@ -7084,6 +7129,28 @@ results, make another call with the returned NextToken value. **/
         SpotPriceHistory?: SpotPriceHistoryList;
         /** The token required to retrieve the next set of results. This value is null when
 there are no more results to return. **/
+        NextToken?: String;
+    }
+    export interface DescribeStaleSecurityGroupsRequest {
+        /** Checks whether you have the required permissions for the operation, without
+actually making the request, and provides an error response. If you have the
+required permissions, the error response is DryRunOperation. Otherwise, it is
+UnauthorizedOperation. **/
+        DryRun?: Boolean;
+        /** The ID of the VPC. **/
+        VpcId: String;
+        /** The maximum number of items to return for this request. The request returns a
+token that you can specify in a subsequent call to get the next set of results. **/
+        MaxResults?: MaxResults;
+        /** The token for the next set of items to return. (You received this token from a
+prior call.) **/
+        NextToken?: NextToken;
+    }
+    export interface DescribeStaleSecurityGroupsResult {
+        /** Information about the stale security groups. **/
+        StaleSecurityGroupSet?: StaleSecurityGroupSet;
+        /** The token to use when requesting the next set of items. If there are no
+additional items to return, the string is empty. **/
         NextToken?: String;
     }
     export interface DescribeSubnetsRequest {
@@ -9424,7 +9491,27 @@ or restored to the EC2-Classic platform. **/
         /** Information about the IP addresses and network interface associated with the NAT
 gateway. **/
         NatGatewayAddresses?: NatGatewayAddressList;
-        /** The state of the NAT gateway. **/
+        /** The state of the NAT gateway.
+
+ &amp;#42; pending : The NAT gateway is being created and is not ready to process
+   traffic.
+   
+   
+ * failed : The NAT gateway could not be created. Check the failureCode and 
+   failureMessage fields for the reason.
+   
+   
+ * available : The NAT gateway is able to process traffic. This status remains
+   until you delete the NAT gateway, and does not indicate the health of the NAT
+   gateway.
+   
+   
+ * deleting : The NAT gateway is in the process of being terminated and may
+   still be processing traffic.
+   
+   
+ * deleted : The NAT gateway has been terminated and is no longer processing
+   traffic. **/
         State?: NatGatewayState;
         /** If the NAT gateway could not be created, specifies the error code for the
 failure. ( InsufficientFreeAddressesInSubnet | Gateway.NotAttached | 
@@ -10300,7 +10387,10 @@ UnauthorizedOperation . **/
         DryRun?: Boolean;
         /** The ID of the instance. **/
         InstanceId: String;
-        /** The attribute to reset. **/
+        /** The attribute to reset.
+
+You can only reset the following attributes: kernel | ramdisk | sourceDestCheck 
+. To change an instance attribute, use ModifyInstanceAttribute . **/
         Attribute: InstanceAttributeName;
     }
     export interface ResetNetworkInterfaceAttributeRequest {
@@ -10896,6 +10986,14 @@ IP address. **/
         /** Any tags assigned to the security group. **/
         Tags?: TagList;
     }
+    export interface SecurityGroupReference {
+        /** The ID of your security group. **/
+        GroupId: String;
+        /** The ID of the VPC with the referencing security group. **/
+        ReferencingVpcId: String;
+        /** The ID of the VPC peering connection. **/
+        VpcPeeringConnectionId?: String;
+    }
     export interface SlotDateTimeRangeRequest {
         /** The earliest date and time, in UTC, for the Scheduled Instance to start. **/
         EarliestTime: DateTime;
@@ -11219,6 +11317,40 @@ commas; for example, &quot;us-west-2a, us-west-2b&quot;. **/
         /** The Availability Zone. **/
         AvailabilityZone?: String;
     }
+    export interface StaleIpPermission {
+        /** The start of the port range for the TCP and UDP protocols, or an ICMP type
+number. A value of -1 indicates all ICMP types. **/
+        FromPort?: Integer;
+        /** The IP protocol name (for tcp , udp , and icmp ) or number (see Protocol
+Numbers)
+[http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml] . **/
+        IpProtocol?: String;
+        /** One or more IP ranges. Not applicable for stale security group rules. **/
+        IpRanges?: IpRanges;
+        /** One or more prefix list IDs for an AWS service. Not applicable for stale
+security group rules. **/
+        PrefixListIds?: PrefixListIdSet;
+        /** The end of the port range for the TCP and UDP protocols, or an ICMP type number.
+A value of -1 indicates all ICMP types. **/
+        ToPort?: Integer;
+        /** One or more security group pairs. Returns the ID of the referenced security
+group and VPC, and the ID and status of the VPC peering connection. **/
+        UserIdGroupPairs?: UserIdGroupPairSet;
+    }
+    export interface StaleSecurityGroup {
+        /** The ID of the security group. **/
+        GroupId: String;
+        /** The name of the security group. **/
+        GroupName?: String;
+        /** The description of the security group. **/
+        Description?: String;
+        /** The ID of the VPC for the security group. **/
+        VpcId?: String;
+        /** Information about the stale inbound rules in the security group. **/
+        StaleIpPermissions?: StaleIpPermissionSet;
+        /** Information about the stale outbound rules in the security group. **/
+        StaleIpPermissionsEgress?: StaleIpPermissionSet;
+    }
     export interface StartInstancesRequest {
         /** One or more instance IDs. **/
         InstanceIds: InstanceIdStringList;
@@ -11371,10 +11503,10 @@ UnauthorizedOperation . **/
         InstanceMonitorings?: InstanceMonitoringList;
     }
     export interface UnsuccessfulItem {
-        /** Information about the error. **/
-        Error: UnsuccessfulItemError;
         /** The ID of the resource. **/
         ResourceId?: String;
+        /** Information about the error. **/
+        Error: UnsuccessfulItemError;
     }
     export interface UnsuccessfulItemError {
         /** The error code. **/
@@ -11399,7 +11531,8 @@ UnauthorizedOperation . **/
         Data?: String;
     }
     export interface UserIdGroupPair {
-        /** The ID of an AWS account.
+        /** The ID of an AWS account. For a referenced security group in another VPC, the
+account ID of the referenced security group is returned.
 
 [EC2-Classic] Required when adding or removing rules that reference a security
 group in another AWS account. **/
@@ -11584,7 +11717,7 @@ the default options are associated with the VPC). **/
         CreationTimestamp?: DateTime;
     }
     export interface VpcPeeringConnection {
-        /** Information about the peer VPC. CIDR block information is not returned when
+        /** Information about the accepter VPC. CIDR block information is not returned when
 creating a VPC peering connection, or when describing a VPC peering connection
 that&#x27;s in the initiating-request or pending-acceptance state. **/
         AccepterVpcInfo?: VpcPeeringConnectionVpcInfo;
