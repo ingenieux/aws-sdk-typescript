@@ -14,40 +14,95 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * This is the AWS Discovery Service API Reference. The AWS Discovery Service
-streamlines the process of migrating to Amazon Web Services by helping you
-identify assets in your data center, including servers, virtual machines,
-applications, application dependencies, and network infrastructure. You can use
-this information to find the workloads that make up an application, analyze
-dependencies, and build migration strategies. The service also collects
-performance data about your workloads which you can use to assess migration
-outcomes.
+   * The AWS Application Discovery Service helps Systems Integrators quickly and
+reliably plan application migration projects by automatically identifying
+applications running in on-premises data centers, their associated dependencies,
+and their performance profile.
+
+Planning data center migrations can involve thousands of workloads that are
+often deeply interdependent. Application discovery and dependency mapping are
+important early first steps in the migration process, but difficult to perform
+at scale due to the lack of automated tools.
+
+The AWS Application Discovery Service automatically collects configuration and
+usage data from servers to develop a list of applications, how they perform, and
+how they are interdependent. This information is securely retained in an AWS
+Application Discovery Service database which you can export as a CSV file into
+your preferred visualization tool or cloud migration solution to help reduce the
+complexity and time in planning your cloud migration.
+
+The Application Discovery Service is currently available for preview. Only
+customers who are engaged with AWS Professional Services
+[https://aws.amazon.com/professional-services/] or a certified AWS partner can
+use the service. To see the list of certified partners and request access to the
+Application Discovery Service, complete the following preview form
+[http://aws.amazon.com/application-discovery/preview/] .
 
 This API reference provides descriptions, syntax, and usage examples for each of
 the actions and data types for the Discovery Service. The topic for each action
 shows the API request parameters and the response. Alternatively, you can use
-one of the AWS SDKs to access an API that&#x27;s tailored to the programming language
-or platform that you&#x27;re using. For more information, see AWS SDKs
+one of the AWS SDKs to access an API that is tailored to the programming
+language or platform that you&#x27;re using. For more information, see AWS SDKs
 [http://aws.amazon.com/tools/#SDKs] .
 
-This guide is intended for use with the AWS Discovery Service user guide
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/remote-commands-prereq.html] 
+This guide is intended for use with the AWS Discovery Service User Guide
+[http://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html] 
 .
 
 The following are short descriptions of each API action, organized by function.
 
-Managing AWS Agents
+Managing AWS Agents Using the Application Discovery Service
 
-The AWS agent is an Amazon application that you install on servers and virtual
-machines in your data center or on Amazon EC2 instances. The agent captures
-server configuration and activity information (including hardware profile,
-network, file system, and process activity) and sends this data to the AWS
-Application Discovery Service. The Discovery Service processes this data and
-maps the application dependencies for your workloads.
+An AWS agent is software that you install on on-premises servers and virtual
+machines that are targeted for discovery and migration. Agents run on Linux and
+Windows Server and collect server configuration and activity information about
+your applications and infrastructure. Specifically, agents collect the following
+information and send it to the Application Discovery Service using Secure
+Sockets Layer (SSL) encryption:
 
- &amp;#42; StartDataCollectionByAgentIds : Instructs the specified agents to start
-   collecting data. Agents can reside on host servers or virtual machines in
-   your data center or on AWS EC2 instances.
+ &amp;#42; User information (user name, home directory)
+   
+   
+ * Group information (name)
+   
+   
+ * List of installed packages
+   
+   
+ * List of kernel modules
+   
+   
+ * All create and stop process events
+   
+   
+ * DNS queries
+   
+   
+ * NIC information
+   
+   
+ * TCP/UDP process listening ports
+   
+   
+ * TCPV4/V6 connections
+   
+   
+ * Operating system information
+   
+   
+ * System performance
+   
+   
+ * Process performance
+   
+   
+
+The Application Discovery Service API includes the following actions to manage
+AWS agents:
+
+ * StartDataCollectionByAgentIds : Instructs the specified agents to start
+   collecting data. The Application Discovery Service takes several minutes to
+   receive and process data after you initiate data collection.
    
    
  * StopDataCollectionByAgentIds : Instructs the specified agents to stop
@@ -56,75 +111,180 @@ maps the application dependencies for your workloads.
    
  * DescribeAgents : Lists AWS agents by ID or lists all agents associated with
    your user account if you did not specify an agent ID. The output includes
-   agent IDs, IP addresses, MAC addresses, agent health, host name where the
-   agent resides, and the version number of each agent.
+   agent IDs, IP addresses, media access control (MAC) addresses, agent health,
+   host name where the agent resides, and the version number of each agent.
    
    
 
 Querying Configuration Items
 
 A configuration item is an IT asset that was discovered in your data center by
-an AWS agent. With the Discovery Service, you can specify filters and query
-specific configuration items. For example, using this API, you could create a
-filter to query for a process configuration item named apache and an operating
-system configuration item named Ubuntu.
+an AWS agent. When you use the Application Discovery Service, you can specify
+filters and query specific configuration items. The service supports Server,
+Process, and Connection configuration items. This means you can specify a value
+for the following keys and query your IT assets:
 
- * GetConfigurationAttributes : Retrieves a list of attributes for a specific
+Server
+
+ * server.HostName
+   
+   
+ * server.osName
+   
+   
+ * server.osVersion
+   
+   
+ * server.configurationId
+   
+   
+ * server.agentId
+   
+   
+
+Process
+
+ * process.name
+   
+   
+ * process.CommandLine
+   
+   
+ * process.configurationId
+   
+   
+ * server.hostName
+   
+   
+ * server.osName
+   
+   
+ * server.osVersion
+   
+   
+ * server.configurationId
+   
+   
+ * server.agentId
+   
+   
+
+Connection
+
+ * connection.sourceIp
+   
+   
+ * connection.sourcePort
+   
+   
+ * connection.destinationIp
+   
+   
+ * connection.destinationPort
+   
+   
+ * sourceProcess.configurationId
+   
+   
+ * sourceProcess.commandLine
+   
+   
+ * sourceProcess.name
+   
+   
+ * destinationProcessId.configurationId
+   
+   
+ * destinationProcess.commandLine
+   
+   
+ * destinationProcess.name
+   
+   
+ * sourceServer.configurationId
+   
+   
+ * sourceServer.hostName
+   
+   
+ * sourceServer.osName
+   
+   
+ * sourceServer.osVersion
+   
+   
+ * destinationServer.configurationId
+   
+   
+ * destinationServer.hostName
+   
+   
+ * destinationServer.osName
+   
+   
+ * destinationServer.osVersion
+   
+   
+
+The Application Discovery Service includes the following actions for querying
+configuration items.
+
+ * DescribeConfigurations : Retrieves a list of attributes for a specific
    configuration ID. For example, the output for a server configuration item
    includes a list of attributes about the server, including host name,
    operating system, number of network cards, etc.
    
    
- * ListConfigurations : Retrieves a list of configurations items according to
-   the criteria you specify in a filter. The filter criteria identify
-   relationship requirements. For example, the following filter specifies
-   criteria of process.name and values of nginx and apache .
-   
-   ConfigurationType = Process Filters = [WebServerCriteria] WebServerCriteria =
-   { ‘key’ : process.name, ‘values’ : [ ‘nginx’, ‘apache’ ], ‘condition’ :
-   ‘contains’ }
+ * ListConfigurations : Retrieves a list of configuration items according to the
+   criteria you specify in a filter. The filter criteria identify relationship
+   requirements. For example, you can specify filter criteria of process.name
+   with values of nginx and apache .
    
    
 
 Tagging Discovered Configuration Items
 
 You can tag discovered configuration items. Tags are metadata that help you
-categorize IT assets in your data center. Tags use a key , value format. For
+categorize IT assets in your data center. Tags use a key - value format. For
 example, {&quot;key&quot;: &quot;serverType&quot;, &quot;value&quot;: &quot;webServer&quot;} .
 
- * CreateTags : Creates one or more tags for a configuration item. Tags are
-   metadata that help you categorize IT assets.
+ * CreateTags : Creates one or more tags for a configuration items.
    
    
- * DescribeTags : Retrieve a list of configuration items that are tagged with a
-   specific tag. Or retrieve a list all tags assigned to a specific
+ * DescribeTags : Retrieves a list of configuration items that are tagged with a
+   specific tag. Or , retrieves a list of all tags assigned to a specific
    configuration item.
    
    
- * DeleteTags : Deletes one or more tags associated with a configuration item.
+ * DeleteTags : Deletes the association between a configuration item and one or
+   more tags.
    
    
 
 Exporting Data
 
-You can export discovered data to an Amazon S3 bucket in the form of CSV files.
+You can export data as a CSV file to an Amazon S3 bucket or into your preferred
+visualization tool or cloud migration solution to help reduce the complexity and
+time in planning your cloud migration.
 
  * ExportConfigurations : Exports all discovered configuration data to an Amazon
-   S3 bucket. Data includes processes, connections, servers, and system
-   performance.
+   S3 bucket. Data includes tags and tag associations, processes, connections,
+   servers, and system performance. This API returns an export ID which you can
+   query using the GetExportStatus API.
    
    
- * GetExportStatus : Gets the status of the data export. When the export is
-   complete, the service returns an Amazon S3 URL where you can download CSV
-   files that include the data.
+ * DescribeExportConfigurations : Gets the status of the data export. When the
+   export is complete, the service returns an Amazon S3 URL where you can
+   download CSV files that include the data.
    *
    */
   export class Discovery extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
     /**
-     * Creates one or more tags for a configuration item. Tags are metadata that help
-you categorize IT assets.
+     * Creates one or more tags for configuration items. Tags are metadata that help
+you categorize IT assets. This API accepts a list of multiple configuration
+items.
      *
      * @error AuthorizationErrorException   
      * @error ResourceNotFoundException   
@@ -134,7 +294,8 @@ you categorize IT assets.
      */
     createTags(params: Discovery.CreateTagsRequest, callback?: (err: Discovery.AuthorizationErrorException|Discovery.ResourceNotFoundException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any, data: Discovery.CreateTagsResponse|any) => void): Request<Discovery.CreateTagsResponse|any,Discovery.AuthorizationErrorException|Discovery.ResourceNotFoundException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any>;
     /**
-     * Deletes one or more tags associated with a configuration item.
+     * Deletes the association between configuration items and one or more tags. This
+API accepts a list of multiple configuration items.
      *
      * @error AuthorizationErrorException   
      * @error ResourceNotFoundException   
@@ -154,8 +315,30 @@ you did not specify an agent ID.
      */
     describeAgents(params: Discovery.DescribeAgentsRequest, callback?: (err: Discovery.AuthorizationErrorException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any, data: Discovery.DescribeAgentsResponse|any) => void): Request<Discovery.DescribeAgentsResponse|any,Discovery.AuthorizationErrorException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any>;
     /**
-     * Retrieve a list of configuration items that are tagged with a specific tag. Or
-retrieve a list all tags assigned to a specific configuration item.
+     * Retrieves a list of attributes for a specific configuration ID. For example, the
+output for a server configuration item includes a list of attributes about the
+server, including host name, operating system, number of network cards, etc.
+     *
+     * @error AuthorizationErrorException   
+     * @error InvalidParameterException   
+     * @error InvalidParameterValueException   
+     * @error ServerInternalErrorException   
+     */
+    describeConfigurations(params: Discovery.DescribeConfigurationsRequest, callback?: (err: Discovery.AuthorizationErrorException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any, data: Discovery.DescribeConfigurationsResponse|any) => void): Request<Discovery.DescribeConfigurationsResponse|any,Discovery.AuthorizationErrorException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any>;
+    /**
+     * Retrieves the status of a given export process. You can retrieve status from a
+maximum of 100 processes.
+     *
+     * @error AuthorizationErrorException   
+     * @error ResourceNotFoundException   
+     * @error InvalidParameterException   
+     * @error InvalidParameterValueException   
+     * @error ServerInternalErrorException   
+     */
+    describeExportConfigurations(params: Discovery.DescribeExportConfigurationsRequest, callback?: (err: Discovery.AuthorizationErrorException|Discovery.ResourceNotFoundException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any, data: Discovery.DescribeExportConfigurationsResponse|any) => void): Request<Discovery.DescribeExportConfigurationsResponse|any,Discovery.AuthorizationErrorException|Discovery.ResourceNotFoundException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any>;
+    /**
+     * Retrieves a list of configuration items that are tagged with a specific tag. Or
+retrieves a list of all tags assigned to a specific configuration item.
      *
      * @error AuthorizationErrorException   
      * @error ResourceNotFoundException   
@@ -165,7 +348,11 @@ retrieve a list all tags assigned to a specific configuration item.
      */
     describeTags(params: Discovery.DescribeTagsRequest, callback?: (err: Discovery.AuthorizationErrorException|Discovery.ResourceNotFoundException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any, data: Discovery.DescribeTagsResponse|any) => void): Request<Discovery.DescribeTagsResponse|any,Discovery.AuthorizationErrorException|Discovery.ResourceNotFoundException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any>;
     /**
-     * Exports the selected configurations to an Amazon S3 bucket.
+     * Exports all discovered configuration data to an Amazon S3 bucket or an
+application that enables you to view and evaluate the data. Data includes tags
+and tag associations, processes, connections, servers, and system performance.
+This API returns an export ID which you can query using the GetExportStatus API.
+The system imposes a limit of two configuration exports in six hours.
      *
      * @error AuthorizationErrorException   
      * @error InvalidParameterException   
@@ -175,29 +362,8 @@ retrieve a list all tags assigned to a specific configuration item.
      */
     exportConfigurations(callback?: (err: Discovery.AuthorizationErrorException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|Discovery.OperationNotPermittedException|any, data: Discovery.ExportConfigurationsResponse|any) => void): Request<Discovery.ExportConfigurationsResponse|any,Discovery.AuthorizationErrorException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|Discovery.OperationNotPermittedException|any>;
     /**
-     * Retrieve a list of attributes for a specific configuration ID. For example, the
-output for a server configuration item includes a list of attributes about the
-server, including host name, operating system, number of network cards, etc.
-     *
-     * @error AuthorizationErrorException   
-     * @error InvalidParameterException   
-     * @error InvalidParameterValueException   
-     * @error ServerInternalErrorException   
-     */
-    getConfigurationAttributes(params: Discovery.GetConfigurationAttributesRequest, callback?: (err: Discovery.AuthorizationErrorException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any, data: Discovery.GetConfigurationAttributesResponse|any) => void): Request<Discovery.GetConfigurationAttributesResponse|any,Discovery.AuthorizationErrorException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any>;
-    /**
-     * Retrieves the status of a given export process.
-     *
-     * @error AuthorizationErrorException   
-     * @error ResourceNotFoundException   
-     * @error InvalidParameterException   
-     * @error InvalidParameterValueException   
-     * @error ServerInternalErrorException   
-     */
-    getExportStatus(params: Discovery.GetExportStatusRequest, callback?: (err: Discovery.AuthorizationErrorException|Discovery.ResourceNotFoundException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any, data: Discovery.GetExportStatusResponse|any) => void): Request<Discovery.GetExportStatusResponse|any,Discovery.AuthorizationErrorException|Discovery.ResourceNotFoundException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any>;
-    /**
-     * Retrieve a list of configurations items according to the criteria you specify in
-a filter. The filter criteria identify relationship requirements.
+     * Retrieves a list of configurations items according to the criteria you specify
+in a filter. The filter criteria identify relationship requirements.
      *
      * @error AuthorizationErrorException   
      * @error ResourceNotFoundException   
@@ -207,18 +373,8 @@ a filter. The filter criteria identify relationship requirements.
      */
     listConfigurations(params: Discovery.ListConfigurationsRequest, callback?: (err: Discovery.AuthorizationErrorException|Discovery.ResourceNotFoundException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any, data: Discovery.ListConfigurationsResponse|any) => void): Request<Discovery.ListConfigurationsResponse|any,Discovery.AuthorizationErrorException|Discovery.ResourceNotFoundException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any>;
     /**
-     * 
-     *
-     * @error AuthorizationErrorException   
-     * @error ResourceNotFoundException   
-     * @error InvalidParameterException   
-     * @error InvalidParameterValueException   
-     * @error ServerInternalErrorException   
-     */
-    removeConfiguration(params: Discovery.RemoveConfigurationRequest, callback?: (err: Discovery.AuthorizationErrorException|Discovery.ResourceNotFoundException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any, data: Discovery.RemoveConfigurationResponse|any) => void): Request<Discovery.RemoveConfigurationResponse|any,Discovery.AuthorizationErrorException|Discovery.ResourceNotFoundException|Discovery.InvalidParameterException|Discovery.InvalidParameterValueException|Discovery.ServerInternalErrorException|any>;
-    /**
      * Instructs the specified agents to start collecting data. Agents can reside on
-host servers or virtual machines in your data center or on AWS EC2 instances.
+host servers or virtual machines in your data center.
      *
      * @error AuthorizationErrorException   
      * @error InvalidParameterException   
@@ -240,7 +396,7 @@ host servers or virtual machines in your data center or on AWS EC2 instances.
 
   export module Discovery {
     
-    export type AgentConfigStatusList = AgentConfigStatus[];
+    export type AgentConfigurationStatusList = AgentConfigurationStatus[];
     
     export type AgentId = string;
     
@@ -252,21 +408,11 @@ host servers or virtual machines in your data center or on AWS EC2 instances.
     
     export type AgentsInfo = AgentInfo[];
     
-    export type AttributeList = Attribute[];
-    
-    export type AttributeName = string;
-    
-    export type AttributeValue = string;
-    
     export type Boolean = boolean;
     
     export type Condition = string;
     
-    export type ConfigIdAttributesMap = {[key:string]: AttributeList};
-    
     export type Configuration = {[key:string]: String};
-    
-    export type ConfigurationExportId = string;
     
     export type ConfigurationId = string;
     
@@ -278,7 +424,23 @@ host servers or virtual machines in your data center or on AWS EC2 instances.
     
     export type Configurations = Configuration[];
     
-    export type ExportStatusMap = {[key:string]: String};
+    export type ConfigurationsDownloadUrl = string;
+    
+    export type ConfigurationsExportId = string;
+    
+    export type DescribeConfigurationsAttribute = {[key:string]: String};
+    
+    export type DescribeConfigurationsAttributes = DescribeConfigurationsAttribute[];
+    
+    export type ExportIds = ConfigurationsExportId[];
+    
+    export type ExportRequestTime = number;
+    
+    export type ExportStatus = string;
+    
+    export type ExportStatusMessage = string;
+    
+    export type ExportsInfo = ExportInfo[];
     
     export type FilterName = string;
     
@@ -303,26 +465,30 @@ host servers or virtual machines in your data center or on AWS EC2 instances.
     export type TagSet = Tag[];
     
     export type TagValue = string;
+    
+    export type TimeStamp = number;
 
-    export interface AgentConfigStatus {
+    export interface AgentConfigurationStatus {
         /** The agent ID. **/
         agentId?: String;
-        /** Information about whether or not the agent configuration was updated. **/
-        configUpdated?: Boolean;
+        /** Information about the status of the StartDataCollection and StopDataCollection 
+operations. The system has recorded the data collection operation. The agent
+receives this command the next time it polls for a new command. **/
+        operationSucceeded?: Boolean;
         /** A description of the operation performed. **/
         description?: String;
     }
     export interface AgentInfo {
         /** The agent ID. **/
         agentId?: AgentId;
-        /** The name of the host where the agent resides. The host can be a server, virtual
-machine, or an AWS EC2 instance. **/
+        /** The name of the host where the agent resides. The host can be a server or
+virtual machine. **/
         hostName?: String;
         /** Network details about the host where the agent resides. **/
         agentNetworkInfoList?: AgentNetworkInfoList;
-        /**  **/
+        /** This data type is currently not valid. **/
         connectorId?: String;
-        /** The agent version **/
+        /** The agent version. **/
         version?: String;
         /** The health of the agent. **/
         health?: AgentStatus;
@@ -333,31 +499,27 @@ machine, or an AWS EC2 instance. **/
         /** The MAC address for the host where the agent resides. **/
         macAddress?: String;
     }
-    export interface Attribute {
-        /** The name of the attribute. **/
-        Name?: AttributeName;
-        /** A specific attribute type. For example key = serverType and value = web server. **/
-        Value?: AttributeValue;
-    }
     export interface AuthorizationErrorException {
         message?: Message;
     }
     export interface ConfigurationTag {
-        /** A descriptor. For example, serverType . **/
+        /** A type of IT asset that you want to tag. **/
         configurationType?: ConfigurationItemType;
         /** The configuration ID for the item you want to tag. You can specify a list of
 keys and values. **/
         configurationId?: ConfigurationId;
-        /** A type of tag to filter on. For example serverType . **/
+        /** A type of tag to filter on. For example, serverType . **/
         key?: TagKey;
         /** A value to filter on. For example key = serverType and value = web server . **/
         value?: TagValue;
+        /** The time the configuration tag was created in Coordinated Universal Time (UTC). **/
+        timeOfCreation?: TimeStamp;
     }
     export interface CreateTagsRequest {
         /** A list of configuration items that you want to tag. **/
         configurationIds: ConfigurationIdList;
         /** Tags that you want to associate with one or more configuration items. Specify
-the tags that you want to create in a key , value format. For example:
+the tags that you want to create in a key - value format. For example:
 
 {&quot;key&quot;: &quot;serverType&quot;, &quot;value&quot;: &quot;webServer&quot;} **/
         tags: TagSet;
@@ -368,7 +530,7 @@ the tags that you want to create in a key , value format. For example:
         /** A list of configuration items with tags that you want to delete. **/
         configurationIds: ConfigurationIdList;
         /** Tags that you want to delete from one or more configuration items. Specify the
-tags that you want to delete in a key , value format. For example:
+tags that you want to delete in a key - value format. For example:
 
 {&quot;key&quot;: &quot;serverType&quot;, &quot;value&quot;: &quot;webServer&quot;} **/
         tags?: TagSet;
@@ -379,7 +541,7 @@ tags that you want to delete in a key , value format. For example:
         /** The agent IDs for which you want information. If you specify no IDs, the system
 returns information about all agents associated with your AWS user account. **/
         agentIds?: AgentIds;
-        /** The total number of items to return. The maximum value is 100. **/
+        /** The total number of agents to return. The maximum value is 100. **/
         maxResults?: Integer;
         /** A token to start the list. Use this token to get the next set of results. **/
         nextToken?: NextToken;
@@ -387,64 +549,200 @@ returns information about all agents associated with your AWS user account. **/
     export interface DescribeAgentsResponse {
         /** Lists AWS agents by ID or lists all agents associated with your user account if
 you did not specify an agent ID. The output includes agent IDs, IP addresses,
-MAC addresses, agent health, host name where the agent resides, and the version
-number of each agent. **/
+media access control (MAC) addresses, agent health, host name where the agent
+resides, and the version number of each agent. **/
         agentsInfo?: AgentsInfo;
         /** The call returns a token. Use this token to get the next set of results. **/
         nextToken?: NextToken;
     }
+    export interface DescribeConfigurationsRequest {
+        /** One or more configuration IDs. **/
+        configurationIds: ConfigurationIdList;
+    }
+    export interface DescribeConfigurationsResponse {
+        /** A key in the response map. The value is an array of data. **/
+        configurations?: DescribeConfigurationsAttributes;
+    }
+    export interface DescribeExportConfigurationsRequest {
+        /** A unique identifier that you can use to query the export status. **/
+        exportIds?: ExportIds;
+        /** The maximum number of results that you want to display as a part of the query. **/
+        maxResults?: Integer;
+        /** A token to get the next set of results. For example, if you specified 100 IDs
+for DescribeConfigurationsRequest$configurationIds but set 
+DescribeExportConfigurationsRequest$maxResults to 10, you will get results in a
+set of 10. Use the token in the query to get the next set of 10. **/
+        nextToken?: NextToken;
+    }
+    export interface DescribeExportConfigurationsResponse {
+        /** Returns export details. When the status is complete, the response includes a URL
+for an Amazon S3 bucket where you can view the data in a CSV file. **/
+        exportsInfo?: ExportsInfo;
+        /** A token to get the next set of results. For example, if you specified 100 IDs
+for DescribeConfigurationsRequest$configurationIds but set 
+DescribeExportConfigurationsRequest$maxResults to 10, you will get results in a
+set of 10. Use the token in the query to get the next set of 10. **/
+        nextToken?: NextToken;
+    }
     export interface DescribeTagsRequest {
-        /** You can filter the list using a key, value format. For example:
-
-{&quot;key&quot;: &quot;serverType&quot;, &quot;value&quot;: &quot;webServer&quot;}
-
-You can separate these items by using logical operators. Allowed filters include
-tagkey, tagValue, and configid. **/
-        filter?: TagFilters;
+        /** You can filter the list using a key - value format. You can separate these items
+by using logical operators. Allowed filters include tagKey , tagValue , and 
+configurationId . **/
+        filters?: TagFilters;
         /** The total number of items to return. The maximum value is 100. **/
         maxResults?: Integer;
         /** A token to start the list. Use this token to get the next set of results. **/
         nextToken?: NextToken;
     }
     export interface DescribeTagsResponse {
-        /** Depending on the input, a list of configuration items tagged with a specific
-tag, or a list of tags for a specific configuration item. **/
+        /** Depending on the input, this is a list of configuration items tagged with a
+specific tag, or a list of tags for a specific configuration item. **/
         tags?: ConfigurationTagSet;
         /** The call returns a token. Use this token to get the next set of results. **/
         nextToken?: NextToken;
     }
     export interface ExportConfigurationsResponse {
-        /** A unique identifier which you can use to query the export status. **/
-        exportId?: ConfigurationExportId;
+        /** A unique identifier that you can use to query the export status. **/
+        exportId?: ConfigurationsExportId;
+    }
+    export interface ExportInfo {
+        /** A unique identifier that you can use to query the export. **/
+        exportId: ConfigurationsExportId;
+        /** The status of the configuration data export. The status can succeed, fail, or be
+in-progress. **/
+        exportStatus: ExportStatus;
+        /** Helpful status messages for API callers. For example: Too many exports in the
+last 6 hours. Export in progress. Export was successful. **/
+        statusMessage: ExportStatusMessage;
+        /** A URL for an Amazon S3 bucket where you can review the configuration data. The
+URL is displayed only if the export succeeded. **/
+        configurationsDownloadUrl?: ConfigurationsDownloadUrl;
+        /** The time the configuration data export was initiated. **/
+        exportRequestTime: ExportRequestTime;
     }
     export interface Filter {
-        /** The name of the filter you want to use. **/
+        /** The name of the filter. The following filter names are allowed for SERVER 
+configuration items.
+
+Server
+
+ &amp;#42; server.hostName
+   
+   
+ * server.osName
+   
+   
+ * server.osVersion
+   
+   
+ * server.configurationid
+   
+   
+ * server.agentid
+   
+   
+
+The name of the filter. The following filter names are allowed for PROCESS 
+configuration items.
+
+Process
+
+ * process.configurationid
+   
+   
+ * process.name
+   
+   
+ * process.commandLine
+   
+   
+ * server.configurationid
+   
+   
+ * server.hostName
+   
+   
+ * server.osName
+   
+   
+ * server.osVersion
+   
+   
+ * server.agentId
+   
+   
+
+The name of the filter. The following filter names are allowed for CONNECTION 
+configuration items.
+
+Connection
+
+ * connection.sourceIp
+   
+   
+ * connection.destinationIp
+   
+   
+ * connection.destinationPort
+   
+   
+ * sourceProcess.configurationId
+   
+   
+ * sourceProcess.name
+   
+   
+ * sourceProcess.commandLine
+   
+   
+ * destinationProcess.configurationId
+   
+   
+ * destinationProcess.name
+   
+   
+ * destinationProcess.commandLine
+   
+   
+ * sourceServer.configurationId
+   
+   
+ * sourceServer.hostName
+   
+   
+ * sourceServer.osName
+   
+   
+ * sourceServer.osVersion
+   
+   
+ * sourceServer.agentId
+   
+   
+ * destinationServer.configurationId
+   
+   
+ * destinationServer.hostName
+   
+   
+ * destinationServer.osName
+   
+   
+ * destinationServer.osVersion
+   
+   
+ * destinationServer.agentId **/
         name: String;
-        /** The value you want to filter on. **/
+        /** A string value that you want to filter on. For example, if you choose the 
+destinationServer.osVersion filter name, you could specify Ubuntu for the value. **/
         values: FilterValues;
-        /** A conditional operator for the filter. **/
+        /** A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS,
+CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all
+filters as though concatenated by AND . If you specify multiple values for a
+particular filter, the system differentiates the values using OR . Calling
+either DescribeConfigurations or ListConfigurations returns attributes of
+matching configuration items. **/
         condition: Condition;
-    }
-    export interface GetConfigurationAttributesRequest {
-        /** One or more configuration IDs. **/
-        configurationIds: ConfigurationIdList;
-    }
-    export interface GetConfigurationAttributesResponse {
-        /** Returns configuration details, including the configuration ID, attribute names,
-and attribute values. **/
-        configurations?: ConfigIdAttributesMap;
-    }
-    export interface GetExportStatusRequest {
-        /** A unique identifier which you can use to query the export status. **/
-        exportId: ConfigurationExportId;
-    }
-    export interface GetExportStatusResponse {
-        /** Returns configuration details, including the configuration ID, attribute names,
-and attribute values. **/
-        exportId?: ConfigurationExportId;
-        /** Returns export details. When the status is complete, the response includes a URL
-for an Amazon S3 bucket where you can view the data in a CSV file. **/
-        exportStatusMap?: ExportStatusMap;
     }
     export interface InvalidParameterException {
         message?: Message;
@@ -455,9 +753,11 @@ for an Amazon S3 bucket where you can view the data in a CSV file. **/
     export interface ListConfigurationsRequest {
         /** A valid configuration identified by the Discovery Service. **/
         configurationType: ConfigurationItemType;
-        /** You can filter the list using a key, value format. For example:
+        /** You can filter the list using a key - value format. For example:
 
-{&quot;key&quot;: &quot;serverType&quot;, &quot;value&quot;: &quot;webServer&quot;} **/
+{&quot;key&quot;: &quot;serverType&quot;, &quot;value&quot;: &quot;webServer&quot;}
+
+You can separate these items by using logical operators. **/
         filters?: Filters;
         /** The total number of items to return. The maximum value is 100. **/
         maxResults?: Integer;
@@ -465,18 +765,14 @@ for an Amazon S3 bucket where you can view the data in a CSV file. **/
         nextToken?: NextToken;
     }
     export interface ListConfigurationsResponse {
-        /** Returns a list of configuration item IDs. **/
+        /** Returns configuration details, including the configuration ID, attribute names,
+and attribute values. **/
         configurations?: Configurations;
         /** The call returns a token. Use this token to get the next set of results. **/
         nextToken?: NextToken;
     }
     export interface OperationNotPermittedException {
         message?: Message;
-    }
-    export interface RemoveConfigurationRequest {
-        configurationId: ConfigurationId;
-    }
-    export interface RemoveConfigurationResponse {
     }
     export interface ResourceNotFoundException {
         message?: Message;
@@ -485,14 +781,20 @@ for an Amazon S3 bucket where you can view the data in a CSV file. **/
         message?: Message;
     }
     export interface StartDataCollectionByAgentIdsRequest {
-        /** The IDs of the agents that you want to start collecting data. **/
+        /** The IDs of the agents that you want to start collecting data. If you send a
+request to an AWS agent ID that you do not have permission to contact, according
+to your AWS account, the service does not throw an exception. Instead, it
+returns the error in the Description field. If you send a request to multiple
+agents and you do not have permission to contact some of those agents, the
+system does not throw an exception. Instead, the system shows Failed in the 
+Description field. **/
         agentIds: AgentIds;
     }
     export interface StartDataCollectionByAgentIdsResponse {
         /** Information about agents that were instructed to start collecting data.
 Information includes the agent ID, a description of the operation performed, and
 whether or not the agent configuration was updated. **/
-        agentsConfigStatus?: AgentConfigStatusList;
+        agentsConfigurationStatus?: AgentConfigurationStatusList;
     }
     export interface StopDataCollectionByAgentIdsRequest {
         /** The IDs of the agents that you want to stop collecting data. **/
@@ -502,7 +804,7 @@ whether or not the agent configuration was updated. **/
         /** Information about agents that were instructed to stop collecting data.
 Information includes the agent ID, a description of the operation performed, and
 whether or not the agent configuration was updated. **/
-        agentsConfigStatus?: AgentConfigStatusList;
+        agentsConfigurationStatus?: AgentConfigurationStatusList;
     }
     export interface Tag {
         /** A type of tag to filter on. **/
@@ -512,9 +814,9 @@ whether or not the agent configuration was updated. **/
     }
     export interface TagFilter {
         /** A name of a tag filter. **/
-        Name: FilterName;
+        name: FilterName;
         /** Values of a tag filter. **/
-        Values: FilterValues;
+        values: FilterValues;
     }
   }
 }

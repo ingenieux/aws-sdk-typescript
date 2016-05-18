@@ -23,13 +23,35 @@ errors.
     constructor(options?: any);
     endpoint: Endpoint;
     /**
+     * Creates tags for a WorkSpace.
+     *
+     * @error ResourceNotFoundException   
+     * @error InvalidParameterValuesException   
+     * @error ResourceLimitExceededException   
+     */
+    createTags(params: WorkSpaces.CreateTagsRequest, callback?: (err: WorkSpaces.ResourceNotFoundException|WorkSpaces.InvalidParameterValuesException|WorkSpaces.ResourceLimitExceededException|any, data: WorkSpaces.CreateTagsResult|any) => void): Request<WorkSpaces.CreateTagsResult|any,WorkSpaces.ResourceNotFoundException|WorkSpaces.InvalidParameterValuesException|WorkSpaces.ResourceLimitExceededException|any>;
+    /**
      * Creates one or more WorkSpaces.
 
 This operation is asynchronous and returns before the WorkSpaces are created.
      *
-     * @error ResourceLimitExceededException Your resource limits have been exceeded.  
+     * @error ResourceLimitExceededException   
+     * @error InvalidParameterValuesException   
      */
-    createWorkspaces(params: WorkSpaces.CreateWorkspacesRequest, callback?: (err: WorkSpaces.ResourceLimitExceededException|any, data: WorkSpaces.CreateWorkspacesResult|any) => void): Request<WorkSpaces.CreateWorkspacesResult|any,WorkSpaces.ResourceLimitExceededException|any>;
+    createWorkspaces(params: WorkSpaces.CreateWorkspacesRequest, callback?: (err: WorkSpaces.ResourceLimitExceededException|WorkSpaces.InvalidParameterValuesException|any, data: WorkSpaces.CreateWorkspacesResult|any) => void): Request<WorkSpaces.CreateWorkspacesResult|any,WorkSpaces.ResourceLimitExceededException|WorkSpaces.InvalidParameterValuesException|any>;
+    /**
+     * Deletes tags from a WorkSpace.
+     *
+     * @error ResourceNotFoundException   
+     * @error InvalidParameterValuesException   
+     */
+    deleteTags(params: WorkSpaces.DeleteTagsRequest, callback?: (err: WorkSpaces.ResourceNotFoundException|WorkSpaces.InvalidParameterValuesException|any, data: WorkSpaces.DeleteTagsResult|any) => void): Request<WorkSpaces.DeleteTagsResult|any,WorkSpaces.ResourceNotFoundException|WorkSpaces.InvalidParameterValuesException|any>;
+    /**
+     * Describes tags for a WorkSpace.
+     *
+     * @error ResourceNotFoundException   
+     */
+    describeTags(params: WorkSpaces.DescribeTagsRequest, callback?: (err: WorkSpaces.ResourceNotFoundException|any, data: WorkSpaces.DescribeTagsResult|any) => void): Request<WorkSpaces.DescribeTagsResult|any,WorkSpaces.ResourceNotFoundException|any>;
     /**
      * Obtains information about the WorkSpace bundles that are available to your
 account in the specified region.
@@ -42,7 +64,7 @@ response parameters. If more results are available, the NextToken response
 member contains a token that you pass in the next call to this operation to
 retrieve the next set of items.
      *
-     * @error InvalidParameterValuesException One or more parameter values are not valid.  
+     * @error InvalidParameterValuesException   
      */
     describeWorkspaceBundles(params: WorkSpaces.DescribeWorkspaceBundlesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|any, data: WorkSpaces.DescribeWorkspaceBundlesResult|any) => void): Request<WorkSpaces.DescribeWorkspaceBundlesResult|any,WorkSpaces.InvalidParameterValuesException|any>;
     /**
@@ -54,7 +76,7 @@ response parameters. If more results are available, the NextToken response
 member contains a token that you pass in the next call to this operation to
 retrieve the next set of items.
      *
-     * @error InvalidParameterValuesException One or more parameter values are not valid.  
+     * @error InvalidParameterValuesException   
      */
     describeWorkspaceDirectories(params: WorkSpaces.DescribeWorkspaceDirectoriesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|any, data: WorkSpaces.DescribeWorkspaceDirectoriesResult|any) => void): Request<WorkSpaces.DescribeWorkspaceDirectoriesResult|any,WorkSpaces.InvalidParameterValuesException|any>;
     /**
@@ -68,8 +90,8 @@ response parameters. If more results are available, the NextToken response
 member contains a token that you pass in the next call to this operation to
 retrieve the next set of items.
      *
-     * @error InvalidParameterValuesException One or more parameter values are not valid.  
-     * @error ResourceUnavailableException The specified resource is not available.  
+     * @error InvalidParameterValuesException   
+     * @error ResourceUnavailableException   
      */
     describeWorkspaces(params: WorkSpaces.DescribeWorkspacesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|WorkSpaces.ResourceUnavailableException|any, data: WorkSpaces.DescribeWorkspacesResult|any) => void): Request<WorkSpaces.DescribeWorkspacesResult|any,WorkSpaces.InvalidParameterValuesException|WorkSpaces.ResourceUnavailableException|any>;
     /**
@@ -188,6 +210,14 @@ completely terminated.
     
     export type SubnetIds = SubnetId[];
     
+    export type TagKey = string;
+    
+    export type TagKeyList = NonEmptyString[];
+    
+    export type TagList = Tag[];
+    
+    export type TagValue = string;
+    
     export type TerminateWorkspaceRequests = TerminateRequest[];
     
     export type UserName = string;
@@ -213,6 +243,14 @@ completely terminated.
     export interface ComputeType {
         /** The name of the compute type for the bundle. **/
         Name?: Compute;
+    }
+    export interface CreateTagsRequest {
+        /** The resource ID of the request. **/
+        ResourceId: NonEmptyString;
+        /** The tags of the request. **/
+        Tags: TagList;
+    }
+    export interface CreateTagsResult {
     }
     export interface CreateWorkspacesRequest {
         /** An array of structures that specify the WorkSpaces to create. **/
@@ -242,6 +280,22 @@ when they are created. **/
         CustomSecurityGroupId?: SecurityGroupId;
         /** The WorkSpace user is an administrator on the WorkSpace. **/
         UserEnabledAsLocalAdministrator?: BooleanObject;
+    }
+    export interface DeleteTagsRequest {
+        /** The resource ID of the request. **/
+        ResourceId: NonEmptyString;
+        /** The tag keys of the request. **/
+        TagKeys: TagKeyList;
+    }
+    export interface DeleteTagsResult {
+    }
+    export interface DescribeTagsRequest {
+        /** The resource ID of the request. **/
+        ResourceId: NonEmptyString;
+    }
+    export interface DescribeTagsResult {
+        /** The list of tags. **/
+        TagList?: TagList;
     }
     export interface DescribeWorkspaceBundlesRequest {
         /** An array of strings that contains the identifiers of the bundles to retrieve.
@@ -369,11 +423,23 @@ could not be created. **/
         /** The exception error message. **/
         message?: ExceptionMessage;
     }
+    export interface ResourceNotFoundException {
+        /** The resource could not be found. **/
+        message?: ExceptionMessage;
+        /** The resource could not be found. **/
+        ResourceId?: NonEmptyString;
+    }
     export interface ResourceUnavailableException {
         /** The exception error message. **/
         message?: ExceptionMessage;
         /** The identifier of the resource that is not available. **/
         ResourceId?: NonEmptyString;
+    }
+    export interface Tag {
+        /** The key of the tag. **/
+        Key: TagKey;
+        /** The value of the tag. **/
+        Value?: TagValue;
     }
     export interface TerminateRequest {
         /** The identifier of the WorkSpace to terminate. **/
@@ -487,6 +553,8 @@ available. **/
         UserVolumeEncryptionEnabled?: BooleanObject;
         /** Specifies whether the data stored on the root volume, or C: drive, is encrypted. **/
         RootVolumeEncryptionEnabled?: BooleanObject;
+        /** The tags of the WorkSpace request. **/
+        Tags?: TagList;
     }
   }
 }

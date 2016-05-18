@@ -206,8 +206,8 @@ ConsistentRead to true for any or all tables.
 In order to minimize response latency, BatchGetItem retrieves items in parallel.
 
 When designing your application, keep in mind that DynamoDB does not return
-attributes in any particular order. To help parse the response by item, include
-the primary key values for the items in your request in the AttributesToGet 
+items in any particular order. To help parse the response by item, include the
+primary key values for the items in your request in the AttributesToGet 
 parameter.
 
 If a requested item does not exist, it is not returned in the result. Requests
@@ -397,22 +397,36 @@ For example, you could use one of the AWS SDKs to do the following:
 
  1. Call DescribeLimits for a particular region to obtain your current account
     limits on provisioned capacity there.
+    
+    
  2. Create a variable to hold the aggregate read capacity units provisioned for
     all your tables in that region, and one to hold the aggregate write capacity
     units. Zero them both.
+    
+    
  3. Call ListTables to obtain a list of all your DynamoDB tables.
+    
+    
  4. For each table name listed by ListTables , do the following:
     
      &amp;#42; Call DescribeTable with the table name.
+       
+       
      * Use the data returned by DescribeTable to add the read capacity units and
        write capacity units provisioned for the table itself to your variables.
+       
+       
      * If the table has one or more global secondary indexes (GSIs), loop over
        these GSIs and add their provisioned capacity values to your variables as
        well.
+       
+       
     
     
  5. Report the account limits for that region returned by DescribeLimits , along
     with the total current provisioned capacity levels you have calculated.
+    
+    
 
 This will let you see whether you are getting close to your account-level
 limits.
@@ -525,8 +539,9 @@ If the total number of items meeting the query criteria exceeds the result set
 size limit of 1 MB, the query stops and results are returned to the user with
 the LastEvaluatedKey element to continue the query in a subsequent operation.
 Unlike a Scan operation, a Query operation never returns both an empty result
-set and a LastEvaluatedKey value. LastEvaluatedKey is only provided if the
-results exceed 1 MB, or if you have used the Limit parameter.
+set and a LastEvaluatedKey value. LastEvaluatedKey is only provided if you have
+used the Limit parameter, or if the result set exceeds 1 MB (prior to applying a
+filter).
 
 You can query a table, a local secondary index, or a global secondary index. For
 a query on a table or on a local secondary index, you can set the ConsistentRead 
@@ -793,7 +808,11 @@ UpdateTable operation is complete.
         /** The data type for the attribute, where:
 
  &amp;#42; S - the attribute is of type String
+   
+   
  * N - the attribute is of type Number
+   
+   
  * B - the attribute is of type Binary **/
         AttributeType: ScalarAttributeType;
     }
@@ -1800,7 +1819,12 @@ they were deleted. For DeleteItem , the valid values are:
    nothing is returned. (This setting is the default for ReturnValues .)
    
    
- * ALL_OLD - The content of the old item is returned. **/
+ * ALL_OLD - The content of the old item is returned.
+   
+   
+
+The ReturnValues parameter is used by several DynamoDB operations; however, 
+DeleteItem does not recognize any values other than NONE or ALL_OLD . **/
         ReturnValues?: ReturnValue;
         ReturnConsumedCapacity?: ReturnConsumedCapacity;
         /** Determines whether item collection metrics are returned. If set to SIZE , the
@@ -1819,7 +1843,8 @@ An expression can contain any of the following:
    These function names are case-sensitive.
    
    
- * Comparison operators: = | | | | = | = | BETWEEN | IN
+ * Comparison operators: = | &amp;#x3C;&amp;#x3E; | &amp;#x3C; | &amp;#x3E; | &amp;#x3C;= | &amp;#x3E;=
+   | BETWEEN | IN
    
    
  * Logical operators: AND | OR | NOT
@@ -2915,7 +2940,12 @@ they were updated with the PutItem request. For PutItem , the valid values are:
    
    
  * ALL_OLD - If PutItem overwrote an attribute name-value pair, then the content
-   of the old item is returned. **/
+   of the old item is returned.
+   
+   
+
+The ReturnValues parameter is used by several DynamoDB operations; however, 
+PutItem does not recognize any values other than NONE or ALL_OLD . **/
         ReturnValues?: ReturnValue;
         ReturnConsumedCapacity?: ReturnConsumedCapacity;
         /** Determines whether item collection metrics are returned. If set to SIZE , the
@@ -2956,7 +2986,8 @@ An expression can contain any of the following:
    These function names are case-sensitive.
    
    
- * Comparison operators: = | | | | = | = | BETWEEN | IN
+ * Comparison operators: = | &amp;#x3C;&amp;#x3E; | &amp;#x3C; | &amp;#x3E; | &amp;#x3C;= | &amp;#x3E;=
+   | BETWEEN | IN
    
    
  * Logical operators: AND | OR | NOT
@@ -3464,19 +3495,19 @@ Valid comparisons for the sort key condition are as follows:
    :sortkeyval .
    
    
- * sortKeyName :sortkeyval - true if the sort key value is less than :sortkeyval 
-   .
-   
-   
- * sortKeyName = :sortkeyval - true if the sort key value is less than or equal
-   to :sortkeyval .
-   
-   
- * sortKeyName :sortkeyval - true if the sort key value is greater than 
+ * sortKeyName &lt; :sortkeyval - true if the sort key value is less than 
    :sortkeyval .
    
    
- * sortKeyName = :sortkeyval - true if the sort key value is greater than or
+ * sortKeyName &lt;= :sortkeyval - true if the sort key value is less than or equal
+   to :sortkeyval .
+   
+   
+ * sortKeyName &gt; :sortkeyval - true if the sort key value is greater than 
+   :sortkeyval .
+   
+   
+ * sortKeyName &gt;= :sortkeyval - true if the sort key value is greater than or
    equal to :sortkeyval .
    
    
@@ -3502,11 +3533,15 @@ For example, the following KeyConditionExpression parameter causes an error
 because Size is a reserved word:
 
  * Size = :myval
+   
+   
 
 To work around this, define a placeholder (such a #S ) to represent the
 attribute name Size . KeyConditionExpression then is as follows:
 
  * #S = :myval
+   
+   
 
 For a list of reserved words, see Reserved Words
 [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html] 
@@ -3671,6 +3706,12 @@ in the Amazon DynamoDB Developer Guide . **/
 attributes, specific item attributes, or the count of matching items.
 
  &amp;#42; ALL_ATTRIBUTES - Returns all of the item attributes.
+   
+   
+ * ALL_PROJECTED_ATTRIBUTES - Allowed only when querying an index. Retrieves all
+   attributes that have been projected into the index. If the index is
+   configured to project all attributes, this return value is equivalent to
+   specifying ALL_ATTRIBUTES .
    
    
  * COUNT - Returns the number of matching items, rather than the matching items
@@ -3999,7 +4040,7 @@ Each AttributeDefinition object in this array is composed of:
    
  * KeyType - The role of the attribute:
    
-   . * HASH - partition key
+    * HASH - partition key
       
       
     * RANGE - sort key
@@ -4727,7 +4768,8 @@ An expression can contain any of the following:
    These function names are case-sensitive.
    
    
- * Comparison operators: = | | | | = | = | BETWEEN | IN
+ * Comparison operators: = | &amp;#x3C;&amp;#x3E; | &amp;#x3C; | &amp;#x3E; | &amp;#x3C;= | &amp;#x3E;=
+   | BETWEEN | IN
    
    
  * Logical operators: AND | OR | NOT
