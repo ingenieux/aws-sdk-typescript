@@ -268,7 +268,11 @@ updates.
     /**
      * Returns a list of task definition families that are registered to your account
 (which may include task definition families that no longer have any ACTIVE task
-definitions). You can filter the results with the familyPrefix parameter.
+definition revisions).
+
+You can filter out task definition families that do not contain any ACTIVE task
+definition revisions by setting the status parameter to ACTIVE . You can also
+filter the results with the familyPrefix parameter.
      *
      * @error ServerException   
      * @error ClientException   
@@ -538,6 +542,8 @@ across the Availability Zones in your cluster with the following logic:
     export type String = string;
     
     export type StringList = String[];
+    
+    export type TaskDefinitionFamilyStatus = string;
     
     export type TaskDefinitionStatus = string;
     
@@ -1005,20 +1011,9 @@ region or across multiple regions. **/
 of the task definition to run in your service. If a revision is not specified,
 the latest ACTIVE revision is used. **/
         taskDefinition: String;
-        /** A load balancer object representing the load balancer to use with your service.
-
-For Elastic Load Balancing standard load balancers, this object must contain the
-load balancer name, the container name (as it appears in a container
-definition), and the container port to access from the load balancer. When a
-task from this service is placed on a container instance, the container instance
-is registered with the load balancer specified here.
-
-For Elastic Load Balancing application load balancers, this object must contain
-the load balancer target group ARN, the container name (as it appears in a
-container definition), and the container port to access from the load balancer.
-When a task from this service is placed on a container instance, the container
-instance and port combination is registered as a target in the target group
-specified here. **/
+        /** A list of load balancer objects, containing the load balancer name, the
+container name (as it appears in a container definition), and the container port
+to access from the load balancer. **/
         loadBalancers?: LoadBalancers;
         /** The number of instantiations of the specified task definition to place and keep
 running on your cluster. **/
@@ -1026,10 +1021,19 @@ running on your cluster. **/
         /** Unique, case-sensitive identifier you provide to ensure the idempotency of the
 request. Up to 32 ASCII characters are allowed. **/
         clientToken?: String;
-        /** The name or full Amazon Resource Name (ARN) of the IAM role that allows your
-Amazon ECS container agent to make calls to your load balancer on your behalf.
-This parameter is only required if you are using a load balancer with your
-service. **/
+        /** The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon
+ECS to make calls to your load balancer on your behalf. This parameter is
+required if you are using a load balancer with your service. If you specify the 
+role parameter, you must also specify a load balancer object with the 
+loadBalancers parameter.
+
+If your specified role has a path other than / , then you must either specify
+the full role ARN (this is recommended) or prefix the role name with the path.
+For example, if a role with the name bar has a path of /foo/ then you would
+specify /foo/bar as the role name. For more information, see Friendly Names and
+Paths
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names] 
+in the IAM User Guide . **/
         role?: String;
         /** Optional deployment parameters that control how many tasks run during the
 deployment and the ordering of stopping and starting tasks. **/
@@ -1243,7 +1247,10 @@ the environment variable. **/
         /** The nextToken value returned from a previous paginated ListClusters request
 where maxResults was used and the results exceeded the value of that parameter.
 Pagination continues from the end of the previous results that returned the 
-nextToken value. This value is null when there are no more results to return. **/
+nextToken value. This value is null when there are no more results to return.
+
+This token should be treated as an opaque identifier that is only used to
+retrieve the next items in a list and not for other programmatic purposes. **/
         nextToken?: String;
         /** The maximum number of cluster results returned by ListClusters in paginated
 output. When this parameter is used, ListClusters only returns maxResults 
@@ -1273,7 +1280,10 @@ cluster is assumed.. **/
 request where maxResults was used and the results exceeded the value of that
 parameter. Pagination continues from the end of the previous results that
 returned the nextToken value. This value is null when there are no more results
-to return. **/
+to return.
+
+This token should be treated as an opaque identifier that is only used to
+retrieve the next items in a list and not for other programmatic purposes. **/
         nextToken?: String;
         /** The maximum number of container instance results returned by 
 ListContainerInstances in paginated output. When this parameter is used, 
@@ -1303,7 +1313,10 @@ assumed.. **/
         /** The nextToken value returned from a previous paginated ListServices request
 where maxResults was used and the results exceeded the value of that parameter.
 Pagination continues from the end of the previous results that returned the 
-nextToken value. This value is null when there are no more results to return. **/
+nextToken value. This value is null when there are no more results to return.
+
+This token should be treated as an opaque identifier that is only used to
+retrieve the next items in a list and not for other programmatic purposes. **/
         nextToken?: String;
         /** The maximum number of container instance results returned by ListServices in
 paginated output. When this parameter is used, ListServices only returns 
@@ -1329,11 +1342,23 @@ results to return. **/
 ListTaskDefinitionFamilies . If you specify a familyPrefix , only task
 definition family names that begin with the familyPrefix string are returned. **/
         familyPrefix?: String;
+        /** The task definition family status with which to filter the 
+ListTaskDefinitionFamilies results. By default, both ACTIVE and INACTIVE task
+definition families are listed. If this parameter is set to ACTIVE , only task
+definition families that have an ACTIVE task definition revision are returned.
+If this parameter is set to INACTIVE , only task definition families that do not
+have any ACTIVE task definition revisions are returned. If you paginate the
+resulting output, be sure to keep the status value constant in each subsequent
+request. **/
+        status?: TaskDefinitionFamilyStatus;
         /** The nextToken value returned from a previous paginated 
 ListTaskDefinitionFamilies request where maxResults was used and the results
 exceeded the value of that parameter. Pagination continues from the end of the
 previous results that returned the nextToken value. This value is null when
-there are no more results to return. **/
+there are no more results to return.
+
+This token should be treated as an opaque identifier that is only used to
+retrieve the next items in a list and not for other programmatic purposes. **/
         nextToken?: String;
         /** The maximum number of task definition family results returned by 
 ListTaskDefinitionFamilies in paginated output. When this parameter is used, 
@@ -1377,7 +1402,10 @@ family are listed first. **/
 request where maxResults was used and the results exceeded the value of that
 parameter. Pagination continues from the end of the previous results that
 returned the nextToken value. This value is null when there are no more results
-to return. **/
+to return.
+
+This token should be treated as an opaque identifier that is only used to
+retrieve the next items in a list and not for other programmatic purposes. **/
         nextToken?: String;
         /** The maximum number of task definition results returned by ListTaskDefinitions in
 paginated output. When this parameter is used, ListTaskDefinitions only returns 
@@ -1413,7 +1441,10 @@ family limits the results to tasks that belong to that family. **/
         /** The nextToken value returned from a previous paginated ListTasks request where 
 maxResults was used and the results exceeded the value of that parameter.
 Pagination continues from the end of the previous results that returned the 
-nextToken value. This value is null when there are no more results to return. **/
+nextToken value. This value is null when there are no more results to return.
+
+This token should be treated as an opaque identifier that is only used to
+retrieve the next items in a list and not for other programmatic purposes. **/
         nextToken?: String;
         /** The maximum number of task results returned by ListTasks in paginated output.
 When this parameter is used, ListTasks only returns maxResults results in a
@@ -1456,10 +1487,22 @@ instances must allow ingress traffic on the hostPort of the port mapping. **/
         containerPort?: BoxedInteger;
     }
     export interface LogConfiguration {
-        /** The log driver to use for the container. This parameter requires version 1.18 of
-the Docker Remote API or greater on your container instance. To check the Docker
-Remote API version on your container instance, log into your container instance
-and run the following command: sudo docker version | grep &quot;Server API version&quot; **/
+        /** The log driver to use for the container. The valid values listed for this
+parameter are log drivers that the Amazon ECS container agent can communicate
+with by default.
+
+If you have a custom driver that is not listed above that you would like to work
+with the Amazon ECS container agent, you can fork the Amazon ECS container agent
+project that is available on GitHub [https://github.com/aws/amazon-ecs-agent] 
+and customize it to work with that driver. We encourage you to submit pull
+requests for changes that you would like to have included. However, Amazon Web
+Services does not currently provide support for running modified copies of this
+software.
+
+This parameter requires version 1.18 of the Docker Remote API or greater on your
+container instance. To check the Docker Remote API version on your container
+instance, log into your container instance and run the following command: sudo
+docker version | grep &quot;Server API version&quot; **/
         logDriver: LogDriver;
         /** The configuration options to send to the log driver. This parameter requires
 version 1.19 of the Docker Remote API or greater on your container instance. To
@@ -1497,7 +1540,7 @@ value is false . **/
 automatically assigned host port. If you specify a container port and not a host
 port, your container automatically receives a host port in the ephemeral port
 range (for more information, see hostPort ). Port mappings that are
-automatically assigned in this way do not count toward the 50 reserved ports
+automatically assigned in this way do not count toward the 100 reserved ports
 limit of a container instance. **/
         containerPort?: Integer;
         /** The port number on the container instance to reserve for your container. You can
@@ -1520,9 +1563,9 @@ the Amazon ECS container agent port 51678. Any host port that was previously
 specified in a running task is also reserved while the task is running (after a
 task stops, the host port is released).The current reserved ports are displayed
 in the remainingResources of DescribeContainerInstances output, and a container
-instance may have up to 50 reserved ports at a time, including the default
-reserved ports (automatically assigned ports do not count toward the 50 reserved
-ports limit). **/
+instance may have up to 100 reserved ports at a time, including the default
+reserved ports (automatically assigned ports do not count toward the 100
+reserved ports limit). **/
         hostPort?: Integer;
         /** The protocol used for the port mapping. Valid values are tcp and udp . The
 default is tcp . **/
@@ -1617,7 +1660,8 @@ The count parameter is limited to 10 tasks per call. **/
 automatically trigger a task to run a batch process job, you could apply a
 unique identifier for that job to your task with the startedBy parameter. You
 can then identify which tasks belong to that job by filtering the results of a 
-ListTasks call with the startedBy value.
+ListTasks call with the startedBy value. Up to 36 letters (uppercase and
+lowercase), numbers, hyphens, and underscores are allowed.
 
 If a task is started by an Amazon ECS service, then the startedBy parameter
 contains the deployment ID of the service that starts it. **/
@@ -1646,9 +1690,9 @@ region or across multiple regions. **/
         serviceName?: String;
         /** The Amazon Resource Name (ARN) of the cluster that hosts the service. **/
         clusterArn?: String;
-        /** A list of Elastic Load Balancing load balancer objects, containing the load
-balancer name, the container name (as it appears in a container definition), and
-the container port to access from the load balancer. **/
+        /** A list of load balancer objects, containing the load balancer name, the
+container name (as it appears in a container definition), and the container port
+to access from the load balancer. **/
         loadBalancers?: LoadBalancers;
         /** The status of the service. The valid values are ACTIVE , DRAINING , or INACTIVE 
 . **/
@@ -1671,12 +1715,13 @@ deployment and the ordering of stopping and starting tasks. **/
         /** The current state of deployments for the service. **/
         deployments?: Deployments;
         /** The Amazon Resource Name (ARN) of the IAM role associated with the service that
-allows the Amazon ECS container agent to register container instances with an
-Elastic Load Balancing load balancer. **/
+allows the Amazon ECS container agent to register container instances with a
+load balancer. **/
         roleArn?: String;
         /** The event stream for your service. A maximum of 100 of the latest events are
 displayed. **/
         events?: ServiceEvents;
+        /** The Unix time in seconds and milliseconds when the service was created. **/
         createdAt?: Timestamp;
     }
     export interface ServiceEvent {
@@ -1720,7 +1765,8 @@ The list of container instances to start tasks on is limited to 10. **/
 automatically trigger a task to run a batch process job, you could apply a
 unique identifier for that job to your task with the startedBy parameter. You
 can then identify which tasks belong to that job by filtering the results of a 
-ListTasks call with the startedBy value.
+ListTasks call with the startedBy value. Up to 36 letters (uppercase and
+lowercase), numbers, hyphens, and underscores are allowed.
 
 If a task is started by an Amazon ECS service, then the startedBy parameter
 contains the deployment ID of the service that starts it. **/

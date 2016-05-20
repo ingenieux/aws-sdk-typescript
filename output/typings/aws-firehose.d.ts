@@ -38,11 +38,11 @@ accounts or different regions in the same AWS account can have the same name.
 
 By default, you can create up to 20 delivery streams per region.
 
-A delivery stream can only be configured with a single destination, Amazon S3 or
-Amazon Redshift. For correct CreateDeliveryStream request syntax, specify only
-one destination configuration parameter: either 
-ElasticsearchDestinationConfiguration , RedshiftDestinationConfiguration or 
-S3DestinationConfiguration
+A delivery stream can only be configured with a single destination, Amazon S3,
+Amazon Elasticsearch Service, or Amazon Redshift. For correct 
+CreateDeliveryStream request syntax, specify only one destination configuration
+parameter: either S3DestinationConfiguration , 
+ElasticsearchDestinationConfiguration , or RedshiftDestinationConfiguration .
 
 As part of S3DestinationConfiguration , optional values BufferingHints , 
 EncryptionConfiguration , and CompressionFormat can be provided. By default, if
@@ -60,13 +60,19 @@ A few notes about RedshiftDestinationConfiguration :
    location, as Firehose first delivers data to S3 and then uses COPY syntax to
    load data into an Amazon Redshift table. This is specified in the 
    RedshiftDestinationConfiguration.S3Configuration parameter element.
+   
+   
  * The compression formats SNAPPY or ZIP cannot be specified in 
    RedshiftDestinationConfiguration.S3Configuration because the Amazon Redshift 
    COPY operation that reads from the S3 bucket doesn&#x27;t support these
    compression formats.
+   
+   
  * We strongly recommend that the username and password provided is used
    exclusively for Firehose purposes, and that the permissions for the account
    are restricted for Amazon Redshift INSERT permissions.
+   
+   
 
 Firehose assumes the IAM role that is configured as part of destinations. The
 IAM role should allow the Firehose principal to assume the role, and the role
@@ -345,6 +351,8 @@ UpdateDestination operation.
     
     export type PutResponseRecordId = string;
     
+    export type RedshiftRetryDurationInSeconds = number;
+    
     export type RoleARN = string;
     
     export type SizeInMBs = number;
@@ -584,9 +592,9 @@ documents to Amazon ES. Default value is 300 (5 minutes). **/
     }
     export interface ElasticsearchRetryOptions {
         /** After an initial failure to deliver to Amazon ES, the total amount of time
-during which Firehose re-attempts delivery. After this time has elapsed, the
-failed documents are written to Amazon S3. Default value is 300 seconds. A value
-of 0 (zero) results in no retries. **/
+during which Firehose re-attempts delivery (including the first attempt). After
+this time has elapsed, the failed documents are written to Amazon S3. Default
+value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries. **/
         DurationInSeconds?: ElasticsearchRetryDurationInSeconds;
     }
     export interface EncryptionConfiguration {
@@ -668,6 +676,9 @@ size of the data blob, before base64-encoding, is 1,000 KB. **/
         Username: Username;
         /** The user password. **/
         Password: Password;
+        /** Configures retry behavior in the event that Firehose is unable to deliver
+documents to Amazon Redshift. Default value is 3600 (60 minutes). **/
+        RetryOptions?: RedshiftRetryOptions;
         /** The S3 configuration for the intermediate location from which Amazon Redshift
 obtains data. Restrictions are described in the topic for CreateDeliveryStream .
 
@@ -688,6 +699,9 @@ formats. **/
         CopyCommand: CopyCommand;
         /** The name of the user. **/
         Username: Username;
+        /** Configures retry behavior in the event that Firehose is unable to deliver
+documents to Amazon Redshift. Default value is 3600 (60 minutes). **/
+        RetryOptions?: RedshiftRetryOptions;
         /** The Amazon S3 destination. **/
         S3DestinationDescription: S3DestinationDescription;
         /** Describes CloudWatch logging options for your delivery stream. **/
@@ -704,6 +718,9 @@ formats. **/
         Username?: Username;
         /** The user password. **/
         Password?: Password;
+        /** Configures retry behavior in the event that Firehose is unable to deliver
+documents to Amazon Redshift. Default value is 3600 (60 minutes). **/
+        RetryOptions?: RedshiftRetryOptions;
         /** The Amazon S3 destination.
 
 The compression formats SNAPPY or ZIP cannot be specified in 
@@ -712,6 +729,14 @@ that reads from the S3 bucket doesn&#x27;t support these compression formats. **
         S3Update?: S3DestinationUpdate;
         /** Describes CloudWatch logging options for your delivery stream. **/
         CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+    }
+    export interface RedshiftRetryOptions {
+        /** The length of time during which Firehose retries delivery after a failure,
+starting from the initial request and including the first attempt. The default
+value is 3600 seconds (60 minutes). Firehose does not retry if the value of 
+DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than
+the current value. **/
+        DurationInSeconds?: RedshiftRetryDurationInSeconds;
     }
     export interface ResourceInUseException {
         /** A message that provides information about the error. **/
@@ -731,7 +756,8 @@ files. You can specify an extra prefix to be added in front of the time format
 prefix. Note that if the prefix ends with a slash, it appears as a folder in the
 S3 bucket. For more information, see Amazon S3 Object Name Format
 [http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html] in the 
-guide-fh-dev [http://docs.aws.amazon.com/firehose/latest/dev/] . **/
+Amazon Kinesis Firehose Developer Guide
+[http://docs.aws.amazon.com/firehose/latest/dev/] . **/
         Prefix?: Prefix;
         /** The buffering option. If no value is specified, BufferingHints object default
 values are used. **/
@@ -758,7 +784,8 @@ files. You can specify an extra prefix to be added in front of the time format
 prefix. Note that if the prefix ends with a slash, it appears as a folder in the
 S3 bucket. For more information, see Amazon S3 Object Name Format
 [http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html] in the 
-guide-fh-dev [http://docs.aws.amazon.com/firehose/latest/dev/] . **/
+Amazon Kinesis Firehose Developer Guide
+[http://docs.aws.amazon.com/firehose/latest/dev/] . **/
         Prefix?: Prefix;
         /** The buffering option. If no value is specified, BufferingHints object default
 values are used. **/
@@ -781,7 +808,8 @@ files. You can specify an extra prefix to be added in front of the time format
 prefix. Note that if the prefix ends with a slash, it appears as a folder in the
 S3 bucket. For more information, see Amazon S3 Object Name Format
 [http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html] in the 
-guide-fh-dev [http://docs.aws.amazon.com/firehose/latest/dev/] . **/
+Amazon Kinesis Firehose Developer Guide
+[http://docs.aws.amazon.com/firehose/latest/dev/] . **/
         Prefix?: Prefix;
         /** The buffering option. If no value is specified, BufferingHints object default
 values are used. **/
@@ -814,7 +842,9 @@ configuration with the new configuration. **/
         CurrentDeliveryStreamVersionId: DeliveryStreamVersionId;
         /** The ID of the destination. **/
         DestinationId: DestinationId;
+        /** Describes an update for a destination in Amazon S3. **/
         S3DestinationUpdate?: S3DestinationUpdate;
+        /** Describes an update for a destination in Amazon Redshift. **/
         RedshiftDestinationUpdate?: RedshiftDestinationUpdate;
         /** Describes an update for a destination in Amazon ES. **/
         ElasticsearchDestinationUpdate?: ElasticsearchDestinationUpdate;
