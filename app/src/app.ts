@@ -195,7 +195,7 @@ function updateTypingsJson() {
 
 console.log(JSON.stringify(process.argv));
 
-sdkDir = "aws-sdk-js/aws-sdk/apis/";
+sdkDir = "./aws-sdk-js/apis/";
 
 metadata = readMetadata();
 
