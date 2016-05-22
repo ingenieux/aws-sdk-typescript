@@ -30,6 +30,7 @@
     "url": "git://github.com/ingenieux/aws-sdk-typescript.git"
   },
   "devDependencies": {
+    "aws-sdk": "git+https://github.com/aws/aws-sdk-js.git",
     "del": "^2.1.0",
     "escodegen": "^1.8.0",
     "esprima": "^2.7.1",
@@ -47,11 +48,14 @@
     "source-map-support": "^0.4.0",
     "typescript": "^1.8.10",
     "typescript-formatter": "^2.1.0",
-    "typings": "^0.7.12"
+    "typings": "^1.0.4"
   },
   "scripts": {
     "prepublish": "gulp buildrun && npm run-script format",
     "format": "tsfmt --verbose --replace -- output/typings/*.d.ts",
     "test": "npm install ./aws-sdk-js && gulp compile:tests"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.3.14"
   }
 }

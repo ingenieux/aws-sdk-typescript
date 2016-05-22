@@ -1,4 +1,4 @@
-/// <reference path="../../typings/main.d.ts" />
+/// <reference path="../../typings/index.d.ts" />
 
 import * as generator from './generator';
 import * as meta from './meta';
@@ -29,6 +29,7 @@ function readMetadata():{[serviceName:string]:meta.ServiceInfo} {
 function readServiceFiles() {
   Object.keys(metadata).forEach((shortName) => {
     var serviceInfo = metadata[shortName];
+    console.log("service info = ",serviceInfo );
     serviceInfo.prefix = serviceInfo.prefix || shortName;
 
     var expr = path.join(sdkDir, `${serviceInfo.prefix}-????-??-??.normal.json`);
@@ -65,7 +66,7 @@ function copyCommonDefs() {
     if (! fs.existsSync(path)) {
       fs.mkdirSync(path)
     }
-  })
+  });
 
   var template = handlebars.compile(templateContent);
 
@@ -119,34 +120,34 @@ function cleanDefinitions() {
 }
 
 function readCustomCode() {
-  var expr = path.join(sdkDir, '../lib/services/**/*.js')
+  var expr = path.join(sdkDir, '../lib/services/**/*.js');
 
-  var paths = glob.sync(expr)
+  var paths = glob.sync(expr);
 
-  var methodsToAdd:any = {}
+  var methodsToAdd:any = {};
 
   if (paths && paths.length > 0) {
     paths.forEach((p:string) => {
-      var src = fs.readFileSync(p).toString()
-      var ast = esprima.parse(src, {comment: true, attachComment: true})
+      var src = fs.readFileSync(p).toString();
+      var ast = esprima.parse(src, {comment: true, attachComment: true});
 
-      var matcher = jsstana.createMatcher("(call (lookup AWS.util.update) ? ?)")
+      var matcher = jsstana.createMatcher("(call (lookup AWS.util.update) ? ?)");
 
       estraverse.traverse(ast, {
         enter: function (n:any) {
           if (matcher(n)) {
-            var classname = escodegen.generate(n.arguments[0]).replace(/AWS\.(\w+)\.prototype/, "$1")
+            var classname = escodegen.generate(n.arguments[0]).replace(/AWS\.(\w+)\.prototype/, "$1");
 
             var methodList = n.arguments[1].properties.map((x:any) => {
               var context = {
                 classname: classname,
                 name: x.key.name,
                 commentStr: (x.leadingComments && x.leadingComments.map((x: any) => { return x.value }).join('\n')) || ""
-              } as ExtraClientMethod
+              } as ExtraClientMethod;
 
               context.commentStr = context.commentStr.replace(/\n\s+\*/g, "\n     *");
 
-              var m = /@api\s+private/.exec(context.commentStr)
+              var m = /@api\s+private/.exec(context.commentStr);
 
               if (m) {
                 return null
@@ -159,9 +160,9 @@ function readCustomCode() {
               return context
             }).filter((x: ExtraClientMethod) => {
               return null != x
-            })
+            });
 
-            console.log("Adding class: ", classname, " and methods: ", methodList)
+            console.log("Adding class: ", classname, " and methods: ", methodList);
 
             methodsToAdd[classname] = methodList
           }
@@ -171,13 +172,13 @@ function readCustomCode() {
   }
 
   Object.keys(metadata).forEach((serviceName:string) => {
-    var k = metadata[serviceName].name
+    var k = metadata[serviceName].name;
     if (methodsToAdd.hasOwnProperty(k)) {
-      metadata[serviceName].extraClientMethods = methodsToAdd[k]
+      metadata[serviceName].extraClientMethods = methodsToAdd[k];
 
       delete methodsToAdd[k]
     }
-  })
+  });
 
   console.log("Extra Service Class Methods not found: ", JSON.stringify(methodsToAdd))
 }
@@ -192,9 +193,9 @@ function updateTypingsJson() {
   fs.writeFileSync('typings.json', JSON.stringify(source, null, 2));
 }
 
-console.log(JSON.stringify(process.argv))
+console.log(JSON.stringify(process.argv));
 
-sdkDir = "./aws-sdk-js/apis/";
+sdkDir = "aws-sdk-js/aws-sdk/apis/";
 
 metadata = readMetadata();
 
