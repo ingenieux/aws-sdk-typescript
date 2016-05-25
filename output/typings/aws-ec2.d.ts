@@ -1910,6 +1910,14 @@ EC2Config service.
      */
     getConsoleOutput(params: EC2.GetConsoleOutputRequest, callback?: (err: any, data: EC2.GetConsoleOutputResult|any) => void): Request<EC2.GetConsoleOutputResult|any,any>;
     /**
+     * Retrieve a JPG-format screenshot of an instance to help with troubleshooting.
+
+For API calls, the returned content is base64-encoded. For command line tools,
+the decoding is performed for you.
+     *
+     */
+    getConsoleScreenshot(params: EC2.GetConsoleScreenshotRequest, callback?: (err: any, data: EC2.GetConsoleScreenshotResult|any) => void): Request<EC2.GetConsoleScreenshotResult|any,any>;
+    /**
      * Retrieves the encrypted administrator password for an instance running Windows.
 
 The Windows password is generated at boot if the EC2Config service plugin, 
@@ -2181,9 +2189,7 @@ platform. The Elastic IP address must be allocated to your account for more than
 address is moved, it is no longer available for use in the EC2-Classic platform,
 unless you move it back using the RestoreAddressToClassic request. You cannot
 move an Elastic IP address that was originally allocated for use in the EC2-VPC
-platform to the EC2-Classic platform. You cannot migrate an Elastic IP address
-that&#x27;s associated with a reverse DNS record. Contact AWS account and billing
-support to remove the reverse DNS record.
+platform to the EC2-Classic platform.
      *
      */
     moveAddressToVpc(params: EC2.MoveAddressToVpcRequest, callback?: (err: any, data: EC2.MoveAddressToVpcResult|any) => void): Request<EC2.MoveAddressToVpcResult|any,any>;
@@ -2443,9 +2449,7 @@ in the Amazon Elastic Compute Cloud User Guide .
      * Restores an Elastic IP address that was previously moved to the EC2-VPC platform
 back to the EC2-Classic platform. You cannot move an Elastic IP address that was
 originally allocated for use in EC2-VPC. The Elastic IP address must not be
-associated with an instance or network interface. You cannot restore an Elastic
-IP address that&#x27;s associated with a reverse DNS record. Contact AWS account and
-billing support to remove the reverse DNS record.
+associated with an instance or network interface.
      *
      */
     restoreAddressToClassic(params: EC2.RestoreAddressToClassicRequest, callback?: (err: any, data: EC2.RestoreAddressToClassicResult|any) => void): Request<EC2.RestoreAddressToClassicResult|any,any>;
@@ -2491,6 +2495,10 @@ call DescribeInstances .
 To ensure faster instance launches, break up large requests into smaller
 batches. For example, create five separate launch requests for 100 instances
 each instead of one launch request for 500 instances.
+
+To tag your instance, ensure that it is running as CreateTags requires a
+resource ID. For more information about tagging, see Tagging Your Amazon EC2
+Resources [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html] .
 
 If you don&#x27;t specify a security group when launching an instance, Amazon EC2
 uses the default security group. For more information, see Security Groups
@@ -4055,7 +4063,8 @@ UnauthorizedOperation . **/
         /** The rule number for the entry (for example, 100). ACL entries are processed in
 ascending order by rule number.
 
-Constraints: Positive integer from 1 to 32766 **/
+Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is
+reserved for internal use. **/
         RuleNumber: Integer;
         /** The protocol. A value of -1 means all protocols. **/
         Protocol: String;
@@ -8242,6 +8251,24 @@ UnauthorizedOperation . **/
 decode the output for you. **/
         Output?: String;
     }
+    export interface GetConsoleScreenshotRequest {
+        /** Checks whether you have the required permissions for the action, without
+actually making the request, and provides an error response. If you have the
+required permissions, the error response is DryRunOperation . Otherwise, it is 
+UnauthorizedOperation . **/
+        DryRun?: Boolean;
+        /** The ID of the instance. **/
+        InstanceId: String;
+        /** When set to true , acts as keystroke input and wakes up an instance that&#x27;s in
+standby or &quot;sleep&quot; mode. **/
+        WakeUp?: Boolean;
+    }
+    export interface GetConsoleScreenshotResult {
+        /** The ID of the instance. **/
+        InstanceId?: String;
+        /** The data that comprises the image. **/
+        ImageData?: String;
+    }
     export interface GetPasswordDataRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
@@ -9544,6 +9571,11 @@ failure, that corresponds to the error code.
  * For InvalidSubnetID.NotFound: &quot;The specified subnet subnet-xxxxxxxx does not
    exist or could not be found.&quot; **/
         FailureMessage?: String;
+        /** Reserved. If you need to sustain traffic greater than the documented limits
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html] ,
+contact us through the Support Center
+[https://console.aws.amazon.com/support/home?] . **/
+        ProvisionedBandwidth?: ProvisionedBandwidth;
     }
     export interface NatGatewayAddress {
         /** The Elastic IP address associated with the NAT gateway. **/
@@ -9802,6 +9834,33 @@ one IP address can be designated as primary. **/
     export interface PropagatingVgw {
         /** The ID of the virtual private gateway (VGW). **/
         GatewayId?: String;
+    }
+    export interface ProvisionedBandwidth {
+        /** Reserved. If you need to sustain traffic greater than the documented limits
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html] ,
+contact us through the Support Center
+[https://console.aws.amazon.com/support/home?] . **/
+        Provisioned?: String;
+        /** Reserved. If you need to sustain traffic greater than the documented limits
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html] ,
+contact us through the Support Center
+[https://console.aws.amazon.com/support/home?] . **/
+        Requested?: String;
+        /** Reserved. If you need to sustain traffic greater than the documented limits
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html] ,
+contact us through the Support Center
+[https://console.aws.amazon.com/support/home?] . **/
+        RequestTime?: DateTime;
+        /** Reserved. If you need to sustain traffic greater than the documented limits
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html] ,
+contact us through the Support Center
+[https://console.aws.amazon.com/support/home?] . **/
+        ProvisionTime?: DateTime;
+        /** Reserved. If you need to sustain traffic greater than the documented limits
+[http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html] ,
+contact us through the Support Center
+[https://console.aws.amazon.com/support/home?] . **/
+        Status?: String;
     }
     export interface PurchaseRequest {
         /** The purchase token. **/
@@ -11503,10 +11562,10 @@ UnauthorizedOperation . **/
         InstanceMonitorings?: InstanceMonitoringList;
     }
     export interface UnsuccessfulItem {
-        /** The ID of the resource. **/
-        ResourceId?: String;
         /** Information about the error. **/
         Error: UnsuccessfulItemError;
+        /** The ID of the resource. **/
+        ResourceId?: String;
     }
     export interface UnsuccessfulItemError {
         /** The error code. **/

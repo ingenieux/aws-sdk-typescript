@@ -168,8 +168,12 @@ SourceDBSnapshotIdentifier must be the ARN of the shared DB snapshot.
      */
     copyOptionGroup(params: RDS.CopyOptionGroupMessage, callback?: (err: RDS.OptionGroupAlreadyExistsFault|RDS.OptionGroupNotFoundFault|RDS.OptionGroupQuotaExceededFault|any, data: RDS.CopyOptionGroupResult|any) => void): Request<RDS.CopyOptionGroupResult|any,RDS.OptionGroupAlreadyExistsFault|RDS.OptionGroupNotFoundFault|RDS.OptionGroupQuotaExceededFault|any>;
     /**
-     * Creates a new Amazon Aurora DB cluster. For more information on Amazon Aurora,
-see Aurora on Amazon RDS
+     * Creates a new Amazon Aurora DB cluster.
+
+You can use the ReplicationSourceIdentifier parameter to create the DB cluster
+as a Read Replica of another DB cluster.
+
+For more information on Amazon Aurora, see Aurora on Amazon RDS
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html] in the 
 Amazon RDS User Guide.
      *
@@ -381,11 +385,12 @@ from all RDS sources belonging to your customer account.
      */
     createOptionGroup(params: RDS.CreateOptionGroupMessage, callback?: (err: RDS.OptionGroupAlreadyExistsFault|RDS.OptionGroupQuotaExceededFault|any, data: RDS.CreateOptionGroupResult|any) => void): Request<RDS.CreateOptionGroupResult|any,RDS.OptionGroupAlreadyExistsFault|RDS.OptionGroupQuotaExceededFault|any>;
     /**
-     * The DeleteDBCluster action deletes a previously provisioned DB cluster. A
-successful response from the web service indicates the request was received
-correctly. When you delete a DB cluster, all automated backups for that DB
-cluster are deleted and cannot be recovered. Manual DB cluster snapshots of the
-DB cluster to be deleted are not deleted.
+     * The DeleteDBCluster action deletes a previously provisioned DB cluster. When you
+delete a DB cluster, all automated backups for that DB cluster are deleted and
+cannot be recovered. Manual DB cluster snapshots of the specified DB cluster are
+not deleted.
+
+
 
 For more information on Amazon Aurora, see Aurora on Amazon RDS
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html] in the 
@@ -414,8 +419,9 @@ Amazon RDS User Guide.
      * Deletes a DB cluster snapshot. If the snapshot is being copied, the copy
 operation is terminated.
 
-The DB cluster snapshot must be in the available state to be deleted.For more
-information on Amazon Aurora, see Aurora on Amazon RDS
+The DB cluster snapshot must be in the available state to be deleted.
+
+For more information on Amazon Aurora, see Aurora on Amazon RDS
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html] in the 
 Amazon RDS User Guide.
      *
@@ -424,20 +430,19 @@ Amazon RDS User Guide.
      */
     deleteDBClusterSnapshot(params: RDS.DeleteDBClusterSnapshotMessage, callback?: (err: RDS.InvalidDBClusterSnapshotStateFault|RDS.DBClusterSnapshotNotFoundFault|any, data: RDS.DeleteDBClusterSnapshotResult|any) => void): Request<RDS.DeleteDBClusterSnapshotResult|any,RDS.InvalidDBClusterSnapshotStateFault|RDS.DBClusterSnapshotNotFoundFault|any>;
     /**
-     * The DeleteDBInstance action deletes a previously provisioned DB instance. A
-successful response from the web service indicates the request was received
-correctly. When you delete a DB instance, all automated backups for that
-instance are deleted and cannot be recovered. Manual DB snapshots of the DB
-instance to be deleted are not deleted.
+     * The DeleteDBInstance action deletes a previously provisioned DB instance. When
+you delete a DB instance, all automated backups for that instance are deleted
+and cannot be recovered. Manual DB snapshots of the DB instance to be deleted
+are not deleted.
 
-If a final DB snapshot is requested the status of the RDS instance will be
-&quot;deleting&quot; until the DB snapshot is created. The API action DescribeDBInstance 
-is used to monitor the status of this operation. The action cannot be canceled
-or reverted once submitted.
+If a final DB snapshot is requested the status of the RDS instance will be 
+deleting until the DB snapshot is created. The API action DescribeDBInstance is
+used to monitor the status of this operation. The action cannot be canceled or
+reverted once submitted.
 
-Note that when a DB instance is in a failure state and has a status of &#x27;failed&#x27;,
-&#x27;incompatible-restore&#x27;, or &#x27;incompatible-network&#x27;, it can only be deleted when
-the SkipFinalSnapshot parameter is set to &quot;true&quot;.
+Note that when a DB instance is in a failure state and has a status of failed , 
+incompatible-restore , or incompatible-network , it can only be deleted when the 
+SkipFinalSnapshot parameter is set to true .
      *
      * @error DBInstanceNotFoundFault   
      * @error InvalidDBInstanceStateFault   
@@ -537,7 +542,26 @@ Amazon RDS User Guide.
      */
     describeDBClusterParameters(params: RDS.DescribeDBClusterParametersMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBClusterParameterGroupDetails|any) => void): Request<RDS.DBClusterParameterGroupDetails|any,RDS.DBParameterGroupNotFoundFault|any>;
     /**
-     * Returns information about DB cluster snapshots. This API supports pagination.
+     * Returns a list of DB cluster snapshot attribute names and values for a manual DB
+cluster snapshot.
+
+When sharing snapshots with other AWS accounts, 
+DescribeDBClusterSnapshotAttributes returns the restore attribute and a list of
+IDs for the AWS accounts that are authorized to copy or restore the manual DB
+cluster snapshot. If all is included in the list of values for the restore 
+attribute, then the manual DB cluster snapshot is public and can be copied or
+restored by all AWS accounts.
+
+To add or remove access for an AWS account to copy or restore a manual DB
+cluster snapshot, or to make the manual DB cluster snapshot public or private,
+use the ModifyDBClusterSnapshotAttribute API action.
+     *
+     * @error DBClusterSnapshotNotFoundFault   
+     */
+    describeDBClusterSnapshotAttributes(params: RDS.DescribeDBClusterSnapshotAttributesMessage, callback?: (err: RDS.DBClusterSnapshotNotFoundFault|any, data: RDS.DescribeDBClusterSnapshotAttributesResult|any) => void): Request<RDS.DescribeDBClusterSnapshotAttributesResult|any,RDS.DBClusterSnapshotNotFoundFault|any>;
+    /**
+     * Returns information about DB cluster snapshots. This API action supports
+pagination.
 
 For more information on Amazon Aurora, see Aurora on Amazon RDS
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html] in the 
@@ -602,20 +626,20 @@ security group.
 snapshot.
 
 When sharing snapshots with other AWS accounts, DescribeDBSnapshotAttributes 
-returns the restore attribute and a list of the AWS account ids that are
+returns the restore attribute and a list of IDs for the AWS accounts that are
 authorized to copy or restore the manual DB snapshot. If all is included in the
 list of values for the restore attribute, then the manual DB snapshot is public
 and can be copied or restored by all AWS accounts.
 
 To add or remove access for an AWS account to copy or restore a manual DB
 snapshot, or to make the manual DB snapshot public or private, use the 
-ModifyDBSnapshotAttribute API.
+ModifyDBSnapshotAttribute API action.
      *
      * @error DBSnapshotNotFoundFault   
      */
     describeDBSnapshotAttributes(params: RDS.DescribeDBSnapshotAttributesMessage, callback?: (err: RDS.DBSnapshotNotFoundFault|any, data: RDS.DescribeDBSnapshotAttributesResult|any) => void): Request<RDS.DescribeDBSnapshotAttributesResult|any,RDS.DBSnapshotNotFoundFault|any>;
     /**
-     * Returns information about DB snapshots. This API supports pagination.
+     * Returns information about DB snapshots. This API action supports pagination.
      *
      * @error DBSnapshotNotFoundFault   
      */
@@ -801,6 +825,29 @@ to verify that your DB cluster parameter group has been created or modified.
      */
     modifyDBClusterParameterGroup(params: RDS.ModifyDBClusterParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any, data: RDS.DBClusterParameterGroupNameMessage|any) => void): Request<RDS.DBClusterParameterGroupNameMessage|any,RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any>;
     /**
+     * Adds an attribute and values to, or removes an attribute and values from, a
+manual DB cluster snapshot.
+
+To share a manual DB cluster snapshot with other AWS accounts, specify restore 
+as the AttributeName and use the ValuesToAdd parameter to add a list of IDs of
+the AWS accounts that are authorized to restore the manual DB cluster snapshot.
+Use the value all to make the manual DB cluster snapshot public, which means
+that it can be copied or restored by all AWS accounts. Do not add the all value
+for any manual DB cluster snapshots that contain private information that you
+don&#x27;t want available to all AWS accounts.
+
+To view which AWS accounts have access to copy or restore a manual DB cluster
+snapshot, or whether a manual DB cluster snapshot public or private, use the 
+DescribeDBClusterSnapshotAttributes API action.
+
+If a manual DB cluster snapshot is encrypted, it cannot be shared.
+     *
+     * @error DBClusterSnapshotNotFoundFault   
+     * @error InvalidDBClusterSnapshotStateFault   
+     * @error SharedSnapshotQuotaExceededFault   
+     */
+    modifyDBClusterSnapshotAttribute(params: RDS.ModifyDBClusterSnapshotAttributeMessage, callback?: (err: RDS.DBClusterSnapshotNotFoundFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.SharedSnapshotQuotaExceededFault|any, data: RDS.ModifyDBClusterSnapshotAttributeResult|any) => void): Request<RDS.ModifyDBClusterSnapshotAttributeResult|any,RDS.DBClusterSnapshotNotFoundFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.SharedSnapshotQuotaExceededFault|any>;
+    /**
      * Modify settings for a DB instance. You can change one or more database
 configuration parameters by specifying these parameters and the new values in
 the request.
@@ -848,19 +895,20 @@ created or modified.
      */
     modifyDBParameterGroup(params: RDS.ModifyDBParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any, data: RDS.DBParameterGroupNameMessage|any) => void): Request<RDS.DBParameterGroupNameMessage|any,RDS.DBParameterGroupNotFoundFault|RDS.InvalidDBParameterGroupStateFault|any>;
     /**
-     * Adds an attribute and values to, or removes an attribute and values from a
+     * Adds an attribute and values to, or removes an attribute and values from, a
 manual DB snapshot.
 
 To share a manual DB snapshot with other AWS accounts, specify restore as the 
-AttributeName and use the ValuesToAdd parameter to add a list of the AWS account
-ids that are authorized to restore the manual DB snapshot. Uses the value all to
-make the manual DB snapshot public and can by copied or restored by all AWS
-accounts. Do not add the all value for any manual DB snapshots that contain
-private information that you do not want to be available to all AWS accounts.
+AttributeName and use the ValuesToAdd parameter to add a list of IDs of the AWS
+accounts that are authorized to restore the manual DB snapshot. Uses the value 
+all to make the manual DB snapshot public, which means it can be copied or
+restored by all AWS accounts. Do not add the all value for any manual DB
+snapshots that contain private information that you don&#x27;t want available to all
+AWS accounts.
 
 To view which AWS accounts have access to copy or restore a manual DB snapshot,
 or whether a manual DB snapshot public or private, use the 
-DescribeDBSnapshotAttributes API.
+DescribeDBSnapshotAttributes API action.
 
 If the manual DB snapshot is encrypted, it cannot be shared.
      *
@@ -1174,6 +1222,8 @@ EC2SecurityGroupName or EC2SecurityGroupId).
     
     export type DBClusterParameterGroupList = DBClusterParameterGroup[];
     
+    export type DBClusterSnapshotAttributeList = DBClusterSnapshotAttribute[];
+    
     export type DBClusterSnapshotList = DBClusterSnapshot[];
     
     export type DBEngineVersionList = DBEngineVersion[];
@@ -1311,10 +1361,16 @@ Constraints:
 
  &amp;#42; If the source type is a DB instance, then a DBInstanceIdentifier must be
    supplied.
+   
+   
  * If the source type is a DB security group, a DBSecurityGroupName must be
    supplied.
+   
+   
  * If the source type is a DB parameter group, a DBParameterGroupName must be
    supplied.
+   
+   
  * If the source type is a DB snapshot, a DBSnapshotIdentifier must be supplied. **/
         SourceIdentifier: String;
     }
@@ -1348,8 +1404,12 @@ An opt-in request of type immediate cannot be undone.
 Valid values:
 
  &amp;#42; immediate - Apply the maintenance action immediately.
+   
+   
  * next-maintenance - Apply the maintenance action during the next maintenance
    window for the resource.
+   
+   
  * undo-opt-in - Cancel any existing next-maintenance opt-in requests. **/
         OptInType: String;
     }
@@ -1424,8 +1484,14 @@ case-sensitive.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
 
 Example: my-cluster-snapshot1 **/
         SourceDBClusterSnapshotIdentifier: String;
@@ -1435,8 +1501,14 @@ cluster snapshot. This parameter is not case-sensitive.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
 
 Example: my-cluster-snapshot2 **/
         TargetDBClusterSnapshotIdentifier: String;
@@ -1454,9 +1526,13 @@ creating an ARN, see Constructing an RDS Amazon Resource Name (ARN)
 Constraints:
 
  &amp;#42; Must specify a valid DB parameter group.
+   
+   
  * If the source DB parameter group is in the same region as the copy, specify a
    valid DB parameter group identifier, for example my-db-param-group , or a
    valid ARN.
+   
+   
  * If the source DB parameter group is in a different region than the copy,
    specify a valid DB parameter group ARN, for example 
    arn:aws:rds:us-west-2:123456789012:pg:special-parameters . **/
@@ -1466,9 +1542,17 @@ Constraints:
 Constraints:
 
  &amp;#42; Cannot be null, empty, or blank
+   
+   
  * Must contain from 1 to 255 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
 
 Example: my-db-parameter-group **/
         TargetDBParameterGroupIdentifier: String;
@@ -1488,12 +1572,18 @@ shared DB snapshot.
 Constraints:
 
  &amp;#42; Must specify a valid system snapshot in the &quot;available&quot; state.
+   
+   
  * If the source snapshot is in the same region as the copy, specify a valid DB
    snapshot identifier.
+   
+   
  * If the source snapshot is in a different region than the copy, specify a
    valid DB snapshot ARN. For more information, go to Copying a DB Snapshot
    [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html] 
    .
+   
+   
 
 Example: rds:mydb-2012-04-02-00-01
 
@@ -1505,9 +1595,17 @@ arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805 **
 Constraints:
 
  &amp;#42; Cannot be null, empty, or blank
+   
+   
  * Must contain from 1 to 255 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
 
 Example: my-db-snapshot **/
         TargetDBSnapshotIdentifier: String;
@@ -1544,8 +1642,12 @@ creating an ARN, see Constructing an RDS Amazon Resource Name (ARN)
 Constraints:
 
  &amp;#42; Must specify a valid option group.
+   
+   
  * If the source option group is in the same region as the copy, specify a valid
    option group identifier, for example my-option-group , or a valid ARN.
+   
+   
  * If the source option group is in a different region than the copy, specify a
    valid option group ARN, for example 
    arn:aws:rds:us-west-2:123456789012:og:special-options . **/
@@ -1555,9 +1657,17 @@ Constraints:
 Constraints:
 
  &amp;#42; Cannot be null, empty, or blank
+   
+   
  * Must contain from 1 to 255 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
 
 Example: my-option-group **/
         TargetOptionGroupIdentifier: String;
@@ -1596,8 +1706,14 @@ creating. **/
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
 
 Example: my-cluster1 **/
         DBClusterIdentifier: String;
@@ -1608,7 +1724,11 @@ used.
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBClusterParameterGroupName?: String;
         /** A list of EC2 VPC security groups to associate with this DB cluster. **/
@@ -1639,7 +1759,11 @@ Default: 3306 **/
 Constraints:
 
  &amp;#42; Must be 1 to 16 alphanumeric characters.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot be a reserved word for the chosen database engine. **/
         MasterUsername: String;
         /** The password for the master database user. This password can contain any
@@ -1665,8 +1789,14 @@ in the Amazon RDS User Guide.
 Constraints:
 
  &amp;#42; Must be in the format hh24:mi-hh24:mi .
+   
+   
  * Times should be in Universal Coordinated Time (UTC).
+   
+   
  * Must not conflict with the preferred maintenance window.
+   
+   
  * Must be at least 30 minutes. **/
         PreferredBackupWindow?: String;
         /** The weekly time range during which system maintenance can occur, in Universal
@@ -1684,6 +1814,9 @@ Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 
 Constraints: Minimum 30-minute window. **/
         PreferredMaintenanceWindow?: String;
+        /** The Amazon Resource Name (ARN) of the source DB cluster if this DB cluster is
+created as a Read Replica. **/
+        ReplicationSourceIdentifier?: String;
         Tags?: TagList;
         /** Specifies whether the DB cluster is encrypted. **/
         StorageEncrypted?: BooleanOptional;
@@ -1706,8 +1839,14 @@ account has a different default encryption key for each AWS region. **/
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
 
 This value is stored as a lowercase string. **/
         DBClusterParameterGroupName: String;
@@ -1733,8 +1872,14 @@ lowercase string.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
 
 Example: my-cluster1-snapshot1 **/
         DBClusterSnapshotIdentifier: String;
@@ -1744,8 +1889,14 @@ case-sensitive.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
 
 Example: my-cluster1 **/
         DBClusterIdentifier: String;
@@ -1768,7 +1919,11 @@ parameter is not specified, no database is created in the DB instance.
 Constraints:
 
  &amp;#42; Must contain 1 to 64 alphanumeric characters
+   
+   
  * Cannot be a word reserved by the specified database engine
+   
+   
 
 MariaDB
 
@@ -1778,7 +1933,11 @@ parameter is not specified, no database is created in the DB instance.
 Constraints:
 
  * Must contain 1 to 64 alphanumeric characters
+   
+   
  * Cannot be a word reserved by the specified database engine
+   
+   
 
 PostgreSQL
 
@@ -1789,9 +1948,15 @@ instance.
 Constraints:
 
  * Must contain 1 to 63 alphanumeric characters
+   
+   
  * Must begin with a letter or an underscore. Subsequent characters can be
    letters, underscores, or digits (0-9).
+   
+   
  * Cannot be a word reserved by the specified database engine
+   
+   
 
 Oracle
 
@@ -1802,6 +1967,8 @@ Default: ORCL
 Constraints:
 
  * Cannot be longer than 8 characters
+   
+   
 
 SQL Server
 
@@ -1816,6 +1983,8 @@ instance.
 Constraints:
 
  * Must contain 1 to 64 alphanumeric characters
+   
+   
  * Cannot be a word reserved by the specified database engine **/
         DBName?: String;
         /** The DB instance identifier. This parameter is stored as a lowercase string.
@@ -1824,8 +1993,14 @@ Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for SQL
    Server).
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
 
 Example: mydbinstance **/
         DBInstanceIdentifier: String;
@@ -1878,15 +2053,25 @@ MySQL
 Constraints:
 
  &amp;#42; Must be 1 to 16 alphanumeric characters.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot be a reserved word for the chosen database engine.
+   
+   
 
 MariaDB
 
 Constraints:
 
  * Must be 1 to 16 alphanumeric characters.
+   
+   
  * Cannot be a reserved word for the chosen database engine.
+   
+   
 
 Type: String
 
@@ -1895,23 +2080,39 @@ Oracle
 Constraints:
 
  * Must be 1 to 30 alphanumeric characters.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot be a reserved word for the chosen database engine.
+   
+   
 
 SQL Server
 
 Constraints:
 
  * Must be 1 to 128 alphanumeric characters.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot be a reserved word for the chosen database engine.
+   
+   
 
 PostgreSQL
 
 Constraints:
 
  * Must be 1 to 63 alphanumeric characters.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot be a reserved word for the chosen database engine. **/
         MasterUsername?: String;
         /** The password for the master database user. Can be any printable ASCII character
@@ -1993,7 +2194,11 @@ be used.
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBParameterGroupName?: String;
         /** The number of days for which automated backups are retained. Setting this
@@ -2005,6 +2210,8 @@ Default: 1
 Constraints:
 
  &amp;#42; Must be a value from 0 to 35
+   
+   
  * Cannot be set to 0 if the DB instance is a source to Read Replicas **/
         BackupRetentionPeriod?: IntegerOptional;
         /** The daily time range during which automated backups are created if automated
@@ -2022,8 +2229,14 @@ in the Amazon RDS User Guide.
 Constraints:
 
  &amp;#42; Must be in the format hh24:mi-hh24:mi .
+   
+   
  * Times should be in Universal Coordinated Time (UTC).
+   
+   
  * Must not conflict with the preferred maintenance window.
+   
+   
  * Must be at least 30 minutes. **/
         PreferredBackupWindow?: String;
         /** The port number on which the database accepts connections.
@@ -2084,93 +2297,231 @@ The following are the database engines and major and minor versions that are
 available with Amazon RDS. Not every database engine is available for every AWS
 region.
 
-MySQL
+Amazon Aurora
 
- &amp;#42; Version 5.1 (Only available in the following regions: ap-northeast-1,
-   ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): 
-   5.1.73a | 5.1.73b
- * Version 5.5 (Only available in the following regions: ap-northeast-1,
-   ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): 
-   5.5.40 | 5.5.40a
- * Version 5.5 (Available in all regions): 5.5.40b | 5.5.41 | 5.5.42
- * Version 5.6 (Available in all regions): 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b
-   | 5.6.22 | 5.6.23 | 5.6.27
- * Version 5.7 (Available in all regions): 5.7.10
+ &amp;#42; Version 5.6 (only available in AWS regions ap-northeast-1, ap-northeast-2,
+   ap-southeast-2, eu-west-1, us-east-1, us-west-2): 5.6.10a
+   
+   
 
 MariaDB
 
- * Version 10.0 (Available in all regions except AWS GovCloud (US) Region
-   (us-gov-west-1)): 10.0.17
-
-Oracle Database Enterprise Edition (oracle-ee)
-
- * Version 11.2 (Only available in the following regions: ap-northeast-1,
-   ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): 
-   11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7
- * Version 11.2 (Available in all regions): 11.2.0.3.v1 | 11.2.0.3.v2 |
-   11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4
- * Version 12.1 (Available in all regions): 12.1.0.1.v1 | 12.1.0.1.v2 |
-   12.1.0.2.v1
-
-Oracle Database Standard Edition (oracle-se)
-
- * Version 11.2 (Only available in the following regions: us-west-1): 
-   11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7
- * Version 11.2 (Only available in the following regions: eu-central-1,
-   us-west-1): 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 |
-   11.2.0.4.v3 | 11.2.0.4.v4
- * Version 12.1 (Only available in the following regions: eu-central-1,
-   us-west-1): 12.1.0.1.v1 | 12.1.0.1.v2
-
-Oracle Database Standard Edition One (oracle-se1)
-
- * Version 11.2 (Only available in the following regions: us-west-1): 
-   11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7
- * Version 11.2 (Only available in the following regions: eu-central-1,
-   us-west-1): 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 |
-   11.2.0.4.v3 | 11.2.0.4.v4
- * Version 12.1 (Only available in the following regions: eu-central-1,
-   us-west-1): 12.1.0.1.v1 | 12.1.0.1.v2
-
-PostgreSQL
-
- * Version 9.3 (Only available in the following regions: ap-northeast-1,
-   ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): 
-   9.3.1 | 9.3.2
- * Version 9.3 (Available in all regions): 9.3.3 | 9.3.5 | 9.3.6 | 9.3.9 |
-   9.3.10
- * Version 9.4 (Available in all regions): 9.4.1 | 9.4.4 | 9.4.5
+ * Version 10.0 (available in all AWS regions): 10.0.17 | 10.0.24
+   
+   
 
 Microsoft SQL Server Enterprise Edition (sqlserver-ee)
 
- * Version 10.50 (Available in all regions): 10.50.2789.0.v1
- * Version 10.50 (Available in all regions): 10.50.6000.34.v1
- * Version 11.00 (Available in all regions): 11.00.2100.60.v1
- * Version 11.00 (Available in all regions): 11.00.5058.0.v1
+ * Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
+   11.00.5058.0.v1 | 11.00.6020.0.v1
+   
+   
+ * Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
+   10.50.6000.34.v1 | 10.50.6529.0.v1
+   
+   
 
 Microsoft SQL Server Express Edition (sqlserver-ex)
 
- * Version 10.50 (Available in all regions): 10.50.2789.0.v1
- * Version 10.50 (Available in all regions): 10.50.6000.34.v1
- * Version 11.00 (Available in all regions): 11.00.2100.60.v1
- * Version 11.00 (Available in all regions): 11.00.5058.0.v1
- * Version 12.00 (Available in all regions): 12.00.4422.0.v1
+ * Version 12.00 (available in all AWS regions): 12.00.4422.0.v1
+   
+   
+ * Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
+   11.00.5058.0.v1 | 11.00.6020.0.v1
+   
+   
+ * Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
+   10.50.6000.34.v1 | 10.50.6529.0.v1
+   
+   
 
 Microsoft SQL Server Standard Edition (sqlserver-se)
 
- * Version 10.50 (Available in all regions): 10.50.2789.0.v1
- * Version 10.50 (Available in all regions): 10.50.6000.34.v1
- * Version 11.00 (Available in all regions): 11.00.2100.60.v1
- * Version 11.00 (Available in all regions): 11.00.5058.0.v1
- * Version 12.00 (Available in all regions): 12.00.4422.0.v1
+ * Version 12.00 (available in all AWS regions): 12.00.4422.0.v1
+   
+   
+ * Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
+   11.00.5058.0.v1 | 11.00.6020.0.v1
+   
+   
+ * Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
+   10.50.6000.34.v1 | 10.50.6529.0.v1
+   
+   
 
 Microsoft SQL Server Web Edition (sqlserver-web)
 
- * Version 10.50 (Available in all regions): 10.50.2789.0.v1
- * Version 10.50 (Available in all regions): 10.50.6000.34.v1
- * Version 11.00 (Available in all regions): 11.00.2100.60.v1
- * Version 11.00 (Available in all regions): 11.00.5058.0.v1
- * Version 12.00 (Available in all regions): 12.00.4422.0.v1 **/
+ * Version 12.00 (available in all AWS regions): 12.00.4422.0.v1
+   
+   
+ * Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
+   11.00.5058.0.v1 | 11.00.6020.0.v1
+   
+   
+ * Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
+   10.50.6000.34.v1 | 10.50.6529.0.v1
+   
+   
+
+MySQL
+
+ * Version 5.7 (available in all AWS regions): 5.7.10 | 5.7.11
+   
+   
+ * Version 5.6 (available in all AWS regions except ap-northeast-2): 5.6.19a |
+   5.6.19b | 5.6.21 | 5.6.21b | 5.6.22
+   
+   
+ * Version 5.6 (available in all AWS regions): 5.6.23 | 5.6.27 | 5.6.29
+   
+   
+ * Version 5.5 (available in all AWS regions except eu-central-1,
+   ap-northeast-2): 5.5.40 | 5.5.40a
+   
+   
+ * Version 5.5 (available in all AWS regions except ap-northeast-2): 5.5.40b |
+   5.5.41
+   
+   
+ * Version 5.5 (available in all AWS regions): 5.5.42 | 5.5.46
+   
+   
+ * Version 5.1 (available in all AWS regions except eu-central-1,
+   ap-northeast-2): 5.1.73a | 5.1.73b
+   
+   
+
+Oracle Database Enterprise Edition (oracle-ee)
+
+ * Version 12.1 (available in all AWS regions except ap-northeast-2): 
+   12.1.0.1.v1 | 12.1.0.1.v2
+   
+   
+ * Version 12.1 (available in all AWS regions except ap-northeast-2,
+   us-gov-west-1): 12.1.0.1.v3 | 12.1.0.1.v4
+   
+   
+ * Version 12.1 (available in all AWS regions): 12.1.0.2.v1
+   
+   
+ * Version 12.1 (available in all AWS regions except us-gov-west-1): 12.1.0.2.v2
+   | 12.1.0.2.v3
+   
+   
+ * Version 11.2 (available in all AWS regions except eu-central-1,
+   ap-northeast-2): 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |
+   11.2.0.2.v7
+   
+   
+ * Version 11.2 (available in all AWS regions except ap-northeast-2): 
+   11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3
+   
+   
+ * Version 11.2 (available in all AWS regions except ap-northeast-2,
+   us-gov-west-1): 11.2.0.3.v4
+   
+   
+ * Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
+   11.2.0.4.v4
+   
+   
+ * Version 11.2 (available in all AWS regions except us-gov-west-1): 11.2.0.4.v5
+   | 11.2.0.4.v6 | 11.2.0.4.v7
+   
+   
+
+Oracle Database Standard Edition (oracle-se)
+
+ * Version 12.1 (available in all AWS regions except ap-northeast-2): 
+   12.1.0.1.v1 | 12.1.0.1.v2
+   
+   
+ * Version 12.1 (available in all AWS regions except ap-northeast-2,
+   us-gov-west-1): 12.1.0.1.v3 | 12.1.0.1.v4
+   
+   
+ * Version 11.2 (available in all AWS regions except eu-central-1,
+   ap-northeast-2): 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |
+   11.2.0.2.v7
+   
+   
+ * Version 11.2 (available in all AWS regions except ap-northeast-2): 
+   11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3
+   
+   
+ * Version 11.2 (available in all AWS regions except ap-northeast-2,
+   us-gov-west-1): 11.2.0.3.v4
+   
+   
+ * Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
+   11.2.0.4.v4
+   
+   
+ * Version 11.2 (available in all AWS regions except us-gov-west-1): 11.2.0.4.v5
+   | 11.2.0.4.v6 | 11.2.0.4.v7
+   
+   
+
+Oracle Database Standard Edition One (oracle-se1)
+
+ * Version 12.1 (available in all AWS regions except ap-northeast-2): 
+   12.1.0.1.v1 | 12.1.0.1.v2
+   
+   
+ * Version 12.1 (available in all AWS regions except ap-northeast-2,
+   us-gov-west-1): 12.1.0.1.v3 | 12.1.0.1.v4
+   
+   
+ * Version 11.2 (available in all AWS regions except eu-central-1,
+   ap-northeast-2): 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |
+   11.2.0.2.v7
+   
+   
+ * Version 11.2 (available in all AWS regions except ap-northeast-2): 
+   11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3
+   
+   
+ * Version 11.2 (available in all AWS regions except ap-northeast-2,
+   us-gov-west-1): 11.2.0.3.v4
+   
+   
+ * Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
+   11.2.0.4.v4
+   
+   
+ * Version 11.2 (available in all AWS regions except us-gov-west-1): 11.2.0.4.v5
+   | 11.2.0.4.v6 | 11.2.0.4.v7
+   
+   
+
+Oracle Database Standard Edition Two (oracle-se2)
+
+ * Version 12.1 (available in all AWS regions except us-gov-west-1): 12.1.0.2.v2
+   | 12.1.0.2.v3
+   
+   
+
+PostgreSQL
+
+ * Version 9.5 (available in all AWS regions except us-gov-west-1): 9.5.2
+   
+   
+ * Version 9.4 (available in all AWS regions): 9.4.1 | 9.4.4 | 9.4.5
+   
+   
+ * Version 9.4 (available in all AWS regions except us-gov-west-1): 9.4.7
+   
+   
+ * Version 9.3 (available in all AWS regions except eu-central-1,
+   ap-northeast-2): 9.3.1 | 9.3.2
+   
+   
+ * Version 9.3 (available in all AWS regions except ap-northeast-2): 9.3.10 |
+   9.3.3 | 9.3.5 | 9.3.6 | 9.3.9
+   
+   
+ * Version 9.3 (available in all AWS regions except ap-northeast-2,
+   us-gov-west-1): 9.3.12 **/
         EngineVersion?: String;
         /** Indicates that minor engine upgrades will be applied automatically to the DB
 instance during the maintenance window.
@@ -2208,7 +2559,11 @@ Default: The default behavior varies depending on whether a VPC has been
 requested or not. The following list shows the default behavior in each case.
 
  &amp;#42; Default VPC: true
+   
+   
  * VPC: false
+   
+   
 
 If no DB subnet group has been specified as part of the request and the
 PubliclyAccessible value has not been set, the DB instance will be publicly
@@ -2259,7 +2614,7 @@ otherwise false. The default is false. **/
         CopyTagsToSnapshot?: BooleanOptional;
         /** The interval, in seconds, between points when Enhanced Monitoring metrics are
 collected for the DB instance. To disable collecting Enhanced Monitoring
-metrics, specify 0. The default is 60.
+metrics, specify 0. The default is 0.
 
 If MonitoringRoleArn is specified, then you must also set MonitoringInterval to
 a value other than 0.
@@ -2302,14 +2657,24 @@ Constraints:
 
  &amp;#42; Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB
    instance.
+   
+   
  * Can specify a DB instance that is a MySQL Read Replica only if the source is
    running MySQL 5.6.
+   
+   
  * Can specify a DB instance that is a PostgreSQL Read Replica only if the
    source is running PostgreSQL 9.3.5.
+   
+   
  * The specified DB instance must have automatic backups enabled, its backup
    retention period must be greater than 0.
+   
+   
  * If the source DB instance is in the same region as the Read Replica, specify
    a valid DB instance identifier.
+   
+   
  * If the source DB instance is in a different region than the Read Replica,
    specify a valid DB instance ARN. For more information, go to Constructing a
    Amazon RDS Amazon Resource Name (ARN)
@@ -2359,7 +2724,11 @@ Default: The default behavior varies depending on whether a VPC has been
 requested or not. The following list shows the default behavior in each case.
 
  &amp;#42; Default VPC: true
+   
+   
  * VPC: false
+   
+   
 
 If no DB subnet group has been specified as part of the request and the
 PubliclyAccessible value has not been set, the DB instance will be publicly
@@ -2376,13 +2745,23 @@ Constraints:
 
  &amp;#42; Can only be specified if the source DB instance identifier specifies a DB
    instance in another region.
+   
+   
  * The specified DB subnet group must be in the same region in which the
    operation is running.
+   
+   
  * All Read Replicas in one region that are created from the same source DB
-   instance must either: * Specify DB subnet groups from the same VPC. All these
-      Read Replicas will be created in the same VPC.
-    * Not specify a DB subnet group. All these Read
-      Replicas will be created outside of any VPC.
+   instance must either:&gt;
+   
+    * Specify DB subnet groups from the same VPC. All these Read Replicas will
+      be created in the same VPC.
+      
+      
+    * Not specify a DB subnet group. All these Read Replicas will be created
+      outside of any VPC.
+      
+      
    
    
 
@@ -2404,7 +2783,7 @@ otherwise false. The default is false. **/
         CopyTagsToSnapshot?: BooleanOptional;
         /** The interval, in seconds, between points when Enhanced Monitoring metrics are
 collected for the Read Replica. To disable collecting Enhanced Monitoring
-metrics, specify 0. The default is 60.
+metrics, specify 0. The default is 0.
 
 If MonitoringRoleArn is specified, then you must also set MonitoringInterval to
 a value other than 0.
@@ -2434,8 +2813,14 @@ MonitoringRoleArn value. **/
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
 
 This value is stored as a lowercase string. **/
         DBParameterGroupName: String;
@@ -2457,10 +2842,20 @@ parameter group family. **/
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
  * Must not be &quot;Default&quot;
+   
+   
  * Cannot contain spaces
+   
+   
 
 Example: mysecuritygroup **/
         DBSecurityGroupName: String;
@@ -2477,9 +2872,17 @@ Example: mysecuritygroup **/
 Constraints:
 
  &amp;#42; Cannot be null, empty, or blank
+   
+   
  * Must contain from 1 to 255 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
 
 Example: my-snapshot-id **/
         DBSnapshotIdentifier: String;
@@ -2489,7 +2892,11 @@ instance.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBInstanceIdentifier: String;
         Tags?: TagList;
@@ -2542,12 +2949,20 @@ hyphens; it cannot end with a hyphen or contain two consecutive hyphens.
 Constraints:
 
  &amp;#42; If SourceIds are supplied, SourceType must also be provided.
+   
+   
  * If the source type is a DB instance, then a DBInstanceIdentifier must be
    supplied.
+   
+   
  * If the source type is a DB security group, a DBSecurityGroupName must be
    supplied.
+   
+   
  * If the source type is a DB parameter group, a DBParameterGroupName must be
    supplied.
+   
+   
  * If the source type is a DB snapshot, a DBSnapshotIdentifier must be supplied. **/
         SourceIds?: SourceIdsList;
         /** A Boolean value; set to true to activate the subscription, set to false to
@@ -2564,8 +2979,14 @@ create the subscription but not active it. **/
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
 
 Example: myoptiongroup **/
         OptionGroupName: String;
@@ -2704,8 +3125,14 @@ beyond the marker, up to the value specified by MaxRecords . **/
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
 
 This value is stored as a lowercase string. **/
         DBClusterParameterGroupName?: String;
@@ -2766,6 +3193,27 @@ snapshot. **/
         KmsKeyId?: String;
     }
     export interface DBClusterSnapshotAlreadyExistsFault {
+    }
+    export interface DBClusterSnapshotAttribute {
+        /** The name of the manual DB cluster snapshot attribute.
+
+The attribute named restore refers to the list of AWS accounts that have
+permission to copy or restore the manual DB cluster snapshot. For more
+information, see the ModifyDBClusterSnapshotAttribute API action. **/
+        AttributeName?: String;
+        /** The value(s) for the manual DB cluster snapshot attribute.
+
+If the AttributeName field is set to restore , then this element returns a list
+of IDs of the AWS accounts that are authorized to copy or restore the manual DB
+cluster snapshot. If a value of all is in the list, then the manual DB cluster
+snapshot is public and available for any AWS account to copy or restore. **/
+        AttributeValues?: AttributeValueList;
+    }
+    export interface DBClusterSnapshotAttributesResult {
+        /** The identifier of the manual DB cluster snapshot that the attributes apply to. **/
+        DBClusterSnapshotIdentifier?: String;
+        /** The list of attributes and values for the manual DB cluster snapshot. **/
+        DBClusterSnapshotAttributes?: DBClusterSnapshotAttributeList;
     }
     export interface DBClusterSnapshotMessage {
         /** An optional pagination token provided by a previous DescribeDBClusterSnapshots 
@@ -2901,7 +3349,11 @@ Default: The default behavior varies depending on whether a VPC has been
 requested or not. The following list shows the default behavior in each case.
 
  &amp;#42; Default VPC: true
+   
+   
  * VPC: false
+   
+   
 
 If no DB subnet group has been specified as part of the request and the
 PubliclyAccessible value has not been set, the DB instance will be publicly
@@ -3120,15 +3572,16 @@ encryption. **/
     export interface DBSnapshotAttribute {
         /** The name of the manual DB snapshot attribute.
 
-An attribute name of restore applies to the list of AWS accounts that have
-permission to copy or restore the manual DB snapshot. **/
+The attribute named restore refers to the list of AWS accounts that have
+permission to copy or restore the manual DB cluster snapshot. For more
+information, see the ModifyDBSnapshotAttribute API action. **/
         AttributeName?: String;
-        /** The value(s) for the manual DB snapshot attribute.
+        /** The value or values for the manual DB snapshot attribute.
 
-If the AttributeName field is restore , then this field returns a list of AWS
-account ids that are authorized to copy or restore the manual DB snapshot. If a
-value of all is in the list, then the manual DB snapshot is public and available
-for any AWS account to copy or restore. **/
+If the AttributeName field is set to restore , then this element returns a list
+of IDs of the AWS accounts that are authorized to copy or restore the manual DB
+snapshot. If a value of all is in the list, then the manual DB snapshot is
+public and available for any AWS account to copy or restore. **/
         AttributeValues?: AttributeValueList;
     }
     export interface DBSnapshotAttributesResult {
@@ -3188,7 +3641,11 @@ case-sensitive.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBClusterIdentifier: String;
         /** Determines whether a final DB cluster snapshot is created before the DB cluster
@@ -3196,16 +3653,24 @@ is deleted. If true is specified, no DB cluster snapshot is created. If false is
 specified, a DB cluster snapshot is created before the DB cluster is deleted.
 
 You must specify a FinalDBSnapshotIdentifier parameter if SkipFinalSnapshot is 
-false .Default: false **/
+false .
+
+Default: false **/
         SkipFinalSnapshot?: Boolean;
         /** The DB cluster snapshot identifier of the new DB cluster snapshot created when 
 SkipFinalSnapshot is set to false .
 
 Specifying this parameter and also setting the SkipFinalShapshot parameter to
-true results in an error.Constraints:
+true results in an error.
+
+Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         FinalDBSnapshotIdentifier?: String;
     }
@@ -3215,7 +3680,11 @@ true results in an error.Constraints:
 Constraints:
 
  &amp;#42; Must be the name of an existing DB cluster parameter group.
+   
+   
  * You cannot delete a default DB cluster parameter group.
+   
+   
  * Cannot be associated with any DB clusters. **/
         DBClusterParameterGroupName: String;
     }
@@ -3239,7 +3708,11 @@ isn&#x27;t case-sensitive.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBInstanceIdentifier: String;
         /** Determines whether a final DB snapshot is created before the DB instance is
@@ -3253,17 +3726,27 @@ the SkipFinalSnapshot parameter is set to &quot;true&quot;.
 Specify true when deleting a Read Replica.
 
 The FinalDBSnapshotIdentifier parameter must be specified if SkipFinalSnapshot
-is false .Default: false **/
+is false .
+
+Default: false **/
         SkipFinalSnapshot?: Boolean;
         /** The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is
 set to false .
 
 Specifying this parameter and also setting the SkipFinalShapshot parameter to
-true results in an error.Constraints:
+true results in an error.
+
+Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
  * Cannot be specified when deleting a Read Replica. **/
         FinalDBSnapshotIdentifier?: String;
     }
@@ -3276,19 +3759,33 @@ true results in an error.Constraints:
 Constraints:
 
  &amp;#42; Must be the name of an existing DB parameter group
+   
+   
  * You cannot delete a default DB parameter group
+   
+   
  * Cannot be associated with any DB instances **/
         DBParameterGroupName: String;
     }
     export interface DeleteDBSecurityGroupMessage {
         /** The name of the DB security group to delete.
 
-You cannot delete the default DB security group.Constraints:
+You cannot delete the default DB security group.
+
+Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
  * Must not be &quot;Default&quot;
+   
+   
  * Cannot contain spaces **/
         DBSecurityGroupName: String;
     }
@@ -3304,7 +3801,9 @@ Constraints: Must be the name of an existing DB snapshot in the available state.
     export interface DeleteDBSubnetGroupMessage {
         /** The name of the database subnet group to delete.
 
-You cannot delete the default subnet group.Constraints:
+You cannot delete the default subnet group.
+
+Constraints:
 
 Constraints: Must contain no more than 255 alphanumeric characters, periods,
 underscores, spaces, or hyphens. Must not be default.
@@ -3335,7 +3834,11 @@ isn&#x27;t case-sensitive.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         CertificateIdentifier?: String;
         /** This parameter is not currently supported. **/
@@ -3359,7 +3862,11 @@ beyond the marker, up to the value specified by MaxRecords . **/
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBClusterParameterGroupName?: String;
         /** This parameter is not currently supported. **/
@@ -3385,7 +3892,11 @@ for.
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBClusterParameterGroupName: String;
         /** A value that indicates to return only parameters for a specific source.
@@ -3406,15 +3917,26 @@ request. If this parameter is specified, the response includes only records
 beyond the marker, up to the value specified by MaxRecords . **/
         Marker?: String;
     }
+    export interface DescribeDBClusterSnapshotAttributesMessage {
+        /** The identifier for the DB cluster snapshot to describe the attributes for. **/
+        DBClusterSnapshotIdentifier: String;
+    }
+    export interface DescribeDBClusterSnapshotAttributesResult {
+        DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult;
+    }
     export interface DescribeDBClusterSnapshotsMessage {
-        /** A DB cluster identifier to retrieve the list of DB cluster snapshots for. This
+        /** The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This
 parameter cannot be used in conjunction with the DBClusterSnapshotIdentifier 
 parameter. This parameter is not case-sensitive.
 
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBClusterIdentifier?: String;
         /** A specific DB cluster snapshot identifier to describe. This parameter cannot be
@@ -3424,14 +3946,46 @@ as a lowercase string.
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
- * If this is the identifier of an automated snapshot, the SnapshotType 
-   parameter must also be specified. **/
+   
+   
+ * If this identifier is for an automated snapshot, the SnapshotType parameter
+   must also be specified. **/
         DBClusterSnapshotIdentifier?: String;
-        /** The type of DB cluster snapshots that will be returned. Values can be automated 
-or manual . If this parameter is not specified, the returned results will
-include all snapshot types. **/
+        /** The type of DB cluster snapshots to be returned. You can specify one of the
+following values:
+
+ &amp;#42; automated - Return all DB cluster snapshots that have been automatically
+   taken by Amazon RDS for my AWS account.
+   
+   
+ * manual - Return all DB cluster snapshots that have been taken by my AWS
+   account.
+   
+   
+ * shared - Return all manual DB cluster snapshots that have been shared to my
+   AWS account.
+   
+   
+ * public - Return all DB cluster snapshots that have been marked as public.
+   
+   
+
+If you don&#x27;t specify a SnapshotType value, then both automated and manual DB
+cluster snapshots are returned. You can include shared DB cluster snapshots with
+these results by setting the IncludeShared parameter to true . You can include
+public DB cluster snapshots with these results by setting the IncludePublic 
+parameter to true .
+
+The IncludeShared and IncludePublic parameters don&#x27;t apply for SnapshotType 
+values of manual or automated . The IncludePublic parameter doesn&#x27;t apply when 
+SnapshotType is set to shared . The IncludeShared parameter doesn&#x27;t apply when 
+SnapshotType is set to public . **/
         SnapshotType?: String;
         /** This parameter is not currently supported. **/
         Filters?: FilterList;
@@ -3447,6 +4001,20 @@ Constraints: Minimum 20, maximum 100. **/
 request. If this parameter is specified, the response includes only records
 beyond the marker, up to the value specified by MaxRecords . **/
         Marker?: String;
+        /** Set this value to true to include shared manual DB cluster snapshots from other
+AWS accounts that this AWS account has been given permission to copy or restore,
+otherwise set this value to false . The default is false .
+
+You can give an AWS account permission to restore a manual DB cluster snapshot
+from another AWS account by the ModifyDBClusterSnapshotAttribute API action. **/
+        IncludeShared?: Boolean;
+        /** Set this value to true to include manual DB cluster snapshots that are public
+and can be copied or restored by any AWS account, otherwise set this value to 
+false . The default is false . The default is false.
+
+You can share a manual DB cluster snapshot as public by using the 
+ModifyDBClusterSnapshotAttribute API action. **/
+        IncludePublic?: Boolean;
     }
     export interface DescribeDBClustersMessage {
         /** The user-supplied DB cluster identifier. If this parameter is specified,
@@ -3456,7 +4024,11 @@ case-sensitive.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBClusterIdentifier?: String;
         /** This parameter is not currently supported. **/
@@ -3486,7 +4058,11 @@ Example: 5.1.49 **/
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBParameterGroupFamily?: String;
         /** Not currently supported. **/
@@ -3519,7 +4095,11 @@ case-sensitive.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBInstanceIdentifier?: String;
         /** This parameter is not currently supported. **/
@@ -3552,7 +4132,11 @@ want to list.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBInstanceIdentifier: String;
         /** Filters the available log files for log file names that contain the specified
@@ -3586,7 +4170,11 @@ MaxRecords. **/
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBParameterGroupName?: String;
         /** This parameter is not currently supported. **/
@@ -3610,7 +4198,11 @@ beyond the marker, up to the value specified by MaxRecords . **/
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBParameterGroupName: String;
         /** The parameter types to return.
@@ -3653,21 +4245,25 @@ beyond the marker, up to the value specified by MaxRecords . **/
         Marker?: String;
     }
     export interface DescribeDBSnapshotAttributesMessage {
-        /** The identifier for the DB snapshot to modify the attributes for. **/
-        DBSnapshotIdentifier?: String;
+        /** The identifier for the DB snapshot to describe the attributes for. **/
+        DBSnapshotIdentifier: String;
     }
     export interface DescribeDBSnapshotAttributesResult {
         DBSnapshotAttributesResult?: DBSnapshotAttributesResult;
     }
     export interface DescribeDBSnapshotsMessage {
-        /** A DB instance identifier to retrieve the list of DB snapshots for. This
+        /** The ID of the DB instance to retrieve the list of DB snapshots for. This
 parameter cannot be used in conjunction with DBSnapshotIdentifier . This
 parameter is not case-sensitive.
 
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBInstanceIdentifier?: String;
         /** A specific DB snapshot identifier to describe. This parameter cannot be used in
@@ -3677,29 +4273,43 @@ string.
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
- * If this is the identifier of an automated snapshot, the SnapshotType 
-   parameter must also be specified. **/
+   
+   
+ * If this identifier is for an automated snapshot, the SnapshotType parameter
+   must also be specified. **/
         DBSnapshotIdentifier?: String;
-        /** The type of snapshots that will be returned. You can specify one of the
-following values:
+        /** The type of snapshots to be returned. You can specify one of the following
+values:
 
  &amp;#42; automated - Return all DB snapshots that have been automatically taken by
    Amazon RDS for my AWS account.
+   
+   
  * manual - Return all DB snapshots that have been taken by my AWS account.
+   
+   
  * shared - Return all manual DB snapshots that have been shared to my AWS
    account.
+   
+   
  * public - Return all DB snapshots that have been marked as public.
+   
+   
 
-If you do not specify a SnapshotType , then both automated and manual snapshots
-are returned. You can include shared snapshots with these results by setting the 
-IncludeShared parameter to true . You can include public snapshots with these
-results by setting the IncludePublic parameter to true .
+If you don&#x27;t specify a SnapshotType value, then both automated and manual
+snapshots are returned. You can include shared snapshots with these results by
+setting the IncludeShared parameter to true . You can include public snapshots
+with these results by setting the IncludePublic parameter to true .
 
-The IncludeShared and IncludePublic parameters do not apply for SnapshotType 
-values of manual or automated . The IncludePublic parameter does not apply when 
-SnapshotType is set to shared . the IncludeShared parameter does not apply when 
+The IncludeShared and IncludePublic parameters don&#x27;t apply for SnapshotType 
+values of manual or automated . The IncludePublic parameter doesn&#x27;t apply when 
+SnapshotType is set to shared . The IncludeShared parameter doesn&#x27;t apply when 
 SnapshotType is set to public . **/
         SnapshotType?: String;
         /** This parameter is not currently supported. **/
@@ -3716,17 +4326,19 @@ Constraints: Minimum 20, maximum 100. **/
 If this parameter is specified, the response includes only records beyond the
 marker, up to the value specified by MaxRecords . **/
         Marker?: String;
-        /** True to include shared manual DB snapshots from other AWS accounts that this AWS
-account has been given permission to copy or restore; otherwise false. The
-default is false.
+        /** Set this value to true to include shared manual DB snapshots from other AWS
+accounts that this AWS account has been given permission to copy or restore,
+otherwise set this value to false . The default is false .
 
-An AWS account is given permission to restore a manual DB snapshot from another
-AWS account by the ModifyDBSnapshotAttribute API. **/
+You can give an AWS account permission to restore a manual DB snapshot from
+another AWS account by using the ModifyDBSnapshotAttribute API action. **/
         IncludeShared?: Boolean;
-        /** True to include manual DB snapshots that are public and can be copied or
-restored by any AWS account; otherwise false. The default is false.
+        /** Set this value to true to include manual DB snapshots that are public and can be
+copied or restored by any AWS account, otherwise set this value to false . The
+default is false .
 
-An manual DB snapshot is shared as public by the ModifyDBSnapshotAttribute API. **/
+You can share a manual DB snapshot as public by using the 
+ModifyDBSnapshotAttribute API. **/
         IncludePublic?: Boolean;
     }
     export interface DescribeDBSubnetGroupsMessage {
@@ -3826,13 +4438,23 @@ specified, then all sources are included in the response.
 Constraints:
 
  &amp;#42; If SourceIdentifier is supplied, SourceType must also be provided.
+   
+   
  * If the source type is DBInstance , then a DBInstanceIdentifier must be
    supplied.
+   
+   
  * If the source type is DBSecurityGroup , a DBSecurityGroupName must be
    supplied.
+   
+   
  * If the source type is DBParameterGroup , a DBParameterGroupName must be
    supplied.
+   
+   
  * If the source type is DBSnapshot , a DBSnapshotIdentifier must be supplied.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens. **/
         SourceIdentifier?: String;
         /** The event source to retrieve events for. If no value is specified, all events
@@ -4088,7 +4710,11 @@ want to list.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBInstanceIdentifier: String;
         /** The name of the log file to be downloaded. **/
@@ -4102,26 +4728,26 @@ file over 1 MB in size, the file will be truncated at 1 MB in size.
 
 If the NumberOfLines parameter is specified, then the block of lines returned
 can be from the beginning or the end of the log file, depending on the value of
-the Marker parameter. &amp;#42; If neither Marker or NumberOfLines are specified, the
-   entire log file is returned up to a maximum of 10000 lines, starting with the
-   most recent log entries first.
+the Marker parameter.
+
+ &amp;#42; If neither Marker or NumberOfLines are specified, the entire log file is
+   returned up to a maximum of 10000 lines, starting with the most recent log
+   entries first.
    
    
- * If NumberOfLines is specified and Marker is not
-   specified, then the most recent lines from the end of the log file are
-   returned.
+ * If NumberOfLines is specified and Marker is not specified, then the most
+   recent lines from the end of the log file are returned.
    
    
- * If Marker is specified as &quot;0&quot;, then the specified number
-   of lines from the beginning of the log file are returned.
+ * If Marker is specified as &quot;0&quot;, then the specified number of lines from the
+   beginning of the log file are returned.
    
    
- * You can download the log file in blocks of lines by
-   specifying the size of the block using the NumberOfLines parameter, and by
-   specifying a value of &quot;0&quot; for the Marker parameter in your first request.
-   Include the Marker value returned in the response as the Marker value for the
-   next request, continuing until the AdditionalDataPending response element
-   returns false. **/
+ * You can download the log file in blocks of lines by specifying the size of
+   the block using the NumberOfLines parameter, and by specifying a value of &quot;0&quot;
+   for the Marker parameter in your first request. Include the Marker value
+   returned in the response as the Marker value for the next request, continuing
+   until the AdditionalDataPending response element returns false. **/
         NumberOfLines?: Integer;
     }
     export interface EC2SecurityGroup {
@@ -4234,7 +4860,11 @@ case-sensitive.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBClusterIdentifier?: String;
     }
@@ -4309,8 +4939,14 @@ case-sensitive.
 Constraints:
 
  &amp;#42; Must be the identifier for an existing DB cluster.
+   
+   
  * Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens. **/
         DBClusterIdentifier: String;
         /** The new DB cluster identifier for the DB cluster when renaming a DB cluster.
@@ -4319,8 +4955,14 @@ This value is stored as a lowercase string.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
 
 Example: my-cluster2 **/
         NewDBClusterIdentifier?: String;
@@ -4385,8 +5027,14 @@ in the Amazon RDS User Guide.
 Constraints:
 
  &amp;#42; Must be in the format hh24:mi-hh24:mi .
+   
+   
  * Times should be in Universal Coordinated Time (UTC).
+   
+   
  * Must not conflict with the preferred maintenance window.
+   
+   
  * Must be at least 30 minutes. **/
         PreferredBackupWindow?: String;
         /** The weekly time range during which system maintenance can occur, in Universal
@@ -4414,14 +5062,51 @@ Constraints: Minimum 30-minute window. **/
     export interface ModifyDBClusterResult {
         DBCluster?: DBCluster;
     }
+    export interface ModifyDBClusterSnapshotAttributeMessage {
+        /** The identifier for the DB cluster snapshot to modify the attributes for. **/
+        DBClusterSnapshotIdentifier: String;
+        /** The name of the DB cluster snapshot attribute to modify.
+
+To manage authorization for other AWS accounts to copy or restore a manual DB
+cluster snapshot, set this value to restore . **/
+        AttributeName: String;
+        /** A list of DB cluster snapshot attributes to add to the attribute specified by 
+AttributeName .
+
+To authorize other AWS accounts to copy or restore a manual DB cluster snapshot,
+set this list to include one or more AWS account IDs, or all to make the manual
+DB cluster snapshot restorable by any AWS account. Do not add the all value for
+any manual DB cluster snapshots that contain private information that you don&#x27;t
+want available to all AWS accounts. **/
+        ValuesToAdd?: AttributeValueList;
+        /** A list of DB cluster snapshot attributes to remove from the attribute specified
+by AttributeName .
+
+To remove authorization for other AWS accounts to copy or restore a manual DB
+cluster snapshot, set this list to include one or more AWS account identifiers,
+or all to remove authorization for any AWS account to copy or restore the DB
+cluster snapshot. If you specify all , an AWS account whose account ID is
+explicitly added to the restore attribute can still copy or restore a manual DB
+cluster snapshot. **/
+        ValuesToRemove?: AttributeValueList;
+    }
+    export interface ModifyDBClusterSnapshotAttributeResult {
+        DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult;
+    }
     export interface ModifyDBInstanceMessage {
         /** The DB instance identifier. This value is stored as a lowercase string.
 
 Constraints:
 
  &amp;#42; Must be the identifier for an existing DB instance
+   
+   
  * Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBInstanceIdentifier: String;
         /** The new storage capacity of the RDS instance. Changing this setting does not
@@ -4515,7 +5200,11 @@ soon as possible.
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBSecurityGroups?: DBSecurityGroupNameList;
         /** A list of EC2 VPC security groups to authorize on this DB instance. This change
@@ -4524,7 +5213,11 @@ is asynchronously applied as soon as possible.
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         VpcSecurityGroupIds?: VpcSecurityGroupIdList;
         /** Specifies whether the modifications in this request and any pending
@@ -4587,10 +5280,16 @@ Default: Uses existing setting
 Constraints:
 
  &amp;#42; Must be a value from 0 to 35
+   
+   
  * Can be specified for a MySQL Read Replica only if the source is running MySQL
    5.6
+   
+   
  * Can be specified for a PostgreSQL Read Replica only if the source is running
    PostgreSQL 9.3.5
+   
+   
  * Cannot be set to 0 if the DB instance is a source to Read Replicas **/
         BackupRetentionPeriod?: IntegerOptional;
         /** The daily time range during which automated backups are created if automated
@@ -4601,8 +5300,14 @@ asynchronously applied as soon as possible.
 Constraints:
 
  &amp;#42; Must be in the format hh24:mi-hh24:mi
+   
+   
  * Times should be in Universal Time Coordinated (UTC)
+   
+   
  * Must not conflict with the preferred maintenance window
+   
+   
  * Must be at least 30 minutes **/
         PreferredBackupWindow?: String;
         /** The weekly time range (in UTC) during which system maintenance can occur, which
@@ -4711,7 +5416,11 @@ lowercase string.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         NewDBInstanceIdentifier?: String;
         /** Specifies the storage type to be associated with the DB instance.
@@ -4740,7 +5449,7 @@ otherwise false. The default is false. **/
         CopyTagsToSnapshot?: BooleanOptional;
         /** The interval, in seconds, between points when Enhanced Monitoring metrics are
 collected for the DB instance. To disable collecting Enhanced Monitoring
-metrics, specify 0. The default is 60.
+metrics, specify 0. The default is 0.
 
 If MonitoringRoleArn is specified, then you must also set MonitoringInterval to
 a value other than 0.
@@ -4841,8 +5550,14 @@ Valid Values: 0 - 15 **/
 Constraints:
 
  &amp;#42; Must be the name of an existing DB parameter group
+   
+   
  * Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBParameterGroupName: String;
         /** An array of parameter names, values, and the apply method for the parameter
@@ -4863,25 +5578,25 @@ applied when you reboot the DB instance without failover. **/
         /** The name of the DB snapshot attribute to modify.
 
 To manage authorization for other AWS accounts to copy or restore a manual DB
-snapshot, this value is restore . **/
-        AttributeName?: String;
+snapshot, set this value to restore . **/
+        AttributeName: String;
         /** A list of DB snapshot attributes to add to the attribute specified by 
 AttributeName .
 
-To authorize other AWS Accounts to copy or restore a manual snapshot, this is
-one or more AWS account identifiers, or all to make the manual DB snapshot
-restorable by any AWS account. Do not add the all value for any manual DB
-snapshots that contain private information that you do not want to be available
-to all AWS accounts. **/
+To authorize other AWS accounts to copy or restore a manual snapshot, set this
+list to include one or more AWS account IDs, or all to make the manual DB
+snapshot restorable by any AWS account. Do not add the all value for any manual
+DB snapshots that contain private information that you don&#x27;t want available to
+all AWS accounts. **/
         ValuesToAdd?: AttributeValueList;
         /** A list of DB snapshot attributes to remove from the attribute specified by 
 AttributeName .
 
-To remove authorization for other AWS Accounts to copy or restore a manual
-snapshot, this is one or more AWS account identifiers, or all to remove
-authorization for any AWS account to copy or restore the DB snapshot. If you
-specify all , AWS accounts that have their account identifier explicitly added
-to the restore attribute can still copy or restore the manual DB snapshot. **/
+To remove authorization for other AWS accounts to copy or restore a manual
+snapshot, set this list to include one or more AWS account identifiers, or all 
+to remove authorization for any AWS account to copy or restore the DB snapshot.
+If you specify all , an AWS account whose account ID is explicitly added to the 
+restore attribute can still copy or restore the manual DB snapshot. **/
         ValuesToRemove?: AttributeValueList;
     }
     export interface ModifyDBSnapshotAttributeResult {
@@ -5225,9 +5940,17 @@ or is in progress. **/
 Constraints:
 
  &amp;#42; Must be the identifier for an existing Read Replica DB instance
+   
+   
  * Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
 
 Example: mydbinstance **/
         DBInstanceIdentifier: String;
@@ -5253,8 +5976,14 @@ in the Amazon RDS User Guide.
 Constraints:
 
  &amp;#42; Must be in the format hh24:mi-hh24:mi .
+   
+   
  * Times should be in Universal Coordinated Time (UTC).
+   
+   
  * Must not conflict with the preferred maintenance window.
+   
+   
  * Must be at least 30 minutes. **/
         PreferredBackupWindow?: String;
     }
@@ -5287,7 +6016,11 @@ Default: 1 **/
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBInstanceIdentifier: String;
         /** When true , the reboot will be conducted through a MultiAZ failover.
@@ -5421,7 +6154,11 @@ parameter is set to true . **/
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBParameterGroupName: String;
         /** Specifies whether ( true ) or not ( false ) to reset all parameters in the DB
@@ -5474,8 +6211,14 @@ parameter isn&#x27;t case-sensitive.
 Constraints:
 
  &amp;#42; Must contain from 1 to 255 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
 
 Example: my-snapshot-id **/
         DBClusterIdentifier: String;
@@ -5484,7 +6227,11 @@ Example: my-snapshot-id **/
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         SnapshotIdentifier: String;
         /** The database engine to use for the new DB cluster.
@@ -5529,8 +6276,12 @@ will occur:
 
  &amp;#42; If the DB cluster snapshot is encrypted, then the restored DB cluster is
    encrypted using the KMS key that was used to encrypt the DB cluster snapshot.
+   
+   
  * If the DB cluster snapshot is not encrypted, then the restored DB cluster is
    not encrypted.
+   
+   
 
 If SnapshotIdentifier refers to a DB cluster snapshot that is not encrypted, and
 you specify a value for the KmsKeyId parameter, then the restore request is
@@ -5546,7 +6297,11 @@ rejected. **/
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBClusterIdentifier: String;
         /** The identifier of the source DB cluster from which to restore.
@@ -5554,8 +6309,14 @@ Constraints:
 Constraints:
 
  &amp;#42; Must be the identifier of an existing database instance
+   
+   
  * Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         SourceDBClusterIdentifier: String;
         /** The date and time to restore the DB cluster to.
@@ -5565,7 +6326,11 @@ Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
 Constraints:
 
  &amp;#42; Must be before the latest restorable time for the DB instance
+   
+   
  * Cannot be specified if UseLatestRestorableTime parameter is true
+   
+   
 
 Example: 2015-03-07T23:45:00Z **/
         RestoreToTime?: TStamp;
@@ -5612,9 +6377,14 @@ will occur:
 
  &amp;#42; If the DB cluster is encrypted, then the restored DB cluster is encrypted
    using the KMS key that was used to encrypt the source DB cluster.
+   
+   
+ * If the DB cluster is not encrypted, then the restored DB cluster is not
+   encrypted.
+   
+   
 
-If the DB cluster is not encrypted, then the restored DB cluster is not
-encrypted.If DBClusterIdentifier refers to a DB cluster that is note encrypted, then the
+If DBClusterIdentifier refers to a DB cluster that is note encrypted, then the
 restore request is rejected. **/
         KmsKeyId?: String;
     }
@@ -5629,8 +6399,14 @@ Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for SQL
    Server)
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
 
 Example: my-snapshot-id **/
         DBInstanceIdentifier: String;
@@ -5639,8 +6415,14 @@ Example: my-snapshot-id **/
 Constraints:
 
  &amp;#42; Must contain from 1 to 255 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
 
 If you are restoring from a shared manual DB snapshot, the DBSnapshotIdentifier 
 must be the ARN of the shared DB snapshot. **/
@@ -5690,7 +6472,11 @@ Default: The default behavior varies depending on whether a VPC has been
 requested or not. The following list shows the default behavior in each case.
 
  &amp;#42; Default VPC: true
+   
+   
  * VPC: false
+   
+   
 
 If no DB subnet group has been specified as part of the request and the
 PubliclyAccessible value has not been set, the DB instance will be publicly
@@ -5770,8 +6556,14 @@ Directory Service. **/
 Constraints:
 
  &amp;#42; Must be the identifier of an existing database instance
+   
+   
  * Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         SourceDBInstanceIdentifier: String;
         /** The name of the new database instance to be created.
@@ -5779,7 +6571,11 @@ Constraints:
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         TargetDBInstanceIdentifier: String;
         /** The date and time to restore from.
@@ -5789,7 +6585,11 @@ Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
 Constraints:
 
  &amp;#42; Must be before the latest restorable time for the DB instance
+   
+   
  * Cannot be specified if UseLatestRestorableTime parameter is true
+   
+   
 
 Example: 2009-09-07T23:45:00Z **/
         RestoreTime?: TStamp;
@@ -5847,7 +6647,11 @@ Default: The default behavior varies depending on whether a VPC has been
 requested or not. The following list shows the default behavior in each case.
 
  &amp;#42; Default VPC: true
+   
+   
  * VPC: false
+   
+   
 
 If no DB subnet group has been specified as part of the request and the
 PubliclyAccessible value has not been set, the DB instance will be publicly
