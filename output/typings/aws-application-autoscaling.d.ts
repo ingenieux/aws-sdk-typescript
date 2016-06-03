@@ -32,6 +32,18 @@ tasks:
    
    
  * View history of your scaling events
+   
+   
+
+Application Auto Scaling is available in the following regions:
+
+ * us-east-1
+   
+   
+ * us-west-2
+   
+   
+ * eu-west-1
    *
    */
   export class ApplicationAutoScaling extends Service {
@@ -427,11 +439,7 @@ an Amazon ECS service. **/
         PolicyType?: PolicyType;
         /** The configuration for the step scaling policy. This parameter is required if you
 are creating a new policy. For more information, see 
-StepScalingPolicyConfiguration
-[http://docs.aws.amazon.com/http:/docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_StepScalingPolicyConfiguration.html] 
-and StepAdjustment
-[http://docs.aws.amazon.com/http:/docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_StepAdjustment.html] 
-in the Application Auto Scaling API Reference . **/
+StepScalingPolicyConfiguration and StepAdjustment . **/
         StepScalingPolicyConfiguration?: StepScalingPolicyConfiguration;
     }
     export interface PutScalingPolicyResponse {

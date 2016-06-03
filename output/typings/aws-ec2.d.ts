@@ -1910,10 +1910,10 @@ EC2Config service.
      */
     getConsoleOutput(params: EC2.GetConsoleOutputRequest, callback?: (err: any, data: EC2.GetConsoleOutputResult|any) => void): Request<EC2.GetConsoleOutputResult|any,any>;
     /**
-     * Retrieve a JPG-format screenshot of an instance to help with troubleshooting.
+     * Retrieve a JPG-format screenshot of a running instance to help with
+troubleshooting.
 
-For API calls, the returned content is base64-encoded. For command line tools,
-the decoding is performed for you.
+The returned content is base64-encoded.
      *
      */
     getConsoleScreenshot(params: EC2.GetConsoleScreenshotRequest, callback?: (err: any, data: EC2.GetConsoleScreenshotResult|any) => void): Request<EC2.GetConsoleScreenshotResult|any,any>;
@@ -2780,6 +2780,8 @@ the Amazon Elastic Compute Cloud User Guide .
     export type ExportTaskState = string;
     
     export type FilterList = Filter[];
+    
+    export type FleetType = string;
     
     export type Float = number;
     
@@ -8247,7 +8249,7 @@ UnauthorizedOperation . **/
         InstanceId?: String;
         /** The time the output was last updated. **/
         Timestamp?: DateTime;
-        /** The console output, Base64 encoded. If using a command line tool, the tools
+        /** The console output, base64-encoded. If using a command line tool, the tools
 decode the output for you. **/
         Output?: String;
     }
@@ -11284,6 +11286,18 @@ Spot fleet. **/
         /** Indicates how to allocate the target capacity across the Spot pools specified by
 the Spot fleet request. The default is lowestPrice . **/
         AllocationStrategy?: AllocationStrategy;
+        /** The number of units fulfilled by this request compared to the set target
+capacity. **/
+        FulfilledCapacity?: Double;
+        /** The type of request. Indicates whether the fleet will only request the target
+capacity or also attempt to maintain it. When you request a certain target
+capacity, the fleet will only place the required bids. It will not attempt to
+replenish Spot instances if capacity is diminished, nor will it submit bids in
+alternative Spot pools if capacity is not available. When you want to maintain a
+certain target capacity, fleet will place the required bids to meet this target
+capacity. It will also automatically replenish any interrupted instances.
+Default: maintain . **/
+        Type?: FleetType;
     }
     export interface SpotInstanceRequest {
         /** The ID of the Spot instance request. **/
