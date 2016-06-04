@@ -7,14 +7,14 @@
 
 declare module "aws-sdk" {
 
- /**
+  /**
    * apiVersion: 2014-05-15
    * endpointPrefix: route53domains
-   * serviceAbbreviation: 
+   * serviceAbbreviation:
    * signatureVersion: v4
    * protocol: json
    *
-   * 
+   *
    *
    */
   export class Route53Domains extends Service {
@@ -28,7 +28,7 @@ determine the availability of the domain name.
      * @error InvalidInput   
      * @error UnsupportedTLD   
      */
-    checkDomainAvailability(params: Route53Domains.CheckDomainAvailabilityRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.CheckDomainAvailabilityResponse|any) => void): Request<Route53Domains.CheckDomainAvailabilityResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any>;
+    checkDomainAvailability(params:Route53Domains.CheckDomainAvailabilityRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.UnsupportedTLD | any, data:Route53Domains.CheckDomainAvailabilityResponse | any) => void):Request<Route53Domains.CheckDomainAvailabilityResponse | any, Route53Domains.InvalidInput | Route53Domains.UnsupportedTLD | any>;
     /**
      * This operation deletes the specified tags for a domain.
 
@@ -39,7 +39,7 @@ immediately represent all issued operations.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    deleteTagsForDomain(params: Route53Domains.DeleteTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DeleteTagsForDomainResponse|any) => void): Request<Route53Domains.DeleteTagsForDomainResponse|any,Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
+    deleteTagsForDomain(params:Route53Domains.DeleteTagsForDomainRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any, data:Route53Domains.DeleteTagsForDomainResponse | any) => void):Request<Route53Domains.DeleteTagsForDomainResponse | any, Route53Domains.InvalidInput | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any>;
     /**
      * This operation disables automatic renewal of domain registration for the
 specified domain.
@@ -51,7 +51,7 @@ the expiration date passes, and you will lose control of the domain name.
      * @error InvalidInput   
      * @error UnsupportedTLD   
      */
-    disableDomainAutoRenew(params: Route53Domains.DisableDomainAutoRenewRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DisableDomainAutoRenewResponse|any) => void): Request<Route53Domains.DisableDomainAutoRenewResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any>;
+    disableDomainAutoRenew(params:Route53Domains.DisableDomainAutoRenewRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.UnsupportedTLD | any, data:Route53Domains.DisableDomainAutoRenewResponse | any) => void):Request<Route53Domains.DisableDomainAutoRenewResponse | any, Route53Domains.InvalidInput | Route53Domains.UnsupportedTLD | any>;
     /**
      * This operation removes the transfer lock on the domain (specifically the 
 clientTransferProhibited status) to allow domain transfers. We recommend you
@@ -66,7 +66,7 @@ not completed successfully, the domain registrant will be notified by email.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    disableDomainTransferLock(params: Route53Domains.DisableDomainTransferLockRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.DisableDomainTransferLockResponse|any) => void): Request<Route53Domains.DisableDomainTransferLockResponse|any,Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
+    disableDomainTransferLock(params:Route53Domains.DisableDomainTransferLockRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.DuplicateRequest | Route53Domains.TLDRulesViolation | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any, data:Route53Domains.DisableDomainTransferLockResponse | any) => void):Request<Route53Domains.DisableDomainTransferLockResponse | any, Route53Domains.InvalidInput | Route53Domains.DuplicateRequest | Route53Domains.TLDRulesViolation | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any>;
     /**
      * This operation configures Amazon Route 53 to automatically renew the specified
 domain before the domain registration expires. The cost of renewing your domain
@@ -83,7 +83,7 @@ so we can complete processing before the deadline.
      * @error UnsupportedTLD   
      * @error TLDRulesViolation   
      */
-    enableDomainAutoRenew(params: Route53Domains.EnableDomainAutoRenewRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.TLDRulesViolation|any, data: Route53Domains.EnableDomainAutoRenewResponse|any) => void): Request<Route53Domains.EnableDomainAutoRenewResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.TLDRulesViolation|any>;
+    enableDomainAutoRenew(params:Route53Domains.EnableDomainAutoRenewRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.UnsupportedTLD | Route53Domains.TLDRulesViolation | any, data:Route53Domains.EnableDomainAutoRenewResponse | any) => void):Request<Route53Domains.EnableDomainAutoRenewResponse | any, Route53Domains.InvalidInput | Route53Domains.UnsupportedTLD | Route53Domains.TLDRulesViolation | any>;
     /**
      * This operation sets the transfer lock on the domain (specifically the 
 clientTransferProhibited status) to prevent domain transfers. Successful
@@ -97,7 +97,7 @@ domain registrant will be notified by email.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    enableDomainTransferLock(params: Route53Domains.EnableDomainTransferLockRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.EnableDomainTransferLockResponse|any) => void): Request<Route53Domains.EnableDomainTransferLockResponse|any,Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
+    enableDomainTransferLock(params:Route53Domains.EnableDomainTransferLockRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.DuplicateRequest | Route53Domains.TLDRulesViolation | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any, data:Route53Domains.EnableDomainTransferLockResponse | any) => void):Request<Route53Domains.EnableDomainTransferLockResponse | any, Route53Domains.InvalidInput | Route53Domains.DuplicateRequest | Route53Domains.TLDRulesViolation | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any>;
     /**
      * For operations that require confirmation that the email address for the
 registrant contact is valid, such as registering a new domain, this operation
@@ -110,7 +110,7 @@ operation.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    getContactReachabilityStatus(params: Route53Domains.GetContactReachabilityStatusRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.GetContactReachabilityStatusResponse|any) => void): Request<Route53Domains.GetContactReachabilityStatusResponse|any,Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
+    getContactReachabilityStatus(params:Route53Domains.GetContactReachabilityStatusRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any, data:Route53Domains.GetContactReachabilityStatusResponse | any) => void):Request<Route53Domains.GetContactReachabilityStatusResponse | any, Route53Domains.InvalidInput | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any>;
     /**
      * This operation returns detailed information about the domain. The domain&#x27;s
 contact information is also returned as part of the output.
@@ -118,27 +118,27 @@ contact information is also returned as part of the output.
      * @error InvalidInput   
      * @error UnsupportedTLD   
      */
-    getDomainDetail(params: Route53Domains.GetDomainDetailRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.GetDomainDetailResponse|any) => void): Request<Route53Domains.GetDomainDetailResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any>;
+    getDomainDetail(params:Route53Domains.GetDomainDetailRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.UnsupportedTLD | any, data:Route53Domains.GetDomainDetailResponse | any) => void):Request<Route53Domains.GetDomainDetailResponse | any, Route53Domains.InvalidInput | Route53Domains.UnsupportedTLD | any>;
     /**
      * This operation returns the current status of an operation that is not completed.
      *
      * @error InvalidInput   
      */
-    getOperationDetail(params: Route53Domains.GetOperationDetailRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.GetOperationDetailResponse|any) => void): Request<Route53Domains.GetOperationDetailResponse|any,Route53Domains.InvalidInput|any>;
+    getOperationDetail(params:Route53Domains.GetOperationDetailRequest, callback?:(err:Route53Domains.InvalidInput | any, data:Route53Domains.GetOperationDetailResponse | any) => void):Request<Route53Domains.GetOperationDetailResponse | any, Route53Domains.InvalidInput | any>;
     /**
      * This operation returns all the domain names registered with Amazon Route 53 for
 the current AWS account.
      *
      * @error InvalidInput   
      */
-    listDomains(params: Route53Domains.ListDomainsRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.ListDomainsResponse|any) => void): Request<Route53Domains.ListDomainsResponse|any,Route53Domains.InvalidInput|any>;
+    listDomains(params:Route53Domains.ListDomainsRequest, callback?:(err:Route53Domains.InvalidInput | any, data:Route53Domains.ListDomainsResponse | any) => void):Request<Route53Domains.ListDomainsResponse | any, Route53Domains.InvalidInput | any>;
     /**
      * This operation returns the operation IDs of operations that are not yet
 complete.
      *
      * @error InvalidInput   
      */
-    listOperations(params: Route53Domains.ListOperationsRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.ListOperationsResponse|any) => void): Request<Route53Domains.ListOperationsResponse|any,Route53Domains.InvalidInput|any>;
+    listOperations(params:Route53Domains.ListOperationsRequest, callback?:(err:Route53Domains.InvalidInput | any, data:Route53Domains.ListOperationsResponse | any) => void):Request<Route53Domains.ListOperationsResponse | any, Route53Domains.InvalidInput | any>;
     /**
      * This operation returns all of the tags that are associated with the specified
 domain.
@@ -150,7 +150,7 @@ immediately represent all issued operations.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    listTagsForDomain(params: Route53Domains.ListTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.ListTagsForDomainResponse|any) => void): Request<Route53Domains.ListTagsForDomainResponse|any,Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
+    listTagsForDomain(params:Route53Domains.ListTagsForDomainRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any, data:Route53Domains.ListTagsForDomainResponse | any) => void):Request<Route53Domains.ListTagsForDomainResponse | any, Route53Domains.InvalidInput | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any>;
     /**
      * This operation registers a domain. Domains are registered by the AWS registrar
 partner, Gandi. For some top-level domains (TLDs), this operation requires extra
@@ -182,7 +182,7 @@ When you register a domain, Amazon Route 53 does the following:
      * @error DomainLimitExceeded   
      * @error OperationLimitExceeded   
      */
-    registerDomain(params: Route53Domains.RegisterDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any, data: Route53Domains.RegisterDomainResponse|any) => void): Request<Route53Domains.RegisterDomainResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any>;
+    registerDomain(params:Route53Domains.RegisterDomainRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.UnsupportedTLD | Route53Domains.DuplicateRequest | Route53Domains.TLDRulesViolation | Route53Domains.DomainLimitExceeded | Route53Domains.OperationLimitExceeded | any, data:Route53Domains.RegisterDomainResponse | any) => void):Request<Route53Domains.RegisterDomainResponse | any, Route53Domains.InvalidInput | Route53Domains.UnsupportedTLD | Route53Domains.DuplicateRequest | Route53Domains.TLDRulesViolation | Route53Domains.DomainLimitExceeded | Route53Domains.OperationLimitExceeded | any>;
     /**
      * For operations that require confirmation that the email address for the
 registrant contact is valid, such as registering a new domain, this operation
@@ -193,7 +193,7 @@ contact.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    resendContactReachabilityEmail(params: Route53Domains.ResendContactReachabilityEmailRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.ResendContactReachabilityEmailResponse|any) => void): Request<Route53Domains.ResendContactReachabilityEmailResponse|any,Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
+    resendContactReachabilityEmail(params:Route53Domains.ResendContactReachabilityEmailRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any, data:Route53Domains.ResendContactReachabilityEmailResponse | any) => void):Request<Route53Domains.ResendContactReachabilityEmailResponse | any, Route53Domains.InvalidInput | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any>;
     /**
      * This operation returns the AuthCode for the domain. To transfer a domain to
 another registrar, you provide this value to the new registrar.
@@ -201,7 +201,7 @@ another registrar, you provide this value to the new registrar.
      * @error InvalidInput   
      * @error UnsupportedTLD   
      */
-    retrieveDomainAuthCode(params: Route53Domains.RetrieveDomainAuthCodeRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.RetrieveDomainAuthCodeResponse|any) => void): Request<Route53Domains.RetrieveDomainAuthCodeResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any>;
+    retrieveDomainAuthCode(params:Route53Domains.RetrieveDomainAuthCodeRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.UnsupportedTLD | any, data:Route53Domains.RetrieveDomainAuthCodeResponse | any) => void):Request<Route53Domains.RetrieveDomainAuthCodeResponse | any, Route53Domains.InvalidInput | Route53Domains.UnsupportedTLD | any>;
     /**
      * This operation transfers a domain from another registrar to Amazon Route 53.
 When the transfer is complete, the domain is registered with the AWS registrar
@@ -236,7 +236,7 @@ by email.
      * @error DomainLimitExceeded   
      * @error OperationLimitExceeded   
      */
-    transferDomain(params: Route53Domains.TransferDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any, data: Route53Domains.TransferDomainResponse|any) => void): Request<Route53Domains.TransferDomainResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any>;
+    transferDomain(params:Route53Domains.TransferDomainRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.UnsupportedTLD | Route53Domains.DuplicateRequest | Route53Domains.TLDRulesViolation | Route53Domains.DomainLimitExceeded | Route53Domains.OperationLimitExceeded | any, data:Route53Domains.TransferDomainResponse | any) => void):Request<Route53Domains.TransferDomainResponse | any, Route53Domains.InvalidInput | Route53Domains.UnsupportedTLD | Route53Domains.DuplicateRequest | Route53Domains.TLDRulesViolation | Route53Domains.DomainLimitExceeded | Route53Domains.OperationLimitExceeded | any>;
     /**
      * This operation updates the contact information for a particular domain.
 Information for at least one contact (registrant, administrator, or technical)
@@ -252,7 +252,7 @@ completed successfully, the domain registrant will be notified by email.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    updateDomainContact(params: Route53Domains.UpdateDomainContactRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainContactResponse|any) => void): Request<Route53Domains.UpdateDomainContactResponse|any,Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
+    updateDomainContact(params:Route53Domains.UpdateDomainContactRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.DuplicateRequest | Route53Domains.TLDRulesViolation | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any, data:Route53Domains.UpdateDomainContactResponse | any) => void):Request<Route53Domains.UpdateDomainContactResponse | any, Route53Domains.InvalidInput | Route53Domains.DuplicateRequest | Route53Domains.TLDRulesViolation | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any>;
     /**
      * This operation updates the specified domain contact&#x27;s privacy setting. When the
 privacy option is enabled, personal information such as postal or email address
@@ -272,7 +272,7 @@ registrant will be notified by email.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    updateDomainContactPrivacy(params: Route53Domains.UpdateDomainContactPrivacyRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainContactPrivacyResponse|any) => void): Request<Route53Domains.UpdateDomainContactPrivacyResponse|any,Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
+    updateDomainContactPrivacy(params:Route53Domains.UpdateDomainContactPrivacyRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.DuplicateRequest | Route53Domains.TLDRulesViolation | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any, data:Route53Domains.UpdateDomainContactPrivacyResponse | any) => void):Request<Route53Domains.UpdateDomainContactPrivacyResponse | any, Route53Domains.InvalidInput | Route53Domains.DuplicateRequest | Route53Domains.TLDRulesViolation | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any>;
     /**
      * This operation replaces the current set of name servers for the domain with the
 specified set of name servers. If you use Amazon Route 53 as your DNS service,
@@ -289,7 +289,7 @@ successfully, the domain registrant will be notified by email.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    updateDomainNameservers(params: Route53Domains.UpdateDomainNameserversRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateDomainNameserversResponse|any) => void): Request<Route53Domains.UpdateDomainNameserversResponse|any,Route53Domains.InvalidInput|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
+    updateDomainNameservers(params:Route53Domains.UpdateDomainNameserversRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.DuplicateRequest | Route53Domains.TLDRulesViolation | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any, data:Route53Domains.UpdateDomainNameserversResponse | any) => void):Request<Route53Domains.UpdateDomainNameserversResponse | any, Route53Domains.InvalidInput | Route53Domains.DuplicateRequest | Route53Domains.TLDRulesViolation | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any>;
     /**
      * This operation adds or updates tags for a specified domain.
 
@@ -300,104 +300,104 @@ immediately represent all issued operations.
      * @error OperationLimitExceeded   
      * @error UnsupportedTLD   
      */
-    updateTagsForDomain(params: Route53Domains.UpdateTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateTagsForDomainResponse|any) => void): Request<Route53Domains.UpdateTagsForDomainResponse|any,Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
+    updateTagsForDomain(params:Route53Domains.UpdateTagsForDomainRequest, callback?:(err:Route53Domains.InvalidInput | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any, data:Route53Domains.UpdateTagsForDomainResponse | any) => void):Request<Route53Domains.UpdateTagsForDomainResponse | any, Route53Domains.InvalidInput | Route53Domains.OperationLimitExceeded | Route53Domains.UnsupportedTLD | any>;
 
   }
 
   export module Route53Domains {
-    
+
     export type AddressLine = string;
-    
+
     export type Boolean = boolean;
-    
+
     export type City = string;
-    
+
     export type ContactName = string;
-    
+
     export type ContactNumber = string;
-    
+
     export type ContactType = string;
-    
+
     export type CountryCode = string;
-    
+
     export type DNSSec = string;
-    
+
     export type DomainAuthCode = string;
-    
+
     export type DomainAvailability = string;
-    
+
     export type DomainName = string;
-    
+
     export type DomainStatus = string;
-    
+
     export type DomainStatusList = DomainStatus[];
-    
+
     export type DomainSummaryList = DomainSummary[];
-    
+
     export type DurationInYears = number;
-    
+
     export type Email = string;
-    
+
     export type ErrorMessage = string;
-    
+
     export type ExtraParamList = ExtraParam[];
-    
+
     export type ExtraParamName = string;
-    
+
     export type ExtraParamValue = string;
-    
+
     export type FIAuthKey = string;
-    
+
     export type GlueIp = string;
-    
+
     export type GlueIpList = GlueIp[];
-    
+
     export type HostName = string;
-    
+
     export type LangCode = string;
-    
+
     export type NameserverList = Nameserver[];
-    
+
     export type OperationId = string;
-    
+
     export type OperationStatus = string;
-    
+
     export type OperationSummaryList = OperationSummary[];
-    
+
     export type OperationType = string;
-    
+
     export type PageMarker = string;
-    
+
     export type PageMaxItems = number;
-    
+
     export type ReachabilityStatus = string;
-    
+
     export type RegistrarName = string;
-    
+
     export type RegistrarUrl = string;
-    
+
     export type RegistrarWhoIsServer = string;
-    
+
     export type RegistryDomainId = string;
-    
+
     export type Reseller = string;
-    
+
     export type State = string;
-    
+
     export type TagKey = string;
-    
+
     export type TagKeyList = TagKey[];
-    
+
     export type TagList = Tag[];
-    
+
     export type TagValue = string;
-    
+
     export type Timestamp = number;
-    
+
     export type ZipCode = string;
 
     export interface CheckDomainAvailabilityRequest {
-        /** The name of a domain.
+      /** The name of a domain.
 
 Type: String
 
@@ -408,12 +408,12 @@ numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
 supported.
 
 Required: Yes **/
-        DomainName: DomainName;
-        /** Reserved for future use. **/
-        IdnLangCode?: LangCode;
+      DomainName:DomainName;
+      /** Reserved for future use. **/
+      IdnLangCode?:LangCode;
     }
     export interface CheckDomainAvailabilityResponse {
-        /** Whether the domain name is available for registering.
+      /** Whether the domain name is available for registering.
 
 You can only register domains designated as AVAILABLE .
 
@@ -421,22 +421,22 @@ Type: String
 
 Valid values:
 
- &amp;#42; AVAILABLE – The domain name is available.
- * AVAILABLE_RESERVED – The domain name is reserved under specific conditions.
- * AVAILABLE_PREORDER – The domain name is available and can be preordered.
- * UNAVAILABLE – The domain name is not available.
- * UNAVAILABLE_PREMIUM – The domain name is not available.
- * UNAVAILABLE_RESTRICTED – The domain name is forbidden.
- * RESERVED – The domain name has been reserved for another person or
-   organization.
- * DONT_KNOW – The TLD registry didn&#x27;t reply with a definitive answer about
-   whether the domain name is available. Amazon Route 53 can return this
-   response for a variety of reasons, for example, the registry is performing
-   maintenance. Try again later. **/
-        Availability: DomainAvailability;
+       &amp;#42; AVAILABLE – The domain name is available.
+       * AVAILABLE_RESERVED – The domain name is reserved under specific conditions.
+       * AVAILABLE_PREORDER – The domain name is available and can be preordered.
+       * UNAVAILABLE – The domain name is not available.
+       * UNAVAILABLE_PREMIUM – The domain name is not available.
+       * UNAVAILABLE_RESTRICTED – The domain name is forbidden.
+       * RESERVED – The domain name has been reserved for another person or
+       organization.
+       * DONT_KNOW – The TLD registry didn&#x27;t reply with a definitive answer about
+       whether the domain name is available. Amazon Route 53 can return this
+       response for a variety of reasons, for example, the registry is performing
+       maintenance. Try again later. **/
+      Availability:DomainAvailability;
     }
     export interface ContactDetail {
-        /** First name of contact.
+      /** First name of contact.
 
 Type: String
 
@@ -447,8 +447,8 @@ Constraints: Maximum 255 characters.
 Parents: RegistrantContact , AdminContact , TechContact
 
 Required: Yes **/
-        FirstName?: ContactName;
-        /** Last name of contact.
+      FirstName?:ContactName;
+      /** Last name of contact.
 
 Type: String
 
@@ -459,8 +459,8 @@ Constraints: Maximum 255 characters.
 Parents: RegistrantContact , AdminContact , TechContact
 
 Required: Yes **/
-        LastName?: ContactName;
-        /** Indicates whether the contact is a person, company, association, or public
+      LastName?:ContactName;
+      /** Indicates whether the contact is a person, company, association, or public
 organization. If you choose an option other than PERSON , you must enter an
 organization name, and you can&#x27;t enable privacy protection for the contact.
 
@@ -475,8 +475,8 @@ Valid values: PERSON | COMPANY | ASSOCIATION | PUBLIC_BODY
 Parents: RegistrantContact , AdminContact , TechContact
 
 Required: Yes **/
-        ContactType?: ContactType;
-        /** Name of the organization for contact types other than PERSON .
+      ContactType?:ContactType;
+      /** Name of the organization for contact types other than PERSON .
 
 Type: String
 
@@ -487,8 +487,8 @@ Constraints: Maximum 255 characters. Contact type must not be PERSON .
 Parents: RegistrantContact , AdminContact , TechContact
 
 Required: No **/
-        OrganizationName?: ContactName;
-        /** First line of the contact&#x27;s address.
+      OrganizationName?:ContactName;
+      /** First line of the contact&#x27;s address.
 
 Type: String
 
@@ -499,8 +499,8 @@ Constraints: Maximum 255 characters.
 Parents: RegistrantContact , AdminContact , TechContact
 
 Required: Yes **/
-        AddressLine1?: AddressLine;
-        /** Second line of contact&#x27;s address, if any.
+      AddressLine1?:AddressLine;
+      /** Second line of contact&#x27;s address, if any.
 
 Type: String
 
@@ -511,8 +511,8 @@ Constraints: Maximum 255 characters.
 Parents: RegistrantContact , AdminContact , TechContact
 
 Required: No **/
-        AddressLine2?: AddressLine;
-        /** The city of the contact&#x27;s address.
+      AddressLine2?:AddressLine;
+      /** The city of the contact&#x27;s address.
 
 Type: String
 
@@ -523,8 +523,8 @@ Constraints: Maximum 255 characters.
 Parents: RegistrantContact , AdminContact , TechContact
 
 Required: Yes **/
-        City?: City;
-        /** The state or province of the contact&#x27;s city.
+      City?:City;
+      /** The state or province of the contact&#x27;s city.
 
 Type: String
 
@@ -535,8 +535,8 @@ Constraints: Maximum 255 characters.
 Parents: RegistrantContact , AdminContact , TechContact
 
 Required: No **/
-        State?: State;
-        /** Code for the country of the contact&#x27;s address.
+      State?:State;
+      /** Code for the country of the contact&#x27;s address.
 
 Type: String
 
@@ -547,8 +547,8 @@ Constraints: Maximum 255 characters.
 Parents: RegistrantContact , AdminContact , TechContact
 
 Required: Yes **/
-        CountryCode?: CountryCode;
-        /** The zip or postal code of the contact&#x27;s address.
+      CountryCode?:CountryCode;
+      /** The zip or postal code of the contact&#x27;s address.
 
 Type: String
 
@@ -559,8 +559,8 @@ Constraints: Maximum 255 characters.
 Parents: RegistrantContact , AdminContact , TechContact
 
 Required: No **/
-        ZipCode?: ZipCode;
-        /** The phone number of the contact.
+      ZipCode?:ZipCode;
+      /** The phone number of the contact.
 
 Type: String
 
@@ -573,8 +573,8 @@ appear as &quot;+1.1234567890&quot; .
 Parents: RegistrantContact , AdminContact , TechContact
 
 Required: Yes **/
-        PhoneNumber?: ContactNumber;
-        /** Email address of the contact.
+      PhoneNumber?:ContactNumber;
+      /** Email address of the contact.
 
 Type: String
 
@@ -585,8 +585,8 @@ Constraints: Maximum 254 characters.
 Parents: RegistrantContact , AdminContact , TechContact
 
 Required: Yes **/
-        Email?: Email;
-        /** Fax number of the contact.
+      Email?:Email;
+      /** Fax number of the contact.
 
 Type: String
 
@@ -599,8 +599,8 @@ appear as &quot;+1.1234567890&quot; .
 Parents: RegistrantContact , AdminContact , TechContact
 
 Required: No **/
-        Fax?: ContactNumber;
-        /** A list of name-value pairs for parameters required by certain top-level domains.
+      Fax?:ContactNumber;
+      /** A list of name-value pairs for parameters required by certain top-level domains.
 
 Type: Complex
 
@@ -611,10 +611,10 @@ Parents: RegistrantContact , AdminContact , TechContact
 Children: Name , Value
 
 Required: No **/
-        ExtraParams?: ExtraParamList;
+      ExtraParams?:ExtraParamList;
     }
     export interface DeleteTagsForDomainRequest {
-        /** The domain for which you want to delete one or more tags.
+      /** The domain for which you want to delete one or more tags.
 
 The name of a domain.
 
@@ -629,8 +629,8 @@ the beginning or end of a label. To specify an Internationalized Domain Name,
 you must convert the name to Punycode.
 
 Required: Yes **/
-        DomainName: DomainName;
-        /** A list of tag keys to delete.
+      DomainName:DomainName;
+      /** A list of tag keys to delete.
 
 Type: A list that contains the keys of the tags that you want to delete.
 
@@ -639,17 +639,17 @@ Default: None
 Required: No
 
 &#x27; **/
-        TagsToDelete: TagKeyList;
+      TagsToDelete:TagKeyList;
     }
     export interface DeleteTagsForDomainResponse {
     }
     export interface DisableDomainAutoRenewRequest {
-        DomainName: DomainName;
+      DomainName:DomainName;
     }
     export interface DisableDomainAutoRenewResponse {
     }
     export interface DisableDomainTransferLockRequest {
-        /** The name of a domain.
+      /** The name of a domain.
 
 Type: String
 
@@ -660,10 +660,10 @@ numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
 supported.
 
 Required: Yes **/
-        DomainName: DomainName;
+      DomainName:DomainName;
     }
     export interface DisableDomainTransferLockResponse {
-        /** Identifier for tracking the progress of the request. To use this ID to query the
+      /** Identifier for tracking the progress of the request. To use this ID to query the
 operation status, use GetOperationDetail.
 
 Type: String
@@ -671,44 +671,44 @@ Type: String
 Default: None
 
 Constraints: Maximum 255 characters. **/
-        OperationId: OperationId;
+      OperationId:OperationId;
     }
     export interface DomainLimitExceeded {
-        message?: ErrorMessage;
+      message?:ErrorMessage;
     }
     export interface DomainSummary {
-        /** The name of a domain.
+      /** The name of a domain.
 
 Type: String **/
-        DomainName: DomainName;
-        /** Indicates whether the domain is automatically renewed upon expiration.
+      DomainName:DomainName;
+      /** Indicates whether the domain is automatically renewed upon expiration.
 
 Type: Boolean
 
 Valid values: True | False **/
-        AutoRenew?: Boolean;
-        /** Indicates whether a domain is locked from unauthorized transfer to another
+      AutoRenew?:Boolean;
+      /** Indicates whether a domain is locked from unauthorized transfer to another
 party.
 
 Type: Boolean
 
 Valid values: True | False **/
-        TransferLock?: Boolean;
-        /** Expiration date of the domain in Coordinated Universal Time (UTC).
+      TransferLock?:Boolean;
+      /** Expiration date of the domain in Coordinated Universal Time (UTC).
 
 Type: Long **/
-        Expiry?: Timestamp;
+      Expiry?:Timestamp;
     }
     export interface DuplicateRequest {
-        message?: ErrorMessage;
+      message?:ErrorMessage;
     }
     export interface EnableDomainAutoRenewRequest {
-        DomainName: DomainName;
+      DomainName:DomainName;
     }
     export interface EnableDomainAutoRenewResponse {
     }
     export interface EnableDomainTransferLockRequest {
-        /** The name of a domain.
+      /** The name of a domain.
 
 Type: String
 
@@ -719,10 +719,10 @@ numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
 supported.
 
 Required: Yes **/
-        DomainName: DomainName;
+      DomainName:DomainName;
     }
     export interface EnableDomainTransferLockResponse {
-        /** Identifier for tracking the progress of the request. To use this ID to query the
+      /** Identifier for tracking the progress of the request. To use this ID to query the
 operation status, use GetOperationDetail.
 
 Type: String
@@ -730,10 +730,10 @@ Type: String
 Default: None
 
 Constraints: Maximum 255 characters. **/
-        OperationId: OperationId;
+      OperationId:OperationId;
     }
     export interface ExtraParam {
-        /** Name of the additional parameter required by the top-level domain.
+      /** Name of the additional parameter required by the top-level domain.
 
 Type: String
 
@@ -749,8 +749,8 @@ VAT_NUMBER
 Parent: ExtraParams
 
 Required: Yes **/
-        Name: ExtraParamName;
-        /** Values corresponding to the additional parameter names required by some
+      Name:ExtraParamName;
+      /** Values corresponding to the additional parameter names required by some
 top-level domains.
 
 Type: String
@@ -762,10 +762,10 @@ Constraints: Maximum 2048 characters.
 Parent: ExtraParams
 
 Required: Yes **/
-        Value: ExtraParamValue;
+      Value:ExtraParamValue;
     }
     export interface GetContactReachabilityStatusRequest {
-        /** The name of the domain for which you want to know whether the registrant contact
+      /** The name of the domain for which you want to know whether the registrant contact
 has confirmed that the email address is valid.
 
 Type: String
@@ -773,12 +773,12 @@ Type: String
 Default: None
 
 Required: Yes **/
-        domainName?: DomainName;
+      domainName?:DomainName;
     }
     export interface GetContactReachabilityStatusResponse {
-        /** The domain name for which you requested the reachability status. **/
-        domainName?: DomainName;
-        /** Whether the registrant contact has responded. PENDING indicates that we sent the
+      /** The domain name for which you requested the reachability status. **/
+      domainName?:DomainName;
+      /** Whether the registrant contact has responded. PENDING indicates that we sent the
 confirmation email and haven&#x27;t received a response yet, DONE indicates that we
 sent the email and got confirmation from the registrant contact, and EXPIRED 
 indicates that the time limit expired before the registrant contact responded.
@@ -786,10 +786,10 @@ indicates that the time limit expired before the registrant contact responded.
 Type: String
 
 Valid values: PENDING , DONE , EXPIRED **/
-        status?: ReachabilityStatus;
+      status?:ReachabilityStatus;
     }
     export interface GetDomainDetailRequest {
-        /** The name of a domain.
+      /** The name of a domain.
 
 Type: String
 
@@ -800,109 +800,109 @@ numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
 supported.
 
 Required: Yes **/
-        DomainName: DomainName;
+      DomainName:DomainName;
     }
     export interface GetDomainDetailResponse {
-        /** The name of a domain.
+      /** The name of a domain.
 
 Type: String **/
-        DomainName: DomainName;
-        /** The name of the domain.
+      DomainName:DomainName;
+      /** The name of the domain.
 
 Type: String **/
-        Nameservers: NameserverList;
-        /** Specifies whether the domain registration is set to renew automatically.
+      Nameservers:NameserverList;
+      /** Specifies whether the domain registration is set to renew automatically.
 
 Type: Boolean **/
-        AutoRenew?: Boolean;
-        /** Provides details about the domain administrative contact.
+      AutoRenew?:Boolean;
+      /** Provides details about the domain administrative contact.
 
 Type: Complex
 
 Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
 AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
 , Email , Fax , ExtraParams **/
-        AdminContact: ContactDetail;
-        /** Provides details about the domain registrant.
+      AdminContact:ContactDetail;
+      /** Provides details about the domain registrant.
 
 Type: Complex
 
 Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
 AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
 , Email , Fax , ExtraParams **/
-        RegistrantContact: ContactDetail;
-        /** Provides details about the domain technical contact.
+      RegistrantContact:ContactDetail;
+      /** Provides details about the domain technical contact.
 
 Type: Complex
 
 Children: FirstName , MiddleName , LastName , ContactType , OrganizationName , 
 AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber 
 , Email , Fax , ExtraParams **/
-        TechContact: ContactDetail;
-        /** Specifies whether contact information for the admin contact is concealed from
+      TechContact:ContactDetail;
+      /** Specifies whether contact information for the admin contact is concealed from
 WHOIS queries. If the value is true , WHOIS (&quot;who is&quot;) queries will return
 contact information for our registrar partner, Gandi, instead of the contact
 information that you enter.
 
 Type: Boolean **/
-        AdminPrivacy?: Boolean;
-        /** Specifies whether contact information for the registrant contact is concealed
+      AdminPrivacy?:Boolean;
+      /** Specifies whether contact information for the registrant contact is concealed
 from WHOIS queries. If the value is true , WHOIS (&quot;who is&quot;) queries will return
 contact information for our registrar partner, Gandi, instead of the contact
 information that you enter.
 
 Type: Boolean **/
-        RegistrantPrivacy?: Boolean;
-        /** Specifies whether contact information for the tech contact is concealed from
+      RegistrantPrivacy?:Boolean;
+      /** Specifies whether contact information for the tech contact is concealed from
 WHOIS queries. If the value is true , WHOIS (&quot;who is&quot;) queries will return
 contact information for our registrar partner, Gandi, instead of the contact
 information that you enter.
 
 Type: Boolean **/
-        TechPrivacy?: Boolean;
-        /** Name of the registrar of the domain as identified in the registry. Amazon Route
+      TechPrivacy?:Boolean;
+      /** Name of the registrar of the domain as identified in the registry. Amazon Route
 53 domains are registered by registrar Gandi. The value is &quot;GANDI SAS&quot; .
 
 Type: String **/
-        RegistrarName?: RegistrarName;
-        /** The fully qualified name of the WHOIS server that can answer the WHOIS query for
+      RegistrarName?:RegistrarName;
+      /** The fully qualified name of the WHOIS server that can answer the WHOIS query for
 the domain.
 
 Type: String **/
-        WhoIsServer?: RegistrarWhoIsServer;
-        /** Web address of the registrar.
+      WhoIsServer?:RegistrarWhoIsServer;
+      /** Web address of the registrar.
 
 Type: String **/
-        RegistrarUrl?: RegistrarUrl;
-        /** Email address to contact to report incorrect contact information for a domain,
+      RegistrarUrl?:RegistrarUrl;
+      /** Email address to contact to report incorrect contact information for a domain,
 to report that the domain is being used to send spam, to report that someone is
 cybersquatting on a domain name, or report some other type of abuse.
 
 Type: String **/
-        AbuseContactEmail?: Email;
-        /** Phone number for reporting abuse.
+      AbuseContactEmail?:Email;
+      /** Phone number for reporting abuse.
 
 Type: String **/
-        AbuseContactPhone?: ContactNumber;
-        /** Reserved for future use. **/
-        RegistryDomainId?: RegistryDomainId;
-        /** The date when the domain was created as found in the response to a WHOIS query.
+      AbuseContactPhone?:ContactNumber;
+      /** Reserved for future use. **/
+      RegistryDomainId?:RegistryDomainId;
+      /** The date when the domain was created as found in the response to a WHOIS query.
 The date format is Unix time. **/
-        CreationDate?: Timestamp;
-        /** The last updated date of the domain as found in the response to a WHOIS query.
+      CreationDate?:Timestamp;
+      /** The last updated date of the domain as found in the response to a WHOIS query.
 The date format is Unix time. **/
-        UpdatedDate?: Timestamp;
-        /** The date when the registration for the domain is set to expire. The date format
+      UpdatedDate?:Timestamp;
+      /** The date when the registration for the domain is set to expire. The date format
 is Unix time. **/
-        ExpirationDate?: Timestamp;
-        /** Reseller of the domain. Domains registered or transferred using Amazon Route 53
+      ExpirationDate?:Timestamp;
+      /** Reseller of the domain. Domains registered or transferred using Amazon Route 53
 domains will have &quot;Amazon&quot; as the reseller.
 
 Type: String **/
-        Reseller?: Reseller;
-        /** Reserved for future use. **/
-        DnsSec?: DNSSec;
-        /** An array of domain name status codes, also known as Extensible Provisioning
+      Reseller?:Reseller;
+      /** Reserved for future use. **/
+      DnsSec?:DNSSec;
+      /** An array of domain name status codes, also known as Extensible Provisioning
 Protocol (EPP) status codes.
 
 ICANN, the organization that maintains a central database of domain names, has
@@ -917,10 +917,10 @@ status codes . (Search on the ICANN website; web searches sometimes return an
 old version of the document.)
 
 Type: Array of String **/
-        StatusList?: DomainStatusList;
+      StatusList?:DomainStatusList;
     }
     export interface GetOperationDetailRequest {
-        /** The identifier for the operation for which you want to get the status. Amazon
+      /** The identifier for the operation for which you want to get the status. Amazon
 Route 53 returned the identifier in the response to the original request.
 
 Type: String
@@ -928,37 +928,37 @@ Type: String
 Default: None
 
 Required: Yes **/
-        OperationId: OperationId;
+      OperationId:OperationId;
     }
     export interface GetOperationDetailResponse {
-        /** The identifier for the operation.
+      /** The identifier for the operation.
 
 Type: String **/
-        OperationId?: OperationId;
-        /** The current status of the requested operation in the system.
+      OperationId?:OperationId;
+      /** The current status of the requested operation in the system.
 
 Type: String **/
-        Status?: OperationStatus;
-        /** Detailed information on the status including possible errors.
+      Status?:OperationStatus;
+      /** Detailed information on the status including possible errors.
 
 Type: String **/
-        Message?: ErrorMessage;
-        /** The name of a domain.
+      Message?:ErrorMessage;
+      /** The name of a domain.
 
 Type: String **/
-        DomainName?: DomainName;
-        /** The type of operation that was requested.
+      DomainName?:DomainName;
+      /** The type of operation that was requested.
 
 Type: String **/
-        Type?: OperationType;
-        /** The date when the request was submitted. **/
-        SubmittedDate?: Timestamp;
+      Type?:OperationType;
+      /** The date when the request was submitted. **/
+      SubmittedDate?:Timestamp;
     }
     export interface InvalidInput {
-        message?: ErrorMessage;
+      message?:ErrorMessage;
     }
     export interface ListDomainsRequest {
-        /** For an initial request for a list of domains, omit this element. If the number
+      /** For an initial request for a list of domains, omit this element. If the number
 of domains that are associated with the current AWS account is greater than the
 value that you specified for MaxItems , you can use Marker to return additional
 domains. Get the value of NextPageMarker from the previous response, and submit
@@ -971,8 +971,8 @@ Default: None
 Constraints: The marker must match the value specified in the previous request.
 
 Required: No **/
-        Marker?: PageMarker;
-        /** Number of domains to be returned.
+      Marker?:PageMarker;
+      /** Number of domains to be returned.
 
 Type: Integer
 
@@ -981,25 +981,25 @@ Default: 20
 Constraints: A numeral between 1 and 100.
 
 Required: No **/
-        MaxItems?: PageMaxItems;
+      MaxItems?:PageMaxItems;
     }
     export interface ListDomainsResponse {
-        /** A summary of domains.
+      /** A summary of domains.
 
 Type: Complex type containing a list of domain summaries.
 
 Children: AutoRenew , DomainName , Expiry , TransferLock **/
-        Domains: DomainSummaryList;
-        /** If there are more domains than you specified for MaxItems in the request, submit
+      Domains:DomainSummaryList;
+      /** If there are more domains than you specified for MaxItems in the request, submit
 another request and include the value of NextPageMarker in the value of Marker .
 
 Type: String
 
 Parent: Operations **/
-        NextPageMarker?: PageMarker;
+      NextPageMarker?:PageMarker;
     }
     export interface ListOperationsRequest {
-        /** For an initial request for a list of operations, omit this element. If the
+      /** For an initial request for a list of operations, omit this element. If the
 number of operations that are not yet complete is greater than the value that
 you specified for MaxItems , you can use Marker to return additional operations.
 Get the value of NextPageMarker from the previous response, and submit another
@@ -1010,8 +1010,8 @@ Type: String
 Default: None
 
 Required: No **/
-        Marker?: PageMarker;
-        /** Number of domains to be returned.
+      Marker?:PageMarker;
+      /** Number of domains to be returned.
 
 Type: Integer
 
@@ -1020,59 +1020,59 @@ Default: 20
 Constraints: A value between 1 and 100.
 
 Required: No **/
-        MaxItems?: PageMaxItems;
+      MaxItems?:PageMaxItems;
     }
     export interface ListOperationsResponse {
-        /** Lists summaries of the operations.
+      /** Lists summaries of the operations.
 
 Type: Complex type containing a list of operation summaries
 
 Children: OperationId , Status , SubmittedDate , Type **/
-        Operations: OperationSummaryList;
-        /** If there are more operations than you specified for MaxItems in the request,
+      Operations:OperationSummaryList;
+      /** If there are more operations than you specified for MaxItems in the request,
 submit another request and include the value of NextPageMarker in the value of 
 Marker .
 
 Type: String
 
 Parent: Operations **/
-        NextPageMarker?: PageMarker;
+      NextPageMarker?:PageMarker;
     }
     export interface ListTagsForDomainRequest {
-        /** The domain for which you want to get a list of tags. **/
-        DomainName: DomainName;
+      /** The domain for which you want to get a list of tags. **/
+      DomainName:DomainName;
     }
     export interface ListTagsForDomainResponse {
-        /** A list of the tags that are associated with the specified domain.
+      /** A list of the tags that are associated with the specified domain.
 
 Type: A complex type containing a list of tags
 
 Each tag includes the following elements.
 
- &amp;#42; Key
-   
-   The key (name) of a tag.
-   
-   Type: String
-   
-   
- * Value
-   
-   The value of a tag.
-   
-   Type: String **/
-        TagList: TagList;
+       &amp;#42; Key
+
+       The key (name) of a tag.
+
+       Type: String
+
+
+       * Value
+
+       The value of a tag.
+
+       Type: String **/
+      TagList:TagList;
     }
     export interface Nameserver {
-        /** The fully qualified host name of the name server.
+      /** The fully qualified host name of the name server.
 
 Type: String
 
 Constraint: Maximum 255 characterss
 
 Parent: Nameservers **/
-        Name: HostName;
-        /** Glue IP address of a name server entry. Glue IP addresses are required only when
+      Name:HostName;
+      /** Glue IP address of a name server entry. Glue IP addresses are required only when
 the name of the name server is a subdomain of the domain. For example, if your
 domain is example.com and the name server for the domain is ns.example.com, you
 need to specify the IP address for ns.example.com.
@@ -1082,33 +1082,33 @@ Type: List of IP addresses.
 Constraints: The list can contain only one IPv4 and one IPv6 address.
 
 Parent: Nameservers **/
-        GlueIps?: GlueIpList;
+      GlueIps?:GlueIpList;
     }
     export interface OperationLimitExceeded {
-        message?: ErrorMessage;
+      message?:ErrorMessage;
     }
     export interface OperationSummary {
-        /** Identifier returned to track the requested action.
+      /** Identifier returned to track the requested action.
 
 Type: String **/
-        OperationId: OperationId;
-        /** The current status of the requested operation in the system.
+      OperationId:OperationId;
+      /** The current status of the requested operation in the system.
 
 Type: String **/
-        Status: OperationStatus;
-        /** Type of the action requested.
+      Status:OperationStatus;
+      /** Type of the action requested.
 
 Type: String
 
 Valid values: REGISTER_DOMAIN | DELETE_DOMAIN | TRANSFER_IN_DOMAIN | 
 UPDATE_DOMAIN_CONTACT | UPDATE_NAMESERVER | CHANGE_PRIVACY_PROTECTION | 
 DOMAIN_LOCK **/
-        Type: OperationType;
-        /** The date when the request was submitted. **/
-        SubmittedDate: Timestamp;
+      Type:OperationType;
+      /** The date when the request was submitted. **/
+      SubmittedDate:Timestamp;
     }
     export interface RegisterDomainRequest {
-        /** The name of a domain.
+      /** The name of a domain.
 
 Type: String
 
@@ -1119,10 +1119,10 @@ numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
 supported.
 
 Required: Yes **/
-        DomainName: DomainName;
-        /** Reserved for future use. **/
-        IdnLangCode?: LangCode;
-        /** The number of years the domain will be registered. Domains are registered for a
+      DomainName:DomainName;
+      /** Reserved for future use. **/
+      IdnLangCode?:LangCode;
+      /** The number of years the domain will be registered. Domains are registered for a
 minimum of one year. The maximum period depends on the top-level domain.
 
 Type: Integer
@@ -1132,8 +1132,8 @@ Default: 1
 Valid values: Integer from 1 to 10
 
 Required: Yes **/
-        DurationInYears: DurationInYears;
-        /** Indicates whether the domain will be automatically renewed ( true ) or not ( 
+      DurationInYears:DurationInYears;
+      /** Indicates whether the domain will be automatically renewed ( true ) or not ( 
 false ). Autorenewal only takes effect after the account is charged.
 
 Type: Boolean
@@ -1143,8 +1143,8 @@ Valid values: true | false
 Default: true
 
 Required: No **/
-        AutoRenew?: Boolean;
-        /** Provides detailed contact information.
+      AutoRenew?:Boolean;
+      /** Provides detailed contact information.
 
 Type: Complex
 
@@ -1153,8 +1153,8 @@ AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber
 , Email , Fax , ExtraParams
 
 Required: Yes **/
-        AdminContact: ContactDetail;
-        /** Provides detailed contact information.
+      AdminContact:ContactDetail;
+      /** Provides detailed contact information.
 
 Type: Complex
 
@@ -1163,8 +1163,8 @@ AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber
 , Email , Fax , ExtraParams
 
 Required: Yes **/
-        RegistrantContact: ContactDetail;
-        /** Provides detailed contact information.
+      RegistrantContact:ContactDetail;
+      /** Provides detailed contact information.
 
 Type: Complex
 
@@ -1173,8 +1173,8 @@ AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber
 , Email , Fax , ExtraParams
 
 Required: Yes **/
-        TechContact: ContactDetail;
-        /** Whether you want to conceal contact information from WHOIS queries. If you
+      TechContact:ContactDetail;
+      /** Whether you want to conceal contact information from WHOIS queries. If you
 specify true, WHOIS (&quot;who is&quot;) queries will return contact information for our
 registrar partner, Gandi, instead of the contact information that you enter.
 
@@ -1185,8 +1185,8 @@ Default: true
 Valid values: true | false
 
 Required: No **/
-        PrivacyProtectAdminContact?: Boolean;
-        /** Whether you want to conceal contact information from WHOIS queries. If you
+      PrivacyProtectAdminContact?:Boolean;
+      /** Whether you want to conceal contact information from WHOIS queries. If you
 specify true, WHOIS (&quot;who is&quot;) queries will return contact information for our
 registrar partner, Gandi, instead of the contact information that you enter.
 
@@ -1197,8 +1197,8 @@ Default: true
 Valid values: true | false
 
 Required: No **/
-        PrivacyProtectRegistrantContact?: Boolean;
-        /** Whether you want to conceal contact information from WHOIS queries. If you
+      PrivacyProtectRegistrantContact?:Boolean;
+      /** Whether you want to conceal contact information from WHOIS queries. If you
 specify true, WHOIS (&quot;who is&quot;) queries will return contact information for our
 registrar partner, Gandi, instead of the contact information that you enter.
 
@@ -1209,10 +1209,10 @@ Default: true
 Valid values: true | false
 
 Required: No **/
-        PrivacyProtectTechContact?: Boolean;
+      PrivacyProtectTechContact?:Boolean;
     }
     export interface RegisterDomainResponse {
-        /** Identifier for tracking the progress of the request. To use this ID to query the
+      /** Identifier for tracking the progress of the request. To use this ID to query the
 operation status, use GetOperationDetail.
 
 Type: String
@@ -1220,10 +1220,10 @@ Type: String
 Default: None
 
 Constraints: Maximum 255 characters. **/
-        OperationId: OperationId;
+      OperationId:OperationId;
     }
     export interface ResendContactReachabilityEmailRequest {
-        /** The name of the domain for which you want Amazon Route 53 to resend a
+      /** The name of the domain for which you want Amazon Route 53 to resend a
 confirmation email to the registrant contact.
 
 Type: String
@@ -1231,21 +1231,21 @@ Type: String
 Default: None
 
 Required: Yes **/
-        domainName?: DomainName;
+      domainName?:DomainName;
     }
     export interface ResendContactReachabilityEmailResponse {
-        /** The domain name for which you requested a confirmation email. **/
-        domainName?: DomainName;
-        /** The email address for the registrant contact at the time that we sent the
+      /** The domain name for which you requested a confirmation email. **/
+      domainName?:DomainName;
+      /** The email address for the registrant contact at the time that we sent the
 verification email. **/
-        emailAddress?: Email;
-        /** True if the email address for the registrant contact has already been verified,
+      emailAddress?:Email;
+      /** True if the email address for the registrant contact has already been verified,
 and false otherwise. If the email address has already been verified, we don&#x27;t
 send another confirmation email. **/
-        isAlreadyVerified?: Boolean;
+      isAlreadyVerified?:Boolean;
     }
     export interface RetrieveDomainAuthCodeRequest {
-        /** The name of a domain.
+      /** The name of a domain.
 
 Type: String
 
@@ -1256,19 +1256,19 @@ numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
 supported.
 
 Required: Yes **/
-        DomainName: DomainName;
+      DomainName:DomainName;
     }
     export interface RetrieveDomainAuthCodeResponse {
-        /** The authorization code for the domain.
+      /** The authorization code for the domain.
 
 Type: String **/
-        AuthCode: DomainAuthCode;
+      AuthCode:DomainAuthCode;
     }
     export interface TLDRulesViolation {
-        message?: ErrorMessage;
+      message?:ErrorMessage;
     }
     export interface Tag {
-        /** The key (name) of a tag.
+      /** The key (name) of a tag.
 
 Type: String
 
@@ -1279,8 +1279,8 @@ Valid values: A-Z, a-z, 0-9, space, &quot;.:/=+\-@&quot;
 Constraints: Each key can be 1-128 characters long.
 
 Required: Yes **/
-        Key?: TagKey;
-        /** The value of a tag.
+      Key?:TagKey;
+      /** The value of a tag.
 
 Type: String
 
@@ -1291,10 +1291,10 @@ Valid values: A-Z, a-z, 0-9, space, &quot;.:/=+\-@&quot;
 Constraints: Each value can be 0-256 characters long.
 
 Required: Yes **/
-        Value?: TagValue;
+      Value?:TagValue;
     }
     export interface TransferDomainRequest {
-        /** The name of a domain.
+      /** The name of a domain.
 
 Type: String
 
@@ -1305,10 +1305,10 @@ numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
 supported.
 
 Required: Yes **/
-        DomainName: DomainName;
-        /** Reserved for future use. **/
-        IdnLangCode?: LangCode;
-        /** The number of years the domain will be registered. Domains are registered for a
+      DomainName:DomainName;
+      /** Reserved for future use. **/
+      IdnLangCode?:LangCode;
+      /** The number of years the domain will be registered. Domains are registered for a
 minimum of one year. The maximum period depends on the top-level domain.
 
 Type: Integer
@@ -1318,23 +1318,23 @@ Default: 1
 Valid values: Integer from 1 to 10
 
 Required: Yes **/
-        DurationInYears: DurationInYears;
-        /** Contains details for the host and glue IP addresses.
+      DurationInYears:DurationInYears;
+      /** Contains details for the host and glue IP addresses.
 
 Type: Complex
 
 Children: GlueIps , Name
 
 Required: No **/
-        Nameservers?: NameserverList;
-        /** The authorization code for the domain. You get this value from the current
+      Nameservers?:NameserverList;
+      /** The authorization code for the domain. You get this value from the current
 registrar.
 
 Type: String
 
 Required: Yes **/
-        AuthCode?: DomainAuthCode;
-        /** Indicates whether the domain will be automatically renewed (true) or not
+      AuthCode?:DomainAuthCode;
+      /** Indicates whether the domain will be automatically renewed (true) or not
 (false). Autorenewal only takes effect after the account is charged.
 
 Type: Boolean
@@ -1344,8 +1344,8 @@ Valid values: true | false
 Default: true
 
 Required: No **/
-        AutoRenew?: Boolean;
-        /** Provides detailed contact information.
+      AutoRenew?:Boolean;
+      /** Provides detailed contact information.
 
 Type: Complex
 
@@ -1354,8 +1354,8 @@ AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber
 , Email , Fax , ExtraParams
 
 Required: Yes **/
-        AdminContact: ContactDetail;
-        /** Provides detailed contact information.
+      AdminContact:ContactDetail;
+      /** Provides detailed contact information.
 
 Type: Complex
 
@@ -1364,8 +1364,8 @@ AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber
 , Email , Fax , ExtraParams
 
 Required: Yes **/
-        RegistrantContact: ContactDetail;
-        /** Provides detailed contact information.
+      RegistrantContact:ContactDetail;
+      /** Provides detailed contact information.
 
 Type: Complex
 
@@ -1374,8 +1374,8 @@ AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber
 , Email , Fax , ExtraParams
 
 Required: Yes **/
-        TechContact: ContactDetail;
-        /** Whether you want to conceal contact information from WHOIS queries. If you
+      TechContact:ContactDetail;
+      /** Whether you want to conceal contact information from WHOIS queries. If you
 specify true, WHOIS (&quot;who is&quot;) queries will return contact information for our
 registrar partner, Gandi, instead of the contact information that you enter.
 
@@ -1386,8 +1386,8 @@ Default: true
 Valid values: true | false
 
 Required: No **/
-        PrivacyProtectAdminContact?: Boolean;
-        /** Whether you want to conceal contact information from WHOIS queries. If you
+      PrivacyProtectAdminContact?:Boolean;
+      /** Whether you want to conceal contact information from WHOIS queries. If you
 specify true, WHOIS (&quot;who is&quot;) queries will return contact information for our
 registrar partner, Gandi, instead of the contact information that you enter.
 
@@ -1398,8 +1398,8 @@ Default: true
 Valid values: true | false
 
 Required: No **/
-        PrivacyProtectRegistrantContact?: Boolean;
-        /** Whether you want to conceal contact information from WHOIS queries. If you
+      PrivacyProtectRegistrantContact?:Boolean;
+      /** Whether you want to conceal contact information from WHOIS queries. If you
 specify true, WHOIS (&quot;who is&quot;) queries will return contact information for our
 registrar partner, Gandi, instead of the contact information that you enter.
 
@@ -1410,10 +1410,10 @@ Default: true
 Valid values: true | false
 
 Required: No **/
-        PrivacyProtectTechContact?: Boolean;
+      PrivacyProtectTechContact?:Boolean;
     }
     export interface TransferDomainResponse {
-        /** Identifier for tracking the progress of the request. To use this ID to query the
+      /** Identifier for tracking the progress of the request. To use this ID to query the
 operation status, use GetOperationDetail.
 
 Type: String
@@ -1421,13 +1421,13 @@ Type: String
 Default: None
 
 Constraints: Maximum 255 characters. **/
-        OperationId: OperationId;
+      OperationId:OperationId;
     }
     export interface UnsupportedTLD {
-        message?: ErrorMessage;
+      message?:ErrorMessage;
     }
     export interface UpdateDomainContactPrivacyRequest {
-        /** The name of a domain.
+      /** The name of a domain.
 
 Type: String
 
@@ -1438,8 +1438,8 @@ numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
 supported.
 
 Required: Yes **/
-        DomainName: DomainName;
-        /** Whether you want to conceal contact information from WHOIS queries. If you
+      DomainName:DomainName;
+      /** Whether you want to conceal contact information from WHOIS queries. If you
 specify true, WHOIS (&quot;who is&quot;) queries will return contact information for our
 registrar partner, Gandi, instead of the contact information that you enter.
 
@@ -1450,8 +1450,8 @@ Default: None
 Valid values: true | false
 
 Required: No **/
-        AdminPrivacy?: Boolean;
-        /** Whether you want to conceal contact information from WHOIS queries. If you
+      AdminPrivacy?:Boolean;
+      /** Whether you want to conceal contact information from WHOIS queries. If you
 specify true, WHOIS (&quot;who is&quot;) queries will return contact information for our
 registrar partner, Gandi, instead of the contact information that you enter.
 
@@ -1462,8 +1462,8 @@ Default: None
 Valid values: true | false
 
 Required: No **/
-        RegistrantPrivacy?: Boolean;
-        /** Whether you want to conceal contact information from WHOIS queries. If you
+      RegistrantPrivacy?:Boolean;
+      /** Whether you want to conceal contact information from WHOIS queries. If you
 specify true, WHOIS (&quot;who is&quot;) queries will return contact information for our
 registrar partner, Gandi, instead of the contact information that you enter.
 
@@ -1474,10 +1474,10 @@ Default: None
 Valid values: true | false
 
 Required: No **/
-        TechPrivacy?: Boolean;
+      TechPrivacy?:Boolean;
     }
     export interface UpdateDomainContactPrivacyResponse {
-        /** Identifier for tracking the progress of the request. To use this ID to query the
+      /** Identifier for tracking the progress of the request. To use this ID to query the
 operation status, use GetOperationDetail.
 
 Type: String
@@ -1485,10 +1485,10 @@ Type: String
 Default: None
 
 Constraints: Maximum 255 characters. **/
-        OperationId: OperationId;
+      OperationId:OperationId;
     }
     export interface UpdateDomainContactRequest {
-        /** The name of a domain.
+      /** The name of a domain.
 
 Type: String
 
@@ -1499,8 +1499,8 @@ numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
 supported.
 
 Required: Yes **/
-        DomainName: DomainName;
-        /** Provides detailed contact information.
+      DomainName:DomainName;
+      /** Provides detailed contact information.
 
 Type: Complex
 
@@ -1509,8 +1509,8 @@ AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber
 , Email , Fax , ExtraParams
 
 Required: Yes **/
-        AdminContact?: ContactDetail;
-        /** Provides detailed contact information.
+      AdminContact?:ContactDetail;
+      /** Provides detailed contact information.
 
 Type: Complex
 
@@ -1519,8 +1519,8 @@ AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber
 , Email , Fax , ExtraParams
 
 Required: Yes **/
-        RegistrantContact?: ContactDetail;
-        /** Provides detailed contact information.
+      RegistrantContact?:ContactDetail;
+      /** Provides detailed contact information.
 
 Type: Complex
 
@@ -1529,10 +1529,10 @@ AddressLine1 , AddressLine2 , City , State , CountryCode , ZipCode , PhoneNumber
 , Email , Fax , ExtraParams
 
 Required: Yes **/
-        TechContact?: ContactDetail;
+      TechContact?:ContactDetail;
     }
     export interface UpdateDomainContactResponse {
-        /** Identifier for tracking the progress of the request. To use this ID to query the
+      /** Identifier for tracking the progress of the request. To use this ID to query the
 operation status, use GetOperationDetail.
 
 Type: String
@@ -1540,10 +1540,10 @@ Type: String
 Default: None
 
 Constraints: Maximum 255 characters. **/
-        OperationId: OperationId;
+      OperationId:OperationId;
     }
     export interface UpdateDomainNameserversRequest {
-        /** The name of a domain.
+      /** The name of a domain.
 
 Type: String
 
@@ -1554,20 +1554,20 @@ numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
 supported.
 
 Required: Yes **/
-        DomainName: DomainName;
-        /** The authorization key for .fi domains **/
-        FIAuthKey?: FIAuthKey;
-        /** A list of new name servers for the domain.
+      DomainName:DomainName;
+      /** The authorization key for .fi domains **/
+      FIAuthKey?:FIAuthKey;
+      /** A list of new name servers for the domain.
 
 Type: Complex
 
 Children: Name , GlueIps
 
 Required: Yes **/
-        Nameservers: NameserverList;
+      Nameservers:NameserverList;
     }
     export interface UpdateDomainNameserversResponse {
-        /** Identifier for tracking the progress of the request. To use this ID to query the
+      /** Identifier for tracking the progress of the request. To use this ID to query the
 operation status, use GetOperationDetail.
 
 Type: String
@@ -1575,10 +1575,10 @@ Type: String
 Default: None
 
 Constraints: Maximum 255 characters. **/
-        OperationId: OperationId;
+      OperationId:OperationId;
     }
     export interface UpdateTagsForDomainRequest {
-        /** The domain for which you want to add or update tags.
+      /** The domain for which you want to add or update tags.
 
 The name of a domain.
 
@@ -1593,8 +1593,8 @@ the beginning or end of a label. To specify an Internationalized Domain Name,
 you must convert the name to Punycode.
 
 Required: Yes **/
-        DomainName: DomainName;
-        /** A list of the tag keys and values that you want to add or update. If you specify
+      DomainName:DomainName;
+      /** A list of the tag keys and values that you want to add or update. If you specify
 a key that already exists, the corresponding value will be replaced.
 
 Type: A complex type containing a list of tags
@@ -1605,37 +1605,37 @@ Required: No
 
 &#x27;Each tag includes the following elements:
 
- &amp;#42; Key
-   
-   The key (name) of a tag.
-   
-   Type: String
-   
-   Default: None
-   
-   Valid values: Unicode characters including alphanumeric, space, and
-   &quot;.:/=+\-@&quot;
-   
-   Constraints: Each key can be 1-128 characters long.
-   
-   Required: Yes
-   
-   
- * Value
-   
-   The value of a tag.
-   
-   Type: String
-   
-   Default: None
-   
-   Valid values: Unicode characters including alphanumeric, space, and
-   &quot;.:/=+\-@&quot;
-   
-   Constraints: Each value can be 0-256 characters long.
-   
-   Required: Yes **/
-        TagsToUpdate?: TagList;
+       &amp;#42; Key
+
+       The key (name) of a tag.
+
+       Type: String
+
+       Default: None
+
+       Valid values: Unicode characters including alphanumeric, space, and
+       &quot;.:/=+\-@&quot;
+
+       Constraints: Each key can be 1-128 characters long.
+
+       Required: Yes
+
+
+       * Value
+
+       The value of a tag.
+
+       Type: String
+
+       Default: None
+
+       Valid values: Unicode characters including alphanumeric, space, and
+       &quot;.:/=+\-@&quot;
+
+       Constraints: Each value can be 0-256 characters long.
+
+       Required: Yes **/
+      TagsToUpdate?:TagList;
     }
     export interface UpdateTagsForDomainResponse {
     }

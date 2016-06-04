@@ -7,93 +7,93 @@
 
 declare module "aws-sdk" {
 
- /**
+  /**
    * apiVersion: 2015-10-01
    * endpointPrefix: gamelift
-   * serviceAbbreviation: 
+   * serviceAbbreviation:
    * signatureVersion: v4
    * protocol: json
    *
    * Amazon GameLift ServiceWelcome to the Amazon GameLift API Reference . Amazon GameLift is a managed
-Amazon Web Services (AWS) service for developers who need a scalable,
-server-based solution for multiplayer games. Amazon GameLift provides setup and
-deployment of game servers, and handles infrastructure scaling and session
-management. For more information about the GameLift service, including a feature
-overview, getting started guide, and tutorial, see the accompanying Amazon
-GameLift Developer Guide
-[http://docs.aws.amazon.com/gamelift/latest/developerguide/] .
+   Amazon Web Services (AWS) service for developers who need a scalable,
+   server-based solution for multiplayer games. Amazon GameLift provides setup and
+   deployment of game servers, and handles infrastructure scaling and session
+   management. For more information about the GameLift service, including a feature
+   overview, getting started guide, and tutorial, see the accompanying Amazon
+   GameLift Developer Guide
+   [http://docs.aws.amazon.com/gamelift/latest/developerguide/] .
 
-This reference describes the low-level service API for GameLift. You can call
-this API directly or use the AWS SDK [https://aws.amazon.com/tools/] for your
-preferred language. The AWS SDK includes a set of high-level GameLift actions
-multiplayer game sessions. Alternatively, you can use the AWS command-line
-interface [https://aws.amazon.com/cli/] (CLI) tool, which includes commands for
-GameLift. For administrative actions, you can use the Amazon GameLift console.
+   This reference describes the low-level service API for GameLift. You can call
+   this API directly or use the AWS SDK [https://aws.amazon.com/tools/] for your
+   preferred language. The AWS SDK includes a set of high-level GameLift actions
+   multiplayer game sessions. Alternatively, you can use the AWS command-line
+   interface [https://aws.amazon.com/cli/] (CLI) tool, which includes commands for
+   GameLift. For administrative actions, you can use the Amazon GameLift console.
 
-Managing Game and Player Sessions Through GameLift
+   Managing Game and Player Sessions Through GameLift
 
-Call these actions from your game clients and/or services to create and manage
-multiplayer game sessions.
+   Call these actions from your game clients and/or services to create and manage
+   multiplayer game sessions.
 
- &amp;#42; Game sessions * CreateGameSession
-    * DescribeGameSessions
-    * DescribeGameSessionDetails
-    * UpdateGameSession
-   
-   
- * Player sessions * CreatePlayerSession
-    * CreatePlayerSessions
-    * DescribePlayerSessions
-   
-   
- * Other actions: * GetGameSessionLogUrl
-   
-   
+   &amp;#42; Game sessions * CreateGameSession
+   * DescribeGameSessions
+   * DescribeGameSessionDetails
+   * UpdateGameSession
 
-Setting Up Game Servers
 
-Use these administrative actions to configure GameLift to host your game
-servers. When configuring GameLift, you&#x27;ll need to (1) configure a build for
-your game and provide build files, and (2) set up one or more fleets to host
-game sessions.
+   * Player sessions * CreatePlayerSession
+   * CreatePlayerSessions
+   * DescribePlayerSessions
 
- * Build actions: * ListBuilds
-    * CreateBuild
-    * DescribeBuild
-    * UpdateBuild
-    * DeleteBuild
-    * RequestUploadCredentials
-   
-   
- * Fleet actions: * ListFleets
-    * CreateFleet
-    * Describe fleet actions: * DescribeFleetAttributes
-       * DescribeFleetCapacity
-       * DescribeFleetPortSettings
-       * DescribeFleetUtilization
-       * DescribeEC2InstanceLimits
-       * DescribeFleetEvents
-      
-      
-    * Update fleet actions: * UpdateFleetAttributes
-       * UpdateFleetCapacity
-       * UpdateFleetPortSettings
-      
-      
-    * DeleteFleet
-   
-   
- * Alias actions: * ListAliases
-    * CreateAlias
-    * DescribeAlias
-    * UpdateAlias
-    * DeleteAlias
-    * ResolveAlias
-   
-   
- * Scaling policy actions: * PutScalingPolicy
-    * DescribeScalingPolicies
-    * DeleteScalingPolicy
+
+   * Other actions: * GetGameSessionLogUrl
+
+
+
+   Setting Up Game Servers
+
+   Use these administrative actions to configure GameLift to host your game
+   servers. When configuring GameLift, you&#x27;ll need to (1) configure a build for
+   your game and provide build files, and (2) set up one or more fleets to host
+   game sessions.
+
+   * Build actions: * ListBuilds
+   * CreateBuild
+   * DescribeBuild
+   * UpdateBuild
+   * DeleteBuild
+   * RequestUploadCredentials
+
+
+   * Fleet actions: * ListFleets
+   * CreateFleet
+   * Describe fleet actions: * DescribeFleetAttributes
+   * DescribeFleetCapacity
+   * DescribeFleetPortSettings
+   * DescribeFleetUtilization
+   * DescribeEC2InstanceLimits
+   * DescribeFleetEvents
+
+
+   * Update fleet actions: * UpdateFleetAttributes
+   * UpdateFleetCapacity
+   * UpdateFleetPortSettings
+
+
+   * DeleteFleet
+
+
+   * Alias actions: * ListAliases
+   * CreateAlias
+   * DescribeAlias
+   * UpdateAlias
+   * DeleteAlias
+   * ResolveAlias
+
+
+   * Scaling policy actions: * PutScalingPolicy
+   * DescribeScalingPolicies
+   * DeleteScalingPolicy
    *
    */
   export class GameLift extends Service {
@@ -126,7 +126,7 @@ back-off period.
      * @error LimitExceededException The requested operation would cause the resource to exceed the allowed service
 limit. Please resolve the issue before retrying.  
      */
-    createAlias(params: GameLift.CreateAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.ConflictException|GameLift.InternalServiceException|GameLift.LimitExceededException|any, data: GameLift.CreateAliasOutput|any) => void): Request<GameLift.CreateAliasOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.ConflictException|GameLift.InternalServiceException|GameLift.LimitExceededException|any>;
+    createAlias(params:GameLift.CreateAliasInput, callback?:(err:GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.ConflictException | GameLift.InternalServiceException | GameLift.LimitExceededException | any, data:GameLift.CreateAliasOutput | any) => void):Request<GameLift.CreateAliasOutput | any, GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.ConflictException | GameLift.InternalServiceException | GameLift.LimitExceededException | any>;
     /**
      * Initializes a new build record and generates information required to upload a
 game build to Amazon GameLift. Once the build record has been created and is in
@@ -157,7 +157,7 @@ retrying this request.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    createBuild(params: GameLift.CreateBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.ConflictException|GameLift.InternalServiceException|any, data: GameLift.CreateBuildOutput|any) => void): Request<GameLift.CreateBuildOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.ConflictException|GameLift.InternalServiceException|any>;
+    createBuild(params:GameLift.CreateBuildInput, callback?:(err:GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.ConflictException | GameLift.InternalServiceException | any, data:GameLift.CreateBuildOutput | any) => void):Request<GameLift.CreateBuildOutput | any, GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.ConflictException | GameLift.InternalServiceException | any>;
     /**
      * Creates a new fleet to host game servers. A fleet consists of a set of Amazon
 Elastic Compute Cloud (Amazon EC2) instances of a certain type, which defines
@@ -209,7 +209,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    createFleet(params: GameLift.CreateFleetInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.ConflictException|GameLift.LimitExceededException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.CreateFleetOutput|any) => void): Request<GameLift.CreateFleetOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.ConflictException|GameLift.LimitExceededException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
+    createFleet(params:GameLift.CreateFleetInput, callback?:(err:GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.ConflictException | GameLift.LimitExceededException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any, data:GameLift.CreateFleetOutput | any) => void):Request<GameLift.CreateFleetOutput | any, GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.ConflictException | GameLift.LimitExceededException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any>;
     /**
      * Creates a multiplayer game session for players. This action creates a game
 session record and assigns the new session to an instance in the specified
@@ -248,7 +248,7 @@ should not be retried by clients.
 new game session. Such requests should only be retried once the fleet capacity
 has been increased.  
      */
-    createGameSession(params: GameLift.CreateGameSessionInput, callback?: (err: GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidFleetStatusException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.FleetCapacityExceededException|any, data: GameLift.CreateGameSessionOutput|any) => void): Request<GameLift.CreateGameSessionOutput|any,GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidFleetStatusException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.FleetCapacityExceededException|any>;
+    createGameSession(params:GameLift.CreateGameSessionInput, callback?:(err:GameLift.ConflictException | GameLift.InternalServiceException | GameLift.UnauthorizedException | GameLift.InvalidFleetStatusException | GameLift.TerminalRoutingStrategyException | GameLift.InvalidRequestException | GameLift.NotFoundException | GameLift.FleetCapacityExceededException | any, data:GameLift.CreateGameSessionOutput | any) => void):Request<GameLift.CreateGameSessionOutput | any, GameLift.ConflictException | GameLift.InternalServiceException | GameLift.UnauthorizedException | GameLift.InvalidFleetStatusException | GameLift.TerminalRoutingStrategyException | GameLift.InvalidRequestException | GameLift.NotFoundException | GameLift.FleetCapacityExceededException | any>;
     /**
      * Adds a player to a game session and creates a player session record. A game
 session must be in an ACTIVE state, have a creation policy of ALLOW_ALL, and
@@ -278,7 +278,7 @@ correct the invalid parameters before retrying.
      * @error NotFoundException A service resource associated with the request could not be found. Such requests
 should not be retried by clients.  
      */
-    createPlayerSession(params: GameLift.CreatePlayerSessionInput, callback?: (err: GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any, data: GameLift.CreatePlayerSessionOutput|any) => void): Request<GameLift.CreatePlayerSessionOutput|any,GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any>;
+    createPlayerSession(params:GameLift.CreatePlayerSessionInput, callback?:(err:GameLift.InternalServiceException | GameLift.UnauthorizedException | GameLift.InvalidGameSessionStatusException | GameLift.GameSessionFullException | GameLift.TerminalRoutingStrategyException | GameLift.InvalidRequestException | GameLift.NotFoundException | any, data:GameLift.CreatePlayerSessionOutput | any) => void):Request<GameLift.CreatePlayerSessionOutput | any, GameLift.InternalServiceException | GameLift.UnauthorizedException | GameLift.InvalidGameSessionStatusException | GameLift.GameSessionFullException | GameLift.TerminalRoutingStrategyException | GameLift.InvalidRequestException | GameLift.NotFoundException | any>;
     /**
      * Adds a group of players to a game session. Similar to CreatePlayerSession , this
 action allows you to add multiple players in a single call, which is useful for
@@ -310,7 +310,7 @@ correct the invalid parameters before retrying.
      * @error NotFoundException A service resource associated with the request could not be found. Such requests
 should not be retried by clients.  
      */
-    createPlayerSessions(params: GameLift.CreatePlayerSessionsInput, callback?: (err: GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any, data: GameLift.CreatePlayerSessionsOutput|any) => void): Request<GameLift.CreatePlayerSessionsOutput|any,GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any>;
+    createPlayerSessions(params:GameLift.CreatePlayerSessionsInput, callback?:(err:GameLift.InternalServiceException | GameLift.UnauthorizedException | GameLift.InvalidGameSessionStatusException | GameLift.GameSessionFullException | GameLift.TerminalRoutingStrategyException | GameLift.InvalidRequestException | GameLift.NotFoundException | any, data:GameLift.CreatePlayerSessionsOutput | any) => void):Request<GameLift.CreatePlayerSessionsOutput | any, GameLift.InternalServiceException | GameLift.UnauthorizedException | GameLift.InvalidGameSessionStatusException | GameLift.GameSessionFullException | GameLift.TerminalRoutingStrategyException | GameLift.InvalidRequestException | GameLift.NotFoundException | any>;
     /**
      * Deletes an alias. This action removes all record of the alias; game clients
 attempting to access a game server using the deleted alias receive an error. To
@@ -326,7 +326,7 @@ correct the invalid parameters before retrying.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    deleteAlias(params: GameLift.DeleteAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any, data: any) => void): Request<any,GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any>;
+    deleteAlias(params:GameLift.DeleteAliasInput, callback?:(err:GameLift.UnauthorizedException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.InternalServiceException | any, data:any) => void):Request<any, GameLift.UnauthorizedException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.InternalServiceException | any>;
     /**
      * Deletes a build. This action permanently deletes the build record and any
 uploaded build files.
@@ -345,7 +345,7 @@ back-off period.
      * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Please
 correct the invalid parameters before retrying.  
      */
-    deleteBuild(params: GameLift.DeleteBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidRequestException|any, data: any) => void): Request<any,GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidRequestException|any>;
+    deleteBuild(params:GameLift.DeleteBuildInput, callback?:(err:GameLift.UnauthorizedException | GameLift.NotFoundException | GameLift.InternalServiceException | GameLift.InvalidRequestException | any, data:any) => void):Request<any, GameLift.UnauthorizedException | GameLift.NotFoundException | GameLift.InternalServiceException | GameLift.InvalidRequestException | any>;
     /**
      * Deletes everything related to a fleet. Before deleting a fleet, you must set the
 fleet&#x27;s desired capacity to zero. See UpdateFleetCapacity .
@@ -369,7 +369,7 @@ correct the invalid parameters before retrying.
 resource associated with the request and/or the fleet. Please resolve the
 conflict before retrying.  
      */
-    deleteFleet(params: GameLift.DeleteFleetInput, callback?: (err: GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidFleetStatusException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InvalidFleetStatusException|any, data: any) => void): Request<any,GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidFleetStatusException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InvalidFleetStatusException|any>;
+    deleteFleet(params:GameLift.DeleteFleetInput, callback?:(err:GameLift.NotFoundException | GameLift.InternalServiceException | GameLift.InvalidFleetStatusException | GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.InvalidFleetStatusException | any, data:any) => void):Request<any, GameLift.NotFoundException | GameLift.InternalServiceException | GameLift.InvalidFleetStatusException | GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.InvalidFleetStatusException | any>;
     /**
      * Deletes a fleet scaling policy. This action means that the policy is no longer
 in force and removes all record of it. To delete a scaling policy, specify both
@@ -385,7 +385,7 @@ valid authentication credentials.
      * @error NotFoundException A service resource associated with the request could not be found. Such requests
 should not be retried by clients.  
      */
-    deleteScalingPolicy(params: GameLift.DeleteScalingPolicyInput, callback?: (err: GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any, data: any) => void): Request<any,GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any>;
+    deleteScalingPolicy(params:GameLift.DeleteScalingPolicyInput, callback?:(err:GameLift.InternalServiceException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | GameLift.NotFoundException | any, data:any) => void):Request<any, GameLift.InternalServiceException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | GameLift.NotFoundException | any>;
     /**
      * Retrieves properties for a specified alias. To get the alias, specify an alias
 ID. If successful, an Alias object is returned.
@@ -400,7 +400,7 @@ should not be retried by clients.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    describeAlias(params: GameLift.DescribeAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.DescribeAliasOutput|any) => void): Request<GameLift.DescribeAliasOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
+    describeAlias(params:GameLift.DescribeAliasInput, callback?:(err:GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.NotFoundException | GameLift.InternalServiceException | any, data:GameLift.DescribeAliasOutput | any) => void):Request<GameLift.DescribeAliasOutput | any, GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.NotFoundException | GameLift.InternalServiceException | any>;
     /**
      * Retrieves properties for a build. To get a build record, specify a build ID. If
 successful, an object containing the build properties is returned.
@@ -415,7 +415,7 @@ should not be retried by clients.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    describeBuild(params: GameLift.DescribeBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.DescribeBuildOutput|any) => void): Request<GameLift.DescribeBuildOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
+    describeBuild(params:GameLift.DescribeBuildInput, callback?:(err:GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.NotFoundException | GameLift.InternalServiceException | any, data:GameLift.DescribeBuildOutput | any) => void):Request<GameLift.DescribeBuildOutput | any, GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.NotFoundException | GameLift.InternalServiceException | any>;
     /**
      * Retrieves the following information for the specified EC2 instance type:
 
@@ -434,7 +434,7 @@ back-off period.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    describeEC2InstanceLimits(params: GameLift.DescribeEC2InstanceLimitsInput, callback?: (err: GameLift.InvalidRequestException|GameLift.InternalServiceException|GameLift.UnauthorizedException|any, data: GameLift.DescribeEC2InstanceLimitsOutput|any) => void): Request<GameLift.DescribeEC2InstanceLimitsOutput|any,GameLift.InvalidRequestException|GameLift.InternalServiceException|GameLift.UnauthorizedException|any>;
+    describeEC2InstanceLimits(params:GameLift.DescribeEC2InstanceLimitsInput, callback?:(err:GameLift.InvalidRequestException | GameLift.InternalServiceException | GameLift.UnauthorizedException | any, data:GameLift.DescribeEC2InstanceLimitsOutput | any) => void):Request<GameLift.DescribeEC2InstanceLimitsOutput | any, GameLift.InvalidRequestException | GameLift.InternalServiceException | GameLift.UnauthorizedException | any>;
     /**
      * Retrieves fleet properties, including metadata, status, and configuration, for
 one or more fleets. You can request attributes for all fleets, or specify a list
@@ -458,7 +458,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    describeFleetAttributes(params: GameLift.DescribeFleetAttributesInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetAttributesOutput|any) => void): Request<GameLift.DescribeFleetAttributesOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
+    describeFleetAttributes(params:GameLift.DescribeFleetAttributesInput, callback?:(err:GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any, data:GameLift.DescribeFleetAttributesOutput | any) => void):Request<GameLift.DescribeFleetAttributesOutput | any, GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any>;
     /**
      * Retrieves the current status of fleet capacity for one or more fleets. This
 information includes the number of instances that have been requested for the
@@ -483,7 +483,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    describeFleetCapacity(params: GameLift.DescribeFleetCapacityInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetCapacityOutput|any) => void): Request<GameLift.DescribeFleetCapacityOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
+    describeFleetCapacity(params:GameLift.DescribeFleetCapacityInput, callback?:(err:GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any, data:GameLift.DescribeFleetCapacityOutput | any) => void):Request<GameLift.DescribeFleetCapacityOutput | any, GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any>;
     /**
      * Retrieves entries from the fleet event log. You can specify a time range to
 limit the result set. Use the pagination parameters to retrieve results as a set
@@ -500,7 +500,7 @@ valid authentication credentials.
      * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Please
 correct the invalid parameters before retrying.  
      */
-    describeFleetEvents(params: GameLift.DescribeFleetEventsInput, callback?: (err: GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any, data: GameLift.DescribeFleetEventsOutput|any) => void): Request<GameLift.DescribeFleetEventsOutput|any,GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any>;
+    describeFleetEvents(params:GameLift.DescribeFleetEventsInput, callback?:(err:GameLift.NotFoundException | GameLift.InternalServiceException | GameLift.UnauthorizedException | GameLift.InvalidRequestException | any, data:GameLift.DescribeFleetEventsOutput | any) => void):Request<GameLift.DescribeFleetEventsOutput | any, GameLift.NotFoundException | GameLift.InternalServiceException | GameLift.UnauthorizedException | GameLift.InvalidRequestException | any>;
     /**
      * Retrieves the port settings for a fleet. Port settings are used to limit
 incoming traffic access to game servers in the fleet. To get a fleet&#x27;s port
@@ -518,7 +518,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    describeFleetPortSettings(params: GameLift.DescribeFleetPortSettingsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetPortSettingsOutput|any) => void): Request<GameLift.DescribeFleetPortSettingsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
+    describeFleetPortSettings(params:GameLift.DescribeFleetPortSettingsInput, callback?:(err:GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any, data:GameLift.DescribeFleetPortSettingsOutput | any) => void):Request<GameLift.DescribeFleetPortSettingsOutput | any, GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any>;
     /**
      * Retrieves utilization statistics for one or more fleets. You can request
 utilization data for all fleets, or specify a list of one or more fleet IDs.
@@ -541,7 +541,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    describeFleetUtilization(params: GameLift.DescribeFleetUtilizationInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetUtilizationOutput|any) => void): Request<GameLift.DescribeFleetUtilizationOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
+    describeFleetUtilization(params:GameLift.DescribeFleetUtilizationInput, callback?:(err:GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any, data:GameLift.DescribeFleetUtilizationOutput | any) => void):Request<GameLift.DescribeFleetUtilizationOutput | any, GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any>;
     /**
      * Retrieves properties, including the protection policy in force, for one or more
 game sessions. This action can be used in several ways: (1) provide a 
@@ -570,7 +570,7 @@ exception is the message defined in the TerminalRoutingStrategy itself. Such
 requests should only be retried if the routing strategy for the specified alias
 is modified.  
      */
-    describeGameSessionDetails(params: GameLift.DescribeGameSessionDetailsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any, data: GameLift.DescribeGameSessionDetailsOutput|any) => void): Request<GameLift.DescribeGameSessionDetailsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any>;
+    describeGameSessionDetails(params:GameLift.DescribeGameSessionDetailsInput, callback?:(err:GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | GameLift.TerminalRoutingStrategyException | any, data:GameLift.DescribeGameSessionDetailsOutput | any) => void):Request<GameLift.DescribeGameSessionDetailsOutput | any, GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | GameLift.TerminalRoutingStrategyException | any>;
     /**
      * Retrieves properties for one or more game sessions. This action can be used in
 several ways: (1) provide a GameSessionId to request properties for a specific
@@ -598,7 +598,7 @@ exception is the message defined in the TerminalRoutingStrategy itself. Such
 requests should only be retried if the routing strategy for the specified alias
 is modified.  
      */
-    describeGameSessions(params: GameLift.DescribeGameSessionsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any, data: GameLift.DescribeGameSessionsOutput|any) => void): Request<GameLift.DescribeGameSessionsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any>;
+    describeGameSessions(params:GameLift.DescribeGameSessionsInput, callback?:(err:GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | GameLift.TerminalRoutingStrategyException | any, data:GameLift.DescribeGameSessionsOutput | any) => void):Request<GameLift.DescribeGameSessionsOutput | any, GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | GameLift.TerminalRoutingStrategyException | any>;
     /**
      * Retrieves properties for one or more player sessions. This action can be used in
 several ways: (1) provide a PlayerSessionId parameter to request properties for
@@ -623,7 +623,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    describePlayerSessions(params: GameLift.DescribePlayerSessionsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribePlayerSessionsOutput|any) => void): Request<GameLift.DescribePlayerSessionsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
+    describePlayerSessions(params:GameLift.DescribePlayerSessionsInput, callback?:(err:GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any, data:GameLift.DescribePlayerSessionsOutput | any) => void):Request<GameLift.DescribePlayerSessionsOutput | any, GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any>;
     /**
      * Retrieves all scaling policies applied to a fleet.
 
@@ -642,7 +642,7 @@ valid authentication credentials.
      * @error NotFoundException A service resource associated with the request could not be found. Such requests
 should not be retried by clients.  
      */
-    describeScalingPolicies(params: GameLift.DescribeScalingPoliciesInput, callback?: (err: GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any, data: GameLift.DescribeScalingPoliciesOutput|any) => void): Request<GameLift.DescribeScalingPoliciesOutput|any,GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any>;
+    describeScalingPolicies(params:GameLift.DescribeScalingPoliciesInput, callback?:(err:GameLift.InternalServiceException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | GameLift.NotFoundException | any, data:GameLift.DescribeScalingPoliciesOutput | any) => void):Request<GameLift.DescribeScalingPoliciesOutput | any, GameLift.InternalServiceException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | GameLift.NotFoundException | any>;
     /**
      * Retrieves the location of stored game session logs for a specified game session.
 When a game session is terminated, Amazon GameLift automatically stores the logs
@@ -662,7 +662,7 @@ valid authentication credentials.
      * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Please
 correct the invalid parameters before retrying.  
      */
-    getGameSessionLogUrl(params: GameLift.GetGameSessionLogUrlInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any, data: GameLift.GetGameSessionLogUrlOutput|any) => void): Request<GameLift.GetGameSessionLogUrlOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any>;
+    getGameSessionLogUrl(params:GameLift.GetGameSessionLogUrlInput, callback?:(err:GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.UnauthorizedException | GameLift.InvalidRequestException | any, data:GameLift.GetGameSessionLogUrlOutput | any) => void):Request<GameLift.GetGameSessionLogUrlOutput | any, GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.UnauthorizedException | GameLift.InvalidRequestException | any>;
     /**
      * Retrieves a collection of alias records for this AWS account. You can filter the
 result set by alias name and/or routing strategy type. Use the pagination
@@ -678,7 +678,7 @@ correct the invalid parameters before retrying.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    listAliases(params: GameLift.ListAliasesInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any, data: GameLift.ListAliasesOutput|any) => void): Request<GameLift.ListAliasesOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any>;
+    listAliases(params:GameLift.ListAliasesInput, callback?:(err:GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.InternalServiceException | any, data:GameLift.ListAliasesOutput | any) => void):Request<GameLift.ListAliasesOutput | any, GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.InternalServiceException | any>;
     /**
      * Retrieves build records for all builds associated with an AWS account. You can
 filter the result set by build status. Use the pagination parameters to retrieve
@@ -694,7 +694,7 @@ correct the invalid parameters before retrying.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    listBuilds(params: GameLift.ListBuildsInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any, data: GameLift.ListBuildsOutput|any) => void): Request<GameLift.ListBuildsOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any>;
+    listBuilds(params:GameLift.ListBuildsInput, callback?:(err:GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.InternalServiceException | any, data:GameLift.ListBuildsOutput | any) => void):Request<GameLift.ListBuildsOutput | any, GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.InternalServiceException | any>;
     /**
      * Retrieves a collection of fleet records for this AWS account. You can filter the
 result set by build ID. Use the pagination parameters to retrieve results in
@@ -712,7 +712,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    listFleets(params: GameLift.ListFleetsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.ListFleetsOutput|any) => void): Request<GameLift.ListFleetsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
+    listFleets(params:GameLift.ListFleetsInput, callback?:(err:GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any, data:GameLift.ListFleetsOutput | any) => void):Request<GameLift.ListFleetsOutput | any, GameLift.InternalServiceException | GameLift.NotFoundException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any>;
     /**
      * Creates or updates a scaling policy for a fleet. An active scaling policy
 prompts GameLift to track a certain metric for a fleet and automatically change
@@ -747,7 +747,7 @@ valid authentication credentials.
      * @error NotFoundException A service resource associated with the request could not be found. Such requests
 should not be retried by clients.  
      */
-    putScalingPolicy(params: GameLift.PutScalingPolicyInput, callback?: (err: GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any, data: GameLift.PutScalingPolicyOutput|any) => void): Request<GameLift.PutScalingPolicyOutput|any,GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any>;
+    putScalingPolicy(params:GameLift.PutScalingPolicyInput, callback?:(err:GameLift.InternalServiceException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | GameLift.NotFoundException | any, data:GameLift.PutScalingPolicyOutput | any) => void):Request<GameLift.PutScalingPolicyOutput | any, GameLift.InternalServiceException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | GameLift.NotFoundException | any>;
     /**
      * Retrieves a fresh set of upload credentials and the assigned Amazon S3 storage
 location for a specific build. Valid credentials are required to upload your
@@ -773,7 +773,7 @@ should not be retried by clients.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    requestUploadCredentials(params: GameLift.RequestUploadCredentialsInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.RequestUploadCredentialsOutput|any) => void): Request<GameLift.RequestUploadCredentialsOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
+    requestUploadCredentials(params:GameLift.RequestUploadCredentialsInput, callback?:(err:GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.NotFoundException | GameLift.InternalServiceException | any, data:GameLift.RequestUploadCredentialsOutput | any) => void):Request<GameLift.RequestUploadCredentialsOutput | any, GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.NotFoundException | GameLift.InternalServiceException | any>;
     /**
      * Retrieves the fleet ID that a specified alias is currently pointing to.
      *
@@ -792,7 +792,7 @@ is modified.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    resolveAlias(params: GameLift.ResolveAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.TerminalRoutingStrategyException|GameLift.InternalServiceException|any, data: GameLift.ResolveAliasOutput|any) => void): Request<GameLift.ResolveAliasOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.TerminalRoutingStrategyException|GameLift.InternalServiceException|any>;
+    resolveAlias(params:GameLift.ResolveAliasInput, callback?:(err:GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.NotFoundException | GameLift.TerminalRoutingStrategyException | GameLift.InternalServiceException | any, data:GameLift.ResolveAliasOutput | any) => void):Request<GameLift.ResolveAliasOutput | any, GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.NotFoundException | GameLift.TerminalRoutingStrategyException | GameLift.InternalServiceException | any>;
     /**
      * Updates properties for an alias. To update properties, specify the alias ID to
 be updated and provide the information to be changed. To reassign an alias to
@@ -809,7 +809,7 @@ should not be retried by clients.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    updateAlias(params: GameLift.UpdateAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.UpdateAliasOutput|any) => void): Request<GameLift.UpdateAliasOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
+    updateAlias(params:GameLift.UpdateAliasInput, callback?:(err:GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.NotFoundException | GameLift.InternalServiceException | any, data:GameLift.UpdateAliasOutput | any) => void):Request<GameLift.UpdateAliasOutput | any, GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.NotFoundException | GameLift.InternalServiceException | any>;
     /**
      * Updates metadata in a build record, including the build name and version. To
 update the metadata, specify the build ID to update and provide the new values.
@@ -825,7 +825,7 @@ should not be retried by clients.
 request. Such requests can be retried by clients, either immediately or after a
 back-off period.  
      */
-    updateBuild(params: GameLift.UpdateBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.UpdateBuildOutput|any) => void): Request<GameLift.UpdateBuildOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
+    updateBuild(params:GameLift.UpdateBuildInput, callback?:(err:GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.NotFoundException | GameLift.InternalServiceException | any, data:GameLift.UpdateBuildOutput | any) => void):Request<GameLift.UpdateBuildOutput | any, GameLift.UnauthorizedException | GameLift.InvalidRequestException | GameLift.NotFoundException | GameLift.InternalServiceException | any>;
     /**
      * Updates fleet properties, including name and description, for a fleet. To update
 metadata, specify the fleet ID and the property values you want to change. If
@@ -849,7 +849,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    updateFleetAttributes(params: GameLift.UpdateFleetAttributesInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.InvalidFleetStatusException|GameLift.LimitExceededException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.UpdateFleetAttributesOutput|any) => void): Request<GameLift.UpdateFleetAttributesOutput|any,GameLift.NotFoundException|GameLift.ConflictException|GameLift.InvalidFleetStatusException|GameLift.LimitExceededException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
+    updateFleetAttributes(params:GameLift.UpdateFleetAttributesInput, callback?:(err:GameLift.NotFoundException | GameLift.ConflictException | GameLift.InvalidFleetStatusException | GameLift.LimitExceededException | GameLift.InternalServiceException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any, data:GameLift.UpdateFleetAttributesOutput | any) => void):Request<GameLift.UpdateFleetAttributesOutput | any, GameLift.NotFoundException | GameLift.ConflictException | GameLift.InvalidFleetStatusException | GameLift.LimitExceededException | GameLift.InternalServiceException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any>;
     /**
      * Updates capacity settings for a fleet. Use this action to specify the number of
 EC2 instances (hosts) you want this fleet to contain. Before calling this
@@ -887,7 +887,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    updateFleetCapacity(params: GameLift.UpdateFleetCapacityInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.LimitExceededException|GameLift.InvalidFleetStatusException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.UpdateFleetCapacityOutput|any) => void): Request<GameLift.UpdateFleetCapacityOutput|any,GameLift.NotFoundException|GameLift.ConflictException|GameLift.LimitExceededException|GameLift.InvalidFleetStatusException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
+    updateFleetCapacity(params:GameLift.UpdateFleetCapacityInput, callback?:(err:GameLift.NotFoundException | GameLift.ConflictException | GameLift.LimitExceededException | GameLift.InvalidFleetStatusException | GameLift.InternalServiceException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any, data:GameLift.UpdateFleetCapacityOutput | any) => void):Request<GameLift.UpdateFleetCapacityOutput | any, GameLift.NotFoundException | GameLift.ConflictException | GameLift.LimitExceededException | GameLift.InvalidFleetStatusException | GameLift.InternalServiceException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any>;
     /**
      * Updates port settings for a fleet. To update settings, specify the fleet ID to
 be updated and list the permissions you want to update. List the permissions you
@@ -914,7 +914,7 @@ correct the invalid parameters before retrying.
      * @error UnauthorizedException The client failed authentication. Such requests should not be retried without
 valid authentication credentials.  
      */
-    updateFleetPortSettings(params: GameLift.UpdateFleetPortSettingsInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.InvalidFleetStatusException|GameLift.LimitExceededException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.UpdateFleetPortSettingsOutput|any) => void): Request<GameLift.UpdateFleetPortSettingsOutput|any,GameLift.NotFoundException|GameLift.ConflictException|GameLift.InvalidFleetStatusException|GameLift.LimitExceededException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
+    updateFleetPortSettings(params:GameLift.UpdateFleetPortSettingsInput, callback?:(err:GameLift.NotFoundException | GameLift.ConflictException | GameLift.InvalidFleetStatusException | GameLift.LimitExceededException | GameLift.InternalServiceException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any, data:GameLift.UpdateFleetPortSettingsOutput | any) => void):Request<GameLift.UpdateFleetPortSettingsOutput | any, GameLift.NotFoundException | GameLift.ConflictException | GameLift.InvalidFleetStatusException | GameLift.LimitExceededException | GameLift.InternalServiceException | GameLift.InvalidRequestException | GameLift.UnauthorizedException | any>;
     /**
      * Updates game session properties. This includes the session name, maximum player
 count, protection policy, which controls whether or not an active game session
@@ -939,1155 +939,1155 @@ should not be retried by clients without resolving the conflict.
      * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Please
 correct the invalid parameters before retrying.  
      */
-    updateGameSession(params: GameLift.UpdateGameSessionInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.InvalidRequestException|any, data: GameLift.UpdateGameSessionOutput|any) => void): Request<GameLift.UpdateGameSessionOutput|any,GameLift.NotFoundException|GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.InvalidRequestException|any>;
+    updateGameSession(params:GameLift.UpdateGameSessionInput, callback?:(err:GameLift.NotFoundException | GameLift.ConflictException | GameLift.InternalServiceException | GameLift.UnauthorizedException | GameLift.InvalidGameSessionStatusException | GameLift.InvalidRequestException | any, data:GameLift.UpdateGameSessionOutput | any) => void):Request<GameLift.UpdateGameSessionOutput | any, GameLift.NotFoundException | GameLift.ConflictException | GameLift.InternalServiceException | GameLift.UnauthorizedException | GameLift.InvalidGameSessionStatusException | GameLift.InvalidRequestException | any>;
 
   }
 
   export module GameLift {
-    
+
     export type AliasId = string;
-    
+
     export type AliasList = Alias[];
-    
+
     export type BuildId = string;
-    
+
     export type BuildList = Build[];
-    
+
     export type BuildStatus = string;
-    
+
     export type ComparisonOperatorType = string;
-    
+
     export type Double = number;
-    
+
     export type EC2InstanceLimitList = EC2InstanceLimit[];
-    
+
     export type EC2InstanceType = string;
-    
+
     export type EventCode = string;
-    
+
     export type EventList = Event[];
-    
+
     export type FleetAttributesList = FleetAttributes[];
-    
+
     export type FleetCapacityList = FleetCapacity[];
-    
+
     export type FleetId = string;
-    
+
     export type FleetIdList = FleetId[];
-    
+
     export type FleetStatus = string;
-    
+
     export type FleetUtilizationList = FleetUtilization[];
-    
+
     export type FreeText = string;
-    
+
     export type GamePropertyKey = string;
-    
+
     export type GamePropertyList = GameProperty[];
-    
+
     export type GamePropertyValue = string;
-    
+
     export type GameSessionDetailList = GameSessionDetail[];
-    
+
     export type GameSessionId = string;
-    
+
     export type GameSessionList = GameSession[];
-    
+
     export type GameSessionStatus = string;
-    
+
     export type Integer = number;
-    
+
     export type IpAddress = string;
-    
+
     export type IpPermissionsList = IpPermission[];
-    
+
     export type IpProtocol = string;
-    
+
     export type MetricName = string;
-    
+
     export type NonBlankString = string;
-    
+
     export type NonEmptyString = string;
-    
+
     export type NonZeroAndMaxString = string;
-    
+
     export type PlayerIdList = NonZeroAndMaxString[];
-    
+
     export type PlayerSessionCreationPolicy = string;
-    
+
     export type PlayerSessionId = string;
-    
+
     export type PlayerSessionList = PlayerSession[];
-    
+
     export type PlayerSessionStatus = string;
-    
+
     export type PortNumber = number;
-    
+
     export type PositiveInteger = number;
-    
+
     export type PositiveLong = number;
-    
+
     export type ProtectionPolicy = string;
-    
+
     export type RoutingStrategyType = string;
-    
+
     export type ScalingAdjustmentType = string;
-    
+
     export type ScalingPolicyList = ScalingPolicy[];
-    
+
     export type ScalingStatusType = string;
-    
+
     export type StringList = NonZeroAndMaxString[];
-    
+
     export type Timestamp = number;
-    
+
     export type WholeNumber = number;
 
     export interface Alias {
-        /** Unique identifier for a fleet alias. **/
-        AliasId?: AliasId;
-        /** Descriptive label associated with this alias. Alias names do not need to be
+      /** Unique identifier for a fleet alias. **/
+      AliasId?:AliasId;
+      /** Descriptive label associated with this alias. Alias names do not need to be
 unique. **/
-        Name?: FreeText;
-        /** Human-readable description of the alias. **/
-        Description?: FreeText;
-        RoutingStrategy?: RoutingStrategy;
-        /** Time stamp indicating when this object was created. Format is an integer
+      Name?:FreeText;
+      /** Human-readable description of the alias. **/
+      Description?:FreeText;
+      RoutingStrategy?:RoutingStrategy;
+      /** Time stamp indicating when this object was created. Format is an integer
 representing the number of seconds since the Unix epoch (Unix time). **/
-        CreationTime?: Timestamp;
-        /** Time stamp indicating when this object was last modified. Format is an integer
+      CreationTime?:Timestamp;
+      /** Time stamp indicating when this object was last modified. Format is an integer
 representing the number of seconds since the Unix epoch (Unix time). **/
-        LastUpdatedTime?: Timestamp;
+      LastUpdatedTime?:Timestamp;
     }
     export interface AwsCredentials {
-        /** Access key for an AWS account. **/
-        AccessKeyId?: NonEmptyString;
-        /** Secret key for an AWS account. **/
-        SecretAccessKey?: NonEmptyString;
-        /** Token specific to a build ID. **/
-        SessionToken?: NonEmptyString;
+      /** Access key for an AWS account. **/
+      AccessKeyId?:NonEmptyString;
+      /** Secret key for an AWS account. **/
+      SecretAccessKey?:NonEmptyString;
+      /** Token specific to a build ID. **/
+      SessionToken?:NonEmptyString;
     }
     export interface Build {
-        /** Unique identifier for a build. **/
-        BuildId?: BuildId;
-        /** Descriptive label associated with this build. Build names do not need to be
+      /** Unique identifier for a build. **/
+      BuildId?:BuildId;
+      /** Descriptive label associated with this build. Build names do not need to be
 unique. It can be set using CreateBuild or UpdateBuild . **/
-        Name?: FreeText;
-        /** Version associated with this build. Version strings do not need to be unique to
+      Name?:FreeText;
+      /** Version associated with this build. Version strings do not need to be unique to
 a build. This value can be set using CreateBuild or UpdateBuild . **/
-        Version?: FreeText;
-        /** Current status of the build. Possible build states include: &amp;#42; INITIALIZED: A new
-   build has been defined, but no files have been uploaded. You cannot create
-   fleets for builds that are in this state. When a build is successfully
-   created, the build state is set to this value.
- * READY: The game
-   build has been successfully uploaded. You can now create new fleets for this
-   build.
- * FAILED: The game
-   build upload failed. You cannot create new fleets for this build. **/
-        Status?: BuildStatus;
-        /** File size of the uploaded game build, expressed in bytes. When the build state
+      Version?:FreeText;
+      /** Current status of the build. Possible build states include: &amp;#42; INITIALIZED: A new
+       build has been defined, but no files have been uploaded. You cannot create
+       fleets for builds that are in this state. When a build is successfully
+       created, the build state is set to this value.
+       * READY: The game
+       build has been successfully uploaded. You can now create new fleets for this
+       build.
+       * FAILED: The game
+       build upload failed. You cannot create new fleets for this build. **/
+      Status?:BuildStatus;
+      /** File size of the uploaded game build, expressed in bytes. When the build state
 is INITIALIZED, this value is 0. **/
-        SizeOnDisk?: PositiveLong;
-        /** Time stamp indicating when this object was created. Format is an integer
+      SizeOnDisk?:PositiveLong;
+      /** Time stamp indicating when this object was created. Format is an integer
 representing the number of seconds since the Unix epoch (Unix time). **/
-        CreationTime?: Timestamp;
+      CreationTime?:Timestamp;
     }
     export interface ConflictException {
-        Message?: NonEmptyString;
+      Message?:NonEmptyString;
     }
     export interface CreateAliasInput {
-        /** Descriptive label associated with this alias. Alias names do not need to be
+      /** Descriptive label associated with this alias. Alias names do not need to be
 unique. **/
-        Name: NonZeroAndMaxString;
-        /** Human-readable description of the alias. **/
-        Description?: NonZeroAndMaxString;
-        /** Object specifying the fleet and routing type to use for the alias. **/
-        RoutingStrategy: RoutingStrategy;
+      Name:NonZeroAndMaxString;
+      /** Human-readable description of the alias. **/
+      Description?:NonZeroAndMaxString;
+      /** Object specifying the fleet and routing type to use for the alias. **/
+      RoutingStrategy:RoutingStrategy;
     }
     export interface CreateAliasOutput {
-        /** Object containing the newly created alias record. **/
-        Alias?: Alias;
+      /** Object containing the newly created alias record. **/
+      Alias?:Alias;
     }
     export interface CreateBuildInput {
-        /** Descriptive label associated with this build. Build names do not need to be
+      /** Descriptive label associated with this build. Build names do not need to be
 unique. A build name can be changed later using UpdateBuild . **/
-        Name?: NonZeroAndMaxString;
-        /** Version associated with this build. Version strings do not need to be unique to
+      Name?:NonZeroAndMaxString;
+      /** Version associated with this build. Version strings do not need to be unique to
 a build. A build version can be changed later using UpdateBuild . **/
-        Version?: NonZeroAndMaxString;
-        StorageLocation?: S3Location;
+      Version?:NonZeroAndMaxString;
+      StorageLocation?:S3Location;
     }
     export interface CreateBuildOutput {
-        /** Set of properties for the newly created build. **/
-        Build?: Build;
-        /** AWS credentials required when uploading a game build to the storage location.
+      /** Set of properties for the newly created build. **/
+      Build?:Build;
+      /** AWS credentials required when uploading a game build to the storage location.
 These credentials have a limited lifespan and are valid only for the build they
 were issued for. If you need to get fresh credentials, call 
 RequestUploadCredentials . **/
-        UploadCredentials?: AwsCredentials;
-        /** Amazon S3 path and key, identifying where the game build files are stored. **/
-        StorageLocation?: S3Location;
+      UploadCredentials?:AwsCredentials;
+      /** Amazon S3 path and key, identifying where the game build files are stored. **/
+      StorageLocation?:S3Location;
     }
     export interface CreateFleetInput {
-        /** Descriptive label associated with this fleet. Fleet names do not need to be
+      /** Descriptive label associated with this fleet. Fleet names do not need to be
 unique. **/
-        Name: NonZeroAndMaxString;
-        /** Human-readable description of the fleet. **/
-        Description?: NonZeroAndMaxString;
-        /** Unique identifier for the build you want the new fleet to use. **/
-        BuildId: BuildId;
-        /** Path to the launch executable for the game server. A game server is built into a 
+      Name:NonZeroAndMaxString;
+      /** Human-readable description of the fleet. **/
+      Description?:NonZeroAndMaxString;
+      /** Unique identifier for the build you want the new fleet to use. **/
+      BuildId:BuildId;
+      /** Path to the launch executable for the game server. A game server is built into a 
 C:\game drive. This value must be expressed as C:\game\[launchpath] . Example:
 If, when built, your game server files are in a folder called &quot;MyGame&quot;, your log
 path should be C:\game\MyGame\server.exe . **/
-        ServerLaunchPath: NonZeroAndMaxString;
-        /** Parameters required to launch your game server. These parameters should be
+      ServerLaunchPath:NonZeroAndMaxString;
+      /** Parameters required to launch your game server. These parameters should be
 expressed as a string of command-line parameters. Example: &quot;+sv_port 33435
 +start_lobby&quot;. **/
-        ServerLaunchParameters?: NonZeroAndMaxString;
-        /** Path to game-session log files generated by your game server. Once a game
+      ServerLaunchParameters?:NonZeroAndMaxString;
+      /** Path to game-session log files generated by your game server. Once a game
 session has been terminated, Amazon GameLift captures and stores the logs on
 Amazon S3. Use the GameLift console to access the stored logs. **/
-        LogPaths?: StringList;
-        /** Type of EC2 instances used in the fleet. EC2 instance types define the CPU,
+      LogPaths?:StringList;
+      /** Type of EC2 instances used in the fleet. EC2 instance types define the CPU,
 memory, storage, and networking capacity of the fleetaposs hosts. Amazon
 GameLift supports the EC2 instance types listed below. See Amazon EC2 Instance
 Types [https://aws.amazon.com/ec2/instance-types/] for detailed descriptions of
 each. **/
-        EC2InstanceType: EC2InstanceType;
-        /** Access limits for incoming traffic. Setting these values limits game server
+      EC2InstanceType:EC2InstanceType;
+      /** Access limits for incoming traffic. Setting these values limits game server
 access to incoming traffic using specified IP ranges and port numbers. Some
 ports in a range may be restricted. You can provide one or more sets of
 permissions for the fleet. **/
-        EC2InboundPermissions?: IpPermissionsList;
-        /** Game session protection policy to apply to all instances created in this fleet.
+      EC2InboundPermissions?:IpPermissionsList;
+      /** Game session protection policy to apply to all instances created in this fleet.
 If this parameter is not set, new instances in this fleet will default to no
 protection. Protection can be set for individual instances using 
 UpdateGameSession . &amp;#42; NoProtection: The game session can be terminated during a
-   scale-down event.
- * FullProtection: If the game session is in an ACTIVE
-   status, it cannot be terminated during a scale-down event. **/
-        NewGameSessionProtectionPolicy?: ProtectionPolicy;
+       scale-down event.
+       * FullProtection: If the game session is in an ACTIVE
+       status, it cannot be terminated during a scale-down event. **/
+      NewGameSessionProtectionPolicy?:ProtectionPolicy;
     }
     export interface CreateFleetOutput {
-        /** Properties for the newly created fleet. **/
-        FleetAttributes?: FleetAttributes;
+      /** Properties for the newly created fleet. **/
+      FleetAttributes?:FleetAttributes;
     }
     export interface CreateGameSessionInput {
-        /** Unique identifier for a fleet. Each request must reference either a fleet ID or
+      /** Unique identifier for a fleet. Each request must reference either a fleet ID or
 alias ID, but not both. **/
-        FleetId?: FleetId;
-        /** Unique identifier for a fleet alias. Each request must reference either a fleet
+      FleetId?:FleetId;
+      /** Unique identifier for a fleet alias. Each request must reference either a fleet
 ID or alias ID, but not both. **/
-        AliasId?: AliasId;
-        /** Maximum number of players that can be connected simultaneously to the game
+      AliasId?:AliasId;
+      /** Maximum number of players that can be connected simultaneously to the game
 session. **/
-        MaximumPlayerSessionCount: WholeNumber;
-        /** Descriptive label associated with this game session. Session names do not need
+      MaximumPlayerSessionCount:WholeNumber;
+      /** Descriptive label associated with this game session. Session names do not need
 to be unique. **/
-        Name?: NonZeroAndMaxString;
-        /** Set of properties used to administer a game session. These properties are passed
+      Name?:NonZeroAndMaxString;
+      /** Set of properties used to administer a game session. These properties are passed
 to your game server. **/
-        GameProperties?: GamePropertyList;
+      GameProperties?:GamePropertyList;
     }
     export interface CreateGameSessionOutput {
-        /** Object containing the newly created game session record. **/
-        GameSession?: GameSession;
+      /** Object containing the newly created game session record. **/
+      GameSession?:GameSession;
     }
     export interface CreatePlayerSessionInput {
-        /** Unique identifier for a game session. Specify the game session you want to add a
+      /** Unique identifier for a game session. Specify the game session you want to add a
 player to. **/
-        GameSessionId: GameSessionId;
-        /** Unique identifier for the player to be added. **/
-        PlayerId: NonZeroAndMaxString;
+      GameSessionId:GameSessionId;
+      /** Unique identifier for the player to be added. **/
+      PlayerId:NonZeroAndMaxString;
     }
     export interface CreatePlayerSessionOutput {
-        /** Object containing the newly created player session record. **/
-        PlayerSession?: PlayerSession;
+      /** Object containing the newly created player session record. **/
+      PlayerSession?:PlayerSession;
     }
     export interface CreatePlayerSessionsInput {
-        /** Unique identifier for a game session. **/
-        GameSessionId: GameSessionId;
-        /** List of unique identifiers for the players to be added. **/
-        PlayerIds: PlayerIdList;
+      /** Unique identifier for a game session. **/
+      GameSessionId:GameSessionId;
+      /** List of unique identifiers for the players to be added. **/
+      PlayerIds:PlayerIdList;
     }
     export interface CreatePlayerSessionsOutput {
-        /** Collection of player session objects created for the added players. **/
-        PlayerSessions?: PlayerSessionList;
+      /** Collection of player session objects created for the added players. **/
+      PlayerSessions?:PlayerSessionList;
     }
     export interface DeleteAliasInput {
-        /** Unique identifier for a fleet alias. Specify the alias you want to delete. **/
-        AliasId: AliasId;
+      /** Unique identifier for a fleet alias. Specify the alias you want to delete. **/
+      AliasId:AliasId;
     }
     export interface DeleteBuildInput {
-        /** Unique identifier for the build you want to delete. **/
-        BuildId: BuildId;
+      /** Unique identifier for the build you want to delete. **/
+      BuildId:BuildId;
     }
     export interface DeleteFleetInput {
-        /** Unique identifier for the fleet you want to delete. **/
-        FleetId: FleetId;
+      /** Unique identifier for the fleet you want to delete. **/
+      FleetId:FleetId;
     }
     export interface DeleteScalingPolicyInput {
-        /** Descriptive label associated with this scaling policy. Policy names do not need
+      /** Descriptive label associated with this scaling policy. Policy names do not need
 to be unique. **/
-        Name: NonZeroAndMaxString;
-        /** Unique identifier for a fleet. **/
-        FleetId: FleetId;
+      Name:NonZeroAndMaxString;
+      /** Unique identifier for a fleet. **/
+      FleetId:FleetId;
     }
     export interface DescribeAliasInput {
-        /** Unique identifier for a fleet alias. Specify the alias you want to retrieve. **/
-        AliasId: AliasId;
+      /** Unique identifier for a fleet alias. Specify the alias you want to retrieve. **/
+      AliasId:AliasId;
     }
     export interface DescribeAliasOutput {
-        /** Object containing the requested alias. **/
-        Alias?: Alias;
+      /** Object containing the requested alias. **/
+      Alias?:Alias;
     }
     export interface DescribeBuildInput {
-        /** Unique identifier for the build you want to retrieve properties for. **/
-        BuildId: BuildId;
+      /** Unique identifier for the build you want to retrieve properties for. **/
+      BuildId:BuildId;
     }
     export interface DescribeBuildOutput {
-        /** Set of properties describing the requested build. **/
-        Build?: Build;
+      /** Set of properties describing the requested build. **/
+      Build?:Build;
     }
     export interface DescribeEC2InstanceLimitsInput {
-        /** Type of EC2 instances used in the fleet. EC2 instance types define the CPU,
+      /** Type of EC2 instances used in the fleet. EC2 instance types define the CPU,
 memory, storage, and networking capacity of the fleetaposs hosts. Amazon
 GameLift supports the EC2 instance types listed below. See Amazon EC2 Instance
 Types [https://aws.amazon.com/ec2/instance-types/] for detailed descriptions of
 each. Leave this parameter blank to retrieve limits for all types. **/
-        EC2InstanceType?: EC2InstanceType;
+      EC2InstanceType?:EC2InstanceType;
     }
     export interface DescribeEC2InstanceLimitsOutput {
-        /** Object containing the maximum number of instances for the specified instance
+      /** Object containing the maximum number of instances for the specified instance
 type. **/
-        EC2InstanceLimits?: EC2InstanceLimitList;
+      EC2InstanceLimits?:EC2InstanceLimitList;
     }
     export interface DescribeFleetAttributesInput {
-        /** Unique identifiers for the fleet(s) that you want to retrieve attributes for.
+      /** Unique identifiers for the fleet(s) that you want to retrieve attributes for.
 Leave this parameter empty to retrieve attributes for all fleets. **/
-        FleetIds?: FleetIdList;
-        /** Maximum number of results to return. You can use this parameter with NextToken 
+      FleetIds?:FleetIdList;
+      /** Maximum number of results to return. You can use this parameter with NextToken 
 to get results as a set of sequential pages. This parameter is ignored when the
 request specifies one or a list of fleet IDs. **/
-        Limit?: PositiveInteger;
-        /** Token indicating the start of the next sequential page of results. Use the token
+      Limit?:PositiveInteger;
+      /** Token indicating the start of the next sequential page of results. Use the token
 that is returned with a previous call to this action. To specify the start of
 the result set, do not specify a value. This parameter is ignored when the
 request specifies one or a list of fleet IDs. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribeFleetAttributesOutput {
-        /** Collection of objects containing attribute metadata for each requested fleet ID. **/
-        FleetAttributes?: FleetAttributesList;
-        /** Token indicating where to resume retrieving results on the next call to this
+      /** Collection of objects containing attribute metadata for each requested fleet ID. **/
+      FleetAttributes?:FleetAttributesList;
+      /** Token indicating where to resume retrieving results on the next call to this
 action. If no token is returned, these results represent the end of the list.
 
 If a request has a limit that exactly matches the number of remaining results, a
 token is returned even though there are no more results to retrieve. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribeFleetCapacityInput {
-        /** Unique identifier for the fleet(s) you want to retrieve capacity information
+      /** Unique identifier for the fleet(s) you want to retrieve capacity information
 for. **/
-        FleetIds?: FleetIdList;
-        /** Maximum number of results to return. You can use this parameter with NextToken 
+      FleetIds?:FleetIdList;
+      /** Maximum number of results to return. You can use this parameter with NextToken 
 to get results as a set of sequential pages. This parameter is ignored when the
 request specifies one or a list of fleet IDs. **/
-        Limit?: PositiveInteger;
-        /** Token indicating the start of the next sequential page of results. Use the token
+      Limit?:PositiveInteger;
+      /** Token indicating the start of the next sequential page of results. Use the token
 that is returned with a previous call to this action. To specify the start of
 the result set, do not specify a value. This parameter is ignored when the
 request specifies one or a list of fleet IDs. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribeFleetCapacityOutput {
-        /** Collection of objects containing capacity information for each requested fleet
+      /** Collection of objects containing capacity information for each requested fleet
 ID. Leave this parameter empty to retrieve capacity information for all fleets. **/
-        FleetCapacity?: FleetCapacityList;
-        /** Token indicating where to resume retrieving results on the next call to this
+      FleetCapacity?:FleetCapacityList;
+      /** Token indicating where to resume retrieving results on the next call to this
 action. If no token is returned, these results represent the end of the list.
 
 If a request has a limit that exactly matches the number of remaining results, a
 token is returned even though there are no more results to retrieve. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribeFleetEventsInput {
-        /** Unique identifier for the fleet to get event logs for. **/
-        FleetId: FleetId;
-        /** Earliest date to retrieve event logs for. If no start time is specified, this
+      /** Unique identifier for the fleet to get event logs for. **/
+      FleetId:FleetId;
+      /** Earliest date to retrieve event logs for. If no start time is specified, this
 call returns entries starting from when the fleet was created to the specified
 end time. Format is an integer representing the number of seconds since the Unix
 epoch (Unix time). **/
-        StartTime?: Timestamp;
-        /** Most recent date to retrieve event logs for. If no end time is specified, this
+      StartTime?:Timestamp;
+      /** Most recent date to retrieve event logs for. If no end time is specified, this
 call returns entries from the specified start time up to the present. Format is
 an integer representing the number of seconds since the Unix epoch (Unix time). **/
-        EndTime?: Timestamp;
-        /** Maximum number of results to return. You can use this parameter with NextToken 
+      EndTime?:Timestamp;
+      /** Maximum number of results to return. You can use this parameter with NextToken 
 to get results as a set of sequential pages. **/
-        Limit?: PositiveInteger;
-        /** Token indicating the start of the next sequential page of results. Use the token
+      Limit?:PositiveInteger;
+      /** Token indicating the start of the next sequential page of results. Use the token
 that is returned with a previous call to this action. To specify the start of
 the result set, do not specify a value. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribeFleetEventsOutput {
-        /** Collection of objects containing event log entries for the specified fleet. **/
-        Events?: EventList;
-        /** Token indicating where to resume retrieving results on the next call to this
+      /** Collection of objects containing event log entries for the specified fleet. **/
+      Events?:EventList;
+      /** Token indicating where to resume retrieving results on the next call to this
 action. If no token is returned, these results represent the end of the list.
 
 If a request has a limit that exactly matches the number of remaining results, a
 token is returned even though there are no more results to retrieve. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribeFleetPortSettingsInput {
-        /** Unique identifier for the fleet you want to retrieve port settings for. **/
-        FleetId: FleetId;
+      /** Unique identifier for the fleet you want to retrieve port settings for. **/
+      FleetId:FleetId;
     }
     export interface DescribeFleetPortSettingsOutput {
-        /** Object containing port settings for the requested fleet ID. **/
-        InboundPermissions?: IpPermissionsList;
+      /** Object containing port settings for the requested fleet ID. **/
+      InboundPermissions?:IpPermissionsList;
     }
     export interface DescribeFleetUtilizationInput {
-        /** Unique identifier for the fleet(s) you want to retrieve utilization data for.
+      /** Unique identifier for the fleet(s) you want to retrieve utilization data for.
 Leave this parameter empty to retrieve utilization data for all fleets. **/
-        FleetIds?: FleetIdList;
-        /** Maximum number of results to return. You can use this parameter with NextToken 
+      FleetIds?:FleetIdList;
+      /** Maximum number of results to return. You can use this parameter with NextToken 
 to get results as a set of sequential pages. This parameter is ignored when the
 request specifies one or a list of fleet IDs. **/
-        Limit?: PositiveInteger;
-        /** Token indicating the start of the next sequential page of results. Use the token
+      Limit?:PositiveInteger;
+      /** Token indicating the start of the next sequential page of results. Use the token
 that is returned with a previous call to this action. To specify the start of
 the result set, do not specify a value. This parameter is ignored when the
 request specifies one or a list of fleet IDs. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribeFleetUtilizationOutput {
-        /** Collection of objects containing utilization information for each requested
+      /** Collection of objects containing utilization information for each requested
 fleet ID. **/
-        FleetUtilization?: FleetUtilizationList;
-        /** Token indicating where to resume retrieving results on the next call to this
+      FleetUtilization?:FleetUtilizationList;
+      /** Token indicating where to resume retrieving results on the next call to this
 action. If no token is returned, these results represent the end of the list.
 
 If a request has a limit that exactly matches the number of remaining results, a
 token is returned even though there are no more results to retrieve. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribeGameSessionDetailsInput {
-        /** Unique identifier for a fleet. Specify a fleet to retrieve information on all
+      /** Unique identifier for a fleet. Specify a fleet to retrieve information on all
 game sessions active on the fleet. **/
-        FleetId?: FleetId;
-        /** Unique identifier for a game session. Specify the game session to retrieve
+      FleetId?:FleetId;
+      /** Unique identifier for a game session. Specify the game session to retrieve
 information on. **/
-        GameSessionId?: GameSessionId;
-        /** Unique identifier for a fleet alias. Specify an alias to retrieve information on
+      GameSessionId?:GameSessionId;
+      /** Unique identifier for a fleet alias. Specify an alias to retrieve information on
 all game sessions active on the fleet. **/
-        AliasId?: AliasId;
-        /** Game session status to filter results on. Possible game session states include
+      AliasId?:AliasId;
+      /** Game session status to filter results on. Possible game session states include
 ACTIVE, TERMINATED, ACTIVATING and TERMINATING (the last two are transitory). **/
-        StatusFilter?: NonZeroAndMaxString;
-        /** Maximum number of results to return. You can use this parameter with NextToken 
+      StatusFilter?:NonZeroAndMaxString;
+      /** Maximum number of results to return. You can use this parameter with NextToken 
 to get results as a set of sequential pages. **/
-        Limit?: PositiveInteger;
-        /** Token indicating the start of the next sequential page of results. Use the token
+      Limit?:PositiveInteger;
+      /** Token indicating the start of the next sequential page of results. Use the token
 that is returned with a previous call to this action. To specify the start of
 the result set, do not specify a value. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribeGameSessionDetailsOutput {
-        /** Collection of objects containing game session properties and the protection
+      /** Collection of objects containing game session properties and the protection
 policy currently in force for each session matching the request. **/
-        GameSessionDetails?: GameSessionDetailList;
-        /** Token indicating where to resume retrieving results on the next call to this
+      GameSessionDetails?:GameSessionDetailList;
+      /** Token indicating where to resume retrieving results on the next call to this
 action. If no token is returned, these results represent the end of the list.
 
 If a request has a limit that exactly matches the number of remaining results, a
 token is returned even though there are no more results to retrieve. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribeGameSessionsInput {
-        /** Unique identifier for a fleet. Specify a fleet to retrieve information on all
+      /** Unique identifier for a fleet. Specify a fleet to retrieve information on all
 game sessions active on the fleet. **/
-        FleetId?: FleetId;
-        /** Unique identifier for a game session. Specify the game session to retrieve
+      FleetId?:FleetId;
+      /** Unique identifier for a game session. Specify the game session to retrieve
 information on. **/
-        GameSessionId?: GameSessionId;
-        /** Unique identifier for a fleet alias. Specify an alias to retrieve information on
+      GameSessionId?:GameSessionId;
+      /** Unique identifier for a fleet alias. Specify an alias to retrieve information on
 all game sessions active on the fleet. **/
-        AliasId?: AliasId;
-        /** Game session status to filter results on. Possible game session states include
+      AliasId?:AliasId;
+      /** Game session status to filter results on. Possible game session states include
 ACTIVE, TERMINATED, ACTIVATING and TERMINATING (the last two are transitory). **/
-        StatusFilter?: NonZeroAndMaxString;
-        /** Maximum number of results to return. You can use this parameter with NextToken 
+      StatusFilter?:NonZeroAndMaxString;
+      /** Maximum number of results to return. You can use this parameter with NextToken 
 to get results as a set of sequential pages. **/
-        Limit?: PositiveInteger;
-        /** Token indicating the start of the next sequential page of results. Use the token
+      Limit?:PositiveInteger;
+      /** Token indicating the start of the next sequential page of results. Use the token
 that is returned with a previous call to this action. To specify the start of
 the result set, do not specify a value. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribeGameSessionsOutput {
-        /** Collection of objects containing game session properties for each session
+      /** Collection of objects containing game session properties for each session
 matching the request. **/
-        GameSessions?: GameSessionList;
-        /** Token indicating where to resume retrieving results on the next call to this
+      GameSessions?:GameSessionList;
+      /** Token indicating where to resume retrieving results on the next call to this
 action. If no token is returned, these results represent the end of the list.
 
 If a request has a limit that exactly matches the number of remaining results, a
 token is returned even though there are no more results to retrieve. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribePlayerSessionsInput {
-        /** Unique identifier for a game session. **/
-        GameSessionId?: GameSessionId;
-        /** Unique identifier for a player. **/
-        PlayerId?: NonZeroAndMaxString;
-        /** Unique identifier for a player session. **/
-        PlayerSessionId?: PlayerSessionId;
-        /** Player session status to filter results on. Possible player session states
+      /** Unique identifier for a game session. **/
+      GameSessionId?:GameSessionId;
+      /** Unique identifier for a player. **/
+      PlayerId?:NonZeroAndMaxString;
+      /** Unique identifier for a player session. **/
+      PlayerSessionId?:PlayerSessionId;
+      /** Player session status to filter results on. Possible player session states
 include: &amp;#42; RESERVED: The player session request has been received, but the
-   player has not yet connected to the game server and/or been validated.
- * ACTIVE: The player has been validated by the game server and is
-   currently connected.
- * COMPLETED: The player connection has been dropped.
- * TIMEDOUT: A player session request was received, but the player did
-   not connect and/or was not validated within the time-out limit (60 seconds). **/
-        PlayerSessionStatusFilter?: NonZeroAndMaxString;
-        /** Maximum number of results to return. You can use this parameter with NextToken 
+       player has not yet connected to the game server and/or been validated.
+       * ACTIVE: The player has been validated by the game server and is
+       currently connected.
+       * COMPLETED: The player connection has been dropped.
+       * TIMEDOUT: A player session request was received, but the player did
+       not connect and/or was not validated within the time-out limit (60 seconds). **/
+      PlayerSessionStatusFilter?:NonZeroAndMaxString;
+      /** Maximum number of results to return. You can use this parameter with NextToken 
 to get results as a set of sequential pages. If a player session ID is
 specified, this parameter is ignored. **/
-        Limit?: PositiveInteger;
-        /** Token indicating the start of the next sequential page of results. Use the token
+      Limit?:PositiveInteger;
+      /** Token indicating the start of the next sequential page of results. Use the token
 that is returned with a previous call to this action. To specify the start of
 the result set, do not specify a value. If a player session ID is specified,
 this parameter is ignored. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribePlayerSessionsOutput {
-        /** Collection of objects containing properties for each player session that matches
+      /** Collection of objects containing properties for each player session that matches
 the request. **/
-        PlayerSessions?: PlayerSessionList;
-        /** Token indicating where to resume retrieving results on the next call to this
+      PlayerSessions?:PlayerSessionList;
+      /** Token indicating where to resume retrieving results on the next call to this
 action. If no token is returned, these results represent the end of the list.
 
 If a request has a limit that exactly matches the number of remaining results, a
 token is returned even though there are no more results to retrieve. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribeScalingPoliciesInput {
-        /** Unique identifier for a fleet. Specify the fleet to retrieve scaling policies
+      /** Unique identifier for a fleet. Specify the fleet to retrieve scaling policies
 for. **/
-        FleetId: FleetId;
-        /** Game session status to filter results on. A scaling policy is only in force when
+      FleetId:FleetId;
+      /** Game session status to filter results on. A scaling policy is only in force when
 in an Active state. &amp;#42; ACTIVE: The scaling policy is currently in force.
- * UPDATEREQUESTED: A request to update the scaling policy
-   has been received.
- * UPDATING: A change is being made to the scaling policy.
- * DELETEREQUESTED: A request to delete the scaling policy
-   has been received.
- * DELETING: The scaling policy is being deleted.
- * DELETED: The scaling policy has been deleted.
- * ERROR: An error occurred in creating the policy. It should
-   be removed and recreated. **/
-        StatusFilter?: ScalingStatusType;
-        /** Maximum number of results to return. You can use this parameter with NextToken 
+       * UPDATEREQUESTED: A request to update the scaling policy
+       has been received.
+       * UPDATING: A change is being made to the scaling policy.
+       * DELETEREQUESTED: A request to delete the scaling policy
+       has been received.
+       * DELETING: The scaling policy is being deleted.
+       * DELETED: The scaling policy has been deleted.
+       * ERROR: An error occurred in creating the policy. It should
+       be removed and recreated. **/
+      StatusFilter?:ScalingStatusType;
+      /** Maximum number of results to return. You can use this parameter with NextToken 
 to get results as a set of sequential pages. **/
-        Limit?: PositiveInteger;
-        /** Token indicating the start of the next sequential page of results. Use the token
+      Limit?:PositiveInteger;
+      /** Token indicating the start of the next sequential page of results. Use the token
 that is returned with a previous call to this action. To specify the start of
 the result set, do not specify a value. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface DescribeScalingPoliciesOutput {
-        /** Collection of objects containing the scaling policies matching the request. **/
-        ScalingPolicies?: ScalingPolicyList;
-        /** Token indicating where to resume retrieving results on the next call to this
+      /** Collection of objects containing the scaling policies matching the request. **/
+      ScalingPolicies?:ScalingPolicyList;
+      /** Token indicating where to resume retrieving results on the next call to this
 action. If no token is returned, these results represent the end of the list.
 
 If a request has a limit that exactly matches the number of remaining results, a
 token is returned even though there are no more results to retrieve. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface EC2InstanceCounts {
-        /** Ideal number of active instances in the fleet. **/
-        DESIRED?: WholeNumber;
-        /** Minimum value allowed for the fleet&#x27;s instance count. **/
-        MINIMUM?: WholeNumber;
-        /** Maximum value allowed for the fleet&#x27;s instance count. **/
-        MAXIMUM?: WholeNumber;
-        /** Number of instances in the fleet that are starting but not yet active. **/
-        PENDING?: WholeNumber;
-        /** Actual number of active instances in the fleet. **/
-        ACTIVE?: WholeNumber;
-        /** Number of active instances in the fleet that are not currently hosting a game
+      /** Ideal number of active instances in the fleet. **/
+      DESIRED?:WholeNumber;
+      /** Minimum value allowed for the fleet&#x27;s instance count. **/
+      MINIMUM?:WholeNumber;
+      /** Maximum value allowed for the fleet&#x27;s instance count. **/
+      MAXIMUM?:WholeNumber;
+      /** Number of instances in the fleet that are starting but not yet active. **/
+      PENDING?:WholeNumber;
+      /** Actual number of active instances in the fleet. **/
+      ACTIVE?:WholeNumber;
+      /** Number of active instances in the fleet that are not currently hosting a game
 session. **/
-        IDLE?: WholeNumber;
-        /** Number of instances in the fleet that are no longer active but haven&#x27;t yet been
+      IDLE?:WholeNumber;
+      /** Number of instances in the fleet that are no longer active but haven&#x27;t yet been
 terminated. **/
-        TERMINATING?: WholeNumber;
+      TERMINATING?:WholeNumber;
     }
     export interface EC2InstanceLimit {
-        /** Type of EC2 instances used in the fleet. EC2 instance types define the CPU,
+      /** Type of EC2 instances used in the fleet. EC2 instance types define the CPU,
 memory, storage, and networking capacity of the fleetaposs hosts. Amazon
 GameLift supports the EC2 instance types listed below. See Amazon EC2 Instance
 Types [https://aws.amazon.com/ec2/instance-types/] for detailed descriptions of
 each. **/
-        EC2InstanceType?: EC2InstanceType;
-        /** Number of instances of the specified type that are currently in use by this AWS
+      EC2InstanceType?:EC2InstanceType;
+      /** Number of instances of the specified type that are currently in use by this AWS
 account. **/
-        CurrentInstances?: WholeNumber;
-        /** Number of instances allowed. **/
-        InstanceLimit?: WholeNumber;
+      CurrentInstances?:WholeNumber;
+      /** Number of instances allowed. **/
+      InstanceLimit?:WholeNumber;
     }
     export interface Event {
-        /** Unique identifier for a fleet event. **/
-        EventId?: NonZeroAndMaxString;
-        /** Unique identifier for the resource, such as a fleet ID. **/
-        ResourceId?: NonZeroAndMaxString;
-        /** Type of event being logged. **/
-        EventCode?: EventCode;
-        /** Additional information related to the event. **/
-        Message?: NonEmptyString;
-        /** Time stamp indicating when this event occurred. Format is an integer
+      /** Unique identifier for a fleet event. **/
+      EventId?:NonZeroAndMaxString;
+      /** Unique identifier for the resource, such as a fleet ID. **/
+      ResourceId?:NonZeroAndMaxString;
+      /** Type of event being logged. **/
+      EventCode?:EventCode;
+      /** Additional information related to the event. **/
+      Message?:NonEmptyString;
+      /** Time stamp indicating when this event occurred. Format is an integer
 representing the number of seconds since the Unix epoch (Unix time). **/
-        EventTime?: Timestamp;
+      EventTime?:Timestamp;
     }
     export interface FleetAttributes {
-        /** Unique identifier for a fleet. **/
-        FleetId?: FleetId;
-        /** Human-readable description of the fleet. **/
-        Description?: NonZeroAndMaxString;
-        /** Descriptive label associated with this fleet. Fleet names do not need to be
+      /** Unique identifier for a fleet. **/
+      FleetId?:FleetId;
+      /** Human-readable description of the fleet. **/
+      Description?:NonZeroAndMaxString;
+      /** Descriptive label associated with this fleet. Fleet names do not need to be
 unique. **/
-        Name?: NonZeroAndMaxString;
-        /** Time stamp indicating when this object was created. Format is an integer
+      Name?:NonZeroAndMaxString;
+      /** Time stamp indicating when this object was created. Format is an integer
 representing the number of seconds since the Unix epoch (Unix time). **/
-        CreationTime?: Timestamp;
-        /** Time stamp indicating when this fleet was terminated. Format is an integer
+      CreationTime?:Timestamp;
+      /** Time stamp indicating when this fleet was terminated. Format is an integer
 representing the number of seconds since the Unix epoch (Unix time). **/
-        TerminationTime?: Timestamp;
-        /** Current status of the fleet. Possible fleet states include: &amp;#42; NEW: A new fleet
-   has been defined and hosts allocated.
- * 
-   DOWNLOADING/VALIDATING/BUILDING/ACTIVATING: The new fleet is being set up
-   with the game build, and new hosts are being started.
- * ACTIVE: Hosts can
-   now accept game sessions.
- * ERROR: An error
-   occurred when downloading, validating, building, or activating the fleet.
- * DELETING: Hosts
-   are responding to a delete fleet request.
- * TERMINATED: The
-   fleet no longer exists. **/
-        Status?: FleetStatus;
-        /** Unique identifier for a build. **/
-        BuildId?: BuildId;
-        /** Path to the launch executable for the game server. A game server is built into a 
+      TerminationTime?:Timestamp;
+      /** Current status of the fleet. Possible fleet states include: &amp;#42; NEW: A new fleet
+       has been defined and hosts allocated.
+       *
+       DOWNLOADING/VALIDATING/BUILDING/ACTIVATING: The new fleet is being set up
+       with the game build, and new hosts are being started.
+       * ACTIVE: Hosts can
+       now accept game sessions.
+       * ERROR: An error
+       occurred when downloading, validating, building, or activating the fleet.
+       * DELETING: Hosts
+       are responding to a delete fleet request.
+       * TERMINATED: The
+       fleet no longer exists. **/
+      Status?:FleetStatus;
+      /** Unique identifier for a build. **/
+      BuildId?:BuildId;
+      /** Path to the launch executable for the game server. A game server is built into a 
 C:\game drive. This value must be expressed as C:\game\[launchpath] . Example:
 If, when built, your game server files are in a folder called &quot;MyGame&quot;, your log
 path should be C:\game\MyGame\server.exe . **/
-        ServerLaunchPath?: NonZeroAndMaxString;
-        /** Parameters required to launch your game server. These parameters should be
+      ServerLaunchPath?:NonZeroAndMaxString;
+      /** Parameters required to launch your game server. These parameters should be
 expressed as a string of command-line parameters. Example: &quot;+sv_port 33435
 +start_lobby&quot;. **/
-        ServerLaunchParameters?: NonZeroAndMaxString;
-        /** Path to game-session log files generated by your game server. Once a game
+      ServerLaunchParameters?:NonZeroAndMaxString;
+      /** Path to game-session log files generated by your game server. Once a game
 session has been terminated, Amazon GameLift captures and stores the logs on
 Amazon S3. Use the GameLift console to access the stored logs. **/
-        LogPaths?: StringList;
-        /** Type of game session protection to set for all new instances started in the
+      LogPaths?:StringList;
+      /** Type of game session protection to set for all new instances started in the
 fleet. &amp;#42; NoProtection: The game session can be terminated during a scale-down
-   event.
- * FullProtection: If the game session is in an ACTIVE status, it cannot
-   be terminated during a scale-down event. **/
-        NewGameSessionProtectionPolicy?: ProtectionPolicy;
+       event.
+       * FullProtection: If the game session is in an ACTIVE status, it cannot
+       be terminated during a scale-down event. **/
+      NewGameSessionProtectionPolicy?:ProtectionPolicy;
     }
     export interface FleetCapacity {
-        /** Unique identifier for a fleet. **/
-        FleetId?: FleetId;
-        /** Type of EC2 instances used in the fleet. EC2 instance types define the CPU,
+      /** Unique identifier for a fleet. **/
+      FleetId?:FleetId;
+      /** Type of EC2 instances used in the fleet. EC2 instance types define the CPU,
 memory, storage, and networking capacity of the fleetaposs hosts. Amazon
 GameLift supports the EC2 instance types listed below. See Amazon EC2 Instance
 Types [https://aws.amazon.com/ec2/instance-types/] for detailed descriptions of
 each. **/
-        InstanceType?: EC2InstanceType;
-        /** Current status of fleet capacity. **/
-        InstanceCounts?: EC2InstanceCounts;
+      InstanceType?:EC2InstanceType;
+      /** Current status of fleet capacity. **/
+      InstanceCounts?:EC2InstanceCounts;
     }
     export interface FleetCapacityExceededException {
-        Message?: NonEmptyString;
+      Message?:NonEmptyString;
     }
     export interface FleetUtilization {
-        /** Unique identifier for a fleet. **/
-        FleetId?: FleetId;
-        /** Number of active game sessions currently being hosted on fleet game servers. **/
-        ActiveGameSessionCount?: WholeNumber;
-        /** Number of active player sessions currently being hosted on fleet game servers. **/
-        CurrentPlayerSessionCount?: WholeNumber;
-        /** Maximum players allowed across all game sessions currently hosted in the fleet. **/
-        MaximumPlayerSessionCount?: WholeNumber;
+      /** Unique identifier for a fleet. **/
+      FleetId?:FleetId;
+      /** Number of active game sessions currently being hosted on fleet game servers. **/
+      ActiveGameSessionCount?:WholeNumber;
+      /** Number of active player sessions currently being hosted on fleet game servers. **/
+      CurrentPlayerSessionCount?:WholeNumber;
+      /** Maximum players allowed across all game sessions currently hosted in the fleet. **/
+      MaximumPlayerSessionCount?:WholeNumber;
     }
     export interface GameProperty {
-        Key: GamePropertyKey;
-        Value: GamePropertyValue;
+      Key:GamePropertyKey;
+      Value:GamePropertyValue;
     }
     export interface GameSession {
-        /** Unique identifier for a game session. **/
-        GameSessionId?: GameSessionId;
-        /** Descriptive label associated with this game session. Session names do not need
+      /** Unique identifier for a game session. **/
+      GameSessionId?:GameSessionId;
+      /** Descriptive label associated with this game session. Session names do not need
 to be unique. **/
-        Name?: NonZeroAndMaxString;
-        /** Unique identifier for a fleet. **/
-        FleetId?: FleetId;
-        /** Time stamp indicating when this object was created. Format is an integer
+      Name?:NonZeroAndMaxString;
+      /** Unique identifier for a fleet. **/
+      FleetId?:FleetId;
+      /** Time stamp indicating when this object was created. Format is an integer
 representing the number of seconds since the Unix epoch (Unix time). **/
-        CreationTime?: Timestamp;
-        /** Time stamp indicating when this fleet was terminated. Format is an integer
+      CreationTime?:Timestamp;
+      /** Time stamp indicating when this fleet was terminated. Format is an integer
 representing the number of seconds since the Unix epoch (Unix time). **/
-        TerminationTime?: Timestamp;
-        /** Number of players currently in the game session. **/
-        CurrentPlayerSessionCount?: WholeNumber;
-        /** Maximum number of players allowed in the game session. **/
-        MaximumPlayerSessionCount?: WholeNumber;
-        /** Current status of the game session. A game session must be in an ACTIVE state to
+      TerminationTime?:Timestamp;
+      /** Number of players currently in the game session. **/
+      CurrentPlayerSessionCount?:WholeNumber;
+      /** Maximum number of players allowed in the game session. **/
+      MaximumPlayerSessionCount?:WholeNumber;
+      /** Current status of the game session. A game session must be in an ACTIVE state to
 have player sessions. **/
-        Status?: GameSessionStatus;
-        /** Set of custom properties for the game session. **/
-        GameProperties?: GamePropertyList;
-        /** IP address of the game session. **/
-        IpAddress?: IpAddress;
-        /** Indicates whether or not the game session is accepting new players. **/
-        PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy;
+      Status?:GameSessionStatus;
+      /** Set of custom properties for the game session. **/
+      GameProperties?:GamePropertyList;
+      /** IP address of the game session. **/
+      IpAddress?:IpAddress;
+      /** Indicates whether or not the game session is accepting new players. **/
+      PlayerSessionCreationPolicy?:PlayerSessionCreationPolicy;
     }
     export interface GameSessionDetail {
-        GameSession?: GameSession;
-        /** Current status of protection for the game session. &amp;#42; NoProtection: The game
-   session can be terminated during a scale-down event.
- * FullProtection: If the game
-   session is in an ACTIVE status, it cannot be terminated during a scale-down
-   event. **/
-        ProtectionPolicy?: ProtectionPolicy;
+      GameSession?:GameSession;
+      /** Current status of protection for the game session. &amp;#42; NoProtection: The game
+       session can be terminated during a scale-down event.
+       * FullProtection: If the game
+       session is in an ACTIVE status, it cannot be terminated during a scale-down
+       event. **/
+      ProtectionPolicy?:ProtectionPolicy;
     }
     export interface GameSessionFullException {
-        Message?: NonEmptyString;
+      Message?:NonEmptyString;
     }
     export interface GetGameSessionLogUrlInput {
-        /** Unique identifier for a game session. Specify the game session you want to get
+      /** Unique identifier for a game session. Specify the game session you want to get
 logs for. **/
-        GameSessionId: GameSessionId;
+      GameSessionId:GameSessionId;
     }
     export interface GetGameSessionLogUrlOutput {
-        /** Location of the requested game session logs, available for download. **/
-        PreSignedUrl?: NonZeroAndMaxString;
+      /** Location of the requested game session logs, available for download. **/
+      PreSignedUrl?:NonZeroAndMaxString;
     }
     export interface InternalServiceException {
-        Message?: NonEmptyString;
+      Message?:NonEmptyString;
     }
     export interface InvalidFleetStatusException {
-        Message?: NonEmptyString;
+      Message?:NonEmptyString;
     }
     export interface InvalidGameSessionStatusException {
-        Message?: NonEmptyString;
+      Message?:NonEmptyString;
     }
     export interface InvalidRequestException {
-        Message?: NonEmptyString;
+      Message?:NonEmptyString;
     }
     export interface IpPermission {
-        /** Starting value for a range of allowed port numbers. **/
-        FromPort: PortNumber;
-        /** Ending value for a range of allowed port numbers. Port numbers are
+      /** Starting value for a range of allowed port numbers. **/
+      FromPort:PortNumber;
+      /** Ending value for a range of allowed port numbers. Port numbers are
 end-inclusive. This value must be higher than FromPort . **/
-        ToPort: PortNumber;
-        /** Range of allowed IP addresses. This value must be expressed in CIDR notation
+      ToPort:PortNumber;
+      /** Range of allowed IP addresses. This value must be expressed in CIDR notation
 [https://tools.ietf.org/id/cidr] . Example: &quot; 000.000.000.000/[subnet mask] &quot; or
 optionally the shortened version &quot; 0.0.0.0/[subnet mask] &quot;. **/
-        IpRange: NonBlankString;
-        /** Network communication protocol used by the fleet. **/
-        Protocol: IpProtocol;
+      IpRange:NonBlankString;
+      /** Network communication protocol used by the fleet. **/
+      Protocol:IpProtocol;
     }
     export interface LimitExceededException {
-        Message?: NonEmptyString;
+      Message?:NonEmptyString;
     }
     export interface ListAliasesInput {
-        /** Type of routing to filter results on. Use this parameter to retrieve only
+      /** Type of routing to filter results on. Use this parameter to retrieve only
 aliases of a certain type. To retrieve all aliases, leave this parameter empty.
 Possible routing types include: &amp;#42; SIMPLE: The alias resolves to one specific
-   fleet. Use this type when routing to active fleets.
- * TERMINAL: The alias does not resolve to a
-   fleet but instead can be used to display a message to the user. A terminal
-   alias throws a TerminalRoutingStrategyException with the RoutingStrategy 
-   message embedded. **/
-        RoutingStrategyType?: RoutingStrategyType;
-        /** Descriptive label associated with this alias. Alias names do not need to be
+       fleet. Use this type when routing to active fleets.
+       * TERMINAL: The alias does not resolve to a
+       fleet but instead can be used to display a message to the user. A terminal
+       alias throws a TerminalRoutingStrategyException with the RoutingStrategy
+       message embedded. **/
+      RoutingStrategyType?:RoutingStrategyType;
+      /** Descriptive label associated with this alias. Alias names do not need to be
 unique. **/
-        Name?: NonEmptyString;
-        /** Maximum number of results to return. You can use this parameter with NextToken 
+      Name?:NonEmptyString;
+      /** Maximum number of results to return. You can use this parameter with NextToken 
 to get results as a set of sequential pages. **/
-        Limit?: PositiveInteger;
-        /** Token indicating the start of the next sequential page of results. Use the token
+      Limit?:PositiveInteger;
+      /** Token indicating the start of the next sequential page of results. Use the token
 that is returned with a previous call to this action. To specify the start of
 the result set, do not specify a value. **/
-        NextToken?: NonEmptyString;
+      NextToken?:NonEmptyString;
     }
     export interface ListAliasesOutput {
-        /** Collection of alias records that match the list request. **/
-        Aliases?: AliasList;
-        /** Token indicating where to resume retrieving results on the next call to this
+      /** Collection of alias records that match the list request. **/
+      Aliases?:AliasList;
+      /** Token indicating where to resume retrieving results on the next call to this
 action. If no token is returned, these results represent the end of the list.
 
 If a request has a limit that exactly matches the number of remaining results, a
 token is returned even though there are no more results to retrieve. **/
-        NextToken?: NonEmptyString;
+      NextToken?:NonEmptyString;
     }
     export interface ListBuildsInput {
-        /** Build state to filter results on. Use this parameter to retrieve builds in a
+      /** Build state to filter results on. Use this parameter to retrieve builds in a
 certain state. To retrieve all builds, leave this parameter empty. Possible
 build states include: &amp;#42; INITIALIZED: A new build has been defined, but no files
-   have been uploaded. You cannot create fleets for builds that are in this
-   state. When a build is successfully created, the build state is set to this
-   value.
- * READY: The game build has been successfully uploaded.
-   You can now create new fleets for this build.
- * FAILED: The game build upload failed. You cannot create
-   new fleets for this build. **/
-        Status?: BuildStatus;
-        /** Maximum number of results to return. You can use this parameter with NextToken 
+       have been uploaded. You cannot create fleets for builds that are in this
+       state. When a build is successfully created, the build state is set to this
+       value.
+       * READY: The game build has been successfully uploaded.
+       You can now create new fleets for this build.
+       * FAILED: The game build upload failed. You cannot create
+       new fleets for this build. **/
+      Status?:BuildStatus;
+      /** Maximum number of results to return. You can use this parameter with NextToken 
 to get results as a set of sequential pages. **/
-        Limit?: PositiveInteger;
-        /** Token indicating the start of the next sequential page of results. Use the token
+      Limit?:PositiveInteger;
+      /** Token indicating the start of the next sequential page of results. Use the token
 that is returned with a previous call to this action. To specify the start of
 the result set, do not specify a value. **/
-        NextToken?: NonEmptyString;
+      NextToken?:NonEmptyString;
     }
     export interface ListBuildsOutput {
-        /** Collection of build records that match the request. **/
-        Builds?: BuildList;
-        /** Token indicating where to resume retrieving results on the next call to this
+      /** Collection of build records that match the request. **/
+      Builds?:BuildList;
+      /** Token indicating where to resume retrieving results on the next call to this
 action. If no token is returned, these results represent the end of the list.
 
 If a request has a limit that exactly matches the number of remaining results, a
 token is returned even though there are no more results to retrieve. **/
-        NextToken?: NonEmptyString;
+      NextToken?:NonEmptyString;
     }
     export interface ListFleetsInput {
-        /** Unique identifier of the build to return fleets for. Use this parameter to
+      /** Unique identifier of the build to return fleets for. Use this parameter to
 return only fleets using the specified build. To retrieve all fleets, leave this
 parameter empty. **/
-        BuildId?: BuildId;
-        /** Maximum number of results to return. You can use this parameter with NextToken 
+      BuildId?:BuildId;
+      /** Maximum number of results to return. You can use this parameter with NextToken 
 to get results as a set of sequential pages. **/
-        Limit?: PositiveInteger;
-        /** Token indicating the start of the next sequential page of results. Use the token
+      Limit?:PositiveInteger;
+      /** Token indicating the start of the next sequential page of results. Use the token
 that is returned with a previous call to this action. To specify the start of
 the result set, do not specify a value. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface ListFleetsOutput {
-        /** Set of fleet IDs matching the list request. You can retrieve additional
+      /** Set of fleet IDs matching the list request. You can retrieve additional
 information about all returned fleets by passing this result set to a call to 
 DescribeFleetAttributes , DescribeFleetCapacity , and DescribeFleetUtilization . **/
-        FleetIds?: FleetIdList;
-        /** Token indicating where to resume retrieving results on the next call to this
+      FleetIds?:FleetIdList;
+      /** Token indicating where to resume retrieving results on the next call to this
 action. If no token is returned, these results represent the end of the list.
 
 If a request has a limit that exactly matches the number of remaining results, a
 token is returned even though there are no more results to retrieve. **/
-        NextToken?: NonZeroAndMaxString;
+      NextToken?:NonZeroAndMaxString;
     }
     export interface NotFoundException {
-        Message?: NonEmptyString;
+      Message?:NonEmptyString;
     }
     export interface PlayerSession {
-        /** Unique identifier for a player session. **/
-        PlayerSessionId?: PlayerSessionId;
-        /** Unique identifier for a player. **/
-        PlayerId?: NonZeroAndMaxString;
-        /** Unique identifier for a game session. **/
-        GameSessionId?: GameSessionId;
-        /** Unique identifier for a fleet. **/
-        FleetId?: FleetId;
-        /** Time stamp indicating when this object was created. Format is an integer
+      /** Unique identifier for a player session. **/
+      PlayerSessionId?:PlayerSessionId;
+      /** Unique identifier for a player. **/
+      PlayerId?:NonZeroAndMaxString;
+      /** Unique identifier for a game session. **/
+      GameSessionId?:GameSessionId;
+      /** Unique identifier for a fleet. **/
+      FleetId?:FleetId;
+      /** Time stamp indicating when this object was created. Format is an integer
 representing the number of seconds since the Unix epoch (Unix time). **/
-        CreationTime?: Timestamp;
-        /** Time stamp indicating when this fleet was terminated. Format is an integer
+      CreationTime?:Timestamp;
+      /** Time stamp indicating when this fleet was terminated. Format is an integer
 representing the number of seconds since the Unix epoch (Unix time). **/
-        TerminationTime?: Timestamp;
-        /** Current status of the player session. Possible player session states include: &amp;#42; 
-   RESERVED: The player session request has been received, but the player has
-   not yet connected to the game server and/or been validated.
- * 
-   ACTIVE: The player has been validated by the game server and is currently
-   connected.
- * 
-   COMPLETED: The player connection has been dropped.
- * 
-   TIMEDOUT: A player session request was received, but the player did not
-   connect and/or was not validated within the time-out limit (60 seconds). **/
-        Status?: PlayerSessionStatus;
-        /** Game session IP address. All player sessions reference the game session
+      TerminationTime?:Timestamp;
+      /** Current status of the player session. Possible player session states include: &amp;#42;
+       RESERVED: The player session request has been received, but the player has
+       not yet connected to the game server and/or been validated.
+       *
+       ACTIVE: The player has been validated by the game server and is currently
+       connected.
+       *
+       COMPLETED: The player connection has been dropped.
+       *
+       TIMEDOUT: A player session request was received, but the player did not
+       connect and/or was not validated within the time-out limit (60 seconds). **/
+      Status?:PlayerSessionStatus;
+      /** Game session IP address. All player sessions reference the game session
 location. **/
-        IpAddress?: IpAddress;
+      IpAddress?:IpAddress;
     }
     export interface PutScalingPolicyInput {
-        /** Descriptive label associated with this scaling policy. Policy names do not need
+      /** Descriptive label associated with this scaling policy. Policy names do not need
 to be unique. A fleet can have only one scaling policy with the same name. **/
-        Name: NonZeroAndMaxString;
-        /** Unique identity for the fleet to scale with this policy. **/
-        FleetId: FleetId;
-        /** Amount of adjustment to make, based on the scaling adjustment type. **/
-        ScalingAdjustment: Integer;
-        /** Type of adjustment to make to a fleet&#x27;s instance count (see FleetCapacity ): &amp;#42; 
-   ChangeInCapacity: add (or subtract) the scaling adjustment value from the
-   current instance count. Positive values scale up while negative values scale
-   down.
- * 
-   ExactCapacity: set the instance count to the scaling adjustment value.
- * 
-   PercentChangeInCapacity: increase or reduce the current instance count by the
-   scaling adjustment, read as a percentage. Positive values scale up while
-   negative values scale down; for example, a value of &quot;-10&quot; scales the fleet
-   down by 10%. **/
-        ScalingAdjustmentType: ScalingAdjustmentType;
-        /** Metric value used to trigger a scaling event. **/
-        Threshold: Double;
-        /** Comparison operator to use when measuring the metric against the threshold
+      Name:NonZeroAndMaxString;
+      /** Unique identity for the fleet to scale with this policy. **/
+      FleetId:FleetId;
+      /** Amount of adjustment to make, based on the scaling adjustment type. **/
+      ScalingAdjustment:Integer;
+      /** Type of adjustment to make to a fleet&#x27;s instance count (see FleetCapacity ): &amp;#42;
+       ChangeInCapacity: add (or subtract) the scaling adjustment value from the
+       current instance count. Positive values scale up while negative values scale
+       down.
+       *
+       ExactCapacity: set the instance count to the scaling adjustment value.
+       *
+       PercentChangeInCapacity: increase or reduce the current instance count by the
+       scaling adjustment, read as a percentage. Positive values scale up while
+       negative values scale down; for example, a value of &quot;-10&quot; scales the fleet
+       down by 10%. **/
+      ScalingAdjustmentType:ScalingAdjustmentType;
+      /** Metric value used to trigger a scaling event. **/
+      Threshold:Double;
+      /** Comparison operator to use when measuring the metric against the threshold
 value. **/
-        ComparisonOperator: ComparisonOperatorType;
-        /** Length of time (in minutes) the metric must be at or beyond the threshold before
+      ComparisonOperator:ComparisonOperatorType;
+      /** Length of time (in minutes) the metric must be at or beyond the threshold before
 a scaling event is triggered. **/
-        EvaluationPeriods: PositiveInteger;
-        /** Name of the Service-defined metric that is used to trigger an adjustment. &amp;#42; 
-   ActivatingGameSessions: number of game sessions in the process of being
-   created (game session status = ACTIVATING).
- * 
-   ActiveGameSessions: number of game sessions currently running (game session
-   status = ACTIVE).
- * 
-   CurrentPlayerSessions: number of active or reserved player sessions (player
-   session status = ACTIVE or RESERVED).
- * 
-   AvailablePlayerSessions: number of player session slots currently available
-   in active game sessions across the fleet, calculated by subtracting a game
-   session&#x27;s current player session count from its maximum player session count.
-   This number includes game sessions that are not currently accepting players
-   (game session PlayerSessionCreationPolicy = DENY_ALL).
- * 
-   ActiveInstances: number of instances currently running a game session.
- * 
-   IdleInstances: number of instances not currently running a game session. **/
-        MetricName: MetricName;
+      EvaluationPeriods:PositiveInteger;
+      /** Name of the Service-defined metric that is used to trigger an adjustment. &amp;#42;
+       ActivatingGameSessions: number of game sessions in the process of being
+       created (game session status = ACTIVATING).
+       *
+       ActiveGameSessions: number of game sessions currently running (game session
+       status = ACTIVE).
+       *
+       CurrentPlayerSessions: number of active or reserved player sessions (player
+       session status = ACTIVE or RESERVED).
+       *
+       AvailablePlayerSessions: number of player session slots currently available
+       in active game sessions across the fleet, calculated by subtracting a game
+       session&#x27;s current player session count from its maximum player session count.
+       This number includes game sessions that are not currently accepting players
+       (game session PlayerSessionCreationPolicy = DENY_ALL).
+       *
+       ActiveInstances: number of instances currently running a game session.
+       *
+       IdleInstances: number of instances not currently running a game session. **/
+      MetricName:MetricName;
     }
     export interface PutScalingPolicyOutput {
-        /** Descriptive label associated with this scaling policy. Policy names do not need
+      /** Descriptive label associated with this scaling policy. Policy names do not need
 to be unique. **/
-        Name?: NonZeroAndMaxString;
+      Name?:NonZeroAndMaxString;
     }
     export interface RequestUploadCredentialsInput {
-        /** Unique identifier for the build you want to get credentials for. **/
-        BuildId: BuildId;
+      /** Unique identifier for the build you want to get credentials for. **/
+      BuildId:BuildId;
     }
     export interface RequestUploadCredentialsOutput {
-        /** AWS credentials required when uploading a game build to the storage location.
+      /** AWS credentials required when uploading a game build to the storage location.
 These credentials have a limited lifespan and are valid only for the build they
 were issued for. **/
-        UploadCredentials?: AwsCredentials;
-        /** Amazon S3 path and key, identifying where the game build files are stored. **/
-        StorageLocation?: S3Location;
+      UploadCredentials?:AwsCredentials;
+      /** Amazon S3 path and key, identifying where the game build files are stored. **/
+      StorageLocation?:S3Location;
     }
     export interface ResolveAliasInput {
-        /** Unique identifier for the alias you want to resolve. **/
-        AliasId: AliasId;
+      /** Unique identifier for the alias you want to resolve. **/
+      AliasId:AliasId;
     }
     export interface ResolveAliasOutput {
-        /** Fleet ID associated with the requested alias. **/
-        FleetId?: FleetId;
+      /** Fleet ID associated with the requested alias. **/
+      FleetId?:FleetId;
     }
     export interface RoutingStrategy {
-        /** Type of routing strategy. Possible routing types include: &amp;#42; SIMPLE: The alias
-   resolves to one specific fleet. Use this type when routing to active fleets.
- * TERMINAL: The alias
-   does not resolve to a fleet but instead can be used to display a message to
-   the user. A terminal alias throws a TerminalRoutingStrategyException with the 
-   RoutingStrategy message embedded. **/
-        Type?: RoutingStrategyType;
-        /** Unique identifier for a fleet. **/
-        FleetId?: FleetId;
-        /** Message text to be used with a terminal routing strategy. **/
-        Message?: FreeText;
+      /** Type of routing strategy. Possible routing types include: &amp;#42; SIMPLE: The alias
+       resolves to one specific fleet. Use this type when routing to active fleets.
+       * TERMINAL: The alias
+       does not resolve to a fleet but instead can be used to display a message to
+       the user. A terminal alias throws a TerminalRoutingStrategyException with the
+       RoutingStrategy message embedded. **/
+      Type?:RoutingStrategyType;
+      /** Unique identifier for a fleet. **/
+      FleetId?:FleetId;
+      /** Message text to be used with a terminal routing strategy. **/
+      Message?:FreeText;
     }
     export interface S3Location {
-        /** Amazon S3 bucket identifier. **/
-        Bucket?: NonEmptyString;
-        /** Amazon S3 bucket key. **/
-        Key?: NonEmptyString;
-        RoleArn?: NonEmptyString;
+      /** Amazon S3 bucket identifier. **/
+      Bucket?:NonEmptyString;
+      /** Amazon S3 bucket key. **/
+      Key?:NonEmptyString;
+      RoleArn?:NonEmptyString;
     }
     export interface ScalingPolicy {
-        /** Unique identity for the fleet associated with this scaling policy. **/
-        FleetId?: FleetId;
-        /** Descriptive label associated with this scaling policy. Policy names do not need
+      /** Unique identity for the fleet associated with this scaling policy. **/
+      FleetId?:FleetId;
+      /** Descriptive label associated with this scaling policy. Policy names do not need
 to be unique. **/
-        Name?: NonZeroAndMaxString;
-        /** Current status of the scaling policy. The scaling policy is only in force when
+      Name?:NonZeroAndMaxString;
+      /** Current status of the scaling policy. The scaling policy is only in force when
 in an Active state. &amp;#42; ACTIVE: The scaling policy is currently in force.
- * UPDATEREQUESTED: A request to update the scaling policy
-   has been received.
- * UPDATING: A change is being made to the scaling policy.
- * DELETEREQUESTED: A request to delete the scaling policy
-   has been received.
- * DELETING: The scaling policy is being deleted.
- * DELETED: The scaling policy has been deleted.
- * ERROR: An error occurred in creating the policy. It should
-   be removed and recreated. **/
-        Status?: ScalingStatusType;
-        /** Amount of adjustment to make, based on the scaling adjustment type. **/
-        ScalingAdjustment?: Integer;
-        /** Type of adjustment to make to a fleet&#x27;s instance count (see FleetCapacity ): &amp;#42; 
-   ChangeInCapacity: add (or subtract) the scaling adjustment value from the
-   current instance count. Positive values scale up while negative values scale
-   down.
- * 
-   ExactCapacity: set the instance count to the scaling adjustment value.
- * 
-   PercentChangeInCapacity: increase or reduce the current instance count by the
-   scaling adjustment, read as a percentage. Positive values scale up while
-   negative values scale down. **/
-        ScalingAdjustmentType?: ScalingAdjustmentType;
-        /** Comparison operator to use when measuring a metric against the threshold value. **/
-        ComparisonOperator?: ComparisonOperatorType;
-        /** Metric value used to trigger a scaling event. **/
-        Threshold?: Double;
-        /** Length of time (in minutes) the metric must be at or beyond the threshold before
+       * UPDATEREQUESTED: A request to update the scaling policy
+       has been received.
+       * UPDATING: A change is being made to the scaling policy.
+       * DELETEREQUESTED: A request to delete the scaling policy
+       has been received.
+       * DELETING: The scaling policy is being deleted.
+       * DELETED: The scaling policy has been deleted.
+       * ERROR: An error occurred in creating the policy. It should
+       be removed and recreated. **/
+      Status?:ScalingStatusType;
+      /** Amount of adjustment to make, based on the scaling adjustment type. **/
+      ScalingAdjustment?:Integer;
+      /** Type of adjustment to make to a fleet&#x27;s instance count (see FleetCapacity ): &amp;#42;
+       ChangeInCapacity: add (or subtract) the scaling adjustment value from the
+       current instance count. Positive values scale up while negative values scale
+       down.
+       *
+       ExactCapacity: set the instance count to the scaling adjustment value.
+       *
+       PercentChangeInCapacity: increase or reduce the current instance count by the
+       scaling adjustment, read as a percentage. Positive values scale up while
+       negative values scale down. **/
+      ScalingAdjustmentType?:ScalingAdjustmentType;
+      /** Comparison operator to use when measuring a metric against the threshold value. **/
+      ComparisonOperator?:ComparisonOperatorType;
+      /** Metric value used to trigger a scaling event. **/
+      Threshold?:Double;
+      /** Length of time (in minutes) the metric must be at or beyond the threshold before
 a scaling event is triggered. **/
-        EvaluationPeriods?: PositiveInteger;
-        /** Name of the GameLift-defined metric that is used to trigger an adjustment. &amp;#42; 
-   ActivatingGameSessions: number of game sessions in the process of being
-   created (game session status = ACTIVATING).
- * 
-   ActiveGameSessions: number of game sessions currently running (game session
-   status = ACTIVE).
- * 
-   CurrentPlayerSessions: number of active or reserved player sessions (player
-   session status = ACTIVE or RESERVED).
- * 
-   AvailablePlayerSessions: number of player session slots currently available
-   in active game sessions across the fleet, calculated by subtracting a game
-   session&#x27;s current player session count from its maximum player session count.
-   This number does include game sessions that are not currently accepting
-   players (game session PlayerSessionCreationPolicy = DENY_ALL).
- * 
-   ActiveInstances: number of instances currently running a game session.
- * 
-   IdleInstances: number of instances not currently running a game session. **/
-        MetricName?: MetricName;
+      EvaluationPeriods?:PositiveInteger;
+      /** Name of the GameLift-defined metric that is used to trigger an adjustment. &amp;#42;
+       ActivatingGameSessions: number of game sessions in the process of being
+       created (game session status = ACTIVATING).
+       *
+       ActiveGameSessions: number of game sessions currently running (game session
+       status = ACTIVE).
+       *
+       CurrentPlayerSessions: number of active or reserved player sessions (player
+       session status = ACTIVE or RESERVED).
+       *
+       AvailablePlayerSessions: number of player session slots currently available
+       in active game sessions across the fleet, calculated by subtracting a game
+       session&#x27;s current player session count from its maximum player session count.
+       This number does include game sessions that are not currently accepting
+       players (game session PlayerSessionCreationPolicy = DENY_ALL).
+       *
+       ActiveInstances: number of instances currently running a game session.
+       *
+       IdleInstances: number of instances not currently running a game session. **/
+      MetricName?:MetricName;
     }
     export interface TerminalRoutingStrategyException {
-        Message?: NonEmptyString;
+      Message?:NonEmptyString;
     }
     export interface UnauthorizedException {
-        Message?: NonEmptyString;
+      Message?:NonEmptyString;
     }
     export interface UpdateAliasInput {
-        /** Unique identifier for a fleet alias. Specify the alias you want to update. **/
-        AliasId: AliasId;
-        /** Descriptive label associated with this alias. Alias names do not need to be
+      /** Unique identifier for a fleet alias. Specify the alias you want to update. **/
+      AliasId:AliasId;
+      /** Descriptive label associated with this alias. Alias names do not need to be
 unique. **/
-        Name?: NonZeroAndMaxString;
-        /** Human-readable description of the alias. **/
-        Description?: NonZeroAndMaxString;
-        /** Object specifying the fleet and routing type to use for the alias. **/
-        RoutingStrategy?: RoutingStrategy;
+      Name?:NonZeroAndMaxString;
+      /** Human-readable description of the alias. **/
+      Description?:NonZeroAndMaxString;
+      /** Object specifying the fleet and routing type to use for the alias. **/
+      RoutingStrategy?:RoutingStrategy;
     }
     export interface UpdateAliasOutput {
-        /** Object containing the updated alias configuration. **/
-        Alias?: Alias;
+      /** Object containing the updated alias configuration. **/
+      Alias?:Alias;
     }
     export interface UpdateBuildInput {
-        /** Unique identifier for the build you want to update. **/
-        BuildId: BuildId;
-        /** Descriptive label associated with this build. Build names do not need to be
+      /** Unique identifier for the build you want to update. **/
+      BuildId:BuildId;
+      /** Descriptive label associated with this build. Build names do not need to be
 unique. **/
-        Name?: NonZeroAndMaxString;
-        /** Version associated with this build. Version strings do not need to be unique to
+      Name?:NonZeroAndMaxString;
+      /** Version associated with this build. Version strings do not need to be unique to
 a build. **/
-        Version?: NonZeroAndMaxString;
+      Version?:NonZeroAndMaxString;
     }
     export interface UpdateBuildOutput {
-        /** Object containing the updated build record. **/
-        Build?: Build;
+      /** Object containing the updated build record. **/
+      Build?:Build;
     }
     export interface UpdateFleetAttributesInput {
-        /** Unique identifier for the fleet you want to update attribute metadata for. **/
-        FleetId: FleetId;
-        /** Descriptive label associated with this fleet. Fleet names do not need to be
+      /** Unique identifier for the fleet you want to update attribute metadata for. **/
+      FleetId:FleetId;
+      /** Descriptive label associated with this fleet. Fleet names do not need to be
 unique. **/
-        Name?: NonZeroAndMaxString;
-        /** Human-readable description of the fleet. **/
-        Description?: NonZeroAndMaxString;
-        /** Game session protection policy to apply to all new instances created in this
+      Name?:NonZeroAndMaxString;
+      /** Human-readable description of the fleet. **/
+      Description?:NonZeroAndMaxString;
+      /** Game session protection policy to apply to all new instances created in this
 fleet. Instances that already exist will not be affected. You can set protection
 for individual instances using UpdateGameSession . &amp;#42; NoProtection: The game
-   session can be terminated during a scale-down event.
- * FullProtection: If the game
-   session is in an ACTIVE status, it cannot be terminated during a scale-down
-   event. **/
-        NewGameSessionProtectionPolicy?: ProtectionPolicy;
+       session can be terminated during a scale-down event.
+       * FullProtection: If the game
+       session is in an ACTIVE status, it cannot be terminated during a scale-down
+       event. **/
+      NewGameSessionProtectionPolicy?:ProtectionPolicy;
     }
     export interface UpdateFleetAttributesOutput {
-        /** Unique identifier for the updated fleet. **/
-        FleetId?: FleetId;
+      /** Unique identifier for the updated fleet. **/
+      FleetId?:FleetId;
     }
     export interface UpdateFleetCapacityInput {
-        /** Unique identifier for the fleet you want to update capacity for. **/
-        FleetId: FleetId;
-        /** Number of EC2 instances you want this fleet to host. **/
-        DesiredInstances?: WholeNumber;
-        /** Minimum value allowed for the fleet&#x27;s instance count. Default if not set is 0. **/
-        MinSize?: WholeNumber;
-        /** Maximum value allowed for the fleet&#x27;s instance count. Default if not set is 1. **/
-        MaxSize?: WholeNumber;
+      /** Unique identifier for the fleet you want to update capacity for. **/
+      FleetId:FleetId;
+      /** Number of EC2 instances you want this fleet to host. **/
+      DesiredInstances?:WholeNumber;
+      /** Minimum value allowed for the fleet&#x27;s instance count. Default if not set is 0. **/
+      MinSize?:WholeNumber;
+      /** Maximum value allowed for the fleet&#x27;s instance count. Default if not set is 1. **/
+      MaxSize?:WholeNumber;
     }
     export interface UpdateFleetCapacityOutput {
-        /** Unique identifier for the updated fleet. **/
-        FleetId?: FleetId;
+      /** Unique identifier for the updated fleet. **/
+      FleetId?:FleetId;
     }
     export interface UpdateFleetPortSettingsInput {
-        /** Unique identifier for the fleet you want to update port settings for. **/
-        FleetId: FleetId;
-        /** Collection of port settings to be added to the fleet record. **/
-        InboundPermissionAuthorizations?: IpPermissionsList;
-        /** Collection of port settings to be removed from the fleet record. **/
-        InboundPermissionRevocations?: IpPermissionsList;
+      /** Unique identifier for the fleet you want to update port settings for. **/
+      FleetId:FleetId;
+      /** Collection of port settings to be added to the fleet record. **/
+      InboundPermissionAuthorizations?:IpPermissionsList;
+      /** Collection of port settings to be removed from the fleet record. **/
+      InboundPermissionRevocations?:IpPermissionsList;
     }
     export interface UpdateFleetPortSettingsOutput {
-        /** Unique identifier for the updated fleet. **/
-        FleetId?: FleetId;
+      /** Unique identifier for the updated fleet. **/
+      FleetId?:FleetId;
     }
     export interface UpdateGameSessionInput {
-        /** Unique identifier for a game session. Specify the game session you want to
+      /** Unique identifier for a game session. Specify the game session you want to
 update. **/
-        GameSessionId: GameSessionId;
-        /** Maximum number of players that can be simultaneously connected to the game
+      GameSessionId:GameSessionId;
+      /** Maximum number of players that can be simultaneously connected to the game
 session. **/
-        MaximumPlayerSessionCount?: WholeNumber;
-        /** Descriptive label associated with this game session. Session names do not need
+      MaximumPlayerSessionCount?:WholeNumber;
+      /** Descriptive label associated with this game session. Session names do not need
 to be unique. **/
-        Name?: NonZeroAndMaxString;
-        /** Policy determining whether or not the game session accepts new players. **/
-        PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy;
-        /** Game session protection policy to apply to this game session only. &amp;#42; 
-   NoProtection: The game session can be terminated during a scale-down event.
- * 
-   FullProtection: If the game session is in an ACTIVE status, it cannot be
-   terminated during a scale-down event. **/
-        ProtectionPolicy?: ProtectionPolicy;
+      Name?:NonZeroAndMaxString;
+      /** Policy determining whether or not the game session accepts new players. **/
+      PlayerSessionCreationPolicy?:PlayerSessionCreationPolicy;
+      /** Game session protection policy to apply to this game session only. &amp;#42;
+       NoProtection: The game session can be terminated during a scale-down event.
+       *
+       FullProtection: If the game session is in an ACTIVE status, it cannot be
+       terminated during a scale-down event. **/
+      ProtectionPolicy?:ProtectionPolicy;
     }
     export interface UpdateGameSessionOutput {
-        /** Object containing the updated game session metadata. **/
-        GameSession?: GameSession;
+      /** Object containing the updated game session metadata. **/
+      GameSession?:GameSession;
     }
   }
 }

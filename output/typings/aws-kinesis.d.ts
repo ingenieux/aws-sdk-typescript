@@ -7,7 +7,7 @@
 
 declare module "aws-sdk" {
 
- /**
+  /**
    * apiVersion: 2013-12-02
    * endpointPrefix: kinesis
    * serviceAbbreviation: Kinesis
@@ -15,7 +15,7 @@ declare module "aws-sdk" {
    * protocol: json
    *
    * Amazon Kinesis Streams Service API ReferenceAmazon Kinesis Streams is a managed
-service that scales elastically for real time processing of streaming big data.
+   service that scales elastically for real time processing of streaming big data.
    *
    */
   export class Kinesis extends Service {
@@ -33,7 +33,7 @@ existing tags that correspond to the specified tag keys.
      * @error InvalidArgumentException   
      * @error LimitExceededException   
      */
-    addTagsToStream(params: Kinesis.AddTagsToStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request<any,Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any>;
+    addTagsToStream(params:Kinesis.AddTagsToStreamInput, callback?:(err:Kinesis.ResourceNotFoundException | Kinesis.ResourceInUseException | Kinesis.InvalidArgumentException | Kinesis.LimitExceededException | any, data:any) => void):Request<any, Kinesis.ResourceNotFoundException | Kinesis.ResourceInUseException | Kinesis.InvalidArgumentException | Kinesis.LimitExceededException | any>;
     /**
      * Creates an Amazon Kinesis stream. A stream captures and transports data records
 that are continuously emitted from different data sources or producers .
@@ -78,7 +78,7 @@ CreateStream has a limit of 5 transactions per second per account.
      * @error LimitExceededException   
      * @error InvalidArgumentException   
      */
-    createStream(params: Kinesis.CreateStreamInput, callback?: (err: Kinesis.ResourceInUseException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any, data: any) => void): Request<any,Kinesis.ResourceInUseException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any>;
+    createStream(params:Kinesis.CreateStreamInput, callback?:(err:Kinesis.ResourceInUseException | Kinesis.LimitExceededException | Kinesis.InvalidArgumentException | any, data:any) => void):Request<any, Kinesis.ResourceInUseException | Kinesis.LimitExceededException | Kinesis.InvalidArgumentException | any>;
     /**
      * Decreases the Amazon Kinesis stream&#x27;s retention period, which is the length of
 time data records are accessible after they are added to the stream. The minimum
@@ -93,7 +93,7 @@ that is older than 24 hours is inaccessible.
      * @error LimitExceededException   
      * @error InvalidArgumentException   
      */
-    decreaseStreamRetentionPeriod(params: Kinesis.DecreaseStreamRetentionPeriodInput, callback?: (err: Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any, data: any) => void): Request<any,Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any>;
+    decreaseStreamRetentionPeriod(params:Kinesis.DecreaseStreamRetentionPeriodInput, callback?:(err:Kinesis.ResourceInUseException | Kinesis.ResourceNotFoundException | Kinesis.LimitExceededException | Kinesis.InvalidArgumentException | any, data:any) => void):Request<any, Kinesis.ResourceInUseException | Kinesis.ResourceNotFoundException | Kinesis.LimitExceededException | Kinesis.InvalidArgumentException | any>;
     /**
      * Deletes an Amazon Kinesis stream and all its shards and data. You must shut down
 any applications that are operating on the stream before you delete the stream.
@@ -119,7 +119,7 @@ DeleteStream has a limit of 5 transactions per second per account.
      * @error ResourceNotFoundException   
      * @error LimitExceededException   
      */
-    deleteStream(params: Kinesis.DeleteStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|any, data: any) => void): Request<any,Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|any>;
+    deleteStream(params:Kinesis.DeleteStreamInput, callback?:(err:Kinesis.ResourceNotFoundException | Kinesis.LimitExceededException | any, data:any) => void):Request<any, Kinesis.ResourceNotFoundException | Kinesis.LimitExceededException | any>;
     /**
      * Describes the specified Amazon Kinesis stream.
 
@@ -150,7 +150,7 @@ DescribeStream has a limit of 10 transactions per second per account.
      * @error ResourceNotFoundException   
      * @error LimitExceededException   
      */
-    describeStream(params: Kinesis.DescribeStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|any, data: Kinesis.DescribeStreamOutput|any) => void): Request<Kinesis.DescribeStreamOutput|any,Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|any>;
+    describeStream(params:Kinesis.DescribeStreamInput, callback?:(err:Kinesis.ResourceNotFoundException | Kinesis.LimitExceededException | any, data:Kinesis.DescribeStreamOutput | any) => void):Request<Kinesis.DescribeStreamOutput | any, Kinesis.ResourceNotFoundException | Kinesis.LimitExceededException | any>;
     /**
      * Disables enhanced monitoring.
      *
@@ -159,7 +159,7 @@ DescribeStream has a limit of 10 transactions per second per account.
      * @error ResourceInUseException   
      * @error ResourceNotFoundException   
      */
-    disableEnhancedMonitoring(params: Kinesis.DisableEnhancedMonitoringInput, callback?: (err: Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|any, data: Kinesis.EnhancedMonitoringOutput|any) => void): Request<Kinesis.EnhancedMonitoringOutput|any,Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|any>;
+    disableEnhancedMonitoring(params:Kinesis.DisableEnhancedMonitoringInput, callback?:(err:Kinesis.InvalidArgumentException | Kinesis.LimitExceededException | Kinesis.ResourceInUseException | Kinesis.ResourceNotFoundException | any, data:Kinesis.EnhancedMonitoringOutput | any) => void):Request<Kinesis.EnhancedMonitoringOutput | any, Kinesis.InvalidArgumentException | Kinesis.LimitExceededException | Kinesis.ResourceInUseException | Kinesis.ResourceNotFoundException | any>;
     /**
      * Enables enhanced Amazon Kinesis stream monitoring for shard-level metrics.
      *
@@ -168,7 +168,7 @@ DescribeStream has a limit of 10 transactions per second per account.
      * @error ResourceInUseException   
      * @error ResourceNotFoundException   
      */
-    enableEnhancedMonitoring(params: Kinesis.EnableEnhancedMonitoringInput, callback?: (err: Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|any, data: Kinesis.EnhancedMonitoringOutput|any) => void): Request<Kinesis.EnhancedMonitoringOutput|any,Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|any>;
+    enableEnhancedMonitoring(params:Kinesis.EnableEnhancedMonitoringInput, callback?:(err:Kinesis.InvalidArgumentException | Kinesis.LimitExceededException | Kinesis.ResourceInUseException | Kinesis.ResourceNotFoundException | any, data:Kinesis.EnhancedMonitoringOutput | any) => void):Request<Kinesis.EnhancedMonitoringOutput | any, Kinesis.InvalidArgumentException | Kinesis.LimitExceededException | Kinesis.ResourceInUseException | Kinesis.ResourceNotFoundException | any>;
     /**
      * Gets data records from an Amazon Kinesis stream&#x27;s shard.
 
@@ -230,7 +230,7 @@ order.
      * @error ProvisionedThroughputExceededException   
      * @error ExpiredIteratorException   
      */
-    getRecords(params: Kinesis.GetRecordsInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|Kinesis.ExpiredIteratorException|any, data: Kinesis.GetRecordsOutput|any) => void): Request<Kinesis.GetRecordsOutput|any,Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|Kinesis.ExpiredIteratorException|any>;
+    getRecords(params:Kinesis.GetRecordsInput, callback?:(err:Kinesis.ResourceNotFoundException | Kinesis.InvalidArgumentException | Kinesis.ProvisionedThroughputExceededException | Kinesis.ExpiredIteratorException | any, data:Kinesis.GetRecordsOutput | any) => void):Request<Kinesis.GetRecordsOutput | any, Kinesis.ResourceNotFoundException | Kinesis.InvalidArgumentException | Kinesis.ProvisionedThroughputExceededException | Kinesis.ExpiredIteratorException | any>;
     /**
      * Gets an Amazon Kinesis shard iterator. A shard iterator expires five minutes
 after it is returned to the requester.
@@ -276,7 +276,7 @@ shard.
      * @error InvalidArgumentException   
      * @error ProvisionedThroughputExceededException   
      */
-    getShardIterator(params: Kinesis.GetShardIteratorInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any, data: Kinesis.GetShardIteratorOutput|any) => void): Request<Kinesis.GetShardIteratorOutput|any,Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any>;
+    getShardIterator(params:Kinesis.GetShardIteratorInput, callback?:(err:Kinesis.ResourceNotFoundException | Kinesis.InvalidArgumentException | Kinesis.ProvisionedThroughputExceededException | any, data:Kinesis.GetShardIteratorOutput | any) => void):Request<Kinesis.GetShardIteratorOutput | any, Kinesis.ResourceNotFoundException | Kinesis.InvalidArgumentException | Kinesis.ProvisionedThroughputExceededException | any>;
     /**
      * Increases the Amazon Kinesis stream&#x27;s retention period, which is the length of
 time data records are accessible after they are added to the stream. The maximum
@@ -295,7 +295,7 @@ applications.
      * @error LimitExceededException   
      * @error InvalidArgumentException   
      */
-    increaseStreamRetentionPeriod(params: Kinesis.IncreaseStreamRetentionPeriodInput, callback?: (err: Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any, data: any) => void): Request<any,Kinesis.ResourceInUseException|Kinesis.ResourceNotFoundException|Kinesis.LimitExceededException|Kinesis.InvalidArgumentException|any>;
+    increaseStreamRetentionPeriod(params:Kinesis.IncreaseStreamRetentionPeriodInput, callback?:(err:Kinesis.ResourceInUseException | Kinesis.ResourceNotFoundException | Kinesis.LimitExceededException | Kinesis.InvalidArgumentException | any, data:any) => void):Request<any, Kinesis.ResourceInUseException | Kinesis.ResourceNotFoundException | Kinesis.LimitExceededException | Kinesis.InvalidArgumentException | any>;
     /**
      * Lists your Amazon Kinesis streams.
 
@@ -316,7 +316,7 @@ ListStreams has a limit of 5 transactions per second per account.
      *
      * @error LimitExceededException   
      */
-    listStreams(params: Kinesis.ListStreamsInput, callback?: (err: Kinesis.LimitExceededException|any, data: Kinesis.ListStreamsOutput|any) => void): Request<Kinesis.ListStreamsOutput|any,Kinesis.LimitExceededException|any>;
+    listStreams(params:Kinesis.ListStreamsInput, callback?:(err:Kinesis.LimitExceededException | any, data:Kinesis.ListStreamsOutput | any) => void):Request<Kinesis.ListStreamsOutput | any, Kinesis.LimitExceededException | any>;
     /**
      * Lists the tags for the specified Amazon Kinesis stream.
      *
@@ -324,7 +324,7 @@ ListStreams has a limit of 5 transactions per second per account.
      * @error InvalidArgumentException   
      * @error LimitExceededException   
      */
-    listTagsForStream(params: Kinesis.ListTagsForStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: Kinesis.ListTagsForStreamOutput|any) => void): Request<Kinesis.ListTagsForStreamOutput|any,Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any>;
+    listTagsForStream(params:Kinesis.ListTagsForStreamInput, callback?:(err:Kinesis.ResourceNotFoundException | Kinesis.InvalidArgumentException | Kinesis.LimitExceededException | any, data:Kinesis.ListTagsForStreamOutput | any) => void):Request<Kinesis.ListTagsForStreamOutput | any, Kinesis.ResourceNotFoundException | Kinesis.InvalidArgumentException | Kinesis.LimitExceededException | any>;
     /**
      * Merges two adjacent shards in an Amazon Kinesis stream and combines them into a
 single shard to reduce the stream&#x27;s capacity to ingest and transport data. Two
@@ -370,7 +370,7 @@ MergeShards has limit of 5 transactions per second per account.
      * @error InvalidArgumentException   
      * @error LimitExceededException   
      */
-    mergeShards(params: Kinesis.MergeShardsInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request<any,Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any>;
+    mergeShards(params:Kinesis.MergeShardsInput, callback?:(err:Kinesis.ResourceNotFoundException | Kinesis.ResourceInUseException | Kinesis.InvalidArgumentException | Kinesis.LimitExceededException | any, data:any) => void):Request<any, Kinesis.ResourceNotFoundException | Kinesis.ResourceInUseException | Kinesis.InvalidArgumentException | Kinesis.LimitExceededException | any>;
     /**
      * Writes a single data record into an Amazon Kinesis stream. Call PutRecord to
 send data into the stream for real-time ingestion and subsequent processing, one
@@ -418,7 +418,7 @@ to a stream.
      * @error InvalidArgumentException   
      * @error ProvisionedThroughputExceededException   
      */
-    putRecord(params: Kinesis.PutRecordInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any, data: Kinesis.PutRecordOutput|any) => void): Request<Kinesis.PutRecordOutput|any,Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any>;
+    putRecord(params:Kinesis.PutRecordInput, callback?:(err:Kinesis.ResourceNotFoundException | Kinesis.InvalidArgumentException | Kinesis.ProvisionedThroughputExceededException | any, data:Kinesis.PutRecordOutput | any) => void):Request<Kinesis.PutRecordOutput | any, Kinesis.ResourceNotFoundException | Kinesis.InvalidArgumentException | Kinesis.ProvisionedThroughputExceededException | any>;
     /**
      * Writes multiple data records into an Amazon Kinesis stream in a single call
 (also referred to as a PutRecords request). Use this operation to send data into
@@ -490,7 +490,7 @@ IncreaseStreamRetentionPeriod operations.
      * @error InvalidArgumentException   
      * @error ProvisionedThroughputExceededException   
      */
-    putRecords(params: Kinesis.PutRecordsInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any, data: Kinesis.PutRecordsOutput|any) => void): Request<Kinesis.PutRecordsOutput|any,Kinesis.ResourceNotFoundException|Kinesis.InvalidArgumentException|Kinesis.ProvisionedThroughputExceededException|any>;
+    putRecords(params:Kinesis.PutRecordsInput, callback?:(err:Kinesis.ResourceNotFoundException | Kinesis.InvalidArgumentException | Kinesis.ProvisionedThroughputExceededException | any, data:Kinesis.PutRecordsOutput | any) => void):Request<Kinesis.PutRecordsOutput | any, Kinesis.ResourceNotFoundException | Kinesis.InvalidArgumentException | Kinesis.ProvisionedThroughputExceededException | any>;
     /**
      * Removes tags from the specified Amazon Kinesis stream. Removed tags are deleted
 and cannot be recovered after this operation successfully completes.
@@ -502,7 +502,7 @@ If you specify a tag that does not exist, it is ignored.
      * @error InvalidArgumentException   
      * @error LimitExceededException   
      */
-    removeTagsFromStream(params: Kinesis.RemoveTagsFromStreamInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request<any,Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any>;
+    removeTagsFromStream(params:Kinesis.RemoveTagsFromStreamInput, callback?:(err:Kinesis.ResourceNotFoundException | Kinesis.ResourceInUseException | Kinesis.InvalidArgumentException | Kinesis.LimitExceededException | any, data:any) => void):Request<any, Kinesis.ResourceNotFoundException | Kinesis.ResourceInUseException | Kinesis.InvalidArgumentException | Kinesis.LimitExceededException | any>;
     /**
      * Splits a shard into two new shards in the Amazon Kinesis stream to increase the
 stream&#x27;s capacity to ingest and transport data. SplitShard is called when there
@@ -559,343 +559,343 @@ SplitShard has limit of 5 transactions per second per account.
      * @error InvalidArgumentException   
      * @error LimitExceededException   
      */
-    splitShard(params: Kinesis.SplitShardInput, callback?: (err: Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any, data: any) => void): Request<any,Kinesis.ResourceNotFoundException|Kinesis.ResourceInUseException|Kinesis.InvalidArgumentException|Kinesis.LimitExceededException|any>;
+    splitShard(params:Kinesis.SplitShardInput, callback?:(err:Kinesis.ResourceNotFoundException | Kinesis.ResourceInUseException | Kinesis.InvalidArgumentException | Kinesis.LimitExceededException | any, data:any) => void):Request<any, Kinesis.ResourceNotFoundException | Kinesis.ResourceInUseException | Kinesis.InvalidArgumentException | Kinesis.LimitExceededException | any>;
 
   }
 
   export module Kinesis {
-    
+
     export type ApproximateArrivalTimestamp = number;
-    
+
     export type BooleanObject = boolean;
-    
+
     export type Data = any;
-    
+
     export type DescribeStreamInputLimit = number;
-    
+
     export type EnhancedMonitoringList = EnhancedMetrics[];
-    
+
     export type ErrorCode = string;
-    
+
     export type ErrorMessage = string;
-    
+
     export type GetRecordsInputLimit = number;
-    
+
     export type HashKey = string;
-    
+
     export type ListStreamsInputLimit = number;
-    
+
     export type ListTagsForStreamInputLimit = number;
-    
+
     export type MetricsName = string;
-    
+
     export type MetricsNameList = MetricsName[];
-    
+
     export type MillisBehindLatest = number;
-    
+
     export type PartitionKey = string;
-    
+
     export type PositiveIntegerObject = number;
-    
+
     export type PutRecordsRequestEntryList = PutRecordsRequestEntry[];
-    
+
     export type PutRecordsResultEntryList = PutRecordsResultEntry[];
-    
+
     export type RecordList = Record[];
-    
+
     export type RetentionPeriodHours = number;
-    
+
     export type SequenceNumber = string;
-    
+
     export type ShardId = string;
-    
+
     export type ShardIterator = string;
-    
+
     export type ShardIteratorType = string;
-    
+
     export type ShardList = Shard[];
-    
+
     export type StreamARN = string;
-    
+
     export type StreamName = string;
-    
+
     export type StreamNameList = StreamName[];
-    
+
     export type StreamStatus = string;
-    
+
     export type TagKey = string;
-    
+
     export type TagKeyList = TagKey[];
-    
+
     export type TagList = Tag[];
-    
-    export type TagMap = {[key:string]: TagValue};
-    
+
+    export type TagMap = { [key:string]:TagValue };
+
     export type TagValue = string;
-    
+
     export type Timestamp = number;
 
     export interface AddTagsToStreamInput {
-        /** The name of the stream. **/
-        StreamName: StreamName;
-        /** The set of key-value pairs to use to create the tags. **/
-        Tags: TagMap;
+      /** The name of the stream. **/
+      StreamName:StreamName;
+      /** The set of key-value pairs to use to create the tags. **/
+      Tags:TagMap;
     }
     export interface CreateStreamInput {
-        /** A name to identify the stream. The stream name is scoped to the AWS account used
+      /** A name to identify the stream. The stream name is scoped to the AWS account used
 by the application that creates the stream. It is also scoped by region. That
 is, two streams in two different AWS accounts can have the same name, and two
 streams in the same AWS account but in two different regions can have the same
 name. **/
-        StreamName: StreamName;
-        /** The number of shards that the stream will use. The throughput of the stream is a
+      StreamName:StreamName;
+      /** The number of shards that the stream will use. The throughput of the stream is a
 function of the number of shards; more shards are required for greater
 provisioned throughput.
 
 DefaultShardLimit; **/
-        ShardCount: PositiveIntegerObject;
+      ShardCount:PositiveIntegerObject;
     }
     export interface DecreaseStreamRetentionPeriodInput {
-        /** The name of the stream to modify. **/
-        StreamName: StreamName;
-        /** The new retention period of the stream, in hours. Must be less than the current
+      /** The name of the stream to modify. **/
+      StreamName:StreamName;
+      /** The new retention period of the stream, in hours. Must be less than the current
 retention period. **/
-        RetentionPeriodHours: RetentionPeriodHours;
+      RetentionPeriodHours:RetentionPeriodHours;
     }
     export interface DeleteStreamInput {
-        /** The name of the stream to delete. **/
-        StreamName: StreamName;
+      /** The name of the stream to delete. **/
+      StreamName:StreamName;
     }
     export interface DescribeStreamInput {
-        /** The name of the stream to describe. **/
-        StreamName: StreamName;
-        /** The maximum number of shards to return. **/
-        Limit?: DescribeStreamInputLimit;
-        /** The shard ID of the shard to start with. **/
-        ExclusiveStartShardId?: ShardId;
+      /** The name of the stream to describe. **/
+      StreamName:StreamName;
+      /** The maximum number of shards to return. **/
+      Limit?:DescribeStreamInputLimit;
+      /** The shard ID of the shard to start with. **/
+      ExclusiveStartShardId?:ShardId;
     }
     export interface DescribeStreamOutput {
-        /** The current status of the stream, the stream ARN, an array of shard objects that
+      /** The current status of the stream, the stream ARN, an array of shard objects that
 comprise the stream, and states whether there are more shards available. **/
-        StreamDescription: StreamDescription;
+      StreamDescription:StreamDescription;
     }
     export interface DisableEnhancedMonitoringInput {
-        /** The name of the Amazon Kinesis stream for which to disable enhanced monitoring. **/
-        StreamName: StreamName;
-        /** List of shard-level metrics to disable.
+      /** The name of the Amazon Kinesis stream for which to disable enhanced monitoring. **/
+      StreamName:StreamName;
+      /** List of shard-level metrics to disable.
 
 The following are the valid shard-level metrics. The value &quot; ALL &quot; disables
 every metric.
 
- &amp;#42; IncomingBytes
- * IncomingRecords
- * OutgoingBytes
- * OutgoingRecords
- * WriteProvisionedThroughputExceeded
- * ReadProvisionedThroughputExceeded
- * IteratorAgeMilliseconds
- * ALL
+       &amp;#42; IncomingBytes
+       * IncomingRecords
+       * OutgoingBytes
+       * OutgoingRecords
+       * WriteProvisionedThroughputExceeded
+       * ReadProvisionedThroughputExceeded
+       * IteratorAgeMilliseconds
+       * ALL
 
 For more information, see Monitoring the Amazon Kinesis Streams Service with
 Amazon CloudWatch
 [http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html] 
 in the Amazon Kinesis Streams Developer Guide . **/
-        ShardLevelMetrics: MetricsNameList;
+      ShardLevelMetrics:MetricsNameList;
     }
     export interface EnableEnhancedMonitoringInput {
-        /** The name of the stream for which to enable enhanced monitoring. **/
-        StreamName: StreamName;
-        /** List of shard-level metrics to enable.
+      /** The name of the stream for which to enable enhanced monitoring. **/
+      StreamName:StreamName;
+      /** List of shard-level metrics to enable.
 
 The following are the valid shard-level metrics. The value &quot; ALL &quot; enables every
 metric.
 
- &amp;#42; IncomingBytes
- * IncomingRecords
- * OutgoingBytes
- * OutgoingRecords
- * WriteProvisionedThroughputExceeded
- * ReadProvisionedThroughputExceeded
- * IteratorAgeMilliseconds
- * ALL
+       &amp;#42; IncomingBytes
+       * IncomingRecords
+       * OutgoingBytes
+       * OutgoingRecords
+       * WriteProvisionedThroughputExceeded
+       * ReadProvisionedThroughputExceeded
+       * IteratorAgeMilliseconds
+       * ALL
 
 For more information, see Monitoring the Amazon Kinesis Streams Service with
 Amazon CloudWatch
 [http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html] 
 in the Amazon Kinesis Streams Developer Guide . **/
-        ShardLevelMetrics: MetricsNameList;
+      ShardLevelMetrics:MetricsNameList;
     }
     export interface EnhancedMetrics {
-        /** List of shard-level metrics.
+      /** List of shard-level metrics.
 
 The following are the valid shard-level metrics. The value &quot; ALL &quot; enhances
 every metric.
 
- &amp;#42; IncomingBytes
- * IncomingRecords
- * OutgoingBytes
- * OutgoingRecords
- * WriteProvisionedThroughputExceeded
- * ReadProvisionedThroughputExceeded
- * IteratorAgeMilliseconds
- * ALL
+       &amp;#42; IncomingBytes
+       * IncomingRecords
+       * OutgoingBytes
+       * OutgoingRecords
+       * WriteProvisionedThroughputExceeded
+       * ReadProvisionedThroughputExceeded
+       * IteratorAgeMilliseconds
+       * ALL
 
 For more information, see Monitoring the Amazon Kinesis Streams Service with
 Amazon CloudWatch
 [http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html] 
 in the Amazon Kinesis Streams Developer Guide . **/
-        ShardLevelMetrics?: MetricsNameList;
+      ShardLevelMetrics?:MetricsNameList;
     }
     export interface EnhancedMonitoringOutput {
-        /** The name of the Amazon Kinesis stream. **/
-        StreamName?: StreamName;
-        /** Represents the current state of the metrics that are in the enhanced state
+      /** The name of the Amazon Kinesis stream. **/
+      StreamName?:StreamName;
+      /** Represents the current state of the metrics that are in the enhanced state
 before the operation. **/
-        CurrentShardLevelMetrics?: MetricsNameList;
-        /** Represents the list of all the metrics that would be in the enhanced state after
+      CurrentShardLevelMetrics?:MetricsNameList;
+      /** Represents the list of all the metrics that would be in the enhanced state after
 the operation. **/
-        DesiredShardLevelMetrics?: MetricsNameList;
+      DesiredShardLevelMetrics?:MetricsNameList;
     }
     export interface ExpiredIteratorException {
-        /** A message that provides information about the error. **/
-        message?: ErrorMessage;
+      /** A message that provides information about the error. **/
+      message?:ErrorMessage;
     }
     export interface GetRecordsInput {
-        /** The position in the shard from which you want to start sequentially reading data
+      /** The position in the shard from which you want to start sequentially reading data
 records. A shard iterator specifies this position using the sequence number of a
 data record in the shard. **/
-        ShardIterator: ShardIterator;
-        /** The maximum number of records to return. Specify a value of up to 10,000. If you
+      ShardIterator:ShardIterator;
+      /** The maximum number of records to return. Specify a value of up to 10,000. If you
 specify a value that is greater than 10,000, GetRecords throws 
 InvalidArgumentException . **/
-        Limit?: GetRecordsInputLimit;
+      Limit?:GetRecordsInputLimit;
     }
     export interface GetRecordsOutput {
-        /** The data records retrieved from the shard. **/
-        Records: RecordList;
-        /** The next position in the shard from which to start sequentially reading data
+      /** The data records retrieved from the shard. **/
+      Records:RecordList;
+      /** The next position in the shard from which to start sequentially reading data
 records. If set to null , the shard has been closed and the requested iterator
 will not return any more data. **/
-        NextShardIterator?: ShardIterator;
-        /** The number of milliseconds the GetRecords response is from the tip of the
+      NextShardIterator?:ShardIterator;
+      /** The number of milliseconds the GetRecords response is from the tip of the
 stream, indicating how far behind current time the consumer is. A value of zero
 indicates record processing is caught up, and there are no new records to
 process at this moment. **/
-        MillisBehindLatest?: MillisBehindLatest;
+      MillisBehindLatest?:MillisBehindLatest;
     }
     export interface GetShardIteratorInput {
-        /** The name of the Amazon Kinesis stream. **/
-        StreamName: StreamName;
-        /** The shard ID of the Amazon Kinesis shard to get the iterator for. **/
-        ShardId: ShardId;
-        /** Determines how the shard iterator is used to start reading data records from the
+      /** The name of the Amazon Kinesis stream. **/
+      StreamName:StreamName;
+      /** The shard ID of the Amazon Kinesis shard to get the iterator for. **/
+      ShardId:ShardId;
+      /** Determines how the shard iterator is used to start reading data records from the
 shard.
 
 The following are the valid Amazon Kinesis shard iterator types:
 
- &amp;#42; AT_SEQUENCE_NUMBER - Start reading from the position denoted by a specific
-   sequence number, provided in the value StartingSequenceNumber .
- * AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a
-   specific sequence number, provided in the value StartingSequenceNumber .
- * AT_TIMESTAMP - Start reading from the position denoted by a specific
-   timestamp, provided in the value Timestamp .
- * TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the
-   system, which is the oldest data record in the shard.
- * LATEST - Start reading just after the most recent record in the shard, so
-   that you always read the most recent data in the shard. **/
-        ShardIteratorType: ShardIteratorType;
-        /** The sequence number of the data record in the shard from which to start reading.
+       &amp;#42; AT_SEQUENCE_NUMBER - Start reading from the position denoted by a specific
+       sequence number, provided in the value StartingSequenceNumber .
+       * AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a
+       specific sequence number, provided in the value StartingSequenceNumber .
+       * AT_TIMESTAMP - Start reading from the position denoted by a specific
+       timestamp, provided in the value Timestamp .
+       * TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the
+       system, which is the oldest data record in the shard.
+       * LATEST - Start reading just after the most recent record in the shard, so
+       that you always read the most recent data in the shard. **/
+      ShardIteratorType:ShardIteratorType;
+      /** The sequence number of the data record in the shard from which to start reading.
 Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER. **/
-        StartingSequenceNumber?: SequenceNumber;
-        /** The timestamp of the data record from which to start reading. Used with shard
+      StartingSequenceNumber?:SequenceNumber;
+      /** The timestamp of the data record from which to start reading. Used with shard
 iterator type AT_TIMESTAMP. A timestamp is the Unix epoch date with precision in
 milliseconds. For example, 2016-04-04T19:58:46.480-00:00 or 1459799926.480 . If
 a record with this exact timestamp does not exist, the iterator returned is for
 the next (later) record. If the timestamp is older than the current trim
 horizon, the iterator returned is for the oldest untrimmed data record
 (TRIM_HORIZON). **/
-        Timestamp?: Timestamp;
+      Timestamp?:Timestamp;
     }
     export interface GetShardIteratorOutput {
-        /** The position in the shard from which to start reading data records sequentially.
+      /** The position in the shard from which to start reading data records sequentially.
 A shard iterator specifies this position using the sequence number of a data
 record in a shard. **/
-        ShardIterator?: ShardIterator;
+      ShardIterator?:ShardIterator;
     }
     export interface HashKeyRange {
-        /** The starting hash key of the hash key range. **/
-        StartingHashKey: HashKey;
-        /** The ending hash key of the hash key range. **/
-        EndingHashKey: HashKey;
+      /** The starting hash key of the hash key range. **/
+      StartingHashKey:HashKey;
+      /** The ending hash key of the hash key range. **/
+      EndingHashKey:HashKey;
     }
     export interface IncreaseStreamRetentionPeriodInput {
-        /** The name of the stream to modify. **/
-        StreamName: StreamName;
-        /** The new retention period of the stream, in hours. Must be more than the current
+      /** The name of the stream to modify. **/
+      StreamName:StreamName;
+      /** The new retention period of the stream, in hours. Must be more than the current
 retention period. **/
-        RetentionPeriodHours: RetentionPeriodHours;
+      RetentionPeriodHours:RetentionPeriodHours;
     }
     export interface InvalidArgumentException {
-        /** A message that provides information about the error. **/
-        message?: ErrorMessage;
+      /** A message that provides information about the error. **/
+      message?:ErrorMessage;
     }
     export interface LimitExceededException {
-        /** A message that provides information about the error. **/
-        message?: ErrorMessage;
+      /** A message that provides information about the error. **/
+      message?:ErrorMessage;
     }
     export interface ListStreamsInput {
-        /** The maximum number of streams to list. **/
-        Limit?: ListStreamsInputLimit;
-        /** The name of the stream to start the list with. **/
-        ExclusiveStartStreamName?: StreamName;
+      /** The maximum number of streams to list. **/
+      Limit?:ListStreamsInputLimit;
+      /** The name of the stream to start the list with. **/
+      ExclusiveStartStreamName?:StreamName;
     }
     export interface ListStreamsOutput {
-        /** The names of the streams that are associated with the AWS account making the 
+      /** The names of the streams that are associated with the AWS account making the 
 ListStreams request. **/
-        StreamNames: StreamNameList;
-        /** If set to true , there are more streams available to list. **/
-        HasMoreStreams: BooleanObject;
+      StreamNames:StreamNameList;
+      /** If set to true , there are more streams available to list. **/
+      HasMoreStreams:BooleanObject;
     }
     export interface ListTagsForStreamInput {
-        /** The name of the stream. **/
-        StreamName: StreamName;
-        /** The key to use as the starting point for the list of tags. If this parameter is
+      /** The name of the stream. **/
+      StreamName:StreamName;
+      /** The key to use as the starting point for the list of tags. If this parameter is
 set, ListTagsForStream gets all tags that occur after ExclusiveStartTagKey . **/
-        ExclusiveStartTagKey?: TagKey;
-        /** The number of tags to return. If this number is less than the total number of
+      ExclusiveStartTagKey?:TagKey;
+      /** The number of tags to return. If this number is less than the total number of
 tags associated with the stream, HasMoreTags is set to true . To list additional
 tags, set ExclusiveStartTagKey to the last key in the response. **/
-        Limit?: ListTagsForStreamInputLimit;
+      Limit?:ListTagsForStreamInputLimit;
     }
     export interface ListTagsForStreamOutput {
-        /** A list of tags associated with StreamName , starting with the first tag after 
+      /** A list of tags associated with StreamName , starting with the first tag after 
 ExclusiveStartTagKey and up to the specified Limit . **/
-        Tags: TagList;
-        /** If set to true , more tags are available. To request additional tags, set 
+      Tags:TagList;
+      /** If set to true , more tags are available. To request additional tags, set 
 ExclusiveStartTagKey to the key of the last tag returned. **/
-        HasMoreTags: BooleanObject;
+      HasMoreTags:BooleanObject;
     }
     export interface MergeShardsInput {
-        /** The name of the stream for the merge. **/
-        StreamName: StreamName;
-        /** The shard ID of the shard to combine with the adjacent shard for the merge. **/
-        ShardToMerge: ShardId;
-        /** The shard ID of the adjacent shard for the merge. **/
-        AdjacentShardToMerge: ShardId;
+      /** The name of the stream for the merge. **/
+      StreamName:StreamName;
+      /** The shard ID of the shard to combine with the adjacent shard for the merge. **/
+      ShardToMerge:ShardId;
+      /** The shard ID of the adjacent shard for the merge. **/
+      AdjacentShardToMerge:ShardId;
     }
     export interface ProvisionedThroughputExceededException {
-        /** A message that provides information about the error. **/
-        message?: ErrorMessage;
+      /** A message that provides information about the error. **/
+      message?:ErrorMessage;
     }
     export interface PutRecordInput {
-        /** The name of the stream to put the data record into. **/
-        StreamName: StreamName;
-        /** The data blob to put into the record, which is base64-encoded when the blob is
+      /** The name of the stream to put the data record into. **/
+      StreamName:StreamName;
+      /** The data blob to put into the record, which is base64-encoded when the blob is
 serialized. When the data blob (the payload before base64-encoding) is added to
 the partition key size, the total size must not exceed the maximum record size
 (1 MB). **/
-        Data: Data;
-        /** Determines which shard in the stream the data record is assigned to. Partition
+      Data:Data;
+      /** Determines which shard in the stream the data record is assigned to. Partition
 keys are Unicode strings with a maximum length limit of 256 characters for each
 key. Amazon Kinesis uses the partition key as input to a hash function that maps
 the partition key and associated data to a specific shard. Specifically, an MD5
@@ -903,51 +903,51 @@ hash function is used to map partition keys to 128-bit integer values and to map
 associated data records to shards. As a result of this hashing mechanism, all
 data records with the same partition key map to the same shard within the
 stream. **/
-        PartitionKey: PartitionKey;
-        /** The hash value used to explicitly determine the shard the data record is
+      PartitionKey:PartitionKey;
+      /** The hash value used to explicitly determine the shard the data record is
 assigned to by overriding the partition key hash. **/
-        ExplicitHashKey?: HashKey;
-        /** Guarantees strictly increasing sequence numbers, for puts from the same client
+      ExplicitHashKey?:HashKey;
+      /** Guarantees strictly increasing sequence numbers, for puts from the same client
 and to the same partition key. Usage: set the SequenceNumberForOrdering of
 record n to the sequence number of record n-1 (as returned in the result when
 putting record n-1 ). If this parameter is not set, records will be coarsely
 ordered based on arrival time. **/
-        SequenceNumberForOrdering?: SequenceNumber;
+      SequenceNumberForOrdering?:SequenceNumber;
     }
     export interface PutRecordOutput {
-        /** The shard ID of the shard where the data record was placed. **/
-        ShardId: ShardId;
-        /** The sequence number identifier that was assigned to the put data record. The
+      /** The shard ID of the shard where the data record was placed. **/
+      ShardId:ShardId;
+      /** The sequence number identifier that was assigned to the put data record. The
 sequence number for the record is unique across all records in the stream. A
 sequence number is the identifier associated with every record put into the
 stream. **/
-        SequenceNumber: SequenceNumber;
+      SequenceNumber:SequenceNumber;
     }
     export interface PutRecordsInput {
-        /** The records associated with the request. **/
-        Records: PutRecordsRequestEntryList;
-        /** The stream name associated with the request. **/
-        StreamName: StreamName;
+      /** The records associated with the request. **/
+      Records:PutRecordsRequestEntryList;
+      /** The stream name associated with the request. **/
+      StreamName:StreamName;
     }
     export interface PutRecordsOutput {
-        /** The number of unsuccessfully processed records in a PutRecords request. **/
-        FailedRecordCount?: PositiveIntegerObject;
-        /** An array of successfully and unsuccessfully processed record results, correlated
+      /** The number of unsuccessfully processed records in a PutRecords request. **/
+      FailedRecordCount?:PositiveIntegerObject;
+      /** An array of successfully and unsuccessfully processed record results, correlated
 with the request by natural ordering. A record that is successfully added to a
 stream includes SequenceNumber and ShardId in the result. A record that fails to
 be added to a stream includes ErrorCode and ErrorMessage in the result. **/
-        Records: PutRecordsResultEntryList;
+      Records:PutRecordsResultEntryList;
     }
     export interface PutRecordsRequestEntry {
-        /** The data blob to put into the record, which is base64-encoded when the blob is
+      /** The data blob to put into the record, which is base64-encoded when the blob is
 serialized. When the data blob (the payload before base64-encoding) is added to
 the partition key size, the total size must not exceed the maximum record size
 (1 MB). **/
-        Data: Data;
-        /** The hash value used to determine explicitly the shard that the data record is
+      Data:Data;
+      /** The hash value used to determine explicitly the shard that the data record is
 assigned to by overriding the partition key hash. **/
-        ExplicitHashKey?: HashKey;
-        /** Determines which shard in the stream the data record is assigned to. Partition
+      ExplicitHashKey?:HashKey;
+      /** Determines which shard in the stream the data record is assigned to. Partition
 keys are Unicode strings with a maximum length limit of 256 characters for each
 key. Amazon Kinesis uses the partition key as input to a hash function that maps
 the partition key and associated data to a specific shard. Specifically, an MD5
@@ -955,119 +955,119 @@ hash function is used to map partition keys to 128-bit integer values and to map
 associated data records to shards. As a result of this hashing mechanism, all
 data records with the same partition key map to the same shard within the
 stream. **/
-        PartitionKey: PartitionKey;
+      PartitionKey:PartitionKey;
     }
     export interface PutRecordsResultEntry {
-        /** The sequence number for an individual record result. **/
-        SequenceNumber?: SequenceNumber;
-        /** The shard ID for an individual record result. **/
-        ShardId?: ShardId;
-        /** The error code for an individual record result. ErrorCodes can be either 
+      /** The sequence number for an individual record result. **/
+      SequenceNumber?:SequenceNumber;
+      /** The shard ID for an individual record result. **/
+      ShardId?:ShardId;
+      /** The error code for an individual record result. ErrorCodes can be either 
 ProvisionedThroughputExceededException or InternalFailure . **/
-        ErrorCode?: ErrorCode;
-        /** The error message for an individual record result. An ErrorCode value of 
+      ErrorCode?:ErrorCode;
+      /** The error message for an individual record result. An ErrorCode value of 
 ProvisionedThroughputExceededException has an error message that includes the
 account ID, stream name, and shard ID. An ErrorCode value of InternalFailure has
 the error message &quot;Internal Service Failure&quot; . **/
-        ErrorMessage?: ErrorMessage;
+      ErrorMessage?:ErrorMessage;
     }
     export interface Record {
-        /** The unique identifier of the record in the stream. **/
-        SequenceNumber: SequenceNumber;
-        /** The approximate time that the record was inserted into the stream. **/
-        ApproximateArrivalTimestamp?: ApproximateArrivalTimestamp;
-        /** The data blob. The data in the blob is both opaque and immutable to the Amazon
+      /** The unique identifier of the record in the stream. **/
+      SequenceNumber:SequenceNumber;
+      /** The approximate time that the record was inserted into the stream. **/
+      ApproximateArrivalTimestamp?:ApproximateArrivalTimestamp;
+      /** The data blob. The data in the blob is both opaque and immutable to the Amazon
 Kinesis service, which does not inspect, interpret, or change the data in the
 blob in any way. When the data blob (the payload before base64-encoding) is
 added to the partition key size, the total size must not exceed the maximum
 record size (1 MB). **/
-        Data: Data;
-        /** Identifies which shard in the stream the data record is assigned to. **/
-        PartitionKey: PartitionKey;
+      Data:Data;
+      /** Identifies which shard in the stream the data record is assigned to. **/
+      PartitionKey:PartitionKey;
     }
     export interface RemoveTagsFromStreamInput {
-        /** The name of the stream. **/
-        StreamName: StreamName;
-        /** A list of tag keys. Each corresponding tag is removed from the stream. **/
-        TagKeys: TagKeyList;
+      /** The name of the stream. **/
+      StreamName:StreamName;
+      /** A list of tag keys. Each corresponding tag is removed from the stream. **/
+      TagKeys:TagKeyList;
     }
     export interface ResourceInUseException {
-        /** A message that provides information about the error. **/
-        message?: ErrorMessage;
+      /** A message that provides information about the error. **/
+      message?:ErrorMessage;
     }
     export interface ResourceNotFoundException {
-        /** A message that provides information about the error. **/
-        message?: ErrorMessage;
+      /** A message that provides information about the error. **/
+      message?:ErrorMessage;
     }
     export interface SequenceNumberRange {
-        /** The starting sequence number for the range. **/
-        StartingSequenceNumber: SequenceNumber;
-        /** The ending sequence number for the range. Shards that are in the OPEN state have
+      /** The starting sequence number for the range. **/
+      StartingSequenceNumber:SequenceNumber;
+      /** The ending sequence number for the range. Shards that are in the OPEN state have
 an ending sequence number of null . **/
-        EndingSequenceNumber?: SequenceNumber;
+      EndingSequenceNumber?:SequenceNumber;
     }
     export interface Shard {
-        /** The unique identifier of the shard within the stream. **/
-        ShardId: ShardId;
-        /** The shard ID of the shard&#x27;s parent. **/
-        ParentShardId?: ShardId;
-        /** The shard ID of the shard adjacent to the shard&#x27;s parent. **/
-        AdjacentParentShardId?: ShardId;
-        /** The range of possible hash key values for the shard, which is a set of ordered
+      /** The unique identifier of the shard within the stream. **/
+      ShardId:ShardId;
+      /** The shard ID of the shard&#x27;s parent. **/
+      ParentShardId?:ShardId;
+      /** The shard ID of the shard adjacent to the shard&#x27;s parent. **/
+      AdjacentParentShardId?:ShardId;
+      /** The range of possible hash key values for the shard, which is a set of ordered
 contiguous positive integers. **/
-        HashKeyRange: HashKeyRange;
-        /** The range of possible sequence numbers for the shard. **/
-        SequenceNumberRange: SequenceNumberRange;
+      HashKeyRange:HashKeyRange;
+      /** The range of possible sequence numbers for the shard. **/
+      SequenceNumberRange:SequenceNumberRange;
     }
     export interface SplitShardInput {
-        /** The name of the stream for the shard split. **/
-        StreamName: StreamName;
-        /** The shard ID of the shard to split. **/
-        ShardToSplit: ShardId;
-        /** A hash key value for the starting hash key of one of the child shards created by
+      /** The name of the stream for the shard split. **/
+      StreamName:StreamName;
+      /** The shard ID of the shard to split. **/
+      ShardToSplit:ShardId;
+      /** A hash key value for the starting hash key of one of the child shards created by
 the split. The hash key range for a given shard constitutes a set of ordered
 contiguous positive integers. The value for NewStartingHashKey must be in the
 range of hash keys being mapped into the shard. The NewStartingHashKey hash key
 value and all higher hash key values in hash key range are distributed to one of
 the child shards. All the lower hash key values in the range are distributed to
 the other child shard. **/
-        NewStartingHashKey: HashKey;
+      NewStartingHashKey:HashKey;
     }
     export interface StreamDescription {
-        /** The name of the stream being described. **/
-        StreamName: StreamName;
-        /** The Amazon Resource Name (ARN) for the stream being described. **/
-        StreamARN: StreamARN;
-        /** The current status of the stream being described. The stream status is one of
+      /** The name of the stream being described. **/
+      StreamName:StreamName;
+      /** The Amazon Resource Name (ARN) for the stream being described. **/
+      StreamARN:StreamARN;
+      /** The current status of the stream being described. The stream status is one of
 the following states:
 
- &amp;#42; CREATING - The stream is being created. Amazon Kinesis immediately returns
-   and sets StreamStatus to CREATING .
- * DELETING - The stream is being deleted. The specified stream is in the 
-   DELETING state until Amazon Kinesis completes the deletion.
- * ACTIVE - The stream exists and is ready for read and write operations or
-   deletion. You should perform read and write operations only on an ACTIVE 
-   stream.
- * UPDATING - Shards in the stream are being merged or split. Read and write
-   operations continue to work while the stream is in the UPDATING state. **/
-        StreamStatus: StreamStatus;
-        /** The shards that comprise the stream. **/
-        Shards: ShardList;
-        /** If set to true , more shards in the stream are available to describe. **/
-        HasMoreShards: BooleanObject;
-        /** The current retention period, in hours. **/
-        RetentionPeriodHours: RetentionPeriodHours;
-        /** Represents the current enhanced monitoring settings of the stream. **/
-        EnhancedMonitoring: EnhancedMonitoringList;
+       &amp;#42; CREATING - The stream is being created. Amazon Kinesis immediately returns
+       and sets StreamStatus to CREATING .
+       * DELETING - The stream is being deleted. The specified stream is in the
+       DELETING state until Amazon Kinesis completes the deletion.
+       * ACTIVE - The stream exists and is ready for read and write operations or
+       deletion. You should perform read and write operations only on an ACTIVE
+       stream.
+       * UPDATING - Shards in the stream are being merged or split. Read and write
+       operations continue to work while the stream is in the UPDATING state. **/
+      StreamStatus:StreamStatus;
+      /** The shards that comprise the stream. **/
+      Shards:ShardList;
+      /** If set to true , more shards in the stream are available to describe. **/
+      HasMoreShards:BooleanObject;
+      /** The current retention period, in hours. **/
+      RetentionPeriodHours:RetentionPeriodHours;
+      /** Represents the current enhanced monitoring settings of the stream. **/
+      EnhancedMonitoring:EnhancedMonitoringList;
     }
     export interface Tag {
-        /** A unique identifier for the tag. Maximum length: 128 characters. Valid
+      /** A unique identifier for the tag. Maximum length: 128 characters. Valid
 characters: Unicode letters, digits, white space, _ . / = + - % @ **/
-        Key: TagKey;
-        /** An optional string, typically used to describe or define the tag. Maximum
+      Key:TagKey;
+      /** An optional string, typically used to describe or define the tag. Maximum
 length: 256 characters. Valid characters: Unicode letters, digits, white space,
 _ . / = + - % @ **/
-        Value?: TagValue;
+      Value?:TagValue;
     }
   }
 }

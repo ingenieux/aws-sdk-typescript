@@ -1,18 +1,9 @@
 {
-  "name": "@rezonence/aws-sdk-typescript",
+  "name": "@djabry/aws-sdk-typescript",
   "version": "0.0.2",
-  "author": "Aldrin Leal <aldrin+npmjs@leal.eng.br>",
+  "author": "Daniel Jabry <djabry@gmail.com>",
   "description": "aws-sdk bindings for typescript",
-  "homepage": "https://github.com/ingenieux/aws-sdk-typescript/",
-  "bugs": {
-    "url": "https://github.com/ingenieux/aws-sdk-typescript/issues/"
-  },
-  "contributors": [
-    {
-      "name": "Eric Nicholson",
-      "email": "enicholson@gmail.com"
-    }
-  ],
+  "homepage": "https://github.com/djabry/aws-sdk-typescript/",
   "keywords": [
     "Typescript",
     "AWS",
@@ -27,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/ingenieux/aws-sdk-typescript.git"
+    "url": "git://github.com/djabry/aws-sdk-typescript.git"
   },
   "devDependencies": {
     "del": "^2.1.0",
@@ -53,8 +44,5 @@
     "prepublish": "gulp buildrun && npm run-script format",
     "format": "tsfmt --verbose --replace -- output/typings/*.d.ts",
     "test": "npm install ./aws-sdk-js && gulp compile:tests"
-  },
-  "dependencies": {
-    "aws-sdk": "^2.3.14"
   }
 }
