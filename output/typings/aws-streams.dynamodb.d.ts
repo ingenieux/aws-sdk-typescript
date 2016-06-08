@@ -14,29 +14,15 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * Amazon DynamoDB StreamsThis is the Amazon DynamoDB Streams API Reference. This
-guide describes the low-level API actions for accessing streams and processing
-stream records. For information about application development with DynamoDB
-Streams, see the Amazon DynamoDB Developer Guide
-[http://docs.aws.amazon.com/amazondynamodb/latest/developerguide//Streams.html] 
-.
+   * Amazon DynamoDBAmazon DynamoDB Streams provides API actions for accessing
+streams and processing stream records. To learn more about application
+development with Streams, see Capturing Table Activity with DynamoDB Streams
+[http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html] 
+in the Amazon DynamoDB Developer Guide.
 
-Note that this document is intended for use with the following DynamoDB
-documentation:
+The following are short descriptions of each low-level DynamoDB Streams action:
 
- &amp;#42; Amazon DynamoDB Developer Guide
-   [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/]
-   
-   
- * Amazon DynamoDB API Reference
-   [http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/]
-   
-   
-
-The following are short descriptions of each low-level DynamoDB Streams API
-action, organized by function.
-
- * DescribeStream - Returns detailed information about a particular stream.
+ &amp;#42; DescribeStream - Returns detailed information about a particular stream.
    
    
  * GetRecords - Retrieves the stream records from within a shard.
@@ -63,11 +49,11 @@ You can call DescribeStream at a maximum rate of 10 times per second.
 Each shard in the stream has a SequenceNumberRange associated with it. If the 
 SequenceNumberRange has a StartingSequenceNumber but no EndingSequenceNumber ,
 then the shard is still open (able to receive more stream records). If both 
-StartingSequenceNumber and EndingSequenceNumber are present, the that shared is
+StartingSequenceNumber and EndingSequenceNumber are present, then that shard is
 closed and can no longer receive more data.
      *
-     * @error ResourceNotFoundException The operation tried to access a nonexistent stream.  
-     * @error InternalServerError An error occurred on the server side.  
+     * @error ResourceNotFoundException   
+     * @error InternalServerError   
      */
     describeStream(params: DynamoDBStreams.DescribeStreamInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|any, data: DynamoDBStreams.DescribeStreamOutput|any) => void): Request<DynamoDBStreams.DescribeStreamOutput|any,DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|any>;
     /**
@@ -80,32 +66,14 @@ the shard that the iterator points to, GetRecords returns an empty list. Note
 that it might take multiple calls to get to a portion of the shard that contains
 stream records.
 
-GetRecords can retrieve a maximum of 1 MB of data or 2000 stream records,
+GetRecords can retrieve a maximum of 1 MB of data or 1000 stream records,
 whichever comes first.
      *
-     * @error ResourceNotFoundException The operation tried to access a nonexistent stream.  
-     * @error LimitExceededException Your request rate is too high. The AWS SDKs for DynamoDB automatically retry
-requests that receive this exception. Your request is eventually successful,
-unless your retry queue is too large to finish. Reduce the frequency of requests
-and use exponential backoff. For more information, go to Error Retries and
-Exponential Backoff
-[http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries] 
-in the Amazon DynamoDB Developer Guide .  
-     * @error InternalServerError An error occurred on the server side.  
-     * @error ExpiredIteratorException The shard iterator has expired and can no longer be used to retrieve stream
-records. A shard iterator expires 15 minutes after it is retrieved using the 
-GetShardIterator action.  
-     * @error TrimmedDataAccessException The operation attempted to read past the oldest stream record in a shard.
-
-In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records
-whose age exceeds this limit are subject to removal (trimming) from the stream.
-You might receive a TrimmedDataAccessException if:
-
- &amp;#42; You request a shard iterator with a sequence number older than the trim point
-   (24 hours).
- * You obtain a shard iterator, but before you use the iterator in a GetRecords 
-   request, a stream record in the shard exceeds the 24 hour period and is
-   trimmed. This causes the iterator to access a record that no longer exists.  
+     * @error ResourceNotFoundException   
+     * @error LimitExceededException   
+     * @error InternalServerError   
+     * @error ExpiredIteratorException   
+     * @error TrimmedDataAccessException   
      */
     getRecords(params: DynamoDBStreams.GetRecordsInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.LimitExceededException|DynamoDBStreams.InternalServerError|DynamoDBStreams.ExpiredIteratorException|DynamoDBStreams.TrimmedDataAccessException|any, data: DynamoDBStreams.GetRecordsOutput|any) => void): Request<DynamoDBStreams.GetRecordsOutput|any,DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.LimitExceededException|DynamoDBStreams.InternalServerError|DynamoDBStreams.ExpiredIteratorException|DynamoDBStreams.TrimmedDataAccessException|any>;
     /**
@@ -115,19 +83,9 @@ subsequent GetRecords request to read the stream records from the shard.
 
 A shard iterator expires 15 minutes after it is returned to the requester.
      *
-     * @error ResourceNotFoundException The operation tried to access a nonexistent stream.  
-     * @error InternalServerError An error occurred on the server side.  
-     * @error TrimmedDataAccessException The operation attempted to read past the oldest stream record in a shard.
-
-In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records
-whose age exceeds this limit are subject to removal (trimming) from the stream.
-You might receive a TrimmedDataAccessException if:
-
- &amp;#42; You request a shard iterator with a sequence number older than the trim point
-   (24 hours).
- * You obtain a shard iterator, but before you use the iterator in a GetRecords 
-   request, a stream record in the shard exceeds the 24 hour period and is
-   trimmed. This causes the iterator to access a record that no longer exists.  
+     * @error ResourceNotFoundException   
+     * @error InternalServerError   
+     * @error TrimmedDataAccessException   
      */
     getShardIterator(params: DynamoDBStreams.GetShardIteratorInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|DynamoDBStreams.TrimmedDataAccessException|any, data: DynamoDBStreams.GetShardIteratorOutput|any) => void): Request<DynamoDBStreams.GetShardIteratorOutput|any,DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|DynamoDBStreams.TrimmedDataAccessException|any>;
     /**
@@ -137,8 +95,8 @@ only the streams ARNs for that table.
 
 You can call ListStreams at a maximum rate of 5 times per second.
      *
-     * @error ResourceNotFoundException The operation tried to access a nonexistent stream.  
-     * @error InternalServerError An error occurred on the server side.  
+     * @error ResourceNotFoundException   
+     * @error InternalServerError   
      */
     listStreams(params: DynamoDBStreams.ListStreamsInput, callback?: (err: DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|any, data: DynamoDBStreams.ListStreamsOutput|any) => void): Request<DynamoDBStreams.ListStreamsOutput|any,DynamoDBStreams.ResourceNotFoundException|DynamoDBStreams.InternalServerError|any>;
 
@@ -350,12 +308,17 @@ record. **/
  &amp;#42; INSERT - a new item was added to the table.
    
    
- * MODIFY - one or more of the item&#x27;s attributes were updated.
+ * MODIFY - one or more of an existing item&#x27;s attributes were modified.
    
    
  * REMOVE - the item was deleted from the table **/
         eventName?: OperationType;
-        /** The version number of the stream record format. Currently, this is 1.0 . **/
+        /** The version number of the stream record format. This number is updated whenever
+the structure of Record is modified.
+
+Client applications must not assume that eventVersion will remain at a
+particular value, as this number is subject to change at any time. In general, 
+eventVersion will only increase as the low-level DynamoDB Streams API evolves. **/
         eventVersion?: String;
         /** The AWS service from which the stream record originated. For DynamoDB Streams,
 this is aws:dynamodb . **/
@@ -428,7 +391,7 @@ unique:
  &amp;#42; ENABLING - Streams is currently being enabled on the DynamoDB table.
    
    
- * ENABLING - the stream is enabled.
+ * ENABLED - the stream is enabled.
    
    
  * DISABLING - Streams is currently being disabled on the DynamoDB table.
@@ -442,11 +405,11 @@ unique:
    DynamoDB table.
    
    
- * NEW_IMAGE - entire item from the table, as it appeared after they were
+ * NEW_IMAGE - entire items from the table, as they appeared after they were
    modified.
    
    
- * OLD_IMAGE - entire item from the table, as it appeared before they were
+ * OLD_IMAGE - entire items from the table, as they appeared before they were
    modified.
    
    
@@ -474,6 +437,9 @@ of the result set is when LastEvaluatedShardId is empty. **/
         LastEvaluatedShardId?: ShardId;
     }
     export interface StreamRecord {
+        /** The approximate date and time when the stream record was created, in UNIX epoch
+time [http://www.epochconverter.com/] format. **/
+        ApproximateCreationDateTime?: Date;
         /** The primary key attribute(s) for the DynamoDB item that was modified. **/
         Keys?: AttributeMap;
         /** The item in the DynamoDB table as it appeared after it was modified. **/
@@ -490,13 +456,13 @@ stream record:
  &amp;#42; KEYS_ONLY - only the key attributes of the modified item.
    
    
- * NEW_IMAGE - the entire item, as it appears after it was modified.
+ * NEW_IMAGE - the entire item, as it appeared after it was modified.
    
    
  * OLD_IMAGE - the entire item, as it appeared before it was modified.
    
    
- * NEW_AND_OLD_IMAGES — both the new and the old item images of the item. **/
+ * NEW_AND_OLD_IMAGES - both the new and the old item images of the item. **/
         StreamViewType?: StreamViewType;
     }
     export interface TrimmedDataAccessException {

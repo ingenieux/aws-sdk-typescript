@@ -106,7 +106,7 @@ certificates given a batch of CSRs.
 
 Assuming a set of CSRs are located inside of the directory my-csr-directory:
 
-&gt;On Linux and OS X, the command is:
+On Linux and OS X, the command is:
 
 $ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr
 --certificate-signing-request file://my-csr-directory/{}
@@ -333,9 +333,7 @@ the default version, use ListPolicyVersions.
      */
     describeCertificate(params: Iot.DescribeCertificateRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.DescribeCertificateResponse|any) => void): Request<Iot.DescribeCertificateResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any>;
     /**
-     * Returns a unique endpoint specific to the AWS account making the call. You
-specify the following URI when updating state information for your thing:
-https:// endpoint /things/ thingName /shadow.
+     * Returns a unique endpoint specific to the AWS account making the call.
      *
      * @error InternalFailureException An unexpected error has occurred.  
      * @error UnauthorizedException You are not authorized to perform this operation.  
@@ -431,8 +429,9 @@ default version.
      * @error UnauthorizedException You are not authorized to perform this operation.  
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
+     * @error InvalidRequestException The request is not valid.  
      */
-    getRegistrationCode(params: Iot.GetRegistrationCodeRequest, callback?: (err: Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.GetRegistrationCodeResponse|any) => void): Request<Iot.GetRegistrationCodeResponse|any,Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
+    getRegistrationCode(params: Iot.GetRegistrationCodeRequest, callback?: (err: Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.InvalidRequestException|any, data: Iot.GetRegistrationCodeResponse|any) => void): Request<Iot.GetRegistrationCodeResponse|any,Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.InvalidRequestException|any>;
     /**
      * Gets information about the specified rule.
      *
@@ -489,7 +488,18 @@ returned marker to retrieve additional results.
      */
     listPolicies(params: Iot.ListPoliciesRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPoliciesResponse|any) => void): Request<Iot.ListPoliciesResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
-     * Lists the versions of the specified policy, and identifies the default version.
+     * Lists the principals associated with the specified policy.
+     *
+     * @error ResourceNotFoundException The specified resource does not exist.  
+     * @error InvalidRequestException The request is not valid.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     */
+    listPolicyPrincipals(params: Iot.ListPolicyPrincipalsRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPolicyPrincipalsResponse|any) => void): Request<Iot.ListPolicyPrincipalsResponse|any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
+    /**
+     * Lists the versions of the specified policy and identifies the default version.
      *
      * @error ResourceNotFoundException The specified resource does not exist.  
      * @error InvalidRequestException The request is not valid.  
@@ -763,6 +773,8 @@ a certificate.
     
     export type Description = string;
     
+    export type DynamoKeyType = string;
+    
     export type ElasticsearchEndpoint = string;
     
     export type ElasticsearchId = string;
@@ -934,7 +946,9 @@ CreateCertificate operation) or an Amazon Cognito ID. **/
         certificateArn?: CertificateArn;
         /** The ID of the CA certificate. **/
         certificateId?: CertificateId;
-        /** The status of the CA certificate. **/
+        /** The status of the CA certificate.
+
+The status value REGISTER_INACTIVE is deprecated and should not be used. **/
         status?: CACertificateStatus;
         /** The date the CA certificate was created. **/
         creationDate?: DateType;
@@ -962,7 +976,9 @@ CreateCertificate operation) or an Amazon Cognito ID. **/
         certificateArn?: CertificateArn;
         /** The ID of the certificate. **/
         certificateId?: CertificateId;
-        /** The status of the certificate. **/
+        /** The status of the certificate.
+
+The status value REGISTER_INACTIVE is deprecated and should not be used. **/
         status?: CertificateStatus;
         /** The date and time the certificate was created. **/
         creationDate?: DateType;
@@ -1205,7 +1221,10 @@ is an Amazon Cognito identity, specify the identity ID. **/
     export interface DetachThingPrincipalRequest {
         /** The name of the thing. **/
         thingName: ThingName;
-        /** The principal. **/
+        /** The principal.
+
+If the principal is a certificate, specify the certificate ARN. If the principal
+is an Amazon Cognito identity, specify the identity ID. **/
         principal: Principal;
     }
     export interface DetachThingPrincipalResponse {
@@ -1223,10 +1242,14 @@ is an Amazon Cognito identity, specify the identity ID. **/
         hashKeyField: HashKeyField;
         /** The hash key value. **/
         hashKeyValue: HashKeyValue;
+        /** The hash key type. Valid values are &quot;STRING&quot; or &quot;NUMBER&quot; **/
+        hashKeyType?: DynamoKeyType;
         /** The range key name. **/
-        rangeKeyField: RangeKeyField;
+        rangeKeyField?: RangeKeyField;
         /** The range key value. **/
-        rangeKeyValue: RangeKeyValue;
+        rangeKeyValue?: RangeKeyValue;
+        /** The range key type. Valid values are &quot;STRING&quot; or &quot;NUMBER&quot; **/
+        rangeKeyType?: DynamoKeyType;
         /** The action payload. This name can be customized. **/
         payloadField?: PayloadField;
     }
@@ -1403,6 +1426,24 @@ creation order. **/
     export interface ListPoliciesResponse {
         /** The descriptions of the policies. **/
         policies?: Policies;
+        /** The marker for the next set of results, or null if there are no additional
+results. **/
+        nextMarker?: Marker;
+    }
+    export interface ListPolicyPrincipalsRequest {
+        /** The policy name. **/
+        policyName: PolicyName;
+        /** The marker for the next set of results. **/
+        marker?: Marker;
+        /** The result page size. **/
+        pageSize?: PageSize;
+        /** Specifies the order for results. If true, the results are returned in ascending
+creation order. **/
+        ascendingOrder?: AscendingOrder;
+    }
+    export interface ListPolicyPrincipalsResponse {
+        /** The descriptions of the principals. **/
+        principals?: Principals;
         /** The marker for the next set of results, or null if there are no additional
 results. **/
         nextMarker?: Marker;
@@ -1710,7 +1751,9 @@ in the AWS IoT Developer Guide . **/
     export interface UpdateCACertificateRequest {
         /** The CA certificate identifier. **/
         certificateId: CertificateId;
-        /** The updated status of the CA certificate. **/
+        /** The updated status of the CA certificate.
+
+Note: The status value REGISTER_INACTIVE is deprecated and should not be used. **/
         newStatus: CACertificateStatus;
     }
     export interface UpdateCertificateRequest {
@@ -1720,7 +1763,9 @@ in the AWS IoT Developer Guide . **/
 
 Note: Setting the status to PENDING_TRANSFER will result in an exception being
 thrown. PENDING_TRANSFER is a status used internally by AWS IoT. It is not
-intended for developer use. **/
+intended for developer use.
+
+Note: The status value REGISTER_INACTIVE is deprecated and should not be used. **/
         newStatus: CertificateStatus;
     }
     export interface UpdateThingRequest {
