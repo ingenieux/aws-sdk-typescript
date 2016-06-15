@@ -98,12 +98,9 @@ Amazon CloudFront.
      */
     getCertificate(params: ACM.GetCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.RequestInProgressException|ACM.InvalidArnException|any, data: ACM.GetCertificateResponse|any) => void): Request<ACM.GetCertificateResponse|any,ACM.ResourceNotFoundException|ACM.RequestInProgressException|ACM.InvalidArnException|any>;
     /**
-     * Retrieves a list of the ACM Certificate ARNs, and the domain name for each ARN,
-owned by the calling account. You can filter the list based on the 
-CertificateStatuses parameter, and you can display up to MaxItems certificates
-at one time. If you have more than MaxItems certificates, use the NextToken 
-marker from the response object in your next call to the ListCertificates action
-to retrieve the next set of certificate ARNs.
+     * Retrieves a list of ACM Certificates and the domain name for each. You can
+optionally filter the list to return only the certificates that match the
+specified status.
      *
      */
     listCertificates(params: ACM.ListCertificatesRequest, callback?: (err: any, data: ACM.ListCertificatesResponse|any) => void): Request<ACM.ListCertificatesResponse|any,any>;
@@ -226,16 +223,12 @@ Service Namespaces
         Tags: TagList;
     }
     export interface CertificateDetail {
-        /** Amazon Resource Name (ARN) of the certificate. This is of the form:
-
-arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
-
-For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
-Service Namespaces
+        /** The Amazon Resource Name (ARN) of the certificate. For more information about
+ARNs, see Amazon Resource Names (ARNs) and AWS Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
         CertificateArn?: Arn;
-        /** Fully qualified domain name (FQDN), such as www.example.com or example.com, for
-the certificate. **/
+        /** The fully qualified domain name (FQDN) for the certificate, such as
+www.example.com or example.com. **/
         DomainName?: DomainNameString;
         /** One or more domain names (subject alternative names) included in the certificate
 request. After the certificate is issued, this list includes the domain names
@@ -243,92 +236,39 @@ bound to the public key contained in the certificate. The subject alternative
 names include the canonical domain name (CN) of the certificate and additional
 domain names that can be used to connect to the website. **/
         SubjectAlternativeNames?: DomainList;
-        /** References a DomainValidation structure that contains the domain name in the
-certificate and the email address that can be used for validation. **/
+        /** Contains information about the email address or addresses used for domain
+validation. **/
         DomainValidationOptions?: DomainValidationList;
-        /** String that contains the serial number of the certificate. **/
+        /** The serial number of the certificate. **/
         Serial?: String;
         /** The X.500 distinguished name of the entity associated with the public key
 contained in the certificate. **/
         Subject?: String;
         /** The X.500 distinguished name of the CA that issued and signed the certificate. **/
         Issuer?: String;
-        /** Time at which the certificate was requested. **/
+        /** The time at which the certificate was requested. **/
         CreatedAt?: TStamp;
-        /** Time at which the certificate was issued. **/
+        /** The time at which the certificate was issued. **/
         IssuedAt?: TStamp;
-        /** A CertificateStatus enumeration value that can contain one of the following: &amp;#42; 
-   PENDING_VALIDATION
-   
-   
- * 
-   ISSUED
-   
-   
- * 
-   INACTIVE
-   
-   
- * 
-   EXPIRED
-   
-   
- * 
-   REVOKED
-   
-   
- * 
-   FAILED
-   
-   
- * 
-   VALIDATION_TIMED_OUT **/
+        /** The status of the certificate. **/
         Status?: CertificateStatus;
-        /** The time, if any, at which the certificate was revoked. This value exists only
-if the certificate has been revoked. **/
+        /** The time at which the certificate was revoked. This value exists only when the
+certificate status is REVOKED . **/
         RevokedAt?: TStamp;
-        /** A RevocationReason enumeration value that indicates why the certificate was
-revoked. This value exists only if the certificate has been revoked. This can be
-one of the following vales: &amp;#42; UNSPECIFIED
-   
-   
- * KEY_COMPROMISE
-   
-   
- * CA_COMPROMISE
-   
-   
- * AFFILIATION_CHANGED
-   
-   
- * SUPERCEDED
-   
-   
- * CESSATION_OF_OPERATION
-   
-   
- * CERTIFICATE_HOLD
-   
-   
- * REMOVE_FROM_CRL
-   
-   
- * PRIVILEGE_WITHDRAWN
-   
-   
- * A_A_COMPROMISE **/
+        /** The reason the certificate was revoked. This value exists only when the
+certificate status is REVOKED . **/
         RevocationReason?: RevocationReason;
-        /** Time before which the certificate is not valid. **/
+        /** The time before which the certificate is not valid. **/
         NotBefore?: TStamp;
-        /** Time after which the certificate is not valid. **/
+        /** The time after which the certificate is not valid. **/
         NotAfter?: TStamp;
-        /** Asymmetric algorithm used to generate the public and private key pair. Currently
-the only supported value is RSA_2048 . **/
+        /** The algorithm used to generate the key pair (the public and private key).
+Currently the only supported value is RSA_2048 . **/
         KeyAlgorithm?: KeyAlgorithm;
-        /** Algorithm used to generate a signature. Currently the only supported value is 
-SHA256WITHRSA . **/
+        /** The algorithm used to generate a signature. Currently the only supported value
+is SHA256WITHRSA . **/
         SignatureAlgorithm?: String;
-        /** List that identifies ARNs that are using the certificate. A single ACM
+        /** A list of ARNs for the resources that are using the certificate. An ACM
 Certificate can be used by multiple AWS resources. **/
         InUseBy?: InUseList;
     }
@@ -372,7 +312,7 @@ Certificate. **/
         Certificate?: CertificateDetail;
     }
     export interface DomainValidation {
-        /** Fully Qualified Domain Name (FQDN) of the form www.example.com or example.com **/
+        /** Fully Qualified Domain Name (FQDN) of the form www.example.com or example.com . **/
         DomainName: DomainNameString;
         /** A list of contact address for the domain registrant. **/
         ValidationEmails?: ValidationEmailList;
@@ -389,7 +329,9 @@ DomainName value or a superdomain of the DomainName value. For example, if you
 requested a certificate for site.subdomain.example.com and specify a 
 ValidationDomain of subdomain.example.com , ACM sends email to the domain
 registrant, technical contact, and administrative contact in WHOIS for the base
-domain and the following five addresses: &amp;#42; admin@subdomain.example.com
+domain and the following five addresses:
+
+ &amp;#42; admin@subdomain.example.com
    
    
  * administrator@subdomain.example.com
@@ -423,66 +365,38 @@ certificate authority (CA). **/
         CertificateChain?: CertificateChain;
     }
     export interface InvalidArnException {
-        /**  **/
         message?: String;
     }
     export interface InvalidDomainValidationOptionsException {
-        /**  **/
         message?: String;
     }
     export interface InvalidStateException {
-        /**  **/
         message?: String;
     }
     export interface InvalidTagException {
-        /**  **/
         message?: String;
     }
     export interface LimitExceededException {
-        /**  **/
         message?: String;
     }
     export interface ListCertificatesRequest {
-        /** Identifies the statuses of the ACM Certificates for which you want to retrieve
-the ARNs. This can be one or more of the following values: &amp;#42; PENDING_VALIDATION
-   
-   
- * ISSUED
-   
-   
- * INACTIVE
-   
-   
- * EXPIRED
-   
-   
- * 
-   VALIDATION_TIMED_OUT
-   
-   
- * REVOKED
-   
-   
- * FAILED **/
+        /** The status or statuses on which to filter the list of ACM Certificates. **/
         CertificateStatuses?: CertificateStatuses;
-        /** String that contains an opaque marker of the next ACM Certificate ARN to be
-displayed. Use this parameter when paginating results, and only in a subsequent
-request after you&#x27;ve received a response where the results have been truncated.
-Set it to an empty string the first time you call this action, and set it to the
-value of the NextToken element you receive in the response object for subsequent
-calls. **/
+        /** Use this parameter only when paginating results and only in a subsequent request
+after you receive a response with truncated results. Set it to the value of 
+NextToken from the response you just received. **/
         NextToken?: NextToken;
-        /** Specify this parameter when paginating results to indicate the maximum number of
-ACM Certificates that you want to display for each response. If there are
-additional certificates beyond the maximum you specify, use the NextToken value
-in your next call to the ListCertificates action. **/
+        /** Use this parameter when paginating results to specify the maximum number of
+items to return in the response. If additional items exist beyond the number you
+specify, the NextToken element is sent in the response. Use this NextToken value
+in a subsequent request to retrieve additional items. **/
         MaxItems?: MaxItems;
     }
     export interface ListCertificatesResponse {
-        /** If the list has been truncated, this value is present and should be used for the 
-NextToken input parameter on your next call to ListCertificates . **/
+        /** When the list is truncated, this value is present and contains the value to use
+for the NextToken parameter in a subsequent pagination request. **/
         NextToken?: NextToken;
-        /** A list of the certificate ARNs. **/
+        /** A list of ACM Certificates. **/
         CertificateSummaryList?: CertificateSummaryList;
     }
     export interface ListTagsForCertificateRequest {
@@ -537,7 +451,9 @@ that are used to send the emails. This must be the same as the Domain value or a
 superdomain of the Domain value. For example, if you requested a certificate for 
 test.example.com and specify DomainValidationOptions of example.com , ACM sends
 email to the domain registrant, technical contact, and administrative contact in
-WHOIS and the following five addresses: &amp;#42; admin@example.com
+WHOIS and the following five addresses:
+
+ &amp;#42; admin@example.com
    
    
  * administrator@example.com
@@ -561,7 +477,6 @@ arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789
         CertificateArn?: Arn;
     }
     export interface RequestInProgressException {
-        /**  **/
         message?: String;
     }
     export interface ResendValidationEmailRequest {
@@ -583,32 +498,27 @@ that are used to send the emails. This must be the same as the Domain value or a
 superdomain of the Domain value. For example, if you requested a certificate for 
 site.subdomain.example.com and specify a ValidationDomain of 
 subdomain.example.com , ACM sends email to the domain registrant, technical
-contact, and administrative contact in WHOIS and the following five addresses: &amp;#42; 
-   admin@subdomain.example.com
+contact, and administrative contact in WHOIS and the following five addresses:
+
+ &amp;#42; admin@subdomain.example.com
    
    
- * 
-   administrator@subdomain.example.com
+ * administrator@subdomain.example.com
    
    
- * 
-   hostmaster@subdomain.example.com
+ * hostmaster@subdomain.example.com
    
    
- * 
-   postmaster@subdomain.example.com
+ * postmaster@subdomain.example.com
    
    
- * 
-   webmaster@subdomain.example.com **/
+ * webmaster@subdomain.example.com **/
         ValidationDomain: DomainNameString;
     }
     export interface ResourceInUseException {
-        /**  **/
         message?: String;
     }
     export interface ResourceNotFoundException {
-        /**  **/
         message?: String;
     }
     export interface Tag {

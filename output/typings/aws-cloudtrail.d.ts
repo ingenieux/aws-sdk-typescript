@@ -76,13 +76,14 @@ of the region in which they were created.
      * @error InvalidParameterCombinationException   
      * @error KmsKeyNotFoundException   
      * @error KmsKeyDisabledException   
+     * @error KmsException   
      * @error InvalidCloudWatchLogsLogGroupArnException   
      * @error InvalidCloudWatchLogsRoleArnException   
      * @error CloudWatchLogsDeliveryUnavailableException   
      * @error UnsupportedOperationException   
      * @error OperationNotPermittedException   
      */
-    createTrail(params: CloudTrail.CreateTrailRequest, callback?: (err: CloudTrail.MaximumNumberOfTrailsExceededException|CloudTrail.TrailAlreadyExistsException|CloudTrail.S3BucketDoesNotExistException|CloudTrail.InsufficientS3BucketPolicyException|CloudTrail.InsufficientSnsTopicPolicyException|CloudTrail.InsufficientEncryptionPolicyException|CloudTrail.InvalidS3BucketNameException|CloudTrail.InvalidS3PrefixException|CloudTrail.InvalidSnsTopicNameException|CloudTrail.InvalidKmsKeyIdException|CloudTrail.InvalidTrailNameException|CloudTrail.TrailNotProvidedException|CloudTrail.InvalidParameterCombinationException|CloudTrail.KmsKeyNotFoundException|CloudTrail.KmsKeyDisabledException|CloudTrail.InvalidCloudWatchLogsLogGroupArnException|CloudTrail.InvalidCloudWatchLogsRoleArnException|CloudTrail.CloudWatchLogsDeliveryUnavailableException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.CreateTrailResponse|any) => void): Request<CloudTrail.CreateTrailResponse|any,CloudTrail.MaximumNumberOfTrailsExceededException|CloudTrail.TrailAlreadyExistsException|CloudTrail.S3BucketDoesNotExistException|CloudTrail.InsufficientS3BucketPolicyException|CloudTrail.InsufficientSnsTopicPolicyException|CloudTrail.InsufficientEncryptionPolicyException|CloudTrail.InvalidS3BucketNameException|CloudTrail.InvalidS3PrefixException|CloudTrail.InvalidSnsTopicNameException|CloudTrail.InvalidKmsKeyIdException|CloudTrail.InvalidTrailNameException|CloudTrail.TrailNotProvidedException|CloudTrail.InvalidParameterCombinationException|CloudTrail.KmsKeyNotFoundException|CloudTrail.KmsKeyDisabledException|CloudTrail.InvalidCloudWatchLogsLogGroupArnException|CloudTrail.InvalidCloudWatchLogsRoleArnException|CloudTrail.CloudWatchLogsDeliveryUnavailableException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any>;
+    createTrail(params: CloudTrail.CreateTrailRequest, callback?: (err: CloudTrail.MaximumNumberOfTrailsExceededException|CloudTrail.TrailAlreadyExistsException|CloudTrail.S3BucketDoesNotExistException|CloudTrail.InsufficientS3BucketPolicyException|CloudTrail.InsufficientSnsTopicPolicyException|CloudTrail.InsufficientEncryptionPolicyException|CloudTrail.InvalidS3BucketNameException|CloudTrail.InvalidS3PrefixException|CloudTrail.InvalidSnsTopicNameException|CloudTrail.InvalidKmsKeyIdException|CloudTrail.InvalidTrailNameException|CloudTrail.TrailNotProvidedException|CloudTrail.InvalidParameterCombinationException|CloudTrail.KmsKeyNotFoundException|CloudTrail.KmsKeyDisabledException|CloudTrail.KmsException|CloudTrail.InvalidCloudWatchLogsLogGroupArnException|CloudTrail.InvalidCloudWatchLogsRoleArnException|CloudTrail.CloudWatchLogsDeliveryUnavailableException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.CreateTrailResponse|any) => void): Request<CloudTrail.CreateTrailResponse|any,CloudTrail.MaximumNumberOfTrailsExceededException|CloudTrail.TrailAlreadyExistsException|CloudTrail.S3BucketDoesNotExistException|CloudTrail.InsufficientS3BucketPolicyException|CloudTrail.InsufficientSnsTopicPolicyException|CloudTrail.InsufficientEncryptionPolicyException|CloudTrail.InvalidS3BucketNameException|CloudTrail.InvalidS3PrefixException|CloudTrail.InvalidSnsTopicNameException|CloudTrail.InvalidKmsKeyIdException|CloudTrail.InvalidTrailNameException|CloudTrail.TrailNotProvidedException|CloudTrail.InvalidParameterCombinationException|CloudTrail.KmsKeyNotFoundException|CloudTrail.KmsKeyDisabledException|CloudTrail.KmsException|CloudTrail.InvalidCloudWatchLogsLogGroupArnException|CloudTrail.InvalidCloudWatchLogsRoleArnException|CloudTrail.CloudWatchLogsDeliveryUnavailableException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any>;
     /**
      * Deletes a trail. This operation must be called from the region in which the
 trail was created. DeleteTrail cannot be called on the shadow trails (replicated
@@ -224,13 +225,14 @@ otherwise, an InvalidHomeRegionException is thrown.
      * @error InvalidHomeRegionException   
      * @error KmsKeyNotFoundException   
      * @error KmsKeyDisabledException   
+     * @error KmsException   
      * @error InvalidCloudWatchLogsLogGroupArnException   
      * @error InvalidCloudWatchLogsRoleArnException   
      * @error CloudWatchLogsDeliveryUnavailableException   
      * @error UnsupportedOperationException   
      * @error OperationNotPermittedException   
      */
-    updateTrail(params: CloudTrail.UpdateTrailRequest, callback?: (err: CloudTrail.S3BucketDoesNotExistException|CloudTrail.InsufficientS3BucketPolicyException|CloudTrail.InsufficientSnsTopicPolicyException|CloudTrail.InsufficientEncryptionPolicyException|CloudTrail.TrailNotFoundException|CloudTrail.InvalidS3BucketNameException|CloudTrail.InvalidS3PrefixException|CloudTrail.InvalidSnsTopicNameException|CloudTrail.InvalidKmsKeyIdException|CloudTrail.InvalidTrailNameException|CloudTrail.TrailNotProvidedException|CloudTrail.InvalidParameterCombinationException|CloudTrail.InvalidHomeRegionException|CloudTrail.KmsKeyNotFoundException|CloudTrail.KmsKeyDisabledException|CloudTrail.InvalidCloudWatchLogsLogGroupArnException|CloudTrail.InvalidCloudWatchLogsRoleArnException|CloudTrail.CloudWatchLogsDeliveryUnavailableException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.UpdateTrailResponse|any) => void): Request<CloudTrail.UpdateTrailResponse|any,CloudTrail.S3BucketDoesNotExistException|CloudTrail.InsufficientS3BucketPolicyException|CloudTrail.InsufficientSnsTopicPolicyException|CloudTrail.InsufficientEncryptionPolicyException|CloudTrail.TrailNotFoundException|CloudTrail.InvalidS3BucketNameException|CloudTrail.InvalidS3PrefixException|CloudTrail.InvalidSnsTopicNameException|CloudTrail.InvalidKmsKeyIdException|CloudTrail.InvalidTrailNameException|CloudTrail.TrailNotProvidedException|CloudTrail.InvalidParameterCombinationException|CloudTrail.InvalidHomeRegionException|CloudTrail.KmsKeyNotFoundException|CloudTrail.KmsKeyDisabledException|CloudTrail.InvalidCloudWatchLogsLogGroupArnException|CloudTrail.InvalidCloudWatchLogsRoleArnException|CloudTrail.CloudWatchLogsDeliveryUnavailableException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any>;
+    updateTrail(params: CloudTrail.UpdateTrailRequest, callback?: (err: CloudTrail.S3BucketDoesNotExistException|CloudTrail.InsufficientS3BucketPolicyException|CloudTrail.InsufficientSnsTopicPolicyException|CloudTrail.InsufficientEncryptionPolicyException|CloudTrail.TrailNotFoundException|CloudTrail.InvalidS3BucketNameException|CloudTrail.InvalidS3PrefixException|CloudTrail.InvalidSnsTopicNameException|CloudTrail.InvalidKmsKeyIdException|CloudTrail.InvalidTrailNameException|CloudTrail.TrailNotProvidedException|CloudTrail.InvalidParameterCombinationException|CloudTrail.InvalidHomeRegionException|CloudTrail.KmsKeyNotFoundException|CloudTrail.KmsKeyDisabledException|CloudTrail.KmsException|CloudTrail.InvalidCloudWatchLogsLogGroupArnException|CloudTrail.InvalidCloudWatchLogsRoleArnException|CloudTrail.CloudWatchLogsDeliveryUnavailableException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any, data: CloudTrail.UpdateTrailResponse|any) => void): Request<CloudTrail.UpdateTrailResponse|any,CloudTrail.S3BucketDoesNotExistException|CloudTrail.InsufficientS3BucketPolicyException|CloudTrail.InsufficientSnsTopicPolicyException|CloudTrail.InsufficientEncryptionPolicyException|CloudTrail.TrailNotFoundException|CloudTrail.InvalidS3BucketNameException|CloudTrail.InvalidS3PrefixException|CloudTrail.InvalidSnsTopicNameException|CloudTrail.InvalidKmsKeyIdException|CloudTrail.InvalidTrailNameException|CloudTrail.TrailNotProvidedException|CloudTrail.InvalidParameterCombinationException|CloudTrail.InvalidHomeRegionException|CloudTrail.KmsKeyNotFoundException|CloudTrail.KmsKeyDisabledException|CloudTrail.KmsException|CloudTrail.InvalidCloudWatchLogsLogGroupArnException|CloudTrail.InvalidCloudWatchLogsRoleArnException|CloudTrail.CloudWatchLogsDeliveryUnavailableException|CloudTrail.UnsupportedOperationException|CloudTrail.OperationNotPermittedException|any>;
 
   }
 
@@ -370,8 +372,7 @@ CloudTrail Log Files
 [http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html] 
 . **/
         S3KeyPrefix?: String;
-        /** Specifies the name of the Amazon SNS topic that CloudTrail uses to send
-notifications when log files are delivered. **/
+        /** This field is deprecated. Use SnsTopicARN. **/
         SnsTopicName?: String;
         /** Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
 notifications when log files are delivered. The format of a topic ARN is:
@@ -566,6 +567,8 @@ CloudTrail can again write to the bucket. **/
     }
     export interface InvalidTrailNameException {
     }
+    export interface KmsException {
+    }
     export interface KmsKeyDisabledException {
     }
     export interface KmsKeyNotFoundException {
@@ -737,8 +740,7 @@ CloudTrail Log Files
 [http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html] 
 .The maximum length is 200 characters. **/
         S3KeyPrefix?: String;
-        /** Specifies the name of the Amazon SNS topic that CloudTrail uses to send
-notifications when log files are delivered. **/
+        /** This field is deprecated. Use SnsTopicARN. **/
         SnsTopicName?: String;
         /** Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
 notifications when log files are delivered. The format of a topic ARN is:
@@ -875,8 +877,7 @@ CloudTrail Log Files
 [http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html] 
 . **/
         S3KeyPrefix?: String;
-        /** Specifies the name of the Amazon SNS topic that CloudTrail uses to send
-notifications when log files are delivered. **/
+        /** This field is deprecated. Use SnsTopicARN. **/
         SnsTopicName?: String;
         /** Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
 notifications when log files are delivered. The format of a topic ARN is:

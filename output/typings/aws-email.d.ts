@@ -91,7 +91,7 @@ This action is throttled at one request per second.
      */
     createReceiptRuleSet(params: SES.CreateReceiptRuleSetRequest, callback?: (err: SES.AlreadyExistsException|SES.LimitExceededException|any, data: SES.CreateReceiptRuleSetResponse|any) => void): Request<SES.CreateReceiptRuleSetResponse|any,SES.AlreadyExistsException|SES.LimitExceededException|any>;
     /**
-     * Deletes the specified identity (email address or domain) from the list of
+     * Deletes the specified identity (an email address or a domain) from the list of
 verified identities.
 
 This action is throttled at one request per second.
@@ -99,14 +99,16 @@ This action is throttled at one request per second.
      */
     deleteIdentity(params: SES.DeleteIdentityRequest, callback?: (err: any, data: SES.DeleteIdentityResponse|any) => void): Request<SES.DeleteIdentityResponse|any,any>;
     /**
-     * Deletes the specified sending authorization policy for the given identity (email
-address or domain). This API returns successfully even if a policy with the
-specified name does not exist.
+     * Deletes the specified sending authorization policy for the given identity (an
+email address or a domain). This API returns successfully even if a policy with
+the specified name does not exist.
 
 This API is for the identity owner only. If you have not verified the identity,
-this API will return an error.Sending authorization is a feature that enables an
-identity owner to authorize other senders to use its identities. For information
-about using sending authorization, see the Amazon SES Developer Guide
+this API will return an error.
+
+Sending authorization is a feature that enables an identity owner to authorize
+other senders to use its identities. For information about using sending
+authorization, see the Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html] 
 .
 
@@ -141,8 +143,10 @@ This action is throttled at one request per second.
     /**
      * Deletes the specified receipt rule set and all of the receipt rules it contains.
 
-The currently active rule set cannot be deleted.For information about managing
-receipt rule sets, see the Amazon SES Developer Guide
+The currently active rule set cannot be deleted.
+
+For information about managing receipt rule sets, see the Amazon SES Developer
+Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html] 
 .
 
@@ -155,8 +159,9 @@ This action is throttled at one request per second.
      * Deletes the specified email address from the list of verified addresses.
 
 The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012
-release of Domain Verification. The DeleteIdentity action is now preferred.This
-action is throttled at one request per second.
+release of Domain Verification. The DeleteIdentity action is now preferred.
+
+This action is throttled at one request per second.
      *
      */
     deleteVerifiedEmailAddress(params: SES.DeleteVerifiedEmailAddressRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -210,11 +215,17 @@ This action takes a list of identities as input and returns the following
 information for each:
 
  &amp;#42; Whether Easy DKIM signing is enabled or disabled.
+   
+   
  * A set of DKIM tokens that represent the identity. If the identity is an email
    address, the tokens represent the domain of that address.
+   
+   
  * Whether Amazon SES has successfully verified the DKIM tokens published in the
    domain&#x27;s DNS. This information is only returned for domain name identities,
    not for email addresses.
+   
+   
 
 This action is throttled at one request per second and can only get DKIM
 attributes for up to 100 identities at a time.
@@ -249,14 +260,16 @@ SES Developer Guide
      */
     getIdentityNotificationAttributes(params: SES.GetIdentityNotificationAttributesRequest, callback?: (err: any, data: SES.GetIdentityNotificationAttributesResponse|any) => void): Request<SES.GetIdentityNotificationAttributesResponse|any,any>;
     /**
-     * Returns the requested sending authorization policies for the given identity
-(email address or domain). The policies are returned as a map of policy names to
-policy contents. You can retrieve a maximum of 20 policies at a time.
+     * Returns the requested sending authorization policies for the given identity (an
+email address or a domain). The policies are returned as a map of policy names
+to policy contents. You can retrieve a maximum of 20 policies at a time.
 
 This API is for the identity owner only. If you have not verified the identity,
-this API will return an error.Sending authorization is a feature that enables an
-identity owner to authorize other senders to use its identities. For information
-about using sending authorization, see the Amazon SES Developer Guide
+this API will return an error.
+
+Sending authorization is a feature that enables an identity owner to authorize
+other senders to use its identities. For information about using sending
+authorization, see the Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html] 
 .
 
@@ -293,7 +306,7 @@ This action is throttled at one request per second.
     getSendStatistics(callback?: (err: any, data: SES.GetSendStatisticsResponse|any) => void): Request<SES.GetSendStatisticsResponse|any,any>;
     /**
      * Returns a list containing all of the identities (email addresses and domains)
-for a specific AWS Account, regardless of verification status.
+for your AWS account, regardless of verification status.
 
 This action is throttled at one request per second.
      *
@@ -301,13 +314,15 @@ This action is throttled at one request per second.
     listIdentities(params: SES.ListIdentitiesRequest, callback?: (err: any, data: SES.ListIdentitiesResponse|any) => void): Request<SES.ListIdentitiesResponse|any,any>;
     /**
      * Returns a list of sending authorization policies that are attached to the given
-identity (email address or domain). This API returns only a list. If you want
-the actual policy content, you can use GetIdentityPolicies .
+identity (an email address or a domain). This API returns only a list. If you
+want the actual policy content, you can use GetIdentityPolicies .
 
 This API is for the identity owner only. If you have not verified the identity,
-this API will return an error.Sending authorization is a feature that enables an
-identity owner to authorize other senders to use its identities. For information
-about using sending authorization, see the Amazon SES Developer Guide
+this API will return an error.
+
+Sending authorization is a feature that enables an identity owner to authorize
+other senders to use its identities. For information about using sending
+authorization, see the Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html] 
 .
 
@@ -316,7 +331,7 @@ This action is throttled at one request per second.
      */
     listIdentityPolicies(params: SES.ListIdentityPoliciesRequest, callback?: (err: any, data: SES.ListIdentityPoliciesResponse|any) => void): Request<SES.ListIdentityPoliciesResponse|any,any>;
     /**
-     * Lists the IP address filters associated with your account.
+     * Lists the IP address filters associated with your AWS account.
 
 For information about managing IP address filters, see the Amazon SES Developer
 Guide
@@ -346,19 +361,22 @@ This action is throttled at one request per second.
      * Returns a list containing all of the email addresses that have been verified.
 
 The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012
-release of Domain Verification. The ListIdentities action is now preferred.This
-action is throttled at one request per second.
+release of Domain Verification. The ListIdentities action is now preferred.
+
+This action is throttled at one request per second.
      *
      */
     listVerifiedEmailAddresses(callback?: (err: any, data: SES.ListVerifiedEmailAddressesResponse|any) => void): Request<SES.ListVerifiedEmailAddressesResponse|any,any>;
     /**
-     * Adds or updates a sending authorization policy for the specified identity (email
-address or domain).
+     * Adds or updates a sending authorization policy for the specified identity (an
+email address or a domain).
 
 This API is for the identity owner only. If you have not verified the identity,
-this API will return an error.Sending authorization is a feature that enables an
-identity owner to authorize other senders to use its identities. For information
-about using sending authorization, see the Amazon SES Developer Guide
+this API will return an error.
+
+Sending authorization is a feature that enables an identity owner to authorize
+other senders to use its identities. For information about using sending
+authorization, see the Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html] 
 .
 
@@ -372,7 +390,9 @@ This action is throttled at one request per second.
 
 All of the rules in the rule set must be represented in this request. That is,
 this API will return an error if the reorder request doesn&#x27;t explicitly position
-all of the rules.For information about managing receipt rule sets, see the Amazon SES Developer
+all of the rules.
+
+For information about managing receipt rule sets, see the Amazon SES Developer
 Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html] 
 .
@@ -389,7 +409,9 @@ through Amazon SES. You can only use this API on an email up to 24 hours after
 you receive it.
 
 You cannot use this API to send generic bounces for mail that was not received
-by Amazon SES.For information about receiving email through Amazon SES, see the Amazon SES
+by Amazon SES.
+
+For information about receiving email through Amazon SES, see the Amazon SES
 Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html] .
 
@@ -411,13 +433,19 @@ There are several important points to know about SendEmail :
    more information, go to the Amazon SES Developer Guide
    [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html] 
    .
+   
+   
  * The total size of the message cannot exceed 10 MB. This includes any
    attachments that are part of the message.
+   
+   
  * Amazon SES has a limit on the total number of recipients per message. The
    combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you
    need to send an email message to a larger audience, you can divide your
    recipient list into groups of 50 or fewer, and then call Amazon SES
    repeatedly to send the message to each group.
+   
+   
  * For every message that you send, the total number of recipients (To:, CC: and
    BCC:) is counted against your sending quota - the maximum number of emails
    you can send in a 24-hour period. For information about your sending quota,
@@ -444,40 +472,59 @@ There are several important points to know about SendRawEmail :
    more information, go to the Amazon SES Developer Guide
    [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html] 
    .
+   
+   
  * The total size of the message cannot exceed 10 MB. This includes any
    attachments that are part of the message.
+   
+   
  * Amazon SES has a limit on the total number of recipients per message. The
    combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you
    need to send an email message to a larger audience, you can divide your
    recipient list into groups of 50 or fewer, and then call Amazon SES
    repeatedly to send the message to each group.
+   
+   
  * The To:, CC:, and BCC: headers in the raw message can contain a group list.
    Note that each recipient in a group list counts towards the 50-recipient
    limit.
+   
+   
  * For every message that you send, the total number of recipients (To:, CC: and
    BCC:) is counted against your sending quota - the maximum number of emails
    you can send in a 24-hour period. For information about your sending quota,
    go to the Amazon SES Developer Guide
    [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html] 
    .
+   
+   
  * If you are using sending authorization to send on behalf of another user, 
    SendRawEmail enables you to specify the cross-account identity for the
    email&#x27;s &quot;Source,&quot; &quot;From,&quot; and &quot;Return-Path&quot; parameters in one of two ways:
    you can pass optional parameters SourceArn , FromArn , and/or ReturnPathArn 
    to the API, or you can include the following X-headers in the header of your
-   raw email: * X-SES-SOURCE-ARN
+   raw email:
+   
+    * X-SES-SOURCE-ARN
+      
+      
     * X-SES-FROM-ARN
+      
+      
     * X-SES-RETURN-PATH-ARN
+      
+      
    
    Do not include these X-headers in the DKIM signature, because they are
-   removed by Amazon SES before sending the email. For the most common sending
-   authorization use case, we recommend that you specify the SourceIdentityArn 
-   and do not specify either the FromIdentityArn or ReturnPathIdentityArn . (The
-   same note applies to the corresponding X-headers.) If you only specify the 
-   SourceIdentityArn , Amazon SES will simply set the &quot;From&quot; address and the
-   &quot;Return Path&quot; address to the identity specified in SourceIdentityArn . For
-   more information about sending authorization, see the Amazon SES Developer
-   Guide
+   removed by Amazon SES before sending the email.
+   
+   For the most common sending authorization use case, we recommend that you
+   specify the SourceIdentityArn and do not specify either the FromIdentityArn 
+   or ReturnPathIdentityArn . (The same note applies to the corresponding
+   X-headers.) If you only specify the SourceIdentityArn , Amazon SES will
+   simply set the &quot;From&quot; address and the &quot;Return Path&quot; address to the identity
+   specified in SourceIdentityArn . For more information about sending
+   authorization, see the Amazon SES Developer Guide
    [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html] 
    .
      *
@@ -489,8 +536,10 @@ There are several important points to know about SendRawEmail :
      * Sets the specified receipt rule set as the active receipt rule set.
 
 To disable your email-receiving through Amazon SES completely, you can call this
-API with RuleSetName set to null.For information about managing receipt rule
-sets, see the Amazon SES Developer Guide
+API with RuleSetName set to null.
+
+For information about managing receipt rule sets, see the Amazon SES Developer
+Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html] 
 .
 
@@ -505,8 +554,12 @@ This action is throttled at one request per second.
  &amp;#42; If Easy DKIM signing is enabled for a domain name identity (e.g., example.com 
    ), then Amazon SES will DKIM-sign all email sent by addresses under that
    domain name (e.g., user@example.com ).
+   
+   
  * If Easy DKIM signing is enabled for an email address, then Amazon SES will
    DKIM-sign all email sent by that email address.
+   
+   
 
 For email addresses (e.g., user@example.com ), you can only enable Easy DKIM
 signing if the corresponding domain (e.g., example.com ) has been set up for
@@ -520,14 +573,15 @@ Guide [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html] .
      */
     setIdentityDkimEnabled(params: SES.SetIdentityDkimEnabledRequest, callback?: (err: any, data: SES.SetIdentityDkimEnabledResponse|any) => void): Request<SES.SetIdentityDkimEnabledResponse|any,any>;
     /**
-     * Given an identity (email address or domain), enables or disables whether Amazon
-SES forwards bounce and complaint notifications as email. Feedback forwarding
-can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics
-are specified for both bounces and complaints.
+     * Given an identity (an email address or a domain), enables or disables whether
+Amazon SES forwards bounce and complaint notifications as email. Feedback
+forwarding can only be disabled when Amazon Simple Notification Service (Amazon
+SNS) topics are specified for both bounces and complaints.
 
 Feedback forwarding does not apply to delivery notifications. Delivery
-notifications are only available through Amazon SNS.This action is throttled at
-one request per second.
+notifications are only available through Amazon SNS.
+
+This action is throttled at one request per second.
 
 For more information about using notifications with Amazon SES, see the Amazon
 SES Developer Guide
@@ -536,27 +590,43 @@ SES Developer Guide
      */
     setIdentityFeedbackForwardingEnabled(params: SES.SetIdentityFeedbackForwardingEnabledRequest, callback?: (err: any, data: SES.SetIdentityFeedbackForwardingEnabledResponse|any) => void): Request<SES.SetIdentityFeedbackForwardingEnabledResponse|any,any>;
     /**
+     * Given an identity (an email address or a domain), sets whether Amazon SES
+includes the original email headers in the Amazon Simple Notification Service
+(Amazon SNS) notifications of a specified type.
+
+This action is throttled at one request per second.
+
+For more information about using notifications with Amazon SES, see the Amazon
+SES Developer Guide
+[http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html] .
+     *
+     */
+    setIdentityHeadersInNotificationsEnabled(params: SES.SetIdentityHeadersInNotificationsEnabledRequest, callback?: (err: any, data: SES.SetIdentityHeadersInNotificationsEnabledResponse|any) => void): Request<SES.SetIdentityHeadersInNotificationsEnabledResponse|any,any>;
+    /**
      * Enables or disables the custom MAIL FROM domain setup for a verified identity
-(email address or domain).
+(an email address or a domain).
 
 To send emails using the specified MAIL FROM domain, you must add an MX record
 to your MAIL FROM domain&#x27;s DNS settings. If you want your emails to pass Sender
 Policy Framework (SPF) checks, you must also add or update an SPF record. For
 more information, see the Amazon SES Developer Guide
-[http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html] .This
-action is throttled at one request per second.
+[http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html] .
+
+This action is throttled at one request per second.
      *
      */
     setIdentityMailFromDomain(params: SES.SetIdentityMailFromDomainRequest, callback?: (err: any, data: SES.SetIdentityMailFromDomainResponse|any) => void): Request<SES.SetIdentityMailFromDomainResponse|any,any>;
     /**
-     * Given an identity (email address or domain), sets the Amazon Simple Notification
-Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint,
-and/or delivery notifications for emails sent with that identity as the Source .
+     * Given an identity (an email address or a domain), sets the Amazon Simple
+Notification Service (Amazon SNS) topic to which Amazon SES will publish bounce,
+complaint, and/or delivery notifications for emails sent with that identity as
+the Source .
 
 Unless feedback forwarding is enabled, you must specify Amazon SNS topics for
 bounce and complaint notifications. For more information, see 
-SetIdentityFeedbackForwardingEnabled .This action is throttled at one request
-per second.
+SetIdentityFeedbackForwardingEnabled .
+
+This action is throttled at one request per second.
 
 For more information about feedback notification, see the Amazon SES Developer
 Guide [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html] 
@@ -627,8 +697,9 @@ This action is throttled at one request per second.
 sent to the specified address.
 
 The VerifyEmailAddress action is deprecated as of the May 15, 2012 release of
-Domain Verification. The VerifyEmailIdentity action is now preferred.This action
-is throttled at one request per second.
+Domain Verification. The VerifyEmailIdentity action is now preferred.
+
+This action is throttled at one request per second.
      *
      */
     verifyEmailAddress(params: SES.VerifyEmailAddressRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -856,7 +927,11 @@ parameter or BounceType . **/
 
  &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
    underscores (_), or dashes (-).
+   
+   
  * Start and end with a letter or number.
+   
+   
  * Contain less than 64 characters. **/
         RuleSetName: ReceiptRuleSetName;
         /** The name of the rule set to clone. **/
@@ -895,7 +970,11 @@ domains, enabled status, scan status, and TLS policy. **/
 
  &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
    underscores (_), or dashes (-).
+   
+   
  * Start and end with a letter or number.
+   
+   
  * Contain less than 64 characters. **/
         RuleSetName: ReceiptRuleSetName;
     }
@@ -1118,6 +1197,21 @@ notifications as email, while false indicates that bounce and complaint
 notifications will be published only to the specified bounce and complaint
 Amazon SNS topics. **/
         ForwardingEnabled: Enabled;
+        /** Describes whether Amazon SES includes the original email headers in Amazon SNS
+notifications of type Bounce . A value of true specifies that Amazon SES will
+include headers in bounce notifications, and a value of false specifies that
+Amazon SES will not include headers in bounce notifications. **/
+        HeadersInBounceNotificationsEnabled?: Enabled;
+        /** Describes whether Amazon SES includes the original email headers in Amazon SNS
+notifications of type Complaint . A value of true specifies that Amazon SES will
+include headers in complaint notifications, and a value of false specifies that
+Amazon SES will not include headers in complaint notifications. **/
+        HeadersInComplaintNotificationsEnabled?: Enabled;
+        /** Describes whether Amazon SES includes the original email headers in Amazon SNS
+notifications of type Delivery . A value of true specifies that Amazon SES will
+include headers in delivery notifications, and a value of false specifies that
+Amazon SES will not include headers in delivery notifications. **/
+        HeadersInDeliveryNotificationsEnabled?: Enabled;
     }
     export interface IdentityVerificationAttributes {
         /** The verification status of the identity: &quot;Pending&quot;, &quot;Success&quot;, &quot;Failed&quot;, or
@@ -1274,7 +1368,9 @@ X-headers in the raw message to specify the &quot;Source,&quot; &quot;From,&quot
 addresses. For more information, see the documentation for SendRawEmail .
 
 Do not include these X-headers in the DKIM signature, because they are removed
-by Amazon SES before sending the email.For more information, go to the Amazon SES Developer Guide
+by Amazon SES before sending the email.
+
+For more information, go to the Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html] . **/
         Data: RawMessageData;
     }
@@ -1304,7 +1400,11 @@ notification to Amazon SNS. **/
 
  &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
    underscores (_), or dashes (-).
+   
+   
  * Start and end with a letter or number.
+   
+   
  * Contain less than 64 characters. **/
         Name: ReceiptFilterName;
         /** A structure that provides the IP addresses to block or allow, and whether to
@@ -1327,7 +1427,11 @@ single email address is 10.0.0.1. An example of a range of IP addresses is
 
  &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
    underscores (_), or dashes (-).
+   
+   
  * Start and end with a letter or number.
+   
+   
  * Contain less than 64 characters. **/
         Name: ReceiptRuleName;
         /** If true , the receipt rule is active. The default value is false . **/
@@ -1353,7 +1457,11 @@ and viruses. The default value is false . **/
 
  &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.),
    underscores (_), or dashes (-).
+   
+   
  * Start and end with a letter or number.
+   
+   
  * Contain less than 64 characters. **/
         Name?: ReceiptRuleSetName;
         /** The date and time the receipt rule set was created. **/
@@ -1430,12 +1538,16 @@ custom master key you created in AWS KMS as follows:
    be arn:aws:kms:us-west-2:123456789012:alias/aws/ses . If you use the default
    master key, you don&#x27;t need to perform any extra steps to give Amazon SES
    permission to use the key.
+   
+   
  * To use a custom master key you created in AWS KMS, provide the ARN of the
    master key and ensure that you add a statement to your key&#x27;s policy to give
    Amazon SES permission to use it. For more information about giving
    permissions, see the Amazon SES Developer Guide
    [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html] 
    .
+   
+   
 
 For more information about key policies, see the AWS KMS Developer Guide
 [http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html] . If you do
@@ -1447,8 +1559,8 @@ Amazon S3 server-side encryption. This means that you must use the Amazon S3
 encryption client to decrypt the email after retrieving it from Amazon S3, as
 the service has no access to use your AWS KMS keys for decryption. This
 encryption client is currently available with the AWS Java SDK
-[https://aws.amazon.com/sdk-for-java/] and AWS Ruby SDK
-[https://aws.amazon.com/sdk-for-ruby/] only. For more information about
+[http://aws.amazon.com/sdk-for-java/] and AWS Ruby SDK
+[http://aws.amazon.com/sdk-for-ruby/] only. For more information about
 client-side encryption using AWS KMS master keys, see the Amazon S3 Developer
 Guide
 [http://alpha-docs-aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html] 
@@ -1601,11 +1713,19 @@ addresses. **/
 following:
 
  &amp;#42; Message must contain a header and a body, separated by a blank line.
+   
+   
  * All required header fields must be present.
+   
+   
  * Each part of a multipart MIME message must be formatted properly.
+   
+   
  * MIME content types must be among those supported by Amazon SES. For more
    information, go to the Amazon SES Developer Guide
    [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html] .
+   
+   
  * Content must be base64-encoded, if MIME requires it. **/
         RawMessage: RawMessage;
         /** This parameter is used only for sending authorization. It is the ARN of the
@@ -1694,6 +1814,23 @@ Amazon SNS topics are set for both Bounce and Complaint notification types. **/
         ForwardingEnabled: Enabled;
     }
     export interface SetIdentityFeedbackForwardingEnabledResponse {
+    }
+    export interface SetIdentityHeadersInNotificationsEnabledRequest {
+        /** The identity for which to enable or disable headers in notifications. Examples: 
+user@example.com , example.com . **/
+        Identity: Identity;
+        /** The notification type for which to enable or disable headers in notifications. **/
+        NotificationType: NotificationType;
+        /** Sets whether Amazon SES includes the original email headers in Amazon SNS
+notifications of the specified notification type. A value of true specifies that
+Amazon SES will include headers in notifications, and a value of false specifies
+that Amazon SES will not include headers in notifications.
+
+This value can only be set when NotificationType is already set to use a
+particular Amazon SNS topic. **/
+        Enabled: Enabled;
+    }
+    export interface SetIdentityHeadersInNotificationsEnabledResponse {
     }
     export interface SetIdentityMailFromDomainRequest {
         /** The verified identity for which you want to enable or disable the specified
