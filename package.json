@@ -1,6 +1,6 @@
 {
   "name": "@djabry/aws-sdk-typescript",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Daniel Jabry <djabry@gmail.com>",
   "description": "aws-sdk bindings for typescript",
   "homepage": "https://github.com/djabry/aws-sdk-typescript/",
