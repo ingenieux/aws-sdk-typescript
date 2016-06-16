@@ -21,6 +21,7 @@
     "url": "git://github.com/djabry/aws-sdk-typescript.git"
   },
   "devDependencies": {
+    "core-util-is": "^1.0.2",
     "del": "^2.1.0",
     "escodegen": "^1.8.0",
     "esprima": "^2.7.1",
@@ -28,17 +29,23 @@
     "glob": "^5.0.15",
     "gulp": "^3.9.1",
     "gulp-cli": "^1.2.1",
-    "gulp-shell": "^0.2.11",
+    "gulp-shell": "^0.5.2",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-typescript": "^2.12.1",
+    "gulp-typescript": "^2.13.6",
     "handlebars": "^3.0.3",
     "html-to-text": "^2.1.0",
+    "inherits": "^2.0.1",
+    "isarray": "^1.0.0",
     "jsstana": "^0.1.6",
+    "lodash": "^4.13.1",
+    "minimatch": "^3.0.0",
     "run-sequence": "^0.3.7",
     "source-map-support": "^0.4.0",
+    "sprintf-js": "^1.0.3",
     "typescript": "^1.8.10",
-    "typescript-formatter": "^2.1.0",
-    "typings": "^1.0.4"
+    "typescript-formatter": "^2.2.0",
+    "typings": "^1.2.0",
+    "util-deprecate": "^1.0.2"
   },
   "scripts": {
     "prepublish": "gulp buildrun && npm run-script format",
