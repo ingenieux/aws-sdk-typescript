@@ -14,10 +14,12 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS CodePipeline OverviewThis is the AWS CodePipeline API Reference. This guide
-provides descriptions of the actions and data types for AWS CodePipeline. Some
-functionality for your pipeline is only configurable through the API. For
-additional information, see the AWS CodePipeline User Guide
+   * AWS CodePipelineOverview
+
+This is the AWS CodePipeline API Reference. This guide provides descriptions of
+the actions and data types for AWS CodePipeline. Some functionality for your
+pipeline is only configurable through the API. For additional information, see
+the AWS CodePipeline User Guide
 [http://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html] .
 
 You can use the AWS CodePipeline API to work with pipelines, stages, actions,
@@ -26,19 +28,33 @@ gates, and transitions, as described below.
 Pipelines are models of automated release processes. Each pipeline is uniquely
 named, and consists of actions, gates, and stages.
 
-You can work with pipelines by calling: &amp;#42; CreatePipeline , which creates a uniquely-named pipeline.
+You can work with pipelines by calling:
+
+ &amp;#42; CreatePipeline , which creates a uniquely-named pipeline.
+   
+   
  * DeletePipeline , which deletes the specified pipeline.
+   
+   
  * GetPipeline , which returns information about a pipeline structure.
+   
+   
  * GetPipelineState , which returns information about the current state of the
    stages and actions of a pipeline.
+   
+   
  * ListPipelines , which gets a summary of all of the pipelines associated with
    your account.
+   
+   
  * StartPipelineExecution , which runs the the most recent revision of an
    artifact through the pipeline.
+   
+   
  * UpdatePipeline , which updates a pipeline with edits or changes to the
    structure of the pipeline.
-
-
+   
+   
 
 Pipelines include stages , which are which are logical groupings of gates and
 actions. Each stage contains one or more actions that must complete before the
@@ -69,8 +85,12 @@ You can work with transitions by calling:
 
  * DisableStageTransition , which prevents artifacts from transitioning to the
    next stage in a pipeline.
+   
+   
  * EnableStageTransition , which enables transition of artifacts between stages
    in a pipeline.
+   
+   
 
 Using the API to integrate with AWS CodePipeline
 
@@ -79,32 +99,50 @@ integrations with AWS CodePipeline, the expected sequence varies from the
 standard API user. In order to integrate with AWS CodePipeline, developers will
 need to work with the following items:
 
- * Jobs, which are instances of an action. For example, a job for a source
-   action might import a revision of an artifact from a source.You can work with
-   jobs by calling:
-   
-    * AcknowledgeJob , which confirms whether a job worker has received the
-      specified job,
-    * GetJobDetails , which returns the details of a job,
-    * PollForJobs , which determines whether there are any jobs to act upon,
-    * PutJobFailureResult , which provides details of a job failure, and
-    * PutJobSuccessResult , which provides details of a job success.
+Jobs , which are instances of an action. For example, a job for a source action
+might import a revision of an artifact from a source.
+
+You can work with jobs by calling:
+
+ * AcknowledgeJob , which confirms whether a job worker has received the
+   specified job,
    
    
- * Third party jobs, which are instances of an action created by a partner
-   action and integrated into AWS CodePipeline. Partner actions are created by
-   members of the AWS Partner Network.You can work with third party jobs by
-   calling:
+ * GetJobDetails , which returns the details of a job,
    
-    * AcknowledgeThirdPartyJob , which confirms whether a job worker has
-      received the specified job,
-    * GetThirdPartyJobDetails , which requests the details of a job for a
-      partner action,
-    * PollForThirdPartyJobs , which determines whether there are any jobs to act
-      upon,
-    * PutThirdPartyJobFailureResult , which provides details of a job failure,
-      and
-    * PutThirdPartyJobSuccessResult , which provides details of a job success.
+   
+ * PollForJobs , which determines whether there are any jobs to act upon,
+   
+   
+ * PutJobFailureResult , which provides details of a job failure, and
+   
+   
+ * PutJobSuccessResult , which provides details of a job success.
+   
+   
+
+Third party jobs , which are instances of an action created by a partner action
+and integrated into AWS CodePipeline. Partner actions are created by members of
+the AWS Partner Network.
+
+You can work with third party jobs by calling:
+
+ * AcknowledgeThirdPartyJob , which confirms whether a job worker has received
+   the specified job,
+   
+   
+ * GetThirdPartyJobDetails , which requests the details of a job for a partner
+   action,
+   
+   
+ * PollForThirdPartyJobs , which determines whether there are any jobs to act
+   upon,
+   
+   
+ * PutThirdPartyJobFailureResult , which provides details of a job failure, and
+   
+   
+ * PutThirdPartyJobSuccessResult , which provides details of a job success.
    *
    */
   export class CodePipeline extends Service {
@@ -205,8 +243,8 @@ modified and used to update the pipeline structure with UpdatePipeline .
      */
     getPipeline(params: CodePipeline.GetPipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.PipelineVersionNotFoundException|any, data: CodePipeline.GetPipelineOutput|any) => void): Request<CodePipeline.GetPipelineOutput|any,CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.PipelineVersionNotFoundException|any>;
     /**
-     * Returns information about the state of a pipeline, including the stages,
-actions, and details about the last run of the pipeline.
+     * Returns information about the state of a pipeline, including the stages and
+actions.
      *
      * @error ValidationException   
      * @error PipelineNotFoundException   
@@ -312,6 +350,16 @@ worker. Only used for partner actions.
      * @error InvalidClientTokenException   
      */
     putThirdPartyJobSuccessResult(params: CodePipeline.PutThirdPartyJobSuccessResultInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|CodePipeline.InvalidClientTokenException|any, data: any) => void): Request<any,CodePipeline.ValidationException|CodePipeline.JobNotFoundException|CodePipeline.InvalidJobStateException|CodePipeline.InvalidClientTokenException|any>;
+    /**
+     * Resumes the pipeline execution by retrying the last failed actions in a stage.
+     *
+     * @error ValidationException   
+     * @error PipelineNotFoundException   
+     * @error StageNotFoundException   
+     * @error StageNotRetryableException   
+     * @error NotLatestPipelineExecutionException   
+     */
+    retryStageExecution(params: CodePipeline.RetryStageExecutionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|CodePipeline.StageNotRetryableException|CodePipeline.NotLatestPipelineExecutionException|any, data: CodePipeline.RetryStageExecutionOutput|any) => void): Request<CodePipeline.RetryStageExecutionOutput|any,CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|CodePipeline.StageNotRetryableException|CodePipeline.NotLatestPipelineExecutionException|any>;
     /**
      * Starts the specified pipeline. Specifically, it begins processing the latest
 commit to the source location specified as part of the pipeline.
@@ -468,7 +516,11 @@ number of the pipeline by 1.
     
     export type StageBlockerDeclarationList = BlockerDeclaration[];
     
+    export type StageExecutionStatus = string;
+    
     export type StageName = string;
+    
+    export type StageRetryMode = string;
     
     export type StageStateList = StageState[];
     
@@ -720,7 +772,7 @@ value is reserved for future use. **/
         /** The configuration properties for the custom action.
 
 You can refer to a name in the configuration properties of the custom action
-within the URL templates by following the format of {Config: name }, as long as
+within the URL templates by following the format of {Config:name}, as long as
 the configuration property is both required and not secret. For more
 information, see Create a Custom Action for a Pipeline
 [http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html] 
@@ -962,6 +1014,8 @@ also returned which can be used in a subsequent list pipelines call to return
 the next set of pipelines in the list. **/
         nextToken?: NextToken;
     }
+    export interface NotLatestPipelineExecutionException {
+    }
     export interface OutputArtifact {
         /** The name of the output of an artifact, such as &quot;My App&quot;.
 
@@ -1099,6 +1153,23 @@ action. When the action is complete, no continuation token should be supplied. *
         continuationToken?: ContinuationToken;
         executionDetails?: ExecutionDetails;
     }
+    export interface RetryStageExecutionInput {
+        /** The name of the pipeline that contains the failed stage. **/
+        pipelineName: PipelineName;
+        /** The name of the failed stage to be retried. **/
+        stageName: StageName;
+        /** The ID of the pipeline execution in the failed stage to be retried. Use the 
+GetPipelineState action to retrieve the current pipelineExecutionId of the
+failed stage **/
+        pipelineExecutionId: PipelineExecutionId;
+        /** The scope of the retry attempt. Currently, the only supported value is
+FAILED_ACTIONS. **/
+        retryMode: StageRetryMode;
+    }
+    export interface RetryStageExecutionOutput {
+        /** The ID of the current workflow execution in the failed stage. **/
+        pipelineExecutionId?: PipelineExecutionId;
+    }
     export interface S3ArtifactLocation {
         /** The name of the Amazon S3 bucket. **/
         bucketName: S3BucketName;
@@ -1118,7 +1189,15 @@ object in the bucket. **/
         /** The actions included in a stage. **/
         actions: StageActionDeclarationList;
     }
+    export interface StageExecution {
+        /** The ID of the pipeline execution associated with the stage. **/
+        pipelineExecutionId: PipelineExecutionId;
+        /** The status of the stage, or for a completed stage, the last status of the stage. **/
+        status: StageExecutionStatus;
+    }
     export interface StageNotFoundException {
+    }
+    export interface StageNotRetryableException {
     }
     export interface StageState {
         /** The name of the stage. **/
@@ -1127,6 +1206,9 @@ object in the bucket. **/
         inboundTransitionState?: TransitionState;
         /** The state of the stage. **/
         actionStates?: ActionStateList;
+        /** Information about the latest execution in the stage, including its ID and
+status. **/
+        latestExecution?: StageExecution;
     }
     export interface StartPipelineExecutionInput {
         /** The name of the pipeline to start. **/

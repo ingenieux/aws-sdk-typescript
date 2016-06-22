@@ -31,17 +31,30 @@ your preferred language. For more information, see:
 
  &amp;#42; AWS CLI
    [http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html]
+   
+   
  * AWS SDK for Java
    [http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html]
+   
+   
  * AWS SDK for .NET
    [http://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm]
+   
+   
  * AWS SDK for PHP 2
    [http://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html]
- * AWS SDK for Ruby
-   [http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/OpsWorks/Client.html]
+   
+   
+ * AWS SDK for Ruby [http://docs.aws.amazon.com/sdkforruby/api/]
+   
+   
  * AWS SDK for Node.js [http://aws.amazon.com/documentation/sdkforjavascript/]
+   
+   
  * AWS SDK for Python(Boto)
    [http://docs.pythonboto.org/en/latest/ref/opsworks.html]
+   
+   
 
 Endpoints
 
@@ -52,9 +65,9 @@ direct AWS OpsWorks to create stacks in any AWS Region.
 Chef Versions
 
 When you call CreateStack , CloneStack , or UpdateStack we recommend you use the 
-ConfigurationManager parameter to specify the Chef version. The recommended
-value for Linux stacks is currently 12 (the default is 11.4). Windows stacks use
-Chef 12.2. For more information, see Chef Versions
+ConfigurationManager parameter to specify the Chef version. The recommended and
+default value for Linux stacks is currently 12. Windows stacks use Chef 12.2.
+For more information, see Chef Versions
 [http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html] 
 .
 
@@ -69,9 +82,15 @@ migrating your existing Linux stacks to Chef 12 as soon as possible.
      * Assign a registered instance to a layer.
 
  &amp;#42; You can assign registered on-premises instances to any layer type.
+   
+   
  * You can assign registered Amazon EC2 instances only to custom layers.
+   
+   
  * You cannot use this action with instances that were created with AWS
    OpsWorks.
+   
+   
 
 Required Permissions : To use this action, an AWS Identity and Access Management
 (IAM) user must have a Manage permissions level for the stack or an attached
@@ -346,6 +365,8 @@ see Resource Management
 Required Permissions : To use this action, an IAM user must have a Manage
 permissions level for the stack or an attached policy that explicitly grants
 permissions. For more information on user permissions, see 
+http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html
+
 [http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html] 
 .
      *
@@ -773,8 +794,9 @@ Permissions
      */
     getHostnameSuggestion(params: OpsWorks.GetHostnameSuggestionRequest, callback?: (err: OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any, data: OpsWorks.GetHostnameSuggestionResult|any) => void): Request<OpsWorks.GetHostnameSuggestionResult|any,OpsWorks.ValidationException|OpsWorks.ResourceNotFoundException|any>;
     /**
-     * This action can be used only with Windows stacks.Grants RDP access to a Windows
-instance for a specified time period.
+     * This action can be used only with Windows stacks.
+
+Grants RDP access to a Windows instance for a specified time period.
      *
      * @error ValidationException   
      * @error ResourceNotFoundException   
@@ -844,7 +866,9 @@ handles only the second step. You should instead use the AWS CLI register
 command, which performs the entire registration operation. For more information,
 see Registering an Instance with an AWS OpsWorks Stack
 [http://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html] 
-.Required Permissions : To use this action, an IAM user must have a Manage
+.
+
+Required Permissions : To use this action, an IAM user must have a Manage
 permissions level for the stack or an attached policy that explicitly grants
 permissions. For more information on user permissions, see Managing User
 Permissions
@@ -1313,7 +1337,7 @@ Variables
 .
 
 There is no specific limit on the number of environment variables. However, the
-size of the associated data structure - which includes the variables&#x27; names,
+size of the associated data structure - which includes the variable names,
 values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This
 limit should accommodate most if not all use cases, but if you do exceed it, you
 will cause an exception (API) with an &quot;Environment: is too large (maximum is
@@ -1417,8 +1441,12 @@ the specified region. All instances are launched into this VPC, and you cannot
 change the ID later.
 
  &amp;#42; If your account supports EC2 Classic, the default value is no VPC.
+   
+   
  * If your account does not support EC2 Classic, the default value is the
    default VPC for the specified region.
+   
+   
 
 If the VPC ID corresponds to a default VPC and you have specified either the 
 DefaultAvailabilityZone or the DefaultSubnetId parameter only, AWS OpsWorks
@@ -1429,7 +1457,11 @@ specified region and the corresponding default VPC subnet ID, respectively.
 If you specify a nondefault VPC ID, note the following:
 
  * It must belong to a VPC in your account that is in the specified region.
+   
+   
  * You must specify a value for DefaultSubnetId .
+   
+   
 
 For more information on how to use AWS OpsWorks with a VPC, see Running a Stack
 in a VPC
@@ -1461,14 +1493,28 @@ Identifiers
         /** The stack&#x27;s operating system, which must be set to one of the following.
 
  &amp;#42; A supported Linux operating system: An Amazon Linux version, such as Amazon
-   Linux 2015.03 , Red Hat Enterprise Linux 7 , Ubuntu 12.04 LTS , or Ubuntu
-   14.04 LTS .
- * Microsoft Windows Server 2012 R2 Base .
+   Linux 2016.03 , Amazon Linux 2015.09 , or Amazon Linux 2015.03 .
+   
+   
+ * A supported Ubuntu operating system, such as Ubuntu 16.04 LTS , Ubuntu 14.04
+   LTS , or Ubuntu 12.04 LTS .
+   
+   
+ * Red Hat Enterprise Linux 7
+   
+   
+ * Microsoft Windows Server 2012 R2 Base , Microsoft Windows Server 2012 R2 with
+   SQL Server Express , Microsoft Windows Server 2012 R2 with SQL Server
+   Standard , or Microsoft Windows Server 2012 R2 with SQL Server Web .
+   
+   
  * A custom AMI: Custom . You specify the custom AMI you want to use when you
    create instances. For more information on how to use custom AMIs with
    OpsWorks, see Using Custom AMIs
    [http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html] 
    .
+   
+   
 
 The default option is the parent stack&#x27;s operating system. For more information
 on the supported operating systems, see AWS OpsWorks Operating Systems
@@ -1484,16 +1530,38 @@ HostnameTheme is set to Layer_Dependent , which creates host names by appending
 integers to the layer&#x27;s short name. The other themes are:
 
  &amp;#42; Baked_Goods
+   
+   
  * Clouds
+   
+   
  * Europe_Cities
+   
+   
  * Fruits
+   
+   
  * Greek_Deities
+   
+   
  * Legendary_creatures_from_Japan
+   
+   
  * Planets_and_Moons
+   
+   
  * Roman_Deities
+   
+   
  * Scottish_Islands
+   
+   
  * US_Cities
+   
+   
  * Wild_Cats
+   
+   
 
 To obtain a generated host name, call GetHostNameSuggestion , which returns a
 host name based on the current theme. **/
@@ -1524,7 +1592,7 @@ Configuration Attributes
         /** The configuration manager. When you clone a stack we recommend that you use the
 configuration manager to specify the Chef version: 12, 11.10, or 11.4 for Linux
 stacks, or 12.2 for Windows stacks. The default value for Linux stacks is
-currently 11.4. **/
+currently 12. **/
         ConfigurationManager?: StackConfigurationManager;
         /** A ChefConfiguration object that specifies whether to enable Berkshelf and the
 Berkshelf version on Chef 11.10 stacks. For more information, see Create a New
@@ -1546,12 +1614,16 @@ groups. UseOpsworksSecurityGroups has the following settings:
    security group with each layer (default setting). You can associate
    additional security groups with a layer after you create it but you cannot
    delete the built-in security group.
+   
+   
  * False - AWS OpsWorks does not associate built-in security groups with layers.
    You must create appropriate Amazon Elastic Compute Cloud (Amazon EC2)
    security groups and associate a security group with each layer that you
    create. However, you can still manually associate a built-in security group
    with a layer on creation; custom security groups are required only for those
    layers that need custom settings.
+   
+   
 
 For more information, see Create a New Stack
 [http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html] 
@@ -1585,10 +1657,14 @@ information, see Storage for the Root Device
  &amp;#42; Auto-update - Set this parameter to LATEST . AWS OpsWorks automatically
    installs new agent versions on the stack&#x27;s instances as soon as they are
    available.
+   
+   
  * Fixed version - Set this parameter to your preferred agent version. To update
    the agent version, you must edit the stack configuration and specify a new
    version. AWS OpsWorks then automatically installs that version on the stack&#x27;s
    instances.
+   
+   
 
 The default setting is LATEST . To specify an agent version, you must use the
 complete version number, not the abbreviated number shown on the console. For a
@@ -1618,8 +1694,14 @@ which overrides the stack&#x27;s default setting. **/
         /** The command status:
 
  &amp;#42; failed
+   
+   
  * successful
+   
+   
  * skipped
+   
+   
  * pending **/
         Status?: String;
         /** The command exit code. **/
@@ -1629,14 +1711,32 @@ which overrides the stack&#x27;s default setting. **/
         /** The command type:
 
  &amp;#42; deploy
+   
+   
  * rollback
+   
+   
  * start
+   
+   
  * stop
+   
+   
  * restart
+   
+   
  * undeploy
+   
+   
  * update_dependencies
+   
+   
  * install_dependencies
+   
+   
  * update_custom_cookbooks
+   
+   
  * execute_recipes **/
         Type?: String;
     }
@@ -1741,10 +1841,25 @@ time-based instances. **/
         /** The instance&#x27;s operating system, which must be set to one of the following.
 
  &amp;#42; A supported Linux operating system: An Amazon Linux version, such as Amazon
-   Linux 2015.03 , Red Hat Enterprise Linux 7 , Ubuntu 12.04 LTS , or Ubuntu
-   14.04 LTS .
- * Microsoft Windows Server 2012 R2 Base .
+   Linux 2016.03 , Amazon Linux 2015.09 , or Amazon Linux 2015.03 .
+   
+   
+ * A supported Ubuntu operating system, such as Ubuntu 16.04 LTS , Ubuntu 14.04
+   LTS , or Ubuntu 12.04 LTS .
+   
+   
+ * Red Hat Enterprise Linux 7
+   
+   
+ * A supported Windows operating system, such as Microsoft Windows Server 2012
+   R2 Base , Microsoft Windows Server 2012 R2 with SQL Server Express , 
+   Microsoft Windows Server 2012 R2 with SQL Server Standard , or Microsoft
+   Windows Server 2012 R2 with SQL Server Web .
+   
+   
  * A custom AMI: Custom .
+   
+   
 
 For more information on the supported operating systems, see AWS OpsWorks
 Operating Systems
@@ -1810,10 +1925,14 @@ instances have the latest security updates. **/
         /** The default AWS OpsWorks agent version. You have the following options:
 
  &amp;#42; INHERIT - Use the stack&#x27;s default agent version setting.
+   
+   
  * version_number - Use the specified agent version. This value overrides the
    stack&#x27;s default setting. To update the agent version, edit the instance
    configuration and specify a new version. AWS OpsWorks then automatically
    installs that version on the instance.
+   
+   
 
 The default setting is INHERIT . To specify an agent version, you must use the
 complete version number, not the abbreviated number shown on the console. For a
@@ -1825,12 +1944,12 @@ following are valid values for this parameter: dedicated , default , or host .
 Because there are costs associated with changes in tenancy options, we recommend
 that you research tenancy options before choosing them for your instances. For
 more information about dedicated hosts, see Dedicated Hosts Overview
-[https://aws.amazon.com/ec2/dedicated-hosts/] and Amazon EC2 Dedicated Hosts
-[https://aws.amazon.com/ec2/dedicated-hosts/] . For more information about
+[http://aws.amazon.com/ec2/dedicated-hosts/] and Amazon EC2 Dedicated Hosts
+[http://aws.amazon.com/ec2/dedicated-hosts/] . For more information about
 dedicated instances, see Dedicated Instances
 [http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html] 
 and Amazon EC2 Dedicated Instances
-[https://aws.amazon.com/ec2/purchasing-options/dedicated-instances/] . **/
+[http://aws.amazon.com/ec2/purchasing-options/dedicated-instances/] . **/
         Tenancy?: String;
     }
     export interface CreateInstanceResult {
@@ -1841,7 +1960,8 @@ and Amazon EC2 Dedicated Instances
         /** The layer stack ID. **/
         StackId: String;
         /** The layer type. A stack cannot have more than one built-in layer of the same
-type. It can have any number of custom layers. **/
+type. It can have any number of custom layers. Built-in layers are not available
+in Chef 12 stacks. **/
         Type: LayerType;
         /** The layer name, which is used by the console. **/
         Name: String;
@@ -1923,8 +2043,12 @@ stack&#x27;s region. All instances are launched into this VPC. You cannot change
 ID later.
 
  &amp;#42; If your account supports EC2-Classic, the default value is no VPC .
+   
+   
  * If your account does not support EC2-Classic, the default value is the
    default VPC for the specified region.
+   
+   
 
 If the VPC ID corresponds to a default VPC and you have specified either the 
 DefaultAvailabilityZone or the DefaultSubnetId parameter only, AWS OpsWorks
@@ -1935,7 +2059,11 @@ specified region and the corresponding default VPC subnet ID, respectively.
 If you specify a nondefault VPC ID, note the following:
 
  * It must belong to a VPC in your account that is in the specified region.
+   
+   
  * You must specify a value for DefaultSubnetId .
+   
+   
 
 For more information on how to use AWS OpsWorks with a VPC, see Running a Stack
 in a VPC
@@ -1962,13 +2090,28 @@ unless you specify a different operating system when you create the instance.
 You can specify one of the following.
 
  &amp;#42; A supported Linux operating system: An Amazon Linux version, such as Amazon
-   Linux 2015.03 , Red Hat Enterprise Linux 7 , Ubuntu 12.04 LTS , or Ubuntu
-   14.04 LTS .
- * Microsoft Windows Server 2012 R2 Base .
+   Linux 2016.03 , Amazon Linux 2015.09 , or Amazon Linux 2015.03 .
+   
+   
+ * A supported Ubuntu operating system, such as Ubuntu 16.04 LTS , Ubuntu 14.04
+   LTS , or Ubuntu 12.04 LTS .
+   
+   
+ * Red Hat Enterprise Linux 7
+   
+   
+ * A supported Windows operating system, such as Microsoft Windows Server 2012
+   R2 Base , Microsoft Windows Server 2012 R2 with SQL Server Express , 
+   Microsoft Windows Server 2012 R2 with SQL Server Standard , or Microsoft
+   Windows Server 2012 R2 with SQL Server Web .
+   
+   
  * A custom AMI: Custom . You specify the custom AMI you want to use when you
    create instances. For more information, see Using Custom AMIs
    [http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html] 
    .
+   
+   
 
 The default option is the current Amazon Linux version. For more information on
 the supported operating systems, see AWS OpsWorks Operating Systems
@@ -1981,16 +2124,38 @@ is set to Layer_Dependent , which creates host names by appending integers to
 the layer&#x27;s short name. The other themes are:
 
  &amp;#42; Baked_Goods
+   
+   
  * Clouds
+   
+   
  * Europe_Cities
+   
+   
  * Fruits
+   
+   
  * Greek_Deities
+   
+   
  * Legendary_creatures_from_Japan
+   
+   
  * Planets_and_Moons
+   
+   
  * Roman_Deities
+   
+   
  * Scottish_Islands
+   
+   
  * US_Cities
+   
+   
  * Wild_Cats
+   
+   
 
 To obtain a generated host name, call GetHostNameSuggestion , which returns a
 host name based on the current theme. **/
@@ -2043,11 +2208,15 @@ groups. UseOpsworksSecurityGroups has the following settings:
    security group with each layer (default setting). You can associate
    additional security groups with a layer after you create it, but you cannot
    delete the built-in security group.
+   
+   
  * False - AWS OpsWorks does not associate built-in security groups with layers.
    You must create appropriate EC2 security groups and associate a security
    group with each layer that you create. However, you can still manually
    associate a built-in security group with a layer on creation; custom security
    groups are required only for those layers that need custom settings.
+   
+   
 
 For more information, see Create a New Stack
 [http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html] 
@@ -2077,10 +2246,14 @@ is instance-store . For more information, see Storage for the Root Device
  &amp;#42; Auto-update - Set this parameter to LATEST . AWS OpsWorks automatically
    installs new agent versions on the stack&#x27;s instances as soon as they are
    available.
+   
+   
  * Fixed version - Set this parameter to your preferred agent version. To update
    the agent version, you must edit the stack configuration and specify a new
    version. AWS OpsWorks then automatically installs that version on the stack&#x27;s
    instances.
+   
+   
 
 The default setting is the most recent release of the agent. To specify an agent
 version, you must use the complete version number, not the abbreviated number
@@ -2170,7 +2343,11 @@ For more information, see Setting an IAM User&#x27;s Public SSH Key
         /** The deployment status:
 
  &amp;#42; running
+   
+   
  * successful
+   
+   
  * failed **/
         Status?: String;
         /** A string that contains user-defined custom JSON. It can be used to override the
@@ -2196,23 +2373,43 @@ For stacks, the following commands are available:
    Args parameter named recipes to the list of recipes to be executed. For
    example, to execute phpapp::appsetup , set Args to 
    {&quot;recipes&quot;:[&quot;phpapp::appsetup&quot;]} .
+   
+   
  * install_dependencies : Install the stack&#x27;s dependencies.
+   
+   
  * update_custom_cookbooks : Update the stack&#x27;s custom cookbooks.
+   
+   
  * update_dependencies : Update the stack&#x27;s dependencies.
+   
+   
 
 The update_dependencies and install_dependencies commands are supported only for
 Linux instances. You can run the commands successfully on Windows instances, but
-they do nothing.For apps, the following commands are available:
+they do nothing.
+
+For apps, the following commands are available:
 
  * deploy : Deploy an app. Ruby on Rails apps have an optional Args parameter
    named migrate . Set Args to {&quot;migrate&quot;:[&quot;true&quot;]} to migrate the database. The
    default setting is {&quot;migrate&quot;:[&quot;false&quot;]}.
+   
+   
  * rollback Roll the app back to the previous version. When you update an app,
    AWS OpsWorks stores the previous version, up to a maximum of five versions.
    You can use this command to roll an app back as many as four versions.
+   
+   
  * start : Start the app&#x27;s web or application server.
+   
+   
  * stop : Stop the app&#x27;s web or application server.
+   
+   
  * restart : Restart the app&#x27;s web or application server.
+   
+   
  * undeploy : Undeploy the app. **/
         Name: DeploymentCommandName;
         /** The arguments of those commands that take arguments. It should be set to a JSON
@@ -2226,9 +2423,13 @@ The update_dependencies command takes two arguments:
  &amp;#42; upgrade_os_to - Specifies the desired Amazon Linux version for instances
    whose OS you want to upgrade, such as Amazon Linux 2014.09 . You must also
    set the allow_reboot argument to true.
+   
+   
  * allow_reboot - Specifies whether to allow AWS OpsWorks to reboot the
    instances if necessary, after installing the updates. This argument can be
    set to either true or false . The default value is false .
+   
+   
 
 For example, to upgrade an instance to Amazon Linux 2014.09, set Args to the
 following.
@@ -2425,8 +2626,12 @@ configuration. **/
 
  &amp;#42; If the request object contains only a stack ID, the array contains a 
    Permission object with permissions for each of the stack IAM ARNs.
+   
+   
  * If the request object contains only an IAM ARN, the array contains a 
    Permission object with permissions for each of the user&#x27;s stack IDs.
+   
+   
  * If the request contains a stack ID and an IAM ARN, the array contains a
    single Permission object with permissions for the specified stack and IAM
    ARN. **/
@@ -2744,18 +2949,47 @@ Device
         /** The instance status:
 
  &amp;#42; booting
+   
+   
  * connection_lost
+   
+   
  * online
+   
+   
  * pending
+   
+   
  * rebooting
+   
+   
  * requested
+   
+   
  * running_setup
+   
+   
  * setup_failed
+   
+   
  * shutting_down
+   
+   
  * start_failed
+   
+   
+ * stop_failed
+   
+   
  * stopped
+   
+   
  * stopping
+   
+   
  * terminated
+   
+   
  * terminating **/
         Status?: String;
         /** The instance&#x27;s subnet ID; applicable only if the stack is running in a VPC. **/
@@ -2910,10 +3144,20 @@ role. For more information about IAM ARNs, see Using Identifiers
         /** The user&#x27;s permission level, which must be the following:
 
  &amp;#42; deny
+   
+   
  * show
+   
+   
  * deploy
+   
+   
  * manage
+   
+   
  * iam_only
+   
+   
 
 For more information on the permissions associated with these levels, see 
 Managing User Permissions
@@ -3111,10 +3355,20 @@ OpsWorks stops a specified number of instances. **/
 You cannot set your own permissions level.
 
  &amp;#42; deny
+   
+   
  * show
+   
+   
  * deploy
+   
+   
  * manage
+   
+   
  * iam_only
+   
+   
 
 For more information on the permissions associated with these levels, see 
 Managing User Permissions
@@ -3145,15 +3399,22 @@ information, see Connection Draining
         /** This parameter depends on the repository type.
 
  &amp;#42; For Amazon S3 bundles, set Username to the appropriate IAM access key ID.
+   
+   
  * For HTTP bundles, Git repositories, and Subversion repositories, set Username 
    to the user name. **/
         Username?: String;
         /** When included in a request, the parameter depends on the repository type.
 
  &amp;#42; For Amazon S3 bundles, set Password to the appropriate IAM secret access key.
+   
+   
  * For HTTP bundles and Subversion repositories, set Password to the password.
+   
+   
 
 For more information on how to safely handle IAM credentials, see 
+http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html
 [http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html] 
 .
 
@@ -3381,10 +3642,25 @@ time-based instances. **/
         /** The instance&#x27;s operating system, which must be set to one of the following.
 
  &amp;#42; A supported Linux operating system: An Amazon Linux version, such as Amazon
-   Linux 2015.03 , Red Hat Enterprise Linux 7 , Ubuntu 12.04 LTS , or Ubuntu
-   14.04 LTS .
- * Microsoft Windows Server 2012 R2 Base .
+   Linux 2016.03 , Amazon Linux 2015.09 , or Amazon Linux 2015.03 .
+   
+   
+ * A supported Ubuntu operating system, such as Ubuntu 16.04 LTS , Ubuntu 14.04
+   LTS , or Ubuntu 12.04 LTS .
+   
+   
+ * Red Hat Enterprise Linux 7
+   
+   
+ * A supported Windows operating system, such as Microsoft Windows Server 2012
+   R2 Base , Microsoft Windows Server 2012 R2 with SQL Server Express , 
+   Microsoft Windows Server 2012 R2 with SQL Server Standard , or Microsoft
+   Windows Server 2012 R2 with SQL Server Web .
+   
+   
  * A custom AMI: Custom .
+   
+   
 
 For more information on the supported operating systems, see AWS OpsWorks
 Operating Systems
@@ -3431,10 +3707,14 @@ instances have the latest security updates. **/
         /** The default AWS OpsWorks agent version. You have the following options:
 
  &amp;#42; INHERIT - Use the stack&#x27;s default agent version setting.
+   
+   
  * version_number - Use the specified agent version. This value overrides the
    stack&#x27;s default setting. To update the agent version, you must edit the
    instance configuration and specify a new version. AWS OpsWorks then
    automatically installs that version on the instance.
+   
+   
 
 The default setting is INHERIT . To specify an agent version, you must use the
 complete version number, not the abbreviated number shown on the console. For a
@@ -3532,14 +3812,29 @@ instances. For more information about IAM ARNs, see Using Identifiers
         /** The stack&#x27;s operating system, which must be set to one of the following:
 
  &amp;#42; A supported Linux operating system: An Amazon Linux version, such as Amazon
-   Linux 2015.03 , Red Hat Enterprise Linux 7 , Ubuntu 12.04 LTS , or Ubuntu
-   14.04 LTS .
- * Microsoft Windows Server 2012 R2 Base .
+   Linux 2016.03 , Amazon Linux 2015.09 , or Amazon Linux 2015.03 .
+   
+   
+ * A supported Ubuntu operating system, such as Ubuntu 16.04 LTS , Ubuntu 14.04
+   LTS , or Ubuntu 12.04 LTS .
+   
+   
+ * Red Hat Enterprise Linux 7
+   
+   
+ * A supported Windows operating system, such as Microsoft Windows Server 2012
+   R2 Base , Microsoft Windows Server 2012 R2 with SQL Server Express , 
+   Microsoft Windows Server 2012 R2 with SQL Server Standard , or Microsoft
+   Windows Server 2012 R2 with SQL Server Web .
+   
+   
  * A custom AMI: Custom . You specify the custom AMI you want to use when you
    create instances. For more information on how to use custom AMIs with
    OpsWorks, see Using Custom AMIs
    [http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html] 
    .
+   
+   
 
 The default option is the stack&#x27;s current operating system. For more information
 on the supported operating systems, see AWS OpsWorks Operating Systems
@@ -3552,16 +3847,38 @@ HostnameTheme is set to Layer_Dependent , which creates host names by appending
 integers to the layer&#x27;s short name. The other themes are:
 
  &amp;#42; Baked_Goods
+   
+   
  * Clouds
+   
+   
  * Europe_Cities
+   
+   
  * Fruits
+   
+   
  * Greek_Deities
+   
+   
  * Legendary_creatures_from_Japan
+   
+   
  * Planets_and_Moons
+   
+   
  * Roman_Deities
+   
+   
  * Scottish_Islands
+   
+   
  * US_Cities
+   
+   
  * Wild_Cats
+   
+   
 
 To obtain a generated host name, call GetHostNameSuggestion , which returns a
 host name based on the current theme. **/
@@ -3634,11 +3951,15 @@ built-in groups. UseOpsworksSecurityGroups has the following settings:
    security group with each layer (default setting). You can associate
    additional security groups with a layer after you create it, but you cannot
    delete the built-in security group.
+   
+   
  * False - AWS OpsWorks does not associate built-in security groups with layers.
    You must create appropriate EC2 security groups and associate a security
    group with each layer that you create. However, you can still manually
    associate a built-in security group with a layer on. Custom security groups
    are required only for those layers that need custom settings.
+   
+   
 
 For more information, see Create a New Stack
 [http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html] 
@@ -3649,10 +3970,14 @@ For more information, see Create a New Stack
  &amp;#42; Auto-update - Set this parameter to LATEST . AWS OpsWorks automatically
    installs new agent versions on the stack&#x27;s instances as soon as they are
    available.
+   
+   
  * Fixed version - Set this parameter to your preferred agent version. To update
    the agent version, you must edit the stack configuration and specify a new
    version. AWS OpsWorks then automatically installs that version on the stack&#x27;s
    instances.
+   
+   
 
 The default setting is LATEST . To specify an agent version, you must use the
 complete version number, not the abbreviated number shown on the console. For a
@@ -3749,7 +4074,11 @@ Endpoints [http://docs.aws.amazon.com/general/latest/gr/rande.html] . **/
         /** The volume type:
 
  &amp;#42; standard - Magnetic
+   
+   
  * io1 - Provisioned IOPS (SSD)
+   
+   
  * gp2 - General Purpose (SSD) **/
         VolumeType?: String;
         /** For PIOPS volumes, the IOPS per disk. **/
