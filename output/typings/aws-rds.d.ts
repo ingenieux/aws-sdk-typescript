@@ -14,12 +14,13 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: query
    *
-   * Amazon Relational Database ServiceAmazon Relational Database Service (Amazon
-RDS) is a web service that makes it easier to set up, operate, and scale a
-relational database in the cloud. It provides cost-efficient, resizeable
-capacity for an industry-standard relational database and manages common
-database administration tasks, freeing up developers to focus on what makes
-their applications and businesses unique.
+   * Amazon Relational Database Service
+
+Amazon Relational Database Service (Amazon RDS) is a web service that makes it
+easier to set up, operate, and scale a relational database in the cloud. It
+provides cost-efficient, resizeable capacity for an industry-standard relational
+database and manages common database administration tasks, freeing up developers
+to focus on what makes their applications and businesses unique.
 
 Amazon RDS gives you access to the capabilities of a MySQL, MariaDB, PostgreSQL,
 Microsoft SQL Server, Oracle, or Amazon Aurora database server. These
@@ -2311,9 +2312,7 @@ Valid Values: 1150-65535
 Type: Integer **/
         Port?: IntegerOptional;
         /** Specifies if the DB instance is a Multi-AZ deployment. You cannot set the
-AvailabilityZone parameter if the MultiAZ parameter is set to true. Do not set
-this value if you want a Multi-AZ deployment for a SQL Server DB instance.
-Multi-AZ for SQL Server is set using the Mirroring option in an option group. **/
+AvailabilityZone parameter if the MultiAZ parameter is set to true. **/
         MultiAZ?: BooleanOptional;
         /** The version number of the database engine to use.
 
@@ -5363,10 +5362,7 @@ does not result in an outage and the change is applied during the next
 maintenance window unless the ApplyImmediately parameter is set to true for this
 request.
 
-Constraints: Cannot be specified if the DB instance is a Read Replica. This
-parameter cannot be used with SQL Server DB instances. Multi-AZ for SQL Server
-DB instances is set using the Mirroring option in an option group associated
-with the DB instance. **/
+Constraints: Cannot be specified if the DB instance is a Read Replica. **/
         MultiAZ?: BooleanOptional;
         /** The version number of the database engine to upgrade to. Changing this parameter
 results in an outage and the change is applied during the next maintenance

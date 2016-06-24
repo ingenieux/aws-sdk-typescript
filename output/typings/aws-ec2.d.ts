@@ -8,7 +8,7 @@
 declare module "aws-sdk" {
 
  /**
-   * apiVersion: 2015-10-01
+   * apiVersion: 2016-04-01
    * endpointPrefix: ec2
    * serviceAbbreviation: Amazon EC2
    * signatureVersion: v4
@@ -354,6 +354,9 @@ snapshots remain unencrypted, unless the Encrypted flag is specified during the
 snapshot copy operation. By default, encrypted snapshot copies use the default
 AWS Key Management Service (AWS KMS) customer master key (CMK); however, you can
 specify a non-default CMK with the KmsKeyId parameter.
+
+To copy an encrypted snapshot that has been shared from another account, you
+must have permissions for the CMK used to encrypt the snapshot.
 
 For more information, see Copying an Amazon EBS Snapshot
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html] in
@@ -1209,6 +1212,23 @@ use the relevant Describe command for the resource type.
      */
     describeIdFormat(params: EC2.DescribeIdFormatRequest, callback?: (err: any, data: EC2.DescribeIdFormatResult|any) => void): Request<EC2.DescribeIdFormatResult|any,any>;
     /**
+     * Describes the ID format settings for resources for the specified IAM user, IAM
+role, or root user. For example, you can view the resource types that are
+enabled for longer IDs. This request only returns information about resource
+types whose ID formats can be modified; it does not return information about
+other resource types. For more information, see Resource IDs
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html] in the 
+Amazon Elastic Compute Cloud User Guide .
+
+The following resource types support longer IDs: instance | reservation | 
+snapshot | volume .
+
+These settings apply to the principal specified in the request. They do not
+apply to the principal that makes the request.
+     *
+     */
+    describeIdentityIdFormat(params: EC2.DescribeIdentityIdFormatRequest, callback?: (err: any, data: EC2.DescribeIdentityIdFormatResult|any) => void): Request<EC2.DescribeIdentityIdFormatResult|any,any>;
+    /**
      * Describes the specified attribute of the specified AMI. You can specify only one
 attribute at a time.
      *
@@ -1517,10 +1537,10 @@ IDs are returned. If you specify an invalid snapshot ID, an error is returned.
 If you specify a snapshot ID for which you do not have access, it is not
 included in the returned results.
 
-If you specify one or more snapshot owners, only snapshots from the specified
-owners and for which you have access are returned. The results can include the
-AWS account IDs of the specified owners, amazon for snapshots owned by Amazon,
-or self for snapshots that you own.
+If you specify one or more snapshot owners using the OwnerIds option, only
+snapshots from the specified owners and for which you have access are returned.
+The results can include the AWS account IDs of the specified owners, amazon for
+snapshots owned by Amazon, or self for snapshots that you own.
 
 If you specify a list of restorable users, only snapshots with create snapshot
 permissions for those users are returned. You can specify AWS account IDs (if
@@ -1913,7 +1933,7 @@ EC2Config service.
      * Retrieve a JPG-format screenshot of a running instance to help with
 troubleshooting.
 
-The returned content is base64-encoded.
+The returned content is Base64-encoded.
      *
      */
     getConsoleScreenshot(params: EC2.GetConsoleScreenshotRequest, callback?: (err: any, data: EC2.GetConsoleScreenshotResult|any) => void): Request<EC2.GetConsoleScreenshotResult|any,any>;
@@ -2007,19 +2027,36 @@ reservation | snapshot | volume .
 
 This setting applies to the IAM user who makes the request; it does not apply to
 the entire AWS account. By default, an IAM user defaults to the same settings as
-the root user. If you&#x27;re using this action as the root user or as an IAM role
-that has permission to use this action, then these settings apply to the entire
-account, unless an IAM user explicitly overrides these settings for themselves.
-For more information, see Controlling Access to Longer ID Settings
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html#resource-ids-access] 
-in the Amazon Elastic Compute Cloud User Guide .
+the root user. If you&#x27;re using this action as the root user, then these settings
+apply to the entire account, unless an IAM user explicitly overrides these
+settings for themselves. For more information, see Resource IDs
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html] in the 
+Amazon Elastic Compute Cloud User Guide .
 
-Resources created with longer IDs are visible to all IAM users, regardless of
-these settings and provided that they have permission to use the relevant 
-Describe command for the resource type.
+Resources created with longer IDs are visible to all IAM roles and users,
+regardless of these settings and provided that they have permission to use the
+relevant Describe command for the resource type.
      *
      */
     modifyIdFormat(params: EC2.ModifyIdFormatRequest, callback?: (err: any, data: any) => void): Request<any,any>;
+    /**
+     * Modifies the ID format of a resource for the specified IAM user, IAM role, or
+root user. You can specify that resources should receive longer IDs
+(17-character IDs) when they are created. The following resource types support
+longer IDs: instance | reservation | snapshot | volume . For more information,
+see Resource IDs
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html] in the 
+Amazon Elastic Compute Cloud User Guide .
+
+This setting applies to the principal specified in the request; it does not
+apply to the principal that makes the request.
+
+Resources created with longer IDs are visible to all IAM roles and users,
+regardless of these settings and provided that they have permission to use the
+relevant Describe command for the resource type.
+     *
+     */
+    modifyIdentityIdFormat(params: EC2.ModifyIdentityIdFormatRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Modifies the specified attribute of the specified AMI. You can specify only one
 attribute at a time.
@@ -2087,11 +2124,13 @@ remove specified AWS account IDs from a snapshot&#x27;s list of create volume
 permissions, but you cannot do both in a single API call. If you need to both
 add and remove account IDs for a snapshot, you must use multiple API calls.
 
+Encrypted snapshots and snapshots with AWS Marketplace product codes cannot be
+made public. Snapshots encrypted with your default CMK cannot be shared with
+other accounts.
+
 For more information on modifying snapshot permissions, see Sharing Snapshots
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html] 
 in the Amazon Elastic Compute Cloud User Guide .
-
-Snapshots with AWS Marketplace product codes cannot be made public.
      *
      */
     modifySnapshotAttribute(params: EC2.ModifySnapshotAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -3461,11 +3500,11 @@ UnauthorizedOperation . **/
         VpcAttachment?: VpcAttachment;
     }
     export interface AttributeBooleanValue {
-        /** Valid values are true or false . **/
+        /** The attribute value. The valid values are true or false . **/
         Value?: Boolean;
     }
     export interface AttributeValue {
-        /** Valid values are case-sensitive and vary by action. **/
+        /** The attribute value. Note that the value is case-sensitive. **/
         Value?: String;
     }
     export interface AuthorizeSecurityGroupEgressRequest {
@@ -3882,10 +3921,10 @@ the Amazon Simple Storage Service API Reference . An invalid or improperly
 signed PresignedUrl will cause the copy operation to fail asynchronously, and
 the snapshot will move to an error state. **/
         PresignedUrl?: String;
-        /** Specifies whether the destination snapshot should be encrypted. There is no way
-to create an unencrypted snapshot copy from an encrypted snapshot; however, you
-can encrypt a copy of an unencrypted snapshot with this flag. The default CMK
-for EBS is used unless a non-default AWS Key Management Service (AWS KMS) CMK is
+        /** Specifies whether the destination snapshot should be encrypted. You can encrypt
+a copy of an unencrypted snapshot using this flag, but you cannot use it to
+create an unencrypted copy from an encrypted snapshot. Your default CMK for EBS
+is used unless a non-default AWS Key Management Service (AWS KMS) CMK is
 specified with KmsKeyId . For more information, see Amazon EBS Encryption
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html] in the 
 Amazon Elastic Compute Cloud User Guide . **/
@@ -4220,7 +4259,7 @@ Constraints: Up to 255 characters in length
 
 Constraints for EC2-Classic: ASCII characters
 
-Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+= ;{}!$&amp;#42; **/
+Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$&amp;#42; **/
         GroupName: String;
         /** A description for the security group. This is informational only.
 
@@ -4228,7 +4267,7 @@ Constraints: Up to 255 characters in length
 
 Constraints for EC2-Classic: ASCII characters
 
-Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+= ;{}!$&amp;#42; **/
+Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$&amp;#42; **/
         Description: String;
         /** [EC2-VPC] The ID of the VPC. Required for EC2-VPC. **/
         VpcId?: String;
@@ -5124,6 +5163,16 @@ there are no more results to return. **/
     }
     export interface DescribeIdFormatResult {
         /** Information about the ID format for the resource. **/
+        Statuses?: IdFormatList;
+    }
+    export interface DescribeIdentityIdFormatRequest {
+        /** The type of resource. **/
+        Resource?: String;
+        /** The ARN of the principal, which can be an IAM role, IAM user, or the root user. **/
+        PrincipalArn: String;
+    }
+    export interface DescribeIdentityIdFormatResult {
+        /** Information about the ID format for the resources. **/
         Statuses?: IdFormatList;
     }
     export interface DescribeImageAttributeRequest {
@@ -8016,12 +8065,12 @@ volume size, the default is the snapshot size. **/
 
 Default: standard **/
         VolumeType?: VolumeType;
-        /** The number of I/O operations per second (IOPS) that the volume supports. For
-io1, this represents the number of IOPS that are provisioned for the volume. For 
+        /** The number of I/O operations per second (IOPS) that the volume supports. For io1 
+, this represents the number of IOPS that are provisioned for the volume. For 
 gp2 , this represents the baseline performance of the volume and the rate at
-which the volume accumulates I/O credits for bursting. For more information on
-General Purpose SSD baseline performance, I/O credits, and bursting, see Amazon
-EBS Volume Types
+which the volume accumulates I/O credits for bursting. For more information
+about General Purpose SSD baseline performance, I/O credits, and bursting, see 
+Amazon EBS Volume Types
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html] in the 
 Amazon Elastic Compute Cloud User Guide .
 
@@ -8249,8 +8298,8 @@ UnauthorizedOperation . **/
         InstanceId?: String;
         /** The time the output was last updated. **/
         Timestamp?: DateTime;
-        /** The console output, base64-encoded. If using a command line tool, the tools
-decode the output for you. **/
+        /** The console output, Base64-encoded. If using a command line tool, the tool
+decodes the output for you. **/
         Output?: String;
     }
     export interface GetConsoleScreenshotRequest {
@@ -8570,7 +8619,9 @@ Valid values: xen **/
         GroupIds?: SecurityGroupIdStringList;
         /** Reserved. **/
         AdditionalInfo?: String;
-        /** The Base64-encoded MIME user data to be made available to the instance. **/
+        /** The user data to make available to the instance. If you are using an AWS SDK or
+command line tool, Base64-encoding is performed for you, and you can load the
+text from a file. Otherwise, you must provide Base64-encoded text. **/
         UserData?: UserData;
         /** The instance type. For more information about the instance types that you can
 import, see Before You Get Started
@@ -8820,7 +8871,7 @@ instance. **/
         KernelId?: AttributeValue;
         /** The RAM disk ID. **/
         RamdiskId?: AttributeValue;
-        /** The Base64-encoded MIME user data. **/
+        /** The user data. **/
         UserData?: AttributeValue;
         /** If the value is true , you can&#x27;t terminate the instance through the Amazon EC2
 console, CLI, or API; otherwise, you can. **/
@@ -9147,7 +9198,9 @@ RFC4716. **/
 specify the IDs of the security groups. When requesting instances in
 EC2-Classic, you can specify the names or the IDs of the security groups. **/
         SecurityGroups?: GroupIdentifierList;
-        /** The Base64-encoded MIME user data to make available to the instances. **/
+        /** The user data to make available to the instances. If you are using an AWS SDK or
+command line tool, Base64-encoding is performed for you, and you can load the
+text from a file. Otherwise, you must provide Base64-encoded text. **/
         UserData?: String;
         /** Deprecated. **/
         AddressingType?: String;
@@ -9198,6 +9251,14 @@ setting you requested can be used. **/
         Resource: String;
         /** Indicate whether the resource should use longer IDs (17-character IDs). **/
         UseLongIds: Boolean;
+    }
+    export interface ModifyIdentityIdFormatRequest {
+        /** The type of resource. **/
+        Resource: String;
+        /** Indicates whether the resource should use longer IDs (17-character IDs) **/
+        UseLongIds: Boolean;
+        /** The ARN of the principal, which can be an IAM user, IAM role, or the root user. **/
+        PrincipalArn: String;
     }
     export interface ModifyImageAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
@@ -9274,8 +9335,9 @@ PV-GRUB instead of kernels and RAM disks. For more information, see PV-GRUB
 use PV-GRUB instead of kernels and RAM disks. For more information, see PV-GRUB
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html] . **/
         Ramdisk?: AttributeValue;
-        /** Changes the instance&#x27;s user data to the specified base64-encoded value. For
-command line tools, base64 encoding is performed for you. **/
+        /** Changes the instance&#x27;s user data to the specified value. If you are using an AWS
+SDK or command line tool, Base64-encoding is performed for you, and you can load
+the text from a file. Otherwise, you must provide Base64-encoded text. **/
         UserData?: BlobAttributeValue;
         /** Specifies whether an instance stops or terminates when you initiate shutdown
 from the instance (using the operating system command for system shutdown). **/
@@ -9963,7 +10025,7 @@ Default: paravirtual **/
         /** Set to simple to enable enhanced networking for the AMI and any instances that
 you launch from the AMI.
 
-There is no way to disable enhanced networking at this time.
+There is no way to disable sriovNetSupport at this time.
 
 This option is supported only for HVM AMIs. Specifying this option with a PV AMI
 can make instances launched from the AMI unreachable. **/
@@ -10233,7 +10295,9 @@ specify a duration. **/
         /** The name of the key pair. **/
         KeyName?: String;
         SecurityGroups?: ValueStringList;
-        /** The Base64-encoded MIME user data to make available to the instances. **/
+        /** The user data to make available to the instances. If you are using an AWS SDK or
+command line tool, Base64-encoding is performed for you, and you can load the
+text from a file. Otherwise, you must provide Base64-encoded text. **/
         UserData?: String;
         /** Deprecated. **/
         AddressingType?: String;
@@ -10670,13 +10734,14 @@ CreateSecurityGroup .
 
 Default: Amazon EC2 uses the default security group. **/
         SecurityGroupIds?: SecurityGroupIdStringList;
-        /** Data to configure the instance, or a script to run during instance launch. For
-more information, see Running Commands on Your Linux Instance at Launch
+        /** The user data to make available to the instance. For more information, see 
+Running Commands on Your Linux Instance at Launch
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html] (Linux) and 
 Adding User Data
 [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data] 
-(Windows). For API calls, the text must be base64-encoded. For command line
-tools, the encoding is performed for you, and you can load the text from a file. **/
+(Windows). If you are using an AWS SDK or command line tool, Base64-encoding is
+performed for you, and you can load the text from a file. Otherwise, you must
+provide Base64-encoded text. **/
         UserData?: String;
         /** The instance type. For more information, see Instance Types
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html] in the 
@@ -10789,11 +10854,10 @@ Managing AWS Access Keys
 [http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html] 
 . **/
         AWSAccessKeyId?: String;
-        /** A base64-encoded Amazon S3 upload policy that gives Amazon EC2 permission to
-upload items into Amazon S3 on your behalf. For command line tools, base64
-encoding is performed for you. **/
+        /** An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into
+Amazon S3 on your behalf. **/
         UploadPolicy?: Blob;
-        /** The signature of the Base64 encoded JSON document. **/
+        /** The signature of the JSON document. **/
         UploadPolicySignature?: String;
     }
     export interface ScheduledInstance {
@@ -11187,7 +11251,9 @@ https URL (https://..) or an Amazon S3 URL (s3://..). **/
 specify the IDs of the security groups. When requesting instances in
 EC2-Classic, you can specify the names or the IDs of the security groups. **/
         SecurityGroups?: GroupIdentifierList;
-        /** The Base64-encoded MIME user data to make available to the instances. **/
+        /** The user data to make available to the instances. If you are using an AWS SDK or
+command line tool, Base64-encoding is performed for you, and you can load the
+text from a file. Otherwise, you must provide Base64-encoded text. **/
         UserData?: String;
         /** Deprecated. **/
         AddressingType?: String;
@@ -11576,10 +11642,10 @@ UnauthorizedOperation . **/
         InstanceMonitorings?: InstanceMonitoringList;
     }
     export interface UnsuccessfulItem {
-        /** Information about the error. **/
-        Error: UnsuccessfulItemError;
         /** The ID of the resource. **/
         ResourceId?: String;
+        /** Information about the error. **/
+        Error: UnsuccessfulItemError;
     }
     export interface UnsuccessfulItemError {
         /** The error code. **/
@@ -11600,7 +11666,9 @@ UnauthorizedOperation . **/
         S3Key?: String;
     }
     export interface UserData {
-        /** The Base64-encoded MIME user data for the instance. **/
+        /** The user data. If you are using an AWS SDK or command line tool, Base64-encoding
+is performed for you, and you can load the text from a file. Otherwise, you must
+provide Base64-encoded text. **/
         Data?: String;
     }
     export interface UserIdGroupPair {

@@ -410,6 +410,8 @@ You must use AWS Developer credentials to call this API.
     
     export type RolesMap = {[key:string]: ARNString};
     
+    export type SAMLProviderList = ARNString[];
+    
     export type SecretKeyString = string;
     
     export type SessionTokenString = string;
@@ -421,10 +423,10 @@ You must use AWS Developer credentials to call this API.
     export type UnprocessedIdentityIdList = UnprocessedIdentityId[];
 
     export interface CognitoIdentityProvider {
-        /** The provider name for a Cognito User Identity Pool. For example, 
+        /** The provider name for an Amazon Cognito Identity User Pool. For example, 
 cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789 . **/
         ProviderName?: CognitoIdentityProviderName;
-        /** The client ID for the Cognito User Identity Pool. **/
+        /** The client ID for the Amazon Cognito Identity User Pool. **/
         ClientId?: CognitoIdentityProviderClientId;
     }
     export interface ConcurrentModificationException {
@@ -448,8 +450,11 @@ care in setting this parameter. **/
         DeveloperProviderName?: DeveloperProviderName;
         /** A list of OpendID Connect provider ARNs. **/
         OpenIdConnectProviderARNs?: OIDCProviderList;
-        /** A list representing a Cognito User Identity Pool and its client ID. **/
+        /** An array of Amazon Cognito Identity user pools. **/
         CognitoIdentityProviders?: CognitoIdentityProviderList;
+        /** An array of Amazon Resource Names (ARNs) of the SAML provider for your identity
+pool. **/
+        SamlProviderARNs?: SAMLProviderList;
     }
     export interface Credentials {
         /** The Access Key portion of the credentials. **/
@@ -495,6 +500,11 @@ and IdentityId. **/
         IdentityId: IdentityId;
         /** A set of optional name-value pairs that map provider names to provider tokens. **/
         Logins?: LoginsMap;
+        /** The Amazon Resource Name (ARN) of the role to be assumed when multiple roles
+were received in the token from the identity provider. For example, a SAML-based
+identity provider. This parameter is optional for identity providers that do not
+support role customization. **/
+        CustomRoleArn?: ARNString;
     }
     export interface GetCredentialsForIdentityResponse {
         /** A unique identifier in the format REGION:GUID. **/
@@ -510,8 +520,6 @@ and IdentityId. **/
         /** A set of optional name-value pairs that map provider names to provider tokens.
 
 The available provider names for Logins are as follows: &amp;#42; Facebook: graph.facebook.com
- * Amazon Cognito
-   Identity Provider: cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789
  * Google: accounts.google.com
  * Amazon: www.amazon.com
  * Twitter: api.twitter.com
@@ -569,9 +577,8 @@ resources for the token&#x27;s duration. **/
         IdentityId: IdentityId;
         /** A set of optional name-value pairs that map provider names to provider tokens.
 When using graph.facebook.com and www.amazon.com, supply the access_token
-returned from the provider&#x27;s authflow. For accounts.google.com, an Amazon
-Cognito Identity Provider, or any other OpenId Connect provider, always include
-the id_token . **/
+returned from the provider&#x27;s authflow. For accounts.google.com or any other
+OpenId Connect provider, always include the id_token. **/
         Logins?: LoginsMap;
     }
     export interface GetOpenIdTokenResponse {
@@ -604,8 +611,11 @@ may not match the one passed on input. **/
         DeveloperProviderName?: DeveloperProviderName;
         /** A list of OpendID Connect provider ARNs. **/
         OpenIdConnectProviderARNs?: OIDCProviderList;
-        /** A list representing a Cognito User Identity Pool and its client ID. **/
+        /** A list representing an Amazon Cognito Identity User Pool and its client ID. **/
         CognitoIdentityProviders?: CognitoIdentityProviderList;
+        /** An array of Amazon Resource Names (ARNs) of the SAML provider for your identity
+pool. **/
+        SamlProviderARNs?: SAMLProviderList;
     }
     export interface IdentityPoolShortDescription {
         /** An identity pool ID in the format REGION:GUID. **/

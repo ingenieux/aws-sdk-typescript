@@ -191,6 +191,20 @@ This is intended for use by AWS Direct Connect partners only.
      */
     deleteVirtualInterface(params: DirectConnect.DeleteVirtualInterfaceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.DeleteVirtualInterfaceResponse|any) => void): Request<DirectConnect.DeleteVirtualInterfaceResponse|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
+     * Returns the LOA-CFA for a Connection.
+
+The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a
+document that your APN partner or service provider uses when establishing your
+cross connect to AWS at the colocation facility. For more information, see 
+Requesting Cross Connects at AWS Direct Connect Locations
+[http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html] in
+the AWS Direct Connect user guide.
+     *
+     * @error DirectConnectServerException   
+     * @error DirectConnectClientException   
+     */
+    describeConnectionLoa(params: DirectConnect.DescribeConnectionLoaRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.DescribeConnectionLoaResponse|any) => void): Request<DirectConnect.DescribeConnectionLoaResponse|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
+    /**
      * Displays all connections in this region.
 
 If a connection ID is provided, the call returns only that particular
@@ -210,6 +224,20 @@ This is intended for use by AWS Direct Connect partners only.
      * @error DirectConnectClientException   
      */
     describeConnectionsOnInterconnect(params: DirectConnect.DescribeConnectionsOnInterconnectRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Connections|any) => void): Request<DirectConnect.Connections|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
+    /**
+     * Returns the LOA-CFA for an Interconnect.
+
+The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a
+document that is used when establishing your cross connect to AWS at the
+colocation facility. For more information, see Requesting Cross Connects at AWS
+Direct Connect Locations
+[http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html] in
+the AWS Direct Connect user guide.
+     *
+     * @error DirectConnectServerException   
+     * @error DirectConnectClientException   
+     */
+    describeInterconnectLoa(params: DirectConnect.DescribeInterconnectLoaRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.DescribeInterconnectLoaResponse|any) => void): Request<DirectConnect.DescribeInterconnectLoaResponse|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
      * Returns a list of interconnects owned by the AWS account.
 
@@ -295,6 +323,12 @@ only this particular virtual interface will be returned.
     
     export type InterconnectState = string;
     
+    export type LoaContent = any;
+    
+    export type LoaContentType = string;
+    
+    export type LoaIssueTime = number;
+    
     export type LocationCode = string;
     
     export type LocationList = Location[];
@@ -304,6 +338,8 @@ only this particular virtual interface will be returned.
     export type OwnerAccount = string;
     
     export type PartnerName = string;
+    
+    export type ProviderName = string;
     
     export type Region = string;
     
@@ -437,6 +473,8 @@ Default: None **/
         /** The name of the AWS Direct Connect service provider associated with the
 connection. **/
         partnerName?: PartnerName;
+        /** The time of the most recent call to DescribeConnectionLoa for this Connection. **/
+        loaIssueTime?: LoaIssueTime;
     }
     export interface Connections {
         /** A list of connections. **/
@@ -498,6 +536,19 @@ Default: None **/
     export interface DeleteVirtualInterfaceResponse {
         virtualInterfaceState?: VirtualInterfaceState;
     }
+    export interface DescribeConnectionLoaRequest {
+        connectionId: ConnectionId;
+        /** The name of the APN partner or service provider who establishes connectivity on
+your behalf. If you supply this parameter, the LOA-CFA lists the provider name
+alongside your company name as the requester of the cross connect.
+
+Default: None **/
+        providerName?: ProviderName;
+        loaContentType?: LoaContentType;
+    }
+    export interface DescribeConnectionLoaResponse {
+        loa?: Loa;
+    }
     export interface DescribeConnectionsOnInterconnectRequest {
         /** ID of the interconnect on which a list of connection is provisioned.
 
@@ -508,6 +559,19 @@ Default: None **/
     }
     export interface DescribeConnectionsRequest {
         connectionId?: ConnectionId;
+    }
+    export interface DescribeInterconnectLoaRequest {
+        interconnectId: InterconnectId;
+        /** The name of the service provider who establishes connectivity on your behalf. If
+you supply this parameter, the LOA-CFA lists the provider name alongside your
+company name as the requester of the cross connect.
+
+Default: None **/
+        providerName?: ProviderName;
+        loaContentType?: LoaContentType;
+    }
+    export interface DescribeInterconnectLoaResponse {
+        loa?: Loa;
     }
     export interface DescribeInterconnectsRequest {
         interconnectId?: InterconnectId;
@@ -535,10 +599,17 @@ be used once per connection. **/
         region?: Region;
         location?: LocationCode;
         bandwidth?: Bandwidth;
+        /** The time of the most recent call to DescribeInterconnectLoa for this
+Interconnect. **/
+        loaIssueTime?: LoaIssueTime;
     }
     export interface Interconnects {
         /** A list of interconnects. **/
         interconnects?: InterconnectList;
+    }
+    export interface Loa {
+        loaContent?: LoaContent;
+        loaContentType?: LoaContentType;
     }
     export interface Location {
         /** The code used to indicate the AWS Direct Connect location. **/

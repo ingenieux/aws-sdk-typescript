@@ -415,7 +415,6 @@ parts storage.
    
      **/
     getSignedUrl(...args: any[]): any
-    noPresignedContentLength(...args: any[]): any
     createBucket(...args: any[]): any
     /**
      * Found on JS Sources - Sorry for the inconvenience :)
