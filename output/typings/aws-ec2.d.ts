@@ -1306,6 +1306,12 @@ it is not included in the returned results.
 
 Recently terminated instances might appear in the returned results. This
 interval is usually less than one hour.
+
+If you describe instances in the rare case where an Availability Zone is
+experiencing a service disruption and you specify instance IDs that are in the
+affected zone, or do not specify any instance IDs at all, the call fails. If you
+describe instances and specify only instance IDs that are in an unaffected zone,
+the call works normally.
      *
      */
     describeInstances(params: EC2.DescribeInstancesRequest, callback?: (err: any, data: EC2.DescribeInstancesResult|any) => void): Request<EC2.DescribeInstancesResult|any,any>;
@@ -5371,7 +5377,9 @@ UnauthorizedOperation . **/
         DryRun?: Boolean;
         /** The ID of the instance. **/
         InstanceId: String;
-        /** The instance attribute. **/
+        /** The instance attribute.
+
+Note: The enaSupport attribute is not supported at this time. **/
         Attribute: InstanceAttributeName;
     }
     export interface DescribeInstanceStatusRequest {
@@ -8460,8 +8468,11 @@ images. **/
         RamdiskId?: String;
         /** The value is Windows for Windows AMIs; otherwise blank. **/
         Platform?: PlatformValues;
-        /** Specifies whether enhanced networking is enabled. **/
+        /** Specifies whether enhanced networking with the Intel 82599 Virtual Function
+interface is enabled. **/
         SriovNetSupport?: String;
+        /** Specifies whether enhanced networking with ENA is enabled. **/
+        EnaSupport?: Boolean;
         /** The reason for the state change. **/
         StateReason?: StateReason;
         /** The AWS account alias (for example, amazon , self ) or the AWS account ID of the
@@ -8498,6 +8509,8 @@ instance store volume. **/
         RamdiskId?: AttributeValue;
         /** A description for the AMI. **/
         Description?: AttributeValue;
+        /** Indicates whether enhanced networking with the Intel 82599 Virtual Function
+interface is enabled. **/
         SriovNetSupport?: AttributeValue;
         /** One or more block device mapping entries. **/
         BlockDeviceMappings?: BlockDeviceMappingList;
@@ -8859,8 +8872,11 @@ to provide optimal I/O performance. This optimization isn&#x27;t available with 
 instance types. Additional usage charges apply when using an EBS Optimized
 instance. **/
         EbsOptimized?: Boolean;
-        /** Specifies whether enhanced networking is enabled. **/
+        /** Specifies whether enhanced networking with the Intel 82599 Virtual Function
+interface is enabled. **/
         SriovNetSupport?: String;
+        /** Specifies whether enhanced networking with ENA is enabled. **/
+        EnaSupport?: Boolean;
     }
     export interface InstanceAttribute {
         /** The ID of the instance. **/
@@ -8887,7 +8903,11 @@ from the instance (using the operating system command for system shutdown). **/
         ProductCodes?: ProductCodeList;
         /** Indicates whether the instance is optimized for EBS I/O. **/
         EbsOptimized?: AttributeBooleanValue;
+        /** Indicates whether enhanced networking with the Intel 82599 Virtual Function
+interface is enabled. **/
         SriovNetSupport?: AttributeValue;
+        /** Indicates whether enhanced networking with ENA is enabled. **/
+        EnaSupport?: AttributeBooleanValue;
         /** Indicates whether source/destination checking is enabled. A value of true means
 checking is enabled, and false means checking is disabled. This value must be 
 false for a NAT instance to perform NAT. **/
@@ -9352,13 +9372,20 @@ to provide optimal EBS I/O performance. This optimization isn&#x27;t available w
 all instance types. Additional usage charges apply when using an EBS Optimized
 instance. **/
         EbsOptimized?: AttributeBooleanValue;
-        /** Set to simple to enable enhanced networking for the instance.
+        /** Set to simple to enable enhanced networking with the Intel 82599 Virtual
+Function interface for the instance.
 
-There is no way to disable enhanced networking at this time.
+There is no way to disable enhanced networking with the Intel 82599 Virtual
+Function interface at this time.
 
 This option is supported only for HVM instances. Specifying this option with a
 PV instance can make it unreachable. **/
         SriovNetSupport?: AttributeValue;
+        /** Set to true to enable enhanced networking with ENA for the instance.
+
+This option is supported only for HVM instances. Specifying this option with a
+PV instance can make it unreachable. **/
+        EnaSupport?: AttributeBooleanValue;
     }
     export interface ModifyInstancePlacementRequest {
         /** The ID of the instance that you are modifying. **/
@@ -10022,14 +10049,20 @@ architecture specified in the manifest file. **/
 
 Default: paravirtual **/
         VirtualizationType?: String;
-        /** Set to simple to enable enhanced networking for the AMI and any instances that
-you launch from the AMI.
+        /** Set to simple to enable enhanced networking with the Intel 82599 Virtual
+Function interface for the AMI and any instances that you launch from the AMI.
 
 There is no way to disable sriovNetSupport at this time.
 
 This option is supported only for HVM AMIs. Specifying this option with a PV AMI
 can make instances launched from the AMI unreachable. **/
         SriovNetSupport?: String;
+        /** Set to true to enable enhanced networking with ENA for the AMI and any instances
+that you launch from the AMI.
+
+This option is supported only for HVM AMIs. Specifying this option with a PV AMI
+can make instances launched from the AMI unreachable. **/
+        EnaSupport?: Boolean;
     }
     export interface RegisterImageResult {
         /** The ID of the newly registered AMI. **/

@@ -775,6 +775,8 @@ a certificate.
     
     export type DynamoKeyType = string;
     
+    export type DynamoOperation = string;
+    
     export type ElasticsearchEndpoint = string;
     
     export type ElasticsearchId = string;
@@ -1238,6 +1240,10 @@ is an Amazon Cognito identity, specify the identity ID. **/
         tableName: TableName;
         /** The ARN of the IAM role that grants access to the DynamoDB table. **/
         roleArn: AwsArn;
+        /** The type of operation to be performed. This follows the substitution template,
+so it can be ${operation} , but the substitution must result in one of the
+following: INSERT , UPDATE , or DELETE . **/
+        operation?: DynamoOperation;
         /** The hash key name. **/
         hashKeyField: HashKeyField;
         /** The hash key value. **/

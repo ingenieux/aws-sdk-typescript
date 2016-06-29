@@ -232,10 +232,6 @@ see ChangeResourceRecordSets .
      * This action deletes a hosted zone. To delete a hosted zone, send a DELETE 
 request to the / Route 53 API version /hostedzone/ hosted zone ID resource.
 
-For more information about deleting a hosted zone, see Deleting a Hosted Zone
-[http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html] 
-in the Amazon Route 53 Developer Guide .
-
 You can delete a hosted zone only if there are no resource record sets other
 than the default SOA record and NS resource record sets. If your hosted zone
 contains other resource record sets, you must delete them before you can delete
@@ -248,8 +244,9 @@ hosted zone, see ChangeResourceRecordSets .
      * @error HostedZoneNotEmpty   
      * @error PriorRequestNotComplete   
      * @error InvalidInput   
+     * @error InvalidDomainName   
      */
-    deleteHostedZone(params: Route53.DeleteHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.HostedZoneNotEmpty|Route53.PriorRequestNotComplete|Route53.InvalidInput|any, data: Route53.DeleteHostedZoneResponse|any) => void): Request<Route53.DeleteHostedZoneResponse|any,Route53.NoSuchHostedZone|Route53.HostedZoneNotEmpty|Route53.PriorRequestNotComplete|Route53.InvalidInput|any>;
+    deleteHostedZone(params: Route53.DeleteHostedZoneRequest, callback?: (err: Route53.NoSuchHostedZone|Route53.HostedZoneNotEmpty|Route53.PriorRequestNotComplete|Route53.InvalidInput|Route53.InvalidDomainName|any, data: Route53.DeleteHostedZoneResponse|any) => void): Request<Route53.DeleteHostedZoneResponse|any,Route53.NoSuchHostedZone|Route53.HostedZoneNotEmpty|Route53.PriorRequestNotComplete|Route53.InvalidInput|Route53.InvalidDomainName|any>;
     /**
      * This action deletes a reusable delegation set. To delete a reusable delegation
 set, send a DELETE request to the / Route 53 API version /delegationset/ 
@@ -529,47 +526,41 @@ greater than 100, Amazon Route 53 returns only the first 100.
      */
     listHostedZonesByName(params: Route53.ListHostedZonesByNameRequest, callback?: (err: Route53.InvalidInput|Route53.InvalidDomainName|any, data: Route53.ListHostedZonesByNameResponse|any) => void): Request<Route53.ListHostedZonesByNameResponse|any,Route53.InvalidInput|Route53.InvalidDomainName|any>;
     /**
-     * Imagine all the resource record sets in a zone listed out in front of you.
-Imagine them sorted lexicographically first by DNS name (with the labels
-reversed, like &quot;com.amazon.www&quot; for example), and secondarily, lexicographically
-by record type. This operation retrieves at most MaxItems resource record sets
-from this list, in order, starting at a position specified by the Name and Type
-arguments:
+     * List the resource record sets in a specified hosted zone. Send a GET request to
+the 2013-04-01/hostedzone/ hosted zone ID /rrset resource.
 
- &amp;#42; If both Name and Type are omitted, this means start the results at the first
-   RRSET in the HostedZone.
- * If Name is specified but Type is omitted, this means start the results at the
-   first RRSET in the list whose name is greater than or equal to Name.
- * If both Name and Type are specified, this means start the results at the
-   first RRSET in the list whose name is greater than or equal to Name and whose
-   type is greater than or equal to Type.
- * It is an error to specify the Type but not the Name.
+ListResourceRecordSets returns up to 100 resource record sets at a time in ASCII
+order, beginning at a position specified by the name and type elements. The
+action sorts results first by DNS name with the labels reversed, for example:
 
-Use ListResourceRecordSets to retrieve a single known record set by specifying
-the record set&#x27;s name and type, and setting MaxItems = 1
+com.example.www.
 
-To retrieve all the records in a HostedZone, first pause any processes making
-calls to ChangeResourceRecordSets. Initially call ListResourceRecordSets without
-a Name and Type to get the first page of record sets. For subsequent calls, set
-Name and Type to the NextName and NextType values returned by the previous
-response.
+Note the trailing dot, which can change the sort order in some circumstances.
+When multiple records have the same DNS name, the action sorts results by the
+record type.
 
-In the presence of concurrent ChangeResourceRecordSets calls, there is no
-consistency of results across calls to ListResourceRecordSets. The only way to
-get a consistent multi-page snapshot of all RRSETs in a zone is to stop making
-changes while pagination is in progress.
+You can use the name and type elements to adjust the beginning position of the
+list of resource record sets returned:
 
-However, the results from ListResourceRecordSets are consistent within a page.
-If MakeChange calls are taking place concurrently, the result of each one will
-either be completely visible in your results or not at all. You will not see
-partial changes, or changes that do not ultimately succeed. (This follows from
-the fact that MakeChange is atomic)
+ &amp;#42; If you do not specify Name or Type : The results begin with the first
+   resource record set that the hosted zone contains.
+ * If you specify Name but not Type : The results begin with the first resource
+   record set in the list whose name is greater than or equal to Name.
+ * If you specify Type but not Name : Amazon Route 53 returns the InvalidInput 
+   error.
+ * If you specify both Name and Type : The results begin with the first resource
+   record set in the list whose name is greater than or equal to Name , and
+   whose type is greater than or equal to Type .
 
-The results from ListResourceRecordSets are strongly consistent with
-ChangeResourceRecordSets. To be precise, if a single process makes a call to
-ChangeResourceRecordSets and receives a successful response, the effects of that
-change will be visible in a subsequent call to ListResourceRecordSets by that
-process.
+This action returns the most current version of the records. This includes
+records that are PENDING , and that are not yet available on all Amazon Route 53
+DNS servers.
+
+To ensure that you get an accurate listing of the resource record sets for a
+hosted zone at a point in time, do not submit a ChangeResourceRecordSets request
+while you are paging through the results of a ListResourceRecordSets request. If
+you do, some pages may display results without the latest changes while other
+pages display results with the latest changes.
      *
      * @error NoSuchHostedZone   
      * @error InvalidInput   
@@ -1103,12 +1094,7 @@ route queries:
    Amazon Web Services General Reference .
  * Another Amazon Route 53 resource record set in your hosted zone: Specify the
    hosted zone ID of your hosted zone. (An alias resource record set cannot
-   reference a resource record set in a different hosted zone.)
-
-For more information and an example, see Example: Creating Alias Resource Record
-Sets
-[http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html] 
-in the Amazon Route 53 API Reference . **/
+   reference a resource record set in a different hosted zone.) **/
         HostedZoneId: ResourceId;
         /** Alias resource record sets only: The external DNS name associated with the AWS
 Resource. The value that you specify depends on where you want to route queries:
@@ -1140,12 +1126,7 @@ Resource. The value that you specify depends on where you want to route queries:
    [http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html] in the 
    Amazon Simple Storage Service Developer Guide .
  * Another Amazon Route 53 resource record set: Specify the value of the Name 
-   element for a resource record set in the current hosted zone.
-
-For more information and an example, see Example: Creating Alias Resource Record
-Sets
-[http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html] 
-in the Amazon Route 53 API Reference . **/
+   element for a resource record set in the current hosted zone. **/
         DNSName: DNSName;
         /** Alias resource record sets only: If you set the value of EvaluateTargetHealth to 
 true for the resource record set or sets in an alias, weighted alias, latency
@@ -1182,10 +1163,7 @@ Note the following:
    or a group of resource record sets (for example, a group of weighted resource
    record sets), but it is not another alias resource record set, we recommend
    that you associate a health check with all of the resource record sets in the
-   alias target. For more information, see What Happens When You Omit Health
-   Checks?
-   [http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-complex-configs.html#dns-failover-complex-configs-hc-omitting] 
-   in the Amazon Route 53 Developer Guide .
+   alias target.
  * If you specify an ELB load balancer in AliasTarget , Elastic Load Balancing
    routes queries only to the healthy Amazon EC2 instances that are registered
    with the load balancer. If no Amazon EC2 instances are healthy or if the load
@@ -1487,7 +1465,10 @@ sets in the specified hosted zone. **/
     export interface CreateTrafficPolicyRequest {
         /** The name of the traffic policy. **/
         Name: TrafficPolicyName;
-        /** The definition of this traffic policy in JSON format. **/
+        /** The definition of this traffic policy in JSON format. For more information, see 
+Traffic Policy Document Format
+[http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html] 
+in the Amazon Route 53 API Reference . **/
         Document: TrafficPolicyDocument;
         /** Any comments that you want to include about the traffic policy. **/
         Comment?: TrafficPolicyComment;
@@ -1502,7 +1483,10 @@ sets in the specified hosted zone. **/
         Id: TrafficPolicyId;
         /** The definition of a new traffic policy version, in JSON format. You must specify
 the full definition of the new traffic policy. You cannot specify just the
-differences between the new version and a previous version. **/
+differences between the new version and a previous version. For more
+information, see Traffic Policy Document Format
+[http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html] 
+in the Amazon Route 53 API Reference . **/
         Document: TrafficPolicyDocument;
         /** Any comments that you want to include about the new traffic policy version. **/
         Comment?: TrafficPolicyComment;
@@ -1983,6 +1967,12 @@ set of NameServers elements returned in DelegationSet . **/
 comment, you can omit the HostedZoneConfig and Comment elements from the XML
 document. **/
         Comment?: ResourceDescription;
+        /** GetHostedZone and ListHostedZone responses: A Boolean value that indicates
+whether a hosted zone is private.
+
+CreateHostedZone requests: When you&#x27;re creating a private hosted zone (when you
+specify values for VPCId and VPCRegion), you can optionally specify true for
+PrivateZone. **/
         PrivateZone?: IsPrivateZone;
     }
     export interface HostedZoneNotEmpty {
@@ -2113,24 +2103,22 @@ returned by the request. **/
         GeoLocationDetailsList: GeoLocationDetailsList;
         /** A flag that indicates whether there are more geo locations to be listed. If your
 results were truncated, you can make a follow-up request for the next page of
-results by using the values included in the 
-ListGeoLocationsResponse$NextContinentCode , 
-ListGeoLocationsResponse$NextCountryCode and 
-ListGeoLocationsResponse$NextSubdivisionCode elements.
+results by using the values included in the NextContinentCode , NextCountryCode 
+, and NextSubdivisionCode elements.
 
 Valid Values: true | false **/
         IsTruncated: PageTruncated;
         /** If the results were truncated, the continent code of the next geo location in
-the list. This element is present only if ListGeoLocationsResponse$IsTruncated 
-is true and the next geo location to list is a continent location. **/
+the list. This element is present only if IsTruncated is true and the next geo
+location to list is a continent location. **/
         NextContinentCode?: GeoLocationContinentCode;
         /** If the results were truncated, the country code of the next geo location in the
-list. This element is present only if ListGeoLocationsResponse$IsTruncated is
-true and the next geo location to list is not a continent location. **/
+list. This element is present only if IsTruncated is true and the next geo
+location to list is not a continent location. **/
         NextCountryCode?: GeoLocationCountryCode;
         /** If the results were truncated, the subdivision code of the next geo location in
-the list. This element is present only if ListGeoLocationsResponse$IsTruncated 
-is true and the next geo location has a subdivision. **/
+the list. This element is present only if IsTruncated is true and the next geo
+location has a subdivision. **/
         NextSubdivisionCode?: GeoLocationSubdivisionCode;
         /** The maximum number of records you requested. The maximum value of MaxItems is
 100. **/
@@ -2158,17 +2146,15 @@ results by using the Marker element.
 
 Valid Values: true | false **/
         IsTruncated: PageTruncated;
-        /** Indicates where to continue listing health checks. If 
-ListHealthChecksResponse$IsTruncated is true , make another request to 
-ListHealthChecks and include the value of the NextMarker element in the Marker 
-element to get the next page of results. **/
+        /** Indicates where to continue listing health checks. If IsTruncated is true , make
+another request to ListHealthChecks and include the value of the NextMarker 
+element in the Marker element to get the next page of results. **/
         NextMarker?: PageMarker;
         /** The maximum number of health checks to be included in the response body. If the
 number of health checks associated with this AWS account exceeds MaxItems , the
-value of ListHealthChecksResponse$IsTruncated in the response is true . Call 
-ListHealthChecks again and specify the value of 
-ListHealthChecksResponse$NextMarker in the ListHostedZonesRequest$Marker element
-to get the next page of results. **/
+value of IsTruncated in the response is true . Call ListHealthChecks again and
+specify the value of NextMarker from the last response in the Marker element of
+the next request to get the next page of results. **/
         MaxItems: PageMaxItems;
     }
     export interface ListHostedZonesByNameRequest {
@@ -2200,29 +2186,24 @@ results by using the NextDNSName and NextHostedZoneId elements.
 
 Valid Values: true | false **/
         IsTruncated: PageTruncated;
-        /** If ListHostedZonesByNameResponse$IsTruncated is true , there are more hosted
-zones associated with the current AWS account. To get the next page of results,
-make another request to ListHostedZonesByName . Specify the value of 
-ListHostedZonesByNameResponse$NextDNSName in the 
-ListHostedZonesByNameRequest$DNSName element and 
-ListHostedZonesByNameResponse$NextHostedZoneId in the 
-ListHostedZonesByNameRequest$HostedZoneId element. **/
+        /** If the value of IsTruncated in the ListHostedZonesByNameResponse is true , there
+are more hosted zones associated with the current AWS account. To get the next
+page of results, make another request to ListHostedZonesByName . Specify the
+value of NextDNSName in the DNSName parameter. Specify NextHostedZoneId in the 
+HostedZoneId parameter. **/
         NextDNSName?: DNSName;
-        /** If ListHostedZonesByNameResponse$IsTruncated is true , there are more hosted
-zones associated with the current AWS account. To get the next page of results,
-make another request to ListHostedZonesByName . Specify the value of 
-ListHostedZonesByNameResponse$NextDNSName in the 
-ListHostedZonesByNameRequest$DNSName element and 
-ListHostedZonesByNameResponse$NextHostedZoneId in the 
-ListHostedZonesByNameRequest$HostedZoneId element. **/
+        /** If the value of IsTruncated in the ListHostedZonesByNameResponse is true , there
+are more hosted zones associated with the current AWS account. To get the next
+page of results, make another request to ListHostedZonesByName . Specify the
+value of NextDNSName in the DNSName parameter. Specify NextHostedZoneId in the 
+HostedZoneId parameter. **/
         NextHostedZoneId?: ResourceId;
         /** The maximum number of hosted zones to be included in the response body. If the
 number of hosted zones associated with this AWS account exceeds MaxItems , the
-value of ListHostedZonesByNameResponse$IsTruncated in the response is true .
-Call ListHostedZonesByName again and specify the value of 
-ListHostedZonesByNameResponse$NextDNSName and 
-ListHostedZonesByNameResponse$NextHostedZoneId elements respectively to get the
-next page of results. **/
+value of IsTruncated in the ListHostedZonesByNameResponse is true . Call 
+ListHostedZonesByName again and specify the value of NextDNSName and 
+NextHostedZoneId elements from the previous response to get the next page of
+results. **/
         MaxItems: PageMaxItems;
     }
     export interface ListHostedZonesRequest {
@@ -2248,17 +2229,15 @@ results by using the Marker element.
 
 Valid Values: true | false **/
         IsTruncated: PageTruncated;
-        /** Indicates where to continue listing hosted zones. If 
-ListHostedZonesResponse$IsTruncated is true , make another request to 
-ListHostedZones and include the value of the NextMarker element in the Marker 
-element to get the next page of results. **/
+        /** Indicates where to continue listing hosted zones. If IsTruncated is true , make
+another request to ListHostedZones and include the value of the NextMarker 
+element in the Marker element to get the next page of results. **/
         NextMarker?: PageMarker;
         /** The maximum number of hosted zones to be included in the response body. If the
 number of hosted zones associated with this AWS account exceeds MaxItems , the
-value of ListHostedZonesResponse$IsTruncated in the response is true . Call 
-ListHostedZones again and specify the value of 
-ListHostedZonesResponse$NextMarker in the ListHostedZonesRequest$Marker element
-to get the next page of results. **/
+value of IsTruncated in the response is true . Call ListHostedZones again and
+specify the value of NextMarker in the Marker parameter to get the next page of
+results. **/
         MaxItems: PageMaxItems;
     }
     export interface ListResourceRecordSetsRequest {
@@ -2282,9 +2261,9 @@ Constraint: Specifying type without specifying name returns an InvalidInput
 error. **/
         StartRecordType?: RRType;
         /** Weighted resource record sets only: If results were truncated for a given DNS
-name and type, specify the value of 
-ListResourceRecordSetsResponse$NextRecordIdentifier from the previous response
-to get the next resource record set that has the current DNS name and type. **/
+name and type, specify the value of NextRecordIdentifier from the previous
+response to get the next resource record set that has the current DNS name and
+type. **/
         StartRecordIdentifier?: ResourceRecordSetIdentifier;
         /** The maximum number of records you want in the response body. **/
         MaxItems?: PageMaxItems;
@@ -2295,16 +2274,15 @@ returned by the request. **/
         ResourceRecordSets: ResourceRecordSets;
         /** A flag that indicates whether there are more resource record sets to be listed.
 If your results were truncated, you can make a follow-up request for the next
-page of results by using the ListResourceRecordSetsResponse$NextRecordName 
-element.
+page of results by using the NextRecordName element.
 
 Valid Values: true | false **/
         IsTruncated: PageTruncated;
         /** If the results were truncated, the name of the next record in the list. This
-element is present only if ListResourceRecordSetsResponse$IsTruncated is true. **/
+element is present only if IsTruncated is true. **/
         NextRecordName?: DNSName;
         /** If the results were truncated, the type of the next record in the list. This
-element is present only if ListResourceRecordSetsResponse$IsTruncated is true. **/
+element is present only if IsTruncated is true. **/
         NextRecordType?: RRType;
         /** Weighted resource record sets only: If results were truncated for a given DNS
 name and type, the value of SetIdentifier for the next resource record set that
@@ -2337,18 +2315,17 @@ page of results by using the Marker element.
 
 Valid Values: true | false **/
         IsTruncated: PageTruncated;
-        /** Indicates where to continue listing reusable delegation sets. If 
-ListReusableDelegationSetsResponse$IsTruncated is true , make another request to 
-ListReusableDelegationSets and include the value of the NextMarker element in
-the Marker element to get the next page of results. **/
+        /** Indicates where to continue listing reusable delegation sets. If IsTruncated is 
+true , make another request to ListReusableDelegationSets and include the value
+of the NextMarker element in the Marker element of the previous response to get
+the next page of results. **/
         NextMarker?: PageMarker;
         /** The maximum number of reusable delegation sets to be included in the response
 body. If the number of reusable delegation sets associated with this AWS account
-exceeds MaxItems , the value of ListReusablDelegationSetsResponse$IsTruncated in
-the response is true . Call ListReusableDelegationSets again and specify the
-value of ListReusableDelegationSetsResponse$NextMarker in the 
-ListReusableDelegationSetsRequest$Marker element to get the next page of
-results. **/
+exceeds MaxItems , the value of IsTruncated in the response is true . To get the
+next page of results, call ListReusableDelegationSets again and specify the
+value of NextMarker from the previous response in the Marker element of the
+request. **/
         MaxItems: PageMaxItems;
     }
     export interface ListTagsForResourceRequest {
@@ -2897,7 +2874,8 @@ Valid values: PRIMARY | SECONDARY **/
         Failover?: ResourceRecordSetFailover;
         /** The cache time to live for the current resource record set. Note the following:
 
- &amp;#42; If you&#x27;re creating an alias resource record set, omit TTL . Amazon Route 53
+ &amp;#42; If you&#x27;re creating a non-alias resource record set, TTL is required.
+ * If you&#x27;re creating an alias resource record set, omit TTL . Amazon Route 53
    uses the value of TTL for the alias target.
  * If you&#x27;re associating this resource record set with a health check (if you&#x27;re
    adding a HealthCheckId element), we recommend that you specify a TTL of 60
