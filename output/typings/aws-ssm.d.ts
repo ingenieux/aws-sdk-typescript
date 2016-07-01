@@ -15,24 +15,35 @@ declare module "aws-sdk" {
    * protocol: json
    *
    * This is the Amazon Simple Systems Manager (SSM) API Reference. SSM enables you
-to remotely manage the configuration of your Amazon EC2 instance using scripts
-or commands with either an on-demand solution called SSM Run Command or a
-lightweight instance configuration solution called SSM Config .
+to remotely manage the configuration of your on-premises servers and virtual
+machines (VMs) and your Amazon EC2 instances using scripts, commands, or the
+Amazon EC2 console. SSM includes an on-demand solution called Amazon EC2 Run
+Command and a lightweight instance configuration solution called SSM Config .
 
-This references is intended to be used with the SSM User Guide for Linux
+This references is intended to be used with the EC2 Run Command User Guide for 
+Linux
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/execute-remote-commands.html] 
 or Windows
 [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/execute-remote-commands.html] 
 .
 
+You must register your on-premises servers and VMs through an activation process
+before you can configure them using Run Command. Registered servers and VMs are
+called managed instances . For more information, see Setting Up Run Command On
+Managed Instances (On-Premises Servers and VMs) on Linux
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managed-instances.html] or 
+Setting Up Run Command On Managed Instances (On-Premises Servers and VMs) on
+Windows
+[http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/managed-instances.html] .
+
 Run Command
 
 Run Command provides an on-demand experience for executing commands. You can use
-pre-defined Amazon SSM documents to perform the actions listed later in this
-section, or you can create your own documents. With these documents, you can
-remotely configure your instances by sending commands using the Commands page in
-the Amazon EC2 console [http://console.aws.amazon.com/ec2/] , AWS Tools for
-Windows PowerShell
+pre-defined SSM documents to perform the actions listed later in this section,
+or you can create your own documents. With these documents, you can remotely
+configure your instances by sending commands using the Commands page in the 
+Amazon EC2 console [http://console.aws.amazon.com/ec2/] , AWS Tools for Windows
+PowerShell
 [http://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html] 
 , the AWS CLI [http://docs.aws.amazon.com/cli/latest/reference/ssm/index.html] ,
 or AWS SDKs.
@@ -70,7 +81,7 @@ see Managing Windows Instance Configuration
 [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-configuration-manage.html] 
 .
 
-SSM Config and SSM Run Command include the following pre-defined documents.
+SSM Config and Run Command include the following pre-defined documents.
 
 Linux
 
@@ -129,12 +140,12 @@ privilege on your instances because the Amazon SSM agent runs as root on Linux
 and the EC2Config service runs in the Local System account on Windows. If a user
 has permission to execute any of the pre-defined SSM documents (any document
 that begins with AWS-*) then that user also has administrator access to the
-instance. Delegate access to SSM and Run Command judiciously. This becomes
-extremely important if you create your own SSM documents. Amazon Web Services
-does not provide guidance about how to create secure SSM documents. You create
-SSM documents and delegate access to Run Command at your own risk. As a security
-best practice, we recommend that you assign access to &quot;AWS-*&quot; documents,
-especially the AWS-RunShellScript document on Linux and the
+instance. Delegate access to Run Command and SSM Config judiciously. This
+becomes extremely important if you create your own SSM documents. Amazon Web
+Services does not provide guidance about how to create secure SSM documents. You
+create SSM documents and delegate access to Run Command at your own risk. As a
+security best practice, we recommend that you assign access to &quot;AWS-*&quot;
+documents, especially the AWS-RunShellScript document on Linux and the
 AWS-RunPowerShellScript document on Windows, to trusted administrators only. You
 can create SSM documents for specific tasks and delegate access to
 non-administrators.
@@ -159,6 +170,32 @@ topics in the SSM User Guide:
     constructor(options?: any);
     endpoint: Endpoint;
     /**
+     * Adds or overwrites one or more tags for the specified resource. Tags are
+metadata that you assign to your managed instances. Tags enable you to
+categorize your managed instances in different ways, for example, by purpose,
+owner, or environment. Each tag consists of a key and an optional value, both of
+which you define. For example, you could define a set of tags for your account&#x27;s
+managed instances that helps you track each instance&#x27;s owner and stack level.
+For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and
+Value=Production, Pre-Production, or Test. Each resource can have a maximum of
+10 tags.
+
+We recommend that you devise a set of tag keys that meets your needs for each
+resource type. Using a consistent set of tag keys makes it easier for you to
+manage your resources. You can search and filter the resources based on the tags
+you add. Tags don&#x27;t have any semantic meaning to Amazon EC2 and are interpreted
+strictly as a string of characters.
+
+For more information about tags, see Tagging Your Amazon EC2 Resources
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html] in the
+Amazon EC2 User Guide.
+     *
+     * @error InvalidResourceType   
+     * @error InvalidResourceId   
+     * @error InternalServerError   
+     */
+    addTagsToResource(params: SSM.AddTagsToResourceRequest, callback?: (err: SSM.InvalidResourceType|SSM.InvalidResourceId|SSM.InternalServerError|any, data: SSM.AddTagsToResourceResult|any) => void): Request<SSM.AddTagsToResourceResult|any,SSM.InvalidResourceType|SSM.InvalidResourceId|SSM.InternalServerError|any>;
+    /**
      * Attempts to cancel the command specified by the Command ID. There is no
 guarantee that the command will be terminated and the underlying process
 stopped.
@@ -169,6 +206,19 @@ stopped.
      * @error DuplicateInstanceId   
      */
     cancelCommand(params: SSM.CancelCommandRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.DuplicateInstanceId|any, data: SSM.CancelCommandResult|any) => void): Request<SSM.CancelCommandResult|any,SSM.InternalServerError|SSM.InvalidCommandId|SSM.InvalidInstanceId|SSM.DuplicateInstanceId|any>;
+    /**
+     * Registers your on-premises server or virtual machine with Amazon EC2 so that you
+can manage these resources using Run Command. An on-premises server or virtual
+machine that has been registered with EC2 is called a managed instance. For more
+information about activations, see Setting Up Managed Instances (Linux)
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managed-instances.html] or 
+Setting Up Managed Instances (Windows)
+[http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/managed-instances.html] 
+in the Amazon EC2 User Guide.
+     *
+     * @error InternalServerError   
+     */
+    createActivation(params: SSM.CreateActivationRequest, callback?: (err: SSM.InternalServerError|any, data: SSM.CreateActivationResult|any) => void): Request<SSM.CreateActivationResult|any,SSM.InternalServerError|any>;
     /**
      * Associates the specified SSM document with the specified instance.
 
@@ -219,6 +269,17 @@ with one or more running instances.
      */
     createDocument(params: SSM.CreateDocumentRequest, callback?: (err: SSM.DocumentAlreadyExists|SSM.MaxDocumentSizeExceeded|SSM.InternalServerError|SSM.InvalidDocumentContent|SSM.DocumentLimitExceeded|any, data: SSM.CreateDocumentResult|any) => void): Request<SSM.CreateDocumentResult|any,SSM.DocumentAlreadyExists|SSM.MaxDocumentSizeExceeded|SSM.InternalServerError|SSM.InvalidDocumentContent|SSM.DocumentLimitExceeded|any>;
     /**
+     * Deletes an activation. You are not required to delete an activation. If you
+delete an activation, you can no longer use it to register additional managed
+instances. Deleting an activation does not de-register managed instances. You
+must manually de-register managed instances.
+     *
+     * @error InvalidActivationId   
+     * @error InvalidActivation   
+     * @error InternalServerError   
+     */
+    deleteActivation(params: SSM.DeleteActivationRequest, callback?: (err: SSM.InvalidActivationId|SSM.InvalidActivation|SSM.InternalServerError|any, data: SSM.DeleteActivationResult|any) => void): Request<SSM.DeleteActivationResult|any,SSM.InvalidActivationId|SSM.InvalidActivation|SSM.InternalServerError|any>;
+    /**
      * Disassociates the specified SSM document from the specified instance.
 
 When you disassociate an SSM document from an instance, it does not change the
@@ -245,6 +306,25 @@ to disassociate all instances that are associated with the document.
      * @error AssociatedInstances   
      */
     deleteDocument(params: SSM.DeleteDocumentRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidDocumentOperation|SSM.AssociatedInstances|any, data: SSM.DeleteDocumentResult|any) => void): Request<SSM.DeleteDocumentResult|any,SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidDocumentOperation|SSM.AssociatedInstances|any>;
+    /**
+     * Removes the server or virtual machine from the list of registered servers. You
+can reregister the instance again at any time. If you don’t plan to use Run
+Command on the server, we suggest uninstalling the SSM agent first.
+     *
+     * @error InvalidInstanceId   
+     * @error InternalServerError   
+     */
+    deregisterManagedInstance(params: SSM.DeregisterManagedInstanceRequest, callback?: (err: SSM.InvalidInstanceId|SSM.InternalServerError|any, data: SSM.DeregisterManagedInstanceResult|any) => void): Request<SSM.DeregisterManagedInstanceResult|any,SSM.InvalidInstanceId|SSM.InternalServerError|any>;
+    /**
+     * Details about the activation, including: the date and time the activation was
+created, the expiration date, the IAM role assigned to the instances in the
+activation, and the number of instances activated by this registration.
+     *
+     * @error InvalidFilter   
+     * @error InvalidNextToken   
+     * @error InternalServerError   
+     */
+    describeActivations(params: SSM.DescribeActivationsRequest, callback?: (err: SSM.InvalidFilter|SSM.InvalidNextToken|SSM.InternalServerError|any, data: SSM.DescribeActivationsResult|any) => void): Request<SSM.DescribeActivationsResult|any,SSM.InvalidFilter|SSM.InvalidNextToken|SSM.InternalServerError|any>;
     /**
      * Describes the associations for the specified SSM document or instance.
      *
@@ -333,6 +413,14 @@ ListCommandInvocations provide status about command execution.
      */
     listDocuments(params: SSM.ListDocumentsRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidNextToken|SSM.InvalidFilterKey|any, data: SSM.ListDocumentsResult|any) => void): Request<SSM.ListDocumentsResult|any,SSM.InternalServerError|SSM.InvalidNextToken|SSM.InvalidFilterKey|any>;
     /**
+     * Returns a list of the tags assigned to the specified resource.
+     *
+     * @error InvalidResourceType   
+     * @error InvalidResourceId   
+     * @error InternalServerError   
+     */
+    listTagsForResource(params: SSM.ListTagsForResourceRequest, callback?: (err: SSM.InvalidResourceType|SSM.InvalidResourceId|SSM.InternalServerError|any, data: SSM.ListTagsForResourceResult|any) => void): Request<SSM.ListTagsForResourceResult|any,SSM.InvalidResourceType|SSM.InvalidResourceId|SSM.InternalServerError|any>;
+    /**
      * Share a document publicly or privately. If you share a document privately, you
 must specify the AWS user account IDs for those people who can use the document.
 If you share a document publicly, you must specify All as the account ID.
@@ -344,6 +432,14 @@ If you share a document publicly, you must specify All as the account ID.
      * @error DocumentLimitExceeded   
      */
     modifyDocumentPermission(params: SSM.ModifyDocumentPermissionRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidPermissionType|SSM.DocumentPermissionLimit|SSM.DocumentLimitExceeded|any, data: SSM.ModifyDocumentPermissionResponse|any) => void): Request<SSM.ModifyDocumentPermissionResponse|any,SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidPermissionType|SSM.DocumentPermissionLimit|SSM.DocumentLimitExceeded|any>;
+    /**
+     * Removes all tags from the specified resource.
+     *
+     * @error InvalidResourceType   
+     * @error InvalidResourceId   
+     * @error InternalServerError   
+     */
+    removeTagsFromResource(params: SSM.RemoveTagsFromResourceRequest, callback?: (err: SSM.InvalidResourceType|SSM.InvalidResourceId|SSM.InternalServerError|any, data: SSM.RemoveTagsFromResourceResult|any) => void): Request<SSM.RemoveTagsFromResourceResult|any,SSM.InvalidResourceType|SSM.InvalidResourceId|SSM.InternalServerError|any>;
     /**
      * Executes commands on one or more remote instances.
      *
@@ -368,6 +464,14 @@ If you share a document publicly, you must specify All as the account ID.
      * @error TooManyUpdates   
      */
     updateAssociationStatus(params: SSM.UpdateAssociationStatusRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.AssociationDoesNotExist|SSM.StatusUnchanged|SSM.TooManyUpdates|any, data: SSM.UpdateAssociationStatusResult|any) => void): Request<SSM.UpdateAssociationStatusResult|any,SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.AssociationDoesNotExist|SSM.StatusUnchanged|SSM.TooManyUpdates|any>;
+    /**
+     * Assigns or changes an Amazon Identity and Access Management (IAM) role to the
+managed instance.
+     *
+     * @error InvalidInstanceId   
+     * @error InternalServerError   
+     */
+    updateManagedInstanceRole(params: SSM.UpdateManagedInstanceRoleRequest, callback?: (err: SSM.InvalidInstanceId|SSM.InternalServerError|any, data: SSM.UpdateManagedInstanceRoleResult|any) => void): Request<SSM.UpdateManagedInstanceRoleResult|any,SSM.InvalidInstanceId|SSM.InternalServerError|any>;
 
   }
 
@@ -376,6 +480,14 @@ If you share a document publicly, you must specify All as the account ID.
     export type AccountId = string;
     
     export type AccountIdList = AccountId[];
+    
+    export type ActivationCode = string;
+    
+    export type ActivationDescription = string;
+    
+    export type ActivationId = string;
+    
+    export type ActivationList = Activation[];
     
     export type AssociationDescriptionList = AssociationDescription[];
     
@@ -421,9 +533,19 @@ If you share a document publicly, you must specify All as the account ID.
     
     export type Comment = string;
     
+    export type ComputerName = string;
+    
     export type CreateAssociationBatchRequestEntries = CreateAssociationBatchRequestEntry[];
     
+    export type CreatedDate = number;
+    
     export type DateTime = number;
+    
+    export type DefaultInstanceName = string;
+    
+    export type DescribeActivationsFilterKeys = string;
+    
+    export type DescribeActivationsFilterList = DescribeActivationsFilter[];
     
     export type DescriptionInDocument = string;
     
@@ -463,9 +585,15 @@ If you share a document publicly, you must specify All as the account ID.
     
     export type DocumentStatus = string;
     
+    export type ExpirationDate = number;
+    
     export type FailedCreateAssociationList = FailedCreateAssociation[];
     
     export type Fault = string;
+    
+    export type IPAddress = string;
+    
+    export type IamRole = string;
     
     export type InstanceId = string;
     
@@ -483,7 +611,9 @@ If you share a document publicly, you must specify All as the account ID.
     
     export type InvocationTraceOutput = string;
     
-    export type ListDocumentsMaxResults = number;
+    export type KeyList = TagKey[];
+    
+    export type ManagedInstanceId = string;
     
     export type MaxResults = number;
     
@@ -505,6 +635,16 @@ If you share a document publicly, you must specify All as the account ID.
     
     export type PlatformTypeList = PlatformType[];
     
+    export type RegistrationLimit = number;
+    
+    export type RegistrationsCount = number;
+    
+    export type ResourceId = string;
+    
+    export type ResourceType = string;
+    
+    export type ResourceTypeForTagging = string;
+    
     export type ResponseCode = number;
     
     export type S3BucketName = string;
@@ -517,10 +657,53 @@ If you share a document publicly, you must specify All as the account ID.
     
     export type String = string;
     
+    export type StringList = String[];
+    
+    export type TagKey = string;
+    
+    export type TagList = Tag[];
+    
+    export type TagValue = string;
+    
     export type TimeoutSeconds = number;
     
     export type Version = string;
 
+    export interface Activation {
+        /** The ID created by SSM when you submitted the activation. **/
+        ActivationId?: ActivationId;
+        /** A user defined description of the activation. **/
+        Description?: ActivationDescription;
+        /** A name for the managed instance when it is created. **/
+        DefaultInstanceName?: DefaultInstanceName;
+        /** The Amazon Identity and Access Management (IAM) role to assign to the managed
+instance. **/
+        IamRole?: IamRole;
+        /** The maximum number of managed instances that can be registered using this
+activation. **/
+        RegistrationLimit?: RegistrationLimit;
+        /** The number of managed instances already registered with this activation. **/
+        RegistrationsCount?: RegistrationsCount;
+        /** The date when this activation can no longer be used to register managed
+instances. **/
+        ExpirationDate?: ExpirationDate;
+        /** Whether or not the activation is expired. **/
+        Expired?: Boolean;
+        /** The date the activation was created. **/
+        CreatedDate?: CreatedDate;
+    }
+    export interface AddTagsToResourceRequest {
+        /** Specifies the type of resource you are tagging. **/
+        ResourceType: ResourceTypeForTagging;
+        /** The resource ID you want to tag. **/
+        ResourceId: ResourceId;
+        /** One or more tags. The value parameter is required, but if you don&#x27;t want the tag
+to have a value, specify the parameter with no value, and we set the value to an
+empty string. **/
+        Tags: TagList;
+    }
+    export interface AddTagsToResourceResult {
+    }
     export interface AssociatedInstances {
     }
     export interface Association {
@@ -648,6 +831,31 @@ This was requested when issuing the command. **/
 executions should be stored. This was requested when issuing the command. **/
         OutputS3KeyPrefix?: S3KeyPrefix;
     }
+    export interface CreateActivationRequest {
+        /** A user-defined description of the resource that you want to register with Amazon
+EC2. **/
+        Description?: ActivationDescription;
+        /** The name of the registered, managed instance as it will appear in the Amazon EC2
+console or when you use the AWS command line tools to list EC2 resources. **/
+        DefaultInstanceName?: DefaultInstanceName;
+        /** The Amazon Identity and Access Management (IAM) role that you want to assign to
+the managed instance. **/
+        IamRole: IamRole;
+        /** Specify the maximum number of managed instances you want to register. The
+default value is 1 instance. **/
+        RegistrationLimit?: RegistrationLimit;
+        /** The date by which this activation request should expire. The default value is 24
+hours. **/
+        ExpirationDate?: ExpirationDate;
+    }
+    export interface CreateActivationResult {
+        /** The ID number generated by the system when it processed the activation. The
+activation ID functions like a user name. **/
+        ActivationId?: ActivationId;
+        /** The code the system generates when it processes the activation. The activation
+code functions like a password to validate the activation ID. **/
+        ActivationCode?: ActivationCode;
+    }
     export interface CreateAssociationBatchRequest {
         /** One or more associations. **/
         Entries: CreateAssociationBatchRequestEntries;
@@ -688,6 +896,12 @@ executions should be stored. This was requested when issuing the command. **/
         /** Information about the SSM document. **/
         DocumentDescription?: DocumentDescription;
     }
+    export interface DeleteActivationRequest {
+        /** The ID of the activation that you want to delete. **/
+        ActivationId: ActivationId;
+    }
+    export interface DeleteActivationResult {
+    }
     export interface DeleteAssociationRequest {
         /** The name of the SSM document. **/
         Name: DocumentName;
@@ -701,6 +915,35 @@ executions should be stored. This was requested when issuing the command. **/
         Name: DocumentName;
     }
     export interface DeleteDocumentResult {
+    }
+    export interface DeregisterManagedInstanceRequest {
+        /** The ID assigned to the managed instance when you registered it using the
+activation process. **/
+        InstanceId: ManagedInstanceId;
+    }
+    export interface DeregisterManagedInstanceResult {
+    }
+    export interface DescribeActivationsFilter {
+        /** The name of the filter. **/
+        FilterKey?: DescribeActivationsFilterKeys;
+        /** The filter values. **/
+        FilterValues?: StringList;
+    }
+    export interface DescribeActivationsRequest {
+        /** A filter to view information about your activations. **/
+        Filters?: DescribeActivationsFilterList;
+        /** The maximum number of items to return for this call. The call also returns a
+token that you can specify in a subsequent call to get the next set of results. **/
+        MaxResults?: MaxResults;
+        /** A token to start the list. Use this token to get the next set of results. **/
+        NextToken?: NextToken;
+    }
+    export interface DescribeActivationsResult {
+        /** A list of activations for your AWS account. **/
+        ActivationList?: ActivationList;
+        /** The token for the next set of items to return. Use this token to get the next
+set of results. **/
+        NextToken?: NextToken;
     }
     export interface DescribeAssociationRequest {
         /** The name of the SSM document. **/
@@ -846,6 +1089,21 @@ default value are required. Parameters with a default value are optional. **/
         PlatformName?: String;
         /** The version of the OS platform running on your instance. **/
         PlatformVersion?: String;
+        /** The activation ID created by SSM when the server or VM was registered. **/
+        ActivationId?: ActivationId;
+        /** The Amazon Identity and Access Management (IAM) role assigned to EC2 instances
+or managed instances. **/
+        IamRole?: IamRole;
+        /** The date the server or VM was registered with AWS as a managed instance. **/
+        RegistrationDate?: DateTime;
+        /** The type of instance. Instances are either EC2 instances or managed instances. **/
+        ResourceType?: ResourceType;
+        /** The name of the managed instance. **/
+        Name?: String;
+        /** The IP address of the managed instance. **/
+        IPAddress?: IPAddress;
+        /** The fully qualified host name of the managed instance. **/
+        ComputerName?: ComputerName;
     }
     export interface InstanceInformationFilter {
         /** The name of the filter. **/
@@ -854,6 +1112,12 @@ default value are required. Parameters with a default value are optional. **/
         valueSet: InstanceInformationFilterValueSet;
     }
     export interface InternalServerError {
+        Message?: String;
+    }
+    export interface InvalidActivation {
+        Message?: String;
+    }
+    export interface InvalidActivationId {
         Message?: String;
     }
     export interface InvalidCommandId {
@@ -870,6 +1134,9 @@ GetDocument, SendCommand, or UpdateAssociationStatus. **/
         Message?: String;
     }
     export interface InvalidDocumentOperation {
+        Message?: String;
+    }
+    export interface InvalidFilter {
         Message?: String;
     }
     export interface InvalidFilterKey {
@@ -889,6 +1156,10 @@ GetDocument, SendCommand, or UpdateAssociationStatus. **/
     }
     export interface InvalidPermissionType {
         Message?: String;
+    }
+    export interface InvalidResourceId {
+    }
+    export interface InvalidResourceType {
     }
     export interface ListAssociationsRequest {
         /** One or more filters. Use a filter to return a more specific list of results. **/
@@ -961,7 +1232,7 @@ token from a previous call.) **/
         DocumentFilterList?: DocumentFilterList;
         /** The maximum number of items to return for this call. The call also returns a
 token that you can specify in a subsequent call to get the next set of results. **/
-        MaxResults?: ListDocumentsMaxResults;
+        MaxResults?: MaxResults;
         /** The token for the next set of items to return. (You received this token from a
 previous call.) **/
         NextToken?: NextToken;
@@ -972,6 +1243,16 @@ previous call.) **/
         /** The token to use when requesting the next set of items. If there are no
 additional items to return, the string is empty. **/
         NextToken?: NextToken;
+    }
+    export interface ListTagsForResourceRequest {
+        /** Returns a list of tags for a specific resource type. **/
+        ResourceType: ResourceTypeForTagging;
+        /** The resource ID for which you want to see a list of tags. **/
+        ResourceId: ResourceId;
+    }
+    export interface ListTagsForResourceResult {
+        /** A list of tags. **/
+        TagList?: TagList;
     }
     export interface MaxDocumentSizeExceeded {
         Message?: String;
@@ -992,8 +1273,19 @@ the same ID to remove, the system removes access to the document. **/
     }
     export interface ModifyDocumentPermissionResponse {
     }
+    export interface RemoveTagsFromResourceRequest {
+        /** The type of resource of which you want to remove a tag. **/
+        ResourceType: ResourceTypeForTagging;
+        /** The resource ID for which you want to remove tags. **/
+        ResourceId: ResourceId;
+        /** Tag keys that you want to remove from the specified resource. **/
+        TagKeys: KeyList;
+    }
+    export interface RemoveTagsFromResourceResult {
+    }
     export interface SendCommandRequest {
-        /** Required. The instance IDs where the command should execute. **/
+        /** Required. The instance IDs where the command should execute. You can specify a
+maximum of 50 IDs. **/
         InstanceIds: InstanceIdList;
         /** Required. The name of the SSM document to execute. This can be an SSM public
 document or a custom document. **/
@@ -1028,6 +1320,12 @@ used future references to this request. **/
     }
     export interface StatusUnchanged {
     }
+    export interface Tag {
+        /** The name of the tag. **/
+        Key: TagKey;
+        /** The value of the tag. **/
+        Value: TagValue;
+    }
     export interface TooManyUpdates {
     }
     export interface UnsupportedPlatformType {
@@ -1044,6 +1342,14 @@ used future references to this request. **/
     export interface UpdateAssociationStatusResult {
         /** Information about the association. **/
         AssociationDescription?: AssociationDescription;
+    }
+    export interface UpdateManagedInstanceRoleRequest {
+        /** The ID of the managed instance where you want to update the role. **/
+        InstanceId: ManagedInstanceId;
+        /** The IAM role you want to assign or change. **/
+        IamRole: IamRole;
+    }
+    export interface UpdateManagedInstanceRoleResult {
     }
   }
 }

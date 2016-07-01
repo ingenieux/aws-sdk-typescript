@@ -16,10 +16,10 @@ declare module "aws-sdk" {
    *
    * AWS Database Migration ServiceAWS Database Migration Service (AWS DMS) can
 migrate your data to and from the most widely used commercial and open-source
-databases such as Oracle, PostgreSQL, Microsoft SQL Server, MariaDB, Amazon
-Aurora, and MySQL. The service supports homogeneous migrations such as Oracle to
-Oracle, as well as heterogeneous migrations between different database
-platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.
+databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift,
+MariaDB, Amazon Aurora, and MySQL. The service supports homogeneous migrations
+such as Oracle to Oracle, as well as heterogeneous migrations between different
+database platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.
    *
    */
   export class DMS extends Service {
@@ -40,8 +40,10 @@ Condition statement in an IAM policy for DMS.
      * @error KMSKeyNotAccessibleFault   
      * @error ResourceAlreadyExistsFault   
      * @error ResourceQuotaExceededFault   
+     * @error InvalidResourceStateFault   
+     * @error ResourceNotFoundFault   
      */
-    createEndpoint(params: DMS.CreateEndpointMessage, callback?: (err: DMS.KMSKeyNotAccessibleFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceQuotaExceededFault|any, data: DMS.CreateEndpointResponse|any) => void): Request<DMS.CreateEndpointResponse|any,DMS.KMSKeyNotAccessibleFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceQuotaExceededFault|any>;
+    createEndpoint(params: DMS.CreateEndpointMessage, callback?: (err: DMS.KMSKeyNotAccessibleFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceQuotaExceededFault|DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any, data: DMS.CreateEndpointResponse|any) => void): Request<DMS.CreateEndpointResponse|any,DMS.KMSKeyNotAccessibleFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceQuotaExceededFault|DMS.InvalidResourceStateFault|DMS.ResourceNotFoundFault|any>;
     /**
      * Creates the replication instance using the specified parameters.
      *
@@ -331,8 +333,13 @@ operation by calling the DescribeRefreshSchemasStatus operation.
     export type TableStatisticsList = TableStatistics[];
     
     export type TagList = Tag[];
+    
+    export type VpcSecurityGroupIdList = String[];
+    
+    export type VpcSecurityGroupMembershipList = VpcSecurityGroupMembership[];
 
     export interface AccessDeniedFault {
+        /**  **/
         message?: ExceptionMessage;
     }
     export interface AccountQuota {
@@ -382,7 +389,7 @@ or contain two consecutive hyphens. **/
         /** The type of endpoint. **/
         EndpointType: ReplicationEndpointTypeValue;
         /** The type of engine for the endpoint. Valid values include MYSQL, ORACLE,
-POSTGRES, MARIADB, AURORA, SQLSERVER. **/
+POSTGRES, MARIADB, AURORA, REDSHIFT, and SQLSERVER. **/
         EngineName: String;
         /** The user name to be used to login to the endpoint database. **/
         Username: String;
@@ -416,8 +423,14 @@ string.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
 
 Example: myrepinstance **/
         ReplicationInstanceIdentifier: String;
@@ -430,6 +443,9 @@ replication instance class.
 Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
 dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge **/
         ReplicationInstanceClass: String;
+        /** Specifies the VPC security group to be used with the replication instance. The
+VPC security group must work with the VPC containing the replication instance. **/
+        VpcSecurityGroupIds?: VpcSecurityGroupIdList;
         /** The EC2 Availability Zone that the replication instance will be created in.
 
 Default: A random, system-chosen Availability Zone in the endpoint&#x27;s region.
@@ -500,7 +516,11 @@ Example: mySubnetgroup **/
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens. **/
         ReplicationTaskIdentifier: String;
         /** The Amazon Resource Name (ARN) string that uniquely identifies the endpoint. **/
@@ -833,15 +853,19 @@ AWS region. **/
         Values: FilterValueList;
     }
     export interface InsufficientResourceCapacityFault {
+        /**  **/
         message?: ExceptionMessage;
     }
     export interface InvalidResourceStateFault {
+        /**  **/
         message?: ExceptionMessage;
     }
     export interface InvalidSubnet {
+        /**  **/
         message?: ExceptionMessage;
     }
     export interface KMSKeyNotAccessibleFault {
+        /**  **/
         message?: ExceptionMessage;
     }
     export interface ListTagsForResourceMessage {
@@ -863,7 +887,7 @@ or contain two consecutive hyphens. **/
         /** The type of endpoint. **/
         EndpointType?: ReplicationEndpointTypeValue;
         /** The type of engine for the endpoint. Valid values include MYSQL, ORACLE,
-POSTGRES. **/
+POSTGRES, MARIADB, AURORA, REDSHIFT, and SQLSERVER. **/
         EngineName?: String;
         /** The user name to be used to login to the endpoint database. **/
         Username?: String;
@@ -896,6 +920,9 @@ maintenance window. **/
 Valid Values: dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
 dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge **/
         ReplicationInstanceClass?: String;
+        /** Specifies the VPC security group to be used with the replication instance. The
+VPC security group must work with the VPC containing the replication instance. **/
+        VpcSecurityGroupIds?: VpcSecurityGroupIdList;
         /** The weekly time range (in UTC) during which system maintenance can occur, which
 might result in an outage. Changing this parameter does not result in an outage,
 except in the following situation, and the change is asynchronously applied as
@@ -995,7 +1022,7 @@ instance. **/
         LastFailureMessage?: String;
     }
     export interface RemoveTagsFromResourceMessage {
-        /** The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be removed
+        /** &gt;The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be removed
 from. **/
         ResourceArn: String;
         /** The tag key (name) of the tag to be removed. **/
@@ -1010,8 +1037,14 @@ string.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
 
 Example: myrepinstance **/
         ReplicationInstanceIdentifier?: String;
@@ -1027,6 +1060,8 @@ instance. **/
         AllocatedStorage?: Integer;
         /** The time the replication instance was created. **/
         InstanceCreateTime?: TStamp;
+        /** The VPC security group for the instance. **/
+        VpcSecurityGroups?: VpcSecurityGroupMembershipList;
         /** The Availability Zone for the instance. **/
         AvailabilityZone?: String;
         /** The subnet group for the replication instance. **/
@@ -1082,6 +1117,7 @@ instance. **/
         Subnets?: SubnetList;
     }
     export interface ReplicationSubnetGroupDoesNotCoverEnoughAZs {
+        /**  **/
         message?: ExceptionMessage;
     }
     export interface ReplicationTask {
@@ -1090,7 +1126,11 @@ instance. **/
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens. **/
         ReplicationTaskIdentifier?: String;
         /** The Amazon Resource Name (ARN) string that uniquely identifies the endpoint. **/
@@ -1134,12 +1174,15 @@ errors. **/
         TablesErrored?: Integer;
     }
     export interface ResourceAlreadyExistsFault {
+        /**  **/
         message?: ExceptionMessage;
     }
     export interface ResourceNotFoundFault {
+        /**  **/
         message?: ExceptionMessage;
     }
     export interface ResourceQuotaExceededFault {
+        /**  **/
         message?: ExceptionMessage;
     }
     export interface StartReplicationTaskMessage {
@@ -1163,6 +1206,7 @@ errors. **/
         ReplicationTask?: ReplicationTask;
     }
     export interface StorageQuotaExceededFault {
+        /**  **/
         message?: ExceptionMessage;
     }
     export interface Subnet {
@@ -1174,6 +1218,7 @@ errors. **/
         SubnetStatus?: String;
     }
     export interface SubnetAlreadyInUse {
+        /**  **/
         message?: ExceptionMessage;
     }
     export interface SupportedEndpointType {
@@ -1228,7 +1273,14 @@ string can only contain only the set of Unicode letters, digits, white-space,
         Connection?: Connection;
     }
     export interface UpgradeDependencyFailureFault {
+        /**  **/
         message?: ExceptionMessage;
+    }
+    export interface VpcSecurityGroupMembership {
+        /** The VPC security group Id. **/
+        VpcSecurityGroupId?: String;
+        /** The status of the VPC security group. **/
+        Status?: String;
     }
   }
 }
