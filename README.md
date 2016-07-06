@@ -10,11 +10,17 @@ This project approaches the challenge by using the information in the source JSO
 
 The simplest way to start using the generated typings is to install them directly from github using [typings](https://github.com/typings/typings).
 
-1. Make sure you have [typings](https://github.com/typings/typings) installed: ```npm install typings --global```
+1. Make sure you have [typings](https://github.com/typings/typings) installed: 
+  ```
+  npm install typings --global
+  ```
 
 2. Make sure your project is set up to reference your typings `typings/index.d.ts` file in your `tsconfig.json` or as a `///` reference.
 
-3. Install the latest aws-sdk-typescript from github using: ```typings i aws-sdk=github:ingenieux/aws-sdk-typescript#HEAD --save -G```
+3. Install the latest aws-sdk-typescript from github using: 
+  ```
+  typings i aws-sdk=github:ingenieux/aws-sdk-typescript#HEAD --save -G
+  ```
 
 
 
