@@ -57,9 +57,10 @@ state.
 This operation also takes an optional PerformanceMode parameter that you choose
 for your file system. We recommend generalPurpose performance mode for most file
 systems. File systems using the maxIO performance mode can scale to higher
-levels of aggregate throughput than general purpose mode file systems, with a
-tradeoff of slightly higher latencies for most file operations. For more
-information, see Amazon EFS: Performance Modes
+levels of aggregate throughput and operations per second with a tradeoff of
+slightly higher latencies for most file operations. The performance mode can&#x27;t
+be changed after the file system has been created. For more information, see 
+Amazon EFS: Performance Modes
 [http://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html] 
 .
 
@@ -469,8 +470,9 @@ creation. **/
         CreationToken: CreationToken;
         /** The PerformanceMode of the file system. We recommend generalPurpose performance
 mode for most file systems. File systems using the maxIO performance mode can
-scale to higher levels of aggregate throughput than general purpose mode file
-systems, with a tradeoff of slightly higher latencies for most file operations. **/
+scale to higher levels of aggregate throughput and operations per second with a
+tradeoff of slightly higher latencies for most file operations. This can&#x27;t be
+changed after the file system has been created. **/
         PerformanceMode?: PerformanceMode;
     }
     export interface CreateMountTargetRequest {

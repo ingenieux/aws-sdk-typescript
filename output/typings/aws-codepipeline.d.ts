@@ -313,6 +313,18 @@ requires access to that Amazon S3 bucket for input or output artifacts.
      */
     putActionRevision(params: CodePipeline.PutActionRevisionInput, callback?: (err: CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|CodePipeline.ActionNotFoundException|CodePipeline.ValidationException|any, data: CodePipeline.PutActionRevisionOutput|any) => void): Request<CodePipeline.PutActionRevisionOutput|any,CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|CodePipeline.ActionNotFoundException|CodePipeline.ValidationException|any>;
     /**
+     * Provides the response to a manual approval request to AWS CodePipeline. Valid
+responses include Approved and Rejected.
+     *
+     * @error InvalidApprovalTokenException   
+     * @error ApprovalAlreadyCompletedException   
+     * @error PipelineNotFoundException   
+     * @error StageNotFoundException   
+     * @error ActionNotFoundException   
+     * @error ValidationException   
+     */
+    putApprovalResult(params: CodePipeline.PutApprovalResultInput, callback?: (err: CodePipeline.InvalidApprovalTokenException|CodePipeline.ApprovalAlreadyCompletedException|CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|CodePipeline.ActionNotFoundException|CodePipeline.ValidationException|any, data: CodePipeline.PutApprovalResultOutput|any) => void): Request<CodePipeline.PutApprovalResultOutput|any,CodePipeline.InvalidApprovalTokenException|CodePipeline.ApprovalAlreadyCompletedException|CodePipeline.PipelineNotFoundException|CodePipeline.StageNotFoundException|CodePipeline.ActionNotFoundException|CodePipeline.ValidationException|any>;
+    /**
      * Represents the failure of a job as returned to the pipeline by a job worker.
 Only used for custom actions.
      *
@@ -406,6 +418,8 @@ number of the pipeline by 1.
     
     export type ActionExecutionStatus = string;
     
+    export type ActionExecutionToken = string;
+    
     export type ActionName = string;
     
     export type ActionOwner = string;
@@ -417,6 +431,12 @@ number of the pipeline by 1.
     export type ActionStateList = ActionState[];
     
     export type ActionTypeList = ActionType[];
+    
+    export type ApprovalStatus = string;
+    
+    export type ApprovalSummary = string;
+    
+    export type ApprovalToken = string;
     
     export type ArtifactList = Artifact[];
     
@@ -469,6 +489,8 @@ number of the pipeline by 1.
     export type LastChangedAt = number;
     
     export type LastChangedBy = string;
+    
+    export type LastUpdatedBy = string;
     
     export type MaxBatchSize = number;
     
@@ -638,6 +660,13 @@ action. **/
         summary?: ExecutionSummary;
         /** The last status change of the action. **/
         lastStatusChange?: Timestamp;
+        /** The system-generated token used to identify a unique approval request. The token
+for each open approval request can be obtained using the GetPipelineState
+command and is used to validate that the approval request corresponding to this
+token is still valid. **/
+        token?: ActionExecutionToken;
+        /** The ARN of the user who last changed the pipeline. **/
+        lastUpdatedBy?: LastUpdatedBy;
         /** The external ID of the run of the action. **/
         externalExecutionId?: ExecutionId;
         /** The URL of a resource external to AWS that will be used when running the action,
@@ -719,6 +748,14 @@ console and provides a link to the execution entity of the external action. **/
 page where customers can update or change the configuration of the external
 action. **/
         revisionUrlTemplate?: UrlTemplate;
+    }
+    export interface ApprovalAlreadyCompletedException {
+    }
+    export interface ApprovalResult {
+        /** The summary of the current status of the approval request. **/
+        summary: ApprovalSummary;
+        /** The response submitted by a reviewer assigned to an approval action request. **/
+        status: ApprovalStatus;
     }
     export interface Artifact {
         /** The artifact&#x27;s name. **/
@@ -933,6 +970,8 @@ consumed by different following actions. **/
     }
     export interface InvalidActionDeclarationException {
     }
+    export interface InvalidApprovalTokenException {
+    }
     export interface InvalidBlockerDeclarationException {
     }
     export interface InvalidClientTokenException {
@@ -1103,6 +1142,25 @@ whose action configuration matches the mapped value will be returned. **/
         newRevision?: Boolean;
         /** The ID of the current workflow state of the pipeline. **/
         pipelineExecutionId?: PipelineExecutionId;
+    }
+    export interface PutApprovalResultInput {
+        /** The name of the pipeline that contains the action. **/
+        pipelineName: PipelineName;
+        /** The name of the stage that contains the action. **/
+        stageName: StageName;
+        /** The name of the action for which approval is requested. **/
+        actionName: ActionName;
+        /** Represents information about the result of the approval request. **/
+        result: ApprovalResult;
+        /** The system-generated token used to identify a unique approval request. The token
+for each open approval request can be obtained using the GetPipelineState action
+and is used to validate that the approval request corresponding to this token is
+still valid. **/
+        token?: ApprovalToken;
+    }
+    export interface PutApprovalResultOutput {
+        /** The timestamp showing when the approval or rejection was submitted. **/
+        approvedAt?: Timestamp;
     }
     export interface PutJobFailureResultInput {
         /** The unique system-generated ID of the job that failed. This is the same ID
