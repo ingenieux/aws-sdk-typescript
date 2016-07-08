@@ -62,12 +62,25 @@ You can check the state of a rule by using the DescribeConfigRules request.
      */
     deleteConfigRule(params: ConfigService.DeleteConfigRuleRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|ConfigService.ResourceInUseException|any, data: any) => void): Request<any,ConfigService.NoSuchConfigRuleException|ConfigService.ResourceInUseException|any>;
     /**
-     * Deletes the specified delivery channel.
+     * Deletes the configuration recorder.
 
-The delivery channel cannot be deleted if it is the only delivery channel and
-the configuration recorder is still running. To delete the delivery channel,
-stop the running configuration recorder using the StopConfigurationRecorder 
-action.
+After the configuration recorder is deleted, AWS Config will not record resource
+configuration changes until you create a new configuration recorder.
+
+This action does not delete the configuration information that was previously
+recorded. You will be able to access the previously recorded information by
+using the GetResourceConfigHistory action, but you will not be able to access
+this information in the AWS Config console until you create a new configuration
+recorder.
+     *
+     * @error NoSuchConfigurationRecorderException   
+     */
+    deleteConfigurationRecorder(params: ConfigService.DeleteConfigurationRecorderRequest, callback?: (err: ConfigService.NoSuchConfigurationRecorderException|any, data: any) => void): Request<any,ConfigService.NoSuchConfigurationRecorderException|any>;
+    /**
+     * Deletes the delivery channel.
+
+Before you can delete the delivery channel, you must stop the configuration
+recorder by using the StopConfigurationRecorder action.
      *
      * @error NoSuchDeliveryChannelException   
      * @error LastDeliveryChannelDeleteFailedException   
@@ -97,18 +110,17 @@ A rule is compliant if all of the evaluated resources comply with it, and it is
 noncompliant if any of these resources do not comply.
 
 If AWS Config has no current evaluation results for the rule, it returns 
-INSUFFICIENT_DATA . This result might indicate one of the following conditions: &amp;#42; 
-   AWS Config has never invoked an evaluation for the rule. To check whether it
+INSUFFICIENT_DATA . This result might indicate one of the following conditions:
+
+ &amp;#42; AWS Config has never invoked an evaluation for the rule. To check whether it
    has, use the DescribeConfigRuleEvaluationStatus action to get the 
    LastSuccessfulInvocationTime and LastFailedInvocationTime .
- * 
-   The rule&#x27;s AWS Lambda function is failing to send evaluation results to AWS
+ * The rule&#x27;s AWS Lambda function is failing to send evaluation results to AWS
    Config. Verify that the role that you assigned to your configuration recorder
    includes the config:PutEvaluations permission. If the rule is a customer
    managed rule, verify that the AWS Lambda execution role includes the 
    config:PutEvaluations permission.
- * 
-   The rule&#x27;s AWS Lambda function has returned NOT_APPLICABLE for all evaluation
+ * The rule&#x27;s AWS Lambda function has returned NOT_APPLICABLE for all evaluation
    results. This can occur if the resources were deleted or removed from the
    rule&#x27;s scope.
      *
@@ -127,19 +139,19 @@ rules.
 
 If AWS Config has no current evaluation results for the resource, it returns 
 INSUFFICIENT_DATA . This result might indicate one of the following conditions
-about the rules that evaluate the resource: &amp;#42; AWS Config has never invoked an
-   evaluation for the rule. To check whether it has, use the 
-   DescribeConfigRuleEvaluationStatus action to get the 
+about the rules that evaluate the resource:
+
+ &amp;#42; AWS Config has never invoked an evaluation for the rule. To check whether it
+   has, use the DescribeConfigRuleEvaluationStatus action to get the 
    LastSuccessfulInvocationTime and LastFailedInvocationTime .
- * The rule&#x27;s AWS Lambda function is
-   failing to send evaluation results to AWS Config. Verify that the role that
-   you assigned to your configuration recorder includes the 
-   config:PutEvaluations permission. If the rule is a customer managed rule,
-   verify that the AWS Lambda execution role includes the config:PutEvaluations 
-   permission.
- * The rule&#x27;s AWS Lambda function has
-   returned NOT_APPLICABLE for all evaluation results. This can occur if the
-   resources were deleted or removed from the rule&#x27;s scope.
+ * The rule&#x27;s AWS Lambda function is failing to send evaluation results to AWS
+   Config. Verify that the role that you assigned to your configuration recorder
+   includes the config:PutEvaluations permission. If the rule is a customer
+   managed rule, verify that the AWS Lambda execution role includes the 
+   config:PutEvaluations permission.
+ * The rule&#x27;s AWS Lambda function has returned NOT_APPLICABLE for all evaluation
+   results. This can occur if the resources were deleted or removed from the
+   rule&#x27;s scope.
      *
      * @error InvalidParameterValueException   
      * @error InvalidNextTokenException   
@@ -264,7 +276,9 @@ recording. You can narrow the results to include only resources that have
 specific resource IDs or a resource name.
 
 You can specify either resource IDs or a resource name but not both in the same
-request.The response is paginated, and by default AWS Config lists 100 resource
+request.
+
+The response is paginated, and by default AWS Config lists 100 resource
 identifiers on each page. You can customize this number with the limit 
 parameter. The response includes a nextToken string, and to get the next page of
 results, run the request again and enter this string for the nextToken 
@@ -317,8 +331,9 @@ in the AWS Config Developer Guide .
      * @error MaxNumberOfConfigRulesExceededException   
      * @error ResourceInUseException   
      * @error InsufficientPermissionsException   
+     * @error NoAvailableConfigurationRecorderException   
      */
-    putConfigRule(params: ConfigService.PutConfigRuleRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.MaxNumberOfConfigRulesExceededException|ConfigService.ResourceInUseException|ConfigService.InsufficientPermissionsException|any, data: any) => void): Request<any,ConfigService.InvalidParameterValueException|ConfigService.MaxNumberOfConfigRulesExceededException|ConfigService.ResourceInUseException|ConfigService.InsufficientPermissionsException|any>;
+    putConfigRule(params: ConfigService.PutConfigRuleRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.MaxNumberOfConfigRulesExceededException|ConfigService.ResourceInUseException|ConfigService.InsufficientPermissionsException|ConfigService.NoAvailableConfigurationRecorderException|any, data: any) => void): Request<any,ConfigService.InvalidParameterValueException|ConfigService.MaxNumberOfConfigRulesExceededException|ConfigService.ResourceInUseException|ConfigService.InsufficientPermissionsException|ConfigService.NoAvailableConfigurationRecorderException|any>;
     /**
      * Creates a new configuration recorder to record the selected resource
 configurations.
@@ -339,8 +354,11 @@ the default is to record all supported resource types.
      */
     putConfigurationRecorder(params: ConfigService.PutConfigurationRecorderRequest, callback?: (err: ConfigService.MaxNumberOfConfigurationRecordersExceededException|ConfigService.InvalidConfigurationRecorderNameException|ConfigService.InvalidRoleException|ConfigService.InvalidRecordingGroupException|any, data: any) => void): Request<any,ConfigService.MaxNumberOfConfigurationRecordersExceededException|ConfigService.InvalidConfigurationRecorderNameException|ConfigService.InvalidRoleException|ConfigService.InvalidRecordingGroupException|any>;
     /**
-     * Creates a new delivery channel object to deliver the configuration information
-to an Amazon S3 bucket, and to an Amazon SNS topic.
+     * Creates a delivery channel object to deliver configuration information to an
+Amazon S3 bucket and Amazon SNS topic.
+
+Before you can create a delivery channel, you must create a configuration
+recorder.
 
 You can use this action to change the Amazon S3 bucket or an Amazon SNS topic of
 the existing delivery channel. To change the Amazon S3 bucket or an Amazon SNS
@@ -349,7 +367,7 @@ SNS topic. If you specify a different value for either the S3 bucket or the SNS
 topic, this action will keep the existing value for the parameter that is not
 changed.
 
-Currently, you can specify only one delivery channel per account.
+You can have only one delivery channel per AWS account.
      *
      * @error MaxNumberOfDeliveryChannelsExceededException   
      * @error NoAvailableConfigurationRecorderException   
@@ -685,7 +703,7 @@ least once.
         FirstEvaluationStarted?: Boolean;
     }
     export interface ConfigSnapshotDeliveryProperties {
-        /** The frequency with which a AWS Config recurringly delivers configuration
+        /** The frequency with which AWS Config recurringly delivers configuration
 snapshots. **/
         deliveryFrequency?: MaximumExecutionFrequency;
     }
@@ -787,6 +805,12 @@ changes. **/
         /** The name of the AWS Config rule that you want to delete. **/
         ConfigRuleName: StringWithCharLimit64;
     }
+    export interface DeleteConfigurationRecorderRequest {
+        /** The name of the configuration recorder to be deleted. You can retrieve the name
+of your configuration recorder by using the DescribeConfigurationRecorders 
+action. **/
+        ConfigurationRecorderName: RecorderName;
+    }
     export interface DeleteDeliveryChannelRequest {
         /** The name of the delivery channel to delete. **/
         DeliveryChannelName: ChannelName;
@@ -800,17 +824,31 @@ changes. **/
         configSnapshotId?: String;
     }
     export interface DeliveryChannel {
-        /** The name of the delivery channel. By default, AWS Config automatically assigns
-the name &quot;default&quot; when creating the delivery channel. You cannot change the
-assigned name. **/
+        /** The name of the delivery channel. By default, AWS Config assigns the name
+&quot;default&quot; when creating the delivery channel. To change the delivery channel
+name, you must use the DeleteDeliveryChannel action to delete your current
+delivery channel, and then you must use the PutDeliveryChannel command to create
+a delivery channel that has the desired name. **/
         name?: ChannelName;
-        /** The name of the Amazon S3 bucket used to store configuration history for the
-delivery channel. **/
+        /** The name of the Amazon S3 bucket to which AWS Config delivers configuration
+snapshots and configuration history files.
+
+If you specify a bucket that belongs to another AWS account, that bucket must
+have policies that grant access permissions to AWS Config. For more information,
+see Permissions for the Amazon S3 Bucket
+[http://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html] 
+in the AWS Config Developer Guide. **/
         s3BucketName?: String;
         /** The prefix for the specified Amazon S3 bucket. **/
         s3KeyPrefix?: String;
-        /** The Amazon Resource Name (ARN) of the SNS topic that AWS Config delivers
-notifications to. **/
+        /** The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends
+notifications about configuration changes.
+
+If you choose a topic from another account, the topic must have policies that
+grant access permissions to AWS Config. For more information, see Permissions
+for the Amazon SNS Topic
+[http://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html] 
+in the AWS Config Developer Guide. **/
         snsTopicARN?: String;
         configSnapshotDeliveryProperties?: ConfigSnapshotDeliveryProperties;
     }

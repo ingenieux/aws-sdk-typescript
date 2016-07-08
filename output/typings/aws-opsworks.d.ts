@@ -15,7 +15,7 @@ declare module "aws-sdk" {
    * protocol: json
    *
    * AWS OpsWorksWelcome to the AWS OpsWorks API Reference . This guide provides descriptions,
-syntax, and usage examples about AWS OpsWorks actions and data types, including
+syntax, and usage examples for AWS OpsWorks actions and data types, including
 common parameters and error codes.
 
 AWS OpsWorks is an application management service that provides an integrated
@@ -58,9 +58,13 @@ your preferred language. For more information, see:
 
 Endpoints
 
-AWS OpsWorks supports only one endpoint, opsworks.us-east-1.amazonaws.com
-(HTTPS), so you must connect to that endpoint. You can then use the API to
-direct AWS OpsWorks to create stacks in any AWS Region.
+AWS OpsWorks supports two endpoints, opsworks.us-east-1.amazonaws.com and
+opsworks.ap-south-1.amazonaws.com (both HTTPS). You must connect to one of those
+two endpoints. You can then use the API to direct AWS OpsWorks to create stacks
+in any AWS region. Stacks created in all regions except ap-south-1 are connected
+to the us-east-1 regional endpoint; stacks created in ap-south-1 are associated
+with the ap-south-1 regional endpoint, and can only be accessed or managed
+within that endpoint.
 
 Chef Versions
 
@@ -1500,6 +1504,9 @@ Identifiers
    LTS , or Ubuntu 12.04 LTS .
    
    
+ * CentOS 7
+   
+   
  * Red Hat Enterprise Linux 7
    
    
@@ -1848,6 +1855,9 @@ time-based instances. **/
    LTS , or Ubuntu 12.04 LTS .
    
    
+ * CentOS 7
+   
+   
  * Red Hat Enterprise Linux 7
    
    
@@ -2095,6 +2105,9 @@ You can specify one of the following.
    
  * A supported Ubuntu operating system, such as Ubuntu 16.04 LTS , Ubuntu 14.04
    LTS , or Ubuntu 12.04 LTS .
+   
+   
+ * CentOS 7
    
    
  * Red Hat Enterprise Linux 7
@@ -3649,6 +3662,9 @@ time-based instances. **/
    LTS , or Ubuntu 12.04 LTS .
    
    
+ * CentOS 7
+   
+   
  * Red Hat Enterprise Linux 7
    
    
@@ -3817,6 +3833,9 @@ instances. For more information about IAM ARNs, see Using Identifiers
    
  * A supported Ubuntu operating system, such as Ubuntu 16.04 LTS , Ubuntu 14.04
    LTS , or Ubuntu 12.04 LTS .
+   
+   
+ * CentOS 7
    
    
  * Red Hat Enterprise Linux 7

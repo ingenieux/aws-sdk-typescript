@@ -23,6 +23,18 @@ errors.
     constructor(options?: any);
     endpoint: Endpoint;
     /**
+     * Adds or overwrites one or more tags for the specified Amazon Directory Services
+directory. Each directory can have a maximum of 10 tags. Each tag consists of a
+key and optional value. Tag keys must be unique per resource.
+     *
+     * @error EntityDoesNotExistException   
+     * @error InvalidParameterException   
+     * @error TagLimitExceededException   
+     * @error ClientException   
+     * @error ServiceException   
+     */
+    addTagsToResource(params: DirectoryService.AddTagsToResourceRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.TagLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.AddTagsToResourceResult|any) => void): Request<DirectoryService.AddTagsToResourceResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.TagLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
+    /**
      * Creates an AD Connector to connect to an on-premises directory.
      *
      * @error DirectoryLimitExceededException   
@@ -33,8 +45,8 @@ errors.
     connectDirectory(params: DirectoryService.ConnectDirectoryRequest, callback?: (err: DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.ConnectDirectoryResult|any) => void): Request<DirectoryService.ConnectDirectoryResult|any,DirectoryService.DirectoryLimitExceededException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Creates an alias for a directory and assigns the alias to the directory. The
-alias is used to construct the access URL for the directory, such as http:// 
-alias .awsapps.com .
+alias is used to construct the access URL for the directory, such as 
+http://&lt;alias&gt;.awsapps.com .
 
 After an alias has been created, it cannot be deleted or reused, so this
 operation should only be used when absolutely necessary.
@@ -309,6 +321,16 @@ User Service (RADIUS) server for an AD Connector directory.
      */
     getSnapshotLimits(params: DirectoryService.GetSnapshotLimitsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.GetSnapshotLimitsResult|any) => void): Request<DirectoryService.GetSnapshotLimitsResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
+     * Lists all tags on an Amazon Directory Services directory.
+     *
+     * @error EntityDoesNotExistException   
+     * @error InvalidNextTokenException   
+     * @error InvalidParameterException   
+     * @error ClientException   
+     * @error ServiceException   
+     */
+    listTagsForResource(params: DirectoryService.ListTagsForResourceRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidNextTokenException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.ListTagsForResourceResult|any) => void): Request<DirectoryService.ListTagsForResourceResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidNextTokenException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
+    /**
      * Associates a directory with an SNS topic. This establishes the directory as a
 publisher to the specified SNS topic. You can then receive email or text (SMS)
 messages when the status of your directory changes. You get notified if your
@@ -321,6 +343,15 @@ also receive a notification when the directory returns to an Active status.
      * @error ServiceException   
      */
     registerEventTopic(params: DirectoryService.RegisterEventTopicRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.RegisterEventTopicResult|any) => void): Request<DirectoryService.RegisterEventTopicResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
+    /**
+     * Removes tags from an Amazon Directory Services directory.
+     *
+     * @error EntityDoesNotExistException   
+     * @error InvalidParameterException   
+     * @error ClientException   
+     * @error ServiceException   
+     */
+    removeTagsFromResource(params: DirectoryService.RemoveTagsFromResourceRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.RemoveTagsFromResourceResult|any) => void): Request<DirectoryService.RemoveTagsFromResourceResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Restores a directory using an existing directory snapshot.
 
@@ -472,6 +503,8 @@ cloud and an external domain.
     
     export type RequestId = string;
     
+    export type ResourceId = string;
+    
     export type SID = string;
     
     export type SecurityGroupId = string;
@@ -504,6 +537,14 @@ cloud and an external domain.
     
     export type SubnetIds = SubnetId[];
     
+    export type TagKey = string;
+    
+    export type TagKeys = TagKey[];
+    
+    export type TagValue = string;
+    
+    export type Tags = Tag[];
+    
     export type TopicArn = string;
     
     export type TopicName = string;
@@ -534,6 +575,14 @@ cloud and an external domain.
     
     export type VpcId = string;
 
+    export interface AddTagsToResourceRequest {
+        /** The ID of the directory to which to add the tag. **/
+        ResourceId: ResourceId;
+        /** The tags to be assigned to the Amazon Directory Services directory. **/
+        Tags: Tags;
+    }
+    export interface AddTagsToResourceResult {
+    }
     export interface Attribute {
         /** The name of the attribute. **/
         Name?: AttributeName;
@@ -702,6 +751,7 @@ the trust relationship on the external domain. **/
         TrustDirection: TrustDirection;
         /** The trust relationship type. **/
         TrustType?: TrustType;
+        /** The IP addresses of the remote DNS server associated with RemoteDomainName. **/
         ConditionalForwarderIpAddrs?: DnsIpAddrs;
     }
     export interface CreateTrustResult {
@@ -736,6 +786,7 @@ deleting the conditional forwarder. **/
     export interface DeleteTrustRequest {
         /** The Trust ID of the trust relationship to be deleted. **/
         TrustId: TrustId;
+        /** Delete a conditional forwarder as part of a DeleteTrustRequest. **/
         DeleteAssociatedConditionalForwarder?: DeleteAssociatedConditionalForwarder;
     }
     export interface DeleteTrustResult {
@@ -871,7 +922,11 @@ on-premises directory. **/
 to the directory. This account must have the following privileges:
 
  &amp;#42; Read users and groups
+   
+   
  * Create computer objects
+   
+   
  * Join computers to the domain **/
         CustomerUserName: UserName;
     }
@@ -901,8 +956,8 @@ to the directory. This account must have the following privileges:
         /** The alias for the directory. If no alias has been created for the directory, the
 alias is the directory identifier, such as d-XXXXXXXXXX . **/
         Alias?: AliasName;
-        /** The access URL for the directory, such as http:// alias .awsapps.com . If no
-alias has been created for the directory, alias is the directory identifier,
+        /** The access URL for the directory, such as http://&lt;alias&gt;.awsapps.com . If no
+alias has been created for the directory, &lt;alias&gt; is the directory identifier,
 such as d-XXXXXXXXXX . **/
         AccessUrl?: AccessUrl;
         /** The textual description for the directory. **/
@@ -1092,6 +1147,20 @@ specified directory. **/
         Message?: ExceptionMessage;
         RequestId?: RequestId;
     }
+    export interface ListTagsForResourceRequest {
+        /** The ID of the directory for which you want to retrieve tags. **/
+        ResourceId: ResourceId;
+        /** Reserved for future use. **/
+        NextToken?: NextToken;
+        /** Reserved for future use. **/
+        Limit?: Limit;
+    }
+    export interface ListTagsForResourceResult {
+        /** List of tags returned by the ListTagsForResource operation. **/
+        Tags?: Tags;
+        /** Reserved for future use. **/
+        NextToken?: NextToken;
+    }
     export interface RadiusSettings {
         /** An array of strings that contains the IP addresses of the RADIUS server
 endpoints, or the IP addresses of your RADIUS server load balancer. **/
@@ -1123,6 +1192,14 @@ topic must be in the same region as the specified Directory ID. **/
         TopicName: TopicName;
     }
     export interface RegisterEventTopicResult {
+    }
+    export interface RemoveTagsFromResourceRequest {
+        /** The ID of the directory from which to remove the tag. **/
+        ResourceId: ResourceId;
+        /** The tag key (name) of the tag to be removed. **/
+        TagKeys: TagKeys;
+    }
+    export interface RemoveTagsFromResourceResult {
     }
     export interface RestoreFromSnapshotRequest {
         /** The identifier of the snapshot to restore from. **/
@@ -1159,6 +1236,22 @@ topic must be in the same region as the specified Directory ID. **/
         ManualSnapshotsCurrentCount?: Limit;
         /** Indicates if the manual snapshot limit has been reached. **/
         ManualSnapshotsLimitReached?: ManualSnapshotsLimitReached;
+    }
+    export interface Tag {
+        /** A key is the required name of the tag. The string value can be from 1 to 128
+Unicode characters in length and cannot be prefixed with &quot;aws:&quot;. The string can
+only contain only the set of Unicode letters, digits, white-space, &#x27;_&#x27;, &#x27;.&#x27;,
+&#x27;/&#x27;, &#x27;=&#x27;, &#x27;+&#x27;, &#x27;-&#x27; (Java regex: &quot;^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]&amp;#42;)$&quot;). **/
+        Key: TagKey;
+        /** A value is the optional value of the tag. The string value can be from 1 to 256
+Unicode characters in length. The string can only contain only the set of
+Unicode letters, digits, white-space, &#x27;_&#x27;, &#x27;.&#x27;, &#x27;/&#x27;, &#x27;=&#x27;, &#x27;+&#x27;, &#x27;-&#x27; (Java regex:
+&quot;^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]&amp;#42;)$&quot;). **/
+        Value: TagValue;
+    }
+    export interface TagLimitExceededException {
+        Message?: ExceptionMessage;
+        RequestId?: RequestId;
     }
     export interface Trust {
         /** The Directory ID of the AWS directory involved in the trust relationship. **/
