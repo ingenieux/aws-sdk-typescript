@@ -65,6 +65,7 @@
     "output/typings/aws-s3.d.ts",
     "output/typings/aws-sdb.d.ts",
     "output/typings/aws-sdk.d.ts",
+    "output/typings/aws-servicecatalog.d.ts",
     "output/typings/aws-sns.d.ts",
     "output/typings/aws-sqs.d.ts",
     "output/typings/aws-ssm.d.ts",
