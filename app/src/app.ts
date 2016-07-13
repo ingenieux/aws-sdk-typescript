@@ -1,21 +1,17 @@
-/// <reference path="../../typings/index.d.ts" />
-
-import * as generator from './generator';
-import * as meta from './meta';
-import * as fs from 'fs';
-import * as path from 'path';
-import * as glob from 'glob';
+import * as generator from "./generator";
+import * as meta from "./meta";
+import {ExtraClientMethod} from "./meta";
+import * as fs from "fs";
+import * as path from "path";
+import * as glob from "glob";
+import * as esprima from "esprima";
+import * as handlebars from "handlebars";
 
 var jsstana = require('jsstana');
-
-import * as esprima from 'esprima';
 
 var estraverse = require('estraverse');
 
 var escodegen = require('escodegen');
-
-import * as handlebars from 'handlebars';
-import {ExtraClientMethod} from "./meta";
 
 require('source-map-support').install();
 
@@ -186,11 +182,11 @@ function readCustomCode() {
 function updateTypingsJson() {
   var paths = glob.sync('output/typings/*.d.ts');
 
-  var source: any = JSON.parse(fs.readFileSync('typings.json').toString());
+  //var source: any = JSON.parse(fs.readFileSync('typings.json').toString());
 
-  source['files'] = paths;
+  //source['files'] = paths;
 
-  fs.writeFileSync('typings.json', JSON.stringify(source, null, 2));
+  //fs.writeFileSync('typings.json', JSON.stringify(source, null, 2));
 }
 
 console.log(JSON.stringify(process.argv));

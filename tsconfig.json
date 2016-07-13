@@ -18,5 +18,16 @@
     "./app/src/app.ts",
     "./app/src/generator.ts",
     "./app/src/meta.ts"
+  ],
+  "types": [
+    "es6-promise",
+    "esprima",
+    "estree",
+    "glob",
+    "handlebars",
+    "html-to-text",
+    "minimatch",
+    "mustache",
+    "node"
   ]
 }

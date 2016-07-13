@@ -21,6 +21,14 @@
     "url": "git://github.com/djabry/aws-sdk-typescript.git"
   },
   "devDependencies": {
+    "@types/es6-promise": "0.0.27-alpha",
+    "@types/esprima": "^2.1.27-alpha",
+    "@types/estree": "0.0.27-alpha",
+    "@types/glob": "^5.0.28-alpha",
+    "@types/handlebars": "^3.0.26-alpha",
+    "@types/html-to-text": "^1.4.26-alpha",
+    "@types/minimatch": "^2.0.27-alpha",
+    "@types/mustache": "^0.8.26-alpha",
     "core-util-is": "^1.0.2",
     "del": "^2.1.0",
     "escodegen": "^1.8.0",
@@ -45,7 +53,6 @@
     "sprintf-js": "^1.0.3",
     "typescript": "^2.0.0",
     "typescript-formatter": "^2.2.0",
-    "typings": "^1.2.0",
     "uglify-js": "^2.7.0",
     "util-deprecate": "^1.0.2"
   },
@@ -53,5 +60,8 @@
     "prepublish": "gulp buildrun && npm run-script format",
     "format": "tsfmt --verbose --replace -- output/typings/*.d.ts",
     "test": "npm install ./aws-sdk-js && gulp compile:tests"
+  },
+  "dependencies": {
+    "@types/node": "^4.0.28-alpha"
   }
 }
