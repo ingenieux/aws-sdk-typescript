@@ -46,7 +46,7 @@ takes as input ProductId instead of ProductViewId .
      * @error ResourceNotFoundException
      * @error InvalidParametersException
      */
-    describeProduct(params:ServiceCatalog.DescribeProductInput, callback?:(err:ServiceCatalog.ResourceNotFoundException|ServiceCatalog.InvalidParametersException|any, data:ServiceCatalog.DescribeProductOutput|any) => void):Request<ServiceCatalog.DescribeProductOutput|any,ServiceCatalog.ResourceNotFoundException|ServiceCatalog.InvalidParametersException|any>;
+    describeProduct(params:ServiceCatalog.DescribeProductInput, callback?:(err:ServiceCatalog.ResourceNotFoundException | ServiceCatalog.InvalidParametersException | any, data:ServiceCatalog.DescribeProductOutput | any) => void):Request<ServiceCatalog.DescribeProductOutput | any, ServiceCatalog.ResourceNotFoundException | ServiceCatalog.InvalidParametersException | any>;
     /**
      * Retrieves information about a specified product.
 
@@ -56,25 +56,25 @@ as input ProductViewId instead of ProductId .
      * @error ResourceNotFoundException
      * @error InvalidParametersException
      */
-    describeProductView(params:ServiceCatalog.DescribeProductViewInput, callback?:(err:ServiceCatalog.ResourceNotFoundException|ServiceCatalog.InvalidParametersException|any, data:ServiceCatalog.DescribeProductViewOutput|any) => void):Request<ServiceCatalog.DescribeProductViewOutput|any,ServiceCatalog.ResourceNotFoundException|ServiceCatalog.InvalidParametersException|any>;
+    describeProductView(params:ServiceCatalog.DescribeProductViewInput, callback?:(err:ServiceCatalog.ResourceNotFoundException | ServiceCatalog.InvalidParametersException | any, data:ServiceCatalog.DescribeProductViewOutput | any) => void):Request<ServiceCatalog.DescribeProductViewOutput | any, ServiceCatalog.ResourceNotFoundException | ServiceCatalog.InvalidParametersException | any>;
     /**
      * Provides information about parameters required to provision a specified product
-in a specified manner. Use this operation to obtain the list of
-ProvisioningArtifactParameters parameters available to call the ProvisionProduct
+     in a specified manner. Use this operation to obtain the list of
+     ProvisioningArtifactParameters parameters available to call the ProvisionProduct
 operation for the specified product.
      *
      * @error InvalidParametersException
      * @error ResourceNotFoundException
      */
-    describeProvisioningParameters(params:ServiceCatalog.DescribeProvisioningParametersInput, callback?:(err:ServiceCatalog.InvalidParametersException|ServiceCatalog.ResourceNotFoundException|any, data:ServiceCatalog.DescribeProvisioningParametersOutput|any) => void):Request<ServiceCatalog.DescribeProvisioningParametersOutput|any,ServiceCatalog.InvalidParametersException|ServiceCatalog.ResourceNotFoundException|any>;
+    describeProvisioningParameters(params:ServiceCatalog.DescribeProvisioningParametersInput, callback?:(err:ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any, data:ServiceCatalog.DescribeProvisioningParametersOutput | any) => void):Request<ServiceCatalog.DescribeProvisioningParametersOutput | any, ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any>;
     /**
      * Retrieves a paginated list of the full details of a specific request. Use this
-operation after calling a request operation ( ProvisionProduct ,
+     operation after calling a request operation ( ProvisionProduct ,
 TerminateProvisionedProduct , or UpdateProvisionedProduct ).
      *
      * @error ResourceNotFoundException
      */
-    describeRecord(params:ServiceCatalog.DescribeRecordInput, callback?:(err:ServiceCatalog.ResourceNotFoundException|any, data:ServiceCatalog.DescribeRecordOutput|any) => void):Request<ServiceCatalog.DescribeRecordOutput|any,ServiceCatalog.ResourceNotFoundException|any>;
+    describeRecord(params:ServiceCatalog.DescribeRecordInput, callback?:(err:ServiceCatalog.ResourceNotFoundException | any, data:ServiceCatalog.DescribeRecordOutput | any) => void):Request<ServiceCatalog.DescribeRecordOutput | any, ServiceCatalog.ResourceNotFoundException | any>;
     /**
      * Returns a paginated list of all paths to a specified product. A path is how the
 user has access to a specified product, and is necessary when provisioning a
@@ -83,14 +83,14 @@ product. A path also determines the constraints put on the product.
      * @error InvalidParametersException
      * @error ResourceNotFoundException
      */
-    listLaunchPaths(params:ServiceCatalog.ListLaunchPathsInput, callback?:(err:ServiceCatalog.InvalidParametersException|ServiceCatalog.ResourceNotFoundException|any, data:ServiceCatalog.ListLaunchPathsOutput|any) => void):Request<ServiceCatalog.ListLaunchPathsOutput|any,ServiceCatalog.InvalidParametersException|ServiceCatalog.ResourceNotFoundException|any>;
+    listLaunchPaths(params:ServiceCatalog.ListLaunchPathsInput, callback?:(err:ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any, data:ServiceCatalog.ListLaunchPathsOutput | any) => void):Request<ServiceCatalog.ListLaunchPathsOutput | any, ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any>;
     /**
      * Returns a paginated list of all performed requests, in the form of RecordDetails
 objects that are filtered as specified.
      *
      * @error InvalidParametersException
      */
-    listRecordHistory(params:ServiceCatalog.ListRecordHistoryInput, callback?:(err:ServiceCatalog.InvalidParametersException|any, data:ServiceCatalog.ListRecordHistoryOutput|any) => void):Request<ServiceCatalog.ListRecordHistoryOutput|any,ServiceCatalog.InvalidParametersException|any>;
+    listRecordHistory(params:ServiceCatalog.ListRecordHistoryInput, callback?:(err:ServiceCatalog.InvalidParametersException | any, data:ServiceCatalog.ListRecordHistoryOutput | any) => void):Request<ServiceCatalog.ListRecordHistoryOutput | any, ServiceCatalog.InvalidParametersException | any>;
     /**
      * Requests a Provision of a specified product. A ProvisionedProduct is a resourced
 instance for a product. For example, provisioning a
@@ -103,24 +103,24 @@ You can check the status of this request using the DescribeRecord operation.
      * @error ResourceNotFoundException
      * @error DuplicateResourceException
      */
-    provisionProduct(params:ServiceCatalog.ProvisionProductInput, callback?:(err:ServiceCatalog.InvalidParametersException|ServiceCatalog.ResourceNotFoundException|ServiceCatalog.DuplicateResourceException|any, data:ServiceCatalog.ProvisionProductOutput|any) => void):Request<ServiceCatalog.ProvisionProductOutput|any,ServiceCatalog.InvalidParametersException|ServiceCatalog.ResourceNotFoundException|ServiceCatalog.DuplicateResourceException|any>;
+    provisionProduct(params:ServiceCatalog.ProvisionProductInput, callback?:(err:ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | ServiceCatalog.DuplicateResourceException | any, data:ServiceCatalog.ProvisionProductOutput | any) => void):Request<ServiceCatalog.ProvisionProductOutput | any, ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | ServiceCatalog.DuplicateResourceException | any>;
     /**
      * Returns a paginated list of all the ProvisionedProduct objects that are
 currently available (not terminated).
      *
      * @error InvalidParametersException
      */
-    scanProvisionedProducts(params:ServiceCatalog.ScanProvisionedProductsInput, callback?:(err:ServiceCatalog.InvalidParametersException|any, data:ServiceCatalog.ScanProvisionedProductsOutput|any) => void):Request<ServiceCatalog.ScanProvisionedProductsOutput|any,ServiceCatalog.InvalidParametersException|any>;
+    scanProvisionedProducts(params:ServiceCatalog.ScanProvisionedProductsInput, callback?:(err:ServiceCatalog.InvalidParametersException | any, data:ServiceCatalog.ScanProvisionedProductsOutput | any) => void):Request<ServiceCatalog.ScanProvisionedProductsOutput | any, ServiceCatalog.InvalidParametersException | any>;
     /**
      * Returns a paginated list all of the Products objects to which the caller has
 access.
 
-The output of this operation can be used as input for other operations, such as
+     The output of this operation can be used as input for other operations, such as
 DescribeProductView .
      *
      * @error InvalidParametersException
      */
-    searchProducts(params:ServiceCatalog.SearchProductsInput, callback?:(err:ServiceCatalog.InvalidParametersException|any, data:ServiceCatalog.SearchProductsOutput|any) => void):Request<ServiceCatalog.SearchProductsOutput|any,ServiceCatalog.InvalidParametersException|any>;
+    searchProducts(params:ServiceCatalog.SearchProductsInput, callback?:(err:ServiceCatalog.InvalidParametersException | any, data:ServiceCatalog.SearchProductsOutput | any) => void):Request<ServiceCatalog.SearchProductsOutput | any, ServiceCatalog.InvalidParametersException | any>;
     /**
      * Requests termination of an existing ProvisionedProduct object. If there are Tags
 associated with the object, they are terminated when the ProvisionedProduct
@@ -133,7 +133,7 @@ You can check the status of this request using the DescribeRecord operation.
      *
      * @error ResourceNotFoundException
      */
-    terminateProvisionedProduct(params:ServiceCatalog.TerminateProvisionedProductInput, callback?:(err:ServiceCatalog.ResourceNotFoundException|any, data:ServiceCatalog.TerminateProvisionedProductOutput|any) => void):Request<ServiceCatalog.TerminateProvisionedProductOutput|any,ServiceCatalog.ResourceNotFoundException|any>;
+    terminateProvisionedProduct(params:ServiceCatalog.TerminateProvisionedProductInput, callback?:(err:ServiceCatalog.ResourceNotFoundException | any, data:ServiceCatalog.TerminateProvisionedProductOutput | any) => void):Request<ServiceCatalog.TerminateProvisionedProductOutput | any, ServiceCatalog.ResourceNotFoundException | any>;
     /**
      * Requests updates to the configuration of an existing ProvisionedProduct object.
 If there are tags associated with the object, they cannot be updated or added
@@ -146,7 +146,7 @@ You can check the status of this request using the DescribeRecord operation.
      * @error InvalidParametersException
      * @error ResourceNotFoundException
      */
-    updateProvisionedProduct(params:ServiceCatalog.UpdateProvisionedProductInput, callback?:(err:ServiceCatalog.InvalidParametersException|ServiceCatalog.ResourceNotFoundException|any, data:ServiceCatalog.UpdateProvisionedProductOutput|any) => void):Request<ServiceCatalog.UpdateProvisionedProductOutput|any,ServiceCatalog.InvalidParametersException|ServiceCatalog.ResourceNotFoundException|any>;
+    updateProvisionedProduct(params:ServiceCatalog.UpdateProvisionedProductInput, callback?:(err:ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any, data:ServiceCatalog.UpdateProvisionedProductOutput | any) => void):Request<ServiceCatalog.UpdateProvisionedProductOutput | any, ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any>;
 
   }
 
@@ -222,7 +222,7 @@ You can check the status of this request using the DescribeRecord operation.
 
     export type ProductViewAggregationValues = ProductViewAggregationValue[];
 
-    export type ProductViewAggregations = {[key:string]:ProductViewAggregationValues};
+    export type ProductViewAggregations = { [key:string]:ProductViewAggregationValues };
 
     export type ProductViewDistributor = string;
 
@@ -232,7 +232,7 @@ You can check the status of this request using the DescribeRecord operation.
 
     export type ProductViewFilterValues = ProductViewFilterValue[];
 
-    export type ProductViewFilters = {[key:string]:ProductViewFilterValues};
+    export type ProductViewFilters = { [key:string]:ProductViewFilterValues };
 
     export type ProductViewName = string;
 
@@ -532,7 +532,7 @@ significance of this value. **/
       /** A value of false indicates that the product does not have a default path, while
 a value of true indicates that it does. If it&#x27;s false, call ListLaunchPaths to
 disambiguate between paths. If true, ListLaunchPaths is not required, and the
-output of the ProductViewSummary operation can be used directly with
+       output of the ProductViewSummary operation can be used directly with
 DescribeProvisioningParameters . **/
       HasDefaultPath?:HasDefaultPath;
       /** The email contact information to obtain support for this Product. **/
@@ -769,7 +769,7 @@ either ProvisionedProductName or ProvisionedProductId , but not both. **/
       /** An idempotency token that uniquely identifies the termination request. This
 token is only valid during the termination process. After the ProvisionedProduct
 object is terminated, further requests to terminate the same ProvisionedProduct
-object always return ResourceNotFound regardless of the value of TerminateToken
+       object always return ResourceNotFound regardless of the value of TerminateToken
 . **/
       TerminateToken:IdempotencyToken;
       /** Optional Boolean parameter. If set to true, AWS Service Catalog stops managing
