@@ -4,6 +4,7 @@
   "author": "Daniel Jabry <djabry@gmail.com>",
   "description": "aws-sdk bindings for typescript",
   "homepage": "https://github.com/djabry/aws-sdk-typescript/",
+  "main": "",
   "keywords": [
     "Typescript",
     "AWS",
