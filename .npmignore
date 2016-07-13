@@ -2,3 +2,6 @@ aws-sdk-js
 .idea/**
 test
 output/**
+tsconfig*.*
+app
+gulpfile.js

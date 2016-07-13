@@ -38,6 +38,7 @@
     "glob": "^5.0.15",
     "gulp": "^3.9.1",
     "gulp-cli": "^1.2.1",
+    "gulp-concat": "^2.6.0",
     "gulp-shell": "^0.5.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-typescript": "^2.13.6",
@@ -58,7 +59,7 @@
     "util-deprecate": "^1.0.2"
   },
   "scripts": {
-    "prepublish": "gulp buildrun && npm run-script format",
+    "prepublish": "gulp buildrun && gulp concat && npm run-script format",
     "format": "tsfmt --verbose --replace -- output/typings/*.d.ts",
     "test": "npm install ./aws-sdk-js && gulp compile:tests"
   },

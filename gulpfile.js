@@ -4,6 +4,7 @@ var shell  = require('gulp-shell');
 var runseq = require('run-sequence');
 var del  = require('del');
 var sourcemaps = require('gulp-sourcemaps');
+var concat = require('gulp-concat');
 
 var tsProject = ts.createProject('tsconfig.json', {
   typescript: require('typescript')
@@ -65,11 +66,13 @@ gulp.task('watchrun', ['buildrun'], function () {
 gulp.task('build', [ 'compile:typescript' ]);
 
 gulp.task('compile:typescript', [ 'clean' ], function () {
-  return gulp.src(paths.tscripts.src, { base: 'app/src'}).//
+  return gulp.src(paths.tscripts.src, {base: 'app/src'}).
     pipe(sourcemaps.init({debug: true})).//
     pipe(ts(tsProject)).//
     pipe(sourcemaps.write('.')).//
     pipe(gulp.dest(paths.tscripts.dest));
+
+
 });
 
 gulp.task('compile:tests', [ 'run' ], function() {
@@ -92,4 +95,11 @@ gulp.task('clean:generated', function() {
 
 gulp.task('clean:build', function() {
 	return del(paths.tscripts.dest);
+});
+
+gulp.task('concat', function () {
+  return gulp.src(['output/typings/*.*'])
+    .pipe(concat('index.d.ts'))
+    .pipe(gulp.dest('.'));
+
 });
