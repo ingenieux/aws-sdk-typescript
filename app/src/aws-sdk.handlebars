@@ -26,6 +26,10 @@ declare module "aws-sdk" {
     refresh(callback?: (err?: Error) => void): void;
   }
 
+  export class SharedIniFileCredentials extends Credentials {
+    constructor({profile:string});
+  }
+
   export interface CredentialParams {
     Logins: { [index:string]:string };
   }
