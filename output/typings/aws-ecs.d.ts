@@ -293,6 +293,9 @@ with the status parameter.
      * Returns a list of tasks for a specified cluster. You can filter the results by
 family name, by a particular container instance, or by the desired status of the
 task with the family , containerInstance , and desiredStatus parameters.
+
+Recently-stopped tasks might appear in the returned results. Currently, stopped
+tasks appear in the returned results for at least one hour.
      *
      * @error ServerException   
      * @error ClientException   
@@ -318,6 +321,14 @@ containerDefinitions . Optionally, you can add data volumes to your containers
 with the volumes parameter. For more information about task definition
 parameters and defaults, see Amazon ECS Task Definitions
 [http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html] 
+in the Amazon EC2 Container Service Developer Guide .
+
+You may also specify an IAM role for your task with the taskRoleArn parameter.
+When you specify an IAM role for a task, its containers can then use the latest
+versions of the AWS CLI or SDKs to make API requests to the AWS services that
+are specified in the IAM policy associated with the role. For more information,
+see IAM Roles for Tasks
+[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html] 
 in the Amazon EC2 Container Service Developer Guide .
      *
      * @error ServerException   
@@ -1132,8 +1143,9 @@ of the task definition to deregister. You must specify a revision . **/
         taskDefinition?: TaskDefinition;
     }
     export interface DescribeClustersRequest {
-        /** A space-separated list of cluster names or full cluster Amazon Resource Name
-(ARN) entries. If you do not specify a cluster, the default cluster is assumed. **/
+        /** A space-separated list of up to 100 cluster names or full cluster Amazon
+Resource Name (ARN) entries. If you do not specify a cluster, the default
+cluster is assumed. **/
         clusters?: StringList;
     }
     export interface DescribeClustersResponse {
@@ -1463,7 +1475,12 @@ serviceName limits the results to tasks that belong to that service. **/
         /** The task status with which to filter the ListTasks results. Specifying a 
 desiredStatus of STOPPED limits the results to tasks that are in the STOPPED 
 status, which can be useful for debugging tasks that are not starting properly
-or have died or finished. The default status filter is RUNNING . **/
+or have died or finished. The default status filter is status filter is RUNNING 
+, which shows tasks that ECS has set the desired status to RUNNING .
+
+Although you can filter results based on a desired status of PENDING , this will
+not return any results because ECS never sets the desired status of a task to
+that value (only a task&#x27;s lastStatus may have a value of PENDING ). **/
         desiredStatus?: DesiredStatus;
     }
     export interface ListTasksResponse {
@@ -1604,6 +1621,10 @@ multiple versions of the same task definition. The family is used as a name for
 your task definition. Up to 255 letters (uppercase and lowercase), numbers,
 hyphens, and underscores are allowed. **/
         family: String;
+        /** The Amazon Resource Name (ARN) of the IAM role that containers in this task can
+assume. All containers in this task are granted the permissions that are
+specified in this role. **/
+        taskRoleArn?: String;
         /** A list of container definitions in JSON format that describe the different
 containers that make up your task. **/
         containerDefinitions: ContainerDefinitions;
@@ -1876,6 +1897,10 @@ in the Amazon EC2 Container Service Developer Guide . **/
         containerDefinitions?: ContainerDefinitions;
         /** The family of your task definition, used as the definition name. **/
         family?: String;
+        /** The Amazon Resource Name (ARN) of the IAM role that containers in this task can
+assume. All containers in this task are granted the permissions that are
+specified in this role. **/
+        taskRoleArn?: String;
         /** The revision of the task in a particular family. The revision is a version
 number of a task definition in a family. When you register a task definition for
 the first time, the revision is 1 ; each time you register a new revision of a
@@ -1895,6 +1920,10 @@ in the Amazon EC2 Container Service Developer Guide . **/
     export interface TaskOverride {
         /** One or more container overrides sent to a task. **/
         containerOverrides?: ContainerOverrides;
+        /** The Amazon Resource Name (ARN) of the IAM role that containers in this task can
+assume. All containers in this task are granted the permissions that are
+specified in this role. **/
+        taskRoleArn?: String;
     }
     export interface Ulimit {
         /** The type of the ulimit . **/

@@ -81,6 +81,13 @@ Condition statement in an IAM policy for DMS.
      */
     createReplicationTask(params: DMS.CreateReplicationTaskMessage, callback?: (err: DMS.InvalidResourceStateFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceNotFoundFault|DMS.KMSKeyNotAccessibleFault|DMS.ResourceQuotaExceededFault|any, data: DMS.CreateReplicationTaskResponse|any) => void): Request<DMS.CreateReplicationTaskResponse|any,DMS.InvalidResourceStateFault|DMS.ResourceAlreadyExistsFault|DMS.ResourceNotFoundFault|DMS.KMSKeyNotAccessibleFault|DMS.ResourceQuotaExceededFault|any>;
     /**
+     * Deletes the specified certificate.
+     *
+     * @error ResourceNotFoundFault   
+     * @error InvalidResourceStateFault   
+     */
+    deleteCertificate(params: DMS.DeleteCertificateMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any, data: DMS.DeleteCertificateResponse|any) => void): Request<DMS.DeleteCertificateResponse|any,DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any>;
+    /**
      * Deletes the specified endpoint.
 
 All tasks associated with the endpoint must be deleted before you can delete the
@@ -124,6 +131,12 @@ This command does not take any parameters.
      *
      */
     describeAccountAttributes(params: DMS.DescribeAccountAttributesMessage, callback?: (err: any, data: DMS.DescribeAccountAttributesResponse|any) => void): Request<DMS.DescribeAccountAttributesResponse|any,any>;
+    /**
+     * Provides a description of the certificate.
+     *
+     * @error ResourceNotFoundFault   
+     */
+    describeCertificates(params: DMS.DescribeCertificatesMessage, callback?: (err: DMS.ResourceNotFoundFault|any, data: DMS.DescribeCertificatesResponse|any) => void): Request<DMS.DescribeCertificatesResponse|any,DMS.ResourceNotFoundFault|any>;
     /**
      * Describes the status of the connections that have been made between the
 replication instance and an endpoint. Connections are created when you test an
@@ -192,6 +205,13 @@ rows inserted, rows updated, and rows deleted.
      */
     describeTableStatistics(params: DMS.DescribeTableStatisticsMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any, data: DMS.DescribeTableStatisticsResponse|any) => void): Request<DMS.DescribeTableStatisticsResponse|any,DMS.ResourceNotFoundFault|DMS.InvalidResourceStateFault|any>;
     /**
+     * Uploads the specified certificate.
+     *
+     * @error ResourceAlreadyExistsFault   
+     * @error InvalidCertificateFault   
+     */
+    importCertificate(params: DMS.ImportCertificateMessage, callback?: (err: DMS.ResourceAlreadyExistsFault|DMS.InvalidCertificateFault|any, data: DMS.ImportCertificateResponse|any) => void): Request<DMS.ImportCertificateResponse|any,DMS.ResourceAlreadyExistsFault|DMS.InvalidCertificateFault|any>;
+    /**
      * Lists all tags for an AWS DMS resource.
      *
      * @error ResourceNotFoundFault   
@@ -224,13 +244,14 @@ Some settings are applied during the maintenance window.
     /**
      * Modifies the settings for the specified replication subnet group.
      *
+     * @error AccessDeniedFault   
      * @error ResourceNotFoundFault   
      * @error ResourceQuotaExceededFault   
      * @error SubnetAlreadyInUse   
      * @error ReplicationSubnetGroupDoesNotCoverEnoughAZs   
      * @error InvalidSubnet   
      */
-    modifyReplicationSubnetGroup(params: DMS.ModifyReplicationSubnetGroupMessage, callback?: (err: DMS.ResourceNotFoundFault|DMS.ResourceQuotaExceededFault|DMS.SubnetAlreadyInUse|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidSubnet|any, data: DMS.ModifyReplicationSubnetGroupResponse|any) => void): Request<DMS.ModifyReplicationSubnetGroupResponse|any,DMS.ResourceNotFoundFault|DMS.ResourceQuotaExceededFault|DMS.SubnetAlreadyInUse|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidSubnet|any>;
+    modifyReplicationSubnetGroup(params: DMS.ModifyReplicationSubnetGroupMessage, callback?: (err: DMS.AccessDeniedFault|DMS.ResourceNotFoundFault|DMS.ResourceQuotaExceededFault|DMS.SubnetAlreadyInUse|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidSubnet|any, data: DMS.ModifyReplicationSubnetGroupResponse|any) => void): Request<DMS.ModifyReplicationSubnetGroupResponse|any,DMS.AccessDeniedFault|DMS.ResourceNotFoundFault|DMS.ResourceQuotaExceededFault|DMS.SubnetAlreadyInUse|DMS.ReplicationSubnetGroupDoesNotCoverEnoughAZs|DMS.InvalidSubnet|any>;
     /**
      * Populates the schema for the specified endpoint. This is an asynchronous
 operation and can take several minutes. You can check the status of this
@@ -282,7 +303,11 @@ operation by calling the DescribeRefreshSchemasStatus operation.
     
     export type BooleanOptional = boolean;
     
+    export type CertificateList = Certificate[];
+    
     export type ConnectionList = Connection[];
+    
+    export type DmsSslModeValue = string;
     
     export type EndpointList = Endpoint[];
     
@@ -309,6 +334,10 @@ operation by calling the DescribeRefreshSchemasStatus operation.
     export type ReplicationEndpointTypeValue = string;
     
     export type ReplicationInstanceList = ReplicationInstance[];
+    
+    export type ReplicationInstancePrivateIpAddressList = String[];
+    
+    export type ReplicationInstancePublicIpAddressList = String[];
     
     export type ReplicationSubnetGroups = ReplicationSubnetGroup[];
     
@@ -364,6 +393,26 @@ replication task. **/
         /** The name of the availability zone. **/
         Name?: String;
     }
+    export interface Certificate {
+        /** The customer-assigned name of the certificate. Valid characters are [A-z_0-9]. **/
+        CertificateIdentifier?: String;
+        /** the date the certificate was created. **/
+        CertificateCreationDate?: TStamp;
+        /** The contents of the .pem X.509 certificate file. **/
+        CertificatePem?: String;
+        /** The Amazon Resource Name (ARN) for the certificate. **/
+        CertificateArn?: String;
+        /** The owner of the certificate. **/
+        CertificateOwner?: String;
+        /** The beginning date the certificate is valid. **/
+        ValidFromDate?: TStamp;
+        /** the final date the certificate is valid. **/
+        ValidToDate?: TStamp;
+        /** The signing algorithm for the certificate. **/
+        SigningAlgorithm?: String;
+        /** The key length of the cryptographic algorithm being used. **/
+        KeyLength?: IntegerOptional;
+    }
     export interface Connection {
         /** The Amazon Resource Name (ARN) of the replication instance. **/
         ReplicationInstanceArn?: String;
@@ -411,6 +460,14 @@ AWS region. **/
         KmsKeyId?: String;
         /** Tags to be added to the endpoint. **/
         Tags?: TagList;
+        /** The Amazon Resource Number (ARN) for the certificate. **/
+        CertificateArn?: String;
+        /** The SSL mode to use for the SSL connection.
+
+SSL mode can be one of four values: none, require, verify-ca, verify-full.
+
+The default value is none. **/
+        SslMode?: DmsSslModeValue;
     }
     export interface CreateEndpointResponse {
         /** The endpoint that was created. **/
@@ -466,6 +523,9 @@ Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 
 Constraints: Minimum 30-minute window. **/
         PreferredMaintenanceWindow?: String;
+        /** Specifies if the replication instance is a Multi-AZ deployment. You cannot set
+the AvailabilityZone parameter if the Multi-AZ parameter is set to true . **/
+        MultiAZ?: BooleanOptional;
         /** The engine version number of the replication instance. **/
         EngineVersion?: String;
         /** Indicates that minor engine upgrades will be applied automatically to the
@@ -531,7 +591,10 @@ Constraints:
         ReplicationInstanceArn: String;
         /** The migration type. **/
         MigrationType: MigrationTypeValue;
-        /** The path of the JSON file that contains the table mappings. **/
+        /** The path of the JSON file that contains the table mappings. Preceed the path
+with &quot;file://&quot;.
+
+For example, --table-mappings file://mappingfile.json **/
         TableMappings: String;
         /** Settings for the task, such as target metadata settings. **/
         ReplicationTaskSettings?: String;
@@ -543,6 +606,14 @@ Constraints:
     export interface CreateReplicationTaskResponse {
         /** The replication task that was created. **/
         ReplicationTask?: ReplicationTask;
+    }
+    export interface DeleteCertificateMessage {
+        /** the Amazon Resource Name (ARN) of the deleted certificate. **/
+        CertificateArn: String;
+    }
+    export interface DeleteCertificateResponse {
+        /** The SSL certificate. **/
+        Certificate?: Certificate;
     }
     export interface DeleteEndpointMessage {
         /** The Amazon Resource Name (ARN) string that uniquely identifies the endpoint. **/
@@ -579,6 +650,26 @@ Constraints:
     export interface DescribeAccountAttributesResponse {
         /** Account quota information. **/
         AccountQuotas?: AccountQuotaList;
+    }
+    export interface DescribeCertificatesMessage {
+        /** Filters applied to the certificate described in the form of key-value pairs. **/
+        Filters?: FilterList;
+        /** The maximum number of records to include in the response. If more records exist
+than the specified MaxRecords value, a pagination token called a marker is
+included in the response so that the remaining results can be retrieved.
+
+Default: 10 **/
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous request. If this parameter
+is specified, the response includes only records beyond the marker, up to the
+value specified by MaxRecords . **/
+        Marker?: String;
+    }
+    export interface DescribeCertificatesResponse {
+        /** The pagination token. **/
+        Marker?: String;
+        /** The SSL certificates associated with the replication instance. **/
+        Certificates?: CertificateList;
     }
     export interface DescribeConnectionsMessage {
         /** The filters applied to the connection.
@@ -845,6 +936,14 @@ AWS region. **/
         KmsKeyId?: String;
         /** The Amazon Resource Name (ARN) string that uniquely identifies the endpoint. **/
         EndpointArn?: String;
+        /** The Amazon Resource Name (ARN) used for SSL connection to the endpoint. **/
+        CertificateArn?: String;
+        /** The SSL mode used to connect to the endpoint.
+
+SSL mode can be one of four values: none, require, verify-ca, verify-full.
+
+The default value is none. **/
+        SslMode?: DmsSslModeValue;
     }
     export interface Filter {
         /** The name of the filter. **/
@@ -852,8 +951,21 @@ AWS region. **/
         /** The filter value. **/
         Values: FilterValueList;
     }
+    export interface ImportCertificateMessage {
+        /** The customer-assigned name of the certificate. Valid characters are [A-z_0-9]. **/
+        CertificateIdentifier: String;
+        /** The contents of the .pem X.509 certificate file. **/
+        CertificatePem?: String;
+    }
+    export interface ImportCertificateResponse {
+        /** The certificate to be uploaded. **/
+        Certificate?: Certificate;
+    }
     export interface InsufficientResourceCapacityFault {
         /**  **/
+        message?: ExceptionMessage;
+    }
+    export interface InvalidCertificateFault {
         message?: ExceptionMessage;
     }
     export interface InvalidResourceStateFault {
@@ -901,6 +1013,14 @@ POSTGRES, MARIADB, AURORA, REDSHIFT, and SQLSERVER. **/
         DatabaseName?: String;
         /** Additional attributes associated with the connection. **/
         ExtraConnectionAttributes?: String;
+        /** The Amazon Resource Name (ARN) of the certificate used for SSL connection. **/
+        CertificateArn?: String;
+        /** The SSL mode to be used.
+
+SSL mode can be one of four values: none, require, verify-ca, verify-full.
+
+The default value is none. **/
+        SslMode?: DmsSslModeValue;
     }
     export interface ModifyEndpointResponse {
         /** The modified endpoint. **/
@@ -938,6 +1058,9 @@ Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 
 Constraints: Must be at least 30 minutes **/
         PreferredMaintenanceWindow?: String;
+        /** Specifies if the replication instance is a Multi-AZ deployment. You cannot set
+the AvailabilityZone parameter if the Multi-AZ parameter is set to true . **/
+        MultiAZ?: BooleanOptional;
         /** The engine version number of the replication instance. **/
         EngineVersion?: String;
         /** Indicates that major version upgrades are allowed. Changing this parameter does
@@ -1070,6 +1193,9 @@ instance. **/
         PreferredMaintenanceWindow?: String;
         /** The pending modification values. **/
         PendingModifiedValues?: ReplicationPendingModifiedValues;
+        /** Specifies if the replication instance is a Multi-AZ deployment. You cannot set
+the AvailabilityZone parameter if the Multi-AZ parameter is set to true . **/
+        MultiAZ?: Boolean;
         /** The engine version number of the replication instance. **/
         EngineVersion?: String;
         /** Boolean value indicating if minor version upgrades will be automatically applied
@@ -1087,6 +1213,10 @@ for each AWS region. **/
         ReplicationInstancePublicIpAddress?: String;
         /** The private IP address of the replication instance. **/
         ReplicationInstancePrivateIpAddress?: String;
+        /** The public IP address of the replication instance. **/
+        ReplicationInstancePublicIpAddresses?: ReplicationInstancePublicIpAddressList;
+        /** The private IP address of the replication instance. **/
+        ReplicationInstancePrivateIpAddresses?: ReplicationInstancePrivateIpAddressList;
         /** Specifies the accessibility options for the replication instance. A value of 
 true represents an instance with a public IP address. A value of false 
 represents an instance with a private IP address. The default value is true . **/
@@ -1101,6 +1231,9 @@ dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge **/
         /** The amount of storage (in gigabytes) that is allocated for the replication
 instance. **/
         AllocatedStorage?: IntegerOptional;
+        /** Specifies if the replication instance is a Multi-AZ deployment. You cannot set
+the AvailabilityZone parameter if the Multi-AZ parameter is set to true . **/
+        MultiAZ?: BooleanOptional;
         /** The engine version number of the replication instance. **/
         EngineVersion?: String;
     }
@@ -1263,7 +1396,7 @@ string can only contain only the set of Unicode letters, digits, white-space,
         Value?: String;
     }
     export interface TestConnectionMessage {
-        /** The Amazon Resource Number (ARN) of the replication instance. **/
+        /** The Amazon Resource Name (ARN) of the replication instance. **/
         ReplicationInstanceArn: String;
         /** The Amazon Resource Name (ARN) string that uniquely identifies the endpoint. **/
         EndpointArn: String;

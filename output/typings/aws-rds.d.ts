@@ -128,6 +128,14 @@ For an overview of CIDR ranges, go to the Wikipedia Tutorial
      */
     authorizeDBSecurityGroupIngress(params: RDS.AuthorizeDBSecurityGroupIngressMessage, callback?: (err: RDS.DBSecurityGroupNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|RDS.AuthorizationAlreadyExistsFault|RDS.AuthorizationQuotaExceededFault|any, data: RDS.AuthorizeDBSecurityGroupIngressResult|any) => void): Request<RDS.AuthorizeDBSecurityGroupIngressResult|any,RDS.DBSecurityGroupNotFoundFault|RDS.InvalidDBSecurityGroupStateFault|RDS.AuthorizationAlreadyExistsFault|RDS.AuthorizationQuotaExceededFault|any>;
     /**
+     * Copies the specified DB cluster parameter group.
+     *
+     * @error DBParameterGroupNotFoundFault   
+     * @error DBParameterGroupQuotaExceededFault   
+     * @error DBParameterGroupAlreadyExistsFault   
+     */
+    copyDBClusterParameterGroup(params: RDS.CopyDBClusterParameterGroupMessage, callback?: (err: RDS.DBParameterGroupNotFoundFault|RDS.DBParameterGroupQuotaExceededFault|RDS.DBParameterGroupAlreadyExistsFault|any, data: RDS.CopyDBClusterParameterGroupResult|any) => void): Request<RDS.CopyDBClusterParameterGroupResult|any,RDS.DBParameterGroupNotFoundFault|RDS.DBParameterGroupQuotaExceededFault|RDS.DBParameterGroupAlreadyExistsFault|any>;
+    /**
      * Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see 
 Aurora on Amazon RDS
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html] in the 
@@ -778,8 +786,9 @@ Amazon RDS User Guide.
      *
      * @error DBClusterNotFoundFault   
      * @error InvalidDBClusterStateFault   
+     * @error InvalidDBInstanceStateFault   
      */
-    failoverDBCluster(params: RDS.FailoverDBClusterMessage, callback?: (err: RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|any, data: RDS.FailoverDBClusterResult|any) => void): Request<RDS.FailoverDBClusterResult|any,RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|any>;
+    failoverDBCluster(params: RDS.FailoverDBClusterMessage, callback?: (err: RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBInstanceStateFault|any, data: RDS.FailoverDBClusterResult|any) => void): Request<RDS.FailoverDBClusterResult|any,RDS.DBClusterNotFoundFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBInstanceStateFault|any>;
     /**
      * Lists all tags on an Amazon RDS resource.
 
@@ -1502,6 +1511,53 @@ beyond the marker, up to the value specified by MaxRecords . **/
         /** The description of the character set. **/
         CharacterSetDescription?: String;
     }
+    export interface CopyDBClusterParameterGroupMessage {
+        /** The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter
+group. For information about creating an ARN, see Constructing an RDS Amazon
+Resource Name (ARN)
+[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
+.
+
+Constraints:
+
+ &amp;#42; Must specify a valid DB cluster parameter group.
+   
+   
+ * If the source DB cluster parameter group is in the same region as the copy,
+   specify a valid DB parameter group identifier, for example 
+   my-db-cluster-param-group , or a valid ARN.
+   
+   
+ * If the source DB parameter group is in a different region than the copy,
+   specify a valid DB cluster parameter group ARN, for example 
+   arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1 . **/
+        SourceDBClusterParameterGroupIdentifier: String;
+        /** The identifier for the copied DB cluster parameter group.
+
+Constraints:
+
+ &amp;#42; Cannot be null, empty, or blank
+   
+   
+ * Must contain from 1 to 255 alphanumeric characters or hyphens
+   
+   
+ * First character must be a letter
+   
+   
+ * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
+
+Example: my-cluster-param-group1 **/
+        TargetDBClusterParameterGroupIdentifier: String;
+        /** A description for the copied DB cluster parameter group. **/
+        TargetDBClusterParameterGroupDescription: String;
+        Tags?: TagList;
+    }
+    export interface CopyDBClusterParameterGroupResult {
+        DBClusterParameterGroup?: DBClusterParameterGroup;
+    }
     export interface CopyDBClusterSnapshotMessage {
         /** The identifier of the DB cluster snapshot to copy. This parameter is not
 case-sensitive.
@@ -1790,12 +1846,12 @@ Constraints:
    
    
  * Cannot be a reserved word for the chosen database engine. **/
-        MasterUsername: String;
+        MasterUsername?: String;
         /** The password for the master database user. This password can contain any
 printable ASCII character except &quot;/&quot;, &quot;&quot;&quot;, or &quot;@&quot;.
 
 Constraints: Must contain from 8 to 41 characters. **/
-        MasterUserPassword: String;
+        MasterUserPassword?: String;
         /** A value that indicates that the DB cluster should be associated with the
 specified option group.
 
@@ -2323,12 +2379,15 @@ region.
 Amazon Aurora
 
  &amp;#42; Version 5.6 (only available in AWS regions ap-northeast-1, ap-northeast-2,
-   ap-southeast-2, eu-west-1, us-east-1, us-west-2): 5.6.10a
+   ap-south-1, ap-southeast-2, eu-west-1, us-east-1, us-west-2): 5.6.10a
    
    
 
 MariaDB
 
+ * Version 10.1 (available in all AWS regions except us-gov-west-1): 10.1.14
+   
+   
  * Version 10.0 (available in all AWS regions): 10.0.17 | 10.0.24
    
    
@@ -2391,57 +2450,68 @@ MySQL
  * Version 5.7 (available in all AWS regions): 5.7.10 | 5.7.11
    
    
- * Version 5.6 (available in all AWS regions except ap-northeast-2): 5.6.19a |
-   5.6.19b | 5.6.21 | 5.6.21b | 5.6.22
+ * Version 5.6 (available in all AWS regions except ap-south-1, ap-northeast-2): 
+   5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22
    
    
- * Version 5.6 (available in all AWS regions): 5.6.23 | 5.6.27 | 5.6.29
+ * Version 5.6 (available in all AWS regions except ap-south-1): 5.6.23
    
    
- * Version 5.5 (available in all AWS regions except eu-central-1,
-   ap-northeast-2): 5.5.40 | 5.5.40a
+ * Version 5.6 (available in all AWS regions): 5.6.27 | 5.6.29
    
    
- * Version 5.5 (available in all AWS regions except ap-northeast-2): 5.5.40b |
-   5.5.41
+ * Version 5.5 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+   ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1,
+   us-west-2): 5.5.40 | 5.5.40a
    
    
- * Version 5.5 (available in all AWS regions): 5.5.42 | 5.5.46
+ * Version 5.5 (available in all AWS regions except ap-south-1, ap-northeast-2): 
+   5.5.40b | 5.5.41
    
    
- * Version 5.1 (available in all AWS regions except eu-central-1,
-   ap-northeast-2): 5.1.73a | 5.1.73b
+ * Version 5.5 (available in all AWS regions except ap-south-1): 5.5.42
+   
+   
+ * Version 5.5 (available in all AWS regions): 5.5.46
+   
+   
+ * Version 5.1 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+   ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1,
+   us-west-2): 5.1.73a | 5.1.73b
    
    
 
 Oracle Database Enterprise Edition (oracle-ee)
 
- * Version 12.1 (available in all AWS regions except ap-northeast-2): 
-   12.1.0.1.v1 | 12.1.0.1.v2
+ * Version 12.1 (available in all AWS regions except ap-south-1,
+   ap-northeast-2): 12.1.0.1.v1 | 12.1.0.1.v2
    
    
- * Version 12.1 (available in all AWS regions except ap-northeast-2,
-   us-gov-west-1): 12.1.0.1.v3 | 12.1.0.1.v4
+ * Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+   ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
+   us-west-2): 12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5
    
    
  * Version 12.1 (available in all AWS regions): 12.1.0.2.v1
    
    
  * Version 12.1 (available in all AWS regions except us-gov-west-1): 12.1.0.2.v2
-   | 12.1.0.2.v3
+   | 12.1.0.2.v3 | 12.1.0.2.v4
    
    
- * Version 11.2 (available in all AWS regions except eu-central-1,
-   ap-northeast-2): 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |
+ * Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+   ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1,
+   us-west-2): 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |
    11.2.0.2.v7
    
    
- * Version 11.2 (available in all AWS regions except ap-northeast-2): 
-   11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3
+ * Version 11.2 (available in all AWS regions except ap-south-1,
+   ap-northeast-2): 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3
    
    
- * Version 11.2 (available in all AWS regions except ap-northeast-2,
-   us-gov-west-1): 11.2.0.3.v4
+ * Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+   ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
+   us-west-2): 11.2.0.3.v4
    
    
  * Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
@@ -2449,31 +2519,34 @@ Oracle Database Enterprise Edition (oracle-ee)
    
    
  * Version 11.2 (available in all AWS regions except us-gov-west-1): 11.2.0.4.v5
-   | 11.2.0.4.v6 | 11.2.0.4.v7
+   | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8
    
    
 
 Oracle Database Standard Edition (oracle-se)
 
- * Version 12.1 (available in all AWS regions except ap-northeast-2): 
-   12.1.0.1.v1 | 12.1.0.1.v2
+ * Version 12.1 (available in all AWS regions except ap-south-1,
+   ap-northeast-2): 12.1.0.1.v1 | 12.1.0.1.v2
    
    
- * Version 12.1 (available in all AWS regions except ap-northeast-2,
-   us-gov-west-1): 12.1.0.1.v3 | 12.1.0.1.v4
+ * Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+   ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
+   us-west-2): 12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5
    
    
- * Version 11.2 (available in all AWS regions except eu-central-1,
-   ap-northeast-2): 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |
+ * Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+   ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1,
+   us-west-2): 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |
    11.2.0.2.v7
    
    
- * Version 11.2 (available in all AWS regions except ap-northeast-2): 
-   11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3
+ * Version 11.2 (available in all AWS regions except ap-south-1,
+   ap-northeast-2): 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3
    
    
- * Version 11.2 (available in all AWS regions except ap-northeast-2,
-   us-gov-west-1): 11.2.0.3.v4
+ * Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+   ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
+   us-west-2): 11.2.0.3.v4
    
    
  * Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
@@ -2481,31 +2554,34 @@ Oracle Database Standard Edition (oracle-se)
    
    
  * Version 11.2 (available in all AWS regions except us-gov-west-1): 11.2.0.4.v5
-   | 11.2.0.4.v6 | 11.2.0.4.v7
+   | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8
    
    
 
 Oracle Database Standard Edition One (oracle-se1)
 
- * Version 12.1 (available in all AWS regions except ap-northeast-2): 
-   12.1.0.1.v1 | 12.1.0.1.v2
+ * Version 12.1 (available in all AWS regions except ap-south-1,
+   ap-northeast-2): 12.1.0.1.v1 | 12.1.0.1.v2
    
    
- * Version 12.1 (available in all AWS regions except ap-northeast-2,
-   us-gov-west-1): 12.1.0.1.v3 | 12.1.0.1.v4
+ * Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+   ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
+   us-west-2): 12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5
    
    
- * Version 11.2 (available in all AWS regions except eu-central-1,
-   ap-northeast-2): 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |
+ * Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+   ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1,
+   us-west-2): 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |
    11.2.0.2.v7
    
    
- * Version 11.2 (available in all AWS regions except ap-northeast-2): 
-   11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3
+ * Version 11.2 (available in all AWS regions except ap-south-1,
+   ap-northeast-2): 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3
    
    
- * Version 11.2 (available in all AWS regions except ap-northeast-2,
-   us-gov-west-1): 11.2.0.3.v4
+ * Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+   ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
+   us-west-2): 11.2.0.3.v4
    
    
  * Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
@@ -2513,14 +2589,14 @@ Oracle Database Standard Edition One (oracle-se1)
    
    
  * Version 11.2 (available in all AWS regions except us-gov-west-1): 11.2.0.4.v5
-   | 11.2.0.4.v6 | 11.2.0.4.v7
+   | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8
    
    
 
 Oracle Database Standard Edition Two (oracle-se2)
 
  * Version 12.1 (available in all AWS regions except us-gov-west-1): 12.1.0.2.v2
-   | 12.1.0.2.v3
+   | 12.1.0.2.v3 | 12.1.0.2.v4
    
    
 
@@ -2529,22 +2605,27 @@ PostgreSQL
  * Version 9.5 (available in all AWS regions except us-gov-west-1): 9.5.2
    
    
- * Version 9.4 (available in all AWS regions): 9.4.1 | 9.4.4 | 9.4.5
+ * Version 9.4 (available in all AWS regions except ap-south-1): 9.4.1 | 9.4.4
+   
+   
+ * Version 9.4 (available in all AWS regions): 9.4.5
    
    
  * Version 9.4 (available in all AWS regions except us-gov-west-1): 9.4.7
    
    
- * Version 9.3 (available in all AWS regions except eu-central-1,
-   ap-northeast-2): 9.3.1 | 9.3.2
+ * Version 9.3 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+   ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1,
+   us-west-2): 9.3.1 | 9.3.2
    
    
- * Version 9.3 (available in all AWS regions except ap-northeast-2): 9.3.10 |
-   9.3.3 | 9.3.5 | 9.3.6 | 9.3.9
+ * Version 9.3 (available in all AWS regions except ap-south-1, ap-northeast-2): 
+   9.3.10 | 9.3.3 | 9.3.5 | 9.3.6 | 9.3.9
    
    
- * Version 9.3 (available in all AWS regions except ap-northeast-2,
-   us-gov-west-1): 9.3.12 **/
+ * Version 9.3 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+   ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
+   us-west-2): 9.3.12 **/
         EngineVersion?: String;
         /** Indicates that minor engine upgrades will be applied automatically to the DB
 instance during the maintenance window.
@@ -4897,6 +4978,11 @@ Constraints:
    
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         DBClusterIdentifier?: String;
+        /** The name of the instance to promote to the primary instance.
+
+You must specify the instance identifier for an Aurora Replica in the DB
+cluster. For example, mydbcluster-replica1 . **/
+        TargetDBInstanceIdentifier?: String;
     }
     export interface FailoverDBClusterResult {
         DBCluster?: DBCluster;
@@ -6312,8 +6398,8 @@ Example: mySubnetgroup **/
         VpcSecurityGroupIds?: VpcSecurityGroupIdList;
         /** The tags to be assigned to the restored DB cluster. **/
         Tags?: TagList;
-        /** The KMS key identifier to use when restoring an encrypted DB cluster from an
-encrypted DB cluster snapshot.
+        /** The KMS key identifier to use when restoring an encrypted DB cluster from a DB
+cluster snapshot.
 
 The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption
 key. If you are restoring a DB cluster with the same AWS account that owns the
@@ -6328,13 +6414,7 @@ will occur:
    
    
  * If the DB cluster snapshot is not encrypted, then the restored DB cluster is
-   not encrypted.
-   
-   
-
-If SnapshotIdentifier refers to a DB cluster snapshot that is not encrypted, and
-you specify a value for the KmsKeyId parameter, then the restore request is
-rejected. **/
+   encrypted using the specified encryption key. **/
         KmsKeyId?: String;
     }
     export interface RestoreDBClusterFromSnapshotResult {
