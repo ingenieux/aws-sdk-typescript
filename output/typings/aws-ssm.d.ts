@@ -14,11 +14,12 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * This is the Amazon Simple Systems Manager (SSM) API Reference. SSM enables you
-to remotely manage the configuration of your on-premises servers and virtual
-machines (VMs) and your Amazon EC2 instances using scripts, commands, or the
-Amazon EC2 console. SSM includes an on-demand solution called Amazon EC2 Run
-Command and a lightweight instance configuration solution called SSM Config .
+   * This is the Amazon EC2 Simple Systems Manager (SSM) API Reference. SSM enables
+you to remotely manage the configuration of your Amazon EC2 instances, virtual
+machines (VMs), or servers in your on-premises environment or in an environment
+provided by other cloud providers using scripts, commands, or the Amazon EC2
+console. SSM includes an on-demand solution called Amazon EC2 Run Command and a
+lightweight instance configuration solution called SSM Config .
 
 This references is intended to be used with the EC2 Run Command User Guide for 
 Linux
@@ -451,8 +452,10 @@ If you share a document publicly, you must specify All as the account ID.
      * @error InvalidParameters   
      * @error UnsupportedPlatformType   
      * @error MaxDocumentSizeExceeded   
+     * @error InvalidRole   
+     * @error InvalidNotificationConfig   
      */
-    sendCommand(params: SSM.SendCommandRequest, callback?: (err: SSM.DuplicateInstanceId|SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.InvalidOutputFolder|SSM.InvalidParameters|SSM.UnsupportedPlatformType|SSM.MaxDocumentSizeExceeded|any, data: SSM.SendCommandResult|any) => void): Request<SSM.SendCommandResult|any,SSM.DuplicateInstanceId|SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.InvalidOutputFolder|SSM.InvalidParameters|SSM.UnsupportedPlatformType|SSM.MaxDocumentSizeExceeded|any>;
+    sendCommand(params: SSM.SendCommandRequest, callback?: (err: SSM.DuplicateInstanceId|SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.InvalidOutputFolder|SSM.InvalidParameters|SSM.UnsupportedPlatformType|SSM.MaxDocumentSizeExceeded|SSM.InvalidRole|SSM.InvalidNotificationConfig|any, data: SSM.SendCommandResult|any) => void): Request<SSM.SendCommandResult|any,SSM.DuplicateInstanceId|SSM.InternalServerError|SSM.InvalidInstanceId|SSM.InvalidDocument|SSM.InvalidOutputFolder|SSM.InvalidParameters|SSM.UnsupportedPlatformType|SSM.MaxDocumentSizeExceeded|SSM.InvalidRole|SSM.InvalidNotificationConfig|any>;
     /**
      * Updates the status of the SSM document associated with the specified instance.
      *
@@ -621,6 +624,14 @@ managed instance.
     
     export type NextToken = string;
     
+    export type NotificationArn = string;
+    
+    export type NotificationEvent = string;
+    
+    export type NotificationEventList = NotificationEvent[];
+    
+    export type NotificationType = string;
+    
     export type ParameterName = string;
     
     export type ParameterValue = string;
@@ -650,6 +661,8 @@ managed instance.
     export type S3BucketName = string;
     
     export type S3KeyPrefix = string;
+    
+    export type ServiceRole = string;
     
     export type StatusAdditionalInfo = string;
     
@@ -783,6 +796,11 @@ This was requested when issuing the command. **/
         /** The S3 directory path inside the bucket where the responses to the command
 executions should be stored. This was requested when issuing the command. **/
         OutputS3KeyPrefix?: S3KeyPrefix;
+        /** The IAM service role that SSM uses to act on your behalf when sending
+notifications about command status changes. **/
+        ServiceRole?: ServiceRole;
+        /** Configurations for sending notifications about command status changes. **/
+        NotificationConfig?: NotificationConfig;
     }
     export interface CommandFilter {
         /** The name of the filter. For example, requested date and time. **/
@@ -807,6 +825,12 @@ what the command should do. **/
         /** Gets the trace output sent by the agent. **/
         TraceOutput?: InvocationTraceOutput;
         CommandPlugins?: CommandPluginList;
+        /** The IAM service role that SSM uses to act on your behalf when sending
+notifications about command status changes on a per instance basis. **/
+        ServiceRole?: ServiceRole;
+        /** Configurations for sending notifications about command status changes on a per
+instance basis. **/
+        NotificationConfig?: NotificationConfig;
     }
     export interface CommandPlugin {
         /** The name of the plugin. Must be one of the following: aws:updateAgent,
@@ -1149,6 +1173,9 @@ GetDocument, SendCommand, or UpdateAssociationStatus. **/
     }
     export interface InvalidNextToken {
     }
+    export interface InvalidNotificationConfig {
+        Message?: String;
+    }
     export interface InvalidOutputFolder {
     }
     export interface InvalidParameters {
@@ -1160,6 +1187,9 @@ GetDocument, SendCommand, or UpdateAssociationStatus. **/
     export interface InvalidResourceId {
     }
     export interface InvalidResourceType {
+    }
+    export interface InvalidRole {
+        Message?: String;
     }
     export interface ListAssociationsRequest {
         /** One or more filters. Use a filter to return a more specific list of results. **/
@@ -1273,6 +1303,21 @@ the same ID to remove, the system removes access to the document. **/
     }
     export interface ModifyDocumentPermissionResponse {
     }
+    export interface NotificationConfig {
+        /** An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. SSM
+pushes notifications about command status changes to this topic. **/
+        NotificationArn?: NotificationArn;
+        /** The different events for which you can receive notifications. These events
+include the following: All (events), InProgress, Success, TimedOut, Cancelled,
+Failed. To learn more about these events, see Monitoring Commands
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html] in
+the Amazon Elastic Compute Cloud User Guide . **/
+        NotificationEvents?: NotificationEventList;
+        /** Command: Receive notification when the status of a command changes. Invocation:
+For commands sent to multiple instances, receive notification on a per-instance
+basis when the status of a command changes. **/
+        NotificationType?: NotificationType;
+    }
     export interface RemoveTagsFromResourceRequest {
         /** The type of resource of which you want to remove a tag. **/
         ResourceType: ResourceTypeForTagging;
@@ -1312,6 +1357,10 @@ executed. **/
         /** The directory structure within the S3 bucket where the responses should be
 stored. **/
         OutputS3KeyPrefix?: S3KeyPrefix;
+        /** The IAM role that SSM uses to send notifications. **/
+        ServiceRoleArn?: ServiceRole;
+        /** Configurations for sending notifications. **/
+        NotificationConfig?: NotificationConfig;
     }
     export interface SendCommandResult {
         /** The request as it was received by SSM. Also provides the command ID which can be

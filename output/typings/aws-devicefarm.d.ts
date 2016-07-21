@@ -41,6 +41,15 @@ cloud.
      */
     createProject(params: DeviceFarm.CreateProjectRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.CreateProjectResult|any) => void): Request<DeviceFarm.CreateProjectResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
+     * Specifies and starts a remote access session.
+     *
+     * @error ArgumentException   
+     * @error NotFoundException   
+     * @error LimitExceededException   
+     * @error ServiceAccountException   
+     */
+    createRemoteAccessSession(params: DeviceFarm.CreateRemoteAccessSessionRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.CreateRemoteAccessSessionResult|any) => void): Request<DeviceFarm.CreateRemoteAccessSessionResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
+    /**
      * Uploads an app or test scripts.
      *
      * @error ArgumentException   
@@ -70,6 +79,15 @@ Note Deleting this resource does not stop an in-progress run.
      * @error ServiceAccountException   
      */
     deleteProject(params: DeviceFarm.DeleteProjectRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.DeleteProjectResult|any) => void): Request<DeviceFarm.DeleteProjectResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
+    /**
+     * Deletes a completed remote access session and its results.
+     *
+     * @error ArgumentException   
+     * @error NotFoundException   
+     * @error LimitExceededException   
+     * @error ServiceAccountException   
+     */
+    deleteRemoteAccessSession(params: DeviceFarm.DeleteRemoteAccessSessionRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.DeleteRemoteAccessSessionResult|any) => void): Request<DeviceFarm.DeleteRemoteAccessSessionResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Deletes the run, given the run ARN.
 
@@ -161,6 +179,15 @@ you believe that you should be able to invoke this operation.
      */
     getProject(params: DeviceFarm.GetProjectRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetProjectResult|any) => void): Request<DeviceFarm.GetProjectResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
+     * Returns a link to a currently running remote access session.
+     *
+     * @error ArgumentException   
+     * @error NotFoundException   
+     * @error LimitExceededException   
+     * @error ServiceAccountException   
+     */
+    getRemoteAccessSession(params: DeviceFarm.GetRemoteAccessSessionRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetRemoteAccessSessionResult|any) => void): Request<DeviceFarm.GetRemoteAccessSessionResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
+    /**
      * Gets information about a run.
      *
      * @error ArgumentException   
@@ -196,6 +223,17 @@ you believe that you should be able to invoke this operation.
      * @error ServiceAccountException   
      */
     getUpload(params: DeviceFarm.GetUploadRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.GetUploadResult|any) => void): Request<DeviceFarm.GetUploadResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
+    /**
+     * Installs an application to the device in a remote access session. For Android
+applications, the file must be in .apk format. For iOS applications, the file
+must be in .ipa format.
+     *
+     * @error ArgumentException   
+     * @error NotFoundException   
+     * @error LimitExceededException   
+     * @error ServiceAccountException   
+     */
+    installToRemoteAccessSession(params: DeviceFarm.InstallToRemoteAccessSessionRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.InstallToRemoteAccessSessionResult|any) => void): Request<DeviceFarm.InstallToRemoteAccessSessionResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about artifacts.
      *
@@ -271,6 +309,15 @@ believe that you should be able to invoke this operation.
      * @error ServiceAccountException   
      */
     listProjects(params: DeviceFarm.ListProjectsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListProjectsResult|any) => void): Request<DeviceFarm.ListProjectsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
+    /**
+     * Returns a list of all currently running remote access sessions.
+     *
+     * @error ArgumentException   
+     * @error NotFoundException   
+     * @error LimitExceededException   
+     * @error ServiceAccountException   
+     */
+    listRemoteAccessSessions(params: DeviceFarm.ListRemoteAccessSessionsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListRemoteAccessSessionsResult|any) => void): Request<DeviceFarm.ListRemoteAccessSessionsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Gets information about runs.
      *
@@ -364,6 +411,15 @@ believe that you should be able to invoke this operation.
      * @error ServiceAccountException   
      */
     scheduleRun(params: DeviceFarm.ScheduleRunRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.IdempotencyException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ScheduleRunResult|any) => void): Request<DeviceFarm.ScheduleRunResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.IdempotencyException|DeviceFarm.ServiceAccountException|any>;
+    /**
+     * Ends a specified remote access session.
+     *
+     * @error ArgumentException   
+     * @error NotFoundException   
+     * @error LimitExceededException   
+     * @error ServiceAccountException   
+     */
+    stopRemoteAccessSession(params: DeviceFarm.StopRemoteAccessSessionRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.StopRemoteAccessSessionResult|any) => void): Request<DeviceFarm.StopRemoteAccessSessionResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
      * Initiates a stop request for the current test run. AWS Device Farm will
 immediately stop the run on devices where tests have not started executing, and
@@ -484,6 +540,8 @@ updated as a whole (or not at all).
     export type RecurringChargeFrequency = string;
     
     export type RecurringCharges = RecurringCharge[];
+    
+    export type RemoteAccessSessions = RemoteAccessSession[];
     
     export type RuleOperator = string;
     
@@ -663,10 +721,31 @@ GHz CPU is expressed as 1200000000. **/
         /** The newly created project. **/
         project?: Project;
     }
+    export interface CreateRemoteAccessSessionConfiguration {
+        /** Returns the billing method for purposes of configuring a remote access session. **/
+        billingMethod?: BillingMethod;
+    }
+    export interface CreateRemoteAccessSessionRequest {
+        /** The Amazon Resource Name (ARN) of the project for which you want to create a
+remote access session. **/
+        projectArn: AmazonResourceName;
+        /** The Amazon Resource Name (ARN) of the device for which you want to create a
+remote access session. **/
+        deviceArn: AmazonResourceName;
+        /** The name of the remote access session that you wish to create. **/
+        name?: Name;
+        /** The configuration information for the remote access session request. **/
+        configuration?: CreateRemoteAccessSessionConfiguration;
+    }
+    export interface CreateRemoteAccessSessionResult {
+        /** A container that describes the remote access session when the request to create
+a remote access session is sent. **/
+        remoteAccessSession?: RemoteAccessSession;
+    }
     export interface CreateUploadRequest {
         /** The ARN of the project for the upload. **/
         projectArn: AmazonResourceName;
-        /** The upload&#x27;s file name. **/
+        /** The upload&#x27;s file name. The name should not contain the &#x27;/&#x27; character. **/
         name: Name;
         /** The upload&#x27;s upload type.
 
@@ -746,6 +825,13 @@ delete. **/
     }
     export interface DeleteProjectResult {
     }
+    export interface DeleteRemoteAccessSessionRequest {
+        /** The Amazon Resource Name (ARN) of the sesssion for which you want to delete
+remote access. **/
+        arn: AmazonResourceName;
+    }
+    export interface DeleteRemoteAccessSessionResult {
+    }
     export interface DeleteRunRequest {
         /** The Amazon Resource Name (ARN) for the run you wish to delete. **/
         arn: AmazonResourceName;
@@ -801,6 +887,13 @@ Allowed values include:
         carrier?: String;
         /** The device&#x27;s radio. **/
         radio?: String;
+        /** Specifies whether remote access has been enabled for the specified device. **/
+        remoteAccessEnabled?: Boolean;
+        /** The type of fleet to which this device belongs. Possible values for fleet type
+are PRIVATE and PUBLIC. **/
+        fleetType?: String;
+        /** The name of the fleet to which this device belongs. **/
+        fleetName?: String;
     }
     export interface DeviceMinutes {
         /** When specified, represents the total minutes used by the resource to run tests. **/
@@ -944,6 +1037,15 @@ can be used to return the next set of items in the list. **/
     export interface GetProjectResult {
         project?: Project;
     }
+    export interface GetRemoteAccessSessionRequest {
+        /** The Amazon Resource Name (ARN) of the remote access session about which you want
+to get session information. **/
+        arn: AmazonResourceName;
+    }
+    export interface GetRemoteAccessSessionResult {
+        /** A container that lists detailed information about the remote access session. **/
+        remoteAccessSession?: RemoteAccessSession;
+    }
     export interface GetRunRequest {
         /** The run&#x27;s ARN. **/
         arn: AmazonResourceName;
@@ -994,6 +1096,17 @@ Allowed values include:
    
  * PLATFORM: The platform (for example, Android or iOS). **/
         type?: DeviceAttribute;
+    }
+    export interface InstallToRemoteAccessSessionRequest {
+        /** The Amazon Resource Name (ARN) of the remote access session about which you are
+requesting information. **/
+        remoteAccessSessionArn: AmazonResourceName;
+        /** The Amazon Resource Name (ARN) of the app about which you are requesting
+information. **/
+        appArn: AmazonResourceName;
+    }
+    export interface InstallToRemoteAccessSessionResult {
+        appUpload?: Upload;
     }
     export interface Job {
         /** The job&#x27;s ARN. **/
@@ -1234,6 +1347,22 @@ can be used to return the next set of items in the list. **/
         /** If the number of items that are returned is significantly large, this is an
 identifier that is also returned, which can be used in a subsequent call to this
 operation to return the next set of items in the list. **/
+        nextToken?: PaginationToken;
+    }
+    export interface ListRemoteAccessSessionsRequest {
+        /** The Amazon Resource Name (ARN) of the remote access session about which you are
+requesting information. **/
+        arn: AmazonResourceName;
+        /** An identifier that was returned from the previous call to this operation, which
+can be used to return the next set of items in the list. **/
+        nextToken?: PaginationToken;
+    }
+    export interface ListRemoteAccessSessionsResult {
+        /** A container representing the metadata from the service about each remote access
+session you are requesting. **/
+        remoteAccessSessions?: RemoteAccessSessions;
+        /** An identifier that was returned from the previous call to this operation, which
+can be used to return the next set of items in the list. **/
         nextToken?: PaginationToken;
     }
     export interface ListRunsRequest {
@@ -1477,6 +1606,80 @@ Allowed values include:
         cost?: MonetaryAmount;
         /** The frequency in which charges will recur. **/
         frequency?: RecurringChargeFrequency;
+    }
+    export interface RemoteAccessSession {
+        /** The Amazon Resource Name (ARN) of the remote access session. **/
+        arn?: AmazonResourceName;
+        /** The name of the remote access session. **/
+        name?: Name;
+        /** The date and time the remote access session was created. **/
+        created?: DateTime;
+        /** The status of the remote access session. Can be any of the following:
+
+ &amp;#42; PENDING: A pending status.
+   
+   
+ * PENDING_CONCURRENCY: A pending concurrency status.
+   
+   
+ * PENDING_DEVICE: A pending device status.
+   
+   
+ * PROCESSING: A processing status.
+   
+   
+ * SCHEDULING: A scheduling status.
+   
+   
+ * PREPARING: A preparing status.
+   
+   
+ * RUNNING: A running status.
+   
+   
+ * COMPLETED: A completed status.
+   
+   
+ * STOPPING: A stopping status. **/
+        status?: ExecutionStatus;
+        /** The result of the remote access session. Can be any of the following:
+
+ &amp;#42; PENDING: A pending condition.
+   
+   
+ * PASSED: A passing condition.
+   
+   
+ * WARNED: A warning condition.
+   
+   
+ * FAILED: A failed condition.
+   
+   
+ * SKIPPED: A skipped condition.
+   
+   
+ * ERRORED: An error condition.
+   
+   
+ * STOPPED: A stopped condition. **/
+        result?: ExecutionResult;
+        /** A message about the remote access session. **/
+        message?: Message;
+        /** The date and time the remote access session was started. **/
+        started?: DateTime;
+        /** The date and time the remote access session was stopped. **/
+        stopped?: DateTime;
+        device?: Device;
+        /** The billing method of the remote access session. Possible values include METERED 
+or UNMETERED . For more information about metered devices, see AWS Device Farm
+terminology
+[http://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology] 
+.&quot; **/
+        billingMethod?: BillingMethod;
+        deviceMinutes?: DeviceMinutes;
+        /** The endpoint for the remote access sesssion. **/
+        endpoint?: String;
     }
     export interface RenewOfferingRequest {
         /** The ID of a request to renew an offering. **/
@@ -1823,6 +2026,15 @@ Must be one of the following values:
     export interface ServiceAccountException {
         /** Any additional information about the exception. **/
         message?: Message;
+    }
+    export interface StopRemoteAccessSessionRequest {
+        /** The Amazon Resource Name (ARN) of the remote access session you wish to stop. **/
+        arn: AmazonResourceName;
+    }
+    export interface StopRemoteAccessSessionResult {
+        /** A container representing the metadata from the service about the remote access
+session you are stopping. **/
+        remoteAccessSession?: RemoteAccessSession;
     }
     export interface StopRunRequest {
         /** Represents the Amazon Resource Name (ARN) of the Device Farm run you wish to
