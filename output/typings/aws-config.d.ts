@@ -87,6 +87,16 @@ recorder by using the StopConfigurationRecorder action.
      */
     deleteDeliveryChannel(params: ConfigService.DeleteDeliveryChannelRequest, callback?: (err: ConfigService.NoSuchDeliveryChannelException|ConfigService.LastDeliveryChannelDeleteFailedException|any, data: any) => void): Request<any,ConfigService.NoSuchDeliveryChannelException|ConfigService.LastDeliveryChannelDeleteFailedException|any>;
     /**
+     * Deletes the evaluation results for the specified Config rule. You can specify
+one Config rule per request. After you delete the evaluation results, you can
+call the StartConfigRulesEvaluation API to start evaluating your AWS resources
+against the rule.
+     *
+     * @error NoSuchConfigRuleException   
+     * @error ResourceInUseException   
+     */
+    deleteEvaluationResults(params: ConfigService.DeleteEvaluationResultsRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|ConfigService.ResourceInUseException|any, data: ConfigService.DeleteEvaluationResultsResponse|any) => void): Request<ConfigService.DeleteEvaluationResultsResponse|any,ConfigService.NoSuchConfigRuleException|ConfigService.ResourceInUseException|any>;
+    /**
      * Schedules delivery of a configuration snapshot to the Amazon S3 bucket in the
 specified delivery channel. After the delivery has started, AWS Config sends
 following notifications using an Amazon SNS topic that you have specified.
@@ -117,9 +127,9 @@ INSUFFICIENT_DATA . This result might indicate one of the following conditions:
    LastSuccessfulInvocationTime and LastFailedInvocationTime .
  * The rule&#x27;s AWS Lambda function is failing to send evaluation results to AWS
    Config. Verify that the role that you assigned to your configuration recorder
-   includes the config:PutEvaluations permission. If the rule is a customer
-   managed rule, verify that the AWS Lambda execution role includes the 
-   config:PutEvaluations permission.
+   includes the config:PutEvaluations permission. If the rule is a custom rule,
+   verify that the AWS Lambda execution role includes the config:PutEvaluations 
+   permission.
  * The rule&#x27;s AWS Lambda function has returned NOT_APPLICABLE for all evaluation
    results. This can occur if the resources were deleted or removed from the
    rule&#x27;s scope.
@@ -146,9 +156,9 @@ about the rules that evaluate the resource:
    LastSuccessfulInvocationTime and LastFailedInvocationTime .
  * The rule&#x27;s AWS Lambda function is failing to send evaluation results to AWS
    Config. Verify that the role that you assigned to your configuration recorder
-   includes the config:PutEvaluations permission. If the rule is a customer
-   managed rule, verify that the AWS Lambda execution role includes the 
-   config:PutEvaluations permission.
+   includes the config:PutEvaluations permission. If the rule is a custom rule,
+   verify that the AWS Lambda execution role includes the config:PutEvaluations 
+   permission.
  * The rule&#x27;s AWS Lambda function has returned NOT_APPLICABLE for all evaluation
    results. This can occur if the resources were deleted or removed from the
    rule&#x27;s scope.
@@ -294,17 +304,16 @@ parameter.
      * Adds or updates an AWS Config rule for evaluating whether your AWS resources
 comply with your desired configurations.
 
-You can use this action for customer managed Config rules and AWS managed Config
-rules. A customer managed Config rule is a custom rule that you develop and
-maintain. An AWS managed Config rule is a customizable, predefined rule that is
-provided by AWS Config.
+You can use this action for custom Config rules and AWS managed Config rules. A
+custom Config rule is a rule that you develop and maintain. An AWS managed
+Config rule is a customizable, predefined rule that AWS Config provides.
 
-If you are adding a new customer managed Config rule, you must first create the
-AWS Lambda function that the rule invokes to evaluate your resources. When you
-use the PutConfigRule action to add the rule to AWS Config, you must specify the
-Amazon Resource Name (ARN) that AWS Lambda assigns to the function. Specify the
-ARN for the SourceIdentifier key. This key is part of the Source object, which
-is part of the ConfigRule object.
+If you are adding a new custom Config rule, you must first create the AWS Lambda
+function that the rule invokes to evaluate your resources. When you use the 
+PutConfigRule action to add the rule to AWS Config, you must specify the Amazon
+Resource Name (ARN) that AWS Lambda assigns to the function. Specify the ARN for
+the SourceIdentifier key. This key is part of the Source object, which is part
+of the ConfigRule object.
 
 If you are adding a new AWS managed Config rule, specify the rule&#x27;s identifier
 for the SourceIdentifier key. To reference AWS managed Config rule identifiers,
@@ -388,6 +397,21 @@ rule.
      * @error NoSuchConfigRuleException   
      */
     putEvaluations(params: ConfigService.PutEvaluationsRequest, callback?: (err: ConfigService.InvalidParameterValueException|ConfigService.InvalidResultTokenException|ConfigService.NoSuchConfigRuleException|any, data: ConfigService.PutEvaluationsResponse|any) => void): Request<ConfigService.PutEvaluationsResponse|any,ConfigService.InvalidParameterValueException|ConfigService.InvalidResultTokenException|ConfigService.NoSuchConfigRuleException|any>;
+    /**
+     * Evaluates your resources against the specified Config rules. You can specify up
+to 25 Config rules per request.
+
+An existing StartConfigRulesEvaluation call must complete for the rules that you
+specified before you can call the API again. If you chose to have AWS Config
+stream to an Amazon SNS topic, you will receive a notification when the
+evaluation starts.
+     *
+     * @error NoSuchConfigRuleException   
+     * @error LimitExceededException   
+     * @error ResourceInUseException   
+     * @error InvalidParameterValueException   
+     */
+    startConfigRulesEvaluation(params: ConfigService.StartConfigRulesEvaluationRequest, callback?: (err: ConfigService.NoSuchConfigRuleException|ConfigService.LimitExceededException|ConfigService.ResourceInUseException|ConfigService.InvalidParameterValueException|any, data: ConfigService.StartConfigRulesEvaluationResponse|any) => void): Request<ConfigService.StartConfigRulesEvaluationResponse|any,ConfigService.NoSuchConfigRuleException|ConfigService.LimitExceededException|ConfigService.ResourceInUseException|ConfigService.InvalidParameterValueException|any>;
     /**
      * Starts recording configurations of the AWS resources you have selected to record
 in your AWS account.
@@ -509,6 +533,8 @@ in your AWS account.
     
     export type RecorderStatus = string;
     
+    export type ReevaluateConfigRuleNames = StringWithCharLimit64[];
+    
     export type RelatedEvent = string;
     
     export type RelatedEventList = RelatedEvent[];
@@ -544,6 +570,12 @@ in your AWS account.
     export type StringWithCharLimit256 = string;
     
     export type StringWithCharLimit64 = string;
+    
+    export type SupplementaryConfiguration = {[key:string]: SupplementaryConfigurationValue};
+    
+    export type SupplementaryConfigurationName = string;
+    
+    export type SupplementaryConfigurationValue = string;
     
     export type Tags = {[key:string]: Value};
     
@@ -642,30 +674,40 @@ constrain the resources that can trigger an evaluation for the rule. If you do
 not specify a scope, evaluations are triggered when any resource in the
 recording group changes. **/
         Scope?: Scope;
-        /** Provides the rule owner (AWS or customer), the rule identifier, and the events
-that cause the function to evaluate your AWS resources. **/
+        /** Provides the rule owner (AWS or customer), the rule identifier, and the
+notifications that cause the function to evaluate your AWS resources. **/
         Source: Source;
         /** A string in JSON format that is passed to the AWS Config rule Lambda function. **/
         InputParameters?: StringWithCharLimit256;
-        /** The maximum frequency at which the AWS Config rule runs evaluations.
+        /** If you want to create a rule that evaluates at a frequency that is independent
+of the configuration snapshot delivery, use the MaximumExecutionFrequency 
+parameter in the SourceDetail object.
 
-If your rule is periodic, meaning it runs an evaluation when AWS Config delivers
-a configuration snapshot, then it cannot run evaluations more frequently than
-AWS Config delivers the snapshots. For periodic rules, set the value of the 
-MaximumExecutionFrequency key to be equal to or greater than the value of the 
-deliveryFrequency key, which is part of ConfigSnapshotDeliveryProperties . To
-update the frequency with which AWS Config delivers your snapshots, use the 
-PutDeliveryChannel action. **/
+If you want to create a rule that triggers evaluations for your resources when
+AWS Config delivers the configuration snapshot, see the following:
+
+A rule that runs an evaluation when AWS Config delivers a configuration snapshot
+cannot run evaluations more frequently than AWS Config delivers the snapshots.
+Set the value of the MaximumExecutionFrequency to be equal to or greater than
+the value of the deliveryFrequency key, which is part of 
+ConfigSnapshotDeliveryProperties .
+
+For more information, see ConfigSnapshotDeliveryProperties . **/
         MaximumExecutionFrequency?: MaximumExecutionFrequency;
-        /** Indicates whether the AWS Config rule is active or currently being deleted by
-AWS Config.
+        /** Indicates whether the AWS Config rule is active or is currently being deleted by
+AWS Config. It can also indicate the evaluation status for the Config rule.
+
+AWS Config sets the state of the rule to EVALUATING temporarily after you use
+the StartConfigRulesEvaluation request to evaluate your resources against the
+Config rule.
+
+AWS Config sets the state of the rule to DELETING_RESULTS temporarily after you
+use the DeleteEvaluationResults request to delete the current evaluation results
+for the Config rule.
 
 AWS Config sets the state of a rule to DELETING temporarily after you use the 
-DeleteConfigRule request to delete the rule. After AWS Config finishes deleting
-a rule, the rule and all of its evaluations are erased and no longer available.
-
-You cannot add a rule to AWS Config that has the state set to DELETING . If you
-want to delete a rule, you must use the DeleteConfigRule request. **/
+DeleteConfigRule request to delete the rule. After AWS Config deletes the rule,
+the rule and all of its evaluations are erased and are no longer available. **/
         ConfigRuleState?: ConfigRuleState;
     }
     export interface ConfigRuleEvaluationStatus {
@@ -703,8 +745,7 @@ least once.
         FirstEvaluationStarted?: Boolean;
     }
     export interface ConfigSnapshotDeliveryProperties {
-        /** The frequency with which AWS Config recurringly delivers configuration
-snapshots. **/
+        /** The frequency with which AWS Config delivers configuration snapshots. **/
         deliveryFrequency?: MaximumExecutionFrequency;
     }
     export interface ConfigStreamDeliveryInfo {
@@ -770,6 +811,9 @@ event. **/
         relationships?: RelationshipList;
         /** The description of the resource configuration. **/
         configuration?: Configuration;
+        /** Configuration attributes that AWS Config returns for certain resource types to
+supplement the information returned for the configuration parameter. **/
+        supplementaryConfiguration?: SupplementaryConfiguration;
     }
     export interface ConfigurationRecorder {
         /** The name of the recorder. By default, AWS Config automatically assigns the name
@@ -814,6 +858,12 @@ action. **/
     export interface DeleteDeliveryChannelRequest {
         /** The name of the delivery channel to delete. **/
         DeliveryChannelName: ChannelName;
+    }
+    export interface DeleteEvaluationResultsRequest {
+        /** The name of the Config rule for which you want to delete the evaluation results. **/
+        ConfigRuleName: StringWithCharLimit64;
+    }
+    export interface DeleteEvaluationResultsResponse {
     }
     export interface DeliverConfigSnapshotRequest {
         /** The name of the delivery channel through which the snapshot is delivered. **/
@@ -1156,6 +1206,8 @@ in a paginated response. **/
     }
     export interface LastDeliveryChannelDeleteFailedException {
     }
+    export interface LimitExceededException {
+    }
     export interface ListDiscoveredResourcesRequest {
         /** The type of resources that you want AWS Config to list in the response. **/
         resourceType: ResourceType;
@@ -1320,8 +1372,8 @@ the list, see Using AWS Managed Config Rules
 [http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html] 
 .
 
-For customer managed Config rules, the identifier is the Amazon Resource Name
-(ARN) of the rule&#x27;s AWS Lambda function. **/
+For custom Config rules, the identifier is the Amazon Resource Name (ARN) of the
+rule&#x27;s AWS Lambda function. **/
         SourceIdentifier?: StringWithCharLimit256;
         /** Provides the source and type of the event that causes AWS Config to evaluate
 your AWS resources. **/
@@ -1331,12 +1383,28 @@ your AWS resources. **/
         /** The source of the event, such as an AWS service, that triggers AWS Config to
 evaluate your AWS resources. **/
         EventSource?: EventSource;
-        /** The type of SNS message that triggers AWS Config to run an evaluation. For
-evaluations that are initiated when AWS Config delivers a configuration item
-change notification, you must use ConfigurationItemChangeNotification . For
-evaluations that are initiated when AWS Config delivers a configuration
+        /** The type of SNS message that triggers AWS Config to run an evaluation.
+
+For evaluations that are initiated when AWS Config delivers a configuration item
+change notification, you must use ConfigurationItemChangeNotification .
+
+For evaluations that are initiated at a frequency that you choose (for example,
+every 24 hours), you must use ScheduledNotification .
+
+For evaluations that are initiated when AWS Config delivers a configuration
 snapshot, you must use ConfigurationSnapshotDeliveryCompleted . **/
         MessageType?: MessageType;
+        /** If the trigger type for your rule includes periodic, AWS Config runs evaluations
+for the rule at a frequency that you choose. If you specify a value for 
+MaximumExecutionFrequency , then MessageType must use the ScheduledNotification 
+value. **/
+        MaximumExecutionFrequency?: MaximumExecutionFrequency;
+    }
+    export interface StartConfigRulesEvaluationRequest {
+        /** The list of names of Config rules that you want to run evaluations for. **/
+        ConfigRuleNames?: ReevaluateConfigRuleNames;
+    }
+    export interface StartConfigRulesEvaluationResponse {
     }
     export interface StartConfigurationRecorderRequest {
         /** The name of the recorder object that records each configuration change made to

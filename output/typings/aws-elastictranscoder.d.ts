@@ -27,16 +27,12 @@ You can only cancel a job that has a status of Submitted . To prevent a pipeline
 from starting to process a job while you&#x27;re getting the job identifier, use 
 UpdatePipelineStatus to temporarily pause the pipeline.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error ResourceNotFoundException The requested resource does not exist or is not available. For example, the
-pipeline to which you&#x27;re trying to add a job doesn&#x27;t exist or is still being
-created.  
-     * @error ResourceInUseException The resource you are attempting to change is in use. For example, you are
-attempting to delete a pipeline that is currently in use.  
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error ResourceNotFoundException   
+     * @error ResourceInUseException   
+     * @error AccessDeniedException   
+     * @error InternalServiceException   
      */
     cancelJob(params: ElasticTranscoder.CancelJobRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CancelJobResponse|any) => void): Request<ElasticTranscoder.CancelJobResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
@@ -48,31 +44,23 @@ output for the Kindle Fire and another output for the Apple iPhone 4s), you
 currently must use the Elastic Transcoder API to list the jobs (as opposed to
 the AWS Console).
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error ResourceNotFoundException The requested resource does not exist or is not available. For example, the
-pipeline to which you&#x27;re trying to add a job doesn&#x27;t exist or is still being
-created.  
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error LimitExceededException Too many operations for a given AWS account. For example, the number of
-pipelines exceeds the maximum allowed.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error ResourceNotFoundException   
+     * @error AccessDeniedException   
+     * @error LimitExceededException   
+     * @error InternalServiceException   
      */
     createJob(params: ElasticTranscoder.CreateJobRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CreateJobResponse|any) => void): Request<ElasticTranscoder.CreateJobResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The CreatePipeline operation creates a pipeline with settings that you specify.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error ResourceNotFoundException The requested resource does not exist or is not available. For example, the
-pipeline to which you&#x27;re trying to add a job doesn&#x27;t exist or is still being
-created.  
-     * @error LimitExceededException Too many operations for a given AWS account. For example, the number of
-pipelines exceeds the maximum allowed.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error AccessDeniedException   
+     * @error ResourceNotFoundException   
+     * @error LimitExceededException   
+     * @error InternalServiceException   
      */
     createPipeline(params: ElasticTranscoder.CreatePipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CreatePipelineResponse|any) => void): Request<ElasticTranscoder.CreatePipelineResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any>;
     /**
@@ -91,13 +79,11 @@ Transcoder uses the H.264 video-compression format. For more information, see
 the International Telecommunication Union publication Recommendation ITU-T
 H.264: Advanced video coding for generic audiovisual services .
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error LimitExceededException Too many operations for a given AWS account. For example, the number of
-pipelines exceeds the maximum allowed.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error AccessDeniedException   
+     * @error LimitExceededException   
+     * @error InternalServiceException   
      */
     createPreset(params: ElasticTranscoder.CreatePresetRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.CreatePresetResponse|any) => void): Request<ElasticTranscoder.CreatePresetResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.LimitExceededException|ElasticTranscoder.InternalServiceException|any>;
     /**
@@ -107,16 +93,12 @@ You can only delete a pipeline that has never been used or that is not currently
 in use (doesn&#x27;t contain any active jobs). If the pipeline is currently in use, 
 DeletePipeline returns an error.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error ResourceNotFoundException The requested resource does not exist or is not available. For example, the
-pipeline to which you&#x27;re trying to add a job doesn&#x27;t exist or is still being
-created.  
-     * @error ResourceInUseException The resource you are attempting to change is in use. For example, you are
-attempting to delete a pipeline that is currently in use.  
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error ResourceNotFoundException   
+     * @error ResourceInUseException   
+     * @error AccessDeniedException   
+     * @error InternalServiceException   
      */
     deletePipeline(params: ElasticTranscoder.DeletePipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.DeletePipelineResponse|any) => void): Request<ElasticTranscoder.DeletePipelineResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
@@ -124,14 +106,11 @@ the request.
 
 You can&#x27;t delete the default presets that are included with Elastic Transcoder.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error ResourceNotFoundException The requested resource does not exist or is not available. For example, the
-pipeline to which you&#x27;re trying to add a job doesn&#x27;t exist or is still being
-created.  
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error ResourceNotFoundException   
+     * @error AccessDeniedException   
+     * @error InternalServiceException   
      */
     deletePreset(params: ElasticTranscoder.DeletePresetRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.DeletePresetResponse|any) => void): Request<ElasticTranscoder.DeletePresetResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
@@ -142,14 +121,11 @@ Elastic Transcoder returns all of the jobs currently in the specified pipeline.
 The response body contains one element for each job that satisfies the search
 criteria.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error ResourceNotFoundException The requested resource does not exist or is not available. For example, the
-pipeline to which you&#x27;re trying to add a job doesn&#x27;t exist or is still being
-created.  
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error ResourceNotFoundException   
+     * @error AccessDeniedException   
+     * @error InternalServiceException   
      */
     listJobsByPipeline(params: ElasticTranscoder.ListJobsByPipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ListJobsByPipelineResponse|any) => void): Request<ElasticTranscoder.ListJobsByPipelineResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
@@ -157,75 +133,61 @@ the request.
 The response body contains one element for each job that satisfies the search
 criteria.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error ResourceNotFoundException The requested resource does not exist or is not available. For example, the
-pipeline to which you&#x27;re trying to add a job doesn&#x27;t exist or is still being
-created.  
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error ResourceNotFoundException   
+     * @error AccessDeniedException   
+     * @error InternalServiceException   
      */
     listJobsByStatus(params: ElasticTranscoder.ListJobsByStatusRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ListJobsByStatusResponse|any) => void): Request<ElasticTranscoder.ListJobsByStatusResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The ListPipelines operation gets a list of the pipelines associated with the
 current AWS account.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error AccessDeniedException   
+     * @error InternalServiceException   
      */
     listPipelines(params: ElasticTranscoder.ListPipelinesRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ListPipelinesResponse|any) => void): Request<ElasticTranscoder.ListPipelinesResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The ListPresets operation gets a list of the default presets included with
 Elastic Transcoder and the presets that you&#x27;ve added in an AWS region.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error AccessDeniedException   
+     * @error InternalServiceException   
      */
     listPresets(params: ElasticTranscoder.ListPresetsRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ListPresetsResponse|any) => void): Request<ElasticTranscoder.ListPresetsResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The ReadJob operation returns detailed information about a job.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error ResourceNotFoundException The requested resource does not exist or is not available. For example, the
-pipeline to which you&#x27;re trying to add a job doesn&#x27;t exist or is still being
-created.  
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error ResourceNotFoundException   
+     * @error AccessDeniedException   
+     * @error InternalServiceException   
      */
     readJob(params: ElasticTranscoder.ReadJobRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ReadJobResponse|any) => void): Request<ElasticTranscoder.ReadJobResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The ReadPipeline operation gets detailed information about a pipeline.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error ResourceNotFoundException The requested resource does not exist or is not available. For example, the
-pipeline to which you&#x27;re trying to add a job doesn&#x27;t exist or is still being
-created.  
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error ResourceNotFoundException   
+     * @error AccessDeniedException   
+     * @error InternalServiceException   
      */
     readPipeline(params: ElasticTranscoder.ReadPipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ReadPipelineResponse|any) => void): Request<ElasticTranscoder.ReadPipelineResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
      * The ReadPreset operation gets detailed information about a preset.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error ResourceNotFoundException The requested resource does not exist or is not available. For example, the
-pipeline to which you&#x27;re trying to add a job doesn&#x27;t exist or is still being
-created.  
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error ResourceNotFoundException   
+     * @error AccessDeniedException   
+     * @error InternalServiceException   
      */
     readPreset(params: ElasticTranscoder.ReadPresetRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.ReadPresetResponse|any) => void): Request<ElasticTranscoder.ReadPresetResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
@@ -237,14 +199,11 @@ the transcoding process. The action attempts to assume the specified IAM role,
 checks read access to the input and output buckets, and tries to send a test
 notification to Amazon SNS topics that you specify.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error ResourceNotFoundException The requested resource does not exist or is not available. For example, the
-pipeline to which you&#x27;re trying to add a job doesn&#x27;t exist or is still being
-created.  
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error ResourceNotFoundException   
+     * @error AccessDeniedException   
+     * @error InternalServiceException   
      */
     testRole(params: ElasticTranscoder.TestRoleRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.TestRoleResponse|any) => void): Request<ElasticTranscoder.TestRoleResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
@@ -253,16 +212,12 @@ change pipeline settings, your changes take effect immediately. Jobs that you
 have already submitted and that Elastic Transcoder has not started to process
 are affected in addition to jobs that you submit after you change settings.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error ResourceInUseException The resource you are attempting to change is in use. For example, you are
-attempting to delete a pipeline that is currently in use.  
-     * @error ResourceNotFoundException The requested resource does not exist or is not available. For example, the
-pipeline to which you&#x27;re trying to add a job doesn&#x27;t exist or is still being
-created.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error AccessDeniedException   
+     * @error ResourceInUseException   
+     * @error ResourceNotFoundException   
+     * @error InternalServiceException   
      */
     updatePipeline(params: ElasticTranscoder.UpdatePipelineRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.UpdatePipelineResponse|any) => void): Request<ElasticTranscoder.UpdatePipelineResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.InternalServiceException|any>;
     /**
@@ -272,16 +227,12 @@ Notification Service (Amazon SNS) notifications for a pipeline.
 When you update notifications for a pipeline, Elastic Transcoder returns the
 values that you specified in the request.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error ResourceNotFoundException The requested resource does not exist or is not available. For example, the
-pipeline to which you&#x27;re trying to add a job doesn&#x27;t exist or is still being
-created.  
-     * @error ResourceInUseException The resource you are attempting to change is in use. For example, you are
-attempting to delete a pipeline that is currently in use.  
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error ResourceNotFoundException   
+     * @error ResourceInUseException   
+     * @error AccessDeniedException   
+     * @error InternalServiceException   
      */
     updatePipelineNotifications(params: ElasticTranscoder.UpdatePipelineNotificationsRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.UpdatePipelineNotificationsResponse|any) => void): Request<ElasticTranscoder.UpdatePipelineNotificationsResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
     /**
@@ -294,16 +245,12 @@ you pause the pipeline to which you submitted the jobs, you have more time to
 get the job IDs for the jobs that you want to cancel, and to send a CancelJob 
 request.
      *
-     * @error ValidationException One or more required parameter values were not provided in the request.  
+     * @error ValidationException   
      * @error IncompatibleVersionException   
-     * @error ResourceNotFoundException The requested resource does not exist or is not available. For example, the
-pipeline to which you&#x27;re trying to add a job doesn&#x27;t exist or is still being
-created.  
-     * @error ResourceInUseException The resource you are attempting to change is in use. For example, you are
-attempting to delete a pipeline that is currently in use.  
-     * @error AccessDeniedException General authentication failure. The request was not signed correctly.  
-     * @error InternalServiceException Elastic Transcoder encountered an unexpected exception while trying to fulfill
-the request.  
+     * @error ResourceNotFoundException   
+     * @error ResourceInUseException   
+     * @error AccessDeniedException   
+     * @error InternalServiceException   
      */
     updatePipelineStatus(params: ElasticTranscoder.UpdatePipelineStatusRequest, callback?: (err: ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any, data: ElasticTranscoder.UpdatePipelineStatusResponse|any) => void): Request<ElasticTranscoder.UpdatePipelineStatusResponse|any,ElasticTranscoder.ValidationException|ElasticTranscoder.IncompatibleVersionException|ElasticTranscoder.ResourceNotFoundException|ElasticTranscoder.ResourceInUseException|ElasticTranscoder.AccessDeniedException|ElasticTranscoder.InternalServiceException|any>;
 
@@ -414,6 +361,8 @@ the request.
     export type KeyStoragePolicy = string;
     
     export type KeyframesMaxDist = string;
+    
+    export type LongKey = string;
     
     export type MaxFrameRate = string;
     
@@ -803,7 +752,7 @@ your caption formats. **/
     export interface CaptionSource {
         /** The name of the sidecar caption file that you want Elastic Transcoder to include
 in the output file. **/
-        Key?: Key;
+        Key?: LongKey;
         /** A string that specifies the language of the caption. Specify this as one of:
 
  &amp;#42; 2-character ISO 639-1 code
@@ -1540,7 +1489,7 @@ from.
 If the file name includes a prefix, such as cooking/lasagna.mpg , include the
 prefix in the key. If the file isn&#x27;t in the specified bucket, Elastic Transcoder
 returns an error. **/
-        Key?: Key;
+        Key?: LongKey;
         /** The frame rate of the input file. If you want Elastic Transcoder to
 automatically detect the frame rate of the input file, specify auto . If you
 want to specify the frame rate for the input file, enter one of the following

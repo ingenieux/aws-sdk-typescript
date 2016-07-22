@@ -185,6 +185,8 @@ validation mail, you must request a new certificate.
     
     export type DomainValidationOptionList = DomainValidationOption[];
     
+    export type FailureReason = string;
+    
     export type IdempotencyToken = string;
     
     export type InUseList = String[];
@@ -271,6 +273,12 @@ is SHA256WITHRSA . **/
         /** A list of ARNs for the resources that are using the certificate. An ACM
 Certificate can be used by multiple AWS resources. **/
         InUseBy?: InUseList;
+        /** The reason the certificate request failed. This value exists only when the
+structure&#x27;s Status is FAILED . For more information, see Certificate Request
+Failed
+[http://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed] 
+in the AWS Certificate Manager User Guide . **/
+        FailureReason?: FailureReason;
     }
     export interface CertificateSummary {
         /** Amazon Resource Name (ARN) of the certificate. This is of the form:

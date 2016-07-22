@@ -40,7 +40,22 @@ Application Auto Scaling is available in the following regions:
  * us-east-1
    
    
+ * us-west-1
+   
+   
  * us-west-2
+   
+   
+ * ap-southeast-1
+   
+   
+ * ap-southeast-2
+   
+   
+ * ap-northeast-1
+   
+   
+ * eu-central-1
    
    
  * eu-west-1
@@ -99,7 +114,7 @@ deregister it with DeregisterScalableTarget .
     describeScalableTargets(params: ApplicationAutoScaling.DescribeScalableTargetsRequest, callback?: (err: ApplicationAutoScaling.ValidationException|ApplicationAutoScaling.InvalidNextTokenException|ApplicationAutoScaling.ConcurrentUpdateException|ApplicationAutoScaling.InternalServiceException|any, data: ApplicationAutoScaling.DescribeScalableTargetsResponse|any) => void): Request<ApplicationAutoScaling.DescribeScalableTargetsResponse|any,ApplicationAutoScaling.ValidationException|ApplicationAutoScaling.InvalidNextTokenException|ApplicationAutoScaling.ConcurrentUpdateException|ApplicationAutoScaling.InternalServiceException|any>;
     /**
      * Provides descriptive information for scaling activities with a specified service
-namespace.
+namespace for the previous six weeks.
 
 You can filter the results in a service namespace with the ResourceId and 
 ScalableDimension parameters.
@@ -435,10 +450,12 @@ to. The scalable dimension contains the service namespace, resource type, and
 scaling property, such as ecs:service:DesiredCount for the desired task count of
 an Amazon ECS service. **/
         ScalableDimension: ScalableDimension;
-        /** The policy type. This parameter is required if you are creating a new policy. **/
+        /** The policy type. If you are creating a new policy, this parameter is required.
+If you are updating an existing policy, this parameter is not required. **/
         PolicyType?: PolicyType;
-        /** The configuration for the step scaling policy. This parameter is required if you
-are creating a new policy. For more information, see 
+        /** The configuration for the step scaling policy. If you are creating a new policy,
+this parameter is required. If you are updating an existing policy, this
+parameter is not required. For more information, see 
 StepScalingPolicyConfiguration and StepAdjustment . **/
         StepScalingPolicyConfiguration?: StepScalingPolicyConfiguration;
     }
