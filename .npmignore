@@ -5,3 +5,7 @@ output/**
 tsconfig*.*
 app
 gulpfile.js
+.editorconfig
+.travis.yml
+.jshintrc
+.gitmodules
