@@ -8,32 +8,32 @@
 declare module "aws-sdk" {
 
   /**
-   * apiVersion: 2015-12-10
-   * endpointPrefix: servicecatalog
-   * serviceAbbreviation:
-   * signatureVersion: v4
-   * protocol: json
-   *
-   * AWS Service CatalogOverview
-
-   AWS Service Catalog [https://aws.amazon.com/servicecatalog/] allows
-   organizations to create and manage catalogs of IT services that are approved for
-   use on AWS. This documentation provides reference material for the AWS Service
-   Catalog end user API. To get the most out of this documentation, you need to be
-   familiar with the terminology discussed in AWS Service Catalog Concepts
-   [http://docs.aws.amazon.com/servicecatalog/latest/userguide/what-is_concepts.html]
-   .
-
-   Additional Resources
-
-   &amp;#42; AWS Service Catalog Administrator Guide
-   [http://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html]
-
-
-   * AWS Service Catalog User Guide
-   [http://docs.aws.amazon.com/servicecatalog/latest/userguide/introduction.html]
-   *
-   */
+    * apiVersion: 2015-12-10
+    * endpointPrefix: servicecatalog
+    * serviceAbbreviation: 
+    * signatureVersion: v4
+    * protocol: json
+    *
+    * AWS Service CatalogOverview
+ 
+ AWS Service Catalog [https://aws.amazon.com/servicecatalog/] allows
+ organizations to create and manage catalogs of IT services that are approved for
+ use on AWS. This documentation provides reference material for the AWS Service
+ Catalog end user API. To get the most out of this documentation, you need to be
+ familiar with the terminology discussed in AWS Service Catalog Concepts
+ [http://docs.aws.amazon.com/servicecatalog/latest/userguide/what-is_concepts.html] 
+ .
+ 
+ Additional Resources
+ 
+  &amp;#42; AWS Service Catalog Administrator Guide
+    [http://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html]
+    
+    
+  * AWS Service Catalog User Guide
+    [http://docs.aws.amazon.com/servicecatalog/latest/userguide/introduction.html]
+    *
+    */
   export class ServiceCatalog extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
@@ -43,54 +43,54 @@ declare module "aws-sdk" {
 This operation is functionally identical to DescribeProductView except that it
 takes as input ProductId instead of ProductViewId .
      *
-     * @error ResourceNotFoundException
-     * @error InvalidParametersException
+     * @error ResourceNotFoundException   
+     * @error InvalidParametersException   
      */
-    describeProduct(params:ServiceCatalog.DescribeProductInput, callback?:(err:ServiceCatalog.ResourceNotFoundException | ServiceCatalog.InvalidParametersException | any, data:ServiceCatalog.DescribeProductOutput | any) => void):Request<ServiceCatalog.DescribeProductOutput | any, ServiceCatalog.ResourceNotFoundException | ServiceCatalog.InvalidParametersException | any>;
+    describeProduct(params: ServiceCatalog.DescribeProductInput, callback?: (err: ServiceCatalog.ResourceNotFoundException | ServiceCatalog.InvalidParametersException | any, data: ServiceCatalog.DescribeProductOutput | any) => void): Request<ServiceCatalog.DescribeProductOutput | any, ServiceCatalog.ResourceNotFoundException | ServiceCatalog.InvalidParametersException | any>;
     /**
      * Retrieves information about a specified product.
 
 This operation is functionally identical to DescribeProduct except that it takes
 as input ProductViewId instead of ProductId .
      *
-     * @error ResourceNotFoundException
-     * @error InvalidParametersException
+     * @error ResourceNotFoundException   
+     * @error InvalidParametersException   
      */
-    describeProductView(params:ServiceCatalog.DescribeProductViewInput, callback?:(err:ServiceCatalog.ResourceNotFoundException | ServiceCatalog.InvalidParametersException | any, data:ServiceCatalog.DescribeProductViewOutput | any) => void):Request<ServiceCatalog.DescribeProductViewOutput | any, ServiceCatalog.ResourceNotFoundException | ServiceCatalog.InvalidParametersException | any>;
+    describeProductView(params: ServiceCatalog.DescribeProductViewInput, callback?: (err: ServiceCatalog.ResourceNotFoundException | ServiceCatalog.InvalidParametersException | any, data: ServiceCatalog.DescribeProductViewOutput | any) => void): Request<ServiceCatalog.DescribeProductViewOutput | any, ServiceCatalog.ResourceNotFoundException | ServiceCatalog.InvalidParametersException | any>;
     /**
      * Provides information about parameters required to provision a specified product
-     in a specified manner. Use this operation to obtain the list of
-     ProvisioningArtifactParameters parameters available to call the ProvisionProduct
+in a specified manner. Use this operation to obtain the list of 
+ProvisioningArtifactParameters parameters available to call the ProvisionProduct 
 operation for the specified product.
      *
-     * @error InvalidParametersException
-     * @error ResourceNotFoundException
+     * @error InvalidParametersException   
+     * @error ResourceNotFoundException   
      */
-    describeProvisioningParameters(params:ServiceCatalog.DescribeProvisioningParametersInput, callback?:(err:ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any, data:ServiceCatalog.DescribeProvisioningParametersOutput | any) => void):Request<ServiceCatalog.DescribeProvisioningParametersOutput | any, ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any>;
+    describeProvisioningParameters(params: ServiceCatalog.DescribeProvisioningParametersInput, callback?: (err: ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any, data: ServiceCatalog.DescribeProvisioningParametersOutput | any) => void): Request<ServiceCatalog.DescribeProvisioningParametersOutput | any, ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any>;
     /**
      * Retrieves a paginated list of the full details of a specific request. Use this
-     operation after calling a request operation ( ProvisionProduct ,
+operation after calling a request operation ( ProvisionProduct , 
 TerminateProvisionedProduct , or UpdateProvisionedProduct ).
      *
-     * @error ResourceNotFoundException
+     * @error ResourceNotFoundException   
      */
-    describeRecord(params:ServiceCatalog.DescribeRecordInput, callback?:(err:ServiceCatalog.ResourceNotFoundException | any, data:ServiceCatalog.DescribeRecordOutput | any) => void):Request<ServiceCatalog.DescribeRecordOutput | any, ServiceCatalog.ResourceNotFoundException | any>;
+    describeRecord(params: ServiceCatalog.DescribeRecordInput, callback?: (err: ServiceCatalog.ResourceNotFoundException | any, data: ServiceCatalog.DescribeRecordOutput | any) => void): Request<ServiceCatalog.DescribeRecordOutput | any, ServiceCatalog.ResourceNotFoundException | any>;
     /**
      * Returns a paginated list of all paths to a specified product. A path is how the
 user has access to a specified product, and is necessary when provisioning a
 product. A path also determines the constraints put on the product.
      *
-     * @error InvalidParametersException
-     * @error ResourceNotFoundException
+     * @error InvalidParametersException   
+     * @error ResourceNotFoundException   
      */
-    listLaunchPaths(params:ServiceCatalog.ListLaunchPathsInput, callback?:(err:ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any, data:ServiceCatalog.ListLaunchPathsOutput | any) => void):Request<ServiceCatalog.ListLaunchPathsOutput | any, ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any>;
+    listLaunchPaths(params: ServiceCatalog.ListLaunchPathsInput, callback?: (err: ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any, data: ServiceCatalog.ListLaunchPathsOutput | any) => void): Request<ServiceCatalog.ListLaunchPathsOutput | any, ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any>;
     /**
      * Returns a paginated list of all performed requests, in the form of RecordDetails
 objects that are filtered as specified.
      *
-     * @error InvalidParametersException
+     * @error InvalidParametersException   
      */
-    listRecordHistory(params:ServiceCatalog.ListRecordHistoryInput, callback?:(err:ServiceCatalog.InvalidParametersException | any, data:ServiceCatalog.ListRecordHistoryOutput | any) => void):Request<ServiceCatalog.ListRecordHistoryOutput | any, ServiceCatalog.InvalidParametersException | any>;
+    listRecordHistory(params: ServiceCatalog.ListRecordHistoryInput, callback?: (err: ServiceCatalog.InvalidParametersException | any, data: ServiceCatalog.ListRecordHistoryOutput | any) => void): Request<ServiceCatalog.ListRecordHistoryOutput | any, ServiceCatalog.InvalidParametersException | any>;
     /**
      * Requests a Provision of a specified product. A ProvisionedProduct is a resourced
 instance for a product. For example, provisioning a
@@ -99,30 +99,30 @@ stack and all the underlying resources that come with it.
 
 You can check the status of this request using the DescribeRecord operation.
      *
-     * @error InvalidParametersException
-     * @error ResourceNotFoundException
-     * @error DuplicateResourceException
+     * @error InvalidParametersException   
+     * @error ResourceNotFoundException   
+     * @error DuplicateResourceException   
      */
-    provisionProduct(params:ServiceCatalog.ProvisionProductInput, callback?:(err:ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | ServiceCatalog.DuplicateResourceException | any, data:ServiceCatalog.ProvisionProductOutput | any) => void):Request<ServiceCatalog.ProvisionProductOutput | any, ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | ServiceCatalog.DuplicateResourceException | any>;
+    provisionProduct(params: ServiceCatalog.ProvisionProductInput, callback?: (err: ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | ServiceCatalog.DuplicateResourceException | any, data: ServiceCatalog.ProvisionProductOutput | any) => void): Request<ServiceCatalog.ProvisionProductOutput | any, ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | ServiceCatalog.DuplicateResourceException | any>;
     /**
      * Returns a paginated list of all the ProvisionedProduct objects that are
 currently available (not terminated).
      *
-     * @error InvalidParametersException
+     * @error InvalidParametersException   
      */
-    scanProvisionedProducts(params:ServiceCatalog.ScanProvisionedProductsInput, callback?:(err:ServiceCatalog.InvalidParametersException | any, data:ServiceCatalog.ScanProvisionedProductsOutput | any) => void):Request<ServiceCatalog.ScanProvisionedProductsOutput | any, ServiceCatalog.InvalidParametersException | any>;
+    scanProvisionedProducts(params: ServiceCatalog.ScanProvisionedProductsInput, callback?: (err: ServiceCatalog.InvalidParametersException | any, data: ServiceCatalog.ScanProvisionedProductsOutput | any) => void): Request<ServiceCatalog.ScanProvisionedProductsOutput | any, ServiceCatalog.InvalidParametersException | any>;
     /**
      * Returns a paginated list all of the Products objects to which the caller has
 access.
 
-     The output of this operation can be used as input for other operations, such as
+The output of this operation can be used as input for other operations, such as 
 DescribeProductView .
      *
-     * @error InvalidParametersException
+     * @error InvalidParametersException   
      */
-    searchProducts(params:ServiceCatalog.SearchProductsInput, callback?:(err:ServiceCatalog.InvalidParametersException | any, data:ServiceCatalog.SearchProductsOutput | any) => void):Request<ServiceCatalog.SearchProductsOutput | any, ServiceCatalog.InvalidParametersException | any>;
+    searchProducts(params: ServiceCatalog.SearchProductsInput, callback?: (err: ServiceCatalog.InvalidParametersException | any, data: ServiceCatalog.SearchProductsOutput | any) => void): Request<ServiceCatalog.SearchProductsOutput | any, ServiceCatalog.InvalidParametersException | any>;
     /**
-     * Requests termination of an existing ProvisionedProduct object. If there are Tags
+     * Requests termination of an existing ProvisionedProduct object. If there are Tags 
 associated with the object, they are terminated when the ProvisionedProduct
 object is terminated.
 
@@ -131,9 +131,9 @@ ProvisionedProduct object.
 
 You can check the status of this request using the DescribeRecord operation.
      *
-     * @error ResourceNotFoundException
+     * @error ResourceNotFoundException   
      */
-    terminateProvisionedProduct(params:ServiceCatalog.TerminateProvisionedProductInput, callback?:(err:ServiceCatalog.ResourceNotFoundException | any, data:ServiceCatalog.TerminateProvisionedProductOutput | any) => void):Request<ServiceCatalog.TerminateProvisionedProductOutput | any, ServiceCatalog.ResourceNotFoundException | any>;
+    terminateProvisionedProduct(params: ServiceCatalog.TerminateProvisionedProductInput, callback?: (err: ServiceCatalog.ResourceNotFoundException | any, data: ServiceCatalog.TerminateProvisionedProductOutput | any) => void): Request<ServiceCatalog.TerminateProvisionedProductOutput | any, ServiceCatalog.ResourceNotFoundException | any>;
     /**
      * Requests updates to the configuration of an existing ProvisionedProduct object.
 If there are tags associated with the object, they cannot be updated or added
@@ -143,10 +143,10 @@ ProvisionedProduct object entirely.
 
 You can check the status of this request using the DescribeRecord operation.
      *
-     * @error InvalidParametersException
-     * @error ResourceNotFoundException
+     * @error InvalidParametersException   
+     * @error ResourceNotFoundException   
      */
-    updateProvisionedProduct(params:ServiceCatalog.UpdateProvisionedProductInput, callback?:(err:ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any, data:ServiceCatalog.UpdateProvisionedProductOutput | any) => void):Request<ServiceCatalog.UpdateProvisionedProductOutput | any, ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any>;
+    updateProvisionedProduct(params: ServiceCatalog.UpdateProvisionedProductInput, callback?: (err: ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any, data: ServiceCatalog.UpdateProvisionedProductOutput | any) => void): Request<ServiceCatalog.UpdateProvisionedProductOutput | any, ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any>;
 
   }
 
@@ -222,7 +222,7 @@ You can check the status of this request using the DescribeRecord operation.
 
     export type ProductViewAggregationValues = ProductViewAggregationValue[];
 
-    export type ProductViewAggregations = { [key:string]:ProductViewAggregationValues };
+    export type ProductViewAggregations = { [key: string]: ProductViewAggregationValues };
 
     export type ProductViewDistributor = string;
 
@@ -232,7 +232,7 @@ You can check the status of this request using the DescribeRecord operation.
 
     export type ProductViewFilterValues = ProductViewFilterValue[];
 
-    export type ProductViewFilters = { [key:string]:ProductViewFilterValues };
+    export type ProductViewFilters = { [key: string]: ProductViewFilterValues };
 
     export type ProductViewName = string;
 
@@ -312,9 +312,9 @@ You can check the status of this request using the DescribeRecord operation.
 
     export interface ConstraintSummary {
       /** The type of the constraint. **/
-      Type?:ConstraintType;
+      Type?: ConstraintType;
       /** The text description of the constraint. **/
-      Description?:ConstraintDescription;
+      Description?: ConstraintDescription;
     }
     export interface DescribeProductInput {
       /** Optional language code. Supported language codes are as follows:
@@ -326,17 +326,17 @@ You can check the status of this request using the DescribeRecord operation.
 &quot;zh&quot; (Chinese)
 
 If no code is specified, &quot;en&quot; is used as the default. **/
-      AcceptLanguage?:AcceptLanguage;
+      AcceptLanguage?: AcceptLanguage;
       /** The ProductId of the product to describe. **/
-      Id:Id;
+      Id: Id;
     }
     export interface DescribeProductOutput {
       /** The summary metadata about the specified product. **/
-      ProductViewSummary?:ProductViewSummary;
-      /** A list of provisioning artifact objects for the specified product. The
+      ProductViewSummary?: ProductViewSummary;
+      /** A list of provisioning artifact objects for the specified product. The 
 ProvisioningArtifacts parameter represent the ways the specified product can be
 provisioned. **/
-      ProvisioningArtifacts?:ProvisioningArtifacts;
+      ProvisioningArtifacts?: ProvisioningArtifacts;
     }
     export interface DescribeProductViewInput {
       /** Optional language code. Supported language codes are as follows:
@@ -348,17 +348,17 @@ provisioned. **/
 &quot;zh&quot; (Chinese)
 
 If no code is specified, &quot;en&quot; is used as the default. **/
-      AcceptLanguage?:AcceptLanguage;
+      AcceptLanguage?: AcceptLanguage;
       /** The ProductViewId of the product to describe. **/
-      Id:Id;
+      Id: Id;
     }
     export interface DescribeProductViewOutput {
       /** The summary metadata about the specified product. **/
-      ProductViewSummary?:ProductViewSummary;
-      /** A list of provisioning artifact objects for the specified product. The
+      ProductViewSummary?: ProductViewSummary;
+      /** A list of provisioning artifact objects for the specified product. The 
 ProvisioningArtifacts represent the ways in which the specified product can be
 provisioned. **/
-      ProvisioningArtifacts?:ProvisioningArtifacts;
+      ProvisioningArtifacts?: ProvisioningArtifacts;
     }
     export interface DescribeProvisioningParametersInput {
       /** Optional language code. Supported language codes are as follows:
@@ -370,26 +370,26 @@ provisioned. **/
 &quot;zh&quot; (Chinese)
 
 If no code is specified, &quot;en&quot; is used as the default. **/
-      AcceptLanguage?:AcceptLanguage;
+      AcceptLanguage?: AcceptLanguage;
       /** The identifier of the product. **/
-      ProductId:Id;
+      ProductId: Id;
       /** The provisioning artifact identifier for this product. **/
-      ProvisioningArtifactId:Id;
+      ProvisioningArtifactId: Id;
       /** The identifier of the path for this product&#x27;s provisioning. This value is
 optional if the product has a default path, and is required if there is more
 than one path for the specified product. **/
-      PathId?:Id;
+      PathId?: Id;
     }
     export interface DescribeProvisioningParametersOutput {
       /** The list of parameters used to successfully provision the product. Each
 parameter includes a list of allowable values and additional metadata about each
 parameter. **/
-      ProvisioningArtifactParameters?:ProvisioningArtifactParameters;
+      ProvisioningArtifactParameters?: ProvisioningArtifactParameters;
       /** The list of constraint summaries that apply to provisioning this product. **/
-      ConstraintSummaries?:ConstraintSummaries;
+      ConstraintSummaries?: ConstraintSummaries;
       /** Any additional metadata specifically related to the provisioning of the product.
 For example, see the Version field of the CloudFormation template. **/
-      UsageInstructions?:UsageInstructions;
+      UsageInstructions?: UsageInstructions;
     }
     export interface DescribeRecordInput {
       /** Optional language code. Supported language codes are as follows:
@@ -401,29 +401,29 @@ For example, see the Version field of the CloudFormation template. **/
 &quot;zh&quot; (Chinese)
 
 If no code is specified, &quot;en&quot; is used as the default. **/
-      AcceptLanguage?:AcceptLanguage;
+      AcceptLanguage?: AcceptLanguage;
       /** The record identifier of the ProvisionedProduct object for which to retrieve
 output information. This is the RecordDetail.RecordId obtained from the request
 operation&#x27;s response. **/
-      Id:Id;
+      Id: Id;
       /** The page token of the first page retrieve. If null, this retrieves the first
 page of size PageSize . **/
-      PageToken?:PageToken;
+      PageToken?: PageToken;
       /** The maximum number of items to return in the results. If more results exist than
 fit in the specified PageSize , the value of NextPageToken in the response is
 non-null. **/
-      PageSize?:PageSize;
+      PageSize?: PageSize;
     }
     export interface DescribeRecordOutput {
       /** Detailed record information for the specified product. **/
-      RecordDetail?:RecordDetail;
+      RecordDetail?: RecordDetail;
       /** A list of outputs for the specified Product object created as the result of a
 request. For example, a CloudFormation-backed product that creates an S3 bucket
 would have an output for the S3 bucket URL. **/
-      RecordOutputs?:RecordOutputs;
+      RecordOutputs?: RecordOutputs;
       /** The page token to use to retrieve the next page of results for this operation.
 If there are no more pages, this value is null. **/
-      NextPageToken?:PageToken;
+      NextPageToken?: PageToken;
     }
     export interface DuplicateResourceException {
     }
@@ -431,13 +431,13 @@ If there are no more pages, this value is null. **/
     }
     export interface LaunchPathSummary {
       /** The unique identifier of the product path. **/
-      Id?:Id;
+      Id?: Id;
       /** List of constraints on the portfolio-product relationship. **/
-      ConstraintSummaries?:ConstraintSummaries;
+      ConstraintSummaries?: ConstraintSummaries;
       /** List of tags used by this launch path. **/
-      Tags?:Tags;
+      Tags?: Tags;
       /** Corresponds to the name of the portfolio to which the user was assigned. **/
-      Name?:PortfolioName;
+      Name?: PortfolioName;
     }
     export interface ListLaunchPathsInput {
       /** Optional language code. Supported language codes are as follows:
@@ -449,23 +449,23 @@ If there are no more pages, this value is null. **/
 &quot;zh&quot; (Chinese)
 
 If no code is specified, &quot;en&quot; is used as the default. **/
-      AcceptLanguage?:AcceptLanguage;
+      AcceptLanguage?: AcceptLanguage;
       /** Identifies the product for which to retrieve LaunchPathSummaries information. **/
-      ProductId:Id;
+      ProductId: Id;
       /** The maximum number of items to return in the results. If more results exist than
 fit in the specified PageSize , the value of NextPageToken in the response is
 non-null. **/
-      PageSize?:PageSize;
+      PageSize?: PageSize;
       /** The page token of the first page retrieve. If null, this retrieves the first
 page of size PageSize . **/
-      PageToken?:PageToken;
+      PageToken?: PageToken;
     }
     export interface ListLaunchPathsOutput {
       /** List of launch path information summaries for the specified PageToken . **/
-      LaunchPathSummaries?:LaunchPathSummaries;
+      LaunchPathSummaries?: LaunchPathSummaries;
       /** The page token to use to retrieve the next page of results for this operation.
 If there are no more pages, this value is null. **/
-      NextPageToken?:PageToken;
+      NextPageToken?: PageToken;
     }
     export interface ListRecordHistoryInput {
       /** Optional language code. Supported language codes are as follows:
@@ -477,70 +477,70 @@ If there are no more pages, this value is null. **/
 &quot;zh&quot; (Chinese)
 
 If no code is specified, &quot;en&quot; is used as the default. **/
-      AcceptLanguage?:AcceptLanguage;
+      AcceptLanguage?: AcceptLanguage;
       /** (Optional) The filter to limit search results. **/
-      SearchFilter?:ListRecordHistorySearchFilter;
+      SearchFilter?: ListRecordHistorySearchFilter;
       /** The maximum number of items to return in the results. If more results exist than
 fit in the specified PageSize , the value of NextPageToken in the response is
 non-null. **/
-      PageSize?:PageSize;
+      PageSize?: PageSize;
       /** The page token of the first page retrieve. If null, this retrieves the first
 page of size PageSize . **/
-      PageToken?:PageToken;
+      PageToken?: PageToken;
     }
     export interface ListRecordHistoryOutput {
       /** A list of record detail objects, listed in reverse chronological order. **/
-      RecordDetails?:RecordDetails;
+      RecordDetails?: RecordDetails;
       /** The page token to use to retrieve the next page of results for this operation.
 If there are no more pages, this value is null. **/
-      NextPageToken?:PageToken;
+      NextPageToken?: PageToken;
     }
     export interface ListRecordHistorySearchFilter {
       /** The filter key. **/
-      Key?:SearchFilterKey;
+      Key?: SearchFilterKey;
       /** The filter value for Key . **/
-      Value?:SearchFilterValue;
+      Value?: SearchFilterValue;
     }
     export interface ParameterConstraints {
       /** The values that the administrator has allowed for the parameter. **/
-      AllowedValues?:AllowedValues;
+      AllowedValues?: AllowedValues;
     }
     export interface ProductViewAggregationValue {
       /** The value of the product view aggregation. **/
-      Value?:AttributeValue;
+      Value?: AttributeValue;
       /** An approximate count of the products that match the value. **/
-      ApproximateCount?:ApproximateCount;
+      ApproximateCount?: ApproximateCount;
     }
     export interface ProductViewSummary {
       /** The product view identifier. **/
-      Id?:Id;
+      Id?: Id;
       /** The product identifier. **/
-      ProductId?:Id;
+      ProductId?: Id;
       /** The name of the product. **/
-      Name?:ProductViewName;
+      Name?: ProductViewName;
       /** The owner of the product. Contact the product administrator for the significance
 of this value. **/
-      Owner?:ProductViewOwner;
+      Owner?: ProductViewOwner;
       /** Short description of the product. **/
-      ShortDescription?:ProductViewShortDescription;
+      ShortDescription?: ProductViewShortDescription;
       /** The product type. Contact the product administrator for the significance of this
 value. **/
-      Type?:ProductType;
+      Type?: ProductType;
       /** The distributor of the product. Contact the product administrator for the
 significance of this value. **/
-      Distributor?:ProductViewDistributor;
+      Distributor?: ProductViewDistributor;
       /** A value of false indicates that the product does not have a default path, while
 a value of true indicates that it does. If it&#x27;s false, call ListLaunchPaths to
 disambiguate between paths. If true, ListLaunchPaths is not required, and the
-       output of the ProductViewSummary operation can be used directly with
+output of the ProductViewSummary operation can be used directly with 
 DescribeProvisioningParameters . **/
-      HasDefaultPath?:HasDefaultPath;
+      HasDefaultPath?: HasDefaultPath;
       /** The email contact information to obtain support for this Product. **/
-      SupportEmail?:SupportEmail;
+      SupportEmail?: SupportEmail;
       /** The description of the support for this Product. **/
-      SupportDescription?:SupportDescription;
+      SupportDescription?: SupportDescription;
       /** The URL information to obtain support for this Product. **/
-      SupportUrl?:SupportUrl;
+      SupportUrl?: SupportUrl;
     }
     export interface ProvisionProductInput {
       /** Optional language code. Supported language codes are as follows:
@@ -552,139 +552,139 @@ DescribeProvisioningParameters . **/
 &quot;zh&quot; (Chinese)
 
 If no code is specified, &quot;en&quot; is used as the default. **/
-      AcceptLanguage?:AcceptLanguage;
+      AcceptLanguage?: AcceptLanguage;
       /** The identifier of the product. **/
-      ProductId:Id;
+      ProductId: Id;
       /** The provisioning artifact identifier for this product. **/
-      ProvisioningArtifactId:Id;
+      ProvisioningArtifactId: Id;
       /** The identifier of the path for this product&#x27;s provisioning. This value is
 optional if the product has a default path, and is required if there is more
 than one path for the specified product. **/
-      PathId?:Id;
+      PathId?: Id;
       /** A user-friendly name to identify the ProvisionedProduct object. This value must
 be unique for the AWS account and cannot be updated after the product is
 provisioned. **/
-      ProvisionedProductName:ProvisionedProductName;
+      ProvisionedProductName: ProvisionedProductName;
       /** Parameters specified by the administrator that are required for provisioning the
 product. **/
-      ProvisioningParameters?:ProvisioningParameters;
+      ProvisioningParameters?: ProvisioningParameters;
       /** (Optional) A list of tags to use as provisioning options. **/
-      Tags?:Tags;
+      Tags?: Tags;
       /** Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
 events. **/
-      NotificationArns?:NotificationArns;
+      NotificationArns?: NotificationArns;
       /** An idempotency token that uniquely identifies the provisioning request. **/
-      ProvisionToken:IdempotencyToken;
+      ProvisionToken: IdempotencyToken;
     }
     export interface ProvisionProductOutput {
       /** The detailed result of the ProvisionProduct request, containing the inputs made
 to that request, the current state of the request, a pointer to the
 ProvisionedProduct object of the request, and a list of any errors that the
 request encountered. **/
-      RecordDetail?:RecordDetail;
+      RecordDetail?: RecordDetail;
     }
     export interface ProvisionedProductDetail {
       /** The user-friendly name of the ProvisionedProduct object. **/
-      Name?:ProvisionedProductNameOrArn;
+      Name?: ProvisionedProductNameOrArn;
       /** The ARN associated with the ProvisionedProduct object. **/
-      Arn?:ProvisionedProductNameOrArn;
+      Arn?: ProvisionedProductNameOrArn;
       /** The type of the ProvisionedProduct object. **/
-      Type?:ProvisionedProductType;
+      Type?: ProvisionedProductType;
       /** The identifier of the ProvisionedProduct object. **/
-      Id?:ProvisionedProductId;
+      Id?: ProvisionedProductId;
       /** The current status of the ProvisionedProduct. **/
-      Status?:RecordStatus;
+      Status?: RecordStatus;
       /** The current status message of the ProvisionedProduct. **/
-      StatusMessage?:ProvisionedProductStatusMessage;
+      StatusMessage?: ProvisionedProductStatusMessage;
       /** The time the ProvisionedProduct was created. **/
-      CreatedTime?:CreatedTime;
+      CreatedTime?: CreatedTime;
       /** An idempotency token that uniquely identifies this ProvisionedProduct. **/
-      IdempotencyToken?:IdempotencyToken;
+      IdempotencyToken?: IdempotencyToken;
       /** The record identifier of the last request performed on this ProvisionedProduct
 object. **/
-      LastRecordId?:LastRequestId;
+      LastRecordId?: LastRequestId;
     }
     export interface ProvisioningArtifact {
       /** The identifier for the artifact. **/
-      Id?:Id;
+      Id?: Id;
       /** The name of the artifact. **/
-      Name?:ProvisioningArtifactName;
+      Name?: ProvisioningArtifactName;
       /** The text description of the artifact. **/
-      Description?:ProvisioningArtifactDescription;
+      Description?: ProvisioningArtifactDescription;
       /** The time that the artifact was created by the Administrator. **/
-      CreatedTime?:ProvisioningArtifactCreatedTime;
+      CreatedTime?: ProvisioningArtifactCreatedTime;
     }
     export interface ProvisioningArtifactParameter {
       /** The parameter key. **/
-      ParameterKey?:ParameterKey;
+      ParameterKey?: ParameterKey;
       /** The default value for this parameter. **/
-      DefaultValue?:DefaultValue;
+      DefaultValue?: DefaultValue;
       /** The parameter type. **/
-      ParameterType?:ParameterType;
+      ParameterType?: ParameterType;
       /** If this value is true, the value for this parameter is obfuscated from view when
 the parameter is retrieved. This parameter is used to hide sensitive
 information. **/
-      IsNoEcho?:NoEcho;
+      IsNoEcho?: NoEcho;
       /** The text description of the parameter. **/
-      Description?:Description;
+      Description?: Description;
       /** The list of constraints that the administrator has put on the parameter. **/
-      ParameterConstraints?:ParameterConstraints;
+      ParameterConstraints?: ParameterConstraints;
     }
     export interface ProvisioningParameter {
-      /** The ProvisioningArtifactParameter.ParameterKey parameter from
+      /** The ProvisioningArtifactParameter.ParameterKey parameter from 
 DescribeProvisioningParameters . **/
-      Key?:ParameterKey;
-      /** The value to use for provisioning. Any constraints on this value can be found in
+      Key?: ParameterKey;
+      /** The value to use for provisioning. Any constraints on this value can be found in 
 ProvisioningArtifactParameter for Key . **/
-      Value?:ParameterValue;
+      Value?: ParameterValue;
     }
     export interface RecordDetail {
       /** The identifier of the ProvisionedProduct object record. **/
-      RecordId?:Id;
+      RecordId?: Id;
       /** The user-friendly name of the ProvisionedProduct object. **/
-      ProvisionedProductName?:ProvisionedProductName;
+      ProvisionedProductName?: ProvisionedProductName;
       /** The status of the ProvisionedProduct object. **/
-      Status?:RecordStatus;
+      Status?: RecordStatus;
       /** The time when the record for the ProvisionedProduct object was created. **/
-      CreatedTime?:CreatedTime;
+      CreatedTime?: CreatedTime;
       /** The time when the record for the ProvisionedProduct object was last updated. **/
-      UpdatedTime?:UpdatedTime;
+      UpdatedTime?: UpdatedTime;
       /** The type of the ProvisionedProduct object. **/
-      ProvisionedProductType?:ProvisionedProductType;
+      ProvisionedProductType?: ProvisionedProductType;
       /** The record type for this record. **/
-      RecordType?:RecordType;
+      RecordType?: RecordType;
       /** The identifier of the ProvisionedProduct object. **/
-      ProvisionedProductId?:Id;
+      ProvisionedProductId?: Id;
       /** The identifier of the product. **/
-      ProductId?:Id;
+      ProductId?: Id;
       /** The provisioning artifact identifier for this product. **/
-      ProvisioningArtifactId?:Id;
+      ProvisioningArtifactId?: Id;
       /** The identifier of the path for this product&#x27;s provisioning. **/
-      PathId?:Id;
+      PathId?: Id;
       /** A list of errors that occurred while processing the request. **/
-      RecordErrors?:RecordErrors;
+      RecordErrors?: RecordErrors;
       /** List of tags associated with this record. **/
-      RecordTags?:RecordTags;
+      RecordTags?: RecordTags;
     }
     export interface RecordError {
       /** The numeric value of the error. **/
-      Code?:ErrorCode;
+      Code?: ErrorCode;
       /** The text description of the error. **/
-      Description?:ErrorDescription;
+      Description?: ErrorDescription;
     }
     export interface RecordOutput {
       /** The output key. **/
-      OutputKey?:OutputKey;
+      OutputKey?: OutputKey;
       /** The output value. **/
-      OutputValue?:OutputValue;
+      OutputValue?: OutputValue;
       /** The text description of the output. **/
-      Description?:Description;
+      Description?: Description;
     }
     export interface RecordTag {
       /** The key for this tag. **/
-      Key?:RecordTagKey;
+      Key?: RecordTagKey;
       /** The value for this tag. **/
-      Value?:RecordTagValue;
+      Value?: RecordTagValue;
     }
     export interface ResourceNotFoundException {
     }
@@ -698,21 +698,21 @@ ProvisioningArtifactParameter for Key . **/
 &quot;zh&quot; (Chinese)
 
 If no code is specified, &quot;en&quot; is used as the default. **/
-      AcceptLanguage?:AcceptLanguage;
+      AcceptLanguage?: AcceptLanguage;
       /** The maximum number of items to return in the results. If more results exist than
 fit in the specified PageSize , the value of NextPageToken in the response is
 non-null. **/
-      PageSize?:PageSize;
+      PageSize?: PageSize;
       /** The page token of the first page retrieve. If null, this retrieves the first
 page of size PageSize . **/
-      PageToken?:PageToken;
+      PageToken?: PageToken;
     }
     export interface ScanProvisionedProductsOutput {
       /** A list of ProvisionedProduct detail objects. **/
-      ProvisionedProducts?:ProvisionedProductDetails;
+      ProvisionedProducts?: ProvisionedProductDetails;
       /** The page token to use to retrieve the next page of results for this operation.
 If there are no more pages, this value is null. **/
-      NextPageToken?:PageToken;
+      NextPageToken?: PageToken;
     }
     export interface SearchProductsInput {
       /** Optional language code. Supported language codes are as follows:
@@ -724,58 +724,58 @@ If there are no more pages, this value is null. **/
 &quot;zh&quot; (Chinese)
 
 If no code is specified, &quot;en&quot; is used as the default. **/
-      AcceptLanguage?:AcceptLanguage;
+      AcceptLanguage?: AcceptLanguage;
       /** (Optional) The list of filters with which to limit search results. If no search
 filters are specified, the output is all the products to which the calling user
 has access. **/
-      Filters?:ProductViewFilters;
+      Filters?: ProductViewFilters;
       /** The maximum number of items to return in the results. If more results exist than
 fit in the specified PageSize , the value of NextPageToken in the response is
 non-null. **/
-      PageSize?:PageSize;
+      PageSize?: PageSize;
       /** (Optional) The sort field specifier. If no value is specified, results are not
 sorted. **/
-      SortBy?:ProductViewSortBy;
+      SortBy?: ProductViewSortBy;
       /** (Optional) The sort order specifier. If no value is specified, results are not
 sorted. **/
-      SortOrder?:SortOrder;
+      SortOrder?: SortOrder;
       /** The page token of the first page retrieve. If null, this retrieves the first
 page of size PageSize . **/
-      PageToken?:PageToken;
+      PageToken?: PageToken;
     }
     export interface SearchProductsOutput {
       /** A list of the product view summary objects. **/
-      ProductViewSummaries?:ProductViewSummaries;
+      ProductViewSummaries?: ProductViewSummaries;
       /** A list of the product view aggregation value objects. **/
-      ProductViewAggregations?:ProductViewAggregations;
+      ProductViewAggregations?: ProductViewAggregations;
       /** The page token to use to retrieve the next page of results for this operation.
 If there are no more pages, this value is null. **/
-      NextPageToken?:PageToken;
+      NextPageToken?: PageToken;
     }
     export interface Tag {
-      /** The ProvisioningArtifactParameter.TagKey parameter from
+      /** The ProvisioningArtifactParameter.TagKey parameter from 
 DescribeProvisioningParameters . **/
-      Key?:TagKey;
+      Key?: TagKey;
       /** The esired value for this key. **/
-      Value?:TagValue;
+      Value?: TagValue;
     }
     export interface TerminateProvisionedProductInput {
-      /** The name of the ProvisionedProduct object to terminate. You must specify either
+      /** The name of the ProvisionedProduct object to terminate. You must specify either 
 ProvisionedProductName or ProvisionedProductId , but not both. **/
-      ProvisionedProductName?:ProvisionedProductNameOrArn;
+      ProvisionedProductName?: ProvisionedProductNameOrArn;
       /** The identifier of the ProvisionedProduct object to terminate. You must specify
 either ProvisionedProductName or ProvisionedProductId , but not both. **/
-      ProvisionedProductId?:Id;
+      ProvisionedProductId?: Id;
       /** An idempotency token that uniquely identifies the termination request. This
 token is only valid during the termination process. After the ProvisionedProduct
 object is terminated, further requests to terminate the same ProvisionedProduct
-       object always return ResourceNotFound regardless of the value of TerminateToken
+object always return ResourceNotFound regardless of the value of TerminateToken 
 . **/
-      TerminateToken:IdempotencyToken;
+      TerminateToken: IdempotencyToken;
       /** Optional Boolean parameter. If set to true, AWS Service Catalog stops managing
 the specified ProvisionedProduct object even if it cannot delete the underlying
 resources. **/
-      IgnoreErrors?:IgnoreErrors;
+      IgnoreErrors?: IgnoreErrors;
       /** Optional language code. Supported language codes are as follows:
 
 &quot;en&quot; (English)
@@ -785,14 +785,14 @@ resources. **/
 &quot;zh&quot; (Chinese)
 
 If no code is specified, &quot;en&quot; is used as the default. **/
-      AcceptLanguage?:AcceptLanguage;
+      AcceptLanguage?: AcceptLanguage;
     }
     export interface TerminateProvisionedProductOutput {
       /** The detailed result of the TerminateProvisionedProduct request, containing the
 inputs made to that request, the current state of the request, a pointer to the
 ProvisionedProduct object that the request is modifying, and a list of any
 errors that the request encountered. **/
-      RecordDetail?:RecordDetail;
+      RecordDetail?: RecordDetail;
     }
     export interface UpdateProvisionedProductInput {
       /** Optional language code. Supported language codes are as follows:
@@ -804,50 +804,50 @@ errors that the request encountered. **/
 &quot;zh&quot; (Chinese)
 
 If no code is specified, &quot;en&quot; is used as the default. **/
-      AcceptLanguage?:AcceptLanguage;
-      /** The updated name of the ProvisionedProduct object . You must specify either
+      AcceptLanguage?: AcceptLanguage;
+      /** The updated name of the ProvisionedProduct object . You must specify either 
 ProvisionedProductName or ProvisionedProductId , but not both. **/
-      ProvisionedProductName?:ProvisionedProductNameOrArn;
+      ProvisionedProductName?: ProvisionedProductNameOrArn;
       /** The identifier of the ProvisionedProduct object to update. You must specify
 either ProvisionedProductName or ProvisionedProductId , but not both. **/
-      ProvisionedProductId?:Id;
+      ProvisionedProductId?: Id;
       /** The identifier of the ProvisionedProduct object. **/
-      ProductId?:Id;
+      ProductId?: Id;
       /** The provisioning artifact identifier for this product. **/
-      ProvisioningArtifactId?:Id;
+      ProvisioningArtifactId?: Id;
       /** The identifier of the path to use in the updated ProvisionedProduct object. This
 value is optional if the product has a default path, and is required if there is
 more than one path for the specified product. **/
-      PathId?:Id;
+      PathId?: Id;
       /** A list of ProvisioningParameter objects used to update the ProvisionedProduct
 object. **/
-      ProvisioningParameters?:UpdateProvisioningParameters;
+      ProvisioningParameters?: UpdateProvisioningParameters;
       /** The idempotency token that uniquely identifies the provisioning update request. **/
-      UpdateToken:IdempotencyToken;
+      UpdateToken: IdempotencyToken;
     }
     export interface UpdateProvisionedProductOutput {
       /** The detailed result of the UpdateProvisionedProduct request, containing the
 inputs made to that request, the current state of the request, a pointer to the
 ProvisionedProduct object that the request is modifying, and a list of any
 errors that the request encountered. **/
-      RecordDetail?:RecordDetail;
+      RecordDetail?: RecordDetail;
     }
     export interface UpdateProvisioningParameter {
-      /** The ProvisioningArtifactParameter.ParameterKey parameter from
+      /** The ProvisioningArtifactParameter.ParameterKey parameter from 
 DescribeProvisioningParameters . **/
-      Key?:ParameterKey;
+      Key?: ParameterKey;
       /** The value to use for updating the product provisioning. Any constraints on this
 value can be found in the ProvisioningArtifactParameter parameter for Key . **/
-      Value?:ParameterValue;
-      /** If true, uses the currently set value for Key , ignoring
+      Value?: ParameterValue;
+      /** If true, uses the currently set value for Key , ignoring 
 UpdateProvisioningParameter.Value . **/
-      UsePreviousValue?:UsePreviousValue;
+      UsePreviousValue?: UsePreviousValue;
     }
     export interface UsageInstruction {
       /** The usage instruction type for the value. **/
-      Type?:InstructionType;
+      Type?: InstructionType;
       /** The usage instruction value for this type. **/
-      Value?:InstructionValue;
+      Value?: InstructionValue;
     }
   }
 }
