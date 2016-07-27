@@ -191,7 +191,19 @@ for the certificates to which the policy is attached).
      */
     createPolicyVersion(params: Iot.CreatePolicyVersionRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.MalformedPolicyException|Iot.VersionsLimitExceededException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.CreatePolicyVersionResponse|any) => void): Request<Iot.CreatePolicyVersionResponse|any,Iot.ResourceNotFoundException|Iot.MalformedPolicyException|Iot.VersionsLimitExceededException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
-     * Creates a thing in the Thing Registry.
+     * Creates a thing record in the thing registry.
+     *
+     * @error InvalidRequestException The request is not valid.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     * @error ResourceAlreadyExistsException The resource already exists.  
+     * @error ResourceNotFoundException The specified resource does not exist.  
+     */
+    createThing(params: Iot.CreateThingRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceAlreadyExistsException|Iot.ResourceNotFoundException|any, data: Iot.CreateThingResponse|any) => void): Request<Iot.CreateThingResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceAlreadyExistsException|Iot.ResourceNotFoundException|any>;
+    /**
+     * Creates a new thing type.
      *
      * @error InvalidRequestException The request is not valid.  
      * @error ThrottlingException The rate exceeds the limit.  
@@ -200,7 +212,7 @@ for the certificates to which the policy is attached).
      * @error InternalFailureException An unexpected error has occurred.  
      * @error ResourceAlreadyExistsException The resource already exists.  
      */
-    createThing(params: Iot.CreateThingRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceAlreadyExistsException|any, data: Iot.CreateThingResponse|any) => void): Request<Iot.CreateThingResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceAlreadyExistsException|any>;
+    createThingType(params: Iot.CreateThingTypeRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceAlreadyExistsException|any, data: Iot.CreateThingTypeResponse|any) => void): Request<Iot.CreateThingTypeResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceAlreadyExistsException|any>;
     /**
      * Creates a rule. Creating rules is an administrator-level action. Any user who
 has permission to create rules will be able to access data processed by the
@@ -291,7 +303,24 @@ the default version, use ListPolicyVersions.
      */
     deleteRegistrationCode(params: Iot.DeleteRegistrationCodeRequest, callback?: (err: Iot.ThrottlingException|Iot.ResourceNotFoundException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DeleteRegistrationCodeResponse|any) => void): Request<Iot.DeleteRegistrationCodeResponse|any,Iot.ThrottlingException|Iot.ResourceNotFoundException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
-     * Deletes the specified thing from the Thing Registry.
+     * Deletes the specified thing.
+     *
+     * @error ResourceNotFoundException The specified resource does not exist.  
+     * @error VersionConflictException An exception thrown when the version of a thing passed to a command is different
+than the version specified with the --version parameter.  
+     * @error InvalidRequestException The request is not valid.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     */
+    deleteThing(params: Iot.DeleteThingRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.VersionConflictException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DeleteThingResponse|any) => void): Request<Iot.DeleteThingResponse|any,Iot.ResourceNotFoundException|Iot.VersionConflictException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
+    /**
+     * Deletes the specified thing type . You cannot delete a thing type if it has
+things associated with it. To delete a thing type, first mark it as deprecated
+by calling DeprecateThingType , then remove any associated things by calling 
+UpdateThing to change the thing type on any associated thing, and finally use 
+DeleteThingType to delete the thing type.
      *
      * @error ResourceNotFoundException The specified resource does not exist.  
      * @error InvalidRequestException The request is not valid.  
@@ -300,7 +329,7 @@ the default version, use ListPolicyVersions.
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      */
-    deleteThing(params: Iot.DeleteThingRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DeleteThingResponse|any) => void): Request<Iot.DeleteThingResponse|any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
+    deleteThingType(params: Iot.DeleteThingTypeRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DeleteThingTypeResponse|any) => void): Request<Iot.DeleteThingTypeResponse|any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Deletes the specified rule.
      *
@@ -310,6 +339,18 @@ the default version, use ListPolicyVersions.
      * @error UnauthorizedException You are not authorized to perform this operation.  
      */
     deleteTopicRule(params: Iot.DeleteTopicRuleRequest, callback?: (err: Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any, data: any) => void): Request<any,Iot.InternalException|Iot.InvalidRequestException|Iot.ServiceUnavailableException|Iot.UnauthorizedException|any>;
+    /**
+     * Deprecates a thing type. You can not associate new things with deprecated thing
+type.
+     *
+     * @error ResourceNotFoundException The specified resource does not exist.  
+     * @error InvalidRequestException The request is not valid.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     */
+    deprecateThingType(params: Iot.DeprecateThingTypeRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DeprecateThingTypeResponse|any) => void): Request<Iot.DeprecateThingTypeResponse|any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Describes a registered CA certificate.
      *
@@ -351,6 +392,17 @@ the default version, use ListPolicyVersions.
      * @error InternalFailureException An unexpected error has occurred.  
      */
     describeThing(params: Iot.DescribeThingRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DescribeThingResponse|any) => void): Request<Iot.DescribeThingResponse|any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
+    /**
+     * Gets information about the specified thing type.
+     *
+     * @error ResourceNotFoundException The specified resource does not exist.  
+     * @error InvalidRequestException The request is not valid.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     */
+    describeThingType(params: Iot.DescribeThingTypeRequest, callback?: (err: Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.DescribeThingTypeResponse|any) => void): Request<Iot.DescribeThingTypeResponse|any,Iot.ResourceNotFoundException|Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
      * Removes the specified policy from the specified certificate.
      *
@@ -531,8 +583,9 @@ identity, the ID must be in AmazonCognito Identity format
      * @error UnauthorizedException You are not authorized to perform this operation.  
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
+     * @error ResourceNotFoundException The specified resource does not exist.  
      */
-    listPrincipalThings(params: Iot.ListPrincipalThingsRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListPrincipalThingsResponse|any) => void): Request<Iot.ListPrincipalThingsResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
+    listPrincipalThings(params: Iot.ListPrincipalThingsRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.ListPrincipalThingsResponse|any) => void): Request<Iot.ListPrincipalThingsResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any>;
     /**
      * Lists the principals associated with the specified thing.
      *
@@ -541,12 +594,24 @@ identity, the ID must be in AmazonCognito Identity format
      * @error UnauthorizedException You are not authorized to perform this operation.  
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
+     * @error ResourceNotFoundException The specified resource does not exist.  
      */
-    listThingPrincipals(params: Iot.ListThingPrincipalsRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListThingPrincipalsResponse|any) => void): Request<Iot.ListThingPrincipalsResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
+    listThingPrincipals(params: Iot.ListThingPrincipalsRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.ListThingPrincipalsResponse|any) => void): Request<Iot.ListThingPrincipalsResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any>;
     /**
-     * Lists your things. You can pass an AttributeName or AttributeValue to filter
-your things (for example, &quot;ListThings where AttributeName=Color and
-AttributeValue=Red&quot;).
+     * Lists the existing thing types.
+     *
+     * @error InvalidRequestException The request is not valid.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     */
+    listThingTypes(params: Iot.ListThingTypesRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListThingTypesResponse|any) => void): Request<Iot.ListThingTypesResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
+    /**
+     * Lists your things. Use the attributeName and attributeValue parameters to filter
+your things. For example, calling ListThings with attributeName=Color and
+attributeValue=Red retrieves all things in the registry that contain an
+attribute Color with the value Red .
      *
      * @error InvalidRequestException The request is not valid.  
      * @error ThrottlingException The rate exceeds the limit.  
@@ -715,13 +780,15 @@ a certificate.
      * Updates the data for a thing.
      *
      * @error InvalidRequestException The request is not valid.  
+     * @error VersionConflictException An exception thrown when the version of a thing passed to a command is different
+than the version specified with the --version parameter.  
      * @error ThrottlingException The rate exceeds the limit.  
      * @error UnauthorizedException You are not authorized to perform this operation.  
      * @error ServiceUnavailableException The service is temporarily unavailable.  
      * @error InternalFailureException An unexpected error has occurred.  
      * @error ResourceNotFoundException The specified resource does not exist.  
      */
-    updateThing(params: Iot.UpdateThingRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.UpdateThingResponse|any) => void): Request<Iot.UpdateThingResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any>;
+    updateThing(params: Iot.UpdateThingRequest, callback?: (err: Iot.InvalidRequestException|Iot.VersionConflictException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any, data: Iot.UpdateThingResponse|any) => void): Request<Iot.UpdateThingResponse|any,Iot.InvalidRequestException|Iot.VersionConflictException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|Iot.ResourceNotFoundException|any>;
 
   }
 
@@ -745,6 +812,8 @@ a certificate.
     
     export type AwsIotSqlVersion = string;
     
+    export type Boolean = boolean;
+    
     export type BucketName = string;
     
     export type CACertificateStatus = string;
@@ -767,9 +836,13 @@ a certificate.
     
     export type CreatedAtDate = number;
     
+    export type CreationDate = number;
+    
     export type DateType = number;
     
     export type DeliveryStreamName = string;
+    
+    export type DeprecationDate = number;
     
     export type Description = string;
     
@@ -786,6 +859,10 @@ a certificate.
     export type ElasticsearchType = string;
     
     export type EndpointAddress = string;
+    
+    export type FirehoseSeparator = string;
+    
+    export type Flag = boolean;
     
     export type FunctionArn = string;
     
@@ -820,6 +897,8 @@ a certificate.
     export type MetricValue = string;
     
     export type NextToken = string;
+    
+    export type OptionalVersion = number;
     
     export type PageSize = number;
     
@@ -857,11 +936,15 @@ a certificate.
     
     export type RegistrationCode = string;
     
+    export type RemoveThingType = boolean;
+    
     export type RuleArn = string;
     
     export type RuleName = string;
     
     export type SQL = string;
+    
+    export type SearchableAttributes = AttributeName[];
     
     export type SetAsActive = boolean;
     
@@ -883,13 +966,25 @@ a certificate.
     
     export type ThingNameList = ThingName[];
     
+    export type ThingTypeArn = string;
+    
+    export type ThingTypeDescription = string;
+    
+    export type ThingTypeList = ThingTypeDefinition[];
+    
+    export type ThingTypeName = string;
+    
     export type Topic = string;
     
     export type TopicPattern = string;
     
     export type TopicRuleList = TopicRuleListItem[];
     
+    export type UndoDeprecate = boolean;
+    
     export type UseBase64 = boolean;
+    
+    export type Version = number;
     
     export type errorMessage = string;
 
@@ -933,15 +1028,23 @@ CreateCertificate operation) or an Amazon Cognito ID. **/
     export interface AttachThingPrincipalRequest {
         /** The name of the thing. **/
         thingName: ThingName;
-        /** The principal (certificate or other credential). **/
+        /** The principal, such as a certificate or other credential. **/
         principal: Principal;
     }
     export interface AttachThingPrincipalResponse {
     }
     export interface AttributePayload {
-        /** A JSON string containing up to three key-value pair in JSON format (for example,
-{\&quot;attributes\&quot;:{\&quot;string1\&quot;:\&quot;string2\&quot;}}). **/
+        /** A JSON string containing up to three key-value pair in JSON format. For example:
+
+{\&quot;attributes\&quot;:{\&quot;string1\&quot;:\&quot;string2\&quot;}}) **/
         attributes?: Attributes;
+        /** Specifies whether the list of attributes provided in the AttributePayload is
+merged with the attributes stored in the registry, instead of overwriting them.
+
+To remove an attribute, call UpdateThing with an empty attribute value.
+
+The merge attribute is only valid when calling UpdateThing . **/
+        merge?: Flag;
     }
     export interface CACertificate {
         /** The ARN of the CA certificate. **/
@@ -1118,17 +1221,35 @@ version that is in effect for the certificates to which the policy is attached).
         isDefaultVersion?: IsDefaultVersion;
     }
     export interface CreateThingRequest {
-        /** The name of the thing. **/
+        /** The name of the thing to create. **/
         thingName: ThingName;
-        /** The attribute payload, which consists of up to 3 name/value pairs in a JSON
-document (for example, {\&quot;attributes\&quot;:{\&quot;string1\&quot;:\&quot;string2\&quot;}}). **/
+        /** The name of the thing type associated with the new thing. **/
+        thingTypeName?: ThingTypeName;
+        /** The attribute payload, which consists of up to three name/value pairs in a JSON
+document. For example:
+
+{\&quot;attributes\&quot;:{\&quot;string1\&quot;:\&quot;string2\&quot;}}) **/
         attributePayload?: AttributePayload;
     }
     export interface CreateThingResponse {
-        /** The name of the thing. **/
+        /** The name of the new thing. **/
         thingName?: ThingName;
-        /** The thing ARN. **/
+        /** The ARN of the new thing. **/
         thingArn?: ThingArn;
+    }
+    export interface CreateThingTypeRequest {
+        /** The name of the thing type. **/
+        thingTypeName: ThingTypeName;
+        /** The ThingTypeProperties for the thing type to create. It contains information
+about the new thing type including a description, and a list of searchable thing
+attribute names. **/
+        thingTypeProperties?: ThingTypeProperties;
+    }
+    export interface CreateThingTypeResponse {
+        /** The name of the thing type. **/
+        thingTypeName?: ThingTypeName;
+        /** The Amazon Resource Name (ARN) of the thing type. **/
+        thingTypeArn?: ThingTypeArn;
     }
     export interface CreateTopicRuleRequest {
         /** The name of the rule. **/
@@ -1165,14 +1286,33 @@ document (for example, {\&quot;attributes\&quot;:{\&quot;string1\&quot;:\&quot;s
     export interface DeleteRegistrationCodeResponse {
     }
     export interface DeleteThingRequest {
-        /** The thing name. **/
+        /** The name of the thing to delete. **/
         thingName: ThingName;
+        /** The expected version of the thing record in the registry. If the version of the
+record in the registry does not match the expected version specified in the
+request, the DeleteThing request is rejected with a VersionConflictException . **/
+        expectedVersion?: OptionalVersion;
     }
     export interface DeleteThingResponse {
+    }
+    export interface DeleteThingTypeRequest {
+        /** The name of the thing type. **/
+        thingTypeName: ThingTypeName;
+    }
+    export interface DeleteThingTypeResponse {
     }
     export interface DeleteTopicRuleRequest {
         /** The name of the rule. **/
         ruleName: RuleName;
+    }
+    export interface DeprecateThingTypeRequest {
+        /** The name of the thing type to deprecate. **/
+        thingTypeName: ThingTypeName;
+        /** Whether to undeprecate a deprecated thing type. If true , the thing type will
+not be deprecated anymore and you can associate it with things. **/
+        undoDeprecate?: UndoDeprecate;
+    }
+    export interface DeprecateThingTypeResponse {
     }
     export interface DescribeCACertificateRequest {
         /** The CA certificate identifier. **/
@@ -1206,10 +1346,28 @@ document (for example, {\&quot;attributes\&quot;:{\&quot;string1\&quot;:\&quot;s
         defaultClientId?: ClientId;
         /** The name of the thing. **/
         thingName?: ThingName;
-        /** The attributes, which are name/value pairs in JSON format (for example:
-{\&quot;attributes\&quot;:{\&quot;some-name1\&quot;:\&quot;some-value1\&quot;},
-{\&quot;some-name2\&quot;:\&quot;some-value2\&quot;}, {\&quot;some-name3\&quot;:\&quot;some-value3\&quot;}}) **/
+        /** The thing type name. **/
+        thingTypeName?: ThingTypeName;
+        /** The thing attributes. **/
         attributes?: Attributes;
+        /** The current version of the thing record in the registry.
+
+To avoid unintentional changes to the information in the registry, you can pass
+the version information in the expectedVersion parameter of the UpdateThing and 
+DeleteThing calls. **/
+        version?: Version;
+    }
+    export interface DescribeThingTypeRequest {
+        /** The name of the thing type. **/
+        thingTypeName: ThingTypeName;
+    }
+    export interface DescribeThingTypeResponse {
+        /** The name of the thing type. **/
+        thingTypeName?: ThingTypeName;
+        /** The ThingTypeProperties contains information about the thing type including
+description, and a list of searchable thing attribute names. **/
+        thingTypeProperties?: ThingTypeProperties;
+        thingTypeMetadata?: ThingTypeMetadata;
     }
     export interface DetachPrincipalPolicyRequest {
         /** The name of the policy to detach. **/
@@ -1223,10 +1381,9 @@ is an Amazon Cognito identity, specify the identity ID. **/
     export interface DetachThingPrincipalRequest {
         /** The name of the thing. **/
         thingName: ThingName;
-        /** The principal.
-
-If the principal is a certificate, specify the certificate ARN. If the principal
-is an Amazon Cognito identity, specify the identity ID. **/
+        /** If the principal is a certificate, this value must be ARN of the certificate. If
+the principal is an Amazon Cognito identity, this value must be the ID of the
+Amazon Cognito identity. **/
         principal: Principal;
     }
     export interface DetachThingPrincipalResponse {
@@ -1280,6 +1437,10 @@ following: INSERT , UPDATE , or DELETE . **/
         roleArn: AwsArn;
         /** The delivery stream name. **/
         deliveryStreamName: DeliveryStreamName;
+        /** A character separator that will be used to separate records written to the
+firehose stream. Valid values are: &#x27;\n&#x27; (newline), &#x27;\t&#x27; (tab), &#x27;\r\n&#x27; (Windows
+newline), &#x27;,&#x27; (comma). **/
+        separator?: FirehoseSeparator;
     }
     export interface GetLoggingOptionsRequest {
     }
@@ -1481,9 +1642,10 @@ results. **/
         nextMarker?: Marker;
     }
     export interface ListPrincipalThingsRequest {
-        /** A token used to retrieve the next value. **/
+        /** The token for the next set of results, or null if there are no additional
+results. **/
         nextToken?: NextToken;
-        /** The maximum number of principals to return. **/
+        /** The maximum number of results to return in this operation. **/
         maxResults?: MaxResults;
         /** The principal. **/
         principal: Principal;
@@ -1491,7 +1653,8 @@ results. **/
     export interface ListPrincipalThingsResponse {
         /** The things. **/
         things?: ThingNameList;
-        /** A token used to retrieve the next value. **/
+        /** The token for the next set of results, or null if there are no additional
+results. **/
         nextToken?: NextToken;
     }
     export interface ListThingPrincipalsRequest {
@@ -1499,23 +1662,43 @@ results. **/
         thingName: ThingName;
     }
     export interface ListThingPrincipalsResponse {
-        /** The principals. **/
+        /** The principals associated with the thing. **/
         principals?: Principals;
     }
-    export interface ListThingsRequest {
-        /** The token for the next value. **/
+    export interface ListThingTypesRequest {
+        /** The token for the next set of results, or null if there are no additional
+results. **/
         nextToken?: NextToken;
-        /** The maximum number of results. **/
+        /** The maximum number of results to return in this operation. **/
         maxResults?: MaxResults;
-        /** The attribute name. **/
+        /** The name of the thing type. **/
+        thingTypeName?: ThingTypeName;
+    }
+    export interface ListThingTypesResponse {
+        /** The thing types. **/
+        thingTypes?: ThingTypeList;
+        /** The token for the next set of results, or null if there are no additional
+results. **/
+        nextToken?: NextToken;
+    }
+    export interface ListThingsRequest {
+        /** The token for the next set of results, or null if there are no additional
+results. **/
+        nextToken?: NextToken;
+        /** The maximum number of results to return in this operation. **/
+        maxResults?: MaxResults;
+        /** The attribute name used to search for things. **/
         attributeName?: AttributeName;
-        /** The attribute value. **/
+        /** The attribute value used to search for things. **/
         attributeValue?: AttributeValue;
+        /** The name of the thing type used to search for things. **/
+        thingTypeName?: ThingTypeName;
     }
     export interface ListThingsResponse {
         /** The things. **/
         things?: ThingAttributeList;
-        /** A token used to retrieve the next value. **/
+        /** The token for the next set of results, or null if there are no additional
+results. **/
         nextToken?: NextToken;
     }
     export interface ListTopicRulesRequest {
@@ -1667,8 +1850,34 @@ official documentation. **/
     export interface ThingAttribute {
         /** The name of the thing. **/
         thingName?: ThingName;
-        /** The attributes. **/
+        /** The name of the thing type, if the thing has been associated with a type. **/
+        thingTypeName?: ThingTypeName;
+        /** A list of thing attributes which are name-value pairs. **/
         attributes?: Attributes;
+        /** The version of the thing record in the registry. **/
+        version?: Version;
+    }
+    export interface ThingTypeDefinition {
+        /** The name of the thing type. **/
+        thingTypeName?: ThingTypeName;
+        /** The ThingTypeProperties for the thing type. **/
+        thingTypeProperties?: ThingTypeProperties;
+        thingTypeMetadata?: ThingTypeMetadata;
+    }
+    export interface ThingTypeMetadata {
+        /** Whether the thing type is deprecated. If true , no new things could be
+associated with this type. **/
+        deprecated?: Boolean;
+        /** The date and time when the thing type was deprecated. **/
+        deprecationDate?: DeprecationDate;
+        /** The date and time when the thing type was created. **/
+        creationDate?: CreationDate;
+    }
+    export interface ThingTypeProperties {
+        /** The description of the thing type. **/
+        thingTypeDescription?: ThingTypeDescription;
+        /** A list of searchable thing attribute names. **/
+        searchableAttributes?: SearchableAttributes;
     }
     export interface ThrottlingException {
         /** The message for the exception. **/
@@ -1775,13 +1984,29 @@ Note: The status value REGISTER_INACTIVE is deprecated and should not be used. *
         newStatus: CertificateStatus;
     }
     export interface UpdateThingRequest {
-        /** The thing name. **/
+        /** The name of the thing to update. **/
         thingName: ThingName;
-        /** The attribute payload, a JSON string containing up to three key-value pairs (for
-example, {\&quot;attributes\&quot;:{\&quot;string1\&quot;:\&quot;string2\&quot;}}). **/
-        attributePayload: AttributePayload;
+        /** The name of the thing type. **/
+        thingTypeName?: ThingTypeName;
+        /** A list of thing attributes, a JSON string containing name-value pairs. For
+example:
+
+{\&quot;attributes\&quot;:{\&quot;name1\&quot;:\&quot;value2\&quot;}})
+
+This data is used to add new attributes or update existing attributes. **/
+        attributePayload?: AttributePayload;
+        /** The expected version of the thing record in the registry. If the version of the
+record in the registry does not match the expected version specified in the
+request, the UpdateThing request is rejected with a VersionConflictException . **/
+        expectedVersion?: OptionalVersion;
+        /** Remove a thing type association. If true , the assocation is removed. **/
+        removeThingType?: RemoveThingType;
     }
     export interface UpdateThingResponse {
+    }
+    export interface VersionConflictException {
+        /** The message for the exception. **/
+        message?: errorMessage;
     }
     export interface VersionsLimitExceededException {
         /** The message for the exception. **/

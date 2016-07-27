@@ -160,7 +160,7 @@ and modify that status. To use GET, you must be the bucket owner.
      */
     getBucketPolicy(params: S3.GetBucketPolicyRequest, callback?: (err: any, data: S3.GetBucketPolicyOutput|any) => void): Request<S3.GetBucketPolicyOutput|any,any>;
     /**
-     * Deprecated, see the GetBucketReplicationConfiguration operation.
+     * Returns the replication configuration of a bucket.
      *
      */
     getBucketReplication(params: S3.GetBucketReplicationRequest, callback?: (err: any, data: S3.GetBucketReplicationOutput|any) => void): Request<S3.GetBucketReplicationOutput|any,any>;
