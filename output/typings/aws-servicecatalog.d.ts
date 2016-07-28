@@ -14,23 +14,23 @@ declare module "aws-sdk" {
     * signatureVersion: v4
     * protocol: json
     *
-    * AWS Service CatalogOverview
+    * AWS Service Catalog  Overview 
  
- AWS Service Catalog [https://aws.amazon.com/servicecatalog/] allows
+  AWS Service Catalog [https://aws.amazon.com/servicecatalog/] allows
  organizations to create and manage catalogs of IT services that are approved for
  use on AWS. This documentation provides reference material for the AWS Service
  Catalog end user API. To get the most out of this documentation, you need to be
  familiar with the terminology discussed in AWS Service Catalog Concepts
- [http://docs.aws.amazon.com/servicecatalog/latest/userguide/what-is_concepts.html] 
+ [http://docs.aws.amazon.com/servicecatalog/latest/userguide/what-is_concepts.html]
  .
  
- Additional Resources
+  Additional Resources 
  
-  &amp;#42; AWS Service Catalog Administrator Guide
-    [http://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html]
+  &amp;#42;   AWS Service Catalog Administrator Guide
+    [http://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html] 
     
     
-  * AWS Service Catalog User Guide
+  *   AWS Service Catalog User Guide
     [http://docs.aws.amazon.com/servicecatalog/latest/userguide/introduction.html]
     *
     */
@@ -41,7 +41,7 @@ declare module "aws-sdk" {
      * Retrieves information about a specified product.
 
 This operation is functionally identical to DescribeProductView except that it
-takes as input ProductId instead of ProductViewId .
+takes as input ProductId instead of ProductViewId.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParametersException   
@@ -51,7 +51,7 @@ takes as input ProductId instead of ProductViewId .
      * Retrieves information about a specified product.
 
 This operation is functionally identical to DescribeProduct except that it takes
-as input ProductViewId instead of ProductId .
+as input ProductViewId instead of ProductId.
      *
      * @error ResourceNotFoundException   
      * @error InvalidParametersException   
@@ -69,8 +69,8 @@ operation for the specified product.
     describeProvisioningParameters(params: ServiceCatalog.DescribeProvisioningParametersInput, callback?: (err: ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any, data: ServiceCatalog.DescribeProvisioningParametersOutput | any) => void): Request<ServiceCatalog.DescribeProvisioningParametersOutput | any, ServiceCatalog.InvalidParametersException | ServiceCatalog.ResourceNotFoundException | any>;
     /**
      * Retrieves a paginated list of the full details of a specific request. Use this
-operation after calling a request operation ( ProvisionProduct , 
-TerminateProvisionedProduct , or UpdateProvisionedProduct ).
+operation after calling a request operation (ProvisionProduct, 
+TerminateProvisionedProduct, or UpdateProvisionedProduct).
      *
      * @error ResourceNotFoundException   
      */
@@ -95,7 +95,7 @@ objects that are filtered as specified.
      * Requests a Provision of a specified product. A ProvisionedProduct is a resourced
 instance for a product. For example, provisioning a
 CloudFormation-template-backed product results in launching a CloudFormation
-stack and all the underlying resources that come with it.
+stack and all the underlying resources that come with it. 
 
 You can check the status of this request using the DescribeRecord operation.
      *
@@ -113,10 +113,10 @@ currently available (not terminated).
     scanProvisionedProducts(params: ServiceCatalog.ScanProvisionedProductsInput, callback?: (err: ServiceCatalog.InvalidParametersException | any, data: ServiceCatalog.ScanProvisionedProductsOutput | any) => void): Request<ServiceCatalog.ScanProvisionedProductsOutput | any, ServiceCatalog.InvalidParametersException | any>;
     /**
      * Returns a paginated list all of the Products objects to which the caller has
-access.
+access. 
 
 The output of this operation can be used as input for other operations, such as 
-DescribeProductView .
+DescribeProductView.
      *
      * @error InvalidParametersException   
      */
@@ -124,7 +124,7 @@ DescribeProductView .
     /**
      * Requests termination of an existing ProvisionedProduct object. If there are Tags 
 associated with the object, they are terminated when the ProvisionedProduct
-object is terminated.
+object is terminated. 
 
 This operation does not delete any records associated with the
 ProvisionedProduct object.
@@ -139,7 +139,7 @@ You can check the status of this request using the DescribeRecord operation.
 If there are tags associated with the object, they cannot be updated or added
 with this operation. Depending on the specific updates requested, this operation
 may update with no interruption, with some interruption, or replace the
-ProvisionedProduct object entirely.
+ProvisionedProduct object entirely. 
 
 You can check the status of this request using the DescribeRecord operation.
      *
@@ -407,10 +407,10 @@ output information. This is the RecordDetail.RecordId obtained from the request
 operation&#x27;s response. **/
       Id: Id;
       /** The page token of the first page retrieve. If null, this retrieves the first
-page of size PageSize . **/
+page of size PageSize. **/
       PageToken?: PageToken;
       /** The maximum number of items to return in the results. If more results exist than
-fit in the specified PageSize , the value of NextPageToken in the response is
+fit in the specified PageSize, the value of NextPageToken in the response is
 non-null. **/
       PageSize?: PageSize;
     }
@@ -453,15 +453,15 @@ If no code is specified, &quot;en&quot; is used as the default. **/
       /** Identifies the product for which to retrieve LaunchPathSummaries information. **/
       ProductId: Id;
       /** The maximum number of items to return in the results. If more results exist than
-fit in the specified PageSize , the value of NextPageToken in the response is
+fit in the specified PageSize, the value of NextPageToken in the response is
 non-null. **/
       PageSize?: PageSize;
       /** The page token of the first page retrieve. If null, this retrieves the first
-page of size PageSize . **/
+page of size PageSize. **/
       PageToken?: PageToken;
     }
     export interface ListLaunchPathsOutput {
-      /** List of launch path information summaries for the specified PageToken . **/
+      /** List of launch path information summaries for the specified PageToken. **/
       LaunchPathSummaries?: LaunchPathSummaries;
       /** The page token to use to retrieve the next page of results for this operation.
 If there are no more pages, this value is null. **/
@@ -481,11 +481,11 @@ If no code is specified, &quot;en&quot; is used as the default. **/
       /** (Optional) The filter to limit search results. **/
       SearchFilter?: ListRecordHistorySearchFilter;
       /** The maximum number of items to return in the results. If more results exist than
-fit in the specified PageSize , the value of NextPageToken in the response is
+fit in the specified PageSize, the value of NextPageToken in the response is
 non-null. **/
       PageSize?: PageSize;
       /** The page token of the first page retrieve. If null, this retrieves the first
-page of size PageSize . **/
+page of size PageSize. **/
       PageToken?: PageToken;
     }
     export interface ListRecordHistoryOutput {
@@ -498,7 +498,7 @@ If there are no more pages, this value is null. **/
     export interface ListRecordHistorySearchFilter {
       /** The filter key. **/
       Key?: SearchFilterKey;
-      /** The filter value for Key . **/
+      /** The filter value for Key. **/
       Value?: SearchFilterValue;
     }
     export interface ParameterConstraints {
@@ -533,7 +533,7 @@ significance of this value. **/
 a value of true indicates that it does. If it&#x27;s false, call ListLaunchPaths to
 disambiguate between paths. If true, ListLaunchPaths is not required, and the
 output of the ProductViewSummary operation can be used directly with 
-DescribeProvisioningParameters . **/
+DescribeProvisioningParameters. **/
       HasDefaultPath?: HasDefaultPath;
       /** The email contact information to obtain support for this Product. **/
       SupportEmail?: SupportEmail;
@@ -632,10 +632,10 @@ information. **/
     }
     export interface ProvisioningParameter {
       /** The ProvisioningArtifactParameter.ParameterKey parameter from 
-DescribeProvisioningParameters . **/
+DescribeProvisioningParameters. **/
       Key?: ParameterKey;
       /** The value to use for provisioning. Any constraints on this value can be found in 
-ProvisioningArtifactParameter for Key . **/
+ProvisioningArtifactParameter for Key. **/
       Value?: ParameterValue;
     }
     export interface RecordDetail {
@@ -700,11 +700,11 @@ ProvisioningArtifactParameter for Key . **/
 If no code is specified, &quot;en&quot; is used as the default. **/
       AcceptLanguage?: AcceptLanguage;
       /** The maximum number of items to return in the results. If more results exist than
-fit in the specified PageSize , the value of NextPageToken in the response is
+fit in the specified PageSize, the value of NextPageToken in the response is
 non-null. **/
       PageSize?: PageSize;
       /** The page token of the first page retrieve. If null, this retrieves the first
-page of size PageSize . **/
+page of size PageSize. **/
       PageToken?: PageToken;
     }
     export interface ScanProvisionedProductsOutput {
@@ -730,7 +730,7 @@ filters are specified, the output is all the products to which the calling user
 has access. **/
       Filters?: ProductViewFilters;
       /** The maximum number of items to return in the results. If more results exist than
-fit in the specified PageSize , the value of NextPageToken in the response is
+fit in the specified PageSize, the value of NextPageToken in the response is
 non-null. **/
       PageSize?: PageSize;
       /** (Optional) The sort field specifier. If no value is specified, results are not
@@ -740,7 +740,7 @@ sorted. **/
 sorted. **/
       SortOrder?: SortOrder;
       /** The page token of the first page retrieve. If null, this retrieves the first
-page of size PageSize . **/
+page of size PageSize. **/
       PageToken?: PageToken;
     }
     export interface SearchProductsOutput {
@@ -754,23 +754,22 @@ If there are no more pages, this value is null. **/
     }
     export interface Tag {
       /** The ProvisioningArtifactParameter.TagKey parameter from 
-DescribeProvisioningParameters . **/
+DescribeProvisioningParameters. **/
       Key?: TagKey;
       /** The esired value for this key. **/
       Value?: TagValue;
     }
     export interface TerminateProvisionedProductInput {
       /** The name of the ProvisionedProduct object to terminate. You must specify either 
-ProvisionedProductName or ProvisionedProductId , but not both. **/
+ProvisionedProductName or ProvisionedProductId, but not both. **/
       ProvisionedProductName?: ProvisionedProductNameOrArn;
       /** The identifier of the ProvisionedProduct object to terminate. You must specify
-either ProvisionedProductName or ProvisionedProductId , but not both. **/
+either ProvisionedProductName or ProvisionedProductId, but not both. **/
       ProvisionedProductId?: Id;
       /** An idempotency token that uniquely identifies the termination request. This
 token is only valid during the termination process. After the ProvisionedProduct
 object is terminated, further requests to terminate the same ProvisionedProduct
-object always return ResourceNotFound regardless of the value of TerminateToken 
-. **/
+object always return ResourceNotFound regardless of the value of TerminateToken. **/
       TerminateToken: IdempotencyToken;
       /** Optional Boolean parameter. If set to true, AWS Service Catalog stops managing
 the specified ProvisionedProduct object even if it cannot delete the underlying
@@ -806,10 +805,10 @@ errors that the request encountered. **/
 If no code is specified, &quot;en&quot; is used as the default. **/
       AcceptLanguage?: AcceptLanguage;
       /** The updated name of the ProvisionedProduct object . You must specify either 
-ProvisionedProductName or ProvisionedProductId , but not both. **/
+ProvisionedProductName or ProvisionedProductId, but not both. **/
       ProvisionedProductName?: ProvisionedProductNameOrArn;
       /** The identifier of the ProvisionedProduct object to update. You must specify
-either ProvisionedProductName or ProvisionedProductId , but not both. **/
+either ProvisionedProductName or ProvisionedProductId, but not both. **/
       ProvisionedProductId?: Id;
       /** The identifier of the ProvisionedProduct object. **/
       ProductId?: Id;
@@ -834,13 +833,13 @@ errors that the request encountered. **/
     }
     export interface UpdateProvisioningParameter {
       /** The ProvisioningArtifactParameter.ParameterKey parameter from 
-DescribeProvisioningParameters . **/
+DescribeProvisioningParameters. **/
       Key?: ParameterKey;
       /** The value to use for updating the product provisioning. Any constraints on this
-value can be found in the ProvisioningArtifactParameter parameter for Key . **/
+value can be found in the ProvisioningArtifactParameter parameter for Key. **/
       Value?: ParameterValue;
-      /** If true, uses the currently set value for Key , ignoring 
-UpdateProvisioningParameter.Value . **/
+      /** If true, uses the currently set value for Key, ignoring 
+UpdateProvisioningParameter.Value. **/
       UsePreviousValue?: UsePreviousValue;
     }
     export interface UsageInstruction {
