@@ -186,8 +186,9 @@ are no Stage resources associated with it.
      * @error UnauthorizedException   
      * @error NotFoundException   
      * @error TooManyRequestsException   
+     * @error BadRequestException   
      */
-    deleteIntegrationResponse(params: APIGateway.DeleteIntegrationResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    deleteIntegrationResponse(params: APIGateway.DeleteIntegrationResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|any>;
     /**
      * Deletes an existing Method resource.
      *
@@ -202,8 +203,9 @@ are no Stage resources associated with it.
      * @error UnauthorizedException   
      * @error NotFoundException   
      * @error TooManyRequestsException   
+     * @error BadRequestException   
      */
-    deleteMethodResponse(params: APIGateway.DeleteMethodResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    deleteMethodResponse(params: APIGateway.DeleteMethodResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|any>;
     /**
      * Deletes a model.
      *
@@ -567,8 +569,9 @@ existing API.
      * @error NotFoundException   
      * @error BadRequestException   
      * @error TooManyRequestsException   
+     * @error ConflictException   
      */
-    putRestApi(params: APIGateway.PutRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.RestApi|any) => void): Request<APIGateway.RestApi|any,APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
+    putRestApi(params: APIGateway.PutRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|any, data: APIGateway.RestApi|any) => void): Request<APIGateway.RestApi|any,APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|any>;
     /**
      * Simulate the execution of an Authorizer in your RestApi with headers,
 parameters, and an incoming request body.
@@ -758,6 +761,8 @@ an incoming request body.
     
     export type IntegrationType = string;
     
+    export type ListOfARNs = ProviderARN[];
+    
     export type ListOfApiKey = ApiKey[];
     
     export type ListOfAuthorizer = Authorizer[];
@@ -810,6 +815,8 @@ an incoming request body.
     
     export type PathToMapOfMethodSnapshot = {[key:string]: MapOfMethodSnapshot};
     
+    export type ProviderARN = string;
+    
     export type PutMode = string;
     
     export type StatusCode = string;
@@ -859,6 +866,7 @@ current Account resource. **/
         name?: String;
         /** [Required] The type of the authorizer. Currently, the only valid type is TOKEN. **/
         type?: AuthorizerType;
+        providerARNs?: ListOfARNs;
         /** Optional customer-defined field, used in Swagger imports/exports. Has no
 functional impact. **/
         authType?: String;
@@ -955,11 +963,12 @@ ClientCertificate resources. **/
         name: String;
         /** [Required] The type of the authorizer. **/
         type: AuthorizerType;
+        providerARNs?: ListOfARNs;
         /** Optional customer-defined field, used in Swagger imports/exports. Has no
 functional impact. **/
         authType?: String;
         /** [Required] Specifies the authorizer&#x27;s Uniform Resource Identifier (URI). **/
-        authorizerUri: String;
+        authorizerUri?: String;
         /** Specifies the credentials required for the authorizer, if any. **/
         authorizerCredentials?: String;
         /** [Required] The source of the identity in an incoming request. **/
@@ -1941,6 +1950,7 @@ authorizer succeeded. **/
         /** The policy JSON document returned by the Authorizer **/
         policy?: String;
         authorization?: MapOfStringToList;
+        claims?: MapOfStringToString;
     }
     export interface TestInvokeMethodRequest {
         /** Specifies a test invoke method request&#x27;s API identifier. **/

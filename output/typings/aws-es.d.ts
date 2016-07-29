@@ -20,7 +20,8 @@ configuration API to create, configure, and manage Elasticsearch domains.
 The endpoint for configuration service requests is region-specific: es. region 
 .amazonaws.com. For example, es.us-east-1.amazonaws.com. For a current list of
 supported regions and endpoints, see Regions and Endpoints
-[http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region] .
+[http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsearch-service-regions] 
+.
    *
    */
   export class ES extends Service {
@@ -32,13 +33,10 @@ case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags.
 See Tagging Amazon Elasticsearch Service Domains for more information.
 [http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging]
      *
-     * @error BaseException An error occurred while processing the request.  
-     * @error LimitExceededException An exception for trying to create more than allowed resources or sub-resources.
-Gives http status code of 409.  
-     * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
-     * @error InternalException The request processing has failed because of an unknown error, exception or
-failure (the failure is internal to the service) . Gives http status code of
-500.  
+     * @error BaseException   
+     * @error LimitExceededException   
+     * @error ValidationException   
+     * @error InternalException   
      */
     addTags(params: ES.AddTagsRequest, callback?: (err: ES.BaseException|ES.LimitExceededException|ES.ValidationException|ES.InternalException|any, data: any) => void): Request<any,ES.BaseException|ES.LimitExceededException|ES.ValidationException|ES.InternalException|any>;
     /**
@@ -47,45 +45,33 @@ Elasticsearch Domains
 [http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains] 
 in the Amazon Elasticsearch Service Developer Guide .
      *
-     * @error BaseException An error occurred while processing the request.  
-     * @error DisabledOperationException An error occured because the client wanted to access a not supported operation.
-Gives http status code of 409.  
-     * @error InternalException The request processing has failed because of an unknown error, exception or
-failure (the failure is internal to the service) . Gives http status code of
-500.  
-     * @error InvalidTypeException An exception for trying to create or access sub-resource that is either invalid
-or not supported. Gives http status code of 409.  
-     * @error LimitExceededException An exception for trying to create more than allowed resources or sub-resources.
-Gives http status code of 409.  
-     * @error ResourceAlreadyExistsException An exception for creating a resource that already exists. Gives http status code
-of 400.  
-     * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
+     * @error BaseException   
+     * @error DisabledOperationException   
+     * @error InternalException   
+     * @error InvalidTypeException   
+     * @error LimitExceededException   
+     * @error ResourceAlreadyExistsException   
+     * @error ValidationException   
      */
     createElasticsearchDomain(params: ES.CreateElasticsearchDomainRequest, callback?: (err: ES.BaseException|ES.DisabledOperationException|ES.InternalException|ES.InvalidTypeException|ES.LimitExceededException|ES.ResourceAlreadyExistsException|ES.ValidationException|any, data: ES.CreateElasticsearchDomainResponse|any) => void): Request<ES.CreateElasticsearchDomainResponse|any,ES.BaseException|ES.DisabledOperationException|ES.InternalException|ES.InvalidTypeException|ES.LimitExceededException|ES.ResourceAlreadyExistsException|ES.ValidationException|any>;
     /**
      * Permanently deletes the specified Elasticsearch domain and all of its data. Once
 a domain is deleted, it cannot be recovered.
      *
-     * @error BaseException An error occurred while processing the request.  
-     * @error InternalException The request processing has failed because of an unknown error, exception or
-failure (the failure is internal to the service) . Gives http status code of
-500.  
-     * @error ResourceNotFoundException An exception for accessing or deleting a resource that does not exist. Gives
-http status code of 400.  
-     * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
+     * @error BaseException   
+     * @error InternalException   
+     * @error ResourceNotFoundException   
+     * @error ValidationException   
      */
     deleteElasticsearchDomain(params: ES.DeleteElasticsearchDomainRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any, data: ES.DeleteElasticsearchDomainResponse|any) => void): Request<ES.DeleteElasticsearchDomainResponse|any,ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any>;
     /**
      * Returns domain configuration information about the specified Elasticsearch
 domain, including the domain ID, domain endpoint, and domain ARN.
      *
-     * @error BaseException An error occurred while processing the request.  
-     * @error InternalException The request processing has failed because of an unknown error, exception or
-failure (the failure is internal to the service) . Gives http status code of
-500.  
-     * @error ResourceNotFoundException An exception for accessing or deleting a resource that does not exist. Gives
-http status code of 400.  
-     * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
+     * @error BaseException   
+     * @error InternalException   
+     * @error ResourceNotFoundException   
+     * @error ValidationException   
      */
     describeElasticsearchDomain(params: ES.DescribeElasticsearchDomainRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any, data: ES.DescribeElasticsearchDomainResponse|any) => void): Request<ES.DescribeElasticsearchDomainResponse|any,ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any>;
     /**
@@ -93,71 +79,56 @@ http status code of 400.
 domain, such as the state, creation date, update version, and update date for
 cluster options.
      *
-     * @error BaseException An error occurred while processing the request.  
-     * @error InternalException The request processing has failed because of an unknown error, exception or
-failure (the failure is internal to the service) . Gives http status code of
-500.  
-     * @error ResourceNotFoundException An exception for accessing or deleting a resource that does not exist. Gives
-http status code of 400.  
-     * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
+     * @error BaseException   
+     * @error InternalException   
+     * @error ResourceNotFoundException   
+     * @error ValidationException   
      */
     describeElasticsearchDomainConfig(params: ES.DescribeElasticsearchDomainConfigRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any, data: ES.DescribeElasticsearchDomainConfigResponse|any) => void): Request<ES.DescribeElasticsearchDomainConfigResponse|any,ES.BaseException|ES.InternalException|ES.ResourceNotFoundException|ES.ValidationException|any>;
     /**
      * Returns domain configuration information about the specified Elasticsearch
 domains, including the domain ID, domain endpoint, and domain ARN.
      *
-     * @error BaseException An error occurred while processing the request.  
-     * @error InternalException The request processing has failed because of an unknown error, exception or
-failure (the failure is internal to the service) . Gives http status code of
-500.  
-     * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
+     * @error BaseException   
+     * @error InternalException   
+     * @error ValidationException   
      */
     describeElasticsearchDomains(params: ES.DescribeElasticsearchDomainsRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.ValidationException|any, data: ES.DescribeElasticsearchDomainsResponse|any) => void): Request<ES.DescribeElasticsearchDomainsResponse|any,ES.BaseException|ES.InternalException|ES.ValidationException|any>;
     /**
      * Returns the name of all Elasticsearch domains owned by the current user&#x27;s
 account.
      *
-     * @error BaseException An error occurred while processing the request.  
-     * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
+     * @error BaseException   
+     * @error ValidationException   
      */
     listDomainNames(callback?: (err: ES.BaseException|ES.ValidationException|any, data: ES.ListDomainNamesResponse|any) => void): Request<ES.ListDomainNamesResponse|any,ES.BaseException|ES.ValidationException|any>;
     /**
      * Returns all tags for the given Elasticsearch domain.
      *
-     * @error BaseException An error occurred while processing the request.  
-     * @error ResourceNotFoundException An exception for accessing or deleting a resource that does not exist. Gives
-http status code of 400.  
-     * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
-     * @error InternalException The request processing has failed because of an unknown error, exception or
-failure (the failure is internal to the service) . Gives http status code of
-500.  
+     * @error BaseException   
+     * @error ResourceNotFoundException   
+     * @error ValidationException   
+     * @error InternalException   
      */
     listTags(params: ES.ListTagsRequest, callback?: (err: ES.BaseException|ES.ResourceNotFoundException|ES.ValidationException|ES.InternalException|any, data: ES.ListTagsResponse|any) => void): Request<ES.ListTagsResponse|any,ES.BaseException|ES.ResourceNotFoundException|ES.ValidationException|ES.InternalException|any>;
     /**
      * Removes the specified set of tags from the specified Elasticsearch domain.
      *
-     * @error BaseException An error occurred while processing the request.  
-     * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
-     * @error InternalException The request processing has failed because of an unknown error, exception or
-failure (the failure is internal to the service) . Gives http status code of
-500.  
+     * @error BaseException   
+     * @error ValidationException   
+     * @error InternalException   
      */
     removeTags(params: ES.RemoveTagsRequest, callback?: (err: ES.BaseException|ES.ValidationException|ES.InternalException|any, data: any) => void): Request<any,ES.BaseException|ES.ValidationException|ES.InternalException|any>;
     /**
      * Modifies the cluster configuration of the specified Elasticsearch domain,
 setting as setting the instance type and the number of instances.
      *
-     * @error BaseException An error occurred while processing the request.  
-     * @error InternalException The request processing has failed because of an unknown error, exception or
-failure (the failure is internal to the service) . Gives http status code of
-500.  
-     * @error InvalidTypeException An exception for trying to create or access sub-resource that is either invalid
-or not supported. Gives http status code of 409.  
-     * @error LimitExceededException An exception for trying to create more than allowed resources or sub-resources.
-Gives http status code of 409.  
-     * @error ResourceNotFoundException An exception for accessing or deleting a resource that does not exist. Gives
-http status code of 400.  
-     * @error ValidationException An exception for missing / invalid input fields. Gives http status code of 400.  
+     * @error BaseException   
+     * @error InternalException   
+     * @error InvalidTypeException   
+     * @error LimitExceededException   
+     * @error ResourceNotFoundException   
+     * @error ValidationException   
      */
     updateElasticsearchDomainConfig(params: ES.UpdateElasticsearchDomainConfigRequest, callback?: (err: ES.BaseException|ES.InternalException|ES.InvalidTypeException|ES.LimitExceededException|ES.ResourceNotFoundException|ES.ValidationException|any, data: ES.UpdateElasticsearchDomainConfigResponse|any) => void): Request<ES.UpdateElasticsearchDomainConfigResponse|any,ES.BaseException|ES.InternalException|ES.InvalidTypeException|ES.LimitExceededException|ES.ResourceNotFoundException|ES.ValidationException|any>;
 
@@ -182,6 +153,8 @@ http status code of 400.
     export type ESPartitionInstanceType = string;
     
     export type ElasticsearchDomainStatusList = ElasticsearchDomainStatus[];
+    
+    export type ElasticsearchVersionString = string;
     
     export type ErrorMessage = string;
     
@@ -242,6 +215,11 @@ unique across the domains owned by an account within an AWS region. Domain names
 must start with a letter or number and can contain the following characters: a-z
 (lowercase), 0-9, and - (hyphen). **/
         DomainName: DomainName;
+        /** String of format X.Y to specify version for the Elasticsearch domain eg. &quot;1.5&quot;
+or &quot;2.3&quot;. For more information, see Creating Elasticsearch Domains
+[http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains] 
+in the Amazon Elasticsearch Service Developer Guide . **/
+        ElasticsearchVersion?: ElasticsearchVersionString;
         /** Configuration options for an Elasticsearch domain. Specifies the instance type
 and number of instances in the domain cluster. **/
         ElasticsearchClusterConfig?: ElasticsearchClusterConfig;
@@ -346,6 +324,8 @@ domain. **/
         Status: OptionStatus;
     }
     export interface ElasticsearchDomainConfig {
+        /** String of format X.Y to specify version for the Elasticsearch domain. **/
+        ElasticsearchVersion?: ElasticsearchVersionStatus;
         /** Specifies the ElasticsearchClusterConfig for the Elasticsearch domain. **/
         ElasticsearchClusterConfig?: ElasticsearchClusterConfigStatus;
         /** Specifies the EBSOptions for the Elasticsearch domain. **/
@@ -387,6 +367,7 @@ requests. **/
 Elasticsearch Service is processing configuration changes. False if the
 configuration is active. **/
         Processing?: Boolean;
+        ElasticsearchVersion?: ElasticsearchVersionString;
         /** The type and number of instances in the domain cluster. **/
         ElasticsearchClusterConfig: ElasticsearchClusterConfig;
         /** The EBSOptions for the specified domain. See Configuring EBS-based Storage
@@ -399,6 +380,13 @@ for more information. **/
         SnapshotOptions?: SnapshotOptions;
         /** Specifies the status of the AdvancedOptions **/
         AdvancedOptions?: AdvancedOptions;
+    }
+    export interface ElasticsearchVersionStatus {
+        /** Specifies the Elasticsearch version for the specified Elasticsearch domain. **/
+        Options: ElasticsearchVersionString;
+        /** Specifies the status of the Elasticsearch version options for the specified
+Elasticsearch domain. **/
+        Status: OptionStatus;
     }
     export interface InternalException {
     }

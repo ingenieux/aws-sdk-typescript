@@ -206,12 +206,14 @@ not to pass a policy, the temporary security credentials that are returned by
 the operation have the permissions that are defined in the access policy of the
 role that is being assumed. If you pass a policy to this operation, the
 temporary security credentials that are returned by the operation have the
-permissions that are allowed by both the access policy of the role that is being
-assumed, and the policy that you pass. This gives you a way to further restrict
-the permissions for the resulting temporary security credentials. You cannot use
-the passed policy to grant permissions that are in excess of those allowed by
-the access policy of the role that is being assumed. For more information, see 
-Permissions for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity
+permissions that are allowed by the intersection of both the access policy of
+the role that is being assumed, and the policy that you pass. This means that
+both policies must grant the permission for the action to be allowed. This gives
+you a way to further restrict the permissions for the resulting temporary
+security credentials. You cannot use the passed policy to grant permissions that
+are in excess of those allowed by the access policy of the role that is being
+assumed. For more information, see Permissions for AssumeRole,
+AssumeRoleWithSAML, and AssumeRoleWithWebIdentity
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html] 
 in the IAM User Guide .
 
@@ -696,7 +698,8 @@ account in their CloudTrail logs.
 
 The format for this parameter, as described by its regex pattern, is a string of
 characters consisting of upper- and lower-case alphanumeric characters with no
-spaces. You can also include any of the following characters: =,.@- **/
+spaces. You can also include underscores or any of the following characters:
+=,.@- **/
         RoleSessionName: roleSessionNameType;
         /** An IAM policy in JSON format.
 
@@ -725,7 +728,16 @@ size limit the policy is, with 100% equaling the maximum allowed size. **/
         Policy?: sessionPolicyDocumentType;
         /** The duration, in seconds, of the role session. The value can range from 900
 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to
-3600 seconds. **/
+3600 seconds.
+
+This is separate from the duration of a console session that you might request
+using the returned credentials. The request to the federation endpoint for a
+console sign-in token takes a SessionDuration parameter that specifies the
+maximum length of the console session, separately from the DurationSeconds 
+parameter on this API. For more information, see Creating a URL that Enables
+Federated Users to Access the AWS Management Console
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html] 
+in the IAM User Guide . **/
         DurationSeconds?: roleDurationSecondsType;
         /** A unique identifier that is used by third parties when assuming roles in their
 customers&#x27; accounts. For each role that the third party can assume, they should
@@ -740,7 +752,8 @@ in the IAM User Guide .
 
 The format for this parameter, as described by its regex pattern, is a string of
 characters consisting of upper- and lower-case alphanumeric characters with no
-spaces. You can also include any of the following characters: =,.@:\/- **/
+spaces. You can also include underscores or any of the following characters:
+=,.@:\/- **/
         ExternalId?: externalIdType;
         /** The identification number of the MFA device that is associated with the user who
 is making the AssumeRole call. Specify this value if the trust policy of the
@@ -751,7 +764,8 @@ arn:aws:iam::123456789012:mfa/user ).
 
 The format for this parameter, as described by its regex pattern, is a string of
 characters consisting of upper- and lower-case alphanumeric characters with no
-spaces. You can also include any of the following characters: =,.@- **/
+spaces. You can also include underscores or any of the following characters:
+=,.@- **/
         SerialNumber?: serialNumberType;
         /** The value provided by the MFA device, if the trust policy of the role being
 assumed requires MFA (that is, if the policy includes a condition that tests for
@@ -824,8 +838,14 @@ seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to
 response&#x27;s SessionNotOnOrAfter value. The actual expiration time is whichever
 value is shorter.
 
-The maximum duration for a session is 1 hour, and the minimum duration is 15
-minutes, even if values outside this range are specified. **/
+This is separate from the duration of a console session that you might request
+using the returned credentials. The request to the federation endpoint for a
+console sign-in token takes a SessionDuration parameter that specifies the
+maximum length of the console session, separately from the DurationSeconds 
+parameter on this API. For more information, see Enabling SAML 2.0 Federated
+Users to Access the AWS Management Console
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html] 
+in the IAM User Guide . **/
         DurationSeconds?: roleDurationSecondsType;
     }
     export interface AssumeRoleWithSAMLResponse {
@@ -882,7 +902,8 @@ assumed role ID in the AssumedRoleUser response element.
 
 The format for this parameter, as described by its regex pattern, is a string of
 characters consisting of upper- and lower-case alphanumeric characters with no
-spaces. You can also include any of the following characters: =,.@- **/
+spaces. You can also include underscores or any of the following characters:
+=,.@- **/
         RoleSessionName: roleSessionNameType;
         /** The OAuth 2.0 access token or OpenID Connect ID token that is provided by the
 identity provider. Your application must get this token by authenticating the
@@ -923,7 +944,16 @@ size limit the policy is, with 100% equaling the maximum allowed size. **/
         Policy?: sessionPolicyDocumentType;
         /** The duration, in seconds, of the role session. The value can range from 900
 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set to
-3600 seconds. **/
+3600 seconds.
+
+This is separate from the duration of a console session that you might request
+using the returned credentials. The request to the federation endpoint for a
+console sign-in token takes a SessionDuration parameter that specifies the
+maximum length of the console session, separately from the DurationSeconds 
+parameter on this API. For more information, see Creating a URL that Enables
+Federated Users to Access the AWS Management Console
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html] 
+in the IAM User Guide . **/
         DurationSeconds?: roleDurationSecondsType;
     }
     export interface AssumeRoleWithWebIdentityResponse {
@@ -1030,7 +1060,8 @@ bucket policy.
 
 The format for this parameter, as described by its regex pattern, is a string of
 characters consisting of upper- and lower-case alphanumeric characters with no
-spaces. You can also include any of the following characters: =,.@- **/
+spaces. You can also include underscores or any of the following characters:
+=,.@- **/
         Name: userNameType;
         /** An IAM policy in JSON format that is passed with the GetFederationToken call and
 evaluated along with the policy or policies that are attached to the IAM user
@@ -1107,7 +1138,8 @@ the user&#x27;s security credentials.
 
 The format for this parameter, as described by its regex pattern, is a string of
 characters consisting of upper- and lower-case alphanumeric characters with no
-spaces. You can also include any of the following characters: =,.@- **/
+spaces. You can also include underscores or any of the following characters:
+=,.@- **/
         SerialNumber?: serialNumberType;
         /** The value provided by the MFA device, if MFA is required. If any policy requires
 the IAM user to submit an MFA code, specify this value. If MFA authentication is

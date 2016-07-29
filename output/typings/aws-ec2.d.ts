@@ -358,6 +358,9 @@ specify a non-default CMK with the KmsKeyId parameter.
 To copy an encrypted snapshot that has been shared from another account, you
 must have permissions for the CMK used to encrypt the snapshot.
 
+Snapshots created by the CopySnapshot action have an arbitrary volume ID that
+should not be used for any purpose.
+
 For more information, see Copying an Amazon EBS Snapshot
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html] in
 the Amazon Elastic Compute Cloud User Guide .
@@ -404,18 +407,21 @@ see RFC 2132 [http://www.ietf.org/rfc/rfc2132.txt] .
  &amp;#42; domain-name-servers - The IP addresses of up to four domain name servers, or
    AmazonProvidedDNS. The default DHCP option set specifies AmazonProvidedDNS.
    If specifying more than one domain name server, specify the IP addresses in a
-   single parameter, separated by commas.
+   single parameter, separated by commas. If you want your instance to receive a
+   custom DNS hostname as specified in domain-name , you must set 
+   domain-name-servers to a custom DNS server.
    
    
  * domain-name - If you&#x27;re using AmazonProvidedDNS in &quot;us-east-1&quot;, specify
    &quot;ec2.internal&quot;. If you&#x27;re using AmazonProvidedDNS in another region, specify
    &quot;region.compute.internal&quot; (for example, &quot;ap-northeast-1.compute.internal&quot;).
-   Otherwise, specify a domain name (for example, &quot;MyCompany.com&quot;). Important :
-   Some Linux operating systems accept multiple domain names separated by
-   spaces. However, Windows and other Linux operating systems treat the value as
-   a single domain, which results in unexpected behavior. If your DHCP options
-   set is associated with a VPC that has instances with multiple operating
-   systems, specify only one domain name.
+   Otherwise, specify a domain name (for example, &quot;MyCompany.com&quot;). This value
+   is used to complete unqualified DNS hostnames. Important : Some Linux
+   operating systems accept multiple domain names separated by spaces. However,
+   Windows and other Linux operating systems treat the value as a single domain,
+   which results in unexpected behavior. If your DHCP options set is associated
+   with a VPC that has instances with multiple operating systems, specify only
+   one domain name.
    
    
  * ntp-servers - The IP addresses of up to four Network Time Protocol (NTP)
@@ -2069,6 +2075,10 @@ attribute at a time.
 
 AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace
 product code cannot be made public.
+
+The SriovNetSupport enhanced networking attribute cannot be changed using this
+command. Instead, enable SriovNetSupport on an instance and create an AMI from
+the instance. This will result in an image with SriovNetSupport enabled.
      *
      */
     modifyImageAttribute(params: EC2.ModifyImageAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -2208,14 +2218,17 @@ connection. You can do the following:
    your VPC and an EC2-Classic instance that&#x27;s linked to the peer VPC.
    
    
+ * Enable/disable a local VPC to resolve public DNS hostnames to private IP
+   addresses when queried from instances in the peer VPC.
+   
+   
 
 If the peered VPCs are in different accounts, each owner must initiate a
-separate request to enable or disable communication in either direction,
-depending on whether their VPC was the requester or accepter for the VPC peering
-connection. If the peered VPCs are in the same account, you can modify the
-requester and accepter options in the same request. To confirm which VPC is the
-accepter and requester for a VPC peering connection, use the 
-DescribeVpcPeeringConnections command.
+separate request to modify the peering connection options, depending on whether
+their VPC was the requester or accepter for the VPC peering connection. If the
+peered VPCs are in the same account, you can modify the requester and accepter
+options in the same request. To confirm which VPC is the accepter and requester
+for a VPC peering connection, use the DescribeVpcPeeringConnections command.
      *
      */
     modifyVpcPeeringConnectionOptions(params: EC2.ModifyVpcPeeringConnectionOptionsRequest, callback?: (err: any, data: EC2.ModifyVpcPeeringConnectionOptionsResult|any) => void): Request<EC2.ModifyVpcPeeringConnectionOptionsResult|any,any>;
@@ -3571,7 +3584,8 @@ with a specific IP protocol and port range, use a set of IP permissions instead.
         SourceSecurityGroupOwnerId?: String;
         /** The IP protocol name ( tcp , udp , icmp ) or number (see Protocol Numbers
 [http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml] ).
-(VPC only) Use -1 to specify all. **/
+(VPC only) Use -1 to specify all traffic. If you specify -1 , traffic on all
+ports is allowed, regardless of any ports you specify. **/
         IpProtocol?: String;
         /** The start of port range for the TCP and UDP protocols, or an ICMP type number.
 For the ICMP type number, use -1 to specify all ICMP types. **/
@@ -9820,14 +9834,20 @@ linked to a local VPC via ClassicLink to instances in a peer VPC. **/
         /** If true, enables outbound communication from instances in a local VPC to an
 EC2-Classic instance that&#x27;s linked to a peer VPC via ClassicLink. **/
         AllowEgressFromLocalVpcToRemoteClassicLink?: Boolean;
+        /** If true, enables a local VPC to resolve public DNS hostnames to private IP
+addresses when queried from instances in the peer VPC. **/
+        AllowDnsResolutionFromRemoteVpc?: Boolean;
     }
     export interface PeeringConnectionOptionsRequest {
         /** If true, enables outbound communication from an EC2-Classic instance that&#x27;s
 linked to a local VPC via ClassicLink to instances in a peer VPC. **/
-        AllowEgressFromLocalClassicLinkToRemoteVpc: Boolean;
+        AllowEgressFromLocalClassicLinkToRemoteVpc?: Boolean;
         /** If true, enables outbound communication from instances in a local VPC to an
 EC2-Classic instance that&#x27;s linked to a peer VPC via ClassicLink. **/
-        AllowEgressFromLocalVpcToRemoteClassicLink: Boolean;
+        AllowEgressFromLocalVpcToRemoteClassicLink?: Boolean;
+        /** If true, enables a local VPC to resolve public DNS hostnames to private IP
+addresses when queried from instances in the peer VPC. **/
+        AllowDnsResolutionFromRemoteVpc?: Boolean;
     }
     export interface Placement {
         /** The Availability Zone of the instance. **/
@@ -11170,7 +11190,9 @@ in the future. **/
         /** The ID of the snapshot. Each snapshot receives a unique identifier when it is
 created. **/
         SnapshotId?: String;
-        /** The ID of the volume that was used to create the snapshot. **/
+        /** The ID of the volume that was used to create the snapshot. Snapshots created by
+the CopySnapshot action have an arbitrary volume ID that should not be used for
+any purpose. **/
         VolumeId?: String;
         /** The snapshot state. **/
         State?: SnapshotState;
@@ -11913,6 +11935,9 @@ VPC over the VPC peering connection. **/
         /** Indicates whether a local VPC can communicate with a ClassicLink connection in
 the peer VPC over the VPC peering connection. **/
         AllowEgressFromLocalVpcToRemoteClassicLink?: Boolean;
+        /** Indicates whether a local VPC can resolve public DNS hostnames to private IP
+addresses when queried from instances in a peer VPC. **/
+        AllowDnsResolutionFromRemoteVpc?: Boolean;
     }
     export interface VpcPeeringConnectionStateReason {
         /** The status of the VPC peering connection. **/

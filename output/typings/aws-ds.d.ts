@@ -23,9 +23,25 @@ errors.
     constructor(options?: any);
     endpoint: Endpoint;
     /**
+     * If the DNS server for your on-premises domain uses a publicly addressable IP
+address, you must add a CIDR address block to correctly route traffic to and
+from your Microsoft AD on Amazon Web Services. AddIpRoutes adds this address
+block. You can also use AddIpRoutes to facilitate routing traffic that uses
+public IP ranges from your Microsoft AD on AWS to a peer VPC.
+     *
+     * @error EntityDoesNotExistException   
+     * @error EntityAlreadyExistsException   
+     * @error InvalidParameterException   
+     * @error DirectoryUnavailableException   
+     * @error IpRouteLimitExceededException   
+     * @error ClientException   
+     * @error ServiceException   
+     */
+    addIpRoutes(params: DirectoryService.AddIpRoutesRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.EntityAlreadyExistsException|DirectoryService.InvalidParameterException|DirectoryService.DirectoryUnavailableException|DirectoryService.IpRouteLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.AddIpRoutesResult|any) => void): Request<DirectoryService.AddIpRoutesResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.EntityAlreadyExistsException|DirectoryService.InvalidParameterException|DirectoryService.DirectoryUnavailableException|DirectoryService.IpRouteLimitExceededException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
+    /**
      * Adds or overwrites one or more tags for the specified Amazon Directory Services
 directory. Each directory can have a maximum of 10 tags. Each tag consists of a
-key and optional value. Tag keys must be unique per resource.
+key and optional value. Tag keys must be unique to each resource.
      *
      * @error EntityDoesNotExistException   
      * @error InvalidParameterException   
@@ -321,6 +337,16 @@ User Service (RADIUS) server for an AD Connector directory.
      */
     getSnapshotLimits(params: DirectoryService.GetSnapshotLimitsRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.GetSnapshotLimitsResult|any) => void): Request<DirectoryService.GetSnapshotLimitsResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
+     * Lists the address blocks that you have added to a directory.
+     *
+     * @error EntityDoesNotExistException   
+     * @error InvalidNextTokenException   
+     * @error InvalidParameterException   
+     * @error ClientException   
+     * @error ServiceException   
+     */
+    listIpRoutes(params: DirectoryService.ListIpRoutesRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidNextTokenException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.ListIpRoutesResult|any) => void): Request<DirectoryService.ListIpRoutesResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidNextTokenException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
+    /**
      * Lists all tags on an Amazon Directory Services directory.
      *
      * @error EntityDoesNotExistException   
@@ -343,6 +369,16 @@ also receive a notification when the directory returns to an Active status.
      * @error ServiceException   
      */
     registerEventTopic(params: DirectoryService.RegisterEventTopicRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.RegisterEventTopicResult|any) => void): Request<DirectoryService.RegisterEventTopicResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
+    /**
+     * Removes IP address blocks from a directory.
+     *
+     * @error EntityDoesNotExistException   
+     * @error InvalidParameterException   
+     * @error DirectoryUnavailableException   
+     * @error ClientException   
+     * @error ServiceException   
+     */
+    removeIpRoutes(params: DirectoryService.RemoveIpRoutesRequest, callback?: (err: DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.DirectoryUnavailableException|DirectoryService.ClientException|DirectoryService.ServiceException|any, data: DirectoryService.RemoveIpRoutesResult|any) => void): Request<DirectoryService.RemoveIpRoutesResult|any,DirectoryService.EntityDoesNotExistException|DirectoryService.InvalidParameterException|DirectoryService.DirectoryUnavailableException|DirectoryService.ClientException|DirectoryService.ServiceException|any>;
     /**
      * Removes tags from an Amazon Directory Services directory.
      *
@@ -411,6 +447,8 @@ cloud and an external domain.
     
     export type AccessUrl = string;
     
+    export type AddedDateTime = number;
+    
     export type AliasName = string;
     
     export type AttributeName = string;
@@ -422,6 +460,10 @@ cloud and an external domain.
     export type AvailabilityZone = string;
     
     export type AvailabilityZones = AvailabilityZone[];
+    
+    export type CidrIp = string;
+    
+    export type CidrIps = CidrIp[];
     
     export type CloudOnlyDirectoriesLimitReached = boolean;
     
@@ -466,6 +508,14 @@ cloud and an external domain.
     export type IpAddr = string;
     
     export type IpAddrs = IpAddr[];
+    
+    export type IpRouteStatusMsg = string;
+    
+    export type IpRouteStatusReason = string;
+    
+    export type IpRoutes = IpRoute[];
+    
+    export type IpRoutesInfo = IpRouteInfo[];
     
     export type LastUpdatedDateTime = number;
     
@@ -569,14 +619,94 @@ cloud and an external domain.
     
     export type Trusts = Trust[];
     
+    export type UpdateSecurityGroupForDirectoryControllers = boolean;
+    
     export type UseSameUsername = boolean;
     
     export type UserName = string;
     
     export type VpcId = string;
 
+    export interface AddIpRoutesRequest {
+        /** Identifier (ID) of the directory to which to add the address block. **/
+        DirectoryId: DirectoryId;
+        /** IP address blocks, using CIDR format, of the traffic to route. This is often the
+IP address block of the DNS server used for your on-premises domain. **/
+        IpRoutes: IpRoutes;
+        /** If set to true, updates the inbound and outbound rules of the security group
+that has the description: &quot;AWS created security group for directory ID directory
+controllers.&quot; Following are the new rules:
+
+Inbound:
+
+ &amp;#42; Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: 0.0.0.0/0
+   
+   
+ * Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: 0.0.0.0/0
+   
+   
+ * Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: 0.0.0.0/0
+   
+   
+ * Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: 0.0.0.0/0
+   
+   
+ * Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: 0.0.0.0/0
+   
+   
+ * Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: 0.0.0.0/0
+   
+   
+ * Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: 0.0.0.0/0
+   
+   
+ * Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: 0.0.0.0/0
+   
+   
+ * Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: 0.0.0.0/0
+   
+   
+ * Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: 0.0.0.0/0
+   
+   
+ * Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0
+   
+   
+ * Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source: 0.0.0.0/0
+   
+   
+ * Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source: 0.0.0.0/0
+   
+   
+ * Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0
+   
+   
+ * Type: DNS (TCP), Protocol: TCP, Range: 53, Source: 0.0.0.0/0
+   
+   
+ * Type: LDAP, Protocol: TCP, Range: 389, Source: 0.0.0.0/0
+   
+   
+ * Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0
+   
+   
+
+
+
+Outbound:
+
+ * Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0
+   
+   
+
+These security rules impact an internal network interface that is not exposed
+publicly. **/
+        UpdateSecurityGroupForDirectoryControllers?: UpdateSecurityGroupForDirectoryControllers;
+    }
+    export interface AddIpRoutesResult {
+    }
     export interface AddTagsToResourceRequest {
-        /** The ID of the directory to which to add the tag. **/
+        /** Identifier (ID) for the directory to which to add the tag. **/
         ResourceId: ResourceId;
         /** The tags to be assigned to the Amazon Directory Services directory. **/
         Tags: Tags;
@@ -1147,8 +1277,53 @@ specified directory. **/
         Message?: ExceptionMessage;
         RequestId?: RequestId;
     }
+    export interface IpRoute {
+        /** IP address block using CIDR format, for example 10.0.0.0/24. This is often the
+address block of the DNS server used for your on-premises domain. For a single
+IP address use a CIDR address block with /32. For example 10.0.0.0/32. **/
+        CidrIp?: CidrIp;
+        /** Description of the address block. **/
+        Description?: Description;
+    }
+    export interface IpRouteInfo {
+        /** Identifier (ID) of the directory associated with the IP addresses. **/
+        DirectoryId?: DirectoryId;
+        /** IP address block in the IpRoute . **/
+        CidrIp?: CidrIp;
+        /** The status of the IP address block. **/
+        IpRouteStatusMsg?: IpRouteStatusMsg;
+        /** The date and time the address block was added to the directory. **/
+        AddedDateTime?: AddedDateTime;
+        /** The reason for the IpRouteStatusMsg. **/
+        IpRouteStatusReason?: IpRouteStatusReason;
+        /** Description of the IpRouteInfo . **/
+        Description?: Description;
+    }
+    export interface IpRouteLimitExceededException {
+        Message?: ExceptionMessage;
+        RequestId?: RequestId;
+    }
+    export interface ListIpRoutesRequest {
+        /** Identifier (ID) of the directory for which you want to retrieve the IP
+addresses. **/
+        DirectoryId: DirectoryId;
+        /** The ListIpRoutes.NextToken value from a previous call to ListIpRoutes . Pass
+null if this is the first call. **/
+        NextToken?: NextToken;
+        /** Maximum number of items to return. If this value is zero, the maximum number of
+items is specified by the limitations of the operation. **/
+        Limit?: Limit;
+    }
+    export interface ListIpRoutesResult {
+        /** A list of IpRoute s. **/
+        IpRoutesInfo?: IpRoutesInfo;
+        /** If not null, more results are available. Pass this value for the NextToken 
+parameter in a subsequent call to ListIpRoutes to retrieve the next set of
+items. **/
+        NextToken?: NextToken;
+    }
     export interface ListTagsForResourceRequest {
-        /** The ID of the directory for which you want to retrieve tags. **/
+        /** Identifier (ID) of the directory for which you want to retrieve tags. **/
         ResourceId: ResourceId;
         /** Reserved for future use. **/
         NextToken?: NextToken;
@@ -1193,8 +1368,16 @@ topic must be in the same region as the specified Directory ID. **/
     }
     export interface RegisterEventTopicResult {
     }
+    export interface RemoveIpRoutesRequest {
+        /** Identifier (ID) of the directory from which you want to remove the IP addresses. **/
+        DirectoryId: DirectoryId;
+        /** IP address blocks that you want to remove. **/
+        CidrIps: CidrIps;
+    }
+    export interface RemoveIpRoutesResult {
+    }
     export interface RemoveTagsFromResourceRequest {
-        /** The ID of the directory from which to remove the tag. **/
+        /** Identifier (ID) of the directory from which to remove the tag. **/
         ResourceId: ResourceId;
         /** The tag key (name) of the tag to be removed. **/
         TagKeys: TagKeys;
@@ -1238,15 +1421,14 @@ topic must be in the same region as the specified Directory ID. **/
         ManualSnapshotsLimitReached?: ManualSnapshotsLimitReached;
     }
     export interface Tag {
-        /** A key is the required name of the tag. The string value can be from 1 to 128
-Unicode characters in length and cannot be prefixed with &quot;aws:&quot;. The string can
-only contain only the set of Unicode letters, digits, white-space, &#x27;_&#x27;, &#x27;.&#x27;,
-&#x27;/&#x27;, &#x27;=&#x27;, &#x27;+&#x27;, &#x27;-&#x27; (Java regex: &quot;^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]&amp;#42;)$&quot;). **/
-        Key: TagKey;
-        /** A value is the optional value of the tag. The string value can be from 1 to 256
-Unicode characters in length. The string can only contain only the set of
-Unicode letters, digits, white-space, &#x27;_&#x27;, &#x27;.&#x27;, &#x27;/&#x27;, &#x27;=&#x27;, &#x27;+&#x27;, &#x27;-&#x27; (Java regex:
+        /** Required name of the tag. The string value can be Unicode characters and cannot
+be prefixed with &quot;aws:&quot;. The string can contain only the set of Unicode letters,
+digits, white-space, &#x27;_&#x27;, &#x27;.&#x27;, &#x27;/&#x27;, &#x27;=&#x27;, &#x27;+&#x27;, &#x27;-&#x27; (Java regex:
 &quot;^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]&amp;#42;)$&quot;). **/
+        Key: TagKey;
+        /** The optional value of the tag. The string value can be Unicode characters. The
+string can contain only the set of Unicode letters, digits, white-space, &#x27;_&#x27;,
+&#x27;.&#x27;, &#x27;/&#x27;, &#x27;=&#x27;, &#x27;+&#x27;, &#x27;-&#x27; (Java regex: &quot;^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]&amp;#42;)$&quot;). **/
         Value: TagValue;
     }
     export interface TagLimitExceededException {
