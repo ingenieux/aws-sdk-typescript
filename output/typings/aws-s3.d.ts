@@ -369,7 +369,6 @@ parts storage.
      */
     uploadPartCopy(params: S3.UploadPartCopyRequest, callback?: (err: any, data: S3.UploadPartCopyOutput|any) => void): Request<S3.UploadPartCopyOutput|any,any>;
 
-    isValidAccelerateOperation(...args: any[]): any
     /**
      * Found on JS Sources - Sorry for the inconvenience :)
      *
