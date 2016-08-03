@@ -198,7 +198,7 @@ You can use the GetMLModel operation to check the progress of the MLModel during
 the creation operation.
 
 CreateMLModel requires a DataSource with computed statistics, which can be
-created by setting ComputeStatistics to true in CreateDataSourcceFromRDS , 
+created by setting ComputeStatistics to true in CreateDataSourceFromRDS , 
 CreateDataSourceFromS3 , or CreateDataSourceFromRedshift operations.
      *
      * @error InvalidInputException An error on the client occurred. Typically, the cause is an invalid input value.  
@@ -634,6 +634,11 @@ outputURI field: &#x27;:&#x27;, &#x27;//&#x27;, &#x27;/./&#x27;, &#x27;/../&#x27
         /** A description of the most recent details about processing the batch prediction
 request. **/
         Message?: Message;
+        ComputeTime?: LongType;
+        FinishedAt?: EpochTime;
+        StartedAt?: EpochTime;
+        TotalRecordCount?: LongType;
+        InvalidRecordCount?: LongType;
     }
     export interface CreateBatchPredictionInput {
         /** A user-supplied ID that uniquely identifies the BatchPrediction . **/
@@ -974,6 +979,9 @@ following values:
         /** The parameter is true if statistics need to be generated from the observation
 data. **/
         ComputeStatistics?: ComputeStatistics;
+        ComputeTime?: LongType;
+        FinishedAt?: EpochTime;
+        StartedAt?: EpochTime;
     }
     export interface DeleteBatchPredictionInput {
         /** A user-supplied ID that uniquely identifies the BatchPrediction . **/
@@ -1383,6 +1391,9 @@ Learning Developer Guide [http://docs.aws.amazon.com/machine-learning/latest/dg]
         PerformanceMetrics?: PerformanceMetrics;
         /** A description of the most recent details about evaluating the MLModel . **/
         Message?: Message;
+        ComputeTime?: LongType;
+        FinishedAt?: EpochTime;
+        StartedAt?: EpochTime;
     }
     export interface GetBatchPredictionInput {
         /** An ID assigned to the BatchPrediction at creation. **/
@@ -1430,6 +1441,24 @@ results. **/
         /** A description of the most recent details about processing the batch prediction
 request. **/
         Message?: Message;
+        /** The approximate CPU time in milliseconds that Amazon Machine Learning spent
+processing the BatchPrediction , normalized and scaled on computation resources. 
+ComputeTime is only available if the BatchPrediction is in the COMPLETED state. **/
+        ComputeTime?: LongType;
+        /** The epoch time when Amazon Machine Learning marked the BatchPrediction as 
+COMPLETED or FAILED . FinishedAt is only available when the BatchPrediction is
+in the COMPLETED or FAILED state. **/
+        FinishedAt?: EpochTime;
+        /** The epoch time when Amazon Machine Learning marked the BatchPrediction as 
+INPROGRESS . StartedAt isn&#x27;t available if the BatchPrediction is in the PENDING 
+state. **/
+        StartedAt?: EpochTime;
+        /** The number of total records that Amazon Machine Learning saw while processing
+the BatchPrediction . **/
+        TotalRecordCount?: LongType;
+        /** The number of invalid records that Amazon Machine Learning saw while processing
+the BatchPrediction . **/
+        InvalidRecordCount?: LongType;
     }
     export interface GetDataSourceInput {
         /** The ID assigned to the DataSource at creation. **/
@@ -1487,6 +1516,18 @@ DataSource . **/
         /** The parameter is true if statistics need to be generated from the observation
 data. **/
         ComputeStatistics?: ComputeStatistics;
+        /** The approximate CPU time in milliseconds that Amazon Machine Learning spent
+processing the DataSource , normalized and scaled on computation resources. 
+ComputeTime is only available if the DataSource is in the COMPLETED state and
+the ComputeStatistics is set to true. **/
+        ComputeTime?: LongType;
+        /** The epoch time when Amazon Machine Learning marked the DataSource as COMPLETED 
+or FAILED . FinishedAt is only available when the DataSource is in the COMPLETED 
+or FAILED state. **/
+        FinishedAt?: EpochTime;
+        /** The epoch time when Amazon Machine Learning marked the DataSource as INPROGRESS 
+. StartedAt isn&#x27;t available if the DataSource is in the PENDING state. **/
+        StartedAt?: EpochTime;
         /** The schema used by all of the data files of this DataSource .
 
 NoteThis parameter is provided as part of the verbose format. **/
@@ -1512,8 +1553,8 @@ an AWS root account or an AWS Identity and Access Management (IAM) user account.
         CreatedByIamUser?: AwsUserArn;
         /** The time that the Evaluation was created. The time is expressed in epoch time. **/
         CreatedAt?: EpochTime;
-        /** The time of the most recent edit to the BatchPrediction . The time is expressed
-in epoch time. **/
+        /** The time of the most recent edit to the Evaluation . The time is expressed in
+epoch time. **/
         LastUpdatedAt?: EpochTime;
         /** A user-supplied name or description of the Evaluation . **/
         Name?: EntityName;
@@ -1553,6 +1594,17 @@ Learning Developer Guide [http://docs.aws.amazon.com/machine-learning/latest/dg]
         LogUri?: PresignedS3Url;
         /** A description of the most recent details about evaluating the MLModel . **/
         Message?: Message;
+        /** The approximate CPU time in milliseconds that Amazon Machine Learning spent
+processing the Evaluation , normalized and scaled on computation resources. 
+ComputeTime is only available if the Evaluation is in the COMPLETED state. **/
+        ComputeTime?: LongType;
+        /** The epoch time when Amazon Machine Learning marked the Evaluation as COMPLETED 
+or FAILED . FinishedAt is only available when the Evaluation is in the COMPLETED 
+or FAILED state. **/
+        FinishedAt?: EpochTime;
+        /** The epoch time when Amazon Machine Learning marked the Evaluation as INPROGRESS 
+. StartedAt isn&#x27;t available if the Evaluation is in the PENDING state. **/
+        StartedAt?: EpochTime;
     }
     export interface GetMLModelInput {
         /** The ID assigned to the MLModel at creation. **/
@@ -1661,6 +1713,17 @@ in epoch time. **/
         LogUri?: PresignedS3Url;
         /** A description of the most recent details about accessing the MLModel . **/
         Message?: Message;
+        /** The approximate CPU time in milliseconds that Amazon Machine Learning spent
+processing the MLModel , normalized and scaled on computation resources. 
+ComputeTime is only available if the MLModel is in the COMPLETED state. **/
+        ComputeTime?: LongType;
+        /** The epoch time when Amazon Machine Learning marked the MLModel as COMPLETED or 
+FAILED . FinishedAt is only available when the MLModel is in the COMPLETED or 
+FAILED state. **/
+        FinishedAt?: EpochTime;
+        /** The epoch time when Amazon Machine Learning marked the MLModel as INPROGRESS . 
+StartedAt isn&#x27;t available if the MLModel is in the PENDING state. **/
+        StartedAt?: EpochTime;
         /** The recipe to use when training the MLModel . The Recipe provides detailed
 information about the observation data to use during training, and manipulations
 to perform on the observation data during training.
@@ -1787,6 +1850,9 @@ in epoch time. **/
         ScoreThresholdLastUpdatedAt?: EpochTime;
         /** A description of the most recent details about accessing the MLModel . **/
         Message?: Message;
+        ComputeTime?: LongType;
+        FinishedAt?: EpochTime;
+        StartedAt?: EpochTime;
     }
     export interface PerformanceMetrics {
         Properties?: PerformanceMetricsProperties;
@@ -1812,7 +1878,7 @@ in epoch time. **/
         message?: ErrorMessage;
     }
     export interface RDSDataSpec {
-        /** Describes the DatabaseName and InstanceIdentifier of an an Amazon RDS database. **/
+        /** Describes the DatabaseName and InstanceIdentifier of an Amazon RDS database. **/
         DatabaseInformation: RDSDatabase;
         /** The query that is used to retrieve the observation data for the DataSource . **/
         SelectSqlQuery: RDSSelectSqlQuery;

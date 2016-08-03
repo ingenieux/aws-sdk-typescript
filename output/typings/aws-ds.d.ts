@@ -1349,8 +1349,7 @@ servers. **/
         /** The maximum number of times that communication with the RADIUS server is
 attempted. **/
         RadiusRetries?: RadiusRetries;
-        /** The shared secret code that was specified when your RADIUS endpoints were
-created. **/
+        /** Not currently used. **/
         SharedSecret?: RadiusSharedSecret;
         /** The protocol specified for your RADIUS endpoints. **/
         AuthenticationProtocol?: RadiusAuthenticationProtocol;

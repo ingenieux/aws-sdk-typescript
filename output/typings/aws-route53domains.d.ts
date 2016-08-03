@@ -43,10 +43,6 @@ immediately represent all issued operations.
     /**
      * This operation disables automatic renewal of domain registration for the
 specified domain.
-
-Caution! Amazon Route 53 doesn&#x27;t have a manual renewal process, so if you
-disable automatic renewal, registration for the domain will not be renewed when
-the expiration date passes, and you will lose control of the domain name.
      *
      * @error InvalidInput   
      * @error UnsupportedTLD   
@@ -120,6 +116,25 @@ contact information is also returned as part of the output.
      */
     getDomainDetail(params: Route53Domains.GetDomainDetailRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.GetDomainDetailResponse|any) => void): Request<Route53Domains.GetDomainDetailResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any>;
     /**
+     * The GetDomainSuggestions operation returns a list of suggested domain names
+given a string, which can either be a domain name or simply a word or phrase
+(without spaces).
+
+Parameters: &amp;#42; DomainName (string): The basis for your domain suggestion search,
+   a string with (or without) top-level domain specified.
+ * SuggestionCount (int): The number of domain suggestions to be
+   returned, maximum 50, minimum 1.
+ * OnlyAvailable (bool): If true, availability check will be
+   performed on suggestion results, and only available domains will be returned.
+   If false, suggestions will be returned without checking whether the domain is
+   actually available, and caller will have to call checkDomainAvailability for
+   each suggestion to determine availability for registration.
+     *
+     * @error InvalidInput   
+     * @error UnsupportedTLD   
+     */
+    getDomainSuggestions(params: Route53Domains.GetDomainSuggestionsRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any, data: Route53Domains.GetDomainSuggestionsResponse|any) => void): Request<Route53Domains.GetDomainSuggestionsResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|any>;
+    /**
      * This operation returns the current status of an operation that is not completed.
      *
      * @error InvalidInput   
@@ -183,6 +198,24 @@ When you register a domain, Amazon Route 53 does the following:
      * @error OperationLimitExceeded   
      */
     registerDomain(params: Route53Domains.RegisterDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any, data: Route53Domains.RegisterDomainResponse|any) => void): Request<Route53Domains.RegisterDomainResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.DomainLimitExceeded|Route53Domains.OperationLimitExceeded|any>;
+    /**
+     * This operation renews a domain for the specified number of years. The cost of
+renewing your domain is billed to your AWS account.
+
+We recommend that you renew your domain several weeks before the expiration
+date. Some TLD registries delete domains before the expiration date if you
+haven&#x27;t renewed far enough in advance. For more information about renewing
+domain registration, see Renewing Registration for a Domain
+[http://docs.aws.amazon.com/console/route53/domain-renew] in the Amazon Route 53
+documentation.
+     *
+     * @error InvalidInput   
+     * @error UnsupportedTLD   
+     * @error DuplicateRequest   
+     * @error TLDRulesViolation   
+     * @error OperationLimitExceeded   
+     */
+    renewDomain(params: Route53Domains.RenewDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|any, data: Route53Domains.RenewDomainResponse|any) => void): Request<Route53Domains.RenewDomainResponse|any,Route53Domains.InvalidInput|Route53Domains.UnsupportedTLD|Route53Domains.DuplicateRequest|Route53Domains.TLDRulesViolation|Route53Domains.OperationLimitExceeded|any>;
     /**
      * For operations that require confirmation that the email address for the
 registrant contact is valid, such as registering a new domain, this operation
@@ -301,12 +334,21 @@ immediately represent all issued operations.
      * @error UnsupportedTLD   
      */
     updateTagsForDomain(params: Route53Domains.UpdateTagsForDomainRequest, callback?: (err: Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any, data: Route53Domains.UpdateTagsForDomainResponse|any) => void): Request<Route53Domains.UpdateTagsForDomainResponse|any,Route53Domains.InvalidInput|Route53Domains.OperationLimitExceeded|Route53Domains.UnsupportedTLD|any>;
+    /**
+     * This operation returns all the domain-related billing records for the current
+AWS account for a specified period
+     *
+     * @error InvalidInput   
+     */
+    viewBilling(params: Route53Domains.ViewBillingRequest, callback?: (err: Route53Domains.InvalidInput|any, data: Route53Domains.ViewBillingResponse|any) => void): Request<Route53Domains.ViewBillingResponse|any,Route53Domains.InvalidInput|any>;
 
   }
 
   export module Route53Domains {
     
     export type AddressLine = string;
+    
+    export type BillingRecords = BillingRecord[];
     
     export type Boolean = boolean;
     
@@ -320,6 +362,8 @@ immediately represent all issued operations.
     
     export type CountryCode = string;
     
+    export type CurrentExpiryYear = number;
+    
     export type DNSSec = string;
     
     export type DomainAuthCode = string;
@@ -331,6 +375,8 @@ immediately represent all issued operations.
     export type DomainStatus = string;
     
     export type DomainStatusList = DomainStatus[];
+    
+    export type DomainSuggestionsList = DomainSuggestion[];
     
     export type DomainSummaryList = DomainSummary[];
     
@@ -354,6 +400,10 @@ immediately represent all issued operations.
     
     export type HostName = string;
     
+    export type Integer = number;
+    
+    export type InvoiceId = string;
+    
     export type LangCode = string;
     
     export type NameserverList = Nameserver[];
@@ -370,6 +420,8 @@ immediately represent all issued operations.
     
     export type PageMaxItems = number;
     
+    export type Price = number;
+    
     export type ReachabilityStatus = string;
     
     export type RegistrarName = string;
@@ -384,6 +436,8 @@ immediately represent all issued operations.
     
     export type State = string;
     
+    export type String = string;
+    
     export type TagKey = string;
     
     export type TagKeyList = TagKey[];
@@ -396,6 +450,35 @@ immediately represent all issued operations.
     
     export type ZipCode = string;
 
+    export interface BillingRecord {
+        /** The name of a domain.
+
+Type: String **/
+        DomainName?: DomainName;
+        /** The operation that you were charged for.
+
+Type: String
+
+Valid values: &amp;#42; REGISTER_DOMAIN
+ * TRANSFER_IN_DOMAIN
+ * RENEW_DOMAIN
+ * CHANGE_DOMAIN_OWNER **/
+        Operation?: OperationType;
+        /** The ID of the invoice that is associated with the billing record.
+
+Type: String **/
+        InvoiceId?: InvoiceId;
+        /** The date that the operation was billed, in Unix format.
+
+Type: Double **/
+        BillDate?: Timestamp;
+        /** The price that you were charged for the operation, in US dollars.
+
+Type: Double
+
+Example value: 12.0 **/
+        Price?: Price;
+    }
     export interface CheckDomainAvailabilityRequest {
         /** The name of a domain.
 
@@ -676,6 +759,10 @@ Constraints: Maximum 255 characters. **/
     export interface DomainLimitExceeded {
         message?: ErrorMessage;
     }
+    export interface DomainSuggestion {
+        DomainName?: DomainName;
+        Availability?: String;
+    }
     export interface DomainSummary {
         /** The name of a domain.
 
@@ -918,6 +1005,14 @@ old version of the document.)
 
 Type: Array of String **/
         StatusList?: DomainStatusList;
+    }
+    export interface GetDomainSuggestionsRequest {
+        DomainName: DomainName;
+        SuggestionCount: Integer;
+        OnlyAvailable: Boolean;
+    }
+    export interface GetDomainSuggestionsResponse {
+        SuggestionsList?: DomainSuggestionsList;
     }
     export interface GetOperationDetailRequest {
         /** The identifier for the operation for which you want to get the status. Amazon
@@ -1220,6 +1315,37 @@ Type: String
 Default: None
 
 Constraints: Maximum 255 characters. **/
+        OperationId: OperationId;
+    }
+    export interface RenewDomainRequest {
+        DomainName: DomainName;
+        /** The number of years that you want to renew the domain for. The maximum number of
+years depends on the top-level domain. For the range of valid values for your
+domain, see Domains that You Can Register with Amazon Route 53
+[http://docs.aws.amazon.com/console/route53/domain-tld-list] in the Amazon Route
+53 documentation.
+
+Type: Integer
+
+Default: 1
+
+Valid values: Integer from 1 to 10
+
+Required: No **/
+        DurationInYears?: DurationInYears;
+        /** The year when the registration for the domain is set to expire. This value must
+match the current expiration date for the domain.
+
+Type: Integer
+
+Default: None
+
+Valid values: Integer
+
+Required: Yes **/
+        CurrentExpiryYear: CurrentExpiryYear;
+    }
+    export interface RenewDomainResponse {
         OperationId: OperationId;
     }
     export interface ResendContactReachabilityEmailRequest {
@@ -1638,6 +1764,68 @@ Required: No
         TagsToUpdate?: TagList;
     }
     export interface UpdateTagsForDomainResponse {
+    }
+    export interface ViewBillingRequest {
+        /** The beginning date and time for the time period for which you want a list of
+billing records. Specify the date in Unix time format.
+
+Type: Double
+
+Default: None
+
+Required: Yes **/
+        Start?: Timestamp;
+        /** The end date and time for the time period for which you want a list of billing
+records. Specify the date in Unix time format.
+
+Type: Double
+
+Default: None
+
+Required: Yes **/
+        End?: Timestamp;
+        /** For an initial request for a list of billing records, omit this element. If the
+number of billing records that are associated with the current AWS account
+during the specified period is greater than the value that you specified for 
+MaxItems , you can use Marker to return additional billing records. Get the
+value of NextPageMarker from the previous response, and submit another request
+that includes the value of NextPageMarker in the Marker element.
+
+Type: String
+
+Default: None
+
+Constraints: The marker must match the value of NextPageMarker that was returned
+in the previous response.
+
+Required: No **/
+        Marker?: PageMarker;
+        /** The number of billing records to be returned.
+
+Type: Integer
+
+Default: 20
+
+Constraints: A value between 1 and 100.
+
+Required: No **/
+        MaxItems?: PageMaxItems;
+    }
+    export interface ViewBillingResponse {
+        /** If there are more billing records than you specified for MaxItems in the
+request, submit another request and include the value of NextPageMarker in the
+value of Marker .
+
+Type: String
+
+Parent: BillingRecords **/
+        NextPageMarker?: PageMarker;
+        /** A summary of billing records.
+
+Type: Complex type containing a list of billing record summaries.
+
+Children: DomainName , Operation , InvoiceId , BillDate and Price **/
+        BillingRecords?: BillingRecords;
     }
   }
 }

@@ -14,12 +14,11 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * Amazon CloudWatch Logs API ReferenceYou can use Amazon CloudWatch Logs to
-monitor, store, and access your log files from Amazon Elastic Compute Cloud
-(Amazon EC2) instances, Amazon CloudTrail, or other sources. You can then
-retrieve the associated log data from CloudWatch Logs using the Amazon
-CloudWatch console, the CloudWatch Logs commands in the AWS CLI, the CloudWatch
-Logs API, or the CloudWatch Logs SDK.
+   * You can use Amazon CloudWatch Logs to monitor, store, and access your log files
+from Amazon Elastic Compute Cloud (Amazon EC2) instances, Amazon CloudTrail, or
+other sources. You can then retrieve the associated log data from CloudWatch
+Logs using the Amazon CloudWatch console, the CloudWatch Logs commands in the
+AWS CLI, the CloudWatch Logs API, or the CloudWatch Logs SDK.
 
 You can use CloudWatch Logs to:
 
@@ -87,11 +86,13 @@ a prefix that will be used as the Amazon S3 key prefix for all exported objects.
 be unique within a region for an AWS account. You can create up to 500 log
 groups per account.
 
-You must use the following guidelines when naming a log group: &amp;#42; Log group names
-   can be between 1 and 512 characters long.
- * Allowed
-   characters are a-z, A-Z, 0-9, &#x27;_&#x27; (underscore), &#x27;-&#x27; (hyphen), &#x27;/&#x27; (forward
-   slash), and &#x27;.&#x27; (period).
+You must use the following guidelines when naming a log group:
+
+ &amp;#42; Log group names can be between 1 and 512 characters long.
+   
+   
+ * Allowed characters are a-z, A-Z, 0-9, &#x27;_&#x27; (underscore), &#x27;-&#x27; (hyphen), &#x27;/&#x27;
+   (forward slash), and &#x27;.&#x27; (period).
      *
      * @error InvalidParameterException   
      * @error ResourceAlreadyExistsException   
@@ -105,10 +106,12 @@ You must use the following guidelines when naming a log group: &amp;#42; Log gro
 must be unique within the log group. There is no limit on the number of log
 streams that can exist in a log group.
 
-You must use the following guidelines when naming a log stream: &amp;#42; Log stream
-   names can be between 1 and 512 characters long.
- * The &#x27;:&#x27; colon
-   character is not allowed.
+You must use the following guidelines when naming a log stream:
+
+ &amp;#42; Log stream names can be between 1 and 512 characters long.
+   
+   
+ * The &#x27;:&#x27; colon character is not allowed.
      *
      * @error InvalidParameterException   
      * @error ResourceAlreadyExistsException   
@@ -271,7 +274,7 @@ more data to search, and the search can be resumed with a new request providing
 the nextToken. The response will contain a list of searchedLogStreams that
 contains information about which streams were searched in the request and
 whether they have been searched completely or require further pagination. The 
-limit parameter in the request. can be used to specify the maximum number of
+limit parameter in the request can be used to specify the maximum number of
 events to return in a page.
      *
      * @error InvalidParameterException   
@@ -331,32 +334,39 @@ destination.
 
 Every PutLogEvents request must include the sequenceToken obtained from the
 response of the previous request. An upload in a newly created log stream does
-not require a sequenceToken .
+not require a sequenceToken . You can also get the sequenceToken using 
+DescribeLogStreams .
 
-The batch of events must satisfy the following constraints: &amp;#42; The maximum batch
-   size is 1,048,576 bytes, and this size is calculated as the sum of all event
-   messages in UTF-8, plus 26 bytes for each log event.
- * None of the log
-   events in the batch can be more than 2 hours in the future.
- * None of the log
-   events in the batch can be older than 14 days or the retention period of the
-   log group.
- * The log events in
-   the batch must be in chronological ordered by their timestamp .
- * The maximum number
-   of log events in a batch is 10,000.
- * A batch of log
-   events in a single PutLogEvents request cannot span more than 24 hours.
-   Otherwise, the PutLogEvents operation will fail.
+The batch of events must satisfy the following constraints:
+
+ &amp;#42; The maximum batch size is 1,048,576 bytes, and this size is calculated as the
+   sum of all event messages in UTF-8, plus 26 bytes for each log event.
+   
+   
+ * None of the log events in the batch can be more than 2 hours in the future.
+   
+   
+ * None of the log events in the batch can be older than 14 days or the
+   retention period of the log group.
+   
+   
+ * The log events in the batch must be in chronological ordered by their 
+   timestamp .
+   
+   
+ * The maximum number of log events in a batch is 10,000.
+   
+   
+ * A batch of log events in a single PutLogEvents request cannot span more than
+   24 hours. Otherwise, the PutLogEvents operation will fail.
      *
      * @error InvalidParameterException   
      * @error InvalidSequenceTokenException   
      * @error DataAlreadyAcceptedException   
      * @error ResourceNotFoundException   
-     * @error OperationAbortedException   
      * @error ServiceUnavailableException   
      */
-    putLogEvents(params: CloudWatchLogs.PutLogEventsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.InvalidSequenceTokenException|CloudWatchLogs.DataAlreadyAcceptedException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.PutLogEventsResponse|any) => void): Request<CloudWatchLogs.PutLogEventsResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.InvalidSequenceTokenException|CloudWatchLogs.DataAlreadyAcceptedException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.OperationAbortedException|CloudWatchLogs.ServiceUnavailableException|any>;
+    putLogEvents(params: CloudWatchLogs.PutLogEventsRequest, callback?: (err: CloudWatchLogs.InvalidParameterException|CloudWatchLogs.InvalidSequenceTokenException|CloudWatchLogs.DataAlreadyAcceptedException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any, data: CloudWatchLogs.PutLogEventsResponse|any) => void): Request<CloudWatchLogs.PutLogEventsResponse|any,CloudWatchLogs.InvalidParameterException|CloudWatchLogs.InvalidSequenceTokenException|CloudWatchLogs.DataAlreadyAcceptedException|CloudWatchLogs.ResourceNotFoundException|CloudWatchLogs.ServiceUnavailableException|any>;
     /**
      * Creates or updates a metric filter and associates it with the specified log
 group. Metric filters allow you to configure rules to extract metric data from
@@ -387,20 +397,24 @@ group.
      * Creates or updates a subscription filter and associates it with the specified
 log group. Subscription filters allow you to subscribe to a real-time stream of
 log events ingested through PutLogEvents requests and have them delivered to a
-specific destination. Currently, the supported destinations are: &amp;#42; An Amazon
-   Kinesis stream belonging to the same account as the subscription filter, for
-   same-account delivery.
- * A logical
-   destination (used via an ARN of Destination ) belonging to a different
-   account, for cross-account delivery.
- * An Amazon
-   Kinesis Firehose stream belonging to the same account as the subscription
+specific destination. Currently, the supported destinations are:
+
+ &amp;#42; An Amazon Kinesis stream belonging to the same account as the subscription
    filter, for same-account delivery.
- * An AWS Lambda
-   function belonging to the same account as the subscription filter, for
-   same-account delivery.
-
-
+   
+   
+ * A logical destination (used via an ARN of Destination ) belonging to a
+   different account, for cross-account delivery.
+   
+   
+ * An Amazon Kinesis Firehose stream belonging to the same account as the
+   subscription filter, for same-account delivery.
+   
+   
+ * An AWS Lambda function belonging to the same account as the subscription
+   filter, for same-account delivery.
+   
+   
 
 Currently there can only be one subscription filter associated with a log group.
      *
@@ -430,6 +444,8 @@ filter pattern.
     export type Arn = string;
     
     export type Days = number;
+    
+    export type DefaultValue = number;
     
     export type Descending = boolean;
     
@@ -882,9 +898,16 @@ false (the latest log events are returned first). **/
         extractedValues?: ExtractedValues;
     }
     export interface MetricTransformation {
+        /** Name of the metric. **/
         metricName: MetricName;
+        /** Namespace to which the metric belongs. **/
         metricNamespace: MetricNamespace;
+        /** A string representing a value to publish to this metric when a filter pattern
+matches a log event. **/
         metricValue: MetricValue;
+        /** (Optional) A default value to emit when a filter pattern does not match a log
+event. Can be null. **/
+        defaultValue?: DefaultValue;
     }
     export interface OperationAbortedException {
     }
@@ -906,7 +929,7 @@ events to associated destination. **/
         /** The ARN of an Amazon Kinesis stream to deliver matching log events to. **/
         targetArn: TargetArn;
         /** The ARN of an IAM role that grants CloudWatch Logs permissions to do Amazon
-Kinesis PutRecord requests on the desitnation stream. **/
+Kinesis PutRecord requests on the destination stream. **/
         roleArn: RoleArn;
     }
     export interface PutDestinationResponse {
@@ -951,14 +974,22 @@ ingested log events. **/
 log events. **/
         filterPattern: FilterPattern;
         /** The ARN of the destination to deliver matching log events to. Currently, the
-supported destinations are: &amp;#42; An Amazon Kinesis stream belonging to the same
-   account as the subscription filter, for same-account delivery.
+supported destinations are:
+
+ &amp;#42; An Amazon Kinesis stream belonging to the same account as the subscription
+   filter, for same-account delivery.
+   
+   
  * A logical destination (used via an ARN of Destination ) belonging to a
    different account, for cross-account delivery.
- * An Amazon Kinesis Firehose stream belonging to the
-   same account as the subscription filter, for same-account delivery.
- * An AWS Lambda function belonging to the same
-   account as the subscription filter, for same-account delivery. **/
+   
+   
+ * An Amazon Kinesis Firehose stream belonging to the same account as the
+   subscription filter, for same-account delivery.
+   
+   
+ * An AWS Lambda function belonging to the same account as the subscription
+   filter, for same-account delivery. **/
         destinationArn: DestinationArn;
         /** The ARN of an IAM role that grants CloudWatch Logs permissions to deliver
 ingested log events to the destination stream. You don&#x27;t need to provide the ARN

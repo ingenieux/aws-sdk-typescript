@@ -1316,6 +1316,8 @@ EC2SecurityGroupName or EC2SecurityGroupId).
     
     export type OptionGroupOptionSettingsList = OptionGroupOptionSetting[];
     
+    export type OptionGroupOptionVersionsList = OptionVersion[];
+    
     export type OptionGroupOptionsList = OptionGroupOption[];
     
     export type OptionGroupsList = OptionGroup[];
@@ -5476,6 +5478,10 @@ applied as soon as possible. An outage will result if this parameter is set to
 true during the maintenance window, and a newer minor version is available, and
 RDS has enabled auto patching for that engine version. **/
         AutoMinorVersionUpgrade?: BooleanOptional;
+        /** The license model for the DB instance.
+
+Valid values: license-included | bring-your-own-license | general-public-license **/
+        LicenseModel?: String;
         /** The new Provisioned IOPS (I/O operations per second) value for the RDS instance.
 Changing this setting does not result in an outage and the change is applied
 during the next maintenance window unless the ApplyImmediately parameter is set
@@ -5785,6 +5791,8 @@ maintenance window for each instance associated with the option group. **/
         Permanent?: Boolean;
         /** If required, the port configured for this option to use. **/
         Port?: IntegerOptional;
+        /** The version of the option. **/
+        OptionVersion?: String;
         /** The option settings for this option. **/
         OptionSettings?: OptionSettingConfigurationList;
         /** If the option requires access to a port, then this DB security group allows
@@ -5799,6 +5807,8 @@ access to the port. **/
         OptionName: String;
         /** The optional port for the option. **/
         Port?: IntegerOptional;
+        /** The version for the option. **/
+        OptionVersion?: String;
         /** A list of DBSecurityGroupMemebrship name strings used for this option. **/
         DBSecurityGroupMemberships?: DBSecurityGroupNameList;
         /** A list of VpcSecurityGroupMemebrship name strings used for this option. **/
@@ -5869,6 +5879,8 @@ group with this permanent option. **/
         /** Specifies the option settings that are available (and the default value) for
 each option in an option group. **/
         OptionGroupOptionSettings?: OptionGroupOptionSettingsList;
+        /** Specifies the versions that are available for the option. **/
+        OptionGroupOptionVersions?: OptionGroupOptionVersionsList;
     }
     export interface OptionGroupOptionSetting {
         /** The name of the option group option. **/
@@ -5922,6 +5934,12 @@ from the default. **/
         IsModifiable?: Boolean;
         /** Indicates if the option setting is part of a collection. **/
         IsCollection?: Boolean;
+    }
+    export interface OptionVersion {
+        /** The version of the option. **/
+        Version?: String;
+        /** True if the version is the default version of the option; otherwise, false. **/
+        IsDefault?: Boolean;
     }
     export interface OrderableDBInstanceOption {
         /** The engine type of the orderable DB instance. **/
@@ -6034,6 +6052,10 @@ instance. **/
         MultiAZ?: BooleanOptional;
         /** Indicates the database engine version. **/
         EngineVersion?: String;
+        /** The license model for the DB instance.
+
+Valid values: license-included | bring-your-own-license | general-public-license **/
+        LicenseModel?: String;
         /** Specifies the new Provisioned IOPS value for the DB instance that will be
 applied or is being applied. **/
         Iops?: IntegerOptional;
@@ -6624,7 +6646,7 @@ Valid values: license-included | bring-your-own-license | general-public-license
         LicenseModel?: String;
         /** The database name for the restored DB instance.
 
-This parameter doesn&#x27;t apply to the MySQL or MariaDB engines. **/
+This parameter doesn&#x27;t apply to the MySQL, PostgreSQL, or MariaDB engines. **/
         DBName?: String;
         /** The database engine to use for the new instance.
 

@@ -95,8 +95,12 @@ If no parameters are supplied, then job flows matching either of the following
 criteria are returned:
 
  &amp;#42; Job flows created and completed in the last two weeks
+   
+   
  * Job flows created within the last two months that are in one of the following
    states: RUNNING , WAITING , SHUTTING_DOWN , STARTING
+   
+   
 
 Amazon Elastic MapReduce can return a maximum of 512 job flow descriptions.
      *
@@ -641,6 +645,19 @@ access clusters in VPC private subnets. **/
         /** A list of additional Amazon EC2 security group IDs for the slave nodes. **/
         AdditionalSlaveSecurityGroups?: StringList;
     }
+    export interface FailureDetails {
+        /** The reason for the step failure. In the case where the service cannot
+successfully determine the root cause of the failure, it returns &quot;Unknown Error&quot;
+as a reason. **/
+        Reason?: String;
+        /** The descriptive message including the error the EMR service has identified as
+the cause of step failure. This is text from an error log that describes the
+root cause of the failure. **/
+        Message?: String;
+        /** The path to the log file where the step failure root cause was originally
+recorded. **/
+        LogFile?: String;
+    }
     export interface HadoopJarStepConfig {
         /** A list of Java properties that are set when the step runs. You can use these
 properties to pass key value pairs to your main function. **/
@@ -716,7 +733,7 @@ task). **/
         Configurations?: ConfigurationList;
         /** The EBS block devices that are mapped to this instance group. **/
         EbsBlockDevices?: EbsBlockDeviceList;
-        /** If the instance group is EBS-optimized. An Amazon EBS–optimized instance uses an
+        /** If the instance group is EBS-optimized. An Amazon EBS-optimized instance uses an
 optimized configuration stack and provides additional, dedicated capacity for
 Amazon EBS I/O. **/
         EbsOptimized?: BooleanObject;
@@ -1108,6 +1125,8 @@ The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2
 instances in the job flow. The following values are valid:
 
  &amp;#42; The version number of the AMI to use, for example, &quot;2.0.&quot;
+   
+   
 
 If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports
 both Hadoop 0.18 and 0.20) you can use the JobFlowInstancesConfig HadoopVersion 
@@ -1140,6 +1159,8 @@ For more information, go to Use Third Party Applications with Amazon EMR
 . Currently supported values are:
 
  &amp;#42; &quot;mapr-m3&quot; - launch the job flow using MapR M3 Edition.
+   
+   
  * &quot;mapr-m5&quot; - launch the job flow using MapR M5 Edition. **/
         SupportedProducts?: SupportedProductsList;
         /** For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater,
@@ -1153,13 +1174,27 @@ information, see Launch a Job Flow on the MapR Distribution for Hadoop
 . Currently supported values are:
 
  &amp;#42; &quot;mapr-m3&quot; - launch the cluster using MapR M3 Edition.
+   
+   
  * &quot;mapr-m5&quot; - launch the cluster using MapR M5 Edition.
+   
+   
  * &quot;mapr&quot; with the user arguments specifying &quot;--edition,m3&quot; or &quot;--edition,m5&quot; -
    launch the job flow using MapR M3 or M5 Edition respectively.
+   
+   
  * &quot;mapr-m7&quot; - launch the cluster using MapR M7 Edition.
+   
+   
  * &quot;hunk&quot; - launch the cluster with the Hunk Big Data Analtics Platform.
+   
+   
  * &quot;hue&quot;- launch the cluster with Hue installed.
+   
+   
  * &quot;spark&quot; - launch the cluster with Apache Spark installed.
+   
+   
  * &quot;ganglia&quot; - launch the cluster with the Ganglia Monitoring System installed. **/
         NewSupportedProducts?: NewSupportedProductsList;
         /** Amazon EMR releases 4.x or later.
@@ -1279,6 +1314,9 @@ provides no code for the state change. **/
         State?: StepState;
         /** The reason for the step execution status change. **/
         StateChangeReason?: StepStateChangeReason;
+        /** The details for the step failure including reason, message, and log file path
+where the root cause was identified. **/
+        FailureDetails?: FailureDetails;
         /** The timeline of the cluster step status over time. **/
         Timeline?: StepTimeline;
     }
@@ -1330,7 +1368,7 @@ Tagging Amazon EMR Resources
         VolumeType: String;
         /** The number of I/O operations per second (IOPS) that the volume supports. **/
         Iops?: Integer;
-        /** The volume size, in gibibytes (GiB). This can be a number from 1 – 1024. If the
+        /** The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the
 volume type is EBS-optimized, the minimum value is 10. **/
         SizeInGB: Integer;
     }

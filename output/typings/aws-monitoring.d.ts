@@ -84,9 +84,10 @@ The maximum number of data points that can be queried is 50,850, whereas the
 maximum number of data points returned from a single GetMetricStatistics request
 is 1,440. If you make a request that generates more than 1,440 data points,
 Amazon CloudWatch returns an error. In such a case, you can alter the request by
-narrowing the specified time range or increasing the specified period.
-Alternatively, you can make multiple requests across adjacent time ranges. 
-GetMetricStatistics does not return the data in chronological order.
+narrowing the specified time range or increasing the specified period. A period
+can be as short as one minute (60 seconds) or as long as one day (86,400
+seconds). Alternatively, you can make multiple requests across adjacent time
+ranges. GetMetricStatistics does not return the data in chronological order.
 
 Amazon CloudWatch aggregates data points based on the length of the period that
 you specify. For example, if you request statistics with a one-minute
@@ -99,8 +100,14 @@ maximum of 50,850 when you call GetMetricStatistics on Amazon EC2 instances with
 detailed (one-minute) monitoring enabled:
 
  &amp;#42; Statistics for up to 400 instances for a span of one hour
+   
+   
  * Statistics for up to 35 instances over a span of 24 hours
+   
+   
  * Statistics for up to 2 instances over a span of 2 weeks
+   
+   
 
 For information about the namespace, metric names, and dimensions that other
 Amazon Web Services products use to send metrics to CloudWatch, go to Amazon
@@ -120,10 +127,11 @@ metrics can be used with GetMetricStatistics to obtain statistical data for a
 given metric.
 
 Up to 500 results are returned for any one call. To retrieve further results,
-use returned NextToken values with subsequent ListMetrics operations. If you
-create a metric with the PutMetricData action, allow up to fifteen minutes for
-the metric to appear in calls to the ListMetrics action. Statistics about the
-metric, however, are available sooner using GetMetricStatistics .
+use returned NextToken values with subsequent ListMetrics operations.
+
+If you create a metric with PutMetricData , allow up to fifteen minutes for the
+metric to appear in calls to ListMetrics . Statistics about the metric, however,
+are available sooner using GetMetricStatistics .
      *
      * @error InternalServiceFault   
      * @error InvalidParameterValueException   
@@ -132,23 +140,32 @@ metric, however, are available sooner using GetMetricStatistics .
     /**
      * Creates or updates an alarm and associates it with the specified Amazon
 CloudWatch metric. Optionally, this operation can associate one or more Amazon
-Simple Notification Service resources with the alarm.
+SNS resources with the alarm.
 
 When this operation creates an alarm, the alarm state is immediately set to 
 INSUFFICIENT_DATA . The alarm is evaluated and its StateValue is set
-appropriately. Any actions associated with the StateValue is then executed.
+appropriately. Any actions associated with the StateValue are then executed.
 
-When updating an existing alarm, its StateValue is left unchanged. If you are
-using an AWS Identity and Access Management (IAM) account to create or modify an
-alarm, you must have the following Amazon EC2 permissions: &amp;#42; 
-   ec2:DescribeInstanceStatus and ec2:DescribeInstances for all alarms on Amazon
+When updating an existing alarm, its StateValue is left unchanged, but it
+completely overwrites the alarm&#x27;s previous configuration.
+
+If you are using an AWS Identity and Access Management (IAM) account to create
+or modify an alarm, you must have the following Amazon EC2 permissions:
+
+ &amp;#42; ec2:DescribeInstanceStatus and ec2:DescribeInstances for all alarms on Amazon
    EC2 instance status metrics.
+   
+   
  * ec2:StopInstances for alarms with stop actions.
- * 
-   ec2:TerminateInstances for alarms with terminate actions.
- * 
-   ec2:DescribeInstanceRecoveryAttribute , and ec2:RecoverInstances for alarms
+   
+   
+ * ec2:TerminateInstances for alarms with terminate actions.
+   
+   
+ * ec2:DescribeInstanceRecoveryAttribute , and ec2:RecoverInstances for alarms
    with recover actions.
+   
+   
 
 If you have read/write permissions for Amazon CloudWatch but not for Amazon EC2,
 you can still create an alarm but the stop or terminate actions won&#x27;t be
@@ -156,8 +173,8 @@ performed on the Amazon EC2 instance. However, if you are later granted
 permission to use the associated Amazon EC2 APIs, the alarm actions you created
 earlier will be performed. For more information about IAM permissions, see 
 Permissions and Policies
-[http://docs.aws.amazon.com//IAM/latest/UserGuide/PermissionsAndPolicies.html] 
-in Using IAM .
+[http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html] in 
+Using IAM .
 
 If you are using an IAM role (e.g., an Amazon EC2 instance profile), you cannot
 stop or terminate the instance using alarm actions. However, you can still see
@@ -175,8 +192,8 @@ using alarm actions.
      * Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch associates
 the data points with the specified metric. If the specified metric does not
 exist, Amazon CloudWatch creates the metric. When Amazon CloudWatch creates a
-metric, it can take up to fifteen minutes for the metric to appear in calls to
-the ListMetrics action.
+metric, it can take up to fifteen minutes for the metric to appear in calls to 
+ListMetrics .
 
 Each PutMetricData request is limited to 8 KB in size for HTTP GET requests and
 is limited to 40 KB in size for HTTP POST requests.
@@ -185,6 +202,7 @@ Although the Value parameter accepts numbers of type Double , Amazon CloudWatch
 rejects values that are either too small or too large. Values must be in the
 range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
 In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported.
+
 Data that is timestamped 24 hours or more in the past may take in excess of 48
 hours to become available from submission time using GetMetricStatistics .
      *
@@ -195,15 +213,14 @@ hours to become available from submission time using GetMetricStatistics .
      */
     putMetricData(params: CloudWatch.PutMetricDataInput, callback?: (err: CloudWatch.InvalidParameterValueException|CloudWatch.MissingRequiredParameterException|CloudWatch.InvalidParameterCombinationException|CloudWatch.InternalServiceFault|any, data: any) => void): Request<any,CloudWatch.InvalidParameterValueException|CloudWatch.MissingRequiredParameterException|CloudWatch.InvalidParameterCombinationException|CloudWatch.InternalServiceFault|any>;
     /**
-     * Temporarily sets the state of an alarm. When the updated StateValue differs from
-the previous value, the action configured for the appropriate state is invoked.
-For example, if your alarm is configured to send an Amazon SNS message when an
-alarm is triggered, temporarily changing the alarm&#x27;s state to ALARM will send an
-Amazon SNS message. This is not a permanent change. The next periodic alarm
-check (in about a minute) will set the alarm to its actual state. Because the
-alarm state change happens very quickly, it is typically only visibile in the
-alarm&#x27;s History tab in the Amazon CloudWatch console or through 
-DescribeAlarmHistory .
+     * Temporarily sets the state of an alarm for testing purposes. When the updated 
+StateValue differs from the previous value, the action configured for the
+appropriate state is invoked. For example, if your alarm is configured to send
+an Amazon SNS message when an alarm is triggered, temporarily changing the
+alarm&#x27;s state to ALARM sends an Amazon SNS message. The alarm returns to its
+actual state (often within seconds). Because the alarm state change happens very
+quickly, it is typically only visible in the alarm&#x27;s History tab in the Amazon
+CloudWatch console or through DescribeAlarmHistory .
      *
      * @error ResourceNotFound   
      * @error InvalidFormatFault   
@@ -430,24 +447,28 @@ specified. The time stamp must be in ISO 8601 UTC format (e.g.,
 The specified start time is rounded down to the nearest value. Datapoints are
 returned for start times up to two weeks in the past. Specified start times that
 are more than two weeks in the past will not return datapoints for metrics that
-are older than two weeks.Data that is timestamped 24 hours or more in the past
-may take in excess of 48 hours to become available from submission time using 
-GetMetricStatistics . **/
+are older than two weeks.
+
+Data that is timestamped 24 hours or more in the past may take in excess of 48
+hours to become available from submission time using GetMetricStatistics . **/
         StartTime: Timestamp;
         /** The time stamp to use for determining the last datapoint to return. The value
 specified is exclusive; results will include datapoints up to the time stamp
 specified. The time stamp must be in ISO 8601 UTC format (e.g.,
 2014-09-03T23:00:00Z). **/
         EndTime: Timestamp;
-        /** The granularity, in seconds, of the returned datapoints. Period must be at least
-60 seconds and must be a multiple of 60. The default value is 60. **/
+        /** The granularity, in seconds, of the returned datapoints. A Period can be as
+short as one minute (60 seconds) or as long as one day (86,400 seconds), and
+must be a multiple of 60. The default value is 60. **/
         Period: Period;
         /** The metric statistics to return. For information about specific statistics
 returned by GetMetricStatistics, see Statistics
 [http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Statistic] 
 in the Amazon CloudWatch Developer Guide . **/
         Statistics: Statistics;
-        /** The unit for the metric. **/
+        /** The specific unit for a given metric. Metrics may be reported in multiple units.
+Not supplying a unit results in all units being returned. If the metric only
+ever reports one unit, specifying a unit will have no effect. **/
         Unit?: StandardUnit;
     }
     export interface GetMetricStatisticsOutput {

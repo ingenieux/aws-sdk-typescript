@@ -530,6 +530,16 @@ returned marker to retrieve additional results.
      */
     listCertificatesByCA(params: Iot.ListCertificatesByCARequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListCertificatesByCAResponse|any) => void): Request<Iot.ListCertificatesByCAResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
     /**
+     * Lists certificates that are being transfered but not yet accepted.
+     *
+     * @error InvalidRequestException The request is not valid.  
+     * @error ThrottlingException The rate exceeds the limit.  
+     * @error UnauthorizedException You are not authorized to perform this operation.  
+     * @error ServiceUnavailableException The service is temporarily unavailable.  
+     * @error InternalFailureException An unexpected error has occurred.  
+     */
+    listOutgoingCertificates(params: Iot.ListOutgoingCertificatesRequest, callback?: (err: Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any, data: Iot.ListOutgoingCertificatesResponse|any) => void): Request<Iot.ListOutgoingCertificatesResponse|any,Iot.InvalidRequestException|Iot.ThrottlingException|Iot.UnauthorizedException|Iot.ServiceUnavailableException|Iot.InternalFailureException|any>;
+    /**
      * Lists your policies.
      *
      * @error InvalidRequestException The request is not valid.  
@@ -798,6 +808,8 @@ than the version specified with the --version parameter.
     
     export type AlarmName = string;
     
+    export type AllowAutoRegistration = boolean;
+    
     export type AscendingOrder = boolean;
     
     export type AttributeName = string;
@@ -805,6 +817,8 @@ than the version specified with the --version parameter.
     export type AttributeValue = string;
     
     export type Attributes = {[key:string]: AttributeValue};
+    
+    export type AutoRegistrationStatus = string;
     
     export type AwsAccountId = string;
     
@@ -899,6 +913,8 @@ than the version specified with the --version parameter.
     export type NextToken = string;
     
     export type OptionalVersion = number;
+    
+    export type OutgoingCertificates = OutgoingCertificate[];
     
     export type PageSize = number;
     
@@ -1071,6 +1087,9 @@ The status value REGISTER_INACTIVE is deprecated and should not be used. **/
         ownedBy?: AwsAccountId;
         /** The date the CA certificate was created. **/
         creationDate?: DateType;
+        /** Whether the CA certificate configured for auto registration of device
+certificates. Valid values are &quot;ENABLE&quot; and &quot;DISABLE&quot; **/
+        autoRegistrationStatus?: AutoRegistrationStatus;
     }
     export interface CancelCertificateTransferRequest {
         /** The ID of the certificate. **/
@@ -1581,6 +1600,21 @@ order, based on the creation date. **/
 results. **/
         nextMarker?: Marker;
     }
+    export interface ListOutgoingCertificatesRequest {
+        /** The result page size. **/
+        pageSize?: PageSize;
+        /** The marker for the next set of results. **/
+        marker?: Marker;
+        /** Specifies the order for results. If True, the results are returned in ascending
+order, based on the creation date. **/
+        ascendingOrder?: AscendingOrder;
+    }
+    export interface ListOutgoingCertificatesResponse {
+        /** The certificates that are being transfered but not yet accepted. **/
+        outgoingCertificates?: OutgoingCertificates;
+        /** The marker for the next set of results. **/
+        nextMarker?: Marker;
+    }
     export interface ListPoliciesRequest {
         /** The marker for the next set of results. **/
         marker?: Marker;
@@ -1727,6 +1761,20 @@ results. **/
         /** The message for the exception. **/
         message?: errorMessage;
     }
+    export interface OutgoingCertificate {
+        /** The certificate ARN. **/
+        certificateArn?: CertificateArn;
+        /** The certificate ID. **/
+        certificateId?: CertificateId;
+        /** The AWS account to which the transfer was made. **/
+        transferredTo?: AwsAccountId;
+        /** The date the transfer was initiated. **/
+        transferDate?: DateType;
+        /** The transfer message. **/
+        transferMessage?: Message;
+        /** The certificate creation date. **/
+        creationDate?: DateType;
+    }
     export interface Policy {
         /** The policy name. **/
         policyName?: PolicyName;
@@ -1748,6 +1796,9 @@ results. **/
         verificationCertificate: CertificatePem;
         /** A boolean value that specifies if the CA certificate is set to active. **/
         setAsActive?: SetAsActive;
+        /** Allows this CA certificate to be used for auto registration of device
+certificates. **/
+        allowAutoRegistration?: AllowAutoRegistration;
     }
     export interface RegisterCACertificateResponse {
         /** The CA certificate ARN. **/
@@ -1969,7 +2020,10 @@ in the AWS IoT Developer Guide . **/
         /** The updated status of the CA certificate.
 
 Note: The status value REGISTER_INACTIVE is deprecated and should not be used. **/
-        newStatus: CACertificateStatus;
+        newStatus?: CACertificateStatus;
+        /** The new value for the auto registration status. Valid values are: &quot;ENABLE&quot; or
+&quot;DISABLE&quot;. **/
+        newAutoRegistrationStatus?: AutoRegistrationStatus;
     }
     export interface UpdateCertificateRequest {
         /** The ID of the certificate. **/
