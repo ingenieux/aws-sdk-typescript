@@ -59,7 +59,7 @@ This operation requires permission for the lambda:AddPermission action.
 information, see Introduction to AWS Lambda Aliases
 [http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html] .
 
-Alias names are unique for a given function.This requires permission for the
+Alias names are unique for a given function. This requires permission for the
 lambda:CreateAlias action.
      *
      * @error ServiceException   
@@ -80,9 +80,10 @@ event source mapping.
 This event source mapping is relevant only in the AWS Lambda pull model, where
 AWS Lambda invokes the function. For more information, go to AWS Lambda: How it
 Works [http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html] in
-the AWS Lambda Developer Guide .You provide mapping information (for example,
-which stream to read from and which Lambda function to invoke) in the request
-body.
+the AWS Lambda Developer Guide .
+
+You provide mapping information (for example, which stream to read from and
+which Lambda function to invoke) in the request body.
 
 Each event source, such as an Amazon Kinesis or a DynamoDB stream, can be
 associated with multiple AWS Lambda function. A given Lambda function can be
@@ -92,8 +93,6 @@ If you are using versioning, you can specify a specific function version or an
 alias via the function name parameter. For more information about versioning,
 see AWS Lambda Function Versioning and Aliases
 [http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html] .
-
-
 
 This operation requires permission for the lambda:CreateEventSourceMapping 
 action.
@@ -269,8 +268,9 @@ If you are using the versioning feature, you can invoke the specific function
 version by providing function version or alias name that is pointing to the
 function version using the Qualifier parameter in the request. If you don&#x27;t
 provide the Qualifier parameter, the $LATEST version of the Lambda function is
-invoked. For information about the versioning feature, see AWS Lambda Function
-Versioning and Aliases
+invoked. Invocations occur at least once in response to an event and functions
+must be idempotent to handle this. For information about the versioning feature,
+see AWS Lambda Function Versioning and Aliases
 [http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html] .
 
 This operation requires permission for the lambda:InvokeFunction action.
@@ -289,13 +289,15 @@ This operation requires permission for the lambda:InvokeFunction action.
      * @error EC2AccessDeniedException   
      * @error InvalidSubnetIDException   
      * @error InvalidSecurityGroupIDException   
+     * @error InvalidZipFileException   
      */
-    invoke(params: Lambda.InvocationRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|Lambda.RequestTooLargeException|Lambda.UnsupportedMediaTypeException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.EC2UnexpectedException|Lambda.SubnetIPAddressLimitReachedException|Lambda.ENILimitReachedException|Lambda.EC2ThrottledException|Lambda.EC2AccessDeniedException|Lambda.InvalidSubnetIDException|Lambda.InvalidSecurityGroupIDException|any, data: Lambda.InvocationResponse|any) => void): Request<Lambda.InvocationResponse|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|Lambda.RequestTooLargeException|Lambda.UnsupportedMediaTypeException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.EC2UnexpectedException|Lambda.SubnetIPAddressLimitReachedException|Lambda.ENILimitReachedException|Lambda.EC2ThrottledException|Lambda.EC2AccessDeniedException|Lambda.InvalidSubnetIDException|Lambda.InvalidSecurityGroupIDException|any>;
+    invoke(params: Lambda.InvocationRequest, callback?: (err: Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|Lambda.RequestTooLargeException|Lambda.UnsupportedMediaTypeException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.EC2UnexpectedException|Lambda.SubnetIPAddressLimitReachedException|Lambda.ENILimitReachedException|Lambda.EC2ThrottledException|Lambda.EC2AccessDeniedException|Lambda.InvalidSubnetIDException|Lambda.InvalidSecurityGroupIDException|Lambda.InvalidZipFileException|any, data: Lambda.InvocationResponse|any) => void): Request<Lambda.InvocationResponse|any,Lambda.ServiceException|Lambda.ResourceNotFoundException|Lambda.InvalidRequestContentException|Lambda.RequestTooLargeException|Lambda.UnsupportedMediaTypeException|Lambda.TooManyRequestsException|Lambda.InvalidParameterValueException|Lambda.EC2UnexpectedException|Lambda.SubnetIPAddressLimitReachedException|Lambda.ENILimitReachedException|Lambda.EC2ThrottledException|Lambda.EC2AccessDeniedException|Lambda.InvalidSubnetIDException|Lambda.InvalidSecurityGroupIDException|Lambda.InvalidZipFileException|any>;
     /**
-     * This API is deprecated. We recommend you use Invoke API (see Invoke ).Submits an
-invocation request to AWS Lambda. Upon receiving the request, Lambda executes
-the specified function asynchronously. To see the logs generated by the Lambda
-function execution, see the CloudWatch Logs console.
+     * This API is deprecated. We recommend you use Invoke API (see Invoke ).
+
+Submits an invocation request to AWS Lambda. Upon receiving the request, Lambda
+executes the specified function asynchronously. To see the logs generated by the
+Lambda function execution, see the CloudWatch Logs console.
 
 This operation requires permission for the lambda:InvokeFunction action.
      *
@@ -567,6 +569,8 @@ action.
     
     export type SubnetIds = SubnetId[];
     
+    export type ThrottleReason = string;
+    
     export type Timeout = number;
     
     export type Timestamp = string;
@@ -589,9 +593,9 @@ name, it is limited to 64 character in length. **/
         /** A unique statement identifier. **/
         StatementId: StatementId;
         /** The AWS Lambda action you want to allow in this statement. Each Lambda action is
-a string starting with lambda: followed by the API name (see Operations ). For
-example, lambda:CreateFunction . You can use wildcard ( lambda:&amp;#42; ) to grant
-permission for all AWS Lambda actions. **/
+a string starting with lambda: followed by the API name . For example, 
+lambda:CreateFunction . You can use wildcard ( lambda:&amp;#42; ) to grant permission
+for all AWS Lambda actions. **/
         Action: Action;
         /** The principal who is getting this permission. It can be Amazon S3 service
 Principal ( s3.amazonaws.com ) if you want Amazon S3 to invoke the function, an
@@ -601,22 +605,24 @@ allow a custom application in another AWS account to push events to AWS Lambda
 by invoking your function. **/
         Principal: Principal;
         /** This is optional; however, when granting Amazon S3 permission to invoke your
-function, you should specify this field with the bucket Amazon Resource Name
-(ARN) as its value. This ensures that only events generated from the specified
-bucket can invoke the function.
+function, you should specify this field with the Amazon Resource Name (ARN) as
+its value. This ensures that only events generated from the specified source can
+invoke the function.
 
 If you add a permission for the Amazon S3 principal without providing the source
 ARN, any AWS account that creates a mapping to your function ARN can send events
 to invoke your Lambda function from Amazon S3. **/
         SourceArn?: Arn;
-        /** The AWS account ID (without a hyphen) of the source owner. For example, if the 
-SourceArn identifies a bucket, then this is the bucket owner&#x27;s account ID. You
-can use this additional condition to ensure the bucket you specify is owned by a
-specific account (it is possible the bucket owner deleted the bucket and some
-other AWS account created the bucket). You can also use this condition to
-specify all sources (that is, you don&#x27;t specify the SourceArn ) owned by a
-specific account. **/
+        /** This parameter is used for S3 and SES only. The AWS account ID (without a
+hyphen) of the source owner. For example, if the SourceArn identifies a bucket,
+then this is the bucket owner&#x27;s account ID. You can use this additional
+condition to ensure the bucket you specify is owned by a specific account (it is
+possible the bucket owner deleted the bucket and some other AWS account created
+the bucket). You can also use this condition to specify all sources (that is,
+you don&#x27;t specify the SourceArn ) owned by a specific account. **/
         SourceAccount?: SourceOwner;
+        /** A unique token that must be supplied by the principal invoking the function.
+This is currently only used for Alexa Smart Home functions. **/
         EventSourceToken?: EventSourceToken;
         /** You can use this optional query parameter to describe a qualified ARN using a
 function version or an alias name. The permission will then apply to the
@@ -656,6 +662,7 @@ version, the ARN is arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA
         Description?: Description;
     }
     export interface CodeStorageExceededException {
+        /**  **/
         Type?: String;
         message?: String;
     }
@@ -711,7 +718,10 @@ in the Amazon Kinesis API Reference . **/
 names appear in the console and are returned in the ListFunctions API. Function
 names are used to specify functions to other AWS Lambda APIs, such as Invoke . **/
         FunctionName: FunctionName;
-        /** The runtime environment for the Lambda function you are uploading. **/
+        /** The runtime environment for the Lambda function you are uploading.
+
+To use the Node.js runtime v4.3, set the value to &quot;nodejs4.3&quot;. To use earlier
+runtime (v0.10.42), set the value to &quot;nodejs&quot;. **/
         Runtime: Runtime;
         /** The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it
 executes your function to access any other Amazon Web Services (AWS) resources.
@@ -827,10 +837,11 @@ user-requested or an AWS Lambda-initiated state transition. **/
         StateTransitionReason?: String;
     }
     export interface FunctionCode {
-        /** A zip file containing your deployment package. If you are using the API
-directly, the zip file must be base64-encoded (if you are using the AWS SDKs or
-the AWS CLI, the SDKs or CLI will do the encoding for you). For more information
-about creating a .zip file, go to Execution Permissions
+        /** The contents of your zip file containing your deployment package. If you are
+using the web API directly, the contents of the zip file must be base64-encoded.
+If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the
+encoding for you. For more information about creating a .zip file, go to 
+Execution Permissions
 [http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html] 
 in the AWS Lambda Developer Guide . **/
         ZipFile?: Blob;
@@ -855,7 +866,10 @@ previously uploaded. The URL is valid for up to 10 minutes. **/
         FunctionName?: FunctionName;
         /** The Amazon Resource Name (ARN) assigned to the function. **/
         FunctionArn?: FunctionArn;
-        /** The runtime environment for the Lambda function. **/
+        /** The runtime environment for the Lambda function.
+
+To use the Node.js runtime v4.3, set the value to &quot;nodejs4.3&quot;. To use earlier
+runtime (v0.10.42), set the value to &quot;nodejs&quot;. **/
         Runtime?: Runtime;
         /** The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it
 executes your function to access any other Amazon Web Services (AWS) resources. **/
@@ -962,11 +976,15 @@ the same as a string using a backslash (&quot;\&quot;) as an escape character in
         Policy?: String;
     }
     export interface InvalidParameterValueException {
+        /**  **/
         Type?: String;
+        /**  **/
         message?: String;
     }
     export interface InvalidRequestContentException {
+        /**  **/
         Type?: String;
+        /**  **/
         message?: String;
     }
     export interface InvalidSecurityGroupIDException {
@@ -974,6 +992,10 @@ the same as a string using a backslash (&quot;\&quot;) as an escape character in
         Message?: String;
     }
     export interface InvalidSubnetIDException {
+        Type?: String;
+        Message?: String;
+    }
+    export interface InvalidZipFileException {
         Type?: String;
         Message?: String;
     }
@@ -998,7 +1020,7 @@ scenario when you want to verify access to a function without running it. **/
         /** You can set this optional parameter to Tail in the request only if you specify
 the InvocationType parameter with value RequestResponse . In this case, AWS
 Lambda returns the base64-encoded last 4 KB of log data produced by your Lambda
-function in the x-amz-log-results header. **/
+function in the x-amz-log-result header. **/
         LogType?: LogType;
         /** Using the ClientContext you can pass client-specific information to the Lambda
 function you are invoking. You can then process the client information in your
@@ -1078,7 +1100,8 @@ This parameter value must be greater than 0. **/
         Aliases?: AliasList;
     }
     export interface ListEventSourceMappingsRequest {
-        /** The Amazon Resource Name (ARN) of the Amazon Kinesis stream. **/
+        /** The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is
+optional.) **/
         EventSourceArn?: Arn;
         /** The name of the Lambda function.
 
@@ -1184,7 +1207,9 @@ ARN. **/
         message?: String;
     }
     export interface ResourceConflictException {
+        /**  **/
         Type?: String;
+        /**  **/
         message?: String;
     }
     export interface ResourceNotFoundException {
@@ -1204,6 +1229,7 @@ ARN. **/
         retryAfterSeconds?: String;
         Type?: String;
         message?: String;
+        Reason?: ThrottleReason;
     }
     export interface UnsupportedMediaTypeException {
         Type?: String;
@@ -1255,7 +1281,13 @@ you to specify a partial ARN (for example, account-id:Thumbnail ). Note that the
 length constraint applies only to the ARN. If you specify only the function
 name, it is limited to 64 character in length. **/
         FunctionName: FunctionName;
-        /** Based64-encoded .zip file containing your packaged source code. **/
+        /** The contents of your zip file containing your deployment package. If you are
+using the web API directly, the contents of the zip file must be base64-encoded.
+If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the
+encoding for you. For more information about creating a .zip file, go to 
+Execution Permissions
+[http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html] 
+in the AWS Lambda Developer Guide . **/
         ZipFile?: Blob;
         /** Amazon S3 bucket name where the .zip file containing your deployment package is
 stored. This bucket must reside in the same AWS region where you are creating
@@ -1299,6 +1331,10 @@ operation might need less memory compared to an image processing function. The
 default value is 128 MB. The value must be a multiple of 64 MB. **/
         MemorySize?: MemorySize;
         VpcConfig?: VpcConfig;
+        /** The runtime environment for the Lambda function.
+
+To use the Node.js runtime v4.3, set the value to &quot;nodejs4.3&quot;. To use earlier
+runtime (v0.10.42), set the value to &quot;nodejs&quot;. **/
         Runtime?: Runtime;
     }
     export interface VpcConfig {

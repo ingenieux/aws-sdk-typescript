@@ -1081,6 +1081,27 @@ RebootDBInstance request.
      */
     resetDBParameterGroup(params: RDS.ResetDBParameterGroupMessage, callback?: (err: RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any, data: RDS.DBParameterGroupNameMessage|any) => void): Request<RDS.DBParameterGroupNameMessage|any,RDS.InvalidDBParameterGroupStateFault|RDS.DBParameterGroupNotFoundFault|any>;
     /**
+     * Creates an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket.
+Amazon RDS must be authorized to access the Amazon S3 bucket and the data must
+be created using the Percona XtraBackup utility as described in Migrating Data
+from an External MySQL Database to an Amazon Aurora DB Cluster
+[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Migrate.html] .
+     *
+     * @error DBClusterAlreadyExistsFault   
+     * @error DBClusterQuotaExceededFault   
+     * @error StorageQuotaExceededFault   
+     * @error DBSubnetGroupNotFoundFault   
+     * @error InvalidVPCNetworkStateFault   
+     * @error InvalidDBClusterStateFault   
+     * @error InvalidDBSubnetGroupStateFault   
+     * @error InvalidSubnet   
+     * @error InvalidS3BucketFault   
+     * @error DBClusterParameterGroupNotFoundFault   
+     * @error KMSKeyNotAccessibleFault   
+     * @error DBClusterNotFoundFault   
+     */
+    restoreDBClusterFromS3(params: RDS.RestoreDBClusterFromS3Message, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.InvalidS3BucketFault|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|any, data: RDS.RestoreDBClusterFromS3Result|any) => void): Request<RDS.RestoreDBClusterFromS3Result|any,RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.InvalidS3BucketFault|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|any>;
+    /**
      * Creates a new DB cluster from a DB cluster snapshot. The target DB cluster is
 created from the source DB cluster restore point with the same configuration as
 the original source DB cluster, except that the new DB cluster is created with
@@ -1801,8 +1822,7 @@ Constraints:
 Example: my-cluster1 **/
         DBClusterIdentifier: String;
         /** The name of the DB cluster parameter group to associate with this DB cluster. If
-this argument is omitted, default.aurora5.6 for the specified engine will be
-used.
+this argument is omitted, default.aurora5.6 will be used.
 
 Constraints:
 
@@ -1837,7 +1857,7 @@ Example: 5.6.10a **/
 
 Default: 3306 **/
         Port?: IntegerOptional;
-        /** The name of the master user for the client DB cluster.
+        /** The name of the master user for the DB cluster.
 
 Constraints:
 
@@ -2959,9 +2979,6 @@ Constraints:
  * Must not be &quot;Default&quot;
    
    
- * Cannot contain spaces
-   
-   
 
 Example: mysecuritygroup **/
         DBSecurityGroupName: String;
@@ -3896,10 +3913,7 @@ Constraints:
  * Cannot end with a hyphen or contain two consecutive hyphens
    
    
- * Must not be &quot;Default&quot;
-   
-   
- * Cannot contain spaces **/
+ * Must not be &quot;Default&quot; **/
         DBSecurityGroupName: String;
     }
     export interface DeleteDBSnapshotMessage {
@@ -4416,9 +4430,10 @@ values:
    
 
 If you don&#x27;t specify a SnapshotType value, then both automated and manual
-snapshots are returned. You can include shared snapshots with these results by
-setting the IncludeShared parameter to true . You can include public snapshots
-with these results by setting the IncludePublic parameter to true .
+snapshots are returned. Shared and public DB snapshots are not included in the
+returned results by default. You can include shared snapshots with these results
+by setting the IncludeShared parameter to true . You can include public
+snapshots with these results by setting the IncludePublic parameter to true .
 
 The IncludeShared and IncludePublic parameters don&#x27;t apply for SnapshotType 
 values of manual or automated . The IncludePublic parameter doesn&#x27;t apply when 
@@ -5034,6 +5049,8 @@ cluster. For example, mydbcluster-replica1 . **/
     }
     export interface InvalidRestoreFault {
     }
+    export interface InvalidS3BucketFault {
+    }
     export interface InvalidSubnet {
     }
     export interface InvalidVPCNetworkStateFault {
@@ -5311,6 +5328,23 @@ db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge |
 db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small |
 db.t2.medium | db.t2.large **/
         DBInstanceClass?: String;
+        /** The new DB subnet group for the DB instance. You can use this parameter to move
+your DB instance to a different VPC, or to a different subnet group in the same
+VPC. If your DB instance is not in a VPC, you can also use this parameter to
+move your DB instance into a VPC. For more information, see Updating the VPC for
+a DB Instance
+[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC] 
+.
+
+Changing the subnet group causes an outage during the change. The change is
+applied during the next maintenance window, unless you specify true for the 
+ApplyImmediately parameter.
+
+Constraints: Must contain no more than 255 alphanumeric characters, periods,
+underscores, spaces, or hyphens.
+
+Example: mySubnetGroup **/
+        DBSubnetGroupName?: String;
         /** A list of DB security groups to authorize on this DB instance. Changing this
 setting does not result in an outage and the change is asynchronously applied as
 soon as possible.
@@ -6066,6 +6100,8 @@ or is in progress. **/
         StorageType?: String;
         /** Specifies the identifier of the CA certificate for the DB instance. **/
         CACertificateIdentifier?: String;
+        /** The new DB subnet group for the DB instance. **/
+        DBSubnetGroupName?: String;
     }
     export interface PointInTimeRestoreNotEnabledFault {
     }
@@ -6357,6 +6393,179 @@ Valid Values (for Apply method): pending-reboot **/
         /** A list that provides details about the pending maintenance actions for the
 resource. **/
         PendingMaintenanceActionDetails?: PendingMaintenanceActionDetails;
+    }
+    export interface RestoreDBClusterFromS3Message {
+        /** A list of EC2 Availability Zones that instances in the restored DB cluster can
+be created in. **/
+        AvailabilityZones?: AvailabilityZones;
+        /** The number of days for which automated backups of the restored DB cluster are
+retained. You must specify a minimum value of 1.
+
+Default: 1
+
+Constraints:
+
+ &amp;#42; Must be a value from 1 to 35 **/
+        BackupRetentionPeriod?: IntegerOptional;
+        /** A value that indicates that the restored DB cluster should be associated with
+the specified CharacterSet. **/
+        CharacterSetName?: String;
+        /** The database name for the restored DB cluster. **/
+        DatabaseName?: String;
+        /** The name of the DB cluster to create from the source data in the S3 bucket. This
+parameter is isn&#x27;t case-sensitive.
+
+Constraints:
+
+ &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
+ * First character must be a letter.
+   
+   
+ * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
+
+Example: my-cluster1 **/
+        DBClusterIdentifier: String;
+        /** The name of the DB cluster parameter group to associate with the restored DB
+cluster. If this argument is omitted, default.aurora5.6 will be used.
+
+Constraints:
+
+ &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
+ * First character must be a letter
+   
+   
+ * Cannot end with a hyphen or contain two consecutive hyphens **/
+        DBClusterParameterGroupName?: String;
+        /** A list of EC2 VPC security groups to associate with the restored DB cluster. **/
+        VpcSecurityGroupIds?: VpcSecurityGroupIdList;
+        /** A DB subnet group to associate with the restored DB cluster.
+
+Constraints: Must contain no more than 255 alphanumeric characters, periods,
+underscores, spaces, or hyphens. Must not be default.
+
+Example: mySubnetgroup **/
+        DBSubnetGroupName?: String;
+        /** The name of the database engine to be used for the restored DB cluster.
+
+Valid Values: aurora **/
+        Engine: String;
+        /** The version number of the database engine to use.
+
+Aurora
+
+Example: 5.6.10a **/
+        EngineVersion?: String;
+        /** The port number on which the instances in the restored DB cluster accept
+connections.
+
+Default: 3306 **/
+        Port?: IntegerOptional;
+        /** The name of the master user for the restored DB cluster.
+
+Constraints:
+
+ &amp;#42; Must be 1 to 16 alphanumeric characters.
+   
+   
+ * First character must be a letter.
+   
+   
+ * Cannot be a reserved word for the chosen database engine. **/
+        MasterUsername: String;
+        /** The password for the master database user. This password can contain any
+printable ASCII character except &quot;/&quot;, &quot;&quot;&quot;, or &quot;@&quot;.
+
+Constraints: Must contain from 8 to 41 characters. **/
+        MasterUserPassword: String;
+        /** A value that indicates that the restored DB cluster should be associated with
+the specified option group.
+
+Permanent options cannot be removed from an option group. An option group cannot
+be removed from a DB cluster once it is associated with a DB cluster. **/
+        OptionGroupName?: String;
+        /** The daily time range during which automated backups are created if automated
+backups are enabled using the BackupRetentionPeriod parameter.
+
+Default: A 30-minute window selected at random from an 8-hour block of time per
+region. To see the time blocks available, see Adjusting the Preferred
+Maintenance Window
+[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html] 
+in the Amazon RDS User Guide.
+
+Constraints:
+
+ &amp;#42; Must be in the format hh24:mi-hh24:mi .
+   
+   
+ * Times should be in Universal Coordinated Time (UTC).
+   
+   
+ * Must not conflict with the preferred maintenance window.
+   
+   
+ * Must be at least 30 minutes. **/
+        PreferredBackupWindow?: String;
+        /** The weekly time range during which system maintenance can occur, in Universal
+Coordinated Time (UTC).
+
+Format: ddd:hh24:mi-ddd:hh24:mi
+
+Default: A 30-minute window selected at random from an 8-hour block of time per
+region, occurring on a random day of the week. To see the time blocks available,
+see Adjusting the Preferred Maintenance Window
+[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html] 
+in the Amazon RDS User Guide.
+
+Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
+
+Constraints: Minimum 30-minute window. **/
+        PreferredMaintenanceWindow?: String;
+        Tags?: TagList;
+        /** Specifies whether the restored DB cluster is encrypted. **/
+        StorageEncrypted?: BooleanOptional;
+        /** The KMS key identifier for an encrypted DB cluster.
+
+The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption
+key. If you are creating a DB cluster with the same AWS account that owns the
+KMS encryption key used to encrypt the new DB cluster, then you can use the KMS
+key alias instead of the ARN for the KM encryption key.
+
+If the StorageEncrypted parameter is true, and you do not specify a value for
+the KmsKeyId parameter, then Amazon RDS will use your default encryption key.
+AWS KMS creates the default encryption key for your AWS account. Your AWS
+account has a different default encryption key for each AWS region. **/
+        KmsKeyId?: String;
+        /** The identifier for the database engine that was backed up to create the files
+stored in the Amazon S3 bucket.
+
+Valid values: mysql **/
+        SourceEngine: String;
+        /** The version of the database that the backup files were created from.
+
+MySQL version 5.5 and 5.6 are supported.
+
+Example: 5.6.22 **/
+        SourceEngineVersion: String;
+        /** The name of the Amazon S3 bucket that contains the data used to create the
+Amazon Aurora DB cluster. **/
+        S3BucketName: String;
+        /** The prefix for all of the file names that contain the data used to create the
+Amazon Aurora DB cluster. If you do not specify a SourceS3Prefix value, then the
+Amazon Aurora DB cluster is created by using all of the files in the Amazon S3
+bucket. **/
+        S3Prefix?: String;
+        /** The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM)
+role that authorizes Amazon RDS to access the Amazon S3 bucket on your behalf. **/
+        S3IngestionRoleArn: String;
+    }
+    export interface RestoreDBClusterFromS3Result {
+        DBCluster?: DBCluster;
     }
     export interface RestoreDBClusterFromSnapshotMessage {
         /** Provides the list of EC2 Availability Zones that instances in the restored DB
