@@ -277,6 +277,8 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
     
     export type RepositoryPolicyText = string;
     
+    export type TagStatus = string;
+    
     export type UploadId = string;
     
     export type Url = string;
@@ -415,7 +417,10 @@ repositories in a registry are described. **/
 request where maxResults was used and the results exceeded the value of that
 parameter. Pagination continues from the end of the previous results that
 returned the nextToken value. This value is null when there are no more results
-to return. **/
+to return.
+
+This token should be treated as an opaque identifier that is only used to
+retrieve the next items in a list and not for other programmatic purposes. **/
         nextToken?: NextToken;
         /** The maximum number of repository results returned by DescribeRepositories in
 paginated output. When this parameter is used, DescribeRepositories only returns 
@@ -580,6 +585,9 @@ UNAVAILABLE . **/
         /** The error message associated with the exception. **/
         message?: ExceptionMessage;
     }
+    export interface ListImagesFilter {
+        tagStatus?: TagStatus;
+    }
     export interface ListImagesRequest {
         /** The AWS account ID associated with the registry that contains the repository to
 list images in. If you do not specify a registry, the default registry is
@@ -590,7 +598,10 @@ assumed. **/
         /** The nextToken value returned from a previous paginated ListImages request where 
 maxResults was used and the results exceeded the value of that parameter.
 Pagination continues from the end of the previous results that returned the 
-nextToken value. This value is null when there are no more results to return. **/
+nextToken value. This value is null when there are no more results to return.
+
+This token should be treated as an opaque identifier that is only used to
+retrieve the next items in a list and not for other programmatic purposes. **/
         nextToken?: NextToken;
         /** The maximum number of image results returned by ListImages in paginated output.
 When this parameter is used, ListImages only returns maxResults results in a
@@ -600,6 +611,7 @@ returned nextToken value. This value can be between 1 and 100. If this parameter
 is not used, then ListImages returns up to 100 results and a nextToken value, if
 applicable. **/
         maxResults?: MaxResults;
+        filter?: ListImagesFilter;
     }
     export interface ListImagesResponse {
         /** The list of image IDs for the requested repository. **/

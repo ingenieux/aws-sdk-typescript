@@ -35,6 +35,22 @@ s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish, iam:GetRolePolicy.
      * @error MarketplaceCommerceAnalyticsException   
      */
     generateDataSet(params: MarketplaceCommerceAnalytics.GenerateDataSetRequest, callback?: (err: MarketplaceCommerceAnalytics.MarketplaceCommerceAnalyticsException|any, data: MarketplaceCommerceAnalytics.GenerateDataSetResult|any) => void): Request<MarketplaceCommerceAnalytics.GenerateDataSetResult|any,MarketplaceCommerceAnalytics.MarketplaceCommerceAnalyticsException|any>;
+    /**
+     * Given a data set type and a from date, asynchronously publishes the requested
+customer support data to the specified S3 bucket and notifies the specified SNS
+topic once the data is available. Returns a unique request identifier that can
+be used to correlate requests with notifications from the SNS topic. Data sets
+will be published in comma-separated values (CSV) format with the file name
+{data_set_type}_YYYY-MM-DD&#x27;T&#x27;HH-mm-ss&#x27;Z&#x27;.csv. If a file with the same name
+already exists (e.g. if the same data set is requested twice), the original file
+will be overwritten by the new file. Requires a Role with an attached
+permissions policy providing Allow permissions for the following actions:
+s3:PutObject, s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish,
+iam:GetRolePolicy.
+     *
+     * @error MarketplaceCommerceAnalyticsException   
+     */
+    startSupportDataExport(params: MarketplaceCommerceAnalytics.StartSupportDataExportRequest, callback?: (err: MarketplaceCommerceAnalytics.MarketplaceCommerceAnalyticsException|any, data: MarketplaceCommerceAnalytics.StartSupportDataExportResult|any) => void): Request<MarketplaceCommerceAnalytics.StartSupportDataExportResult|any,MarketplaceCommerceAnalytics.MarketplaceCommerceAnalyticsException|any>;
 
   }
 
@@ -54,6 +70,8 @@ s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish, iam:GetRolePolicy.
     
     export type ExceptionMessage = string;
     
+    export type FromDate = number;
+    
     export type OptionalKey = string;
     
     export type OptionalValue = string;
@@ -61,6 +79,8 @@ s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish, iam:GetRolePolicy.
     export type RoleNameArn = string;
     
     export type SnsTopicArn = string;
+    
+    export type SupportDataSetType = string;
 
     export interface GenerateDataSetRequest {
         /** The desired data set type.
@@ -139,6 +159,49 @@ from the SNS topic. **/
     }
     export interface MarketplaceCommerceAnalyticsException {
         message?: ExceptionMessage;
+    }
+    export interface StartSupportDataExportRequest {
+        /** Specifies the data set type to be written to the output csv file. The data set
+types customer_support_contacts_data and test_customer_support_contacts_data
+both result in a csv file containing the following fields: Product Id, Customer
+Guid, Subscription Guid, Subscription Start Date, Organization, AWS Account Id,
+Given Name, Surname, Telephone Number, Email, Title, Country Code, ZIP Code,
+Operation Type, and Operation Time. Currently, only the
+test_customer_support_contacts_data value is supported
+
+ &amp;#42; customer_support_contacts_data Customer support contact data. The data set
+   will contain all changes (Creates, Updates, and Deletes) to customer support
+   contact data from the date specified in the from_date parameter.
+ * test_customer_support_contacts_data An example data set containing static
+   test data in the same format as customer_support_contacts_data **/
+        dataSetType: SupportDataSetType;
+        /** The start date from which to retrieve the data set. This parameter only affects
+the customer_support_contacts_data data set type. **/
+        fromDate: FromDate;
+        /** The Amazon Resource Name (ARN) of the Role with an attached permissions policy
+to interact with the provided AWS services. **/
+        roleNameArn: RoleNameArn;
+        /** The name (friendly name, not ARN) of the destination S3 bucket. **/
+        destinationS3BucketName: DestinationS3BucketName;
+        /** (Optional) The desired S3 prefix for the published data set, similar to a
+directory path in standard file systems. For example, if given the bucket name
+&quot;mybucket&quot; and the prefix &quot;myprefix/mydatasets&quot;, the output file &quot;outputfile&quot;
+would be published to &quot;s3://mybucket/myprefix/mydatasets/outputfile&quot;. If the
+prefix directory structure does not exist, it will be created. If no prefix is
+provided, the data set will be published to the S3 bucket root. **/
+        destinationS3Prefix?: DestinationS3Prefix;
+        /** Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data
+set has been published or if an error has occurred. **/
+        snsTopicArn: SnsTopicArn;
+        /** (Optional) Key-value pairs which will be returned, unmodified, in the Amazon SNS
+notification message and the data set metadata file. **/
+        customerDefinedValues?: CustomerDefinedValues;
+    }
+    export interface StartSupportDataExportResult {
+        /** A unique identifier representing a specific request to the
+StartSupportDataExport operation. This identifier can be used to correlate a
+request with notifications from the SNS topic. **/
+        dataSetRequestId?: DataSetRequestId;
     }
   }
 }

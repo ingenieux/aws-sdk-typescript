@@ -8,13 +8,17 @@
 declare module "aws-sdk" {
 
  /**
-   * apiVersion: 2016-01-28
+   * apiVersion: 2016-08-01
    * endpointPrefix: cloudfront
    * serviceAbbreviation: CloudFront
    * signatureVersion: v4
    * protocol: rest-xml
    *
-   * 
+   * Amazon CloudFrontAmazon CloudFront is a global content delivery network (CDN)
+service that accelerates delivery of your websites, APIs, video content or other
+web assets. It integrates with other Amazon Web Services products to give
+developers and businesses an easy way to accelerate content to end users with no
+minimum usage commitments.
    *
    */
   export class CloudFront extends Service {
@@ -69,6 +73,45 @@ declare module "aws-sdk" {
      */
     createDistribution(params: CloudFront.CreateDistributionRequest, callback?: (err: CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|any, data: CloudFront.CreateDistributionResult|any) => void): Request<CloudFront.CreateDistributionResult|any,CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|any>;
     /**
+     * Create a new distribution with tags.
+     *
+     * @error CNAMEAlreadyExists   
+     * @error DistributionAlreadyExists   
+     * @error InvalidOrigin   
+     * @error InvalidOriginAccessIdentity   
+     * @error AccessDenied   
+     * @error TooManyTrustedSigners   
+     * @error TrustedSignerDoesNotExist   
+     * @error InvalidViewerCertificate   
+     * @error InvalidMinimumProtocolVersion   
+     * @error MissingBody   
+     * @error TooManyDistributionCNAMEs   
+     * @error TooManyDistributions   
+     * @error InvalidDefaultRootObject   
+     * @error InvalidRelativePath   
+     * @error InvalidErrorCode   
+     * @error InvalidResponseCode   
+     * @error InvalidArgument   
+     * @error InvalidRequiredProtocol   
+     * @error NoSuchOrigin   
+     * @error TooManyOrigins   
+     * @error TooManyCacheBehaviors   
+     * @error TooManyCookieNamesInWhiteList   
+     * @error InvalidForwardCookies   
+     * @error TooManyHeadersInForwardedValues   
+     * @error InvalidHeadersForS3Origin   
+     * @error InconsistentQuantities   
+     * @error TooManyCertificates   
+     * @error InvalidLocationCode   
+     * @error InvalidGeoRestrictionParameter   
+     * @error InvalidProtocolSettings   
+     * @error InvalidTTLOrder   
+     * @error InvalidWebACLId   
+     * @error TooManyOriginCustomHeaders   
+     * @error InvalidTagging   
+     */
+    createDistributionWithTags(params: CloudFront.CreateDistributionWithTagsRequest, callback?: (err: CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|CloudFront.InvalidTagging|any, data: CloudFront.CreateDistributionWithTagsResult|any) => void): Request<CloudFront.CreateDistributionWithTagsResult|any,CloudFront.CNAMEAlreadyExists|CloudFront.DistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.InvalidViewerCertificate|CloudFront.InvalidMinimumProtocolVersion|CloudFront.MissingBody|CloudFront.TooManyDistributionCNAMEs|CloudFront.TooManyDistributions|CloudFront.InvalidDefaultRootObject|CloudFront.InvalidRelativePath|CloudFront.InvalidErrorCode|CloudFront.InvalidResponseCode|CloudFront.InvalidArgument|CloudFront.InvalidRequiredProtocol|CloudFront.NoSuchOrigin|CloudFront.TooManyOrigins|CloudFront.TooManyCacheBehaviors|CloudFront.TooManyCookieNamesInWhiteList|CloudFront.InvalidForwardCookies|CloudFront.TooManyHeadersInForwardedValues|CloudFront.InvalidHeadersForS3Origin|CloudFront.InconsistentQuantities|CloudFront.TooManyCertificates|CloudFront.InvalidLocationCode|CloudFront.InvalidGeoRestrictionParameter|CloudFront.InvalidProtocolSettings|CloudFront.InvalidTTLOrder|CloudFront.InvalidWebACLId|CloudFront.TooManyOriginCustomHeaders|CloudFront.InvalidTagging|any>;
+    /**
      * Create a new invalidation.
      *
      * @error AccessDenied   
@@ -97,6 +140,24 @@ declare module "aws-sdk" {
      * @error InconsistentQuantities   
      */
     createStreamingDistribution(params: CloudFront.CreateStreamingDistributionRequest, callback?: (err: CloudFront.CNAMEAlreadyExists|CloudFront.StreamingDistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.MissingBody|CloudFront.TooManyStreamingDistributionCNAMEs|CloudFront.TooManyStreamingDistributions|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|any, data: CloudFront.CreateStreamingDistributionResult|any) => void): Request<CloudFront.CreateStreamingDistributionResult|any,CloudFront.CNAMEAlreadyExists|CloudFront.StreamingDistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.MissingBody|CloudFront.TooManyStreamingDistributionCNAMEs|CloudFront.TooManyStreamingDistributions|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|any>;
+    /**
+     * Create a new streaming distribution with tags.
+     *
+     * @error CNAMEAlreadyExists   
+     * @error StreamingDistributionAlreadyExists   
+     * @error InvalidOrigin   
+     * @error InvalidOriginAccessIdentity   
+     * @error AccessDenied   
+     * @error TooManyTrustedSigners   
+     * @error TrustedSignerDoesNotExist   
+     * @error MissingBody   
+     * @error TooManyStreamingDistributionCNAMEs   
+     * @error TooManyStreamingDistributions   
+     * @error InvalidArgument   
+     * @error InconsistentQuantities   
+     * @error InvalidTagging   
+     */
+    createStreamingDistributionWithTags(params: CloudFront.CreateStreamingDistributionWithTagsRequest, callback?: (err: CloudFront.CNAMEAlreadyExists|CloudFront.StreamingDistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.MissingBody|CloudFront.TooManyStreamingDistributionCNAMEs|CloudFront.TooManyStreamingDistributions|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|CloudFront.InvalidTagging|any, data: CloudFront.CreateStreamingDistributionWithTagsResult|any) => void): Request<CloudFront.CreateStreamingDistributionWithTagsResult|any,CloudFront.CNAMEAlreadyExists|CloudFront.StreamingDistributionAlreadyExists|CloudFront.InvalidOrigin|CloudFront.InvalidOriginAccessIdentity|CloudFront.AccessDenied|CloudFront.TooManyTrustedSigners|CloudFront.TrustedSignerDoesNotExist|CloudFront.MissingBody|CloudFront.TooManyStreamingDistributionCNAMEs|CloudFront.TooManyStreamingDistributions|CloudFront.InvalidArgument|CloudFront.InconsistentQuantities|CloudFront.InvalidTagging|any>;
     /**
      * Delete an origin access identity.
      *
@@ -210,6 +271,33 @@ declare module "aws-sdk" {
      * @error InvalidArgument   
      */
     listStreamingDistributions(params: CloudFront.ListStreamingDistributionsRequest, callback?: (err: CloudFront.InvalidArgument|any, data: CloudFront.ListStreamingDistributionsResult|any) => void): Request<CloudFront.ListStreamingDistributionsResult|any,CloudFront.InvalidArgument|any>;
+    /**
+     * List tags for a CloudFront resource.
+     *
+     * @error AccessDenied   
+     * @error InvalidArgument   
+     * @error InvalidTagging   
+     * @error NoSuchResource   
+     */
+    listTagsForResource(params: CloudFront.ListTagsForResourceRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.InvalidArgument|CloudFront.InvalidTagging|CloudFront.NoSuchResource|any, data: CloudFront.ListTagsForResourceResult|any) => void): Request<CloudFront.ListTagsForResourceResult|any,CloudFront.AccessDenied|CloudFront.InvalidArgument|CloudFront.InvalidTagging|CloudFront.NoSuchResource|any>;
+    /**
+     * Add tags to a CloudFront resource.
+     *
+     * @error AccessDenied   
+     * @error InvalidArgument   
+     * @error InvalidTagging   
+     * @error NoSuchResource   
+     */
+    tagResource(params: CloudFront.TagResourceRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.InvalidArgument|CloudFront.InvalidTagging|CloudFront.NoSuchResource|any, data: any) => void): Request<any,CloudFront.AccessDenied|CloudFront.InvalidArgument|CloudFront.InvalidTagging|CloudFront.NoSuchResource|any>;
+    /**
+     * Remove tags from a CloudFront resource.
+     *
+     * @error AccessDenied   
+     * @error InvalidArgument   
+     * @error InvalidTagging   
+     * @error NoSuchResource   
+     */
+    untagResource(params: CloudFront.UntagResourceRequest, callback?: (err: CloudFront.AccessDenied|CloudFront.InvalidArgument|CloudFront.InvalidTagging|CloudFront.NoSuchResource|any, data: any) => void): Request<any,CloudFront.AccessDenied|CloudFront.InvalidArgument|CloudFront.InvalidTagging|CloudFront.NoSuchResource|any>;
     /**
      * Update an origin access identity.
      *
@@ -329,6 +417,8 @@ declare module "aws-sdk" {
     
     export type PriceClass = string;
     
+    export type ResourceARN = string;
+    
     export type SSLSupportMethod = string;
     
     export type SignerList = Signer[];
@@ -338,6 +428,14 @@ declare module "aws-sdk" {
     export type SslProtocolsList = SslProtocol[];
     
     export type StreamingDistributionSummaryList = StreamingDistributionSummary[];
+    
+    export type TagKey = string;
+    
+    export type TagKeyList = TagKey[];
+    
+    export type TagList = Tag[];
+    
+    export type TagValue = string;
     
     export type ViewerProtocolPolicy = string;
     
@@ -587,6 +685,20 @@ https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5. **/
         /** The current version of the distribution created. **/
         ETag?: string;
     }
+    export interface CreateDistributionWithTagsRequest {
+        /** The distribution&#x27;s configuration information. **/
+        DistributionConfigWithTags: DistributionConfigWithTags;
+    }
+    export interface CreateDistributionWithTagsResult {
+        /** The distribution&#x27;s information. **/
+        Distribution?: Distribution;
+        /** The fully qualified URI of the new distribution resource just created. For
+example:
+https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5. **/
+        Location?: string;
+        /** The current version of the distribution created. **/
+        ETag?: string;
+    }
     export interface CreateInvalidationRequest {
         /** The distribution&#x27;s id. **/
         DistributionId: string;
@@ -605,6 +717,20 @@ including the Invalidation ID. **/
         StreamingDistributionConfig: StreamingDistributionConfig;
     }
     export interface CreateStreamingDistributionResult {
+        /** The streaming distribution&#x27;s information. **/
+        StreamingDistribution?: StreamingDistribution;
+        /** The fully qualified URI of the new streaming distribution resource just created.
+For example:
+https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8. **/
+        Location?: string;
+        /** The current version of the streaming distribution created. **/
+        ETag?: string;
+    }
+    export interface CreateStreamingDistributionWithTagsRequest {
+        /** The streaming distribution&#x27;s configuration information. **/
+        StreamingDistributionConfigWithTags: StreamingDistributionConfigWithTags;
+    }
+    export interface CreateStreamingDistributionWithTagsResult {
         /** The streaming distribution&#x27;s information. **/
         StreamingDistribution?: StreamingDistribution;
         /** The fully qualified URI of the new streaming distribution resource just created.
@@ -751,6 +877,10 @@ distribution. For example: E2QWRUHAPOMQZL. **/
     export interface Distribution {
         /** The identifier for the distribution. For example: EDFDVBD632BHDS5. **/
         Id: string;
+        /** The ARN (Amazon Resource Name) for the distribution. For example:
+arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where
+123456789012 is your AWS account Id. **/
+        ARN: string;
         /** This response element indicates the current status of the distribution. When the
 status is Deployed, the distribution&#x27;s information is fully propagated
 throughout the Amazon CloudFront system. **/
@@ -828,6 +958,12 @@ distribution. **/
 AWS WAF web ACL that is associated with the distribution. **/
         WebACLId?: string;
     }
+    export interface DistributionConfigWithTags {
+        /** A distribution Configuration. **/
+        DistributionConfig: DistributionConfig;
+        /** A complex type that contains zero or more Tag elements. **/
+        Tags: Tags;
+    }
     export interface DistributionList {
         /** The value you provided for the Marker request parameter. **/
         Marker: string;
@@ -853,6 +989,10 @@ distribution that was created by the current AWS account. **/
     export interface DistributionSummary {
         /** The identifier for the distribution. For example: EDFDVBD632BHDS5. **/
         Id: string;
+        /** The ARN (Amazon Resource Name) for the distribution. For example:
+arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where
+123456789012 is your AWS account Id. **/
+        ARN: string;
         /** This response element indicates the current status of the distribution. When the
 status is Deployed, the distribution&#x27;s information is fully propagated
 throughout the Amazon CloudFront system. **/
@@ -1059,6 +1199,9 @@ If Quantity is 0, omit Items. **/
     export interface InvalidTTLOrder {
         Message?: string;
     }
+    export interface InvalidTagging {
+        Message?: string;
+    }
     export interface InvalidViewerCertificate {
         Message?: string;
     }
@@ -1209,6 +1352,14 @@ of the last distribution on that page). **/
         /** The StreamingDistributionList type. **/
         StreamingDistributionList?: StreamingDistributionList;
     }
+    export interface ListTagsForResourceRequest {
+        /** An ARN of a CloudFront resource. **/
+        Resource: ResourceARN;
+    }
+    export interface ListTagsForResourceResult {
+        /** A complex type that contains zero or more Tag elements. **/
+        Tags: Tags;
+    }
     export interface LoggingConfig {
         /** Specifies whether you want CloudFront to save access logs to an Amazon S3
 bucket. If you do not want to enable logging when you create a distribution or
@@ -1246,6 +1397,9 @@ empty Prefix element in the Logging element. **/
         Message?: string;
     }
     export interface NoSuchOrigin {
+        Message?: string;
+    }
+    export interface NoSuchResource {
         Message?: string;
     }
     export interface NoSuchStreamingDistribution {
@@ -1344,6 +1498,10 @@ associated with AwsAccountNumber. **/
     export interface StreamingDistribution {
         /** The identifier for the streaming distribution. For example: EGTXBD79H29TRA8. **/
         Id: string;
+        /** The ARN (Amazon Resource Name) for the streaming distribution. For example:
+arn:aws:cloudfront::123456789012:streaming-distribution/EDFDVBD632BHDS5, where
+123456789012 is your AWS account Id. **/
+        ARN: string;
         /** The current status of the streaming distribution. When the status is Deployed,
 the distribution&#x27;s information is fully propagated throughout the Amazon
 CloudFront system. **/
@@ -1410,6 +1568,12 @@ distribution. **/
 content. **/
         Enabled: boolean;
     }
+    export interface StreamingDistributionConfigWithTags {
+        /** A streaming distribution Configuration. **/
+        StreamingDistributionConfig: StreamingDistributionConfig;
+        /** A complex type that contains zero or more Tag elements. **/
+        Tags: Tags;
+    }
     export interface StreamingDistributionList {
         /** The value you provided for the Marker request parameter. **/
         Marker: string;
@@ -1436,6 +1600,10 @@ distribution that was created by the current AWS account. **/
     export interface StreamingDistributionSummary {
         /** The identifier for the distribution. For example: EDFDVBD632BHDS5. **/
         Id: string;
+        /** The ARN (Amazon Resource Name) for the streaming distribution. For example:
+arn:aws:cloudfront::123456789012:streaming-distribution/EDFDVBD632BHDS5, where
+123456789012 is your AWS account Id. **/
+        ARN: string;
         /** Indicates the current status of the distribution. When the status is Deployed,
 the distribution&#x27;s information is fully propagated throughout the Amazon
 CloudFront system. **/
@@ -1485,6 +1653,30 @@ filenames for this streaming distribution, for example, myprefix/. If you want
 to enable logging, but you do not want to specify a prefix, you still must
 include an empty Prefix element in the Logging element. **/
         Prefix: string;
+    }
+    export interface Tag {
+        /** A string that contains Tag key. The string length should be between 1 and 128
+characters. Valid characters include a-z, A-Z, 0-9, space, and the special
+characters _ - . : / = + @. **/
+        Key: TagKey;
+        /** A string that contains an optional Tag value. The string length should be
+between 0 and 256 characters. Valid characters include a-z, A-Z, 0-9, space, and
+the special characters _ - . : / = + @. **/
+        Value?: TagValue;
+    }
+    export interface TagKeys {
+        /** A complex type that contains Tag key elements **/
+        Items?: TagKeyList;
+    }
+    export interface TagResourceRequest {
+        /** An ARN of a CloudFront resource. **/
+        Resource: ResourceARN;
+        /** A complex type that contains zero or more Tag elements. **/
+        Tags: Tags;
+    }
+    export interface Tags {
+        /** A complex type that contains Tag elements **/
+        Items?: TagList;
     }
     export interface TooManyCacheBehaviors {
         Message?: string;
@@ -1537,6 +1729,12 @@ files specified by PathPattern and TargetOriginId. **/
         /** Optional: A complex type that contains trusted signers for this cache behavior.
 If Quantity is 0, you can omit Items. **/
         Items?: AwsAccountNumberList;
+    }
+    export interface UntagResourceRequest {
+        /** An ARN of a CloudFront resource. **/
+        Resource: ResourceARN;
+        /** A complex type that contains zero or more Tag key elements. **/
+        TagKeys: TagKeys;
     }
     export interface UpdateCloudFrontOriginAccessIdentityRequest {
         /** The identity&#x27;s configuration information. **/
