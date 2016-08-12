@@ -14,18 +14,30 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: query
    *
-   * Elastic Load BalancingElastic Load Balancing distributes incoming traffic across
-your EC2 instances.
+   * Elastic Load BalancingA load balancer distributes incoming traffic across your
+EC2 instances. This enables you to increase the availability of your
+application. The load balancer also monitors the health of its registered
+instances and ensures that it routes traffic only to healthy instances. You
+configure your load balancer to accept incoming traffic by specifying one or
+more listeners, which are configured with a protocol and port number for
+connections from clients to the load balancer and a protocol and port number for
+connections from the load balancer to the instances.
 
-For information about the features of Elastic Load Balancing, see What Is
-Elastic Load Balancing?
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elastic-load-balancing.html] 
-in the Elastic Load Balancing Developer Guide .
+Elastic Load Balancing supports two types of load balancers: Classic load
+balancers and Application load balancers (new). A Classic load balancer makes
+routing and load balancing decisions either at the transport layer (TCP/SSL) or
+the application layer (HTTP/HTTPS), and supports either EC2-Classic or a VPC. An
+Application load balancer makes routing and load balancing decisions at the
+application layer (HTTP/HTTPS), supports path-based routing, and can route
+requests to one or more ports on each EC2 instance or container instance in your
+virtual private cloud (VPC). For more information, see the .
 
-For information about the AWS regions supported by Elastic Load Balancing, see 
-Regions and Endpoints - Elastic Load Balancing
-[http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region] in the 
-Amazon Web Services General Reference .
+This reference covers the 2012-06-01 API, which supports Classic load balancers.
+The 2015-12-01 API supports Application load balancers.
+
+To get started, create a load balancer with one or more listeners using 
+CreateLoadBalancer . Register your instances with the load balancer using 
+RegisterInstancesWithLoadBalancer .
 
 All Elastic Load Balancing operations are idempotent , which means that they
 complete at most one time. If you repeat an operation, it succeeds with a 200 OK
@@ -42,14 +54,13 @@ have a maximum of 10 tags.
 Each tag consists of a key and an optional value. If a tag with the same key is
 already associated with the load balancer, AddTags updates its value.
 
-For more information, see Tag Your Load Balancer
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/add-remove-tags.html] 
-in the Elastic Load Balancing Developer Guide .
+For more information, see Tag Your Classic Load Balancer
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html] 
+in the Classic Load Balancers Guide .
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error TooManyTagsException The quota for the number of tags that can be assigned to a load balancer has
-been reached.  
-     * @error DuplicateTagKeysException A tag key was specified more than once.  
+     * @error AccessPointNotFoundException   
+     * @error TooManyTagsException   
+     * @error DuplicateTagKeysException   
      */
     addTags(params: ELB.AddTagsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|any, data: ELB.AddTagsOutput|any) => void): Request<ELB.AddTagsOutput|any,ELB.AccessPointNotFoundException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|any>;
     /**
@@ -58,12 +69,12 @@ private cloud (VPC). The specified security groups override the previously
 associated security groups.
 
 For more information, see Security Groups for Load Balancers in a VPC
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-groups.html#elb-vpc-security-groups] 
-in the Elastic Load Balancing Developer Guide .
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups] 
+in the Classic Load Balancers Guide .
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
-     * @error InvalidSecurityGroupException One or more of the specified security groups do not exist.  
+     * @error AccessPointNotFoundException   
+     * @error InvalidConfigurationRequestException   
+     * @error InvalidSecurityGroupException   
      */
     applySecurityGroupsToLoadBalancer(params: ELB.ApplySecurityGroupsToLoadBalancerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|ELB.InvalidSecurityGroupException|any, data: ELB.ApplySecurityGroupsToLoadBalancerOutput|any) => void): Request<ELB.ApplySecurityGroupsToLoadBalancerOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|ELB.InvalidSecurityGroupException|any>;
     /**
@@ -72,24 +83,24 @@ balancer.
 
 The load balancer evenly distributes requests across all registered subnets. For
 more information, see Add or Remove Subnets for Your Load Balancer in a VPC
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-manage-subnets.html] 
-in the Elastic Load Balancing Developer Guide .
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html] 
+in the Classic Load Balancers Guide .
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
-     * @error SubnetNotFoundException One or more of the specified subnets do not exist.  
-     * @error InvalidSubnetException The specified VPC has no associated Internet gateway.  
+     * @error AccessPointNotFoundException   
+     * @error InvalidConfigurationRequestException   
+     * @error SubnetNotFoundException   
+     * @error InvalidSubnetException   
      */
     attachLoadBalancerToSubnets(params: ELB.AttachLoadBalancerToSubnetsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|any, data: ELB.AttachLoadBalancerToSubnetsOutput|any) => void): Request<ELB.AttachLoadBalancerToSubnetsOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|any>;
     /**
      * Specifies the health check settings to use when evaluating the health state of
-your back-end instances.
+your EC2 instances.
 
-For more information, see Configure Health Checks
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-healthchecks.html] 
-in the Elastic Load Balancing Developer Guide .
+For more information, see Configure Health Checks for Your Load Balancer
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html] 
+in the Classic Load Balancers Guide .
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
+     * @error AccessPointNotFoundException   
      */
     configureHealthCheck(params: ELB.ConfigureHealthCheckInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.ConfigureHealthCheckOutput|any) => void): Request<ELB.ConfigureHealthCheckOutput|any,ELB.AccessPointNotFoundException|any>;
     /**
@@ -107,13 +118,13 @@ If the application cookie is explicitly removed or expires, the session stops
 being sticky until a new application cookie is issued.
 
 For more information, see Application-Controlled Session Stickiness
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-sticky-sessions.html#enable-sticky-sessions-application] 
-in the Elastic Load Balancing Developer Guide .
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application] 
+in the Classic Load Balancers Guide .
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error DuplicatePolicyNameException A policy with the specified name already exists for this load balancer.  
-     * @error TooManyPoliciesException The quota for the number of policies for this load balancer has been reached.  
-     * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
+     * @error AccessPointNotFoundException   
+     * @error DuplicatePolicyNameException   
+     * @error TooManyPoliciesException   
+     * @error InvalidConfigurationRequestException   
      */
     createAppCookieStickinessPolicy(params: ELB.CreateAppCookieStickinessPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateAppCookieStickinessPolicyOutput|any) => void): Request<ELB.CreateAppCookieStickinessPolicyOutput|any,ELB.AccessPointNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any>;
     /**
@@ -122,88 +133,83 @@ lifetime of the browser (user-agent) or a specified expiration period. This
 policy can be associated only with HTTP/HTTPS listeners.
 
 When a load balancer implements this policy, the load balancer uses a special
-cookie to track the back-end server instance for each request. When the load
-balancer receives a request, it first checks to see if this cookie is present in
-the request. If so, the load balancer sends the request to the application
-server specified in the cookie. If not, the load balancer sends the request to a
-server that is chosen based on the existing load-balancing algorithm.
+cookie to track the instance for each request. When the load balancer receives a
+request, it first checks to see if this cookie is present in the request. If so,
+the load balancer sends the request to the application server specified in the
+cookie. If not, the load balancer sends the request to a server that is chosen
+based on the existing load-balancing algorithm.
 
 A cookie is inserted into the response for binding subsequent requests from the
 same user to that server. The validity of the cookie is based on the cookie
 expiration time, which is specified in the policy configuration.
 
 For more information, see Duration-Based Session Stickiness
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-sticky-sessions.html#enable-sticky-sessions-duration] 
-in the Elastic Load Balancing Developer Guide .
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration] 
+in the Classic Load Balancers Guide .
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error DuplicatePolicyNameException A policy with the specified name already exists for this load balancer.  
-     * @error TooManyPoliciesException The quota for the number of policies for this load balancer has been reached.  
-     * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
+     * @error AccessPointNotFoundException   
+     * @error DuplicatePolicyNameException   
+     * @error TooManyPoliciesException   
+     * @error InvalidConfigurationRequestException   
      */
     createLBCookieStickinessPolicy(params: ELB.CreateLBCookieStickinessPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateLBCookieStickinessPolicyOutput|any) => void): Request<ELB.CreateLBCookieStickinessPolicyOutput|any,ELB.AccessPointNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any>;
     /**
-     * Creates a load balancer.
+     * Creates a Classic load balancer.
 
-If the call completes successfully, a new load balancer is created with a unique
-Domain Name Service (DNS) name. The load balancer receives incoming traffic and
-routes it to the registered instances. For more information, see How Elastic
-Load Balancing Works
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/how-elb-works.html] 
-in the Elastic Load Balancing Developer Guide .
+You can add listeners, security groups, subnets, and tags when you create your
+load balancer, or you can add them later using CreateLoadBalancerListeners , 
+ApplySecurityGroupsToLoadBalancer , AttachLoadBalancerToSubnets , and AddTags .
+
+To describe your current load balancers, see DescribeLoadBalancers . When you
+are finished with a load balancer, you can delete it using DeleteLoadBalancer .
 
 You can create up to 20 load balancers per region per account. You can request
 an increase for the number of load balancers for your account. For more
-information, see Elastic Load Balancing Limits
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-limits.html] 
-in the Elastic Load Balancing Developer Guide .
+information, see Limits for Your Classic Load Balancer
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html] 
+in the Classic Load Balancers Guide .
      *
-     * @error DuplicateAccessPointNameException The specified load balancer name already exists for this account.  
-     * @error TooManyAccessPointsException The quota for the number of load balancers has been reached.  
-     * @error CertificateNotFoundException The specified SSL ID does not refer to a valid SSL certificate in AWS Identity
-and Access Management (IAM).  
-     * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
-     * @error SubnetNotFoundException One or more of the specified subnets do not exist.  
-     * @error InvalidSubnetException The specified VPC has no associated Internet gateway.  
-     * @error InvalidSecurityGroupException One or more of the specified security groups do not exist.  
-     * @error InvalidSchemeException The specified value for the schema is not valid. You can only specify a scheme
-for load balancers in a VPC.  
-     * @error TooManyTagsException The quota for the number of tags that can be assigned to a load balancer has
-been reached.  
-     * @error DuplicateTagKeysException A tag key was specified more than once.  
+     * @error DuplicateAccessPointNameException   
+     * @error TooManyAccessPointsException   
+     * @error CertificateNotFoundException   
+     * @error InvalidConfigurationRequestException   
+     * @error SubnetNotFoundException   
+     * @error InvalidSubnetException   
+     * @error InvalidSecurityGroupException   
+     * @error InvalidSchemeException   
+     * @error TooManyTagsException   
+     * @error DuplicateTagKeysException   
+     * @error UnsupportedProtocolException   
      */
-    createLoadBalancer(params: ELB.CreateAccessPointInput, callback?: (err: ELB.DuplicateAccessPointNameException|ELB.TooManyAccessPointsException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|ELB.InvalidSecurityGroupException|ELB.InvalidSchemeException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|any, data: ELB.CreateAccessPointOutput|any) => void): Request<ELB.CreateAccessPointOutput|any,ELB.DuplicateAccessPointNameException|ELB.TooManyAccessPointsException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|ELB.InvalidSecurityGroupException|ELB.InvalidSchemeException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|any>;
+    createLoadBalancer(params: ELB.CreateAccessPointInput, callback?: (err: ELB.DuplicateAccessPointNameException|ELB.TooManyAccessPointsException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|ELB.InvalidSecurityGroupException|ELB.InvalidSchemeException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|ELB.UnsupportedProtocolException|any, data: ELB.CreateAccessPointOutput|any) => void): Request<ELB.CreateAccessPointOutput|any,ELB.DuplicateAccessPointNameException|ELB.TooManyAccessPointsException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|ELB.SubnetNotFoundException|ELB.InvalidSubnetException|ELB.InvalidSecurityGroupException|ELB.InvalidSchemeException|ELB.TooManyTagsException|ELB.DuplicateTagKeysException|ELB.UnsupportedProtocolException|any>;
     /**
      * Creates one or more listeners for the specified load balancer. If a listener
 with the specified port does not already exist, it is created; otherwise, the
 properties of the new listener must match the properties of the existing
 listener.
 
-For more information, see Add a Listener to Your Load Balancer
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html] 
-in the Elastic Load Balancing Developer Guide .
+For more information, see Listeners for Your Classic Load Balancer
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html] 
+in the Classic Load Balancers Guide .
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error DuplicateListenerException A listener already exists for the specified LoadBalancerName and 
-LoadBalancerPort , but with a different InstancePort , Protocol , or 
-SSLCertificateId .  
-     * @error CertificateNotFoundException The specified SSL ID does not refer to a valid SSL certificate in AWS Identity
-and Access Management (IAM).  
-     * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
+     * @error AccessPointNotFoundException   
+     * @error DuplicateListenerException   
+     * @error CertificateNotFoundException   
+     * @error InvalidConfigurationRequestException   
+     * @error UnsupportedProtocolException   
      */
-    createLoadBalancerListeners(params: ELB.CreateLoadBalancerListenerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.DuplicateListenerException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateLoadBalancerListenerOutput|any) => void): Request<ELB.CreateLoadBalancerListenerOutput|any,ELB.AccessPointNotFoundException|ELB.DuplicateListenerException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|any>;
+    createLoadBalancerListeners(params: ELB.CreateLoadBalancerListenerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.DuplicateListenerException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|ELB.UnsupportedProtocolException|any, data: ELB.CreateLoadBalancerListenerOutput|any) => void): Request<ELB.CreateLoadBalancerListenerOutput|any,ELB.AccessPointNotFoundException|ELB.DuplicateListenerException|ELB.CertificateNotFoundException|ELB.InvalidConfigurationRequestException|ELB.UnsupportedProtocolException|any>;
     /**
      * Creates a policy with the specified attributes for the specified load balancer.
 
 Policies are settings that are saved for your load balancer and that can be
-applied to the front-end listener or the back-end application server, depending
-on the policy type.
+applied to the listener or the application server, depending on the policy type.
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error PolicyTypeNotFoundException One or more of the specified policy types do not exist.  
-     * @error DuplicatePolicyNameException A policy with the specified name already exists for this load balancer.  
-     * @error TooManyPoliciesException The quota for the number of policies for this load balancer has been reached.  
-     * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
+     * @error AccessPointNotFoundException   
+     * @error PolicyTypeNotFoundException   
+     * @error DuplicatePolicyNameException   
+     * @error TooManyPoliciesException   
+     * @error InvalidConfigurationRequestException   
      */
     createLoadBalancerPolicy(params: ELB.CreateLoadBalancerPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyTypeNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any, data: ELB.CreateLoadBalancerPolicyOutput|any) => void): Request<ELB.CreateLoadBalancerPolicyOutput|any,ELB.AccessPointNotFoundException|ELB.PolicyTypeNotFoundException|ELB.DuplicatePolicyNameException|ELB.TooManyPoliciesException|ELB.InvalidConfigurationRequestException|any>;
     /**
@@ -213,7 +219,7 @@ If you are attempting to recreate a load balancer, you must reconfigure all
 settings. The DNS name associated with a deleted load balancer are no longer
 usable. The name and associated DNS record of the deleted load balancer no
 longer exist and traffic sent to any of its IP addresses is no longer delivered
-to back-end instances.
+to your instances.
 
 If the load balancer does not exist or has already been deleted, the call to 
 DeleteLoadBalancer still succeeds.
@@ -223,15 +229,15 @@ DeleteLoadBalancer still succeeds.
     /**
      * Deletes the specified listeners from the specified load balancer.
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
+     * @error AccessPointNotFoundException   
      */
     deleteLoadBalancerListeners(params: ELB.DeleteLoadBalancerListenerInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.DeleteLoadBalancerListenerOutput|any) => void): Request<ELB.DeleteLoadBalancerListenerOutput|any,ELB.AccessPointNotFoundException|any>;
     /**
      * Deletes the specified policy from the specified load balancer. This policy must
 not be enabled for any listeners.
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
+     * @error AccessPointNotFoundException   
+     * @error InvalidConfigurationRequestException   
      */
     deleteLoadBalancerPolicy(params: ELB.DeleteLoadBalancerPolicyInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.DeleteLoadBalancerPolicyOutput|any) => void): Request<ELB.DeleteLoadBalancerPolicyOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any>;
     /**
@@ -241,12 +247,12 @@ instance is deregistered, it no longer receives traffic from the load balancer.
 You can use DescribeLoadBalancers to verify that the instance is deregistered
 from the load balancer.
 
-For more information, see Deregister and Register Amazon EC2 Instances
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html] 
-in the Elastic Load Balancing Developer Guide .
+For more information, see Register or De-Register EC2 Instances
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html] 
+in the Classic Load Balancers Guide .
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error InvalidEndPointException The specified endpoint is not valid.  
+     * @error AccessPointNotFoundException   
+     * @error InvalidEndPointException   
      */
     deregisterInstancesFromLoadBalancer(params: ELB.DeregisterEndPointsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any, data: ELB.DeregisterEndPointsOutput|any) => void): Request<ELB.DeregisterEndPointsOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any>;
     /**
@@ -256,15 +262,15 @@ all instances that are currently registered with the load balancer. If instances
 are specified, their state is returned even if they are no longer registered
 with the load balancer. The state of terminated instances is not returned.
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error InvalidEndPointException The specified endpoint is not valid.  
+     * @error AccessPointNotFoundException   
+     * @error InvalidEndPointException   
      */
     describeInstanceHealth(params: ELB.DescribeEndPointStateInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any, data: ELB.DescribeEndPointStateOutput|any) => void): Request<ELB.DescribeEndPointStateOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any>;
     /**
      * Describes the attributes for the specified load balancer.
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error LoadBalancerAttributeNotFoundException The specified load balancer attribute does not exist.  
+     * @error AccessPointNotFoundException   
+     * @error LoadBalancerAttributeNotFoundException   
      */
     describeLoadBalancerAttributes(params: ELB.DescribeLoadBalancerAttributesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.LoadBalancerAttributeNotFoundException|any, data: ELB.DescribeLoadBalancerAttributesOutput|any) => void): Request<ELB.DescribeLoadBalancerAttributesOutput|any,ELB.AccessPointNotFoundException|ELB.LoadBalancerAttributeNotFoundException|any>;
     /**
@@ -277,30 +283,39 @@ you don&#x27;t specify a load balancer name, the action returns descriptions of 
 specified sample policies, or descriptions of all sample policies. The names of
 the sample policies have the ELBSample- prefix.
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error PolicyNotFoundException One or more of the specified policies do not exist.  
+     * @error AccessPointNotFoundException   
+     * @error PolicyNotFoundException   
      */
     describeLoadBalancerPolicies(params: ELB.DescribeLoadBalancerPoliciesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|any, data: ELB.DescribeLoadBalancerPoliciesOutput|any) => void): Request<ELB.DescribeLoadBalancerPoliciesOutput|any,ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|any>;
     /**
-     * Describes the specified load balancer policy types.
+     * Describes the specified load balancer policy types or all load balancer policy
+types.
 
-You can use these policy types with CreateLoadBalancerPolicy to create policy
-configurations for a load balancer.
+The description of each type indicates how it can be used. For example, some
+policies can be used only with layer 7 listeners, some policies can be used only
+with layer 4 listeners, and some policies can be used only with your EC2
+instances.
+
+You can use CreateLoadBalancerPolicy to create a policy configuration for any of
+these policy types. Then, depending on the policy type, use either 
+SetLoadBalancerPoliciesOfListener or SetLoadBalancerPoliciesForBackendServer to
+set the policy.
      *
-     * @error PolicyTypeNotFoundException One or more of the specified policy types do not exist.  
+     * @error PolicyTypeNotFoundException   
      */
     describeLoadBalancerPolicyTypes(params: ELB.DescribeLoadBalancerPolicyTypesInput, callback?: (err: ELB.PolicyTypeNotFoundException|any, data: ELB.DescribeLoadBalancerPolicyTypesOutput|any) => void): Request<ELB.DescribeLoadBalancerPolicyTypesOutput|any,ELB.PolicyTypeNotFoundException|any>;
     /**
      * Describes the specified the load balancers. If no load balancers are specified,
 the call describes all of your load balancers.
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
+     * @error AccessPointNotFoundException   
+     * @error DependencyThrottleException   
      */
-    describeLoadBalancers(params: ELB.DescribeAccessPointsInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.DescribeAccessPointsOutput|any) => void): Request<ELB.DescribeAccessPointsOutput|any,ELB.AccessPointNotFoundException|any>;
+    describeLoadBalancers(params: ELB.DescribeAccessPointsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.DependencyThrottleException|any, data: ELB.DescribeAccessPointsOutput|any) => void): Request<ELB.DescribeAccessPointsOutput|any,ELB.AccessPointNotFoundException|ELB.DependencyThrottleException|any>;
     /**
      * Describes the tags associated with the specified load balancers.
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
+     * @error AccessPointNotFoundException   
      */
     describeTags(params: ELB.DescribeTagsInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.DescribeTagsOutput|any) => void): Request<ELB.DescribeTagsOutput|any,ELB.AccessPointNotFoundException|any>;
     /**
@@ -311,8 +326,8 @@ After a subnet is removed, all EC2 instances registered with the load balancer
 in the removed subnet go into the OutOfService state. Then, the load balancer
 balances the traffic among the remaining routable subnets.
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
+     * @error AccessPointNotFoundException   
+     * @error InvalidConfigurationRequestException   
      */
     detachLoadBalancerFromSubnets(params: ELB.DetachLoadBalancerFromSubnetsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.DetachLoadBalancerFromSubnetsOutput|any) => void): Request<ELB.DetachLoadBalancerFromSubnetsOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any>;
     /**
@@ -325,13 +340,12 @@ the load balancer that are in the removed Availability Zone go into the
 OutOfService state. Then, the load balancer attempts to equally balance the
 traffic among its remaining Availability Zones.
 
-For more information, see Disable an Availability Zone from a Load-Balanced
-Application
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_ShrinkLBApp04.html] 
-in the Elastic Load Balancing Developer Guide .
+For more information, see Add or Remove Availability Zones
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html] 
+in the Classic Load Balancers Guide .
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
+     * @error AccessPointNotFoundException   
+     * @error InvalidConfigurationRequestException   
      */
     disableAvailabilityZonesForLoadBalancer(params: ELB.RemoveAvailabilityZonesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.RemoveAvailabilityZonesOutput|any) => void): Request<ELB.RemoveAvailabilityZonesOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidConfigurationRequestException|any>;
     /**
@@ -341,11 +355,11 @@ specified load balancer.
 The load balancer evenly distributes requests across all its registered
 Availability Zones that contain instances.
 
-For more information, see Add Availability Zone
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html] 
-in the Elastic Load Balancing Developer Guide .
+For more information, see Add or Remove Availability Zones
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html] 
+in the Classic Load Balancers Guide .
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
+     * @error AccessPointNotFoundException   
      */
     enableAvailabilityZonesForLoadBalancer(params: ELB.AddAvailabilityZonesInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.AddAvailabilityZonesOutput|any) => void): Request<ELB.AddAvailabilityZonesOutput|any,ELB.AccessPointNotFoundException|any>;
     /**
@@ -356,21 +370,26 @@ ConnectionDraining , and CrossZoneLoadBalancing by either enabling or disabling
 them. Or, you can modify the load balancer attribute ConnectionSettings by
 specifying an idle connection timeout value for your load balancer.
 
-For more information, see the following in the Elastic Load Balancing Developer
-Guide :
+For more information, see the following in the Classic Load Balancers Guide :
 
  &amp;#42; Cross-Zone Load Balancing
-   [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#request-routing]
+   [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html]
+   
+   
  * Connection Draining
-   [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain]
+   [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html]
+   
+   
  * Access Logs
-   [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/access-log-collection.html]
+   [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html]
+   
+   
  * Idle Connection Timeout
-   [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#idle-timeout]
+   [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html]
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error LoadBalancerAttributeNotFoundException The specified load balancer attribute does not exist.  
-     * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
+     * @error AccessPointNotFoundException   
+     * @error LoadBalancerAttributeNotFoundException   
+     * @error InvalidConfigurationRequestException   
      */
     modifyLoadBalancerAttributes(params: ELB.ModifyLoadBalancerAttributesInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.LoadBalancerAttributeNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.ModifyLoadBalancerAttributesOutput|any) => void): Request<ELB.ModifyLoadBalancerAttributesOutput|any,ELB.AccessPointNotFoundException|ELB.LoadBalancerAttributeNotFoundException|ELB.InvalidConfigurationRequestException|any>;
     /**
@@ -393,26 +412,21 @@ registered for the load balancer is moved to the OutOfService state. If an
 Availability Zone is added to the load balancer later, any instances registered
 with the load balancer move to the InService state.
 
-If you stop an instance registered with a load balancer and then start it, the
-IP addresses associated with the instance changes. Elastic Load Balancing cannot
-recognize the new IP address, which prevents it from routing traffic to the
-instances. We recommend that you use the following sequence: stop the instance,
-deregister the instance, start the instance, and then register the instance. To
-deregister instances from a load balancer, use 
+To deregister instances from a load balancer, use 
 DeregisterInstancesFromLoadBalancer .
 
-For more information, see Deregister and Register EC2 Instances
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html] 
-in the Elastic Load Balancing Developer Guide .
+For more information, see Register or De-Register EC2 Instances
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html] 
+in the Classic Load Balancers Guide .
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error InvalidEndPointException The specified endpoint is not valid.  
+     * @error AccessPointNotFoundException   
+     * @error InvalidEndPointException   
      */
     registerInstancesWithLoadBalancer(params: ELB.RegisterEndPointsInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any, data: ELB.RegisterEndPointsOutput|any) => void): Request<ELB.RegisterEndPointsOutput|any,ELB.AccessPointNotFoundException|ELB.InvalidEndPointException|any>;
     /**
      * Removes one or more tags from the specified load balancer.
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
+     * @error AccessPointNotFoundException   
      */
     removeTags(params: ELB.RemoveTagsInput, callback?: (err: ELB.AccessPointNotFoundException|any, data: ELB.RemoveTagsOutput|any) => void): Request<ELB.RemoveTagsOutput|any,ELB.AccessPointNotFoundException|any>;
     /**
@@ -420,22 +434,22 @@ in the Elastic Load Balancing Developer Guide .
 The specified certificate replaces any prior certificate that was used on the
 same load balancer and port.
 
-For more information about updating your SSL certificate, see Updating an SSL
-Certificate for a Load Balancer
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html] 
-in the Elastic Load Balancing Developer Guide .
+For more information about updating your SSL certificate, see Replace the SSL
+Certificate for Your Load Balancer
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html] 
+in the Classic Load Balancers Guide .
      *
-     * @error CertificateNotFoundException The specified SSL ID does not refer to a valid SSL certificate in AWS Identity
-and Access Management (IAM).  
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error ListenerNotFoundException The load balancer does not have a listener configured at the specified port.  
-     * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
+     * @error CertificateNotFoundException   
+     * @error AccessPointNotFoundException   
+     * @error ListenerNotFoundException   
+     * @error InvalidConfigurationRequestException   
+     * @error UnsupportedProtocolException   
      */
-    setLoadBalancerListenerSSLCertificate(params: ELB.SetLoadBalancerListenerSSLCertificateInput, callback?: (err: ELB.CertificateNotFoundException|ELB.AccessPointNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerListenerSSLCertificateOutput|any) => void): Request<ELB.SetLoadBalancerListenerSSLCertificateOutput|any,ELB.CertificateNotFoundException|ELB.AccessPointNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|any>;
+    setLoadBalancerListenerSSLCertificate(params: ELB.SetLoadBalancerListenerSSLCertificateInput, callback?: (err: ELB.CertificateNotFoundException|ELB.AccessPointNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|ELB.UnsupportedProtocolException|any, data: ELB.SetLoadBalancerListenerSSLCertificateOutput|any) => void): Request<ELB.SetLoadBalancerListenerSSLCertificateOutput|any,ELB.CertificateNotFoundException|ELB.AccessPointNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|ELB.UnsupportedProtocolException|any>;
     /**
-     * Replaces the set of policies associated with the specified port on which the
-back-end server is listening with a new set of policies. At this time, only the
-back-end server authentication policy type can be applied to the back-end ports;
+     * Replaces the set of policies associated with the specified port on which the EC2
+instance is listening with a new set of policies. At this time, only the
+back-end server authentication policy type can be applied to the instance ports;
 this policy type is composed of multiple public key policies.
 
 Each time you use SetLoadBalancerPoliciesForBackendServer to enable the
@@ -443,21 +457,41 @@ policies, use the PolicyNames parameter to list the policies that you want to
 enable.
 
 You can use DescribeLoadBalancers or DescribeLoadBalancerPolicies to verify that
-the policy is associated with the back-end server.
+the policy is associated with the EC2 instance.
+
+For more information about enabling back-end instance authentication, see 
+Configure Back-end Instance Authentication
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt] 
+in the Classic Load Balancers Guide . For more information about Proxy Protocol,
+see Configure Proxy Protocol Support
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html] 
+in the Classic Load Balancers Guide .
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error PolicyNotFoundException One or more of the specified policies do not exist.  
-     * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
+     * @error AccessPointNotFoundException   
+     * @error PolicyNotFoundException   
+     * @error InvalidConfigurationRequestException   
      */
     setLoadBalancerPoliciesForBackendServer(params: ELB.SetLoadBalancerPoliciesForBackendServerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerPoliciesForBackendServerOutput|any) => void): Request<ELB.SetLoadBalancerPoliciesForBackendServerOutput|any,ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|ELB.InvalidConfigurationRequestException|any>;
     /**
-     * Associates, updates, or disables a policy with a listener for the specified load
-balancer. You can associate multiple policies with a listener.
+     * Replaces the current set of policies for the specified load balancer port with
+the specified set of policies.
+
+To enable back-end server authentication, use 
+SetLoadBalancerPoliciesForBackendServer .
+
+For more information about setting policies, see Update the SSL Negotiation
+Configuration
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html] 
+, Duration-Based Session Stickiness
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration] 
+, and Application-Controlled Session Stickiness
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application] 
+in the Classic Load Balancers Guide .
      *
-     * @error AccessPointNotFoundException The specified load balancer does not exist.  
-     * @error PolicyNotFoundException One or more of the specified policies do not exist.  
-     * @error ListenerNotFoundException The load balancer does not have a listener configured at the specified port.  
-     * @error InvalidConfigurationRequestException The requested configuration change is not valid.  
+     * @error AccessPointNotFoundException   
+     * @error PolicyNotFoundException   
+     * @error ListenerNotFoundException   
+     * @error InvalidConfigurationRequestException   
      */
     setLoadBalancerPoliciesOfListener(params: ELB.SetLoadBalancerPoliciesOfListenerInput, callback?: (err: ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|any, data: ELB.SetLoadBalancerPoliciesOfListenerOutput|any) => void): Request<ELB.SetLoadBalancerPoliciesOfListenerOutput|any,ELB.AccessPointNotFoundException|ELB.PolicyNotFoundException|ELB.ListenerNotFoundException|ELB.InvalidConfigurationRequestException|any>;
 
@@ -474,6 +508,10 @@ balancer. You can associate multiple policies with a listener.
     export type AccessPointName = string;
     
     export type AccessPointPort = number;
+    
+    export type AdditionalAttributeKey = string;
+    
+    export type AdditionalAttributeValue = string;
     
     export type AdditionalAttributes = AdditionalAttribute[];
     
@@ -587,8 +625,6 @@ balancer. You can associate multiple policies with a listener.
     
     export type State = string;
     
-    export type StringVal = string;
-    
     export type SubnetId = string;
     
     export type Subnets = SubnetId[];
@@ -608,7 +644,7 @@ balancer. You can associate multiple policies with a listener.
     export type VPCId = string;
 
     export interface AccessLog {
-        /** Specifies whether access log is enabled for the load balancer. **/
+        /** Specifies whether access logs are enabled for the load balancer. **/
         Enabled: AccessLogEnabled;
         /** The name of the Amazon S3 bucket where the access logs are stored. **/
         S3BucketName?: S3BucketName;
@@ -644,9 +680,9 @@ root level of the bucket. **/
     }
     export interface AdditionalAttribute {
         /** This parameter is reserved. **/
-        Key?: StringVal;
+        Key?: AdditionalAttributeKey;
         /** This parameter is reserved. **/
-        Value?: StringVal;
+        Value?: AdditionalAttributeValue;
     }
     export interface AppCookieStickinessPolicy {
         /** The mnemonic name for the policy being created. The name must be unique within a
@@ -669,8 +705,8 @@ you cannot specify the name of the security group. **/
     export interface AttachLoadBalancerToSubnetsInput {
         /** The name of the load balancer. **/
         LoadBalancerName: AccessPointName;
-        /** The IDs of the subnets to add for the load balancer. You can add only one subnet
-per Availability Zone. **/
+        /** The IDs of the subnets to add. You can add only one subnet per Availability
+Zone. **/
         Subnets: Subnets;
     }
     export interface AttachLoadBalancerToSubnetsOutput {
@@ -678,9 +714,9 @@ per Availability Zone. **/
         Subnets?: Subnets;
     }
     export interface BackendServerDescription {
-        /** The port on which the back-end server is listening. **/
+        /** The port on which the EC2 instance is listening. **/
         InstancePort?: InstancePort;
-        /** The names of the policies enabled for the back-end server. **/
+        /** The names of the policies enabled for the EC2 instance. **/
         PolicyNames?: PolicyNames;
     }
     export interface CertificateNotFoundException {
@@ -688,7 +724,7 @@ per Availability Zone. **/
     export interface ConfigureHealthCheckInput {
         /** The name of the load balancer. **/
         LoadBalancerName: AccessPointName;
-        /** The configuration information for the new health check. **/
+        /** The configuration information. **/
         HealthCheck: HealthCheck;
     }
     export interface ConfigureHealthCheckOutput {
@@ -716,12 +752,11 @@ hyphens, and cannot begin or end with a hyphen. **/
         LoadBalancerName: AccessPointName;
         /** The listeners.
 
-For more information, see Listeners for Your Load Balancer
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html] 
-in the Elastic Load Balancing Developer Guide . **/
+For more information, see Listeners for Your Classic Load Balancer
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html] 
+in the Classic Load Balancers Guide . **/
         Listeners: Listeners;
         /** One or more Availability Zones from the same region as the load balancer.
-Traffic is equally distributed across all specified Availability Zones.
 
 You must specify at least one Availability Zone.
 
@@ -736,20 +771,20 @@ subnet per Availability Zone specified in AvailabilityZones . **/
         /** The type of a load balancer. Valid only for load balancers in a VPC.
 
 By default, Elastic Load Balancing creates an Internet-facing load balancer with
-a publicly resolvable DNS name, which resolves to public IP addresses. For more
-information about Internet-facing and Internal load balancers, see 
-Internet-facing and Internal Load Balancers
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html] 
-in the Elastic Load Balancing Developer Guide .
+a DNS name that resolves to public IP addresses. For more information about
+Internet-facing and Internal load balancers, see Load Balancer Scheme
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme] 
+in the Elastic Load Balancing User Guide .
 
-Specify internal to create an internal load balancer with a DNS name that
-resolves to private IP addresses. **/
+Specify internal to create a load balancer with a DNS name that resolves to
+private IP addresses. **/
         Scheme?: LoadBalancerScheme;
         /** A list of tags to assign to the load balancer.
 
-For more information about tagging your load balancer, see Tagging
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb] 
-in the Elastic Load Balancing Developer Guide . **/
+For more information about tagging your load balancer, see Tag Your Classic Load
+Balancer
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html] 
+in the Classic Load Balancers Guide . **/
         Tags?: TagList;
     }
     export interface CreateAccessPointOutput {
@@ -776,8 +811,8 @@ characters and dashes (-). This name must be unique within the set of policies
 for this load balancer. **/
         PolicyName: PolicyName;
         /** The time period, in seconds, after which the cookie should be considered stale.
-If you do not specify this parameter, the sticky session lasts for the duration
-of the browser session. **/
+If you do not specify this parameter, the default value is 0, which indicates
+that the sticky session should last for the duration of the browser session. **/
         CookieExpirationPeriod?: CookieExpirationPeriod;
     }
     export interface CreateLBCookieStickinessPolicyOutput {
@@ -799,7 +834,7 @@ within the set of policies for this load balancer. **/
         /** The name of the base policy type. To get the list of policy types, use 
 DescribeLoadBalancerPolicyTypes . **/
         PolicyTypeName: PolicyTypeName;
-        /** The attributes for the policy. **/
+        /** The policy attributes. **/
         PolicyAttributes?: PolicyAttributes;
     }
     export interface CreateLoadBalancerPolicyOutput {
@@ -829,6 +864,8 @@ DescribeLoadBalancerPolicyTypes . **/
         PolicyName: PolicyName;
     }
     export interface DeleteLoadBalancerPolicyOutput {
+    }
+    export interface DependencyThrottleException {
     }
     export interface DeregisterEndPointsInput {
         /** The name of the load balancer. **/
@@ -956,7 +993,7 @@ instance to the Healthy state. **/
         HealthyThreshold: HealthyThreshold;
     }
     export interface Instance {
-        /** The ID of the instance. **/
+        /** The instance ID. **/
         InstanceId?: InstanceId;
     }
     export interface InstanceState {
@@ -1024,8 +1061,8 @@ following messages.
     export interface InvalidSubnetException {
     }
     export interface LBCookieStickinessPolicy {
-        /** The name for the policy being created. The name must be unique within the set of
-policies for this load balancer. **/
+        /** The name of the policy. This name must be unique within the set of policies for
+this load balancer. **/
         PolicyName?: PolicyName;
         /** The time period, in seconds, after which the cookie should be considered stale.
 If this parameter is not specified, the stickiness session lasts for the
@@ -1040,8 +1077,7 @@ SSL. **/
 any port from the range 1-65535. On EC2-Classic, you can specify any port from
 the following list: 25, 80, 443, 465, 587, 1024-65535. **/
         LoadBalancerPort: AccessPointPort;
-        /** The protocol to use for routing traffic to back-end instances: HTTP, HTTPS, TCP,
-or SSL.
+        /** The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.
 
 If the front-end protocol is HTTP, HTTPS, TCP, or SSL, InstanceProtocol must be
 at the same protocol.
@@ -1068,26 +1104,25 @@ is HTTP or TCP, the listener&#x27;s InstanceProtocol must be HTTP or TCP. **/
     }
     export interface LoadBalancerAttributes {
         /** If enabled, the load balancer routes the request traffic evenly across all
-back-end instances regardless of the Availability Zones.
+instances regardless of the Availability Zones.
 
-For more information, see Enable Cross-Zone Load Balancing
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-disable-crosszone-lb.html] 
-in the Elastic Load Balancing Developer Guide . **/
+For more information, see Configure Cross-Zone Load Balancing
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html] 
+in the Classic Load Balancers Guide . **/
         CrossZoneLoadBalancing?: CrossZoneLoadBalancing;
         /** If enabled, the load balancer captures detailed information of all requests and
 delivers the information to the Amazon S3 bucket that you specify.
 
 For more information, see Enable Access Logs
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-access-logs.html] 
-in the Elastic Load Balancing Developer Guide . **/
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html] 
+in the Classic Load Balancers Guide . **/
         AccessLog?: AccessLog;
         /** If enabled, the load balancer allows existing requests to complete before the
-load balancer shifts traffic away from a deregistered or unhealthy back-end
-instance.
+load balancer shifts traffic away from a deregistered or unhealthy instance.
 
-For more information, see Enable Connection Draining
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-conn-drain.html] 
-in the Elastic Load Balancing Developer Guide . **/
+For more information, see Configure Connection Draining
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html] 
+in the Classic Load Balancers Guide . **/
         ConnectionDraining?: ConnectionDraining;
         /** If enabled, the load balancer allows the connections to remain idle (no data is
 sent over the connection) for the specified duration.
@@ -1095,8 +1130,8 @@ sent over the connection) for the specified duration.
 By default, Elastic Load Balancing maintains a 60-second idle connection timeout
 for both front-end and back-end connections of your load balancer. For more
 information, see Configure Idle Connection Timeout
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-idle-timeout.html] 
-in the Elastic Load Balancing Developer Guide . **/
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html] 
+in the Classic Load Balancers Guide . **/
         ConnectionSettings?: ConnectionSettings;
         /** This parameter is reserved. **/
         AdditionalAttributes?: AdditionalAttributes;
@@ -1104,22 +1139,21 @@ in the Elastic Load Balancing Developer Guide . **/
     export interface LoadBalancerDescription {
         /** The name of the load balancer. **/
         LoadBalancerName?: AccessPointName;
-        /** The external DNS name of the load balancer. **/
+        /** The DNS name of the load balancer. **/
         DNSName?: DNSName;
-        /** The Amazon Route 53 hosted zone associated with the load balancer.
+        /** The DNS name of the load balancer.
 
-For more information, see Using Domain Names With Elastic Load Balancing
-[http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-domain-names-with-elb.html] 
-in the Elastic Load Balancing Developer Guide . **/
+For more information, see Configure a Custom Domain Name
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html] 
+in the Classic Load Balancers Guide . **/
         CanonicalHostedZoneName?: DNSName;
-        /** The ID of the Amazon Route 53 hosted zone name associated with the load
-balancer. **/
+        /** The ID of the Amazon Route 53 hosted zone for the load balancer. **/
         CanonicalHostedZoneNameID?: DNSName;
         /** The listeners for the load balancer. **/
         ListenerDescriptions?: ListenerDescriptions;
         /** The policies defined for the load balancer. **/
         Policies?: Policies;
-        /** Information about the back-end servers. **/
+        /** Information about your EC2 instances. **/
         BackendServerDescriptions?: BackendServerDescriptions;
         /** The Availability Zones for the load balancer. **/
         AvailabilityZones?: AvailabilityZones;
@@ -1131,10 +1165,10 @@ balancer. **/
         Instances?: Instances;
         /** Information about the health checks conducted on the load balancer. **/
         HealthCheck?: HealthCheck;
-        /** The security group that you can use as part of your inbound rules for your load
-balancer&#x27;s back-end application instances. To only allow traffic from load
-balancers, add a security group rule to your back end instance that specifies
-this source security group as the inbound source. **/
+        /** The security group for the load balancer, which you can use as part of your
+inbound rules for your registered instances. To only allow traffic from load
+balancers, add a security group rule that specifies this source security group
+as the inbound source. **/
         SourceSecurityGroup?: SourceSecurityGroup;
         /** The security groups for the load balancer. Valid only for load balancers in a
 VPC. **/
@@ -1195,8 +1229,14 @@ a private IP address. **/
 Valid values:
 
  &amp;#42; ONE(1) : Single value required
- * ZERO_OR_ONE(0..1) : Up to one value can be supplied
+   
+   
+ * ZERO_OR_ONE(0..1) : Up to one value is allowed
+   
+   
  * ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
+   
+   
  * ONE_OR_MORE(1..*0) : Required. Multiple values are allowed **/
         Cardinality?: Cardinality;
     }
@@ -1263,10 +1303,10 @@ name. **/
     export interface SetLoadBalancerPoliciesForBackendServerInput {
         /** The name of the load balancer. **/
         LoadBalancerName: AccessPointName;
-        /** The port number associated with the back-end server. **/
+        /** The port number associated with the EC2 instance. **/
         InstancePort: EndPointPort;
         /** The names of the policies. If the list is empty, then all current polices are
-removed from the back-end server. **/
+removed from the EC2 instance. **/
         PolicyNames: PolicyNames;
     }
     export interface SetLoadBalancerPoliciesForBackendServerOutput {
@@ -1274,10 +1314,11 @@ removed from the back-end server. **/
     export interface SetLoadBalancerPoliciesOfListenerInput {
         /** The name of the load balancer. **/
         LoadBalancerName: AccessPointName;
-        /** The external port of the load balancer for the policy. **/
+        /** The external port of the load balancer. **/
         LoadBalancerPort: AccessPointPort;
-        /** The names of the policies. If the list is empty, the current policy is removed
-from the listener. **/
+        /** The names of the policies. This list must include all policies to be enabled. If
+you omit a policy that is currently enabled, it is disabled. If the list is
+empty, all current policies are disabled. **/
         PolicyNames: PolicyNames;
     }
     export interface SetLoadBalancerPoliciesOfListenerOutput {
@@ -1311,6 +1352,8 @@ from the listener. **/
     export interface TooManyPoliciesException {
     }
     export interface TooManyTagsException {
+    }
+    export interface UnsupportedProtocolException {
     }
   }
 }

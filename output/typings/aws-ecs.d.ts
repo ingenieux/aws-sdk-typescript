@@ -50,7 +50,10 @@ an existing service, see UpdateService .
 
 In addition to maintaining the desired count of tasks in your service, you can
 optionally run your service behind a load balancer. The load balancer
-distributes traffic across the tasks that are associated with the service.
+distributes traffic across the tasks that are associated with the service. For
+more information, see Service Load Balancing
+[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html] 
+in the Amazon EC2 Container Service Developer Guide .
 
 You can optionally specify a deployment configuration for your service. During a
 deployment (which is triggered by changing the task definition of a service with
@@ -713,7 +716,7 @@ section of the Docker Remote API
 [https://docs.docker.com/reference/api/docker_remote_api_v1.19/] and the 
 --memory option to docker run
 [https://docs.docker.com/reference/commandline/run/] . **/
-        memory?: Integer;
+        memory?: BoxedInteger;
         /** The link parameter allows containers to communicate with each other without the
 need for port mappings, using the name parameter and optionally, an alias for
 the link. This construct is analogous to name:alias in Docker links. Up to 255
@@ -1022,9 +1025,23 @@ region or across multiple regions. **/
 of the task definition to run in your service. If a revision is not specified,
 the latest ACTIVE revision is used. **/
         taskDefinition: String;
-        /** A list of load balancer objects, containing the load balancer name, the
-container name (as it appears in a container definition), and the container port
-to access from the load balancer. **/
+        /** A load balancer object representing the load balancer to use with your service.
+Currently, you are limited to one load balancer per service. After you create a
+service, the load balancer name, container name, and container port specified in
+the service definition are immutable.
+
+For Elastic Load Balancing Classic load balancers, this object must contain the
+load balancer name, the container name (as it appears in a container
+definition), and the container port to access from the load balancer. When a
+task from this service is placed on a container instance, the container instance
+is registered with the load balancer specified here.
+
+For Elastic Load Balancing Application load balancers, this object must contain
+the load balancer target group ARN, the container name (as it appears in a
+container definition), and the container port to access from the load balancer.
+When a task from this service is placed on a container instance, the container
+instance and port combination is registered as a target in the target group
+specified here. **/
         loadBalancers?: LoadBalancers;
         /** The number of instantiations of the specified task definition to place and keep
 running on your cluster. **/
@@ -1090,9 +1107,9 @@ deploy or maintain. **/
         pendingCount?: Integer;
         /** The number of tasks in the deployment that are in the RUNNING status. **/
         runningCount?: Integer;
-        /** The Unix time in seconds and milliseconds when the service was created. **/
+        /** The Unix timestamp for when the service was created. **/
         createdAt?: Timestamp;
-        /** The Unix time in seconds and milliseconds when the service was last updated. **/
+        /** The Unix timestamp for when the service was last updated. **/
         updatedAt?: Timestamp;
     }
     export interface DeploymentConfiguration {
@@ -1472,10 +1489,10 @@ startedBy value limits the results to tasks that were started with that value. *
         /** The name of the service with which to filter the ListTasks results. Specifying a 
 serviceName limits the results to tasks that belong to that service. **/
         serviceName?: String;
-        /** The task status with which to filter the ListTasks results. Specifying a 
-desiredStatus of STOPPED limits the results to tasks that are in the STOPPED 
-status, which can be useful for debugging tasks that are not starting properly
-or have died or finished. The default status filter is status filter is RUNNING 
+        /** The task desired status with which to filter the ListTasks results. Specifying a 
+desiredStatus of STOPPED limits the results to tasks that ECS has set the
+desired status to STOPPED , which can be useful for debugging tasks that are not
+starting properly or have died or finished. The default status filter is RUNNING 
 , which shows tasks that ECS has set the desired status to RUNNING .
 
 Although you can filter results based on a desired status of PENDING , this will
@@ -1493,6 +1510,9 @@ return. **/
         nextToken?: String;
     }
     export interface LoadBalancer {
+        /** The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group
+associated with a service. **/
+        targetGroupArn?: String;
         /** The name of the load balancer. **/
         loadBalancerName?: String;
         /** The name of the container (as it appears in a container definition) to associate
@@ -1559,7 +1579,7 @@ port, your container automatically receives a host port in the ephemeral port
 range (for more information, see hostPort ). Port mappings that are
 automatically assigned in this way do not count toward the 100 reserved ports
 limit of a container instance. **/
-        containerPort?: Integer;
+        containerPort?: BoxedInteger;
         /** The port number on the container instance to reserve for your container. You can
 specify a non-reserved host port for your container port mapping, or you can
 omit the hostPort (or set it to 0 ) while specifying a containerPort and your
@@ -1583,7 +1603,7 @@ in the remainingResources of DescribeContainerInstances output, and a container
 instance may have up to 100 reserved ports at a time, including the default
 reserved ports (automatically assigned ports do not count toward the 100
 reserved ports limit). **/
-        hostPort?: Integer;
+        hostPort?: BoxedInteger;
         /** The protocol used for the port mapping. Valid values are tcp and udp . The
 default is tcp . **/
         protocol?: TransportProtocol;
@@ -1711,9 +1731,9 @@ region or across multiple regions. **/
         serviceName?: String;
         /** The Amazon Resource Name (ARN) of the cluster that hosts the service. **/
         clusterArn?: String;
-        /** A list of load balancer objects, containing the load balancer name, the
-container name (as it appears in a container definition), and the container port
-to access from the load balancer. **/
+        /** A list of Elastic Load Balancing load balancer objects, containing the load
+balancer name, the container name (as it appears in a container definition), and
+the container port to access from the load balancer. **/
         loadBalancers?: LoadBalancers;
         /** The status of the service. The valid values are ACTIVE , DRAINING , or INACTIVE 
 . **/
@@ -1736,19 +1756,19 @@ deployment and the ordering of stopping and starting tasks. **/
         /** The current state of deployments for the service. **/
         deployments?: Deployments;
         /** The Amazon Resource Name (ARN) of the IAM role associated with the service that
-allows the Amazon ECS container agent to register container instances with a
-load balancer. **/
+allows the Amazon ECS container agent to register container instances with an
+Elastic Load Balancing load balancer. **/
         roleArn?: String;
         /** The event stream for your service. A maximum of 100 of the latest events are
 displayed. **/
         events?: ServiceEvents;
-        /** The Unix time in seconds and milliseconds when the service was created. **/
+        /** The Unix timestamp for when the service was created. **/
         createdAt?: Timestamp;
     }
     export interface ServiceEvent {
         /** The ID string of the event. **/
         id?: String;
-        /** The Unix time in seconds and milliseconds when the event was triggered. **/
+        /** The Unix timestamp for when the event was triggered. **/
         createdAt?: Timestamp;
         /** The event message. **/
         message?: String;
@@ -1876,14 +1896,14 @@ service that starts it. **/
         startedBy?: String;
         /** The reason the task was stopped. **/
         stoppedReason?: String;
-        /** The Unix time in seconds and milliseconds when the task was created (the task
-entered the PENDING state). **/
+        /** The Unix timestamp for when the task was created (the task entered the PENDING 
+state). **/
         createdAt?: Timestamp;
-        /** The Unix time in seconds and milliseconds when the task was started (the task
-transitioned from the PENDING state to the RUNNING state). **/
+        /** The Unix timestamp for when the task was started (the task transitioned from the 
+PENDING state to the RUNNING state). **/
         startedAt?: Timestamp;
-        /** The Unix time in seconds and milliseconds when the task was stopped (the task
-transitioned from the RUNNING state to the STOPPED state). **/
+        /** The Unix timestamp for when the task was stopped (the task transitioned from the 
+RUNNING state to the STOPPED state). **/
         stoppedAt?: Timestamp;
     }
     export interface TaskDefinition {
@@ -1892,7 +1912,7 @@ transitioned from the RUNNING state to the STOPPED state). **/
         /** A list of container definitions in JSON format that describe the different
 containers that make up your task. For more information about container
 definition parameters and defaults, see Amazon ECS Task Definitions
-[http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AmazonECS/latest/developerguidetask_defintions.html] 
+[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html] 
 in the Amazon EC2 Container Service Developer Guide . **/
         containerDefinitions?: ContainerDefinitions;
         /** The family of your task definition, used as the definition name. **/
@@ -1909,7 +1929,7 @@ task definition in the same family, the revision value always increases by one
         revision?: Integer;
         /** The list of volumes in a task. For more information about volume definition
 parameters and defaults, see Amazon ECS Task Definitions
-[http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AmazonECS/latest/developerguidetask_defintions.html] 
+[http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html] 
 in the Amazon EC2 Container Service Developer Guide . **/
         volumes?: VolumeList;
         /** The status of the task definition. **/

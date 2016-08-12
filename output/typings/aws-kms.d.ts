@@ -225,6 +225,27 @@ UpdateAlias .
      */
     deleteAlias(params: KMS.DeleteAliasRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
     /**
+     * Deletes key material that you previously imported and makes the specified
+customer master key (CMK) unusable. For more information about importing key
+material into AWS KMS, see Importing Key Material
+[http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html] in
+the AWS Key Management Service Developer Guide .
+
+When the specified CMK is in the PendingDeletion state, this operation does not
+change the CMK&#x27;s state. Otherwise, it changes the CMK&#x27;s state to PendingImport .
+
+After you delete key material, you can use ImportKeyMaterial to reimport the
+same key material into the CMK.
+     *
+     * @error InvalidArnException   
+     * @error UnsupportedOperationException   
+     * @error DependencyTimeoutException   
+     * @error NotFoundException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
+     */
+    deleteImportedKeyMaterial(params: KMS.DeleteImportedKeyMaterialRequest, callback?: (err: KMS.InvalidArnException|KMS.UnsupportedOperationException|KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.InvalidArnException|KMS.UnsupportedOperationException|KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
+    /**
      * Provides detailed information about the specified customer master key.
      *
      * @error NotFoundException   
@@ -256,8 +277,9 @@ AWS Key Management Service Developer Guide .
      * @error DependencyTimeoutException   
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
+     * @error UnsupportedOperationException   
      */
-    disableKeyRotation(params: KMS.DisableKeyRotationRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
+    disableKeyRotation(params: KMS.DisableKeyRotationRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|KMS.UnsupportedOperationException|any, data: any) => void): Request<any,KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|KMS.UnsupportedOperationException|any>;
     /**
      * Marks a key as enabled, thereby permitting its use.
      *
@@ -278,8 +300,9 @@ AWS Key Management Service Developer Guide .
      * @error DependencyTimeoutException   
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
+     * @error UnsupportedOperationException   
      */
-    enableKeyRotation(params: KMS.EnableKeyRotationRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: any) => void): Request<any,KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
+    enableKeyRotation(params: KMS.EnableKeyRotationRequest, callback?: (err: KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|KMS.UnsupportedOperationException|any, data: any) => void): Request<any,KMS.NotFoundException|KMS.DisabledException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|KMS.UnsupportedOperationException|any>;
     /**
      * Encrypts plaintext into ciphertext by using a customer master key. The Encrypt 
 function has two primary use cases:
@@ -401,8 +424,71 @@ specified key.
      * @error DependencyTimeoutException   
      * @error KMSInternalException   
      * @error KMSInvalidStateException   
+     * @error UnsupportedOperationException   
      */
-    getKeyRotationStatus(params: KMS.GetKeyRotationStatusRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.GetKeyRotationStatusResponse|any) => void): Request<KMS.GetKeyRotationStatusResponse|any,KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
+    getKeyRotationStatus(params: KMS.GetKeyRotationStatusRequest, callback?: (err: KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|KMS.UnsupportedOperationException|any, data: KMS.GetKeyRotationStatusResponse|any) => void): Request<KMS.GetKeyRotationStatusResponse|any,KMS.NotFoundException|KMS.InvalidArnException|KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.KMSInvalidStateException|KMS.UnsupportedOperationException|any>;
+    /**
+     * Returns the items you need in order to import key material into AWS KMS from
+your existing key management infrastructure. For more information about
+importing key material into AWS KMS, see Importing Key Material
+[http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html] in
+the AWS Key Management Service Developer Guide .
+
+You must specify the key ID of the customer master key (CMK) into which you will
+import key material. This CMK&#x27;s Origin must be EXTERNAL . You must also specify
+the wrapping algorithm and type of wrapping key (public key) that you will use
+to encrypt the key material.
+
+This operation returns a public key and an import token. Use the public key to
+encrypt the key material. Store the import token to send with a subsequent 
+ImportKeyMaterial request. The public key and import token from the same
+response must be used together. These items are valid for 24 hours, after which
+they cannot be used for a subsequent ImportKeyMaterial request. To retrieve new
+ones, send another GetParametersForImport request.
+     *
+     * @error InvalidArnException   
+     * @error UnsupportedOperationException   
+     * @error DependencyTimeoutException   
+     * @error NotFoundException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
+     */
+    getParametersForImport(params: KMS.GetParametersForImportRequest, callback?: (err: KMS.InvalidArnException|KMS.UnsupportedOperationException|KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any, data: KMS.GetParametersForImportResponse|any) => void): Request<KMS.GetParametersForImportResponse|any,KMS.InvalidArnException|KMS.UnsupportedOperationException|KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|any>;
+    /**
+     * Imports key material into an AWS KMS customer master key (CMK) from your
+existing key management infrastructure. For more information about importing key
+material into AWS KMS, see Importing Key Material
+[http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html] in
+the AWS Key Management Service Developer Guide .
+
+You must specify the key ID of the CMK to import the key material into. This
+CMK&#x27;s Origin must be EXTERNAL . You must also send an import token and the
+encrypted key material. Send the import token that you received in the same 
+GetParametersForImport response that contained the public key that you used to
+encrypt the key material. You must also specify whether the key material expires
+and if so, when. When the key material expires, AWS KMS deletes the key material
+and the CMK becomes unusable. To use the CMK again, you can reimport the same
+key material. If you set an expiration date, you can change it only by
+reimporting the same key material and specifying a new expiration date.
+
+When this operation is successful, the specified CMK&#x27;s key state changes to 
+Enabled , and you can use the CMK.
+
+After you successfully import key material into a CMK, you can reimport the same
+key material into that CMK, but you cannot import different key material.
+     *
+     * @error InvalidArnException   
+     * @error UnsupportedOperationException   
+     * @error DependencyTimeoutException   
+     * @error NotFoundException   
+     * @error KMSInternalException   
+     * @error KMSInvalidStateException   
+     * @error InvalidCiphertextException   
+     * @error IncorrectKeyMaterialException   
+     * @error ExpiredImportTokenException   
+     * @error InvalidImportTokenException   
+     */
+    importKeyMaterial(params: KMS.ImportKeyMaterialRequest, callback?: (err: KMS.InvalidArnException|KMS.UnsupportedOperationException|KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|KMS.InvalidCiphertextException|KMS.IncorrectKeyMaterialException|KMS.ExpiredImportTokenException|KMS.InvalidImportTokenException|any, data: KMS.ImportKeyMaterialResponse|any) => void): Request<KMS.ImportKeyMaterialResponse|any,KMS.InvalidArnException|KMS.UnsupportedOperationException|KMS.DependencyTimeoutException|KMS.NotFoundException|KMS.KMSInternalException|KMS.KMSInvalidStateException|KMS.InvalidCiphertextException|KMS.IncorrectKeyMaterialException|KMS.ExpiredImportTokenException|KMS.InvalidImportTokenException|any>;
     /**
      * Lists all of the key aliases in the account.
      *
@@ -596,6 +682,8 @@ same region.
     
     export type AWSAccountIdType = string;
     
+    export type AlgorithmSpec = string;
+    
     export type AliasList = AliasListEntry[];
     
     export type AliasNameType = string;
@@ -619,6 +707,8 @@ same region.
     export type EncryptionContextValue = string;
     
     export type ErrorMessageType = string;
+    
+    export type ExpirationModelType = string;
     
     export type GrantIdType = string;
     
@@ -648,6 +738,8 @@ same region.
     
     export type NumberOfBytesType = number;
     
+    export type OriginType = string;
+    
     export type PendingWindowInDaysType = number;
     
     export type PlaintextType = any;
@@ -659,6 +751,8 @@ same region.
     export type PolicyType = string;
     
     export type PrincipalIdType = string;
+    
+    export type WrappingKeySpec = string;
 
     export interface AliasListEntry {
         /** String that contains the alias. **/
@@ -819,7 +913,8 @@ You can use the GrantId in a subsequent RetireGrant or RevokeGrant operation. **
     export interface CreateKeyRequest {
         /** The key policy to attach to the CMK.
 
-If you specify a key policy, it must meet the following criteria:
+If you specify a policy and do not set BypassPolicyLockoutSafetyCheck to true,
+the policy must meet the following criteria:
 
  &amp;#42; It must allow the principal making the CreateKey request to make a subsequent 
    PutKeyPolicy request on the CMK. This reduces the likelihood that the CMK
@@ -856,6 +951,18 @@ task. **/
 
 You can use CMKs only for symmetric encryption and decryption. **/
         KeyUsage?: KeyUsageType;
+        /** The source of the CMK&#x27;s key material.
+
+The default is AWS_KMS , which means AWS KMS creates the key material. When this
+parameter is set to EXTERNAL , the request creates a CMK without key material so
+that you can import key material from your existing key management
+infrastructure. For more information about importing key material into AWS KMS,
+see Importing Key Material
+[http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html] in
+the AWS Key Management Service Developer Guide .
+
+The CMK&#x27;s Origin is immutable and is set when the CMK is created. **/
+        Origin?: OriginType;
         /** A flag to indicate whether to bypass the key policy lockout safety check.
 
 Setting this value to true increases the likelihood that the CMK becomes
@@ -903,6 +1010,20 @@ key is not available or if you didn&#x27;t have permission to use it. **/
         /** The alias to be deleted. The name must start with the word &quot;alias&quot; followed by a
 forward slash (alias/). Aliases that begin with &quot;alias/AWS&quot; are reserved. **/
         AliasName: AliasNameType;
+    }
+    export interface DeleteImportedKeyMaterialRequest {
+        /** The identifier of the CMK whose key material to delete. The CMK&#x27;s Origin must be 
+EXTERNAL .
+
+A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the
+CMK. Examples:
+
+ &amp;#42; Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+   
+   
+ * Key ARN: 
+   arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
+        KeyId: KeyIdType;
     }
     export interface DependencyTimeoutException {
         message?: ErrorMessageType;
@@ -1021,6 +1142,9 @@ Otherwise, it is not encoded. **/
         CiphertextBlob?: CiphertextType;
         /** The ID of the key used during encryption. **/
         KeyId?: KeyIdType;
+    }
+    export interface ExpiredImportTokenException {
+        message?: ErrorMessageType;
     }
     export interface GenerateDataKeyRequest {
         /** A unique identifier for the customer master key. This value can be a globally
@@ -1161,6 +1285,42 @@ unique identifier or the fully specified ARN to a key.
         /** A Boolean value that specifies whether key rotation is enabled. **/
         KeyRotationEnabled?: BooleanType;
     }
+    export interface GetParametersForImportRequest {
+        /** The identifier of the CMK into which you will import key material. The CMK&#x27;s 
+Origin must be EXTERNAL .
+
+A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the
+CMK. Examples:
+
+ &amp;#42; Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+   
+   
+ * Key ARN: 
+   arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
+        KeyId: KeyIdType;
+        /** The algorithm you will use to encrypt the key material before importing it with 
+ImportKeyMaterial . For more information, see Encrypt the Key Material
+[http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html] 
+in the AWS Key Management Service Developer Guide . **/
+        WrappingAlgorithm: AlgorithmSpec;
+        /** The type of wrapping key (public key) to return in the response. Only 2048-bit
+RSA public keys are supported. **/
+        WrappingKeySpec: WrappingKeySpec;
+    }
+    export interface GetParametersForImportResponse {
+        /** The identifier of the CMK to use in a subsequent ImportKeyMaterial request. This
+is the same CMK specified in the GetParametersForImport request. **/
+        KeyId?: KeyIdType;
+        /** The import token to send in a subsequent ImportKeyMaterial request. **/
+        ImportToken?: CiphertextType;
+        /** The public key to use to encrypt the key material before importing it with 
+ImportKeyMaterial . **/
+        PublicKey?: PlaintextType;
+        /** The time at which the import token and public key are no longer valid. After
+this time, you cannot use them to make an ImportKeyMaterial request and you must
+send another GetParametersForImport request to retrieve new ones. **/
+        ParametersValidTo?: DateType;
+    }
     export interface GrantConstraints {
         /** Contains a list of key-value pairs, a subset of which must be present in the
 encryption context of a subsequent operation permitted by the grant. When a
@@ -1197,6 +1357,42 @@ CreateGrant request, that name is returned. Otherwise this value is null. **/
         /** The conditions under which the grant&#x27;s operations are allowed. **/
         Constraints?: GrantConstraints;
     }
+    export interface ImportKeyMaterialRequest {
+        /** The identifier of the CMK to import the key material into. The CMK&#x27;s Origin must
+be EXTERNAL .
+
+A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the
+CMK. Examples:
+
+ &amp;#42; Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+   
+   
+ * Key ARN: 
+   arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
+        KeyId: KeyIdType;
+        /** The import token that you received in the response to a previous 
+GetParametersForImport request. It must be from the same response that contained
+the public key that you used to encrypt the key material. **/
+        ImportToken: CiphertextType;
+        /** The encrypted key material to import. It must be encrypted with the public key
+that you received in the response to a previous GetParametersForImport request,
+using the wrapping algorithm that you specified in that request. **/
+        EncryptedKeyMaterial: CiphertextType;
+        /** The time at which the imported key material expires. When the key material
+expires, AWS KMS deletes the key material and the CMK becomes unusable. You must
+omit this parameter when the ExpirationModel parameter is set to 
+KEY_MATERIAL_DOES_NOT_EXPIRE . Otherwise it is required. **/
+        ValidTo: DateType;
+        /** Specifies whether the key material expires. The default is KEY_MATERIAL_EXPIRES 
+, in which case you must include the ValidTo parameter. When this parameter is
+set to KEY_MATERIAL_DOES_NOT_EXPIRE , you must omit the ValidTo parameter. **/
+        ExpirationModel?: ExpirationModelType;
+    }
+    export interface ImportKeyMaterialResponse {
+    }
+    export interface IncorrectKeyMaterialException {
+        message?: ErrorMessageType;
+    }
     export interface InvalidAliasNameException {
         message?: ErrorMessageType;
     }
@@ -1210,6 +1406,9 @@ CreateGrant request, that name is returned. Otherwise this value is null. **/
         message?: ErrorMessageType;
     }
     export interface InvalidGrantTokenException {
+        message?: ErrorMessageType;
+    }
+    export interface InvalidImportTokenException {
         message?: ErrorMessageType;
     }
     export interface InvalidKeyUsageException {
@@ -1231,37 +1430,49 @@ CreateGrant request, that name is returned. Otherwise this value is null. **/
         KeyArn?: ArnType;
     }
     export interface KeyMetadata {
-        /** The twelve-digit account ID of the AWS account that owns the key. **/
+        /** The twelve-digit account ID of the AWS account that owns the CMK. **/
         AWSAccountId?: AWSAccountIdType;
-        /** The globally unique identifier for the key. **/
+        /** The globally unique identifier for the CMK. **/
         KeyId: KeyIdType;
-        /** The Amazon Resource Name (ARN) of the key. For examples, see AWS Key Management
+        /** The Amazon Resource Name (ARN) of the CMK. For examples, see AWS Key Management
 Service (AWS KMS)
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms] 
 in the Example ARNs section of the AWS General Reference . **/
         Arn?: ArnType;
-        /** The date and time when the key was created. **/
+        /** The date and time when the CMK was created. **/
         CreationDate?: DateType;
-        /** Specifies whether the key is enabled. When KeyState is Enabled this value is
+        /** Specifies whether the CMK is enabled. When KeyState is Enabled this value is
 true, otherwise it is false. **/
         Enabled?: BooleanType;
-        /** The friendly description of the key. **/
+        /** The description of the CMK. **/
         Description?: DescriptionType;
-        /** The cryptographic operations for which you can use the key. Currently the only
-allowed value is ENCRYPT_DECRYPT , which means you can use the key for the 
+        /** The cryptographic operations for which you can use the CMK. Currently the only
+allowed value is ENCRYPT_DECRYPT , which means you can use the CMK for the 
 Encrypt and Decrypt operations. **/
         KeyUsage?: KeyUsageType;
-        /** The state of the customer master key (CMK).
+        /** The state of the CMK.
 
 For more information about how key state affects the use of a CMK, see How Key
 State Affects the Use of a Customer Master Key
 [http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html] in the AWS
 Key Management Service Developer Guide . **/
         KeyState?: KeyState;
-        /** The date and time after which AWS KMS deletes the customer master key (CMK).
-This value is present only when KeyState is PendingDeletion , otherwise this
-value is null. **/
+        /** The date and time after which AWS KMS deletes the CMK. This value is present
+only when KeyState is PendingDeletion , otherwise this value is omitted. **/
         DeletionDate?: DateType;
+        /** The time at which the imported key material expires. When the key material
+expires, AWS KMS deletes the key material and the CMK becomes unusable. This
+value is present only for CMKs whose Origin is EXTERNAL and whose 
+ExpirationModel is KEY_MATERIAL_EXPIRES , otherwise this value is omitted. **/
+        ValidTo?: DateType;
+        /** The source of the CMK&#x27;s key material. When this value is AWS_KMS , AWS KMS
+created the key material. When this value is EXTERNAL , the key material was
+imported from your existing key management infrastructure or the CMK lacks key
+material. **/
+        Origin?: OriginType;
+        /** Specifies whether the CMK&#x27;s key material expires. This value is present only
+when Origin is EXTERNAL , otherwise this value is omitted. **/
+        ExpirationModel?: ExpirationModelType;
     }
     export interface KeyUnavailableException {
         message?: ErrorMessageType;
@@ -1439,7 +1650,8 @@ This value must be default . **/
         PolicyName: PolicyNameType;
         /** The key policy to attach to the CMK.
 
-The key policy must meet the following criteria:
+If you do not set BypassPolicyLockoutSafetyCheck to true, the policy must meet
+the following criteria:
 
  &amp;#42; It must allow the principal making the PutKeyPolicy request to make a
    subsequent PutKeyPolicy request on the CMK. This reduces the likelihood that
