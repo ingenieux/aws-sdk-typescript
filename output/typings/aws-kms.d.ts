@@ -1382,7 +1382,7 @@ using the wrapping algorithm that you specified in that request. **/
 expires, AWS KMS deletes the key material and the CMK becomes unusable. You must
 omit this parameter when the ExpirationModel parameter is set to 
 KEY_MATERIAL_DOES_NOT_EXPIRE . Otherwise it is required. **/
-        ValidTo: DateType;
+        ValidTo?: DateType;
         /** Specifies whether the key material expires. The default is KEY_MATERIAL_EXPIRES 
 , in which case you must include the ValidTo parameter. When this parameter is
 set to KEY_MATERIAL_DOES_NOT_EXPIRE , you must omit the ValidTo parameter. **/

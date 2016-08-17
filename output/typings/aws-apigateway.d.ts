@@ -14,8 +14,8 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: rest-json
    *
-   * Amazon API GatewayAmazon API Gateway helps developers deliver robust, secure and
-scalable mobile and web application backends. Amazon API Gateway allows
+   * Amazon API GatewayAmazon API Gateway helps developers deliver robust, secure,
+and scalable mobile and web application back ends. Amazon API Gateway allows
 developers to securely connect mobile and web applications to APIs that run on
 AWS Lambda, Amazon EC2, or other publicly addressable web services that are
 hosted outside of AWS.
@@ -26,16 +26,23 @@ hosted outside of AWS.
     endpoint: Endpoint;
     /**
      * Create an ApiKey resource.
+
+AWS CLI
+[http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html]
      *
      * @error UnauthorizedException   
      * @error NotFoundException   
      * @error TooManyRequestsException   
      * @error LimitExceededException   
      * @error BadRequestException   
+     * @error ConflictException   
      */
-    createApiKey(params: APIGateway.CreateApiKeyRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.BadRequestException|any, data: APIGateway.ApiKey|any) => void): Request<APIGateway.ApiKey|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.BadRequestException|any>;
+    createApiKey(params: APIGateway.CreateApiKeyRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.ConflictException|any, data: APIGateway.ApiKey|any) => void): Request<APIGateway.ApiKey|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.ConflictException|any>;
     /**
      * Adds a new Authorizer resource to an existing RestApi resource.
+
+AWS CLI
+[http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html]
      *
      * @error BadRequestException   
      * @error UnauthorizedException   
@@ -120,6 +127,27 @@ API.
      */
     createStage(params: APIGateway.CreateStageRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any, data: APIGateway.Stage|any) => void): Request<APIGateway.Stage|any,APIGateway.UnauthorizedException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.LimitExceededException|APIGateway.TooManyRequestsException|any>;
     /**
+     * Creates a usage plan with the throttle and quota limits, as well as the
+associated API stages, specified in the payload.
+     *
+     * @error BadRequestException   
+     * @error UnauthorizedException   
+     * @error TooManyRequestsException   
+     * @error LimitExceededException   
+     * @error ConflictException   
+     */
+    createUsagePlan(params: APIGateway.CreateUsagePlanRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.ConflictException|any, data: APIGateway.UsagePlan|any) => void): Request<APIGateway.UsagePlan|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.ConflictException|any>;
+    /**
+     * Creates a usage plan key for adding an existing API key to a usage plan.
+     *
+     * @error BadRequestException   
+     * @error ConflictException   
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error TooManyRequestsException   
+     */
+    createUsagePlanKey(params: APIGateway.CreateUsagePlanKeyRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.UsagePlanKey|any) => void): Request<APIGateway.UsagePlanKey|any,APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    /**
      * Deletes the ApiKey resource.
      *
      * @error UnauthorizedException   
@@ -129,6 +157,9 @@ API.
     deleteApiKey(params: APIGateway.DeleteApiKeyRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
     /**
      * Deletes an existing Authorizer resource.
+
+AWS CLI
+[http://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html]
      *
      * @error UnauthorizedException   
      * @error NotFoundException   
@@ -178,8 +209,9 @@ are no Stage resources associated with it.
      * @error UnauthorizedException   
      * @error NotFoundException   
      * @error TooManyRequestsException   
+     * @error ConflictException   
      */
-    deleteIntegration(params: APIGateway.DeleteIntegrationRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    deleteIntegration(params: APIGateway.DeleteIntegrationRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|any>;
     /**
      * Represents a delete integration response.
      *
@@ -187,16 +219,18 @@ are no Stage resources associated with it.
      * @error NotFoundException   
      * @error TooManyRequestsException   
      * @error BadRequestException   
+     * @error ConflictException   
      */
-    deleteIntegrationResponse(params: APIGateway.DeleteIntegrationResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|any>;
+    deleteIntegrationResponse(params: APIGateway.DeleteIntegrationResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.ConflictException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.ConflictException|any>;
     /**
      * Deletes an existing Method resource.
      *
      * @error UnauthorizedException   
      * @error NotFoundException   
      * @error TooManyRequestsException   
+     * @error ConflictException   
      */
-    deleteMethod(params: APIGateway.DeleteMethodRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    deleteMethod(params: APIGateway.DeleteMethodRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|any>;
     /**
      * Deletes an existing MethodResponse resource.
      *
@@ -204,8 +238,9 @@ are no Stage resources associated with it.
      * @error NotFoundException   
      * @error TooManyRequestsException   
      * @error BadRequestException   
+     * @error ConflictException   
      */
-    deleteMethodResponse(params: APIGateway.DeleteMethodResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|any>;
+    deleteMethodResponse(params: APIGateway.DeleteMethodResponseRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.ConflictException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.ConflictException|any>;
     /**
      * Deletes a model.
      *
@@ -244,6 +279,26 @@ are no Stage resources associated with it.
      * @error BadRequestException   
      */
     deleteStage(params: APIGateway.DeleteStageRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|any>;
+    /**
+     * Deletes a usage plan of a given plan Id.
+     *
+     * @error UnauthorizedException   
+     * @error TooManyRequestsException   
+     * @error BadRequestException   
+     * @error NotFoundException   
+     */
+    deleteUsagePlan(params: APIGateway.DeleteUsagePlanRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.NotFoundException|any, data: any) => void): Request<any,APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.NotFoundException|any>;
+    /**
+     * Deletes a usage plan key and remove the underlying API key from the associated
+usage plan.
+     *
+     * @error BadRequestException   
+     * @error ConflictException   
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error TooManyRequestsException   
+     */
+    deleteUsagePlanKey(params: APIGateway.DeleteUsagePlanKeyRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: any) => void): Request<any,APIGateway.BadRequestException|APIGateway.ConflictException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
     /**
      * Flushes all authorizer cache entries on a stage.
      *
@@ -296,6 +351,9 @@ are no Stage resources associated with it.
     getApiKeys(params: APIGateway.GetApiKeysRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|any, data: APIGateway.ApiKeys|any) => void): Request<APIGateway.ApiKeys|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|any>;
     /**
      * Describe an existing Authorizer resource.
+
+AWS CLI
+[http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html]
      *
      * @error UnauthorizedException   
      * @error NotFoundException   
@@ -304,6 +362,9 @@ are no Stage resources associated with it.
     getAuthorizer(params: APIGateway.GetAuthorizerRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Authorizer|any) => void): Request<APIGateway.Authorizer|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
     /**
      * Describe an existing Authorizers resource.
+
+AWS CLI
+[http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html]
      *
      * @error BadRequestException   
      * @error UnauthorizedException   
@@ -506,6 +567,63 @@ the structure of a model.
      */
     getStages(params: APIGateway.GetStagesRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Stages|any) => void): Request<APIGateway.Stages|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
     /**
+     * Gets the usage data of a usage plan in a specified time interval.
+     *
+     * @error BadRequestException   
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error TooManyRequestsException   
+     */
+    getUsage(params: APIGateway.GetUsageRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.Usage|any) => void): Request<APIGateway.Usage|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    /**
+     * Gets a usage plan of a given plan identifier.
+     *
+     * @error BadRequestException   
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error TooManyRequestsException   
+     */
+    getUsagePlan(params: APIGateway.GetUsagePlanRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.UsagePlan|any) => void): Request<APIGateway.UsagePlan|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    /**
+     * Gets a usage plan key of a given key identifier.
+     *
+     * @error BadRequestException   
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error TooManyRequestsException   
+     */
+    getUsagePlanKey(params: APIGateway.GetUsagePlanKeyRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.UsagePlanKey|any) => void): Request<APIGateway.UsagePlanKey|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    /**
+     * Gets all the usage plan keys representing the API keys added to a specified
+usage plan.
+     *
+     * @error BadRequestException   
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error TooManyRequestsException   
+     */
+    getUsagePlanKeys(params: APIGateway.GetUsagePlanKeysRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any, data: APIGateway.UsagePlanKeys|any) => void): Request<APIGateway.UsagePlanKeys|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|any>;
+    /**
+     * Gets all the usage plans of the caller&#x27;s account.
+     *
+     * @error BadRequestException   
+     * @error UnauthorizedException   
+     * @error TooManyRequestsException   
+     * @error ConflictException   
+     */
+    getUsagePlans(params: APIGateway.GetUsagePlansRequest, callback?: (err: APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|any, data: APIGateway.UsagePlans|any) => void): Request<APIGateway.UsagePlans|any,APIGateway.BadRequestException|APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|any>;
+    /**
+     * Import API keys from an external source, such as a CSV-formatted file.
+     *
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error TooManyRequestsException   
+     * @error LimitExceededException   
+     * @error BadRequestException   
+     * @error ConflictException   
+     */
+    importApiKeys(params: APIGateway.ImportApiKeysRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.ConflictException|any, data: APIGateway.ApiKeyIds|any) => void): Request<APIGateway.ApiKeyIds|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.TooManyRequestsException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.ConflictException|any>;
+    /**
      * A feature of the Amazon API Gateway control service for creating a new API from
 an external API definition file.
      *
@@ -513,8 +631,9 @@ an external API definition file.
      * @error LimitExceededException   
      * @error BadRequestException   
      * @error TooManyRequestsException   
+     * @error ConflictException   
      */
-    importRestApi(params: APIGateway.ImportRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.RestApi|any) => void): Request<APIGateway.RestApi|any,APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
+    importRestApi(params: APIGateway.ImportRestApiRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|any, data: APIGateway.RestApi|any) => void): Request<APIGateway.RestApi|any,APIGateway.UnauthorizedException|APIGateway.LimitExceededException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|any>;
     /**
      * Represents a put integration.
      *
@@ -575,6 +694,9 @@ existing API.
     /**
      * Simulate the execution of an Authorizer in your RestApi with headers,
 parameters, and an incoming request body.
+
+Enable custom authorizers
+[http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html]
      *
      * @error BadRequestException   
      * @error UnauthorizedException   
@@ -608,10 +730,14 @@ an incoming request body.
      * @error NotFoundException   
      * @error BadRequestException   
      * @error TooManyRequestsException   
+     * @error ConflictException   
      */
-    updateApiKey(params: APIGateway.UpdateApiKeyRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.ApiKey|any) => void): Request<APIGateway.ApiKey|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
+    updateApiKey(params: APIGateway.UpdateApiKeyRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|any, data: APIGateway.ApiKey|any) => void): Request<APIGateway.ApiKey|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|APIGateway.ConflictException|any>;
     /**
      * Updates an existing Authorizer resource.
+
+AWS CLI
+[http://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html]
      *
      * @error UnauthorizedException   
      * @error NotFoundException   
@@ -739,11 +865,33 @@ an incoming request body.
      * @error TooManyRequestsException   
      */
     updateStage(params: APIGateway.UpdateStageRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any, data: APIGateway.Stage|any) => void): Request<APIGateway.Stage|any,APIGateway.UnauthorizedException|APIGateway.NotFoundException|APIGateway.ConflictException|APIGateway.BadRequestException|APIGateway.TooManyRequestsException|any>;
+    /**
+     * Grants a temporary extension to the reamining quota of a usage plan associated
+with a specified API key.
+     *
+     * @error UnauthorizedException   
+     * @error TooManyRequestsException   
+     * @error BadRequestException   
+     * @error NotFoundException   
+     */
+    updateUsage(params: APIGateway.UpdateUsageRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.NotFoundException|any, data: APIGateway.Usage|any) => void): Request<APIGateway.Usage|any,APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.NotFoundException|any>;
+    /**
+     * Updates a usage plan of a given plan Id.
+     *
+     * @error UnauthorizedException   
+     * @error TooManyRequestsException   
+     * @error BadRequestException   
+     * @error NotFoundException   
+     * @error ConflictException   
+     */
+    updateUsagePlan(params: APIGateway.UpdateUsagePlanRequest, callback?: (err: APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.ConflictException|any, data: APIGateway.UsagePlan|any) => void): Request<APIGateway.UsagePlan|any,APIGateway.UnauthorizedException|APIGateway.TooManyRequestsException|APIGateway.BadRequestException|APIGateway.NotFoundException|APIGateway.ConflictException|any>;
 
     useRawPayload(...args: any[]): any
   }
 
   export module APIGateway {
+    
+    export type ApiKeysFormat = string;
     
     export type AuthorizerType = string;
     
@@ -765,6 +913,8 @@ an incoming request body.
     
     export type ListOfApiKey = ApiKey[];
     
+    export type ListOfApiStage = ApiStage[];
+    
     export type ListOfAuthorizer = Authorizer[];
     
     export type ListOfBasePathMapping = BasePathMapping[];
@@ -774,6 +924,8 @@ an incoming request body.
     export type ListOfDeployment = Deployment[];
     
     export type ListOfDomainName = DomainName[];
+    
+    export type ListOfLong = Long[];
     
     export type ListOfModel = Model[];
     
@@ -789,11 +941,19 @@ an incoming request body.
     
     export type ListOfString = String[];
     
+    export type ListOfUsage = ListOfLong[];
+    
+    export type ListOfUsagePlan = UsagePlan[];
+    
+    export type ListOfUsagePlanKey = UsagePlanKey[];
+    
     export type Long = number;
     
     export type MapOfHeaderValues = {[key:string]: String};
     
     export type MapOfIntegrationResponse = {[key:string]: IntegrationResponse};
+    
+    export type MapOfKeyUsages = {[key:string]: ListOfUsage};
     
     export type MapOfMethod = {[key:string]: Method};
     
@@ -819,6 +979,8 @@ an incoming request body.
     
     export type PutMode = string;
     
+    export type QuotaPeriodType = string;
+    
     export type StatusCode = string;
     
     export type String = string;
@@ -830,34 +992,54 @@ an incoming request body.
     export type op = string;
 
     export interface Account {
-        /** Specifies the Amazon resource name (ARN) of an Amazon CloudWatch role for the
-current Account resource. **/
+        /** The ARN of an Amazon CloudWatch role for the current Account . **/
         cloudwatchRoleArn?: String;
-        /** Specifies the application programming interface (API) throttle settings for the
-current Account resource. **/
+        /** Specifies the API request limits configured for the current Account . **/
         throttleSettings?: ThrottleSettings;
+        /** A list of features supported for the account. When usage plans are enabled, the
+features list will include an entry of &quot;UsagePlans&quot; . **/
+        features?: ListOfString;
+        /** The version of the API keys used for the account. **/
+        apiKeyVersion?: String;
     }
     export interface ApiKey {
         /** The identifier of the API Key. **/
         id?: String;
+        /** The value of the API Key. **/
+        value?: String;
         /** The name of the API Key. **/
         name?: String;
         /** The description of the API Key. **/
         description?: String;
         /** Specifies whether the API Key can be used by callers. **/
         enabled?: Boolean;
-        /** A list of Stage resources that are associated with the ApiKey resource. **/
-        stageKeys?: ListOfString;
         /** The date when the API Key was created, in ISO 8601 format
 [http://www.iso.org/iso/home/standards/iso8601.htm] . **/
         createdDate?: Timestamp;
         /** When the API Key was last updated, in ISO 8601 format. **/
         lastUpdatedDate?: Timestamp;
+        /** A list of Stage resources that are associated with the ApiKey resource. **/
+        stageKeys?: ListOfString;
+    }
+    export interface ApiKeyIds {
+        /** A list of all the ApiKey identifiers. **/
+        ids?: ListOfString;
+        /** A list of warning messages. **/
+        warnings?: ListOfString;
     }
     export interface ApiKeys {
+        /** A list of warning messages logged during the import of API keys when the 
+failOnWarnings option is set to true. **/
+        warnings?: ListOfString;
         position?: String;
         /** The current page of any ApiKey resources in the collection of ApiKey resources. **/
         items?: ListOfApiKey;
+    }
+    export interface ApiStage {
+        /** API Id of the associated API stage in a usage plan. **/
+        apiId?: String;
+        /** API stage name of the associated API stage in a usage plan. **/
+        stage?: String;
     }
     export interface Authorizer {
         /** The identifier for the authorizer resource. **/
@@ -866,6 +1048,7 @@ current Account resource. **/
         name?: String;
         /** [Required] The type of the authorizer. Currently, the only valid type is TOKEN. **/
         type?: AuthorizerType;
+        /** A list of the provider ARNs of the authorizer. **/
         providerARNs?: ListOfARNs;
         /** Optional customer-defined field, used in Swagger imports/exports. Has no
 functional impact. **/
@@ -879,7 +1062,7 @@ to the resource, including the initial / . For Lambda functions, this is usually
 of the form /2015-03-31/functions/[FunctionARN]/invocations **/
         authorizerUri?: String;
         /** Specifies the credentials required for the authorizer, if any. Two options are
-available. To specify an IAM Role for Amazon API Gateway to assume, use the
+available. To specify an IAM role for Amazon API Gateway to assume, use the
 role&#x27;s Amazon Resource Name (ARN). To use resource-based permissions on the
 Lambda function, specify null. **/
         authorizerCredentials?: String;
@@ -923,17 +1106,17 @@ mapping resources. **/
         items?: ListOfBasePathMapping;
     }
     export interface ClientCertificate {
-        /** The identifier of the Client Certificate. **/
+        /** The identifier of the client certificate. **/
         clientCertificateId?: String;
-        /** The description of the Client Certificate. **/
+        /** The description of the client certificate. **/
         description?: String;
-        /** The PEM-encoded public key of the Client Certificate, that can be used to
+        /** The PEM-encoded public key of the client certificate, which can be used to
 configure certificate authentication in the integration endpoint . **/
         pemEncodedCertificate?: String;
-        /** The date when the Client Certificate was created, in ISO 8601 format
+        /** The date when the client certificate was created, in ISO 8601 format
 [http://www.iso.org/iso/home/standards/iso8601.htm] . **/
         createdDate?: Timestamp;
-        /** The date when the Client Certificate will expire, in ISO 8601 format
+        /** The date when the client certificate will expire, in ISO 8601 format
 [http://www.iso.org/iso/home/standards/iso8601.htm] . **/
         expirationDate?: Timestamp;
     }
@@ -953,7 +1136,12 @@ ClientCertificate resources. **/
         description?: String;
         /** Specifies whether the ApiKey can be used by callers. **/
         enabled?: Boolean;
-        /** Specifies whether the ApiKey can be used by callers. **/
+        /** Specifies whether ( true ) or not ( false ) the key identifier is distinct from
+the created API key value. **/
+        generateDistinctId?: Boolean;
+        /** Specifies a value of the API key. **/
+        value?: String;
+        /** DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key. **/
         stageKeys?: ListOfStageKeys;
     }
     export interface CreateAuthorizerRequest {
@@ -963,6 +1151,7 @@ ClientCertificate resources. **/
         name: String;
         /** [Required] The type of the authorizer. **/
         type: AuthorizerType;
+        /** A list of the Cognito Your User Pool authorizer&#x27;s provider ARNs. **/
         providerARNs?: ListOfARNs;
         /** Optional customer-defined field, used in Swagger imports/exports. Has no
 functional impact. **/
@@ -1008,8 +1197,8 @@ base path name. **/
 if a cache cluster is enabled. **/
         cacheClusterSize?: CacheClusterSize;
         /** A map that defines the stage variables for the Stage resource that is associated
-with the new deployment. Variable names can have alphanumeric characters, and
-the values must match [A-Za-z0-9-._~:/?#&amp;=,]+ . **/
+with the new deployment. Variable names can have alphanumeric and underscore
+characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+ . **/
         variables?: MapOfStringToString;
     }
     export interface CreateDomainNameRequest {
@@ -1055,7 +1244,7 @@ JSON-schema draft v4 [http://json-schema.org/documentation.html] model. **/
         name: String;
         /** The description of the RestApi . **/
         description?: String;
-        /** The Id of the RestApi that you want to clone from. **/
+        /** The ID of the RestApi that you want to clone from. **/
         cloneFrom?: String;
     }
     export interface CreateStageRequest {
@@ -1072,9 +1261,30 @@ JSON-schema draft v4 [http://json-schema.org/documentation.html] model. **/
         /** The stage&#x27;s cache cluster size. **/
         cacheClusterSize?: CacheClusterSize;
         /** A map that defines the stage variables for the new Stage resource. Variable
-names can have alphanumeric characters, and the values must match 
+names can have alphanumeric and underscore characters, and the values must match 
 [A-Za-z0-9-._~:/?#&amp;=,]+ . **/
         variables?: MapOfStringToString;
+    }
+    export interface CreateUsagePlanKeyRequest {
+        /** The Id of the UsagePlan resource representing the usage plan containing the
+to-be-created UsagePlanKey resource representing a plan customer. **/
+        usagePlanId: String;
+        /** The identifier of a UsagePlanKey resource for a plan customer. **/
+        keyId: String;
+        /** The type of a UsagePlanKey resource for a plan customer. **/
+        keyType: String;
+    }
+    export interface CreateUsagePlanRequest {
+        /** The name of the usage plan. **/
+        name: String;
+        /** The description of the usage plan. **/
+        description?: String;
+        /** The associated API stages of the usage plan. **/
+        apiStages?: ListOfApiStage;
+        /** The throttling limits of the usage plan. **/
+        throttle?: ThrottleSettings;
+        /** The quota of the usage plan. **/
+        quota?: QuotaSettings;
     }
     export interface DeleteApiKeyRequest {
         /** The identifier of the ApiKey resource to be deleted. **/
@@ -1129,7 +1339,7 @@ names can have alphanumeric characters, and the values must match
         restApiId: String;
         /** The Resource identifier for the Method resource. **/
         resourceId: String;
-        /** The HTTP verb that identifies the Method resource. **/
+        /** The HTTP verb of the Method resource. **/
         httpMethod: String;
     }
     export interface DeleteMethodResponseRequest {
@@ -1137,7 +1347,7 @@ names can have alphanumeric characters, and the values must match
         restApiId: String;
         /** The Resource identifier for the MethodResponse resource. **/
         resourceId: String;
-        /** The HTTP verb identifier for the parent Method resource. **/
+        /** The HTTP verb of the Method resource. **/
         httpMethod: String;
         /** The status code identifier for the MethodResponse resource. **/
         statusCode: StatusCode;
@@ -1164,6 +1374,17 @@ names can have alphanumeric characters, and the values must match
         /** The name of the Stage resource to delete. **/
         stageName: String;
     }
+    export interface DeleteUsagePlanKeyRequest {
+        /** The Id of the UsagePlan resource representing the usage plan containing the
+to-be-deleted UsagePlanKey resource representing a plan customer. **/
+        usagePlanId: String;
+        /** The Id of the UsagePlanKey resource to be deleted. **/
+        keyId: String;
+    }
+    export interface DeleteUsagePlanRequest {
+        /** The Id of the to-be-deleted usage plan. **/
+        usagePlanId: String;
+    }
     export interface Deployment {
         /** The identifier for the deployment resource. **/
         id?: String;
@@ -1171,8 +1392,8 @@ names can have alphanumeric characters, and the values must match
         description?: String;
         /** The date and time that the deployment resource was created. **/
         createdDate?: Timestamp;
-        /** Gets a summary of the RestApi at the date and time that the deployment resource
-was created. **/
+        /** A summary of the RestApi at the date and time that the deployment resource was
+created. **/
         apiSummary?: PathToMapOfMethodSnapshot;
     }
     export interface Deployments {
@@ -1204,7 +1425,7 @@ resources. **/
         /** The content-type header value in the HTTP response. This will correspond to a
 valid &#x27;accept&#x27; type in the request. **/
         contentType?: String;
-        /** The content-disposition header value in the HTTP reseponse. **/
+        /** The content-disposition header value in the HTTP response. **/
         contentDisposition?: String;
         /** The binary blob response to GetExport , which contains the export. **/
         body?: Blob;
@@ -1230,12 +1451,20 @@ valid &#x27;accept&#x27; type in the request. **/
     export interface GetApiKeyRequest {
         /** The identifier of the ApiKey resource. **/
         apiKey: String;
+        /** A boolean flag to specify whether ( true ) or not ( false ) the result contains
+the key value. **/
+        includeValue?: Boolean;
     }
     export interface GetApiKeysRequest {
         /** The position of the current ApiKeys resource to get information about. **/
         position?: String;
         /** The maximum number of ApiKeys to get information about. **/
         limit?: NullableInteger;
+        /** The name of queried API keys. **/
+        nameQuery?: String;
+        /** A boolean flag to specify whether ( true ) or not ( false ) the result contains
+key values. **/
+        includeValues?: Boolean;
     }
     export interface GetAuthorizerRequest {
         /** The RestApi identifier for the Authorizer resource. **/
@@ -1247,7 +1476,7 @@ valid &#x27;accept&#x27; type in the request. **/
         /** The RestApi identifier for the Authorizers resource. **/
         restApiId: String;
         /** If not all Authorizer resources in the response were present, the position will
-specificy where to start the next page of results. **/
+specify where to start the next page of results. **/
         position?: String;
         /** Limit the number of Authorizer resources in the response. **/
         limit?: NullableInteger;
@@ -1322,15 +1551,15 @@ about. The default limit is 25. It should be an integer between 1 - 500. **/
         /** The type of export. Currently only &#x27;swagger&#x27; is supported. **/
         exportType: String;
         /** A key-value map of query string parameters that specify properties of the
-export, depending on the requested exportType. For exportType &#x27;swagger&#x27;, any
-combination of the following parameters are supported: &#x27;integrations&#x27; will
-export x-amazon-apigateway-integration extensions &#x27;authorizers&#x27; will export
-x-amazon-apigateway-authorizer extensions &#x27;postman&#x27; will export with Postman
-extensions, allowing for import to the Postman tool **/
+export, depending on the requested exportType . For exportType swagger , any
+combination of the following parameters are supported: integrations will export
+the API with x-amazon-apigateway-integration extensions. authorizers will export
+the API with x-amazon-apigateway-authorizer extensions. postman will export the
+API with Postman extensions, allowing for import to the Postman tool **/
         parameters?: MapOfStringToString;
-        /** The content-type of the export, for example &#x27;application/json&#x27;. Currently
-&#x27;application/json&#x27; and &#x27;application/yaml&#x27; are supported for exportType
-&#x27;swagger&#x27;. Should be specifed in the &#x27;Accept&#x27; header for direct API requests. **/
+        /** The content-type of the export, for example application/json . Currently 
+application/json and application/yaml are supported for exportType of swagger .
+This should be specified in the Accept header for direct API requests. **/
         accepts?: String;
     }
     export interface GetIntegrationRequest {
@@ -1356,7 +1585,7 @@ extensions, allowing for import to the Postman tool **/
         restApiId: String;
         /** The Resource identifier for the Method resource. **/
         resourceId: String;
-        /** Specifies the put method request&#x27;s HTTP method type. **/
+        /** Specifies the method request&#x27;s HTTP method type. **/
         httpMethod: String;
     }
     export interface GetMethodResponseRequest {
@@ -1364,9 +1593,9 @@ extensions, allowing for import to the Postman tool **/
         restApiId: String;
         /** The Resource identifier for the MethodResponse resource. **/
         resourceId: String;
-        /** The HTTP verb identifier for the parent Method resource. **/
+        /** The HTTP verb of the Method resource. **/
         httpMethod: String;
-        /** The status code identifier for the MethodResponse resource. **/
+        /** The status code for the MethodResponse resource. **/
         statusCode: StatusCode;
     }
     export interface GetModelRequest {
@@ -1374,7 +1603,9 @@ extensions, allowing for import to the Postman tool **/
         restApiId: String;
         /** The name of the model as an identifier. **/
         modelName: String;
-        /** Resolves all external model references and returns a flattened model schema. **/
+        /** A query parameter of a Boolean value to resolve ( true ) all external model
+references and returns a flattened model schema or not ( false ) The default is 
+false . **/
         flatten?: Boolean;
     }
     export interface GetModelTemplateRequest {
@@ -1426,13 +1657,13 @@ about. The default limit is 25. It should be an integer between 1 - 500. **/
         restApiId: String;
         /** The name of the Stage that the SDK will use. **/
         stageName: String;
-        /** The language for the generated SDK. Currently javascript, android, and
+        /** The language for the generated SDK. Currently javascript , android , and 
 objectivec (for iOS) are supported. **/
         sdkType: String;
         /** A key-value map of query string parameters that specify properties of the SDK,
-depending on the requested sdkType. For sdkType &#x27;objectivec&#x27;, a parameter named
-&quot;classPrefix&quot; is required. For sdkType &#x27;android&#x27;, parameters named &quot;groupId&quot;,
-&quot;artifactId&quot;, &quot;artifactVersion&quot;, and &quot;invokerPackage&quot; are required. **/
+depending on the requested sdkType . For sdkType of objectivec , a parameter
+named classPrefix is required. For sdkType of android , parameters named groupId 
+, artifactId , artifactVersion , and invokerPackage are required. **/
         parameters?: MapOfStringToString;
     }
     export interface GetStageRequest {
@@ -1447,6 +1678,67 @@ about. **/
         restApiId: String;
         /** The stages&#x27; deployment identifiers. **/
         deploymentId?: String;
+    }
+    export interface GetUsagePlanKeyRequest {
+        /** The Id of the UsagePlan resource representing the usage plan containing the
+to-be-retrieved UsagePlanKey resource representing a plan customer. **/
+        usagePlanId: String;
+        /** The key Id of the to-be-retrieved UsagePlanKey resource representing a plan
+customer. **/
+        keyId: String;
+    }
+    export interface GetUsagePlanKeysRequest {
+        /** The Id of the UsagePlan resource representing the usage plan containing the
+to-be-retrieved UsagePlanKey resource representing a plan customer. **/
+        usagePlanId: String;
+        /** A query parameter specifying the zero-based index specifying the position of a
+usage plan key. **/
+        position?: String;
+        /** A query parameter specifying the maximum number usage plan keys returned by the
+GET request. **/
+        limit?: NullableInteger;
+        /** A query parameter specifying the name of the to-be-returned usage plan keys. **/
+        nameQuery?: String;
+    }
+    export interface GetUsagePlanRequest {
+        /** The identifier of the UsagePlan resource to be retrieved. **/
+        usagePlanId: String;
+    }
+    export interface GetUsagePlansRequest {
+        /** The zero-based array index specifying the position of the to-be-retrieved 
+UsagePlan resource. **/
+        position?: String;
+        /** The identifier of the API key associated with the usage plans. **/
+        keyId?: String;
+        /** The number of UsagePlan resources to be returned as the result. **/
+        limit?: NullableInteger;
+    }
+    export interface GetUsageRequest {
+        /** The Id of the usage plan associated with the usage data. **/
+        usagePlanId: String;
+        /** The Id of the API key associated with the resultant usage data. **/
+        keyId?: String;
+        /** The starting date (e.g., 2016-01-01) of the usage data. **/
+        startDate: String;
+        /** The ending date (e.g., 2016-12-31) of the usage data. **/
+        endDate: String;
+        /** Position **/
+        position?: String;
+        /** The maximum number of results to be returned. **/
+        limit?: NullableInteger;
+    }
+    export interface ImportApiKeysRequest {
+        /** The payload of the POST request to import API keys. For the payload format, see 
+API Key File Format
+[http://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html] 
+. **/
+        body: Blob;
+        /** A query parameter to specify the input format to imported API keys. Currently,
+only the csv format is supported. **/
+        format: ApiKeysFormat;
+        /** A query parameter to indicate whether to rollback ApiKey importation ( true ) or
+not ( false ) when error is encountered. **/
+        failOnWarnings?: Boolean;
     }
     export interface ImportRestApiRequest {
         /** A query parameter to indicate whether to rollback the API creation ( true ) or
@@ -1481,41 +1773,62 @@ the caller&#x27;s identity be passed through from the request, specify the strin
 arn:aws:iam::\&amp;#42;:user/\* . To use resource-based permissions on supported AWS
 services, specify null. **/
         credentials?: String;
-        /** Represents requests parameters that are sent with the backend request. Request
-parameters are represented as a key/value map, with a destination as the key and
-a source as the value. A source must match an existing method request parameter,
-or a static value. Static values must be enclosed with single quotes, and be
-pre-encoded based on their destination in the request. The destination must
-match the pattern integration.request.{location}.{name} , where location is
-either querystring, path, or header. name must be a valid, unique parameter
-name. **/
+        /** A key-value map specifying request parameters that are passed from the method
+request to the back end. The key is an integration request parameter name and
+the associated value is a method request parameter value or static value that
+must be enclosed within single quotes and pre-encoded as required by the back
+end. The method request parameter value must match the pattern of 
+method.request.{location}.{name} , where location is querystring , path , or 
+header and name must be a valid and unique method request parameter name. **/
         requestParameters?: MapOfStringToString;
         /** Represents a map of Velocity templates that are applied on the request payload
 based on the value of the Content-Type header sent by the client. The content
 type value is the key in this map, and the template (as a String) is the value. **/
         requestTemplates?: MapOfStringToString;
-        /** Specifies the pass-through behavior for incoming requests based on the
-Content-Type header in the request, and the available requestTemplates defined
-on the Integration. There are three valid values: WHEN_NO_MATCH , 
+        /** Specifies how the method request body of an unmapped content type will be passed
+through the integration request to the back end without transformation. A
+content type is unmapped if no mapping template is defined in the integration or
+the content type does not match any of the mapped content types, as specified in 
+requestTemplates . There are three valid values: WHEN_NO_MATCH , 
 WHEN_NO_TEMPLATES , and NEVER .
 
-
-
-WHEN_NO_MATCH passes the request body for unmapped content types through to the
-Integration backend without transformation.
-
-NEVER rejects unmapped content types with an HTTP 415 &#x27;Unsupported Media Type&#x27;
-response.
-
-WHEN_NO_TEMPLATES will allow pass-through when the Integration has NO content
-types mapped to templates. However if there is at least one content type
-defined, unmapped content types will be rejected with the same 415 response. **/
+ &amp;#42; WHEN_NO_MATCH passes the method request body through the integration request
+   to the back end without transformation when the method request content type
+   does not match any content type associated with the mapping templates defined
+   in the integration request.
+ * WHEN_NO_TEMPLATES passes the method request body through the integration
+   request to the back end without transformation when no mapping template is
+   defined in the integration request. If a template is defined when this option
+   is selected, the method request of an unmapped content-type will be rejected
+   with an HTTP 415 Unsupported Media Type response.
+ * NEVER rejects the method request with an HTTP 415 Unsupported Media Type 
+   response when either the method request content type does not match any
+   content type associated with the mapping templates defined in the integration
+   request or no mapping template is defined in the integration request. **/
         passthroughBehavior?: String;
         /** Specifies the integration&#x27;s cache namespace. **/
         cacheNamespace?: String;
         /** Specifies the integration&#x27;s cache key parameters. **/
         cacheKeyParameters?: ListOfString;
-        /** Specifies the integration&#x27;s responses. **/
+        /** Specifies the integration&#x27;s responses.
+
+
+
+EXAMPLE: GET INTEGRATION RESPONSES OF A METHOD
+REQUEST
+
+
+GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200 HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160607T191449Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160607/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash} 
+
+RESPONSE
+The successful response returns 200 OK status and a payload as follows:
+
+{ &quot;_links&quot;: { &quot;curies&quot;: { &quot;href&quot;: &quot;http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html&quot;, &quot;name&quot;: &quot;integrationresponse&quot;, &quot;templated&quot;: true }, &quot;self&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot;, &quot;title&quot;: &quot;200&quot; }, &quot;integrationresponse:delete&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot; }, &quot;integrationresponse:update&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot; } }, &quot;responseParameters&quot;: { &quot;method.response.header.Content-Type&quot;: &quot;&#x27;application/xml&#x27;&quot; }, &quot;responseTemplates&quot;: { &quot;application/json&quot;: &quot;$util.urlDecode(\&quot;%3CkinesisStreams%3E#foreach($stream in $input.path(&#x27;$.StreamNames&#x27;))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\&quot;)\n&quot; }, &quot;statusCode&quot;: &quot;200&quot; }
+
+
+
+Creating an API
+[http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html] **/
         integrationResponses?: MapOfIntegrationResponse;
     }
     export interface IntegrationResponse {
@@ -1523,17 +1836,24 @@ defined, unmapped content types will be rejected with the same 415 response. **/
 existing MethodResponse . **/
         statusCode?: StatusCode;
         /** Specifies the regular expression (regex) pattern used to choose an integration
-response based on the response from the backend. If the backend is an AWS Lambda
-function, the AWS Lambda function error header is matched. For all other HTTP
-and AWS backends, the HTTP status code is matched. **/
+response based on the response from the back end. For example, if the success
+response returns nothing and the error response returns some string, you could
+use the .+ regex to match error response. However, make sure that the error
+response does not contain any newline ( \n ) character in such cases. If the
+back end is an AWS Lambda function, the AWS Lambda function error header is
+matched. For all other HTTP and AWS back ends, the HTTP status code is matched. **/
         selectionPattern?: String;
-        /** Represents response parameters that can be read from the backend response.
-Response parameters are represented as a key/value map, with a destination as
-the key and a source as the value. A destination must match an existing response
-parameter in the MethodResponse . The source can be a header from the backend
-response, or a static value. Static values are specified using enclosing single
-quotes, and backend response headers can be read using the pattern 
-integration.response.header.{name} . **/
+        /** A key-value map specifying response parameters that are passed to the method
+response from the back end. The key is a method response header parameter name
+and the mapped value is an integration response header value, a static value
+enclosed within a pair of single quotes, or a JSON expression from the
+integration response body. The mapping key must match the pattern of 
+method.response.header.{name} , where name is a valid and unique header name.
+The mapped non-static value must match the pattern of 
+integration.response.header.{name} or 
+integration.response.body.{JSON-expression} , where name is a valid and unique
+response header name and JSON-expression is a valid JSON expression without the 
+$ prefix. **/
         responseParameters?: MapOfStringToString;
         /** Specifies the templates used to transform the integration response body.
 Response templates are represented as a key/value map, with a content-type as
@@ -1545,46 +1865,94 @@ the key and a template as the value. **/
         message?: String;
     }
     export interface Method {
-        /** The HTTP method. **/
+        /** The method&#x27;s HTTP verb. **/
         httpMethod?: String;
         /** The method&#x27;s authorization type. **/
         authorizationType?: String;
-        /** Specifies the identifier of an Authorizer to use on this Method. The
-authorizationType must be CUSTOM. **/
+        /** The identifier of an Authorizer to use on this method. The authorizationType 
+must be CUSTOM . **/
         authorizerId?: String;
-        /** Specifies whether the method requires a valid ApiKey . **/
+        /** A boolean flag specifying whether a valid ApiKey is required to invoke this
+method. **/
         apiKeyRequired?: NullableBoolean;
-        /** Represents request parameters that can be accepted by Amazon API Gateway.
-Request parameters are represented as a key/value map, with a source as the key
-and a Boolean flag as the value. The Boolean flag is used to specify whether the
-parameter is required. A source must match the pattern 
-method.request.{location}.{name} , where location is either querystring, path,
-or header. name is a valid, unique parameter name. Sources specified here are
-available to the integration for mapping to integration request parameters or
-templates. **/
+        /** A key-value map defining required or optional method request parameters that can
+be accepted by Amazon API Gateway. A key is a method request parameter name
+matching the pattern of method.request.{location}.{name} , where location is 
+querystring , path , or header and name is a valid and unique parameter name.
+The value associated with the key is a Boolean flag indicating whether the
+parameter is required ( true ) or optional ( false ). The method request
+parameter names defined here are available in Integration to be mapped to
+integration request parameters or templates. **/
         requestParameters?: MapOfStringToBoolean;
-        /** Specifies the Model resources used for the request&#x27;s content type. Request
-models are represented as a key/value map, with a content type as the key and a 
-Model name as the value. **/
+        /** A key-value map specifying data schemas, represented by Model resources, (as the
+mapped value) of the request payloads of given content types (as the mapping
+key). **/
         requestModels?: MapOfStringToString;
-        /** Represents available responses that can be sent to the caller. Method responses
-are represented as a key/value map, with an HTTP status code as the key and a 
-MethodResponse as the value. The status codes are available for the Integration 
-responses to map to. **/
+        /** Gets a method response associated with a given HTTP status code.
+
+The collection of method responses are encapsulated in a key-value map, where
+the key is a response&#x27;s HTTP status code and the value is a MethodResponse 
+resource that specifies the response returned to the caller from the back end
+through the integration response.
+
+EXAMPLE: GET A 200 OK RESPONSE OF A GET METHOD
+REQUEST
+
+
+GET /restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200 HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com Content-Length: 117 X-Amz-Date: 20160613T215008Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160613/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}
+
+RESPONSE
+The successful response returns a 200 OK status code and a payload similar to
+the following:
+
+{ &quot;_links&quot;: { &quot;curies&quot;: { &quot;href&quot;: &quot;http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html&quot;, &quot;name&quot;: &quot;methodresponse&quot;, &quot;templated&quot;: true }, &quot;self&quot;: { &quot;href&quot;: &quot;/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200&quot;, &quot;title&quot;: &quot;200&quot; }, &quot;methodresponse:delete&quot;: { &quot;href&quot;: &quot;/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200&quot; }, &quot;methodresponse:update&quot;: { &quot;href&quot;: &quot;/restapis/uojnr9hd57/resources/0cjtch/methods/GET/responses/200&quot; } }, &quot;responseModels&quot;: { &quot;application/json&quot;: &quot;Empty&quot; }, &quot;responseParameters&quot;: { &quot;method.response.header.operator&quot;: false, &quot;method.response.header.operand_2&quot;: false, &quot;method.response.header.operand_1&quot;: false }, &quot;statusCode&quot;: &quot;200&quot; }
+
+
+
+AWS CLI
+[http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html] **/
         methodResponses?: MapOfMethodResponse;
-        /** The method&#x27;s integration. **/
+        /** Gets the method&#x27;s integration responsible for passing the client-submitted
+request to the back end and performing necessary transformations to make the
+request compliant with the back end.
+
+
+
+EXAMPLE:
+REQUEST
+
+
+GET /restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com Content-Length: 117 X-Amz-Date: 20160613T213210Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160613/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}
+
+RESPONSE
+The successful response returns a 200 OK status code and a payload similar to
+the following:
+
+{ &quot;_links&quot;: { &quot;curies&quot;: [ { &quot;href&quot;: &quot;http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html&quot;, &quot;name&quot;: &quot;integration&quot;, &quot;templated&quot;: true }, { &quot;href&quot;: &quot;http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html&quot;, &quot;name&quot;: &quot;integrationresponse&quot;, &quot;templated&quot;: true } ], &quot;self&quot;: { &quot;href&quot;: &quot;/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration&quot; }, &quot;integration:delete&quot;: { &quot;href&quot;: &quot;/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration&quot; }, &quot;integration:responses&quot;: { &quot;href&quot;: &quot;/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200&quot;, &quot;name&quot;: &quot;200&quot;, &quot;title&quot;: &quot;200&quot; }, &quot;integration:update&quot;: { &quot;href&quot;: &quot;/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration&quot; }, &quot;integrationresponse:put&quot;: { &quot;href&quot;: &quot;/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}&quot;, &quot;templated&quot;: true } }, &quot;cacheKeyParameters&quot;: [], &quot;cacheNamespace&quot;: &quot;0cjtch&quot;, &quot;credentials&quot;: &quot;arn:aws:iam::123456789012:role/apigAwsProxyRole&quot;, &quot;httpMethod&quot;: &quot;POST&quot;, &quot;passthroughBehavior&quot;: &quot;WHEN_NO_MATCH&quot;, &quot;requestTemplates&quot;: { &quot;application/json&quot;: &quot;{\n \&quot;a\&quot;: \&quot;$input.params(&#x27;operand1&#x27;)\&quot;,\n \&quot;b\&quot;: \&quot;$input.params(&#x27;operand2&#x27;)\&quot;, \n \&quot;op\&quot;: \&quot;$input.params(&#x27;operator&#x27;)\&quot; \n}&quot; }, &quot;type&quot;: &quot;AWS&quot;, &quot;uri&quot;: &quot;arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations&quot;, &quot;_embedded&quot;: { &quot;integration:responses&quot;: { &quot;_links&quot;: { &quot;self&quot;: { &quot;href&quot;: &quot;/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200&quot;, &quot;name&quot;: &quot;200&quot;, &quot;title&quot;: &quot;200&quot; }, &quot;integrationresponse:delete&quot;: { &quot;href&quot;: &quot;/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200&quot; }, &quot;integrationresponse:update&quot;: { &quot;href&quot;: &quot;/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200&quot; } }, &quot;responseParameters&quot;: { &quot;method.response.header.operator&quot;: &quot;integration.response.body.op&quot;, &quot;method.response.header.operand_2&quot;: &quot;integration.response.body.b&quot;, &quot;method.response.header.operand_1&quot;: &quot;integration.response.body.a&quot; }, &quot;responseTemplates&quot;: { &quot;application/json&quot;: &quot;#set($res = $input.path(&#x27;$&#x27;))\n{\n \&quot;result\&quot;: \&quot;$res.a, $res.b, $res.op = $res.c\&quot;,\n \&quot;a\&quot; : \&quot;$res.a\&quot;,\n \&quot;b\&quot; : \&quot;$res.b\&quot;,\n \&quot;op\&quot; : \&quot;$res.op\&quot;,\n \&quot;c\&quot; : \&quot;$res.c\&quot;\n}&quot; }, &quot;selectionPattern&quot;: &quot;&quot;, &quot;statusCode&quot;: &quot;200&quot; } } }
+
+
+
+AWS CLI
+[http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html] **/
         methodIntegration?: Integration;
     }
     export interface MethodResponse {
         /** The method response&#x27;s status code. **/
         statusCode?: StatusCode;
-        /** Represents response parameters that can be sent back to the caller by Amazon API
-Gateway. Response parameters are represented as a key/value map, with a
-destination as the key and a boolean flag as the value, which is used to specify
-whether the parameter is required. A destination must match the pattern 
-method.response.header.{name} , where name is a valid, unique header name.
-Destinations specified here are available to the integration for mapping from
-integration response parameters. **/
+        /** A key-value map specifying required or optional response parameters that Amazon
+API Gateway can send back to the caller. A key defines a method response header
+and the value specifies whether the associated method response header is
+required or not. The expression of the key must match the pattern 
+method.response.header.{name} , where name is a valid and unique header name.
+Amazon API Gateway passes certain integration response data to the method
+response headers specified here according to the mapping you prescribe in the
+API&#x27;s IntegrationResponse . The integration response data that can be mapped
+include an integration response header expressed in 
+integration.response.header.{name} , a static value enclosed within a pair of
+single quotes (e.g., &#x27;application/json&#x27; ), or a JSON expression from the
+back-end response payload in the form of 
+integration.response.body.{JSON-expression} , where JSON-expression is a valid
+JSON expression without the $ prefix.) **/
         responseParameters?: MapOfStringToBoolean;
         /** Specifies the Model resources used for the response&#x27;s content-type. Response
 models are represented as a key/value map, with a content-type as the key and a 
@@ -1601,10 +1969,9 @@ pushed to Amazon CloudWatch Logs. The PATCH path for this setting is
 /{method_setting_key}/logging/loglevel , and the available levels are OFF , 
 ERROR , and INFO . **/
         loggingLevel?: String;
-        /** Specifies the whether data trace logging is enabled for this method, which
-effects the log entries pushed to Amazon CloudWatch Logs. The PATCH path for
-this setting is /{method_setting_key}/logging/dataTrace , and the value is a
-Boolean. **/
+        /** Specifies whether data trace logging is enabled for this method, which effects
+the log entries pushed to Amazon CloudWatch Logs. The PATCH path for this
+setting is /{method_setting_key}/logging/dataTrace , and the value is a Boolean. **/
         dataTraceEnabled?: Boolean;
         /** Specifies the throttling burst limit. The PATCH path for this setting is 
 /{method_setting_key}/throttling/burstLimit , and the value is an integer. **/
@@ -1617,7 +1984,7 @@ cluster must be enabled on the stage for responses to be cached. The PATCH path
 for this setting is /{method_setting_key}/caching/enabled , and the value is a
 Boolean. **/
         cachingEnabled?: Boolean;
-        /** Specifies the time to live (TTL) in seconds, for cached responses. The higher a
+        /** Specifies the time to live (TTL), in seconds, for cached responses. The higher
 the TTL, the longer the response will be cached. The PATCH path for this setting
 is /{method_setting_key}/caching/ttlInSeconds , and the value is an integer. **/
         cacheTtlInSeconds?: Integer;
@@ -1630,8 +1997,8 @@ The PATCH path for this setting is
 /{method_setting_key}/caching/requireAuthorizationForCacheControl , and the
 value is a Boolean. **/
         requireAuthorizationForCacheControl?: Boolean;
-        /** Specifies the strategy on how to handle the unauthorized requests for cache
-invalidation. The PATCH path for this setting is 
+        /** Specifies how to handle unauthorized requests for cache invalidation. The PATCH
+path for this setting is 
 /{method_setting_key}/caching/unauthorizedCacheControlHeaderStrategy , and the
 available values are FAIL_WITH_403 , SUCCEED_WITH_RESPONSE_HEADER , 
 SUCCEED_WITHOUT_RESPONSE_HEADER . **/
@@ -1651,7 +2018,11 @@ SUCCEED_WITHOUT_RESPONSE_HEADER . **/
         /** The description of the model. **/
         description?: String;
         /** The schema for the model. For application/json models, this should be 
-JSON-schema draft v4 [http://json-schema.org/documentation.html] model. **/
+JSON-schema draft v4 [http://json-schema.org/documentation.html] model. Do not
+include &quot;\&amp;#42;/&quot; characters in the description of any properties because such &quot;\*/&quot;
+characters may be interpreted as the closing marker for comments in some
+languages, such as Java or JavaScript, causing the installation of your API&#x27;s
+SDK generated by API Gateway to fail. **/
         schema?: String;
         /** The content-type for the model. **/
         contentType?: String;
@@ -1665,19 +2036,25 @@ JSON-schema draft v4 [http://json-schema.org/documentation.html] model. **/
         message?: String;
     }
     export interface PatchOperation {
-        /** A patch operation whose value indicates the operation to perform. Its value MUST
-be one of &quot;add&quot;, &quot;remove&quot;, &quot;replace&quot;, &quot;move&quot;, &quot;copy&quot;, or &quot;test&quot;; other values
-are errors. **/
+        /** An update operation to be performed with this PATCH request. The valid value can
+be &quot;add&quot;, &quot;remove&quot;, or &quot;replace&quot;. Not all valid operations are supported for a
+given resource. Support of the operations depends on specific operational
+contexts. Attempts to apply an unsupported operation on a resource will return
+an error message. **/
         op?: op;
-        /** Operation objects MUST have exactly one &quot;path&quot; member. That member&#x27;s value is a
-string containing a &#x60;JSON-Pointer&#x60; value that references a location within the
-target document (the &quot;target location&quot;) where the operation is performed. **/
+        /** The op operation&#x27;s target, as identified by a JSON Pointer
+[https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08] value that
+references a location within the targeted resource. For example, if the target
+resource has an updateable property of {&quot;name&quot;:&quot;value&quot;} , the path for this
+property is /name . If the name property value is a JSON object (e.g., {&quot;name&quot;:
+{&quot;child/name&quot;: &quot;child-value&quot;}} ), the path for the child/name property will be 
+/name/child~1name . Any slash (&quot;/&quot;) character appearing in path names must be
+escaped with &quot;~1&quot;, as shown in the example above. Each op operation can have
+only one path associated with it. **/
         path?: String;
-        /** The actual value content. **/
+        /** The new target value of the update operation. **/
         value?: String;
-        /** The &quot;move&quot; and &quot;copy&quot; operation object MUST contain a &quot;from&quot; member, which is a
-string containing a JSON Pointer value that references the location in the
-target document to move the value from. **/
+        /** Not supported. **/
         from?: String;
     }
     export interface PutIntegrationRequest {
@@ -1700,35 +2077,34 @@ format. **/
         uri?: String;
         /** Specifies whether credentials are required for a put integration. **/
         credentials?: String;
-        /** Represents request parameters that are sent with the backend request. Request
-parameters are represented as a key/value map, with a destination as the key and
-a source as the value. A source must match an existing method request parameter,
-or a static value. Static values must be enclosed with single quotes, and be
-pre-encoded based on their destination in the request. The destination must
-match the pattern integration.request.{location}.{name} , where location is
-either querystring, path, or header. name must be a valid, unique parameter
-name. **/
+        /** A key-value map specifying request parameters that are passed from the method
+request to the back end. The key is an integration request parameter name and
+the associated value is a method request parameter value or static value that
+must be enclosed within single quotes and pre-encoded as required by the back
+end. The method request parameter value must match the pattern of 
+method.request.{location}.{name} , where location is querystring , path , or 
+header and name must be a valid and unique method request parameter name. **/
         requestParameters?: MapOfStringToString;
         /** Represents a map of Velocity templates that are applied on the request payload
 based on the value of the Content-Type header sent by the client. The content
 type value is the key in this map, and the template (as a String) is the value. **/
         requestTemplates?: MapOfStringToString;
         /** Specifies the pass-through behavior for incoming requests based on the
-Content-Type header in the request, and the available requestTemplates defined
-on the Integration. There are three valid values: WHEN_NO_MATCH , 
-WHEN_NO_TEMPLATES , and NEVER .
+Content-Type header in the request, and the available mapping templates
+specified as the requestTemplates property on the Integration resource. There
+are three valid values: WHEN_NO_MATCH , WHEN_NO_TEMPLATES , and NEVER .
 
-
-
-WHEN_NO_MATCH passes the request body for unmapped content types through to the
-Integration backend without transformation.
-
-NEVER rejects unmapped content types with an HTTP 415 &#x27;Unsupported Media Type&#x27;
-response.
-
-WHEN_NO_TEMPLATES will allow pass-through when the Integration has NO content
-types mapped to templates. However if there is at least one content type
-defined, unmapped content types will be rejected with the same 415 response. **/
+ &amp;#42; WHEN_NO_MATCH passes the request body for unmapped content types through to
+   the integration back end without transformation.
+   
+   
+ * NEVER rejects unmapped content types with an HTTP 415 &#x27;Unsupported Media
+   Type&#x27; response.
+   
+   
+ * WHEN_NO_TEMPLATES allows pass-through when the integration has NO content
+   types mapped to templates. However if there is at least one content type
+   defined, unmapped content types will be rejected with the same 415 response. **/
         passthroughBehavior?: String;
         /** Specifies a put integration input&#x27;s cache namespace. **/
         cacheNamespace?: String;
@@ -1747,13 +2123,17 @@ existing MethodResponse . **/
         statusCode: StatusCode;
         /** Specifies the selection pattern of a put integration response. **/
         selectionPattern?: String;
-        /** Represents response parameters that can be read from the backend response.
-Response parameters are represented as a key/value map, with a destination as
-the key and a source as the value. A destination must match an existing response
-parameter in the Method . The source can be a header from the backend response,
-or a static value. Static values are specified using enclosing single quotes,
-and backend response headers can be read using the pattern 
-integration.response.header.{name} . **/
+        /** A key-value map specifying response parameters that are passed to the method
+response from the back end. The key is a method response header parameter name
+and the mapped value is an integration response header value, a static value
+enclosed within a pair of single quotes, or a JSON expression from the
+integration response body. The mapping key must match the pattern of 
+method.response.header.{name} , where name is a valid and unique header name.
+The mapped non-static value must match the pattern of 
+integration.response.header.{name} or 
+integration.response.body.{JSON-expression} , where name must be a valid and
+unique response header name and JSON-expression a valid JSON expression without
+the $ prefix. **/
         responseParameters?: MapOfStringToString;
         /** Specifies a put integration response&#x27;s templates. **/
         responseTemplates?: MapOfStringToString;
@@ -1763,7 +2143,7 @@ integration.response.header.{name} . **/
         restApiId: String;
         /** The Resource identifier for the new Method resource. **/
         resourceId: String;
-        /** Specifies the put method request&#x27;s HTTP method type. **/
+        /** Specifies the method request&#x27;s HTTP method type. **/
         httpMethod: String;
         /** Specifies the type of authorization used for the method. **/
         authorizationType: String;
@@ -1772,14 +2152,14 @@ CUSTOM. **/
         authorizerId?: String;
         /** Specifies whether the method required a valid ApiKey . **/
         apiKeyRequired?: Boolean;
-        /** Represents requests parameters that are sent with the backend request. Request
-parameters are represented as a key/value map, with a destination as the key and
-a source as the value. A source must match an existing method request parameter,
-or a static value. Static values must be enclosed with single quotes, and be
-pre-encoded based on their destination in the request. The destination must
-match the pattern integration.request.{location}.{name} , where location is
-either querystring, path, or header. name must be a valid, unique parameter
-name. **/
+        /** A key-value map defining required or optional method request parameters that can
+be accepted by Amazon API Gateway. A key defines a method request parameter name
+matching the pattern of method.request.{location}.{name} , where location is 
+querystring , path , or header and name is a valid and unique parameter name.
+The value associated with the key is a Boolean flag indicating whether the
+parameter is required ( true ) or optional ( false ). The method request
+parameter names defined here are available in Integration to be mapped to
+integration request parameters or body-mapping templates. **/
         requestParameters?: MapOfStringToBoolean;
         /** Specifies the Model resources used for the request&#x27;s content type. Request
 models are represented as a key/value map, with a content type as the key and a 
@@ -1791,17 +2171,22 @@ Model name as the value. **/
         restApiId: String;
         /** The Resource identifier for the Method resource. **/
         resourceId: String;
-        /** The HTTP verb that identifies the Method resource. **/
+        /** The HTTP verb of the Method resource. **/
         httpMethod: String;
         /** The method response&#x27;s status code. **/
         statusCode: StatusCode;
-        /** Represents response parameters that can be sent back to the caller by Amazon API
-Gateway. Response parameters are represented as a key/value map, with a
-destination as the key and a Boolean flag as the value. The Boolean flag is used
-to specify whether the parameter is required. A destination must match the
-pattern method.response.header.{name} , where name is a valid, unique header
-name. Destinations specified here are available to the integration for mapping
-from integration response parameters. **/
+        /** A key-value map specifying required or optional response parameters that Amazon
+API Gateway can send back to the caller. A key defines a method response header
+name and the associated value is a Boolean flag indicating whether the method
+response parameter is required or not. The method response header names must
+match the pattern of method.response.header.{name} , where name is a valid and
+unique header name. The response parameter names defined here are available in
+the integration response to be mapped from an integration response header
+expressed in integration.response.header.{name} , a static value enclosed within
+a pair of single quotes (e.g., &#x27;application/json&#x27; ), or a JSON expression from
+the back-end response payload in the form of 
+integration.response.body.{JSON-expression} , where JSON-expression is a valid
+JSON expression without the $ prefix.) **/
         responseParameters?: MapOfStringToBoolean;
         /** Specifies the Model resources used for the response&#x27;s content type. Response
 models are represented as a key/value map, with a content type as the key and a 
@@ -1823,6 +2208,16 @@ and &quot;overwrite&quot;. By default, the update mode is &quot;merge&quot;. **/
 Swagger definition JSON files are supported. **/
         body: Blob;
     }
+    export interface QuotaSettings {
+        /** The maximum number of requests that can be made in a given time period. **/
+        limit?: Integer;
+        /** The number of requests subtracted from the given limit in the initial time
+period. **/
+        offset?: Integer;
+        /** The time period in which the limit applies. Valid values are &quot;DAY&quot;, &quot;WEEK&quot; or
+&quot;MONTH&quot;. **/
+        period?: QuotaPeriodType;
+    }
     export interface Resource {
         /** The resource&#x27;s identifier. **/
         id?: String;
@@ -1832,8 +2227,23 @@ Swagger definition JSON files are supported. **/
         pathPart?: String;
         /** The full path for this resource. **/
         path?: String;
-        /** Map of methods for this resource, which is included only if the request uses the 
-embed query option. **/
+        /** Gets an API resource&#x27;s method of a given HTTP verb.
+
+The resource methods are a map of methods indexed by methods&#x27; HTTP verbs enabled
+on the resource. This method map is included in the 200 OK response of the GET
+/restapis/{restapi_id}/resources/{resource_id} or GET
+/restapis/{restapi_id}/resources/{resource_id}?embed=methods request.
+
+EXAMPLE: GET THE GET METHOD OF AN API RESOURCE
+REQUEST
+GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160608T031827Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160608/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}
+
+RESPONSE
+{ &quot;_links&quot;: { &quot;curies&quot;: [ { &quot;href&quot;: &quot;http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html&quot;, &quot;name&quot;: &quot;integration&quot;, &quot;templated&quot;: true }, { &quot;href&quot;: &quot;http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html&quot;, &quot;name&quot;: &quot;integrationresponse&quot;, &quot;templated&quot;: true }, { &quot;href&quot;: &quot;http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-{rel}.html&quot;, &quot;name&quot;: &quot;method&quot;, &quot;templated&quot;: true }, { &quot;href&quot;: &quot;http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-method-response-{rel}.html&quot;, &quot;name&quot;: &quot;methodresponse&quot;, &quot;templated&quot;: true } ], &quot;self&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET&quot;, &quot;name&quot;: &quot;GET&quot;, &quot;title&quot;: &quot;GET&quot; }, &quot;integration:put&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration&quot; }, &quot;method:delete&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET&quot; }, &quot;method:integration&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration&quot; }, &quot;method:responses&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200&quot;, &quot;name&quot;: &quot;200&quot;, &quot;title&quot;: &quot;200&quot; }, &quot;method:update&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET&quot; }, &quot;methodresponse:put&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/{status_code}&quot;, &quot;templated&quot;: true } }, &quot;apiKeyRequired&quot;: false, &quot;authorizationType&quot;: &quot;NONE&quot;, &quot;httpMethod&quot;: &quot;GET&quot;, &quot;_embedded&quot;: { &quot;method:integration&quot;: { &quot;_links&quot;: { &quot;self&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration&quot; }, &quot;integration:delete&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration&quot; }, &quot;integration:responses&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot;, &quot;name&quot;: &quot;200&quot;, &quot;title&quot;: &quot;200&quot; }, &quot;integration:update&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration&quot; }, &quot;integrationresponse:put&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/{status_code}&quot;, &quot;templated&quot;: true } }, &quot;cacheKeyParameters&quot;: [], &quot;cacheNamespace&quot;: &quot;3kzxbg5sa2&quot;, &quot;credentials&quot;: &quot;arn:aws:iam::123456789012:role/apigAwsProxyRole&quot;, &quot;httpMethod&quot;: &quot;POST&quot;, &quot;passthroughBehavior&quot;: &quot;WHEN_NO_MATCH&quot;, &quot;requestParameters&quot;: { &quot;integration.request.header.Content-Type&quot;: &quot;&#x27;application/x-amz-json-1.1&#x27;&quot; }, &quot;requestTemplates&quot;: { &quot;application/json&quot;: &quot;{\n}&quot; }, &quot;type&quot;: &quot;AWS&quot;, &quot;uri&quot;: &quot;arn:aws:apigateway:us-east-1:kinesis:action/ListStreams&quot;, &quot;_embedded&quot;: { &quot;integration:responses&quot;: { &quot;_links&quot;: { &quot;self&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot;, &quot;name&quot;: &quot;200&quot;, &quot;title&quot;: &quot;200&quot; }, &quot;integrationresponse:delete&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot; }, &quot;integrationresponse:update&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200&quot; } }, &quot;responseParameters&quot;: { &quot;method.response.header.Content-Type&quot;: &quot;&#x27;application/xml&#x27;&quot; }, &quot;responseTemplates&quot;: { &quot;application/json&quot;: &quot;$util.urlDecode(\&quot;%3CkinesisStreams%3E#foreach($stream in $input.path(&#x27;$.StreamNames&#x27;))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\&quot;)\n&quot; }, &quot;statusCode&quot;: &quot;200&quot; } } }, &quot;method:responses&quot;: { &quot;_links&quot;: { &quot;self&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200&quot;, &quot;name&quot;: &quot;200&quot;, &quot;title&quot;: &quot;200&quot; }, &quot;methodresponse:delete&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200&quot; }, &quot;methodresponse:update&quot;: { &quot;href&quot;: &quot;/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/responses/200&quot; } }, &quot;responseModels&quot;: { &quot;application/json&quot;: &quot;Empty&quot; }, &quot;responseParameters&quot;: { &quot;method.response.header.Content-Type&quot;: false }, &quot;statusCode&quot;: &quot;200&quot; } } }
+
+If the OPTIONS is enabled on the resource, you can follow the example here to
+get that method. Just replace the GET of the last path segment in the request
+URL with OPTIONS . **/
         resourceMethods?: MapOfMethod;
     }
     export interface Resources {
@@ -1852,6 +2262,8 @@ Amazon API Gateway. **/
         /** The date when the API was created, in ISO 8601 format
 [http://www.iso.org/iso/home/standards/iso8601.htm] . **/
         createdDate?: Timestamp;
+        /** The warning messages reported when failonwarnings is turned on during API
+import. **/
         warnings?: ListOfString;
     }
     export interface RestApis {
@@ -1862,7 +2274,7 @@ Amazon API Gateway. **/
     export interface SdkResponse {
         /** The content-type header value in the HTTP response. **/
         contentType?: String;
-        /** The content-disposition header value in the HTTP reseponse. **/
+        /** The content-disposition header value in the HTTP response. **/
         contentDisposition?: String;
         /** The binary blob response to GetSdk , which contains the generated SDK. **/
         body?: Blob;
@@ -1874,6 +2286,7 @@ Amazon API Gateway. **/
     export interface Stage {
         /** The identifier of the Deployment that the stage points to. **/
         deploymentId?: String;
+        /** The identifier of a client certificate for an API stage. **/
         clientCertificateId?: String;
         /** The name of the stage is the first path segment in the Uniform Resource
 Identifier (URI) of a call to Amazon API Gateway. **/
@@ -1886,13 +2299,16 @@ Identifier (URI) of a call to Amazon API Gateway. **/
         cacheClusterSize?: CacheClusterSize;
         /** The status of the cache cluster for the stage, if enabled. **/
         cacheClusterStatus?: CacheClusterStatus;
-        /** A map that defines the method settings for a Stage resource. Keys are defined as 
-{resource_path}/{http_method} for an individual method override, or \&amp;#42;/\* for
-the settings applied to all methods in the stage. **/
+        /** A map that defines the method settings for a Stage resource. Keys (designated as 
+/{method_setting_key below) are method paths defined as 
+{resource_path}/{http_method} for an individual method override, or /\&amp;#42;/\* for
+overriding all methods in the stage. Any forward slash (&quot;/&quot;) characters in the 
+resource_path part must be encoded as &quot;~1&quot; as in, for example, 
+~1resource~1sub-resource/GET . **/
         methodSettings?: MapOfMethodSettings;
         /** A map that defines the stage variables for a Stage resource. Variable names can
-have alphanumeric characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+ 
-. **/
+have alphanumeric and underscore characters, and the values must match 
+[A-Za-z0-9-._~:/?#&amp;=,]+ . **/
         variables?: MapOfStringToString;
         /** The date and time that the stage was created, in ISO 8601 format
 [http://www.iso.org/iso/home/standards/iso8601.htm] . **/
@@ -1943,13 +2359,17 @@ authorizer succeeded. **/
         clientStatus?: Integer;
         /** The Amazon API Gateway execution log for the test authorizer request. **/
         log?: String;
-        /** The execution latency of the test authorizer request **/
+        /** The execution latency of the test authorizer request. **/
         latency?: Long;
         /** The principal identity returned by the Authorizer **/
         principalId?: String;
-        /** The policy JSON document returned by the Authorizer **/
+        /** The JSON policy document returned by the Authorizer **/
         policy?: String;
         authorization?: MapOfStringToList;
+        /** The open identity claims
+[http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims] , with any
+supported custom attributes, returned from the Cognito Your User Pool configured
+for the API. **/
         claims?: MapOfStringToString;
     }
     export interface TestInvokeMethodRequest {
@@ -1967,7 +2387,7 @@ this to specify path parameters and query string parameters. **/
         /** A key-value map of headers to simulate an incoming invocation request. **/
         headers?: MapOfHeaderValues;
         /** A ClientCertificate identifier to use in the test invocation. API Gateway will
-use use the certificate when making the HTTPS request to the defined backend
+use the certificate when making the HTTPS request to the defined back-end
 endpoint. **/
         clientCertificateId?: String;
         /** A key-value map of stage variables to simulate an invocation on a deployed Stage 
@@ -1977,9 +2397,9 @@ endpoint. **/
     export interface TestInvokeMethodResponse {
         /** The HTTP status code. **/
         status?: Integer;
-        /** The body of HTTP response. **/
+        /** The body of the HTTP response. **/
         body?: String;
-        /** The headers of HTTP response. **/
+        /** The headers of the HTTP response. **/
         headers?: MapOfHeaderValues;
         /** The Amazon API Gateway execution log for the test invoke request. **/
         log?: String;
@@ -1987,9 +2407,11 @@ endpoint. **/
         latency?: Long;
     }
     export interface ThrottleSettings {
-        /** Returns the burstLimit when ThrottleSettings is called. **/
+        /** The API request burst limit, the maximum rate limit over a time ranging from one
+to a few seconds, depending upon whether the underlying token bucket is at its
+full capacity. **/
         burstLimit?: Integer;
-        /** Returns the rateLimit when ThrottleSettings is called. **/
+        /** The API request steady-state rate limit. **/
         rateLimit?: Double;
     }
     export interface TooManyRequestsException {
@@ -2000,15 +2422,15 @@ endpoint. **/
         message?: String;
     }
     export interface UpdateAccountRequest {
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
     export interface UpdateApiKeyRequest {
         /** The identifier of the ApiKey resource to be updated. **/
         apiKey: String;
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
     export interface UpdateAuthorizerRequest {
@@ -2016,8 +2438,8 @@ The patches are applied in the order specified in the list. **/
         restApiId: String;
         /** The identifier of the Authorizer resource. **/
         authorizerId: String;
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
     export interface UpdateBasePathMappingRequest {
@@ -2025,33 +2447,33 @@ The patches are applied in the order specified in the list. **/
         domainName: String;
         /** The base path of the BasePathMapping resource to change. **/
         basePath: String;
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
     export interface UpdateClientCertificateRequest {
         /** The identifier of the ClientCertificate resource to be updated. **/
         clientCertificateId: String;
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
     export interface UpdateDeploymentRequest {
         /** The replacement identifier of the RestApi resource for the Deployment resource
 to change information about. **/
         restApiId: String;
-        /** The replacment identifier for the Deployment resource to change information
+        /** The replacement identifier for the Deployment resource to change information
 about. **/
         deploymentId: String;
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
     export interface UpdateDomainNameRequest {
         /** The name of the DomainName resource to be changed. **/
         domainName: String;
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
     export interface UpdateIntegrationRequest {
@@ -2061,8 +2483,8 @@ The patches are applied in the order specified in the list. **/
         resourceId: String;
         /** Represents an update integration request&#x27;s HTTP method. **/
         httpMethod: String;
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
     export interface UpdateIntegrationResponseRequest {
@@ -2074,8 +2496,8 @@ The patches are applied in the order specified in the list. **/
         httpMethod: String;
         /** Specifies an update integration response request&#x27;s status code. **/
         statusCode: StatusCode;
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
     export interface UpdateMethodRequest {
@@ -2083,10 +2505,10 @@ The patches are applied in the order specified in the list. **/
         restApiId: String;
         /** The Resource identifier for the Method resource. **/
         resourceId: String;
-        /** The HTTP verb that identifies the Method resource. **/
+        /** The HTTP verb of the Method resource. **/
         httpMethod: String;
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
     export interface UpdateMethodResponseRequest {
@@ -2094,12 +2516,12 @@ The patches are applied in the order specified in the list. **/
         restApiId: String;
         /** The Resource identifier for the MethodResponse resource. **/
         resourceId: String;
-        /** The HTTP verb identifier for the parent Method resource. **/
+        /** The HTTP verb of the Method resource. **/
         httpMethod: String;
-        /** The status code identifier for the MethodResponse resource. **/
+        /** The status code for the MethodResponse resource. **/
         statusCode: StatusCode;
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
     export interface UpdateModelRequest {
@@ -2107,8 +2529,8 @@ The patches are applied in the order specified in the list. **/
         restApiId: String;
         /** The name of the model to update. **/
         modelName: String;
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
     export interface UpdateResourceRequest {
@@ -2116,15 +2538,15 @@ The patches are applied in the order specified in the list. **/
         restApiId: String;
         /** The identifier of the Resource resource. **/
         resourceId: String;
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
     export interface UpdateRestApiRequest {
         /** The ID of the RestApi you want to update. **/
         restApiId: String;
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
     }
     export interface UpdateStageRequest {
@@ -2133,9 +2555,75 @@ information about. **/
         restApiId: String;
         /** The name of the Stage resource to change information about. **/
         stageName: String;
-        /** A list of operations describing the updates to apply to the specified resource.
-The patches are applied in the order specified in the list. **/
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
         patchOperations?: ListOfPatchOperation;
+    }
+    export interface UpdateUsagePlanRequest {
+        /** The Id of the to-be-updated usage plan. **/
+        usagePlanId: String;
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
+        patchOperations?: ListOfPatchOperation;
+    }
+    export interface UpdateUsageRequest {
+        /** The Id of the usage plan associated with the usage data. **/
+        usagePlanId: String;
+        /** The identifier of the API key associated with the usage plan in which a
+temporary extension is granted to the remaining quota. **/
+        keyId: String;
+        /** A list of update operations to be applied to the specified resource and in the
+order specified in this list. **/
+        patchOperations?: ListOfPatchOperation;
+    }
+    export interface Usage {
+        /** The plan Id associated with this usage data. **/
+        usagePlanId?: String;
+        /** The starting date of the usage data. **/
+        startDate?: String;
+        /** The ending date of the usage data. **/
+        endDate?: String;
+        position?: String;
+        /** The usage data, as daily logs of used and remaining quotas, over the specified
+time interval indexed over the API keys in a usage plan. For example, {...,
+&quot;values&quot; : { &quot;{api_key}&quot; : [ [0, 100], [10, 90], [100, 10]]} , where {api_key} 
+stands for an API key value and the daily log entry is of the format [used
+quota, remaining quota] . **/
+        items?: MapOfKeyUsages;
+    }
+    export interface UsagePlan {
+        /** The identifier of a UsagePlan resource. **/
+        id?: String;
+        /** The name of a usage plan. **/
+        name?: String;
+        /** The description of a usage plan. **/
+        description?: String;
+        /** The associated API stages of a usage plan. **/
+        apiStages?: ListOfApiStage;
+        /** The request throttle limits of a usage plan. **/
+        throttle?: ThrottleSettings;
+        /** The maximum number of permitted requests per a given unit time interval. **/
+        quota?: QuotaSettings;
+    }
+    export interface UsagePlanKey {
+        /** The Id of a usage plan key. **/
+        id?: String;
+        /** The type of a usage plan key. Currently, the valid key type is API_KEY . **/
+        type?: String;
+        /** The value of a usage plan key. **/
+        value?: String;
+        /** The name of a usage plan key. **/
+        name?: String;
+    }
+    export interface UsagePlanKeys {
+        position?: String;
+        /** Gets the current item of the usage plan keys collection. **/
+        items?: ListOfUsagePlanKey;
+    }
+    export interface UsagePlans {
+        position?: String;
+        /** Gets the current item when enumerating the collection of UsagePlan . **/
+        items?: ListOfUsagePlan;
     }
   }
 }
