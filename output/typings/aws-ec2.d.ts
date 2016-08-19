@@ -42,7 +42,7 @@ in the Amazon Elastic Compute Cloud User Guide .
      */
     allocateAddress(params: EC2.AllocateAddressRequest, callback?: (err: any, data: EC2.AllocateAddressResult|any) => void): Request<EC2.AllocateAddressResult|any,any>;
     /**
-     * Allocates a Dedicated host to your account. At minimum you need to specify the
+     * Allocates a Dedicated Host to your account. At minimum you need to specify the
 instance size type, Availability Zone, and quantity of hosts you want to
 allocate.
      *
@@ -268,10 +268,9 @@ partially uploaded volume or instance. If the conversion is complete or is in
 the process of transferring the final disk image, the command fails and returns
 an exception.
 
-For more information, see Using the Command Line Tools to Import Your Virtual
-Machine to Amazon EC2
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+For more information, see Importing a Virtual Machine Using the Amazon EC2 CLI
+[http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html] 
+.
      *
      */
     cancelConversionTask(params: EC2.CancelConversionRequest, callback?: (err: any, data: any) => void): Request<any,any>;
@@ -482,10 +481,10 @@ the Amazon Elastic Compute Cloud User Guide .
      * Exports a running or stopped instance to an S3 bucket.
 
 For information about the supported operating systems, image formats, and known
-limitations for the types of instances you can export, see Exporting EC2
-Instances
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+limitations for the types of instances you can export, see Exporting an Instance
+as a VM Using VM Import/Export
+[http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html] in the VM
+Import/Export User Guide .
      *
      */
     createInstanceExportTask(params: EC2.CreateInstanceExportTaskRequest, callback?: (err: any, data: EC2.CreateInstanceExportTaskResult|any) => void): Request<EC2.CreateInstanceExportTaskResult|any,any>;
@@ -1148,10 +1147,9 @@ instances.
      */
     describeClassicLinkInstances(params: EC2.DescribeClassicLinkInstancesRequest, callback?: (err: any, data: EC2.DescribeClassicLinkInstancesResult|any) => void): Request<EC2.DescribeClassicLinkInstancesResult|any,any>;
     /**
-     * Describes one or more of your conversion tasks. For more information, see Using
-the Command Line Tools to Import Your Virtual Machine to Amazon EC2
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+     * Describes one or more of your conversion tasks. For more information, see the VM
+Import/Export User Guide
+[http://docs.aws.amazon.com/vm-import/latest/userguide/] .
 
 For information about the import manifest referenced by this API action, see VM
 Import Manifest
@@ -1191,11 +1189,31 @@ console or the CloudWatch Logs API.
      */
     describeFlowLogs(params: EC2.DescribeFlowLogsRequest, callback?: (err: any, data: EC2.DescribeFlowLogsResult|any) => void): Request<EC2.DescribeFlowLogsResult|any,any>;
     /**
-     * Describes one or more of your Dedicated hosts.
+     * Describes the Dedicated Host Reservations that are available to purchase.
 
-The results describe only the Dedicated hosts in the region you&#x27;re currently
-using. All listed instances consume capacity on your Dedicated host. Dedicated
-hosts that have recently been released will be listed with the state released .
+The results describe all the Dedicated Host Reservation offerings, including
+offerings that may not match the instance family and region of your Dedicated
+Hosts. When purchasing an offering, ensure that the the instance family and
+region of the offering matches that of the Dedicated Host/s it will be
+associated with. For an overview of supported instance types, see Dedicated
+Hosts Overview
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html] 
+in the Amazon Elastic Compute Cloud User Guide .
+     *
+     */
+    describeHostReservationOfferings(params: EC2.DescribeHostReservationOfferingsRequest, callback?: (err: any, data: EC2.DescribeHostReservationOfferingsResult|any) => void): Request<EC2.DescribeHostReservationOfferingsResult|any,any>;
+    /**
+     * Describes Dedicated Host Reservations which are associated with Dedicated Hosts
+in your account.
+     *
+     */
+    describeHostReservations(params: EC2.DescribeHostReservationsRequest, callback?: (err: any, data: EC2.DescribeHostReservationsResult|any) => void): Request<EC2.DescribeHostReservationsResult|any,any>;
+    /**
+     * Describes one or more of your Dedicated Hosts.
+
+The results describe only the Dedicated Hosts in the region you&#x27;re currently
+using. All listed instances consume capacity on your Dedicated Host. Dedicated
+Hosts that have recently been released will be listed with the state released .
      *
      */
     describeHosts(params: EC2.DescribeHostsRequest, callback?: (err: any, data: EC2.DescribeHostsResult|any) => void): Request<EC2.DescribeHostsResult|any,any>;
@@ -1809,11 +1827,11 @@ Elastic IP addresses.
     /**
      * Detaches an EBS volume from an instance. Make sure to unmount any file systems
 on the device within your operating system before detaching the volume. Failure
-to do so results in the volume being stuck in a busy state while detaching.
-
-If an Amazon EBS volume is the root device of an instance, it can&#x27;t be detached
-while the instance is running. To detach the root volume, stop the instance
-first.
+to do so can result in the volume becoming stuck in the busy state while
+detaching. If this happens, detachment can be delayed indefinitely until you
+unmount the volume, force detachment, reboot the instance, or all three. If an
+EBS volume is the root device of an instance, it can&#x27;t be detached while the
+instance is running. To detach the root volume, stop the instance first.
 
 When a volume with an AWS Marketplace product code is detached from an instance,
 the product code is no longer associated with the instance.
@@ -1950,6 +1968,16 @@ The returned content is Base64-encoded.
      */
     getConsoleScreenshot(params: EC2.GetConsoleScreenshotRequest, callback?: (err: any, data: EC2.GetConsoleScreenshotResult|any) => void): Request<EC2.GetConsoleScreenshotResult|any,any>;
     /**
+     * Preview a reservation purchase with configurations that match those of your
+Dedicated Host. You must have active Dedicated Hosts in your account before you
+purchase a reservation.
+
+This is a preview of the PurchaseHostReservation action and does not result in
+the offering being purchased.
+     *
+     */
+    getHostReservationPurchasePreview(params: EC2.GetHostReservationPurchasePreviewRequest, callback?: (err: any, data: EC2.GetHostReservationPurchasePreviewResult|any) => void): Request<EC2.GetHostReservationPurchasePreviewResult|any,any>;
+    /**
      * Retrieves the encrypted administrator password for an instance running Windows.
 
 The Windows password is generated at boot if the EC2Config service plugin, 
@@ -1968,18 +1996,20 @@ generated password.
     getPasswordData(params: EC2.GetPasswordDataRequest, callback?: (err: any, data: EC2.GetPasswordDataResult|any) => void): Request<EC2.GetPasswordDataResult|any,any>;
     /**
      * Import single or multi-volume disk images or EBS snapshots into an Amazon
-Machine Image (AMI).
+Machine Image (AMI). For more information, see Importing a VM as an Image Using
+VM Import/Export
+[http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html] 
+in the VM Import/Export User Guide .
      *
      */
     importImage(params: EC2.ImportImageRequest, callback?: (err: any, data: EC2.ImportImageResult|any) => void): Request<EC2.ImportImageResult|any,any>;
     /**
      * Creates an import instance task using metadata from the specified disk image. 
 ImportInstance only supports single-volume VMs. To import multi-volume VMs, use 
-ImportImage . After importing the image, you then upload it using the 
-ec2-import-volume command in the EC2 command line tools. For more information,
-see Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+ImportImage . For more information, see Importing a Virtual Machine Using the
+Amazon EC2 CLI
+[http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html] 
+.
 
 For information about the import manifest referenced by this API action, see VM
 Import Manifest
@@ -2006,13 +2036,10 @@ Amazon Elastic Compute Cloud User Guide .
      */
     importSnapshot(params: EC2.ImportSnapshotRequest, callback?: (err: any, data: EC2.ImportSnapshotResult|any) => void): Request<EC2.ImportSnapshotResult|any,any>;
     /**
-     * Creates an import volume task using metadata from the specified disk image.
-After importing the image, you then upload it using the ec2-import-volume 
-command in the Amazon EC2 command-line interface (CLI) tools. For more
-information, see Using the Command Line Tools to Import Your Virtual Machine to
-Amazon EC2
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+     * Creates an import volume task using metadata from the specified disk image.For
+more information, see Importing Disks to Amazon EBS
+[http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/importing-your-volumes-into-amazon-ebs.html] 
+.
 
 For information about the import manifest referenced by this API action, see VM
 Import Manifest
@@ -2021,9 +2048,9 @@ Import Manifest
      */
     importVolume(params: EC2.ImportVolumeRequest, callback?: (err: any, data: EC2.ImportVolumeResult|any) => void): Request<EC2.ImportVolumeResult|any,any>;
     /**
-     * Modify the auto-placement setting of a Dedicated host. When auto-placement is
+     * Modify the auto-placement setting of a Dedicated Host. When auto-placement is
 enabled, AWS will place instances that you launch with a tenancy of host , but
-without targeting a specific host ID, onto any available Dedicated host in your
+without targeting a specific host ID, onto any available Dedicated Host in your
 account which has auto-placement enabled. When auto-placement is disabled, you
 need to provide a host ID if you want the instance to launch onto a specific
 host. If no host ID is provided, the instance will be launched onto a suitable
@@ -2098,7 +2125,7 @@ in the Amazon Elastic Compute Cloud User Guide .
 instance tenancy setting.
 
 Instance affinity is disabled by default. When instance affinity is host and it
-is not associated with a specific Dedicated host, the next time it is launched
+is not associated with a specific Dedicated Host, the next time it is launched
 it will automatically be associated with the host it lands on. This relationship
 will persist if the instance is stopped/started, or rebooted.
 
@@ -2252,6 +2279,14 @@ platform to the EC2-Classic platform.
      */
     moveAddressToVpc(params: EC2.MoveAddressToVpcRequest, callback?: (err: any, data: EC2.MoveAddressToVpcResult|any) => void): Request<EC2.MoveAddressToVpcResult|any,any>;
     /**
+     * Purchase a reservation with configurations that match those of your Dedicated
+Host. You must have active Dedicated Hosts in your account before you purchase a
+reservation. This action results in the specified reservation being purchased
+and charged to your account.
+     *
+     */
+    purchaseHostReservation(params: EC2.PurchaseHostReservationRequest, callback?: (err: any, data: EC2.PurchaseHostReservationResult|any) => void): Request<EC2.PurchaseHostReservationResult|any,any>;
+    /**
      * Purchases a Reserved Instance for use with your account. With Reserved
 Instances, you obtain a capacity reservation for a certain instance
 configuration over a specified period of time and pay a lower hourly rate
@@ -2367,13 +2402,13 @@ InvalidIPAddress.InUse ).
      */
     releaseAddress(params: EC2.ReleaseAddressRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
-     * When you no longer want to use a Dedicated host it can be released. On-Demand
-billing is stopped and the host goes into released state. The host ID of
-Dedicated hosts that have been released can no longer be specified in another
+     * When you no longer want to use an On-Demand Dedicated Host it can be released.
+On-Demand billing is stopped and the host goes into released state. The host ID
+of Dedicated Hosts that have been released can no longer be specified in another
 request, e.g., ModifyHosts. You must stop or terminate all instances on a host
 before it can be released.
 
-When Dedicated hosts are released, it make take some time for them to stop
+When Dedicated Hosts are released, it make take some time for them to stop
 counting toward your limit and you may receive capacity errors when trying to
 allocate new Dedicated hosts. Try waiting a few minutes, and then try again.
 
@@ -2729,6 +2764,8 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type ActiveInstanceSet = ActiveInstance[];
     
+    export type ActivityStatus = string;
+    
     export type AddressList = Address[];
     
     export type Affinity = string;
@@ -2862,6 +2899,12 @@ the Amazon Elastic Compute Cloud User Guide .
     export type HostInstanceList = HostInstance[];
     
     export type HostList = Host[];
+    
+    export type HostOfferingSet = HostOffering[];
+    
+    export type HostReservationIdSet = String[];
+    
+    export type HostReservationSet = HostReservation[];
     
     export type HostTenancy = string;
     
@@ -2999,6 +3042,8 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type OwnerStringList = String[];
     
+    export type PaymentOption = string;
+    
     export type PermissionGroup = string;
     
     export type PlacementGroupList = PlacementGroup[];
@@ -3043,6 +3088,8 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type PurchaseRequestSet = PurchaseRequest[];
     
+    export type PurchaseSet = Purchase[];
+    
     export type PurchasedScheduledInstanceSet = ScheduledInstance[];
     
     export type RIProductDescription = string;
@@ -3063,7 +3110,11 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type RequestHostIdList = String[];
     
+    export type RequestHostIdSet = String[];
+    
     export type ReservationList = Reservation[];
+    
+    export type ReservationState = string;
     
     export type ReservedInstanceState = string;
     
@@ -3094,6 +3145,8 @@ the Amazon Elastic Compute Cloud User Guide .
     export type ResourceType = string;
     
     export type ResponseHostIdList = String[];
+    
+    export type ResponseHostIdSet = String[];
     
     export type RestorableByStringList = String[];
     
@@ -3338,7 +3391,7 @@ address for use with instances in a VPC. **/
     }
     export interface AllocateHostsRequest {
         /** This is enabled by default. This property allows instances to be automatically
-placed onto available Dedicated hosts, when you are launching instances without
+placed onto available Dedicated Hosts, when you are launching instances without
 specifying a host ID.
 
 Default: Enabled **/
@@ -3348,18 +3401,18 @@ request. For more information, see How to Ensure Idempotency
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html] 
 in the Amazon Elastic Compute Cloud User Guide . **/
         ClientToken?: String;
-        /** Specify the instance type that you want your Dedicated hosts to be configured
+        /** Specify the instance type that you want your Dedicated Hosts to be configured
 for. When you specify the instance type, that is the only instance type that you
 can launch onto that host. **/
         InstanceType: String;
-        /** The number of Dedicated hosts you want to allocate to your account with these
+        /** The number of Dedicated Hosts you want to allocate to your account with these
 parameters. **/
         Quantity: Integer;
-        /** The Availability Zone for the Dedicated hosts. **/
+        /** The Availability Zone for the Dedicated Hosts. **/
         AvailabilityZone: String;
     }
     export interface AllocateHostsResult {
-        /** The ID of the allocated Dedicated host. This is used when you want to launch an
+        /** The ID of the allocated Dedicated Host. This is used when you want to launch an
 instance onto a specific host. **/
         HostIds?: ResponseHostIdList;
     }
@@ -3615,9 +3668,9 @@ command. **/
         Message?: String;
     }
     export interface AvailableCapacity {
-        /** The total number of instances that the Dedicated host supports. **/
+        /** The total number of instances that the Dedicated Host supports. **/
         AvailableInstanceCapacity?: AvailableInstanceCapacityList;
-        /** The number of vCPUs available on the Dedicated host. **/
+        /** The number of vCPUs available on the Dedicated Host. **/
         AvailableVCpus?: Integer;
     }
     export interface BlobAttributeValue {
@@ -5135,8 +5188,76 @@ parameter and the flow log IDs parameter in the same request. **/
 there are no more results to return. **/
         NextToken?: String;
     }
+    export interface DescribeHostReservationOfferingsRequest {
+        /** The ID of the reservation offering. **/
+        OfferingId?: String;
+        /** This is the minimum duration of the reservation you&#x27;d like to purchase,
+specified in seconds. Reservations are available in 1, 3, and 5 year terms. The
+number of seconds specified must be the number of seconds in a year
+(365x24x60x60) times one of the supported durations (1, 3, or 5). For example,
+specify 94608000 for 3 years. **/
+        MinDuration?: Integer;
+        /** This is the maximum duration of the reservation you&#x27;d like to purchase,
+specified in seconds.Reservations are available in 1, 3, and 5 year terms. The
+number of seconds specified must be the number of seconds in a year
+(365x24x60x60) times one of the supported durations (1, 3, or 5). For example,
+specify 157680000 for 5 years. **/
+        MaxDuration?: Integer;
+        /** One or more filters.
+
+ &amp;#42; instance-family - The instance family of the offering (e.g., m4 ).
+   
+   
+ * payment-option - The payment option ( No Upfront | Partial Upfront | All
+   Upfront ). **/
+        Filter?: FilterList;
+        /** The maximum number of results to return for the request in a single page. The
+remaining results can be seen by sending another request with the returned 
+nextToken value. This value can be between 5 and 500; if maxResults is given a
+larger value than 500, you will receive an error. **/
+        MaxResults?: Integer;
+        /** The token to use to retrieve the next page of results. **/
+        NextToken?: String;
+    }
+    export interface DescribeHostReservationOfferingsResult {
+        /** Information about the offerings. **/
+        OfferingSet?: HostOfferingSet;
+        /** The token to use to retrieve the next page of results. This value is null when
+there are no more results to return. **/
+        NextToken?: String;
+    }
+    export interface DescribeHostReservationsRequest {
+        /** One or more host reservation IDs. **/
+        HostReservationIdSet?: HostReservationIdSet;
+        /** One or more filters.
+
+ &amp;#42; instance-family - The instance family (e.g., m4 ).
+   
+   
+ * payment-option - The payment option ( No Upfront | Partial Upfront | All
+   Upfront ).
+   
+   
+ * state - The state of the reservation ( payment-pending | payment-failed | 
+   active | retired ). **/
+        Filter?: FilterList;
+        /** The maximum number of results to return for the request in a single page. The
+remaining results can be seen by sending another request with the returned 
+nextToken value. This value can be between 5 and 500; if maxResults is given a
+larger value than 500, you will receive an error. **/
+        MaxResults?: Integer;
+        /** The token to use to retrieve the next page of results. **/
+        NextToken?: String;
+    }
+    export interface DescribeHostReservationsResult {
+        /** Details about the reservation&#x27;s configuration. **/
+        HostReservationSet?: HostReservationSet;
+        /** The token to use to retrieve the next page of results. This value is null when
+there are no more results to return. **/
+        NextToken?: String;
+    }
     export interface DescribeHostsRequest {
-        /** The IDs of the Dedicated hosts. The IDs are used for targeted instance launches. **/
+        /** The IDs of the Dedicated Hosts. The IDs are used for targeted instance launches. **/
         HostIds?: RequestHostIdList;
         /** The token to retrieve the next page of results. **/
         NextToken?: String;
@@ -5148,21 +5269,21 @@ parameter and the host IDs parameter in the same request. **/
         MaxResults?: Integer;
         /** One or more filters.
 
- &amp;#42; instance-type - The instance type size that the Dedicated host is configured
+ &amp;#42; instance-type - The instance type size that the Dedicated Host is configured
    to support.
    
    
  * auto-placement - Whether auto-placement is enabled or disabled ( on | off ).
    
    
- * host-reservation-id - The ID of the reservation associated with this host.
+ * host-reservation-id - The ID of the reservation assigned to this host.
    
    
  * client-token - The idempotency token you provided when you launched the
    instance
    
    
- * state - The allocation state of the Dedicated host ( available | 
+ * state - The allocation state of the Dedicated Host ( available | 
    under-assessment | permanent-failure | released | released-permanent-failure 
    ).
    
@@ -5171,14 +5292,14 @@ parameter and the host IDs parameter in the same request. **/
         Filter?: FilterList;
     }
     export interface DescribeHostsResult {
-        /** Information about the Dedicated hosts. **/
+        /** Information about the Dedicated Hosts. **/
         Hosts?: HostList;
         /** The token to use to retrieve the next page of results. This value is null when
 there are no more results to return. **/
         NextToken?: String;
     }
     export interface DescribeIdFormatRequest {
-        /** The type of resource. **/
+        /** The type of resource: instance | reservation | snapshot | volume **/
         Resource?: String;
     }
     export interface DescribeIdFormatResult {
@@ -5186,7 +5307,7 @@ there are no more results to return. **/
         Statuses?: IdFormatList;
     }
     export interface DescribeIdentityIdFormatRequest {
-        /** The type of resource. **/
+        /** The type of resource: instance | reservation | snapshot | volume **/
         Resource?: String;
         /** The ARN of the principal, which can be an IAM role, IAM user, or the root user. **/
         PrincipalArn: String;
@@ -5220,10 +5341,10 @@ UnauthorizedOperation . **/
 
 Default: Describes all images available to you. **/
         ImageIds?: ImageIdStringList;
-        /** Filters the images by the owner. Specify an AWS account ID, amazon (owner is
-Amazon), aws-marketplace (owner is AWS Marketplace), self (owner is the sender
-of the request). Omitting this option returns all images for which you have
-launch permissions, regardless of ownership. **/
+        /** Filters the images by the owner. Specify an AWS account ID, self (owner is the
+sender of the request), or an AWS owner alias (valid values are amazon | 
+aws-marketplace | microsoft ). Omitting this option returns all images for which
+you have launch permissions, regardless of ownership. **/
         Owners?: OwnerStringList;
         /** Scopes the images by users with explicit launch permissions. Specify an AWS
 account ID, self (the sender of the request), or all (public AMIs). **/
@@ -5276,7 +5397,9 @@ account ID, self (the sender of the request), or all (public AMIs). **/
  * name - The name of the AMI (provided during image creation).
    
    
- * owner-alias - The AWS account alias (for example, amazon ).
+ * owner-alias - String value from an Amazon-maintained list ( amazon | 
+   aws-marketplace | microsoft ) of snapshot owners. Not to be confused with the
+   user-configured AWS account alias, which is set from the IAM console.
    
    
  * owner-id - The AWS account ID of the image owner.
@@ -5486,7 +5609,7 @@ Default: Describes all your instances. **/
         InstanceIds?: InstanceIdStringList;
         /** One or more filters.
 
- &amp;#42; affinity - The affinity setting for an instance running on a Dedicated host ( 
+ &amp;#42; affinity - The affinity setting for an instance running on a Dedicated Host ( 
    default | host ).
    
    
@@ -5529,7 +5652,7 @@ Default: Describes all your instances. **/
    only.
    
    
- * host-Id - The ID of the Dedicated host on which the instance is running, if
+ * host-id - The ID of the Dedicated Host on which the instance is running, if
    applicable.
    
    
@@ -6834,8 +6957,9 @@ specified. **/
  &amp;#42; description - A description of the snapshot.
    
    
- * owner-alias - The AWS account alias (for example, amazon ) that owns the
-   snapshot.
+ * owner-alias - Value from an Amazon-maintained list ( amazon | aws-marketplace 
+   | microsoft ) of snapshot owners. Not to be confused with the user-configured
+   AWS account alias, which is set from the IAM consolew.
    
    
  * owner-id - The ID of the AWS account that owns the snapshot.
@@ -8342,6 +8466,24 @@ standby or &quot;sleep&quot; mode. **/
         /** The data that comprises the image. **/
         ImageData?: String;
     }
+    export interface GetHostReservationPurchasePreviewRequest {
+        /** The offering ID of the reservation. **/
+        OfferingId: String;
+        /** The ID/s of the Dedicated Host/s that the reservation will be associated with. **/
+        HostIdSet: RequestHostIdSet;
+    }
+    export interface GetHostReservationPurchasePreviewResult {
+        /** The purchase information of the Dedicated Host Reservation and the Dedicated
+Hosts associated with it. **/
+        Purchase?: PurchaseSet;
+        /** The potential total upfront price. This is billed immediately. **/
+        TotalUpfrontPrice?: String;
+        /** The potential total hourly price of the reservation per hour. **/
+        TotalHourlyPrice?: String;
+        /** The currency in which the totalUpfrontPrice and totalHourlyPrice amounts are
+specified. At this time, the only supported currency is USD . **/
+        CurrencyCode?: CurrencyCodeValues;
+    }
     export interface GetPasswordDataRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
@@ -8384,45 +8526,94 @@ UnauthorizedOperation . **/
         EventInformation: EventInformation;
     }
     export interface Host {
-        /** The ID of the Dedicated host. **/
+        /** The ID of the Dedicated Host. **/
         HostId?: String;
         /** Whether auto-placement is on or off. **/
         AutoPlacement?: AutoPlacement;
-        /** The reservation ID of the Dedicated host. This returns a null response if the
-Dedicated host doesn&#x27;t have an associated reservation. **/
+        /** The reservation ID of the Dedicated Host. This returns a null response if the
+Dedicated Host doesn&#x27;t have an associated reservation. **/
         HostReservationId?: String;
         /** Unique, case-sensitive identifier you provide to ensure idempotency of the
 request. For more information, see How to Ensure Idempotency
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html] 
 in the Amazon Elastic Compute Cloud User Guide . **/
         ClientToken?: String;
-        /** The hardware specifications of the Dedicated host. **/
+        /** The hardware specifications of the Dedicated Host. **/
         HostProperties?: HostProperties;
-        /** The Dedicated host&#x27;s state. **/
+        /** The Dedicated Host&#x27;s state. **/
         State?: AllocationState;
-        /** The Availability Zone of the Dedicated host. **/
+        /** The Availability Zone of the Dedicated Host. **/
         AvailabilityZone?: String;
-        /** The IDs and instance type that are currently running on the Dedicated host. **/
+        /** The IDs and instance type that are currently running on the Dedicated Host. **/
         Instances?: HostInstanceList;
-        /** The number of new instances that can be launched onto the Dedicated host. **/
+        /** The number of new instances that can be launched onto the Dedicated Host. **/
         AvailableCapacity?: AvailableCapacity;
     }
     export interface HostInstance {
-        /** the IDs of instances that are running on the Dedicated host. **/
+        /** the IDs of instances that are running on the Dedicated Host. **/
         InstanceId?: String;
-        /** The instance type size (for example, m3.medium) of the running instance. **/
+        /** The instance type size (for example, m3.medium ) of the running instance. **/
         InstanceType?: String;
     }
+    export interface HostOffering {
+        /** The ID of the offering. **/
+        OfferingId?: String;
+        /** The instance family that the offering covers. **/
+        InstanceFamily?: String;
+        /** The available payment option. **/
+        PaymentOption?: PaymentOption;
+        /** The upfront price of the offering. Does not apply to No Upfront offerings. **/
+        UpfrontPrice?: String;
+        /** The hourly price of the offering. **/
+        HourlyPrice?: String;
+        /** The currency of the offering. **/
+        CurrencyCode?: CurrencyCodeValues;
+        /** The duration of the offering (in seconds). **/
+        Duration?: Integer;
+    }
     export interface HostProperties {
-        /** The number of sockets on the Dedicated host. **/
+        /** The number of sockets on the Dedicated Host. **/
         Sockets?: Integer;
-        /** The number of cores on the Dedicated host. **/
+        /** The number of cores on the Dedicated Host. **/
         Cores?: Integer;
-        /** The number of vCPUs on the Dedicated host. **/
+        /** The number of vCPUs on the Dedicated Host. **/
         TotalVCpus?: Integer;
-        /** The instance type size that the Dedicated host supports (for example,
-m3.medium). **/
+        /** The instance type size that the Dedicated Host supports (for example, m3.medium 
+). **/
         InstanceType?: String;
+    }
+    export interface HostReservation {
+        /** The ID of the reservation that specifies the associated Dedicated Hosts. **/
+        HostReservationId?: String;
+        /** The IDs of the Dedicated Hosts associated with the reservation. **/
+        HostIdSet?: ResponseHostIdSet;
+        /** The ID of the reservation. This remains the same regardless of which Dedicated
+Hosts are associated with it. **/
+        OfferingId?: String;
+        /** The instance family of the Dedicated Host Reservation. The instance family on
+the Dedicated Host must be the same in order for it to benefit from the
+reservation. **/
+        InstanceFamily?: String;
+        /** The payment option selected for this reservation. **/
+        PaymentOption?: PaymentOption;
+        /** The hourly price of the reservation. **/
+        HourlyPrice?: String;
+        /** The upfront price of the reservation. **/
+        UpfrontPrice?: String;
+        /** The currency in which the upfrontPrice and hourlyPrice amounts are specified. At
+this time, the only supported currency is USD . **/
+        CurrencyCode?: CurrencyCodeValues;
+        /** The number of Dedicated Hosts the reservation is associated with. **/
+        Count?: Integer;
+        /** The length of the reservation&#x27;s term, specified in seconds. Can be 31536000 (1
+year) | 94608000 (3 years) | 157680000 (5 years) . **/
+        Duration?: Integer;
+        /** The date and time that the reservation ends. **/
+        End?: DateTime;
+        /** The date and time that the reservation started. **/
+        Start?: DateTime;
+        /** The state of the reservation. **/
+        State?: ReservationState;
     }
     export interface IamInstanceProfile {
         /** The Amazon Resource Name (ARN) of the instance profile. **/
@@ -8559,10 +8750,10 @@ UnauthorizedOperation . **/
         /** The license type to be used for the Amazon Machine Image (AMI) after importing.
 
 Note: You may only use BYOL if you have existing licenses with rights to use
-these licenses in a third party cloud like AWS. For more information, see VM
-Import/Export Prerequisites
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html] 
-in the Amazon Elastic Compute Cloud User Guide .
+these licenses in a third party cloud like AWS. For more information, see 
+Prerequisites
+[http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image] 
+in the VM Import/Export User Guide.
 
 Valid values: AWS | BYOL **/
         LicenseType?: String;
@@ -8651,9 +8842,9 @@ command line tool, Base64-encoding is performed for you, and you can load the
 text from a file. Otherwise, you must provide Base64-encoded text. **/
         UserData?: UserData;
         /** The instance type. For more information about the instance types that you can
-import, see Before You Get Started
-[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html] 
-in the Amazon Elastic Compute Cloud User Guide. **/
+import, see Instance Types
+[http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#vmimport-instance-types] 
+in the VM Import/Export User Guide. **/
         InstanceType?: InstanceType;
         /** The placement information for the instance. **/
         Placement?: Placement;
@@ -8948,11 +9139,11 @@ launched. **/
         NoDevice?: String;
     }
     export interface InstanceCapacity {
-        /** The instance type size supported by the Dedicated host. **/
+        /** The instance type size supported by the Dedicated Host. **/
         InstanceType?: String;
-        /** The number of instances that can still be launched onto the Dedicated host. **/
+        /** The number of instances that can still be launched onto the Dedicated Host. **/
         AvailableCapacity?: Integer;
-        /** The total number of instances that can be launched onto the Dedicated host. **/
+        /** The total number of instances that can be launched onto the Dedicated Host. **/
         TotalCapacity?: Integer;
     }
     export interface InstanceCount {
@@ -9268,26 +9459,26 @@ Default: false **/
         Monitoring?: RunInstancesMonitoringEnabled;
     }
     export interface ModifyHostsRequest {
-        /** The host IDs of the Dedicated hosts you want to modify. **/
+        /** The host IDs of the Dedicated Hosts you want to modify. **/
         HostIds: RequestHostIdList;
         /** Specify whether to enable or disable auto-placement. **/
         AutoPlacement: AutoPlacement;
     }
     export interface ModifyHostsResult {
-        /** The IDs of the Dedicated hosts that were successfully modified. **/
+        /** The IDs of the Dedicated Hosts that were successfully modified. **/
         Successful?: ResponseHostIdList;
-        /** The IDs of the Dedicated hosts that could not be modified. Check whether the
+        /** The IDs of the Dedicated Hosts that could not be modified. Check whether the
 setting you requested can be used. **/
         Unsuccessful?: UnsuccessfulItemList;
     }
     export interface ModifyIdFormatRequest {
-        /** The type of resource. **/
+        /** The type of resource: instance | reservation | snapshot | volume **/
         Resource: String;
         /** Indicate whether the resource should use longer IDs (17-character IDs). **/
         UseLongIds: Boolean;
     }
     export interface ModifyIdentityIdFormatRequest {
-        /** The type of resource. **/
+        /** The type of resource: instance | reservation | snapshot | volume **/
         Resource: String;
         /** Indicates whether the resource should use longer IDs (17-character IDs) **/
         UseLongIds: Boolean;
@@ -9408,7 +9599,7 @@ PV instance can make it unreachable. **/
         Tenancy?: HostTenancy;
         /** The new affinity setting for the instance. **/
         Affinity?: Affinity;
-        /** The ID of the Dedicated host that the instance will have affinity with. **/
+        /** The ID of the Dedicated Host that the instance will have affinity with. **/
         HostId?: String;
     }
     export interface ModifyInstancePlacementResult {
@@ -9862,7 +10053,7 @@ not supported for the ImportInstance command. **/
         /** The ID of the Dedicted host on which the instance resides. This parameter is not
 support for the ImportInstance command. **/
         HostId?: String;
-        /** The affinity setting for the instance on the Dedicated host. This parameter is
+        /** The affinity setting for the instance on the Dedicated Host. This parameter is
 not supported for the ImportInstance command. **/
         Affinity?: String;
     }
@@ -9972,6 +10163,64 @@ contact us through the Support Center
 contact us through the Support Center
 [https://console.aws.amazon.com/support/home?] . **/
         Status?: String;
+    }
+    export interface Purchase {
+        /** The ID of the reservation. **/
+        HostReservationId?: String;
+        /** The IDs of the Dedicated Hosts associated with the reservation. **/
+        HostIdSet?: ResponseHostIdSet;
+        /** The instance family on the Dedicated Host that the reservation can be associated
+with. **/
+        InstanceFamily?: String;
+        /** The payment option for the reservation. **/
+        PaymentOption?: PaymentOption;
+        /** The upfront price of the reservation. **/
+        UpfrontPrice?: String;
+        /** The hourly price of the reservation per hour. **/
+        HourlyPrice?: String;
+        /** The currency in which the UpfrontPrice and HourlyPrice amounts are specified. At
+this time, the only supported currency is USD . **/
+        CurrencyCode?: CurrencyCodeValues;
+        /** The duration of the reservation&#x27;s term in seconds. **/
+        Duration?: Integer;
+    }
+    export interface PurchaseHostReservationRequest {
+        /** The ID of the offering. **/
+        OfferingId: String;
+        /** The ID/s of the Dedicated Host/s that the reservation will be associated with. **/
+        HostIdSet: RequestHostIdSet;
+        /** The specified limit is checked against the total upfront cost of the reservation
+(calculated as the offering&#x27;s upfront cost multiplied by the host count). If the
+total upfront cost is greater than the specified price limit, the request will
+fail. This is used to ensure that the purchase does not exceed the expected
+upfront cost of the purchase. At this time, the only supported currency is USD .
+For example, to indicate a limit price of USD 100, specify 100.00. **/
+        LimitPrice?: String;
+        /** The currency in which the totalUpfrontPrice , LimitPrice , and totalHourlyPrice 
+amounts are specified. At this time, the only supported currency is USD . **/
+        CurrencyCode?: CurrencyCodeValues;
+        /** Unique, case-sensitive identifier you provide to ensure idempotency of the
+request. For more information, see How to Ensure Idempotency
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html] 
+in the Amazon Elastic Compute Cloud User Guide . **/
+        ClientToken?: String;
+    }
+    export interface PurchaseHostReservationResult {
+        /** Describes the details of the purchase. **/
+        Purchase?: PurchaseSet;
+        /** The total amount that will be charged to your account when you purchase the
+reservation. **/
+        TotalUpfrontPrice?: String;
+        /** The total hourly price of the reservation calculated per hour. **/
+        TotalHourlyPrice?: String;
+        /** The currency in which the totalUpfrontPrice and totalHourlyPrice amounts are
+specified. At this time, the only supported currency is USD . **/
+        CurrencyCode?: CurrencyCodeValues;
+        /** Unique, case-sensitive identifier you provide to ensure idempotency of the
+request. For more information, see How to Ensure Idempotency
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html] 
+in the Amazon Elastic Compute Cloud User Guide **/
+        ClientToken?: String;
     }
     export interface PurchaseRequest {
         /** The purchase token. **/
@@ -10113,13 +10362,13 @@ UnauthorizedOperation . **/
         AllocationId?: String;
     }
     export interface ReleaseHostsRequest {
-        /** The IDs of the Dedicated hosts you want to release. **/
+        /** The IDs of the Dedicated Hosts you want to release. **/
         HostIds: RequestHostIdList;
     }
     export interface ReleaseHostsResult {
-        /** The IDs of the Dedicated hosts that were successfully released. **/
+        /** The IDs of the Dedicated Hosts that were successfully released. **/
         Successful?: ResponseHostIdList;
-        /** The IDs of the Dedicated hosts that could not be released, including an error
+        /** The IDs of the Dedicated Hosts that could not be released, including an error
 message. **/
         Unsuccessful?: UnsuccessfulItemList;
     }
@@ -10818,7 +11067,13 @@ information, see PV-GRUB
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html] in
 the Amazon Elastic Compute Cloud User Guide . **/
         RamdiskId?: String;
-        /** The block device mapping. **/
+        /** The block device mapping.
+
+Supplying both a snapshot ID and an encryption value as arguments for
+block-device mapping results in an error. This is because only blank volumes can
+be encrypted on start, and these are not created from a snapshot. If a snapshot
+is the basis for the volume, it contains data by definition and its encryption
+status cannot be changed using this action. **/
         BlockDeviceMappings?: BlockDeviceMappingRequestList;
         /** The monitoring for the instance. **/
         Monitoring?: RunInstancesMonitoringEnabled;
@@ -11212,8 +11467,9 @@ DescribeSnapshots API operation. **/
         Description?: String;
         /** The size of the volume, in GiB. **/
         VolumeSize?: Integer;
-        /** The AWS account alias (for example, amazon , self ) or AWS account ID that owns
-the snapshot. **/
+        /** Value from an Amazon-maintained list ( amazon | aws-marketplace | microsoft ) of
+snapshot owners. Not to be confused with the user-configured AWS account alias,
+which is set from the IAM console. **/
         OwnerAlias?: String;
         /** Any tags assigned to the snapshot. **/
         Tags?: TagList;
@@ -11369,6 +11625,12 @@ Default: false **/
         SpotFleetRequestConfig: SpotFleetRequestConfigData;
         /** The creation date and time of the request. **/
         CreateTime: DateTime;
+        /** The progress of the Spot fleet request. If there is an error, the status is 
+error . After all bids are placed, the status is pending_fulfillment . If the
+size of the fleet is equal to or greater than its target capacity, the status is 
+fulfilled . If the size of the fleet is decreased, the status is 
+pending_termination while Spot instances are terminating. **/
+        ActivityStatus?: ActivityStatus;
     }
     export interface SpotFleetRequestConfigData {
         /** A unique, case-sensitive identifier you provide to ensure idempotency of your

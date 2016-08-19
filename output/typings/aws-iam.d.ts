@@ -2438,7 +2438,9 @@ punctuation characters, digits, and upper and lowercased letters. **/
 
 The regex pattern [http://wikipedia.org/wiki/regex] for this parameter is a
 string of characters consisting of upper and lowercase alphanumeric characters
-with no spaces. You can also include any of the following characters: =,.@- **/
+with no spaces. You can also include any of the following characters: =,.@-. The
+group name must be unique within the account. Group names are not distinguished
+by case. For example, you cannot create groups named both &quot;ADMINS&quot; and &quot;admins&quot;. **/
         GroupName: groupNameType;
     }
     export interface CreateGroupResponse {
@@ -2638,7 +2640,9 @@ punctuation characters, digits, and upper and lowercased letters. **/
 
 The regex pattern [http://wikipedia.org/wiki/regex] for this parameter is a
 string of characters consisting of upper and lowercase alphanumeric characters
-with no spaces. You can also include any of the following characters: =,.@- **/
+with no spaces. You can also include any of the following characters: =,.@-.
+Role names are not distinguished by case. For example, you cannot create roles
+named both &quot;PRODROLE&quot; and &quot;prodrole&quot;. **/
         RoleName: roleNameType;
         /** The trust relationship policy document that grants an entity permission to
 assume the role.
@@ -2694,7 +2698,9 @@ punctuation characters, digits, and upper and lowercased letters. **/
 
 The regex pattern [http://wikipedia.org/wiki/regex] for this parameter is a
 string of characters consisting of upper and lowercase alphanumeric characters
-with no spaces. You can also include any of the following characters: =,.@- **/
+with no spaces. You can also include any of the following characters: =,.@-.
+User names are not distinguished by case. For example, you cannot create users
+named both &quot;TESTUSER&quot; and &quot;testuser&quot;. **/
         UserName: userNameType;
     }
     export interface CreateUserResponse {

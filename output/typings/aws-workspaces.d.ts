@@ -14,9 +14,8 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * Amazon WorkSpaces ServiceThis is the Amazon WorkSpaces API Reference . This guide provides detailed
-information about Amazon WorkSpaces operations, data types, parameters, and
-errors.
+   * Amazon WorkSpaces ServiceThis reference provides detailed information about the
+Amazon WorkSpaces operations.
    *
    */
   export class WorkSpaces extends Service {
@@ -95,13 +94,30 @@ retrieve the next set of items.
      */
     describeWorkspaces(params: WorkSpaces.DescribeWorkspacesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|WorkSpaces.ResourceUnavailableException|any, data: WorkSpaces.DescribeWorkspacesResult|any) => void): Request<WorkSpaces.DescribeWorkspacesResult|any,WorkSpaces.InvalidParameterValuesException|WorkSpaces.ResourceUnavailableException|any>;
     /**
+     * Describes the connection status of a specified WorkSpace.
+     *
+     * @error InvalidParameterValuesException   
+     */
+    describeWorkspacesConnectionStatus(params: WorkSpaces.DescribeWorkspacesConnectionStatusRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|any, data: WorkSpaces.DescribeWorkspacesConnectionStatusResult|any) => void): Request<WorkSpaces.DescribeWorkspacesConnectionStatusResult|any,WorkSpaces.InvalidParameterValuesException|any>;
+    /**
+     * Modifies the WorkSpace properties, including the RunningMode and AutoStop time.
+     *
+     * @error InvalidParameterValuesException   
+     * @error InvalidResourceStateException   
+     * @error OperationInProgressException   
+     * @error UnsupportedWorkspaceConfigurationException   
+     * @error ResourceNotFoundException   
+     * @error AccessDeniedException   
+     * @error ResourceUnavailableException   
+     */
+    modifyWorkspaceProperties(params: WorkSpaces.ModifyWorkspacePropertiesRequest, callback?: (err: WorkSpaces.InvalidParameterValuesException|WorkSpaces.InvalidResourceStateException|WorkSpaces.OperationInProgressException|WorkSpaces.UnsupportedWorkspaceConfigurationException|WorkSpaces.ResourceNotFoundException|WorkSpaces.AccessDeniedException|WorkSpaces.ResourceUnavailableException|any, data: WorkSpaces.ModifyWorkspacePropertiesResult|any) => void): Request<WorkSpaces.ModifyWorkspacePropertiesResult|any,WorkSpaces.InvalidParameterValuesException|WorkSpaces.InvalidResourceStateException|WorkSpaces.OperationInProgressException|WorkSpaces.UnsupportedWorkspaceConfigurationException|WorkSpaces.ResourceNotFoundException|WorkSpaces.AccessDeniedException|WorkSpaces.ResourceUnavailableException|any>;
+    /**
      * Reboots the specified WorkSpaces.
 
 To be able to reboot a WorkSpace, the WorkSpace must have a State of AVAILABLE , 
 IMPAIRED , or INOPERABLE .
 
-This operation is asynchronous and will return before the WorkSpaces have
-rebooted.
+This operation is asynchronous and returns before the WorkSpaces have rebooted.
      *
      */
     rebootWorkspaces(params: WorkSpaces.RebootWorkspacesRequest, callback?: (err: any, data: WorkSpaces.RebootWorkspacesResult|any) => void): Request<WorkSpaces.RebootWorkspacesResult|any,any>;
@@ -114,19 +130,36 @@ the loss of data. Rebuilding a WorkSpace causes the following to occur:
  &amp;#42; The system is restored to the image of the bundle that the WorkSpace is
    created from. Any applications that have been installed, or system settings
    that have been made since the WorkSpace was created will be lost.
+   
+   
  * The data drive (D drive) is re-created from the last automatic snapshot taken
    of the data drive. The current contents of the data drive are overwritten.
    Automatic snapshots of the data drive are taken every 12 hours, so the
    snapshot can be as much as 12 hours old.
+   
+   
 
 To be able to rebuild a WorkSpace, the WorkSpace must have a State of AVAILABLE 
 or ERROR .
 
-This operation is asynchronous and will return before the WorkSpaces have been
+This operation is asynchronous and returns before the WorkSpaces have been
 completely rebuilt.
      *
      */
     rebuildWorkspaces(params: WorkSpaces.RebuildWorkspacesRequest, callback?: (err: any, data: WorkSpaces.RebuildWorkspacesResult|any) => void): Request<WorkSpaces.RebuildWorkspacesResult|any,any>;
+    /**
+     * Starts the specified WorkSpaces. The API only works with WorkSpaces that have
+RunningMode configured as AutoStop and the State set to “STOPPED.”
+     *
+     */
+    startWorkspaces(params: WorkSpaces.StartWorkspacesRequest, callback?: (err: any, data: WorkSpaces.StartWorkspacesResult|any) => void): Request<WorkSpaces.StartWorkspacesResult|any,any>;
+    /**
+     * Stops the specified WorkSpaces. The API only works with WorkSpaces that have
+RunningMode configured as AutoStop and the State set to AVAILABLE, IMPAIRED,
+UNHEALTHY, or ERROR.
+     *
+     */
+    stopWorkspaces(params: WorkSpaces.StopWorkspacesRequest, callback?: (err: any, data: WorkSpaces.StopWorkspacesResult|any) => void): Request<WorkSpaces.StopWorkspacesResult|any,any>;
     /**
      * Terminates the specified WorkSpaces.
 
@@ -136,7 +169,7 @@ data, contact Amazon Web Services before terminating the WorkSpace.
 
 You can terminate a WorkSpace that is in any state except SUSPENDED .
 
-This operation is asynchronous and will return before the WorkSpaces have been
+This operation is asynchronous and returns before the WorkSpaces have been
 completely terminated.
      *
      */
@@ -164,6 +197,8 @@ completely terminated.
     
     export type ComputerName = string;
     
+    export type ConnectionState = string;
+    
     export type DefaultOu = string;
     
     export type Description = string;
@@ -188,6 +223,10 @@ completely terminated.
     
     export type FailedRebuildWorkspaceRequests = FailedWorkspaceChangeRequest[];
     
+    export type FailedStartWorkspaceRequests = FailedWorkspaceChangeRequest[];
+    
+    export type FailedStopWorkspaceRequests = FailedWorkspaceChangeRequest[];
+    
     export type FailedTerminateWorkspaceRequests = FailedWorkspaceChangeRequest[];
     
     export type IpAddress = string;
@@ -204,7 +243,15 @@ completely terminated.
     
     export type RegistrationCode = string;
     
+    export type RunningMode = string;
+    
+    export type RunningModeAutoStopTimeoutInMinutes = number;
+    
     export type SecurityGroupId = string;
+    
+    export type StartWorkspaceRequests = StartRequest[];
+    
+    export type StopWorkspaceRequests = StopRequest[];
     
     export type SubnetId = string;
     
@@ -220,9 +267,13 @@ completely terminated.
     
     export type TerminateWorkspaceRequests = TerminateRequest[];
     
+    export type Timestamp = number;
+    
     export type UserName = string;
     
     export type VolumeEncryptionKey = string;
+    
+    export type WorkspaceConnectionStatusList = WorkspaceConnectionStatus[];
     
     export type WorkspaceDirectoryState = string;
     
@@ -240,6 +291,9 @@ completely terminated.
     
     export type WorkspaceState = string;
 
+    export interface AccessDeniedException {
+        message?: ExceptionMessage;
+    }
     export interface ComputeType {
         /** The name of the compute type for the bundle. **/
         Name?: Compute;
@@ -306,7 +360,9 @@ other filter parameter.
 
 This contains one of the following values:
 
- &amp;#42; null - Retrieves the bundles that belong to the account making the call.
+ &amp;#42; null- Retrieves the bundles that belong to the account making the call.
+   
+   
  * AMAZON - Retrieves the bundles that are provided by AWS. **/
         Owner?: BundleOwner;
         /** The NextToken value from a previous call to this operation. Pass null if this is
@@ -318,7 +374,7 @@ the first call. **/
         Bundles?: BundleList;
         /** If not null, more results are available. Pass this value for the NextToken 
 parameter in a subsequent call to this operation to retrieve the next set of
-items. This token is valid for one day and must be used within that timeframe. **/
+items. This token is valid for one day and must be used within that time frame. **/
         NextToken?: PaginationToken;
     }
     export interface DescribeWorkspaceDirectoriesRequest {
@@ -334,7 +390,19 @@ the first call. **/
         Directories?: DirectoryList;
         /** If not null, more results are available. Pass this value for the NextToken 
 parameter in a subsequent call to this operation to retrieve the next set of
-items. This token is valid for one day and must be used within that timeframe. **/
+items. This token is valid for one day and must be used within that time frame. **/
+        NextToken?: PaginationToken;
+    }
+    export interface DescribeWorkspacesConnectionStatusRequest {
+        /** An array of strings that contain the identifiers of the WorkSpaces. **/
+        WorkspaceIds?: WorkspaceIdList;
+        /** The next token of the request. **/
+        NextToken?: PaginationToken;
+    }
+    export interface DescribeWorkspacesConnectionStatusResult {
+        /** The connection status of the WorkSpace. **/
+        WorkspacesConnectionStatus?: WorkspaceConnectionStatusList;
+        /** The next token of the result. **/
         NextToken?: PaginationToken;
     }
     export interface DescribeWorkspacesRequest {
@@ -342,15 +410,15 @@ items. This token is valid for one day and must be used within that timeframe. *
 retrieve information. This parameter cannot be combined with any other filter
 parameter.
 
-Because the CreateWorkspaces operation is asynchronous, the identifier returned
-by CreateWorkspaces is not immediately available. If you immediately call 
-DescribeWorkspaces with this identifier, no information will be returned. **/
+Because the CreateWorkspaces operation is asynchronous, the identifier it
+returns is not immediately available. If you immediately call DescribeWorkspaces 
+with this identifier, no information is returned. **/
         WorkspaceIds?: WorkspaceIdList;
         /** Specifies the directory identifier to which to limit the WorkSpaces. Optionally,
 you can specify a specific directory user with the UserName parameter. This
 parameter cannot be combined with any other filter parameter. **/
         DirectoryId?: DirectoryId;
-        /** Used with the DirectoryId parameter to specify the directory user for which to
+        /** Used with the DirectoryId parameter to specify the directory user for whom to
 obtain the WorkSpace. **/
         UserName?: UserName;
         /** The identifier of a bundle to obtain the WorkSpaces for. All WorkSpaces that are
@@ -371,12 +439,12 @@ may be incomplete for a newly-created WorkSpace. **/
         Workspaces?: WorkspaceList;
         /** If not null, more results are available. Pass this value for the NextToken 
 parameter in a subsequent call to this operation to retrieve the next set of
-items. This token is valid for one day and must be used within that timeframe. **/
+items. This token is valid for one day and must be used within that time frame. **/
         NextToken?: PaginationToken;
     }
     export interface FailedCreateWorkspaceRequest {
-        /** A WorkspaceRequest object that contains the information about the WorkSpace that
-could not be created. **/
+        /** A FailedCreateWorkspaceRequest$WorkspaceRequest object that contains the
+information about the WorkSpace that could not be created. **/
         WorkspaceRequest?: WorkspaceRequest;
         /** The error code. **/
         ErrorCode?: ErrorType;
@@ -395,6 +463,20 @@ could not be created. **/
         /** The exception error message. **/
         message?: ExceptionMessage;
     }
+    export interface InvalidResourceStateException {
+        message?: ExceptionMessage;
+    }
+    export interface ModifyWorkspacePropertiesRequest {
+        /** The ID of the WorkSpace. **/
+        WorkspaceId: WorkspaceId;
+        /** The WorkSpace properties of the request. **/
+        WorkspaceProperties: WorkspaceProperties;
+    }
+    export interface ModifyWorkspacePropertiesResult {
+    }
+    export interface OperationInProgressException {
+        message?: ExceptionMessage;
+    }
     export interface RebootRequest {
         /** The identifier of the WorkSpace to reboot. **/
         WorkspaceId: WorkspaceId;
@@ -404,7 +486,7 @@ could not be created. **/
         RebootWorkspaceRequests: RebootWorkspaceRequests;
     }
     export interface RebootWorkspacesResult {
-        /** An array of structures that represent any WorkSpaces that could not be rebooted. **/
+        /** An array of structures representing any WorkSpaces that could not be rebooted. **/
         FailedRequests?: FailedRebootWorkspaceRequests;
     }
     export interface RebuildRequest {
@@ -416,7 +498,7 @@ could not be created. **/
         RebuildWorkspaceRequests: RebuildWorkspaceRequests;
     }
     export interface RebuildWorkspacesResult {
-        /** An array of structures that represent any WorkSpaces that could not be rebuilt. **/
+        /** An array of structures representing any WorkSpaces that could not be rebuilt. **/
         FailedRequests?: FailedRebuildWorkspaceRequests;
     }
     export interface ResourceLimitExceededException {
@@ -435,6 +517,30 @@ could not be created. **/
         /** The identifier of the resource that is not available. **/
         ResourceId?: NonEmptyString;
     }
+    export interface StartRequest {
+        /** The ID of the WorkSpace. **/
+        WorkspaceId?: WorkspaceId;
+    }
+    export interface StartWorkspacesRequest {
+        /** The requests. **/
+        StartWorkspaceRequests: StartWorkspaceRequests;
+    }
+    export interface StartWorkspacesResult {
+        /** The failed requests. **/
+        FailedRequests?: FailedStartWorkspaceRequests;
+    }
+    export interface StopRequest {
+        /** The ID of the WorkSpace. **/
+        WorkspaceId?: WorkspaceId;
+    }
+    export interface StopWorkspacesRequest {
+        /** The requests. **/
+        StopWorkspaceRequests: StopWorkspaceRequests;
+    }
+    export interface StopWorkspacesResult {
+        /** The failed requests. **/
+        FailedRequests?: FailedStopWorkspaceRequests;
+    }
     export interface Tag {
         /** The key of the tag. **/
         Key: TagKey;
@@ -450,9 +556,11 @@ could not be created. **/
         TerminateWorkspaceRequests: TerminateWorkspaceRequests;
     }
     export interface TerminateWorkspacesResult {
-        /** An array of structures that represent any WorkSpaces that could not be
-terminated. **/
+        /** An array of structures representing any WorkSpaces that could not be terminated. **/
         FailedRequests?: FailedTerminateWorkspaceRequests;
+    }
+    export interface UnsupportedWorkspaceConfigurationException {
+        message?: ExceptionMessage;
     }
     export interface UserStorage {
         /** The amount of user storage for the bundle. **/
@@ -487,6 +595,7 @@ that describes the failure. **/
         UserVolumeEncryptionEnabled?: BooleanObject;
         /** Specifies whether the data stored on the root volume, or C: drive, is encrypted. **/
         RootVolumeEncryptionEnabled?: BooleanObject;
+        WorkspaceProperties?: WorkspaceProperties;
     }
     export interface WorkspaceBundle {
         /** The bundle identifier. **/
@@ -503,6 +612,17 @@ contains. **/
         UserStorage?: UserStorage;
         /** A ComputeType object that specifies the compute type for the bundle. **/
         ComputeType?: ComputeType;
+    }
+    export interface WorkspaceConnectionStatus {
+        /** The ID of the WorkSpace. **/
+        WorkspaceId?: WorkspaceId;
+        /** The connection state of the WorkSpace. Returns UNKOWN if the WorkSpace is in a
+Stopped state. **/
+        ConnectionState?: ConnectionState;
+        /** The timestamp of the connection state check. **/
+        ConnectionStateCheckTimestamp?: Timestamp;
+        /** The timestamp of the last known user connection. **/
+        LastKnownUserConnectionTimestamp?: Timestamp;
     }
     export interface WorkspaceDirectory {
         /** The directory identifier. **/
@@ -535,6 +655,15 @@ to make calls to other services, such as Amazon EC2, on your behalf. **/
 the directory. **/
         WorkspaceCreationProperties?: DefaultWorkspaceCreationProperties;
     }
+    export interface WorkspaceProperties {
+        /** The running mode of the WorkSpace. AlwaysOn WorkSpaces are billed monthly.
+AutoStop WorkSpaces are billed by the hour and stopped when no longer being used
+in order to save on costs. **/
+        RunningMode?: RunningMode;
+        /** The time after a user logs off when WorkSpaces are automatically stopped.
+Configured in 60 minute intervals. **/
+        RunningModeAutoStopTimeoutInMinutes?: RunningModeAutoStopTimeoutInMinutes;
+    }
     export interface WorkspaceRequest {
         /** The identifier of the AWS Directory Service directory to create the WorkSpace
 in. You can use the DescribeWorkspaceDirectories operation to obtain a list of
@@ -553,6 +682,7 @@ available. **/
         UserVolumeEncryptionEnabled?: BooleanObject;
         /** Specifies whether the data stored on the root volume, or C: drive, is encrypted. **/
         RootVolumeEncryptionEnabled?: BooleanObject;
+        WorkspaceProperties?: WorkspaceProperties;
         /** The tags of the WorkSpace request. **/
         Tags?: TagList;
     }
