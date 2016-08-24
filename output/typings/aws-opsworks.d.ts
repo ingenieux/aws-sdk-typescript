@@ -58,13 +58,43 @@ your preferred language. For more information, see:
 
 Endpoints
 
-AWS OpsWorks supports two endpoints, opsworks.us-east-1.amazonaws.com and
-opsworks.ap-south-1.amazonaws.com (both HTTPS). You must connect to one of those
-two endpoints. You can then use the API to direct AWS OpsWorks to create stacks
-in any AWS region. Stacks created in all regions except ap-south-1 are connected
-to the us-east-1 regional endpoint; stacks created in ap-south-1 are associated
-with the ap-south-1 regional endpoint, and can only be accessed or managed
-within that endpoint.
+AWS OpsWorks supports the following endpoints, all HTTPS. You must connect to
+one of the following endpoints. Stacks can only be accessed or managed within
+the endpoint in which they are created.
+
+ * opsworks.us-east-1.amazonaws.com
+   
+   
+ * opsworks.us-west-1.amazonaws.com
+   
+   
+ * opsworks.us-west-2.amazonaws.com
+   
+   
+ * opsworks.eu-west-1.amazonaws.com
+   
+   
+ * opsworks.eu-central-1.amazonaws.com
+   
+   
+ * opsworks.ap-northeast-1.amazonaws.com
+   
+   
+ * opsworks.ap-northeast-2.amazonaws.com
+   
+   
+ * opsworks.ap-south-1.amazonaws.com
+   
+   
+ * opsworks.ap-southeast-1.amazonaws.com
+   
+   
+ * opsworks.ap-southeast-2.amazonaws.com
+   
+   
+ * opsworks.sa-east-1.amazonaws.com
+   
+   
 
 Chef Versions
 
@@ -1436,8 +1466,8 @@ instance is launched. **/
         SourceStackId: String;
         /** The cloned stack name. **/
         Name?: String;
-        /** The cloned stack AWS region, such as &quot;us-east-1&quot;. For more information about AWS
-regions, see Regions and Endpoints
+        /** The cloned stack AWS region, such as &quot;ap-northeast-2&quot;. For more information
+about AWS regions, see Regions and Endpoints
 [http://docs.aws.amazon.com/general/latest/gr/rande.html] . **/
         Region?: String;
         /** The ID of the VPC that the cloned stack is to be launched into. It must be in
@@ -2044,7 +2074,7 @@ Balancer connection draining. **/
     export interface CreateStackRequest {
         /** The stack name. **/
         Name: String;
-        /** The stack&#x27;s AWS region, such as &quot;us-east-1&quot;. For more information about Amazon
+        /** The stack&#x27;s AWS region, such as &quot;ap-south-1&quot;. For more information about Amazon
 regions, see Regions and Endpoints
 [http://docs.aws.amazon.com/general/latest/gr/rande.html] . **/
         Region: String;
@@ -3461,7 +3491,7 @@ client authentication. **/
         Name?: String;
         /** The stack&#x27;s ARN. **/
         Arn?: String;
-        /** The stack AWS region, such as &quot;us-east-1&quot;. For more information about AWS
+        /** The stack AWS region, such as &quot;ap-northeast-2&quot;. For more information about AWS
 regions, see Regions and Endpoints
 [http://docs.aws.amazon.com/general/latest/gr/rande.html] . **/
         Region?: String;

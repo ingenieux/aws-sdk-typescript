@@ -144,8 +144,9 @@ Amazon RDS User Guide.
      * @error DBClusterSnapshotAlreadyExistsFault   
      * @error DBClusterSnapshotNotFoundFault   
      * @error InvalidDBClusterStateFault   
+     * @error InvalidDBClusterSnapshotStateFault   
      */
-    copyDBClusterSnapshot(params: RDS.CopyDBClusterSnapshotMessage, callback?: (err: RDS.DBClusterSnapshotAlreadyExistsFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InvalidDBClusterStateFault|any, data: RDS.CopyDBClusterSnapshotResult|any) => void): Request<RDS.CopyDBClusterSnapshotResult|any,RDS.DBClusterSnapshotAlreadyExistsFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InvalidDBClusterStateFault|any>;
+    copyDBClusterSnapshot(params: RDS.CopyDBClusterSnapshotMessage, callback?: (err: RDS.DBClusterSnapshotAlreadyExistsFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBClusterSnapshotStateFault|any, data: RDS.CopyDBClusterSnapshotResult|any) => void): Request<RDS.CopyDBClusterSnapshotResult|any,RDS.DBClusterSnapshotAlreadyExistsFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBClusterSnapshotStateFault|any>;
     /**
      * Copies the specified DB parameter group.
      *
@@ -873,7 +874,7 @@ If a manual DB cluster snapshot is encrypted, it cannot be shared.
      */
     modifyDBClusterSnapshotAttribute(params: RDS.ModifyDBClusterSnapshotAttributeMessage, callback?: (err: RDS.DBClusterSnapshotNotFoundFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.SharedSnapshotQuotaExceededFault|any, data: RDS.ModifyDBClusterSnapshotAttributeResult|any) => void): Request<RDS.ModifyDBClusterSnapshotAttributeResult|any,RDS.DBClusterSnapshotNotFoundFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.SharedSnapshotQuotaExceededFault|any>;
     /**
-     * Modify settings for a DB instance. You can change one or more database
+     * Modifies settings for a DB instance. You can change one or more database
 configuration parameters by specifying these parameters and the new values in
 the request.
      *
@@ -1099,8 +1100,9 @@ from an External MySQL Database to an Amazon Aurora DB Cluster
      * @error DBClusterParameterGroupNotFoundFault   
      * @error KMSKeyNotAccessibleFault   
      * @error DBClusterNotFoundFault   
+     * @error InsufficientStorageClusterCapacityFault   
      */
-    restoreDBClusterFromS3(params: RDS.RestoreDBClusterFromS3Message, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.InvalidS3BucketFault|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|any, data: RDS.RestoreDBClusterFromS3Result|any) => void): Request<RDS.RestoreDBClusterFromS3Result|any,RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.InvalidS3BucketFault|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|any>;
+    restoreDBClusterFromS3(params: RDS.RestoreDBClusterFromS3Message, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.InvalidS3BucketFault|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|RDS.InsufficientStorageClusterCapacityFault|any, data: RDS.RestoreDBClusterFromS3Result|any) => void): Request<RDS.RestoreDBClusterFromS3Result|any,RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidDBClusterStateFault|RDS.InvalidDBSubnetGroupStateFault|RDS.InvalidSubnet|RDS.InvalidS3BucketFault|RDS.DBClusterParameterGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|RDS.DBClusterNotFoundFault|RDS.InsufficientStorageClusterCapacityFault|any>;
     /**
      * Creates a new DB cluster from a DB cluster snapshot. The target DB cluster is
 created from the source DB cluster restore point with the same configuration as
@@ -1148,6 +1150,7 @@ Amazon RDS User Guide.
      * @error DBClusterNotFoundFault   
      * @error DBClusterSnapshotNotFoundFault   
      * @error InsufficientDBClusterCapacityFault   
+     * @error InsufficientStorageClusterCapacityFault   
      * @error InvalidDBSnapshotStateFault   
      * @error InvalidDBClusterSnapshotStateFault   
      * @error StorageQuotaExceededFault   
@@ -1158,7 +1161,7 @@ Amazon RDS User Guide.
      * @error OptionGroupNotFoundFault   
      * @error KMSKeyNotAccessibleFault   
      */
-    restoreDBClusterToPointInTime(params: RDS.RestoreDBClusterToPointInTimeMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBClusterNotFoundFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InsufficientDBClusterCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidSubnet|RDS.OptionGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|any, data: RDS.RestoreDBClusterToPointInTimeResult|any) => void): Request<RDS.RestoreDBClusterToPointInTimeResult|any,RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBClusterNotFoundFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InsufficientDBClusterCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidSubnet|RDS.OptionGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|any>;
+    restoreDBClusterToPointInTime(params: RDS.RestoreDBClusterToPointInTimeMessage, callback?: (err: RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBClusterNotFoundFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InsufficientDBClusterCapacityFault|RDS.InsufficientStorageClusterCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidSubnet|RDS.OptionGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|any, data: RDS.RestoreDBClusterToPointInTimeResult|any) => void): Request<RDS.RestoreDBClusterToPointInTimeResult|any,RDS.DBClusterAlreadyExistsFault|RDS.DBClusterQuotaExceededFault|RDS.StorageQuotaExceededFault|RDS.DBSubnetGroupNotFoundFault|RDS.DBClusterNotFoundFault|RDS.DBClusterSnapshotNotFoundFault|RDS.InsufficientDBClusterCapacityFault|RDS.InsufficientStorageClusterCapacityFault|RDS.InvalidDBSnapshotStateFault|RDS.InvalidDBClusterSnapshotStateFault|RDS.StorageQuotaExceededFault|RDS.InvalidVPCNetworkStateFault|RDS.InvalidRestoreFault|RDS.DBSubnetGroupNotFoundFault|RDS.InvalidSubnet|RDS.OptionGroupNotFoundFault|RDS.KMSKeyNotAccessibleFault|any>;
     /**
      * Creates a new DB instance from a DB snapshot. The target database is created
 from the source database restore point with the most of original configuration
@@ -1517,6 +1520,7 @@ EC2SecurityGroupId must be provided. **/
         ValidFrom?: TStamp;
         /** The final date that the certificate continues to be valid. **/
         ValidTill?: TStamp;
+        CertificateArn?: String;
     }
     export interface CertificateMessage {
         /** The list of Certificate objects for the AWS account. **/
@@ -3030,8 +3034,8 @@ Constraints:
     export interface CreateDBSubnetGroupMessage {
         /** The name for the DB subnet group. This value is stored as a lowercase string.
 
-Constraints: Must contain no more than 255 alphanumeric characters. Cannot
-contain periods, underscores, spaces, or hyphens. Must not be default .
+Constraints: Must contain no more than 255 alphanumeric characters, periods,
+underscores, spaces, or hyphens. Must not be default.
 
 Example: mySubnetgroup **/
         DBSubnetGroupName: String;
@@ -3199,6 +3203,7 @@ cluster. **/
 found in AWS CloudTrail log entries whenever the KMS key for the DB cluster is
 accessed. **/
         DbClusterResourceId?: String;
+        DBClusterArn?: String;
     }
     export interface DBClusterAlreadyExistsFault {
     }
@@ -3240,6 +3245,7 @@ parameter group is compatible with. **/
         DBParameterGroupFamily?: String;
         /** Provides the customer-specified description for this DB cluster parameter group. **/
         Description?: String;
+        DBClusterParameterGroupArn?: String;
     }
     export interface DBClusterParameterGroupDetails {
         /** Provides a list of parameters for the DB cluster parameter group. **/
@@ -3321,6 +3327,7 @@ Time (UTC). **/
         /** If StorageEncrypted is true, the KMS key identifier for the encrypted DB cluster
 snapshot. **/
         KmsKeyId?: String;
+        DBClusterSnapshotArn?: String;
     }
     export interface DBClusterSnapshotAlreadyExistsFault {
     }
@@ -3536,6 +3543,7 @@ information, see Fault Tolerance for an Aurora DB Cluster
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance] 
 . **/
         PromotionTier?: IntegerOptional;
+        DBInstanceArn?: String;
     }
     export interface DBInstanceAlreadyExistsFault {
     }
@@ -3572,6 +3580,7 @@ is compatible with. **/
         DBParameterGroupFamily?: String;
         /** Provides the customer-specified description for this DB parameter group. **/
         Description?: String;
+        DBParameterGroupArn?: String;
     }
     export interface DBParameterGroupAlreadyExistsFault {
     }
@@ -3618,6 +3627,7 @@ value specified by MaxRecords . **/
         EC2SecurityGroups?: EC2SecurityGroupList;
         /** Contains a list of IPRange elements. **/
         IPRanges?: IPRangeList;
+        DBSecurityGroupArn?: String;
     }
     export interface DBSecurityGroupAlreadyExistsFault {
     }
@@ -3696,6 +3706,7 @@ encryption. **/
         Encrypted?: Boolean;
         /** If Encrypted is true, the KMS key identifier for the encrypted DB snapshot. **/
         KmsKeyId?: String;
+        DBSnapshotArn?: String;
     }
     export interface DBSnapshotAlreadyExistsFault {
     }
@@ -3741,6 +3752,7 @@ value specified by MaxRecords . **/
         SubnetGroupStatus?: String;
         /** Contains a list of Subnet elements. **/
         Subnets?: SubnetList;
+        DBSubnetGroupArn?: String;
     }
     export interface DBSubnetGroupAlreadyExistsFault {
     }
@@ -4920,6 +4932,7 @@ marker, up to the value specified by MaxRecords . **/
         EventCategories?: EventCategoriesList;
         /** Specifies the date and time of the event. **/
         Date?: TStamp;
+        SourceArn?: String;
     }
     export interface EventCategoriesMap {
         /** The source type that the returned categories belong to **/
@@ -4961,6 +4974,7 @@ deleted after the subscription was created. **/
         /** A Boolean value indicating if the subscription is enabled. True indicates the
 subscription is enabled. **/
         Enabled?: Boolean;
+        EventSubscriptionArn?: String;
     }
     export interface EventSubscriptionQuotaExceededFault {
     }
@@ -5871,6 +5885,7 @@ option group can be applied to both VPC and non-VPC instances. If this field
 contains a value, then this option group can only be applied to instances that
 are in the VPC indicated by this field. **/
         VpcId?: String;
+        OptionGroupArn?: String;
     }
     export interface OptionGroupAlreadyExistsFault {
     }
@@ -5899,21 +5914,19 @@ pending-maintenance-removal , applying , removing , and failed . **/
         PortRequired?: Boolean;
         /** If the option requires a port, specifies the default port for the option. **/
         DefaultPort?: IntegerOptional;
-        /** List of all options that are prerequisites for this option. **/
+        /** The options that are prerequisites for this option. **/
         OptionsDependedOn?: OptionsDependedOn;
-        /** A persistent option cannot be removed from the option group once the option
-group is used, but this option can be removed from the db instance while
-modifying the related data and assigning another option group without this
-option. **/
+        /** Persistent options can&#x27;t be removed from an option group while DB instances are
+associated with the option group. If you disassociate all DB instances from the
+option group, your can remove the persistent option from the option group. **/
         Persistent?: Boolean;
-        /** A permanent option cannot be removed from the option group once the option group
-is used, and it cannot be removed from the db instance after assigning an option
-group with this permanent option. **/
+        /** Permanent options can never be removed from an option group. An option group
+containing a permanent option can&#x27;t be removed from a DB instance. **/
         Permanent?: Boolean;
         /** Specifies the option settings that are available (and the default value) for
 each option in an option group. **/
         OptionGroupOptionSettings?: OptionGroupOptionSettingsList;
-        /** Specifies the versions that are available for the option. **/
+        /** The versions that are available for the option. **/
         OptionGroupOptionVersions?: OptionGroupOptionVersionsList;
     }
     export interface OptionGroupOptionSetting {
@@ -6281,6 +6294,7 @@ RDS Amazon Resource Name (ARN)
         State?: String;
         /** The recurring price charged to run this reserved DB instance. **/
         RecurringCharges?: RecurringChargeList;
+        ReservedDBInstanceArn?: String;
     }
     export interface ReservedDBInstanceAlreadyExistsFault {
     }
