@@ -39,6 +39,10 @@ You can work with pipelines by calling:
  * GetPipeline , which returns information about a pipeline structure.
    
    
+ * GetPipelineExecution , which returns information about a specific execution
+   of a pipeline.
+   
+   
  * GetPipelineState , which returns information about the current state of the
    stages and actions of a pipeline.
    
@@ -243,6 +247,16 @@ modified and used to update the pipeline structure with UpdatePipeline .
      */
     getPipeline(params: CodePipeline.GetPipelineInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.PipelineVersionNotFoundException|any, data: CodePipeline.GetPipelineOutput|any) => void): Request<CodePipeline.GetPipelineOutput|any,CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.PipelineVersionNotFoundException|any>;
     /**
+     * Returns information about an execution of a pipeline, including details about
+artifacts, the pipeline execution ID, and the name, version, and status of the
+pipeline.
+     *
+     * @error ValidationException   
+     * @error PipelineNotFoundException   
+     * @error PipelineExecutionNotFoundException   
+     */
+    getPipelineExecution(params: CodePipeline.GetPipelineExecutionInput, callback?: (err: CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.PipelineExecutionNotFoundException|any, data: CodePipeline.GetPipelineExecutionOutput|any) => void): Request<CodePipeline.GetPipelineExecutionOutput|any,CodePipeline.ValidationException|CodePipeline.PipelineNotFoundException|CodePipeline.PipelineExecutionNotFoundException|any>;
+    /**
      * Returns information about the state of a pipeline, including the stages and
 actions.
      *
@@ -444,6 +458,8 @@ number of the pipeline by 1.
     
     export type ArtifactName = string;
     
+    export type ArtifactRevisionInformationList = ArtifactRevisionInformation[];
+    
     export type ArtifactStoreLocation = string;
     
     export type ArtifactStoreType = string;
@@ -510,6 +526,8 @@ number of the pipeline by 1.
     
     export type PipelineExecutionId = string;
     
+    export type PipelineExecutionStatus = string;
+    
     export type PipelineList = PipelineSummary[];
     
     export type PipelineName = string;
@@ -523,6 +541,8 @@ number of the pipeline by 1.
     export type Revision = string;
     
     export type RevisionChangeIdentifier = string;
+    
+    export type RevisionSummary = string;
     
     export type RoleArn = string;
     
@@ -551,6 +571,8 @@ number of the pipeline by 1.
     export type ThirdPartyJobId = string;
     
     export type ThirdPartyJobList = ThirdPartyJob[];
+    
+    export type Time = number;
     
     export type Timestamp = number;
     
@@ -778,6 +800,32 @@ commit ID (GitHub) or a revision ID (Amazon S3). **/
         /** The Amazon S3 bucket that contains the artifact. **/
         s3Location?: S3ArtifactLocation;
     }
+    export interface ArtifactRevision {
+        /** The revision ID of the artifact. **/
+        revisionId?: Revision;
+        /** An additional identifier for a revision, such as a commit date or, for artifacts
+stored in Amazon S3 buckets, the ETag value. **/
+        revisionChangeIdentifier?: RevisionChangeIdentifier;
+        /** Summary information about the most recent revision of the artifact. For GitHub
+and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or
+actions, the user-provided value of an 
+x-amz-meta-codepipeline-artifact-revision-summary key specified in the object
+metadata. **/
+        revisionSummary?: RevisionSummary;
+        /** The date and time when the most recent revision of the artifact was created, in
+timestamp format. **/
+        created?: Timestamp;
+        /** The commit ID for the artifact revision. For artifacts stored in GitHub or AWS
+CodeCommit repositories, the commit ID is linked to a commit details page. **/
+        revisionUrl?: Url;
+    }
+    export interface ArtifactRevisionInformation {
+        /** The name of an artifact. This name might be system-generated, such as &quot;MyApp&quot;,
+or might be defined by the user when an action is created. **/
+        name?: ArtifactName;
+        /** Represents details about the ArtifactRevision object. **/
+        revision?: ArtifactRevision;
+    }
     export interface ArtifactStore {
         /** The type of the artifact store, such as S3. **/
         type: ArtifactStoreType;
@@ -832,6 +880,11 @@ information, see Create a Custom Action for a Pipeline
         revision: Revision;
         /** The change identifier for the current revision. **/
         changeIdentifier: RevisionChangeIdentifier;
+        /** The date and time when the most recent revision of the artifact was created, in
+timestamp format. **/
+        created?: Time;
+        /** The summary of the most recent revision of the artifact. **/
+        revisionSummary?: RevisionSummary;
     }
     export interface DeleteCustomActionTypeInput {
         /** The category of the custom action that you want to delete, such as source or
@@ -916,6 +969,16 @@ to one hundred percent. **/
 If AWSSessionCredentials is used, a long-running job can call GetJobDetails
 again to obtain new credentials. **/
         jobDetails?: JobDetails;
+    }
+    export interface GetPipelineExecutionInput {
+        /** The name of the pipeline about which you want to get execution details. **/
+        pipelineName: PipelineName;
+        /** The ID of the pipeline execution about which you want to get execution details. **/
+        pipelineExecutionId: PipelineExecutionId;
+    }
+    export interface GetPipelineExecutionOutput {
+        /** Represents information about the execution of a pipeline. **/
+        pipelineExecution?: PipelineExecution;
     }
     export interface GetPipelineInput {
         /** The name of the pipeline for which you want to get information. Pipeline names
@@ -1089,6 +1152,33 @@ actionRoleArn. **/
 of 1. This number is automatically incremented when a pipeline is updated. **/
         version?: PipelineVersion;
     }
+    export interface PipelineExecution {
+        /** The name of the pipeline that was executed. **/
+        pipelineName?: PipelineName;
+        /** The version number of the pipeline that was executed. **/
+        pipelineVersion?: PipelineVersion;
+        /** The ID of the pipeline execution. **/
+        pipelineExecutionId?: PipelineExecutionId;
+        /** The status of the pipeline execution.
+
+ &amp;#42; InProgress: The pipeline execution is currently running.
+   
+   
+ * Succeeded: The pipeline execution completed successfully.
+   
+   
+ * Superseded: While this pipeline execution was waiting for the next stage to
+   be completed, a newer pipeline execution caught up and continued through the
+   pipeline instead.
+   
+   
+ * Failed: The pipeline did not complete successfully. **/
+        status?: PipelineExecutionStatus;
+        /** A list of ArtifactRevisionInformation objects included in a pipeline execution. **/
+        artifactRevisionInformations?: ArtifactRevisionInformationList;
+    }
+    export interface PipelineExecutionNotFoundException {
+    }
     export interface PipelineNameInUseException {
     }
     export interface PipelineNotFoundException {
@@ -1138,7 +1228,8 @@ whose action configuration matches the mapped value will be returned. **/
         actionRevision: ActionRevision;
     }
     export interface PutActionRevisionOutput {
-        /** The new revision number or ID for the revision after the action completes. **/
+        /** Indicates whether the artifact revision was previously used in an execution of
+the specified pipeline. **/
         newRevision?: Boolean;
         /** The ID of the current workflow state of the pipeline. **/
         pipelineExecutionId?: PipelineExecutionId;
@@ -1273,7 +1364,7 @@ status. **/
         name: PipelineName;
     }
     export interface StartPipelineExecutionOutput {
-        /** The unique system-generated ID of the pipeline that was started. **/
+        /** The unique system-generated ID of the pipeline execution that was started. **/
         pipelineExecutionId?: PipelineExecutionId;
     }
     export interface ThirdPartyJob {

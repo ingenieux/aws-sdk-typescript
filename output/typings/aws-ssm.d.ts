@@ -14,12 +14,12 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * This is the Amazon EC2 Simple Systems Manager (SSM) API Reference. SSM enables
-you to remotely manage the configuration of your Amazon EC2 instances, virtual
-machines (VMs), or servers in your on-premises environment or in an environment
-provided by other cloud providers using scripts, commands, or the Amazon EC2
-console. SSM includes an on-demand solution called Amazon EC2 Run Command and a
-lightweight instance configuration solution called SSM Config .
+   * Amazon EC2 Simple Systems Manager (SSM) enables you to remotely manage the
+configuration of your Amazon EC2 instances, virtual machines (VMs), or servers
+in your on-premises environment or in an environment provided by other cloud
+providers using scripts, commands, or the Amazon EC2 console. SSM includes an
+on-demand solution called Amazon EC2 Run Command and a lightweight instance
+configuration solution called SSM Config .
 
 This references is intended to be used with the EC2 Run Command User Guide for 
 Linux
@@ -224,7 +224,8 @@ in the Amazon EC2 User Guide.
      * Associates the specified SSM document with the specified instance.
 
 When you associate an SSM document with an instance, the configuration agent on
-the instance processes the document and configures the instance as specified.
+the instance (SSM agent for Linux and EC2Config service for Windows) processes
+the document and configures the instance as specified.
 
 If you associate a document with an instance that already has an associated
 document, the system throws the AssociationAlreadyExists exception.
@@ -242,7 +243,8 @@ document, the system throws the AssociationAlreadyExists exception.
      * Associates the specified SSM document with the specified instances.
 
 When you associate an SSM document with an instance, the configuration agent on
-the instance processes the document and configures the instance as specified.
+the instance (SSM agent for Linux and EC2Config service for Windows) processes
+the document and configures the instance as specified.
 
 If you associate a document with an instance that already has an associated
 document, the system throws the AssociationAlreadyExists exception.
@@ -354,11 +356,11 @@ specifying a user’s AWS account ID) or publicly ( All ).
     describeDocumentPermission(params: SSM.DescribeDocumentPermissionRequest, callback?: (err: SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidPermissionType|any, data: SSM.DescribeDocumentPermissionResponse|any) => void): Request<SSM.DescribeDocumentPermissionResponse|any,SSM.InternalServerError|SSM.InvalidDocument|SSM.InvalidPermissionType|any>;
     /**
      * Describes one or more of your instances. You can use this to get information
-about instances like the operating system platform, the SSM agent version,
-status etc. If you specify one or more instance IDs, it returns information for
-those instances. If you do not specify instance IDs, it returns information for
-all your instances. If you specify an instance ID that is not valid or an
-instance that you do not own, you receive an error.
+about instances like the operating system platform, the SSM agent version
+(Linux), status etc. If you specify one or more instance IDs, it returns
+information for those instances. If you do not specify instance IDs, it returns
+information for all your instances. If you specify an instance ID that is not
+valid or an instance that you do not own, you receive an error.
      *
      * @error InternalServerError   
      * @error InvalidInstanceId   
@@ -1103,7 +1105,7 @@ default value are required. Parameters with a default value are optional. **/
         PingStatus?: PingStatus;
         /** The date and time when agent last pinged SSM service. **/
         LastPingDateTime?: DateTime;
-        /** The version of the SSM agent running on your instance. **/
+        /** The version of the SSM agent running on your Linux instance. **/
         AgentVersion?: Version;
         /** Indicates whether latest version of the SSM agent is running on your instance. **/
         IsLatestVersion?: Boolean;
