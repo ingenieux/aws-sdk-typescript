@@ -401,10 +401,32 @@ rule.
      * Evaluates your resources against the specified Config rules. You can specify up
 to 25 Config rules per request.
 
-An existing StartConfigRulesEvaluation call must complete for the rules that you
-specified before you can call the API again. If you chose to have AWS Config
-stream to an Amazon SNS topic, you will receive a notification when the
-evaluation starts.
+An existing StartConfigRulesEvaluation call must complete for the specified
+rules before you can call the API again. If you chose to have AWS Config stream
+to an Amazon SNS topic, you will receive a ConfigRuleEvaluationStarted 
+notification when the evaluation starts.
+
+You don&#x27;t need to call the StartConfigRulesEvaluation API to run an evaluation
+for a new rule. When you create a new rule, AWS Config automatically evaluates
+your resources against the rule.
+
+The StartConfigRulesEvaluation API is useful if you want to run on-demand
+evaluations, such as the following example:
+
+ 1. You have a custom rule that evaluates your IAM resources every 24 hours.
+    
+    
+ 2. You update your Lambda function to add additional conditions to your rule.
+    
+    
+ 3. Instead of waiting for the next periodic evaluation, you call the 
+    StartConfigRulesEvaluation API.
+    
+    
+ 4. AWS Config invokes your Lambda function and evaluates your IAM resources.
+    
+    
+ 5. Your custom rule will still run periodic evaluations every 24 hours.
      *
      * @error NoSuchConfigRuleException   
      * @error LimitExceededException   
@@ -679,18 +701,16 @@ notifications that cause the function to evaluate your AWS resources. **/
         Source: Source;
         /** A string in JSON format that is passed to the AWS Config rule Lambda function. **/
         InputParameters?: StringWithCharLimit256;
-        /** If you want to create a rule that evaluates at a frequency that is independent
-of the configuration snapshot delivery, use the MaximumExecutionFrequency 
-parameter in the SourceDetail object.
+        /** The maximum frequency with which AWS Config runs evaluations for a rule. You can
+specify a value for MaximumExecutionFrequency when:
 
-If you want to create a rule that triggers evaluations for your resources when
-AWS Config delivers the configuration snapshot, see the following:
-
-A rule that runs an evaluation when AWS Config delivers a configuration snapshot
-cannot run evaluations more frequently than AWS Config delivers the snapshots.
-Set the value of the MaximumExecutionFrequency to be equal to or greater than
-the value of the deliveryFrequency key, which is part of 
-ConfigSnapshotDeliveryProperties .
+ &amp;#42; You are using an AWS managed rule that is triggered at a periodic frequency.
+   
+   
+ * Your custom rule is triggered when AWS Config delivers the configuration
+   snapshot.
+   
+   
 
 For more information, see ConfigSnapshotDeliveryProperties . **/
         MaximumExecutionFrequency?: MaximumExecutionFrequency;
@@ -1383,21 +1403,21 @@ your AWS resources. **/
         /** The source of the event, such as an AWS service, that triggers AWS Config to
 evaluate your AWS resources. **/
         EventSource?: EventSource;
-        /** The type of SNS message that triggers AWS Config to run an evaluation.
+        /** The type of notification that triggers AWS Config to run an evaluation. You can
+specify the following notification types:
 
-For evaluations that are initiated when AWS Config delivers a configuration item
-change notification, you must use ConfigurationItemChangeNotification .
+ConfigurationItemChangeNotification - Triggers an evaluation when AWS Config
+delivers a configuration item change notification.
 
-For evaluations that are initiated at a frequency that you choose (for example,
-every 24 hours), you must use ScheduledNotification .
+ScheduledNotification - Triggers a periodic evaluation at the frequency
+specified for MaximumExecutionFrequency .
 
-For evaluations that are initiated when AWS Config delivers a configuration
-snapshot, you must use ConfigurationSnapshotDeliveryCompleted . **/
+ConfigurationSnapshotDeliveryCompleted - Triggers a periodic evaluation when AWS
+Config delivers a configuration snapshot. **/
         MessageType?: MessageType;
-        /** If the trigger type for your rule includes periodic, AWS Config runs evaluations
-for the rule at a frequency that you choose. If you specify a value for 
-MaximumExecutionFrequency , then MessageType must use the ScheduledNotification 
-value. **/
+        /** The frequency that you want AWS Config to run evaluations for a rule that is
+triggered periodically. If you specify a value for MaximumExecutionFrequency ,
+then MessageType must use the ScheduledNotification value. **/
         MaximumExecutionFrequency?: MaximumExecutionFrequency;
     }
     export interface StartConfigRulesEvaluationRequest {

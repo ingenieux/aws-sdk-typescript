@@ -1352,6 +1352,8 @@ EC2SecurityGroupName or EC2SecurityGroupId).
     
     export type OptionSettingsList = OptionSetting[];
     
+    export type OptionsConflictsWith = String[];
+    
     export type OptionsDependedOn = String[];
     
     export type OptionsList = Option[];
@@ -1441,7 +1443,7 @@ Constraints:
         /** The Amazon RDS resource the tags will be added to. This value is an Amazon
 Resource Name (ARN). For information about creating an ARN, see Constructing an
 RDS Amazon Resource Name (ARN)
-[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
+[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing] 
 . **/
         ResourceName: String;
         /** The tags to be assigned to the Amazon RDS resource. **/
@@ -1451,7 +1453,7 @@ RDS Amazon Resource Name (ARN)
         /** The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance
 action applies to. For information about creating an ARN, see Constructing an
 RDS Amazon Resource Name (ARN)
-[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
+[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing] 
 . **/
         ResourceIdentifier: String;
         /** The pending maintenance action to apply to this resource.
@@ -1520,6 +1522,7 @@ EC2SecurityGroupId must be provided. **/
         ValidFrom?: TStamp;
         /** The final date that the certificate continues to be valid. **/
         ValidTill?: TStamp;
+        /** The Amazon Resource Name (ARN) for the certificate. **/
         CertificateArn?: String;
     }
     export interface CertificateMessage {
@@ -1542,7 +1545,7 @@ beyond the marker, up to the value specified by MaxRecords . **/
         /** The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter
 group. For information about creating an ARN, see Constructing an RDS Amazon
 Resource Name (ARN)
-[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
+[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing] 
 .
 
 Constraints:
@@ -1628,7 +1631,7 @@ Example: my-cluster-snapshot2 **/
     export interface CopyDBParameterGroupMessage {
         /** The identifier or ARN for the source DB parameter group. For information about
 creating an ARN, see Constructing an RDS Amazon Resource Name (ARN)
-[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
+[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing] 
 .
 
 Constraints:
@@ -1636,14 +1639,8 @@ Constraints:
  &amp;#42; Must specify a valid DB parameter group.
    
    
- * If the source DB parameter group is in the same region as the copy, specify a
-   valid DB parameter group identifier, for example my-db-param-group , or a
-   valid ARN.
-   
-   
- * If the source DB parameter group is in a different region than the copy,
-   specify a valid DB parameter group ARN, for example 
-   arn:aws:rds:us-west-2:123456789012:pg:special-parameters . **/
+ * Must specify a valid DB parameter group identifier, for example 
+   my-db-param-group , or a valid ARN. **/
         SourceDBParameterGroupIdentifier: String;
         /** The identifier for the copied DB parameter group.
 
@@ -1744,7 +1741,7 @@ otherwise false. The default is false. **/
     export interface CopyOptionGroupMessage {
         /** The identifier or ARN for the source option group. For information about
 creating an ARN, see Constructing an RDS Amazon Resource Name (ARN)
-[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
+[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing] 
 .
 
 Constraints:
@@ -2501,11 +2498,6 @@ MySQL
  * Version 5.5 (available in all AWS regions): 5.5.46
    
    
- * Version 5.1 (only available in AWS regions ap-northeast-1, ap-southeast-1,
-   ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1,
-   us-west-2): 5.1.73a | 5.1.73b
-   
-   
 
 Oracle Database Enterprise Edition (oracle-ee)
 
@@ -2523,21 +2515,6 @@ Oracle Database Enterprise Edition (oracle-ee)
    
  * Version 12.1 (available in all AWS regions except us-gov-west-1): 12.1.0.2.v2
    | 12.1.0.2.v3 | 12.1.0.2.v4
-   
-   
- * Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1,
-   ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1,
-   us-west-2): 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |
-   11.2.0.2.v7
-   
-   
- * Version 11.2 (available in all AWS regions except ap-south-1,
-   ap-northeast-2): 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3
-   
-   
- * Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1,
-   ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
-   us-west-2): 11.2.0.3.v4
    
    
  * Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
@@ -2560,21 +2537,6 @@ Oracle Database Standard Edition (oracle-se)
    us-west-2): 12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5
    
    
- * Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1,
-   ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1,
-   us-west-2): 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |
-   11.2.0.2.v7
-   
-   
- * Version 11.2 (available in all AWS regions except ap-south-1,
-   ap-northeast-2): 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3
-   
-   
- * Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1,
-   ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
-   us-west-2): 11.2.0.3.v4
-   
-   
  * Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
    11.2.0.4.v4
    
@@ -2593,21 +2555,6 @@ Oracle Database Standard Edition One (oracle-se1)
  * Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1,
    ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
    us-west-2): 12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5
-   
-   
- * Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1,
-   ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1,
-   us-west-2): 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |
-   11.2.0.2.v7
-   
-   
- * Version 11.2 (available in all AWS regions except ap-south-1,
-   ap-northeast-2): 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3
-   
-   
- * Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1,
-   ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
-   us-west-2): 11.2.0.3.v4
    
    
  * Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
@@ -2808,7 +2755,7 @@ Constraints:
  * If the source DB instance is in a different region than the Read Replica,
    specify a valid DB instance ARN. For more information, go to Constructing a
    Amazon RDS Amazon Resource Name (ARN)
-   [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
+   [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing] 
    . **/
         SourceDBInstanceIdentifier: String;
         /** The compute and memory capacity of the Read Replica.
@@ -3203,6 +3150,7 @@ cluster. **/
 found in AWS CloudTrail log entries whenever the KMS key for the DB cluster is
 accessed. **/
         DbClusterResourceId?: String;
+        /** The Amazon Resource Name (ARN) for the DB cluster. **/
         DBClusterArn?: String;
     }
     export interface DBClusterAlreadyExistsFault {
@@ -3245,6 +3193,7 @@ parameter group is compatible with. **/
         DBParameterGroupFamily?: String;
         /** Provides the customer-specified description for this DB cluster parameter group. **/
         Description?: String;
+        /** The Amazon Resource Name (ARN) for the DB cluster parameter group. **/
         DBClusterParameterGroupArn?: String;
     }
     export interface DBClusterParameterGroupDetails {
@@ -3327,6 +3276,7 @@ Time (UTC). **/
         /** If StorageEncrypted is true, the KMS key identifier for the encrypted DB cluster
 snapshot. **/
         KmsKeyId?: String;
+        /** The Amazon Resource Name (ARN) for the DB cluster snapshot. **/
         DBClusterSnapshotArn?: String;
     }
     export interface DBClusterSnapshotAlreadyExistsFault {
@@ -3543,6 +3493,7 @@ information, see Fault Tolerance for an Aurora DB Cluster
 [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance] 
 . **/
         PromotionTier?: IntegerOptional;
+        /** The Amazon Resource Name (ARN) for the DB instance. **/
         DBInstanceArn?: String;
     }
     export interface DBInstanceAlreadyExistsFault {
@@ -3580,6 +3531,7 @@ is compatible with. **/
         DBParameterGroupFamily?: String;
         /** Provides the customer-specified description for this DB parameter group. **/
         Description?: String;
+        /** The Amazon Resource Name (ARN) for the DB parameter group. **/
         DBParameterGroupArn?: String;
     }
     export interface DBParameterGroupAlreadyExistsFault {
@@ -3627,6 +3579,7 @@ value specified by MaxRecords . **/
         EC2SecurityGroups?: EC2SecurityGroupList;
         /** Contains a list of IPRange elements. **/
         IPRanges?: IPRangeList;
+        /** The Amazon Resource Name (ARN) for the DB security group. **/
         DBSecurityGroupArn?: String;
     }
     export interface DBSecurityGroupAlreadyExistsFault {
@@ -3706,6 +3659,7 @@ encryption. **/
         Encrypted?: Boolean;
         /** If Encrypted is true, the KMS key identifier for the encrypted DB snapshot. **/
         KmsKeyId?: String;
+        /** The Amazon Resource Name (ARN) for the DB snapshot. **/
         DBSnapshotArn?: String;
     }
     export interface DBSnapshotAlreadyExistsFault {
@@ -3752,6 +3706,7 @@ value specified by MaxRecords . **/
         SubnetGroupStatus?: String;
         /** Contains a list of Subnet elements. **/
         Subnets?: SubnetList;
+        /** The Amazon Resource Name (ARN) for the DB subnet group. **/
         DBSubnetGroupArn?: String;
     }
     export interface DBSubnetGroupAlreadyExistsFault {
@@ -4932,6 +4887,7 @@ marker, up to the value specified by MaxRecords . **/
         EventCategories?: EventCategoriesList;
         /** Specifies the date and time of the event. **/
         Date?: TStamp;
+        /** The Amazon Resource Name (ARN) for the event. **/
         SourceArn?: String;
     }
     export interface EventCategoriesMap {
@@ -4974,6 +4930,7 @@ deleted after the subscription was created. **/
         /** A Boolean value indicating if the subscription is enabled. True indicates the
 subscription is enabled. **/
         Enabled?: Boolean;
+        /** The Amazon Resource Name (ARN) for the event subscription. **/
         EventSubscriptionArn?: String;
     }
     export interface EventSubscriptionQuotaExceededFault {
@@ -5075,7 +5032,7 @@ cluster. For example, mydbcluster-replica1 . **/
         /** The Amazon RDS resource with tags to be listed. This value is an Amazon Resource
 Name (ARN). For information about creating an ARN, see Constructing an RDS
 Amazon Resource Name (ARN)
-[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
+[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing] 
 . **/
         ResourceName: String;
         /** This parameter is not currently supported. **/
@@ -5885,6 +5842,7 @@ option group can be applied to both VPC and non-VPC instances. If this field
 contains a value, then this option group can only be applied to instances that
 are in the VPC indicated by this field. **/
         VpcId?: String;
+        /** The Amazon Resource Name (ARN) for the option group. **/
         OptionGroupArn?: String;
     }
     export interface OptionGroupAlreadyExistsFault {
@@ -5916,6 +5874,8 @@ pending-maintenance-removal , applying , removing , and failed . **/
         DefaultPort?: IntegerOptional;
         /** The options that are prerequisites for this option. **/
         OptionsDependedOn?: OptionsDependedOn;
+        /** The options that conflict with this option. **/
+        OptionsConflictsWith?: OptionsConflictsWith;
         /** Persistent options can&#x27;t be removed from an option group while DB instances are
 associated with the option group. If you disassociate all DB instances from the
 option group, your can remove the persistent option from the option group. **/
@@ -5923,8 +5883,8 @@ option group, your can remove the persistent option from the option group. **/
         /** Permanent options can never be removed from an option group. An option group
 containing a permanent option can&#x27;t be removed from a DB instance. **/
         Permanent?: Boolean;
-        /** Specifies the option settings that are available (and the default value) for
-each option in an option group. **/
+        /** The option settings that are available (and the default value) for each option
+in an option group. **/
         OptionGroupOptionSettings?: OptionGroupOptionSettingsList;
         /** The versions that are available for the option. **/
         OptionGroupOptionVersions?: OptionGroupOptionVersionsList;
@@ -6259,7 +6219,7 @@ instance identifier for a DB instance or the name of a security group. **/
         /** The Amazon RDS resource the tags will be removed from. This value is an Amazon
 Resource Name (ARN). For information about creating an ARN, see Constructing an
 RDS Amazon Resource Name (ARN)
-[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN] 
+[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing] 
 . **/
         ResourceName: String;
         /** The tag key (name) of the tag to be removed. **/
@@ -6294,6 +6254,7 @@ RDS Amazon Resource Name (ARN)
         State?: String;
         /** The recurring price charged to run this reserved DB instance. **/
         RecurringCharges?: RecurringChargeList;
+        /** The Amazon Resource Name (ARN) for the reserved DB instance. **/
         ReservedDBInstanceArn?: String;
     }
     export interface ReservedDBInstanceAlreadyExistsFault {

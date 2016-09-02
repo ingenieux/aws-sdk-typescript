@@ -21,12 +21,12 @@ deployment of game servers, and handles infrastructure scaling and session
 management.
 
 This reference describes the low-level service API for GameLift. You can call
-this API directly or use the AWS SDK [https://aws.amazon.com/tools/] for your
-preferred language. The AWS SDK includes a set of high-level GameLift actions
-multiplayer game sessions. Alternatively, you can use the AWS command-line
-interface [https://aws.amazon.com/cli/] (CLI) tool, which includes commands for
-GameLift. For administrative actions, you can also use the Amazon GameLift
-console.
+this API directly or use the AWS SDK [https://aws.amazon.com/tools/#sdk] for
+your preferred language. The AWS SDK includes a set of high-level GameLift
+actions multiplayer game sessions. Alternatively, you can use the AWS
+command-line interface [https://aws.amazon.com/cli/] (CLI) tool, which includes
+commands for GameLift. For administrative actions, you can also use the Amazon
+GameLift console.
 
 More Resources
 
@@ -158,15 +158,16 @@ Service (Amazon S3) client and need to manually upload your build files.
 Instead, to create a build, use the CLI command upload-build , which creates a
 new build record and uploads the build files in one step. (See the Amazon
 GameLift Developer Guide
-[http://docs.aws.amazon.com/gamelift/latest/developerguide/] for more details on
-the CLI and the upload process.)
+[http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html] 
+help on packaging and uploading your build.)
 
-To create a new build, optionally specify a build name and version. This
-metadata is stored with other properties in the build record and is displayed in
-the GameLift console (it is not visible to players). If successful, this action
-returns the newly created build record along with the Amazon S3 storage location
-and AWS account credentials. Use the location and credentials to upload your
-game build.
+To create a new build, identify the operating system of the game server
+binaries. All game servers in a build must use the same operating system.
+Optionally, specify a build name and version; this metadata is stored with other
+properties in the build record and is displayed in the GameLift console (it is
+not visible to players). If successful, this action returns the newly created
+build record along with the Amazon S3 storage location and AWS account
+credentials. Use the location and credentials to upload your game build.
      *
      * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
      * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
@@ -1105,6 +1106,8 @@ before retrying.
     
     export type NonZeroAndMaxString = string;
     
+    export type OperatingSystem = string;
+    
     export type PlayerIdList = NonZeroAndMaxString[];
     
     export type PlayerSessionCreationPolicy = string;
@@ -1187,6 +1190,9 @@ Possible build statuses include the following:
         /** File size of the uploaded game build, expressed in bytes. When the build status
 is INITIALIZED , this value is 0. **/
         SizeOnDisk?: PositiveLong;
+        /** Operating system that the game server binaries are built to run on. This value
+determines the type of fleet resources that you can use for this build. **/
+        OperatingSystem?: OperatingSystem;
         /** Time stamp indicating when this data object was created. Format is a number
 expressed in Unix time as milliseconds (ex: &quot;1469498468.057&quot;. **/
         CreationTime?: Timestamp;
@@ -1215,6 +1221,9 @@ A build name can be changed later using UpdateBuild . **/
 a build. A build version can be changed later using UpdateBuild . **/
         Version?: NonZeroAndMaxString;
         StorageLocation?: S3Location;
+        /** Operating system that the game server binaries are built to run on. This value
+determines the type of fleet resources that you can use for this build. **/
+        OperatingSystem?: OperatingSystem;
     }
     export interface CreateBuildOutput {
         /** Set of properties for the newly created build. **/
@@ -1716,11 +1725,14 @@ Possible fleet statuses include the following:
         Status?: FleetStatus;
         /** Unique identifier for a build. **/
         BuildId?: BuildId;
-        /** Deprecated. Server launch parameters are now set using a RuntimeConfiguration 
-object. **/
+        /** Path to a game server executable in the fleet&#x27;s build, specified for fleets
+created prior to 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for
+fleets created after this date are specified in the fleet&#x27;s RuntimeConfiguration 
+. **/
         ServerLaunchPath?: NonZeroAndMaxString;
-        /** Deprecated. Server launch parameters are now specified using a 
-RuntimeConfiguration object. **/
+        /** Game server launch parameters specified for fleets created prior to 2016-08-04
+(or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this
+date are specified in the fleet&#x27;s RuntimeConfiguration . **/
         ServerLaunchParameters?: NonZeroAndMaxString;
         /** Location of default log files. When a server process is shut down, Amazon
 GameLift captures and stores any log files in this location. These logs are in
@@ -1738,6 +1750,9 @@ fleet.
  * FullProtection – If the game session is in an ACTIVE status, it cannot be
    terminated during a scale-down event. **/
         NewGameSessionProtectionPolicy?: ProtectionPolicy;
+        /** Operating system of the fleet&#x27;s computing resources. A fleet&#x27;s operating system
+depends on the OS specified for the build that is deployed on this fleet. **/
+        OperatingSystem?: OperatingSystem;
     }
     export interface FleetCapacity {
         /** Unique identifier for a fleet. **/
@@ -2092,9 +2107,9 @@ be unique. **/
 in an ACTIVE status.
 
  &amp;#42; ACTIVE – The scaling policy is currently in force.
- * UPDATEREQUESTED – A request to update the scaling policy has been received.
+ * UPDATE_REQUESTED – A request to update the scaling policy has been received.
  * UPDATING – A change is being made to the scaling policy.
- * DELETEREQUESTED – A request to delete the scaling policy has been received.
+ * DELETE_REQUESTED – A request to delete the scaling policy has been received.
  * DELETING – The scaling policy is being deleted.
  * DELETED – The scaling policy has been deleted.
  * ERROR – An error occurred in creating the policy. It should be removed and
