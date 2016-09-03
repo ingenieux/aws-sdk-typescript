@@ -26,7 +26,7 @@ The simplest way to start using the generated typings is to install them directl
   
 ### Using Typescript 2.x (experimental)
 
-Typescript 2 allows you to (install type declarations with npm)[https://blogs.msdn.microsoft.com/typescript/2016/06/15/the-future-of-declaration-files/], this is how you can install the @djabry fork of aws-sdk-typescript
+Typescript 2 allows you to [install type declarations with npm](https://blogs.msdn.microsoft.com/typescript/2016/06/15/the-future-of-declaration-files/), this is how you can install the @djabry fork of aws-sdk-typescript
 
 1. Make sure you have Typescript 2 installed
 
