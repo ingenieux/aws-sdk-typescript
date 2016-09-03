@@ -22,7 +22,6 @@
     "url": "git://github.com/djabry/aws-sdk-typescript.git"
   },
   "devDependencies": {
-    "@types/es6-promise": "0.0.27-alpha",
     "@types/esprima": "^2.1.27-alpha",
     "@types/estree": "0.0.27-alpha",
     "@types/glob": "^5.0.28-alpha",
@@ -59,7 +58,7 @@
     "source-map-support": "^0.4.0",
     "sprintf-js": "^1.0.3",
     "through2": "^2.0.1",
-    "typescript": "^2.0.0",
+    "typescript": "^2.0.2",
     "typescript-formatter": "^2.2.0",
     "uglify-js": "^2.7.0",
     "util-deprecate": "^1.0.2",
