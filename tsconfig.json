@@ -8,7 +8,21 @@
     "removeComments": false,
     "preserveConstEnums": true,
     "outDir": "app/build/",
-    "sourceMap": true
+    "sourceMap": true,
+    "types": [
+      "esprima",
+      "estree",
+      "glob",
+      "handlebars",
+      "html-to-text",
+      "minimatch",
+      "mustache",
+      "node"
+    ],
+    "baseUrl": "./app",
+    "lib": [
+      "es6"
+    ]
   },
   "exclude": [
     "node_modules",

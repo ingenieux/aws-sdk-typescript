@@ -1,6 +1,4 @@
-///<reference path="../../typings/main.d.ts"/>
-
-import * as meta from './meta'
+import * as meta from "./meta";
 import fs = require('fs')
 import handlebars = require('handlebars')
 import htmlToText = require('html-to-text')
@@ -39,7 +37,7 @@ export class AWSTypeGenerator {
   }
 
   fetchTemplate(name: string) {
-    var templateSource = fs.readFileSync(__dirname + `/../src/${name}.handlebars`).toString()
+    var templateSource = fs.readFileSync(__dirname + `/../src/${name}.handlebars`).toString();
     var template = handlebars.compile(templateSource);
 
     return template
@@ -52,7 +50,7 @@ export class AWSTypeGenerator {
   }
 
   generateServiceDefinitions(api: meta.ServiceInfo) {
-    var moduleTemplate = this.fetchTemplate("module")
+    var moduleTemplate = this.fetchTemplate("module");
 
     this.cleanShapes(api.descriptor);
 
@@ -102,7 +100,7 @@ export class AWSTypeGenerator {
   private getStructure(shape:meta.Shape):meta.Shape {
     Object.keys(shape.members).forEach(function(k) {
       shape.members[k].required = "?";
-    })
+    });
 
     if (shape.required) {
       shape.required.forEach(function(k: string) {

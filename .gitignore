@@ -5,3 +5,6 @@ node_modules
 .idea
 *.log
 .vscode
+output
+.idea/**
+index.d.ts
