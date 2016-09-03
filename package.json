@@ -75,9 +75,10 @@
   "scripts": {
     "prepublish": "gulp buildrun && gulp concat && npm run-script format",
     "format": "tsfmt --verbose --replace -- output/typings/*.d.ts",
-    "test": "npm install ./aws-sdk-js && gulp compile:tests"
+    "test": "npm install ./aws-sdk-js && gulp compile:tests",
+    "deploy": "npm version patch && npm publish"
   },
   "dependencies": {
-    "@types/node": "^4.0.28-alpha"
+    "@types/node": "^4.0.30"
   }
 }
