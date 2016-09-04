@@ -15,6 +15,7 @@
     "output/typings"
   ],
   "files": [
+    "./typings/index.d.ts",
     "./app/src/app.ts",
     "./app/src/generator.ts",
     "./app/src/meta.ts"

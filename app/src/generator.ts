@@ -1,5 +1,3 @@
-///<reference path="../../typings/main.d.ts"/>
-
 import * as meta from './meta'
 import fs = require('fs')
 import handlebars = require('handlebars')
@@ -20,7 +18,8 @@ export class AWSTypeGenerator {
 
       source = source.replace(/^[\s\uFEFF\xA0\*\r\n]+|[\s\uFEFF\xA0\*\r\n]+$/g, '');
 
-      var htmlResult = htmlToText.fromString(name || '').replace(/\*/i, '&#42;');
+
+      var htmlResult = htmlToText.fromString(name || '').replace(/\*/g, '&#42;');
 
       return htmlResult;
     });
