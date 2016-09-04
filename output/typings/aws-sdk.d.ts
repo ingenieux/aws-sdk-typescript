@@ -27,7 +27,7 @@ declare module "aws-sdk" {
   }
 
   export interface CredentialParams {
-    Logins: { [index:string]:string };
+    Logins: { [index: string]: string };
   }
 
   export interface Logger {
@@ -66,38 +66,38 @@ declare module "aws-sdk" {
   export interface ClientConfig extends ClientConfigPartial {
     apiVersions?: APIVersionsType;
     update?: (options: ClientConfigPartial, allUnknownKeys?: boolean) => void;
-    getCredentials?: (callback: (err?: any) => void) => void ;
+    getCredentials?: (callback: (err?: any) => void) => void;
     loadFromPath?: (path: string) => void;
     credentials: Credentials;
     region: string;
   }
 
   export class Endpoint {
-    constructor(endpoint:string);
+    constructor(endpoint: string);
 
-    host:string;
-    hostname:string;
-    href:string;
-    port:number;
-    protocol:string;
+    host: string;
+    hostname: string;
+    href: string;
+    port: number;
+    protocol: string;
   }
 
   export class Service {
     apiVersions: string[];
-    services: {[version: string]: any};
+    services: { [version: string]: any };
     serviceIdentifier: string;
 
-    makeRequest(operation:string, params:Object, callback:(error?:Error, data?:any) => void): void;
-    makeUnauthenticatedRequest(operation:string, params:Object, callback: (error?:Error, data?:any) => void): void;
+    makeRequest(operation: string, params: Object, callback: (error?: Error, data?: any) => void): void;
+    makeUnauthenticatedRequest(operation: string, params: Object, callback: (error?: Error, data?: any) => void): void;
     setupRequestListeners(): void;
-    waitFor(state:string, params:Object, callback?:(error?:Error, data?:any) => void): Request<any,any>;
+    waitFor(state: string, params: Object, callback?: (error?: Error, data?: any) => void): Request<any, any>;
   }
 
   export module CognitoIdentity {
     export interface CognitoIdentityCredentialsParams {
       IdentityPoolId?: string;
       AccountId?: string;
-      Logins?: {[k: string]: any};
+      Logins?: { [k: string]: any };
 
       RoleArn?: string;
       RoleSessionName?: string;
@@ -114,25 +114,25 @@ declare module "aws-sdk" {
     constructor(params: CognitoIdentity.CognitoIdentityCredentialsParams);
   }
 
-  export class Request<R,E> extends EventEmitter {
-    constructor(service:Service, operation:string, params:Object);
+  export class Request<R, E> extends EventEmitter {
+    constructor(service: Service, operation: string, params: Object);
 
-    on(event: string, listener: Function):Request<any,any>;
+    on(event: string, listener: Function): Request<any, any>;
     httpRequest: HttpRequest;
     startTime: Date;
-    abort(): Request<any,any>;
+    abort(): Request<any, any>;
     promise(): Promise<R>;
     createReadStream(): ReadableStream;
-    eachItem(callback:Function): void;
-    eachPage(callback: (err:Error, data:any, done?:() => void) => boolean|void): void;
+    eachItem(callback: Function): void;
+    eachPage(callback: (err: Error, data: any, done?: () => void) => boolean | void): void;
     isPageable(): boolean;
-    send(callback?: (err:Error, data:any) => void): void;
+    send(callback?: (err: Error, data: any) => void): void;
   }
 
   export class HttpRequest {
     body: string;
     endpoint: Endpoint;
-    headers: {[index:string]: string};
+    headers: { [index: string]: string };
     method: string;
     path: string;
     pathName(): string;
@@ -224,7 +224,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      batchGet(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
+      batchGet(params: any, callback?: (err: any, data: any) => void): Request<any, any>;
 
       /**
       * Puts or deletes multiple items in one or more tables by delegating
@@ -266,7 +266,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      batchWrite(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
+      batchWrite(params: any, callback?: (err: any, data: any) => void): Request<any, any>;
 
       /**
       * Deletes a single item in a table by primary key by delegating to
@@ -293,7 +293,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      delete(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
+      delete(params: any, callback?: (err: any, data: any) => void): Request<any, any>;
 
       /**
       * Returns a set of attributes for the item with the given primary key
@@ -319,7 +319,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      get(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
+      get(params: any, callback?: (err: any, data: any) => void): Request<any, any>;
 
       /**
       * Creates a new item, or replaces an old item with a new item by
@@ -350,7 +350,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      put(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
+      put(params: any, callback?: (err: any, data: any) => void): Request<any, any>;
 
       /**
       * Edits an existing item's attributes, or adds a new item to the table if
@@ -382,7 +382,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      update(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
+      update(params: any, callback?: (err: any, data: any) => void): Request<any, any>;
 
       /**
       * Returns one or more items and item attributes by accessing every item
@@ -407,7 +407,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      scan(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
+      scan(params: any, callback?: (err: any, data: any) => void): Request<any, any>;
 
       /**
       * Directly access items from a table by primary key or a secondary index.
@@ -435,7 +435,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      query(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
+      query(params: any, callback?: (err: any, data: any) => void): Request<any, any>;
 
       /**
       * Creates a set of elements inferring the type of set from
@@ -464,7 +464,7 @@ declare module "aws-sdk" {
       *  });
       *
       */
-      createSet(params: any, callback?: (err: any, data: any) => void): Request<any,any>;
+      createSet(params: any, callback?: (err: any, data: any) => void): Request<any, any>;
     }
   }
 }

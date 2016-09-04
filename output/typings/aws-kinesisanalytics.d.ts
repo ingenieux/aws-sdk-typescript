@@ -7,32 +7,32 @@
 
 declare module "aws-sdk" {
 
- /**
-   * apiVersion: 2015-08-14
-   * endpointPrefix: kinesisanalytics
-   * serviceAbbreviation: Kinesis Analytics
-   * signatureVersion: v4
-   * protocol: json
-   *
-   * 
-   *
-   */
+  /**
+    * apiVersion: 2015-08-14
+    * endpointPrefix: kinesisanalytics
+    * serviceAbbreviation: Kinesis Analytics
+    * signatureVersion: v4
+    * protocol: json
+    *
+    * 
+    *
+    */
   export class KinesisAnalytics extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
     /**
      * Adds a streaming source to your Amazon Kinesis application. For conceptual
 information, see Configuring Application Input
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html] 
-.
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html]
+. 
 
 You can add a streaming source either when you create an application or you can
 use this operation to add a streaming source after you create an application.
-For more information, see CreateApplication .
+For more information, see CreateApplication.
 
 Any configuration update, including adding a streaming source using this
 operation, results in a new version of the application. You can use the 
-DescribeApplication operation to find the current application version.
+DescribeApplication operation to find the current application version. 
 
 This operation requires permissions to perform the 
 kinesisanalytics:AddApplicationInput action.
@@ -42,7 +42,7 @@ kinesisanalytics:AddApplicationInput action.
      * @error InvalidArgumentException   
      * @error ConcurrentModificationException   
      */
-    addApplicationInput(params: KinesisAnalytics.AddApplicationInputRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.InvalidArgumentException|KinesisAnalytics.ConcurrentModificationException|any, data: KinesisAnalytics.AddApplicationInputResponse|any) => void): Request<KinesisAnalytics.AddApplicationInputResponse|any,KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.InvalidArgumentException|KinesisAnalytics.ConcurrentModificationException|any>;
+    addApplicationInput(params: KinesisAnalytics.AddApplicationInputRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.InvalidArgumentException | KinesisAnalytics.ConcurrentModificationException | any, data: KinesisAnalytics.AddApplicationInputResponse | any) => void): Request<KinesisAnalytics.AddApplicationInputResponse | any, KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.InvalidArgumentException | KinesisAnalytics.ConcurrentModificationException | any>;
     /**
      * Adds an external destination to your Amazon Kinesis Analytics application.
 
@@ -53,20 +53,20 @@ configuration to your application using this operation. You can configure one or
 more outputs for your application. Each output configuration maps an
 in-application stream and an external destination.
 
-You can use one of the output configurations to deliver data from your
+ You can use one of the output configurations to deliver data from your
 in-application error stream to an external destination so that you can analyze
 the errors. For conceptual information, see Understanding Application Output
 (Destination)
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html] 
-.
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html]
+. 
 
-Note that any configuration update, including adding a streaming source using
+ Note that any configuration update, including adding a streaming source using
 this operation, results in a new version of the application. You can use the 
 DescribeApplication operation to find the current application version.
 
 For the limits on the number of application inputs and outputs you can
 configure, see Limits
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html] .
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html].
 
 This operation requires permissions to perform the 
 kinesisanalytics:AddApplicationOutput action.
@@ -76,7 +76,7 @@ kinesisanalytics:AddApplicationOutput action.
      * @error InvalidArgumentException   
      * @error ConcurrentModificationException   
      */
-    addApplicationOutput(params: KinesisAnalytics.AddApplicationOutputRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.InvalidArgumentException|KinesisAnalytics.ConcurrentModificationException|any, data: KinesisAnalytics.AddApplicationOutputResponse|any) => void): Request<KinesisAnalytics.AddApplicationOutputResponse|any,KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.InvalidArgumentException|KinesisAnalytics.ConcurrentModificationException|any>;
+    addApplicationOutput(params: KinesisAnalytics.AddApplicationOutputRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.InvalidArgumentException | KinesisAnalytics.ConcurrentModificationException | any, data: KinesisAnalytics.AddApplicationOutputResponse | any) => void): Request<KinesisAnalytics.AddApplicationOutputResponse | any, KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.InvalidArgumentException | KinesisAnalytics.ConcurrentModificationException | any>;
     /**
      * Adds a reference data source to an existing application.
 
@@ -87,12 +87,12 @@ in-application table to create, and the necessary mapping information that
 describes how data in Amazon S3 object maps to columns in the resulting
 in-application table.
 
-For conceptual information, see Configuring Application Input
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html] 
+ For conceptual information, see Configuring Application Input
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html]
 . For the limits on data sources you can add to your application, see Limits
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html] .
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html]. 
 
-This operation requires permissions to perform the 
+ This operation requires permissions to perform the 
 kinesisanalytics:AddApplicationOutput action.
      *
      * @error ResourceNotFoundException   
@@ -100,14 +100,14 @@ kinesisanalytics:AddApplicationOutput action.
      * @error InvalidArgumentException   
      * @error ConcurrentModificationException   
      */
-    addApplicationReferenceDataSource(params: KinesisAnalytics.AddApplicationReferenceDataSourceRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.InvalidArgumentException|KinesisAnalytics.ConcurrentModificationException|any, data: KinesisAnalytics.AddApplicationReferenceDataSourceResponse|any) => void): Request<KinesisAnalytics.AddApplicationReferenceDataSourceResponse|any,KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.InvalidArgumentException|KinesisAnalytics.ConcurrentModificationException|any>;
+    addApplicationReferenceDataSource(params: KinesisAnalytics.AddApplicationReferenceDataSourceRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.InvalidArgumentException | KinesisAnalytics.ConcurrentModificationException | any, data: KinesisAnalytics.AddApplicationReferenceDataSourceResponse | any) => void): Request<KinesisAnalytics.AddApplicationReferenceDataSourceResponse | any, KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.InvalidArgumentException | KinesisAnalytics.ConcurrentModificationException | any>;
     /**
      * Creates an Amazon Kinesis Analytics application. You can configure each
 application with one streaming source as input, application code to process the
 input, and up to five streaming destinations where you want Amazon Kinesis
 Analytics to write the output data from your application. For an overview, see 
 How it Works
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html] .
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html]. 
 
 In the input configuration, you map the streaming source to an in-application
 stream, which you can think of as a constantly updating table. In the mapping,
@@ -123,21 +123,21 @@ In the output configuration, you can configure the application to write data
 from in-application streams created in your applications to up to five streaming
 destinations.
 
-To read data from your source stream or write data to destination streams,
+ To read data from your source stream or write data to destination streams,
 Amazon Kinesis Analytics needs your permissions. You grant these permissions by
 creating IAM roles. This operation requires permissions to perform the 
-kinesisanalytics:CreateApplication action.
+kinesisanalytics:CreateApplication action. 
 
-For introductory exercises to create an Amazon Kinesis Analytics application,
+ For introductory exercises to create an Amazon Kinesis Analytics application,
 see Getting Started
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/getting-started.html] .
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/getting-started.html].
      *
      * @error CodeValidationException   
      * @error ResourceInUseException   
      * @error LimitExceededException   
      * @error InvalidArgumentException   
      */
-    createApplication(params: KinesisAnalytics.CreateApplicationRequest, callback?: (err: KinesisAnalytics.CodeValidationException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.LimitExceededException|KinesisAnalytics.InvalidArgumentException|any, data: KinesisAnalytics.CreateApplicationResponse|any) => void): Request<KinesisAnalytics.CreateApplicationResponse|any,KinesisAnalytics.CodeValidationException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.LimitExceededException|KinesisAnalytics.InvalidArgumentException|any>;
+    createApplication(params: KinesisAnalytics.CreateApplicationRequest, callback?: (err: KinesisAnalytics.CodeValidationException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.LimitExceededException | KinesisAnalytics.InvalidArgumentException | any, data: KinesisAnalytics.CreateApplicationResponse | any) => void): Request<KinesisAnalytics.CreateApplicationResponse | any, KinesisAnalytics.CodeValidationException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.LimitExceededException | KinesisAnalytics.InvalidArgumentException | any>;
     /**
      * Deletes the specified application. Amazon Kinesis Analytics halts application
 execution and deletes the application, including any application artifacts (such
@@ -150,7 +150,7 @@ kinesisanalytics:DeleteApplication action.
      * @error ResourceNotFoundException   
      * @error ResourceInUseException   
      */
-    deleteApplication(params: KinesisAnalytics.DeleteApplicationRequest, callback?: (err: KinesisAnalytics.ConcurrentModificationException|KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|any, data: KinesisAnalytics.DeleteApplicationResponse|any) => void): Request<KinesisAnalytics.DeleteApplicationResponse|any,KinesisAnalytics.ConcurrentModificationException|KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|any>;
+    deleteApplication(params: KinesisAnalytics.DeleteApplicationRequest, callback?: (err: KinesisAnalytics.ConcurrentModificationException | KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | any, data: KinesisAnalytics.DeleteApplicationResponse | any) => void): Request<KinesisAnalytics.DeleteApplicationResponse | any, KinesisAnalytics.ConcurrentModificationException | KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | any>;
     /**
      * Deletes output destination configuration from your application configuration.
 Amazon Kinesis Analytics will no longer write data from the corresponding
@@ -163,14 +163,14 @@ kinesisanalytics:DeleteApplicationOutput action.
      * @error ResourceInUseException   
      * @error ConcurrentModificationException   
      */
-    deleteApplicationOutput(params: KinesisAnalytics.DeleteApplicationOutputRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.ConcurrentModificationException|any, data: KinesisAnalytics.DeleteApplicationOutputResponse|any) => void): Request<KinesisAnalytics.DeleteApplicationOutputResponse|any,KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.ConcurrentModificationException|any>;
+    deleteApplicationOutput(params: KinesisAnalytics.DeleteApplicationOutputRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.ConcurrentModificationException | any, data: KinesisAnalytics.DeleteApplicationOutputResponse | any) => void): Request<KinesisAnalytics.DeleteApplicationOutputResponse | any, KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.ConcurrentModificationException | any>;
     /**
      * Deletes a reference data source configuration from the specified application
 configuration.
 
 If the application is running, Amazon Kinesis Analytics immediately removes the
 in-application table that you created using the 
-AddApplicationReferenceDataSource operation.
+AddApplicationReferenceDataSource operation. 
 
 This operation requires permissions to perform the 
 kinesisanalytics.DeleteApplicationReferenceDataSource action.
@@ -180,7 +180,7 @@ kinesisanalytics.DeleteApplicationReferenceDataSource action.
      * @error InvalidArgumentException   
      * @error ConcurrentModificationException   
      */
-    deleteApplicationReferenceDataSource(params: KinesisAnalytics.DeleteApplicationReferenceDataSourceRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.InvalidArgumentException|KinesisAnalytics.ConcurrentModificationException|any, data: KinesisAnalytics.DeleteApplicationReferenceDataSourceResponse|any) => void): Request<KinesisAnalytics.DeleteApplicationReferenceDataSourceResponse|any,KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.InvalidArgumentException|KinesisAnalytics.ConcurrentModificationException|any>;
+    deleteApplicationReferenceDataSource(params: KinesisAnalytics.DeleteApplicationReferenceDataSourceRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.InvalidArgumentException | KinesisAnalytics.ConcurrentModificationException | any, data: KinesisAnalytics.DeleteApplicationReferenceDataSourceResponse | any) => void): Request<KinesisAnalytics.DeleteApplicationReferenceDataSourceResponse | any, KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.InvalidArgumentException | KinesisAnalytics.ConcurrentModificationException | any>;
     /**
      * Returns information about a specific Amazon Kinesis Analytics application.
 
@@ -190,48 +190,48 @@ ListApplications operation.
 This operation requires permissions to perform the 
 kinesisanalytics:DescribeApplication action. You can use DescribeApplication to
 get the current application versionId, which you need to call other operations
-such as Update .
+such as Update.
      *
      * @error ResourceNotFoundException   
      */
-    describeApplication(params: KinesisAnalytics.DescribeApplicationRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException|any, data: KinesisAnalytics.DescribeApplicationResponse|any) => void): Request<KinesisAnalytics.DescribeApplicationResponse|any,KinesisAnalytics.ResourceNotFoundException|any>;
+    describeApplication(params: KinesisAnalytics.DescribeApplicationRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException | any, data: KinesisAnalytics.DescribeApplicationResponse | any) => void): Request<KinesisAnalytics.DescribeApplicationResponse | any, KinesisAnalytics.ResourceNotFoundException | any>;
     /**
      * Infers a schema by evaluating sample records on the specified streaming source
 (Amazon Kinesis stream or Amazon Kinesis Firehose delivery stream). In the
 response, the operation returns the inferred schema and also the sample records
 that the operation used to infer the schema.
 
-You can use the inferred schema when configuring a streaming source for your
+ You can use the inferred schema when configuring a streaming source for your
 application. For conceptual information, see Configuring Application Input
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html] 
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html]
 . Note that when you create an application using the Amazon Kinesis Analytics
 console, the console uses this operation to infer a schema and show it in the
-console user interface.
+console user interface. 
 
-This operation requires permissions to perform the 
+ This operation requires permissions to perform the 
 kinesisanalytics:DiscoverInputSchema action.
      *
      * @error InvalidArgumentException   
      * @error UnableToDetectSchemaException   
      * @error ResourceProvisionedThroughputExceededException   
      */
-    discoverInputSchema(params: KinesisAnalytics.DiscoverInputSchemaRequest, callback?: (err: KinesisAnalytics.InvalidArgumentException|KinesisAnalytics.UnableToDetectSchemaException|KinesisAnalytics.ResourceProvisionedThroughputExceededException|any, data: KinesisAnalytics.DiscoverInputSchemaResponse|any) => void): Request<KinesisAnalytics.DiscoverInputSchemaResponse|any,KinesisAnalytics.InvalidArgumentException|KinesisAnalytics.UnableToDetectSchemaException|KinesisAnalytics.ResourceProvisionedThroughputExceededException|any>;
+    discoverInputSchema(params: KinesisAnalytics.DiscoverInputSchemaRequest, callback?: (err: KinesisAnalytics.InvalidArgumentException | KinesisAnalytics.UnableToDetectSchemaException | KinesisAnalytics.ResourceProvisionedThroughputExceededException | any, data: KinesisAnalytics.DiscoverInputSchemaResponse | any) => void): Request<KinesisAnalytics.DiscoverInputSchemaResponse | any, KinesisAnalytics.InvalidArgumentException | KinesisAnalytics.UnableToDetectSchemaException | KinesisAnalytics.ResourceProvisionedThroughputExceededException | any>;
     /**
      * Returns a list of Amazon Kinesis Analytics applications in your account. For
 each application, the response includes the application name, Amazon Resource
 Name (ARN), and status. If the response returns the HasMoreApplications value as
 true, you can send another request by adding the ExclusiveStartApplicationName 
 in the request body, and set the value of this to the last application name from
-the previous response.
+the previous response. 
 
 If you want detailed information about a specific application, use 
-DescribeApplication .
+DescribeApplication.
 
 This operation requires permissions to perform the 
 kinesisanalytics:ListApplications action.
      *
      */
-    listApplications(params: KinesisAnalytics.ListApplicationsRequest, callback?: (err: any, data: KinesisAnalytics.ListApplicationsResponse|any) => void): Request<KinesisAnalytics.ListApplicationsResponse|any,any>;
+    listApplications(params: KinesisAnalytics.ListApplicationsRequest, callback?: (err: any, data: KinesisAnalytics.ListApplicationsResponse | any) => void): Request<KinesisAnalytics.ListApplicationsResponse | any, any>;
     /**
      * Starts the specified Amazon Kinesis Analytics application. After creating an
 application, you must exclusively call this operation to start your application.
@@ -239,7 +239,7 @@ application, you must exclusively call this operation to start your application.
 After the application starts, it begins consuming the input data, processes it,
 and writes the output to the configured destination.
 
-The application status must be READY for you to start an application. You can
+ The application status must be READY for you to start an application. You can
 get the application status in the console or using the DescribeApplication 
 operation.
 
@@ -254,13 +254,13 @@ kinesisanalytics:StartApplication action.
      * @error InvalidArgumentException   
      * @error InvalidApplicationConfigurationException   
      */
-    startApplication(params: KinesisAnalytics.StartApplicationRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.InvalidArgumentException|KinesisAnalytics.InvalidApplicationConfigurationException|any, data: KinesisAnalytics.StartApplicationResponse|any) => void): Request<KinesisAnalytics.StartApplicationResponse|any,KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.InvalidArgumentException|KinesisAnalytics.InvalidApplicationConfigurationException|any>;
+    startApplication(params: KinesisAnalytics.StartApplicationRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.InvalidArgumentException | KinesisAnalytics.InvalidApplicationConfigurationException | any, data: KinesisAnalytics.StartApplicationResponse | any) => void): Request<KinesisAnalytics.StartApplicationResponse | any, KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.InvalidArgumentException | KinesisAnalytics.InvalidApplicationConfigurationException | any>;
     /**
      * Stops the application from processing input data. You can stop an application
 only if it is in the running state. You can use the DescribeApplication 
 operation to find the application state. After the application is stopped,
 Amazon Kinesis Analytics stops reading data from the input, the application
-stops processing data, and there is no output written to the destination.
+stops processing data, and there is no output written to the destination. 
 
 This operation requires permissions to perform the 
 kinesisanalytics:StopApplication action.
@@ -268,13 +268,13 @@ kinesisanalytics:StopApplication action.
      * @error ResourceNotFoundException   
      * @error ResourceInUseException   
      */
-    stopApplication(params: KinesisAnalytics.StopApplicationRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|any, data: KinesisAnalytics.StopApplicationResponse|any) => void): Request<KinesisAnalytics.StopApplicationResponse|any,KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|any>;
+    stopApplication(params: KinesisAnalytics.StopApplicationRequest, callback?: (err: KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | any, data: KinesisAnalytics.StopApplicationResponse | any) => void): Request<KinesisAnalytics.StopApplicationResponse | any, KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | any>;
     /**
      * Updates an existing Kinesis Analytics application. Using this API, you can
-update application code, input configuration, and output configuration.
+update application code, input configuration, and output configuration. 
 
 Note that Kinesis Analytics updates the CurrentApplicationVersionId each time
-you update your application.
+you update your application. 
 
 This opeation requires permission for the kinesisanalytics:UpdateApplication 
 action.
@@ -285,216 +285,216 @@ action.
      * @error InvalidArgumentException   
      * @error ConcurrentModificationException   
      */
-    updateApplication(params: KinesisAnalytics.UpdateApplicationRequest, callback?: (err: KinesisAnalytics.CodeValidationException|KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.InvalidArgumentException|KinesisAnalytics.ConcurrentModificationException|any, data: KinesisAnalytics.UpdateApplicationResponse|any) => void): Request<KinesisAnalytics.UpdateApplicationResponse|any,KinesisAnalytics.CodeValidationException|KinesisAnalytics.ResourceNotFoundException|KinesisAnalytics.ResourceInUseException|KinesisAnalytics.InvalidArgumentException|KinesisAnalytics.ConcurrentModificationException|any>;
+    updateApplication(params: KinesisAnalytics.UpdateApplicationRequest, callback?: (err: KinesisAnalytics.CodeValidationException | KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.InvalidArgumentException | KinesisAnalytics.ConcurrentModificationException | any, data: KinesisAnalytics.UpdateApplicationResponse | any) => void): Request<KinesisAnalytics.UpdateApplicationResponse | any, KinesisAnalytics.CodeValidationException | KinesisAnalytics.ResourceNotFoundException | KinesisAnalytics.ResourceInUseException | KinesisAnalytics.InvalidArgumentException | KinesisAnalytics.ConcurrentModificationException | any>;
 
   }
 
   export module KinesisAnalytics {
-    
+
     export type ApplicationCode = string;
-    
+
     export type ApplicationDescription = string;
-    
+
     export type ApplicationName = string;
-    
+
     export type ApplicationStatus = string;
-    
+
     export type ApplicationSummaries = ApplicationSummary[];
-    
+
     export type ApplicationVersionId = number;
-    
+
     export type BooleanObject = boolean;
-    
+
     export type BucketARN = string;
-    
+
     export type ErrorMessage = string;
-    
+
     export type FileKey = string;
-    
+
     export type Id = string;
-    
+
     export type InAppStreamName = string;
-    
+
     export type InAppStreamNames = InAppStreamName[];
-    
+
     export type InAppTableName = string;
-    
+
     export type InputConfigurations = InputConfiguration[];
-    
+
     export type InputDescriptions = InputDescription[];
-    
+
     export type InputParallelismCount = number;
-    
+
     export type InputStartingPosition = string;
-    
+
     export type InputUpdates = InputUpdate[];
-    
+
     export type Inputs = Input[];
-    
+
     export type ListApplicationsInputLimit = number;
-    
+
     export type OutputDescriptions = OutputDescription[];
-    
+
     export type OutputUpdates = OutputUpdate[];
-    
+
     export type Outputs = Output[];
-    
+
     export type ParsedInputRecord = ParsedInputRecordField[];
-    
+
     export type ParsedInputRecordField = string;
-    
+
     export type ParsedInputRecords = ParsedInputRecord[];
-    
+
     export type RawInputRecord = string;
-    
+
     export type RawInputRecords = RawInputRecord[];
-    
+
     export type RecordColumnDelimiter = string;
-    
+
     export type RecordColumnMapping = string;
-    
+
     export type RecordColumnName = string;
-    
+
     export type RecordColumnSqlType = string;
-    
+
     export type RecordColumns = RecordColumn[];
-    
+
     export type RecordEncoding = string;
-    
+
     export type RecordFormatType = string;
-    
+
     export type RecordRowDelimiter = string;
-    
+
     export type RecordRowPath = string;
-    
+
     export type ReferenceDataSourceDescriptions = ReferenceDataSourceDescription[];
-    
+
     export type ReferenceDataSourceUpdates = ReferenceDataSourceUpdate[];
-    
+
     export type ResourceARN = string;
-    
+
     export type RoleARN = string;
-    
+
     export type Timestamp = number;
 
     export interface AddApplicationInputRequest {
-        /** Name of your existing Amazon Kinesis Analytics application to which you want to
+      /** Name of your existing Amazon Kinesis Analytics application to which you want to
 add the streaming source. **/
-        ApplicationName: ApplicationName;
-        /** Current version of your Amazon Kinesis Analytics application. You can use the 
+      ApplicationName: ApplicationName;
+      /** Current version of your Amazon Kinesis Analytics application. You can use the 
 DescribeApplication operation to find the current application version. **/
-        CurrentApplicationVersionId: ApplicationVersionId;
-        Input: Input;
+      CurrentApplicationVersionId: ApplicationVersionId;
+      Input: Input;
     }
     export interface AddApplicationInputResponse {
     }
     export interface AddApplicationOutputRequest {
-        /** Name of the application to which you want to add the output configuration. **/
-        ApplicationName: ApplicationName;
-        /** Version of the application to which you want add the output configuration. You
+      /** Name of the application to which you want to add the output configuration. **/
+      ApplicationName: ApplicationName;
+      /** Version of the application to which you want add the output configuration. You
 can use the DescribeApplication operation to get the current application
 version. If the version specified is not the current version, the 
 ConcurrentModificationException is returned. **/
-        CurrentApplicationVersionId: ApplicationVersionId;
-        /** An array of objects, each describing one output configuration. In the output
+      CurrentApplicationVersionId: ApplicationVersionId;
+      /** An array of objects, each describing one output configuration. In the output
 configuration, you specify the name of an in-application stream, a destination
 (that is, an Amazon Kinesis stream or an Amazon Kinesis Firehose delivery
 stream), and record the formation to use when writing to the destination. **/
-        Output: Output;
+      Output: Output;
     }
     export interface AddApplicationOutputResponse {
     }
     export interface AddApplicationReferenceDataSourceRequest {
-        /** Name of an existing application. **/
-        ApplicationName: ApplicationName;
-        /** Version of the application for which you are adding the reference data source.
+      /** Name of an existing application. **/
+      ApplicationName: ApplicationName;
+      /** Version of the application for which you are adding the reference data source.
 You can use the DescribeApplication operation to get the current application
 version. If the version specified is not the current version, the 
 ConcurrentModificationException is returned. **/
-        CurrentApplicationVersionId: ApplicationVersionId;
-        /** The reference data source can be an object in your Amazon S3 bucket. Amazon
+      CurrentApplicationVersionId: ApplicationVersionId;
+      /** The reference data source can be an object in your Amazon S3 bucket. Amazon
 Kinesis Analytics reads the object and copies the data into the in-application
 table that is created. You provide an S3 bucket, object key name, and the
 resulting in-application table that is created. You must also provide an IAM
 role with the necessary permissions that Amazon Kinesis Analytics can assume to
 read the object from your S3 bucket on your behalf. **/
-        ReferenceDataSource: ReferenceDataSource;
+      ReferenceDataSource: ReferenceDataSource;
     }
     export interface AddApplicationReferenceDataSourceResponse {
     }
     export interface ApplicationDetail {
-        /** Name of the application. **/
-        ApplicationName: ApplicationName;
-        /** Description of the application. **/
-        ApplicationDescription?: ApplicationDescription;
-        /** ARN of the application. **/
-        ApplicationARN: ResourceARN;
-        /** Status of the application. **/
-        ApplicationStatus: ApplicationStatus;
-        /** Timestamp when the application version was created. **/
-        CreateTimestamp?: Timestamp;
-        /** Timestamp when the application was last updated. **/
-        LastUpdateTimestamp?: Timestamp;
-        /** Describes the application input configuration. For more information, see 
+      /** Name of the application. **/
+      ApplicationName: ApplicationName;
+      /** Description of the application. **/
+      ApplicationDescription?: ApplicationDescription;
+      /** ARN of the application. **/
+      ApplicationARN: ResourceARN;
+      /** Status of the application. **/
+      ApplicationStatus: ApplicationStatus;
+      /** Timestamp when the application version was created. **/
+      CreateTimestamp?: Timestamp;
+      /** Timestamp when the application was last updated. **/
+      LastUpdateTimestamp?: Timestamp;
+      /** Describes the application input configuration. For more information, see 
 Configuring Application Input
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html] 
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html]
 . **/
-        InputDescriptions?: InputDescriptions;
-        /** Describes the application output configuration. For more information, see 
+      InputDescriptions?: InputDescriptions;
+      /** Describes the application output configuration. For more information, see 
 Configuring Application Output
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html] 
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html]
 . **/
-        OutputDescriptions?: OutputDescriptions;
-        /** Describes reference data sources configured for the application. For more
+      OutputDescriptions?: OutputDescriptions;
+      /** Describes reference data sources configured for the application. For more
 information, see Configuring Application Input
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html] 
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html]
 . **/
-        ReferenceDataSourceDescriptions?: ReferenceDataSourceDescriptions;
-        /** Returns the application code that you provided to perform data analysis on any
+      ReferenceDataSourceDescriptions?: ReferenceDataSourceDescriptions;
+      /** Returns the application code that you provided to perform data analysis on any
 of the in-application streams in your application. **/
-        ApplicationCode?: ApplicationCode;
-        /** Provides the current application version. **/
-        ApplicationVersionId: ApplicationVersionId;
+      ApplicationCode?: ApplicationCode;
+      /** Provides the current application version. **/
+      ApplicationVersionId: ApplicationVersionId;
     }
     export interface ApplicationSummary {
-        /** Name of the application. **/
-        ApplicationName: ApplicationName;
-        /** ARN of the application. **/
-        ApplicationARN: ResourceARN;
-        /** Status of the application. **/
-        ApplicationStatus: ApplicationStatus;
+      /** Name of the application. **/
+      ApplicationName: ApplicationName;
+      /** ARN of the application. **/
+      ApplicationARN: ResourceARN;
+      /** Status of the application. **/
+      ApplicationStatus: ApplicationStatus;
     }
     export interface ApplicationUpdate {
-        /** Describes application input configuration updates. **/
-        InputUpdates?: InputUpdates;
-        /** Describes application code updates. **/
-        ApplicationCodeUpdate?: ApplicationCode;
-        /** Describes application output configuration updates. **/
-        OutputUpdates?: OutputUpdates;
-        /** Describes application reference data source updates. **/
-        ReferenceDataSourceUpdates?: ReferenceDataSourceUpdates;
+      /** Describes application input configuration updates. **/
+      InputUpdates?: InputUpdates;
+      /** Describes application code updates. **/
+      ApplicationCodeUpdate?: ApplicationCode;
+      /** Describes application output configuration updates. **/
+      OutputUpdates?: OutputUpdates;
+      /** Describes application reference data source updates. **/
+      ReferenceDataSourceUpdates?: ReferenceDataSourceUpdates;
     }
     export interface CSVMappingParameters {
-        /** Row delimiter. For example, in a CSV format, &#x27;\n&#x27; is the typical row delimiter. **/
-        RecordRowDelimiter: RecordRowDelimiter;
-        /** Column delimiter. For example, in a CSV format, a comma (&quot;,&quot;) is the typical
+      /** Row delimiter. For example, in a CSV format, &#x27;\n&#x27; is the typical row delimiter. **/
+      RecordRowDelimiter: RecordRowDelimiter;
+      /** Column delimiter. For example, in a CSV format, a comma (&quot;,&quot;) is the typical
 column delimiter. **/
-        RecordColumnDelimiter: RecordColumnDelimiter;
+      RecordColumnDelimiter: RecordColumnDelimiter;
     }
     export interface CodeValidationException {
-        /** Test **/
-        message?: ErrorMessage;
+      /** Test **/
+      message?: ErrorMessage;
     }
     export interface ConcurrentModificationException {
-        /**  **/
-        message?: ErrorMessage;
+      /**  **/
+      message?: ErrorMessage;
     }
     export interface CreateApplicationRequest {
-        /** Name of your Amazon Kinesis Analytics application (for example, sample-app ). **/
-        ApplicationName: ApplicationName;
-        /** Summary description of the application. **/
-        ApplicationDescription?: ApplicationDescription;
-        /** Use this parameter to configure the application input.
+      /** Name of your Amazon Kinesis Analytics application (for example, sample-app). **/
+      ApplicationName: ApplicationName;
+      /** Summary description of the application. **/
+      ApplicationDescription?: ApplicationDescription;
+      /** Use this parameter to configure the application input.
 
 You can configure your application to receive input from a single streaming
 source. In this configuration, you map this streaming source to an
@@ -511,8 +511,8 @@ To create the in-application stream, you need to specify a schema to transform
 your data into a schematized version used in SQL. In the schema, you provide the
 necessary mapping of the data elements in the streaming source to record columns
 in the in-app stream. **/
-        Inputs?: Inputs;
-        /** You can configure application output to write data from any of the
+      Inputs?: Inputs;
+      /** You can configure application output to write data from any of the
 in-application streams to up to five destinations.
 
 These destinations can be Amazon Kinesis streams, Amazon Kinesis Firehose
@@ -527,8 +527,8 @@ In the output configuration, you also provide the output stream Amazon Resource
 Name (ARN) and the format of data in the stream (for example, JSON, CSV). You
 also must provide an IAM role that Amazon Kinesis Analytics can assume to write
 to this stream on your behalf. **/
-        Outputs?: Outputs;
-        /** One or more SQL statements that read input data, transform it, and generate
+      Outputs?: Outputs;
+      /** One or more SQL statements that read input data, transform it, and generate
 output. For example, you can write a SQL statement that reads input data and
 generates a running average of the number of advertisement clicks by vendor.
 
@@ -536,504 +536,504 @@ You can also provide a series of SQL statements, where output of one statement
 can be used as the input for the next statement.
 
 Note that the application code must create the streams with names specified in
-the Outputs . For example, if your Outputs defines output streams named 
-ExampleOutputStream1 and ExampleOutputStream2 , then your application code must
+the Outputs. For example, if your Outputs defines output streams named 
+ExampleOutputStream1 and ExampleOutputStream2, then your application code must
 create these streams. **/
-        ApplicationCode?: ApplicationCode;
+      ApplicationCode?: ApplicationCode;
     }
     export interface CreateApplicationResponse {
-        /** In response to your CreateApplication request, Amazon Kinesis Analytics returns
+      /** In response to your CreateApplication request, Amazon Kinesis Analytics returns
 a response with a summary of the application it created, including the
 application Amazon Resource Name (ARN), name, and status. **/
-        ApplicationSummary: ApplicationSummary;
+      ApplicationSummary: ApplicationSummary;
     }
     export interface DeleteApplicationOutputRequest {
-        /** Amazon Kinesis Analytics application name. **/
-        ApplicationName: ApplicationName;
-        /** Amazon Kinesis Analytics application version. You can use the 
+      /** Amazon Kinesis Analytics application name. **/
+      ApplicationName: ApplicationName;
+      /** Amazon Kinesis Analytics application version. You can use the 
 DescribeApplication operation to get the current application version. If the
 version specified is not the current version, the 
 ConcurrentModificationException is returned. **/
-        CurrentApplicationVersionId: ApplicationVersionId;
-        /** The ID of the configuration to delete. Each output configuration that is added
+      CurrentApplicationVersionId: ApplicationVersionId;
+      /** The ID of the configuration to delete. Each output configuration that is added
 to the application, either when the application is created or later using the 
 AddApplicationOutput operation, has a unique ID. You need to provide the ID to
 uniquely identify the output configuration that you want to delete from the
 application configuration. You can use the DescribeApplication operation to get
-the specific OutputId . **/
-        OutputId: Id;
+the specific OutputId. **/
+      OutputId: Id;
     }
     export interface DeleteApplicationOutputResponse {
     }
     export interface DeleteApplicationReferenceDataSourceRequest {
-        /** Name of an existing application. **/
-        ApplicationName: ApplicationName;
-        /** Version of the application. You can use the DescribeApplication operation to get
+      /** Name of an existing application. **/
+      ApplicationName: ApplicationName;
+      /** Version of the application. You can use the DescribeApplication operation to get
 the current application version. If the version specified is not the current
 version, the ConcurrentModificationException is returned. **/
-        CurrentApplicationVersionId: ApplicationVersionId;
-        /** ID of the reference data source. When you add a reference data source to your
-application using the AddApplicationReferenceDataSource , Amazon Kinesis
+      CurrentApplicationVersionId: ApplicationVersionId;
+      /** ID of the reference data source. When you add a reference data source to your
+application using the AddApplicationReferenceDataSource, Amazon Kinesis
 Analytics assigns an ID. You can use the DescribeApplication operation to get
 the reference ID. **/
-        ReferenceId: Id;
+      ReferenceId: Id;
     }
     export interface DeleteApplicationReferenceDataSourceResponse {
     }
     export interface DeleteApplicationRequest {
-        /** Name of the Amazon Kinesis Analytics application to delete. **/
-        ApplicationName: ApplicationName;
-        /** You can use the DescribeApplication operation to get this value. **/
-        CreateTimestamp: Timestamp;
+      /** Name of the Amazon Kinesis Analytics application to delete. **/
+      ApplicationName: ApplicationName;
+      /** You can use the DescribeApplication operation to get this value. **/
+      CreateTimestamp: Timestamp;
     }
     export interface DeleteApplicationResponse {
     }
     export interface DescribeApplicationRequest {
-        /** Name of the application. **/
-        ApplicationName: ApplicationName;
+      /** Name of the application. **/
+      ApplicationName: ApplicationName;
     }
     export interface DescribeApplicationResponse {
-        /** Provides a description of the application, such as the application Amazon
+      /** Provides a description of the application, such as the application Amazon
 Resource Name (ARN), status, latest version, and input and output configuration
 details. **/
-        ApplicationDetail: ApplicationDetail;
+      ApplicationDetail: ApplicationDetail;
     }
     export interface DestinationSchema {
-        /** Specifies the format of the records on the output stream. **/
-        RecordFormatType?: RecordFormatType;
+      /** Specifies the format of the records on the output stream. **/
+      RecordFormatType?: RecordFormatType;
     }
     export interface DiscoverInputSchemaRequest {
-        /** Amazon Resource Name (ARN) of the streaming source. **/
-        ResourceARN: ResourceARN;
-        /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
+      /** Amazon Resource Name (ARN) of the streaming source. **/
+      ResourceARN: ResourceARN;
+      /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 stream on your behalf. **/
-        RoleARN: RoleARN;
-        /** Point at which you want Amazon Kinesis Analytics to start reading records from
+      RoleARN: RoleARN;
+      /** Point at which you want Amazon Kinesis Analytics to start reading records from
 the specified streaming source discovery purposes. **/
-        InputStartingPositionConfiguration: InputStartingPositionConfiguration;
+      InputStartingPositionConfiguration: InputStartingPositionConfiguration;
     }
     export interface DiscoverInputSchemaResponse {
-        /** Schema inferred from the streaming source. It identifies the format of the data
+      /** Schema inferred from the streaming source. It identifies the format of the data
 in the streaming source and how each data element maps to corresponding columns
 in the in-application stream that you can create. **/
-        InputSchema?: SourceSchema;
-        /** An array of elements, where each element corresponds to a row in a stream record
+      InputSchema?: SourceSchema;
+      /** An array of elements, where each element corresponds to a row in a stream record
 (a stream record can have more than one row). **/
-        ParsedInputRecords?: ParsedInputRecords;
-        /** Raw stream data that was sampled to infer the schema. **/
-        RawInputRecords?: RawInputRecords;
+      ParsedInputRecords?: ParsedInputRecords;
+      /** Raw stream data that was sampled to infer the schema. **/
+      RawInputRecords?: RawInputRecords;
     }
     export interface Input {
-        /** Name prefix to use when creating in-application stream. Suppose you specify a
+      /** Name prefix to use when creating in-application stream. Suppose you specify a
 prefix &quot;MyInApplicationStream&quot;. Kinesis Analytics will then create one or more
 (as per the InputParallelism count you specified) in-application streams with
 names &quot;MyInApplicationStream_001&quot;, &quot;MyInApplicationStream_002&quot; and so on. **/
-        NamePrefix: InAppStreamName;
-        /** If the streaming source is an Amazon Kinesis stream, identifies the stream&#x27;s
+      NamePrefix: InAppStreamName;
+      /** If the streaming source is an Amazon Kinesis stream, identifies the stream&#x27;s
 Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics
 to access the stream on your behalf. **/
-        KinesisStreamsInput?: KinesisStreamsInput;
-        /** If the streaming source is an Amazon Kinesis Firehose delivery stream,
+      KinesisStreamsInput?: KinesisStreamsInput;
+      /** If the streaming source is an Amazon Kinesis Firehose delivery stream,
 identifies the Firehose delivery stream&#x27;s ARN and an IAM role that enables
 Amazon Kinesis Analytics to access the stream on your behalf. **/
-        KinesisFirehoseInput?: KinesisFirehoseInput;
-        /** Describes the number of in-application streams to create.
+      KinesisFirehoseInput?: KinesisFirehoseInput;
+      /** Describes the number of in-application streams to create. 
 
 Data from your source will be routed to these in-application input streams.
 
 (see Configuring Application Input
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html] 
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html]
 . **/
-        InputParallelism?: InputParallelism;
-        /** Describes the format of the data in the streaming source, and how each data
+      InputParallelism?: InputParallelism;
+      /** Describes the format of the data in the streaming source, and how each data
 element maps to corresponding columns in the in-application stream that is being
 created.
 
 Also used to describe the format of the reference data source. **/
-        InputSchema?: SourceSchema;
+      InputSchema?: SourceSchema;
     }
     export interface InputConfiguration {
-        /** Input source ID. You can get this ID by calling the DescribeApplication 
+      /** Input source ID. You can get this ID by calling the DescribeApplication 
 operation. **/
-        Id: Id;
-        /** Point at which you want the application to start processing records from the
+      Id: Id;
+      /** Point at which you want the application to start processing records from the
 streaming source. **/
-        InputStartingPositionConfiguration: InputStartingPositionConfiguration;
+      InputStartingPositionConfiguration: InputStartingPositionConfiguration;
     }
     export interface InputDescription {
-        /** Input ID associated with the application input. This is the ID that Amazon
+      /** Input ID associated with the application input. This is the ID that Amazon
 Kinesis Analytics assigns to each input configuration you add to your
 application. **/
-        InputId?: Id;
-        /** In-application name prefix. **/
-        NamePrefix?: InAppStreamName;
-        /** Returns the in-application stream names that are mapped to the stream source. **/
-        InAppStreamNames?: InAppStreamNames;
-        /** If an Amazon Kinesis stream is configured as streaming source, provides Amazon
+      InputId?: Id;
+      /** In-application name prefix. **/
+      NamePrefix?: InAppStreamName;
+      /** Returns the in-application stream names that are mapped to the stream source. **/
+      InAppStreamNames?: InAppStreamNames;
+      /** If an Amazon Kinesis stream is configured as streaming source, provides Amazon
 Kinesis stream&#x27;s ARN and an IAM role that enables Amazon Kinesis Analytics to
 access the stream on your behalf. **/
-        KinesisStreamsInputDescription?: KinesisStreamsInputDescription;
-        /** If an Amazon Kinesis Firehose delivery stream is configured as a streaming
+      KinesisStreamsInputDescription?: KinesisStreamsInputDescription;
+      /** If an Amazon Kinesis Firehose delivery stream is configured as a streaming
 source, provides the Firehose delivery stream&#x27;s Amazon Resource Name (ARN) and
 an IAM role that enables Amazon Kinesis Analytics to access the stream on your
 behalf. **/
-        KinesisFirehoseInputDescription?: KinesisFirehoseInputDescription;
-        InputSchema?: SourceSchema;
-        /** Describes the configured parallelism (number of in-application streams mapped to
+      KinesisFirehoseInputDescription?: KinesisFirehoseInputDescription;
+      InputSchema?: SourceSchema;
+      /** Describes the configured parallelism (number of in-application streams mapped to
 the streaming source). **/
-        InputParallelism?: InputParallelism;
-        /** Point at which the application is configured to read from the input stream. **/
-        InputStartingPositionConfiguration?: InputStartingPositionConfiguration;
+      InputParallelism?: InputParallelism;
+      /** Point at which the application is configured to read from the input stream. **/
+      InputStartingPositionConfiguration?: InputStartingPositionConfiguration;
     }
     export interface InputParallelism {
-        /** Number of in-application streams to create. For more information, see Limits
-[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html] . **/
-        Count?: InputParallelismCount;
+      /** Number of in-application streams to create. For more information, see Limits
+[http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html]. **/
+      Count?: InputParallelismCount;
     }
     export interface InputParallelismUpdate {
-        /** Number of in-application streams to create for the specified streaming source. **/
-        CountUpdate?: InputParallelismCount;
+      /** Number of in-application streams to create for the specified streaming source. **/
+      CountUpdate?: InputParallelismCount;
     }
     export interface InputSchemaUpdate {
-        /** Specifies the format of the records on the streaming source. **/
-        RecordFormatUpdate?: RecordFormat;
-        /** Specifies the encoding of the records in the streaming source. For example,
+      /** Specifies the format of the records on the streaming source. **/
+      RecordFormatUpdate?: RecordFormat;
+      /** Specifies the encoding of the records in the streaming source. For example,
 UTF-8. **/
-        RecordEncodingUpdate?: RecordEncoding;
-        /** A list of RecordColumn objects. Each object describes the mapping of the
+      RecordEncodingUpdate?: RecordEncoding;
+      /** A list of RecordColumn objects. Each object describes the mapping of the
 streaming source element to the corresponding column in the in-application
 stream. **/
-        RecordColumnUpdates?: RecordColumns;
+      RecordColumnUpdates?: RecordColumns;
     }
     export interface InputStartingPositionConfiguration {
-        /** The starting position on the stream.
+      /** The starting position on the stream.
 
- &amp;#42; LATEST - Start reading just after the most recent record in the stream.
-   
-   
- * TRIM_HORIZON - Start reading at the last untrimmed record in the stream,
-   which is the oldest record available in the stream. This option is not
-   available for an Amazon Kinesis Firehose delivery stream.
-   
-   
- * LAST_STOPPED_POINT - Resume reading from where the application last stopped
-   reading. **/
-        InputStartingPosition?: InputStartingPosition;
+&amp;#42;   LATEST - Start reading just after the most recent record in the stream.
+ 
+ 
+*   TRIM_HORIZON - Start reading at the last untrimmed record in the stream,
+ which is the oldest record available in the stream. This option is not
+ available for an Amazon Kinesis Firehose delivery stream.
+ 
+ 
+*   LAST_STOPPED_POINT - Resume reading from where the application last stopped
+ reading. **/
+      InputStartingPosition?: InputStartingPosition;
     }
     export interface InputUpdate {
-        /** Input ID of the application input to be updated. **/
-        InputId: Id;
-        /** Name prefix for in-application stream(s) that Kinesis Analytics creates for the
+      /** Input ID of the application input to be updated. **/
+      InputId: Id;
+      /** Name prefix for in-application stream(s) that Kinesis Analytics creates for the
 specific streaming source. **/
-        NamePrefixUpdate?: InAppStreamName;
-        /** If a Amazon Kinesis stream is the streaming source to be updated, provides an
+      NamePrefixUpdate?: InAppStreamName;
+      /** If a Amazon Kinesis stream is the streaming source to be updated, provides an
 updated stream ARN and IAM role ARN. **/
-        KinesisStreamsInputUpdate?: KinesisStreamsInputUpdate;
-        /** If an Amazon Kinesis Firehose delivery stream is the streaming source to be
+      KinesisStreamsInputUpdate?: KinesisStreamsInputUpdate;
+      /** If an Amazon Kinesis Firehose delivery stream is the streaming source to be
 updated, provides an updated stream Amazon Resource Name (ARN) and IAM role ARN. **/
-        KinesisFirehoseInputUpdate?: KinesisFirehoseInputUpdate;
-        /** Describes the data format on the streaming source, and how record elements on
+      KinesisFirehoseInputUpdate?: KinesisFirehoseInputUpdate;
+      /** Describes the data format on the streaming source, and how record elements on
 the streaming source map to columns of the in-application stream that is
 created. **/
-        InputSchemaUpdate?: InputSchemaUpdate;
-        /** Describes the parallelism updates (the number in-application streams Kinesis
+      InputSchemaUpdate?: InputSchemaUpdate;
+      /** Describes the parallelism updates (the number in-application streams Kinesis
 Analytics creates for the specific streaming source). **/
-        InputParallelismUpdate?: InputParallelismUpdate;
+      InputParallelismUpdate?: InputParallelismUpdate;
     }
     export interface InvalidApplicationConfigurationException {
-        /** test **/
-        message?: ErrorMessage;
+      /** test **/
+      message?: ErrorMessage;
     }
     export interface InvalidArgumentException {
-        /**  **/
-        message?: ErrorMessage;
+      /**  **/
+      message?: ErrorMessage;
     }
     export interface JSONMappingParameters {
-        /** Path to the top-level parent that contains the records.
+      /** Path to the top-level parent that contains the records.
 
 For example, consider the following JSON record:
 
-In the RecordRowPath , &quot;$&quot; refers to the root and path &quot;$.vehicle.Model&quot; refers
+In the RecordRowPath, &quot;$&quot; refers to the root and path &quot;$.vehicle.Model&quot; refers
 to the specific &quot;Model&quot; key in the JSON. **/
-        RecordRowPath: RecordRowPath;
+      RecordRowPath: RecordRowPath;
     }
     export interface KinesisFirehoseInput {
-        /** ARN of the input Firehose delivery stream. **/
-        ResourceARN: ResourceARN;
-        /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
+      /** ARN of the input Firehose delivery stream. **/
+      ResourceARN: ResourceARN;
+      /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 stream on your behalf. You need to make sure the role has necessary permissions
 to access the stream. **/
-        RoleARN: RoleARN;
+      RoleARN: RoleARN;
     }
     export interface KinesisFirehoseInputDescription {
-        /** Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream. **/
-        ResourceARN?: ResourceARN;
-        /** ARN of the IAM role that Amazon Kinesis Analytics assumes to access the stream. **/
-        RoleARN?: RoleARN;
+      /** Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream. **/
+      ResourceARN?: ResourceARN;
+      /** ARN of the IAM role that Amazon Kinesis Analytics assumes to access the stream. **/
+      RoleARN?: RoleARN;
     }
     export interface KinesisFirehoseInputUpdate {
-        /** ARN of the input Amazon Kinesis Firehose delivery stream to read. **/
-        ResourceARNUpdate?: ResourceARN;
-        /** Amazon Resource Name (ARN) of the IAM role that Amazon Kinesis Analytics can
+      /** ARN of the input Amazon Kinesis Firehose delivery stream to read. **/
+      ResourceARNUpdate?: ResourceARN;
+      /** Amazon Resource Name (ARN) of the IAM role that Amazon Kinesis Analytics can
 assume to access the stream on your behalf. You need to grant necessary
 permissions to this role. **/
-        RoleARNUpdate?: RoleARN;
+      RoleARNUpdate?: RoleARN;
     }
     export interface KinesisFirehoseOutput {
-        /** ARN of the destination Amazon Kinesis Firehose delivery stream to write to. **/
-        ResourceARN: ResourceARN;
-        /** ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the
+      /** ARN of the destination Amazon Kinesis Firehose delivery stream to write to. **/
+      ResourceARN: ResourceARN;
+      /** ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the
 destination stream on your behalf. You need to grant the necessary permissions
 to this role. **/
-        RoleARN: RoleARN;
+      RoleARN: RoleARN;
     }
     export interface KinesisFirehoseOutputDescription {
-        /** Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream. **/
-        ResourceARN?: ResourceARN;
-        /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
+      /** Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream. **/
+      ResourceARN?: ResourceARN;
+      /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 stream. **/
-        RoleARN?: RoleARN;
+      RoleARN?: RoleARN;
     }
     export interface KinesisFirehoseOutputUpdate {
-        /** Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream to
+      /** Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream to
 write to. **/
-        ResourceARNUpdate?: ResourceARN;
-        /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
+      ResourceARNUpdate?: ResourceARN;
+      /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 stream on your behalf. You need to grant necessary permissions to this role. **/
-        RoleARNUpdate?: RoleARN;
+      RoleARNUpdate?: RoleARN;
     }
     export interface KinesisStreamsInput {
-        /** ARN of the input Amazon Kinesis stream to read. **/
-        ResourceARN: ResourceARN;
-        /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
+      /** ARN of the input Amazon Kinesis stream to read. **/
+      ResourceARN: ResourceARN;
+      /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 stream on your behalf. You need to grant the necessary permissions to this role. **/
-        RoleARN: RoleARN;
+      RoleARN: RoleARN;
     }
     export interface KinesisStreamsInputDescription {
-        /** Amazon Resource Name (ARN) of the Amazon Kinesis stream. **/
-        ResourceARN?: ResourceARN;
-        /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
+      /** Amazon Resource Name (ARN) of the Amazon Kinesis stream. **/
+      ResourceARN?: ResourceARN;
+      /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 stream. **/
-        RoleARN?: RoleARN;
+      RoleARN?: RoleARN;
     }
     export interface KinesisStreamsInputUpdate {
-        /** Amazon Resource Name (ARN) of the input Amazon Kinesis stream to read. **/
-        ResourceARNUpdate?: ResourceARN;
-        /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
+      /** Amazon Resource Name (ARN) of the input Amazon Kinesis stream to read. **/
+      ResourceARNUpdate?: ResourceARN;
+      /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 stream on your behalf. You need to grant the necessary permissions to this role. **/
-        RoleARNUpdate?: RoleARN;
+      RoleARNUpdate?: RoleARN;
     }
     export interface KinesisStreamsOutput {
-        /** ARN of the destination Amazon Kinesis stream to write to. **/
-        ResourceARN: ResourceARN;
-        /** ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the
+      /** ARN of the destination Amazon Kinesis stream to write to. **/
+      ResourceARN: ResourceARN;
+      /** ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the
 destination stream on your behalf. You need to grant the necessary permissions
 to this role. **/
-        RoleARN: RoleARN;
+      RoleARN: RoleARN;
     }
     export interface KinesisStreamsOutputDescription {
-        /** Amazon Resource Name (ARN) of the Amazon Kinesis stream. **/
-        ResourceARN?: ResourceARN;
-        /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
+      /** Amazon Resource Name (ARN) of the Amazon Kinesis stream. **/
+      ResourceARN?: ResourceARN;
+      /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 stream. **/
-        RoleARN?: RoleARN;
+      RoleARN?: RoleARN;
     }
     export interface KinesisStreamsOutputUpdate {
-        /** Amazon Resource Name (ARN) of the Amazon Kinesis stream where you want to write
+      /** Amazon Resource Name (ARN) of the Amazon Kinesis stream where you want to write
 the output. **/
-        ResourceARNUpdate?: ResourceARN;
-        /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
+      ResourceARNUpdate?: ResourceARN;
+      /** ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
 stream on your behalf. You need to grant the necessary permissions to this role. **/
-        RoleARNUpdate?: RoleARN;
+      RoleARNUpdate?: RoleARN;
     }
     export interface LimitExceededException {
-        /**  **/
-        message?: ErrorMessage;
+      /**  **/
+      message?: ErrorMessage;
     }
     export interface ListApplicationsRequest {
-        /** Maximum number of applications to list. **/
-        Limit?: ListApplicationsInputLimit;
-        /** Name of the application to start the list with. When using pagination to
+      /** Maximum number of applications to list. **/
+      Limit?: ListApplicationsInputLimit;
+      /** Name of the application to start the list with. When using pagination to
 retrieve the list, you don&#x27;t need to specify this parameter in the first
 request. However, in subsequent requests, you add the last application name from
 the previous response to get the next page of applications. **/
-        ExclusiveStartApplicationName?: ApplicationName;
+      ExclusiveStartApplicationName?: ApplicationName;
     }
     export interface ListApplicationsResponse {
-        /** List of ApplicationSummary objects. **/
-        ApplicationSummaries: ApplicationSummaries;
-        /** Returns true if there are more applications to retrieve. **/
-        HasMoreApplications: BooleanObject;
+      /** List of ApplicationSummary objects. **/
+      ApplicationSummaries: ApplicationSummaries;
+      /** Returns true if there are more applications to retrieve. **/
+      HasMoreApplications: BooleanObject;
     }
     export interface MappingParameters {
-        /** Provides additional mapping information when JSON is the record format on the
+      /** Provides additional mapping information when JSON is the record format on the
 streaming source. **/
-        JSONMappingParameters?: JSONMappingParameters;
-        /** Provides additional mapping information when the record format uses delimiters
+      JSONMappingParameters?: JSONMappingParameters;
+      /** Provides additional mapping information when the record format uses delimiters
 (for example, CSV). **/
-        CSVMappingParameters?: CSVMappingParameters;
+      CSVMappingParameters?: CSVMappingParameters;
     }
     export interface Output {
-        /** Name of the in-application stream. **/
-        Name: InAppStreamName;
-        /** Identifies an Amazon Kinesis stream as the destination. **/
-        KinesisStreamsOutput?: KinesisStreamsOutput;
-        /** Identifies an Amazon Kinesis Firehose delivery stream as the destination. **/
-        KinesisFirehoseOutput?: KinesisFirehoseOutput;
-        DestinationSchema: DestinationSchema;
+      /** Name of the in-application stream. **/
+      Name: InAppStreamName;
+      /** Identifies an Amazon Kinesis stream as the destination. **/
+      KinesisStreamsOutput?: KinesisStreamsOutput;
+      /** Identifies an Amazon Kinesis Firehose delivery stream as the destination. **/
+      KinesisFirehoseOutput?: KinesisFirehoseOutput;
+      DestinationSchema: DestinationSchema;
     }
     export interface OutputDescription {
-        /** A unique identifier for the output configuration. **/
-        OutputId?: Id;
-        /** Name of the in-application stream configured as output. **/
-        Name?: InAppStreamName;
-        /** Describes Amazon Kinesis stream configured as the destination where output is
+      /** A unique identifier for the output configuration. **/
+      OutputId?: Id;
+      /** Name of the in-application stream configured as output. **/
+      Name?: InAppStreamName;
+      /** Describes Amazon Kinesis stream configured as the destination where output is
 written. **/
-        KinesisStreamsOutputDescription?: KinesisStreamsOutputDescription;
-        /** Describes the Amazon Kinesis Firehose delivery stream configured as the
+      KinesisStreamsOutputDescription?: KinesisStreamsOutputDescription;
+      /** Describes the Amazon Kinesis Firehose delivery stream configured as the
 destination where output is written. **/
-        KinesisFirehoseOutputDescription?: KinesisFirehoseOutputDescription;
-        /** Data format used for writing data to the destination. **/
-        DestinationSchema?: DestinationSchema;
+      KinesisFirehoseOutputDescription?: KinesisFirehoseOutputDescription;
+      /** Data format used for writing data to the destination. **/
+      DestinationSchema?: DestinationSchema;
     }
     export interface OutputUpdate {
-        /** Identifies the specific output configuration that you want to update. **/
-        OutputId: Id;
-        /** If you want to specify a different in-application stream for this output
+      /** Identifies the specific output configuration that you want to update. **/
+      OutputId: Id;
+      /** If you want to specify a different in-application stream for this output
 configuration, use this field to specify the new in-application stream name. **/
-        NameUpdate?: InAppStreamName;
-        /** Describes an Amazon Kinesis stream as the destination for the output. **/
-        KinesisStreamsOutputUpdate?: KinesisStreamsOutputUpdate;
-        /** Describes a Amazon Kinesis Firehose delivery stream as the destination for the
+      NameUpdate?: InAppStreamName;
+      /** Describes an Amazon Kinesis stream as the destination for the output. **/
+      KinesisStreamsOutputUpdate?: KinesisStreamsOutputUpdate;
+      /** Describes a Amazon Kinesis Firehose delivery stream as the destination for the
 output. **/
-        KinesisFirehoseOutputUpdate?: KinesisFirehoseOutputUpdate;
-        DestinationSchemaUpdate?: DestinationSchema;
+      KinesisFirehoseOutputUpdate?: KinesisFirehoseOutputUpdate;
+      DestinationSchemaUpdate?: DestinationSchema;
     }
     export interface RecordColumn {
-        /** Name of the column created in the in-application input stream or reference
+      /** Name of the column created in the in-application input stream or reference
 table. **/
-        Name: RecordColumnName;
-        /** Reference to the data element in the streaming input of the reference data
+      Name: RecordColumnName;
+      /** Reference to the data element in the streaming input of the reference data
 source. **/
-        Mapping?: RecordColumnMapping;
-        /** Type of column created in the in-application input stream or reference table. **/
-        SqlType: RecordColumnSqlType;
+      Mapping?: RecordColumnMapping;
+      /** Type of column created in the in-application input stream or reference table. **/
+      SqlType: RecordColumnSqlType;
     }
     export interface RecordFormat {
-        /** The type of record format. **/
-        RecordFormatType: RecordFormatType;
-        MappingParameters?: MappingParameters;
+      /** The type of record format. **/
+      RecordFormatType: RecordFormatType;
+      MappingParameters?: MappingParameters;
     }
     export interface ReferenceDataSource {
-        /** Name of the in-application table to create. **/
-        TableName: InAppTableName;
-        S3ReferenceDataSource?: S3ReferenceDataSource;
-        ReferenceSchema: SourceSchema;
+      /** Name of the in-application table to create. **/
+      TableName: InAppTableName;
+      S3ReferenceDataSource?: S3ReferenceDataSource;
+      ReferenceSchema: SourceSchema;
     }
     export interface ReferenceDataSourceDescription {
-        /** ID of the reference data source. This is the ID that Amazon Kinesis Analytics
+      /** ID of the reference data source. This is the ID that Amazon Kinesis Analytics
 assigns when you add the reference data source to your application using the 
 AddApplicationReferenceDataSource operation. **/
-        ReferenceId: Id;
-        /** The in-application table name created by the specific reference data source
+      ReferenceId: Id;
+      /** The in-application table name created by the specific reference data source
 configuration. **/
-        TableName: InAppTableName;
-        /** Provides the S3 bucket name, the object key name that contains the reference
+      TableName: InAppTableName;
+      /** Provides the S3 bucket name, the object key name that contains the reference
 data. It also provides the Amazon Resource Name (ARN) of the IAM role that
 Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate
 the in-application reference table. **/
-        S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescription;
-        ReferenceSchema?: SourceSchema;
+      S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescription;
+      ReferenceSchema?: SourceSchema;
     }
     export interface ReferenceDataSourceUpdate {
-        /** ID of the reference data source being updated. You can use the 
+      /** ID of the reference data source being updated. You can use the 
 DescribeApplication operation to get this value. **/
-        ReferenceId: Id;
-        /** In-application table name that is created by this update. **/
-        TableNameUpdate?: InAppTableName;
-        /** Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis
+      ReferenceId: Id;
+      /** In-application table name that is created by this update. **/
+      TableNameUpdate?: InAppTableName;
+      /** Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis
 Analytics can assume to read the Amazon S3 object on your behalf and populate
 the in-application reference table. **/
-        S3ReferenceDataSourceUpdate?: S3ReferenceDataSourceUpdate;
-        ReferenceSchemaUpdate?: SourceSchema;
+      S3ReferenceDataSourceUpdate?: S3ReferenceDataSourceUpdate;
+      ReferenceSchemaUpdate?: SourceSchema;
     }
     export interface ResourceInUseException {
-        /**  **/
-        message?: ErrorMessage;
+      /**  **/
+      message?: ErrorMessage;
     }
     export interface ResourceNotFoundException {
-        /**  **/
-        message?: ErrorMessage;
+      /**  **/
+      message?: ErrorMessage;
     }
     export interface ResourceProvisionedThroughputExceededException {
-        message?: ErrorMessage;
+      message?: ErrorMessage;
     }
     export interface S3ReferenceDataSource {
-        /** Amazon Resource Name (ARN) of the S3 bucket. **/
-        BucketARN: BucketARN;
-        /** Object key name containing reference data. **/
-        FileKey: FileKey;
-        /** ARN of the IAM role that the service can assume to read data on your behalf.
+      /** Amazon Resource Name (ARN) of the S3 bucket. **/
+      BucketARN: BucketARN;
+      /** Object key name containing reference data. **/
+      FileKey: FileKey;
+      /** ARN of the IAM role that the service can assume to read data on your behalf.
 This role must have permission for the s3:GetObject action on the object and
 trust policy that allows Amazon Kinesis Analytics service principal to assume
 this role. **/
-        ReferenceRoleARN: RoleARN;
+      ReferenceRoleARN: RoleARN;
     }
     export interface S3ReferenceDataSourceDescription {
-        /** Amazon Resource Name (ARN) of the S3 bucket. **/
-        BucketARN: BucketARN;
-        /** Amazon S3 object key name. **/
-        FileKey: FileKey;
-        /** ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon
+      /** Amazon Resource Name (ARN) of the S3 bucket. **/
+      BucketARN: BucketARN;
+      /** Amazon S3 object key name. **/
+      FileKey: FileKey;
+      /** ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon
 S3 object on your behalf to populate the in-application reference table. **/
-        ReferenceRoleARN: RoleARN;
+      ReferenceRoleARN: RoleARN;
     }
     export interface S3ReferenceDataSourceUpdate {
-        /** Amazon Resource Name (ARN) of the S3 bucket. **/
-        BucketARNUpdate?: BucketARN;
-        /** Object key name. **/
-        FileKeyUpdate?: FileKey;
-        /** ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon
+      /** Amazon Resource Name (ARN) of the S3 bucket. **/
+      BucketARNUpdate?: BucketARN;
+      /** Object key name. **/
+      FileKeyUpdate?: FileKey;
+      /** ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon
 S3 object and populate the in-application. **/
-        ReferenceRoleARNUpdate?: RoleARN;
+      ReferenceRoleARNUpdate?: RoleARN;
     }
     export interface SourceSchema {
-        /** Specifies the format of the records on the streaming source. **/
-        RecordFormat: RecordFormat;
-        /** Specifies the encoding of the records in the streaming source. For example,
+      /** Specifies the format of the records on the streaming source. **/
+      RecordFormat: RecordFormat;
+      /** Specifies the encoding of the records in the streaming source. For example,
 UTF-8. **/
-        RecordEncoding?: RecordEncoding;
-        /** A list of RecordColumn objects. **/
-        RecordColumns: RecordColumns;
+      RecordEncoding?: RecordEncoding;
+      /** A list of RecordColumn objects. **/
+      RecordColumns: RecordColumns;
     }
     export interface StartApplicationRequest {
-        /** Name of the application. **/
-        ApplicationName: ApplicationName;
-        /** Identifies the specific input, by ID, that the application starts consuming.
+      /** Name of the application. **/
+      ApplicationName: ApplicationName;
+      /** Identifies the specific input, by ID, that the application starts consuming.
 Amazon Kinesis Analytics starts reading the streaming source associated with the
 input. You can also specify where in the streaming source you want Amazon
 Kinesis Analytics to start reading. **/
-        InputConfigurations: InputConfigurations;
+      InputConfigurations: InputConfigurations;
     }
     export interface StartApplicationResponse {
     }
     export interface StopApplicationRequest {
-        /** Name of the running application to stop. **/
-        ApplicationName: ApplicationName;
+      /** Name of the running application to stop. **/
+      ApplicationName: ApplicationName;
     }
     export interface StopApplicationResponse {
     }
     export interface UnableToDetectSchemaException {
-        message?: ErrorMessage;
+      message?: ErrorMessage;
     }
     export interface UpdateApplicationRequest {
-        /** Name of the Kinesis Analytics application to update. **/
-        ApplicationName: ApplicationName;
-        /** The current application version ID. You can use the DescribeApplication 
+      /** Name of the Kinesis Analytics application to update. **/
+      ApplicationName: ApplicationName;
+      /** The current application version ID. You can use the DescribeApplication 
 operation to get this value. **/
-        CurrentApplicationVersionId: ApplicationVersionId;
-        /** Describes application updates. **/
-        ApplicationUpdate: ApplicationUpdate;
+      CurrentApplicationVersionId: ApplicationVersionId;
+      /** Describes application updates. **/
+      ApplicationUpdate: ApplicationUpdate;
     }
     export interface UpdateApplicationResponse {
     }
