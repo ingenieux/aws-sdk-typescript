@@ -33,29 +33,29 @@ declare module "aws-sdk" {
   &amp;#42;   CreatePipeline, which creates a uniquely-named pipeline.
     
     
-  *   DeletePipeline, which deletes the specified pipeline.
+  &amp;#42;   DeletePipeline, which deletes the specified pipeline.
     
     
-  *   GetPipeline, which returns information about a pipeline structure.
+  &amp;#42;   GetPipeline, which returns information about a pipeline structure.
     
     
-  *   GetPipelineExecution, which returns information about a specific execution
+  &amp;#42;   GetPipelineExecution, which returns information about a specific execution
     of a pipeline.
     
     
-  *   GetPipelineState, which returns information about the current state of the
+  &amp;#42;   GetPipelineState, which returns information about the current state of the
     stages and actions of a pipeline.
     
     
-  *   ListPipelines, which gets a summary of all of the pipelines associated with
+  &amp;#42;   ListPipelines, which gets a summary of all of the pipelines associated with
     your account.
     
     
-  *   StartPipelineExecution, which runs the the most recent revision of an
+  &amp;#42;   StartPipelineExecution, which runs the the most recent revision of an
     artifact through the pipeline.
     
     
-  *   UpdatePipeline, which updates a pipeline with edits or changes to the
+  &amp;#42;   UpdatePipeline, which updates a pipeline with edits or changes to the
     structure of the pipeline.
     
     
@@ -86,11 +86,11 @@ declare module "aws-sdk" {
  
  You can work with transitions by calling:
  
-  *   DisableStageTransition, which prevents artifacts from transitioning to the
+  &amp;#42;   DisableStageTransition, which prevents artifacts from transitioning to the
     next stage in a pipeline.
     
     
-  *   EnableStageTransition, which enables transition of artifacts between stages
+  &amp;#42;   EnableStageTransition, which enables transition of artifacts between stages
     in a pipeline. 
     
     
@@ -107,20 +107,20 @@ declare module "aws-sdk" {
  
  You can work with jobs by calling:
  
-  *   AcknowledgeJob, which confirms whether a job worker has received the
+  &amp;#42;   AcknowledgeJob, which confirms whether a job worker has received the
     specified job,
     
     
-  *   GetJobDetails, which returns the details of a job,
+  &amp;#42;   GetJobDetails, which returns the details of a job,
     
     
-  *   PollForJobs, which determines whether there are any jobs to act upon, 
+  &amp;#42;   PollForJobs, which determines whether there are any jobs to act upon, 
     
     
-  *   PutJobFailureResult, which provides details of a job failure, and
+  &amp;#42;   PutJobFailureResult, which provides details of a job failure, and
     
     
-  *   PutJobSuccessResult, which provides details of a job success.
+  &amp;#42;   PutJobSuccessResult, which provides details of a job success.
     
     
  
@@ -130,22 +130,22 @@ declare module "aws-sdk" {
  
  You can work with third party jobs by calling:
  
-  *   AcknowledgeThirdPartyJob, which confirms whether a job worker has received
+  &amp;#42;   AcknowledgeThirdPartyJob, which confirms whether a job worker has received
     the specified job,
     
     
-  *   GetThirdPartyJobDetails, which requests the details of a job for a partner
+  &amp;#42;   GetThirdPartyJobDetails, which requests the details of a job for a partner
     action,
     
     
-  *   PollForThirdPartyJobs, which determines whether there are any jobs to act
+  &amp;#42;   PollForThirdPartyJobs, which determines whether there are any jobs to act
     upon, 
     
     
-  *   PutThirdPartyJobFailureResult, which provides details of a job failure, and
+  &amp;#42;   PutThirdPartyJobFailureResult, which provides details of a job failure, and
     
     
-  *   PutThirdPartyJobSuccessResult, which provides details of a job success.
+  &amp;#42;   PutThirdPartyJobSuccessResult, which provides details of a job success.
     *
     */
   export class CodePipeline extends Service {
@@ -631,7 +631,7 @@ the calling entity is allowed access to the job and its details. **/
 except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and
 PollForThirdPartyJobs.
 
-When updating a pipeline, passing &amp;#42; * * * * without changing any other values of
+When updating a pipeline, passing &amp;#42; &amp;#42; &amp;#42; &amp;#42; &amp;#42; without changing any other values of
 the action will preserve the prior value of the secret. **/
       secret: Boolean;
       /** Indicates that the proprety will be used in conjunction with PollForJobs. When
@@ -1163,15 +1163,15 @@ of 1. This number is automatically incremented when a pipeline is updated. **/
 &amp;#42;  InProgress: The pipeline execution is currently running.
  
  
-*  Succeeded: The pipeline execution completed successfully. 
+&amp;#42;  Succeeded: The pipeline execution completed successfully. 
  
  
-*  Superseded: While this pipeline execution was waiting for the next stage to
+&amp;#42;  Superseded: While this pipeline execution was waiting for the next stage to
  be completed, a newer pipeline execution caught up and continued through the
  pipeline instead. 
  
  
-*  Failed: The pipeline did not complete successfully. **/
+&amp;#42;  Failed: The pipeline did not complete successfully. **/
       status?: PipelineExecutionStatus;
       /** A list of ArtifactRevisionInformation objects included in a pipeline execution. **/
       artifactRevisionInformations?: ArtifactRevisionInformationList;

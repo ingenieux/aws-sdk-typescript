@@ -670,13 +670,13 @@ Note the following:
    the new value of MinSize.
    
    
- *  If you specify a new value for MaxSize without specifying a value for 
+ &amp;#42;  If you specify a new value for MaxSize without specifying a value for 
    DesiredCapacity, and the new MaxSize is smaller than the current size of the
    group, we implicitly call SetDesiredCapacity to set the size of the group to
    the new value of MaxSize.
    
    
- *  All other optional parameters are left unchanged if not specified.
+ &amp;#42;  All other optional parameters are left unchanged if not specified.
      *
      * @error ScalingActivityInProgressFault   
      * @error ResourceContentionFault   
@@ -1560,25 +1560,25 @@ are disabled.
 &amp;#42;   GroupMinSize 
  
  
-*   GroupMaxSize 
+&amp;#42;   GroupMaxSize 
  
  
-*   GroupDesiredCapacity 
+&amp;#42;   GroupDesiredCapacity 
  
  
-*   GroupInServiceInstances 
+&amp;#42;   GroupInServiceInstances 
  
  
-*   GroupPendingInstances 
+&amp;#42;   GroupPendingInstances 
  
  
-*   GroupStandbyInstances 
+&amp;#42;   GroupStandbyInstances 
  
  
-*   GroupTerminatingInstances 
+&amp;#42;   GroupTerminatingInstances 
  
  
-*   GroupTotalInstances **/
+&amp;#42;   GroupTotalInstances **/
       Metrics?: Metrics;
     }
     export interface Ebs {
@@ -1626,25 +1626,25 @@ are enabled.
 &amp;#42;   GroupMinSize 
  
  
-*   GroupMaxSize 
+&amp;#42;   GroupMaxSize 
  
  
-*   GroupDesiredCapacity 
+&amp;#42;   GroupDesiredCapacity 
  
  
-*   GroupInServiceInstances 
+&amp;#42;   GroupInServiceInstances 
  
  
-*   GroupPendingInstances 
+&amp;#42;   GroupPendingInstances 
  
  
-*   GroupStandbyInstances 
+&amp;#42;   GroupStandbyInstances 
  
  
-*   GroupTerminatingInstances 
+&amp;#42;   GroupTerminatingInstances 
  
  
-*   GroupTotalInstances **/
+&amp;#42;   GroupTotalInstances **/
       Metrics?: Metrics;
       /** The granularity to associate with the metrics to collect. The only valid value
 is 1Minute. **/
@@ -1656,25 +1656,25 @@ is 1Minute. **/
 &amp;#42;   GroupMinSize 
  
  
-*   GroupMaxSize 
+&amp;#42;   GroupMaxSize 
  
  
-*   GroupDesiredCapacity 
+&amp;#42;   GroupDesiredCapacity 
  
  
-*   GroupInServiceInstances 
+&amp;#42;   GroupInServiceInstances 
  
  
-*   GroupPendingInstances 
+&amp;#42;   GroupPendingInstances 
  
  
-*   GroupStandbyInstances 
+&amp;#42;   GroupStandbyInstances 
  
  
-*   GroupTerminatingInstances 
+&amp;#42;   GroupTerminatingInstances 
  
  
-*   GroupTotalInstances **/
+&amp;#42;   GroupTotalInstances **/
       Metric?: XmlStringMaxLen255;
       /** The granularity of the metric. The only valid value is 1Minute. **/
       Granularity?: XmlStringMaxLen255;
@@ -1859,22 +1859,22 @@ target includes the following:
 &amp;#42;  Lifecycle action token
  
  
-*  User account ID
+&amp;#42;  User account ID
  
  
-*  Name of the Auto Scaling group
+&amp;#42;  Name of the Auto Scaling group
  
  
-*  Lifecycle hook name
+&amp;#42;  Lifecycle hook name
  
  
-*  EC2 instance ID
+&amp;#42;  EC2 instance ID
  
  
-*  Lifecycle transition
+&amp;#42;  Lifecycle transition
  
  
-*  Notification metadata **/
+&amp;#42;  Notification metadata **/
       NotificationTargetARN?: ResourceName;
       /** The ARN of the IAM role that allows the Auto Scaling group to publish to the
 specified notification target. **/
@@ -1908,18 +1908,18 @@ CONTINUE and ABANDON. The default value is CONTINUE. **/
  balancer.
  
  
-*   Added - All instances in the group are registered with the load balancer.
+&amp;#42;   Added - All instances in the group are registered with the load balancer.
  
  
-*   InService - At least one instance in the group passed an ELB health check.
+&amp;#42;   InService - At least one instance in the group passed an ELB health check.
  
  
-*   Removing - The instances in the group are being deregistered from the load
+&amp;#42;   Removing - The instances in the group are being deregistered from the load
  balancer. If connection draining is enabled, Elastic Load Balancing waits for
  in-flight requests to complete before deregistering the instances.
  
  
-*   Removed - All instances in the group are deregistered from the load
+&amp;#42;   Removed - All instances in the group are deregistered from the load
  balancer. **/
       State?: XmlStringMaxLen255;
     }
@@ -1932,18 +1932,18 @@ CONTINUE and ABANDON. The default value is CONTINUE. **/
  group.
  
  
-*   Added - All Auto Scaling instances are registered with the target group.
+&amp;#42;   Added - All Auto Scaling instances are registered with the target group.
  
  
-*   InService - At least one Auto Scaling instance passed an ELB health check.
+&amp;#42;   InService - At least one Auto Scaling instance passed an ELB health check.
  
  
-*   Removing - The Auto Scaling instances are being deregistered from the target
+&amp;#42;   Removing - The Auto Scaling instances are being deregistered from the target
  group. If connection draining is enabled, Elastic Load Balancing waits for
  in-flight requests to complete before deregistering the instances.
  
  
-*   Removed - All Auto Scaling instances are deregistered from the target group. **/
+&amp;#42;   Removed - All Auto Scaling instances are deregistered from the target group. **/
       State?: XmlStringMaxLen255;
     }
     export interface MetricCollectionType {
@@ -1952,25 +1952,25 @@ CONTINUE and ABANDON. The default value is CONTINUE. **/
 &amp;#42;   GroupMinSize 
  
  
-*   GroupMaxSize 
+&amp;#42;   GroupMaxSize 
  
  
-*   GroupDesiredCapacity 
+&amp;#42;   GroupDesiredCapacity 
  
  
-*   GroupInServiceInstances 
+&amp;#42;   GroupInServiceInstances 
  
  
-*   GroupPendingInstances 
+&amp;#42;   GroupPendingInstances 
  
  
-*   GroupStandbyInstances 
+&amp;#42;   GroupStandbyInstances 
  
  
-*   GroupTerminatingInstances 
+&amp;#42;   GroupTerminatingInstances 
  
  
-*   GroupTotalInstances **/
+&amp;#42;   GroupTotalInstances **/
       Metric?: XmlStringMaxLen255;
     }
     export interface MetricGranularityType {
@@ -1988,16 +1988,16 @@ topic. **/
 &amp;#42;   autoscaling:EC2_INSTANCE_LAUNCH 
  
  
-*   autoscaling:EC2_INSTANCE_LAUNCH_ERROR 
+&amp;#42;   autoscaling:EC2_INSTANCE_LAUNCH_ERROR 
  
  
-*   autoscaling:EC2_INSTANCE_TERMINATE 
+&amp;#42;   autoscaling:EC2_INSTANCE_TERMINATE 
  
  
-*   autoscaling:EC2_INSTANCE_TERMINATE_ERROR 
+&amp;#42;   autoscaling:EC2_INSTANCE_TERMINATE_ERROR 
  
  
-*   autoscaling:TEST_NOTIFICATION **/
+&amp;#42;   autoscaling:TEST_NOTIFICATION **/
       NotificationType?: XmlStringMaxLen255;
     }
     export interface PoliciesType {
@@ -2017,25 +2017,25 @@ additional items to return, the string is empty. **/
 &amp;#42;   Launch 
  
  
-*   Terminate 
+&amp;#42;   Terminate 
  
  
-*   AddToLoadBalancer 
+&amp;#42;   AddToLoadBalancer 
  
  
-*   AlarmNotification 
+&amp;#42;   AlarmNotification 
  
  
-*   AZRebalance 
+&amp;#42;   AZRebalance 
  
  
-*   HealthCheck 
+&amp;#42;   HealthCheck 
  
  
-*   ReplaceUnhealthy 
+&amp;#42;   ReplaceUnhealthy 
  
  
-*   ScheduledActions **/
+&amp;#42;   ScheduledActions **/
       ProcessName: XmlStringMaxLen255;
     }
     export interface ProcessesType {
@@ -2072,22 +2072,22 @@ The notification messages sent to the target include the following information:
 &amp;#42;   AutoScalingGroupName. The name of the Auto Scaling group.
  
  
-*   AccountId. The AWS account ID.
+&amp;#42;   AccountId. The AWS account ID.
  
  
-*   LifecycleTransition. The lifecycle hook type.
+&amp;#42;   LifecycleTransition. The lifecycle hook type.
  
  
-*   LifecycleActionToken. The lifecycle action token.
+&amp;#42;   LifecycleActionToken. The lifecycle action token.
  
  
-*   EC2InstanceId. The EC2 instance ID.
+&amp;#42;   EC2InstanceId. The EC2 instance ID.
  
  
-*   LifecycleHookName. The name of the lifecycle hook.
+&amp;#42;   LifecycleHookName. The name of the lifecycle hook.
  
  
-*   NotificationMetadata. User-defined information.
+&amp;#42;   NotificationMetadata. User-defined information.
  
  
 
@@ -2286,25 +2286,25 @@ processes are specified.
 &amp;#42;   Launch 
  
  
-*   Terminate 
+&amp;#42;   Terminate 
  
  
-*   HealthCheck 
+&amp;#42;   HealthCheck 
  
  
-*   ReplaceUnhealthy 
+&amp;#42;   ReplaceUnhealthy 
  
  
-*   AZRebalance 
+&amp;#42;   AZRebalance 
  
  
-*   AlarmNotification 
+&amp;#42;   AlarmNotification 
  
  
-*   ScheduledActions 
+&amp;#42;   ScheduledActions 
  
  
-*   AddToLoadBalancer **/
+&amp;#42;   AddToLoadBalancer **/
       ScalingProcesses?: ProcessNames;
     }
     export interface ScheduledActionsType {

@@ -292,17 +292,17 @@ arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail **/
  underscores (_), or dashes (-)
  
  
-*  Start with a letter or number, and end with a letter or number
+&amp;#42;  Start with a letter or number, and end with a letter or number
  
  
-*  Be between 3 and 128 characters
+&amp;#42;  Be between 3 and 128 characters
  
  
-*  Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
+&amp;#42;  Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
  my--namespace are invalid.
  
  
-*  Not be in IP address format (for example, 192.168.5.4) **/
+&amp;#42;  Not be in IP address format (for example, 192.168.5.4) **/
       Name: String;
       /** Specifies the name of the Amazon S3 bucket designated for publishing log files.
 See Amazon S3 Bucket Naming Requirements
@@ -352,13 +352,13 @@ Examples:
 &amp;#42;  alias/MyAliasName
  
  
-*  arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+&amp;#42;  arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
  
  
-*  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
+&amp;#42;  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  12345678-1234-1234-1234-123456789012 **/
+&amp;#42;  12345678-1234-1234-1234-123456789012 **/
       KmsKeyId?: String;
     }
     export interface CreateTrailResponse {
@@ -424,7 +424,7 @@ is returned.
  information for all trails in the current region is returned.
  
  
-*  If an empty list is specified and IncludeShadowTrails is null or true, then
+&amp;#42;  If an empty list is specified and IncludeShadowTrails is null or true, then
  information for all trails in the current region and any associated shadow
  trails in other regions is returned.
  
@@ -788,17 +788,17 @@ string must meet the following requirements:
  underscores (_), or dashes (-)
  
  
-*  Start with a letter or number, and end with a letter or number
+&amp;#42;  Start with a letter or number, and end with a letter or number
  
  
-*  Be between 3 and 128 characters
+&amp;#42;  Be between 3 and 128 characters
  
  
-*  Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
+&amp;#42;  Have no adjacent periods, underscores or dashes. Names like my-_namespace and 
  my--namespace are invalid.
  
  
-*  Not be in IP address format (for example, 192.168.5.4)
+&amp;#42;  Not be in IP address format (for example, 192.168.5.4)
  
  
 
@@ -857,13 +857,13 @@ Examples:
 &amp;#42;  alias/MyAliasName
  
  
-*  arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+&amp;#42;  arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
  
  
-*  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
+&amp;#42;  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  12345678-1234-1234-1234-123456789012 **/
+&amp;#42;  12345678-1234-1234-1234-123456789012 **/
       KmsKeyId?: String;
     }
     export interface UpdateTrailResponse {

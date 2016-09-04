@@ -621,11 +621,11 @@ values:
 
 &amp;#42;  PENDING - Amazon Machine Learning (Amazon ML) submitted a request to
  generate predictions for a batch of observations.
-*  INPROGRESS - The process is underway.
-*  FAILED - The request to perform a batch prediction did not run to
+&amp;#42;  INPROGRESS - The process is underway.
+&amp;#42;  FAILED - The request to perform a batch prediction did not run to
  completion. It is not usable.
-*  COMPLETED - The batch prediction process completed successfully.
-*  DELETED - The BatchPrediction is marked as deleted. It is not usable. **/
+&amp;#42;  COMPLETED - The batch prediction process completed successfully.
+&amp;#42;  DELETED - The BatchPrediction is marked as deleted. It is not usable. **/
       Status?: EntityStatus;
       /** The location of an Amazon S3 bucket or directory to receive the operation
 results. The following substrings are not allowed in the s3 key portion of the 
@@ -673,54 +673,54 @@ Resource Number (ARN) becomes the ID for a DataSource. **/
       DataSourceName?: EntityName;
       /** The data specification of an Amazon RDS DataSource:
 
-&amp;#42; DatabaseInformation -  *  DatabaseName - The name of the Amazon RDS database.
-  *  InstanceIdentifier - A unique identifier for the Amazon RDS database
+&amp;#42; DatabaseInformation -  &amp;#42;  DatabaseName - The name of the Amazon RDS database.
+  &amp;#42;  InstanceIdentifier - A unique identifier for the Amazon RDS database
     instance.
  
  
  
  
-* DatabaseCredentials - AWS Identity and Access Management (IAM) credentials
+&amp;#42; DatabaseCredentials - AWS Identity and Access Management (IAM) credentials
  that are used to connect to the Amazon RDS database.
  
  
-* ResourceRole - A role (DataPipelineDefaultResourceRole) assumed by an EC2
+&amp;#42; ResourceRole - A role (DataPipelineDefaultResourceRole) assumed by an EC2
  instance to carry out the copy task from Amazon RDS to Amazon Simple Storage
  Service (Amazon S3). For more information, see Role templates
  [http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html] 
  for data pipelines.
  
  
-* ServiceRole - A role (DataPipelineDefaultRole) assumed by the AWS Data
+&amp;#42; ServiceRole - A role (DataPipelineDefaultRole) assumed by the AWS Data
  Pipeline service to monitor the progress of the copy task from Amazon RDS to
  Amazon S3. For more information, see Role templates
  [http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html] 
  for data pipelines.
  
  
-* SecurityInfo - The security information to use to access an RDS DB instance.
+&amp;#42; SecurityInfo - The security information to use to access an RDS DB instance.
  You need to set up appropriate ingress rules for the security entity IDs
  provided to allow access to the Amazon RDS instance. Specify a [SubnetId, 
  SecurityGroupIds] pair for a VPC-based RDS DB instance.
  
  
-* SelectSqlQuery - A query that is used to retrieve the observation data for
+&amp;#42; SelectSqlQuery - A query that is used to retrieve the observation data for
  the Datasource.
  
  
-* S3StagingLocation - The Amazon S3 location for staging Amazon RDS data. The
+&amp;#42; S3StagingLocation - The Amazon S3 location for staging Amazon RDS data. The
  data retrieved from Amazon RDS using SelectSqlQuery is stored in this
  location.
  
  
-* DataSchemaUri - The Amazon S3 location of the DataSchema.
+&amp;#42; DataSchemaUri - The Amazon S3 location of the DataSchema.
  
  
-* DataSchema - A JSON string representing the schema. This is not required if 
+&amp;#42; DataSchema - A JSON string representing the schema. This is not required if 
  DataSchemaUri is specified. 
  
  
-*  DataRearrangement - A JSON string that represents the splitting and
+&amp;#42;  DataRearrangement - A JSON string that represents the splitting and
  rearrangement requirements for the Datasource. 
  
  
@@ -748,33 +748,33 @@ identical to the value of the DataSourceID in the request. **/
       DataSourceName?: EntityName;
       /** The data specification of an Amazon Redshift DataSource:
 
-&amp;#42; DatabaseInformation -  *  DatabaseName - The name of the Amazon Redshift database. 
-  *  ClusterIdentifier - The unique ID for the Amazon Redshift cluster.
+&amp;#42; DatabaseInformation -  &amp;#42;  DatabaseName - The name of the Amazon Redshift database. 
+  &amp;#42;  ClusterIdentifier - The unique ID for the Amazon Redshift cluster.
  
  
  
  
-* DatabaseCredentials - The AWS Identity and Access Management (IAM)
+&amp;#42; DatabaseCredentials - The AWS Identity and Access Management (IAM)
  credentials that are used to connect to the Amazon Redshift database.
  
  
-* SelectSqlQuery - The query that is used to retrieve the observation data for
+&amp;#42; SelectSqlQuery - The query that is used to retrieve the observation data for
  the Datasource.
  
  
-* S3StagingLocation - The Amazon Simple Storage Service (Amazon S3) location
+&amp;#42; S3StagingLocation - The Amazon Simple Storage Service (Amazon S3) location
  for staging Amazon Redshift data. The data retrieved from Amazon Redshift
  using the SelectSqlQuery query is stored in this location.
  
  
-* DataSchemaUri - The Amazon S3 location of the DataSchema.
+&amp;#42; DataSchemaUri - The Amazon S3 location of the DataSchema.
  
  
-* DataSchema - A JSON string representing the schema. This is not required if 
+&amp;#42; DataSchema - A JSON string representing the schema. This is not required if 
  DataSchemaUri is specified. 
  
  
-*  DataRearrangement - A JSON string that represents the splitting and
+&amp;#42;  DataRearrangement - A JSON string that represents the splitting and
  rearrangement requirements for the DataSource.
  
   Sample - &quot;{\&quot;splitting\&quot;:{\&quot;percentBegin\&quot;:10,\&quot;percentEnd\&quot;:60}}&quot; **/
@@ -786,7 +786,7 @@ behalf of the user to create the following:
  Amazon Redshift cluster
  
  
-* An Amazon S3 bucket policy to grant Amazon ML read/write permissions on the 
+&amp;#42; An Amazon S3 bucket policy to grant Amazon ML read/write permissions on the 
  S3StagingLocation **/
       RoleARN: RoleARN;
       /** The compute statistics for a DataSource. The statistics are generated from the
@@ -810,14 +810,14 @@ identical to the value of the DataSourceID in the request. **/
 &amp;#42; DataLocationS3 - The Amazon S3 location of the observation data.
  
  
-* DataSchemaLocationS3 - The Amazon S3 location of the DataSchema.
+&amp;#42; DataSchemaLocationS3 - The Amazon S3 location of the DataSchema.
  
  
-* DataSchema - A JSON string representing the schema. This is not required if 
+&amp;#42; DataSchema - A JSON string representing the schema. This is not required if 
  DataSchemaUri is specified. 
  
  
-*  DataRearrangement - A JSON string that represents the splitting and
+&amp;#42;  DataRearrangement - A JSON string that represents the splitting and
  rearrangement requirements for the Datasource. 
  
   Sample - &quot;{\&quot;splitting\&quot;:{\&quot;percentBegin\&quot;:10,\&quot;percentEnd\&quot;:60}}&quot; **/
@@ -861,8 +861,8 @@ be identical to the value of the EvaluationId in the request. **/
 the following types:
 
 &amp;#42; Choose REGRESSION if the MLModel will be used to predict a numeric value.
-* Choose BINARY if the MLModel result has two possible values.
-* Choose MULTICLASS if the MLModel result has a limited number of values. 
+&amp;#42; Choose BINARY if the MLModel result has two possible values.
+&amp;#42; Choose MULTICLASS if the MLModel result has a limited number of values. 
 
 For more information, see the Amazon Machine Learning Developer Guide
 [http://docs.aws.amazon.com/machine-learning/latest/dg]. **/
@@ -879,18 +879,18 @@ The following is the current set of training parameters:
  value is 33554432.
  
  
-* sgd.maxPasses - The number of times that the training process traverses the
+&amp;#42; sgd.maxPasses - The number of times that the training process traverses the
  observations to build the MLModel. The value is an integer that ranges from 1 
  to 10000. The default value is 10.
  
  
-*  sgd.shuffleType - Whether Amazon ML shuffles the training data. Shuffling the
+&amp;#42;  sgd.shuffleType - Whether Amazon ML shuffles the training data. Shuffling the
  data improves a model&#x27;s ability to find the optimal solution for a variety of
  data types. The valid values are auto and none. The default value is none. We 
  strongly recommend that you shuffle your data.
  
  
-*  sgd.l1RegularizationAmount - The coefficient regularization L1 norm. It
+&amp;#42;  sgd.l1RegularizationAmount - The coefficient regularization L1 norm. It
  controls overfitting the data by penalizing large coefficients. This tends to
  drive coefficients to zero, resulting in a sparse feature set. If you use
  this parameter, start by specifying a small value, such as 1.0E-08.
@@ -900,7 +900,7 @@ The following is the current set of training parameters:
  this parameter sparingly.
  
  
-*  sgd.l2RegularizationAmount - The coefficient regularization L2 norm. It
+&amp;#42;  sgd.l2RegularizationAmount - The coefficient regularization L2 norm. It
  controls overfitting the data by penalizing large coefficients. This tends to
  drive coefficients to small, nonzero values. If you use this parameter, start
  by specifying a small value, such as 1.0E-08.
@@ -965,11 +965,11 @@ values:
 
 &amp;#42; PENDING - Amazon Machine Learning (Amazon ML) submitted a request to create a 
  DataSource.
-* INPROGRESS - The creation process is underway.
-* FAILED - The request to create a DataSource did not run to completion. It is
+&amp;#42; INPROGRESS - The creation process is underway.
+&amp;#42; FAILED - The request to create a DataSource did not run to completion. It is
  not usable.
-* COMPLETED - The creation process completed successfully.
-* DELETED - The DataSource is marked as deleted. It is not usable. **/
+&amp;#42; COMPLETED - The creation process completed successfully.
+&amp;#42; DELETED - The DataSource is marked as deleted. It is not usable. **/
       Status?: EntityStatus;
       /** A description of the most recent details about creating the DataSource. **/
       Message?: Message;
@@ -1048,15 +1048,15 @@ identical to the value of the MLModelId in the request. **/
       /** Use one of the following variables to filter a list of BatchPrediction:
 
 &amp;#42;  CreatedAt - Sets the search criteria to the BatchPrediction creation date.
-*  Status - Sets the search criteria to the BatchPrediction status.
-*  Name - Sets the search criteria to the contents of the BatchPrediction Name.
-*  IAMUser - Sets the search criteria to the user account that invoked the 
+&amp;#42;  Status - Sets the search criteria to the BatchPrediction status.
+&amp;#42;  Name - Sets the search criteria to the contents of the BatchPrediction Name.
+&amp;#42;  IAMUser - Sets the search criteria to the user account that invoked the 
  BatchPrediction creation.
-*  MLModelId - Sets the search criteria to the MLModel used in the 
+&amp;#42;  MLModelId - Sets the search criteria to the MLModel used in the 
  BatchPrediction.
-*  DataSourceId - Sets the search criteria to the DataSource used in the 
+&amp;#42;  DataSourceId - Sets the search criteria to the DataSource used in the 
  BatchPrediction.
-*  DataURI - Sets the search criteria to the data file(s) used in the 
+&amp;#42;  DataURI - Sets the search criteria to the data file(s) used in the 
  BatchPrediction. The URL can identify either a file or an Amazon Simple
  Storage Solution (Amazon S3) bucket or directory. **/
       FilterVariable?: BatchPredictionFilterVariable;
@@ -1089,16 +1089,16 @@ for the FilterVariable and any of the following strings for the Prefix:
 &amp;#42; 2014-09
  
  
-* 2014-09-09
+&amp;#42; 2014-09-09
  
  
-* 2014-09-09-Holiday **/
+&amp;#42; 2014-09-09-Holiday **/
       Prefix?: ComparatorValue;
       /** A two-value parameter that determines the sequence of the resulting list of 
 MLModels.
 
 &amp;#42;  asc - Arranges the list in ascending order (A-Z, 0-9).
-*  dsc - Arranges the list in descending order (Z-A, 9-0).
+&amp;#42;  dsc - Arranges the list in descending order (Z-A, 9-0).
 
 Results are sorted by FilterVariable. **/
       SortOrder?: SortOrder;
@@ -1119,12 +1119,12 @@ more page follows. **/
       /** Use one of the following variables to filter a list of DataSource:
 
 &amp;#42;  CreatedAt - Sets the search criteria to DataSource creation dates.
-*  Status - Sets the search criteria to DataSource statuses.
-*  Name - Sets the search criteria to the contents of DataSource Name.
-*  DataUri - Sets the search criteria to the URI of data files used to create
+&amp;#42;  Status - Sets the search criteria to DataSource statuses.
+&amp;#42;  Name - Sets the search criteria to the contents of DataSource Name.
+&amp;#42;  DataUri - Sets the search criteria to the URI of data files used to create
  the DataSource. The URI can identify either a file or an Amazon Simple
  Storage Service (Amazon S3) bucket or directory.
-*  IAMUser - Sets the search criteria to the user account that invoked the 
+&amp;#42;  IAMUser - Sets the search criteria to the user account that invoked the 
  DataSource creation. **/
       FilterVariable?: DataSourceFilterVariable;
       /** The equal to operator. The DataSource results will have FilterVariable values
@@ -1156,16 +1156,16 @@ following strings for the Prefix:
 &amp;#42; 2014-09
  
  
-* 2014-09-09
+&amp;#42; 2014-09-09
  
  
-* 2014-09-09-Holiday **/
+&amp;#42; 2014-09-09-Holiday **/
       Prefix?: ComparatorValue;
       /** A two-value parameter that determines the sequence of the resulting list of 
 DataSource.
 
 &amp;#42;  asc - Arranges the list in ascending order (A-Z, 0-9).
-*  dsc - Arranges the list in descending order (Z-A, 9-0).
+&amp;#42;  dsc - Arranges the list in descending order (Z-A, 9-0).
 
 Results are sorted by FilterVariable. **/
       SortOrder?: SortOrder;
@@ -1185,14 +1185,14 @@ page follows. **/
       /** Use one of the following variable to filter a list of Evaluation objects:
 
 &amp;#42;  CreatedAt - Sets the search criteria to the Evaluation creation date.
-*  Status - Sets the search criteria to the Evaluation status.
-*  Name - Sets the search criteria to the contents of Evaluation Name.
-*  IAMUser - Sets the search criteria to the user account that invoked an 
+&amp;#42;  Status - Sets the search criteria to the Evaluation status.
+&amp;#42;  Name - Sets the search criteria to the contents of Evaluation Name.
+&amp;#42;  IAMUser - Sets the search criteria to the user account that invoked an 
  Evaluation.
-*  MLModelId - Sets the search criteria to the MLModel that was evaluated.
-*  DataSourceId - Sets the search criteria to the DataSource used in Evaluation
+&amp;#42;  MLModelId - Sets the search criteria to the MLModel that was evaluated.
+&amp;#42;  DataSourceId - Sets the search criteria to the DataSource used in Evaluation
  .
-*  DataUri - Sets the search criteria to the data file(s) used in Evaluation.
+&amp;#42;  DataUri - Sets the search criteria to the data file(s) used in Evaluation.
  The URL can identify either a file or an Amazon Simple Storage Solution
  (Amazon S3) bucket or directory. **/
       FilterVariable?: EvaluationFilterVariable;
@@ -1225,16 +1225,16 @@ following strings for the Prefix:
 &amp;#42; 2014-09
  
  
-* 2014-09-09
+&amp;#42; 2014-09-09
  
  
-* 2014-09-09-Holiday **/
+&amp;#42; 2014-09-09-Holiday **/
       Prefix?: ComparatorValue;
       /** A two-value parameter that determines the sequence of the resulting list of 
 Evaluation.
 
 &amp;#42;  asc - Arranges the list in ascending order (A-Z, 0-9).
-*  dsc - Arranges the list in descending order (Z-A, 9-0).
+&amp;#42;  dsc - Arranges the list in descending order (Z-A, 9-0).
 
 Results are sorted by FilterVariable. **/
       SortOrder?: SortOrder;
@@ -1254,18 +1254,18 @@ more page follows. **/
       /** Use one of the following variables to filter a list of MLModel:
 
 &amp;#42;  CreatedAt - Sets the search criteria to MLModel creation date.
-*  Status - Sets the search criteria to MLModel status.
-*  Name - Sets the search criteria to the contents of MLModel Name.
-*  IAMUser - Sets the search criteria to the user account that invoked the 
+&amp;#42;  Status - Sets the search criteria to MLModel status.
+&amp;#42;  Name - Sets the search criteria to the contents of MLModel Name.
+&amp;#42;  IAMUser - Sets the search criteria to the user account that invoked the 
  MLModel creation.
-*  TrainingDataSourceId - Sets the search criteria to the DataSource used to
+&amp;#42;  TrainingDataSourceId - Sets the search criteria to the DataSource used to
  train one or more MLModel.
-*  RealtimeEndpointStatus - Sets the search criteria to the MLModel real-time
+&amp;#42;  RealtimeEndpointStatus - Sets the search criteria to the MLModel real-time
  endpoint status.
-*  MLModelType - Sets the search criteria to MLModel type: binary, regression,
+&amp;#42;  MLModelType - Sets the search criteria to MLModel type: binary, regression,
  or multi-class.
-*  Algorithm - Sets the search criteria to the algorithm that the MLModel uses.
-*  TrainingDataURI - Sets the search criteria to the data file(s) used in
+&amp;#42;  Algorithm - Sets the search criteria to the algorithm that the MLModel uses.
+&amp;#42;  TrainingDataURI - Sets the search criteria to the data file(s) used in
  training a MLModel. The URL can identify either a file or an Amazon Simple
  Storage Service (Amazon S3) bucket or directory. **/
       FilterVariable?: MLModelFilterVariable;
@@ -1297,16 +1297,16 @@ following strings for the Prefix:
 &amp;#42; 2014-09
  
  
-* 2014-09-09
+&amp;#42; 2014-09-09
  
  
-* 2014-09-09-Holiday **/
+&amp;#42; 2014-09-09-Holiday **/
       Prefix?: ComparatorValue;
       /** A two-value parameter that determines the sequence of the resulting list of 
 MLModel.
 
 &amp;#42;  asc - Arranges the list in ascending order (A-Z, 0-9).
-*  dsc - Arranges the list in descending order (Z-A, 9-0).
+&amp;#42;  dsc - Arranges the list in descending order (Z-A, 9-0).
 
 Results are sorted by FilterVariable. **/
       SortOrder?: SortOrder;
@@ -1361,11 +1361,11 @@ epoch time. **/
 
 &amp;#42;  PENDING - Amazon Machine Learning (Amazon ML) submitted a request to
  evaluate an MLModel.
-*  INPROGRESS - The evaluation is underway.
-*  FAILED - The request to evaluate an MLModel did not run to completion. It is
+&amp;#42;  INPROGRESS - The evaluation is underway.
+&amp;#42;  FAILED - The request to evaluate an MLModel did not run to completion. It is
  not usable.
-*  COMPLETED - The evaluation process completed successfully.
-*  DELETED - The Evaluation is marked as deleted. It is not usable. **/
+&amp;#42;  COMPLETED - The evaluation process completed successfully.
+&amp;#42;  DELETED - The Evaluation is marked as deleted. It is not usable. **/
       Status?: EntityStatus;
       /** Measurements of how well the MLModel performed, using observations referenced by
 the DataSource. One of the following metrics is returned, based on the type of
@@ -1375,12 +1375,12 @@ the MLModel:
  measure performance. 
  
  
-*  RegressionRMSE: A regression MLModel uses the Root Mean Square Error (RMSE)
+&amp;#42;  RegressionRMSE: A regression MLModel uses the Root Mean Square Error (RMSE)
  technique to measure performance. RMSE measures the difference between
  predicted and actual values for a single variable.
  
  
-*  MulticlassAvgFScore: A multiclass MLModel uses the F1 score technique to
+&amp;#42;  MulticlassAvgFScore: A multiclass MLModel uses the F1 score technique to
  measure performance. 
  
  
@@ -1427,11 +1427,11 @@ epoch time. **/
 
 &amp;#42;  PENDING - Amazon Machine Learning (Amazon ML) submitted a request to
  generate batch predictions.
-*  INPROGRESS - The batch predictions are in progress.
-*  FAILED - The request to perform a batch prediction did not run to
+&amp;#42;  INPROGRESS - The batch predictions are in progress.
+&amp;#42;  FAILED - The request to perform a batch prediction did not run to
  completion. It is not usable.
-*  COMPLETED - The batch prediction process completed successfully.
-*  DELETED - The BatchPrediction is marked as deleted. It is not usable. **/
+&amp;#42;  COMPLETED - The batch prediction process completed successfully.
+&amp;#42;  DELETED - The BatchPrediction is marked as deleted. It is not usable. **/
       Status?: EntityStatus;
       /** The location of an Amazon S3 bucket or directory to receive the operation
 results. **/
@@ -1499,11 +1499,11 @@ epoch time. **/
 values:
 
 &amp;#42;  PENDING - Amazon ML submitted a request to create a DataSource.
-*  INPROGRESS - The creation process is underway.
-*  FAILED - The request to create a DataSource did not run to completion. It is
+&amp;#42;  INPROGRESS - The creation process is underway.
+&amp;#42;  FAILED - The request to create a DataSource did not run to completion. It is
  not usable.
-*  COMPLETED - The creation process completed successfully.
-*  DELETED - The DataSource is marked as deleted. It is not usable. **/
+&amp;#42;  COMPLETED - The creation process completed successfully.
+&amp;#42;  DELETED - The DataSource is marked as deleted. It is not usable. **/
       Status?: EntityStatus;
       /** A link to the file containing logs of CreateDataSourceFrom&amp;#42; operations. **/
       LogUri?: PresignedS3Url;
@@ -1562,11 +1562,11 @@ epoch time. **/
 
 &amp;#42;  PENDING - Amazon Machine Language (Amazon ML) submitted a request to
  evaluate an MLModel.
-*  INPROGRESS - The evaluation is underway.
-*  FAILED - The request to evaluate an MLModel did not run to completion. It is
+&amp;#42;  INPROGRESS - The evaluation is underway.
+&amp;#42;  FAILED - The request to evaluate an MLModel did not run to completion. It is
  not usable.
-*  COMPLETED - The evaluation process completed successfully.
-*  DELETED - The Evaluation is marked as deleted. It is not usable. **/
+&amp;#42;  COMPLETED - The evaluation process completed successfully.
+&amp;#42;  DELETED - The Evaluation is marked as deleted. It is not usable. **/
       Status?: EntityStatus;
       /** Measurements of how well the MLModel performed using observations referenced by
 the DataSource. One of the following metric is returned based on the type of the 
@@ -1576,12 +1576,12 @@ MLModel:
  measure performance. 
  
  
-*  RegressionRMSE: A regression MLModel uses the Root Mean Square Error (RMSE)
+&amp;#42;  RegressionRMSE: A regression MLModel uses the Root Mean Square Error (RMSE)
  technique to measure performance. RMSE measures the difference between
  predicted and actual values for a single variable.
  
  
-*  MulticlassAvgFScore: A multiclass MLModel uses the F1 score technique to
+&amp;#42;  MulticlassAvgFScore: A multiclass MLModel uses the F1 score technique to
  measure performance. 
  
  
@@ -1637,10 +1637,10 @@ values:
 
 &amp;#42;  PENDING - Amazon Machine Learning (Amazon ML) submitted a request to
  describe a MLModel.
-*  INPROGRESS - The request is processing.
-*  FAILED - The request did not run to completion. The ML model isn&#x27;t usable.
-*  COMPLETED - The request completed successfully.
-*  DELETED - The MLModel is marked as deleted. It isn&#x27;t usable. **/
+&amp;#42;  INPROGRESS - The request is processing.
+&amp;#42;  FAILED - The request did not run to completion. The ML model isn&#x27;t usable.
+&amp;#42;  COMPLETED - The request completed successfully.
+&amp;#42;  DELETED - The MLModel is marked as deleted. It isn&#x27;t usable. **/
       Status?: EntityStatus;
       SizeInBytes?: LongType;
       /** The current endpoint of the MLModel **/
@@ -1657,18 +1657,18 @@ The following is the current set of training parameters:
  value is 33554432.
  
  
-* sgd.maxPasses - The number of times that the training process traverses the
+&amp;#42; sgd.maxPasses - The number of times that the training process traverses the
  observations to build the MLModel. The value is an integer that ranges from 1 
  to 10000. The default value is 10.
  
  
-* sgd.shuffleType - Whether Amazon ML shuffles the training data. Shuffling
+&amp;#42; sgd.shuffleType - Whether Amazon ML shuffles the training data. Shuffling
  data improves a model&#x27;s ability to find the optimal solution for a variety of
  data types. The valid values are auto and none. The default value is none. We
  strongly recommend that you shuffle your data.
  
  
-*  sgd.l1RegularizationAmount - The coefficient regularization L1 norm. It
+&amp;#42;  sgd.l1RegularizationAmount - The coefficient regularization L1 norm. It
  controls overfitting the data by penalizing large coefficients. This tends to
  drive coefficients to zero, resulting in a sparse feature set. If you use
  this parameter, start by specifying a small value, such as 1.0E-08.
@@ -1678,7 +1678,7 @@ The following is the current set of training parameters:
  this parameter sparingly.
  
  
-*  sgd.l2RegularizationAmount - The coefficient regularization L2 norm. It
+&amp;#42;  sgd.l2RegularizationAmount - The coefficient regularization L2 norm. It
  controls overfitting the data by penalizing large coefficients. This tends to
  drive coefficients to small, nonzero values. If you use this parameter, start
  by specifying a small value, such as 1.0E-08.
@@ -1694,9 +1694,9 @@ The following is the current set of training parameters:
 
 &amp;#42; REGRESSION -- Produces a numeric result. For example, &quot;What price should a
  house be listed at?&quot;
-* BINARY -- Produces one of two possible results. For example, &quot;Is this an
+&amp;#42; BINARY -- Produces one of two possible results. For example, &quot;Is this an
  e-commerce website?&quot;
-* MULTICLASS -- Produces one of several possible results. For example, &quot;Is this
+&amp;#42; MULTICLASS -- Produces one of several possible results. For example, &quot;Is this
  a HIGH, LOW or MEDIUM risk trade?&quot; **/
       MLModelType?: MLModelType;
       /** The scoring threshold is used in binary classification MLModel models. It marks
@@ -1776,11 +1776,11 @@ values:
 
 &amp;#42;  PENDING - Amazon Machine Learning (Amazon ML) submitted a request to create
  an MLModel.
-*  INPROGRESS - The creation process is underway.
-*  FAILED - The request to create an MLModel didn&#x27;t run to completion. The
+&amp;#42;  INPROGRESS - The creation process is underway.
+&amp;#42;  FAILED - The request to create an MLModel didn&#x27;t run to completion. The
  model isn&#x27;t usable.
-*  COMPLETED - The creation process completed successfully.
-*  DELETED - The MLModel is marked as deleted. It isn&#x27;t usable. **/
+&amp;#42;  COMPLETED - The creation process completed successfully.
+&amp;#42;  DELETED - The MLModel is marked as deleted. It isn&#x27;t usable. **/
       Status?: EntityStatus;
       SizeInBytes?: LongType;
       /** The current endpoint of the MLModel. **/
@@ -1797,17 +1797,17 @@ The following is the current set of training parameters:
  value is 33554432.
  
  
-* sgd.maxPasses - The number of times that the training process traverses the
+&amp;#42; sgd.maxPasses - The number of times that the training process traverses the
  observations to build the MLModel. The value is an integer that ranges from 1 
  to 10000. The default value is 10.
  
  
-* sgd.shuffleType - Whether Amazon ML shuffles the training data. Shuffling the
+&amp;#42; sgd.shuffleType - Whether Amazon ML shuffles the training data. Shuffling the
  data improves a model&#x27;s ability to find the optimal solution for a variety of
  data types. The valid values are auto and none. The default value is none.
  
  
-*  sgd.l1RegularizationAmount - The coefficient regularization L1 norm, which
+&amp;#42;  sgd.l1RegularizationAmount - The coefficient regularization L1 norm, which
  controls overfitting the data by penalizing large coefficients. This
  parameter tends to drive coefficients to zero, resulting in sparse feature
  set. If you use this parameter, start by specifying a small value, such as 
@@ -1818,7 +1818,7 @@ The following is the current set of training parameters:
  this parameter sparingly.
  
  
-*  sgd.l2RegularizationAmount - The coefficient regularization L2 norm, which
+&amp;#42;  sgd.l2RegularizationAmount - The coefficient regularization L2 norm, which
  controls overfitting the data by penalizing large coefficients. This tends to
  drive coefficients to small, nonzero values. If you use this parameter, start
  by specifying a small value, such as 1.0E-08.
@@ -1839,9 +1839,9 @@ The following is the current set of training parameters:
 
 &amp;#42;  REGRESSION - Produces a numeric result. For example, &quot;What price should a
  house be listed at?&quot;
-*  BINARY - Produces one of two possible results. For example, &quot;Is this a
+&amp;#42;  BINARY - Produces one of two possible results. For example, &quot;Is this a
  child-friendly web site?&quot;.
-*  MULTICLASS - Produces one of several possible results. For example, &quot;Is this
+&amp;#42;  MULTICLASS - Produces one of several possible results. For example, &quot;Is this
  a HIGH-, LOW-, or MEDIUM-risk trade?&quot;. **/
       MLModelType?: MLModelType;
       ScoreThreshold?: ScoreThreshold;
@@ -1902,14 +1902,14 @@ datasource:
  Amazon ML includes all of the data when creating the datasource.
  
  
-* percentEnd
+&amp;#42; percentEnd
  
  Use percentEnd to indicate the end of the range of the data used to create
  the Datasource. If you do not include percentBegin and percentEnd, Amazon ML
  includes all of the data when creating the datasource.
  
  
-* complement
+&amp;#42; complement
  
  The complement parameter instructs Amazon ML to use the data that is not
  included in the range of percentBegin to percentEnd to create a datasource.
@@ -1928,7 +1928,7 @@ datasource:
  &quot;complement&quot;:&quot;true&quot;}}
  
  
-* strategy
+&amp;#42; strategy
  
  To change how Amazon ML splits the data for a datasource, use the strategy 
  parameter.
@@ -2079,8 +2079,8 @@ using this URI. **/
 have one of the following values: 
 
 &amp;#42;  NONE - Endpoint does not exist or was previously deleted.
-*  READY - Endpoint is ready to be used for real-time predictions.
-*  UPDATING - Updating/creating the endpoint. **/
+&amp;#42;  READY - Endpoint is ready to be used for real-time predictions.
+&amp;#42;  UPDATING - Updating/creating the endpoint. **/
       EndpointStatus?: RealtimeEndpointStatus;
     }
     export interface RedshiftDataSpec {
@@ -2110,14 +2110,14 @@ datasource:
  Amazon ML includes all of the data when creating the datasource.
  
  
-* percentEnd
+&amp;#42; percentEnd
  
  Use percentEnd to indicate the end of the range of the data used to create
  the Datasource. If you do not include percentBegin and percentEnd, Amazon ML
  includes all of the data when creating the datasource.
  
  
-* complement
+&amp;#42; complement
  
  The complement parameter instructs Amazon ML to use the data that is not
  included in the range of percentBegin to percentEnd to create a datasource.
@@ -2136,7 +2136,7 @@ datasource:
  &quot;complement&quot;:&quot;true&quot;}}
  
  
-* strategy
+&amp;#42; strategy
  
  To change how Amazon ML splits the data for a datasource, use the strategy 
  parameter.
@@ -2254,14 +2254,14 @@ datasource:
  Amazon ML includes all of the data when creating the datasource.
  
  
-* percentEnd
+&amp;#42; percentEnd
  
  Use percentEnd to indicate the end of the range of the data used to create
  the Datasource. If you do not include percentBegin and percentEnd, Amazon ML
  includes all of the data when creating the datasource.
  
  
-* complement
+&amp;#42; complement
  
  The complement parameter instructs Amazon ML to use the data that is not
  included in the range of percentBegin to percentEnd to create a datasource.
@@ -2280,7 +2280,7 @@ datasource:
  &quot;complement&quot;:&quot;true&quot;}}
  
  
-* strategy
+&amp;#42; strategy
  
  To change how Amazon ML splits the data for a datasource, use the strategy 
  parameter.

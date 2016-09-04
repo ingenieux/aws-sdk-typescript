@@ -89,7 +89,7 @@ declare module "aws-sdk" {
   &amp;#42;   AWS-RunShellScript to run shell scripts
     
     
-  *   AWS-UpdateSSMAgent to update the Amazon SSM agent
+  &amp;#42;   AWS-UpdateSSMAgent to update the Amazon SSM agent
     
     
  
@@ -97,42 +97,42 @@ declare module "aws-sdk" {
  
   Windows 
  
-  *   AWS-JoinDirectoryServiceDomain to join an AWS Directory
+  &amp;#42;   AWS-JoinDirectoryServiceDomain to join an AWS Directory
     
     
-  *   AWS-RunPowerShellScript to run PowerShell commands or scripts
+  &amp;#42;   AWS-RunPowerShellScript to run PowerShell commands or scripts
     
     
-  *   AWS-UpdateEC2Config to update the EC2Config service
+  &amp;#42;   AWS-UpdateEC2Config to update the EC2Config service
     
     
-  *   AWS-ConfigureWindowsUpdate to configure Windows Update settings
+  &amp;#42;   AWS-ConfigureWindowsUpdate to configure Windows Update settings
     
     
-  *   AWS-InstallApplication to install, repair, or uninstall software using an
+  &amp;#42;   AWS-InstallApplication to install, repair, or uninstall software using an
     MSI package
     
     
-  *   AWS-InstallPowerShellModule to install PowerShell modules 
+  &amp;#42;   AWS-InstallPowerShellModule to install PowerShell modules 
     
     
-  *   AWS-ConfigureCloudWatch to configure Amazon CloudWatch Logs to monitor
+  &amp;#42;   AWS-ConfigureCloudWatch to configure Amazon CloudWatch Logs to monitor
     applications and systems
     
     
-  *   AWS-ListWindowsInventory to collect information about an EC2 instance
+  &amp;#42;   AWS-ListWindowsInventory to collect information about an EC2 instance
     running in Windows.
     
     
-  *   AWS-FindWindowsUpdates to scan an instance and determines which updates are
+  &amp;#42;   AWS-FindWindowsUpdates to scan an instance and determines which updates are
     missing.
     
     
-  *   AWS-InstallMissingWindowsUpdates to install missing updates on your EC2
+  &amp;#42;   AWS-InstallMissingWindowsUpdates to install missing updates on your EC2
     instance.
     
     
-  *   AWS-InstallSpecificWindowsUpdates to install one or more specific updates.
+  &amp;#42;   AWS-InstallSpecificWindowsUpdates to install one or more specific updates.
     
     
  
@@ -140,12 +140,12 @@ declare module "aws-sdk" {
  privilege on your instances because the Amazon SSM agent runs as root on Linux
  and the EC2Config service runs in the Local System account on Windows. If a user
  has permission to execute any of the pre-defined SSM documents (any document
- that begins with AWS-*) then that user also has administrator access to the
+ that begins with AWS-&amp;#42;) then that user also has administrator access to the
  instance. Delegate access to Run Command and SSM Config judiciously. This
  becomes extremely important if you create your own SSM documents. Amazon Web
  Services does not provide guidance about how to create secure SSM documents. You
  create SSM documents and delegate access to Run Command at your own risk. As a
- security best practice, we recommend that you assign access to &quot;AWS-*&quot;
+ security best practice, we recommend that you assign access to &quot;AWS-&amp;#42;&quot;
  documents, especially the AWS-RunShellScript document on Linux and the
  AWS-RunPowerShellScript document on Windows, to trusted administrators only. You
  can create SSM documents for specific tasks and delegate access to
@@ -154,13 +154,13 @@ declare module "aws-sdk" {
  For information about creating and sharing SSM documents, see the following
  topics in the SSM User Guide: 
  
-  *   Creating SSM Documents
+  &amp;#42;   Creating SSM Documents
     [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-ssm-doc.html] and 
     Sharing SSM Documents
     [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssm-sharing.html] (Linux)
     
     
-  *   Creating SSM Documents
+  &amp;#42;   Creating SSM Documents
     [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/create-ssm-doc.html] 
     and Sharing SSM Documents
     [http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ssm-sharing.html] 

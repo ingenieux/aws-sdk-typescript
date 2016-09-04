@@ -30,7 +30,7 @@ declare module "aws-sdk" {
     [http://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html] 
     
     
-  *   AWS Service Catalog User Guide
+  &amp;#42;   AWS Service Catalog User Guide
     [http://docs.aws.amazon.com/servicecatalog/latest/userguide/introduction.html]
     *
     */

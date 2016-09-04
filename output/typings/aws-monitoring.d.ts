@@ -102,10 +102,10 @@ detailed (one-minute) monitoring enabled:
  &amp;#42;  Statistics for up to 400 instances for a span of one hour
    
    
- *  Statistics for up to 35 instances over a span of 24 hours
+ &amp;#42;  Statistics for up to 35 instances over a span of 24 hours
    
    
- *  Statistics for up to 2 instances over a span of 2 weeks
+ &amp;#42;  Statistics for up to 2 instances over a span of 2 weeks
    
    
 
@@ -156,13 +156,13 @@ or modify an alarm, you must have the following Amazon EC2 permissions:
    Amazon EC2 instance status metrics.
    
    
- *   ec2:StopInstances for alarms with stop actions.
+ &amp;#42;   ec2:StopInstances for alarms with stop actions.
    
    
- *   ec2:TerminateInstances for alarms with terminate actions.
+ &amp;#42;   ec2:TerminateInstances for alarms with terminate actions.
    
    
- *   ec2:DescribeInstanceRecoveryAttribute, and ec2:RecoverInstances for alarms
+ &amp;#42;   ec2:DescribeInstanceRecoveryAttribute, and ec2:RecoverInstances for alarms
    with recover actions.
    
    

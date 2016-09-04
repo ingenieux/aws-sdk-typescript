@@ -48,28 +48,28 @@ declare module "aws-sdk" {
     .
     
     
-  *  For the alphabetical list of data types, see Data Types
+  &amp;#42;  For the alphabetical list of data types, see Data Types
     [http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Types.html].
     
     
-  *  For a list of common query parameters, see Common Parameters
+  &amp;#42;  For a list of common query parameters, see Common Parameters
     [http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonParameters.html]
     .
     
     
-  *  For descriptions of the error codes, see Common Errors
+  &amp;#42;  For descriptions of the error codes, see Common Errors
     [http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonErrors.html].
     
     
  
   Amazon RDS User Guide 
  
-  *  For a summary of the Amazon RDS interfaces, see Available RDS Interfaces
+  &amp;#42;  For a summary of the Amazon RDS interfaces, see Available RDS Interfaces
     [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html#Welcome.Interfaces]
     .
     
     
-  *  For more information about how to use the Query API, see Using the Query API
+  &amp;#42;  For more information about how to use the Query API, see Using the Query API
     [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Using_the_Query_API.html]
     .
     *
@@ -459,7 +459,7 @@ delete the DB instance if the following are true:
  &amp;#42;  The DB cluster is a Read Replica of another Amazon Aurora DB cluster.
    
    
- *  The DB instance is the only instance in the DB cluster.
+ &amp;#42;  The DB instance is the only instance in the DB cluster.
    
    
 
@@ -1424,15 +1424,15 @@ Constraints:
  supplied.
  
  
-*  If the source type is a DB security group, a DBSecurityGroupName must be
+&amp;#42;  If the source type is a DB security group, a DBSecurityGroupName must be
  supplied.
  
  
-*  If the source type is a DB parameter group, a DBParameterGroupName must be
+&amp;#42;  If the source type is a DB parameter group, a DBParameterGroupName must be
  supplied.
  
  
-*  If the source type is a DB snapshot, a DBSnapshotIdentifier must be supplied. **/
+&amp;#42;  If the source type is a DB snapshot, a DBSnapshotIdentifier must be supplied. **/
       SourceIdentifier: String;
     }
     export interface AddSourceIdentifierToSubscriptionResult {
@@ -1467,11 +1467,11 @@ Valid values:
 &amp;#42;   immediate - Apply the maintenance action immediately.
  
  
-*   next-maintenance - Apply the maintenance action during the next maintenance
+&amp;#42;   next-maintenance - Apply the maintenance action during the next maintenance
  window for the resource.
  
  
-*   undo-opt-in - Cancel any existing next-maintenance opt-in requests. **/
+&amp;#42;   undo-opt-in - Cancel any existing next-maintenance opt-in requests. **/
       OptInType: String;
     }
     export interface ApplyPendingMaintenanceActionResult {
@@ -1552,12 +1552,12 @@ Constraints:
 &amp;#42;  Must specify a valid DB cluster parameter group.
  
  
-*  If the source DB cluster parameter group is in the same region as the copy,
+&amp;#42;  If the source DB cluster parameter group is in the same region as the copy,
  specify a valid DB parameter group identifier, for example 
  my-db-cluster-param-group, or a valid ARN.
  
  
-*  If the source DB parameter group is in a different region than the copy,
+&amp;#42;  If the source DB parameter group is in a different region than the copy,
  specify a valid DB cluster parameter group ARN, for example 
  arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1. **/
       SourceDBClusterParameterGroupIdentifier: String;
@@ -1568,13 +1568,13 @@ Constraints:
 &amp;#42;  Cannot be null, empty, or blank
  
  
-*  Must contain from 1 to 255 alphanumeric characters or hyphens
+&amp;#42;  Must contain from 1 to 255 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
 
@@ -1596,10 +1596,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens.
  
  
 
@@ -1613,10 +1613,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens.
  
  
 
@@ -1638,7 +1638,7 @@ Constraints:
 &amp;#42;  Must specify a valid DB parameter group.
  
  
-*   Must specify a valid DB parameter group identifier, for example 
+&amp;#42;   Must specify a valid DB parameter group identifier, for example 
  my-db-param-group, or a valid ARN. **/
       SourceDBParameterGroupIdentifier: String;
       /** The identifier for the copied DB parameter group.
@@ -1648,13 +1648,13 @@ Constraints:
 &amp;#42;  Cannot be null, empty, or blank
  
  
-*  Must contain from 1 to 255 alphanumeric characters or hyphens
+&amp;#42;  Must contain from 1 to 255 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
 
@@ -1678,11 +1678,11 @@ Constraints:
 &amp;#42;  Must specify a valid system snapshot in the &quot;available&quot; state.
  
  
-*  If the source snapshot is in the same region as the copy, specify a valid DB
+&amp;#42;  If the source snapshot is in the same region as the copy, specify a valid DB
  snapshot identifier.
  
  
-*  If the source snapshot is in a different region than the copy, specify a
+&amp;#42;  If the source snapshot is in a different region than the copy, specify a
  valid DB snapshot ARN. For more information, go to Copying a DB Snapshot
  [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html]
  .
@@ -1701,13 +1701,13 @@ Constraints:
 &amp;#42;  Cannot be null, empty, or blank
  
  
-*  Must contain from 1 to 255 alphanumeric characters or hyphens
+&amp;#42;  Must contain from 1 to 255 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
 
@@ -1748,11 +1748,11 @@ Constraints:
 &amp;#42;  Must specify a valid option group.
  
  
-*  If the source option group is in the same region as the copy, specify a
+&amp;#42;  If the source option group is in the same region as the copy, specify a
  valid option group identifier, for example my-option-group, or a valid ARN.
  
  
-*  If the source option group is in a different region than the copy, specify a
+&amp;#42;  If the source option group is in a different region than the copy, specify a
  valid option group ARN, for example 
  arn:aws:rds:us-west-2:123456789012:og:special-options. **/
       SourceOptionGroupIdentifier: String;
@@ -1763,13 +1763,13 @@ Constraints:
 &amp;#42;  Cannot be null, empty, or blank
  
  
-*  Must contain from 1 to 255 alphanumeric characters or hyphens
+&amp;#42;  Must contain from 1 to 255 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
 
@@ -1812,10 +1812,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens.
  
  
 
@@ -1829,10 +1829,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBClusterParameterGroupName?: String;
       /** A list of EC2 VPC security groups to associate with this DB cluster. **/
       VpcSecurityGroupIds?: VpcSecurityGroupIdList;
@@ -1864,10 +1864,10 @@ Constraints:
 &amp;#42;  Must be 1 to 16 alphanumeric characters.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot be a reserved word for the chosen database engine. **/
+&amp;#42;  Cannot be a reserved word for the chosen database engine. **/
       MasterUsername?: String;
       /** The password for the master database user. This password can contain any
 printable ASCII character except &quot;/&quot;, &quot;&quot;&quot;, or &quot;@&quot;.
@@ -1894,13 +1894,13 @@ Constraints:
 &amp;#42;  Must be in the format hh24:mi-hh24:mi.
  
  
-*  Times should be in Universal Coordinated Time (UTC).
+&amp;#42;  Times should be in Universal Coordinated Time (UTC).
  
  
-*  Must not conflict with the preferred maintenance window.
+&amp;#42;  Must not conflict with the preferred maintenance window.
  
  
-*  Must be at least 30 minutes. **/
+&amp;#42;  Must be at least 30 minutes. **/
       PreferredBackupWindow?: String;
       /** The weekly time range during which system maintenance can occur, in Universal
 Coordinated Time (UTC).
@@ -1944,10 +1944,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
 
@@ -1977,10 +1977,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens.
  
  
 
@@ -1994,10 +1994,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens.
  
  
 
@@ -2024,7 +2024,7 @@ Constraints:
 &amp;#42;  Must contain 1 to 64 alphanumeric characters
  
  
-*  Cannot be a word reserved by the specified database engine
+&amp;#42;  Cannot be a word reserved by the specified database engine
  
  
 
@@ -2035,10 +2035,10 @@ parameter is not specified, no database is created in the DB instance.
 
 Constraints:
 
-*  Must contain 1 to 64 alphanumeric characters
+&amp;#42;  Must contain 1 to 64 alphanumeric characters
  
  
-*  Cannot be a word reserved by the specified database engine
+&amp;#42;  Cannot be a word reserved by the specified database engine
  
  
 
@@ -2050,14 +2050,14 @@ instance.
 
 Constraints:
 
-*  Must contain 1 to 63 alphanumeric characters
+&amp;#42;  Must contain 1 to 63 alphanumeric characters
  
  
-*  Must begin with a letter or an underscore. Subsequent characters can be
+&amp;#42;  Must begin with a letter or an underscore. Subsequent characters can be
  letters, underscores, or digits (0-9).
  
  
-*  Cannot be a word reserved by the specified database engine
+&amp;#42;  Cannot be a word reserved by the specified database engine
  
  
 
@@ -2069,7 +2069,7 @@ Default: ORCL
 
 Constraints:
 
-*  Cannot be longer than 8 characters
+&amp;#42;  Cannot be longer than 8 characters
  
  
 
@@ -2085,10 +2085,10 @@ instance.
 
 Constraints:
 
-*  Must contain 1 to 64 alphanumeric characters
+&amp;#42;  Must contain 1 to 64 alphanumeric characters
  
  
-*  Cannot be a word reserved by the specified database engine **/
+&amp;#42;  Cannot be a word reserved by the specified database engine **/
       DBName?: String;
       /** The DB instance identifier. This parameter is stored as a lowercase string.
 
@@ -2098,10 +2098,10 @@ Constraints:
  SQL Server).
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens.
  
  
 
@@ -2158,10 +2158,10 @@ Constraints:
 &amp;#42;  Must be 1 to 16 alphanumeric characters.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot be a reserved word for the chosen database engine.
+&amp;#42;  Cannot be a reserved word for the chosen database engine.
  
  
 
@@ -2169,10 +2169,10 @@ MariaDB
 
 Constraints:
 
-*  Must be 1 to 16 alphanumeric characters.
+&amp;#42;  Must be 1 to 16 alphanumeric characters.
  
  
-*  Cannot be a reserved word for the chosen database engine.
+&amp;#42;  Cannot be a reserved word for the chosen database engine.
  
  
 
@@ -2182,13 +2182,13 @@ Oracle
 
 Constraints:
 
-*  Must be 1 to 30 alphanumeric characters.
+&amp;#42;  Must be 1 to 30 alphanumeric characters.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot be a reserved word for the chosen database engine.
+&amp;#42;  Cannot be a reserved word for the chosen database engine.
  
  
 
@@ -2196,13 +2196,13 @@ SQL Server
 
 Constraints:
 
-*  Must be 1 to 128 alphanumeric characters.
+&amp;#42;  Must be 1 to 128 alphanumeric characters.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot be a reserved word for the chosen database engine.
+&amp;#42;  Cannot be a reserved word for the chosen database engine.
  
  
 
@@ -2210,13 +2210,13 @@ PostgreSQL
 
 Constraints:
 
-*  Must be 1 to 63 alphanumeric characters.
+&amp;#42;  Must be 1 to 63 alphanumeric characters.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot be a reserved word for the chosen database engine. **/
+&amp;#42;  Cannot be a reserved word for the chosen database engine. **/
       MasterUsername?: String;
       /** The password for the master database user. Can be any printable ASCII character
 except &quot;/&quot;, &quot;&quot;&quot;, or &quot;@&quot;.
@@ -2299,10 +2299,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBParameterGroupName?: String;
       /** The number of days for which automated backups are retained. Setting this
 parameter to a positive number enables backups. Setting this parameter to 0
@@ -2315,7 +2315,7 @@ Constraints:
 &amp;#42;  Must be a value from 0 to 35
  
  
-*  Cannot be set to 0 if the DB instance is a source to Read Replicas **/
+&amp;#42;  Cannot be set to 0 if the DB instance is a source to Read Replicas **/
       BackupRetentionPeriod?: IntegerOptional;
       /** The daily time range during which automated backups are created if automated
 backups are enabled, using the BackupRetentionPeriod parameter. For more
@@ -2334,13 +2334,13 @@ Constraints:
 &amp;#42;  Must be in the format hh24:mi-hh24:mi.
  
  
-*  Times should be in Universal Coordinated Time (UTC).
+&amp;#42;  Times should be in Universal Coordinated Time (UTC).
  
  
-*  Must not conflict with the preferred maintenance window.
+&amp;#42;  Must not conflict with the preferred maintenance window.
  
  
-*  Must be at least 30 minutes. **/
+&amp;#42;  Must be at least 30 minutes. **/
       PreferredBackupWindow?: String;
       /** The port number on which the database accepts connections.
 
@@ -2407,195 +2407,195 @@ Amazon Aurora
 
 MariaDB 
 
-*   Version 10.1 (available in all AWS regions except us-gov-west-1): 10.1.14 
+&amp;#42;   Version 10.1 (available in all AWS regions except us-gov-west-1): 10.1.14 
  
  
-*   Version 10.0 (available in all AWS regions): 10.0.17 | 10.0.24 
+&amp;#42;   Version 10.0 (available in all AWS regions): 10.0.17 | 10.0.24 
  
  
 
 Microsoft SQL Server Enterprise Edition (sqlserver-ee) 
 
-*   Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
+&amp;#42;   Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
  11.00.5058.0.v1 | 11.00.6020.0.v1 
  
  
-*   Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
+&amp;#42;   Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
  10.50.6000.34.v1 | 10.50.6529.0.v1 
  
  
 
 Microsoft SQL Server Express Edition (sqlserver-ex) 
 
-*   Version 12.00 (available in all AWS regions): 12.00.4422.0.v1 
+&amp;#42;   Version 12.00 (available in all AWS regions): 12.00.4422.0.v1 
  
  
-*   Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
+&amp;#42;   Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
  11.00.5058.0.v1 | 11.00.6020.0.v1 
  
  
-*   Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
+&amp;#42;   Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
  10.50.6000.34.v1 | 10.50.6529.0.v1 
  
  
 
 Microsoft SQL Server Standard Edition (sqlserver-se) 
 
-*   Version 12.00 (available in all AWS regions): 12.00.4422.0.v1 
+&amp;#42;   Version 12.00 (available in all AWS regions): 12.00.4422.0.v1 
  
  
-*   Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
+&amp;#42;   Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
  11.00.5058.0.v1 | 11.00.6020.0.v1 
  
  
-*   Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
+&amp;#42;   Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
  10.50.6000.34.v1 | 10.50.6529.0.v1 
  
  
 
 Microsoft SQL Server Web Edition (sqlserver-web) 
 
-*   Version 12.00 (available in all AWS regions): 12.00.4422.0.v1 
+&amp;#42;   Version 12.00 (available in all AWS regions): 12.00.4422.0.v1 
  
  
-*   Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
+&amp;#42;   Version 11.00 (available in all AWS regions): 11.00.2100.60.v1 |
  11.00.5058.0.v1 | 11.00.6020.0.v1 
  
  
-*   Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
+&amp;#42;   Version 10.50 (available in all AWS regions): 10.50.2789.0.v1 |
  10.50.6000.34.v1 | 10.50.6529.0.v1 
  
  
 
 MySQL 
 
-*   Version 5.7 (available in all AWS regions): 5.7.10 | 5.7.11 
+&amp;#42;   Version 5.7 (available in all AWS regions): 5.7.10 | 5.7.11 
  
  
-*   Version 5.6 (available in all AWS regions except ap-south-1,
+&amp;#42;   Version 5.6 (available in all AWS regions except ap-south-1,
  ap-northeast-2): 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 
  
  
-*   Version 5.6 (available in all AWS regions except ap-south-1): 5.6.23 
+&amp;#42;   Version 5.6 (available in all AWS regions except ap-south-1): 5.6.23 
  
  
-*   Version 5.6 (available in all AWS regions): 5.6.27 | 5.6.29 
+&amp;#42;   Version 5.6 (available in all AWS regions): 5.6.27 | 5.6.29 
  
  
-*   Version 5.5 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+&amp;#42;   Version 5.5 (only available in AWS regions ap-northeast-1, ap-southeast-1,
  ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1,
  us-west-2): 5.5.40 | 5.5.40a 
  
  
-*   Version 5.5 (available in all AWS regions except ap-south-1,
+&amp;#42;   Version 5.5 (available in all AWS regions except ap-south-1,
  ap-northeast-2): 5.5.40b | 5.5.41 
  
  
-*   Version 5.5 (available in all AWS regions except ap-south-1): 5.5.42 
+&amp;#42;   Version 5.5 (available in all AWS regions except ap-south-1): 5.5.42 
  
  
-*   Version 5.5 (available in all AWS regions): 5.5.46 
+&amp;#42;   Version 5.5 (available in all AWS regions): 5.5.46 
  
  
 
 Oracle Database Enterprise Edition (oracle-ee) 
 
-*   Version 12.1 (available in all AWS regions except ap-south-1,
+&amp;#42;   Version 12.1 (available in all AWS regions except ap-south-1,
  ap-northeast-2): 12.1.0.1.v1 | 12.1.0.1.v2 
  
  
-*   Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+&amp;#42;   Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1,
  ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
  us-west-2): 12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5 
  
  
-*   Version 12.1 (available in all AWS regions): 12.1.0.2.v1 
+&amp;#42;   Version 12.1 (available in all AWS regions): 12.1.0.2.v1 
  
  
-*   Version 12.1 (available in all AWS regions except us-gov-west-1): 
+&amp;#42;   Version 12.1 (available in all AWS regions except us-gov-west-1): 
  12.1.0.2.v2 | 12.1.0.2.v3 | 12.1.0.2.v4 
  
  
-*   Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
+&amp;#42;   Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
  11.2.0.4.v4 
  
  
-*   Version 11.2 (available in all AWS regions except us-gov-west-1): 
+&amp;#42;   Version 11.2 (available in all AWS regions except us-gov-west-1): 
  11.2.0.4.v5 | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8 
  
  
 
 Oracle Database Standard Edition (oracle-se) 
 
-*   Version 12.1 (available in all AWS regions except ap-south-1,
+&amp;#42;   Version 12.1 (available in all AWS regions except ap-south-1,
  ap-northeast-2): 12.1.0.1.v1 | 12.1.0.1.v2 
  
  
-*   Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+&amp;#42;   Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1,
  ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
  us-west-2): 12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5 
  
  
-*   Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
+&amp;#42;   Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
  11.2.0.4.v4 
  
  
-*   Version 11.2 (available in all AWS regions except us-gov-west-1): 
+&amp;#42;   Version 11.2 (available in all AWS regions except us-gov-west-1): 
  11.2.0.4.v5 | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8 
  
  
 
 Oracle Database Standard Edition One (oracle-se1) 
 
-*   Version 12.1 (available in all AWS regions except ap-south-1,
+&amp;#42;   Version 12.1 (available in all AWS regions except ap-south-1,
  ap-northeast-2): 12.1.0.1.v1 | 12.1.0.1.v2 
  
  
-*   Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+&amp;#42;   Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1,
  ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
  us-west-2): 12.1.0.1.v3 | 12.1.0.1.v4 | 12.1.0.1.v5 
  
  
-*   Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
+&amp;#42;   Version 11.2 (available in all AWS regions): 11.2.0.4.v1 | 11.2.0.4.v3 |
  11.2.0.4.v4 
  
  
-*   Version 11.2 (available in all AWS regions except us-gov-west-1): 
+&amp;#42;   Version 11.2 (available in all AWS regions except us-gov-west-1): 
  11.2.0.4.v5 | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8 
  
  
 
 Oracle Database Standard Edition Two (oracle-se2) 
 
-*   Version 12.1 (available in all AWS regions except us-gov-west-1): 
+&amp;#42;   Version 12.1 (available in all AWS regions except us-gov-west-1): 
  12.1.0.2.v2 | 12.1.0.2.v3 | 12.1.0.2.v4 
  
  
 
 PostgreSQL 
 
-*   Version 9.5 (available in all AWS regions except us-gov-west-1): 9.5.2 
+&amp;#42;   Version 9.5 (available in all AWS regions except us-gov-west-1): 9.5.2 
  
  
-*   Version 9.4 (available in all AWS regions except ap-south-1): 9.4.1 | 9.4.4 
+&amp;#42;   Version 9.4 (available in all AWS regions except ap-south-1): 9.4.1 | 9.4.4 
  
  
-*   Version 9.4 (available in all AWS regions): 9.4.5 
+&amp;#42;   Version 9.4 (available in all AWS regions): 9.4.5 
  
  
-*   Version 9.4 (available in all AWS regions except us-gov-west-1): 9.4.7 
+&amp;#42;   Version 9.4 (available in all AWS regions except us-gov-west-1): 9.4.7 
  
  
-*   Version 9.3 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+&amp;#42;   Version 9.3 (only available in AWS regions ap-northeast-1, ap-southeast-1,
  ap-southeast-2, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1,
  us-west-2): 9.3.1 | 9.3.2 
  
  
-*   Version 9.3 (available in all AWS regions except ap-south-1,
+&amp;#42;   Version 9.3 (available in all AWS regions except ap-south-1,
  ap-northeast-2): 9.3.10 | 9.3.3 | 9.3.5 | 9.3.6 | 9.3.9 
  
  
-*   Version 9.3 (only available in AWS regions ap-northeast-1, ap-southeast-1,
+&amp;#42;   Version 9.3 (only available in AWS regions ap-northeast-1, ap-southeast-1,
  ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
  us-west-2): 9.3.12 **/
       EngineVersion?: String;
@@ -2638,7 +2638,7 @@ requested or not. The following list shows the default behavior in each case.
 &amp;#42;   Default VPC: true
  
  
-*   VPC: false
+&amp;#42;   VPC: false
  
  
 
@@ -2736,23 +2736,23 @@ Constraints:
  instance.
  
  
-*  Can specify a DB instance that is a MySQL Read Replica only if the source is
+&amp;#42;  Can specify a DB instance that is a MySQL Read Replica only if the source is
  running MySQL 5.6.
  
  
-*  Can specify a DB instance that is a PostgreSQL Read Replica only if the
+&amp;#42;  Can specify a DB instance that is a PostgreSQL Read Replica only if the
  source is running PostgreSQL 9.3.5.
  
  
-*  The specified DB instance must have automatic backups enabled, its backup
+&amp;#42;  The specified DB instance must have automatic backups enabled, its backup
  retention period must be greater than 0.
  
  
-*  If the source DB instance is in the same region as the Read Replica, specify
+&amp;#42;  If the source DB instance is in the same region as the Read Replica, specify
  a valid DB instance identifier.
  
  
-*  If the source DB instance is in a different region than the Read Replica,
+&amp;#42;  If the source DB instance is in a different region than the Read Replica,
  specify a valid DB instance ARN. For more information, go to Constructing a
  Amazon RDS Amazon Resource Name (ARN)
  [http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing]
@@ -2803,7 +2803,7 @@ requested or not. The following list shows the default behavior in each case.
 &amp;#42;   Default VPC:true
  
  
-*   VPC:false
+&amp;#42;   VPC:false
  
  
 
@@ -2824,18 +2824,18 @@ Constraints:
  instance in another region.
  
  
-*  The specified DB subnet group must be in the same region in which the
+&amp;#42;  The specified DB subnet group must be in the same region in which the
  operation is running.
  
  
-*  All Read Replicas in one region that are created from the same source DB
+&amp;#42;  All Read Replicas in one region that are created from the same source DB
  instance must either:&gt;
  
-  *  Specify DB subnet groups from the same VPC. All these Read Replicas will
+  &amp;#42;  Specify DB subnet groups from the same VPC. All these Read Replicas will
     be created in the same VPC.
     
     
-  *  Not specify a DB subnet group. All these Read Replicas will be created
+  &amp;#42;  Not specify a DB subnet group. All these Read Replicas will be created
     outside of any VPC.
     
     
@@ -2892,10 +2892,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
 
@@ -2921,13 +2921,13 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
-*  Must not be &quot;Default&quot;
+&amp;#42;  Must not be &quot;Default&quot;
  
  
 
@@ -2948,13 +2948,13 @@ Constraints:
 &amp;#42;  Cannot be null, empty, or blank
  
  
-*  Must contain from 1 to 255 alphanumeric characters or hyphens
+&amp;#42;  Must contain from 1 to 255 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
 
@@ -2968,10 +2968,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBInstanceIdentifier: String;
       Tags?: TagList;
     }
@@ -3026,19 +3026,19 @@ Constraints:
 &amp;#42;  If SourceIds are supplied, SourceType must also be provided.
  
  
-*  If the source type is a DB instance, then a DBInstanceIdentifier must be
+&amp;#42;  If the source type is a DB instance, then a DBInstanceIdentifier must be
  supplied.
  
  
-*  If the source type is a DB security group, a DBSecurityGroupName must be
+&amp;#42;  If the source type is a DB security group, a DBSecurityGroupName must be
  supplied.
  
  
-*  If the source type is a DB parameter group, a DBParameterGroupName must be
+&amp;#42;  If the source type is a DB parameter group, a DBParameterGroupName must be
  supplied.
  
  
-*  If the source type is a DB snapshot, a DBSnapshotIdentifier must be supplied. **/
+&amp;#42;  If the source type is a DB snapshot, a DBSnapshotIdentifier must be supplied. **/
       SourceIds?: SourceIdsList;
       /** A Boolean value; set to true to activate the subscription, set to false to
 create the subscription but not active it. **/
@@ -3056,10 +3056,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
 
@@ -3212,10 +3212,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
 
@@ -3438,7 +3438,7 @@ requested or not. The following list shows the default behavior in each case.
 &amp;#42;   Default VPC:true
  
  
-*   VPC:false
+&amp;#42;   VPC:false
  
  
 
@@ -3740,10 +3740,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBClusterIdentifier: String;
       /** Determines whether a final DB cluster snapshot is created before the DB cluster
 is deleted. If true is specified, no DB cluster snapshot is created. If false is
@@ -3765,10 +3765,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       FinalDBSnapshotIdentifier?: String;
     }
     export interface DeleteDBClusterParameterGroupMessage {
@@ -3779,10 +3779,10 @@ Constraints:
 &amp;#42;  Must be the name of an existing DB cluster parameter group.
  
  
-*  You cannot delete a default DB cluster parameter group.
+&amp;#42;  You cannot delete a default DB cluster parameter group.
  
  
-*  Cannot be associated with any DB clusters. **/
+&amp;#42;  Cannot be associated with any DB clusters. **/
       DBClusterParameterGroupName: String;
     }
     export interface DeleteDBClusterResult {
@@ -3807,10 +3807,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBInstanceIdentifier: String;
       /** Determines whether a final DB snapshot is created before the DB instance is
 deleted. If true is specified, no DBSnapshot is created. If false is specified,
@@ -3838,13 +3838,13 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
-*  Cannot be specified when deleting a Read Replica. **/
+&amp;#42;  Cannot be specified when deleting a Read Replica. **/
       FinalDBSnapshotIdentifier?: String;
     }
     export interface DeleteDBInstanceResult {
@@ -3858,10 +3858,10 @@ Constraints:
 &amp;#42;  Must be the name of an existing DB parameter group
  
  
-*  You cannot delete a default DB parameter group
+&amp;#42;  You cannot delete a default DB parameter group
  
  
-*  Cannot be associated with any DB instances **/
+&amp;#42;  Cannot be associated with any DB instances **/
       DBParameterGroupName: String;
     }
     export interface DeleteDBSecurityGroupMessage {
@@ -3874,13 +3874,13 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
-*  Must not be &quot;Default&quot; **/
+&amp;#42;  Must not be &quot;Default&quot; **/
       DBSecurityGroupName: String;
     }
     export interface DeleteDBSnapshotMessage {
@@ -3930,10 +3930,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       CertificateIdentifier?: String;
       /** This parameter is not currently supported. **/
       Filters?: FilterList;
@@ -3958,10 +3958,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBClusterParameterGroupName?: String;
       /** This parameter is not currently supported. **/
       Filters?: FilterList;
@@ -3988,10 +3988,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBClusterParameterGroupName: String;
       /** A value that indicates to return only parameters for a specific source.
 Parameter sources can be engine, service, or customer. **/
@@ -4028,10 +4028,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBClusterIdentifier?: String;
       /** A specific DB cluster snapshot identifier to describe. This parameter cannot be
 used in conjunction with the DBClusterIdentifier parameter. This value is stored
@@ -4042,13 +4042,13 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
-*  If this identifier is for an automated snapshot, the SnapshotType parameter
+&amp;#42;  If this identifier is for an automated snapshot, the SnapshotType parameter
  must also be specified. **/
       DBClusterSnapshotIdentifier?: String;
       /** The type of DB cluster snapshots to be returned. You can specify one of the
@@ -4058,15 +4058,15 @@ following values:
  taken by Amazon RDS for my AWS account.
  
  
-*   manual - Return all DB cluster snapshots that have been taken by my AWS
+&amp;#42;   manual - Return all DB cluster snapshots that have been taken by my AWS
  account.
  
  
-*   shared - Return all manual DB cluster snapshots that have been shared to my
+&amp;#42;   shared - Return all manual DB cluster snapshots that have been shared to my
  AWS account.
  
  
-*   public - Return all DB cluster snapshots that have been marked as public.
+&amp;#42;   public - Return all DB cluster snapshots that have been marked as public.
  
  
 
@@ -4120,10 +4120,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBClusterIdentifier?: String;
       /** This parameter is not currently supported. **/
       Filters?: FilterList;
@@ -4154,10 +4154,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBParameterGroupFamily?: String;
       /** Not currently supported. **/
       Filters?: FilterList;
@@ -4191,10 +4191,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBInstanceIdentifier?: String;
       /** This parameter is not currently supported. **/
       Filters?: FilterList;
@@ -4228,10 +4228,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBInstanceIdentifier: String;
       /** Filters the available log files for log file names that contain the specified
 string. **/
@@ -4266,10 +4266,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBParameterGroupName?: String;
       /** This parameter is not currently supported. **/
       Filters?: FilterList;
@@ -4294,10 +4294,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBParameterGroupName: String;
       /** The parameter types to return.
 
@@ -4355,10 +4355,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBInstanceIdentifier?: String;
       /** A specific DB snapshot identifier to describe. This parameter cannot be used in
 conjunction with DBInstanceIdentifier. This value is stored as a lowercase
@@ -4369,13 +4369,13 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens.
  
  
-*  If this identifier is for an automated snapshot, the SnapshotType parameter
+&amp;#42;  If this identifier is for an automated snapshot, the SnapshotType parameter
  must also be specified. **/
       DBSnapshotIdentifier?: String;
       /** The type of snapshots to be returned. You can specify one of the following
@@ -4385,14 +4385,14 @@ values:
  Amazon RDS for my AWS account.
  
  
-*   manual - Return all DB snapshots that have been taken by my AWS account.
+&amp;#42;   manual - Return all DB snapshots that have been taken by my AWS account.
  
  
-*   shared - Return all manual DB snapshots that have been shared to my AWS
+&amp;#42;   shared - Return all manual DB snapshots that have been shared to my AWS
  account.
  
  
-*   public - Return all DB snapshots that have been marked as public.
+&amp;#42;   public - Return all DB snapshots that have been marked as public.
  
  
 
@@ -4535,22 +4535,22 @@ Constraints:
 &amp;#42;  If SourceIdentifier is supplied, SourceType must also be provided.
  
  
-*  If the source type is DBInstance, then a DBInstanceIdentifier must be
+&amp;#42;  If the source type is DBInstance, then a DBInstanceIdentifier must be
  supplied.
  
  
-*  If the source type is DBSecurityGroup, a DBSecurityGroupName must be
+&amp;#42;  If the source type is DBSecurityGroup, a DBSecurityGroupName must be
  supplied.
  
  
-*  If the source type is DBParameterGroup, a DBParameterGroupName must be
+&amp;#42;  If the source type is DBParameterGroup, a DBParameterGroupName must be
  supplied.
  
  
-*  If the source type is DBSnapshot, a DBSnapshotIdentifier must be supplied.
+&amp;#42;  If the source type is DBSnapshot, a DBSnapshotIdentifier must be supplied.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens. **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens. **/
       SourceIdentifier?: String;
       /** The event source to retrieve events for. If no value is specified, all events
 are returned. **/
@@ -4807,10 +4807,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBInstanceIdentifier: String;
       /** The name of the log file to be downloaded. **/
       LogFileName: String;
@@ -4830,15 +4830,15 @@ the Marker parameter.
  entries first.
  
  
-*  If NumberOfLines is specified and Marker is not specified, then the most
+&amp;#42;  If NumberOfLines is specified and Marker is not specified, then the most
  recent lines from the end of the log file are returned.
  
  
-*  If Marker is specified as &quot;0&quot;, then the specified number of lines from the
+&amp;#42;  If Marker is specified as &quot;0&quot;, then the specified number of lines from the
  beginning of the log file are returned.
  
  
-*  You can download the log file in blocks of lines by specifying the size of
+&amp;#42;  You can download the log file in blocks of lines by specifying the size of
  the block using the NumberOfLines parameter, and by specifying a value of &quot;0&quot;
  for the Marker parameter in your first request. Include the Marker value
  returned in the response as the Marker value for the next request, continuing
@@ -4961,10 +4961,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBClusterIdentifier?: String;
       /** The name of the instance to promote to the primary instance.
 
@@ -5047,13 +5047,13 @@ Constraints:
 &amp;#42;  Must be the identifier for an existing DB cluster.
  
  
-*  Must contain from 1 to 63 alphanumeric characters or hyphens.
+&amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens. **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens. **/
       DBClusterIdentifier: String;
       /** The new DB cluster identifier for the DB cluster when renaming a DB cluster.
 This value is stored as a lowercase string.
@@ -5063,10 +5063,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
 
@@ -5135,13 +5135,13 @@ Constraints:
 &amp;#42;  Must be in the format hh24:mi-hh24:mi.
  
  
-*  Times should be in Universal Coordinated Time (UTC).
+&amp;#42;  Times should be in Universal Coordinated Time (UTC).
  
  
-*  Must not conflict with the preferred maintenance window.
+&amp;#42;  Must not conflict with the preferred maintenance window.
  
  
-*  Must be at least 30 minutes. **/
+&amp;#42;  Must be at least 30 minutes. **/
       PreferredBackupWindow?: String;
       /** The weekly time range during which system maintenance can occur, in Universal
 Coordinated Time (UTC).
@@ -5207,13 +5207,13 @@ Constraints:
 &amp;#42;  Must be the identifier for an existing DB instance
  
  
-*  Must contain from 1 to 63 alphanumeric characters or hyphens
+&amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBInstanceIdentifier: String;
       /** The new storage capacity of the RDS instance. Changing this setting does not
 result in an outage and the change is applied during the next maintenance window
@@ -5325,10 +5325,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBSecurityGroups?: DBSecurityGroupNameList;
       /** A list of EC2 VPC security groups to authorize on this DB instance. This change
 is asynchronously applied as soon as possible.
@@ -5338,10 +5338,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       VpcSecurityGroupIds?: VpcSecurityGroupIdList;
       /** Specifies whether the modifications in this request and any pending
 modifications are asynchronously applied as soon as possible, regardless of the 
@@ -5405,15 +5405,15 @@ Constraints:
 &amp;#42;  Must be a value from 0 to 35
  
  
-*  Can be specified for a MySQL Read Replica only if the source is running
+&amp;#42;  Can be specified for a MySQL Read Replica only if the source is running
  MySQL 5.6
  
  
-*  Can be specified for a PostgreSQL Read Replica only if the source is running
+&amp;#42;  Can be specified for a PostgreSQL Read Replica only if the source is running
  PostgreSQL 9.3.5
  
  
-*  Cannot be set to 0 if the DB instance is a source to Read Replicas **/
+&amp;#42;  Cannot be set to 0 if the DB instance is a source to Read Replicas **/
       BackupRetentionPeriod?: IntegerOptional;
       /** The daily time range during which automated backups are created if automated
 backups are enabled, as determined by the BackupRetentionPeriod parameter.
@@ -5425,13 +5425,13 @@ Constraints:
 &amp;#42;  Must be in the format hh24:mi-hh24:mi
  
  
-*  Times should be in Universal Time Coordinated (UTC)
+&amp;#42;  Times should be in Universal Time Coordinated (UTC)
  
  
-*  Must not conflict with the preferred maintenance window
+&amp;#42;  Must not conflict with the preferred maintenance window
  
  
-*  Must be at least 30 minutes **/
+&amp;#42;  Must be at least 30 minutes **/
       PreferredBackupWindow?: String;
       /** The weekly time range (in UTC) during which system maintenance can occur, which
 might result in an outage. Changing this parameter does not result in an outage,
@@ -5543,10 +5543,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       NewDBInstanceIdentifier?: String;
       /** Specifies the storage type to be associated with the DB instance.
 
@@ -5677,13 +5677,13 @@ Constraints:
 &amp;#42;  Must be the name of an existing DB parameter group
  
  
-*  Must be 1 to 255 alphanumeric characters
+&amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBParameterGroupName: String;
       /** An array of parameter names, values, and the apply method for the parameter
 update. At least one parameter name, value, and apply method must be supplied;
@@ -6088,10 +6088,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens.
  
  
 
@@ -6109,13 +6109,13 @@ Constraints:
 &amp;#42;  Must be the identifier for an existing Read Replica DB instance
  
  
-*  Must contain from 1 to 63 alphanumeric characters or hyphens
+&amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
 
@@ -6145,13 +6145,13 @@ Constraints:
 &amp;#42;  Must be in the format hh24:mi-hh24:mi.
  
  
-*  Times should be in Universal Coordinated Time (UTC).
+&amp;#42;  Times should be in Universal Coordinated Time (UTC).
  
  
-*  Must not conflict with the preferred maintenance window.
+&amp;#42;  Must not conflict with the preferred maintenance window.
  
  
-*  Must be at least 30 minutes. **/
+&amp;#42;  Must be at least 30 minutes. **/
       PreferredBackupWindow?: String;
     }
     export interface PromoteReadReplicaResult {
@@ -6185,10 +6185,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBInstanceIdentifier: String;
       /** When true, the reboot will be conducted through a MultiAZ failover. 
 
@@ -6325,10 +6325,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBParameterGroupName: String;
       /** Specifies whether (true) or not (false) to reset all parameters in the DB
 parameter group to default values. 
@@ -6396,10 +6396,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens.
  
  
 
@@ -6413,10 +6413,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBClusterParameterGroupName?: String;
       /** A list of EC2 VPC security groups to associate with the restored DB cluster. **/
       VpcSecurityGroupIds?: VpcSecurityGroupIdList;
@@ -6449,10 +6449,10 @@ Constraints:
 &amp;#42;  Must be 1 to 16 alphanumeric characters.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot be a reserved word for the chosen database engine. **/
+&amp;#42;  Cannot be a reserved word for the chosen database engine. **/
       MasterUsername: String;
       /** The password for the master database user. This password can contain any
 printable ASCII character except &quot;/&quot;, &quot;&quot;&quot;, or &quot;@&quot;.
@@ -6479,13 +6479,13 @@ Constraints:
 &amp;#42;  Must be in the format hh24:mi-hh24:mi.
  
  
-*  Times should be in Universal Coordinated Time (UTC).
+&amp;#42;  Times should be in Universal Coordinated Time (UTC).
  
  
-*  Must not conflict with the preferred maintenance window.
+&amp;#42;  Must not conflict with the preferred maintenance window.
  
  
-*  Must be at least 30 minutes. **/
+&amp;#42;  Must be at least 30 minutes. **/
       PreferredBackupWindow?: String;
       /** The weekly time range during which system maintenance can occur, in Universal
 Coordinated Time (UTC).
@@ -6555,10 +6555,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 255 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
 
@@ -6571,10 +6571,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       SnapshotIdentifier: String;
       /** The database engine to use for the new DB cluster.
 
@@ -6620,7 +6620,7 @@ will occur:
  encrypted using the KMS key that was used to encrypt the DB cluster snapshot.
  
  
-*  If the DB cluster snapshot is not encrypted, then the restored DB cluster is
+&amp;#42;  If the DB cluster snapshot is not encrypted, then the restored DB cluster is
  encrypted using the specified encryption key. **/
       KmsKeyId?: String;
     }
@@ -6635,10 +6635,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       DBClusterIdentifier: String;
       /** The identifier of the source DB cluster from which to restore.
 
@@ -6647,13 +6647,13 @@ Constraints:
 &amp;#42;  Must be the identifier of an existing database instance
  
  
-*  Must contain from 1 to 63 alphanumeric characters or hyphens
+&amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       SourceDBClusterIdentifier: String;
       /** The date and time to restore the DB cluster to.
 
@@ -6664,7 +6664,7 @@ Constraints:
 &amp;#42;  Must be before the latest restorable time for the DB instance
  
  
-*  Cannot be specified if UseLatestRestorableTime parameter is true
+&amp;#42;  Cannot be specified if UseLatestRestorableTime parameter is true
  
  
 
@@ -6715,7 +6715,7 @@ will occur:
  using the KMS key that was used to encrypt the source DB cluster.
  
  
-*  If the DB cluster is not encrypted, then the restored DB cluster is not
+&amp;#42;  If the DB cluster is not encrypted, then the restored DB cluster is not
  encrypted.
  
  
@@ -6737,10 +6737,10 @@ Constraints:
  SQL Server)
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
 
@@ -6753,10 +6753,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 255 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens
  
  
 
@@ -6810,7 +6810,7 @@ requested or not. The following list shows the default behavior in each case.
 &amp;#42;   Default VPC: true
  
  
-*   VPC: false
+&amp;#42;   VPC: false
  
  
 
@@ -6895,13 +6895,13 @@ Constraints:
 &amp;#42;  Must be the identifier of an existing database instance
  
  
-*  Must contain from 1 to 63 alphanumeric characters or hyphens
+&amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       SourceDBInstanceIdentifier: String;
       /** The name of the new database instance to be created.
 
@@ -6910,10 +6910,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       TargetDBInstanceIdentifier: String;
       /** The date and time to restore from.
 
@@ -6924,7 +6924,7 @@ Constraints:
 &amp;#42;  Must be before the latest restorable time for the DB instance
  
  
-*  Cannot be specified if UseLatestRestorableTime parameter is true
+&amp;#42;  Cannot be specified if UseLatestRestorableTime parameter is true
  
  
 
@@ -6986,7 +6986,7 @@ requested or not. The following list shows the default behavior in each case.
 &amp;#42;   Default VPC:true
  
  
-*   VPC:false
+&amp;#42;   VPC:false
  
  
 

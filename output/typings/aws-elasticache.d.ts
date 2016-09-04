@@ -717,26 +717,26 @@ Valid node types are as follows:
 
 &amp;#42;  General purpose:
  
-  *  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
+  &amp;#42;  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
     cache.m3.medium, cache.m3.large, cache.m3.xlarge, cache.m3.2xlarge 
     
     
-  *  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
+  &amp;#42;  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
     cache.m1.large, cache.m1.xlarge 
     
     
  
  
-*  Compute optimized: cache.c1.xlarge 
+&amp;#42;  Compute optimized: cache.c1.xlarge 
  
  
-*  Memory optimized:
+&amp;#42;  Memory optimized:
  
-  *  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
+  &amp;#42;  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
     cache.r3.4xlarge, cache.r3.8xlarge 
     
     
-  *  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
+  &amp;#42;  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
     
     
  
@@ -744,13 +744,13 @@ Valid node types are as follows:
 
 Notes: 
 
-*  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+&amp;#42;  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
  
  
-*  Redis backup/restore is not supported for t2 instances.
+&amp;#42;  Redis backup/restore is not supported for t2 instances.
  
  
-*  Redis Append-only files (AOF) functionality is not supported for t1 or t2
+&amp;#42;  Redis Append-only files (AOF) functionality is not supported for t1 or t2
  instances.
  
  
@@ -791,22 +791,22 @@ for ddd are:
 &amp;#42;   sun 
  
  
-*   mon 
+&amp;#42;   mon 
  
  
-*   tue 
+&amp;#42;   tue 
  
  
-*   wed 
+&amp;#42;   wed 
  
  
-*   thu 
+&amp;#42;   thu 
  
  
-*   fri 
+&amp;#42;   fri 
  
  
-*   sat 
+&amp;#42;   sat 
  
  
 
@@ -1067,19 +1067,19 @@ Erorr Messages
   Solution: Add List and Read permissions on the bucket.
  
  
-*   Error Message: ElastiCache has not been granted WRITE permissions %s on the
+&amp;#42;   Error Message: ElastiCache has not been granted WRITE permissions %s on the
  S3 Bucket.
  
   Solution: Add Upload/Delete permissions on the bucket.
  
  
-*   Error Message: ElastiCache has not been granted READ_ACP permissions %s on
+&amp;#42;   Error Message: ElastiCache has not been granted READ_ACP permissions %s on
  the S3 Bucket.
  
   Solution: Add View Permissions permissions on the bucket.
  
  
-*   Error Message: The S3 bucket %s is outside of the region.
+&amp;#42;   Error Message: The S3 bucket %s is outside of the region.
  
   Solution: Before exporting your snapshot, create a new Amazon S3 bucket in
  the same region as your snapshot. For more information, see Step 1: Create an
@@ -1088,7 +1088,7 @@ Erorr Messages
  .
  
  
-*   Error Message: The S3 bucket %s does not exist.
+&amp;#42;   Error Message: The S3 bucket %s does not exist.
  
   Solution: Create an Amazon S3 bucket in the same region as your snapshot.
  For more information, see Step 1: Create an Amazon S3 Bucket
@@ -1096,7 +1096,7 @@ Erorr Messages
  .
  
  
-*   Error Message: The S3 bucket %s is not owned by the authenticated user.
+&amp;#42;   Error Message: The S3 bucket %s is not owned by the authenticated user.
  
   Solution: Create an Amazon S3 bucket in the same region as your snapshot.
  For more information, see Step 1: Create an Amazon S3 Bucket
@@ -1104,7 +1104,7 @@ Erorr Messages
  .
  
  
-*   Error Message: The authenticated user does not have sufficient permissions
+&amp;#42;   Error Message: The authenticated user does not have sufficient permissions
  to perform the desired activity.
  
   Solution: Contact your system administrator to get the needed permissions.
@@ -1127,10 +1127,10 @@ Constraints:
 &amp;#42;  A name must contain from 1 to 20 alphanumeric characters or hyphens.
  
  
-*  The first character must be a letter.
+&amp;#42;  The first character must be a letter.
  
  
-*  A name cannot end with a hyphen or contain two consecutive hyphens. **/
+&amp;#42;  A name cannot end with a hyphen or contain two consecutive hyphens. **/
       CacheClusterId: String;
       /** The ID of the replication group to which this cache cluster should belong. If
 this parameter is specified, the cache cluster will be added to the specified
@@ -1199,26 +1199,26 @@ Valid node types are as follows:
 
 &amp;#42;  General purpose:
  
-  *  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
+  &amp;#42;  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
     cache.m3.medium, cache.m3.large, cache.m3.xlarge, cache.m3.2xlarge 
     
     
-  *  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
+  &amp;#42;  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
     cache.m1.large, cache.m1.xlarge 
     
     
  
  
-*  Compute optimized: cache.c1.xlarge 
+&amp;#42;  Compute optimized: cache.c1.xlarge 
  
  
-*  Memory optimized:
+&amp;#42;  Memory optimized:
  
-  *  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
+  &amp;#42;  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
     cache.r3.4xlarge, cache.r3.8xlarge 
     
     
-  *  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
+  &amp;#42;  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
     
     
  
@@ -1226,13 +1226,13 @@ Valid node types are as follows:
 
 Notes: 
 
-*  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+&amp;#42;  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
  
  
-*  Redis backup/restore is not supported for t2 instances.
+&amp;#42;  Redis backup/restore is not supported for t2 instances.
  
  
-*  Redis Append-only files (AOF) functionality is not supported for t1 or t2
+&amp;#42;  Redis Append-only files (AOF) functionality is not supported for t1 or t2
  instances.
  
  
@@ -1307,22 +1307,22 @@ for ddd are:
 &amp;#42;   sun 
  
  
-*   mon 
+&amp;#42;   mon 
  
  
-*   tue 
+&amp;#42;   tue 
  
  
-*   wed 
+&amp;#42;   wed 
  
  
-*   thu 
+&amp;#42;   thu 
  
  
-*   fri 
+&amp;#42;   fri 
  
  
-*   sat 
+&amp;#42;   sat 
  
  
 
@@ -1411,10 +1411,10 @@ Constraints:
 &amp;#42;  A name must contain from 1 to 20 alphanumeric characters or hyphens.
  
  
-*  The first character must be a letter.
+&amp;#42;  The first character must be a letter.
  
  
-*  A name cannot end with a hyphen or contain two consecutive hyphens. **/
+&amp;#42;  A name cannot end with a hyphen or contain two consecutive hyphens. **/
       ReplicationGroupId: String;
       /** A user-created description for the replication group. **/
       ReplicationGroupDescription: String;
@@ -1437,7 +1437,7 @@ ElastiCache Multi-AZ replication groups is not supported on:
 &amp;#42;  Redis versions earlier than 2.8.6.
  
  
-*  T1 and T2 cache node types. **/
+&amp;#42;  T1 and T2 cache node types. **/
       AutomaticFailoverEnabled?: BooleanOptional;
       /** The number of cache clusters this replication group will initially have.
 
@@ -1473,26 +1473,26 @@ Valid node types are as follows:
 
 &amp;#42;  General purpose:
  
-  *  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
+  &amp;#42;  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
     cache.m3.medium, cache.m3.large, cache.m3.xlarge, cache.m3.2xlarge 
     
     
-  *  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
+  &amp;#42;  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
     cache.m1.large, cache.m1.xlarge 
     
     
  
  
-*  Compute optimized: cache.c1.xlarge 
+&amp;#42;  Compute optimized: cache.c1.xlarge 
  
  
-*  Memory optimized:
+&amp;#42;  Memory optimized:
  
-  *  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
+  &amp;#42;  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
     cache.r3.4xlarge, cache.r3.8xlarge 
     
     
-  *  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
+  &amp;#42;  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
     
     
  
@@ -1500,13 +1500,13 @@ Valid node types are as follows:
 
 Notes: 
 
-*  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+&amp;#42;  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
  
  
-*  Redis backup/restore is not supported for t2 instances.
+&amp;#42;  Redis backup/restore is not supported for t2 instances.
  
  
-*  Redis Append-only files (AOF) functionality is not supported for t1 or t2
+&amp;#42;  Redis Append-only files (AOF) functionality is not supported for t1 or t2
  instances.
  
  
@@ -1575,22 +1575,22 @@ for ddd are:
 &amp;#42;   sun 
  
  
-*   mon 
+&amp;#42;   mon 
  
  
-*   tue 
+&amp;#42;   tue 
  
  
-*   wed 
+&amp;#42;   wed 
  
  
-*   thu 
+&amp;#42;   thu 
  
  
-*   fri 
+&amp;#42;   fri 
  
  
-*   sat 
+&amp;#42;   sat 
  
  
 
@@ -1728,10 +1728,10 @@ Constraints:
 &amp;#42;  Must be 1 to 255 alphanumeric characters
  
  
-*  First character must be a letter
+&amp;#42;  First character must be a letter
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens **/
       CacheParameterGroupFamily?: String;
       /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
@@ -1910,26 +1910,26 @@ Valid node types are as follows:
 
 &amp;#42;  General purpose:
  
-  *  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
+  &amp;#42;  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
     cache.m3.medium, cache.m3.large, cache.m3.xlarge, cache.m3.2xlarge 
     
     
-  *  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
+  &amp;#42;  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
     cache.m1.large, cache.m1.xlarge 
     
     
  
  
-*  Compute optimized: cache.c1.xlarge 
+&amp;#42;  Compute optimized: cache.c1.xlarge 
  
  
-*  Memory optimized:
+&amp;#42;  Memory optimized:
  
-  *  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
+  &amp;#42;  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
     cache.r3.4xlarge, cache.r3.8xlarge 
     
     
-  *  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
+  &amp;#42;  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
     
     
  
@@ -1937,13 +1937,13 @@ Valid node types are as follows:
 
 Notes: 
 
-*  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+&amp;#42;  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
  
  
-*  Redis backup/restore is not supported for t2 instances.
+&amp;#42;  Redis backup/restore is not supported for t2 instances.
  
  
-*  Redis Append-only files (AOF) functionality is not supported for t1 or t2
+&amp;#42;  Redis Append-only files (AOF) functionality is not supported for t1 or t2
  instances.
  
  
@@ -1997,26 +1997,26 @@ Valid node types are as follows:
 
 &amp;#42;  General purpose:
  
-  *  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
+  &amp;#42;  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
     cache.m3.medium, cache.m3.large, cache.m3.xlarge, cache.m3.2xlarge 
     
     
-  *  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
+  &amp;#42;  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
     cache.m1.large, cache.m1.xlarge 
     
     
  
  
-*  Compute optimized: cache.c1.xlarge 
+&amp;#42;  Compute optimized: cache.c1.xlarge 
  
  
-*  Memory optimized:
+&amp;#42;  Memory optimized:
  
-  *  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
+  &amp;#42;  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
     cache.r3.4xlarge, cache.r3.8xlarge 
     
     
-  *  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
+  &amp;#42;  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
     
     
  
@@ -2024,13 +2024,13 @@ Valid node types are as follows:
 
 Notes: 
 
-*  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+&amp;#42;  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
  
  
-*  Redis backup/restore is not supported for t2 instances.
+&amp;#42;  Redis backup/restore is not supported for t2 instances.
  
  
-*  Redis Append-only files (AOF) functionality is not supported for t1 or t2
+&amp;#42;  Redis Append-only files (AOF) functionality is not supported for t1 or t2
  instances.
  
  
@@ -2287,12 +2287,12 @@ Scenarios:
  two new nodes.
  
  
-*   Scenario 2: You have 3 active nodes and 2 nodes pending creation (from the
+&amp;#42;   Scenario 2: You have 3 active nodes and 2 nodes pending creation (from the
  scenario 1 call) and want to add 1 more node. Specify NumCacheNodes=6 ((3 +
  2) + 1) and optionally specify an Availability Zone for the new node.
  
  
-*   Scenario 3: You want to cancel all pending actions. Specify NumCacheNodes=3 
+&amp;#42;   Scenario 3: You want to cancel all pending actions. Specify NumCacheNodes=3 
  to cancel all pending actions.
  
  
@@ -2311,57 +2311,57 @@ of Cache Node Considerations for Memcached
 
 Impact of new add/remove requests upon pending requests 
 
-*  Scenario-1
+&amp;#42;  Scenario-1
  
-  *  Pending Action: Delete
+  &amp;#42;  Pending Action: Delete
     
     
-  *  New Request: Delete
+  &amp;#42;  New Request: Delete
     
     
-  *  Result: The new delete, pending or immediate, replaces the pending
+  &amp;#42;  Result: The new delete, pending or immediate, replaces the pending
     delete.
     
     
  
  
-*  Scenario-2
+&amp;#42;  Scenario-2
  
-  *  Pending Action: Delete
+  &amp;#42;  Pending Action: Delete
     
     
-  *  New Request: Create
+  &amp;#42;  New Request: Create
     
     
-  *  Result: The new create, pending or immediate, replaces the pending
+  &amp;#42;  Result: The new create, pending or immediate, replaces the pending
     delete.
     
     
  
  
-*  Scenario-3
+&amp;#42;  Scenario-3
  
-  *  Pending Action: Create
+  &amp;#42;  Pending Action: Create
     
     
-  *  New Request: Delete
+  &amp;#42;  New Request: Delete
     
     
-  *  Result: The new delete, pending or immediate, replaces the pending
+  &amp;#42;  Result: The new delete, pending or immediate, replaces the pending
     create.
     
     
  
  
-*  Scenario-4
+&amp;#42;  Scenario-4
  
-  *  Pending Action: Create
+  &amp;#42;  Pending Action: Create
     
     
-  *  New Request: Create
+  &amp;#42;  New Request: Create
     
     
-  *  Result: The new create is added to the pending create.
+  &amp;#42;  Result: The new create is added to the pending create.
     
      Important: If the new create request is Apply Immediately - Yes, all
     creates are performed immediately. If the new create request is Apply
@@ -2398,22 +2398,22 @@ for ddd are:
 &amp;#42;   sun 
  
  
-*   mon 
+&amp;#42;   mon 
  
  
-*   tue 
+&amp;#42;   tue 
  
  
-*   wed 
+&amp;#42;   wed 
  
  
-*   thu 
+&amp;#42;   thu 
  
  
-*   fri 
+&amp;#42;   fri 
  
  
-*   sat 
+&amp;#42;   sat 
  
  
 
@@ -2522,7 +2522,7 @@ ElastiCache Multi-AZ replication groups are not supported on:
 &amp;#42;  Redis versions earlier than 2.8.6.
  
  
-*  T1 and T2 cache node types. **/
+&amp;#42;  T1 and T2 cache node types. **/
       AutomaticFailoverEnabled?: BooleanOptional;
       /** A list of cache security group names to authorize for the clusters in this
 replication group. This change is asynchronously applied as soon as possible.
@@ -2547,22 +2547,22 @@ for ddd are:
 &amp;#42;   sun 
  
  
-*   mon 
+&amp;#42;   mon 
  
  
-*   tue 
+&amp;#42;   tue 
  
  
-*   wed 
+&amp;#42;   wed 
  
  
-*   thu 
+&amp;#42;   thu 
  
  
-*   fri 
+&amp;#42;   fri 
  
  
-*   sat 
+&amp;#42;   sat 
  
  
 
@@ -2797,7 +2797,7 @@ ElastiCache Multi-AZ replication groups are not supported on:
 &amp;#42;  Redis versions earlier than 2.8.6.
  
  
-*  T1 and T2 cache node types. **/
+&amp;#42;  T1 and T2 cache node types. **/
       AutomaticFailover?: AutomaticFailoverStatus;
     }
     export interface ReplicationGroupAlreadyExistsFault {
@@ -2822,7 +2822,7 @@ ElastiCache Multi-AZ replication groups are not supported on:
 &amp;#42;  Redis versions earlier than 2.8.6.
  
  
-*  T1 and T2 cache node types. **/
+&amp;#42;  T1 and T2 cache node types. **/
       AutomaticFailoverStatus?: PendingAutomaticFailoverStatus;
     }
     export interface ReservedCacheNode {
@@ -2836,26 +2836,26 @@ Valid node types are as follows:
 
 &amp;#42;  General purpose:
  
-  *  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
+  &amp;#42;  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
     cache.m3.medium, cache.m3.large, cache.m3.xlarge, cache.m3.2xlarge 
     
     
-  *  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
+  &amp;#42;  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
     cache.m1.large, cache.m1.xlarge 
     
     
  
  
-*  Compute optimized: cache.c1.xlarge 
+&amp;#42;  Compute optimized: cache.c1.xlarge 
  
  
-*  Memory optimized:
+&amp;#42;  Memory optimized:
  
-  *  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
+  &amp;#42;  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
     cache.r3.4xlarge, cache.r3.8xlarge 
     
     
-  *  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
+  &amp;#42;  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
     
     
  
@@ -2863,13 +2863,13 @@ Valid node types are as follows:
 
 Notes: 
 
-*  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+&amp;#42;  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
  
  
-*  Redis backup/restore is not supported for t2 instances.
+&amp;#42;  Redis backup/restore is not supported for t2 instances.
  
  
-*  Redis Append-only files (AOF) functionality is not supported for t1 or t2
+&amp;#42;  Redis Append-only files (AOF) functionality is not supported for t1 or t2
  instances.
  
  
@@ -2924,26 +2924,26 @@ Valid node types are as follows:
 
 &amp;#42;  General purpose:
  
-  *  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
+  &amp;#42;  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
     cache.m3.medium, cache.m3.large, cache.m3.xlarge, cache.m3.2xlarge 
     
     
-  *  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
+  &amp;#42;  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
     cache.m1.large, cache.m1.xlarge 
     
     
  
  
-*  Compute optimized: cache.c1.xlarge 
+&amp;#42;  Compute optimized: cache.c1.xlarge 
  
  
-*  Memory optimized:
+&amp;#42;  Memory optimized:
  
-  *  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
+  &amp;#42;  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
     cache.r3.4xlarge, cache.r3.8xlarge 
     
     
-  *  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
+  &amp;#42;  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
     
     
  
@@ -2951,13 +2951,13 @@ Valid node types are as follows:
 
 Notes: 
 
-*  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+&amp;#42;  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
  
  
-*  Redis backup/restore is not supported for t2 instances.
+&amp;#42;  Redis backup/restore is not supported for t2 instances.
  
  
-*  Redis Append-only files (AOF) functionality is not supported for t1 or t2
+&amp;#42;  Redis Append-only files (AOF) functionality is not supported for t1 or t2
  instances.
  
  
@@ -3047,26 +3047,26 @@ Valid node types are as follows:
 
 &amp;#42;  General purpose:
  
-  *  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
+  &amp;#42;  Current generation: cache.t2.micro, cache.t2.small, cache.t2.medium, 
     cache.m3.medium, cache.m3.large, cache.m3.xlarge, cache.m3.2xlarge 
     
     
-  *  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
+  &amp;#42;  Previous generation: cache.t1.micro, cache.m1.small, cache.m1.medium, 
     cache.m1.large, cache.m1.xlarge 
     
     
  
  
-*  Compute optimized: cache.c1.xlarge 
+&amp;#42;  Compute optimized: cache.c1.xlarge 
  
  
-*  Memory optimized:
+&amp;#42;  Memory optimized:
  
-  *  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
+  &amp;#42;  Current generation: cache.r3.large, cache.r3.xlarge, cache.r3.2xlarge, 
     cache.r3.4xlarge, cache.r3.8xlarge 
     
     
-  *  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
+  &amp;#42;  Previous generation: cache.m2.xlarge, cache.m2.2xlarge, cache.m2.4xlarge 
     
     
  
@@ -3074,13 +3074,13 @@ Valid node types are as follows:
 
 Notes: 
 
-*  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+&amp;#42;  All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
  
  
-*  Redis backup/restore is not supported for t2 instances.
+&amp;#42;  Redis backup/restore is not supported for t2 instances.
  
  
-*  Redis Append-only files (AOF) functionality is not supported for t1 or t2
+&amp;#42;  Redis Append-only files (AOF) functionality is not supported for t1 or t2
  instances.
  
  
@@ -3117,22 +3117,22 @@ for ddd are:
 &amp;#42;   sun 
  
  
-*   mon 
+&amp;#42;   mon 
  
  
-*   tue 
+&amp;#42;   tue 
  
  
-*   wed 
+&amp;#42;   wed 
  
  
-*   thu 
+&amp;#42;   thu 
  
  
-*   fri 
+&amp;#42;   fri 
  
  
-*   sat 
+&amp;#42;   sat 
  
  
 

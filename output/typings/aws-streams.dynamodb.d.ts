@@ -25,14 +25,14 @@ declare module "aws-sdk" {
   &amp;#42;   DescribeStream - Returns detailed information about a particular stream.
     
     
-  *   GetRecords - Retrieves the stream records from within a shard.
+  &amp;#42;   GetRecords - Retrieves the stream records from within a shard.
     
     
-  *   GetShardIterator - Returns information on how to retrieve the streams record
+  &amp;#42;   GetShardIterator - Returns information on how to retrieve the streams record
     from a shard with a given shard ID.
     
     
-  *   ListStreams - Returns a list of all the streams associated with the current
+  &amp;#42;   ListStreams - Returns a list of all the streams associated with the current
     AWS account and endpoint.
     *
     */
@@ -237,17 +237,17 @@ the shard:
  specific sequence number.
  
  
-*   AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a
+&amp;#42;   AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a
  specific sequence number.
  
  
-*   TRIM_HORIZON - Start reading at the last (untrimmed) stream record, which is
+&amp;#42;   TRIM_HORIZON - Start reading at the last (untrimmed) stream record, which is
  the oldest record in the shard. In DynamoDB Streams, there is a 24 hour limit
  on data retention. Stream records whose age exceeds this limit are subject to
  removal (trimming) from the stream.
  
  
-*   LATEST - Start reading just after the most recent stream record in the
+&amp;#42;   LATEST - Start reading just after the most recent stream record in the
  shard, so that you always read the most recent data in the shard. **/
       ShardIteratorType: ShardIteratorType;
       /** The sequence number of a stream record in the shard from which to start reading. **/
@@ -308,10 +308,10 @@ record. **/
 &amp;#42;   INSERT - a new item was added to the table.
  
  
-*   MODIFY - one or more of an existing item&#x27;s attributes were modified.
+&amp;#42;   MODIFY - one or more of an existing item&#x27;s attributes were modified.
  
  
-*   REMOVE - the item was deleted from the table **/
+&amp;#42;   REMOVE - the item was deleted from the table **/
       eventName?: OperationType;
       /** The version number of the stream record format. This number is updated whenever
 the structure of Record is modified.
@@ -362,10 +362,10 @@ unique:
 &amp;#42;  the AWS customer ID.
  
  
-*  the table name
+&amp;#42;  the table name
  
  
-*  the StreamLabel **/
+&amp;#42;  the StreamLabel **/
       StreamLabel?: String;
     }
     export interface StreamDescription {
@@ -381,23 +381,23 @@ unique:
 &amp;#42;  the AWS customer ID.
  
  
-*  the table name
+&amp;#42;  the table name
  
  
-*  the StreamLabel **/
+&amp;#42;  the StreamLabel **/
       StreamLabel?: String;
       /** Indicates the current status of the stream:
 
 &amp;#42;   ENABLING - Streams is currently being enabled on the DynamoDB table.
  
  
-*   ENABLED - the stream is enabled.
+&amp;#42;   ENABLED - the stream is enabled.
  
  
-*   DISABLING - Streams is currently being disabled on the DynamoDB table.
+&amp;#42;   DISABLING - Streams is currently being disabled on the DynamoDB table.
  
  
-*   DISABLED - the stream is disabled. **/
+&amp;#42;   DISABLED - the stream is disabled. **/
       StreamStatus?: StreamStatus;
       /** Indicates the format of the records within this stream:
 
@@ -405,15 +405,15 @@ unique:
  DynamoDB table.
  
  
-*   NEW_IMAGE - entire items from the table, as they appeared after they were
+&amp;#42;   NEW_IMAGE - entire items from the table, as they appeared after they were
  modified.
  
  
-*   OLD_IMAGE - entire items from the table, as they appeared before they were
+&amp;#42;   OLD_IMAGE - entire items from the table, as they appeared before they were
  modified.
  
  
-*   NEW_AND_OLD_IMAGES - both the new and the old images of the items from the
+&amp;#42;   NEW_AND_OLD_IMAGES - both the new and the old images of the items from the
  table. **/
       StreamViewType?: StreamViewType;
       /** The date and time when the request to create this stream was issued. **/
@@ -456,13 +456,13 @@ stream record:
 &amp;#42;   KEYS_ONLY - only the key attributes of the modified item.
  
  
-*   NEW_IMAGE - the entire item, as it appeared after it was modified.
+&amp;#42;   NEW_IMAGE - the entire item, as it appeared after it was modified.
  
  
-*   OLD_IMAGE - the entire item, as it appeared before it was modified.
+&amp;#42;   OLD_IMAGE - the entire item, as it appeared before it was modified.
  
  
-*   NEW_AND_OLD_IMAGES - both the new and the old item images of the item. **/
+&amp;#42;   NEW_AND_OLD_IMAGES - both the new and the old item images of the item. **/
       StreamViewType?: StreamViewType;
     }
     export interface TrimmedDataAccessException {

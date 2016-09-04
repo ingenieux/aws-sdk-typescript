@@ -958,21 +958,21 @@ requests from clients with access to the VPC for the load balancer. **/
  are enabled.
  
  
-*   access_logs.s3.bucket - The name of the S3 bucket for the access logs. This
+&amp;#42;   access_logs.s3.bucket - The name of the S3 bucket for the access logs. This
  attribute is required if access logs in Amazon S3 are enabled. The bucket
  must exist in the same region as the load balancer and have a bucket policy
  that grants Elastic Load Balancing permission to write to the bucket.
  
  
-*   access_logs.s3.prefix - The prefix for the location in the S3 bucket. If you
+&amp;#42;   access_logs.s3.prefix - The prefix for the location in the S3 bucket. If you
  don&#x27;t specify a prefix, the access logs are stored in the root of the bucket.
  
  
-*   deletion_protection.enabled - Indicates whether deletion protection is
+&amp;#42;   deletion_protection.enabled - Indicates whether deletion protection is
  enabled.
  
  
-*   idle_timeout.timeout_seconds - The idle timeout value, in seconds. The valid
+&amp;#42;   idle_timeout.timeout_seconds - The idle timeout value, in seconds. The valid
  range is 1-3600. The default is 60 seconds. **/
       Key?: LoadBalancerAttributeKey;
       /** The value of the attribute. **/
@@ -1116,16 +1116,16 @@ contain any of the following characters:
 &amp;#42;  A-Z, a-z, 0-9
  
  
-*  _ - . $ / ~ &quot; &#x27; @ : +
+&amp;#42;  _ - . $ / ~ &quot; &#x27; @ : +
  
  
-*  &amp;amp; (using &amp;amp;amp;)
+&amp;#42;  &amp;amp; (using &amp;amp;amp;)
  
  
-*  * (matches 0 or more characters)
+&amp;#42;  &amp;#42; (matches 0 or more characters)
  
  
-*  ? (matches exactly 1 character) **/
+&amp;#42;  ? (matches exactly 1 character) **/
       Values?: ListOfString;
     }
     export interface RuleNotFoundException {
@@ -1241,14 +1241,14 @@ target group. **/
  seconds.
  
  
-*   stickiness.enabled - Indicates whether sticky sessions are enabled.
+&amp;#42;   stickiness.enabled - Indicates whether sticky sessions are enabled.
  
  
-*   stickiness.type - The type of sticky sessions. The possible value is 
+&amp;#42;   stickiness.type - The type of sticky sessions. The possible value is 
  lb_cookie.
  
  
-*   stickiness.lb_cookie.duration_seconds - The time period, in seconds, during
+&amp;#42;   stickiness.lb_cookie.duration_seconds - The time period, in seconds, during
  which requests from a client should be routed to the same target. After this
  time period expires, the load balancer-generated cookie is considered stale.
  The range is 1 second to 1 week (604800 seconds). The default value is 1 day
@@ -1271,7 +1271,7 @@ values:
  registered with the load balancer.
  
  
-*   Elb.InitialHealthChecking - The load balancer is still sending the target
+&amp;#42;   Elb.InitialHealthChecking - The load balancer is still sending the target
  the minimum number of health checks required to determine its health status.
  
  
@@ -1279,39 +1279,39 @@ values:
 If the target state is unhealthy, the reason code can be one of the following
 values:
 
-*   Target.ResponseCodeMismatch - The health checks did not return an expected
+&amp;#42;   Target.ResponseCodeMismatch - The health checks did not return an expected
  HTTP code.
  
  
-*   Target.Timeout - The health check requests timed out.
+&amp;#42;   Target.Timeout - The health check requests timed out.
  
  
-*   Target.FailedHealthChecks - The health checks failed because the connection
+&amp;#42;   Target.FailedHealthChecks - The health checks failed because the connection
  to the target timed out, the target response was malformed, or the target
  failed the health check for an unknown reason.
  
  
-*   Elb.InternalError - The health checks failed due to an internal error.
+&amp;#42;   Elb.InternalError - The health checks failed due to an internal error.
  
  
 
 If the target state is unused, the reason code can be one of the following
 values:
 
-*   Target.NotRegistered - The target is not registered with the target group.
+&amp;#42;   Target.NotRegistered - The target is not registered with the target group.
  
  
-*   Target.NotInUse - The target group is not used by any load balancer or the
+&amp;#42;   Target.NotInUse - The target group is not used by any load balancer or the
  target is in an Availability Zone that is not enabled for its load balancer.
  
  
-*   Target.InvalidState - The target is in the stopped or terminated state.
+&amp;#42;   Target.InvalidState - The target is in the stopped or terminated state.
  
  
 
 If the target state is draining, the reason code can be the following value:
 
-*   Target.DeregistrationInProgress - The target is in the process of being
+&amp;#42;   Target.DeregistrationInProgress - The target is in the process of being
  deregistered and the deregistration delay period has not expired. **/
       Reason?: TargetHealthReasonEnum;
       /** A description of the target health that provides additional details. If the

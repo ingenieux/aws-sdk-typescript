@@ -97,7 +97,7 @@ criteria are returned:
  &amp;#42;  Job flows created and completed in the last two weeks
    
    
- *   Job flows created within the last two months that are in one of the
+ &amp;#42;   Job flows created within the last two months that are in one of the
    following states: RUNNING, WAITING, SHUTTING_DOWN, STARTING 
    
    
@@ -1160,7 +1160,7 @@ For more information, go to Use Third Party Applications with Amazon EMR
 &amp;#42;  &quot;mapr-m3&quot; - launch the job flow using MapR M3 Edition.
  
  
-*  &quot;mapr-m5&quot; - launch the job flow using MapR M5 Edition. **/
+&amp;#42;  &quot;mapr-m5&quot; - launch the job flow using MapR M5 Edition. **/
       SupportedProducts?: SupportedProductsList;
       /** For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater,
 use Applications.
@@ -1175,26 +1175,26 @@ information, see Launch a Job Flow on the MapR Distribution for Hadoop
 &amp;#42;  &quot;mapr-m3&quot; - launch the cluster using MapR M3 Edition.
  
  
-*  &quot;mapr-m5&quot; - launch the cluster using MapR M5 Edition.
+&amp;#42;  &quot;mapr-m5&quot; - launch the cluster using MapR M5 Edition.
  
  
-*  &quot;mapr&quot; with the user arguments specifying &quot;--edition,m3&quot; or &quot;--edition,m5&quot; -
+&amp;#42;  &quot;mapr&quot; with the user arguments specifying &quot;--edition,m3&quot; or &quot;--edition,m5&quot; -
  launch the job flow using MapR M3 or M5 Edition respectively.
  
  
-*  &quot;mapr-m7&quot; - launch the cluster using MapR M7 Edition.
+&amp;#42;  &quot;mapr-m7&quot; - launch the cluster using MapR M7 Edition.
  
  
-*  &quot;hunk&quot; - launch the cluster with the Hunk Big Data Analtics Platform.
+&amp;#42;  &quot;hunk&quot; - launch the cluster with the Hunk Big Data Analtics Platform.
  
  
-*  &quot;hue&quot;- launch the cluster with Hue installed.
+&amp;#42;  &quot;hue&quot;- launch the cluster with Hue installed.
  
  
-*  &quot;spark&quot; - launch the cluster with Apache Spark installed.
+&amp;#42;  &quot;spark&quot; - launch the cluster with Apache Spark installed.
  
  
-*  &quot;ganglia&quot; - launch the cluster with the Ganglia Monitoring System installed. **/
+&amp;#42;  &quot;ganglia&quot; - launch the cluster with the Ganglia Monitoring System installed. **/
       NewSupportedProducts?: NewSupportedProductsList;
       /** Amazon EMR releases 4.x or later.
 

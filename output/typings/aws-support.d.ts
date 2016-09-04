@@ -30,26 +30,26 @@ declare module "aws-sdk" {
     DescribeServices and DescribeSeverityLevels operations return AWS service
     names, service codes, service categories, and problem severity levels. You
     use these values when you call the CreateCase operation. 
-  *  Case creation, case details, and case resolution. The CreateCase, 
+  &amp;#42;  Case creation, case details, and case resolution. The CreateCase, 
     DescribeCases, DescribeAttachment, and ResolveCase operations create AWS
     Support cases, retrieve information about cases, and resolve cases.
-  *  Case communication. The DescribeCommunications, AddCommunicationToCase, and 
+  &amp;#42;  Case communication. The DescribeCommunications, AddCommunicationToCase, and 
     AddAttachmentsToSet operations retrieve and add communications and
     attachments to AWS Support cases. 
  
  The following list describes the operations available from the AWS Support
  service for Trusted Advisor:
  
-  *  DescribeTrustedAdvisorChecks returns the list of checks that run against
+  &amp;#42;  DescribeTrustedAdvisorChecks returns the list of checks that run against
     your AWS resources.
-  * Using the CheckId for a specific check returned by 
+  &amp;#42; Using the CheckId for a specific check returned by 
     DescribeTrustedAdvisorChecks, you can call DescribeTrustedAdvisorCheckResult 
     to obtain the results for the check you specified.
-  *  DescribeTrustedAdvisorCheckSummaries returns summarized results for one or
+  &amp;#42;  DescribeTrustedAdvisorCheckSummaries returns summarized results for one or
     more Trusted Advisor checks.
-  *  RefreshTrustedAdvisorCheck requests that Trusted Advisor rerun a specified
+  &amp;#42;  RefreshTrustedAdvisorCheck requests that Trusted Advisor rerun a specified
     check. 
-  *  DescribeTrustedAdvisorCheckRefreshStatuses reports the refresh status of one
+  &amp;#42;  DescribeTrustedAdvisorCheckRefreshStatuses reports the refresh status of one
     or more checks. 
  
  For authentication of requests, AWS Support uses Signature Version 4 Signing
@@ -237,15 +237,15 @@ The response contains a TrustedAdvisorCheckResult object, which contains these
 three objects:
 
  &amp;#42; TrustedAdvisorCategorySpecificSummary
- * TrustedAdvisorResourceDetail
- * TrustedAdvisorResourcesSummary
+ &amp;#42; TrustedAdvisorResourceDetail
+ &amp;#42; TrustedAdvisorResourcesSummary
 
 In addition, the response contains these fields:
 
- *  Status. The alert status of the check: &quot;ok&quot; (green), &quot;warning&quot; (yellow),
+ &amp;#42;  Status. The alert status of the check: &quot;ok&quot; (green), &quot;warning&quot; (yellow),
    &quot;error&quot; (red), or &quot;not_available&quot;.
- *  Timestamp. The time of the last refresh of the check.
- *  CheckId. The unique identifier for the check.
+ &amp;#42;  Timestamp. The time of the last refresh of the check.
+ &amp;#42;  CheckId. The unique identifier for the check.
      *
      * @error InternalServerError An internal server error occurred.  
      */
@@ -278,9 +278,9 @@ these fields:
 
  &amp;#42;  Status. The refresh status of the check: &quot;none&quot;, &quot;enqueued&quot;, &quot;processing&quot;,
    &quot;success&quot;, or &quot;abandoned&quot;.
- *  MillisUntilNextRefreshable. The amount of time, in milliseconds, until the
+ &amp;#42;  MillisUntilNextRefreshable. The amount of time, in milliseconds, until the
    check is eligible for refresh.
- *  CheckId. The unique identifier for the check.
+ &amp;#42;  CheckId. The unique identifier for the check.
      *
      * @error InternalServerError An internal server error occurred.  
      */

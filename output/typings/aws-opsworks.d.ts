@@ -33,25 +33,25 @@ declare module "aws-sdk" {
     [http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html] 
     
     
-  *   AWS SDK for Java
+  &amp;#42;   AWS SDK for Java
     [http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html] 
     
     
-  *   AWS SDK for .NET
+  &amp;#42;   AWS SDK for .NET
     [http://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm] 
     
     
-  *   AWS SDK for PHP 2
+  &amp;#42;   AWS SDK for PHP 2
     [http://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html] 
     
     
-  *   AWS SDK for Ruby [http://docs.aws.amazon.com/sdkforruby/api/] 
+  &amp;#42;   AWS SDK for Ruby [http://docs.aws.amazon.com/sdkforruby/api/] 
     
     
-  *   AWS SDK for Node.js [http://aws.amazon.com/documentation/sdkforjavascript/] 
+  &amp;#42;   AWS SDK for Node.js [http://aws.amazon.com/documentation/sdkforjavascript/] 
     
     
-  *   AWS SDK for Python(Boto)
+  &amp;#42;   AWS SDK for Python(Boto)
     [http://docs.pythonboto.org/en/latest/ref/opsworks.html] 
     
     
@@ -62,37 +62,37 @@ declare module "aws-sdk" {
  one of the following endpoints. Stacks can only be accessed or managed within
  the endpoint in which they are created.
  
-  *  opsworks.us-east-1.amazonaws.com
+  &amp;#42;  opsworks.us-east-1.amazonaws.com
     
     
-  *  opsworks.us-west-1.amazonaws.com
+  &amp;#42;  opsworks.us-west-1.amazonaws.com
     
     
-  *  opsworks.us-west-2.amazonaws.com
+  &amp;#42;  opsworks.us-west-2.amazonaws.com
     
     
-  *  opsworks.eu-west-1.amazonaws.com
+  &amp;#42;  opsworks.eu-west-1.amazonaws.com
     
     
-  *  opsworks.eu-central-1.amazonaws.com
+  &amp;#42;  opsworks.eu-central-1.amazonaws.com
     
     
-  *  opsworks.ap-northeast-1.amazonaws.com
+  &amp;#42;  opsworks.ap-northeast-1.amazonaws.com
     
     
-  *  opsworks.ap-northeast-2.amazonaws.com
+  &amp;#42;  opsworks.ap-northeast-2.amazonaws.com
     
     
-  *  opsworks.ap-south-1.amazonaws.com
+  &amp;#42;  opsworks.ap-south-1.amazonaws.com
     
     
-  *  opsworks.ap-southeast-1.amazonaws.com
+  &amp;#42;  opsworks.ap-southeast-1.amazonaws.com
     
     
-  *  opsworks.ap-southeast-2.amazonaws.com
+  &amp;#42;  opsworks.ap-southeast-2.amazonaws.com
     
     
-  *  opsworks.sa-east-1.amazonaws.com
+  &amp;#42;  opsworks.sa-east-1.amazonaws.com
     
     
  
@@ -118,10 +118,10 @@ declare module "aws-sdk" {
  &amp;#42;  You can assign registered on-premises instances to any layer type.
    
    
- *  You can assign registered Amazon EC2 instances only to custom layers.
+ &amp;#42;  You can assign registered Amazon EC2 instances only to custom layers.
    
    
- *  You cannot use this action with instances that were created with AWS
+ &amp;#42;  You cannot use this action with instances that were created with AWS
    OpsWorks.
    
    
@@ -1476,7 +1476,7 @@ change the ID later.
 &amp;#42;  If your account supports EC2 Classic, the default value is no VPC.
  
  
-*  If your account does not support EC2 Classic, the default value is the
+&amp;#42;  If your account does not support EC2 Classic, the default value is the
  default VPC for the specified region.
  
  
@@ -1489,10 +1489,10 @@ specified region and the corresponding default VPC subnet ID, respectively.
 
 If you specify a nondefault VPC ID, note the following:
 
-*  It must belong to a VPC in your account that is in the specified region.
+&amp;#42;  It must belong to a VPC in your account that is in the specified region.
  
  
-*  You must specify a value for DefaultSubnetId.
+&amp;#42;  You must specify a value for DefaultSubnetId.
  
  
 
@@ -1529,22 +1529,22 @@ Identifiers
  Linux 2016.03, Amazon Linux 2015.09, or Amazon Linux 2015.03.
  
  
-*  A supported Ubuntu operating system, such as Ubuntu 16.04 LTS, Ubuntu 14.04
+&amp;#42;  A supported Ubuntu operating system, such as Ubuntu 16.04 LTS, Ubuntu 14.04
  LTS, or Ubuntu 12.04 LTS.
  
  
-*   CentOS 7 
+&amp;#42;   CentOS 7 
  
  
-*   Red Hat Enterprise Linux 7 
+&amp;#42;   Red Hat Enterprise Linux 7 
  
  
-*   Microsoft Windows Server 2012 R2 Base, Microsoft Windows Server 2012 R2 with
+&amp;#42;   Microsoft Windows Server 2012 R2 Base, Microsoft Windows Server 2012 R2 with
  SQL Server Express, Microsoft Windows Server 2012 R2 with SQL Server Standard
  , or Microsoft Windows Server 2012 R2 with SQL Server Web.
  
  
-*  A custom AMI: Custom. You specify the custom AMI you want to use when you
+&amp;#42;  A custom AMI: Custom. You specify the custom AMI you want to use when you
  create instances. For more information on how to use custom AMIs with
  OpsWorks, see Using Custom AMIs
  [http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html]
@@ -1567,34 +1567,34 @@ integers to the layer&#x27;s short name. The other themes are:
 &amp;#42;   Baked_Goods 
  
  
-*   Clouds 
+&amp;#42;   Clouds 
  
  
-*   Europe_Cities 
+&amp;#42;   Europe_Cities 
  
  
-*   Fruits 
+&amp;#42;   Fruits 
  
  
-*   Greek_Deities 
+&amp;#42;   Greek_Deities 
  
  
-*   Legendary_creatures_from_Japan 
+&amp;#42;   Legendary_creatures_from_Japan 
  
  
-*   Planets_and_Moons 
+&amp;#42;   Planets_and_Moons 
  
  
-*   Roman_Deities 
+&amp;#42;   Roman_Deities 
  
  
-*   Scottish_Islands 
+&amp;#42;   Scottish_Islands 
  
  
-*   US_Cities 
+&amp;#42;   US_Cities 
  
  
-*   Wild_Cats 
+&amp;#42;   Wild_Cats 
  
  
 
@@ -1651,7 +1651,7 @@ groups. UseOpsworksSecurityGroups has the following settings:
  delete the built-in security group.
  
  
-*  False - AWS OpsWorks does not associate built-in security groups with
+&amp;#42;  False - AWS OpsWorks does not associate built-in security groups with
  layers. You must create appropriate Amazon Elastic Compute Cloud (Amazon EC2)
  security groups and associate a security group with each layer that you
  create. However, you can still manually associate a built-in security group
@@ -1694,7 +1694,7 @@ information, see Storage for the Root Device
  available.
  
  
-*  Fixed version - Set this parameter to your preferred agent version. To
+&amp;#42;  Fixed version - Set this parameter to your preferred agent version. To
  update the agent version, you must edit the stack configuration and specify a
  new version. AWS OpsWorks then automatically installs that version on the
  stack&#x27;s instances.
@@ -1731,13 +1731,13 @@ which overrides the stack&#x27;s default setting. **/
 &amp;#42;  failed
  
  
-*  successful
+&amp;#42;  successful
  
  
-*  skipped
+&amp;#42;  skipped
  
  
-*  pending **/
+&amp;#42;  pending **/
       Status?: String;
       /** The command exit code. **/
       ExitCode?: Integer;
@@ -1748,31 +1748,31 @@ which overrides the stack&#x27;s default setting. **/
 &amp;#42;   deploy 
  
  
-*   rollback 
+&amp;#42;   rollback 
  
  
-*   start 
+&amp;#42;   start 
  
  
-*   stop 
+&amp;#42;   stop 
  
  
-*   restart 
+&amp;#42;   restart 
  
  
-*   undeploy 
+&amp;#42;   undeploy 
  
  
-*   update_dependencies 
+&amp;#42;   update_dependencies 
  
  
-*   install_dependencies 
+&amp;#42;   install_dependencies 
  
  
-*   update_custom_cookbooks 
+&amp;#42;   update_custom_cookbooks 
  
  
-*   execute_recipes **/
+&amp;#42;   execute_recipes **/
       Type?: String;
     }
     export interface CreateAppRequest {
@@ -1879,23 +1879,23 @@ time-based instances. **/
  Linux 2016.03, Amazon Linux 2015.09, or Amazon Linux 2015.03.
  
  
-*  A supported Ubuntu operating system, such as Ubuntu 16.04 LTS, Ubuntu 14.04
+&amp;#42;  A supported Ubuntu operating system, such as Ubuntu 16.04 LTS, Ubuntu 14.04
  LTS, or Ubuntu 12.04 LTS.
  
  
-*   CentOS 7 
+&amp;#42;   CentOS 7 
  
  
-*   Red Hat Enterprise Linux 7 
+&amp;#42;   Red Hat Enterprise Linux 7 
  
  
-*  A supported Windows operating system, such as Microsoft Windows Server 2012
+&amp;#42;  A supported Windows operating system, such as Microsoft Windows Server 2012
  R2 Base, Microsoft Windows Server 2012 R2 with SQL Server Express, Microsoft
  Windows Server 2012 R2 with SQL Server Standard, or Microsoft Windows Server
  2012 R2 with SQL Server Web.
  
  
-*  A custom AMI: Custom.
+&amp;#42;  A custom AMI: Custom.
  
  
 
@@ -1964,7 +1964,7 @@ instances have the latest security updates. **/
 &amp;#42;   INHERIT - Use the stack&#x27;s default agent version setting.
  
  
-*   version_number - Use the specified agent version. This value overrides the
+&amp;#42;   version_number - Use the specified agent version. This value overrides the
  stack&#x27;s default setting. To update the agent version, edit the instance
  configuration and specify a new version. AWS OpsWorks then automatically
  installs that version on the instance.
@@ -2082,7 +2082,7 @@ ID later.
 &amp;#42;  If your account supports EC2-Classic, the default value is no VPC.
  
  
-*  If your account does not support EC2-Classic, the default value is the
+&amp;#42;  If your account does not support EC2-Classic, the default value is the
  default VPC for the specified region.
  
  
@@ -2095,10 +2095,10 @@ specified region and the corresponding default VPC subnet ID, respectively.
 
 If you specify a nondefault VPC ID, note the following:
 
-*  It must belong to a VPC in your account that is in the specified region.
+&amp;#42;  It must belong to a VPC in your account that is in the specified region.
  
  
-*  You must specify a value for DefaultSubnetId.
+&amp;#42;  You must specify a value for DefaultSubnetId.
  
  
 
@@ -2130,23 +2130,23 @@ You can specify one of the following.
  Linux 2016.03, Amazon Linux 2015.09, or Amazon Linux 2015.03.
  
  
-*  A supported Ubuntu operating system, such as Ubuntu 16.04 LTS, Ubuntu 14.04
+&amp;#42;  A supported Ubuntu operating system, such as Ubuntu 16.04 LTS, Ubuntu 14.04
  LTS, or Ubuntu 12.04 LTS.
  
  
-*   CentOS 7 
+&amp;#42;   CentOS 7 
  
  
-*   Red Hat Enterprise Linux 7 
+&amp;#42;   Red Hat Enterprise Linux 7 
  
  
-*  A supported Windows operating system, such as Microsoft Windows Server 2012
+&amp;#42;  A supported Windows operating system, such as Microsoft Windows Server 2012
  R2 Base, Microsoft Windows Server 2012 R2 with SQL Server Express, Microsoft
  Windows Server 2012 R2 with SQL Server Standard, or Microsoft Windows Server
  2012 R2 with SQL Server Web.
  
  
-*  A custom AMI: Custom. You specify the custom AMI you want to use when you
+&amp;#42;  A custom AMI: Custom. You specify the custom AMI you want to use when you
  create instances. For more information, see Using Custom AMIs
  [http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html]
  .
@@ -2165,34 +2165,34 @@ layer&#x27;s short name. The other themes are:
 &amp;#42;   Baked_Goods 
  
  
-*   Clouds 
+&amp;#42;   Clouds 
  
  
-*   Europe_Cities 
+&amp;#42;   Europe_Cities 
  
  
-*   Fruits 
+&amp;#42;   Fruits 
  
  
-*   Greek_Deities 
+&amp;#42;   Greek_Deities 
  
  
-*   Legendary_creatures_from_Japan 
+&amp;#42;   Legendary_creatures_from_Japan 
  
  
-*   Planets_and_Moons 
+&amp;#42;   Planets_and_Moons 
  
  
-*   Roman_Deities 
+&amp;#42;   Roman_Deities 
  
  
-*   Scottish_Islands 
+&amp;#42;   Scottish_Islands 
  
  
-*   US_Cities 
+&amp;#42;   US_Cities 
  
  
-*   Wild_Cats 
+&amp;#42;   Wild_Cats 
  
  
 
@@ -2249,7 +2249,7 @@ groups. UseOpsworksSecurityGroups has the following settings:
  delete the built-in security group.
  
  
-*  False - AWS OpsWorks does not associate built-in security groups with
+&amp;#42;  False - AWS OpsWorks does not associate built-in security groups with
  layers. You must create appropriate EC2 security groups and associate a
  security group with each layer that you create. However, you can still
  manually associate a built-in security group with a layer on creation; custom
@@ -2287,7 +2287,7 @@ is instance-store. For more information, see Storage for the Root Device
  available.
  
  
-*  Fixed version - Set this parameter to your preferred agent version. To
+&amp;#42;  Fixed version - Set this parameter to your preferred agent version. To
  update the agent version, you must edit the stack configuration and specify a
  new version. AWS OpsWorks then automatically installs that version on the
  stack&#x27;s instances.
@@ -2384,10 +2384,10 @@ or RdsDbInstance. **/
 &amp;#42;  running
  
  
-*  successful
+&amp;#42;  successful
  
  
-*  failed **/
+&amp;#42;  failed **/
       Status?: String;
       /** A string that contains user-defined custom JSON. It can be used to override the
 corresponding default stack configuration attribute values for stack or to pass
@@ -2414,13 +2414,13 @@ For stacks, the following commands are available:
  {&quot;recipes&quot;:[&quot;phpapp::appsetup&quot;]}.
  
  
-*   install_dependencies: Install the stack&#x27;s dependencies.
+&amp;#42;   install_dependencies: Install the stack&#x27;s dependencies.
  
  
-*   update_custom_cookbooks: Update the stack&#x27;s custom cookbooks.
+&amp;#42;   update_custom_cookbooks: Update the stack&#x27;s custom cookbooks.
  
  
-*   update_dependencies: Update the stack&#x27;s dependencies.
+&amp;#42;   update_dependencies: Update the stack&#x27;s dependencies.
  
  
 
@@ -2430,26 +2430,26 @@ they do nothing.
 
 For apps, the following commands are available:
 
-*   deploy: Deploy an app. Ruby on Rails apps have an optional Args parameter
+&amp;#42;   deploy: Deploy an app. Ruby on Rails apps have an optional Args parameter
  named migrate. Set Args to {&quot;migrate&quot;:[&quot;true&quot;]} to migrate the database. The
  default setting is {&quot;migrate&quot;:[&quot;false&quot;]}.
  
  
-*   rollback Roll the app back to the previous version. When you update an app,
+&amp;#42;   rollback Roll the app back to the previous version. When you update an app,
  AWS OpsWorks stores the previous version, up to a maximum of five versions.
  You can use this command to roll an app back as many as four versions.
  
  
-*   start: Start the app&#x27;s web or application server.
+&amp;#42;   start: Start the app&#x27;s web or application server.
  
  
-*   stop: Stop the app&#x27;s web or application server.
+&amp;#42;   stop: Stop the app&#x27;s web or application server.
  
  
-*   restart: Restart the app&#x27;s web or application server.
+&amp;#42;   restart: Restart the app&#x27;s web or application server.
  
  
-*   undeploy: Undeploy the app. **/
+&amp;#42;   undeploy: Undeploy the app. **/
       Name: DeploymentCommandName;
       /** The arguments of those commands that take arguments. It should be set to a JSON
 object with the following format:
@@ -2464,7 +2464,7 @@ The update_dependencies command takes two arguments:
  the allow_reboot argument to true.
  
  
-*   allow_reboot - Specifies whether to allow AWS OpsWorks to reboot the
+&amp;#42;   allow_reboot - Specifies whether to allow AWS OpsWorks to reboot the
  instances if necessary, after installing the updates. This argument can be
  set to either true or false. The default value is false.
  
@@ -2667,11 +2667,11 @@ configuration. **/
  Permission object with permissions for each of the stack IAM ARNs.
  
  
-*  If the request object contains only an IAM ARN, the array contains a 
+&amp;#42;  If the request object contains only an IAM ARN, the array contains a 
  Permission object with permissions for each of the user&#x27;s stack IDs.
  
  
-*  If the request contains a stack ID and an IAM ARN, the array contains a
+&amp;#42;  If the request contains a stack ID and an IAM ARN, the array contains a
  single Permission object with permissions for the specified stack and IAM
  ARN. **/
       Permissions?: Permissions;
@@ -2862,7 +2862,7 @@ printable. **/
       Value: String;
       /** (Optional) Whether the variable&#x27;s value will be returned by the DescribeApps 
 action. To conceal an environment variable&#x27;s value, set Secure to true. 
-DescribeApps then returns &amp;#42;****FILTERED***** instead of the actual value. The
+DescribeApps then returns &amp;#42;&amp;#42;&amp;#42;&amp;#42;&amp;#42;FILTERED&amp;#42;&amp;#42;&amp;#42;&amp;#42;&amp;#42; instead of the actual value. The
 default value for Secure is false. **/
       Secure?: Boolean;
     }
@@ -2988,46 +2988,46 @@ Device
 &amp;#42;   booting 
  
  
-*   connection_lost 
+&amp;#42;   connection_lost 
  
  
-*   online 
+&amp;#42;   online 
  
  
-*   pending 
+&amp;#42;   pending 
  
  
-*   rebooting 
+&amp;#42;   rebooting 
  
  
-*   requested 
+&amp;#42;   requested 
  
  
-*   running_setup 
+&amp;#42;   running_setup 
  
  
-*   setup_failed 
+&amp;#42;   setup_failed 
  
  
-*   shutting_down 
+&amp;#42;   shutting_down 
  
  
-*   start_failed 
+&amp;#42;   start_failed 
  
  
-*   stop_failed 
+&amp;#42;   stop_failed 
  
  
-*   stopped 
+&amp;#42;   stopped 
  
  
-*   stopping 
+&amp;#42;   stopping 
  
  
-*   terminated 
+&amp;#42;   terminated 
  
  
-*   terminating **/
+&amp;#42;   terminating **/
       Status?: String;
       /** The instance&#x27;s subnet ID; applicable only if the stack is running in a VPC. **/
       SubnetId?: String;
@@ -3096,7 +3096,7 @@ Device
       /** The layer attributes.
 
 For the HaproxyStatsPassword, MysqlRootPassword, and GangliaPassword attributes,
-AWS OpsWorks returns &amp;#42;****FILTERED***** instead of the actual value
+AWS OpsWorks returns &amp;#42;&amp;#42;&amp;#42;&amp;#42;&amp;#42;FILTERED&amp;#42;&amp;#42;&amp;#42;&amp;#42;&amp;#42; instead of the actual value
 
 For an ECS Cluster layer, AWS OpsWorks the EcsClusterArn attribute is set to the
 cluster&#x27;s ARN. **/
@@ -3183,16 +3183,16 @@ role. For more information about IAM ARNs, see Using Identifiers
 &amp;#42;   deny 
  
  
-*   show 
+&amp;#42;   show 
  
  
-*   deploy 
+&amp;#42;   deploy 
  
  
-*   manage 
+&amp;#42;   manage 
  
  
-*   iam_only 
+&amp;#42;   iam_only 
  
  
 
@@ -3237,7 +3237,7 @@ Managing User Permissions
       DbInstanceIdentifier?: String;
       /** The master user name. **/
       DbUser?: String;
-      /** AWS OpsWorks returns &amp;#42;****FILTERED***** instead of the actual value. **/
+      /** AWS OpsWorks returns &amp;#42;&amp;#42;&amp;#42;&amp;#42;&amp;#42;FILTERED&amp;#42;&amp;#42;&amp;#42;&amp;#42;&amp;#42; instead of the actual value. **/
       DbPassword?: String;
       /** The instance&#x27;s AWS region. **/
       Region?: String;
@@ -3394,16 +3394,16 @@ You cannot set your own permissions level.
 &amp;#42;   deny 
  
  
-*   show 
+&amp;#42;   show 
  
  
-*   deploy 
+&amp;#42;   deploy 
  
  
-*   manage 
+&amp;#42;   manage 
  
  
-*   iam_only 
+&amp;#42;   iam_only 
  
  
 
@@ -3438,7 +3438,7 @@ information, see Connection Draining
 &amp;#42;  For Amazon S3 bundles, set Username to the appropriate IAM access key ID.
  
  
-*  For HTTP bundles, Git repositories, and Subversion repositories, set Username 
+&amp;#42;  For HTTP bundles, Git repositories, and Subversion repositories, set Username 
  to the user name. **/
       Username?: String;
       /** When included in a request, the parameter depends on the repository type.
@@ -3446,7 +3446,7 @@ information, see Connection Draining
 &amp;#42;  For Amazon S3 bundles, set Password to the appropriate IAM secret access key.
  
  
-*  For HTTP bundles and Subversion repositories, set Password to the password.
+&amp;#42;  For HTTP bundles and Subversion repositories, set Password to the password.
  
  
 
@@ -3455,12 +3455,12 @@ http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html
 [http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html]
 .
 
-In responses, AWS OpsWorks returns *****FILTERED***** instead of the actual
+In responses, AWS OpsWorks returns &amp;#42;&amp;#42;&amp;#42;&amp;#42;&amp;#42;FILTERED&amp;#42;&amp;#42;&amp;#42;&amp;#42;&amp;#42; instead of the actual
 value. **/
       Password?: String;
       /** In requests, the repository&#x27;s SSH key.
 
-In responses, AWS OpsWorks returns &amp;#42;****FILTERED***** instead of the actual
+In responses, AWS OpsWorks returns &amp;#42;&amp;#42;&amp;#42;&amp;#42;&amp;#42;FILTERED&amp;#42;&amp;#42;&amp;#42;&amp;#42;&amp;#42; instead of the actual
 value. **/
       SshKey?: String;
       /** The application&#x27;s version. AWS OpsWorks enables you to easily deploy new
@@ -3682,23 +3682,23 @@ time-based instances. **/
  Linux 2016.03, Amazon Linux 2015.09, or Amazon Linux 2015.03.
  
  
-*  A supported Ubuntu operating system, such as Ubuntu 16.04 LTS, Ubuntu 14.04
+&amp;#42;  A supported Ubuntu operating system, such as Ubuntu 16.04 LTS, Ubuntu 14.04
  LTS, or Ubuntu 12.04 LTS.
  
  
-*   CentOS 7 
+&amp;#42;   CentOS 7 
  
  
-*   Red Hat Enterprise Linux 7 
+&amp;#42;   Red Hat Enterprise Linux 7 
  
  
-*  A supported Windows operating system, such as Microsoft Windows Server 2012
+&amp;#42;  A supported Windows operating system, such as Microsoft Windows Server 2012
  R2 Base, Microsoft Windows Server 2012 R2 with SQL Server Express, Microsoft
  Windows Server 2012 R2 with SQL Server Standard, or Microsoft Windows Server
  2012 R2 with SQL Server Web.
  
  
-*  A custom AMI: Custom.
+&amp;#42;  A custom AMI: Custom.
  
  
 
@@ -3748,7 +3748,7 @@ instances have the latest security updates. **/
 &amp;#42;   INHERIT - Use the stack&#x27;s default agent version setting.
  
  
-*   version_number - Use the specified agent version. This value overrides the
+&amp;#42;   version_number - Use the specified agent version. This value overrides the
  stack&#x27;s default setting. To update the agent version, you must edit the
  instance configuration and specify a new version. AWS OpsWorks then
  automatically installs that version on the instance.
@@ -3854,23 +3854,23 @@ instances. For more information about IAM ARNs, see Using Identifiers
  Linux 2016.03, Amazon Linux 2015.09, or Amazon Linux 2015.03.
  
  
-*  A supported Ubuntu operating system, such as Ubuntu 16.04 LTS, Ubuntu 14.04
+&amp;#42;  A supported Ubuntu operating system, such as Ubuntu 16.04 LTS, Ubuntu 14.04
  LTS, or Ubuntu 12.04 LTS.
  
  
-*   CentOS 7 
+&amp;#42;   CentOS 7 
  
  
-*   Red Hat Enterprise Linux 7 
+&amp;#42;   Red Hat Enterprise Linux 7 
  
  
-*  A supported Windows operating system, such as Microsoft Windows Server 2012
+&amp;#42;  A supported Windows operating system, such as Microsoft Windows Server 2012
  R2 Base, Microsoft Windows Server 2012 R2 with SQL Server Express, Microsoft
  Windows Server 2012 R2 with SQL Server Standard, or Microsoft Windows Server
  2012 R2 with SQL Server Web.
  
  
-*  A custom AMI: Custom. You specify the custom AMI you want to use when you
+&amp;#42;  A custom AMI: Custom. You specify the custom AMI you want to use when you
  create instances. For more information on how to use custom AMIs with
  OpsWorks, see Using Custom AMIs
  [http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html]
@@ -3890,34 +3890,34 @@ integers to the layer&#x27;s short name. The other themes are:
 &amp;#42;   Baked_Goods 
  
  
-*   Clouds 
+&amp;#42;   Clouds 
  
  
-*   Europe_Cities 
+&amp;#42;   Europe_Cities 
  
  
-*   Fruits 
+&amp;#42;   Fruits 
  
  
-*   Greek_Deities 
+&amp;#42;   Greek_Deities 
  
  
-*   Legendary_creatures_from_Japan 
+&amp;#42;   Legendary_creatures_from_Japan 
  
  
-*   Planets_and_Moons 
+&amp;#42;   Planets_and_Moons 
  
  
-*   Roman_Deities 
+&amp;#42;   Roman_Deities 
  
  
-*   Scottish_Islands 
+&amp;#42;   Scottish_Islands 
  
  
-*   US_Cities 
+&amp;#42;   US_Cities 
  
  
-*   Wild_Cats 
+&amp;#42;   Wild_Cats 
  
  
 
@@ -3994,7 +3994,7 @@ built-in groups. UseOpsworksSecurityGroups has the following settings:
  delete the built-in security group.
  
  
-*  False - AWS OpsWorks does not associate built-in security groups with
+&amp;#42;  False - AWS OpsWorks does not associate built-in security groups with
  layers. You must create appropriate EC2 security groups and associate a
  security group with each layer that you create. However, you can still
  manually associate a built-in security group with a layer on. Custom security
@@ -4013,7 +4013,7 @@ For more information, see Create a New Stack
  available.
  
  
-*  Fixed version - Set this parameter to your preferred agent version. To
+&amp;#42;  Fixed version - Set this parameter to your preferred agent version. To
  update the agent version, you must edit the stack configuration and specify a
  new version. AWS OpsWorks then automatically installs that version on the
  stack&#x27;s instances.
@@ -4117,10 +4117,10 @@ Endpoints [http://docs.aws.amazon.com/general/latest/gr/rande.html]. **/
 &amp;#42;   standard - Magnetic
  
  
-*   io1 - Provisioned IOPS (SSD)
+&amp;#42;   io1 - Provisioned IOPS (SSD)
  
  
-*   gp2 - General Purpose (SSD) **/
+&amp;#42;   gp2 - General Purpose (SSD) **/
       VolumeType?: String;
       /** For PIOPS volumes, the IOPS per disk. **/
       Iops?: Integer;

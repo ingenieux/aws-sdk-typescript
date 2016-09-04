@@ -711,12 +711,12 @@ stream. **/
 &amp;#42;   LATEST - Start reading just after the most recent record in the stream.
  
  
-*   TRIM_HORIZON - Start reading at the last untrimmed record in the stream,
+&amp;#42;   TRIM_HORIZON - Start reading at the last untrimmed record in the stream,
  which is the oldest record available in the stream. This option is not
  available for an Amazon Kinesis Firehose delivery stream.
  
  
-*   LAST_STOPPED_POINT - Resume reading from where the application last stopped
+&amp;#42;   LAST_STOPPED_POINT - Resume reading from where the application last stopped
  reading. **/
       InputStartingPosition?: InputStartingPosition;
     }

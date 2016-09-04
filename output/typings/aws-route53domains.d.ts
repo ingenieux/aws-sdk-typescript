@@ -122,9 +122,9 @@ given a string, which can either be a domain name or simply a word or phrase
 
  Parameters:  &amp;#42; DomainName (string): The basis for your domain suggestion
    search, a string with (or without) top-level domain specified.
- * SuggestionCount (int): The number of domain suggestions to be
+ &amp;#42; SuggestionCount (int): The number of domain suggestions to be
    returned, maximum 50, minimum 1.
- * OnlyAvailable (bool): If true, availability check will be
+ &amp;#42; OnlyAvailable (bool): If true, availability check will be
    performed on suggestion results, and only available domains will be returned.
    If false, suggestions will be returned without checking whether the domain is
    actually available, and caller will have to call checkDomainAvailability for
@@ -177,16 +177,16 @@ When you register a domain, Amazon Route 53 does the following:
    Amazon Route 53 assigns four name servers to your hosted zone and
    automatically updates your domain registration with the names of these name
    servers.
- * Enables autorenew, so your domain registration will renew automatically each
+ &amp;#42; Enables autorenew, so your domain registration will renew automatically each
    year. We&#x27;ll notify you in advance of the renewal date so you can choose
    whether to renew the registration.
- * Optionally enables privacy protection, so WHOIS queries return contact
+ &amp;#42; Optionally enables privacy protection, so WHOIS queries return contact
    information for our registrar partner, Gandi, instead of the information you
    entered for registrant, admin, and tech contacts.
- * If registration is successful, returns an operation ID that you can use to
+ &amp;#42; If registration is successful, returns an operation ID that you can use to
    track the progress and completion of the action. If the request is not
    completed successfully, the domain registrant is notified by email.
- * Charges your AWS account an amount based on the top-level domain. For more
+ &amp;#42; Charges your AWS account an amount based on the top-level domain. For more
    information, see Amazon Route 53 Pricing
    [http://aws.amazon.com/route53/pricing/].
      *
@@ -460,9 +460,9 @@ Type: String **/
 Type: String
 
 Valid values:  &amp;#42; REGISTER_DOMAIN
-* TRANSFER_IN_DOMAIN
-* RENEW_DOMAIN
-* CHANGE_DOMAIN_OWNER **/
+&amp;#42; TRANSFER_IN_DOMAIN
+&amp;#42; RENEW_DOMAIN
+&amp;#42; CHANGE_DOMAIN_OWNER **/
       Operation?: OperationType;
       /** The ID of the invoice that is associated with the billing record.
 
@@ -505,14 +505,14 @@ Type: String
 Valid values:
 
 &amp;#42; AVAILABLE – The domain name is available.
-* AVAILABLE_RESERVED – The domain name is reserved under specific conditions.
-* AVAILABLE_PREORDER – The domain name is available and can be preordered.
-* UNAVAILABLE – The domain name is not available.
-* UNAVAILABLE_PREMIUM – The domain name is not available.
-* UNAVAILABLE_RESTRICTED – The domain name is forbidden.
-* RESERVED – The domain name has been reserved for another person or
+&amp;#42; AVAILABLE_RESERVED – The domain name is reserved under specific conditions.
+&amp;#42; AVAILABLE_PREORDER – The domain name is available and can be preordered.
+&amp;#42; UNAVAILABLE – The domain name is not available.
+&amp;#42; UNAVAILABLE_PREMIUM – The domain name is not available.
+&amp;#42; UNAVAILABLE_RESTRICTED – The domain name is forbidden.
+&amp;#42; RESERVED – The domain name has been reserved for another person or
  organization.
-* DONT_KNOW – The TLD registry didn&#x27;t reply with a definitive answer about
+&amp;#42; DONT_KNOW – The TLD registry didn&#x27;t reply with a definitive answer about
  whether the domain name is available. Amazon Route 53 can return this
  response for a variety of reasons, for example, the registry is performing
  maintenance. Try again later. **/
@@ -1151,7 +1151,7 @@ Each tag includes the following elements.
  Type: String
  
  
-* Value
+&amp;#42; Value
  
  The value of a tag.
  
@@ -1747,7 +1747,7 @@ Required: No
  Required: Yes
  
  
-* Value
+&amp;#42; Value
  
  The value of a tag.
  

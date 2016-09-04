@@ -31,7 +31,7 @@ creation token, this operation does the following:
    assigned ID, and an initial lifecycle state creating.
    
    
- *  Returns with the description of the created file system.
+ &amp;#42;  Returns with the description of the created file system.
    
    
 
@@ -101,10 +101,10 @@ In the request, you also provide a subnet ID, which determines the following:
  &amp;#42;  VPC in which Amazon EFS creates the mount target
    
    
- *  Availability Zone in which Amazon EFS creates the mount target
+ &amp;#42;  Availability Zone in which Amazon EFS creates the mount target
    
    
- *  IP address range from which Amazon EFS selects the IP address of the mount
+ &amp;#42;  IP address range from which Amazon EFS selects the IP address of the mount
    target (if you don&#x27;t specify an IP address in the request)
    
    
@@ -124,37 +124,37 @@ system already has one or more mount targets created for it, the subnet
 specified in the request to add another mount target must meet the following
 requirements:
 
- *  Must belong to the same VPC as the subnets of the existing mount targets
+ &amp;#42;  Must belong to the same VPC as the subnets of the existing mount targets
    
    
- *  Must not be in the same Availability Zone as any of the subnets of the
+ &amp;#42;  Must not be in the same Availability Zone as any of the subnets of the
    existing mount targets
    
    
 
 If the request satisfies the requirements, Amazon EFS does the following:
 
- *  Creates a new mount target in the specified subnet.
+ &amp;#42;  Creates a new mount target in the specified subnet.
    
    
- *  Also creates a new network interface in the subnet as follows:
+ &amp;#42;  Also creates a new network interface in the subnet as follows:
    
-    *  If the request provides an IpAddress, Amazon EFS assigns that IP address
+    &amp;#42;  If the request provides an IpAddress, Amazon EFS assigns that IP address
       to the network interface. Otherwise, Amazon EFS assigns a free address in
       the subnet (in the same way that the Amazon EC2 CreateNetworkInterface 
       call does when a request does not specify a primary private IP address).
       
       
-    *  If the request provides SecurityGroups, this network interface is
+    &amp;#42;  If the request provides SecurityGroups, this network interface is
       associated with those security groups. Otherwise, it belongs to the
       default security group for the subnet&#x27;s VPC.
       
       
-    *  Assigns the description Mount target fsmt-id for file system fs-id where 
+    &amp;#42;  Assigns the description Mount target fsmt-id for file system fs-id where 
       fsmt-id is the mount target ID, and fs-id is the FileSystemId.
       
       
-    *  Sets the requesterManaged property of the network interface to true, and
+    &amp;#42;  Sets the requesterManaged property of the network interface to true, and
       the requesterId value to EFS.
       
       
@@ -183,19 +183,19 @@ target.
 
 This operation requires permissions for the following action on the file system:
 
- *   elasticfilesystem:CreateMountTarget 
+ &amp;#42;   elasticfilesystem:CreateMountTarget 
    
    
 
 This operation also requires permissions for the following Amazon EC2 actions:
 
- *   ec2:DescribeSubnets 
+ &amp;#42;   ec2:DescribeSubnets 
    
    
- *   ec2:DescribeNetworkInterfaces 
+ &amp;#42;   ec2:DescribeNetworkInterfaces 
    
    
- *   ec2:CreateNetworkInterface
+ &amp;#42;   ec2:CreateNetworkInterface
      *
      * @error BadRequest   
      * @error InternalServerError   
@@ -275,7 +275,7 @@ descriptions for the given file system.
 The operation also requires permissions for the following Amazon EC2 action on
 the mount target&#x27;s network interface:
 
- *   ec2:DeleteNetworkInterface
+ &amp;#42;   ec2:DeleteNetworkInterface
      *
      * @error BadRequest   
      * @error InternalServerError   
@@ -342,7 +342,7 @@ This operation requires permissions for the following actions:
    target&#x27;s file system. 
    
    
- *   ec2:DescribeNetworkInterfaceAttribute action on the mount target&#x27;s network
+ &amp;#42;   ec2:DescribeNetworkInterfaceAttribute action on the mount target&#x27;s network
    interface.
      *
      * @error BadRequest   
@@ -396,7 +396,7 @@ The operation requires permissions for the following actions:
    target&#x27;s file system. 
    
    
- *   ec2:ModifyNetworkInterfaceAttribute action on the mount target&#x27;s network
+ &amp;#42;   ec2:ModifyNetworkInterfaceAttribute action on the mount target&#x27;s network
    interface.
      *
      * @error BadRequest   

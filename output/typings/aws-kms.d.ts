@@ -67,13 +67,13 @@ declare module "aws-sdk" {
     for accessing AWS.
     
     
-  *   Temporary Security Credentials
+  &amp;#42;   Temporary Security Credentials
     [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html] -
     This section of the IAM User Guide describes how to create and use temporary
     security credentials.
     
     
-  *   Signature Version 4 Signing Process
+  &amp;#42;   Signature Version 4 Signing Process
     [http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html] -
     This set of topics walks you through the process of signing a request using
     an access key ID and a secret access key.
@@ -86,16 +86,16 @@ declare module "aws-sdk" {
  for most applications. You will likely perform actions other than these, such as
  creating keys and assigning policies, by using the console.
  
-  *   Encrypt 
+  &amp;#42;   Encrypt 
     
     
-  *   Decrypt 
+  &amp;#42;   Decrypt 
     
     
-  *   GenerateDataKey 
+  &amp;#42;   GenerateDataKey 
     
     
-  *   GenerateDataKeyWithoutPlaintext
+  &amp;#42;   GenerateDataKeyWithoutPlaintext
     *
     */
   export class KMS extends Service {
@@ -170,7 +170,7 @@ between CMKs and DEKs, see the following:
  &amp;#42;  The GenerateDataKey operation
    
    
- *   AWS Key Management Service Concepts
+ &amp;#42;   AWS Key Management Service Concepts
    [http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html] in the 
    AWS Key Management Service Developer Guide
      *
@@ -189,10 +189,10 @@ by using any of the following functions:
  &amp;#42;   GenerateDataKey 
    
    
- *   GenerateDataKeyWithoutPlaintext 
+ &amp;#42;   GenerateDataKeyWithoutPlaintext 
    
    
- *   Encrypt 
+ &amp;#42;   Encrypt 
    
    
 
@@ -311,7 +311,7 @@ function has two primary use cases:
    password, or other sensitive customer information.
    
    
- *  If you are moving encrypted data from one region to another, you can use
+ &amp;#42;  If you are moving encrypted data from one region to another, you can use
    this API to encrypt in the new region the plaintext data key that was used to
    encrypt the data in the original region. This provides you with an encrypted
    copy of the data key that can be decrypted in the new region and used there
@@ -588,10 +588,10 @@ depend on it. The following are permitted to call this API:
  &amp;#42;  The account that created the grant
    
    
- *  The RetiringPrincipal, if present
+ &amp;#42;  The RetiringPrincipal, if present
    
    
- *  The GranteePrincipal, if RetireGrant is a grantee operation
+ &amp;#42;  The GranteePrincipal, if RetireGrant is a grantee operation
    
    
 
@@ -775,7 +775,7 @@ of the CMK. Examples:
 &amp;#42;  Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
  
  
-*  Key ARN:
+&amp;#42;  Key ARN:
  arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
  
  
@@ -801,7 +801,7 @@ ARN to a key.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
       TargetKeyId: KeyIdType;
     }
     export interface CreateGrantRequest {
@@ -814,7 +814,7 @@ Name (ARN) of the key. Examples:
 &amp;#42;  Globally unique key ID: 12345678-1234-1234-1234-123456789012
  
  
-*  Key ARN:
+&amp;#42;  Key ARN:
  arn:aws:kms:us-west-2:123456789012:key/12345678-1234-1234-1234-123456789012 **/
       KeyId: KeyIdType;
       /** The principal that is given permission to perform the operations that the grant
@@ -845,30 +845,30 @@ combination of one or more of the following values:
 &amp;#42;   Decrypt 
  
  
-*   Encrypt 
+&amp;#42;   Encrypt 
  
  
-*   GenerateDataKey 
+&amp;#42;   GenerateDataKey 
  
  
-*   GenerateDataKeyWithoutPlaintext 
+&amp;#42;   GenerateDataKeyWithoutPlaintext 
  
  
-*   ReEncryptFrom
+&amp;#42;   ReEncryptFrom
  [http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html] 
  
  
-*   ReEncryptTo
+&amp;#42;   ReEncryptTo
  [http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html] 
  
  
-*   CreateGrant 
+&amp;#42;   CreateGrant 
  
  
-*   RetireGrant 
+&amp;#42;   RetireGrant 
  
  
-*   DescribeKey **/
+&amp;#42;   DescribeKey **/
       Operations?: GrantOperationList;
       /** The conditions under which the operations permitted by the grant are allowed.
 
@@ -924,7 +924,7 @@ the policy must meet the following criteria:
  section in the AWS Key Management Service Developer Guide.
  
  
-*  The principal(s) specified in the key policy must exist and be visible to
+&amp;#42;  The principal(s) specified in the key policy must exist and be visible to
  AWS KMS. When you create a new AWS principal (for example, an IAM user or
  role), you might need to enforce a delay before specifying the new principal
  in a key policy because the new principal might not immediately be visible to
@@ -1021,7 +1021,7 @@ CMK. Examples:
 &amp;#42;  Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab 
  
  
-*  Key ARN: 
+&amp;#42;  Key ARN: 
  arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
       KeyId: KeyIdType;
     }
@@ -1037,13 +1037,13 @@ alias name prefixed by &quot;alias/&quot;.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+&amp;#42;  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
  
  
-*  Alias Name Example - alias/MyAliasName **/
+&amp;#42;  Alias Name Example - alias/MyAliasName **/
       KeyId: KeyIdType;
       /** A list of grant tokens.
 
@@ -1064,7 +1064,7 @@ Use the CMK&#x27;s unique identifier or its Amazon Resource Name (ARN). For exam
 &amp;#42;  Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab
  
  
-*  ARN:
+&amp;#42;  ARN:
  arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
       KeyId: KeyIdType;
     }
@@ -1076,7 +1076,7 @@ unique identifier or the fully specified ARN to a key.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
       KeyId: KeyIdType;
     }
     export interface DisabledException {
@@ -1090,7 +1090,7 @@ unique identifier or the fully specified ARN to a key.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
       KeyId: KeyIdType;
     }
     export interface EnableKeyRotationRequest {
@@ -1101,7 +1101,7 @@ unique identifier or the fully specified ARN to a key.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
       KeyId: KeyIdType;
     }
     export interface EncryptRequest {
@@ -1113,13 +1113,13 @@ alias name prefixed by &quot;alias/&quot;.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+&amp;#42;  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
  
  
-*  Alias Name Example - alias/MyAliasName **/
+&amp;#42;  Alias Name Example - alias/MyAliasName **/
       KeyId: KeyIdType;
       /** Data to be encrypted. **/
       Plaintext: PlaintextType;
@@ -1155,13 +1155,13 @@ alias name prefixed by &quot;alias/&quot;.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+&amp;#42;  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
  
  
-*  Alias Name Example - alias/MyAliasName **/
+&amp;#42;  Alias Name Example - alias/MyAliasName **/
       KeyId: KeyIdType;
       /** Name/value pair that contains additional data to be authenticated during the
 encryption and decryption processes that use the key. This value is logged by
@@ -1207,13 +1207,13 @@ alias name prefixed by &quot;alias/&quot;.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+&amp;#42;  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
  
  
-*  Alias Name Example - alias/MyAliasName **/
+&amp;#42;  Alias Name Example - alias/MyAliasName **/
       KeyId: KeyIdType;
       /** Name:value pair that contains additional data to be authenticated during the
 encryption and decryption processes. **/
@@ -1260,7 +1260,7 @@ unique identifier or the fully specified ARN to a key.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
       KeyId: KeyIdType;
       /** String that contains the name of the policy. Currently, this must be &quot;default&quot;.
 Policy names can be discovered by calling ListKeyPolicies. **/
@@ -1278,7 +1278,7 @@ unique identifier or the fully specified ARN to a key.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
       KeyId: KeyIdType;
     }
     export interface GetKeyRotationStatusResponse {
@@ -1295,7 +1295,7 @@ CMK. Examples:
 &amp;#42;  Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab 
  
  
-*  Key ARN: 
+&amp;#42;  Key ARN: 
  arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
       KeyId: KeyIdType;
       /** The algorithm you will use to encrypt the key material before importing it with 
@@ -1367,7 +1367,7 @@ CMK. Examples:
 &amp;#42;  Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab 
  
  
-*  Key ARN: 
+&amp;#42;  Key ARN: 
  arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
       KeyId: KeyIdType;
       /** The import token that you received in the response to a previous 
@@ -1523,7 +1523,7 @@ unique identifier or the fully specified ARN to a key.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
       KeyId: KeyIdType;
     }
     export interface ListGrantsResponse {
@@ -1546,13 +1546,13 @@ alias name prefixed by &quot;alias/&quot;.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+&amp;#42;  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
  
  
-*  Alias Name Example - alias/MyAliasName **/
+&amp;#42;  Alias Name Example - alias/MyAliasName **/
       KeyId: KeyIdType;
       /** When paginating results, specify the maximum number of items to return in the
 response. If additional items exist beyond the number you specify, the Truncated 
@@ -1641,7 +1641,7 @@ Use the CMK&#x27;s unique identifier or its Amazon Resource Name (ARN). For exam
 &amp;#42;  Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab
  
  
-*  ARN:
+&amp;#42;  ARN:
  arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab **/
       KeyId: KeyIdType;
       /** The name of the key policy.
@@ -1661,7 +1661,7 @@ the following criteria:
  section in the AWS Key Management Service Developer Guide.
  
  
-*  The principal(s) specified in the key policy must exist and be visible to
+&amp;#42;  The principal(s) specified in the key policy must exist and be visible to
  AWS KMS. When you create a new AWS principal (for example, an IAM user or
  role), you might need to enforce a delay before specifying the new principal
  in a key policy because the new principal might not immediately be visible to
@@ -1703,13 +1703,13 @@ an alias or a key, or an alias name prefixed by &quot;alias/&quot;.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+&amp;#42;  Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
  
  
-*  Alias Name Example - alias/MyAliasName **/
+&amp;#42;  Alias Name Example - alias/MyAliasName **/
       DestinationKeyId: KeyIdType;
       /** Encryption context to be used when the data is re-encrypted. **/
       DestinationEncryptionContext?: EncryptionContextType;
@@ -1739,7 +1739,7 @@ value can be a globally unique identifier or a fully specified ARN of the key.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
       KeyId?: KeyIdType;
       /** Unique identifier of the grant to be retired. The grant ID is returned by the 
 CreateGrant function.
@@ -1756,7 +1756,7 @@ value can be a globally unique identifier or the fully specified ARN to a key.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
       KeyId: KeyIdType;
       /** Identifier of the grant to be revoked. **/
       GrantId: GrantIdType;
@@ -1770,7 +1770,7 @@ of the CMK. Examples:
 &amp;#42;  Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab
  
  
-*  Key ARN:
+&amp;#42;  Key ARN:
  arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
  
  
@@ -1807,7 +1807,7 @@ value can be a globally unique identifier or the fully specified ARN of a key.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
  
  
 
@@ -1823,7 +1823,7 @@ unique identifier or the fully specified ARN to a key.
  arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
  
  
-*  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
+&amp;#42;  Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 **/
       KeyId: KeyIdType;
       /** New description for the key. **/
       Description: DescriptionType;

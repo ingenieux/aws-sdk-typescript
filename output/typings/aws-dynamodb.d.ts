@@ -26,12 +26,12 @@ declare module "aws-sdk" {
     Getting Started Guide. 
     
     
-  *   Amazon DynamoDB Developer Guide
+  &amp;#42;   Amazon DynamoDB Developer Guide
     [http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/] - contains
     detailed information about DynamoDB concepts, usage, and best practices.
     
     
-  *   Amazon DynamoDB Streams API Reference
+  &amp;#42;   Amazon DynamoDB Streams API Reference
     [http://docs.aws.amazon.com/dynamodbstreams/latest/APIReference/] - provides
     descriptions and samples of the DynamoDB Streams API. (For more information,
     see Capturing Table Activity with DynamoDB Streams
@@ -60,27 +60,27 @@ declare module "aws-sdk" {
  
   Managing Tables 
  
-  *   CreateTable - Creates a table with user-specified provisioned throughput
+  &amp;#42;   CreateTable - Creates a table with user-specified provisioned throughput
     settings. You must define a primary key for the table - either a simple
     primary key (partition key), or a composite primary key (partition key and
     sort key). Optionally, you can create one or more secondary indexes, which
     provide fast data access using non-key attributes.
     
     
-  *   DescribeTable - Returns metadata for a table, such as table size, status,
+  &amp;#42;   DescribeTable - Returns metadata for a table, such as table size, status,
     and index information.
     
     
-  *   UpdateTable - Modifies the provisioned throughput settings for a table.
+  &amp;#42;   UpdateTable - Modifies the provisioned throughput settings for a table.
     Optionally, you can modify the provisioned throughput settings for global
     secondary indexes on the table.
     
     
-  *   ListTables - Returns a list of all tables associated with the current AWS
+  &amp;#42;   ListTables - Returns a list of all tables associated with the current AWS
     account and endpoint.
     
     
-  *   DeleteTable - Deletes a table and all of its indexes.
+  &amp;#42;   DeleteTable - Deletes a table and all of its indexes.
     
     
  
@@ -90,25 +90,25 @@ declare module "aws-sdk" {
  
   Reading Data 
  
-  *   GetItem - Returns a set of attributes for the item that has a given primary
+  &amp;#42;   GetItem - Returns a set of attributes for the item that has a given primary
     key. By default, GetItem performs an eventually consistent read; however,
     applications can request a strongly consistent read instead.
     
     
-  *   BatchGetItem - Performs multiple GetItem requests for data items using their
+  &amp;#42;   BatchGetItem - Performs multiple GetItem requests for data items using their
     primary keys, from one table or multiple tables. The response from 
     BatchGetItem has a size limit of 16 MB and returns a maximum of 100 items.
     Both eventually consistent and strongly consistent reads can be used.
     
     
-  *   Query - Returns one or more items from a table or a secondary index. You
+  &amp;#42;   Query - Returns one or more items from a table or a secondary index. You
     must provide a specific value for the partition key. You can narrow the scope
     of the query using comparison operators against a sort key value, or on the
     index key. Query supports either eventual or strong consistency. A single
     response has a size limit of 1 MB.
     
     
-  *   Scan - Reads every item in a table; the result set is eventually consistent.
+  &amp;#42;   Scan - Reads every item in a table; the result set is eventually consistent.
     You can limit the number of items returned by filtering the data attributes,
     using conditional expressions. Scan can be used to enable ad-hoc querying of
     a table against non-key attributes; however, since this is a full table scan
@@ -125,7 +125,7 @@ declare module "aws-sdk" {
  
   Modifying Data 
  
-  *   PutItem - Creates a new item, or replaces an existing item with a new item
+  &amp;#42;   PutItem - Creates a new item, or replaces an existing item with a new item
     (including all the attributes). By default, if an item in the table already
     exists with the same primary key, the new item completely replaces the
     existing item. You can use conditional operators to replace an item only if
@@ -133,17 +133,17 @@ declare module "aws-sdk" {
     if that item doesn&#x27;t already exist.
     
     
-  *   UpdateItem - Modifies the attributes of an existing item. You can also use
+  &amp;#42;   UpdateItem - Modifies the attributes of an existing item. You can also use
     conditional operators to perform an update only if the item&#x27;s attribute
     values match certain conditions.
     
     
-  *   DeleteItem - Deletes an item in a table by primary key. You can use
+  &amp;#42;   DeleteItem - Deletes an item in a table by primary key. You can use
     conditional operators to perform a delete an item only if the item&#x27;s
     attribute values match certain conditions.
     
     
-  *   BatchWriteItem - Performs multiple PutItem and DeleteItem requests across
+  &amp;#42;   BatchWriteItem - Performs multiple PutItem and DeleteItem requests across
     multiple tables in a single request. A failure of any request(s) in the batch
     will not cause the entire BatchWriteItem operation to fail. Supports batches
     of up to 25 items to put or delete, with a maximum total request size of 16
@@ -280,22 +280,22 @@ operation:
  &amp;#42;  One or more tables specified in the BatchWriteItem request does not exist.
    
    
- *  Primary key attributes specified on an item in the request do not match
+ &amp;#42;  Primary key attributes specified on an item in the request do not match
    those in the corresponding table&#x27;s primary key schema.
    
    
- *  You try to perform multiple operations on the same item in the same 
+ &amp;#42;  You try to perform multiple operations on the same item in the same 
    BatchWriteItem request. For example, you cannot put and delete the same item
    in the same BatchWriteItem request. 
    
    
- *  There are more than 25 requests in the batch.
+ &amp;#42;  There are more than 25 requests in the batch.
    
    
- *  Any individual item in a batch exceeds 400 KB.
+ &amp;#42;  Any individual item in a batch exceeds 400 KB.
    
    
- *  The total request size exceeds 16 MB.
+ &amp;#42;  The total request size exceeds 16 MB.
      *
      * @error ProvisionedThroughputExceededException   
      * @error ResourceNotFoundException   
@@ -412,11 +412,11 @@ For example, you could use one of the AWS SDKs to do the following:
      &amp;#42; Call DescribeTable with the table name.
        
        
-     * Use the data returned by DescribeTable to add the read capacity units and
+     &amp;#42; Use the data returned by DescribeTable to add the read capacity units and
        write capacity units provisioned for the table itself to your variables.
        
        
-     * If the table has one or more global secondary indexes (GSIs), loop over
+     &amp;#42; If the table has one or more global secondary indexes (GSIs), loop over
        these GSIs and add their provisioned capacity values to your variables as
        well.
        
@@ -609,13 +609,13 @@ You can only perform one of the following operations at once:
  &amp;#42;  Modify the provisioned throughput settings of the table.
    
    
- *  Enable or disable Streams on the table.
+ &amp;#42;  Enable or disable Streams on the table.
    
    
- *  Remove a global secondary index from the table.
+ &amp;#42;  Remove a global secondary index from the table.
    
    
- *  Create a new global secondary index on the table. Once the index begins
+ &amp;#42;  Create a new global secondary index on the table. Once the index begins
    backfilling, you can use UpdateTable to perform other operations.
    
    
@@ -810,10 +810,10 @@ UpdateTable operation is complete.
 &amp;#42;  S - the attribute is of type String
  
  
-*  N - the attribute is of type Number
+&amp;#42;  N - the attribute is of type Number
  
  
-*  B - the attribute is of type Binary **/
+&amp;#42;  B - the attribute is of type Binary **/
       AttributeType: ScalarAttributeType;
     }
     export interface AttributeValue {
@@ -850,7 +850,7 @@ If an item with the specified Key is found in the table:
  exists, it is replaced by the new value. 
  
  
-*   DELETE - If no value is specified, the attribute and its value are removed
+&amp;#42;   DELETE - If no value is specified, the attribute and its value are removed
  from the item. The data type of the specified value must match the existing
  value&#x27;s data type.
  
@@ -860,11 +860,11 @@ If an item with the specified Key is found in the table:
  Specifying an empty set is an error.
  
  
-*   ADD - If the attribute does not already exist, then the attribute and its
+&amp;#42;   ADD - If the attribute does not already exist, then the attribute and its
  values are added to the item. If the attribute does exist, then the behavior
  of ADD depends on the data type of the attribute:
  
-  *  If the existing attribute is a number, and if Value is also a number, then
+  &amp;#42;  If the existing attribute is a number, and if Value is also a number, then
     the Value is mathematically added to the existing attribute. If Value is a
     negative number, then it is subtracted from the existing attribute.
     
@@ -881,7 +881,7 @@ If an item with the specified Key is found in the table:
     new itemcount attribute in the item, with a value of 3.
     
     
-  *  If the existing data type is a set, and if the Value is also a set, then
+  &amp;#42;  If the existing data type is a set, and if the Value is also a set, then
     the Value is added to the existing set. (This is a set operation, not
     mathematical addition.) For example, if the attribute value was the set 
     [1,2], and the ADD action specified [3], then the final attribute value
@@ -902,14 +902,14 @@ If an item with the specified Key is found in the table:
 
 If no item with the specified Key is found: 
 
-*   PUT - DynamoDB creates a new item with the specified primary key, and then
+&amp;#42;   PUT - DynamoDB creates a new item with the specified primary key, and then
  adds the attribute. 
  
  
-*   DELETE - Nothing happens; there is no attribute to delete.
+&amp;#42;   DELETE - Nothing happens; there is no attribute to delete.
  
  
-*   ADD - DynamoDB creates an item with the supplied primary key and number (or
+&amp;#42;   ADD - DynamoDB creates an item with the supplied primary key and number (or
  set of numbers) for the attribute value. The only data types allowed are
  number and number set; no other data types can be specified. **/
       Action?: AttributeAction;
@@ -925,19 +925,19 @@ Each element in the map of items to retrieve consists of the following:
  default), an eventually consistent read is used.
  
  
-*   ExpressionAttributeNames - One or more substitution tokens for attribute
+&amp;#42;   ExpressionAttributeNames - One or more substitution tokens for attribute
  names in the ProjectionExpression parameter. The following are some use cases
  for using ExpressionAttributeNames:
  
-  *  To access an attribute whose name conflicts with a DynamoDB reserved
+  &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved
     word.
     
     
-  *  To create a placeholder for repeating occurrences of an attribute name in
+  &amp;#42;  To create a placeholder for repeating occurrences of an attribute name in
     an expression.
     
     
-  *  To prevent special characters in an attribute name from being
+  &amp;#42;  To prevent special characters in an attribute name from being
     misinterpreted in an expression.
     
     
@@ -945,7 +945,7 @@ Each element in the map of items to retrieve consists of the following:
  Use the # character in an expression to dereference an attribute name. For
  example, consider the following attribute name:
  
-  *   Percentile 
+  &amp;#42;   Percentile 
     
     
  
@@ -956,13 +956,13 @@ Each element in the map of items to retrieve consists of the following:
  in the Amazon DynamoDB Developer Guide). To work around this, you could
  specify the following for ExpressionAttributeNames:
  
-  *   {&quot;#P&quot;:&quot;Percentile&quot;} 
+  &amp;#42;   {&quot;#P&quot;:&quot;Percentile&quot;} 
     
     
  
  You could then use this substitution in an expression, as in this example:
  
-  *   #P = :val 
+  &amp;#42;   #P = :val 
     
     
  
@@ -975,14 +975,14 @@ Each element in the map of items to retrieve consists of the following:
  in the Amazon DynamoDB Developer Guide.
  
  
-*   Keys - An array of primary key attribute values that define specific items
+&amp;#42;   Keys - An array of primary key attribute values that define specific items
  in the table. For each primary key, you must provide all of the key
  attributes. For example, with a simple primary key, you only need to provide
  the partition key value. For a composite key, you must provide both the
  partition key value and the sort key value.
  
  
-*   ProjectionExpression - A string that identifies one or more attributes to
+&amp;#42;   ProjectionExpression - A string that identifies one or more attributes to
  retrieve from the table. These attributes can include scalars, sets, or
  elements of a JSON document. The attributes in the expression must be
  separated by commas.
@@ -996,7 +996,7 @@ Each element in the map of items to retrieve consists of the following:
  in the Amazon DynamoDB Developer Guide.
  
  
-*   AttributesToGet - 
+&amp;#42;   AttributesToGet - 
  
  This is a legacy parameter, for backward compatibility. New applications
  should use ProjectionExpression instead. Do not combine legacy parameters and
@@ -1032,12 +1032,12 @@ Each element consists of:
  in the table.
  
  
-*   AttributesToGet - One or more attributes to be retrieved from the table or
+&amp;#42;   AttributesToGet - One or more attributes to be retrieved from the table or
  index. By default, all attributes are returned. If a requested attribute is
  not found, it does not appear in the result.
  
  
-*   ConsistentRead - The consistency of a read operation. If set to true, then a
+&amp;#42;   ConsistentRead - The consistency of a read operation. If set to true, then a
  strongly consistent read is used; otherwise, an eventually consistent read is
  used.
  
@@ -1053,7 +1053,7 @@ Each element consists of:
 &amp;#42;   TableName - The table that consumed the provisioned throughput.
  
  
-*   CapacityUnits - The total number of capacity units consumed. **/
+&amp;#42;   CapacityUnits - The total number of capacity units consumed. **/
       ConsumedCapacity?: ConsumedCapacityMultiple;
     }
     export interface BatchWriteItemInput {
@@ -1064,7 +1064,7 @@ following:
 &amp;#42;   DeleteRequest - Perform a DeleteItem operation on the specified item. The
  item to be deleted is identified by a Key subelement:
  
-  *   Key - A map of primary key attribute values that uniquely identify the !
+  &amp;#42;   Key - A map of primary key attribute values that uniquely identify the !
     item. Each entry in this map consists of an attribute name and an
     attribute value. For each primary key, you must provide all of the key
     attributes. For example, with a simple primary key, you only need to
@@ -1074,10 +1074,10 @@ following:
     
  
  
-*   PutRequest - Perform a PutItem operation on the specified item. The item to
+&amp;#42;   PutRequest - Perform a PutItem operation on the specified item. The item to
  be put is identified by an Item subelement:
  
-  *   Item - A map of attributes and their values. Each entry in this map
+  &amp;#42;   Item - A map of attributes and their values. Each entry in this map
     consists of an attribute name and an attribute value. Attribute values
     must not be null; string and binary type attributes must have lengths
     greater than zero; and set type attributes must not be empty. Requests
@@ -1107,17 +1107,17 @@ of operations to perform (DeleteRequest or PutRequest).
 &amp;#42;   DeleteRequest - Perform a DeleteItem operation on the specified item. The
  item to be deleted is identified by a Key subelement:
  
-  *   Key - A map of primary key attribute values that uniquely identify the
+  &amp;#42;   Key - A map of primary key attribute values that uniquely identify the
     item. Each entry in this map consists of an attribute name and an
     attribute value.
     
     
  
  
-*   PutRequest - Perform a PutItem operation on the specified item. The item to
+&amp;#42;   PutRequest - Perform a PutItem operation on the specified item. The item to
  be put is identified by an Item subelement:
  
-  *   Item - A map of attributes and their values. Each entry in this map
+  &amp;#42;   Item - A map of attributes and their values. Each entry in this map
     consists of an attribute name and an attribute value. Attribute values
     must not be null; string and binary type attributes must have lengths
     greater than zero; and set type attributes must not be empty. Requests
@@ -1145,7 +1145,7 @@ Each entry consists of the following subelements:
  the same as the partition key value of the item.
  
  
-*   SizeEstimateRange - An estimate of item collection size, expressed in GB.
+&amp;#42;   SizeEstimateRange - An estimate of item collection size, expressed in GB.
  This is a two-element array containing a lower bound and an upper bound for
  the estimate. The estimate includes the size of all the items in the table,
  plus the size of all attributes projected into all of the local secondary
@@ -1162,7 +1162,7 @@ Each element consists of:
 &amp;#42;   TableName - The table that consumed the provisioned throughput.
  
  
-*   CapacityUnits - The total number of capacity units consumed. **/
+&amp;#42;   CapacityUnits - The total number of capacity units consumed. **/
       ConsumedCapacity?: ConsumedCapacityMultiple;
     }
     export interface Capacity {
@@ -1205,7 +1205,7 @@ The following are descriptions of each comparison operator.
  
  
  
-*   NE : Not equal. NE is supported for all datatypes, including lists and maps.
+&amp;#42;   NE : Not equal. NE is supported for all datatypes, including lists and maps.
  
   AttributeValueList can contain only one AttributeValue of type String,
  Number, Binary, String Set, Number Set, or Binary Set. If an item contains an 
@@ -1216,7 +1216,7 @@ The following are descriptions of each comparison operator.
  
  
  
-*   LE : Less than or equal. 
+&amp;#42;   LE : Less than or equal. 
  
   AttributeValueList can contain only one AttributeValue element of type
  String, Number, or Binary (not a set type). If an item contains an 
@@ -1227,7 +1227,7 @@ The following are descriptions of each comparison operator.
  
  
  
-*   LT : Less than. 
+&amp;#42;   LT : Less than. 
  
   AttributeValueList can contain only one AttributeValue of type String,
  Number, or Binary (not a set type). If an item contains an AttributeValue 
@@ -1238,7 +1238,7 @@ The following are descriptions of each comparison operator.
  
  
  
-*   GE : Greater than or equal. 
+&amp;#42;   GE : Greater than or equal. 
  
   AttributeValueList can contain only one AttributeValue element of type
  String, Number, or Binary (not a set type). If an item contains an 
@@ -1249,7 +1249,7 @@ The following are descriptions of each comparison operator.
  
  
  
-*   GT : Greater than. 
+&amp;#42;   GT : Greater than. 
  
   AttributeValueList can contain only one AttributeValue element of type
  String, Number, or Binary (not a set type). If an item contains an 
@@ -1260,7 +1260,7 @@ The following are descriptions of each comparison operator.
  
  
  
-*   NOT_NULL : The attribute exists. NOT_NULL is supported for all datatypes,
+&amp;#42;   NOT_NULL : The attribute exists. NOT_NULL is supported for all datatypes,
  including lists and maps.
  
  This operator tests for the existence of an attribute, not its data type. If
@@ -1269,7 +1269,7 @@ The following are descriptions of each comparison operator.
  exists; its data type is not relevant to the NOT_NULL comparison operator.
  
  
-*   NULL : The attribute does not exist. NULL is supported for all datatypes,
+&amp;#42;   NULL : The attribute does not exist. NULL is supported for all datatypes,
  including lists and maps.
  
  This operator tests for the nonexistence of an attribute, not its data type.
@@ -1278,7 +1278,7 @@ The following are descriptions of each comparison operator.
  data type is not relevant to the NULL comparison operator.
  
  
-*   CONTAINS : Checks for a subsequence, or value in a set.
+&amp;#42;   CONTAINS : Checks for a subsequence, or value in a set.
  
   AttributeValueList can contain only one AttributeValue element of type
  String, Number, or Binary (not a set type). If the target attribute of the
@@ -1293,7 +1293,7 @@ The following are descriptions of each comparison operator.
  list; however, &quot;b&quot; cannot be a set, a map, or a list.
  
  
-*   NOT_CONTAINS : Checks for absence of a subsequence, or absence of a value in
+&amp;#42;   NOT_CONTAINS : Checks for absence of a subsequence, or absence of a value in
  a set.
  
   AttributeValueList can contain only one AttributeValue element of type
@@ -1309,7 +1309,7 @@ The following are descriptions of each comparison operator.
  can be a list; however, &quot;b&quot; cannot be a set, a map, or a list.
  
  
-*   BEGINS_WITH : Checks for a prefix. 
+&amp;#42;   BEGINS_WITH : Checks for a prefix. 
  
   AttributeValueList can contain only one AttributeValue of type String or
  Binary (not a Number or a set type). The target attribute of the comparison
@@ -1318,7 +1318,7 @@ The following are descriptions of each comparison operator.
  
  
  
-*   IN : Checks for matching elements within two sets.
+&amp;#42;   IN : Checks for matching elements within two sets.
  
   AttributeValueList can contain one or more AttributeValue elements of type
  String, Number, or Binary (not a set type). These attributes are compared
@@ -1327,7 +1327,7 @@ The following are descriptions of each comparison operator.
  true.
  
  
-*   BETWEEN : Greater than or equal to the first value, and less than or equal
+&amp;#42;   BETWEEN : Greater than or equal to the first value, and less than or equal
  to the second value. 
  
   AttributeValueList must contain two AttributeValue elements of the same
@@ -1387,12 +1387,12 @@ Each KeySchemaElement in the array is composed of:
 &amp;#42;   AttributeName - The name of this key attribute.
  
  
-*   KeyType - The role that the key attribute will assume:
+&amp;#42;   KeyType - The role that the key attribute will assume:
  
-  *   HASH - partition key
+  &amp;#42;   HASH - partition key
     
     
-  *   RANGE - sort key
+  &amp;#42;   RANGE - sort key
     
     
  
@@ -1430,31 +1430,31 @@ Each local secondary index in the array includes the following:
  
  
  
-*   KeySchema - Specifies the key schema for the local secondary index. The key
+&amp;#42;   KeySchema - Specifies the key schema for the local secondary index. The key
  schema must begin with the same partition key as the table.
  
  
-*   Projection - Specifies attributes that are copied (projected) from the table
+&amp;#42;   Projection - Specifies attributes that are copied (projected) from the table
  into the index. These are in addition to the primary key attributes and index
  key attributes, which are automatically projected. Each attribute
  specification is composed of:
  
-  *   ProjectionType - One of the following:
+  &amp;#42;   ProjectionType - One of the following:
     
-     *   KEYS_ONLY - Only the index and primary keys are projected into the
+     &amp;#42;   KEYS_ONLY - Only the index and primary keys are projected into the
        index.
        
        
-     *   INCLUDE - Only the specified table attributes are projected into the
+     &amp;#42;   INCLUDE - Only the specified table attributes are projected into the
        index. The list of projected attributes are in NonKeyAttributes.
        
        
-     *   ALL - All of the table attributes are projected into the index.
+     &amp;#42;   ALL - All of the table attributes are projected into the index.
        
        
     
     
-  *   NonKeyAttributes - A list of one or more non-key attribute names that are
+  &amp;#42;   NonKeyAttributes - A list of one or more non-key attribute names that are
     projected into the secondary index. The total count of attributes provided
     in NonKeyAttributes, summed across all of the secondary indexes, must not
     exceed 20. If you project the same attribute into two different indexes,
@@ -1469,30 +1469,30 @@ table. Each global secondary index in the array includes the following:
  
  
  
-*   KeySchema - Specifies the key schema for the global secondary index.
+&amp;#42;   KeySchema - Specifies the key schema for the global secondary index.
  
  
-*   Projection - Specifies attributes that are copied (projected) from the table
+&amp;#42;   Projection - Specifies attributes that are copied (projected) from the table
  into the index. These are in addition to the primary key attributes and index
  key attributes, which are automatically projected. Each attribute
  specification is composed of:
  
-  *   ProjectionType - One of the following:
+  &amp;#42;   ProjectionType - One of the following:
     
-     *   KEYS_ONLY - Only the index and primary keys are projected into the
+     &amp;#42;   KEYS_ONLY - Only the index and primary keys are projected into the
        index.
        
        
-     *   INCLUDE - Only the specified table attributes are projected into the
+     &amp;#42;   INCLUDE - Only the specified table attributes are projected into the
        index. The list of projected attributes are in NonKeyAttributes.
        
        
-     *   ALL - All of the table attributes are projected into the index.
+     &amp;#42;   ALL - All of the table attributes are projected into the index.
        
        
     
     
-  *   NonKeyAttributes - A list of one or more non-key attribute names that are
+  &amp;#42;   NonKeyAttributes - A list of one or more non-key attribute names that are
     projected into the secondary index. The total count of attributes provided
     in NonKeyAttributes, summed across all of the secondary indexes, must not
     exceed 20. If you project the same attribute into two different indexes,
@@ -1501,7 +1501,7 @@ table. Each global secondary index in the array includes the following:
     
  
  
-*   ProvisionedThroughput - The provisioned throughput settings for the global
+&amp;#42;   ProvisionedThroughput - The provisioned throughput settings for the global
  secondary index, consisting of read and write capacity units. **/
       GlobalSecondaryIndexes?: GlobalSecondaryIndexList;
       ProvisionedThroughput: ProvisionedThroughput;
@@ -1511,23 +1511,23 @@ table. Each global secondary index in the array includes the following:
  disabled (false).
  
  
-*   StreamViewType - When an item in the table is modified, StreamViewType 
+&amp;#42;   StreamViewType - When an item in the table is modified, StreamViewType 
  determines what information is written to the table&#x27;s stream. Valid values
  for StreamViewType are:
  
-  *   KEYS_ONLY - Only the key attributes of the modified item are written to
+  &amp;#42;   KEYS_ONLY - Only the key attributes of the modified item are written to
     the stream.
     
     
-  *   NEW_IMAGE - The entire item, as it appears after it was modified, is
+  &amp;#42;   NEW_IMAGE - The entire item, as it appears after it was modified, is
     written to the stream.
     
     
-  *   OLD_IMAGE - The entire item, as it appeared before it was modified, is
+  &amp;#42;   OLD_IMAGE - The entire item, as it appeared before it was modified, is
     written to the stream.
     
     
-  *   NEW_AND_OLD_IMAGES - Both the new and the old item images of the item are
+  &amp;#42;   NEW_AND_OLD_IMAGES - Both the new and the old item images of the item are
     written to the stream. **/
       StreamSpecification?: StreamSpecification;
     }
@@ -1589,7 +1589,7 @@ Expected contains the following:
  when it compares binary values.
  
  
-*   ComparisonOperator - A comparator for evaluating attributes in the 
+&amp;#42;   ComparisonOperator - A comparator for evaluating attributes in the 
  AttributeValueList. When performing the comparison, DynamoDB uses strongly
  consistent reads.
  
@@ -1600,7 +1600,7 @@ Expected contains the following:
  
  The following are descriptions of each comparison operator.
  
-  *   EQ : Equal. EQ is supported for all datatypes, including lists and maps.
+  &amp;#42;   EQ : Equal. EQ is supported for all datatypes, including lists and maps.
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, Binary, String Set, Number Set, or Binary Set. If an item
@@ -1612,7 +1612,7 @@ Expected contains the following:
     
     
     
-  *   NE : Not equal. NE is supported for all datatypes, including lists and
+  &amp;#42;   NE : Not equal. NE is supported for all datatypes, including lists and
     maps.
     
      AttributeValueList can contain only one AttributeValue of type String,
@@ -1624,7 +1624,7 @@ Expected contains the following:
     
     
     
-  *   LE : Less than or equal. 
+  &amp;#42;   LE : Less than or equal. 
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If an item contains an 
@@ -1635,7 +1635,7 @@ Expected contains the following:
     
     
     
-  *   LT : Less than. 
+  &amp;#42;   LT : Less than. 
     
      AttributeValueList can contain only one AttributeValue of type String,
     Number, or Binary (not a set type). If an item contains an AttributeValue 
@@ -1646,7 +1646,7 @@ Expected contains the following:
     
     
     
-  *   GE : Greater than or equal. 
+  &amp;#42;   GE : Greater than or equal. 
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If an item contains an 
@@ -1657,7 +1657,7 @@ Expected contains the following:
     
     
     
-  *   GT : Greater than. 
+  &amp;#42;   GT : Greater than. 
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If an item contains an 
@@ -1668,7 +1668,7 @@ Expected contains the following:
     
     
     
-  *   NOT_NULL : The attribute exists. NOT_NULL is supported for all datatypes,
+  &amp;#42;   NOT_NULL : The attribute exists. NOT_NULL is supported for all datatypes,
     including lists and maps.
     
     This operator tests for the existence of an attribute, not its data type.
@@ -1678,7 +1678,7 @@ Expected contains the following:
     comparison operator.
     
     
-  *   NULL : The attribute does not exist. NULL is supported for all datatypes,
+  &amp;#42;   NULL : The attribute does not exist. NULL is supported for all datatypes,
     including lists and maps.
     
     This operator tests for the nonexistence of an attribute, not its data
@@ -1687,7 +1687,7 @@ Expected contains the following:
     exists; its data type is not relevant to the NULL comparison operator.
     
     
-  *   CONTAINS : Checks for a subsequence, or value in a set.
+  &amp;#42;   CONTAINS : Checks for a subsequence, or value in a set.
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If the target attribute of the
@@ -1702,7 +1702,7 @@ Expected contains the following:
     be a list; however, &quot;b&quot; cannot be a set, a map, or a list.
     
     
-  *   NOT_CONTAINS : Checks for absence of a subsequence, or absence of a value
+  &amp;#42;   NOT_CONTAINS : Checks for absence of a subsequence, or absence of a value
     in a set.
     
      AttributeValueList can contain only one AttributeValue element of type
@@ -1718,7 +1718,7 @@ Expected contains the following:
     a&quot; can be a list; however, &quot;b&quot; cannot be a set, a map, or a list.
     
     
-  *   BEGINS_WITH : Checks for a prefix. 
+  &amp;#42;   BEGINS_WITH : Checks for a prefix. 
     
      AttributeValueList can contain only one AttributeValue of type String or
     Binary (not a Number or a set type). The target attribute of the
@@ -1727,7 +1727,7 @@ Expected contains the following:
     
     
     
-  *   IN : Checks for matching elements within two sets.
+  &amp;#42;   IN : Checks for matching elements within two sets.
     
      AttributeValueList can contain one or more AttributeValue elements of
     type String, Number, or Binary (not a set type). These attributes are
@@ -1736,7 +1736,7 @@ Expected contains the following:
     expression evaluates to true.
     
     
-  *   BETWEEN : Greater than or equal to the first value, and less than or
+  &amp;#42;   BETWEEN : Greater than or equal to the first value, and less than or
     equal to the second value. 
     
      AttributeValueList must contain two AttributeValue elements of the same
@@ -1760,18 +1760,18 @@ in the Amazon DynamoDB Developer Guide.
 For backward compatibility with previous DynamoDB releases, the following
 parameters can be used instead of AttributeValueList and ComparisonOperator:
 
-*   Value - A value for DynamoDB to compare with an attribute.
+&amp;#42;   Value - A value for DynamoDB to compare with an attribute.
  
  
-*   Exists - A Boolean value that causes DynamoDB to evaluate the value before
+&amp;#42;   Exists - A Boolean value that causes DynamoDB to evaluate the value before
  attempting the conditional operation:
  
-  *  If Exists is true, DynamoDB will check to see if that attribute value
+  &amp;#42;  If Exists is true, DynamoDB will check to see if that attribute value
     already exists in the table. If it is found, then the condition evaluates
     to true; otherwise the condition evaluate to false.
     
     
-  *  If Exists is false, DynamoDB assumes that the attribute value does not 
+  &amp;#42;  If Exists is false, DynamoDB assumes that the attribute value does not 
     exist in the table. If in fact the value does not exist, then the
     assumption is valid and the condition evaluates to true. If the value is
     found, despite the assumption that it does not exist, the condition
@@ -1800,7 +1800,7 @@ A logical operator to apply to the conditions in the Expected map:
  evaluates to true.
  
  
-*   OR - If at least one of the conditions evaluate to true, then the entire map
+&amp;#42;   OR - If at least one of the conditions evaluate to true, then the entire map
  evaluates to true.
  
  
@@ -1818,7 +1818,7 @@ they were deleted. For DeleteItem, the valid values are:
  nothing is returned. (This setting is the default for ReturnValues.)
  
  
-*   ALL_OLD - The content of the old item is returned.
+&amp;#42;   ALL_OLD - The content of the old item is returned.
  
  
 
@@ -1842,11 +1842,11 @@ An expression can contain any of the following:
  These function names are case-sensitive.
  
  
-*  Comparison operators: = | &amp;#x3C;&amp;#x3E; | &amp;#x3C; | &amp;#x3E; | &amp;#x3C;= | &amp;#x3E;=
+&amp;#42;  Comparison operators: = | &amp;#x3C;&amp;#x3E; | &amp;#x3C; | &amp;#x3E; | &amp;#x3C;= | &amp;#x3E;=
  | BETWEEN | IN 
  
  
-*   Logical operators: AND | OR | NOT 
+&amp;#42;   Logical operators: AND | OR | NOT 
  
  
 
@@ -1863,11 +1863,11 @@ following are some use cases for using ExpressionAttributeNames:
 &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved word.
  
  
-*  To create a placeholder for repeating occurrences of an attribute name in an
+&amp;#42;  To create a placeholder for repeating occurrences of an attribute name in an
  expression.
  
  
-*  To prevent special characters in an attribute name from being misinterpreted
+&amp;#42;  To prevent special characters in an attribute name from being misinterpreted
  in an expression.
  
  
@@ -1875,7 +1875,7 @@ following are some use cases for using ExpressionAttributeNames:
 Use the # character in an expression to dereference an attribute name. For
 example, consider the following attribute name:
 
-*   Percentile 
+&amp;#42;   Percentile 
  
  
 
@@ -1886,13 +1886,13 @@ Reserved Words
 in the Amazon DynamoDB Developer Guide). To work around this, you could specify
 the following for ExpressionAttributeNames:
 
-*   {&quot;#P&quot;:&quot;Percentile&quot;} 
+&amp;#42;   {&quot;#P&quot;:&quot;Percentile&quot;} 
  
  
 
 You could then use this substitution in an expression, as in this example:
 
-*   #P = :val 
+&amp;#42;   #P = :val 
  
  
 
@@ -1943,7 +1943,7 @@ Each ItemCollectionMetrics element consists of:
  the same as the partition key value of the item itself.
  
  
-*   SizeEstimateRange - An estimate of item collection size, in gigabytes. This
+&amp;#42;   SizeEstimateRange - An estimate of item collection size, in gigabytes. This
  value is a two-element array containing a lower bound and an upper bound for
  the estimate. The estimate includes the size of all the items in the table,
  plus the size of all attributes projected into all of the local secondary
@@ -2001,7 +2001,7 @@ units provisioned for its global secondary indexes (GSIs). **/
  not found, the operation fails with a ConditionalCheckFailedException.
  
  
-*  If Exists is false, DynamoDB assumes that the attribute value does not exist
+&amp;#42;  If Exists is false, DynamoDB assumes that the attribute value does not exist
  in the table. If in fact the value does not exist, then the assumption is
  valid and the operation succeeds. If the value is found, despite the
  assumption that it does not exist, the operation fails with a 
@@ -2015,11 +2015,11 @@ because it is implied.
 
 DynamoDB returns a ValidationException if:
 
-*   Exists is true but there is no Value to check. (You expect a value to exist,
+&amp;#42;   Exists is true but there is no Value to check. (You expect a value to exist,
  but don&#x27;t specify what that value is.)
  
  
-*   Exists is false but you also provide a Value. (You cannot expect an
+&amp;#42;   Exists is false but you also provide a Value. (You cannot expect an
  attribute to have a value, while also expecting it not to exist.) **/
       Exists?: BooleanObject;
       /** A comparator for evaluating attributes in the AttributeValueList. For example,
@@ -2043,7 +2043,7 @@ The following are descriptions of each comparison operator.
  
  
  
-*   NE : Not equal. NE is supported for all datatypes, including lists and maps.
+&amp;#42;   NE : Not equal. NE is supported for all datatypes, including lists and maps.
  
   AttributeValueList can contain only one AttributeValue of type String,
  Number, Binary, String Set, Number Set, or Binary Set. If an item contains an 
@@ -2054,7 +2054,7 @@ The following are descriptions of each comparison operator.
  
  
  
-*   LE : Less than or equal. 
+&amp;#42;   LE : Less than or equal. 
  
   AttributeValueList can contain only one AttributeValue element of type
  String, Number, or Binary (not a set type). If an item contains an 
@@ -2065,7 +2065,7 @@ The following are descriptions of each comparison operator.
  
  
  
-*   LT : Less than. 
+&amp;#42;   LT : Less than. 
  
   AttributeValueList can contain only one AttributeValue of type String,
  Number, or Binary (not a set type). If an item contains an AttributeValue 
@@ -2076,7 +2076,7 @@ The following are descriptions of each comparison operator.
  
  
  
-*   GE : Greater than or equal. 
+&amp;#42;   GE : Greater than or equal. 
  
   AttributeValueList can contain only one AttributeValue element of type
  String, Number, or Binary (not a set type). If an item contains an 
@@ -2087,7 +2087,7 @@ The following are descriptions of each comparison operator.
  
  
  
-*   GT : Greater than. 
+&amp;#42;   GT : Greater than. 
  
   AttributeValueList can contain only one AttributeValue element of type
  String, Number, or Binary (not a set type). If an item contains an 
@@ -2098,7 +2098,7 @@ The following are descriptions of each comparison operator.
  
  
  
-*   NOT_NULL : The attribute exists. NOT_NULL is supported for all datatypes,
+&amp;#42;   NOT_NULL : The attribute exists. NOT_NULL is supported for all datatypes,
  including lists and maps.
  
  This operator tests for the existence of an attribute, not its data type. If
@@ -2107,7 +2107,7 @@ The following are descriptions of each comparison operator.
  exists; its data type is not relevant to the NOT_NULL comparison operator.
  
  
-*   NULL : The attribute does not exist. NULL is supported for all datatypes,
+&amp;#42;   NULL : The attribute does not exist. NULL is supported for all datatypes,
  including lists and maps.
  
  This operator tests for the nonexistence of an attribute, not its data type.
@@ -2116,7 +2116,7 @@ The following are descriptions of each comparison operator.
  data type is not relevant to the NULL comparison operator.
  
  
-*   CONTAINS : Checks for a subsequence, or value in a set.
+&amp;#42;   CONTAINS : Checks for a subsequence, or value in a set.
  
   AttributeValueList can contain only one AttributeValue element of type
  String, Number, or Binary (not a set type). If the target attribute of the
@@ -2131,7 +2131,7 @@ The following are descriptions of each comparison operator.
  list; however, &quot;b&quot; cannot be a set, a map, or a list.
  
  
-*   NOT_CONTAINS : Checks for absence of a subsequence, or absence of a value in
+&amp;#42;   NOT_CONTAINS : Checks for absence of a subsequence, or absence of a value in
  a set.
  
   AttributeValueList can contain only one AttributeValue element of type
@@ -2147,7 +2147,7 @@ The following are descriptions of each comparison operator.
  can be a list; however, &quot;b&quot; cannot be a set, a map, or a list.
  
  
-*   BEGINS_WITH : Checks for a prefix. 
+&amp;#42;   BEGINS_WITH : Checks for a prefix. 
  
   AttributeValueList can contain only one AttributeValue of type String or
  Binary (not a Number or a set type). The target attribute of the comparison
@@ -2156,7 +2156,7 @@ The following are descriptions of each comparison operator.
  
  
  
-*   IN : Checks for matching elements within two sets.
+&amp;#42;   IN : Checks for matching elements within two sets.
  
   AttributeValueList can contain one or more AttributeValue elements of type
  String, Number, or Binary (not a set type). These attributes are compared
@@ -2165,7 +2165,7 @@ The following are descriptions of each comparison operator.
  true.
  
  
-*   BETWEEN : Greater than or equal to the first value, and less than or equal
+&amp;#42;   BETWEEN : Greater than or equal to the first value, and less than or equal
  to the second value. 
  
   AttributeValueList must contain two AttributeValue elements of the same
@@ -2247,11 +2247,11 @@ following are some use cases for using ExpressionAttributeNames:
 &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved word.
  
  
-*  To create a placeholder for repeating occurrences of an attribute name in an
+&amp;#42;  To create a placeholder for repeating occurrences of an attribute name in an
  expression.
  
  
-*  To prevent special characters in an attribute name from being misinterpreted
+&amp;#42;  To prevent special characters in an attribute name from being misinterpreted
  in an expression.
  
  
@@ -2259,7 +2259,7 @@ following are some use cases for using ExpressionAttributeNames:
 Use the # character in an expression to dereference an attribute name. For
 example, consider the following attribute name:
 
-*   Percentile 
+&amp;#42;   Percentile 
  
  
 
@@ -2270,13 +2270,13 @@ Reserved Words
 in the Amazon DynamoDB Developer Guide). To work around this, you could specify
 the following for ExpressionAttributeNames:
 
-*   {&quot;#P&quot;:&quot;Percentile&quot;} 
+&amp;#42;   {&quot;#P&quot;:&quot;Percentile&quot;} 
  
  
 
 You could then use this substitution in an expression, as in this example:
 
-*   #P = :val 
+&amp;#42;   #P = :val 
  
  
 
@@ -2305,7 +2305,7 @@ more pairs of attribute names and key types:
 &amp;#42;   HASH - partition key
  
  
-*   RANGE - sort key
+&amp;#42;   RANGE - sort key
  
  
 
@@ -2329,7 +2329,7 @@ more pairs of attribute names and key types:
 &amp;#42;   HASH - partition key
  
  
-*   RANGE - sort key
+&amp;#42;   RANGE - sort key
  
  
 
@@ -2347,13 +2347,13 @@ key physically close together, in sorted order by the sort key value. **/
 &amp;#42;   CREATING - The index is being created.
  
  
-*   UPDATING - The index is being updated.
+&amp;#42;   UPDATING - The index is being updated.
  
  
-*   DELETING - The index is being deleted.
+&amp;#42;   DELETING - The index is being deleted.
  
  
-*   ACTIVE - The index is ready for use. **/
+&amp;#42;   ACTIVE - The index is ready for use. **/
       IndexStatus?: IndexStatus;
       /** Indicates whether the index is currently backfilling. Backfilling is the process
 of reading items from the table and determining whether they can be added to the
@@ -2387,16 +2387,16 @@ table:
 &amp;#42;   IndexName 
  
  
-*   KeySchema 
+&amp;#42;   KeySchema 
  
  
-*   AttributeDefinitions 
+&amp;#42;   AttributeDefinitions 
  
  
-*   Projection 
+&amp;#42;   Projection 
  
  
-*   ProvisionedThroughput **/
+&amp;#42;   ProvisionedThroughput **/
       Create?: CreateGlobalSecondaryIndexAction;
       /** The name of an existing global secondary index to be removed. **/
       Delete?: DeleteGlobalSecondaryIndexAction;
@@ -2433,7 +2433,7 @@ gigabytes. **/
 &amp;#42;   HASH - partition key
  
  
-*   RANGE - sort key
+&amp;#42;   RANGE - sort key
  
  
 
@@ -2477,11 +2477,11 @@ following are some use cases for using ExpressionAttributeNames:
 &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved word.
  
  
-*  To create a placeholder for repeating occurrences of an attribute name in an
+&amp;#42;  To create a placeholder for repeating occurrences of an attribute name in an
  expression.
  
  
-*  To prevent special characters in an attribute name from being misinterpreted
+&amp;#42;  To prevent special characters in an attribute name from being misinterpreted
  in an expression.
  
  
@@ -2489,7 +2489,7 @@ following are some use cases for using ExpressionAttributeNames:
 Use the # character in an expression to dereference an attribute name. For
 example, consider the following attribute name:
 
-*   Percentile 
+&amp;#42;   Percentile 
  
  
 
@@ -2500,13 +2500,13 @@ Reserved Words
 in the Amazon DynamoDB Developer Guide). To work around this, you could specify
 the following for ExpressionAttributeNames:
 
-*   {&quot;#P&quot;:&quot;Percentile&quot;} 
+&amp;#42;   {&quot;#P&quot;:&quot;Percentile&quot;} 
  
  
 
 You could then use this substitution in an expression, as in this example:
 
-*   #P = :val 
+&amp;#42;   #P = :val 
  
  
 
@@ -2558,7 +2558,7 @@ pairs of attribute names and key types:
 &amp;#42;   HASH - partition key
  
  
-*   RANGE - sort key
+&amp;#42;   RANGE - sort key
  
  
 
@@ -2581,7 +2581,7 @@ pairs of attribute names and key types:
 &amp;#42;   HASH - partition key
  
  
-*   RANGE - sort key
+&amp;#42;   RANGE - sort key
  
  
 
@@ -2611,11 +2611,11 @@ value. **/
 &amp;#42;   KEYS_ONLY - Only the index and primary keys are projected into the index.
  
  
-*   INCLUDE - Only the specified table attributes are projected into the index.
+&amp;#42;   INCLUDE - Only the specified table attributes are projected into the index.
  The list of projected attributes are in NonKeyAttributes.
  
  
-*   ALL - All of the table attributes are projected into the index. **/
+&amp;#42;   ALL - All of the table attributes are projected into the index. **/
       ProjectionType?: ProjectionType;
       /** Represents the non-key attribute names which will be projected into the index.
 
@@ -2727,7 +2727,7 @@ Expected contains the following:
  when it compares binary values.
  
  
-*   ComparisonOperator - A comparator for evaluating attributes in the 
+&amp;#42;   ComparisonOperator - A comparator for evaluating attributes in the 
  AttributeValueList. When performing the comparison, DynamoDB uses strongly
  consistent reads.
  
@@ -2738,7 +2738,7 @@ Expected contains the following:
  
  The following are descriptions of each comparison operator.
  
-  *   EQ : Equal. EQ is supported for all datatypes, including lists and maps.
+  &amp;#42;   EQ : Equal. EQ is supported for all datatypes, including lists and maps.
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, Binary, String Set, Number Set, or Binary Set. If an item
@@ -2750,7 +2750,7 @@ Expected contains the following:
     
     
     
-  *   NE : Not equal. NE is supported for all datatypes, including lists and
+  &amp;#42;   NE : Not equal. NE is supported for all datatypes, including lists and
     maps.
     
      AttributeValueList can contain only one AttributeValue of type String,
@@ -2762,7 +2762,7 @@ Expected contains the following:
     
     
     
-  *   LE : Less than or equal. 
+  &amp;#42;   LE : Less than or equal. 
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If an item contains an 
@@ -2773,7 +2773,7 @@ Expected contains the following:
     
     
     
-  *   LT : Less than. 
+  &amp;#42;   LT : Less than. 
     
      AttributeValueList can contain only one AttributeValue of type String,
     Number, or Binary (not a set type). If an item contains an AttributeValue 
@@ -2784,7 +2784,7 @@ Expected contains the following:
     
     
     
-  *   GE : Greater than or equal. 
+  &amp;#42;   GE : Greater than or equal. 
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If an item contains an 
@@ -2795,7 +2795,7 @@ Expected contains the following:
     
     
     
-  *   GT : Greater than. 
+  &amp;#42;   GT : Greater than. 
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If an item contains an 
@@ -2806,7 +2806,7 @@ Expected contains the following:
     
     
     
-  *   NOT_NULL : The attribute exists. NOT_NULL is supported for all datatypes,
+  &amp;#42;   NOT_NULL : The attribute exists. NOT_NULL is supported for all datatypes,
     including lists and maps.
     
     This operator tests for the existence of an attribute, not its data type.
@@ -2816,7 +2816,7 @@ Expected contains the following:
     comparison operator.
     
     
-  *   NULL : The attribute does not exist. NULL is supported for all datatypes,
+  &amp;#42;   NULL : The attribute does not exist. NULL is supported for all datatypes,
     including lists and maps.
     
     This operator tests for the nonexistence of an attribute, not its data
@@ -2825,7 +2825,7 @@ Expected contains the following:
     exists; its data type is not relevant to the NULL comparison operator.
     
     
-  *   CONTAINS : Checks for a subsequence, or value in a set.
+  &amp;#42;   CONTAINS : Checks for a subsequence, or value in a set.
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If the target attribute of the
@@ -2840,7 +2840,7 @@ Expected contains the following:
     be a list; however, &quot;b&quot; cannot be a set, a map, or a list.
     
     
-  *   NOT_CONTAINS : Checks for absence of a subsequence, or absence of a value
+  &amp;#42;   NOT_CONTAINS : Checks for absence of a subsequence, or absence of a value
     in a set.
     
      AttributeValueList can contain only one AttributeValue element of type
@@ -2856,7 +2856,7 @@ Expected contains the following:
     a&quot; can be a list; however, &quot;b&quot; cannot be a set, a map, or a list.
     
     
-  *   BEGINS_WITH : Checks for a prefix. 
+  &amp;#42;   BEGINS_WITH : Checks for a prefix. 
     
      AttributeValueList can contain only one AttributeValue of type String or
     Binary (not a Number or a set type). The target attribute of the
@@ -2865,7 +2865,7 @@ Expected contains the following:
     
     
     
-  *   IN : Checks for matching elements within two sets.
+  &amp;#42;   IN : Checks for matching elements within two sets.
     
      AttributeValueList can contain one or more AttributeValue elements of
     type String, Number, or Binary (not a set type). These attributes are
@@ -2874,7 +2874,7 @@ Expected contains the following:
     expression evaluates to true.
     
     
-  *   BETWEEN : Greater than or equal to the first value, and less than or
+  &amp;#42;   BETWEEN : Greater than or equal to the first value, and less than or
     equal to the second value. 
     
      AttributeValueList must contain two AttributeValue elements of the same
@@ -2898,18 +2898,18 @@ in the Amazon DynamoDB Developer Guide.
 For backward compatibility with previous DynamoDB releases, the following
 parameters can be used instead of AttributeValueList and ComparisonOperator:
 
-*   Value - A value for DynamoDB to compare with an attribute.
+&amp;#42;   Value - A value for DynamoDB to compare with an attribute.
  
  
-*   Exists - A Boolean value that causes DynamoDB to evaluate the value before
+&amp;#42;   Exists - A Boolean value that causes DynamoDB to evaluate the value before
  attempting the conditional operation:
  
-  *  If Exists is true, DynamoDB will check to see if that attribute value
+  &amp;#42;  If Exists is true, DynamoDB will check to see if that attribute value
     already exists in the table. If it is found, then the condition evaluates
     to true; otherwise the condition evaluate to false.
     
     
-  *  If Exists is false, DynamoDB assumes that the attribute value does not 
+  &amp;#42;  If Exists is false, DynamoDB assumes that the attribute value does not 
     exist in the table. If in fact the value does not exist, then the
     assumption is valid and the condition evaluates to true. If the value is
     found, despite the assumption that it does not exist, the condition
@@ -2932,7 +2932,7 @@ they were updated with the PutItem request. For PutItem, the valid values are:
  nothing is returned. (This setting is the default for ReturnValues.)
  
  
-*   ALL_OLD - If PutItem overwrote an attribute name-value pair, then the
+&amp;#42;   ALL_OLD - If PutItem overwrote an attribute name-value pair, then the
  content of the old item is returned.
  
  
@@ -2957,7 +2957,7 @@ A logical operator to apply to the conditions in the Expected map:
  evaluates to true.
  
  
-*   OR - If at least one of the conditions evaluate to true, then the entire map
+&amp;#42;   OR - If at least one of the conditions evaluate to true, then the entire map
  evaluates to true.
  
  
@@ -2979,11 +2979,11 @@ An expression can contain any of the following:
  These function names are case-sensitive.
  
  
-*  Comparison operators: = | &amp;#x3C;&amp;#x3E; | &amp;#x3C; | &amp;#x3E; | &amp;#x3C;= | &amp;#x3E;=
+&amp;#42;  Comparison operators: = | &amp;#x3C;&amp;#x3E; | &amp;#x3C; | &amp;#x3E; | &amp;#x3C;= | &amp;#x3E;=
  | BETWEEN | IN 
  
  
-*   Logical operators: AND | OR | NOT 
+&amp;#42;   Logical operators: AND | OR | NOT 
  
  
 
@@ -3000,11 +3000,11 @@ following are some use cases for using ExpressionAttributeNames:
 &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved word.
  
  
-*  To create a placeholder for repeating occurrences of an attribute name in an
+&amp;#42;  To create a placeholder for repeating occurrences of an attribute name in an
  expression.
  
  
-*  To prevent special characters in an attribute name from being misinterpreted
+&amp;#42;  To prevent special characters in an attribute name from being misinterpreted
  in an expression.
  
  
@@ -3012,7 +3012,7 @@ following are some use cases for using ExpressionAttributeNames:
 Use the # character in an expression to dereference an attribute name. For
 example, consider the following attribute name:
 
-*   Percentile 
+&amp;#42;   Percentile 
  
  
 
@@ -3023,13 +3023,13 @@ Reserved Words
 in the Amazon DynamoDB Developer Guide). To work around this, you could specify
 the following for ExpressionAttributeNames:
 
-*   {&quot;#P&quot;:&quot;Percentile&quot;} 
+&amp;#42;   {&quot;#P&quot;:&quot;Percentile&quot;} 
  
  
 
 You could then use this substitution in an expression, as in this example:
 
-*   #P = :val 
+&amp;#42;   #P = :val 
  
  
 
@@ -3080,7 +3080,7 @@ Each ItemCollectionMetrics element consists of:
  the same as the partition key value of the item itself.
  
  
-*   SizeEstimateRange - An estimate of item collection size, in gigabytes. This
+&amp;#42;   SizeEstimateRange - An estimate of item collection size, in gigabytes. This
  value is a two-element array containing a lower bound and an upper bound for
  the estimate. The estimate includes the size of all the items in the table,
  plus the size of all attributes projected into all of the local secondary
@@ -3117,17 +3117,17 @@ case of an index, some or all of the attributes projected into the index.
  can be obtained from the local secondary index, and no fetching is required.
  
  
-*   ALL_PROJECTED_ATTRIBUTES - Allowed only when querying an index. Retrieves
+&amp;#42;   ALL_PROJECTED_ATTRIBUTES - Allowed only when querying an index. Retrieves
  all attributes that have been projected into the index. If the index is
  configured to project all attributes, this return value is equivalent to
  specifying ALL_ATTRIBUTES.
  
  
-*   COUNT - Returns the number of matching items, rather than the matching items
+&amp;#42;   COUNT - Returns the number of matching items, rather than the matching items
  themselves.
  
  
-*   SPECIFIC_ATTRIBUTES - Returns only the attributes listed in AttributesToGet.
+&amp;#42;   SPECIFIC_ATTRIBUTES - Returns only the attributes listed in AttributesToGet.
  This return value is equivalent to specifying AttributesToGet without
  specifying any value for Select.
  
@@ -3240,7 +3240,7 @@ the following:
  compares binary values.
  
  
-*   ComparisonOperator - A comparator for evaluating attributes, for example,
+&amp;#42;   ComparisonOperator - A comparator for evaluating attributes, for example,
  equals, greater than, less than, and so on.
  
  For KeyConditions, only the following comparison operators are supported:
@@ -3249,7 +3249,7 @@ the following:
  
  The following are descriptions of these comparison operators.
  
-  *   EQ : Equal. 
+  &amp;#42;   EQ : Equal. 
     
      AttributeValueList can contain only one AttributeValue of type String,
     Number, or Binary (not a set type). If an item contains an AttributeValue 
@@ -3260,7 +3260,7 @@ the following:
     
     
     
-  *   LE : Less than or equal. 
+  &amp;#42;   LE : Less than or equal. 
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If an item contains an 
@@ -3271,7 +3271,7 @@ the following:
     
     
     
-  *   LT : Less than. 
+  &amp;#42;   LT : Less than. 
     
      AttributeValueList can contain only one AttributeValue of type String,
     Number, or Binary (not a set type). If an item contains an AttributeValue 
@@ -3282,7 +3282,7 @@ the following:
     
     
     
-  *   GE : Greater than or equal. 
+  &amp;#42;   GE : Greater than or equal. 
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If an item contains an 
@@ -3293,7 +3293,7 @@ the following:
     
     
     
-  *   GT : Greater than. 
+  &amp;#42;   GT : Greater than. 
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If an item contains an 
@@ -3304,7 +3304,7 @@ the following:
     
     
     
-  *   BEGINS_WITH : Checks for a prefix. 
+  &amp;#42;   BEGINS_WITH : Checks for a prefix. 
     
      AttributeValueList can contain only one AttributeValue of type String or
     Binary (not a Number or a set type). The target attribute of the
@@ -3313,7 +3313,7 @@ the following:
     
     
     
-  *   BETWEEN : Greater than or equal to the first value, and less than or
+  &amp;#42;   BETWEEN : Greater than or equal to the first value, and less than or
     equal to the second value. 
     
      AttributeValueList must contain two AttributeValue elements of the same
@@ -3379,7 +3379,7 @@ the following:
  in the Amazon DynamoDB Developer Guide.
  
  
-*   ComparisonOperator - A comparator for evaluating attributes. For example,
+&amp;#42;   ComparisonOperator - A comparator for evaluating attributes. For example,
  equals, greater than, less than, etc.
  
  The following comparison operators are available:
@@ -3402,7 +3402,7 @@ A logical operator to apply to the conditions in a QueryFilter map:
  evaluates to true.
  
  
-*   OR - If at least one of the conditions evaluate to true, then the entire map
+&amp;#42;   OR - If at least one of the conditions evaluate to true, then the entire map
  evaluates to true.
  
  
@@ -3488,28 +3488,28 @@ Valid comparisons for the sort key condition are as follows:
  :sortkeyval.
  
  
-*   sortKeyName &lt; :sortkeyval - true if the sort key value is less than 
+&amp;#42;   sortKeyName &lt; :sortkeyval - true if the sort key value is less than 
  :sortkeyval.
  
  
-*   sortKeyName &lt;= :sortkeyval - true if the sort key value is less than or
+&amp;#42;   sortKeyName &lt;= :sortkeyval - true if the sort key value is less than or
  equal to :sortkeyval.
  
  
-*   sortKeyName &gt; :sortkeyval - true if the sort key value is greater than 
+&amp;#42;   sortKeyName &gt; :sortkeyval - true if the sort key value is greater than 
  :sortkeyval.
  
  
-*   sortKeyName &gt;= :sortkeyval - true if the sort key value is greater than or
+&amp;#42;   sortKeyName &gt;= :sortkeyval - true if the sort key value is greater than or
  equal to :sortkeyval.
  
  
-*   sortKeyName BETWEEN :sortkeyval1 AND :sortkeyval2 - true if the sort key
+&amp;#42;   sortKeyName BETWEEN :sortkeyval1 AND :sortkeyval2 - true if the sort key
  value is greater than or equal to :sortkeyval1, and less than or equal to 
  :sortkeyval2.
  
  
-*   begins_with ( sortKeyName, :sortkeyval ) - true if the sort key value begins
+&amp;#42;   begins_with ( sortKeyName, :sortkeyval ) - true if the sort key value begins
  with a particular operand. (You cannot use this function with a sort key that
  is of type Number.) Note that the function name begins_with is
  case-sensitive.
@@ -3525,14 +3525,14 @@ might be necessary if an attribute name conflicts with a DynamoDB reserved word.
 For example, the following KeyConditionExpression parameter causes an error
 because Size is a reserved word:
 
-*  Size = :myval 
+&amp;#42;  Size = :myval 
  
  
 
 To work around this, define a placeholder (such a #S) to represent the attribute
 name Size. KeyConditionExpression then is as follows:
 
-*  #S = :myval 
+&amp;#42;  #S = :myval 
  
  
 
@@ -3553,11 +3553,11 @@ following are some use cases for using ExpressionAttributeNames:
 &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved word.
  
  
-*  To create a placeholder for repeating occurrences of an attribute name in an
+&amp;#42;  To create a placeholder for repeating occurrences of an attribute name in an
  expression.
  
  
-*  To prevent special characters in an attribute name from being misinterpreted
+&amp;#42;  To prevent special characters in an attribute name from being misinterpreted
  in an expression.
  
  
@@ -3565,7 +3565,7 @@ following are some use cases for using ExpressionAttributeNames:
 Use the # character in an expression to dereference an attribute name. For
 example, consider the following attribute name:
 
-*   Percentile 
+&amp;#42;   Percentile 
  
  
 
@@ -3576,13 +3576,13 @@ Reserved Words
 in the Amazon DynamoDB Developer Guide). To work around this, you could specify
 the following for ExpressionAttributeNames:
 
-*   {&quot;#P&quot;:&quot;Percentile&quot;} 
+&amp;#42;   {&quot;#P&quot;:&quot;Percentile&quot;} 
  
  
 
 You could then use this substitution in an expression, as in this example:
 
-*   #P = :val 
+&amp;#42;   #P = :val 
  
  
 
@@ -3701,17 +3701,17 @@ attributes, specific item attributes, or the count of matching items.
 &amp;#42;   ALL_ATTRIBUTES - Returns all of the item attributes.
  
  
-*   ALL_PROJECTED_ATTRIBUTES - Allowed only when querying an index. Retrieves
+&amp;#42;   ALL_PROJECTED_ATTRIBUTES - Allowed only when querying an index. Retrieves
  all attributes that have been projected into the index. If the index is
  configured to project all attributes, this return value is equivalent to
  specifying ALL_ATTRIBUTES.
  
  
-*   COUNT - Returns the number of matching items, rather than the matching items
+&amp;#42;   COUNT - Returns the number of matching items, rather than the matching items
  themselves.
  
  
-*   SPECIFIC_ATTRIBUTES - Returns only the attributes listed in AttributesToGet.
+&amp;#42;   SPECIFIC_ATTRIBUTES - Returns only the attributes listed in AttributesToGet.
  This return value is equivalent to specifying AttributesToGet without
  specifying any value for Select.
  
@@ -3760,7 +3760,7 @@ following:
  in the Amazon DynamoDB Developer Guide.
  
  
-*   ComparisonOperator - A comparator for evaluating attributes. For example,
+&amp;#42;   ComparisonOperator - A comparator for evaluating attributes. For example,
  equals, greater than, less than, etc.
  
  The following comparison operators are available:
@@ -3783,7 +3783,7 @@ A logical operator to apply to the conditions in a ScanFilter map:
  evaluates to true.
  
  
-*   OR - If at least one of the conditions evaluate to true, then the entire map
+&amp;#42;   OR - If at least one of the conditions evaluate to true, then the entire map
  evaluates to true.
  
  
@@ -3867,11 +3867,11 @@ following are some use cases for using ExpressionAttributeNames:
 &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved word.
  
  
-*  To create a placeholder for repeating occurrences of an attribute name in an
+&amp;#42;  To create a placeholder for repeating occurrences of an attribute name in an
  expression.
  
  
-*  To prevent special characters in an attribute name from being misinterpreted
+&amp;#42;  To prevent special characters in an attribute name from being misinterpreted
  in an expression.
  
  
@@ -3879,7 +3879,7 @@ following are some use cases for using ExpressionAttributeNames:
 Use the # character in an expression to dereference an attribute name. For
 example, consider the following attribute name:
 
-*   Percentile 
+&amp;#42;   Percentile 
  
  
 
@@ -3890,13 +3890,13 @@ Reserved Words
 in the Amazon DynamoDB Developer Guide). To work around this, you could specify
 the following for ExpressionAttributeNames:
 
-*   {&quot;#P&quot;:&quot;Percentile&quot;} 
+&amp;#42;   {&quot;#P&quot;:&quot;Percentile&quot;} 
  
  
 
 You could then use this substitution in an expression, as in this example:
 
-*   #P = :val 
+&amp;#42;   #P = :val 
  
  
 
@@ -3936,7 +3936,7 @@ in the Amazon DynamoDB Developer Guide. **/
  UpdateItem or DeleteItem).
  
  
-*  If ConsistentRead is true, then all of the write operations that completed
+&amp;#42;  If ConsistentRead is true, then all of the write operations that completed
  before the Scan began are guaranteed to be contained in the Scan response.
  
  
@@ -3993,23 +3993,23 @@ table. **/
  disabled (false) on the table.
  
  
-*   StreamViewType - When an item in the table is modified, StreamViewType 
+&amp;#42;   StreamViewType - When an item in the table is modified, StreamViewType 
  determines what information is written to the stream for this table. Valid
  values for StreamViewType are:
  
-  *   KEYS_ONLY - Only the key attributes of the modified item are written to
+  &amp;#42;   KEYS_ONLY - Only the key attributes of the modified item are written to
     the stream.
     
     
-  *   NEW_IMAGE - The entire item, as it appears after it was modified, is
+  &amp;#42;   NEW_IMAGE - The entire item, as it appears after it was modified, is
     written to the stream.
     
     
-  *   OLD_IMAGE - The entire item, as it appeared before it was modified, is
+  &amp;#42;   OLD_IMAGE - The entire item, as it appeared before it was modified, is
     written to the stream.
     
     
-  *   NEW_AND_OLD_IMAGES - Both the new and the old item images of the item are
+  &amp;#42;   NEW_AND_OLD_IMAGES - Both the new and the old item images of the item are
     written to the stream. **/
       StreamViewType?: StreamViewType;
     }
@@ -4022,7 +4022,7 @@ Each AttributeDefinition object in this array is composed of:
 &amp;#42;   AttributeName - The name of the attribute.
  
  
-*   AttributeType - The data type for the attribute. **/
+&amp;#42;   AttributeType - The data type for the attribute. **/
       AttributeDefinitions?: AttributeDefinitions;
       /** The name of the table. **/
       TableName?: TableName;
@@ -4031,12 +4031,12 @@ Each AttributeDefinition object in this array is composed of:
 &amp;#42;   AttributeName - The name of the attribute.
  
  
-*   KeyType - The role of the attribute:
+&amp;#42;   KeyType - The role of the attribute:
  
-  *   HASH - partition key
+  &amp;#42;   HASH - partition key
     
     
-  *   RANGE - sort key
+  &amp;#42;   RANGE - sort key
     
     
  
@@ -4060,13 +4060,13 @@ in the Amazon DynamoDB Developer Guide. **/
 &amp;#42;   CREATING - The table is being created.
  
  
-*   UPDATING - The table is being updated.
+&amp;#42;   UPDATING - The table is being updated.
  
  
-*   DELETING - The table is being deleted.
+&amp;#42;   DELETING - The table is being deleted.
  
  
-*   ACTIVE - The table is ready for use. **/
+&amp;#42;   ACTIVE - The table is ready for use. **/
       TableStatus?: TableStatus;
       /** The date and time when the table was created, in UNIX epoch time
 [http://www.epochconverter.com/] format. **/
@@ -4092,32 +4092,32 @@ within a given item collection cannot exceed 10 GB. Each element is composed of:
 &amp;#42;   IndexName - The name of the local secondary index.
  
  
-*   KeySchema - Specifies the complete index key schema. The attribute names in
+&amp;#42;   KeySchema - Specifies the complete index key schema. The attribute names in
  the key schema must be between 1 and 255 characters (inclusive). The key
  schema must begin with the same partition key as the table.
  
  
-*   Projection - Specifies attributes that are copied (projected) from the table
+&amp;#42;   Projection - Specifies attributes that are copied (projected) from the table
  into the index. These are in addition to the primary key attributes and index
  key attributes, which are automatically projected. Each attribute
  specification is composed of:
  
-  *   ProjectionType - One of the following:
+  &amp;#42;   ProjectionType - One of the following:
     
-     *   KEYS_ONLY - Only the index and primary keys are projected into the
+     &amp;#42;   KEYS_ONLY - Only the index and primary keys are projected into the
        index.
        
        
-     *   INCLUDE - Only the specified table attributes are projected into the
+     &amp;#42;   INCLUDE - Only the specified table attributes are projected into the
        index. The list of projected attributes are in NonKeyAttributes.
        
        
-     *   ALL - All of the table attributes are projected into the index.
+     &amp;#42;   ALL - All of the table attributes are projected into the index.
        
        
     
     
-  *   NonKeyAttributes - A list of one or more non-key attribute names that are
+  &amp;#42;   NonKeyAttributes - A list of one or more non-key attribute names that are
     projected into the secondary index. The total count of attributes provided
     in NonKeyAttributes, summed across all of the secondary indexes, must not
     exceed 20. If you project the same attribute into two different indexes,
@@ -4126,12 +4126,12 @@ within a given item collection cannot exceed 10 GB. Each element is composed of:
     
  
  
-*   IndexSizeBytes - Represents the total size of the index, in bytes. DynamoDB
+&amp;#42;   IndexSizeBytes - Represents the total size of the index, in bytes. DynamoDB
  updates this value approximately every six hours. Recent changes might not be
  reflected in this value.
  
  
-*   ItemCount - Represents the number of items in the index. DynamoDB updates
+&amp;#42;   ItemCount - Represents the number of items in the index. DynamoDB updates
  this value approximately every six hours. Recent changes might not be
  reflected in this value.
  
@@ -4150,61 +4150,61 @@ given partition key value. Each element is composed of:
  during a CreateTable operation.)
  
  
-*   IndexName - The name of the global secondary index.
+&amp;#42;   IndexName - The name of the global secondary index.
  
  
-*   IndexSizeBytes - The total size of the global secondary index, in bytes.
+&amp;#42;   IndexSizeBytes - The total size of the global secondary index, in bytes.
  DynamoDB updates this value approximately every six hours. Recent changes
  might not be reflected in this value. 
  
  
-*   IndexStatus - The current status of the global secondary index:
+&amp;#42;   IndexStatus - The current status of the global secondary index:
  
-  *   CREATING - The index is being created.
+  &amp;#42;   CREATING - The index is being created.
     
     
-  *   UPDATING - The index is being updated.
+  &amp;#42;   UPDATING - The index is being updated.
     
     
-  *   DELETING - The index is being deleted.
+  &amp;#42;   DELETING - The index is being deleted.
     
     
-  *   ACTIVE - The index is ready for use.
+  &amp;#42;   ACTIVE - The index is ready for use.
     
     
  
  
-*   ItemCount - The number of items in the global secondary index. DynamoDB
+&amp;#42;   ItemCount - The number of items in the global secondary index. DynamoDB
  updates this value approximately every six hours. Recent changes might not be
  reflected in this value. 
  
  
-*   KeySchema - Specifies the complete index key schema. The attribute names in
+&amp;#42;   KeySchema - Specifies the complete index key schema. The attribute names in
  the key schema must be between 1 and 255 characters (inclusive). The key
  schema must begin with the same partition key as the table.
  
  
-*   Projection - Specifies attributes that are copied (projected) from the table
+&amp;#42;   Projection - Specifies attributes that are copied (projected) from the table
  into the index. These are in addition to the primary key attributes and index
  key attributes, which are automatically projected. Each attribute
  specification is composed of:
  
-  *   ProjectionType - One of the following:
+  &amp;#42;   ProjectionType - One of the following:
     
-     *   KEYS_ONLY - Only the index and primary keys are projected into the
+     &amp;#42;   KEYS_ONLY - Only the index and primary keys are projected into the
        index.
        
        
-     *   INCLUDE - Only the specified table attributes are projected into the
+     &amp;#42;   INCLUDE - Only the specified table attributes are projected into the
        index. The list of projected attributes are in NonKeyAttributes.
        
        
-     *   ALL - All of the table attributes are projected into the index.
+     &amp;#42;   ALL - All of the table attributes are projected into the index.
        
        
     
     
-  *   NonKeyAttributes - A list of one or more non-key attribute names that are
+  &amp;#42;   NonKeyAttributes - A list of one or more non-key attribute names that are
     projected into the secondary index. The total count of attributes provided
     in NonKeyAttributes, summed across all of the secondary indexes, must not
     exceed 20. If you project the same attribute into two different indexes,
@@ -4213,7 +4213,7 @@ given partition key value. Each element is composed of:
     
  
  
-*   ProvisionedThroughput - The provisioned throughput settings for the global
+&amp;#42;   ProvisionedThroughput - The provisioned throughput settings for the global
  secondary index, consisting of read and write capacity units, along with data
  about increases and decreases. 
  
@@ -4234,10 +4234,10 @@ unique:
 &amp;#42;  the AWS customer ID.
  
  
-*  the table name.
+&amp;#42;  the table name.
  
  
-*  the StreamLabel. **/
+&amp;#42;  the StreamLabel. **/
       LatestStreamLabel?: String;
       /** The Amazon Resource Name (ARN) that uniquely identifies the latest stream for
 this table. **/
@@ -4283,18 +4283,18 @@ with the following:
 &amp;#42;   Value - The new value, if applicable, for this attribute.
  
  
-*   Action - A value that specifies how to perform the update. This action is
+&amp;#42;   Action - A value that specifies how to perform the update. This action is
  only valid for an existing attribute whose data type is Number or is a set;
  do not use ADD for other data types. 
  
  If an item with the specified primary key is found in the table, the
  following values perform the following actions:
  
-  *   PUT - Adds the specified attribute to the item. If the attribute already
+  &amp;#42;   PUT - Adds the specified attribute to the item. If the attribute already
     exists, it is replaced by the new value. 
     
     
-  *   DELETE - Removes the attribute and its value, if no value is specified
+  &amp;#42;   DELETE - Removes the attribute and its value, if no value is specified
     for DELETE. The data type of the specified value must match the existing
     value&#x27;s data type.
     
@@ -4304,11 +4304,11 @@ with the following:
     Specifying an empty set is an error.
     
     
-  *   ADD - Adds the specified value to the item, if the attribute does not
+  &amp;#42;   ADD - Adds the specified value to the item, if the attribute does not
     already exist. If the attribute does exist, then the behavior of ADD 
     depends on the data type of the attribute:
     
-     *  If the existing attribute is a number, and if Value is also a number,
+     &amp;#42;  If the existing attribute is a number, and if Value is also a number,
        then Value is mathematically added to the existing attribute. If Value 
        is a negative number, then it is subtracted from the existing
        attribute.
@@ -4327,7 +4327,7 @@ with the following:
        of 3.
        
        
-     *  If the existing data type is a set, and if Value is also a set, then 
+     &amp;#42;  If the existing data type is a set, and if Value is also a set, then 
        Value is appended to the existing set. For example, if the attribute
        value is the set [1,2], and the ADD action specified [3], then the
        final attribute value is [1,2,3]. An error occurs if an ADD action is
@@ -4345,16 +4345,16 @@ with the following:
  If no item with the specified key is found in the table, the following values
  perform the following actions:
  
-  *   PUT - Causes DynamoDB to create a new item with the specified primary
+  &amp;#42;   PUT - Causes DynamoDB to create a new item with the specified primary
     key, and then adds the attribute. 
     
     
-  *   DELETE - Nothing happens, because attributes cannot be deleted from a
+  &amp;#42;   DELETE - Nothing happens, because attributes cannot be deleted from a
     nonexistent item. The operation succeeds, but DynamoDB does not create a
     new item.
     
     
-  *   ADD - Causes DynamoDB to create an item with the supplied primary key and
+  &amp;#42;   ADD - Causes DynamoDB to create an item with the supplied primary key and
     number (or set of numbers) for the attribute value. The only data types
     allowed are Number and Number Set.
     
@@ -4406,7 +4406,7 @@ Expected contains the following:
  when it compares binary values.
  
  
-*   ComparisonOperator - A comparator for evaluating attributes in the 
+&amp;#42;   ComparisonOperator - A comparator for evaluating attributes in the 
  AttributeValueList. When performing the comparison, DynamoDB uses strongly
  consistent reads.
  
@@ -4417,7 +4417,7 @@ Expected contains the following:
  
  The following are descriptions of each comparison operator.
  
-  *   EQ : Equal. EQ is supported for all datatypes, including lists and maps.
+  &amp;#42;   EQ : Equal. EQ is supported for all datatypes, including lists and maps.
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, Binary, String Set, Number Set, or Binary Set. If an item
@@ -4429,7 +4429,7 @@ Expected contains the following:
     
     
     
-  *   NE : Not equal. NE is supported for all datatypes, including lists and
+  &amp;#42;   NE : Not equal. NE is supported for all datatypes, including lists and
     maps.
     
      AttributeValueList can contain only one AttributeValue of type String,
@@ -4441,7 +4441,7 @@ Expected contains the following:
     
     
     
-  *   LE : Less than or equal. 
+  &amp;#42;   LE : Less than or equal. 
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If an item contains an 
@@ -4452,7 +4452,7 @@ Expected contains the following:
     
     
     
-  *   LT : Less than. 
+  &amp;#42;   LT : Less than. 
     
      AttributeValueList can contain only one AttributeValue of type String,
     Number, or Binary (not a set type). If an item contains an AttributeValue 
@@ -4463,7 +4463,7 @@ Expected contains the following:
     
     
     
-  *   GE : Greater than or equal. 
+  &amp;#42;   GE : Greater than or equal. 
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If an item contains an 
@@ -4474,7 +4474,7 @@ Expected contains the following:
     
     
     
-  *   GT : Greater than. 
+  &amp;#42;   GT : Greater than. 
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If an item contains an 
@@ -4485,7 +4485,7 @@ Expected contains the following:
     
     
     
-  *   NOT_NULL : The attribute exists. NOT_NULL is supported for all datatypes,
+  &amp;#42;   NOT_NULL : The attribute exists. NOT_NULL is supported for all datatypes,
     including lists and maps.
     
     This operator tests for the existence of an attribute, not its data type.
@@ -4495,7 +4495,7 @@ Expected contains the following:
     comparison operator.
     
     
-  *   NULL : The attribute does not exist. NULL is supported for all datatypes,
+  &amp;#42;   NULL : The attribute does not exist. NULL is supported for all datatypes,
     including lists and maps.
     
     This operator tests for the nonexistence of an attribute, not its data
@@ -4504,7 +4504,7 @@ Expected contains the following:
     exists; its data type is not relevant to the NULL comparison operator.
     
     
-  *   CONTAINS : Checks for a subsequence, or value in a set.
+  &amp;#42;   CONTAINS : Checks for a subsequence, or value in a set.
     
      AttributeValueList can contain only one AttributeValue element of type
     String, Number, or Binary (not a set type). If the target attribute of the
@@ -4519,7 +4519,7 @@ Expected contains the following:
     be a list; however, &quot;b&quot; cannot be a set, a map, or a list.
     
     
-  *   NOT_CONTAINS : Checks for absence of a subsequence, or absence of a value
+  &amp;#42;   NOT_CONTAINS : Checks for absence of a subsequence, or absence of a value
     in a set.
     
      AttributeValueList can contain only one AttributeValue element of type
@@ -4535,7 +4535,7 @@ Expected contains the following:
     a&quot; can be a list; however, &quot;b&quot; cannot be a set, a map, or a list.
     
     
-  *   BEGINS_WITH : Checks for a prefix. 
+  &amp;#42;   BEGINS_WITH : Checks for a prefix. 
     
      AttributeValueList can contain only one AttributeValue of type String or
     Binary (not a Number or a set type). The target attribute of the
@@ -4544,7 +4544,7 @@ Expected contains the following:
     
     
     
-  *   IN : Checks for matching elements within two sets.
+  &amp;#42;   IN : Checks for matching elements within two sets.
     
      AttributeValueList can contain one or more AttributeValue elements of
     type String, Number, or Binary (not a set type). These attributes are
@@ -4553,7 +4553,7 @@ Expected contains the following:
     expression evaluates to true.
     
     
-  *   BETWEEN : Greater than or equal to the first value, and less than or
+  &amp;#42;   BETWEEN : Greater than or equal to the first value, and less than or
     equal to the second value. 
     
      AttributeValueList must contain two AttributeValue elements of the same
@@ -4577,18 +4577,18 @@ in the Amazon DynamoDB Developer Guide.
 For backward compatibility with previous DynamoDB releases, the following
 parameters can be used instead of AttributeValueList and ComparisonOperator:
 
-*   Value - A value for DynamoDB to compare with an attribute.
+&amp;#42;   Value - A value for DynamoDB to compare with an attribute.
  
  
-*   Exists - A Boolean value that causes DynamoDB to evaluate the value before
+&amp;#42;   Exists - A Boolean value that causes DynamoDB to evaluate the value before
  attempting the conditional operation:
  
-  *  If Exists is true, DynamoDB will check to see if that attribute value
+  &amp;#42;  If Exists is true, DynamoDB will check to see if that attribute value
     already exists in the table. If it is found, then the condition evaluates
     to true; otherwise the condition evaluate to false.
     
     
-  *  If Exists is false, DynamoDB assumes that the attribute value does not 
+  &amp;#42;  If Exists is false, DynamoDB assumes that the attribute value does not 
     exist in the table. If in fact the value does not exist, then the
     assumption is valid and the condition evaluates to true. If the value is
     found, despite the assumption that it does not exist, the condition
@@ -4617,7 +4617,7 @@ A logical operator to apply to the conditions in the Expected map:
  evaluates to true.
  
  
-*   OR - If at least one of the conditions evaluate to true, then the entire map
+&amp;#42;   OR - If at least one of the conditions evaluate to true, then the entire map
  evaluates to true.
  
  
@@ -4635,17 +4635,17 @@ before or after they were updated. For UpdateItem, the valid values are:
  nothing is returned. (This setting is the default for ReturnValues.)
  
  
-*   ALL_OLD - If UpdateItem overwrote an attribute name-value pair, then the
+&amp;#42;   ALL_OLD - If UpdateItem overwrote an attribute name-value pair, then the
  content of the old item is returned.
  
  
-*   UPDATED_OLD - The old versions of only the updated attributes are returned.
+&amp;#42;   UPDATED_OLD - The old versions of only the updated attributes are returned.
  
  
-*   ALL_NEW - All of the attributes of the new version of the item are returned.
+&amp;#42;   ALL_NEW - All of the attributes of the new version of the item are returned.
  
  
-*   UPDATED_NEW - The new versions of only the updated attributes are returned.
+&amp;#42;   UPDATED_NEW - The new versions of only the updated attributes are returned.
  
  
 
@@ -4673,13 +4673,13 @@ The following action values are available for UpdateExpression.
  
   SET supports the following functions:
  
-  *   if_not_exists (path, operand) - if the item does not contain an attribute
+  &amp;#42;   if_not_exists (path, operand) - if the item does not contain an attribute
     at the specified path, then if_not_exists evaluates to operand; otherwise,
     it evaluates to path. You can use this function to avoid overwriting an
     attribute that may already be present in the item.
     
     
-  *   list_append (operand, operand) - evaluates to a list with a new element
+  &amp;#42;   list_append (operand, operand) - evaluates to a list with a new element
     added to it. You can append the new element to the start or the end of the
     list by reversing the order of the operands.
     
@@ -4688,14 +4688,14 @@ The following action values are available for UpdateExpression.
  These function names are case-sensitive.
  
  
-*   REMOVE - Removes one or more attributes from an item.
+&amp;#42;   REMOVE - Removes one or more attributes from an item.
  
  
-*   ADD - Adds the specified value to the item, if the attribute does not
+&amp;#42;   ADD - Adds the specified value to the item, if the attribute does not
  already exist. If the attribute does exist, then the behavior of ADD depends
  on the data type of the attribute:
  
-  *  If the existing attribute is a number, and if Value is also a number, then 
+  &amp;#42;  If the existing attribute is a number, and if Value is also a number, then 
     Value is mathematically added to the existing attribute. If Value is a
     negative number, then it is subtracted from the existing attribute.
     
@@ -4711,7 +4711,7 @@ The following action values are available for UpdateExpression.
     will be a new itemcount attribute in the item, with a value of 3.
     
     
-  *  If the existing data type is a set and if Value is also a set, then Value 
+  &amp;#42;  If the existing data type is a set and if Value is also a set, then Value 
     is added to the existing set. For example, if the attribute value is the
     set [1,2], and the ADD action specified [3], then the final attribute
     value is [1,2,3]. An error occurs if an ADD action is specified for a set
@@ -4728,7 +4728,7 @@ The following action values are available for UpdateExpression.
  only be used on top-level attributes, not nested attributes.
  
  
-*   DELETE - Deletes an element from a set.
+&amp;#42;   DELETE - Deletes an element from a set.
  
  If a set of values is specified, then those values are subtracted from the
  old set. For example, if the attribute value was the set [a,b,c] and the 
@@ -4759,11 +4759,11 @@ An expression can contain any of the following:
  These function names are case-sensitive.
  
  
-*  Comparison operators: = | &amp;#x3C;&amp;#x3E; | &amp;#x3C; | &amp;#x3E; | &amp;#x3C;= | &amp;#x3E;=
+&amp;#42;  Comparison operators: = | &amp;#x3C;&amp;#x3E; | &amp;#x3C; | &amp;#x3E; | &amp;#x3C;= | &amp;#x3E;=
  | BETWEEN | IN 
  
  
-*   Logical operators: AND | OR | NOT 
+&amp;#42;   Logical operators: AND | OR | NOT 
  
  
 
@@ -4780,11 +4780,11 @@ following are some use cases for using ExpressionAttributeNames:
 &amp;#42;  To access an attribute whose name conflicts with a DynamoDB reserved word.
  
  
-*  To create a placeholder for repeating occurrences of an attribute name in an
+&amp;#42;  To create a placeholder for repeating occurrences of an attribute name in an
  expression.
  
  
-*  To prevent special characters in an attribute name from being misinterpreted
+&amp;#42;  To prevent special characters in an attribute name from being misinterpreted
  in an expression.
  
  
@@ -4792,7 +4792,7 @@ following are some use cases for using ExpressionAttributeNames:
 Use the # character in an expression to dereference an attribute name. For
 example, consider the following attribute name:
 
-*   Percentile 
+&amp;#42;   Percentile 
  
  
 
@@ -4803,13 +4803,13 @@ Reserved Words
 in the Amazon DynamoDB Developer Guide). To work around this, you could specify
 the following for ExpressionAttributeNames:
 
-*   {&quot;#P&quot;:&quot;Percentile&quot;} 
+&amp;#42;   {&quot;#P&quot;:&quot;Percentile&quot;} 
  
  
 
 You could then use this substitution in an expression, as in this example:
 
-*   #P = :val 
+&amp;#42;   #P = :val 
  
  
 
@@ -4865,11 +4865,11 @@ in the array, you can request one action:
 &amp;#42;   Create - add a new global secondary index to the table.
  
  
-*   Update - modify the provisioned throughput settings of an existing global
+&amp;#42;   Update - modify the provisioned throughput settings of an existing global
  secondary index.
  
  
-*   Delete - remove a global secondary index from the table.
+&amp;#42;   Delete - remove a global secondary index from the table.
  
  
 

@@ -102,9 +102,9 @@ specified delivery channel. After the delivery has started, AWS Config sends
 following notifications using an Amazon SNS topic that you have specified.
 
  &amp;#42; Notification of starting the delivery.
- * Notification of delivery completed, if the delivery was successfully
+ &amp;#42; Notification of delivery completed, if the delivery was successfully
    completed.
- * Notification of delivery failure, if the delivery failed to complete.
+ &amp;#42; Notification of delivery failure, if the delivery failed to complete.
      *
      * @error NoSuchDeliveryChannelException   
      * @error NoAvailableConfigurationRecorderException   
@@ -125,12 +125,12 @@ INSUFFICIENT_DATA. This result might indicate one of the following conditions:
  &amp;#42; AWS Config has never invoked an evaluation for the rule. To check whether it
    has, use the DescribeConfigRuleEvaluationStatus action to get the 
    LastSuccessfulInvocationTime and LastFailedInvocationTime.
- * The rule&#x27;s AWS Lambda function is failing to send evaluation results to AWS
+ &amp;#42; The rule&#x27;s AWS Lambda function is failing to send evaluation results to AWS
    Config. Verify that the role that you assigned to your configuration recorder
    includes the config:PutEvaluations permission. If the rule is a custom rule,
    verify that the AWS Lambda execution role includes the config:PutEvaluations 
    permission.
- * The rule&#x27;s AWS Lambda function has returned NOT_APPLICABLE for all evaluation
+ &amp;#42; The rule&#x27;s AWS Lambda function has returned NOT_APPLICABLE for all evaluation
    results. This can occur if the resources were deleted or removed from the
    rule&#x27;s scope.
      *
@@ -154,12 +154,12 @@ about the rules that evaluate the resource:
  &amp;#42; AWS Config has never invoked an evaluation for the rule. To check whether it
    has, use the DescribeConfigRuleEvaluationStatus action to get the 
    LastSuccessfulInvocationTime and LastFailedInvocationTime.
- * The rule&#x27;s AWS Lambda function is failing to send evaluation results to AWS
+ &amp;#42; The rule&#x27;s AWS Lambda function is failing to send evaluation results to AWS
    Config. Verify that the role that you assigned to your configuration recorder
    includes the config:PutEvaluations permission. If the rule is a custom rule,
    verify that the AWS Lambda execution role includes the config:PutEvaluations 
    permission.
- * The rule&#x27;s AWS Lambda function has returned NOT_APPLICABLE for all evaluation
+ &amp;#42; The rule&#x27;s AWS Lambda function has returned NOT_APPLICABLE for all evaluation
    results. This can occur if the resources were deleted or removed from the
    rule&#x27;s scope.
      *
@@ -707,7 +707,7 @@ specify a value for MaximumExecutionFrequency when:
 &amp;#42;  You are using an AWS managed rule that is triggered at a periodic frequency.
  
  
-*  Your custom rule is triggered when AWS Config delivers the configuration
+&amp;#42;  Your custom rule is triggered when AWS Config delivers the configuration
  snapshot.
  
  
@@ -760,7 +760,7 @@ least once.
 
 &amp;#42; true - AWS Config has evaluated your AWS resources against the rule at least
  once.
-* false - AWS Config has not once finished evaluating your AWS resources
+&amp;#42; false - AWS Config has not once finished evaluating your AWS resources
  against the rule. **/
       FirstEvaluationStarted?: Boolean;
     }

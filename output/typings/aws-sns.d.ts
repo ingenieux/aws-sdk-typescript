@@ -547,7 +547,7 @@ Valid values: any Amazon SNS action name. **/
  to it.
  
  
-* false – The phone number is opted in, meaning you can publish SMS messages to
+&amp;#42; false – The phone number is opted in, meaning you can publish SMS messages to
  it. **/
       isOptedOut?: boolean;
     }
@@ -650,13 +650,13 @@ characters long. **/
  2KB.
  
  
-* Enabled -- flag that enables/disables delivery to the endpoint. Amazon SNS
+&amp;#42; Enabled -- flag that enables/disables delivery to the endpoint. Amazon SNS
  will set this to false when a notification service indicates to Amazon SNS
  that the endpoint is invalid. Users can set it back to true, typically after
  updating Token.
  
  
-* Token -- device token, also referred to as a registration id, for an app and
+&amp;#42; Token -- device token, also referred to as a registration id, for an app and
  mobile device. This is returned from the notification service when an app and
  mobile device are registered with the notification service. **/
       Attributes?: MapStringToString;
@@ -672,15 +672,15 @@ characters long. **/
  notifications should be sent.
  
  
-* EventEndpointDeleted -- Topic ARN to which EndpointDeleted event
+&amp;#42; EventEndpointDeleted -- Topic ARN to which EndpointDeleted event
  notifications should be sent.
  
  
-* EventEndpointUpdated -- Topic ARN to which EndpointUpdate event notifications
+&amp;#42; EventEndpointUpdated -- Topic ARN to which EndpointUpdate event notifications
  should be sent.
  
  
-* EventDeliveryFailure -- Topic ARN to which DeliveryFailure event
+&amp;#42; EventDeliveryFailure -- Topic ARN to which DeliveryFailure event
  notifications should be sent upon Direct Publish delivery failure (permanent)
  to one of the application&#x27;s endpoints. **/
       Attributes?: MapStringToString;
@@ -710,21 +710,21 @@ following:
 &amp;#42;  SubscriptionArn -- the subscription&#x27;s ARN
  
  
-*  TopicArn -- the topic ARN that the subscription is associated with
+&amp;#42;  TopicArn -- the topic ARN that the subscription is associated with
  
  
-*  Owner -- the AWS account ID of the subscription&#x27;s owner
+&amp;#42;  Owner -- the AWS account ID of the subscription&#x27;s owner
  
  
-*  ConfirmationWasAuthenticated -- true if the subscription confirmation request
+&amp;#42;  ConfirmationWasAuthenticated -- true if the subscription confirmation request
  was authenticated
  
  
-*  DeliveryPolicy -- the JSON serialization of the subscription&#x27;s delivery
+&amp;#42;  DeliveryPolicy -- the JSON serialization of the subscription&#x27;s delivery
  policy
  
  
-*  EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
+&amp;#42;  EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
  policy that takes into account the topic delivery policy and account system
  defaults **/
       Attributes?: SubscriptionAttributesMap;
@@ -739,30 +739,30 @@ following:
 &amp;#42; TopicArn -- the topic&#x27;s ARN
  
  
-* Owner -- the AWS account ID of the topic&#x27;s owner
+&amp;#42; Owner -- the AWS account ID of the topic&#x27;s owner
  
  
-* Policy -- the JSON serialization of the topic&#x27;s access control policy
+&amp;#42; Policy -- the JSON serialization of the topic&#x27;s access control policy
  
  
-* DisplayName -- the human-readable name used in the &quot;From&quot; field for
+&amp;#42; DisplayName -- the human-readable name used in the &quot;From&quot; field for
  notifications to email and email-json endpoints
  
  
-* SubscriptionsPending -- the number of subscriptions pending confirmation on
+&amp;#42; SubscriptionsPending -- the number of subscriptions pending confirmation on
  this topic
  
  
-* SubscriptionsConfirmed -- the number of confirmed subscriptions on this topic
+&amp;#42; SubscriptionsConfirmed -- the number of confirmed subscriptions on this topic
  
  
-* SubscriptionsDeleted -- the number of deleted subscriptions on this topic
+&amp;#42; SubscriptionsDeleted -- the number of deleted subscriptions on this topic
  
  
-* DeliveryPolicy -- the JSON serialization of the topic&#x27;s delivery policy
+&amp;#42; DeliveryPolicy -- the JSON serialization of the topic&#x27;s delivery policy
  
  
-* EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
+&amp;#42; EffectiveDeliveryPolicy -- the JSON serialization of the effective delivery
  policy that takes into account system defaults **/
       Attributes?: TopicAttributesMap;
     }
@@ -916,31 +916,31 @@ JSON-specific constraints:
  must have simple JSON string values. 
  
  
-*  The values will be parsed (unescaped) before they are used in outgoing
+&amp;#42;  The values will be parsed (unescaped) before they are used in outgoing
  messages.
  
  
-*  Outbound notifications are JSON encoded (meaning that the characters will be
+&amp;#42;  Outbound notifications are JSON encoded (meaning that the characters will be
  reescaped for sending).
  
  
-*  Values have a minimum length of 0 (the empty string, &quot;&quot;, is allowed).
+&amp;#42;  Values have a minimum length of 0 (the empty string, &quot;&quot;, is allowed).
  
  
-*  Values have a maximum length bounded by the overall message size (so,
+&amp;#42;  Values have a maximum length bounded by the overall message size (so,
  including multiple protocols may limit message sizes).
  
  
-*  Non-string values will cause the key to be ignored.
+&amp;#42;  Non-string values will cause the key to be ignored.
  
  
-*  Keys that do not correspond to supported transport protocols are ignored.
+&amp;#42;  Keys that do not correspond to supported transport protocols are ignored.
  
  
-*  Duplicate keys are not allowed.
+&amp;#42;  Duplicate keys are not allowed.
  
  
-*  Failure to parse or validate any key or value in the message will cause the 
+&amp;#42;  Failure to parse or validate any key or value in the message will cause the 
  Publish call to return an error (no partial delivery). **/
       Message: message;
       /** Optional parameter to be used as the &quot;Subject&quot; line when the message is
@@ -959,7 +959,7 @@ MessageStructure to json, the value of the Message parameter must:
 &amp;#42;  be a syntactically valid JSON object; and
  
  
-*  contain at least a top-level JSON key of &quot;default&quot; with a value that is a
+&amp;#42;  contain at least a top-level JSON key of &quot;default&quot; with a value that is a
  string.
  
  
@@ -999,13 +999,13 @@ Length Constraint: Maximum 100 characters **/
  2KB.
  
  
-* Enabled -- flag that enables/disables delivery to the endpoint. Amazon SNS
+&amp;#42; Enabled -- flag that enables/disables delivery to the endpoint. Amazon SNS
  will set this to false when a notification service indicates to Amazon SNS
  that the endpoint is invalid. Users can set it back to true, typically after
  updating Token.
  
  
-* Token -- device token, also referred to as a registration id, for an app and
+&amp;#42; Token -- device token, also referred to as a registration id, for an app and
  mobile device. This is returned from the notification service when an app and
  mobile device are registered with the notification service. **/
       Attributes: MapStringToString;
@@ -1022,38 +1022,38 @@ following:
  secret&quot;.
  
  
-* PlatformPrincipal -- The principal received from the notification service.
+&amp;#42; PlatformPrincipal -- The principal received from the notification service.
  For APNS/APNS_SANDBOX, PlatformPrincipal is SSL certificate. For GCM,
  PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is &quot;client
  id&quot;.
  
  
-* EventEndpointCreated -- Topic ARN to which EndpointCreated event
+&amp;#42; EventEndpointCreated -- Topic ARN to which EndpointCreated event
  notifications should be sent.
  
  
-* EventEndpointDeleted -- Topic ARN to which EndpointDeleted event
+&amp;#42; EventEndpointDeleted -- Topic ARN to which EndpointDeleted event
  notifications should be sent.
  
  
-* EventEndpointUpdated -- Topic ARN to which EndpointUpdate event notifications
+&amp;#42; EventEndpointUpdated -- Topic ARN to which EndpointUpdate event notifications
  should be sent.
  
  
-* EventDeliveryFailure -- Topic ARN to which DeliveryFailure event
+&amp;#42; EventDeliveryFailure -- Topic ARN to which DeliveryFailure event
  notifications should be sent upon Direct Publish delivery failure (permanent)
  to one of the application&#x27;s endpoints.
  
  
-* SuccessFeedbackRoleArn -- IAM role ARN used to give Amazon SNS write access
+&amp;#42; SuccessFeedbackRoleArn -- IAM role ARN used to give Amazon SNS write access
  to use CloudWatch Logs on your behalf.
  
  
-* FailureFeedbackRoleArn -- IAM role ARN used to give Amazon SNS write access
+&amp;#42; FailureFeedbackRoleArn -- IAM role ARN used to give Amazon SNS write access
  to use CloudWatch Logs on your behalf.
  
  
-* SuccessFeedbackSampleRate -- Sample rate percentage (0-100) of successfully
+&amp;#42; SuccessFeedbackSampleRate -- Sample rate percentage (0-100) of successfully
  delivered messages. **/
       Attributes: MapStringToString;
     }
@@ -1094,7 +1094,7 @@ assign the following values:
  optimizes the message delivery to incur the lowest cost.
  
  
-*  Transactional – (Default) Critical messages that support customer
+&amp;#42;  Transactional – (Default) Critical messages that support customer
  transactions, such as one-time passcodes for multi-factor authentication.
  Amazon SNS optimizes the message delivery to achieve the highest reliability.
  
@@ -1105,29 +1105,29 @@ usage reports from Amazon SNS. Each day, Amazon SNS will deliver a usage report
 as a CSV file to the bucket. The report includes the following information for
 each SMS message that was successfully delivered by your account:
 
-*  Time that the message was published (in UTC)
+&amp;#42;  Time that the message was published (in UTC)
  
  
-*  Message ID
+&amp;#42;  Message ID
  
  
-*  Destination phone number
+&amp;#42;  Destination phone number
  
  
-*  Message type
+&amp;#42;  Message type
  
  
-*  Delivery status
+&amp;#42;  Delivery status
  
  
-*  Message price (in USD)
+&amp;#42;  Message price (in USD)
  
  
-*  Part number (a message is split into multiple parts if it is too long for a
+&amp;#42;  Part number (a message is split into multiple parts if it is too long for a
  single message)
  
  
-*  Total number of parts
+&amp;#42;  Total number of parts
  
  
 
@@ -1171,52 +1171,52 @@ Valid values: Policy | DisplayName | DeliveryPolicy **/
 &amp;#42;  http -- delivery of JSON-encoded message via HTTP POST
  
  
-*  https -- delivery of JSON-encoded message via HTTPS POST
+&amp;#42;  https -- delivery of JSON-encoded message via HTTPS POST
  
  
-*  email -- delivery of message via SMTP
+&amp;#42;  email -- delivery of message via SMTP
  
  
-*  email-json -- delivery of JSON-encoded message via SMTP
+&amp;#42;  email-json -- delivery of JSON-encoded message via SMTP
  
  
-*  sms -- delivery of message via SMS
+&amp;#42;  sms -- delivery of message via SMS
  
  
-*  sqs -- delivery of JSON-encoded message to an Amazon SQS queue
+&amp;#42;  sqs -- delivery of JSON-encoded message to an Amazon SQS queue
  
  
-*  application -- delivery of JSON-encoded message to an EndpointArn for a
+&amp;#42;  application -- delivery of JSON-encoded message to an EndpointArn for a
  mobile app and device.
  
  
-*  lambda -- delivery of JSON-encoded message to an AWS Lambda function. **/
+&amp;#42;  lambda -- delivery of JSON-encoded message to an AWS Lambda function. **/
       Protocol: protocol;
       /** The endpoint that you want to receive notifications. Endpoints vary by protocol:
 
 &amp;#42;  For the http protocol, the endpoint is an URL beginning with &quot;http://&quot;
  
  
-*  For the https protocol, the endpoint is a URL beginning with &quot;https://&quot;
+&amp;#42;  For the https protocol, the endpoint is a URL beginning with &quot;https://&quot;
  
  
-*  For the email protocol, the endpoint is an email address
+&amp;#42;  For the email protocol, the endpoint is an email address
  
  
-*  For the email-json protocol, the endpoint is an email address
+&amp;#42;  For the email-json protocol, the endpoint is an email address
  
  
-*  For the sms protocol, the endpoint is a phone number of an SMS-enabled device
+&amp;#42;  For the sms protocol, the endpoint is a phone number of an SMS-enabled device
  
  
-*  For the sqs protocol, the endpoint is the ARN of an Amazon SQS queue
+&amp;#42;  For the sqs protocol, the endpoint is the ARN of an Amazon SQS queue
  
  
-*  For the application protocol, the endpoint is the EndpointArn of a mobile app
+&amp;#42;  For the application protocol, the endpoint is the EndpointArn of a mobile app
  and device.
  
  
-*  For the lambda protocol, the endpoint is the ARN of an AWS Lambda function. **/
+&amp;#42;  For the lambda protocol, the endpoint is the ARN of an AWS Lambda function. **/
       Endpoint?: endpoint;
     }
     export interface SubscribeResponse {

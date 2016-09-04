@@ -61,7 +61,7 @@ You receive a LimitExceededException when making a CreateStream request if you
 try to do one of the following:
 
  &amp;#42; Have more than five streams in the CREATING state at any point in time.
- * Create more shards than are authorized for your account.
+ &amp;#42; Create more shards than are authorized for your account.
 
 For the default shard limit for an AWS account, see Streams Limits
 [http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html] in
@@ -687,13 +687,13 @@ The following are the valid shard-level metrics. The value &quot;ALL&quot; disab
 metric.
 
 &amp;#42;  IncomingBytes 
-*  IncomingRecords 
-*  OutgoingBytes 
-*  OutgoingRecords 
-*  WriteProvisionedThroughputExceeded 
-*  ReadProvisionedThroughputExceeded 
-*  IteratorAgeMilliseconds 
-*  ALL 
+&amp;#42;  IncomingRecords 
+&amp;#42;  OutgoingBytes 
+&amp;#42;  OutgoingRecords 
+&amp;#42;  WriteProvisionedThroughputExceeded 
+&amp;#42;  ReadProvisionedThroughputExceeded 
+&amp;#42;  IteratorAgeMilliseconds 
+&amp;#42;  ALL 
 
 For more information, see Monitoring the Amazon Kinesis Streams Service with
 Amazon CloudWatch
@@ -710,13 +710,13 @@ The following are the valid shard-level metrics. The value &quot;ALL&quot; enabl
 metric.
 
 &amp;#42;  IncomingBytes 
-*  IncomingRecords 
-*  OutgoingBytes 
-*  OutgoingRecords 
-*  WriteProvisionedThroughputExceeded 
-*  ReadProvisionedThroughputExceeded 
-*  IteratorAgeMilliseconds 
-*  ALL 
+&amp;#42;  IncomingRecords 
+&amp;#42;  OutgoingBytes 
+&amp;#42;  OutgoingRecords 
+&amp;#42;  WriteProvisionedThroughputExceeded 
+&amp;#42;  ReadProvisionedThroughputExceeded 
+&amp;#42;  IteratorAgeMilliseconds 
+&amp;#42;  ALL 
 
 For more information, see Monitoring the Amazon Kinesis Streams Service with
 Amazon CloudWatch
@@ -731,13 +731,13 @@ The following are the valid shard-level metrics. The value &quot;ALL&quot; enhan
 metric.
 
 &amp;#42;  IncomingBytes 
-*  IncomingRecords 
-*  OutgoingBytes 
-*  OutgoingRecords 
-*  WriteProvisionedThroughputExceeded 
-*  ReadProvisionedThroughputExceeded 
-*  IteratorAgeMilliseconds 
-*  ALL 
+&amp;#42;  IncomingRecords 
+&amp;#42;  OutgoingBytes 
+&amp;#42;  OutgoingRecords 
+&amp;#42;  WriteProvisionedThroughputExceeded 
+&amp;#42;  ReadProvisionedThroughputExceeded 
+&amp;#42;  IteratorAgeMilliseconds 
+&amp;#42;  ALL 
 
 For more information, see Monitoring the Amazon Kinesis Streams Service with
 Amazon CloudWatch
@@ -794,13 +794,13 @@ The following are the valid Amazon Kinesis shard iterator types:
 
 &amp;#42; AT_SEQUENCE_NUMBER - Start reading from the position denoted by a specific
  sequence number, provided in the value StartingSequenceNumber.
-* AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a
+&amp;#42; AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a
  specific sequence number, provided in the value StartingSequenceNumber.
-* AT_TIMESTAMP - Start reading from the position denoted by a specific
+&amp;#42; AT_TIMESTAMP - Start reading from the position denoted by a specific
  timestamp, provided in the value Timestamp.
-* TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the
+&amp;#42; TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the
  system, which is the oldest data record in the shard.
-* LATEST - Start reading just after the most recent record in the shard, so
+&amp;#42; LATEST - Start reading just after the most recent record in the shard, so
  that you always read the most recent data in the shard. **/
       ShardIteratorType: ShardIteratorType;
       /** The sequence number of the data record in the shard from which to start reading.
@@ -1042,12 +1042,12 @@ the following states:
 
 &amp;#42; CREATING - The stream is being created. Amazon Kinesis immediately returns
  and sets StreamStatus to CREATING.
-* DELETING - The stream is being deleted. The specified stream is in the 
+&amp;#42; DELETING - The stream is being deleted. The specified stream is in the 
  DELETING state until Amazon Kinesis completes the deletion.
-* ACTIVE - The stream exists and is ready for read and write operations or
+&amp;#42; ACTIVE - The stream exists and is ready for read and write operations or
  deletion. You should perform read and write operations only on an ACTIVE 
  stream.
-* UPDATING - Shards in the stream are being merged or split. Read and write
+&amp;#42; UPDATING - Shards in the stream are being merged or split. Read and write
  operations continue to work while the stream is in the UPDATING state. **/
       StreamStatus: StreamStatus;
       /** The shards that comprise the stream. **/

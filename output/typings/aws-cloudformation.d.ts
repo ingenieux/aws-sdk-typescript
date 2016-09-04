@@ -699,8 +699,8 @@ Templates
       /** The template resource types that you have permissions to work with for this
 create stack action, such as AWS::EC2::Instance, AWS::EC2::&amp;#42;, or 
 Custom::MyCustomInstance. Use the following syntax to describe template resource
-types: AWS::* (for all AWS resource), Custom::* (for all custom resources), 
-Custom::logical_ID (for a specific custom resource), AWS::service_name::* (for
+types: AWS::&amp;#42; (for all AWS resource), Custom::&amp;#42; (for all custom resources), 
+Custom::logical_ID (for a specific custom resource), AWS::service_name::&amp;#42; (for
 all resources of a particular AWS service), and AWS::service_name::
 resource_logical_ID (for a specific AWS resource).
 
@@ -834,7 +834,7 @@ always interchangeable:
  ID.
  
  
-*  Deleted stacks: You must specify the unique stack ID.
+&amp;#42;  Deleted stacks: You must specify the unique stack ID.
  
  
 
@@ -858,7 +858,7 @@ always interchangeable:
  ID.
  
  
-*  Deleted stacks: You must specify the unique stack ID.
+&amp;#42;  Deleted stacks: You must specify the unique stack ID.
  
  
 
@@ -882,7 +882,7 @@ always interchangeable:
  ID.
  
  
-*  Deleted stacks: You must specify the unique stack ID.
+&amp;#42;  Deleted stacks: You must specify the unique stack ID.
  
  
 
@@ -921,7 +921,7 @@ always interchangeable:
  ID.
  
  
-*  Deleted stacks: You must specify the unique stack ID.
+&amp;#42;  Deleted stacks: You must specify the unique stack ID.
  
  
 
@@ -993,7 +993,7 @@ always interchangeable:
  ID.
  
  
-*  Deleted stacks: You must specify the unique stack ID.
+&amp;#42;  Deleted stacks: You must specify the unique stack ID.
  
  
 
@@ -1092,7 +1092,7 @@ always interchangeable:
  ID.
  
  
-*  Deleted stacks: You must specify the unique stack ID.
+&amp;#42;  Deleted stacks: You must specify the unique stack ID.
  
  
 
@@ -1222,20 +1222,20 @@ groups:
  resources in the template, such as { &quot;Ref&quot; : &quot;MyEC2InstanceResource&quot; }.
  
  
-*   ParameterReference entities are Ref intrinsic functions that get template
+&amp;#42;   ParameterReference entities are Ref intrinsic functions that get template
  parameter values, such as { &quot;Ref&quot; : &quot;MyPasswordParameter&quot; }.
  
  
-*   ResourceAttribute entities are Fn::GetAtt intrinsic functions that get
+&amp;#42;   ResourceAttribute entities are Fn::GetAtt intrinsic functions that get
  resource attribute values, such as { &quot;Fn::GetAtt&quot; : [
  &quot;MyEC2InstanceResource&quot;, &quot;PublicDnsName&quot; ] }.
  
  
-*   DirectModification entities are changes that are made directly to the
+&amp;#42;   DirectModification entities are changes that are made directly to the
  template.
  
  
-*   Automatic entities are AWS::CloudFormation::Stack resource types, which are
+&amp;#42;   Automatic entities are AWS::CloudFormation::Stack resource types, which are
  also known as nested stacks. If you made no changes to the 
  AWS::CloudFormation::Stack resource, AWS CloudFormation sets the ChangeSource 
  to Automatic because the nested stack&#x27;s template might have changed. Changes
@@ -1320,7 +1320,7 @@ stack has been updated at least once. **/
 &amp;#42;   true: disable rollback
  
  
-*   false: enable rollback **/
+&amp;#42;   false: enable rollback **/
       DisableRollback?: DisableRollback;
       /** SNS topic ARNs to which stack related events are published. **/
       NotificationARNs?: NotificationARNs;

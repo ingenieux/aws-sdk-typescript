@@ -29,25 +29,25 @@ declare module "aws-sdk" {
     to AWS Storage Gateway.
     
     
-  *   Signing Requests
+  &amp;#42;   Signing Requests
     [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewaySigningRequests.html]
     : AWS Storage Gateway requires that you authenticate every request you send;
     this topic describes how sign such a request.
     
     
-  *   Error Responses
+  &amp;#42;   Error Responses
     [http://docs.aws.amazon.com/storagegateway/latest/userguide/APIErrorResponses.html]
     : Provides reference information about AWS Storage Gateway errors.
     
     
-  *   Operations in AWS Storage Gateway
+  &amp;#42;   Operations in AWS Storage Gateway
     [http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPIOperations.html]
     : Contains detailed descriptions of all AWS Storage Gateway operations, their
     request parameters, response elements, possible errors, and examples of
     requests and responses.
     
     
-  *   AWS Storage Gateway Regions and Endpoints
+  &amp;#42;   AWS Storage Gateway Regions and Endpoints
     [http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html]:
     Provides a list of each of the s and endpoints available for use with AWS
     Storage Gateway.
@@ -126,11 +126,11 @@ Storage Gateway resources:
    
    
 
- *  Storage Volumes
+ &amp;#42;  Storage Volumes
    
    
 
- *  Virtual Tapes
+ &amp;#42;  Virtual Tapes
    
    
 
@@ -1239,7 +1239,7 @@ gateways for your account and region. **/
       GatewayARN: GatewayARN;
       /** The size, in bytes, of the virtual tape that you want to create.
 
-The size must be aligned by gigabyte (1024&amp;#42;1024*1024 byte). **/
+The size must be aligned by gigabyte (1024&amp;#42;1024&amp;#42;1024 byte). **/
       TapeSizeInBytes: TapeSize;
       /** The barcode that you want to assign to the tape. **/
       TapeBarcode: TapeBarcode;
@@ -1256,7 +1256,7 @@ gateways for your account and region. **/
       GatewayARN: GatewayARN;
       /** The size, in bytes, of the virtual tapes that you want to create.
 
-The size must be aligned by gigabyte (1024&amp;#42;1024*1024 byte). **/
+The size must be aligned by gigabyte (1024&amp;#42;1024&amp;#42;1024 byte). **/
       TapeSizeInBytes: TapeSize;
       /** A unique identifier that you use to retry a request. If you retry a request, use
 the same ClientToken you specified in the initial request.
@@ -1388,16 +1388,16 @@ information is provided in a JSON object with the following fields:
 &amp;#42;   InitiatorName: The iSCSI initiator that connects to the target.
  
  
-*   SecretToAuthenticateInitiator: The secret key that the initiator (for
+&amp;#42;   SecretToAuthenticateInitiator: The secret key that the initiator (for
  example, the Windows client) must provide to participate in mutual CHAP with
  the target.
  
  
-*   SecretToAuthenticateTarget: The secret key that the target must provide to
+&amp;#42;   SecretToAuthenticateTarget: The secret key that the target must provide to
  participate in mutual CHAP with the initiator (e.g. Windows client).
  
  
-*   TargetARN: The Amazon Resource Name (ARN) of the storage volume. **/
+&amp;#42;   TargetARN: The Amazon Resource Name (ARN) of the storage volume. **/
       ChapCredentials?: ChapCredentials;
     }
     export interface DescribeGatewayInformationInput {

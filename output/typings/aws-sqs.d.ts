@@ -29,22 +29,22 @@ declare module "aws-sdk" {
     [http://queue.amazonaws.com/doc/2012-11-05/QueueService.wsdl]
     
     
-  * Making API Requests
+  &amp;#42; Making API Requests
     [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/MakingRequestsArticle.html]
     
     
-  * Amazon SQS product page [http://aws.amazon.com/sqs/]
+  &amp;#42; Amazon SQS product page [http://aws.amazon.com/sqs/]
     
     
-  * Using Amazon SQS Message Attributes
+  &amp;#42; Using Amazon SQS Message Attributes
     [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html]
     
     
-  * Using Amazon SQS Dead Letter Queues
+  &amp;#42; Using Amazon SQS Dead Letter Queues
     [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html]
     
     
-  * Regions and Endpoints
+  &amp;#42; Regions and Endpoints
     [http://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region]
     
     
@@ -53,13 +53,13 @@ declare module "aws-sdk" {
  programming language. The SDKs contain functionality that automatically takes
  care of tasks such as:
  
-  * Cryptographically signing your service requests
+  &amp;#42; Cryptographically signing your service requests
     
     
-  * Retrying requests
+  &amp;#42; Retrying requests
     
     
-  * Handling error responses
+  &amp;#42; Handling error responses
     
     
  
@@ -327,21 +327,21 @@ which case you should repeat the request.
  &amp;#42;   Message body 
    
    
- *   MD5 digest of the message body. For information about MD5, go to 
+ &amp;#42;   MD5 digest of the message body. For information about MD5, go to 
    http://www.faqs.org/rfcs/rfc1321.html [http://www.faqs.org/rfcs/rfc1321.html]
    . 
    
    
- *   Message ID you received when you sent the message to the queue. 
+ &amp;#42;   Message ID you received when you sent the message to the queue. 
    
    
- *   Receipt handle. 
+ &amp;#42;   Receipt handle. 
    
    
- *   Message attributes. 
+ &amp;#42;   Message attributes. 
    
    
- *   MD5 digest of the message attributes. 
+ &amp;#42;   MD5 digest of the message attributes. 
    
    
 
@@ -589,35 +589,35 @@ parameters the CreateQueue action uses:
  this attribute is 0 (zero).
  
  
-* MaximumMessageSize - The limit of how many bytes a message can contain before
+&amp;#42; MaximumMessageSize - The limit of how many bytes a message can contain before
  Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes
  (256 KiB). The default for this attribute is 262144 (256 KiB).
  
  
-* MessageRetentionPeriod - The number of seconds Amazon SQS retains a message.
+&amp;#42; MessageRetentionPeriod - The number of seconds Amazon SQS retains a message.
  Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The
  default for this attribute is 345600 (4 days).
  
  
-* Policy - The queue&#x27;s policy. A valid AWS policy. For more information about
+&amp;#42; Policy - The queue&#x27;s policy. A valid AWS policy. For more information about
  policy structure, see Overview of AWS IAM Policies
  [http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html] in
  the Amazon IAM User Guide.
  
  
-* ReceiveMessageWaitTimeSeconds - The time for which a ReceiveMessage call will
+&amp;#42; ReceiveMessageWaitTimeSeconds - The time for which a ReceiveMessage call will
  wait for a message to arrive. An integer from 0 to 20 (seconds). The default
  for this attribute is 0.
  
  
-* RedrivePolicy - The parameters for dead letter queue functionality of the
+&amp;#42; RedrivePolicy - The parameters for dead letter queue functionality of the
  source queue. For more information about RedrivePolicy and dead letter
  queues, see Using Amazon SQS Dead Letter Queues
  [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html] 
  in the Amazon SQS Developer Guide.
  
  
-* VisibilityTimeout - The visibility timeout for the queue. An integer from 0
+&amp;#42; VisibilityTimeout - The visibility timeout for the queue. An integer from 0
  to 43200 (12 hours). The default for this attribute is 30. For more
  information about visibility timeout, see Visibility Timeout
  [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html] 
@@ -688,60 +688,60 @@ supported:
 &amp;#42; All - returns all values.
  
  
-* ApproximateNumberOfMessages - returns the approximate number of visible
+&amp;#42; ApproximateNumberOfMessages - returns the approximate number of visible
  messages in a queue. For more information, see Resources Required to Process
  Messages
  [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html] 
  in the Amazon SQS Developer Guide.
  
  
-* ApproximateNumberOfMessagesNotVisible - returns the approximate number of
+&amp;#42; ApproximateNumberOfMessagesNotVisible - returns the approximate number of
  messages that are not timed-out and not deleted. For more information, see 
  Resources Required to Process Messages
  [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html] 
  in the Amazon SQS Developer Guide.
  
  
-* VisibilityTimeout - returns the visibility timeout for the queue. For more
+&amp;#42; VisibilityTimeout - returns the visibility timeout for the queue. For more
  information about visibility timeout, see Visibility Timeout
  [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html] 
  in the Amazon SQS Developer Guide.
  
  
-* CreatedTimestamp - returns the time when the queue was created (epoch time in
+&amp;#42; CreatedTimestamp - returns the time when the queue was created (epoch time in
  seconds).
  
  
-* LastModifiedTimestamp - returns the time when the queue was last changed
+&amp;#42; LastModifiedTimestamp - returns the time when the queue was last changed
  (epoch time in seconds).
  
  
-* Policy - returns the queue&#x27;s policy.
+&amp;#42; Policy - returns the queue&#x27;s policy.
  
  
-* MaximumMessageSize - returns the limit of how many bytes a message can
+&amp;#42; MaximumMessageSize - returns the limit of how many bytes a message can
  contain before Amazon SQS rejects it.
  
  
-* MessageRetentionPeriod - returns the number of seconds Amazon SQS retains a
+&amp;#42; MessageRetentionPeriod - returns the number of seconds Amazon SQS retains a
  message.
  
  
-* QueueArn - returns the queue&#x27;s Amazon resource name (ARN).
+&amp;#42; QueueArn - returns the queue&#x27;s Amazon resource name (ARN).
  
  
-* ApproximateNumberOfMessagesDelayed - returns the approximate number of
+&amp;#42; ApproximateNumberOfMessagesDelayed - returns the approximate number of
  messages that are pending to be added to the queue.
  
  
-* DelaySeconds - returns the default delay on the queue in seconds.
+&amp;#42; DelaySeconds - returns the default delay on the queue in seconds.
  
  
-* ReceiveMessageWaitTimeSeconds - returns the time for which a ReceiveMessage
+&amp;#42; ReceiveMessageWaitTimeSeconds - returns the time for which a ReceiveMessage
  call will wait for a message to arrive.
  
  
-* RedrivePolicy - returns the parameters for dead letter queue functionality of
+&amp;#42; RedrivePolicy - returns the parameters for dead letter queue functionality of
  the source queue. For more information about RedrivePolicy and dead letter
  queues, see Using Amazon SQS Dead Letter Queues
  [http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html] 
@@ -883,19 +883,19 @@ attributes include:
 &amp;#42; All - returns all values.
  
  
-* ApproximateFirstReceiveTimestamp - returns the time when the message was
+&amp;#42; ApproximateFirstReceiveTimestamp - returns the time when the message was
  first received from the queue (epoch time in milliseconds).
  
  
-* ApproximateReceiveCount - returns the number of times a message has been
+&amp;#42; ApproximateReceiveCount - returns the number of times a message has been
  received from the queue but not deleted.
  
  
-* SenderId - returns the AWS account number (or the IP address, if anonymous
+&amp;#42; SenderId - returns the AWS account number (or the IP address, if anonymous
  access is allowed) of the sender.
  
  
-* SentTimestamp - returns the time when the message was sent to the queue
+&amp;#42; SentTimestamp - returns the time when the message was sent to the queue
  (epoch time in milliseconds).
  
  
@@ -917,7 +917,7 @@ because these prefixes are reserved for use by Amazon Web Services.
 
 When using ReceiveMessage, you can send a list of attribute names to receive, or
 you can return all of the attributes by specifying &quot;All&quot; or &quot;.&amp;#42;&quot; in your
-request. You can also use &quot;bar.*&quot; to return all message attributes starting with
+request. You can also use &quot;bar.&amp;#42;&quot; to return all message attributes starting with
 the &quot;bar&quot; prefix. **/
       MessageAttributeNames?: MessageAttributeNameList;
       /** The maximum number of messages to return. Amazon SQS never returns more messages
@@ -1047,34 +1047,34 @@ parameters the SetQueueAttributes action uses:
  this attribute is 0 (zero).
  
  
-* MaximumMessageSize - The limit of how many bytes a message can contain before
+&amp;#42; MaximumMessageSize - The limit of how many bytes a message can contain before
  Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes
  (256 KiB). The default for this attribute is 262144 (256 KiB).
  
  
-* MessageRetentionPeriod - The number of seconds Amazon SQS retains a message.
+&amp;#42; MessageRetentionPeriod - The number of seconds Amazon SQS retains a message.
  Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The
  default for this attribute is 345600 (4 days).
  
  
-* Policy - The queue&#x27;s policy. A valid AWS policy. For more information about
+&amp;#42; Policy - The queue&#x27;s policy. A valid AWS policy. For more information about
  policy structure, see Overview of AWS IAM Policies
  [http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html] in
  the Amazon IAM User Guide.
  
  
-* ReceiveMessageWaitTimeSeconds - The time for which a ReceiveMessage call will
+&amp;#42; ReceiveMessageWaitTimeSeconds - The time for which a ReceiveMessage call will
  wait for a message to arrive. An integer from 0 to 20 (seconds). The default
  for this attribute is 0.
  
  
-* VisibilityTimeout - The visibility timeout for the queue. An integer from 0
+&amp;#42; VisibilityTimeout - The visibility timeout for the queue. An integer from 0
  to 43200 (12 hours). The default for this attribute is 30. For more
  information about visibility timeout, see Visibility Timeout in the Amazon
  SQS Developer Guide.
  
  
-* RedrivePolicy - The parameters for dead letter queue functionality of the
+&amp;#42; RedrivePolicy - The parameters for dead letter queue functionality of the
  source queue. For more information about RedrivePolicy and dead letter
  queues, see Using Amazon SQS Dead Letter Queues in the Amazon SQS Developer
  Guide.

@@ -280,16 +280,16 @@ its destination while in transit. Regional shipping speeds are as follows:
  shipped express are delivered in about a day.
  
  
-*  In the European Union (EU), you have access to express shipping. Typically,
+&amp;#42;  In the European Union (EU), you have access to express shipping. Typically,
  Snowballs shipped express are delivered in about a day. In addition, most
  countries in the EU have access to standard shipping, which typically takes
  less than a week, one way.
  
  
-*  In India, Snowballs are delivered in one to seven days.
+&amp;#42;  In India, Snowballs are delivered in one to seven days.
  
  
-*  In the US, you have access to one-day shipping and two-day shipping. **/
+&amp;#42;  In the US, you have access to one-day shipping and two-day shipping. **/
       ShippingOption: ShippingOption;
       /** Defines the Amazon Simple Notification Service (Amazon SNS) notification
 settings for this job. **/
@@ -535,16 +535,16 @@ shipping speeds are as follows:
  shipped express are delivered in about a day.
  
  
-*  In the European Union (EU), you have access to express shipping. Typically,
+&amp;#42;  In the European Union (EU), you have access to express shipping. Typically,
  Snowballs shipped express are delivered in about a day. In addition, most
  countries in the EU have access to standard shipping, which typically takes
  less than a week, one way.
  
  
-*  In India, Snowballs are delivered in one to seven days.
+&amp;#42;  In India, Snowballs are delivered in one to seven days.
  
  
-*  In the United States of America (US), you have access to one-day shipping
+&amp;#42;  In the United States of America (US), you have access to one-day shipping
  and two-day shipping. **/
       ShippingOption?: ShippingOption;
       /** The Status and TrackingNumber values for a Snowball being delivered to the

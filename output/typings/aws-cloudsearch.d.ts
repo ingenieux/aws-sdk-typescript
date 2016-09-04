@@ -982,9 +982,9 @@ not present in every document. **/
 
 &amp;#42;  RequiresIndexDocuments: the option&#x27;s latest value will not be deployed until 
  IndexDocuments has been called and indexing is complete.
-*  Processing: the option&#x27;s latest value is in the process of being activated. 
-*  Active: the option&#x27;s latest value is completely deployed.
-*  FailedToValidate: the option value is not compatible with the domain&#x27;s data
+&amp;#42;  Processing: the option&#x27;s latest value is in the process of being activated. 
+&amp;#42;  Active: the option&#x27;s latest value is completely deployed.
+&amp;#42;  FailedToValidate: the option value is not compatible with the domain&#x27;s data
  and cannot be used to index the data. You must either modify the option value
  or update or remove the incompatible documents. **/
       State: OptionState;

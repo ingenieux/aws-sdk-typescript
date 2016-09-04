@@ -591,22 +591,22 @@ apply only to certain object fields, as detailed below.
 The comparison operators EQ and REF_EQ act on the following fields: 
 
 &amp;#42; name
-* @sphere
-* parent
-* @componentParent
-* @instanceParent
-* @status
-* @scheduledStartTime
-* @scheduledEndTime
-* @actualStartTime
-* @actualEndTime
+&amp;#42; @sphere
+&amp;#42; parent
+&amp;#42; @componentParent
+&amp;#42; @instanceParent
+&amp;#42; @status
+&amp;#42; @scheduledStartTime
+&amp;#42; @scheduledEndTime
+&amp;#42; @actualStartTime
+&amp;#42; @actualEndTime
 
 The comparison operators GE, LE, and BETWEEN act on the following fields: 
 
-* @scheduledStartTime
-* @scheduledEndTime
-* @actualStartTime
-* @actualEndTime
+&amp;#42; @scheduledStartTime
+&amp;#42; @scheduledEndTime
+&amp;#42; @actualStartTime
+&amp;#42; @actualEndTime
 
 Note that fields beginning with the at sign (@) are read-only and set by the web
 service. When you name fields, you should choose names containing only

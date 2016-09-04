@@ -496,7 +496,7 @@ process and forward to your origin. **/
 this cache behavior to apply to. When CloudFront receives an end-user request,
 the requested path is compared with path patterns in the order in which cache
 behaviors are listed in the distribution. The path pattern for the default cache
-behavior is * and cannot be changed. If the request for an object does not match
+behavior is &amp;#42; and cannot be changed. If the request for an object does not match
 the path pattern for any cache behaviors, CloudFront applies the behavior in the
 default cache behavior. **/
       PathPattern: string;
@@ -1044,11 +1044,11 @@ values that you specify for QueryStringCacheKeys, if any:
  origin and caches based on all query string parameters. Depending on how many
  query string parameters and values you have, this can adversely affect
  performance because CloudFront must forward more requests to the origin.
-* If you specify true for QueryString and you specify one or more values for
+&amp;#42; If you specify true for QueryString and you specify one or more values for
  QueryStringCacheKeys, CloudFront forwards all query string parameters to the
  origin, but it only caches based on the query string parameters that you
  specify.
-* If you specify false for QueryString, CloudFront doesn&#x27;t forward any query
+&amp;#42; If you specify false for QueryString, CloudFront doesn&#x27;t forward any query
  string parameters to the origin, and doesn&#x27;t cache based on query string
  parameters. **/
       QueryString: boolean;

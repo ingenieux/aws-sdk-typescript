@@ -22,9 +22,9 @@ declare module "aws-sdk" {
  
   &amp;#42; Automatically invoke an AWS Lambda function to update DNS entries when an
     event notifies you that Amazon EC2 instance enters the running state.
-  * Direct specific API records from CloudTrail to an Amazon Kinesis stream for
+  &amp;#42; Direct specific API records from CloudTrail to an Amazon Kinesis stream for
     detailed analysis of potential security or availability risks.
-  * Periodically invoke a built-in target to create a snapshot of an Amazon EBS
+  &amp;#42; Periodically invoke a built-in target to create a snapshot of an Amazon EBS
     volume.
  
   For more information about Amazon CloudWatch Events features, see the Amazon
@@ -160,10 +160,10 @@ When a rule is triggered due to a matched event, if for a target:
 
  &amp;#42; Neither Input nor InputPath is specified, then the entire event is passed to
    the target in JSON form.
- *  InputPath is specified in the form of JSONPath (e.g. $.detail), then only
+ &amp;#42;  InputPath is specified in the form of JSONPath (e.g. $.detail), then only
    the part of the event specified in the path is passed to the target (e.g.
    only the detail part of the event is passed). 
- *  Input is specified in the form of a valid JSON, then the matched event is
+ &amp;#42;  Input is specified in the form of a valid JSON, then the matched event is
    overridden with this constant.
 
  Note: When you add targets to a rule, when the associated rule triggers, new or
@@ -284,7 +284,7 @@ event patterns so that they match the ARN syntax in the event you want to match.
       Arn?: RuleArn;
       /** The event pattern. **/
       EventPattern?: EventPattern;
-      /** The scheduling expression. For example, &quot;cron(0 20 &amp;#42; * ? *)&quot;, &quot;rate(5 minutes)&quot;. **/
+      /** The scheduling expression. For example, &quot;cron(0 20 &amp;#42; &amp;#42; ? &amp;#42;)&quot;, &quot;rate(5 minutes)&quot;. **/
       ScheduleExpression?: ScheduleExpression;
       /** Specifies whether the rule is enabled or disabled. **/
       State?: RuleState;
@@ -394,7 +394,7 @@ entry. **/
     export interface PutRuleRequest {
       /** The name of the rule that you are creating or updating. **/
       Name: RuleName;
-      /** The scheduling expression. For example, &quot;cron(0 20 &amp;#42; * ? *)&quot;, &quot;rate(5 minutes)&quot;. **/
+      /** The scheduling expression. For example, &quot;cron(0 20 &amp;#42; &amp;#42; ? &amp;#42;)&quot;, &quot;rate(5 minutes)&quot;. **/
       ScheduleExpression?: ScheduleExpression;
       /** The event pattern. **/
       EventPattern?: EventPattern;
@@ -462,7 +462,7 @@ entry. **/
       State?: RuleState;
       /** The description of the rule. **/
       Description?: RuleDescription;
-      /** The scheduling expression. For example, &quot;cron(0 20 &amp;#42; * ? *)&quot;, &quot;rate(5 minutes)&quot;. **/
+      /** The scheduling expression. For example, &quot;cron(0 20 &amp;#42; &amp;#42; ? &amp;#42;)&quot;, &quot;rate(5 minutes)&quot;. **/
       ScheduleExpression?: ScheduleExpression;
       /** The Amazon Resource Name (ARN) associated with the role that is used for target
 invocation. **/

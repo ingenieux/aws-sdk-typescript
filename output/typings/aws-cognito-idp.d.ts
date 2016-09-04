@@ -1049,10 +1049,10 @@ user. **/
       /** The user status. Can be one of the following:
 
 &amp;#42; UNCONFIRMED - User has been created but not confirmed.
-* CONFIRMED - User has been confirmed.
-* ARCHIVED - User is no longer active.
-* COMPROMISED - User is disabled due to a potential security threat.
-* UNKNOWN - User status is not known. **/
+&amp;#42; CONFIRMED - User has been confirmed.
+&amp;#42; ARCHIVED - User is no longer active.
+&amp;#42; COMPROMISED - User is disabled due to a potential security threat.
+&amp;#42; UNKNOWN - User status is not known. **/
       UserStatus?: UserStatusType;
       /** Specifies the options for MFA (e.g., email or phone number). **/
       MFAOptions?: MFAOptionListType;
@@ -1901,9 +1901,9 @@ makes a request to update user pools. **/
 
 &amp;#42; OFF - MFA tokens are not required and cannot be specified during user
  registration.
-* ON - MFA tokens are required for all user registrations. You can only specify
+&amp;#42; ON - MFA tokens are required for all user registrations. You can only specify
  required when you are initially creating a user pool.
-* OPTIONAL - Users have the option when registering to create an MFA token. **/
+&amp;#42; OPTIONAL - Users have the option when registering to create an MFA token. **/
       MfaConfiguration?: UserPoolMfaType;
       /** Device configuration. **/
       DeviceConfiguration?: DeviceConfigurationType;
@@ -1936,15 +1936,15 @@ makes a request to update user pools. **/
       /** The status of the user import job. One of the following:
 
 &amp;#42; Created - The job was created but not started.
-* Pending - A transition state. You have started the job, but it has not begun
+&amp;#42; Pending - A transition state. You have started the job, but it has not begun
  importing users yet.
-* InProgress - The job has started, and users are being imported.
-* Stopping - You have stopped the job, but the job has not stopped importing
+&amp;#42; InProgress - The job has started, and users are being imported.
+&amp;#42; Stopping - You have stopped the job, but the job has not stopped importing
  users yet.
-* Stopped - You have stopped the job, and the job has stopped importing users.
-* Succeeded - The job has completed successfully.
-* Failed - The job has stopped due to an error.
-* Expired - You created a job, but did not start the job within 24-48 hours.
+&amp;#42; Stopped - You have stopped the job, and the job has stopped importing users.
+&amp;#42; Succeeded - The job has completed successfully.
+&amp;#42; Failed - The job has stopped due to an error.
+&amp;#42; Expired - You created a job, but did not start the job within 24-48 hours.
  All data associated with the job was deleted, and the job cannot be started. **/
       Status?: UserImportJobStatusType;
       /** The role ARN for the Amazon CloudWatch Logging role for the user import job. For
@@ -2055,9 +2055,9 @@ client. **/
 
 &amp;#42; OFF - MFA tokens are not required and cannot be specified during user
  registration.
-* ON - MFA tokens are required for all user registrations. You can only specify
+&amp;#42; ON - MFA tokens are required for all user registrations. You can only specify
  required when you are initially creating a user pool.
-* OPTIONAL - Users have the option when registering to create an MFA token. **/
+&amp;#42; OPTIONAL - Users have the option when registering to create an MFA token. **/
       MfaConfiguration?: UserPoolMfaType;
       /** The device configuration. **/
       DeviceConfiguration?: DeviceConfigurationType;
@@ -2086,10 +2086,10 @@ client. **/
       /** The user status. Can be one of the following:
 
 &amp;#42; UNCONFIRMED - User has been created but not confirmed.
-* CONFIRMED - User has been confirmed.
-* ARCHIVED - User is no longer active.
-* COMPROMISED - User is disabled due to a potential security threat.
-* UNKNOWN - User status is not known. **/
+&amp;#42; CONFIRMED - User has been confirmed.
+&amp;#42; ARCHIVED - User is no longer active.
+&amp;#42; COMPROMISED - User is disabled due to a potential security threat.
+&amp;#42; UNKNOWN - User status is not known. **/
       UserStatus?: UserStatusType;
     }
     export interface UsernameExistsException {

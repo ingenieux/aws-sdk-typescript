@@ -45,11 +45,11 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the following parameters by using a Condition element with the
-   appropriate keys.  * tagFilter.tag: String constraint. The key is swf:tagFilter.tag.
-    * typeFilter.name: String constraint. The key is swf:typeFilter.name.
-    * typeFilter.version: String constraint. The key is swf:typeFilter.version.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the following parameters by using a Condition element with the
+   appropriate keys.  &amp;#42; tagFilter.tag: String constraint. The key is swf:tagFilter.tag.
+    &amp;#42; typeFilter.name: String constraint. The key is swf:typeFilter.name.
+    &amp;#42; typeFilter.version: String constraint. The key is swf:typeFilter.version.
    
    
 
@@ -79,11 +79,11 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the following parameters by using a Condition element with the
-   appropriate keys.  * tagFilter.tag: String constraint. The key is swf:tagFilter.tag.
-    * typeFilter.name: String constraint. The key is swf:typeFilter.name.
-    * typeFilter.version: String constraint. The key is swf:typeFilter.version.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the following parameters by using a Condition element with the
+   appropriate keys.  &amp;#42; tagFilter.tag: String constraint. The key is swf:tagFilter.tag.
+    &amp;#42; typeFilter.name: String constraint. The key is swf:typeFilter.name.
+    &amp;#42; typeFilter.version: String constraint. The key is swf:typeFilter.version.
    
    
 
@@ -114,8 +114,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the taskList.name parameter by using a Condition element with the 
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the taskList.name parameter by using a Condition element with the 
    swf:taskList.name key to allow the action to access only certain task lists.
 
 If the caller does not have sufficient permissions to invoke the action, or the
@@ -145,8 +145,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the taskList.name parameter by using a Condition element with the 
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the taskList.name parameter by using a Condition element with the 
    swf:taskList.name key to allow the action to access only certain task lists.
 
 If the caller does not have sufficient permissions to invoke the action, or the
@@ -176,10 +176,10 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the following parameters by using a Condition element with the
-   appropriate keys.  * activityType.name: String constraint. The key is swf:activityType.name.
-    * activityType.version: String constraint. The key is 
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the following parameters by using a Condition element with the
+   appropriate keys.  &amp;#42; activityType.name: String constraint. The key is swf:activityType.name.
+    &amp;#42; activityType.version: String constraint. The key is 
       swf:activityType.version.
    
    
@@ -214,8 +214,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -246,10 +246,10 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the following parameters by using a Condition element with the
-   appropriate keys.  * workflowType.name: String constraint. The key is swf:workflowType.name.
-    * workflowType.version: String constraint. The key is 
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the following parameters by using a Condition element with the
+   appropriate keys.  &amp;#42; workflowType.name: String constraint. The key is swf:workflowType.name.
+    &amp;#42; workflowType.version: String constraint. The key is 
       swf:workflowType.version.
    
    
@@ -281,10 +281,10 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the following parameters by using a Condition element with the
-   appropriate keys.  * activityType.name: String constraint. The key is swf:activityType.name.
-    * activityType.version: String constraint. The key is 
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the following parameters by using a Condition element with the
+   appropriate keys.  &amp;#42; activityType.name: String constraint. The key is swf:activityType.name.
+    &amp;#42; activityType.version: String constraint. The key is 
       swf:activityType.version.
    
    
@@ -314,8 +314,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -343,8 +343,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -372,10 +372,10 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the following parameters by using a Condition element with the
-   appropriate keys.  * workflowType.name: String constraint. The key is swf:workflowType.name.
-    * workflowType.version: String constraint. The key is 
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the following parameters by using a Condition element with the
+   appropriate keys.  &amp;#42; workflowType.name: String constraint. The key is swf:workflowType.name.
+    &amp;#42; workflowType.version: String constraint. The key is 
       swf:workflowType.version.
    
    
@@ -407,8 +407,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -438,8 +438,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -469,11 +469,11 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the following parameters by using a Condition element with the
-   appropriate keys.  * tagFilter.tag: String constraint. The key is swf:tagFilter.tag.
-    * typeFilter.name: String constraint. The key is swf:typeFilter.name.
-    * typeFilter.version: String constraint. The key is swf:typeFilter.version.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the following parameters by using a Condition element with the
+   appropriate keys.  &amp;#42; tagFilter.tag: String constraint. The key is swf:tagFilter.tag.
+    &amp;#42; typeFilter.name: String constraint. The key is swf:typeFilter.name.
+    &amp;#42; typeFilter.version: String constraint. The key is swf:typeFilter.version.
    
    
 
@@ -503,10 +503,10 @@ You can use IAM policies to control this action&#x27;s access to Amazon SWF reso
 as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
-   specified domains. The element must be set to arn:aws:swf::AccountID:domain/*
+   specified domains. The element must be set to arn:aws:swf::AccountID:domain/&amp;#42;
    , where AccountID is the account ID, with no dashes.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -533,11 +533,11 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the following parameters by using a Condition element with the
-   appropriate keys.  * tagFilter.tag: String constraint. The key is swf:tagFilter.tag.
-    * typeFilter.name: String constraint. The key is swf:typeFilter.name.
-    * typeFilter.version: String constraint. The key is swf:typeFilter.version.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the following parameters by using a Condition element with the
+   appropriate keys.  &amp;#42; tagFilter.tag: String constraint. The key is swf:tagFilter.tag.
+    &amp;#42; typeFilter.name: String constraint. The key is swf:typeFilter.name.
+    &amp;#42; typeFilter.version: String constraint. The key is swf:typeFilter.version.
    
    
 
@@ -567,8 +567,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -603,8 +603,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the taskList.name parameter by using a Condition element with the 
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the taskList.name parameter by using a Condition element with the 
    swf:taskList.name key to allow the action to access only certain task lists.
 
 If the caller does not have sufficient permissions to invoke the action, or the
@@ -650,8 +650,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the taskList.name parameter by using a Condition element with the 
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the taskList.name parameter by using a Condition element with the 
    swf:taskList.name key to allow the action to access only certain task lists.
 
 If the caller does not have sufficient permissions to invoke the action, or the
@@ -703,8 +703,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -733,12 +733,12 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the following parameters by using a Condition element with the
-   appropriate keys.  *  defaultTaskList.name: String constraint. The key is 
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the following parameters by using a Condition element with the
+   appropriate keys.  &amp;#42;  defaultTaskList.name: String constraint. The key is 
       swf:defaultTaskList.name.
-    *  name: String constraint. The key is swf:name.
-    *  version: String constraint. The key is swf:version.
+    &amp;#42;  name: String constraint. The key is swf:name.
+    &amp;#42;  version: String constraint. The key is swf:version.
    
    
 
@@ -773,8 +773,8 @@ as follows:
  &amp;#42; You cannot use an IAM policy to control domain access for this action. The
    name of the domain being registered is available as the resource of this
    action.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -808,12 +808,12 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the following parameters by using a Condition element with the
-   appropriate keys.  *  defaultTaskList.name: String constraint. The key is 
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the following parameters by using a Condition element with the
+   appropriate keys.  &amp;#42;  defaultTaskList.name: String constraint. The key is 
       swf:defaultTaskList.name.
-    *  name: String constraint. The key is swf:name.
-    *  version: String constraint. The key is swf:version.
+    &amp;#42;  name: String constraint. The key is swf:name.
+    &amp;#42;  version: String constraint. The key is swf:version.
    
    
 
@@ -855,8 +855,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -897,8 +897,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -938,8 +938,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -975,8 +975,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -1035,8 +1035,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -1065,16 +1065,16 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * Constrain the following parameters by using a Condition element with the
-   appropriate keys.  *  tagList.member.0: The key is swf:tagList.member.0.
-    *  tagList.member.1: The key is swf:tagList.member.1.
-    *  tagList.member.2: The key is swf:tagList.member.2.
-    *  tagList.member.3: The key is swf:tagList.member.3.
-    *  tagList.member.4: The key is swf:tagList.member.4.
-    * taskList: String constraint. The key is swf:taskList.name.
-    * workflowType.name: String constraint. The key is swf:workflowType.name.
-    * workflowType.version: String constraint. The key is 
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; Constrain the following parameters by using a Condition element with the
+   appropriate keys.  &amp;#42;  tagList.member.0: The key is swf:tagList.member.0.
+    &amp;#42;  tagList.member.1: The key is swf:tagList.member.1.
+    &amp;#42;  tagList.member.2: The key is swf:tagList.member.2.
+    &amp;#42;  tagList.member.3: The key is swf:tagList.member.3.
+    &amp;#42;  tagList.member.4: The key is swf:tagList.member.4.
+    &amp;#42; taskList: String constraint. The key is swf:taskList.name.
+    &amp;#42; workflowType.name: String constraint. The key is swf:workflowType.name.
+    &amp;#42; workflowType.version: String constraint. The key is 
       swf:workflowType.version.
    
    
@@ -1119,8 +1119,8 @@ as follows:
 
  &amp;#42; Use a Resource element with the domain name to limit the action to only
    specified domains.
- * Use an Action element to allow or deny permission to call this action.
- * You cannot use an IAM policy to constrain this action&#x27;s parameters.
+ &amp;#42; Use an Action element to allow or deny permission to call this action.
+ &amp;#42; You cannot use an IAM policy to constrain this action&#x27;s parameters.
 
 If the caller does not have sufficient permissions to invoke the action, or the
 parameter values fall outside the specified constraints, the action fails. The
@@ -1493,7 +1493,7 @@ one of the following.
 
 &amp;#42;  REGISTERED: The type is registered and available. Workers supporting this
  type should be running. 
-*  DEPRECATED: The type was deprecated using DeprecateActivityType, but is
+&amp;#42;  DEPRECATED: The type was deprecated using DeprecateActivityType, but is
  still in use. You should keep workers supporting this type running. You
  cannot create new tasks of this type. **/
       typeInfo: ActivityTypeInfo;
@@ -1730,11 +1730,11 @@ policy specified when registering the workflow type using RegisterWorkflowType.
 The supported child policies are:
 
 &amp;#42; TERMINATE: the child executions will be terminated.
-* REQUEST_CANCEL: a request to cancel will be attempted for each child
+&amp;#42; REQUEST_CANCEL: a request to cancel will be attempted for each child
  execution by recording a WorkflowExecutionCancelRequested event in its
  history. It is up to the decider to take appropriate actions when it receives
  an execution history with this event.
-* ABANDON: no action will be taken. The child executions will continue to run.
+&amp;#42; ABANDON: no action will be taken. The child executions will continue to run.
 
 A child policy for this workflow execution must be specified either as a default
 for the workflow type or through this parameter. If neither this parameter is
@@ -2029,7 +2029,7 @@ name and version that were supplied when the activity was registered. **/
 
 &amp;#42;  REGISTERED: The domain is properly registered and available. You can use
  this domain for registering types and creating new workflow executions. 
-*  DEPRECATED: The domain was deprecated using DeprecateDomain, but is still in
+&amp;#42;  DEPRECATED: The domain was deprecated using DeprecateDomain, but is still in
  use. You should not create new workflow executions in this domain. **/
       status: RegistrationStatus;
       /** The description of the domain provided through RegisterDomain. **/
@@ -2818,11 +2818,11 @@ StartWorkflowExecution action or the StartChildWorkflowExecution decision.
 The supported child policies are:
 
 &amp;#42; TERMINATE: the child executions will be terminated.
-* REQUEST_CANCEL: a request to cancel will be attempted for each child
+&amp;#42; REQUEST_CANCEL: a request to cancel will be attempted for each child
  execution by recording a WorkflowExecutionCancelRequested event in its
  history. It is up to the decider to take appropriate actions when it receives
  an execution history with this event.
-* ABANDON: no action will be taken. The child executions will continue to run. **/
+&amp;#42; ABANDON: no action will be taken. The child executions will continue to run. **/
       defaultChildPolicy?: ChildPolicy;
       /** The ARN of the default IAM role to use when a workflow execution of this type
 invokes AWS Lambda functions.
@@ -3238,11 +3238,11 @@ workflow type using RegisterWorkflowType.
 The supported child policies are:
 
 &amp;#42; TERMINATE: the child executions will be terminated.
-* REQUEST_CANCEL: a request to cancel will be attempted for each child
+&amp;#42; REQUEST_CANCEL: a request to cancel will be attempted for each child
  execution by recording a WorkflowExecutionCancelRequested event in its
  history. It is up to the decider to take appropriate actions when it receives
  an execution history with this event.
-* ABANDON: no action will be taken. The child executions will continue to run.
+&amp;#42; ABANDON: no action will be taken. The child executions will continue to run.
 
 A child policy for this workflow execution must be specified either as a default
 for the workflow type or through this parameter. If neither this parameter is
@@ -3328,11 +3328,11 @@ an expired timeout.
 The supported child policies are:
 
 &amp;#42; TERMINATE: the child executions will be terminated.
-* REQUEST_CANCEL: a request to cancel will be attempted for each child
+&amp;#42; REQUEST_CANCEL: a request to cancel will be attempted for each child
  execution by recording a WorkflowExecutionCancelRequested event in its
  history. It is up to the decider to take appropriate actions when it receives
  an execution history with this event.
-* ABANDON: no action will be taken. The child executions will continue to run. **/
+&amp;#42; ABANDON: no action will be taken. The child executions will continue to run. **/
       childPolicy: ChildPolicy;
       /** The maximum duration allowed for the decision tasks for this workflow execution.
 
@@ -3477,11 +3477,11 @@ workflow type using RegisterWorkflowType.
 The supported child policies are:
 
 &amp;#42; TERMINATE: the child executions will be terminated.
-* REQUEST_CANCEL: a request to cancel will be attempted for each child
+&amp;#42; REQUEST_CANCEL: a request to cancel will be attempted for each child
  execution by recording a WorkflowExecutionCancelRequested event in its
  history. It is up to the decider to take appropriate actions when it receives
  an execution history with this event.
-* ABANDON: no action will be taken. The child executions will continue to run.
+&amp;#42; ABANDON: no action will be taken. The child executions will continue to run.
 
 A child policy for this workflow execution must be specified either as a default
 for the workflow type or through this parameter. If neither this parameter is
@@ -3524,11 +3524,11 @@ execution.
 The supported child policies are:
 
 &amp;#42; TERMINATE: the child executions will be terminated.
-* REQUEST_CANCEL: a request to cancel will be attempted for each child
+&amp;#42; REQUEST_CANCEL: a request to cancel will be attempted for each child
  execution by recording a WorkflowExecutionCancelRequested event in its
  history. It is up to the decider to take appropriate actions when it receives
  an execution history with this event.
-* ABANDON: no action will be taken. The child executions will continue to run.
+&amp;#42; ABANDON: no action will be taken. The child executions will continue to run.
 
 A child policy for this workflow execution must be specified either as a default
 for the workflow type or through this parameter. If neither this parameter is
@@ -3657,11 +3657,11 @@ due to an expired timeout.
 The supported child policies are:
 
 &amp;#42; TERMINATE: the child executions will be terminated.
-* REQUEST_CANCEL: a request to cancel will be attempted for each child
+&amp;#42; REQUEST_CANCEL: a request to cancel will be attempted for each child
  execution by recording a WorkflowExecutionCancelRequested event in its
  history. It is up to the decider to take appropriate actions when it receives
  an execution history with this event.
-* ABANDON: no action will be taken. The child executions will continue to run. **/
+&amp;#42; ABANDON: no action will be taken. The child executions will continue to run. **/
       childPolicy: ChildPolicy;
       /** The IAM role used by this workflow execution when invoking AWS Lambda functions. **/
       lambdaRole?: Arn;
@@ -3695,11 +3695,11 @@ to an expired timeout.
 The supported child policies are:
 
 &amp;#42; TERMINATE: the child executions will be terminated.
-* REQUEST_CANCEL: a request to cancel will be attempted for each child
+&amp;#42; REQUEST_CANCEL: a request to cancel will be attempted for each child
  execution by recording a WorkflowExecutionCancelRequested event in its
  history. It is up to the decider to take appropriate actions when it receives
  an execution history with this event.
-* ABANDON: no action will be taken. The child executions will continue to run. **/
+&amp;#42; ABANDON: no action will be taken. The child executions will continue to run. **/
       childPolicy: ChildPolicy;
       /** The list of tags associated with the new workflow execution. **/
       tagList?: TagList;
@@ -3764,13 +3764,13 @@ status is CLOSED. **/
 closed:
 
 &amp;#42;  COMPLETED: the execution was successfully completed.
-*  CANCELED: the execution was canceled.Cancellation allows the implementation
+&amp;#42;  CANCELED: the execution was canceled.Cancellation allows the implementation
  to gracefully clean up before the execution is closed.
-*  TERMINATED: the execution was force terminated.
-*  FAILED: the execution failed to complete.
-*  TIMED_OUT: the execution did not complete in the alloted time and was
+&amp;#42;  TERMINATED: the execution was force terminated.
+&amp;#42;  FAILED: the execution failed to complete.
+&amp;#42;  TIMED_OUT: the execution did not complete in the alloted time and was
  automatically timed out.
-*  CONTINUED_AS_NEW: the execution is logically continued. This means the
+&amp;#42;  CONTINUED_AS_NEW: the execution is logically continued. This means the
  current execution was completed and a new execution was started to carry on
  the workflow. **/
       closeStatus?: CloseStatus;
@@ -3846,11 +3846,11 @@ due to an expired timeout.
 The supported child policies are:
 
 &amp;#42; TERMINATE: the child executions will be terminated.
-* REQUEST_CANCEL: a request to cancel will be attempted for each child
+&amp;#42; REQUEST_CANCEL: a request to cancel will be attempted for each child
  execution by recording a WorkflowExecutionCancelRequested event in its
  history. It is up to the decider to take appropriate actions when it receives
  an execution history with this event.
-* ABANDON: no action will be taken. The child executions will continue to run. **/
+&amp;#42; ABANDON: no action will be taken. The child executions will continue to run. **/
       childPolicy: ChildPolicy;
       /** The name of the task list for scheduling the decision tasks for this workflow
 execution. **/
@@ -3888,11 +3888,11 @@ functions. **/
 The supported child policies are:
 
 &amp;#42; TERMINATE: the child executions will be terminated.
-* REQUEST_CANCEL: a request to cancel will be attempted for each child
+&amp;#42; REQUEST_CANCEL: a request to cancel will be attempted for each child
  execution by recording a WorkflowExecutionCancelRequested event in its
  history. It is up to the decider to take appropriate actions when it receives
  an execution history with this event.
-* ABANDON: no action will be taken. The child executions will continue to run. **/
+&amp;#42; ABANDON: no action will be taken. The child executions will continue to run. **/
       childPolicy: ChildPolicy;
       /** If set, indicates that the workflow execution was automatically terminated, and
 specifies the cause. This happens if the parent workflow execution times out or
@@ -3907,11 +3907,11 @@ is terminated and the child policy is set to terminate child executions. **/
 The supported child policies are:
 
 &amp;#42; TERMINATE: the child executions will be terminated.
-* REQUEST_CANCEL: a request to cancel will be attempted for each child
+&amp;#42; REQUEST_CANCEL: a request to cancel will be attempted for each child
  execution by recording a WorkflowExecutionCancelRequested event in its
  history. It is up to the decider to take appropriate actions when it receives
  an execution history with this event.
-* ABANDON: no action will be taken. The child executions will continue to run. **/
+&amp;#42; ABANDON: no action will be taken. The child executions will continue to run. **/
       childPolicy: ChildPolicy;
     }
     export interface WorkflowType {
@@ -3972,11 +3972,11 @@ StartWorkflowExecution action or the StartChildWorkflowExecution decision.
 The supported child policies are:
 
 &amp;#42; TERMINATE: the child executions will be terminated.
-* REQUEST_CANCEL: a request to cancel will be attempted for each child
+&amp;#42; REQUEST_CANCEL: a request to cancel will be attempted for each child
  execution by recording a WorkflowExecutionCancelRequested event in its
  history. It is up to the decider to take appropriate actions when it receives
  an execution history with this event.
-* ABANDON: no action will be taken. The child executions will continue to run. **/
+&amp;#42; ABANDON: no action will be taken. The child executions will continue to run. **/
       defaultChildPolicy?: ChildPolicy;
       /** The default IAM role to use when a workflow execution invokes a AWS Lambda
 function. **/
@@ -3990,7 +3990,7 @@ be one of the following.
 
 &amp;#42;  REGISTERED: The type is registered and available. Workers supporting this
  type should be running.
-*  DEPRECATED: The type was deprecated using DeprecateWorkflowType, but is
+&amp;#42;  DEPRECATED: The type was deprecated using DeprecateWorkflowType, but is
  still in use. You should keep workers supporting this type running. You
  cannot create new workflow executions of this type. **/
       typeInfo: WorkflowTypeInfo;

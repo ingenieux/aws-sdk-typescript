@@ -19,36 +19,36 @@ declare module "aws-sdk" {
  
  You can use the AWS CodeCommit API to work with the following objects:
  
-  &amp;#42; Repositories, by calling the following:  * BatchGetRepositories, which returns information about one or more
+  &amp;#42; Repositories, by calling the following:  &amp;#42; BatchGetRepositories, which returns information about one or more
        repositories associated with your AWS account
-     * CreateRepository, which creates an AWS CodeCommit repository
-     * DeleteRepository, which deletes an AWS CodeCommit repository
-     * GetRepository, which returns information about a specified repository
-     * ListRepositories, which lists all AWS CodeCommit repositories associated
+     &amp;#42; CreateRepository, which creates an AWS CodeCommit repository
+     &amp;#42; DeleteRepository, which deletes an AWS CodeCommit repository
+     &amp;#42; GetRepository, which returns information about a specified repository
+     &amp;#42; ListRepositories, which lists all AWS CodeCommit repositories associated
        with your AWS account
-     * UpdateRepositoryDescription, which sets or updates the description of the
+     &amp;#42; UpdateRepositoryDescription, which sets or updates the description of the
        repository
-     * UpdateRepositoryName, which changes the name of the repository. If you
+     &amp;#42; UpdateRepositoryName, which changes the name of the repository. If you
        change the name of a repository, no other users of that repository will be
        able to access it until you send them the new HTTPS or SSH URL to use.
     
     
-  * Branches, by calling the following:  * CreateBranch, which creates a new branch in a specified repository
-     * GetBranch, which returns information about a specified branch
-     * ListBranches, which lists all branches for a specified repository
-     * UpdateDefaultBranch, which changes the default branch for a repository
+  &amp;#42; Branches, by calling the following:  &amp;#42; CreateBranch, which creates a new branch in a specified repository
+     &amp;#42; GetBranch, which returns information about a specified branch
+     &amp;#42; ListBranches, which lists all branches for a specified repository
+     &amp;#42; UpdateDefaultBranch, which changes the default branch for a repository
     
     
-  * Information about committed code in a repository, by calling the following:  * 
+  &amp;#42; Information about committed code in a repository, by calling the following:  &amp;#42; 
        GetCommit, which returns information about a commit, including commit
        messages and committer information.
     
     
-  * Triggers, by calling the following:  * GetRepositoryTriggers, which returns information about triggers configured
+  &amp;#42; Triggers, by calling the following:  &amp;#42; GetRepositoryTriggers, which returns information about triggers configured
        for a repository
-     * PutRepositoryTriggers, which replaces all triggers for a repository and
+     &amp;#42; PutRepositoryTriggers, which replaces all triggers for a repository and
        can be used to create or delete triggers
-     * TestRepositoryTriggers, which tests the functionality of a repository
+     &amp;#42; TestRepositoryTriggers, which tests the functionality of a repository
        trigger by sending data to the trigger target
     
     

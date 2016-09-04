@@ -376,15 +376,15 @@ For more information, see the following in the Classic Load Balancers Guide:
    [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html] 
    
    
- *   Connection Draining
+ &amp;#42;   Connection Draining
    [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html] 
    
    
- *   Access Logs
+ &amp;#42;   Access Logs
    [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html] 
    
    
- *   Idle Connection Timeout
+ &amp;#42;   Idle Connection Timeout
    [http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html]
      *
      * @error AccessPointNotFoundException   
@@ -1014,40 +1014,40 @@ following messages.
 &amp;#42;   N/A 
  
  
-*   A transient error occurred. Please try again later. 
+&amp;#42;   A transient error occurred. Please try again later. 
  
  
-*   Instance has failed at least the UnhealthyThreshold number of health checks
+&amp;#42;   Instance has failed at least the UnhealthyThreshold number of health checks
  consecutively. 
  
  
-*   Instance has not passed the configured HealthyThreshold number of health
+&amp;#42;   Instance has not passed the configured HealthyThreshold number of health
  checks consecutively. 
  
  
-*   Instance registration is still in progress. 
+&amp;#42;   Instance registration is still in progress. 
  
  
-*   Instance is in the EC2 Availability Zone for which LoadBalancer is not
+&amp;#42;   Instance is in the EC2 Availability Zone for which LoadBalancer is not
  configured to route traffic to. 
  
  
-*   Instance is not currently registered with the LoadBalancer. 
+&amp;#42;   Instance is not currently registered with the LoadBalancer. 
  
  
-*   Instance deregistration currently in progress. 
+&amp;#42;   Instance deregistration currently in progress. 
  
  
-*   Disable Availability Zone is currently in progress. 
+&amp;#42;   Disable Availability Zone is currently in progress. 
  
  
-*   Instance is in pending state. 
+&amp;#42;   Instance is in pending state. 
  
  
-*   Instance is in stopped state. 
+&amp;#42;   Instance is in stopped state. 
  
  
-*   Instance is in terminated state. **/
+&amp;#42;   Instance is in terminated state. **/
       Description?: Description;
     }
     export interface InvalidConfigurationRequestException {
@@ -1231,13 +1231,13 @@ Valid values:
 &amp;#42;  ONE(1) : Single value required
  
  
-*  ZERO_OR_ONE(0..1) : Up to one value is allowed
+&amp;#42;  ZERO_OR_ONE(0..1) : Up to one value is allowed
  
  
-*  ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
+&amp;#42;  ZERO_OR_MORE(0..&amp;#42;) : Optional. Multiple values are allowed
  
  
-*  ONE_OR_MORE(1..*0) : Required. Multiple values are allowed **/
+&amp;#42;  ONE_OR_MORE(1..&amp;#42;0) : Required. Multiple values are allowed **/
       Cardinality?: Cardinality;
     }
     export interface PolicyDescription {

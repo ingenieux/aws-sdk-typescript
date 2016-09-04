@@ -43,7 +43,7 @@ declare module "aws-sdk" {
     the service.
     
     
-  * Getting Started with Amazon Glacier
+  &amp;#42; Getting Started with Amazon Glacier
     [http://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-getting-started.html] 
     - The Getting Started section walks you through the process of creating a
     vault, uploading archives, creating jobs to download archives, retrieving the
@@ -224,7 +224,7 @@ You must use the following guidelines when naming a vault.
   &amp;#42;   Names can be between 1 and 255 characters long. 
    
    
- *  Allowed characters are a-z, A-Z, 0-9, &#x27;_&#x27; (underscore), &#x27;-&#x27; (hyphen), and
+ &amp;#42;  Allowed characters are a-z, A-Z, 0-9, &#x27;_&#x27; (underscore), &#x27;-&#x27; (hyphen), and
    &#x27;.&#x27; (period).
    
    
@@ -262,7 +262,7 @@ for this archive ID may or may not succeed according to the following scenarios:
  &amp;#42; If the archive retrieval job is actively preparing the data for download when
    Amazon Glacier receives the delete archive request, the archival retrieval
    operation might fail. 
- * If the archive retrieval job has successfully prepared the archive for
+ &amp;#42; If the archive retrieval job has successfully prepared the archive for
    download when Amazon Glacier receives the delete archive request, you will be
    able to download the output. 
 
@@ -537,14 +537,14 @@ not exist.
 subresource set on the specified vault:  &amp;#42;  The vault lock policy set on the vault.
    
    
- *  The state of the vault lock, which is either InProgess or Locked.
+ &amp;#42;  The state of the vault lock, which is either InProgess or Locked.
    
    
- *  When the lock ID expires. The lock ID is used to complete the vault locking
+ &amp;#42;  When the lock ID expires. The lock ID is used to complete the vault locking
    process.
    
    
- *  When the vault lock was initiated and put into the InProgress state.
+ &amp;#42;  When the vault lock was initiated and put into the InProgress state.
    
    
 
@@ -642,7 +642,7 @@ complete, you have the following options:
    information, see SetVaultNotifications.
    
    
- *  Get job details You can make a DescribeJob request to obtain job status
+ &amp;#42;  Get job details You can make a DescribeJob request to obtain job status
    information while a job is in progress. However, it is more efficient to use
    an Amazon SNS notification to determine when a job is complete.
    
@@ -793,10 +793,10 @@ not exist.
      * This operation initiates the vault locking process by doing the following:  &amp;#42;  Installing a vault lock policy on the specified vault.
    
    
- *  Setting the lock state of vault lock to InProgress.
+ &amp;#42;  Setting the lock state of vault lock to InProgress.
    
    
- *  Returning a lock ID, which is used to complete the vault locking process. 
+ &amp;#42;  Returning a lock ID, which is used to complete the vault locking process. 
    
    
 
@@ -1074,7 +1074,7 @@ for the following vault events:
    for an archive retrieval is completed (InitiateJob). The status of the
    completed job can be &quot;Succeeded&quot; or &quot;Failed&quot;. The notification sent to the
    SNS topic is the same output as returned from DescribeJob. 
- *  InventoryRetrievalCompleted This event occurs when a job that was initiated
+ &amp;#42;  InventoryRetrievalCompleted This event occurs when a job that was initiated
    for an inventory retrieval is completed (InitiateJob). The status of the
    completed job can be &quot;Succeeded&quot; or &quot;Failed&quot;. The notification sent to the
    SNS topic is the same output as returned from DescribeJob. 
@@ -1171,7 +1171,7 @@ conditions is true:
    .
    
    
- *  Part size does not matchThe size of each part except the last must match the
+ &amp;#42;  Part size does not matchThe size of each part except the last must match the
    size specified in the corresponding InitiateMultipartUpload request. The size
    of the last part must be the same size as, or smaller than, the specified
    size.
@@ -1182,7 +1182,7 @@ conditions is true:
    Multipart Upload request will fail.
    
    
- *  Range does not alignThe byte range value in the request does not align with
+ &amp;#42;  Range does not alignThe byte range value in the request does not align with
    the part size specified in the corresponding initiate request. For example,
    if you specify a part size of 4194304 bytes (4 MB), then 0 to 4194303 bytes
    (4 MB - 1) and 4194304 (4 MB) to 8388607 (8 MB - 1) are valid part ranges.
@@ -1512,12 +1512,12 @@ default, this operation downloads the entire output. **/
 retrieving the output for an archive retrieval job. Furthermore, this header
 appears only under the following conditions:  &amp;#42; You get the entire range of the
  archive.
-* You request a range to return of
+&amp;#42; You request a range to return of
  the archive that starts and ends on a multiple of 1 MB. For example, if you
  have an 3.1 MB archive and you specify a range to return that starts at 1 MB
  and ends at 2 MB, then the x-amz-sha256-tree-hash is returned as a response
  header.
-* You request a range of the
+&amp;#42; You request a range of the
  archive to return that starts on a multiple of 1 MB and goes to the end of
  the archive. For example, if you have a 3.1 MB archive and you specify a
  range that starts at 2 MB and ends at 3.1 MB (the end of the archive), then
@@ -1641,12 +1641,12 @@ This field is null in the following situations:  &amp;#42; Archive retrieval job
  
  
 
-* Archival jobs that specify a range that is equal to the whole archive and the
+&amp;#42; Archival jobs that specify a range that is equal to the whole archive and the
  job status is InProgress.
  
  
 
-* Inventory jobs. **/
+&amp;#42; Inventory jobs. **/
       SHA256TreeHash?: string;
       /** The SHA256 tree hash of the entire archive for an archive retrieval. For
 inventory retrieval jobs, this field is null. **/

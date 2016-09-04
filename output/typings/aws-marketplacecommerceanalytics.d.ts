@@ -87,42 +87,42 @@ iam:GetRolePolicy.
 
 &amp;#42; customer_subscriber_hourly_monthly_subscriptions - Available daily by 5:00 PM
  Pacific Time since 2014-07-21.
-* customer_subscriber_annual_subscriptions - Available daily by 5:00 PM Pacific
+&amp;#42; customer_subscriber_annual_subscriptions - Available daily by 5:00 PM Pacific
  Time since 2014-07-21.
-* daily_business_usage_by_instance_type - Available daily by 5:00 PM Pacific
+&amp;#42; daily_business_usage_by_instance_type - Available daily by 5:00 PM Pacific
  Time since 2015-01-26.
-* daily_business_fees - Available daily by 5:00 PM Pacific Time since
+&amp;#42; daily_business_fees - Available daily by 5:00 PM Pacific Time since
  2015-01-26.
-* daily_business_free_trial_conversions - Available daily by 5:00 PM Pacific
+&amp;#42; daily_business_free_trial_conversions - Available daily by 5:00 PM Pacific
  Time since 2015-01-26.
-* daily_business_new_instances - Available daily by 5:00 PM Pacific Time since
+&amp;#42; daily_business_new_instances - Available daily by 5:00 PM Pacific Time since
  2015-01-26.
-* daily_business_new_product_subscribers - Available daily by 5:00 PM Pacific
+&amp;#42; daily_business_new_product_subscribers - Available daily by 5:00 PM Pacific
  Time since 2015-01-26.
-* daily_business_canceled_product_subscribers - Available daily by 5:00 PM
+&amp;#42; daily_business_canceled_product_subscribers - Available daily by 5:00 PM
  Pacific Time since 2015-01-26.
-* monthly_revenue_billing_and_revenue_data - Available monthly on the 4th day
+&amp;#42; monthly_revenue_billing_and_revenue_data - Available monthly on the 4th day
  of the month by 5:00 PM Pacific Time since 2015-02.
-* monthly_revenue_annual_subscriptions - Available monthly on the 4th day of
+&amp;#42; monthly_revenue_annual_subscriptions - Available monthly on the 4th day of
  the month by 5:00 PM Pacific Time since 2015-02.
-* disbursed_amount_by_product - Available every 30 days by 5:00 PM Pacific Time
+&amp;#42; disbursed_amount_by_product - Available every 30 days by 5:00 PM Pacific Time
  since 2015-01-26.
-* disbursed_amount_by_product_with_uncollected_funds -This data set is only
+&amp;#42; disbursed_amount_by_product_with_uncollected_funds -This data set is only
  available from 2012-04-19 until 2015-01-25. After 2015-01-25, this data set
  was split into three data sets: disbursed_amount_by_product,
  disbursed_amount_by_age_of_uncollected_funds, and
  disbursed_amount_by_age_of_disbursed_funds. 
-* disbursed_amount_by_customer_geo - Available every 30 days by 5:00 PM Pacific
+&amp;#42; disbursed_amount_by_customer_geo - Available every 30 days by 5:00 PM Pacific
  Time since 2012-04-19.
-* disbursed_amount_by_age_of_uncollected_funds - Available every 30 days by
+&amp;#42; disbursed_amount_by_age_of_uncollected_funds - Available every 30 days by
  5:00 PM Pacific Time since 2015-01-26.
-* disbursed_amount_by_age_of_disbursed_funds - Available every 30 days by 5:00
+&amp;#42; disbursed_amount_by_age_of_disbursed_funds - Available every 30 days by 5:00
  PM Pacific Time since 2015-01-26.
-* customer_profile_by_industry - Available daily by 5:00 PM Pacific Time since
+&amp;#42; customer_profile_by_industry - Available daily by 5:00 PM Pacific Time since
  2015-10-01.
-* customer_profile_by_revenue - Available daily by 5:00 PM Pacific Time since
+&amp;#42; customer_profile_by_revenue - Available daily by 5:00 PM Pacific Time since
  2015-10-01.
-* customer_profile_by_geography - Available daily by 5:00 PM Pacific Time since
+&amp;#42; customer_profile_by_geography - Available daily by 5:00 PM Pacific Time since
  2015-10-01. **/
       dataSetType: DataSetType;
       /** The date a data set was published. For daily data sets, provide a date with
@@ -172,7 +172,7 @@ test_customer_support_contacts_data value is supported
 &amp;#42; customer_support_contacts_data Customer support contact data. The data set
  will contain all changes (Creates, Updates, and Deletes) to customer support
  contact data from the date specified in the from_date parameter.
-* test_customer_support_contacts_data An example data set containing static
+&amp;#42; test_customer_support_contacts_data An example data set containing static
  test data in the same format as customer_support_contacts_data **/
       dataSetType: SupportDataSetType;
       /** The start date from which to retrieve the data set. This parameter only affects

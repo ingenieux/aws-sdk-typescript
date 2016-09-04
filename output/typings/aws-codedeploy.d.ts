@@ -28,34 +28,34 @@ declare module "aws-sdk" {
     applications.
     
     
-  *  Deployment configurations are sets of deployment rules and success and
+  &amp;#42;  Deployment configurations are sets of deployment rules and success and
     failure conditions used by AWS CodeDeploy during deployments.
     
     You can use the AWS CodeDeploy APIs to create, delete, get, and list
     deployment configurations.
     
     
-  *  Deployment groups are groups of instances to which application revisions can
+  &amp;#42;  Deployment groups are groups of instances to which application revisions can
     be deployed.
     
     You can use the AWS CodeDeploy APIs to create, delete, get, list, and update
     deployment groups.
     
     
-  *  Instances represent Amazon EC2 instances to which application revisions are
+  &amp;#42;  Instances represent Amazon EC2 instances to which application revisions are
     deployed. Instances are identified by their Amazon EC2 tags or Auto Scaling
     group names. Instances belong to deployment groups.
     
     You can use the AWS CodeDeploy APIs to get and list instance.
     
     
-  *  Deployments represent the process of deploying revisions to instances.
+  &amp;#42;  Deployments represent the process of deploying revisions to instances.
     
     You can use the AWS CodeDeploy APIs to create, get, list, and stop
     deployments.
     
     
-  *  Application revisions are archive files stored in Amazon S3 buckets or
+  &amp;#42;  Application revisions are archive files stored in Amazon S3 buckets or
     GitHub repositories. These revisions contain source content (such as source
     code, web pages, executable files, and deployment scripts) along with an
     application specification (AppSpec) file. (The AppSpec file is unique to AWS
@@ -729,7 +729,7 @@ The type parameter takes either of the following values:
 
 &amp;#42; HOST_COUNT: The value parameter represents the minimum number of healthy
  instances as an absolute value.
-* FLEET_PERCENT: The value parameter represents the minimum number of healthy
+&amp;#42; FLEET_PERCENT: The value parameter represents the minimum number of healthy
  instances as a percentage of the total number of instances in the deployment.
  If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy
  converts the percentage to the equivalent number of instance and rounds up
@@ -772,7 +772,7 @@ The predefined deployment configurations include the following:
  fail only if deployments to all nine instance fail. 
  
  
-*  CodeDeployDefault.HalfAtATime deploys to up to half of the instances at a
+&amp;#42;  CodeDeployDefault.HalfAtATime deploys to up to half of the instances at a
  time (with fractions rounded down). The overall deployment succeeds if the
  application revision is deployed to at least half of the instances (with
  fractions rounded up); otherwise, the deployment fails. In the example of
@@ -782,25 +782,25 @@ The predefined deployment configurations include the following:
  to some instances even if the overall deployment fails.
  
  
-*  CodeDeployDefault.OneAtATime deploys the application revision to only one
+&amp;#42;  CodeDeployDefault.OneAtATime deploys the application revision to only one
  instance at a time.
  
  For deployment groups that contain more than one instance:
  
-  *  The overall deployment succeeds if the application revision is deployed
+  &amp;#42;  The overall deployment succeeds if the application revision is deployed
     to all of the instances. The exception to this rule is if deployment to
     the last instance fails, the overall deployment still succeeds. This is
     because AWS CodeDeploy allows only one instance at a time to be taken
     offline with the CodeDeployDefault.OneAtATime configuration.
     
     
-  *  The overall deployment fails as soon as the application revision fails to
+  &amp;#42;  The overall deployment fails as soon as the application revision fails to
     be deployed to any but the last instance. The deployment may be
     successfully deployed to some instances even if the overall deployment
     fails.
     
     
-  *  In an example using nine instance, it will deploy to one instance at a
+  &amp;#42;  In an example using nine instance, it will deploy to one instance at a
     time. The overall deployment succeeds if deployment to the first eight
     instance is successful; the overall deployment fails if deployment to any
     of the first eight instance fails.
@@ -974,7 +974,7 @@ servers that participate in the deployment process. **/
       /** The means by which the deployment was created:
 
 &amp;#42; user: A user created the deployment.
-* autoscaling: Auto Scaling created the deployment. **/
+&amp;#42; autoscaling: Auto Scaling created the deployment. **/
       creator?: DeploymentCreator;
       /** If true, then if the deployment causes the ApplicationStop deployment lifecycle
 event to an instance to fail, the deployment to that instance will not be
@@ -1014,13 +1014,13 @@ successfully deployed. **/
       /** The associated error code:
 
 &amp;#42; Success: The specified script ran.
-* ScriptMissing: The specified script was not found in the specified location.
-* ScriptNotExecutable: The specified script is not a recognized executable file
+&amp;#42; ScriptMissing: The specified script was not found in the specified location.
+&amp;#42; ScriptNotExecutable: The specified script is not a recognized executable file
  type.
-* ScriptTimedOut: The specified script did not finish running in the specified
+&amp;#42; ScriptTimedOut: The specified script did not finish running in the specified
  time period.
-* ScriptFailed: The specified script failed to run as expected.
-* UnknownError: The specified script did not run for an unknown reason. **/
+&amp;#42; ScriptFailed: The specified script failed to run as expected.
+&amp;#42; UnknownError: The specified script did not run for an unknown reason. **/
       errorCode?: LifecycleErrorCode;
       /** The name of the script. **/
       scriptName?: ScriptName;
@@ -1039,8 +1039,8 @@ If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log. 
       /** The tag filter type:
 
 &amp;#42; KEY_ONLY: Key only.
-* VALUE_ONLY: Value only.
-* KEY_AND_VALUE: Key and value. **/
+&amp;#42; VALUE_ONLY: Value only.
+&amp;#42; KEY_AND_VALUE: Key and value. **/
       Type?: EC2TagFilterType;
     }
     export interface ErrorInformation {
@@ -1049,24 +1049,24 @@ If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log. 
 &amp;#42; APPLICATION_MISSING: The application was missing. This error code will most
  likely be raised if the application is deleted after the deployment is
  created but before it is started.
-* DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code
+&amp;#42; DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code
  will most likely be raised if the deployment group is deleted after the
  deployment is created but before it is started.
-* HEALTH_CONSTRAINTS: The deployment failed on too many instances to be
+&amp;#42; HEALTH_CONSTRAINTS: The deployment failed on too many instances to be
  successfully deployed within the instance health constraints specified.
-* HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed
+&amp;#42; HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed
  within the instance health constraints specified.
-* IAM_ROLE_MISSING: The service role cannot be accessed.
-* IAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.
-* INTERNAL_ERROR: There was an internal error.
-* NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2
+&amp;#42; IAM_ROLE_MISSING: The service role cannot be accessed.
+&amp;#42; IAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.
+&amp;#42; INTERNAL_ERROR: There was an internal error.
+&amp;#42; NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2
  service.
-* NO_INSTANCES: No instance were specified, or no instance can be found.
-* OVER_MAX_INSTANCES: The maximum number of instance was exceeded.
-* THROTTLED: The operation was throttled because the calling account exceeded
+&amp;#42; NO_INSTANCES: No instance were specified, or no instance can be found.
+&amp;#42; OVER_MAX_INSTANCES: The maximum number of instance was exceeded.
+&amp;#42; THROTTLED: The operation was throttled because the calling account exceeded
  the throttling limits of one or more AWS services.
-* TIMEOUT: The deployment has timed out.
-* REVISION_MISSING: The revision ID was missing. This error code will most
+&amp;#42; TIMEOUT: The deployment has timed out.
+&amp;#42; REVISION_MISSING: The revision ID was missing. This error code will most
  likely be raised if the revision is deleted after the deployment is created
  but before it is started. **/
       code?: ErrorCode;
@@ -1203,11 +1203,11 @@ instance was deregistered. **/
       /** The deployment status for this instance:
 
 &amp;#42; Pending: The deployment is pending for this instance.
-* In Progress: The deployment is in progress for this instance.
-* Succeeded: The deployment has succeeded for this instance.
-* Failed: The deployment has failed for this instance.
-* Skipped: The deployment has been skipped for this instance.
-* Unknown: The deployment status is unknown for this instance. **/
+&amp;#42; In Progress: The deployment is in progress for this instance.
+&amp;#42; Succeeded: The deployment has succeeded for this instance.
+&amp;#42; Failed: The deployment has failed for this instance.
+&amp;#42; Skipped: The deployment has been skipped for this instance.
+&amp;#42; Unknown: The deployment status is unknown for this instance. **/
       status?: InstanceStatus;
       /** A timestamp indicating when the instance information was last updated. **/
       lastUpdatedAt?: Timestamp;
@@ -1277,11 +1277,11 @@ AfterInstall, ApplicationStart, or ValidateService. **/
       /** The deployment lifecycle event status:
 
 &amp;#42; Pending: The deployment lifecycle event is pending.
-* InProgress: The deployment lifecycle event is in progress.
-* Succeeded: The deployment lifecycle event ran successfully.
-* Failed: The deployment lifecycle event has failed.
-* Skipped: The deployment lifecycle event has been skipped.
-* Unknown: The deployment lifecycle event is unknown. **/
+&amp;#42; InProgress: The deployment lifecycle event is in progress.
+&amp;#42; Succeeded: The deployment lifecycle event ran successfully.
+&amp;#42; Failed: The deployment lifecycle event has failed.
+&amp;#42; Skipped: The deployment lifecycle event has been skipped.
+&amp;#42; Unknown: The deployment lifecycle event is unknown. **/
       status?: LifecycleEventStatus;
     }
     export interface LifecycleHookLimitExceededException {
@@ -1294,9 +1294,9 @@ user or AWS account. **/
 
 &amp;#42; registerTime: Sort by the time the revisions were registered with AWS
  CodeDeploy.
-* firstUsedTime: Sort by the time the revisions were first used in a
+&amp;#42; firstUsedTime: Sort by the time the revisions were first used in a
  deployment.
-* lastUsedTime: Sort by the time the revisions were last used in a deployment.
+&amp;#42; lastUsedTime: Sort by the time the revisions were last used in a deployment.
 
 If not specified or set to null, the results will be returned in an arbitrary
 order. **/
@@ -1304,7 +1304,7 @@ order. **/
       /** The order in which to sort the list results:
 
 &amp;#42; ascending: ascending order.
-* descending: descending order.
+&amp;#42; descending: descending order.
 
 If not specified, the results will be sorted in ascending order.
 
@@ -1320,9 +1320,9 @@ If set to null, all of the user&#x27;s buckets will be searched. **/
 of an deployment group:
 
 &amp;#42; include: List revisions that are target revisions of a deployment group.
-* exclude: Do not list revisions that are target revisions of a deployment
+&amp;#42; exclude: Do not list revisions that are target revisions of a deployment
  group.
-* ignore: List all revisions. **/
+&amp;#42; ignore: List all revisions. **/
       deployed?: ListStateFilterAction;
       /** An identifier returned from the previous list application revisions call. It can
 be used to return the next set of applications in the list. **/
@@ -1390,11 +1390,11 @@ be used to return the next set of deployment instances in the list. **/
       /** A subset of instances to list by status:
 
 &amp;#42; Pending: Include those instance with pending deployments.
-* InProgress: Include those instance where deployments are still in progress.
-* Succeeded: Include those instances with successful deployments.
-* Failed: Include those instance with failed deployments.
-* Skipped: Include those instance with skipped deployments.
-* Unknown: Include those instance with deployments in an unknown state. **/
+&amp;#42; InProgress: Include those instance where deployments are still in progress.
+&amp;#42; Succeeded: Include those instances with successful deployments.
+&amp;#42; Failed: Include those instance with failed deployments.
+&amp;#42; Skipped: Include those instance with skipped deployments.
+&amp;#42; Unknown: Include those instance with deployments in an unknown state. **/
       instanceStatusFilter?: InstanceStatusList;
     }
     export interface ListDeploymentInstancesOutput {
@@ -1414,11 +1414,11 @@ user or AWS account. **/
       /** A subset of deployments to list by status:
 
 &amp;#42; Created: Include created deployments in the resulting list.
-* Queued: Include queued deployments in the resulting list.
-* In Progress: Include in-progress deployments in the resulting list.
-* Succeeded: Include successful deployments in the resulting list.
-* Failed: Include failed deployments in the resulting list.
-* Stopped: Include stopped deployments in the resulting list. **/
+&amp;#42; Queued: Include queued deployments in the resulting list.
+&amp;#42; In Progress: Include in-progress deployments in the resulting list.
+&amp;#42; Succeeded: Include successful deployments in the resulting list.
+&amp;#42; Failed: Include failed deployments in the resulting list.
+&amp;#42; Stopped: Include stopped deployments in the resulting list. **/
       includeOnlyStatuses?: DeploymentStatusList;
       /** A time range (start and end) for returning a subset of the list of deployments. **/
       createTimeRange?: TimeRange;
@@ -1439,7 +1439,7 @@ deployments in the list. **/
 
 &amp;#42; Deregistered: Include deregistered on-premises instances in the resulting
  list.
-* Registered: Include registered on-premises instances in the resulting list. **/
+&amp;#42; Registered: Include registered on-premises instances in the resulting list. **/
       registrationStatus?: RegistrationStatus;
       /** The on-premises instance tags that will be used to restrict the corresponding
 on-premises instance names returned. **/
@@ -1462,7 +1462,7 @@ set of on-premises instances in the list. **/
       /** The minimum healthy instance type:
 
 &amp;#42; HOST_COUNT: The minimum number of healthy instance as an absolute value.
-* FLEET_PERCENT: The minimum number of healthy instance as a percentage of the
+&amp;#42; FLEET_PERCENT: The minimum number of healthy instance as a percentage of the
  total number of instance in the deployment.
 
 In an example of nine instance, if a HOST_COUNT of six is specified, deploy to
@@ -1515,7 +1515,7 @@ location. **/
       /** The type of application revision:
 
 &amp;#42; S3: An application revision stored in Amazon S3.
-* GitHub: An application revision stored in GitHub. **/
+&amp;#42; GitHub: An application revision stored in GitHub. **/
       revisionType?: RevisionLocationType;
       s3Location?: S3Location;
       gitHubLocation?: GitHubLocation;
@@ -1533,8 +1533,8 @@ application revision. **/
       /** The file type of the application revision. Must be one of the following:
 
 &amp;#42; tar: A tar archive file.
-* tgz: A compressed tar archive file.
-* zip: A zip archive file. **/
+&amp;#42; tgz: A compressed tar archive file.
+&amp;#42; zip: A zip archive file. **/
       bundleType?: BundleType;
       /** A specific version of the Amazon S3 object that represents the bundled artifacts
 for the application revision.
@@ -1557,7 +1557,7 @@ object will be skipped. **/
       /** The status of the stop deployment operation:
 
 &amp;#42; Pending: The stop operation is pending.
-* Succeeded: The stop operation was successful. **/
+&amp;#42; Succeeded: The stop operation was successful. **/
       status?: StopStatus;
       /** An accompanying status message. **/
       statusMessage?: Message;
@@ -1576,8 +1576,8 @@ object will be skipped. **/
       /** The on-premises instance tag filter type:
 
 &amp;#42; KEY_ONLY: Key only.
-* VALUE_ONLY: Value only.
-* KEY_AND_VALUE: Key and value. **/
+&amp;#42; VALUE_ONLY: Value only.
+&amp;#42; KEY_AND_VALUE: Key and value. **/
       Type?: TagFilterType;
     }
     export interface TagLimitExceededException {
@@ -1605,12 +1605,12 @@ notifications about deployment or instance events are sent. **/
 The following event type values are supported:
 
 &amp;#42; DEPLOYMENT_START
-* DEPLOYMENT_SUCCESS
-* DEPLOYMENT_FAILURE
-* DEPLOYMENT_STOP
-* INSTANCE_START
-* INSTANCE_SUCCESS
-* INSTANCE_FAILURE **/
+&amp;#42; DEPLOYMENT_SUCCESS
+&amp;#42; DEPLOYMENT_FAILURE
+&amp;#42; DEPLOYMENT_STOP
+&amp;#42; INSTANCE_START
+&amp;#42; INSTANCE_SUCCESS
+&amp;#42; INSTANCE_FAILURE **/
       triggerEvents?: TriggerEventTypeList;
     }
     export interface TriggerTargetsLimitExceededException {

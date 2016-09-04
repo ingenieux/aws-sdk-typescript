@@ -217,11 +217,11 @@ information for each:
  &amp;#42;  Whether Easy DKIM signing is enabled or disabled.
    
    
- *  A set of DKIM tokens that represent the identity. If the identity is an
+ &amp;#42;  A set of DKIM tokens that represent the identity. If the identity is an
    email address, the tokens represent the domain of that address.
    
    
- *  Whether Amazon SES has successfully verified the DKIM tokens published in
+ &amp;#42;  Whether Amazon SES has successfully verified the DKIM tokens published in
    the domain&#x27;s DNS. This information is only returned for domain name
    identities, not for email addresses.
    
@@ -435,18 +435,18 @@ There are several important points to know about SendEmail:
    .
    
    
- *  The total size of the message cannot exceed 10 MB. This includes any
+ &amp;#42;  The total size of the message cannot exceed 10 MB. This includes any
    attachments that are part of the message.
    
    
- *  Amazon SES has a limit on the total number of recipients per message. The
+ &amp;#42;  Amazon SES has a limit on the total number of recipients per message. The
    combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you
    need to send an email message to a larger audience, you can divide your
    recipient list into groups of 50 or fewer, and then call Amazon SES
    repeatedly to send the message to each group.
    
    
- *  For every message that you send, the total number of recipients (To:, CC:
+ &amp;#42;  For every message that you send, the total number of recipients (To:, CC:
    and BCC:) is counted against your sending quota - the maximum number of
    emails you can send in a 24-hour period. For information about your sending
    quota, go to the Amazon SES Developer Guide
@@ -474,26 +474,26 @@ There are several important points to know about SendRawEmail:
    .
    
    
- *  The total size of the message cannot exceed 10 MB. This includes any
+ &amp;#42;  The total size of the message cannot exceed 10 MB. This includes any
    attachments that are part of the message.
    
    
- *  Amazon SES has a limit on the total number of recipients per message. The
+ &amp;#42;  Amazon SES has a limit on the total number of recipients per message. The
    combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you
    need to send an email message to a larger audience, you can divide your
    recipient list into groups of 50 or fewer, and then call Amazon SES
    repeatedly to send the message to each group.
    
    
- *  The To:, CC:, and BCC: headers in the raw message can contain a group list.
+ &amp;#42;  The To:, CC:, and BCC: headers in the raw message can contain a group list.
    Note that each recipient in a group list counts towards the 50-recipient
    limit.
    
    
- *  Amazon SES overrides any Message-ID and Date headers you provide.
+ &amp;#42;  Amazon SES overrides any Message-ID and Date headers you provide.
    
    
- *  For every message that you send, the total number of recipients (To:, CC:
+ &amp;#42;  For every message that you send, the total number of recipients (To:, CC:
    and BCC:) is counted against your sending quota - the maximum number of
    emails you can send in a 24-hour period. For information about your sending
    quota, go to the Amazon SES Developer Guide
@@ -501,20 +501,20 @@ There are several important points to know about SendRawEmail:
    .
    
    
- *  If you are using sending authorization to send on behalf of another user, 
+ &amp;#42;  If you are using sending authorization to send on behalf of another user, 
    SendRawEmail enables you to specify the cross-account identity for the
    email&#x27;s &quot;Source,&quot; &quot;From,&quot; and &quot;Return-Path&quot; parameters in one of two ways:
    you can pass optional parameters SourceArn, FromArn, and/or ReturnPathArn to
    the API, or you can include the following X-headers in the header of your raw
    email:
    
-    *   X-SES-SOURCE-ARN 
+    &amp;#42;   X-SES-SOURCE-ARN 
       
       
-    *   X-SES-FROM-ARN 
+    &amp;#42;   X-SES-FROM-ARN 
       
       
-    *   X-SES-RETURN-PATH-ARN 
+    &amp;#42;   X-SES-RETURN-PATH-ARN 
       
       
    
@@ -559,7 +559,7 @@ This action is throttled at one request per second.
    domain name (e.g., user@example.com).
    
    
- *  If Easy DKIM signing is enabled for an email address, then Amazon SES will
+ &amp;#42;  If Easy DKIM signing is enabled for an email address, then Amazon SES will
    DKIM-sign all email sent by that email address.
    
    
@@ -931,10 +931,10 @@ parameter or BounceType. **/
  underscores (_), or dashes (-).
  
  
-*  Start and end with a letter or number.
+&amp;#42;  Start and end with a letter or number.
  
  
-*  Contain less than 64 characters. **/
+&amp;#42;  Contain less than 64 characters. **/
       RuleSetName: ReceiptRuleSetName;
       /** The name of the rule set to clone. **/
       OriginalRuleSetName: ReceiptRuleSetName;
@@ -974,10 +974,10 @@ domains, enabled status, scan status, and TLS policy. **/
  underscores (_), or dashes (-).
  
  
-*  Start and end with a letter or number.
+&amp;#42;  Start and end with a letter or number.
  
  
-*  Contain less than 64 characters. **/
+&amp;#42;  Contain less than 64 characters. **/
       RuleSetName: ReceiptRuleSetName;
     }
     export interface CreateReceiptRuleSetResponse {
@@ -1404,10 +1404,10 @@ notification to Amazon SNS. **/
  underscores (_), or dashes (-).
  
  
-*  Start and end with a letter or number.
+&amp;#42;  Start and end with a letter or number.
  
  
-*  Contain less than 64 characters. **/
+&amp;#42;  Contain less than 64 characters. **/
       Name: ReceiptFilterName;
       /** A structure that provides the IP addresses to block or allow, and whether to
 block or allow incoming mail from them. **/
@@ -1431,10 +1431,10 @@ single email address is 10.0.0.1. An example of a range of IP addresses is
  underscores (_), or dashes (-).
  
  
-*  Start and end with a letter or number.
+&amp;#42;  Start and end with a letter or number.
  
  
-*  Contain less than 64 characters. **/
+&amp;#42;  Contain less than 64 characters. **/
       Name: ReceiptRuleName;
       /** If true, the receipt rule is active. The default value is false. **/
       Enabled?: Enabled;
@@ -1461,10 +1461,10 @@ and viruses. The default value is false. **/
  underscores (_), or dashes (-).
  
  
-*  Start and end with a letter or number.
+&amp;#42;  Start and end with a letter or number.
  
  
-*  Contain less than 64 characters. **/
+&amp;#42;  Contain less than 64 characters. **/
       Name?: ReceiptRuleSetName;
       /** The date and time the receipt rule set was created. **/
       CreatedTimestamp?: Timestamp;
@@ -1542,7 +1542,7 @@ custom master key you created in AWS KMS as follows:
  permission to use the key.
  
  
-*  To use a custom master key you created in AWS KMS, provide the ARN of the
+&amp;#42;  To use a custom master key you created in AWS KMS, provide the ARN of the
  master key and ensure that you add a statement to your key&#x27;s policy to give
  Amazon SES permission to use it. For more information about giving
  permissions, see the Amazon SES Developer Guide
@@ -1717,18 +1717,18 @@ following:
 &amp;#42;  Message must contain a header and a body, separated by a blank line.
  
  
-*  All required header fields must be present.
+&amp;#42;  All required header fields must be present.
  
  
-*  Each part of a multipart MIME message must be formatted properly.
+&amp;#42;  Each part of a multipart MIME message must be formatted properly.
  
  
-*  MIME content types must be among those supported by Amazon SES. For more
+&amp;#42;  MIME content types must be among those supported by Amazon SES. For more
  information, go to the Amazon SES Developer Guide
  [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html].
  
  
-*  Must be base64-encoded. **/
+&amp;#42;  Must be base64-encoded. **/
       RawMessage: RawMessage;
       /** This parameter is used only for sending authorization. It is the ARN of the
 identity that is associated with the sending authorization policy that permits

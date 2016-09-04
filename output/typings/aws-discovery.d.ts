@@ -63,53 +63,53 @@ declare module "aws-sdk" {
   &amp;#42;  User information (user name, home directory)
     
     
-  *  Group information (name)
+  &amp;#42;  Group information (name)
     
     
-  *  List of installed packages
+  &amp;#42;  List of installed packages
     
     
-  *  List of kernel modules
+  &amp;#42;  List of kernel modules
     
     
-  *  All create and stop process events
+  &amp;#42;  All create and stop process events
     
     
-  *  DNS queries
+  &amp;#42;  DNS queries
     
     
-  *  NIC information
+  &amp;#42;  NIC information
     
     
-  *  TCP/UDP process listening ports
+  &amp;#42;  TCP/UDP process listening ports
     
     
-  *  TCPV4/V6 connections
+  &amp;#42;  TCPV4/V6 connections
     
     
-  *  Operating system information
+  &amp;#42;  Operating system information
     
     
-  *  System performance
+  &amp;#42;  System performance
     
     
-  *  Process performance
+  &amp;#42;  Process performance
     
     
  
  The Application Discovery Service API includes the following actions to manage
  AWS agents:
  
-  *   StartDataCollectionByAgentIds: Instructs the specified agents to start
+  &amp;#42;   StartDataCollectionByAgentIds: Instructs the specified agents to start
     collecting data. The Application Discovery Service takes several minutes to
     receive and process data after you initiate data collection.
     
     
-  *   StopDataCollectionByAgentIds: Instructs the specified agents to stop
+  &amp;#42;   StopDataCollectionByAgentIds: Instructs the specified agents to stop
     collecting data.
     
     
-  *   DescribeAgents: Lists AWS agents by ID or lists all agents associated with
+  &amp;#42;   DescribeAgents: Lists AWS agents by ID or lists all agents associated with
     your user account if you did not specify an agent ID. The output includes
     agent IDs, IP addresses, media access control (MAC) addresses, agent health,
     host name where the agent resides, and the version number of each agent.
@@ -126,116 +126,116 @@ declare module "aws-sdk" {
  
   Server 
  
-  *  server.HostName
+  &amp;#42;  server.HostName
     
     
-  *  server.osName
+  &amp;#42;  server.osName
     
     
-  *  server.osVersion
+  &amp;#42;  server.osVersion
     
     
-  *  server.configurationId
+  &amp;#42;  server.configurationId
     
     
-  *  server.agentId
+  &amp;#42;  server.agentId
     
     
  
   Process 
  
-  *  process.name
+  &amp;#42;  process.name
     
     
-  *  process.CommandLine
+  &amp;#42;  process.CommandLine
     
     
-  *  process.configurationId
+  &amp;#42;  process.configurationId
     
     
-  *  server.hostName
+  &amp;#42;  server.hostName
     
     
-  *  server.osName
+  &amp;#42;  server.osName
     
     
-  *  server.osVersion
+  &amp;#42;  server.osVersion
     
     
-  *  server.configurationId
+  &amp;#42;  server.configurationId
     
     
-  *  server.agentId
+  &amp;#42;  server.agentId
     
     
  
   Connection 
  
-  *  connection.sourceIp
+  &amp;#42;  connection.sourceIp
     
     
-  *  connection.sourcePort
+  &amp;#42;  connection.sourcePort
     
     
-  *  connection.destinationIp
+  &amp;#42;  connection.destinationIp
     
     
-  *  connection.destinationPort
+  &amp;#42;  connection.destinationPort
     
     
-  *  sourceProcess.configurationId
+  &amp;#42;  sourceProcess.configurationId
     
     
-  *  sourceProcess.commandLine
+  &amp;#42;  sourceProcess.commandLine
     
     
-  *  sourceProcess.name
+  &amp;#42;  sourceProcess.name
     
     
-  *  destinationProcessId.configurationId
+  &amp;#42;  destinationProcessId.configurationId
     
     
-  *  destinationProcess.commandLine
+  &amp;#42;  destinationProcess.commandLine
     
     
-  *  destinationProcess.name
+  &amp;#42;  destinationProcess.name
     
     
-  *  sourceServer.configurationId
+  &amp;#42;  sourceServer.configurationId
     
     
-  *  sourceServer.hostName
+  &amp;#42;  sourceServer.hostName
     
     
-  *  sourceServer.osName
+  &amp;#42;  sourceServer.osName
     
     
-  *  sourceServer.osVersion
+  &amp;#42;  sourceServer.osVersion
     
     
-  *  destinationServer.configurationId
+  &amp;#42;  destinationServer.configurationId
     
     
-  *  destinationServer.hostName
+  &amp;#42;  destinationServer.hostName
     
     
-  *  destinationServer.osName
+  &amp;#42;  destinationServer.osName
     
     
-  *  destinationServer.osVersion
+  &amp;#42;  destinationServer.osVersion
     
     
  
  The Application Discovery Service includes the following actions for querying
  configuration items. 
  
-  *   DescribeConfigurations: Retrieves a list of attributes for a specific
+  &amp;#42;   DescribeConfigurations: Retrieves a list of attributes for a specific
     configuration ID. For example, the output for a server configuration item
     includes a list of attributes about the server, including host name,
     operating system, number of network cards, etc.
     
     
-  *   ListConfigurations: Retrieves a list of configuration items according to the
+  &amp;#42;   ListConfigurations: Retrieves a list of configuration items according to the
     criteria you specify in a filter. The filter criteria identify relationship
     requirements. For example, you can specify filter criteria of process.name
     with values of nginx and apache.
@@ -248,15 +248,15 @@ declare module "aws-sdk" {
  categorize IT assets in your data center. Tags use a key-value format. For
  example, {&quot;key&quot;: &quot;serverType&quot;, &quot;value&quot;: &quot;webServer&quot;}. 
  
-  *   CreateTags: Creates one or more tags for a configuration items.
+  &amp;#42;   CreateTags: Creates one or more tags for a configuration items.
     
     
-  *   DescribeTags: Retrieves a list of configuration items that are tagged with a
+  &amp;#42;   DescribeTags: Retrieves a list of configuration items that are tagged with a
     specific tag. Or, retrieves a list of all tags assigned to a specific
     configuration item.
     
     
-  *   DeleteTags: Deletes the association between a configuration item and one or
+  &amp;#42;   DeleteTags: Deletes the association between a configuration item and one or
     more tags.
     
     
@@ -267,13 +267,13 @@ declare module "aws-sdk" {
  visualization tool or cloud migration solution to help reduce the complexity and
  time in planning your cloud migration.
  
-  *   ExportConfigurations: Exports all discovered configuration data to an Amazon
+  &amp;#42;   ExportConfigurations: Exports all discovered configuration data to an Amazon
     S3 bucket. Data includes tags and tag associations, processes, connections,
     servers, and system performance. This API returns an export ID which you can
     query using the GetExportStatus API.
     
     
-  *   DescribeExportConfigurations: Gets the status of the data export. When the
+  &amp;#42;   DescribeExportConfigurations: Gets the status of the data export. When the
     export is complete, the service returns an Amazon S3 URL where you can
     download CSV files that include the data.
     *
@@ -629,16 +629,16 @@ Server
 &amp;#42;   server.hostName 
  
  
-*   server.osName 
+&amp;#42;   server.osName 
  
  
-*   server.osVersion 
+&amp;#42;   server.osVersion 
  
  
-*   server.configurationid 
+&amp;#42;   server.configurationid 
  
  
-*   server.agentid 
+&amp;#42;   server.agentid 
  
  
 
@@ -647,28 +647,28 @@ configuration items.
 
 Process 
 
-*   process.configurationid 
+&amp;#42;   process.configurationid 
  
  
-*   process.name 
+&amp;#42;   process.name 
  
  
-*   process.commandLine 
+&amp;#42;   process.commandLine 
  
  
-*   server.configurationid 
+&amp;#42;   server.configurationid 
  
  
-*   server.hostName 
+&amp;#42;   server.hostName 
  
  
-*   server.osName 
+&amp;#42;   server.osName 
  
  
-*   server.osVersion 
+&amp;#42;   server.osVersion 
  
  
-*   server.agentId 
+&amp;#42;   server.agentId 
  
  
 
@@ -677,61 +677,61 @@ configuration items.
 
 Connection 
 
-*   connection.sourceIp 
+&amp;#42;   connection.sourceIp 
  
  
-*   connection.destinationIp 
+&amp;#42;   connection.destinationIp 
  
  
-*   connection.destinationPort 
+&amp;#42;   connection.destinationPort 
  
  
-*   sourceProcess.configurationId 
+&amp;#42;   sourceProcess.configurationId 
  
  
-*   sourceProcess.name 
+&amp;#42;   sourceProcess.name 
  
  
-*   sourceProcess.commandLine 
+&amp;#42;   sourceProcess.commandLine 
  
  
-*   destinationProcess.configurationId 
+&amp;#42;   destinationProcess.configurationId 
  
  
-*   destinationProcess.name 
+&amp;#42;   destinationProcess.name 
  
  
-*   destinationProcess.commandLine 
+&amp;#42;   destinationProcess.commandLine 
  
  
-*   sourceServer.configurationId 
+&amp;#42;   sourceServer.configurationId 
  
  
-*   sourceServer.hostName 
+&amp;#42;   sourceServer.hostName 
  
  
-*   sourceServer.osName 
+&amp;#42;   sourceServer.osName 
  
  
-*   sourceServer.osVersion 
+&amp;#42;   sourceServer.osVersion 
  
  
-*   sourceServer.agentId 
+&amp;#42;   sourceServer.agentId 
  
  
-*   destinationServer.configurationId 
+&amp;#42;   destinationServer.configurationId 
  
  
-*   destinationServer.hostName 
+&amp;#42;   destinationServer.hostName 
  
  
-*   destinationServer.osName 
+&amp;#42;   destinationServer.osName 
  
  
-*   destinationServer.osVersion 
+&amp;#42;   destinationServer.osVersion 
  
  
-*   destinationServer.agentId **/
+&amp;#42;   destinationServer.agentId **/
       name: String;
       /** A string value that you want to filter on. For example, if you choose the 
 destinationServer.osVersion filter name, you could specify Ubuntu for the value. **/

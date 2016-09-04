@@ -482,10 +482,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens.
  
  
 
@@ -578,10 +578,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens. **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens. **/
       ReplicationTaskIdentifier: String;
       /** The Amazon Resource Name (ARN) string that uniquely identifies the endpoint. **/
       SourceEndpointArn: String;
@@ -1162,10 +1162,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens.
  
  
 
@@ -1261,10 +1261,10 @@ Constraints:
 &amp;#42;  Must contain from 1 to 63 alphanumeric characters or hyphens.
  
  
-*  First character must be a letter.
+&amp;#42;  First character must be a letter.
  
  
-*  Cannot end with a hyphen or contain two consecutive hyphens. **/
+&amp;#42;  Cannot end with a hyphen or contain two consecutive hyphens. **/
       ReplicationTaskIdentifier?: String;
       /** The Amazon Resource Name (ARN) string that uniquely identifies the endpoint. **/
       SourceEndpointArn?: String;

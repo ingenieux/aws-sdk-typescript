@@ -642,52 +642,52 @@ Inbound:
 &amp;#42;  Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: 0.0.0.0/0
  
  
-*  Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: 0.0.0.0/0
+&amp;#42;  Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: 0.0.0.0/0
  
  
-*  Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: 0.0.0.0/0
+&amp;#42;  Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: 0.0.0.0/0
  
  
-*  Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: 0.0.0.0/0
+&amp;#42;  Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: 0.0.0.0/0
  
  
-*  Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: 0.0.0.0/0
+&amp;#42;  Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: 0.0.0.0/0
  
  
-*  Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: 0.0.0.0/0
+&amp;#42;  Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: 0.0.0.0/0
  
  
-*  Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: 0.0.0.0/0
+&amp;#42;  Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: 0.0.0.0/0
  
  
-*  Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: 0.0.0.0/0
+&amp;#42;  Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: 0.0.0.0/0
  
  
-*  Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: 0.0.0.0/0
+&amp;#42;  Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: 0.0.0.0/0
  
  
-*  Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: 0.0.0.0/0
+&amp;#42;  Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: 0.0.0.0/0
  
  
-*  Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0
+&amp;#42;  Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0
  
  
-*  Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source: 0.0.0.0/0
+&amp;#42;  Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source: 0.0.0.0/0
  
  
-*  Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source: 0.0.0.0/0
+&amp;#42;  Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source: 0.0.0.0/0
  
  
-*  Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0
+&amp;#42;  Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0
  
  
-*  Type: DNS (TCP), Protocol: TCP, Range: 53, Source: 0.0.0.0/0
+&amp;#42;  Type: DNS (TCP), Protocol: TCP, Range: 53, Source: 0.0.0.0/0
  
  
-*  Type: LDAP, Protocol: TCP, Range: 389, Source: 0.0.0.0/0
+&amp;#42;  Type: LDAP, Protocol: TCP, Range: 389, Source: 0.0.0.0/0
  
  
-*  Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0
+&amp;#42;  Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0
  
  
 
@@ -695,7 +695,7 @@ Inbound:
 
 Outbound:
 
-*  Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0
+&amp;#42;  Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0
  
  
 
@@ -1053,10 +1053,10 @@ to the directory. This account must have the following privileges:
 &amp;#42;  Read users and groups
  
  
-*  Create computer objects
+&amp;#42;  Create computer objects
  
  
-*  Join computers to the domain **/
+&amp;#42;  Join computers to the domain **/
       CustomerUserName: UserName;
     }
     export interface DirectoryConnectSettingsDescription {

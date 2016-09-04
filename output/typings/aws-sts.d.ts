@@ -240,17 +240,17 @@ For more information, see the following resources:
    in the IAM User Guide. 
    
    
- *   Creating SAML Identity Providers
+ &amp;#42;   Creating SAML Identity Providers
    [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html] 
    in the IAM User Guide. 
    
    
- *   Configuring a Relying Party and Claims
+ &amp;#42;   Configuring a Relying Party and Claims
    [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_relying-party.html] 
    in the IAM User Guide. 
    
    
- *   Creating a Role for SAML 2.0 Federation
+ &amp;#42;   Creating a Role for SAML 2.0 Federation
    [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html] 
    in the IAM User Guide.
      *
@@ -343,21 +343,21 @@ AssumeRoleWithWebIdentity API, see the following resources:
    . 
    
    
- *   Web Identity Federation Playground
+ &amp;#42;   Web Identity Federation Playground
    [https://web-identity-federation-playground.s3.amazonaws.com/index.html].
    This interactive website lets you walk through the process of authenticating
    via Login with Amazon, Facebook, or Google, getting temporary security
    credentials, and then using those credentials to make a request to AWS. 
    
    
- *   AWS SDK for iOS [http://aws.amazon.com/sdkforios/] and AWS SDK for Android
+ &amp;#42;   AWS SDK for iOS [http://aws.amazon.com/sdkforios/] and AWS SDK for Android
    [http://aws.amazon.com/sdkforandroid/]. These toolkits contain sample apps
    that show how to invoke the identity providers, and then how to use the
    information from these providers to get and use temporary security
    credentials. 
    
    
- *   Web Identity Federation with Mobile Applications
+ &amp;#42;   Web Identity Federation with Mobile Applications
    [http://aws.amazon.com/articles/4617974389850313]. This article discusses web
    identity federation and shows an example of how to use web identity
    federation to get access to content in Amazon S3.
@@ -399,16 +399,16 @@ The decoded message includes the following type of information:
    in the IAM User Guide. 
    
    
- *  The principal who made the request.
+ &amp;#42;  The principal who made the request.
    
    
- *  The requested action.
+ &amp;#42;  The requested action.
    
    
- *  The requested resource.
+ &amp;#42;  The requested resource.
    
    
- *  The values of condition keys in the context of the user&#x27;s request.
+ &amp;#42;  The values of condition keys in the context of the user&#x27;s request.
      *
      * @error InvalidAuthorizationMessageException   
      */
@@ -464,7 +464,7 @@ make API calls to any AWS service with the following exceptions:
  &amp;#42;  You cannot use these credentials to call any IAM APIs.
    
    
- *  You cannot call any STS APIs.
+ &amp;#42;  You cannot call any STS APIs.
    
    
 
@@ -473,11 +473,11 @@ make API calls to any AWS service with the following exceptions:
 The permissions for the temporary security credentials returned by 
 GetFederationToken are determined by a combination of the following: 
 
- *  The policy or policies that are attached to the IAM user whose credentials
+ &amp;#42;  The policy or policies that are attached to the IAM user whose credentials
    are used to call GetFederationToken.
    
    
- *  The policy that is passed as a parameter in the call.
+ &amp;#42;  The policy that is passed as a parameter in the call.
    
    
 
@@ -547,7 +547,7 @@ make API calls to any AWS service with the following exceptions:
    included in the request.
    
    
- *  You cannot call any STS API except AssumeRole.
+ &amp;#42;  You cannot call any STS API except AssumeRole.
    
    
 

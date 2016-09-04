@@ -87,14 +87,14 @@ across the Availability Zones in your cluster with the following logic:
    ports, and container instance attributes).
    
    
- *  Sort the valid container instances by the fewest number of running tasks for
+ &amp;#42;  Sort the valid container instances by the fewest number of running tasks for
    this service in the same Availability Zone as the instance. For example, if
    zone A has one running service task and zones B and C each have zero, valid
    container instances in either zone B or C are considered optimal for
    placement.
    
    
- *  Place the new service task on a valid container instance in an optimal
+ &amp;#42;  Place the new service task on a valid container instance in an optimal
    Availability Zone (based on the previous steps), favoring container instances
    with the fewest number of running tasks for this service.
      *
@@ -475,14 +475,14 @@ across the Availability Zones in your cluster with the following logic:
    ports, and container instance attributes).
    
    
- *  Sort the valid container instances by the fewest number of running tasks for
+ &amp;#42;  Sort the valid container instances by the fewest number of running tasks for
    this service in the same Availability Zone as the instance. For example, if
    zone A has one running service task and zones B and C each have zero, valid
    container instances in either zone B or C are considered optimal for
    placement.
    
    
- *  Place the new service task on a valid container instance in an optimal
+ &amp;#42;  Place the new service task on a valid container instance in an optimal
    Availability Zone (based on the previous steps), favoring container instances
    with the fewest number of running tasks for this service.
      *
@@ -664,11 +664,11 @@ parameter of docker run [https://docs.docker.com/reference/commandline/run/].
  example, ubuntu or mongo).
  
  
-*  Images in other repositories on Docker Hub are qualified with an
+&amp;#42;  Images in other repositories on Docker Hub are qualified with an
  organization name (for example, amazon/amazon-ecs-agent).
  
  
-*  Images in other online repositories are qualified further by a domain name
+&amp;#42;  Images in other online repositories are qualified further by a domain name
  (for example, quay.io/assemblyline/ubuntu). **/
       image?: String;
       /** The number of cpu units reserved for the container. A container instance has
@@ -710,7 +710,7 @@ version:
  CPU shares.
  
  
-*   Agent versions greater than or equal to 1.2.0: Null, zero, and CPU values of
+&amp;#42;   Agent versions greater than or equal to 1.2.0: Null, zero, and CPU values of
  1 are passed to Docker as 2. **/
       cpu?: Integer;
       /** The hard limit (in MiB) of memory to present to the container. If your container

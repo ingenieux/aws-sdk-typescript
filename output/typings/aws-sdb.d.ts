@@ -58,7 +58,7 @@ REST request using the HTTP GET method.
 Expected.X.Value, or Expected.X.Exists. 
 
  The following limitations are enforced for this operation:  &amp;#42; 1 MB request size
- * 25 item limit per
+ &amp;#42; 25 item limit per
    BatchDeleteAttributes operation
      *
      */
@@ -103,12 +103,12 @@ result in Service Unavailable (503) responses.
 
  The following limitations are enforced for this operation:  &amp;#42; 256 attribute
    name-value pairs per item
- * 1 MB request size
- * 1 billion
+ &amp;#42; 1 MB request size
+ &amp;#42; 1 billion
    attributes per domain
- * 10 GB of total
+ &amp;#42; 10 GB of total
    user data storage per domain
- * 25 item limit per BatchPutAttributes operation
+ &amp;#42; 25 item limit per BatchPutAttributes operation
      *
      * @error DuplicateItemName The item name was specified more than once.  
      * @error InvalidParameterValue The value for a parameter is invalid.  
@@ -238,9 +238,9 @@ operation (read) immediately after a PutAttributes or DeleteAttributes operation
 
  The following limitations are enforced for this operation:  &amp;#42; 256 total
    attribute name-value pairs per item
- * One billion
+ &amp;#42; One billion
    attributes per domain
- * 10 GB of total
+ &amp;#42; 10 GB of total
    user data storage per domain
      *
      * @error InvalidParameterValue The value for a parameter is invalid.  

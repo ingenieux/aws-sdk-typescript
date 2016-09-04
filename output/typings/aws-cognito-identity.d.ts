@@ -58,10 +58,10 @@ declare module "aws-sdk" {
 information that is specific to your AWS account. The limit on identity pools is
 60 per account. The keys for SupportedLoginProviders are as follows:  &amp;#42; 
    Facebook: graph.facebook.com
- * Google: accounts.google.com
- * Amazon: www.amazon.com
- * Twitter: api.twitter.com
- * Digits: www.digits.com
+ &amp;#42; Google: accounts.google.com
+ &amp;#42; Amazon: www.amazon.com
+ &amp;#42; Twitter: api.twitter.com
+ &amp;#42; Digits: www.digits.com
 
 You must use AWS Developer credentials to call this API.
      *
@@ -520,10 +520,10 @@ support role customization. **/
       /** A set of optional name-value pairs that map provider names to provider tokens.
 
 The available provider names for Logins are as follows:  &amp;#42; Facebook: graph.facebook.com
-* Google: accounts.google.com
-* Amazon: www.amazon.com
-* Twitter: api.twitter.com
-* Digits: www.digits.com **/
+&amp;#42; Google: accounts.google.com
+&amp;#42; Amazon: www.amazon.com
+&amp;#42; Twitter: api.twitter.com
+&amp;#42; Digits: www.digits.com **/
       Logins?: LoginsMap;
     }
     export interface GetIdResponse {

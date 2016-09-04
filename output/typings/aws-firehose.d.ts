@@ -62,13 +62,13 @@ A few notes about RedshiftDestinationConfiguration:
    RedshiftDestinationConfiguration.S3Configuration parameter element.
    
    
- *  The compression formats SNAPPY or ZIP cannot be specified in 
+ &amp;#42;  The compression formats SNAPPY or ZIP cannot be specified in 
    RedshiftDestinationConfiguration.S3Configuration because the Amazon Redshift 
    COPY operation that reads from the S3 bucket doesn&#x27;t support these
    compression formats.
    
    
- *  We strongly recommend that the username and password provided is used
+ &amp;#42;  We strongly recommend that the username and password provided is used
    exclusively for Firehose purposes, and that the permissions for the account
    are restricted for Amazon Redshift INSERT permissions.
    

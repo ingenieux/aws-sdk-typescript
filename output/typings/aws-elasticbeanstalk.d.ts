@@ -101,8 +101,8 @@ the same configuration settings.
 Related Topics
 
  &amp;#42;  DescribeConfigurationOptions 
- *  DescribeConfigurationSettings 
- *  ListAvailableSolutionStacks
+ &amp;#42;  DescribeConfigurationSettings 
+ &amp;#42;  ListAvailableSolutionStacks
      *
      * @error InsufficientPrivilegesException   
      * @error TooManyBucketsException   
@@ -738,7 +738,7 @@ seconds. **/
       /** Indicates if the specified CNAME is available: 
 
 &amp;#42;  true : The CNAME is available. 
-*  false : The CNAME is not available. **/
+&amp;#42;  false : The CNAME is not available. **/
       Available?: CnameAvailability;
       /** The fully qualified CNAME to reserve when CreateEnvironment is called with the
 provided prefix. **/
@@ -771,10 +771,10 @@ option changes:
 
 &amp;#42;  NoInterruption : There is no interruption to the environment or application
  availability. 
-*  RestartEnvironment : The environment is entirely restarted, all AWS
+&amp;#42;  RestartEnvironment : The environment is entirely restarted, all AWS
  resources are deleted and recreated, and the environment is unavailable
  during the process. 
-*  RestartApplicationServer : The environment is available the entire time.
+&amp;#42;  RestartApplicationServer : The environment is available the entire time.
  However, a short application outage occurs when the application servers on
  the running Amazon EC2 instances are restarted. **/
       ChangeSeverity?: ConfigurationOptionSeverity;
@@ -785,7 +785,7 @@ option changes:
  configuration settings. 
  
  
-*  false : This configuration was not defined by the user. 
+&amp;#42;  false : This configuration was not defined by the user. 
 
 Constraint: You can remove only UserDefined options from a configuration. 
 
@@ -797,10 +797,10 @@ allowable to select one or more than one of the possible values:
 &amp;#42;  Scalar : Values for this option are a single selection from the possible
  values, or an unformatted string, or numeric value governed by the 
  MIN/MAX/Regex constraints. 
-*  List : Values for this option are multiple selections from the possible
+&amp;#42;  List : Values for this option are multiple selections from the possible
  values. 
-*  Boolean : Values for this option are either true or false . 
-*  Json : Values for this option are a JSON representation of a ConfigDocument. **/
+&amp;#42;  Boolean : Values for this option are either true or false . 
+&amp;#42;  Json : Values for this option are a JSON representation of a ConfigDocument. **/
       ValueType?: ConfigurationOptionValueType;
       /** If specified, values for the configuration option are selected from this list. **/
       ValueOptions?: ConfigurationOptionPossibleValues;
@@ -849,11 +849,11 @@ DeploymentStatus parameter indicates the deployment status of this configuration
 set: 
 
 &amp;#42;  null: This configuration is not associated with a running environment. 
-*  pending: This is a draft configuration that is not deployed to the
+&amp;#42;  pending: This is a draft configuration that is not deployed to the
  associated environment but is in the process of deploying. 
-*  deployed: This is the configuration that is currently deployed to the
+&amp;#42;  deployed: This is the configuration that is currently deployed to the
  associated running environment. 
-*  failed: This is a draft configuration that failed to successfully deploy. **/
+&amp;#42;  failed: This is a draft configuration that failed to successfully deploy. **/
       DeploymentStatus?: ConfigurationDeploymentStatus;
       /** The date (in UTC time) when this configuration set was created. **/
       DateCreated?: CreationDate;
@@ -908,7 +908,7 @@ does not already exist:
 
 &amp;#42;  true : Automatically creates the specified application for this release if
  it does not already exist. 
-*  false : Throws an InvalidParameterValue if the specified application for
+&amp;#42;  false : Throws an InvalidParameterValue if the specified application for
  this release does not already exist. 
 
 Default: false 
@@ -1055,7 +1055,7 @@ application. **/
 
 &amp;#42;  true: An attempt is made to delete the associated Amazon S3 source bundle
  specified at time of creation. 
-*  false: No action is taken on the Amazon S3 source bundle specified at time
+&amp;#42;  false: No action is taken on the Amazon S3 source bundle specified at time
  of creation. 
 
 Valid Values: true | false **/
@@ -1082,8 +1082,8 @@ source code or change instance configuration settings. **/
       /** The status of the deployment:
 
 &amp;#42;  In Progress : The deployment is in progress.
-*  Deployed : The deployment succeeded.
-*  Failed : The deployment failed. **/
+&amp;#42;  Deployed : The deployment succeeded.
+&amp;#42;  Failed : The deployment failed. **/
       Status?: String;
       /** For in-progress deployments, the time that the deloyment started.
 
@@ -1328,12 +1328,12 @@ single-instance environments, the IP address of the instance. **/
       /** The current operational status of the environment: 
 
 &amp;#42;  Launching: Environment is in the process of initial deployment. 
-*  Updating: Environment is in the process of updating its configuration
+&amp;#42;  Updating: Environment is in the process of updating its configuration
  settings or application version. 
-*  Ready: Environment is available to have an action performed on it, such as
+&amp;#42;  Ready: Environment is available to have an action performed on it, such as
  update or terminate. 
-*  Terminating: Environment is in the shut-down process. 
-*  Terminated: Environment is not running. **/
+&amp;#42;  Terminating: Environment is in the shut-down process. 
+&amp;#42;  Terminated: Environment is not running. **/
       Status?: EnvironmentStatus;
       /** Indicates if there is an in-progress environment configuration update or
 application version deployment that you can cancel.
@@ -1347,10 +1347,10 @@ the failure levels for a running environment:
 
 &amp;#42;  Red: Indicates the environment is not responsive. Occurs when three or more
  consecutive failures occur for an environment. 
-*  Yellow: Indicates that something is wrong. Occurs when two consecutive
+&amp;#42;  Yellow: Indicates that something is wrong. Occurs when two consecutive
  failures occur for an environment. 
-*  Green: Indicates the environment is healthy and fully functional. 
-*  Grey: Default health for a new environment. The environment is not fully
+&amp;#42;  Green: Indicates the environment is healthy and fully functional. 
+&amp;#42;  Grey: Default health for a new environment. The environment is not fully
  launched and health checks have not started or health checks are suspended
  during an UpdateEnvironment or RestartEnvironement request. 
 
@@ -1785,7 +1785,7 @@ environment is terminated:
 
 &amp;#42;  true: The specified environment as well as the associated AWS resources,
  such as Auto Scaling group and LoadBalancer, are terminated. 
-*  false: AWS Elastic Beanstalk resource management is removed from the
+&amp;#42;  false: AWS Elastic Beanstalk resource management is removed from the
  environment, but the AWS resources continue to operate. 
 
 For more information, see the AWS Elastic Beanstalk User Guide.
@@ -1934,7 +1934,7 @@ Condition: You cannot specify both this and a configuration template name. **/
 
 &amp;#42;  error: This message indicates that this is not a valid setting for an
  option. 
-*  warning: This message is providing information you should take into account. **/
+&amp;#42;  warning: This message is providing information you should take into account. **/
       Severity?: ValidationSeverity;
       /**  **/
       Namespace?: OptionNamespace;

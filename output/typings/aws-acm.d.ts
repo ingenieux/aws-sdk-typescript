@@ -346,16 +346,16 @@ domain and the following five addresses:
 &amp;#42;  admin@subdomain.example.com
  
  
-*  administrator@subdomain.example.com
+&amp;#42;  administrator@subdomain.example.com
  
  
-*  hostmaster@subdomain.example.com
+&amp;#42;  hostmaster@subdomain.example.com
  
  
-*  postmaster@subdomain.example.com
+&amp;#42;  postmaster@subdomain.example.com
  
  
-*  webmaster@subdomain.example.com **/
+&amp;#42;  webmaster@subdomain.example.com **/
       ValidationDomain: DomainNameString;
     }
     export interface GetCertificateRequest {
@@ -446,7 +446,7 @@ Service Namespaces
       /** Fully qualified domain name (FQDN), such as www.example.com, of the site you
 want to secure with an ACM Certificate. Use an asterisk (&amp;#42;) to create a wildcard
 certificate that protects several sites in the same domain. For example,
-*.example.com protects www.example.com, site.example.com, and
+&amp;#42;.example.com protects www.example.com, site.example.com, and
 images.example.com. **/
       DomainName: DomainNameString;
       /** Additional FQDNs to be included in the Subject Alternative Name extension of the
@@ -471,16 +471,16 @@ WHOIS and the following five addresses:
 &amp;#42;  admin@example.com
  
  
-*  administrator@example.com
+&amp;#42;  administrator@example.com
  
  
-*  hostmaster@example.com
+&amp;#42;  hostmaster@example.com
  
  
-*  postmaster@example.com
+&amp;#42;  postmaster@example.com
  
  
-*  webmaster@example.com **/
+&amp;#42;  webmaster@example.com **/
       DomainValidationOptions?: DomainValidationOptionList;
     }
     export interface RequestCertificateResponse {
@@ -518,16 +518,16 @@ contact, and administrative contact in WHOIS and the following five addresses:
 &amp;#42;  admin@subdomain.example.com
  
  
-*  administrator@subdomain.example.com
+&amp;#42;  administrator@subdomain.example.com
  
  
-*  hostmaster@subdomain.example.com
+&amp;#42;  hostmaster@subdomain.example.com
  
  
-*  postmaster@subdomain.example.com
+&amp;#42;  postmaster@subdomain.example.com
  
  
-*  webmaster@subdomain.example.com **/
+&amp;#42;  webmaster@subdomain.example.com **/
       ValidationDomain: DomainNameString;
     }
     export interface ResourceInUseException {

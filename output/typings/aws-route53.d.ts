@@ -92,14 +92,14 @@ Use ChangeResourceRecordsSetsRequest to perform the following actions:
  &amp;#42;   CREATE:Creates a resource record set that has the specified values.
    
    
- *   DELETE: Deletes an existing resource record set that has the specified
+ &amp;#42;   DELETE: Deletes an existing resource record set that has the specified
    values for Name, Type, Set Identifier (for code latency, weighted,
    geolocation, and failover resource record sets), and TTL (except alias
    resource record sets, for which the TTL is determined by the AWS resource
    you&#x27;re routing queries to).
    
    
- *   UPSERT: If a resource record set does not already exist, AWS creates it. If
+ &amp;#42;   UPSERT: If a resource record set does not already exist, AWS creates it. If
    a resource set does exist, Amazon Route 53 updates it with the values in the
    request. Amazon Route 53 can update an existing resource record set only when
    all of the following values match: Name, Type, and Set Identifier (for
@@ -120,17 +120,17 @@ minutes. For more information, see GetChange.
 
 Note the following limitations on a ChangeResourceRecordSets request:
 
- *   A request cannot contain more than 100 Change elements.
+ &amp;#42;   A request cannot contain more than 100 Change elements.
    
    
- *   A request cannot contain more than 1000 ResourceRecord elements.
+ &amp;#42;   A request cannot contain more than 1000 ResourceRecord elements.
    
    
- *  The sum of the number of characters (including spaces) in all Value elements
+ &amp;#42;  The sum of the number of characters (including spaces) in all Value elements
    in a request cannot exceed 32,000 characters.
    
    
- *  If the value of the Action element in a ChangeResourceRecordSets request is 
+ &amp;#42;  If the value of the Action element in a ChangeResourceRecordSets request is 
    UPSERT and the resource record set already exists, Amazon Route 53
    automatically performs a DELETE request and a CREATE request. When Amazon
    Route 53 calculates the number of characters in the Value elements of a
@@ -139,7 +139,7 @@ Note the following limitations on a ChangeResourceRecordSets request:
    Value element of the resource record set being created.
    
    
- *  The same resource cannot be deleted more than once in a single batch.
+ &amp;#42;  The same resource cannot be deleted more than once in a single batch.
    
    
 
@@ -195,11 +195,11 @@ hosted zone. Note the following:
    to the instance in the VPC.
    
    
- *  You can configure a health checker to check the health of an external
+ &amp;#42;  You can configure a health checker to check the health of an external
    resource that the instance relies on, such as a database server.
    
    
- *  You can create a CloudWatch metric, associate an alarm with the metric, and
+ &amp;#42;  You can create a CloudWatch metric, associate an alarm with the metric, and
    then create a health check that is based on the state of the alarm. For
    example, you might create a CloudWatch metric that checks the status of the
    Amazon EC2 StatusCheckFailed metric, add an alarm to the metric, and then
@@ -236,14 +236,14 @@ Note the following:
  &amp;#42;  You cannot create a hosted zone for a top-level domain (TLD).
    
    
- *  Amazon Route 53 automatically creates a default SOA record and four NS
+ &amp;#42;  Amazon Route 53 automatically creates a default SOA record and four NS
    records for the zone. For more information about SOA and NS records, see NS
    and SOA Records that Amazon Route 53 Creates for a Hosted Zone
    [http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html] 
    in the Amazon Route 53 Developer Guide.
    
    
- *  If your domain is registered with a registrar other than Amazon Route 53,
+ &amp;#42;  If your domain is registered with a registrar other than Amazon Route 53,
    you must update the name servers with your registrar to make Amazon Route 53
    your DNS service. For more information, see Configuring Amazon Route 53 as
    your DNS Service
@@ -464,7 +464,7 @@ following values:
    batch requests.
    
    
- *   INSYNC indicates that the changes have replicated to all Amazon Route 53 DNS
+ &amp;#42;   INSYNC indicates that the changes have replicated to all Amazon Route 53 DNS
    servers.
      *
      * @error NoSuchChange   
@@ -654,11 +654,11 @@ group of maxitems hosted zones to the next:
    that produced the current response.
    
    
- *  If the value of IsTruncated in the response is true, there are more hosted
+ &amp;#42;  If the value of IsTruncated in the response is true, there are more hosted
    zones associated with the current AWS account. 
    
    
- *   NextMarkeris the hosted zone ID of the next hosted zone that is associated
+ &amp;#42;   NextMarkeris the hosted zone ID of the next hosted zone that is associated
    with the current AWS account. If you want to list more hosted zones, make
    another call to ListHostedZones, and specify the value of the NextMarker 
    element in the marker parameter. 
@@ -666,7 +666,7 @@ group of maxitems hosted zones to the next:
    If IsTruncated is false, the NextMarker element is omitted from the response.
    
    
- *  If you&#x27;re making the second or subsequent call to ListHostedZones, the Marker 
+ &amp;#42;  If you&#x27;re making the second or subsequent call to ListHostedZones, the Marker 
    element matches the value that you specified in the marker parameter in the
    previous request.
      *
@@ -696,7 +696,7 @@ format that Amazon Route 53 saves in its database. For example, to create a
 hosted zone for example.com, specify ex\344mple.com for the domain name. 
 ListHostedZonesByName alphabetizes it as:
 
- *   com.ex\344mple. 
+ &amp;#42;   com.ex\344mple. 
    
    
 
@@ -711,17 +711,17 @@ hosted zones, use the MaxItems parameter to list them in groups of up to 100.
 The response includes values that help navigate from one group of MaxItems 
 hosted zones to the next:
 
- *  The DNSName and HostedZoneId elements in the response contain the values, if
+ &amp;#42;  The DNSName and HostedZoneId elements in the response contain the values, if
    any, specified for the dnsname and hostedzoneid parameters in the request
    that produced the current response.
    
    
- *  The MaxItems element in the response contains the value, if any, that you
+ &amp;#42;  The MaxItems element in the response contains the value, if any, that you
    specified for the maxitems parameter in the request that produced the current
    response.
    
    
- *  If the value of IsTruncated in the response is true, there are more hosted
+ &amp;#42;  If the value of IsTruncated in the response is true, there are more hosted
    zones associated with the current AWS account. 
    
    If IsTruncated is false, this response includes the last hosted zone that is
@@ -729,7 +729,7 @@ hosted zones to the next:
    NextHostedZoneId elements are omitted from the response.
    
    
- *  The NextDNSName and NextHostedZoneId elements in the response contain the
+ &amp;#42;  The NextDNSName and NextHostedZoneId elements in the response contain the
    domain name and the hosted zone ID of the next hosted zone that is associated
    with the current AWS account. If you want to list more hosted zones, make
    another call to ListHostedZonesByName, and specify the value of NextDNSName 
@@ -803,7 +803,7 @@ maxitems traffic policies to the next:
    is associated with the current account.
    
    
- *   TrafficPolicyIdMarker 
+ &amp;#42;   TrafficPolicyIdMarker 
    
    If IsTruncated is true, TrafficPolicyIdMarker is the ID of the first traffic
    policy in the next group of MaxItems traffic policies. If you want to list
@@ -815,7 +815,7 @@ maxitems traffic policies to the next:
    the response.
    
    
- *   MaxItems 
+ &amp;#42;   MaxItems 
    
    The value that you specified for the MaxItems parameter in the request that
    produced the current response.
@@ -850,13 +850,13 @@ MaxItems traffic policy instances to the next:
    instance that is associated with the current account.
    
    
- *   MaxItems 
+ &amp;#42;   MaxItems 
    
    The value that you specified for the MaxItems parameter in the request that
    produced the current response.
    
    
- *   HostedZoneIdMarker, TrafficPolicyInstanceNameMarker, and 
+ &amp;#42;   HostedZoneIdMarker, TrafficPolicyInstanceNameMarker, and 
    TrafficPolicyInstanceTypeMarker 
    
    If IsTruncated is true, these three values in the response represent the
@@ -898,13 +898,13 @@ MaxItems traffic policy instances to the next:
    instance that is associated with the current account.
    
    
- *   MaxItems 
+ &amp;#42;   MaxItems 
    
    The value that you specified for the MaxItems parameter in the request that
    produced the current response.
    
    
- *   TrafficPolicyInstanceNameMarker and TrafficPolicyInstanceTypeMarker 
+ &amp;#42;   TrafficPolicyInstanceNameMarker and TrafficPolicyInstanceTypeMarker 
    
    If IsTruncated is true, these two values in the response represent the first
    traffic policy instance in the next group of MaxItems traffic policy
@@ -947,13 +947,13 @@ MaxItems traffic policy instances to the next:
    instance that is associated with the specified traffic policy.
    
    
- *   MaxItems 
+ &amp;#42;   MaxItems 
    
    The value that you specified for the MaxItems parameter in the request that
    produced the current response.
    
    
- *   HostedZoneIdMarker, TrafficPolicyInstanceNameMarker, and 
+ &amp;#42;   HostedZoneIdMarker, TrafficPolicyInstanceNameMarker, and 
    TrafficPolicyInstanceTypeMarker 
    
    If IsTruncated is true, these values in the response represent the first
@@ -991,7 +991,7 @@ maxitemsmaxitems traffic policies to the next:
    version that is associated with the specified traffic policy.
    
    
- *   TrafficPolicyVersionMarker 
+ &amp;#42;   TrafficPolicyVersionMarker 
    
    The ID of the next traffic policy version that is associated with the current
    AWS account. If you want to list more traffic policies, make another call to 
@@ -1003,7 +1003,7 @@ maxitemsmaxitems traffic policies to the next:
    element from the response.
    
    
- *   MaxItems 
+ &amp;#42;   MaxItems 
    
    The value that you specified for the MaxItems parameter in the request that
    produced the current response.
@@ -1346,12 +1346,12 @@ Use the following methods to get the hosted zone ID:
  DNS Name. See HostedZone$Name.
  
  
-*  Elastic Load Balancing API: Use DescribeLoadBalancers to get the value of 
+&amp;#42;  Elastic Load Balancing API: Use DescribeLoadBalancers to get the value of 
  CanonicalHostedZoneNameID. Use the same process to get the 
  CanonicalHostedZoneName. See HostedZone$Name.
  
  
-*  AWS CLI: Use describe-load-balancers
+&amp;#42;  AWS CLI: Use describe-load-balancers
  [http://docs.aws.amazon.com/cli/latest/reference/elb/describe-load-balancers.html] 
  to get the value of CanonicalHostedZoneNameID. Use the same process to get
  the CanonicalHostedZoneName. See HostedZone$Name.
@@ -1383,24 +1383,24 @@ you want to route queries:
  in the Amazon CloudFront Developer Guide.
  
  
-*   Elastic Beanstalk environment: Specify the CNAME attribute for the
+&amp;#42;   Elastic Beanstalk environment: Specify the CNAME attribute for the
  environment. (The environment must have a regionalized domain name.) You can
  use the following methods to get the value of the CNAME attribute:
  
-  *   AWS Managment Console: For information about how to get the value by
+  &amp;#42;   AWS Managment Console: For information about how to get the value by
     using the console, see Using Custom Domains with Elastic Beanstalk
     [http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customdomains.html] 
     in the AWS Elastic Beanstalk Developer Guide.
     
     
-  *   Elastic Load Balancing API: Use the DescribeEnvironments action to get
+  &amp;#42;   Elastic Load Balancing API: Use the DescribeEnvironments action to get
     the value of the CNAME attribute. For more information, see 
     DescribeEnvironments
     [http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/API_DescribeEnvironments.html] 
     in the AWS Elastic Beanstalk API Reference.
     
     
-  *   AWS CLI: Use the describe-environments command to get the value of the 
+  &amp;#42;   AWS CLI: Use the describe-environments command to get the value of the 
     CNAME attribute. For more information, see describe-environments
     [http://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/describe-environments.html] 
     in the AWS Command Line Interface Reference.
@@ -1408,25 +1408,25 @@ you want to route queries:
     
  
  
-*   An ELB load balancer: Specify the DNS name associated with the load
+&amp;#42;   An ELB load balancer: Specify the DNS name associated with the load
  balancer. Get the DNS name by using the AWS Management Console, the ELB API,
  or the AWS CLI. Use the same method to get values for HostedZoneId and 
  DNSName. If you get one value from the console and the other value from the
  API or the CLI, creating the resource record set will fail.
  
-  *   AWS Management Console: Go to the Amazon EC2 page, click Load Balancers
+  &amp;#42;   AWS Management Console: Go to the Amazon EC2 page, click Load Balancers
     in the navigation pane, choose the load balancer, choose the Description
     tab, and get the value of the DNS Name field that begins with dualstack.
     Use the same process to get the Hosted Zone ID. See HostedZone$Id.
     
     
-  *   Elastic Load Balancing API: Use DescribeLoadBalancers
+  &amp;#42;   Elastic Load Balancing API: Use DescribeLoadBalancers
     [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancers.html] 
     to get the value of CanonicalHostedZoneName. Use the same process to get
     the CanonicalHostedZoneNameId. See HostedZone$Id.
     
     
-  *   AWS CLI: Use describe-load-balancers
+  &amp;#42;   AWS CLI: Use describe-load-balancers
     [http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancers.html] 
     to get the value of CanonicalHostedZoneName. Use the same process to get
     the CanonicalHostedZoneNameId. See HostedZoneId.
@@ -1434,7 +1434,7 @@ you want to route queries:
     
  
  
-*   An Amazon S3 bucket that is configured as a static website: Specify the
+&amp;#42;   An Amazon S3 bucket that is configured as a static website: Specify the
  domain name of the Amazon S3 website endpoint in which you created the
  bucket; for example, s3-website-us-east-1.amazonaws.com. For more information
  about valid values, see the table Amazon Simple Storage Service (S3) Website
@@ -1445,7 +1445,7 @@ you want to route queries:
  the Amazon Simple Storage Service Developer Guide. 
  
  
-*   Another Amazon Route 53 resource record set: Specify the value of the Name 
+&amp;#42;   Another Amazon Route 53 resource record set: Specify the value of the Name 
  element for a resource record set in the current hosted zone. **/
       DNSName: DNSName;
       /** Applies only to alias, weighted alias, latency alias, and failover alias record
@@ -1463,13 +1463,13 @@ resource record set:
  alias resource record sets to determine which health checks they&#x27;re using.
  
  
-*  Amazon Route 53 checks the current status of each health check. (Amazon
+&amp;#42;  Amazon Route 53 checks the current status of each health check. (Amazon
  Route 53 periodically checks the health of the endpoint that is specified in
  a health check; it doesn&#x27;t perform the health check when the DNS query
  arrives.)
  
  
-*  Based on the status of the health checks, Amazon Route 53 determines which
+&amp;#42;  Based on the status of the health checks, Amazon Route 53 determines which
  resource record sets are healthy. Unhealthy resource record sets are
  immediately removed from consideration. In addition, if all of the resource
  record sets that are referenced by an alias resource record set are
@@ -1477,7 +1477,7 @@ resource record set:
  consideration.
  
  
-*  Based on the configuration of the alias resource record sets (weighted alias
+&amp;#42;  Based on the configuration of the alias resource record sets (weighted alias
  or latency alias, for example) and the configuration of the resource record
  sets that they reference, Amazon Route 53 chooses a resource record set from
  the healthy resource record sets, and responds to the query.
@@ -1486,11 +1486,11 @@ resource record set:
 
 Note the following:
 
-*  You cannot set EvaluateTargetHealth to true when the alias target is a
+&amp;#42;  You cannot set EvaluateTargetHealth to true when the alias target is a
  CloudFront distribution.
  
  
-*  If the AWS resource that you specify in AliasTarget is a resource record set
+&amp;#42;  If the AWS resource that you specify in AliasTarget is a resource record set
  or a group of resource record sets (for example, a group of weighted resource
  record sets), but it is not another alias resource record set, we recommend
  that you associate a health check with all of the resource record sets in the
@@ -1500,7 +1500,7 @@ Note the following:
  in the Amazon Route 53 Developer Guide.
  
  
-*  If you specify an Elastic Beanstalk environment in HostedZoneId and DNSName,
+&amp;#42;  If you specify an Elastic Beanstalk environment in HostedZoneId and DNSName,
  and if the environment contains an ELB load balancer, Elastic Load Balancing
  routes queries only to the healthy Amazon EC2 instances that are registered
  with the load balancer. (An environment automatically contains an ELB load
@@ -1513,7 +1513,7 @@ Note the following:
  special requirements.
  
  
-*  If you specify an ELB load balancer in AliasTarget , Elastic Load Balancing
+&amp;#42;  If you specify an ELB load balancer in AliasTarget , Elastic Load Balancing
  routes queries only to the healthy Amazon EC2 instances that are registered
  with the load balancer. If no Amazon EC2 instances are healthy or if the load
  balancer itself is unhealthy, and if EvaluateTargetHealth is true for the
@@ -1530,7 +1530,7 @@ Note the following:
  in the Amazon Route 53 Developers Guide.
  
  
-*  We recommend that you set EvaluateTargetHealth to true only when you have
+&amp;#42;  We recommend that you set EvaluateTargetHealth to true only when you have
  enough idle capacity to handle the failure of one or more endpoints.
  
  
@@ -1563,7 +1563,7 @@ associating with the specified hosted zone. **/
 &amp;#42;   CREATE: Creates a resource record set that has the specified values.
  
  
-*   DELETE: Deletes a existing resource record set that has the specified values
+&amp;#42;   DELETE: Deletes a existing resource record set that has the specified values
  for Name, Type, SetIdentifier (for latency, weighted, geolocation, and
  failover resource record sets), and TTL (except alias resource record sets,
  for which the TTL is determined by the AWS resource that you&#x27;re routing DNS
@@ -1577,7 +1577,7 @@ associating with the specified hosted zone. **/
  though it&#x27;s no longer in use. 
  
  
-*   UPSERT: If a resource record set does not already exist, Amazon Route 53
+&amp;#42;   UPSERT: If a resource record set does not already exist, Amazon Route 53
  creates it. If a resource record set does exist, Amazon Route 53 updates it
  with the values in the request. Amazon Route 53 can update an existing
  resource record set only when all of the following values match: Name, Type,
@@ -1655,7 +1655,7 @@ get detailed information about the change. **/
 &amp;#42;  The resource type for health checks is healthcheck.
  
  
-*  The resource type for hosted zones is hostedzone. **/
+&amp;#42;  The resource type for hosted zones is hostedzone. **/
       ResourceType: TagResourceType;
       /** The ID of the resource for which you want to add, change, or delete tags. **/
       ResourceId: TagResourceId;
@@ -2001,22 +2001,22 @@ Route 53 health checkers. **/
 &amp;#42;   AF: Africa
  
  
-*   AN: Antarctica
+&amp;#42;   AN: Antarctica
  
  
-*   AS: Asia
+&amp;#42;   AS: Asia
  
  
-*   EU: Europe
+&amp;#42;   EU: Europe
  
  
-*   OC: Oceania
+&amp;#42;   OC: Oceania
  
  
-*   NA: North America
+&amp;#42;   NA: North America
  
  
-*   SA: South America **/
+&amp;#42;   SA: South America **/
       ContinentCode?: GeoLocationContinentCode;
       /** Amazon Route 53 uses the two-letter country codes that are specified in ISO
 standard 3166-1 alpha-2 [https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2]. **/
@@ -2086,7 +2086,7 @@ Configuring health checks only makes sense in the following configurations:
  53 stops responding to queries using the value for that resource record set.
  
  
-*  You set EvaluateTargetHealth to true for the resource record sets in an
+&amp;#42;  You set EvaluateTargetHealth to true for the resource record sets in an
  alias, weighted alias, latency alias, geolocation alias, or failover alias
  resource record set, and you specify health check IDs for all of the resource
  record sets that are referenced by the alias resource record sets. For more
@@ -2106,7 +2106,7 @@ For example, suppose you have resource record sets for a state in the United
 States, for the United States, for North America, and for all locations. If the
 endpoint for the state resource record set is unhealthy, Amazon Route 53 checks
 the resource record sets for the United States, for North America, and for all
-locations (a resource record set for which the value of CountryCode is *), in
+locations (a resource record set for which the value of CountryCode is &amp;#42;), in
 that order, until it finds a resource record set for which the endpoint is
 healthy.
 
@@ -2242,7 +2242,7 @@ You can create the following types of health checks:
  200 or greater and less than 400.
  
  
-*   HTTPS: Amazon Route 53 tries to establish a TCP connection. If successful,
+&amp;#42;   HTTPS: Amazon Route 53 tries to establish a TCP connection. If successful,
  Amazon Route 53 submits an HTTPS request and waits for an HTTP status code of
  200 or greater and less than 400.
  
@@ -2250,22 +2250,22 @@ You can create the following types of health checks:
  v1.0 or later.
  
  
-*   HTTP_STR_MATCH: Amazon Route 53 tries to establish a TCP connection. If
+&amp;#42;   HTTP_STR_MATCH: Amazon Route 53 tries to establish a TCP connection. If
  successful, Amazon Route 53 submits an HTTP request and searches the first
  5,120 bytes of the response body for the string that you specify in 
  SearchString.
  
  
-*   HTTPS_STR_MATCH: Amazon Route 53 tries to establish a TCP connection. If
+&amp;#42;   HTTPS_STR_MATCH: Amazon Route 53 tries to establish a TCP connection. If
  successful, Amazon Route 53 submits an HTTPS request and searches the first
  5,120 bytes of the response body for the string that you specify in 
  SearchString.
  
  
-*   TCP: Amazon Route 53 tries to establish a TCP connection.
+&amp;#42;   TCP: Amazon Route 53 tries to establish a TCP connection.
  
  
-*   CLOUDWATCH_METRIC: The health check is associated with a CloudWatch alarm.
+&amp;#42;   CLOUDWATCH_METRIC: The health check is associated with a CloudWatch alarm.
  If the state of the alarm is OK, the health check is considered healthy. If
  the state is ALARM, the health check is considered unhealthy. If CloudWatch
  doesn&#x27;t have sufficient data to determine whether the state is OK or ALARM,
@@ -2273,7 +2273,7 @@ You can create the following types of health checks:
  InsufficientDataHealthStatus: Healthy, Unhealthy, or LastKnownStatus. 
  
  
-*   CALCULATED: For health checks that monitor the status of other health
+&amp;#42;   CALCULATED: For health checks that monitor the status of other health
  checks, Amazon Route 53 adds up the number of health checks that Amazon Route
  53 health checkers consider to be healthy and compares that number with the
  value of HealthThreshold. 
@@ -2302,12 +2302,12 @@ checks the health of an endpoint, here is how it constructs the Host header:
  in the Host header. 
  
  
-*  If you specify a value of 443 for Port and HTTPS or HTTPS_STR_MATCH for Type,
+&amp;#42;  If you specify a value of 443 for Port and HTTPS or HTTPS_STR_MATCH for Type,
  Amazon Route 53 passes the value of FullyQualifiedDomainName to the endpoint
  in the Host header.
  
  
-*  If you specify another value for Port and any value except TCP for Type,
+&amp;#42;  If you specify another value for Port and any value except TCP for Type,
  Amazon Route 53 passes FullyQualifiedDomainName:Port to the endpoint in the 
  Host header.
  
@@ -2388,7 +2388,7 @@ Note the following:
  Amazon Route 53 always considers this health check to be unhealthy.
  
  
-*  If you specify 0, Amazon Route 53 always considers this health check to be
+&amp;#42;  If you specify 0, Amazon Route 53 always considers this health check to be
  healthy. **/
       HealthThreshold?: HealthThreshold;
       /** (CALCULATED Health Checks Only) A complex type that contains one 
@@ -2428,10 +2428,10 @@ state, the status that you want Amazon Route 53 to assign to the health check:
 &amp;#42;   Healthy: Amazon Route 53 considers the health check to be healthy.
  
  
-*   Unhealthy: Amazon Route 53 considers the health check to be unhealthy.
+&amp;#42;   Unhealthy: Amazon Route 53 considers the health check to be unhealthy.
  
  
-*   LastKnownStatus: Amazon Route 53uses the status of the health check from the
+&amp;#42;   LastKnownStatus: Amazon Route 53uses the status of the health check from the
  last time CloudWatch had sufficient data to determine the alarm state. For
  new health checks that have no last known status, the default status for the
  health check is healthy. **/
@@ -2668,7 +2668,7 @@ element:
 &amp;#42;  The value of ListHealthChecksResponse$IsTruncated is false.
  
  
-*   ListHealthChecksResponse$NextMarker is omitted. **/
+&amp;#42;   ListHealthChecksResponse$NextMarker is omitted. **/
       MaxItems?: PageMaxItems;
     }
     export interface ListHealthChecksResponse {
@@ -2809,13 +2809,13 @@ Values for alias resource record sets:
 &amp;#42;   CloudFront distribution: A
  
  
-*   Elastic Beanstalk environment that has a regionalized subdomain: A
+&amp;#42;   Elastic Beanstalk environment that has a regionalized subdomain: A
  
  
-*   ELB load balancer: A | AAAA
+&amp;#42;   ELB load balancer: A | AAAA
  
  
-*   Amazon S3 bucket: A
+&amp;#42;   Amazon S3 bucket: A
  
  
 
@@ -2894,7 +2894,7 @@ ListReusableDelegationSets that produced the current response. **/
 &amp;#42;  The resource type for health checks is healthcheck.
  
  
-*  The resource type for hosted zones is hostedzone. **/
+&amp;#42;  The resource type for hosted zones is hostedzone. **/
       ResourceType: TagResourceType;
       /** The ID of the resource for which you want to retrieve tags. **/
       ResourceId: TagResourceId;
@@ -2909,7 +2909,7 @@ ListReusableDelegationSets that produced the current response. **/
 &amp;#42;  The resource type for health checks is healthcheck.
  
  
-*  The resource type for hosted zones is hostedzone. **/
+&amp;#42;  The resource type for hosted zones is hostedzone. **/
       ResourceType: TagResourceType;
       /** A complex type that contains the ResourceId element for each resource for which
 you want to get a list of tags. **/
@@ -3256,28 +3256,28 @@ Format
 in the Amazon Route 53 Developer Guide.
 
 You can use the asterisk (&amp;#42;) wildcard to replace the leftmost label in a domain
-name. For example, *.example.com. Note the following:
+name. For example, &amp;#42;.example.com. Note the following:
 
-*  The * must replace the entire label. For example, you can&#x27;t specify 
- *prod.example.com or prod*.example.com.
+&amp;#42;  The &amp;#42; must replace the entire label. For example, you can&#x27;t specify 
+ &amp;#42;prod.example.com or prod&amp;#42;.example.com.
  
  
-*  The * can&#x27;t replace any of the middle labels, for example,
- marketing.*.example.com.
+&amp;#42;  The &amp;#42; can&#x27;t replace any of the middle labels, for example,
+ marketing.&amp;#42;.example.com.
  
  
-*  If you include * in any position other than the leftmost label in a domain
- name, DNS treats it as an * character (ASCII 42), not as a wildcard.
+&amp;#42;  If you include &amp;#42; in any position other than the leftmost label in a domain
+ name, DNS treats it as an &amp;#42; character (ASCII 42), not as a wildcard.
  
- You can&#x27;t use the * wildcard for resource records sets that have a type of
+ You can&#x27;t use the &amp;#42; wildcard for resource records sets that have a type of
  NS.
  
  
 
-You can use the * wildcard as the leftmost label in a domain name, for example, 
-*.example.com. You cannot use an * for one of the middle labels, for example, 
-marketing.*.example.com. In addition, the * must replace the entire label; for
-example, you can&#x27;t specify prod*.example.com. **/
+You can use the &amp;#42; wildcard as the leftmost label in a domain name, for example, 
+&amp;#42;.example.com. You cannot use an &amp;#42; for one of the middle labels, for example, 
+marketing.&amp;#42;.example.com. In addition, the &amp;#42; must replace the entire label; for
+example, you can&#x27;t specify prod&amp;#42;.example.com. **/
       Name: DNSName;
       /** The DNS record type. For information about different record types and how data
 is encoded for them, see Supported DNS Resource Record Types
@@ -3306,16 +3306,16 @@ Values for alias resource record sets:
 &amp;#42;   CloudFront distributions: A 
  
  
-*   Elastic Beanstalk environment that has a regionalized subdomain: A 
+&amp;#42;   Elastic Beanstalk environment that has a regionalized subdomain: A 
  
  
-*   ELB load balancers: A | AAAA 
+&amp;#42;   ELB load balancers: A | AAAA 
  
  
-*   Amazon S3 buckets: A 
+&amp;#42;   Amazon S3 buckets: A 
  
  
-*   Another resource record set in this hosted zone: Specify the type of the
+&amp;#42;   Another resource record set in this hosted zone: Specify the type of the
  resource record set for which you&#x27;re creating the alias. Specify any value
  except NS or SOA. **/
       Type: RRType;
@@ -3337,19 +3337,19 @@ the following:
  record set.
  
  
-*  You can only specify one ResourceRecord per weighted resource record set.
+&amp;#42;  You can only specify one ResourceRecord per weighted resource record set.
  
  
-*  You cannot create latency, failover, or geolocation resource record sets
+&amp;#42;  You cannot create latency, failover, or geolocation resource record sets
  that have the same values for the Name and Type elements as weighted resource
  record sets.
  
  
-*  You can create a maximum of 100 weighted resource record sets that have the
+&amp;#42;  You can create a maximum of 100 weighted resource record sets that have the
  same values for the Name and Type elements.
  
  
-*  For weighted (but not weighted alias) resource record sets, if you set Weight 
+&amp;#42;  For weighted (but not weighted alias) resource record sets, if you set Weight 
  to 0 for a resource record set, Amazon Route 53 never responds to queries
  with the applicable value for that resource record set. However, if you set 
  Weight to 0 for all resource record sets that have the same combination of
@@ -3381,16 +3381,16 @@ Note the following:
 &amp;#42;  You can only specify one ResourceRecord per latency resource record set.
  
  
-*  You can only create one latency resource record set for each Amazon EC2
+&amp;#42;  You can only create one latency resource record set for each Amazon EC2
  region.
  
  
-*  You are not required to create latency resource record sets for all Amazon
+&amp;#42;  You are not required to create latency resource record sets for all Amazon
  EC2 regions. Amazon Route 53 will choose the region with the best latency
  from among the regions for which you create latency resource record sets.
  
  
-*  You cannot create non-latency resource record sets that have the same values
+&amp;#42;  You cannot create non-latency resource record sets that have the same values
  for the Name and Type elements as latency resource record sets. **/
       Region?: ResourceRecordSetRegion;
       /** Geo location resource record sets only: A complex type that lets you control
@@ -3420,9 +3420,9 @@ addresses aren&#x27;t mapped to geographic locations, so even if you create
 geolocation resource record sets that cover all seven continents, Amazon Route
 53 will receive some DNS queries from locations that it can&#x27;t identify. We
 recommend that you create a resource record set for which the value of 
-CountryCode is *, which handles both queries that come from locations for which
+CountryCode is &amp;#42;, which handles both queries that come from locations for which
 you haven&#x27;t created geolocation resource record sets and queries from IP
-addresses that aren&#x27;t mapped to a location. If you don&#x27;t create a * resource
+addresses that aren&#x27;t mapped to a location. If you don&#x27;t create a &amp;#42; resource
 record set, Amazon Route 53 returns a &quot;no answer&quot; response for queries from
 those locations.
 
@@ -3444,17 +3444,17 @@ included the HealthCheckId element in both resource record sets:
  regardless of the health of the secondary resource record set.
  
  
-*  When the primary resource record set is unhealthy and the secondary resource
+&amp;#42;  When the primary resource record set is unhealthy and the secondary resource
  record set is healthy, Amazon Route 53 responds to DNS queries with the
  applicable value from the secondary resource record set.
  
  
-*  When the secondary resource record set is unhealthy, Amazon Route 53
+&amp;#42;  When the secondary resource record set is unhealthy, Amazon Route 53
  responds to DNS queries with the applicable value from the primary resource
  record set regardless of the health of the primary resource record set.
  
  
-*  If you omit the HealthCheckId element for the secondary resource record set,
+&amp;#42;  If you omit the HealthCheckId element for the secondary resource record set,
  and if the primary resource record set is unhealthy, Amazon Route 53 always
  responds to DNS queries with the applicable value from the secondary resource
  record set. This is true regardless of the health of the associated endpoint.
@@ -3470,11 +3470,11 @@ EvaluateTargetHealth element and set the value to true.
 For more information about configuring failover for Amazon Route 53, see the
 following topics in the Amazon Route 53 Developer Guide: 
 
-*   Amazon Route 53 Health Checks and DNS Failover
+&amp;#42;   Amazon Route 53 Health Checks and DNS Failover
  [http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html] 
  
  
-*   Configuring Failover in a Private Hosted Zone
+&amp;#42;   Configuring Failover in a Private Hosted Zone
  [http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html] 
  
  
@@ -3487,17 +3487,17 @@ Valid values: PRIMARY | SECONDARY **/
  uses the value of TTL for the alias target. 
  
  
-*  If you&#x27;re associating this resource record set with a health check (if
+&amp;#42;  If you&#x27;re associating this resource record set with a health check (if
  you&#x27;re adding a HealthCheckId element), we recommend that you specify a TTL 
  of 60 seconds or less so clients respond quickly to changes in health status.
  
  
-*  All of the resource record sets in a group of weighted, latency,
+&amp;#42;  All of the resource record sets in a group of weighted, latency,
  geolocation, or failover resource record sets must have the same value for 
  TTL.
  
  
-*  If a group of weighted resource record sets includes one or more weighted
+&amp;#42;  If a group of weighted resource record sets includes one or more weighted
  alias resource record sets for which the alias target is an ELB load
  balancer, we recommend that you specify a TTL of 60 seconds for all of the
  non-alias weighted resource record sets that have the same name and type.
@@ -3520,11 +3520,11 @@ following:
  a private hosted zone.
  
  
-*  Creating geolocation alias resource record sets or latency alias resource
+&amp;#42;  Creating geolocation alias resource record sets or latency alias resource
  record sets in a private hosted zone is unsupported.
  
  
-*  For information about creating failover resource record sets in a private
+&amp;#42;  For information about creating failover resource record sets in a private
  hosted zone, see Configuring Failover in a Private Hosted Zone
  [http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html] 
  in the Amazon Route 53 Developer Guide. **/
@@ -3540,11 +3540,11 @@ of the following:
  health check
  
  
-*  By aggregating the status of a specified group of health checks (calculated
+&amp;#42;  By aggregating the status of a specified group of health checks (calculated
  health checks)
  
  
-*  By determining the current state of a CloudWatch alarm (CloudWatch metric
+&amp;#42;  By determining the current state of a CloudWatch alarm (CloudWatch metric
  health checks)
  
  
@@ -3557,14 +3557,14 @@ between two or more resource record sets to respond to a DNS query, and you want
 Amazon Route 53 to base the choice in part on the status of a health check.
 Configuring health checks only makes sense in the following configurations:
 
-*  You&#x27;re checking the health of the resource record sets in a weighted,
+&amp;#42;  You&#x27;re checking the health of the resource record sets in a weighted,
  latency, geolocation, or failover resource record set, and you specify health
  check IDs for all of the resource record sets. If the health check for one
  resource record set specifies an endpoint that is not healthy, Amazon Route
  53 stops responding to queries using the value for that resource record set.
  
  
-*  You set EvaluateTargetHealth to true for the resource record sets in an
+&amp;#42;  You set EvaluateTargetHealth to true for the resource record sets in an
  alias, weighted alias, latency alias, geolocation alias, or failover alias
  resource record set, and you specify health check IDs for all of the resource
  record sets that are referenced by the alias resource record sets.
@@ -3583,7 +3583,7 @@ For example, suppose you have resource record sets for a state in the United
 States, for the United States, for North America, and for all locations. If the
 endpoint for the state resource record set is unhealthy, Amazon Route 53 checks
 the resource record sets for the United States, for North America, and for all
-locations (a resource record set for which the value of CountryCode is *), in
+locations (a resource record set for which the value of CountryCode is &amp;#42;), in
 that order, until it finds a resource record set for which the endpoint is
 healthy. 
 
@@ -3602,11 +3602,11 @@ will be unpredictable.
 For more informaiton, see the following topics in the Amazon Route 53 Developer
 Guide:
 
-*   Amazon Route 53 Health Checks and DNS Failover
+&amp;#42;   Amazon Route 53 Health Checks and DNS Failover
  [http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html] 
  
  
-*   Configuring Failover in a Private Hosted Zone
+&amp;#42;   Configuring Failover in a Private Hosted Zone
  [http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html] **/
       HealthCheckId?: HealthCheckId;
       TrafficPolicyInstanceId?: TrafficPolicyInstanceId;
@@ -3617,7 +3617,7 @@ Guide:
 &amp;#42;  The resource type for health checks is healthcheck.
  
  
-*  The resource type for hosted zones is hostedzone. **/
+&amp;#42;  The resource type for hosted zones is hostedzone. **/
       ResourceType?: TagResourceType;
       /** The ID for the specified resource. **/
       ResourceId?: TagResourceId;
@@ -3641,14 +3641,14 @@ format [https://en.wikipedia.org/wiki/ISO_8601] and Coordinated Universal Time
  give the new tag.
  
  
-*   Edit a tag: Key is the name of the tag whose Value element you want to
+&amp;#42;   Edit a tag: Key is the name of the tag whose Value element you want to
  remove.
  
  
-*   Delete a key: Key is the name of the tag you want to remove.
+&amp;#42;   Delete a key: Key is the name of the tag you want to remove.
  
  
-*   Give a name to a health check: Edit the default Name tag. In the Amazon
+&amp;#42;   Give a name to a health check: Edit the default Name tag. In the Amazon
  Route 53 console, the list of your health checks includes a Name column that
  lets you see the name that you&#x27;ve given to each health check. **/
       Key?: TagKey;
@@ -3658,7 +3658,7 @@ format [https://en.wikipedia.org/wiki/ISO_8601] and Coordinated Universal Time
  to give the new tag.
  
  
-*   Edit a tag: Value is the new value that you want to assign the tag. **/
+&amp;#42;   Edit a tag: Value is the new value that you want to assign the tag. **/
       Value?: TagValue;
     }
     export interface TestDNSAnswerRequest {
@@ -3764,7 +3764,7 @@ Amazon Route 53 from overwriting an intervening update:
  check with the new settings.
  
  
-*  If the value of HealthCheckVersion in the health check is greater, the health
+&amp;#42;  If the value of HealthCheckVersion in the health check is greater, the health
  check was changed after you got the version number. Amazon Route 53 does not
  update the health check, and it returns a HealthCheckVersionMismatch error. **/
       HealthCheckVersion?: HealthCheckVersion;
@@ -3817,12 +3817,12 @@ Host header:
  in the Host header.
  
  
-*  If you specify a value of 443 for Port and HTTPS or HTTPS_STR_MATCH for Type,
+&amp;#42;  If you specify a value of 443 for Port and HTTPS or HTTPS_STR_MATCH for Type,
  Amazon Route 53 passes the value of FullyQualifiedDomainName to the endpoint
  in the Host header.
  
  
-*  If you specify another value for Port and any value except TCP for Type,
+&amp;#42;  If you specify another value for Port and any value except TCP for Type,
  Amazon Route 53 passes FullyQualifiedDomainName:Port to the endpoint in the
  Host header.
  
@@ -3886,7 +3886,7 @@ Note the following:
  Amazon Route 53 always considers this health check to be unhealthy.
  
  
-*  If you specify 0, Amazon Route 53 always considers this health check to be
+&amp;#42;  If you specify 0, Amazon Route 53 always considers this health check to be
  healthy. **/
       HealthThreshold?: HealthThreshold;
       /** A complex type that contains one ChildHealthCheck element for each health check

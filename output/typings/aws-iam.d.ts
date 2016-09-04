@@ -63,13 +63,13 @@ declare module "aws-sdk" {
     for accessing AWS. 
     
     
-  *   IAM Best Practices
+  &amp;#42;   IAM Best Practices
     [http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html]. This
     topic presents a list of suggestions for using the IAM service to help secure
     your AWS resources. 
     
     
-  *   Signing AWS API Requests
+  &amp;#42;   Signing AWS API Requests
     [http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html].
     This set of topics walk you through the process of signing a request using an
     access key ID and secret access key.
@@ -550,13 +550,13 @@ managed policy:
    is attached to, use ListEntitiesForPolicy.
    
    
- *  Delete all versions of the policy using DeletePolicyVersion. To list the
+ &amp;#42;  Delete all versions of the policy using DeletePolicyVersion. To list the
    policy&#x27;s versions, use ListPolicyVersions. You cannot use DeletePolicyVersion 
    to delete the version that is marked as the default version. You delete the
    policy&#x27;s default version in the next step of the process.
    
    
- *  Delete the policy (this automatically deletes the policy&#x27;s default version)
+ &amp;#42;  Delete the policy (this automatically deletes the policy&#x27;s default version)
    using this API.
    
    
@@ -2238,11 +2238,11 @@ Inactive means it is not. **/
 &amp;#42;  The user does not have an access key.
  
  
-*  An access key exists but has never been used, at least not since IAM started
+&amp;#42;  An access key exists but has never been used, at least not since IAM started
  tracking this information on April 22nd, 2015.
  
  
-*  There is no sign-in data associated with the user **/
+&amp;#42;  There is no sign-in data associated with the user **/
       LastUsedDate: dateType;
       /** The name of the AWS service with which this access key was most recently used.
 This field is null when:
@@ -2250,11 +2250,11 @@ This field is null when:
 &amp;#42;  The user does not have an access key.
  
  
-*  An access key exists but has never been used, at least not since IAM started
+&amp;#42;  An access key exists but has never been used, at least not since IAM started
  tracking this information on April 22nd, 2015.
  
  
-*  There is no sign-in data associated with the user **/
+&amp;#42;  There is no sign-in data associated with the user **/
       ServiceName: stringType;
       /** The AWS region where this access key was most recently used. This field is null
 when:
@@ -2262,11 +2262,11 @@ when:
 &amp;#42;  The user does not have an access key.
  
  
-*  An access key exists but has never been used, at least not since IAM started
+&amp;#42;  An access key exists but has never been used, at least not since IAM started
  tracking this information on April 22nd, 2015.
  
  
-*  There is no sign-in data associated with the user
+&amp;#42;  There is no sign-in data associated with the user
  
  
 
@@ -4790,7 +4790,7 @@ the result. **/
       /** A list of context keys that are required by the included input policies but that
 were not provided by one of the input parameters. This list is used when a list
 of ARNs is included in the ResourceArns parameter instead of &quot;&amp;#42;&quot;. If you do not
-specify individual resources, by setting ResourceArns to &quot;*&quot; or by not including
+specify individual resources, by setting ResourceArns to &quot;&amp;#42;&quot; or by not including
 the ResourceArns parameter, then any missing context values are instead included
 under the EvaluationResults section. To discover the context keys used by a set
 of policies, you can call GetContextKeysForCustomPolicy or 
@@ -5069,27 +5069,27 @@ in the AWS EC2 User Guide.
  instance, image, security-group
  
  
-*   EC2-Classic-EBS 
+&amp;#42;   EC2-Classic-EBS 
  
  instance, image, security-group, volume
  
  
-*   EC2-VPC-InstanceStore 
+&amp;#42;   EC2-VPC-InstanceStore 
  
  instance, image, security-group, network-interface
  
  
-*   EC2-VPC-InstanceStore-Subnet 
+&amp;#42;   EC2-VPC-InstanceStore-Subnet 
  
  instance, image, security-group, network-interface, subnet
  
  
-*   EC2-VPC-EBS 
+&amp;#42;   EC2-VPC-EBS 
  
  instance, image, security-group, network-interface, volume
  
  
-*   EC2-VPC-EBS-Subnet 
+&amp;#42;   EC2-VPC-EBS-Subnet 
  
  instance, image, security-group, network-interface, subnet, volume **/
       ResourceHandlingOption?: ResourceHandlingOptionType;
@@ -5228,27 +5228,27 @@ in the AWS EC2 User Guide.
  instance, image, security-group
  
  
-*   EC2-Classic-EBS 
+&amp;#42;   EC2-Classic-EBS 
  
  instance, image, security-group, volume
  
  
-*   EC2-VPC-InstanceStore 
+&amp;#42;   EC2-VPC-InstanceStore 
  
  instance, image, security-group, network-interface
  
  
-*   EC2-VPC-InstanceStore-Subnet 
+&amp;#42;   EC2-VPC-InstanceStore-Subnet 
  
  instance, image, security-group, network-interface, subnet
  
  
-*   EC2-VPC-EBS 
+&amp;#42;   EC2-VPC-EBS 
  
  instance, image, security-group, network-interface, volume
  
  
-*   EC2-VPC-EBS-Subnet 
+&amp;#42;   EC2-VPC-EBS-Subnet 
  
  instance, image, security-group, network-interface, subnet, volume **/
       ResourceHandlingOption?: ResourceHandlingOptionType;
@@ -5657,11 +5657,11 @@ present) when:
 &amp;#42;  The user does not have a password
  
  
-*  The password exists but has never been used (at least not since IAM started
+&amp;#42;  The password exists but has never been used (at least not since IAM started
  tracking this information on October 20th, 2014
  
  
-*  there is no sign-in data associated with the user
+&amp;#42;  there is no sign-in data associated with the user
  
  
 

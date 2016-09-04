@@ -37,11 +37,11 @@ CloudSearch supports four query parsers:
 
  &amp;#42; simple: search all text and text-array fields for the specified string.
    Search for phrases, individual terms, and prefixes. 
- * structured: search specific fields, construct compound queries using Boolean
+ &amp;#42; structured: search specific fields, construct compound queries using Boolean
    operators, and use advanced features such as term boosting and proximity
    searching.
- * lucene: specify search criteria using the Apache Lucene query parser syntax.
- * dismax: specify search criteria using the simplified subset of the Apache
+ &amp;#42; lucene: specify search criteria using the Apache Lucene query parser syntax.
+ &amp;#42; dismax: specify search criteria using the simplified subset of the Apache
    Lucene query parser syntax defined by the DisMax query parser.
 
 For more information, see Searching Your Data
@@ -284,7 +284,7 @@ You specify the expressions in JSON using the form
 {&quot;EXPRESSIONNAME&quot;:&quot;EXPRESSION&quot;}. You can define and use multiple expressions in
 a search request. For example:
 
-{&quot;expression1&quot;:&quot;_score&amp;#42;rating&quot;, &quot;expression2&quot;:&quot;(1/rank)*year&quot;} 
+{&quot;expression1&quot;:&quot;_score&amp;#42;rating&quot;, &quot;expression2&quot;:&quot;(1/rank)&amp;#42;year&quot;} 
 
 For information about the variables, operators, and functions you can use in
 expressions, see Writing Expressions
@@ -309,13 +309,13 @@ You can specify the following faceting options:
  you specify buckets.
  
  
-*  size specifies the maximum number of facets to include in the results. By
+&amp;#42;  size specifies the maximum number of facets to include in the results. By
  default, Amazon CloudSearch returns counts for the top 10. The size parameter
  is only valid when you specify the sort option; it cannot be used in
  conjunction with buckets.
  
  
-*  sort specifies how you want to sort the facets in the results: bucket or 
+&amp;#42;  sort specifies how you want to sort the facets in the results: bucket or 
  count. Specify bucket to sort alphabetically or numerically by facet value
  (in ascending order). Specify count to sort by the facet counts computed for
  each facet value (in descending order). To retrieve facet counts for
@@ -376,15 +376,15 @@ You can specify the following highlight options:
 &amp;#42;  format: specifies the format of the data in the text field: text or html.
  When data is returned as HTML, all non-alphanumeric characters are encoded.
  The default is html. 
-*  max_phrases: specifies the maximum number of occurrences of the search
+&amp;#42;  max_phrases: specifies the maximum number of occurrences of the search
  term(s) you want to highlight. By default, the first occurrence is
  highlighted. 
-*  pre_tag: specifies the string to prepend to an occurrence of a search term.
+&amp;#42;  pre_tag: specifies the string to prepend to an occurrence of a search term.
  The default for HTML highlights is &amp;lt;em&amp;gt;. The default for text
- highlights is *. 
-*  post_tag: specifies the string to append to an occurrence of a search term.
+ highlights is &amp;#42;. 
+&amp;#42;  post_tag: specifies the string to append to an occurrence of a search term.
  The default for HTML highlights is &amp;lt;/em&amp;gt;. The default for text
- highlights is *. 
+ highlights is &amp;#42;. 
 
 If no highlight options are specified for a field, the returned field text is
 treated as HTML and the first match is highlighted with emphasis tags: 
@@ -434,7 +434,7 @@ The options you can configure vary according to which parser you use:
  and, or, a percentage in the range 0%-100% (dismax). Default: and (simple, 
  structured, lucene) or 100 (dismax). Valid for: simple, structured, lucene,
  and dismax.
-* fields: An array of the fields to search when no fields are specified in a
+&amp;#42; fields: An array of the fields to search when no fields are specified in a
  search. If no fields are specified in a search and this option is not
  specified, all text and text-array fields are searched. You can specify a
  weight for each field to control the relative importance of each field when
@@ -445,11 +445,11 @@ The options you can configure vary according to which parser you use:
  configured field and an optional numeric value greater than zero. Default:
  All text and text-array fields. Valid for: simple, structured, lucene, and 
  dismax.
-* operators: An array of the operators or special characters you want to
+&amp;#42; operators: An array of the operators or special characters you want to
  disable for the simple query parser. If you disable the and, or, or not 
  operators, the corresponding operators (+, |, -) have no special meaning and
  are dropped from the search string. Similarly, disabling prefix disables the
- wildcard operator (*) and disabling phrase disables the ability to search for
+ wildcard operator (&amp;#42;) and disabling phrase disables the ability to search for
  phrases by enclosing phrases in double quotes. Disabling precedence disables
  the ability to control order of precedence using parentheses. Disabling near 
  disables the ability to use the ~ operator to perform a sloppy phrase search.
@@ -463,7 +463,7 @@ The options you can configure vary according to which parser you use:
  &quot;operators&quot;:[&quot;and&quot;,&quot;not&quot;,&quot;or&quot;, &quot;prefix&quot;]. Valid values: and, escape, fuzzy, 
  near, not, or, phrase, precedence, prefix, whitespace. Default: All operators
  and special characters are enabled. Valid for: simple.
-* phraseFields: An array of the text or text-array fields you want to use for
+&amp;#42; phraseFields: An array of the text or text-array fields you want to use for
  phrase searches. When the terms in the search string appear in close
  proximity within a field, the field scores higher. You can specify a weight
  for each field to boost that score. The phraseSlop option controls how much
@@ -475,18 +475,18 @@ The options you can configure vary according to which parser you use:
  value greater than zero. Default: No fields. If you don&#x27;t specify any fields
  with phraseFields, proximity scoring is disabled even if phraseSlop is
  specified. Valid for: dismax.
-* phraseSlop: An integer value that specifies how much matches can deviate from
+&amp;#42; phraseSlop: An integer value that specifies how much matches can deviate from
  the search phrase and still be boosted according to the weights specified in
  the phraseFields option; for example, phraseSlop: 2. You must also specify 
  phraseFields to enable proximity scoring. Valid values: positive integers.
  Default: 0. Valid for: dismax.
-* explicitPhraseSlop: An integer value that specifies how much a match can
+&amp;#42; explicitPhraseSlop: An integer value that specifies how much a match can
  deviate from the search phrase when the phrase is enclosed in double quotes
  in the search string. (Phrases that exceed this proximity distance are not
  considered a match.) For example, to specify a slop of three for dismax
  phrase queries, you would specify &quot;explicitPhraseSlop&quot;:3. Valid values:
  positive integers. Default: 0. Valid for: dismax.
-* tieBreaker: When a term in the search string is found in a document&#x27;s field,
+&amp;#42; tieBreaker: When a term in the search string is found in a document&#x27;s field,
  a score is calculated for that field based on how common the word is in that
  field compared to other documents. If the term occurs in multiple fields
  within a document, by default only the highest scoring field contributes to
@@ -495,7 +495,7 @@ The options you can configure vary according to which parser you use:
  That way, if two documents have the same max field score for a particular
  term, the score for the document that has matches in more fields will be
  higher. The formula for calculating the score with a tieBreaker is (max field
- score) + (tieBreaker) * (sum of the scores for the rest of the matching
+ score) + (tieBreaker) &amp;#42; (sum of the scores for the rest of the matching
  fields). Set tieBreaker to 0 to disregard all but the highest scoring field
  (pure max): &quot;tieBreaker&quot;:0. Set to 1 to sum the scores from all fields (pure
  sum): &quot;tieBreaker&quot;:1. Valid values: 0.0 to 1.0. Default: 0.0. Valid for: 
@@ -512,24 +512,24 @@ Amazon CloudSearch supports four query parsers:
  prefix a search term with a plus sign (+) documents must contain the term to
  be considered a match. (This is the default, unless you configure the default
  operator with the queryOptions parameter.) You can use the - (NOT), | (OR),
- and * (wildcard) operators to exclude particular terms, find results that
+ and &amp;#42; (wildcard) operators to exclude particular terms, find results that
  match any of the specified terms, or search for a prefix. To search for a
  phrase rather than individual terms, enclose the phrase in double quotes. For
  more information, see Searching for Text
  [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching-text.html] 
  in the Amazon CloudSearch Developer Guide. 
-*  structured: perform advanced searches by combining multiple expressions to
+&amp;#42;  structured: perform advanced searches by combining multiple expressions to
  define the search criteria. You can also search within particular fields,
  search for values and ranges of values, and use advanced options such as term
  boosting, matchall, and near. For more information, see Constructing Compound
  Queries
  [http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching-compound-queries.html] 
  in the Amazon CloudSearch Developer Guide. 
-*  lucene: search using the Apache Lucene query parser syntax. For more
+&amp;#42;  lucene: search using the Apache Lucene query parser syntax. For more
  information, see Apache Lucene Query Parser Syntax
  [http://lucene.apache.org/core/4_6_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description]
  . 
-*  dismax: search using the simplified subset of the Apache Lucene query parser
+&amp;#42;  dismax: search using the simplified subset of the Apache Lucene query parser
  syntax defined by the DisMax query parser. For more information, see DisMax
  Query Parser Syntax
  [http://wiki.apache.org/solr/DisMaxQParserPlugin#Query_Syntax]. **/
@@ -631,7 +631,7 @@ took to process the request (timems). **/
 document batch formats:
 
 &amp;#42; application/json
-* application/xml **/
+&amp;#42; application/xml **/
       contentType: ContentType;
     }
     export interface UploadDocumentsResponse {

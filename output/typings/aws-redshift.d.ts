@@ -724,9 +724,9 @@ as clusters, snapshots, and so on.
 
  The following are limitations for DescribeTags:  &amp;#42; You cannot specify an ARN
    and a resource-type value together in the same request.
- * You cannot use the MaxRecords and Marker parameters together with the ARN
+ &amp;#42; You cannot use the MaxRecords and Marker parameters together with the ARN
    parameter.
- * The MaxRecords parameter can be a range from 10 to 50 results to return in a
+ &amp;#42; The MaxRecords parameter can be a range from 10 to 50 results to return in a
    request.
 
 
@@ -1198,22 +1198,22 @@ snapshot. **/
       /** The node type for the nodes in the cluster. **/
       NodeType?: String;
       /** The current state of the cluster. Possible values are:  &amp;#42; available
-* creating
-* deleting
-* final-snapshot
-* hardware-failure
-* incompatible-hsm
-* incompatible-network
-* 
+&amp;#42; creating
+&amp;#42; deleting
+&amp;#42; final-snapshot
+&amp;#42; hardware-failure
+&amp;#42; incompatible-hsm
+&amp;#42; incompatible-network
+&amp;#42; 
  incompatible-parameters
-* incompatible-restore
-* modifying
-* rebooting
-* renaming
-* resizing
-* rotating-keys
-* storage-full
-* updating-hsm **/
+&amp;#42; incompatible-restore
+&amp;#42; modifying
+&amp;#42; rebooting
+&amp;#42; renaming
+&amp;#42; resizing
+&amp;#42; rotating-keys
+&amp;#42; storage-full
+&amp;#42; updating-hsm **/
       ClusterStatus?: String;
       /** The status of a modify operation, if any, initiated for the cluster. **/
       ModifyStatus?: String;
@@ -1305,8 +1305,8 @@ arn:aws:iam::123456789012:role/RedshiftCopyUnload. **/
 cluster.
 
 The following are possible statuses and descriptions. &amp;#42; in-sync: The role is available for use by the cluster.
-* adding: The role is in the process of being associated with the cluster.
-* removing: The role is in the process of being disassociated with the cluster. **/
+&amp;#42; adding: The role is in the process of being associated with the cluster.
+&amp;#42; removing: The role is in the process of being disassociated with the cluster. **/
       ApplyStatus?: String;
     }
     export interface ClusterNode {
@@ -1387,16 +1387,16 @@ the database, waiting for a cluster reboot, or encountered an error when being
 applied.
 
 The following are possible statuses and descriptions. &amp;#42; in-sync: The parameter value is in sync with the database.
-* pending-reboot: The parameter value will be applied after the cluster
+&amp;#42; pending-reboot: The parameter value will be applied after the cluster
  reboots.
-* applying: The parameter value is being applied to the database.
-* invalid-parameter: Cannot apply the parameter value because it has an invalid
+&amp;#42; applying: The parameter value is being applied to the database.
+&amp;#42; invalid-parameter: Cannot apply the parameter value because it has an invalid
  value or syntax.
-* apply-deferred: The parameter contains static property changes. The changes
+&amp;#42; apply-deferred: The parameter contains static property changes. The changes
  are deferred until the cluster reboots.
-* apply-error: Cannot connect to the cluster. The parameter change will be
+&amp;#42; apply-error: Cannot connect to the cluster. The parameter change will be
  applied after the cluster reboots.
-* unknown-error: Cannot apply the parameter change right now. The change will
+&amp;#42; unknown-error: Cannot apply the parameter change right now. The change will
  be applied after the cluster reboots. **/
       ParameterApplyStatus?: String;
       /** The error that prevented the parameter from being applied to the database. **/
@@ -1531,17 +1531,17 @@ resource element that specifies anything other than &amp;#42; for the cluster na
 
 Constraints:
 
-* Must be the identifier for a valid cluster. **/
+&amp;#42; Must be the identifier for a valid cluster. **/
       SourceSnapshotClusterIdentifier?: String;
       /** The identifier given to the new manual snapshot. 
 
 Constraints:
 
 &amp;#42; Cannot be null, empty, or blank.
-* Must contain from 1 to 255 alphanumeric characters or hyphens.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens.
-* Must be unique for the AWS account that is making the request. **/
+&amp;#42; Must contain from 1 to 255 alphanumeric characters or hyphens.
+&amp;#42; First character must be a letter.
+&amp;#42; Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42; Must be unique for the AWS account that is making the request. **/
       TargetSnapshotIdentifier: String;
     }
     export interface CopyClusterSnapshotResult {
@@ -1563,8 +1563,8 @@ Default: dev
 Constraints:
 
 &amp;#42; Must contain 1 to 64 alphanumeric characters.
-* Must contain only lowercase letters.
-* Cannot be a word that is reserved by the service. A list of reserved words
+&amp;#42; Must contain only lowercase letters.
+&amp;#42; Cannot be a word that is reserved by the service. A list of reserved words
  can be found in Reserved Words
  [http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html] in the
  Amazon Redshift Database Developer Guide. **/
@@ -1576,15 +1576,15 @@ identifier also appears in the Amazon Redshift console.
 Constraints:
 
 &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
-* Alphabetic characters must be lowercase.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens.
-* Must be unique for all clusters within an AWS account.
+&amp;#42; Alphabetic characters must be lowercase.
+&amp;#42; First character must be a letter.
+&amp;#42; Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42; Must be unique for all clusters within an AWS account.
 
 Example: myexamplecluster **/
       ClusterIdentifier: String;
       /** The type of the cluster. When cluster type is specified as  &amp;#42; single-node, the NumberOfNodes parameter is not required.
-* multi-node, the NumberOfNodes parameter is required.
+&amp;#42; multi-node, the NumberOfNodes parameter is required.
 
 
 
@@ -1606,8 +1606,8 @@ being created.
 Constraints:
 
 &amp;#42; Must be 1 - 128 alphanumeric characters.
-* First character must be a letter.
-* Cannot be a reserved word. A list of reserved words can be found in Reserved
+&amp;#42; First character must be a letter.
+&amp;#42; Cannot be a reserved word. A list of reserved words can be found in Reserved
  Words [http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html] in
  the Amazon Redshift Database Developer Guide. **/
       MasterUsername: String;
@@ -1617,10 +1617,10 @@ being created.
 Constraints: 
 
 &amp;#42; Must be between 8 and 64 characters in length.
-* Must contain at least one uppercase letter.
-* Must contain at least one lowercase letter.
-* Must contain one number.
-* Can be any printable ASCII character (ASCII code 33 to 126) except &#x27; (single
+&amp;#42; Must contain at least one uppercase letter.
+&amp;#42; Must contain at least one lowercase letter.
+&amp;#42; Must contain one number.
+&amp;#42; Can be any printable ASCII character (ASCII code 33 to 126) except &#x27; (single
  quote), &quot; (double quote), \, /, @, or space. **/
       MasterUserPassword: String;
       /** A list of security groups to be associated with this cluster. 
@@ -1675,8 +1675,8 @@ Groups
 Constraints: 
 
 &amp;#42; Must be 1 to 255 alphanumeric characters or hyphens.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens. **/
+&amp;#42; First character must be a letter.
+&amp;#42; Cannot end with a hyphen or contain two consecutive hyphens. **/
       ClusterParameterGroupName?: String;
       /** The number of days that automated snapshots are retained. If the value is 0,
 automated snapshots are disabled. Even if automated snapshots are disabled, you
@@ -1771,9 +1771,9 @@ A cluster can have up to 10 IAM roles associated at any time. **/
 Constraints: 
 
 &amp;#42; Must be 1 to 255 alphanumeric characters or hyphens
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens.
-* Must be unique withing your AWS account.
+&amp;#42; First character must be a letter.
+&amp;#42; Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42; Must be unique withing your AWS account.
 
 This value is stored as a lower-case string. **/
       ParameterGroupName: String;
@@ -1805,8 +1805,8 @@ lowercase string.
 Constraints: 
 
 &amp;#42; Must contain no more than 255 alphanumeric characters or hyphens.
-* Must not be &quot;Default&quot;.
-* Must be unique for all security groups that are created by your AWS account.
+&amp;#42; Must not be &quot;Default&quot;.
+&amp;#42; Must be unique for all security groups that are created by your AWS account.
 
 Example: examplesecuritygroup **/
       ClusterSecurityGroupName: String;
@@ -1825,9 +1825,9 @@ must be unique for all snapshots within the AWS account.
 Constraints:
 
 &amp;#42; Cannot be null, empty, or blank
-* Must contain from 1 to 255 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens
+&amp;#42; Must contain from 1 to 255 alphanumeric characters or hyphens
+&amp;#42; First character must be a letter
+&amp;#42; Cannot end with a hyphen or contain two consecutive hyphens
 
 Example: my-snapshot-id **/
       SnapshotIdentifier: String;
@@ -1846,8 +1846,8 @@ string.
 Constraints: 
 
 &amp;#42; Must contain no more than 255 alphanumeric characters or hyphens.
-* Must not be &quot;Default&quot;.
-* Must be unique for all subnet groups that are created by your AWS account.
+&amp;#42; Must not be &quot;Default&quot;.
+&amp;#42; Must be unique for all subnet groups that are created by your AWS account.
 
 Example: examplesubnetgroup **/
       ClusterSubnetGroupName: String;
@@ -1868,9 +1868,9 @@ request. **/
 Constraints:
 
 &amp;#42; Cannot be null, empty, or blank.
-* Must contain from 1 to 255 alphanumeric characters or hyphens.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens. **/
+&amp;#42; Must contain from 1 to 255 alphanumeric characters or hyphens.
+&amp;#42; First character must be a letter.
+&amp;#42; Cannot end with a hyphen or contain two consecutive hyphens. **/
       SubscriptionName: String;
       /** The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the
 event notifications. The ARN is created by Amazon SNS when you create a topic
@@ -1952,10 +1952,10 @@ the AWS account.
 Constraints:
 
 &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
-* Alphabetic characters must be lowercase.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens.
-* Must be unique for all clusters within an AWS account. **/
+&amp;#42; Alphabetic characters must be lowercase.
+&amp;#42; First character must be a letter.
+&amp;#42; Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42; Must be unique for all clusters within an AWS account. **/
       SnapshotCopyGrantName: String;
       /** The unique identifier of the customer master key (CMK) to which to grant Amazon
 Redshift permission. If no key is specified, the default key is used. **/
@@ -1997,9 +1997,9 @@ records have been retrieved for the request. **/
 Constraints:
 
 &amp;#42; Must contain lowercase characters.
-* Must contain from 1 to 63 alphanumeric characters or hyphens.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens. **/
+&amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+&amp;#42; First character must be a letter.
+&amp;#42; Cannot end with a hyphen or contain two consecutive hyphens. **/
       ClusterIdentifier: String;
       /** Determines whether a final snapshot of the cluster is created before Amazon
 Redshift deletes the cluster. If true, a final cluster snapshot is not created.
@@ -2015,8 +2015,8 @@ must be false.
 Constraints:
 
 &amp;#42; Must be 1 to 255 alphanumeric characters.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens. **/
+&amp;#42; First character must be a letter.
+&amp;#42; Cannot end with a hyphen or contain two consecutive hyphens. **/
       FinalClusterSnapshotIdentifier?: String;
     }
     export interface DeleteClusterParameterGroupMessage {
@@ -2025,7 +2025,7 @@ Constraints:
 Constraints:
 
 &amp;#42; Must be the name of an existing cluster parameter group.
-* Cannot delete a default cluster parameter group. **/
+&amp;#42; Cannot delete a default cluster parameter group. **/
       ParameterGroupName: String;
     }
     export interface DeleteClusterResult {
@@ -2286,8 +2286,8 @@ Example: 1.0 **/
 Constraints:
 
 &amp;#42; Must be 1 to 255 alphanumeric characters
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42; First character must be a letter
+&amp;#42; Cannot end with a hyphen or contain two consecutive hyphens **/
       ClusterParameterGroupFamily?: String;
       /** The maximum number of response records to return in each call. If the number of
 remaining response records exceeds the specified MaxRecords value, a value is
@@ -2403,11 +2403,11 @@ Constraints:
 If SourceIdentifier is supplied, SourceType must also be provided.
 
 &amp;#42; Specify a cluster identifier when SourceType is cluster.
-* Specify a cluster security group name when SourceType is 
+&amp;#42; Specify a cluster security group name when SourceType is 
  cluster-security-group.
-* Specify a cluster parameter group name when SourceType is 
+&amp;#42; Specify a cluster parameter group name when SourceType is 
  cluster-parameter-group.
-* Specify a cluster snapshot identifier when SourceType is cluster-snapshot. **/
+&amp;#42; Specify a cluster snapshot identifier when SourceType is cluster-snapshot. **/
       SourceIdentifier?: String;
       /** The event source to retrieve events for. If no value is specified, all events
 are returned. 
@@ -2417,11 +2417,11 @@ Constraints:
 If SourceType is supplied, SourceIdentifier must also be provided.
 
 &amp;#42; Specify cluster when SourceIdentifier is a cluster identifier.
-* Specify cluster-security-group when SourceIdentifier is a cluster security
+&amp;#42; Specify cluster-security-group when SourceIdentifier is a cluster security
  group name.
-* Specify cluster-parameter-group when SourceIdentifier is a cluster parameter
+&amp;#42; Specify cluster-parameter-group when SourceIdentifier is a cluster parameter
  group name.
-* Specify cluster-snapshot when SourceIdentifier is a cluster snapshot
+&amp;#42; Specify cluster-snapshot when SourceIdentifier is a cluster snapshot
  identifier. **/
       SourceType?: SourceType;
       /** The beginning of the time interval to retrieve events for, specified in ISO
@@ -2666,15 +2666,15 @@ For example, arn:aws:redshift:us-east-1:123456789:cluster:t1. **/
       ResourceName?: String;
       /** The type of resource with which you want to view tags. Valid resource types
 are:  &amp;#42; Cluster
-* CIDR/IP
-* EC2 security group
-* Snapshot
-* Cluster security group
-* Subnet group
-* HSM connection
-* HSM certificate
-* Parameter group
-* Snapshot copy grant
+&amp;#42; CIDR/IP
+&amp;#42; EC2 security group
+&amp;#42; Snapshot
+&amp;#42; Cluster security group
+&amp;#42; Subnet group
+&amp;#42; HSM connection
+&amp;#42; HSM certificate
+&amp;#42; Parameter group
+&amp;#42; Snapshot copy grant
 
 
 
@@ -2751,23 +2751,23 @@ Example: examplecluster **/
 Constraints:
 
 &amp;#42; Must be in the same region as the cluster
-* The cluster must have read bucket and put object permissions **/
+&amp;#42; The cluster must have read bucket and put object permissions **/
       BucketName: String;
       /** The prefix applied to the log file names. 
 
 Constraints:
 
 &amp;#42; Cannot exceed 512 characters
-* Cannot contain spaces( ), double quotes (&quot;), single quotes (&#x27;), a backslash
- (\), or control characters. The hexadecimal codes for invalid characters are:  * 
+&amp;#42; Cannot contain spaces( ), double quotes (&quot;), single quotes (&#x27;), a backslash
+ (\), or control characters. The hexadecimal codes for invalid characters are:  &amp;#42; 
     x00 to x20
-  * 
+  &amp;#42; 
     x22
-  * 
+  &amp;#42; 
     x27
-  * 
+  &amp;#42; 
     x5c
-  * 
+  &amp;#42; 
     x7f or larger **/
       S3KeyPrefix?: String;
     }
@@ -2861,7 +2861,7 @@ notification subscription. **/
 Constraints:
 
 &amp;#42; Can be one of the following: active | no-permission | topic-not-exist
-* The status &quot;no-permission&quot; indicates that Amazon Redshift no longer has
+&amp;#42; The status &quot;no-permission&quot; indicates that Amazon Redshift no longer has
  permission to post to the Amazon SNS topic. The status &quot;topic-not-exist&quot;
  indicates that the topic was deleted after the subscription was created. **/
       Status?: String;
@@ -3114,8 +3114,8 @@ groups to apply, will be revoked from the cluster.
 Constraints:
 
 &amp;#42; Must be 1 to 255 alphanumeric characters or hyphens
-* First character must be a letter
-* Cannot end with a hyphen or contain two consecutive hyphens **/
+&amp;#42; First character must be a letter
+&amp;#42; Cannot end with a hyphen or contain two consecutive hyphens **/
       ClusterSecurityGroups?: ClusterSecurityGroupNameList;
       /** A list of virtual private cloud (VPC) security groups to be associated with the
 cluster. **/
@@ -3132,10 +3132,10 @@ Default: Uses existing setting.
 Constraints: 
 
 &amp;#42; Must be between 8 and 64 characters in length.
-* Must contain at least one uppercase letter.
-* Must contain at least one lowercase letter.
-* Must contain one number.
-* Can be any printable ASCII character (ASCII code 33 to 126) except &#x27; (single
+&amp;#42; Must contain at least one uppercase letter.
+&amp;#42; Must contain at least one lowercase letter.
+&amp;#42; Must contain one number.
+&amp;#42; Can be any printable ASCII character (ASCII code 33 to 126) except &#x27; (single
  quote), &quot; (double quote), \, /, @, or space. **/
       MasterUserPassword?: String;
       /** The name of the cluster parameter group to apply to this cluster. This change
@@ -3204,10 +3204,10 @@ Amazon Redshift cluster can use to retrieve and store keys in an HSM. **/
 Constraints:
 
 &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
-* Alphabetic characters must be lowercase.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens.
-* Must be unique for all clusters within an AWS account.
+&amp;#42; Alphabetic characters must be lowercase.
+&amp;#42; First character must be a letter.
+&amp;#42; Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42; Must be unique for all clusters within an AWS account.
 
 Example: examplecluster **/
       NewClusterIdentifier?: String;
@@ -3435,8 +3435,8 @@ Possible Values:
 
 &amp;#42; pending-payment-This reserved node has recently been purchased, and the sale
  has been approved, but payment has not yet been confirmed.
-* active-This reserved node is owned by the caller and is available for use.
-* payment-failed-Payment failed for the purchase attempt. **/
+&amp;#42; active-This reserved node is owned by the caller and is available for use.
+&amp;#42; payment-failed-Payment failed for the purchase attempt. **/
       State?: String;
       /** The anticipated utilization of the reserved node, as defined in the reserved
 node offering. **/
@@ -3568,10 +3568,10 @@ complete, this value will be 0. **/
 Constraints:
 
 &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
-* Alphabetic characters must be lowercase.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens.
-* Must be unique for all clusters within an AWS account. **/
+&amp;#42; Alphabetic characters must be lowercase.
+&amp;#42; First character must be a letter.
+&amp;#42; Cannot end with a hyphen or contain two consecutive hyphens.
+&amp;#42; Must be unique for all clusters within an AWS account. **/
       ClusterIdentifier: String;
       /** The name of the snapshot from which to create the new cluster. This parameter
 isn&#x27;t case sensitive. 
@@ -3628,8 +3628,8 @@ Groups
 Constraints: 
 
 &amp;#42; Must be 1 to 255 alphanumeric characters or hyphens.
-* First character must be a letter.
-* Cannot end with a hyphen or contain two consecutive hyphens. **/
+&amp;#42; First character must be a letter.
+&amp;#42; Cannot end with a hyphen or contain two consecutive hyphens. **/
       ClusterParameterGroupName?: String;
       /** A list of security groups to be associated with this cluster. 
 
@@ -3800,10 +3800,10 @@ copy of the cluster data as of this exact time. **/
       SnapshotCreateTime?: TStamp;
       /** The snapshot status. The value of the status depends on the API operation used.  &amp;#42; 
  CreateClusterSnapshot and CopyClusterSnapshot returns status as &quot;creating&quot;. 
-* 
+&amp;#42; 
  DescribeClusterSnapshots returns status as &quot;creating&quot;, &quot;available&quot;, &quot;final
  snapshot&quot;, or &quot;failed&quot;.
-* 
+&amp;#42; 
  DeleteClusterSnapshot returns status as &quot;deleted&quot;. **/
       Status?: String;
       /** The port that the cluster is listening on. **/
@@ -3992,14 +3992,14 @@ arn:aws:redshift:us-east-1:123456789:cluster:t1. **/
       ResourceName?: String;
       /** The type of resource with which the tag is associated. Valid resource types
 are:  &amp;#42; Cluster
-* CIDR/IP
-* EC2 security group
-* Snapshot
-* Cluster security group
-* Subnet group
-* HSM connection
-* HSM certificate
-* Parameter group
+&amp;#42; CIDR/IP
+&amp;#42; EC2 security group
+&amp;#42; Snapshot
+&amp;#42; Cluster security group
+&amp;#42; Subnet group
+&amp;#42; HSM connection
+&amp;#42; HSM certificate
+&amp;#42; Parameter group
 
 
 

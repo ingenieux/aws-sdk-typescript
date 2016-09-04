@@ -132,7 +132,7 @@ the loss of data. Rebuilding a WorkSpace causes the following to occur:
    that have been made since the WorkSpace was created will be lost.
    
    
- *  The data drive (D drive) is re-created from the last automatic snapshot
+ &amp;#42;  The data drive (D drive) is re-created from the last automatic snapshot
    taken of the data drive. The current contents of the data drive are
    overwritten. Automatic snapshots of the data drive are taken every 12 hours,
    so the snapshot can be as much as 12 hours old.
@@ -363,7 +363,7 @@ This contains one of the following values:
 &amp;#42;  null- Retrieves the bundles that belong to the account making the call.
  
  
-*   AMAZON- Retrieves the bundles that are provided by AWS. **/
+&amp;#42;   AMAZON- Retrieves the bundles that are provided by AWS. **/
       Owner?: BundleOwner;
       /** The NextToken value from a previous call to this operation. Pass null if this is
 the first call. **/

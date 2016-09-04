@@ -1,4 +1,4 @@
-/// <reference path="../../typings/main.d.ts" />
+
 
 import * as generator from './generator';
 import * as meta from './meta';

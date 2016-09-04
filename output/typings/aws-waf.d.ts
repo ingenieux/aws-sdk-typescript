@@ -92,7 +92,7 @@ specifications to be allowed or blocked. For example, suppose you add the
 following to a Rule:
 
  &amp;#42; An IPSet that matches the IP address 192.0.2.44/32
- * A ByteMatchSet that matches BadBot in the User-Agent header
+ &amp;#42; A ByteMatchSet that matches BadBot in the User-Agent header
 
 You then add the Rule to a WebACL and specify that you want to blocks requests
 that satisfy the Rule. For a request to be blocked, it must come from the IP
@@ -439,9 +439,9 @@ ChangeTokenStatus is one of the following values:
  &amp;#42; PROVISIONED: You requested the change token by calling GetChangeToken, but
    you haven&#x27;t used it yet in a call to create, update, or delete an AWS WAF
    object.
- * PENDING: AWS WAF is propagating the create, update, or delete request to all
+ &amp;#42; PENDING: AWS WAF is propagating the create, update, or delete request to all
    AWS WAF servers.
- * IN_SYNC: Propagation is complete.
+ &amp;#42; IN_SYNC: Propagation is complete.
      *
      * @error WAFNonexistentItemException   
      * @error WAFInternalErrorException   
@@ -569,14 +569,14 @@ ByteMatchTuple object, you specify the following values:
  &amp;#42; Whether to insert or delete the object from the array. If you want to change
    a ByteMatchSetUpdate object, you delete the existing object and add a new
    one.
- * The part of a web request that you want AWS WAF to inspect, such as a query
+ &amp;#42; The part of a web request that you want AWS WAF to inspect, such as a query
    string or the value of the User-Agent header. 
- * The bytes (typically a string that corresponds with ASCII characters) that
+ &amp;#42; The bytes (typically a string that corresponds with ASCII characters) that
    you want AWS WAF to look for. For more information, including how you specify
    the values for the AWS WAF API and the AWS CLI or SDKs, see TargetString in
    the ByteMatchTuple data type. 
- * Where to look, such as at the beginning or the end of a query string.
- * Whether to perform any conversions on the request, such as converting it to
+ &amp;#42; Where to look, such as at the beginning or the end of a query string.
+ &amp;#42; Whether to perform any conversions on the request, such as converting it to
    lowercase, before inspecting it for the specified string.
 
 For example, you can add a ByteMatchSetUpdate object that matches web requests
@@ -612,8 +612,8 @@ object, you specify the following values:
 
  &amp;#42; Whether to insert or delete the object from the array. If you want to change
    an IPSetDescriptor object, you delete the existing object and add a new one.
- * The IP address version, IPv4. 
- * The IP address in CIDR notation, for example, 192.0.2.0/24 (for the range of
+ &amp;#42; The IP address version, IPv4. 
+ &amp;#42; The IP address in CIDR notation, for example, 192.0.2.0/24 (for the range of
    IP addresses from 192.0.2.0 to 192.0.2.255) or 192.0.2.44/32 (for the
    individual IP address 192.0.2.44). 
 
@@ -662,7 +662,7 @@ Rule, a request must match all of the specifications to be allowed, blocked, or
 counted. For example, suppose you add the following to a Rule: 
 
  &amp;#42; A ByteMatchSet that matches the value BadBot in the User-Agent header
- * An IPSet that matches the IP address 192.0.2.44
+ &amp;#42; An IPSet that matches the IP address 192.0.2.44
 
 You then add the Rule to a WebACL and specify that you want to block requests
 that satisfy the Rule. For a request to be blocked, the User-Agent header in the
@@ -703,16 +703,16 @@ each SizeConstraint object, you specify the following values:
  &amp;#42; Whether to insert or delete the object from the array. If you want to change
    a SizeConstraintSetUpdate object, you delete the existing object and add a
    new one.
- * The part of a web request that you want AWS WAF to evaluate, such as the
+ &amp;#42; The part of a web request that you want AWS WAF to evaluate, such as the
    length of a query string or the length of the User-Agent header.
- * Whether to perform any transformations on the request, such as converting it
+ &amp;#42; Whether to perform any transformations on the request, such as converting it
    to lowercase, before checking its length. Note that transformations of the
    request body are not supported because the AWS resource forwards only the
    first 8192 bytes of your request to AWS WAF.
- * A ComparisonOperator used for evaluating the selected part of the request
+ &amp;#42; A ComparisonOperator used for evaluating the selected part of the request
    against the specified Size, such as equals, greater than, less than, and so
    on.
- * The length, in bytes, that you want AWS WAF to watch for in selected part of
+ &amp;#42; The length, in bytes, that you want AWS WAF to watch for in selected part of
    the request. The length is computed after applying the transformation.
 
 For example, you can add a SizeConstraintSetUpdate object that matches web
@@ -752,9 +752,9 @@ following values:
  &amp;#42; Action: Whether to insert the object into or delete the object from the
    array. To change a SqlInjectionMatchTuple, you delete the existing object and
    add a new one.
- * FieldToMatch: The part of web requests that you want AWS WAF to inspect and,
+ &amp;#42; FieldToMatch: The part of web requests that you want AWS WAF to inspect and,
    if you want AWS WAF to inspect a header, the name of the header.
- * TextTransformation: Which text transformation, if any, to perform on the web
+ &amp;#42; TextTransformation: Which text transformation, if any, to perform on the web
    request before inspecting the request for snippets of malicious SQL code.
 
 You use SqlInjectionMatchSet objects to specify which CloudFront requests you
@@ -793,18 +793,18 @@ specify the following values:
  &amp;#42; A default action for the WebACL, either ALLOW or BLOCK. AWS WAF performs the
    default action if a request doesn&#x27;t match the criteria in any of the Rules in
    a WebACL.
- * The Rules that you want to add and/or delete. If you want to replace one Rule 
+ &amp;#42; The Rules that you want to add and/or delete. If you want to replace one Rule 
    with another, you delete the existing Rule and add the new one.
- * For each Rule, whether you want AWS WAF to allow requests, block requests, or
+ &amp;#42; For each Rule, whether you want AWS WAF to allow requests, block requests, or
    count requests that match the conditions in the Rule.
- * The order in which you want AWS WAF to evaluate the Rules in a WebACL. If you
+ &amp;#42; The order in which you want AWS WAF to evaluate the Rules in a WebACL. If you
    add more than one Rule to a WebACL, AWS WAF evaluates each request against
    the Rules in order based on the value of Priority. (The Rule that has the
    lowest value for Priority is evaluated first.) When a web request matches all
    of the predicates (such as ByteMatchSets and IPSets) in a Rule, AWS WAF
    immediately takes the corresponding action, allow or block, and doesn&#x27;t
    evaluate the request against the remaining Rules in the WebACL, if any. 
- * The CloudFront distribution that you want to associate with the WebACL.
+ &amp;#42; The CloudFront distribution that you want to associate with the WebACL.
 
 To create and configure a WebACL, perform the following steps:
 
@@ -842,9 +842,9 @@ XssMatchTuple object, you specify the following values:
  &amp;#42; Action: Whether to insert the object into or delete the object from the
    array. To change a XssMatchTuple, you delete the existing object and add a
    new one.
- * FieldToMatch: The part of web requests that you want AWS WAF to inspect and,
+ &amp;#42; FieldToMatch: The part of web requests that you want AWS WAF to inspect and,
    if you want AWS WAF to inspect a header, the name of the header.
- * TextTransformation: Which text transformation, if any, to perform on the web
+ &amp;#42; TextTransformation: Which text transformation, if any, to perform on the web
    request before inspecting the request for cross-site scripting attacks.
 
 You use XssMatchSet objects to specify which CloudFront requests you want to
@@ -1017,8 +1017,8 @@ RuleId is returned by CreateRule and by ListRules. **/
 the conditions in the Rule. Valid values for Action include the following:
 
 &amp;#42; ALLOW: CloudFront responds with the requested object.
-* BLOCK: CloudFront responds with an HTTP 403 (Forbidden) status code.
-* COUNT: AWS WAF increments a counter of requests that match the conditions in
+&amp;#42; BLOCK: CloudFront responds with an HTTP 403 (Forbidden) status code.
+&amp;#42; COUNT: AWS WAF increments a counter of requests that match the conditions in
  the rule and then continues to inspect the web request based on the remaining
  rules in the web ACL. **/
       Action: WafAction;
@@ -1073,14 +1073,14 @@ Valid values depend on the values that you specified for FieldToMatch:
 &amp;#42; HEADER: The value that you want AWS WAF to search for in the request header
  that you specified in FieldToMatch, for example, the value of the User-Agent 
  or Referer header.
-* METHOD: The HTTP method, which indicates the type of operation specified in
+&amp;#42; METHOD: The HTTP method, which indicates the type of operation specified in
  the request. CloudFront supports the following methods: DELETE, GET, HEAD, 
  OPTIONS, PATCH, POST, and PUT.
-* QUERY_STRING: The value that you want AWS WAF to search for in the query
+&amp;#42; QUERY_STRING: The value that you want AWS WAF to search for in the query
  string, which is the part of a URL that appears after a ? character.
-* URI: The value that you want AWS WAF to search for in the part of a URL that
+&amp;#42; URI: The value that you want AWS WAF to search for in the part of a URL that
  identifies a resource, for example, /images/daily-ad.jpg.
-* BODY: The part of a request that contains any additional data that you want
+&amp;#42; BODY: The part of a request that contains any additional data that you want
  to send to your web server as the HTTP request body, such as data from a
  form. The request body immediately follows the request headers. Note that
  only the first 8192 bytes of the request body are forwarded to AWS WAF for
@@ -1118,22 +1118,22 @@ commandline command and using unusual formatting to disguise some or all of the
 command, use this option to perform the following transformations:
 
 &amp;#42; Delete the following characters: \ &quot; &#x27; ^
-* Delete spaces before the following characters: / (
-* Replace the following characters with a space: , ;
-* Replace multiple spaces with one space
-* Convert uppercase letters (A-Z) to lowercase (a-z)
+&amp;#42; Delete spaces before the following characters: / (
+&amp;#42; Replace the following characters with a space: , ;
+&amp;#42; Replace multiple spaces with one space
+&amp;#42; Convert uppercase letters (A-Z) to lowercase (a-z)
 
 COMPRESS_WHITE_SPACE
 
 Use this option to replace the following characters with a space character
 (decimal 32):
 
-* \f, formfeed, decimal 12
-* \t, tab, decimal 9
-* \n, newline, decimal 10
-* \r, carriage return, decimal 13
-* \v, vertical tab, decimal 11
-* non-breaking space, decimal 160
+&amp;#42; \f, formfeed, decimal 12
+&amp;#42; \t, tab, decimal 9
+&amp;#42; \n, newline, decimal 10
+&amp;#42; \r, carriage return, decimal 13
+&amp;#42; \v, vertical tab, decimal 11
+&amp;#42; non-breaking space, decimal 160
 
 COMPRESS_WHITE_SPACE also replaces multiple spaces with one space.
 
@@ -1142,13 +1142,13 @@ HTML_ENTITY_DECODE
 Use this option to replace HTML-encoded characters with unencoded characters. 
 HTML_ENTITY_DECODE performs the following operations:
 
-* Replaces (ampersand)quot; with &quot;
-* Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
-* Replaces (ampersand)lt; with a &quot;less than&quot; symbol
-* Replaces (ampersand)gt; with 
-* Replaces characters that are represented in hexadecimal format, 
+&amp;#42; Replaces (ampersand)quot; with &quot;
+&amp;#42; Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
+&amp;#42; Replaces (ampersand)lt; with a &quot;less than&quot; symbol
+&amp;#42; Replaces (ampersand)gt; with 
+&amp;#42; Replaces characters that are represented in hexadecimal format, 
  (ampersand)#xhhhh;, with the corresponding characters
-* Replaces characters that are represented in decimal format, (ampersand)#nnnn;
+&amp;#42; Replaces characters that are represented in decimal format, (ampersand)#nnnn;
  , with the corresponding characters
 
 LOWERCASE
@@ -1181,13 +1181,13 @@ the following:
 
 &amp;#42; TargetString exactly matches the value of the specified part of the web
  request, such as the value of a header.
-* TargetString is at the beginning of the specified part of the web request and
+&amp;#42; TargetString is at the beginning of the specified part of the web request and
  is followed by a character other than an alphanumeric character or underscore
  (_), for example, BadBot;.
-* TargetString is at the end of the specified part of the web request and is
+&amp;#42; TargetString is at the end of the specified part of the web request and is
  preceded by a character other than an alphanumeric character or underscore
  (_), for example, ;BadBot.
-* TargetString is in the middle of the specified part of the web request and is
+&amp;#42; TargetString is in the middle of the specified part of the web request and is
  preceded and followed by characters other than alphanumeric characters or
  underscore (_), for example, -BadBot;.
 
@@ -1424,14 +1424,14 @@ string. Parts of a request that you can search include the following:
 &amp;#42; HEADER: A specified request header, for example, the value of the User-Agent 
  or Referer header. If you choose HEADER for the type, specify the name of the
  header in Data.
-* METHOD: The HTTP method, which indicated the type of operation that the
+&amp;#42; METHOD: The HTTP method, which indicated the type of operation that the
  request is asking the origin to perform. Amazon CloudFront supports the
  following methods: DELETE, GET, HEAD, OPTIONS, PATCH, POST, and PUT.
-* QUERY_STRING: A query string, which is the part of a URL that appears after a 
+&amp;#42; QUERY_STRING: A query string, which is the part of a URL that appears after a 
  ? character, if any.
-* URI: The part of a web request that identifies a resource, for example, 
+&amp;#42; URI: The part of a web request that identifies a resource, for example, 
  /images/daily-ad.jpg.
-* BODY: The part of a request that contains any additional data that you want
+&amp;#42; BODY: The part of a request that contains any additional data that you want
  to send to your web server as the HTTP request body, such as data from a
  form. The request body immediately follows the request headers. Note that
  only the first 8192 bytes of the request body are forwarded to AWS WAF for
@@ -1456,10 +1456,10 @@ returned by CreateByteMatchSet and by ListByteMatchSets. **/
 request. For more information, see the following topics:
 
 &amp;#42; ByteMatchSet: Contains ByteMatchSetId, ByteMatchTuples, and Name
-* ByteMatchTuples: Contains an array of ByteMatchTuple objects. Each 
+&amp;#42; ByteMatchTuples: Contains an array of ByteMatchTuple objects. Each 
  ByteMatchTuple object contains FieldToMatch, PositionalConstraint, 
  TargetString, and TextTransformation
-* FieldToMatch: Contains Data and Type **/
+&amp;#42; FieldToMatch: Contains Data and Type **/
       ByteMatchSet?: ByteMatchSet;
     }
     export interface GetChangeTokenRequest {
@@ -1488,7 +1488,7 @@ CreateIPSet and by ListIPSets. **/
 information, see the following topics:
 
 &amp;#42; IPSet: Contains IPSetDescriptors, IPSetId, and Name
-* IPSetDescriptors: Contains an array of IPSetDescriptor objects. Each 
+&amp;#42; IPSetDescriptors: Contains an array of IPSetDescriptor objects. Each 
  IPSetDescriptor object contains Type and Value **/
       IPSet?: IPSet;
     }
@@ -1502,7 +1502,7 @@ and by ListRules. **/
 information, see the following topics:
 
 &amp;#42; Rule: Contains MetricName, Name, an array of Predicate objects, and RuleId
-* Predicate: Each Predicate object contains DataId, Negated, and Type **/
+&amp;#42; Predicate: Each Predicate object contains DataId, Negated, and Type **/
       Rule?: Rule;
     }
     export interface GetSampledRequestsRequest {
@@ -1513,7 +1513,7 @@ sample of requests. **/
 
 &amp;#42; The RuleId of the Rule for which you want GetSampledRequests to return a
  sample of requests.
-* Default_Action, which causes GetSampledRequests to return a sample of the
+&amp;#42; Default_Action, which causes GetSampledRequests to return a sample of the
  requests that didn&#x27;t match any of the rules in the specified WebACL. **/
       RuleId: ResourceId;
       /** The start date and time and the end date and time of the range for which you
@@ -1552,10 +1552,10 @@ ListSizeConstraintSets. **/
 GetSizeConstraintSet request. For more information, see the following topics:
 
 &amp;#42; SizeConstraintSet: Contains SizeConstraintSetId, SizeConstraints, and Name
-* SizeConstraints: Contains an array of SizeConstraint objects. Each 
+&amp;#42; SizeConstraints: Contains an array of SizeConstraint objects. Each 
  SizeConstraint object contains FieldToMatch, TextTransformation, 
  ComparisonOperator, and Size
-* FieldToMatch: Contains Data and Type **/
+&amp;#42; FieldToMatch: Contains Data and Type **/
       SizeConstraintSet?: SizeConstraintSet;
     }
     export interface GetSqlInjectionMatchSetRequest {
@@ -1570,9 +1570,9 @@ GetSqlInjectionMatchSet request. For more information, see the following topics:
 
 &amp;#42; SqlInjectionMatchSet: Contains Name, SqlInjectionMatchSetId, and an array of 
  SqlInjectionMatchTuple objects
-* SqlInjectionMatchTuple: Each SqlInjectionMatchTuple object contains 
+&amp;#42; SqlInjectionMatchTuple: Each SqlInjectionMatchTuple object contains 
  FieldToMatch and TextTransformation
-* FieldToMatch: Contains Data and Type **/
+&amp;#42; FieldToMatch: Contains Data and Type **/
       SqlInjectionMatchSet?: SqlInjectionMatchSet;
     }
     export interface GetWebACLRequest {
@@ -1586,10 +1586,10 @@ more information, see the following topics:
 
 &amp;#42; WebACL: Contains DefaultAction, MetricName, Name, an array of Rule objects,
  and WebACLId
-* DefaultAction (Data type is WafAction): Contains Type
-* Rules: Contains an array of ActivatedRule objects, which contain Action, 
+&amp;#42; DefaultAction (Data type is WafAction): Contains Type
+&amp;#42; Rules: Contains an array of ActivatedRule objects, which contain Action, 
  Priority, and RuleId
-* Action: Contains Type **/
+&amp;#42; Action: Contains Type **/
       WebACL?: WebACL;
     }
     export interface GetXssMatchSetRequest {
@@ -1603,9 +1603,9 @@ request. For more information, see the following topics:
 
 &amp;#42; XssMatchSet: Contains Name, XssMatchSetId, and an array of XssMatchTuple 
  objects
-* XssMatchTuple: Each XssMatchTuple object contains FieldToMatch and 
+&amp;#42; XssMatchTuple: Each XssMatchTuple object contains FieldToMatch and 
  TextTransformation
-* FieldToMatch: Contains Data and Type **/
+&amp;#42; FieldToMatch: Contains Data and Type **/
       XssMatchSet?: XssMatchSet;
     }
     export interface HTTPHeader {
@@ -1621,7 +1621,7 @@ in CloudFront access logs:
 
 &amp;#42; c-ip, if the viewer did not use an HTTP proxy or a load balancer to send the
  request
-* x-forwarded-for, if the viewer did use an HTTP proxy or a load balancer to
+&amp;#42; x-forwarded-for, if the viewer did use an HTTP proxy or a load balancer to
  send the request **/
       ClientIP?: IPString;
       /** The two-letter country code for the country that the request originated from.
@@ -1658,7 +1658,7 @@ access logs:
 
 &amp;#42; c-ip, if the viewer did not use an HTTP proxy or a load balancer to send the
  request
-* x-forwarded-for, if the viewer did use an HTTP proxy or a load balancer to
+&amp;#42; x-forwarded-for, if the viewer did use an HTTP proxy or a load balancer to
  send the request **/
       IPSetDescriptors: IPSetDescriptors;
     }
@@ -1669,7 +1669,7 @@ access logs:
 
 &amp;#42; To configure AWS WAF to allow, block, or count requests that originated from
  the IP address 192.0.2.44, specify 192.0.2.44/32.
-* To configure AWS WAF to allow, block, or count requests that originated from
+&amp;#42; To configure AWS WAF to allow, block, or count requests that originated from
  IP addresses from 192.0.2.0 to 192.0.2.255, specify 192.0.2.0/24.
 
 AWS WAF supports only /8, /16, /24, and /32 IP addresses.
@@ -1940,22 +1940,22 @@ line command and using unusual formatting to disguise some or all of the
 command, use this option to perform the following transformations:
 
 &amp;#42; Delete the following characters: \ &quot; &#x27; ^
-* Delete spaces before the following characters: / (
-* Replace the following characters with a space: , ;
-* Replace multiple spaces with one space
-* Convert uppercase letters (A-Z) to lowercase (a-z)
+&amp;#42; Delete spaces before the following characters: / (
+&amp;#42; Replace the following characters with a space: , ;
+&amp;#42; Replace multiple spaces with one space
+&amp;#42; Convert uppercase letters (A-Z) to lowercase (a-z)
 
 COMPRESS_WHITE_SPACE
 
 Use this option to replace the following characters with a space character
 (decimal 32):
 
-* \f, formfeed, decimal 12
-* \t, tab, decimal 9
-* \n, newline, decimal 10
-* \r, carriage return, decimal 13
-* \v, vertical tab, decimal 11
-* non-breaking space, decimal 160
+&amp;#42; \f, formfeed, decimal 12
+&amp;#42; \t, tab, decimal 9
+&amp;#42; \n, newline, decimal 10
+&amp;#42; \r, carriage return, decimal 13
+&amp;#42; \v, vertical tab, decimal 11
+&amp;#42; non-breaking space, decimal 160
 
 COMPRESS_WHITE_SPACE also replaces multiple spaces with one space.
 
@@ -1964,13 +1964,13 @@ HTML_ENTITY_DECODE
 Use this option to replace HTML-encoded characters with unencoded characters. 
 HTML_ENTITY_DECODE performs the following operations:
 
-* Replaces (ampersand)quot; with &quot;
-* Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
-* Replaces (ampersand)lt; with a &quot;less than&quot; symbol
-* Replaces (ampersand)gt; with 
-* Replaces characters that are represented in hexadecimal format, 
+&amp;#42; Replaces (ampersand)quot; with &quot;
+&amp;#42; Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
+&amp;#42; Replaces (ampersand)lt; with a &quot;less than&quot; symbol
+&amp;#42; Replaces (ampersand)gt; with 
+&amp;#42; Replaces characters that are represented in hexadecimal format, 
  (ampersand)#xhhhh;, with the corresponding characters
-* Replaces characters that are represented in decimal format, (ampersand)#nnnn;
+&amp;#42; Replaces characters that are represented in decimal format, (ampersand)#nnnn;
  , with the corresponding characters
 
 LOWERCASE
@@ -2103,22 +2103,22 @@ commandline command and using unusual formatting to disguise some or all of the
 command, use this option to perform the following transformations:
 
 &amp;#42; Delete the following characters: \ &quot; &#x27; ^
-* Delete spaces before the following characters: / (
-* Replace the following characters with a space: , ;
-* Replace multiple spaces with one space
-* Convert uppercase letters (A-Z) to lowercase (a-z)
+&amp;#42; Delete spaces before the following characters: / (
+&amp;#42; Replace the following characters with a space: , ;
+&amp;#42; Replace multiple spaces with one space
+&amp;#42; Convert uppercase letters (A-Z) to lowercase (a-z)
 
 COMPRESS_WHITE_SPACE
 
 Use this option to replace the following characters with a space character
 (decimal 32):
 
-* \f, formfeed, decimal 12
-* \t, tab, decimal 9
-* \n, newline, decimal 10
-* \r, carriage return, decimal 13
-* \v, vertical tab, decimal 11
-* non-breaking space, decimal 160
+&amp;#42; \f, formfeed, decimal 12
+&amp;#42; \t, tab, decimal 9
+&amp;#42; \n, newline, decimal 10
+&amp;#42; \r, carriage return, decimal 13
+&amp;#42; \v, vertical tab, decimal 11
+&amp;#42; non-breaking space, decimal 160
 
 COMPRESS_WHITE_SPACE also replaces multiple spaces with one space.
 
@@ -2127,13 +2127,13 @@ HTML_ENTITY_DECODE
 Use this option to replace HTML-encoded characters with unencoded characters. 
 HTML_ENTITY_DECODE performs the following operations:
 
-* Replaces (ampersand)quot; with &quot;
-* Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
-* Replaces (ampersand)lt; with a &quot;less than&quot; symbol
-* Replaces (ampersand)gt; with 
-* Replaces characters that are represented in hexadecimal format, 
+&amp;#42; Replaces (ampersand)quot; with &quot;
+&amp;#42; Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
+&amp;#42; Replaces (ampersand)lt; with a &quot;less than&quot; symbol
+&amp;#42; Replaces (ampersand)gt; with 
+&amp;#42; Replaces characters that are represented in hexadecimal format, 
  (ampersand)#xhhhh;, with the corresponding characters
-* Replaces characters that are represented in decimal format, (ampersand)#nnnn;
+&amp;#42; Replaces characters that are represented in decimal format, (ampersand)#nnnn;
  , with the corresponding characters
 
 LOWERCASE
@@ -2169,9 +2169,9 @@ is returned by CreateByteMatchSet and by ListByteMatchSets. **/
 from a ByteMatchSet. For more information, see the applicable data types:
 
 &amp;#42; ByteMatchSetUpdate: Contains Action and ByteMatchTuple
-* ByteMatchTuple: Contains FieldToMatch, PositionalConstraint, TargetString,
+&amp;#42; ByteMatchTuple: Contains FieldToMatch, PositionalConstraint, TargetString,
  and TextTransformation
-* FieldToMatch: Contains Data and Type **/
+&amp;#42; FieldToMatch: Contains Data and Type **/
       Updates: ByteMatchSetUpdates;
     }
     export interface UpdateByteMatchSetResponse {
@@ -2190,7 +2190,7 @@ CreateIPSet and by ListIPSets. **/
 IPSet. For more information, see the applicable data types:
 
 &amp;#42; IPSetUpdate: Contains Action and IPSetDescriptor
-* IPSetDescriptor: Contains Type and Value **/
+&amp;#42; IPSetDescriptor: Contains Type and Value **/
       Updates: IPSetUpdates;
     }
     export interface UpdateIPSetResponse {
@@ -2209,8 +2209,8 @@ and by ListRules. **/
 Rule. For more information, see the applicable data types:
 
 &amp;#42; RuleUpdate: Contains Action and Predicate
-* Predicate: Contains DataId, Negated, and Type
-* FieldToMatch: Contains Data and Type **/
+&amp;#42; Predicate: Contains DataId, Negated, and Type
+&amp;#42; FieldToMatch: Contains Data and Type **/
       Updates: RuleUpdates;
     }
     export interface UpdateRuleResponse {
@@ -2231,9 +2231,9 @@ delete from a SizeConstraintSet. For more information, see the applicable data
 types:
 
 &amp;#42; SizeConstraintSetUpdate: Contains Action and SizeConstraint
-* SizeConstraint: Contains FieldToMatch, TextTransformation, ComparisonOperator
+&amp;#42; SizeConstraint: Contains FieldToMatch, TextTransformation, ComparisonOperator
  , and Size
-* FieldToMatch: Contains Data and Type **/
+&amp;#42; FieldToMatch: Contains Data and Type **/
       Updates: SizeConstraintSetUpdates;
     }
     export interface UpdateSizeConstraintSetResponse {
@@ -2254,8 +2254,8 @@ delete from a SqlInjectionMatchSet. For more information, see the applicable
 data types:
 
 &amp;#42; SqlInjectionMatchSetUpdate: Contains Action and SqlInjectionMatchTuple
-* SqlInjectionMatchTuple: Contains FieldToMatch and TextTransformation
-* FieldToMatch: Contains Data and Type **/
+&amp;#42; SqlInjectionMatchTuple: Contains FieldToMatch and TextTransformation
+&amp;#42; FieldToMatch: Contains Data and Type **/
       Updates: SqlInjectionMatchSetUpdates;
     }
     export interface UpdateSqlInjectionMatchSetResponse {
@@ -2276,8 +2276,8 @@ An array of WebACLUpdate objects that you want to insert into or delete from a
 WebACL. For more information, see the applicable data types:
 
 &amp;#42; WebACLUpdate: Contains Action and ActivatedRule
-* ActivatedRule: Contains Action, Priority, and RuleId
-* WafAction: Contains Type **/
+&amp;#42; ActivatedRule: Contains Action, Priority, and RuleId
+&amp;#42; WafAction: Contains Type **/
       Updates?: WebACLUpdates;
       DefaultAction?: WafAction;
     }
@@ -2297,8 +2297,8 @@ returned by CreateXssMatchSet and by ListXssMatchSets. **/
 from a XssMatchSet. For more information, see the applicable data types:
 
 &amp;#42; XssMatchSetUpdate: Contains Action and XssMatchTuple
-* XssMatchTuple: Contains FieldToMatch and TextTransformation
-* FieldToMatch: Contains Data and Type **/
+&amp;#42; XssMatchTuple: Contains FieldToMatch and TextTransformation
+&amp;#42; FieldToMatch: Contains Data and Type **/
       Updates: XssMatchSetUpdates;
     }
     export interface UpdateXssMatchSetResponse {
@@ -2346,8 +2346,8 @@ see GetChangeTokenStatus. **/
 a Rule. Valid settings include the following:
 
 &amp;#42; ALLOW: AWS WAF allows requests
-* BLOCK: AWS WAF blocks requests
-* COUNT: AWS WAF increments a counter of the requests that match all of the
+&amp;#42; BLOCK: AWS WAF blocks requests
+&amp;#42; COUNT: AWS WAF increments a counter of the requests that match all of the
  conditions in the rule. AWS WAF then continues to inspect the web request
  based on the remaining rules in the web ACL. You can&#x27;t specify COUNT for the
  default action for a WebACL. **/
@@ -2437,22 +2437,22 @@ commandline command and using unusual formatting to disguise some or all of the
 command, use this option to perform the following transformations:
 
 &amp;#42; Delete the following characters: \ &quot; &#x27; ^
-* Delete spaces before the following characters: / (
-* Replace the following characters with a space: , ;
-* Replace multiple spaces with one space
-* Convert uppercase letters (A-Z) to lowercase (a-z)
+&amp;#42; Delete spaces before the following characters: / (
+&amp;#42; Replace the following characters with a space: , ;
+&amp;#42; Replace multiple spaces with one space
+&amp;#42; Convert uppercase letters (A-Z) to lowercase (a-z)
 
 COMPRESS_WHITE_SPACE
 
 Use this option to replace the following characters with a space character
 (decimal 32):
 
-* \f, formfeed, decimal 12
-* \t, tab, decimal 9
-* \n, newline, decimal 10
-* \r, carriage return, decimal 13
-* \v, vertical tab, decimal 11
-* non-breaking space, decimal 160
+&amp;#42; \f, formfeed, decimal 12
+&amp;#42; \t, tab, decimal 9
+&amp;#42; \n, newline, decimal 10
+&amp;#42; \r, carriage return, decimal 13
+&amp;#42; \v, vertical tab, decimal 11
+&amp;#42; non-breaking space, decimal 160
 
 COMPRESS_WHITE_SPACE also replaces multiple spaces with one space.
 
@@ -2461,13 +2461,13 @@ HTML_ENTITY_DECODE
 Use this option to replace HTML-encoded characters with unencoded characters. 
 HTML_ENTITY_DECODE performs the following operations:
 
-* Replaces (ampersand)quot; with &quot;
-* Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
-* Replaces (ampersand)lt; with a &quot;less than&quot; symbol
-* Replaces (ampersand)gt; with 
-* Replaces characters that are represented in hexadecimal format, 
+&amp;#42; Replaces (ampersand)quot; with &quot;
+&amp;#42; Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
+&amp;#42; Replaces (ampersand)lt; with a &quot;less than&quot; symbol
+&amp;#42; Replaces (ampersand)gt; with 
+&amp;#42; Replaces characters that are represented in hexadecimal format, 
  (ampersand)#xhhhh;, with the corresponding characters
-* Replaces characters that are represented in decimal format, (ampersand)#nnnn;
+&amp;#42; Replaces characters that are represented in decimal format, (ampersand)#nnnn;
  , with the corresponding characters
 
 LOWERCASE
