@@ -761,6 +761,13 @@ specified reserved DB instance.
      */
     describeReservedDBInstancesOfferings(params: RDS.DescribeReservedDBInstancesOfferingsMessage, callback?: (err: RDS.ReservedDBInstancesOfferingNotFoundFault|any, data: RDS.ReservedDBInstancesOfferingMessage|any) => void): Request<RDS.ReservedDBInstancesOfferingMessage|any,RDS.ReservedDBInstancesOfferingNotFoundFault|any>;
     /**
+     * Returns a list that includes the status of each source AWS Region that the
+current region can get a Read Replica or a DB snapshot from. This API action
+supports pagination.
+     *
+     */
+    describeSourceRegions(params: RDS.DescribeSourceRegionsMessage, callback?: (err: any, data: RDS.SourceRegionMessage|any) => void): Request<RDS.SourceRegionMessage|any,any>;
+    /**
      * Downloads all or a portion of the specified log file, up to 1 MB in size.
      *
      * @error DBInstanceNotFoundFault   
@@ -1377,6 +1384,8 @@ EC2SecurityGroupName or EC2SecurityGroupId).
     export type ReservedDBInstancesOfferingList = ReservedDBInstancesOffering[];
     
     export type SourceIdsList = String[];
+    
+    export type SourceRegionList = SourceRegion[];
     
     export type SourceType = string;
     
@@ -4775,6 +4784,28 @@ is specified, the response includes only records beyond the marker, up to the
 value specified by MaxRecords . **/
         Marker?: String;
     }
+    export interface DescribeSourceRegionsMessage {
+        /** The source region name, for example US West (Oregon).
+
+Constraints:
+
+ &amp;#42; Must specify a valid AWS Region name, for example US West (Oregon). **/
+        RegionName?: String;
+        /** The maximum number of records to include in the response. If more records exist
+than the specified MaxRecords value, a pagination token called a marker is
+included in the response so that the remaining results can be retrieved.
+
+Default: 100
+
+Constraints: Minimum 20, maximum 100. **/
+        MaxRecords?: IntegerOptional;
+        /** An optional pagination token provided by a previous DescribeSourceRegions 
+request. If this parameter is specified, the response includes only records
+beyond the marker, up to the value specified by MaxRecords . **/
+        Marker?: String;
+        /** This parameter is not currently supported. **/
+        Filters?: FilterList;
+    }
     export interface DomainMembership {
         /** The identifier of the Active Directory Domain. **/
         Domain?: String;
@@ -7093,6 +7124,23 @@ EC2SecurityGroupId must be provided. **/
     export interface SnapshotQuotaExceededFault {
     }
     export interface SourceNotFoundFault {
+    }
+    export interface SourceRegion {
+        /** The source region name. **/
+        RegionName?: String;
+        /** The source region endpoint. **/
+        Endpoint?: String;
+        /** The status of the source region. **/
+        Status?: String;
+    }
+    export interface SourceRegionMessage {
+        /** An optional pagination token provided by a previous request. If this parameter
+is specified, the response includes only records beyond the marker, up to the
+value specified by MaxRecords . **/
+        Marker?: String;
+        /** A list of SourceRegion instances that contains each source AWS Region that the
+current region can get a Read Replica or a DB snapshot from. **/
+        SourceRegions?: SourceRegionList;
     }
     export interface StorageQuotaExceededFault {
     }

@@ -159,6 +159,12 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
     initiateLayerUpload(params: ECR.InitiateLayerUploadRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any, data: ECR.InitiateLayerUploadResponse|any) => void): Request<ECR.InitiateLayerUploadResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|any>;
     /**
      * Lists all the image IDs for a given repository.
+
+You can filter images based on whether or not they are tagged by setting the 
+tagStatus parameter to TAGGED or UNTAGGED . For example, you can filter your
+results to return only UNTAGGED images and then pipe that result to a 
+BatchDeleteImage operation to delete them. Or, you can filter your results to
+return only TAGGED images to list all of the tags in your repository.
      *
      * @error ServerException   
      * @error InvalidParameterException   
@@ -586,6 +592,8 @@ UNAVAILABLE . **/
         message?: ExceptionMessage;
     }
     export interface ListImagesFilter {
+        /** The tag status with which to filter your ListImages results. You can filter
+results based on whether they are TAGGED or UNTAGGED . **/
         tagStatus?: TagStatus;
     }
     export interface ListImagesRequest {
@@ -611,6 +619,7 @@ returned nextToken value. This value can be between 1 and 100. If this parameter
 is not used, then ListImages returns up to 100 results and a nextToken value, if
 applicable. **/
         maxResults?: MaxResults;
+        /** The filter key and value with which to filter your ListImages results. **/
         filter?: ListImagesFilter;
     }
     export interface ListImagesResponse {
