@@ -458,7 +458,7 @@ number of the pipeline by 1.
     
     export type ArtifactName = string;
     
-    export type ArtifactRevisionInformationList = ArtifactRevisionInformation[];
+    export type ArtifactRevisionList = ArtifactRevision[];
     
     export type ArtifactStoreLocation = string;
     
@@ -801,6 +801,9 @@ commit ID (GitHub) or a revision ID (Amazon S3). **/
         s3Location?: S3ArtifactLocation;
     }
     export interface ArtifactRevision {
+        /** The name of an artifact. This name might be system-generated, such as &quot;MyApp&quot;,
+or might be defined by the user when an action is created. **/
+        name?: ArtifactName;
         /** The revision ID of the artifact. **/
         revisionId?: Revision;
         /** An additional identifier for a revision, such as a commit date or, for artifacts
@@ -808,9 +811,8 @@ stored in Amazon S3 buckets, the ETag value. **/
         revisionChangeIdentifier?: RevisionChangeIdentifier;
         /** Summary information about the most recent revision of the artifact. For GitHub
 and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or
-actions, the user-provided value of an 
-x-amz-meta-codepipeline-artifact-revision-summary key specified in the object
-metadata. **/
+actions, the user-provided content of a codepipeline-artifact-revision-summary 
+key specified in the object metadata. **/
         revisionSummary?: RevisionSummary;
         /** The date and time when the most recent revision of the artifact was created, in
 timestamp format. **/
@@ -818,13 +820,6 @@ timestamp format. **/
         /** The commit ID for the artifact revision. For artifacts stored in GitHub or AWS
 CodeCommit repositories, the commit ID is linked to a commit details page. **/
         revisionUrl?: Url;
-    }
-    export interface ArtifactRevisionInformation {
-        /** The name of an artifact. This name might be system-generated, such as &quot;MyApp&quot;,
-or might be defined by the user when an action is created. **/
-        name?: ArtifactName;
-        /** Represents details about the ArtifactRevision object. **/
-        revision?: ArtifactRevision;
     }
     export interface ArtifactStore {
         /** The type of the artifact store, such as S3. **/
@@ -1174,8 +1169,8 @@ of 1. This number is automatically incremented when a pipeline is updated. **/
    
  * Failed: The pipeline did not complete successfully. **/
         status?: PipelineExecutionStatus;
-        /** A list of ArtifactRevisionInformation objects included in a pipeline execution. **/
-        artifactRevisionInformations?: ArtifactRevisionInformationList;
+        /** A list of ArtifactRevision objects included in a pipeline execution. **/
+        artifactRevisions?: ArtifactRevisionList;
     }
     export interface PipelineExecutionNotFoundException {
     }
@@ -1247,7 +1242,7 @@ the specified pipeline. **/
 for each open approval request can be obtained using the GetPipelineState action
 and is used to validate that the approval request corresponding to this token is
 still valid. **/
-        token?: ApprovalToken;
+        token: ApprovalToken;
     }
     export interface PutApprovalResultOutput {
         /** The timestamp showing when the approval or rejection was submitted. **/

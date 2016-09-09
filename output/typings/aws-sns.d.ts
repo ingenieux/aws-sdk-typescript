@@ -53,9 +53,10 @@ OptInPhoneNumber action.
      *
      * @error ThrottledException   
      * @error InternalErrorException   
+     * @error AuthorizationErrorException   
      * @error InvalidParameterException   
      */
-    checkIfPhoneNumberIsOptedOut(params: SNS.CheckIfPhoneNumberIsOptedOutInput, callback?: (err: SNS.ThrottledException|SNS.InternalErrorException|SNS.InvalidParameterException|any, data: SNS.CheckIfPhoneNumberIsOptedOutResponse|any) => void): Request<SNS.CheckIfPhoneNumberIsOptedOutResponse|any,SNS.ThrottledException|SNS.InternalErrorException|SNS.InvalidParameterException|any>;
+    checkIfPhoneNumberIsOptedOut(params: SNS.CheckIfPhoneNumberIsOptedOutInput, callback?: (err: SNS.ThrottledException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.InvalidParameterException|any, data: SNS.CheckIfPhoneNumberIsOptedOutResponse|any) => void): Request<SNS.CheckIfPhoneNumberIsOptedOutResponse|any,SNS.ThrottledException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.InvalidParameterException|any>;
     /**
      * Verifies an endpoint owner&#x27;s intent to receive messages by validating the token
 sent to the endpoint by an earlier Subscribe action. If the token is valid, the
@@ -213,9 +214,10 @@ These settings are set with the SetSMSAttributes action.
      *
      * @error ThrottledException   
      * @error InternalErrorException   
+     * @error AuthorizationErrorException   
      * @error InvalidParameterException   
      */
-    getSMSAttributes(params: SNS.GetSMSAttributesInput, callback?: (err: SNS.ThrottledException|SNS.InternalErrorException|SNS.InvalidParameterException|any, data: SNS.GetSMSAttributesResponse|any) => void): Request<SNS.GetSMSAttributesResponse|any,SNS.ThrottledException|SNS.InternalErrorException|SNS.InvalidParameterException|any>;
+    getSMSAttributes(params: SNS.GetSMSAttributesInput, callback?: (err: SNS.ThrottledException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.InvalidParameterException|any, data: SNS.GetSMSAttributesResponse|any) => void): Request<SNS.GetSMSAttributesResponse|any,SNS.ThrottledException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.InvalidParameterException|any>;
     /**
      * Returns all of the properties of a subscription.
      *
@@ -265,9 +267,10 @@ NextToken will be null.
      *
      * @error ThrottledException   
      * @error InternalErrorException   
+     * @error AuthorizationErrorException   
      * @error InvalidParameterException   
      */
-    listPhoneNumbersOptedOut(params: SNS.ListPhoneNumbersOptedOutInput, callback?: (err: SNS.ThrottledException|SNS.InternalErrorException|SNS.InvalidParameterException|any, data: SNS.ListPhoneNumbersOptedOutResponse|any) => void): Request<SNS.ListPhoneNumbersOptedOutResponse|any,SNS.ThrottledException|SNS.InternalErrorException|SNS.InvalidParameterException|any>;
+    listPhoneNumbersOptedOut(params: SNS.ListPhoneNumbersOptedOutInput, callback?: (err: SNS.ThrottledException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.InvalidParameterException|any, data: SNS.ListPhoneNumbersOptedOutResponse|any) => void): Request<SNS.ListPhoneNumbersOptedOutResponse|any,SNS.ThrottledException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.InvalidParameterException|any>;
     /**
      * Lists the platform application objects for the supported push notification
 services, such as APNS and GCM. The results for ListPlatformApplications are
@@ -325,9 +328,10 @@ You can opt in a phone number only once every 30 days.
      *
      * @error ThrottledException   
      * @error InternalErrorException   
+     * @error AuthorizationErrorException   
      * @error InvalidParameterException   
      */
-    optInPhoneNumber(params: SNS.OptInPhoneNumberInput, callback?: (err: SNS.ThrottledException|SNS.InternalErrorException|SNS.InvalidParameterException|any, data: SNS.OptInPhoneNumberResponse|any) => void): Request<SNS.OptInPhoneNumberResponse|any,SNS.ThrottledException|SNS.InternalErrorException|SNS.InvalidParameterException|any>;
+    optInPhoneNumber(params: SNS.OptInPhoneNumberInput, callback?: (err: SNS.ThrottledException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.InvalidParameterException|any, data: SNS.OptInPhoneNumberResponse|any) => void): Request<SNS.OptInPhoneNumberResponse|any,SNS.ThrottledException|SNS.InternalErrorException|SNS.AuthorizationErrorException|SNS.InvalidParameterException|any>;
     /**
      * Sends a message to all of a topic&#x27;s subscribed endpoints. When a messageId is
 returned, the message has been saved and Amazon SNS will attempt to deliver it
@@ -337,8 +341,7 @@ subscribed endpoint depends on the notification protocol.
 To use the Publish action for sending a message to a mobile endpoint, such as an
 app on a Kindle device or mobile phone, you must specify the EndpointArn for the
 TargetArn parameter. The EndpointArn is returned when making a call with the 
-CreatePlatformEndpoint action. The second example below shows a request and
-response for publishing to a mobile endpoint.
+CreatePlatformEndpoint action.
 
 For more information about formatting messages, see Send Custom
 Platform-Specific Payloads in Messages to Mobile Devices
@@ -402,8 +405,9 @@ Amazon SNS Developer Guide .
      * @error InvalidParameterException   
      * @error ThrottledException   
      * @error InternalErrorException   
+     * @error AuthorizationErrorException   
      */
-    setSMSAttributes(params: SNS.SetSMSAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.ThrottledException|SNS.InternalErrorException|any, data: SNS.SetSMSAttributesResponse|any) => void): Request<SNS.SetSMSAttributesResponse|any,SNS.InvalidParameterException|SNS.ThrottledException|SNS.InternalErrorException|any>;
+    setSMSAttributes(params: SNS.SetSMSAttributesInput, callback?: (err: SNS.InvalidParameterException|SNS.ThrottledException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any, data: SNS.SetSMSAttributesResponse|any) => void): Request<SNS.SetSMSAttributesResponse|any,SNS.InvalidParameterException|SNS.ThrottledException|SNS.InternalErrorException|SNS.AuthorizationErrorException|any>;
     /**
      * Allows a subscription owner to set an attribute of the topic to a new value.
      *
@@ -774,6 +778,7 @@ following:
         message?: string;
     }
     export interface InvalidParameterValueException {
+        /** The parameter value is invalid. **/
         message?: string;
     }
     export interface ListEndpointsByPlatformApplicationInput {
@@ -906,7 +911,7 @@ text of the message as a String value.
 
 If you want to send different messages for each transport protocol, set the
 value of the MessageStructure parameter to json and use a JSON object for the 
-Message parameter. See the Examples section for the format of the JSON object.
+Message parameter.
 
 Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size
 (262144 bytes, not 262144 characters).
@@ -1135,9 +1140,9 @@ each SMS message that was successfully delivered by your account:
 To receive the report, the bucket must have a policy that allows the Amazon SNS
 service principle to perform the s3:PutObject and s3:GetBucketLocation actions.
 
-For an example bucket policy and usage report, see Viewing Statistics About SMS
-Message Delivery [http://docs.aws.amazon.com/sns/latest/dg/sms_stats.html] in
-the Amazon SNS Developer Guide . **/
+For an example bucket policy and usage report, see Monitoring SMS Activity
+[http://docs.aws.amazon.com/sns/latest/dg/sms_stats.html] in the Amazon SNS
+Developer Guide . **/
         attributes: MapStringToString;
     }
     export interface SetSMSAttributesResponse {
@@ -1241,6 +1246,7 @@ immediately (without requiring endpoint owner confirmation). **/
         message?: string;
     }
     export interface ThrottledException {
+        /** Throttled request. **/
         message?: string;
     }
     export interface Topic {

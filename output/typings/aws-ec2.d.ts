@@ -746,7 +746,7 @@ Amazon Virtual Private Cloud User Guide .
     createSubnet(params: EC2.CreateSubnetRequest, callback?: (err: any, data: EC2.CreateSubnetResult|any) => void): Request<EC2.CreateSubnetResult|any,any>;
     /**
      * Adds or overwrites one or more tags for the specified Amazon EC2 resource or
-resources. Each resource can have a maximum of 10 tags. Each tag consists of a
+resources. Each resource can have a maximum of 50 tags. Each tag consists of a
 key and optional value. Tag keys must be unique per resource.
 
 For more information about tags, see Tagging Your Resources
@@ -2079,11 +2079,13 @@ relevant Describe command for the resource type.
      */
     modifyIdFormat(params: EC2.ModifyIdFormatRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
-     * Modifies the ID format of a resource for the specified IAM user, IAM role, or
-root user. You can specify that resources should receive longer IDs
-(17-character IDs) when they are created. The following resource types support
-longer IDs: instance | reservation | snapshot | volume . For more information,
-see Resource IDs
+     * Modifies the ID format of a resource for a specified IAM user, IAM role, or the
+root user for an account; or all IAM users, IAM roles, and the root user for an
+account. You can specify that resources should receive longer IDs (17-character
+IDs) when they are created.
+
+The following resource types support longer IDs: instance | reservation | 
+snapshot | volume . For more information, see Resource IDs
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html] in the 
 Amazon Elastic Compute Cloud User Guide .
 
@@ -5192,16 +5194,16 @@ there are no more results to return. **/
         /** The ID of the reservation offering. **/
         OfferingId?: String;
         /** This is the minimum duration of the reservation you&#x27;d like to purchase,
-specified in seconds. Reservations are available in 1, 3, and 5 year terms. The
-number of seconds specified must be the number of seconds in a year
-(365x24x60x60) times one of the supported durations (1, 3, or 5). For example,
-specify 94608000 for 3 years. **/
+specified in seconds. Reservations are available in one-year and three-year
+terms. The number of seconds specified must be the number of seconds in a year
+(365x24x60x60) times one of the supported durations (1 or 3). For example,
+specify 31536000 for one year. **/
         MinDuration?: Integer;
         /** This is the maximum duration of the reservation you&#x27;d like to purchase,
-specified in seconds.Reservations are available in 1, 3, and 5 year terms. The
-number of seconds specified must be the number of seconds in a year
-(365x24x60x60) times one of the supported durations (1, 3, or 5). For example,
-specify 157680000 for 5 years. **/
+specified in seconds. Reservations are available in one-year and three-year
+terms. The number of seconds specified must be the number of seconds in a year
+(365x24x60x60) times one of the supported durations (1 or 3). For example,
+specify 94608000 for three years. **/
         MaxDuration?: Integer;
         /** One or more filters.
 
@@ -8558,7 +8560,7 @@ in the Amazon Elastic Compute Cloud User Guide . **/
     export interface HostOffering {
         /** The ID of the offering. **/
         OfferingId?: String;
-        /** The instance family that the offering covers. **/
+        /** The instance family of the offering. **/
         InstanceFamily?: String;
         /** The available payment option. **/
         PaymentOption?: PaymentOption;
@@ -8606,7 +8608,7 @@ this time, the only supported currency is USD . **/
         /** The number of Dedicated Hosts the reservation is associated with. **/
         Count?: Integer;
         /** The length of the reservation&#x27;s term, specified in seconds. Can be 31536000 (1
-year) | 94608000 (3 years) | 157680000 (5 years) . **/
+year) | 94608000 (3 years) . **/
         Duration?: Integer;
         /** The date and time that the reservation ends. **/
         End?: DateTime;
@@ -9482,7 +9484,9 @@ setting you requested can be used. **/
         Resource: String;
         /** Indicates whether the resource should use longer IDs (17-character IDs) **/
         UseLongIds: Boolean;
-        /** The ARN of the principal, which can be an IAM user, IAM role, or the root user. **/
+        /** The ARN of the principal, which can be an IAM user, IAM role, or the root user.
+Specify all to modify the ID format for all IAM users, IAM roles, and the root
+user of the account. **/
         PrincipalArn: String;
     }
     export interface ModifyImageAttributeRequest {
@@ -11142,7 +11146,8 @@ Default: 1 **/
         InstanceCount?: Integer;
         /** The Scheduled Instance ID. **/
         ScheduledInstanceId: String;
-        /** The launch specification. **/
+        /** The launch specification. You must match the instance type, Availability Zone,
+network, and platform of the schedule that you purchased. **/
         LaunchSpecification: ScheduledInstancesLaunchSpecification;
     }
     export interface RunScheduledInstancesResult {
