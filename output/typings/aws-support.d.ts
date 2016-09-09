@@ -20,7 +20,7 @@ service enables you to manage your AWS Support cases programmatically. It uses
 HTTP methods that return results in JSON format.
 
 The AWS Support service also exposes a set of Trusted Advisor
-[https://aws.amazon.com/premiumsupport/trustedadvisor/] features. You can
+[http://aws.amazon.com/premiumsupport/trustedadvisor/] features. You can
 retrieve a list of checks and their descriptions, get check results, specify
 checks to refresh, and get the refresh status of checks.
 
@@ -30,27 +30,43 @@ The following list describes the AWS Support case management operations:
    DescribeServices and DescribeSeverityLevels operations return AWS service
    names, service codes, service categories, and problem severity levels. You
    use these values when you call the CreateCase operation.
+   
+   
  * Case creation, case details, and case resolution. The CreateCase , 
    DescribeCases , DescribeAttachment , and ResolveCase operations create AWS
    Support cases, retrieve information about cases, and resolve cases.
+   
+   
  * Case communication. The DescribeCommunications , AddCommunicationToCase , and 
    AddAttachmentsToSet operations retrieve and add communications and
    attachments to AWS Support cases.
+   
+   
 
 The following list describes the operations available from the AWS Support
 service for Trusted Advisor:
 
  * DescribeTrustedAdvisorChecks returns the list of checks that run against your
    AWS resources.
- * Using the CheckId for a specific check returned by 
+   
+   
+ * Using the checkId for a specific check returned by 
    DescribeTrustedAdvisorChecks , you can call DescribeTrustedAdvisorCheckResult 
    to obtain the results for the check you specified.
+   
+   
  * DescribeTrustedAdvisorCheckSummaries returns summarized results for one or
    more Trusted Advisor checks.
+   
+   
  * RefreshTrustedAdvisorCheck requests that Trusted Advisor rerun a specified
    check.
+   
+   
  * DescribeTrustedAdvisorCheckRefreshStatuses reports the refresh status of one
    or more checks.
+   
+   
 
 For authentication of requests, AWS Support uses Signature Version 4 Signing
 Process [http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html] 
@@ -67,42 +83,38 @@ on your resources.
     constructor(options?: any);
     endpoint: Endpoint;
     /**
-     * Adds one or more attachments to an attachment set. If an AttachmentSetId is not
+     * Adds one or more attachments to an attachment set. If an attachmentSetId is not
 specified, a new attachment set is created, and the ID of the set is returned in
-the response. If an AttachmentSetId is specified, the attachments are added to
+the response. If an attachmentSetId is specified, the attachments are added to
 the specified set, if it exists.
 
 An attachment set is a temporary container for attachments that are to be added
 to a case or case communication. The set is available for one hour after it is
-created; the ExpiryTime returned in the response indicates when the set expires.
+created; the expiryTime returned in the response indicates when the set expires.
 The maximum number of attachments in a set is 3, and the maximum size of any
 attachment in the set is 5 MB.
      *
-     * @error InternalServerError An internal server error occurred.  
-     * @error AttachmentSetIdNotFound An attachment set with the specified ID could not be found.  
-     * @error AttachmentSetExpired The expiration time of the attachment set has passed. The set expires 1 hour
-after it is created.  
-     * @error AttachmentSetSizeLimitExceeded A limit for the size of an attachment set has been exceeded. The limits are 3
-attachments and 5 MB per attachment.  
-     * @error AttachmentLimitExceeded The limit for the number of attachment sets created in a short period of time
-has been exceeded.  
+     * @error InternalServerError   
+     * @error AttachmentSetIdNotFound   
+     * @error AttachmentSetExpired   
+     * @error AttachmentSetSizeLimitExceeded   
+     * @error AttachmentLimitExceeded   
      */
     addAttachmentsToSet(params: Support.AddAttachmentsToSetRequest, callback?: (err: Support.InternalServerError|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|Support.AttachmentSetSizeLimitExceeded|Support.AttachmentLimitExceeded|any, data: Support.AddAttachmentsToSetResponse|any) => void): Request<Support.AddAttachmentsToSetResponse|any,Support.InternalServerError|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|Support.AttachmentSetSizeLimitExceeded|Support.AttachmentLimitExceeded|any>;
     /**
      * Adds additional customer communication to an AWS Support case. You use the 
-CaseId value to identify the case to add communication to. You can list a set of
-email addresses to copy on the communication using the CcEmailAddresses value.
-The CommunicationBody value contains the text of the communication.
+caseId value to identify the case to add communication to. You can list a set of
+email addresses to copy on the communication using the ccEmailAddresses value.
+The communicationBody value contains the text of the communication.
 
 The response indicates the success or failure of the request.
 
 This operation implements a subset of the features of the AWS Support Center.
      *
-     * @error InternalServerError An internal server error occurred.  
-     * @error CaseIdNotFound The requested CaseId could not be located.  
-     * @error AttachmentSetIdNotFound An attachment set with the specified ID could not be found.  
-     * @error AttachmentSetExpired The expiration time of the attachment set has passed. The set expires 1 hour
-after it is created.  
+     * @error InternalServerError   
+     * @error CaseIdNotFound   
+     * @error AttachmentSetIdNotFound   
+     * @error AttachmentSetExpired   
      */
     addCommunicationToCase(params: Support.AddCommunicationToCaseRequest, callback?: (err: Support.InternalServerError|Support.CaseIdNotFound|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|any, data: Support.AddCommunicationToCaseResponse|any) => void): Request<Support.AddCommunicationToCaseResponse|any,Support.InternalServerError|Support.CaseIdNotFound|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|any>;
     /**
@@ -111,32 +123,50 @@ behavior of the AWS Support Center Create Case
 [https://console.aws.amazon.com/support/home#/case/create] page. Its parameters
 require you to specify the following information:
 
- 1. IssueType. The type of issue for the case. You can specify either
-    &quot;customer-service&quot; or &quot;technical.&quot; If you do not indicate a value, the
-    default is &quot;technical.&quot;
- 2. ServiceCode. The code for an AWS service. You obtain the ServiceCode by
-    calling DescribeServices .
- 3. CategoryCode. The category for the service defined for the ServiceCode 
-    value. You also obtain the category code for a service by calling 
-    DescribeServices . Each AWS service defines its own set of category codes.
- 4. SeverityCode. A value that indicates the urgency of the case, which in turn
-    determines the response time according to your service level agreement with
-    AWS Support. You obtain the SeverityCode by calling DescribeSeverityLevels .
- 5. Subject. The Subject field on the AWS Support Center Create Case
-    [https://console.aws.amazon.com/support/home#/case/create] page.
- 6. CommunicationBody. The Description field on the AWS Support Center Create
-    Case [https://console.aws.amazon.com/support/home#/case/create] page.
- 7. AttachmentSetId. The ID of a set of attachments that has been created by
-    using AddAttachmentsToSet .
- 8. Language. The human language in which AWS Support handles the case. English
-    and Japanese are currently supported.
- 9. CcEmailAddresses. The AWS Support Center CC field on the Create Case
-    [https://console.aws.amazon.com/support/home#/case/create] page. You can
-    list email addresses to be copied on any correspondence about the case. The
-    account that opens the case is already identified by passing the AWS
-    Credentials in the HTTP POST method or in a method or function call from one
-    of the programming languages supported by an AWS SDK
-    [http://aws.amazon.com/tools/] .
+ &amp;#42; issueType. The type of issue for the case. You can specify either
+   &quot;customer-service&quot; or &quot;technical.&quot; If you do not indicate a value, the
+   default is &quot;technical.&quot;
+   
+   
+ * serviceCode. The code for an AWS service. You obtain the serviceCode by
+   calling DescribeServices .
+   
+   
+ * categoryCode. The category for the service defined for the serviceCode value.
+   You also obtain the category code for a service by calling DescribeServices .
+   Each AWS service defines its own set of category codes.
+   
+   
+ * severityCode. A value that indicates the urgency of the case, which in turn
+   determines the response time according to your service level agreement with
+   AWS Support. You obtain the SeverityCode by calling DescribeSeverityLevels .
+   
+   
+ * subject. The Subject field on the AWS Support Center Create Case
+   [https://console.aws.amazon.com/support/home#/case/create] page.
+   
+   
+ * communicationBody. The Description field on the AWS Support Center Create
+   Case [https://console.aws.amazon.com/support/home#/case/create] page.
+   
+   
+ * attachmentSetId. The ID of a set of attachments that has been created by
+   using AddAttachmentsToSet .
+   
+   
+ * language. The human language in which AWS Support handles the case. English
+   and Japanese are currently supported.
+   
+   
+ * ccEmailAddresses. The AWS Support Center CC field on the Create Case
+   [https://console.aws.amazon.com/support/home#/case/create] page. You can list
+   email addresses to be copied on any correspondence about the case. The
+   account that opens the case is already identified by passing the AWS
+   Credentials in the HTTP POST method or in a method or function call from one
+   of the programming languages supported by an AWS SDK
+   [http://aws.amazon.com/tools/] .
+   
+   
 
 To add additional communication or attachments to an existing case, use 
 AddCommunicationToCase .
@@ -144,11 +174,10 @@ AddCommunicationToCase .
 A successful CreateCase request returns an AWS Support case number. Case numbers
 are used by the DescribeCases operation to retrieve existing AWS Support cases.
      *
-     * @error InternalServerError An internal server error occurred.  
-     * @error CaseCreationLimitExceeded The case creation limit for the account has been exceeded.  
-     * @error AttachmentSetIdNotFound An attachment set with the specified ID could not be found.  
-     * @error AttachmentSetExpired The expiration time of the attachment set has passed. The set expires 1 hour
-after it is created.  
+     * @error InternalServerError   
+     * @error CaseCreationLimitExceeded   
+     * @error AttachmentSetIdNotFound   
+     * @error AttachmentSetExpired   
      */
     createCase(params: Support.CreateCaseRequest, callback?: (err: Support.InternalServerError|Support.CaseCreationLimitExceeded|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|any, data: Support.CreateCaseResponse|any) => void): Request<Support.CreateCaseResponse|any,Support.InternalServerError|Support.CaseCreationLimitExceeded|Support.AttachmentSetIdNotFound|Support.AttachmentSetExpired|any>;
     /**
@@ -157,17 +186,16 @@ by the case management system when you add an attachment to a case or case
 communication. Attachment IDs are returned in the AttachmentDetails objects that
 are returned by the DescribeCommunications operation.
      *
-     * @error InternalServerError An internal server error occurred.  
-     * @error DescribeAttachmentLimitExceeded The limit for the number of DescribeAttachment requests in a short period of
-time has been exceeded.  
-     * @error AttachmentIdNotFound An attachment with the specified ID could not be found.  
+     * @error InternalServerError   
+     * @error DescribeAttachmentLimitExceeded   
+     * @error AttachmentIdNotFound   
      */
     describeAttachment(params: Support.DescribeAttachmentRequest, callback?: (err: Support.InternalServerError|Support.DescribeAttachmentLimitExceeded|Support.AttachmentIdNotFound|any, data: Support.DescribeAttachmentResponse|any) => void): Request<Support.DescribeAttachmentResponse|any,Support.InternalServerError|Support.DescribeAttachmentLimitExceeded|Support.AttachmentIdNotFound|any>;
     /**
      * Returns a list of cases that you specify by passing one or more case IDs. In
-addition, you can filter the cases by date by setting values for the AfterTime 
-and BeforeTime request parameters. You can set values for the 
-IncludeResolvedCases and IncludeCommunications request parameters to control how
+addition, you can filter the cases by date by setting values for the afterTime 
+and beforeTime request parameters. You can set values for the 
+includeResolvedCases and includeCommunications request parameters to control how
 much information is returned.
 
 Case data is available for 12 months after creation. If a case was created more
@@ -175,28 +203,30 @@ than 12 months ago, a request for data might cause an error.
 
 The response returns the following in JSON format:
 
- 1. One or more CaseDetails data types.
- 2. One or more NextToken values, which specify where to paginate the returned
-    records represented by the CaseDetails objects.
+ &amp;#42; One or more CaseDetails data types.
+   
+   
+ * One or more nextToken values, which specify where to paginate the returned
+   records represented by the CaseDetails objects.
      *
-     * @error InternalServerError An internal server error occurred.  
-     * @error CaseIdNotFound The requested CaseId could not be located.  
+     * @error InternalServerError   
+     * @error CaseIdNotFound   
      */
     describeCases(params: Support.DescribeCasesRequest, callback?: (err: Support.InternalServerError|Support.CaseIdNotFound|any, data: Support.DescribeCasesResponse|any) => void): Request<Support.DescribeCasesResponse|any,Support.InternalServerError|Support.CaseIdNotFound|any>;
     /**
      * Returns communications (and attachments) for one or more support cases. You can
-use the AfterTime and BeforeTime parameters to filter by date. You can use the 
-CaseId parameter to restrict the results to a particular case.
+use the afterTime and beforeTime parameters to filter by date. You can use the 
+caseId parameter to restrict the results to a particular case.
 
 Case data is available for 12 months after creation. If a case was created more
 than 12 months ago, a request for data might cause an error.
 
-You can use the MaxResults and NextToken parameters to control the pagination of
-the result set. Set MaxResults to the number of cases you want displayed on each
-page, and use NextToken to specify the resumption of pagination.
+You can use the maxResults and nextToken parameters to control the pagination of
+the result set. Set maxResults to the number of cases you want displayed on each
+page, and use nextToken to specify the resumption of pagination.
      *
-     * @error InternalServerError An internal server error occurred.  
-     * @error CaseIdNotFound The requested CaseId could not be located.  
+     * @error InternalServerError   
+     * @error CaseIdNotFound   
      */
     describeCommunications(params: Support.DescribeCommunicationsRequest, callback?: (err: Support.InternalServerError|Support.CaseIdNotFound|any, data: Support.DescribeCommunicationsResponse|any) => void): Request<Support.DescribeCommunicationsResponse|any,Support.InternalServerError|Support.CaseIdNotFound|any>;
     /**
@@ -212,7 +242,7 @@ categories returned by the DescribeServices request. Always use the service
 codes and categories obtained programmatically. This practice ensures that you
 always have the most recent set of service and category codes.
      *
-     * @error InternalServerError An internal server error occurred.  
+     * @error InternalServerError   
      */
     describeServices(params: Support.DescribeServicesRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeServicesResponse|any) => void): Request<Support.DescribeServicesResponse|any,Support.InternalServerError|any>;
     /**
@@ -220,14 +250,19 @@ always have the most recent set of service and category codes.
 The severity level for a case is also a field in the CaseDetails data type
 included in any CreateCase request.
      *
-     * @error InternalServerError An internal server error occurred.  
+     * @error InternalServerError   
      */
     describeSeverityLevels(params: Support.DescribeSeverityLevelsRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeSeverityLevelsResponse|any) => void): Request<Support.DescribeSeverityLevelsResponse|any,Support.InternalServerError|any>;
     /**
      * Returns the refresh status of the Trusted Advisor checks that have the specified
 check IDs. Check IDs can be obtained by calling DescribeTrustedAdvisorChecks .
+
+Some checks are refreshed automatically, and their refresh statuses cannot be
+retrieved by using this operation. Use of the 
+DescribeTrustedAdvisorCheckRefreshStatuses operation for these checks causes an 
+InvalidParameterValue error.
      *
-     * @error InternalServerError An internal server error occurred.  
+     * @error InternalServerError   
      */
     describeTrustedAdvisorCheckRefreshStatuses(params: Support.DescribeTrustedAdvisorCheckRefreshStatusesRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorCheckRefreshStatusesResponse|any) => void): Request<Support.DescribeTrustedAdvisorCheckRefreshStatusesResponse|any,Support.InternalServerError|any>;
     /**
@@ -238,17 +273,27 @@ The response contains a TrustedAdvisorCheckResult object, which contains these
 three objects:
 
  &amp;#42; TrustedAdvisorCategorySpecificSummary
+   
+   
  * TrustedAdvisorResourceDetail
+   
+   
  * TrustedAdvisorResourcesSummary
+   
+   
 
 In addition, the response contains these fields:
 
- * Status. The alert status of the check: &quot;ok&quot; (green), &quot;warning&quot; (yellow),
+ * status. The alert status of the check: &quot;ok&quot; (green), &quot;warning&quot; (yellow),
    &quot;error&quot; (red), or &quot;not_available&quot;.
- * Timestamp. The time of the last refresh of the check.
- * CheckId. The unique identifier for the check.
+   
+   
+ * timestamp. The time of the last refresh of the check.
+   
+   
+ * checkId. The unique identifier for the check.
      *
-     * @error InternalServerError An internal server error occurred.  
+     * @error InternalServerError   
      */
     describeTrustedAdvisorCheckResult(params: Support.DescribeTrustedAdvisorCheckResultRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorCheckResultResponse|any) => void): Request<Support.DescribeTrustedAdvisorCheckResultResponse|any,Support.InternalServerError|any>;
     /**
@@ -258,7 +303,7 @@ DescribeTrustedAdvisorChecks .
 
 The response contains an array of TrustedAdvisorCheckSummary objects.
      *
-     * @error InternalServerError An internal server error occurred.  
+     * @error InternalServerError   
      */
     describeTrustedAdvisorCheckSummaries(params: Support.DescribeTrustedAdvisorCheckSummariesRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorCheckSummariesResponse|any) => void): Request<Support.DescribeTrustedAdvisorCheckSummariesResponse|any,Support.InternalServerError|any>;
     /**
@@ -267,31 +312,39 @@ ID, category, description, and metadata. You must specify a language code;
 English (&quot;en&quot;) and Japanese (&quot;ja&quot;) are currently supported. The response
 contains a TrustedAdvisorCheckDescription for each check.
      *
-     * @error InternalServerError An internal server error occurred.  
+     * @error InternalServerError   
      */
     describeTrustedAdvisorChecks(params: Support.DescribeTrustedAdvisorChecksRequest, callback?: (err: Support.InternalServerError|any, data: Support.DescribeTrustedAdvisorChecksResponse|any) => void): Request<Support.DescribeTrustedAdvisorChecksResponse|any,Support.InternalServerError|any>;
     /**
      * Requests a refresh of the Trusted Advisor check that has the specified check ID.
 Check IDs can be obtained by calling DescribeTrustedAdvisorChecks .
 
+Some checks are refreshed automatically, and they cannot be refreshed by using
+this operation. Use of the RefreshTrustedAdvisorCheck operation for these checks
+causes an InvalidParameterValue error.
+
 The response contains a TrustedAdvisorCheckRefreshStatus object, which contains
 these fields:
 
- &amp;#42; Status. The refresh status of the check: &quot;none&quot;, &quot;enqueued&quot;, &quot;processing&quot;,
+ &amp;#42; status. The refresh status of the check: &quot;none&quot;, &quot;enqueued&quot;, &quot;processing&quot;,
    &quot;success&quot;, or &quot;abandoned&quot;.
- * MillisUntilNextRefreshable. The amount of time, in milliseconds, until the
+   
+   
+ * millisUntilNextRefreshable. The amount of time, in milliseconds, until the
    check is eligible for refresh.
- * CheckId. The unique identifier for the check.
+   
+   
+ * checkId. The unique identifier for the check.
      *
-     * @error InternalServerError An internal server error occurred.  
+     * @error InternalServerError   
      */
     refreshTrustedAdvisorCheck(params: Support.RefreshTrustedAdvisorCheckRequest, callback?: (err: Support.InternalServerError|any, data: Support.RefreshTrustedAdvisorCheckResponse|any) => void): Request<Support.RefreshTrustedAdvisorCheckResponse|any,Support.InternalServerError|any>;
     /**
-     * Takes a CaseId and returns the initial state of the case along with the state of
+     * Takes a caseId and returns the initial state of the case along with the state of
 the case after the call to ResolveCase completed.
      *
-     * @error InternalServerError An internal server error occurred.  
-     * @error CaseIdNotFound The requested CaseId could not be located.  
+     * @error InternalServerError   
+     * @error CaseIdNotFound   
      */
     resolveCase(params: Support.ResolveCaseRequest, callback?: (err: Support.InternalServerError|Support.CaseIdNotFound|any, data: Support.ResolveCaseResponse|any) => void): Request<Support.ResolveCaseResponse|any,Support.InternalServerError|Support.CaseIdNotFound|any>;
 
@@ -400,9 +453,9 @@ the case after the call to ResolveCase completed.
     export type TrustedAdvisorResourceDetailList = TrustedAdvisorResourceDetail[];
 
     export interface AddAttachmentsToSetRequest {
-        /** The ID of the attachment set. If an AttachmentSetId is not specified, a new
+        /** The ID of the attachment set. If an attachmentSetId is not specified, a new
 attachment set is created, and the ID of the set is returned in the response. If
-an AttachmentSetId is specified, the attachments are added to the specified set,
+an attachmentSetId is specified, the attachments are added to the specified set,
 if it exists. **/
         attachmentSetId?: AttachmentSetId;
         /** One or more attachments to add to the set. The limit is 3 attachments per set,
@@ -410,9 +463,9 @@ and the size limit is 5 MB per attachment. **/
         attachments: Attachments;
     }
     export interface AddAttachmentsToSetResponse {
-        /** The ID of the attachment set. If an AttachmentSetId was not specified, a new
+        /** The ID of the attachment set. If an attachmentSetId was not specified, a new
 attachment set is created, and the ID of the set is returned in the response. If
-an AttachmentSetId was specified, the attachments are added to the specified
+an attachmentSetId was specified, the attachments are added to the specified
 set, if it exists. **/
         attachmentSetId?: AttachmentSetId;
         /** The time and date when the attachment set expires. **/
@@ -660,7 +713,9 @@ are defined by your service level agreement with AWS. **/
         severityLevels?: SeverityLevelsList;
     }
     export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
-        /** The IDs of the Trusted Advisor checks. **/
+        /** The IDs of the Trusted Advisor checks to get the status of. Note: Specifying the
+check ID of a check that is automatically refreshed causes an 
+InvalidParameterValue error. **/
         checkIds: StringList;
     }
     export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
@@ -708,7 +763,9 @@ be passed explicitly for operations that take them. **/
         nextToken?: NextToken;
     }
     export interface RefreshTrustedAdvisorCheckRequest {
-        /** The unique identifier for the Trusted Advisor check. **/
+        /** The unique identifier for the Trusted Advisor check to refresh. Note: Specifying
+the check ID of a check that is automatically refreshed causes an 
+InvalidParameterValue error. **/
         checkId: String;
     }
     export interface RefreshTrustedAdvisorCheckResponse {
@@ -729,10 +786,10 @@ alphanumeric string formatted as shown in this example: case-
         finalCaseStatus?: CaseStatus;
     }
     export interface Service {
-        /** The code for an AWS service returned by the DescribeServices response. The Name 
+        /** The code for an AWS service returned by the DescribeServices response. The name 
 element contains the corresponding friendly name. **/
         code?: ServiceCode;
-        /** The friendly name for an AWS service. The Code element contains the
+        /** The friendly name for an AWS service. The code element contains the
 corresponding code. **/
         name?: ServiceName;
         /** A list of categories that describe the type of support issue a case describes.
@@ -742,7 +799,7 @@ codes are passed to AWS Support when you call CreateCase . **/
     }
     export interface SeverityLevel {
         /** One of four values: &quot;low,&quot; &quot;medium,&quot; &quot;high,&quot; and &quot;urgent&quot;. These values
-correspond to response times returned to the caller in SeverityLevel.name . **/
+correspond to response times returned to the caller in severityLevel.name . **/
         code?: SeverityLevelCode;
         /** The name of the severity level that corresponds to the severity level code. **/
         name?: SeverityLevelName;
@@ -821,7 +878,7 @@ actions are taken. **/
         /** The status code for the resource identified in the Trusted Advisor check. **/
         status: String;
         /** The AWS region in which the identified resource is located. **/
-        region: String;
+        region?: String;
         /** The unique identifier for the identified resource. **/
         resourceId: String;
         /** Specifies whether the AWS resource was ignored by Trusted Advisor because it was

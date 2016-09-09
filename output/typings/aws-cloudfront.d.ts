@@ -8,7 +8,7 @@
 declare module "aws-sdk" {
 
  /**
-   * apiVersion: 2016-08-20
+   * apiVersion: 2016-09-07
    * endpointPrefix: cloudfront
    * serviceAbbreviation: CloudFront
    * signatureVersion: v4
@@ -398,6 +398,8 @@ minimum usage commitments.
     export type GeoRestrictionType = string;
     
     export type HeaderList = string[];
+    
+    export type HttpVersion = string;
     
     export type InvalidationSummaryList = InvalidationSummary[];
     
@@ -965,6 +967,11 @@ distribution. **/
         /** (Optional) If you&#x27;re using AWS WAF to filter CloudFront requests, the Id of the
 AWS WAF web ACL that is associated with the distribution. **/
         WebACLId?: string;
+        /** (Optional) Specify the maximum HTTP version that you want viewers to use to
+communicate with CloudFront. The default value for new web distributions is
+http2. Viewers that don&#x27;t support HTTP/2 will automatically use an earlier
+version. **/
+        HttpVersion?: HttpVersion;
     }
     export interface DistributionConfigWithTags {
         /** A distribution Configuration. **/
@@ -1032,6 +1039,10 @@ in CacheBehavior elements.You must create exactly one default cache behavior. **
         Restrictions: Restrictions;
         /** The Web ACL Id (if any) associated with the distribution. **/
         WebACLId: string;
+        /** Specify the maximum HTTP version that you want viewers to use to communicate
+with CloudFront. The default value for new web distributions is http2. Viewers
+that don&#x27;t support HTTP/2 will automatically use an earlier version. **/
+        HttpVersion: HttpVersion;
     }
     export interface ForwardedValues {
         /** Indicates whether you want CloudFront to forward query strings to the origin
