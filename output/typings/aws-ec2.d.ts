@@ -83,7 +83,10 @@ address is already associated with a different instance or a network interface,
 you get an error unless you allow reassociation.
 
 This is an idempotent operation. If you perform the operation more than once,
-Amazon EC2 doesn&#x27;t return an error.
+Amazon EC2 doesn&#x27;t return an error, and you may be charged for each time the
+Elastic IP address is remapped to the same instance. For more information, see
+the Elastic IP Addresses section of Amazon EC2 Pricing
+[http://aws.amazon.com/ec2/pricing/] .
      *
      */
     associateAddress(params: EC2.AssociateAddressRequest, callback?: (err: any, data: EC2.AssociateAddressResult|any) => void): Request<EC2.AssociateAddressResult|any,any>;

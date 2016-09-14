@@ -154,6 +154,10 @@ You can check the status of this request using the DescribeRecord operation.
     
     export type AcceptLanguage = string;
     
+    export type AccessLevelFilterKey = string;
+    
+    export type AccessLevelFilterValue = string;
+    
     export type AllowedValue = string;
     
     export type AllowedValues = AllowedValue[];
@@ -310,6 +314,19 @@ You can check the status of this request using the DescribeRecord operation.
     
     export type UsePreviousValue = boolean;
 
+    export interface AccessLevelFilter {
+        /** Specifies the access level.
+
+Account allows results at the account level.
+
+Role allows results based on the federated role of the specified user.
+
+User allows results limited to the specified user. **/
+        Key?: AccessLevelFilterKey;
+        /** Specifies the user to which the access level applies. A value of Self is
+currently supported. **/
+        Value?: AccessLevelFilterValue;
+    }
     export interface ConstraintSummary {
         /** The type of the constraint. **/
         Type?: ConstraintType;
@@ -317,7 +334,8 @@ You can check the status of this request using the DescribeRecord operation.
         Description?: ConstraintDescription;
     }
     export interface DescribeProductInput {
-        /** Optional language code. Supported language codes are as follows:
+        /** The language code to use for this operation. Supported language codes are as
+follows:
 
 &quot;en&quot; (English)
 
@@ -339,7 +357,8 @@ provisioned. **/
         ProvisioningArtifacts?: ProvisioningArtifacts;
     }
     export interface DescribeProductViewInput {
-        /** Optional language code. Supported language codes are as follows:
+        /** The language code to use for this operation. Supported language codes are as
+follows:
 
 &quot;en&quot; (English)
 
@@ -361,7 +380,8 @@ provisioned. **/
         ProvisioningArtifacts?: ProvisioningArtifacts;
     }
     export interface DescribeProvisioningParametersInput {
-        /** Optional language code. Supported language codes are as follows:
+        /** The language code to use for this operation. Supported language codes are as
+follows:
 
 &quot;en&quot; (English)
 
@@ -392,7 +412,8 @@ For example, see the Version field of the CloudFormation template. **/
         UsageInstructions?: UsageInstructions;
     }
     export interface DescribeRecordInput {
-        /** Optional language code. Supported language codes are as follows:
+        /** The language code to use for this operation. Supported language codes are as
+follows:
 
 &quot;en&quot; (English)
 
@@ -406,7 +427,7 @@ If no code is specified, &quot;en&quot; is used as the default. **/
 output information. This is the RecordDetail.RecordId obtained from the request
 operation&#x27;s response. **/
         Id: Id;
-        /** The page token of the first page retrieve. If null, this retrieves the first
+        /** The page token of the first page retrieved. If null, this retrieves the first
 page of size PageSize . **/
         PageToken?: PageToken;
         /** The maximum number of items to return in the results. If more results exist than
@@ -440,7 +461,8 @@ If there are no more pages, this value is null. **/
         Name?: PortfolioName;
     }
     export interface ListLaunchPathsInput {
-        /** Optional language code. Supported language codes are as follows:
+        /** The language code to use for this operation. Supported language codes are as
+follows:
 
 &quot;en&quot; (English)
 
@@ -456,7 +478,7 @@ If no code is specified, &quot;en&quot; is used as the default. **/
 fit in the specified PageSize , the value of NextPageToken in the response is
 non-null. **/
         PageSize?: PageSize;
-        /** The page token of the first page retrieve. If null, this retrieves the first
+        /** The page token of the first page retrieved. If null, this retrieves the first
 page of size PageSize . **/
         PageToken?: PageToken;
     }
@@ -468,7 +490,8 @@ If there are no more pages, this value is null. **/
         NextPageToken?: PageToken;
     }
     export interface ListRecordHistoryInput {
-        /** Optional language code. Supported language codes are as follows:
+        /** The language code to use for this operation. Supported language codes are as
+follows:
 
 &quot;en&quot; (English)
 
@@ -478,13 +501,16 @@ If there are no more pages, this value is null. **/
 
 If no code is specified, &quot;en&quot; is used as the default. **/
         AcceptLanguage?: AcceptLanguage;
-        /** (Optional) The filter to limit search results. **/
+        /** The access level for obtaining results. If left unspecified, User level access
+is used. **/
+        AccessLevelFilter?: AccessLevelFilter;
+        /** The filter to limit search results. **/
         SearchFilter?: ListRecordHistorySearchFilter;
         /** The maximum number of items to return in the results. If more results exist than
 fit in the specified PageSize , the value of NextPageToken in the response is
 non-null. **/
         PageSize?: PageSize;
-        /** The page token of the first page retrieve. If null, this retrieves the first
+        /** The page token of the first page retrieved. If null, this retrieves the first
 page of size PageSize . **/
         PageToken?: PageToken;
     }
@@ -543,7 +569,8 @@ DescribeProvisioningParameters . **/
         SupportUrl?: SupportUrl;
     }
     export interface ProvisionProductInput {
-        /** Optional language code. Supported language codes are as follows:
+        /** The language code to use for this operation. Supported language codes are as
+follows:
 
 &quot;en&quot; (English)
 
@@ -568,7 +595,7 @@ provisioned. **/
         /** Parameters specified by the administrator that are required for provisioning the
 product. **/
         ProvisioningParameters?: ProvisioningParameters;
-        /** (Optional) A list of tags to use as provisioning options. **/
+        /** A list of tags to use as provisioning options. **/
         Tags?: Tags;
         /** Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
 events. **/
@@ -689,7 +716,8 @@ ProvisioningArtifactParameter for Key . **/
     export interface ResourceNotFoundException {
     }
     export interface ScanProvisionedProductsInput {
-        /** Optional language code. Supported language codes are as follows:
+        /** The language code to use for this operation. Supported language codes are as
+follows:
 
 &quot;en&quot; (English)
 
@@ -699,11 +727,14 @@ ProvisioningArtifactParameter for Key . **/
 
 If no code is specified, &quot;en&quot; is used as the default. **/
         AcceptLanguage?: AcceptLanguage;
+        /** The access level for obtaining results. If left unspecified, User level access
+is used. **/
+        AccessLevelFilter?: AccessLevelFilter;
         /** The maximum number of items to return in the results. If more results exist than
 fit in the specified PageSize , the value of NextPageToken in the response is
 non-null. **/
         PageSize?: PageSize;
-        /** The page token of the first page retrieve. If null, this retrieves the first
+        /** The page token of the first page retrieved. If null, this retrieves the first
 page of size PageSize . **/
         PageToken?: PageToken;
     }
@@ -715,7 +746,8 @@ If there are no more pages, this value is null. **/
         NextPageToken?: PageToken;
     }
     export interface SearchProductsInput {
-        /** Optional language code. Supported language codes are as follows:
+        /** The language code to use for this operation. Supported language codes are as
+follows:
 
 &quot;en&quot; (English)
 
@@ -725,21 +757,18 @@ If there are no more pages, this value is null. **/
 
 If no code is specified, &quot;en&quot; is used as the default. **/
         AcceptLanguage?: AcceptLanguage;
-        /** (Optional) The list of filters with which to limit search results. If no search
-filters are specified, the output is all the products to which the calling user
-has access. **/
+        /** The list of filters with which to limit search results. If no search filters are
+specified, the output is all the products to which the calling user has access. **/
         Filters?: ProductViewFilters;
         /** The maximum number of items to return in the results. If more results exist than
 fit in the specified PageSize , the value of NextPageToken in the response is
 non-null. **/
         PageSize?: PageSize;
-        /** (Optional) The sort field specifier. If no value is specified, results are not
-sorted. **/
+        /** The sort field specifier. If no value is specified, results are not sorted. **/
         SortBy?: ProductViewSortBy;
-        /** (Optional) The sort order specifier. If no value is specified, results are not
-sorted. **/
+        /** The sort order specifier. If no value is specified, results are not sorted. **/
         SortOrder?: SortOrder;
-        /** The page token of the first page retrieve. If null, this retrieves the first
+        /** The page token of the first page retrieved. If null, this retrieves the first
 page of size PageSize . **/
         PageToken?: PageToken;
     }
@@ -772,11 +801,11 @@ object is terminated, further requests to terminate the same ProvisionedProduct
 object always return ResourceNotFound regardless of the value of TerminateToken 
 . **/
         TerminateToken: IdempotencyToken;
-        /** Optional Boolean parameter. If set to true, AWS Service Catalog stops managing
-the specified ProvisionedProduct object even if it cannot delete the underlying
-resources. **/
+        /** If set to true, AWS Service Catalog stops managing the specified
+ProvisionedProduct object even if it cannot delete the underlying resources. **/
         IgnoreErrors?: IgnoreErrors;
-        /** Optional language code. Supported language codes are as follows:
+        /** The language code to use for this operation. Supported language codes are as
+follows:
 
 &quot;en&quot; (English)
 
@@ -795,7 +824,8 @@ errors that the request encountered. **/
         RecordDetail?: RecordDetail;
     }
     export interface UpdateProvisionedProductInput {
-        /** Optional language code. Supported language codes are as follows:
+        /** The language code to use for this operation. Supported language codes are as
+follows:
 
 &quot;en&quot; (English)
 
