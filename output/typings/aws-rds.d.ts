@@ -761,9 +761,8 @@ specified reserved DB instance.
      */
     describeReservedDBInstancesOfferings(params: RDS.DescribeReservedDBInstancesOfferingsMessage, callback?: (err: RDS.ReservedDBInstancesOfferingNotFoundFault|any, data: RDS.ReservedDBInstancesOfferingMessage|any) => void): Request<RDS.ReservedDBInstancesOfferingMessage|any,RDS.ReservedDBInstancesOfferingNotFoundFault|any>;
     /**
-     * Returns a list that includes the status of each source AWS Region that the
-current region can get a Read Replica or a DB snapshot from. This API action
-supports pagination.
+     * Returns a list of the source AWS regions where the current AWS region can create
+a Read Replica or copy a DB snapshot from. This API action supports pagination.
      *
      */
     describeSourceRegions(params: RDS.DescribeSourceRegionsMessage, callback?: (err: any, data: RDS.SourceRegionMessage|any) => void): Request<RDS.SourceRegionMessage|any,any>;
@@ -2154,8 +2153,8 @@ db.t2.medium | db.t2.large **/
         DBInstanceClass: String;
         /** The name of the database engine to be used for this instance.
 
-Valid Values: MySQL | mariadb | oracle-se1 | oracle-se | oracle-ee | 
-sqlserver-ee | sqlserver-se | sqlserver-ex | sqlserver-web | postgres | aurora
+Valid Values: mysql | mariadb | oracle-se1 | oracle-se2 | oracle-se | oracle-ee 
+| sqlserver-ee | sqlserver-se | sqlserver-ex | sqlserver-web | postgres | aurora
 
 Not every database engine is available for every AWS region. **/
         Engine: String;
@@ -3119,6 +3118,18 @@ point-in-time restore. **/
         EarliestRestorableTime?: TStamp;
         /** Specifies the connection endpoint for the primary instance of the DB cluster. **/
         Endpoint?: String;
+        /** The reader endpoint for the DB cluster. The reader endpoint for a DB cluster
+load-balances connections across the Aurora Replicas that are available in a DB
+cluster. As clients request new connections to the reader endpoint, Aurora
+distributes the connection requests among the Aurora Replicas in the DB cluster.
+This functionality can help balance your read workload across multiple Aurora
+Replicas in your DB cluster.
+
+If a failover occurs, and the Aurora Replica that you are connected to is
+promoted to be the primary instance, your connection will be dropped. To
+continue sending your read workload to other Aurora Replicas in the cluster, you
+can then recoonect to the reader endpoint. **/
+        ReaderEndpoint?: String;
         /** Provides the name of the database engine to be used for this DB cluster. **/
         Engine?: String;
         /** Indicates the database engine version. **/
@@ -4785,11 +4796,11 @@ value specified by MaxRecords . **/
         Marker?: String;
     }
     export interface DescribeSourceRegionsMessage {
-        /** The source region name, for example US West (Oregon).
+        /** The source region name. For example, us-east-1 .
 
 Constraints:
 
- &amp;#42; Must specify a valid AWS Region name, for example US West (Oregon). **/
+ &amp;#42; Must specify a valid AWS Region name. **/
         RegionName?: String;
         /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a pagination token called a marker is
@@ -5593,11 +5604,10 @@ encryption. **/
         TdeCredentialPassword?: String;
         /** Indicates the certificate that needs to be associated with the instance. **/
         CACertificateIdentifier?: String;
-        /** Specify the Active Directory Domain to move the instance to.
-
-The specified Active Directory Domain must be created prior to this operation.
-Currently only a SQL Server instance can be created in a Active Directory
-Domain. **/
+        /** The Active Directory Domain to move the instance to. Specify none to remove the
+instance from its current domain. The domain must be created prior to this
+operation. Currently only a Microsoft SQL Server instance can be created in a
+Active Directory Domain. **/
         Domain?: String;
         /** True to copy all tags from the DB instance to snapshots of the DB instance;
 otherwise false. The default is false. **/
@@ -5682,8 +5692,7 @@ Amazon RDS Enhanced Monitoring
 If MonitoringInterval is set to a value other than 0, then you must supply a 
 MonitoringRoleArn value. **/
         MonitoringRoleArn?: String;
-        /** Specify the name of the IAM role to be used when making API calls to the
-Directory Service. **/
+        /** The name of the IAM role to use when making API calls to the Directory Service. **/
         DomainIAMRoleName?: String;
         /** A value that specifies the order in which an Aurora Replica is promoted to the
 primary instance after a failure of the existing primary instance. For more

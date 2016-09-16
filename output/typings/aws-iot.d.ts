@@ -834,6 +834,8 @@ than the version specified with the --version parameter.
     
     export type CACertificates = CACertificate[];
     
+    export type CannedAccessControlList = string;
+    
     export type CertificateArn = string;
     
     export type CertificateId = string;
@@ -964,6 +966,8 @@ than the version specified with the --version parameter.
     
     export type SetAsActive = boolean;
     
+    export type SetAsActiveFlag = boolean;
+    
     export type SetAsDefault = boolean;
     
     export type StateReason = string;
@@ -1003,6 +1007,10 @@ than the version specified with the --version parameter.
     export type Version = number;
     
     export type errorMessage = string;
+    
+    export type resourceArn = string;
+    
+    export type resourceId = string;
 
     export interface AcceptCertificateTransferRequest {
         /** The ID of the certificate. **/
@@ -1031,7 +1039,7 @@ than the version specified with the --version parameter.
         cloudwatchMetric?: CloudwatchMetricAction;
         /** Change the state of a CloudWatch alarm. **/
         cloudwatchAlarm?: CloudwatchAlarmAction;
-        /** Write data to an Amazon Elasticsearch Service; domain. **/
+        /** Write data to an Amazon Elasticsearch Service domain. **/
         elasticsearch?: ElasticsearchAction;
     }
     export interface AttachPrincipalPolicyRequest {
@@ -1457,7 +1465,7 @@ following: INSERT , UPDATE , or DELETE . **/
         /** The delivery stream name. **/
         deliveryStreamName: DeliveryStreamName;
         /** A character separator that will be used to separate records written to the
-firehose stream. Valid values are: &#x27;\n&#x27; (newline), &#x27;\t&#x27; (tab), &#x27;\r\n&#x27; (Windows
+Firehose stream. Valid values are: &#x27;\n&#x27; (newline), &#x27;\t&#x27; (tab), &#x27;\r\n&#x27; (Windows
 newline), &#x27;,&#x27; (comma). **/
         separator?: FirehoseSeparator;
     }
@@ -1812,7 +1820,8 @@ certificates. **/
         /** The CA certificate used to sign the device certificate being registered. **/
         caCertificatePem?: CertificatePem;
         /** A boolean value that specifies if the CA certificate is set to active. **/
-        setAsActive?: SetAsActive;
+        setAsActive?: SetAsActiveFlag;
+        status?: CertificateStatus;
     }
     export interface RegisterCertificateResponse {
         /** The certificate ARN. **/
@@ -1845,6 +1854,10 @@ certificates. **/
     export interface ResourceAlreadyExistsException {
         /** The message for the exception. **/
         message?: errorMessage;
+        /** The ID of the resource that caused the exception. **/
+        resourceId?: resourceId;
+        /** The ARN of the resource that caused the exception. **/
+        resourceArn?: resourceArn;
     }
     export interface ResourceNotFoundException {
         /** The message for the exception. **/
@@ -1857,6 +1870,10 @@ certificates. **/
         bucketName: BucketName;
         /** The object key. **/
         key: Key;
+        /** The Amazon S3 canned ACL that controls access to the object identified by the
+object key. For more information, see S3 canned ACLs
+[http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl] . **/
+        cannedAcl?: CannedAccessControlList;
     }
     export interface ServiceUnavailableException {
         /** The message for the exception. **/
