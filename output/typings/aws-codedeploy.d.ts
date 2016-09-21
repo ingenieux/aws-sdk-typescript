@@ -14,11 +14,15 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS CodeDeploy OverviewThis reference guide provides descriptions of the AWS
-CodeDeploy APIs. For more information about AWS CodeDeploy, see the AWS
-CodeDeploy User Guide [docs.aws.amazon.com/codedeploy/latest/userguide] .
+   * AWS CodeDeployOverview
 
-Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
+This reference guide provides descriptions of the AWS CodeDeploy APIs. For more
+information about AWS CodeDeploy, see the AWS CodeDeploy User Guide
+[http://docs.aws.amazon.com/codedeploy/latest/userguide] .
+
+Using the APIs
+
+You can use the AWS CodeDeploy APIs to work with the following:
 
  &amp;#42; Applications are unique identifiers used by AWS CodeDeploy to ensure the
    correct combinations of revisions, deployment configurations, and deployment
@@ -60,7 +64,7 @@ Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
    web pages, executable files, and deployment scripts) along with an
    application specification (AppSpec) file. (The AppSpec file is unique to AWS
    CodeDeploy; it defines the deployment actions you want AWS CodeDeploy to
-   execute.) Ffor application revisions stored in Amazon S3 buckets, an
+   execute.) For application revisions stored in Amazon S3 buckets, an
    application revision is uniquely identified by its Amazon S3 object key and
    its ETag, version, or both. For application revisions stored in GitHub
    repositories, an application revision is uniquely identified by its
@@ -162,13 +166,15 @@ Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
      * @error InvalidDeploymentGroupNameException   
      * @error DeploymentGroupDoesNotExistException   
      * @error RevisionRequiredException   
+     * @error RevisionDoesNotExistException   
      * @error InvalidRevisionException   
      * @error InvalidDeploymentConfigNameException   
      * @error DeploymentConfigDoesNotExistException   
      * @error DescriptionTooLongException   
      * @error DeploymentLimitExceededException   
+     * @error InvalidAutoRollbackConfigException   
      */
-    createDeployment(params: CodeDeploy.CreateDeploymentInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.DescriptionTooLongException|CodeDeploy.DeploymentLimitExceededException|any, data: CodeDeploy.CreateDeploymentOutput|any) => void): Request<CodeDeploy.CreateDeploymentOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.InvalidRevisionException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.DescriptionTooLongException|CodeDeploy.DeploymentLimitExceededException|any>;
+    createDeployment(params: CodeDeploy.CreateDeploymentInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.RevisionDoesNotExistException|CodeDeploy.InvalidRevisionException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.DescriptionTooLongException|CodeDeploy.DeploymentLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|any, data: CodeDeploy.CreateDeploymentOutput|any) => void): Request<CodeDeploy.CreateDeploymentOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.RevisionRequiredException|CodeDeploy.RevisionDoesNotExistException|CodeDeploy.InvalidRevisionException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.DescriptionTooLongException|CodeDeploy.DeploymentLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|any>;
     /**
      * Creates a deployment configuration.
      *
@@ -199,8 +205,11 @@ Using the APIsYou can use the AWS CodeDeploy APIs to work with the following:
      * @error LifecycleHookLimitExceededException   
      * @error InvalidTriggerConfigException   
      * @error TriggerTargetsLimitExceededException   
+     * @error InvalidAlarmConfigException   
+     * @error AlarmsLimitExceededException   
+     * @error InvalidAutoRollbackConfigException   
      */
-    createDeploymentGroup(params: CodeDeploy.CreateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.RoleRequiredException|CodeDeploy.InvalidRoleException|CodeDeploy.DeploymentGroupLimitExceededException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|any, data: CodeDeploy.CreateDeploymentGroupOutput|any) => void): Request<CodeDeploy.CreateDeploymentGroupOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.RoleRequiredException|CodeDeploy.InvalidRoleException|CodeDeploy.DeploymentGroupLimitExceededException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|any>;
+    createDeploymentGroup(params: CodeDeploy.CreateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.RoleRequiredException|CodeDeploy.InvalidRoleException|CodeDeploy.DeploymentGroupLimitExceededException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|CodeDeploy.InvalidAlarmConfigException|CodeDeploy.AlarmsLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|any, data: CodeDeploy.CreateDeploymentGroupOutput|any) => void): Request<CodeDeploy.CreateDeploymentGroupOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.RoleRequiredException|CodeDeploy.InvalidRoleException|CodeDeploy.DeploymentGroupLimitExceededException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|CodeDeploy.InvalidAlarmConfigException|CodeDeploy.AlarmsLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|any>;
     /**
      * Deletes an application.
      *
@@ -448,12 +457,19 @@ on-premises instance names, use the registration status parameter.
      * @error LifecycleHookLimitExceededException   
      * @error InvalidTriggerConfigException   
      * @error TriggerTargetsLimitExceededException   
+     * @error InvalidAlarmConfigException   
+     * @error AlarmsLimitExceededException   
+     * @error InvalidAutoRollbackConfigException   
      */
-    updateDeploymentGroup(params: CodeDeploy.UpdateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.InvalidRoleException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|any, data: CodeDeploy.UpdateDeploymentGroupOutput|any) => void): Request<CodeDeploy.UpdateDeploymentGroupOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.InvalidRoleException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|any>;
+    updateDeploymentGroup(params: CodeDeploy.UpdateDeploymentGroupInput, callback?: (err: CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.InvalidRoleException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|CodeDeploy.InvalidAlarmConfigException|CodeDeploy.AlarmsLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|any, data: CodeDeploy.UpdateDeploymentGroupOutput|any) => void): Request<CodeDeploy.UpdateDeploymentGroupOutput|any,CodeDeploy.ApplicationNameRequiredException|CodeDeploy.InvalidApplicationNameException|CodeDeploy.ApplicationDoesNotExistException|CodeDeploy.InvalidDeploymentGroupNameException|CodeDeploy.DeploymentGroupAlreadyExistsException|CodeDeploy.DeploymentGroupNameRequiredException|CodeDeploy.DeploymentGroupDoesNotExistException|CodeDeploy.InvalidEC2TagException|CodeDeploy.InvalidTagException|CodeDeploy.InvalidAutoScalingGroupException|CodeDeploy.InvalidDeploymentConfigNameException|CodeDeploy.DeploymentConfigDoesNotExistException|CodeDeploy.InvalidRoleException|CodeDeploy.LifecycleHookLimitExceededException|CodeDeploy.InvalidTriggerConfigException|CodeDeploy.TriggerTargetsLimitExceededException|CodeDeploy.InvalidAlarmConfigException|CodeDeploy.AlarmsLimitExceededException|CodeDeploy.InvalidAutoRollbackConfigException|any>;
 
   }
 
   export module CodeDeploy {
+    
+    export type AlarmList = Alarm[];
+    
+    export type AlarmName = string;
     
     export type ApplicationId = string;
     
@@ -464,6 +480,10 @@ on-premises instance names, use the registration status parameter.
     export type ApplicationsInfoList = ApplicationInfo[];
     
     export type ApplicationsList = ApplicationName[];
+    
+    export type AutoRollbackEvent = string;
+    
+    export type AutoRollbackEventsList = AutoRollbackEvent[];
     
     export type AutoScalingGroupHook = string;
     
@@ -563,6 +583,8 @@ on-premises instance names, use the registration status parameter.
     
     export type NextToken = string;
     
+    export type NullableBoolean = boolean;
+    
     export type RegistrationStatus = string;
     
     export type Repository = string;
@@ -616,6 +638,31 @@ Value-only tags are not allowed. **/
         /** The names of the on-premises instances to which to add tags. **/
         instanceNames: InstanceNameList;
     }
+    export interface Alarm {
+        /** The name of the alarm. Maximum length is 255 characters. Each alarm name can be
+used only once in a list of alarms. **/
+        name?: AlarmName;
+    }
+    export interface AlarmConfiguration {
+        /** Indicates whether the alarm configuration is enabled. **/
+        enabled?: Boolean;
+        /** Indicates whether a deployment should continue if information about the current
+state of alarms cannot be retrieved from Amazon CloudWatch. The default value is
+false.
+
+ &amp;#42; true: The deployment will proceed even if alarm status information can&#x27;t be
+   retrieved from Amazon CloudWatch.
+   
+   
+ * false: The deployment will stop if alarm status information can&#x27;t be
+   retrieved from Amazon CloudWatch. **/
+        ignorePollAlarmFailure?: Boolean;
+        /** A list of alarms configured for the deployment group. A maximum of 10 alarms can
+be added to a deployment group. **/
+        alarms?: AlarmList;
+    }
+    export interface AlarmsLimitExceededException {
+    }
     export interface ApplicationAlreadyExistsException {
     }
     export interface ApplicationDoesNotExistException {
@@ -634,6 +681,13 @@ otherwise, false. **/
     export interface ApplicationLimitExceededException {
     }
     export interface ApplicationNameRequiredException {
+    }
+    export interface AutoRollbackConfiguration {
+        /** Indicates whether a defined automatic rollback configuration is currently
+enabled. **/
+        enabled?: Boolean;
+        /** The event type or types that trigger a rollback. **/
+        events?: AutoRollbackEventsList;
     }
     export interface AutoScalingGroup {
         /** The Auto Scaling group name. **/
@@ -729,11 +783,15 @@ The type parameter takes either of the following values:
 
  &amp;#42; HOST_COUNT: The value parameter represents the minimum number of healthy
    instances as an absolute value.
+   
+   
  * FLEET_PERCENT: The value parameter represents the minimum number of healthy
    instances as a percentage of the total number of instances in the deployment.
    If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy
    converts the percentage to the equivalent number of instance and rounds up
    fractional instances.
+   
+   
 
 The value parameter takes an integer.
 
@@ -762,21 +820,21 @@ if a configuration isn&#x27;t specified for the deployment or the deployment gro
 The predefined deployment configurations include the following:
 
  &amp;#42; CodeDeployDefault.AllAtOnce attempts to deploy an application revision to as
-   many instance as possible at once. The status of the overall deployment will
+   many instances as possible at once. The status of the overall deployment will
    be displayed as Succeeded if the application revision is deployed to one or
    more of the instances. The status of the overall deployment will be displayed
    as Failed if the application revision is not deployed to any of the
-   instances. Using an example of nine instance, CodeDeployDefault.AllAtOnce
-   will attempt to deploy to all nine instance at once. The overall deployment
+   instances. Using an example of nine instances, CodeDeployDefault.AllAtOnce
+   will attempt to deploy to all nine instances at once. The overall deployment
    will succeed if deployment to even a single instance is successful; it will
-   fail only if deployments to all nine instance fail.
+   fail only if deployments to all nine instances fail.
    
    
  * CodeDeployDefault.HalfAtATime deploys to up to half of the instances at a
    time (with fractions rounded down). The overall deployment succeeds if the
    application revision is deployed to at least half of the instances (with
    fractions rounded up); otherwise, the deployment fails. In the example of
-   nine instances, it will deploy to up to four instance at a time. The overall
+   nine instances, it will deploy to up to four instances at a time. The overall
    deployment succeeds if deployment to five or more instances succeed;
    otherwise, the deployment fails. The deployment may be successfully deployed
    to some instances even if the overall deployment fails.
@@ -800,10 +858,10 @@ The predefined deployment configurations include the following:
       fails.
       
       
-    * In an example using nine instance, it will deploy to one instance at a
+    * In an example using nine instances, it will deploy to one instance at a
       time. The overall deployment succeeds if deployment to the first eight
-      instance is successful; the overall deployment fails if deployment to any
-      of the first eight instance fails.
+      instances is successful; the overall deployment fails if deployment to any
+      of the first eight instances fails.
       
       
    
@@ -819,8 +877,17 @@ The predefined deployment configurations include the following:
         /** A service role ARN that allows AWS CodeDeploy to act on the user&#x27;s behalf when
 interacting with AWS services. **/
         serviceRoleArn: Role;
-        /** Information about triggers to create when the deployment group is created. **/
+        /** Information about triggers to create when the deployment group is created. For
+examples, see Create a Trigger for an AWS CodeDeploy Event
+[http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html] 
+in the AWS CodeDeploy User Guide. **/
         triggerConfigurations?: TriggerConfigList;
+        /** Information to add about Amazon CloudWatch alarms when the deployment group is
+created. **/
+        alarmConfiguration?: AlarmConfiguration;
+        /** Configuration information for an automatic rollback that is added when a
+deployment group is created. **/
+        autoRollbackConfiguration?: AutoRollbackConfiguration;
     }
     export interface CreateDeploymentGroupOutput {
         /** A unique deployment group ID. **/
@@ -853,6 +920,12 @@ ApplicationStop deployment lifecycle event to fail to an instance, the
 deployment to that instance will stop, and the deployment to that instance will
 be considered to have failed. **/
         ignoreApplicationStopFailures?: Boolean;
+        /** Configuration information for an automatic rollback that is added when a
+deployment is created. **/
+        autoRollbackConfiguration?: AutoRollbackConfiguration;
+        /** Indicates whether to deploy to all instances or only to instances that are not
+running the latest application revision. **/
+        updateOutdatedInstancesOnly?: Boolean;
     }
     export interface CreateDeploymentOutput {
         /** A unique deployment ID. **/
@@ -932,8 +1005,13 @@ the Auto Scaling group. **/
         /** Information about the deployment group&#x27;s target revision, including type and
 location. **/
         targetRevision?: RevisionLocation;
-        /** A list of associated triggers. **/
+        /** Information about triggers associated with the deployment group. **/
         triggerConfigurations?: TriggerConfigList;
+        /** A list of alarms associated with the deployment group. **/
+        alarmConfiguration?: AlarmConfiguration;
+        /** Information about the automatic rollback configuration associated with the
+deployment group. **/
+        autoRollbackConfiguration?: AutoRollbackConfiguration;
     }
     export interface DeploymentGroupLimitExceededException {
     }
@@ -974,7 +1052,12 @@ servers that participate in the deployment process. **/
         /** The means by which the deployment was created:
 
  &amp;#42; user: A user created the deployment.
- * autoscaling: Auto Scaling created the deployment. **/
+   
+   
+ * autoscaling: Auto Scaling created the deployment.
+   
+   
+ * codeDeployRollback: A rollback process created the deployment. **/
         creator?: DeploymentCreator;
         /** If true, then if the deployment causes the ApplicationStop deployment lifecycle
 event to an instance to fail, the deployment to that instance will not be
@@ -986,6 +1069,14 @@ deployment lifecycle event to an instance to fail, the deployment to that
 instance will stop, and the deployment to that instance will be considered to
 have failed. **/
         ignoreApplicationStopFailures?: Boolean;
+        /** Information about the automatic rollback configuration associated with the
+deployment. **/
+        autoRollbackConfiguration?: AutoRollbackConfiguration;
+        /** Indicates whether only instances that are not running the latest application
+revision are to be deployed to. **/
+        updateOutdatedInstancesOnly?: Boolean;
+        /** Information about a deployment rollback. **/
+        rollbackInfo?: RollbackInfo;
     }
     export interface DeploymentLimitExceededException {
     }
@@ -1014,12 +1105,22 @@ successfully deployed. **/
         /** The associated error code:
 
  &amp;#42; Success: The specified script ran.
+   
+   
  * ScriptMissing: The specified script was not found in the specified location.
+   
+   
  * ScriptNotExecutable: The specified script is not a recognized executable file
    type.
+   
+   
  * ScriptTimedOut: The specified script did not finish running in the specified
    time period.
+   
+   
  * ScriptFailed: The specified script failed to run as expected.
+   
+   
  * UnknownError: The specified script did not run for an unknown reason. **/
         errorCode?: LifecycleErrorCode;
         /** The name of the script. **/
@@ -1039,7 +1140,11 @@ If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log. 
         /** The tag filter type:
 
  &amp;#42; KEY_ONLY: Key only.
+   
+   
  * VALUE_ONLY: Value only.
+   
+   
  * KEY_AND_VALUE: Key and value. **/
         Type?: EC2TagFilterType;
     }
@@ -1049,23 +1154,47 @@ If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log. 
  &amp;#42; APPLICATION_MISSING: The application was missing. This error code will most
    likely be raised if the application is deleted after the deployment is
    created but before it is started.
+   
+   
  * DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code
    will most likely be raised if the deployment group is deleted after the
    deployment is created but before it is started.
+   
+   
  * HEALTH_CONSTRAINTS: The deployment failed on too many instances to be
    successfully deployed within the instance health constraints specified.
+   
+   
  * HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed
    within the instance health constraints specified.
+   
+   
  * IAM_ROLE_MISSING: The service role cannot be accessed.
+   
+   
  * IAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.
+   
+   
  * INTERNAL_ERROR: There was an internal error.
+   
+   
  * NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2
    service.
+   
+   
  * NO_INSTANCES: No instance were specified, or no instance can be found.
+   
+   
  * OVER_MAX_INSTANCES: The maximum number of instance was exceeded.
+   
+   
  * THROTTLED: The operation was throttled because the calling account exceeded
    the throttling limits of one or more AWS services.
+   
+   
  * TIMEOUT: The deployment has timed out.
+   
+   
  * REVISION_MISSING: The revision ID was missing. This error code will most
    likely be raised if the revision is deleted after the deployment is created
    but before it is started. **/
@@ -1203,10 +1332,20 @@ instance was deregistered. **/
         /** The deployment status for this instance:
 
  &amp;#42; Pending: The deployment is pending for this instance.
+   
+   
  * In Progress: The deployment is in progress for this instance.
+   
+   
  * Succeeded: The deployment has succeeded for this instance.
+   
+   
  * Failed: The deployment has failed for this instance.
+   
+   
  * Skipped: The deployment has been skipped for this instance.
+   
+   
  * Unknown: The deployment status is unknown for this instance. **/
         status?: InstanceStatus;
         /** A timestamp indicating when the instance information was last updated. **/
@@ -1214,7 +1353,11 @@ instance was deregistered. **/
         /** A list of lifecycle events for this instance. **/
         lifecycleEvents?: LifecycleEventList;
     }
+    export interface InvalidAlarmConfigException {
+    }
     export interface InvalidApplicationNameException {
+    }
+    export interface InvalidAutoRollbackConfigException {
     }
     export interface InvalidAutoScalingGroupException {
     }
@@ -1277,10 +1420,20 @@ AfterInstall, ApplicationStart, or ValidateService. **/
         /** The deployment lifecycle event status:
 
  &amp;#42; Pending: The deployment lifecycle event is pending.
+   
+   
  * InProgress: The deployment lifecycle event is in progress.
+   
+   
  * Succeeded: The deployment lifecycle event ran successfully.
+   
+   
  * Failed: The deployment lifecycle event has failed.
+   
+   
  * Skipped: The deployment lifecycle event has been skipped.
+   
+   
  * Unknown: The deployment lifecycle event is unknown. **/
         status?: LifecycleEventStatus;
     }
@@ -1294,9 +1447,15 @@ user or AWS account. **/
 
  &amp;#42; registerTime: Sort by the time the revisions were registered with AWS
    CodeDeploy.
+   
+   
  * firstUsedTime: Sort by the time the revisions were first used in a
    deployment.
+   
+   
  * lastUsedTime: Sort by the time the revisions were last used in a deployment.
+   
+   
 
 If not specified or set to null, the results will be returned in an arbitrary
 order. **/
@@ -1304,7 +1463,11 @@ order. **/
         /** The order in which to sort the list results:
 
  &amp;#42; ascending: ascending order.
+   
+   
  * descending: descending order.
+   
+   
 
 If not specified, the results will be sorted in ascending order.
 
@@ -1320,8 +1483,12 @@ If set to null, all of the user&#x27;s buckets will be searched. **/
 of an deployment group:
 
  &amp;#42; include: List revisions that are target revisions of a deployment group.
+   
+   
  * exclude: Do not list revisions that are target revisions of a deployment
    group.
+   
+   
  * ignore: List all revisions. **/
         deployed?: ListStateFilterAction;
         /** An identifier returned from the previous list application revisions call. It can
@@ -1390,10 +1557,20 @@ be used to return the next set of deployment instances in the list. **/
         /** A subset of instances to list by status:
 
  &amp;#42; Pending: Include those instance with pending deployments.
+   
+   
  * InProgress: Include those instance where deployments are still in progress.
+   
+   
  * Succeeded: Include those instances with successful deployments.
+   
+   
  * Failed: Include those instance with failed deployments.
+   
+   
  * Skipped: Include those instance with skipped deployments.
+   
+   
  * Unknown: Include those instance with deployments in an unknown state. **/
         instanceStatusFilter?: InstanceStatusList;
     }
@@ -1414,10 +1591,20 @@ user or AWS account. **/
         /** A subset of deployments to list by status:
 
  &amp;#42; Created: Include created deployments in the resulting list.
+   
+   
  * Queued: Include queued deployments in the resulting list.
+   
+   
  * In Progress: Include in-progress deployments in the resulting list.
+   
+   
  * Succeeded: Include successful deployments in the resulting list.
+   
+   
  * Failed: Include failed deployments in the resulting list.
+   
+   
  * Stopped: Include stopped deployments in the resulting list. **/
         includeOnlyStatuses?: DeploymentStatusList;
         /** A time range (start and end) for returning a subset of the list of deployments. **/
@@ -1439,6 +1626,8 @@ deployments in the list. **/
 
  &amp;#42; Deregistered: Include deregistered on-premises instances in the resulting
    list.
+   
+   
  * Registered: Include registered on-premises instances in the resulting list. **/
         registrationStatus?: RegistrationStatus;
         /** The on-premises instance tags that will be used to restrict the corresponding
@@ -1462,8 +1651,12 @@ set of on-premises instances in the list. **/
         /** The minimum healthy instance type:
 
  &amp;#42; HOST_COUNT: The minimum number of healthy instance as an absolute value.
+   
+   
  * FLEET_PERCENT: The minimum number of healthy instance as a percentage of the
    total number of instance in the deployment.
+   
+   
 
 In an example of nine instance, if a HOST_COUNT of six is specified, deploy to
 up to three instances at a time. The deployment will be successful if six or
@@ -1515,6 +1708,8 @@ location. **/
         /** The type of application revision:
 
  &amp;#42; S3: An application revision stored in Amazon S3.
+   
+   
  * GitHub: An application revision stored in GitHub. **/
         revisionType?: RevisionLocationType;
         s3Location?: S3Location;
@@ -1523,6 +1718,16 @@ location. **/
     export interface RevisionRequiredException {
     }
     export interface RoleRequiredException {
+    }
+    export interface RollbackInfo {
+        /** The ID of the deployment rollback. **/
+        rollbackDeploymentId?: DeploymentId;
+        /** The deployment ID of the deployment that was underway and triggered a rollback
+deployment because it failed or was stopped. **/
+        rollbackTriggeringDeploymentId?: DeploymentId;
+        /** Information describing the status of a deployment rollback; for example, whether
+the deployment can&#x27;t be rolled back, is in progress, failed, or succeeded. **/
+        rollbackMessage?: Description;
     }
     export interface S3Location {
         /** The name of the Amazon S3 bucket where the application revision is stored. **/
@@ -1533,7 +1738,11 @@ application revision. **/
         /** The file type of the application revision. Must be one of the following:
 
  &amp;#42; tar: A tar archive file.
+   
+   
  * tgz: A compressed tar archive file.
+   
+   
  * zip: A zip archive file. **/
         bundleType?: BundleType;
         /** A specific version of the Amazon S3 object that represents the bundled artifacts
@@ -1552,11 +1761,17 @@ object will be skipped. **/
     export interface StopDeploymentInput {
         /** The unique ID of a deployment. **/
         deploymentId: DeploymentId;
+        /** Indicates, when a deployment is stopped, whether instances that have been
+updated should be rolled back to the previous version of the application
+revision. **/
+        autoRollbackEnabled?: NullableBoolean;
     }
     export interface StopDeploymentOutput {
         /** The status of the stop deployment operation:
 
  &amp;#42; Pending: The stop operation is pending.
+   
+   
  * Succeeded: The stop operation was successful. **/
         status?: StopStatus;
         /** An accompanying status message. **/
@@ -1576,7 +1791,11 @@ object will be skipped. **/
         /** The on-premises instance tag filter type:
 
  &amp;#42; KEY_ONLY: Key only.
+   
+   
  * VALUE_ONLY: Value only.
+   
+   
  * KEY_AND_VALUE: Key and value. **/
         Type?: TagFilterType;
     }
@@ -1600,17 +1819,7 @@ Specify null to leave the end time open-ended. **/
         /** The ARN of the Amazon Simple Notification Service topic through which
 notifications about deployment or instance events are sent. **/
         triggerTargetArn?: TriggerTargetArn;
-        /** The event type or types for which notifications are triggered.
-
-The following event type values are supported:
-
- &amp;#42; DEPLOYMENT_START
- * DEPLOYMENT_SUCCESS
- * DEPLOYMENT_FAILURE
- * DEPLOYMENT_STOP
- * INSTANCE_START
- * INSTANCE_SUCCESS
- * INSTANCE_FAILURE **/
+        /** The event type or types for which notifications are triggered. **/
         triggerEvents?: TriggerEventTypeList;
     }
     export interface TriggerTargetsLimitExceededException {
@@ -1644,8 +1853,17 @@ names. To remove Auto Scaling groups, do not enter any Auto Scaling group names.
         autoScalingGroups?: AutoScalingGroupNameList;
         /** A replacement ARN for the service role, if you want to change it. **/
         serviceRoleArn?: Role;
-        /** Information about triggers to change when the deployment group is updated. **/
+        /** Information about triggers to change when the deployment group is updated. For
+examples, see Modify Triggers in an AWS CodeDeploy Deployment Group
+[http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html] 
+in the AWS CodeDeploy User Guide. **/
         triggerConfigurations?: TriggerConfigList;
+        /** Information to add or change about Amazon CloudWatch alarms when the deployment
+group is updated. **/
+        alarmConfiguration?: AlarmConfiguration;
+        /** Information for an automatic rollback configuration that is added or changed
+when a deployment group is updated. **/
+        autoRollbackConfiguration?: AutoRollbackConfiguration;
     }
     export interface UpdateDeploymentGroupOutput {
         /** If the output contains no data, and the corresponding deployment group contained

@@ -1091,8 +1091,8 @@ RebootDBInstance request.
      * Creates an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket.
 Amazon RDS must be authorized to access the Amazon S3 bucket and the data must
 be created using the Percona XtraBackup utility as described in Migrating Data
-from an External MySQL Database to an Amazon Aurora DB Cluster
-[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Migrate.html] .
+from MySQL by Using an Amazon S3 Bucket
+[AmazonRDS/latest/UserGuide/Aurora.Migrate.MySQL.html#Aurora.Migrate.MySQL.S3] .
      *
      * @error DBClusterAlreadyExistsFault   
      * @error DBClusterQuotaExceededFault   
@@ -1395,6 +1395,8 @@ EC2SecurityGroupName or EC2SecurityGroupId).
     export type SubnetList = Subnet[];
     
     export type SupportedCharacterSetsList = CharacterSet[];
+    
+    export type SupportedTimezonesList = Timezone[];
     
     export type TStamp = number;
     
@@ -2729,6 +2731,11 @@ Default: 1
 
 Valid Values: 0 - 15 **/
         PromotionTier?: IntegerOptional;
+        /** The time zone of the DB instance. The time zone parameter is currently supported
+only by Microsoft SQL Server
+[http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone] 
+. **/
+        Timezone?: String;
     }
     export interface CreateDBInstanceReadReplicaMessage {
         /** The DB instance identifier of the Read Replica. This identifier is the unique
@@ -3347,10 +3354,13 @@ beyond the marker, up to the value specified by MaxRecords . **/
 CharacterSetName parameter of the CreateDBInstance API is not specified. **/
         DefaultCharacterSet?: CharacterSet;
         /** A list of the character sets supported by this engine for the CharacterSetName 
-parameter of the CreateDBInstance API. **/
+parameter of the CreateDBInstance action. **/
         SupportedCharacterSets?: SupportedCharacterSetsList;
         /** A list of engine versions that this database engine version can be upgraded to. **/
         ValidUpgradeTarget?: ValidUpgradeTargetList;
+        /** A list of the time zones supported by this engine for the Timezone parameter of
+the CreateDBInstance action. **/
+        SupportedTimezones?: SupportedTimezonesList;
     }
     export interface DBEngineVersionMessage {
         /** An optional pagination token provided by a previous request. If this parameter
@@ -3404,7 +3414,7 @@ automated backups are enabled, as determined by the BackupRetentionPeriod . **/
         /** Provides List of DB security group elements containing only DBSecurityGroup.Name 
 and DBSecurityGroup.Status subelements. **/
         DBSecurityGroups?: DBSecurityGroupMembershipList;
-        /** Provides List of VPC security group elements that the DB instance belongs to. **/
+        /** Provides a list of VPC security group elements that the DB instance belongs to. **/
         VpcSecurityGroups?: VpcSecurityGroupMembershipList;
         /** Provides the list of DB parameter groups applied to this DB instance. **/
         DBParameterGroups?: DBParameterGroupStatusList;
@@ -3473,7 +3483,7 @@ be blank. **/
         StatusInfos?: DBInstanceStatusInfoList;
         /** Specifies the storage type associated with DB instance. **/
         StorageType?: String;
-        /** The ARN from the Key Store with which the instance is associated for TDE
+        /** The ARN from the key store with which the instance is associated for TDE
 encryption. **/
         TdeCredentialArn?: String;
         /** Specifies the port that the DB instance listens on. If the DB instance is part
@@ -3515,6 +3525,10 @@ information, see Fault Tolerance for an Aurora DB Cluster
         PromotionTier?: IntegerOptional;
         /** The Amazon Resource Name (ARN) for the DB instance. **/
         DBInstanceArn?: String;
+        /** The time zone of the DB instance. In most cases, the Timezone element is empty. 
+Timezone content appears only for Microsoft SQL Server DB instances that were
+created with a time zone specified. **/
+        Timezone?: String;
     }
     export interface DBInstanceAlreadyExistsFault {
     }
@@ -3670,9 +3684,9 @@ instance at the time of the snapshot. **/
         /** The DB snapshot Arn that the DB snapshot was copied from. It only has value in
 case of cross customer or cross region copy. **/
         SourceDBSnapshotIdentifier?: String;
-        /** Specifies the storage type associated with DB Snapshot. **/
+        /** Specifies the storage type associated with DB snapshot. **/
         StorageType?: String;
-        /** The ARN from the Key Store with which to associate the instance for TDE
+        /** The ARN from the key store with which to associate the instance for TDE
 encryption. **/
         TdeCredentialArn?: String;
         /** Specifies whether the DB snapshot is encrypted. **/
@@ -3681,6 +3695,10 @@ encryption. **/
         KmsKeyId?: String;
         /** The Amazon Resource Name (ARN) for the DB snapshot. **/
         DBSnapshotArn?: String;
+        /** The time zone of the DB snapshot. In most cases, the Timezone element is empty. 
+Timezone content appears only for snapshots taken from Microsoft SQL Server DB
+instances that were created with a time zone specified. **/
+        Timezone?: String;
     }
     export interface DBSnapshotAlreadyExistsFault {
     }
@@ -4196,10 +4214,14 @@ value specified by MaxRecords . **/
         /** Indicates that only the default version of the specified engine or engine and
 major version combination is returned. **/
         DefaultOnly?: Boolean;
-        /** If this parameter is specified, and if the requested engine supports the
-CharacterSetName parameter for CreateDBInstance, the response includes a list of
-supported character sets for each engine version. **/
+        /** If this parameter is specified and the requested engine supports the 
+CharacterSetName parameter for CreateDBInstance , the response includes a list
+of supported character sets for each engine version. **/
         ListSupportedCharacterSets?: BooleanOptional;
+        /** If this parameter is specified and the requested engine supports the TimeZone 
+parameter for CreateDBInstance , the response includes a list of supported time
+zones for each engine version. **/
+        ListSupportedTimezones?: BooleanOptional;
     }
     export interface DescribeDBInstancesMessage {
         /** The user-supplied instance identifier. If this parameter is specified,
@@ -7185,6 +7207,10 @@ string can only contain only the set of Unicode letters, digits, white-space,
     export interface TagListMessage {
         /** List of tags returned by the ListTagsForResource operation. **/
         TagList?: TagList;
+    }
+    export interface Timezone {
+        /** The name of the time zone. **/
+        TimezoneName?: String;
     }
     export interface UpgradeTarget {
         /** The name of the upgrade target database engine. **/

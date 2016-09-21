@@ -71,6 +71,22 @@ allocation costs. For more information, see Tagging Amazon EMR Resources
      */
     addTags(params: EMR.AddTagsInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.AddTagsOutput|any) => void): Request<EMR.AddTagsOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
     /**
+     * Creates a security configuration using EMR Security Configurations, which are
+stored in the service. Security Configurations enable you to more easily create
+a configuration, reuse it, and apply it whenever a cluster is created.
+     *
+     * @error InternalServerException   
+     * @error InvalidRequestException   
+     */
+    createSecurityConfiguration(params: EMR.CreateSecurityConfigurationInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.CreateSecurityConfigurationOutput|any) => void): Request<EMR.CreateSecurityConfigurationOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
+    /**
+     * Deletes a security configuration.
+     *
+     * @error InternalServerException   
+     * @error InvalidRequestException   
+     */
+    deleteSecurityConfiguration(params: EMR.DeleteSecurityConfigurationInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.DeleteSecurityConfigurationOutput|any) => void): Request<EMR.DeleteSecurityConfigurationOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
+    /**
      * Provides cluster-level details including status, hardware and software
 configuration, VPC settings, and so on. For information about the cluster steps,
 see ListSteps .
@@ -107,6 +123,14 @@ Amazon Elastic MapReduce can return a maximum of 512 job flow descriptions.
      * @error InternalServerError   
      */
     describeJobFlows(params: EMR.DescribeJobFlowsInput, callback?: (err: EMR.InternalServerError|any, data: EMR.DescribeJobFlowsOutput|any) => void): Request<EMR.DescribeJobFlowsOutput|any,EMR.InternalServerError|any>;
+    /**
+     * Provides the details of a security configuration by returning the configuration
+JSON.
+     *
+     * @error InternalServerException   
+     * @error InvalidRequestException   
+     */
+    describeSecurityConfiguration(params: EMR.DescribeSecurityConfigurationInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.DescribeSecurityConfigurationOutput|any) => void): Request<EMR.DescribeSecurityConfigurationOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
     /**
      * Provides more detail about the cluster step.
      *
@@ -150,6 +174,16 @@ instances, etc.
      * @error InvalidRequestException   
      */
     listInstances(params: EMR.ListInstancesInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.ListInstancesOutput|any) => void): Request<EMR.ListInstancesOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
+    /**
+     * Lists all the security configurations visible to this account, providing their
+creation dates and times, and their names. This call returns a maximum of 50
+clusters per call, but returns a marker to track the paging of the cluster list
+across multiple ListSecurityConfigurations calls.
+     *
+     * @error InternalServerException   
+     * @error InvalidRequestException   
+     */
+    listSecurityConfigurations(params: EMR.ListSecurityConfigurationsInput, callback?: (err: EMR.InternalServerException|EMR.InvalidRequestException|any, data: EMR.ListSecurityConfigurationsOutput|any) => void): Request<EMR.ListSecurityConfigurationsOutput|any,EMR.InternalServerException|EMR.InvalidRequestException|any>;
     /**
      * Provides a list of steps for the cluster.
      *
@@ -358,6 +392,8 @@ resources, such as Amazon EC2 instances.
     
     export type ResourceId = string;
     
+    export type SecurityConfigurationList = SecurityConfigurationSummary[];
+    
     export type SecurityGroupsList = XmlStringMaxLen256[];
     
     export type StepConfigList = StepConfig[];
@@ -441,9 +477,7 @@ third-party applications that third-party vendors use for testing purposes. **/
         AdditionalInfo?: StringMap;
     }
     export interface BootstrapActionConfig {
-        /** The name of the bootstrap action. **/
         Name: XmlStringMaxLen256;
-        /** The script run by the bootstrap action. **/
         ScriptBootstrapAction: ScriptBootstrapActionConfig;
     }
     export interface BootstrapActionDetail {
@@ -500,6 +534,8 @@ the actual billing rate. **/
 
 The list of Configurations supplied to the EMR cluster. **/
         Configurations?: ConfigurationList;
+        /** The name of the security configuration applied to the cluster. **/
+        SecurityConfiguration?: XmlString;
     }
     export interface ClusterStateChangeReason {
         /** The programmatic code for the state change reason. **/
@@ -558,6 +594,24 @@ Configurations
         /** A set of properties supplied to the Configuration object. **/
         Properties?: StringMap;
     }
+    export interface CreateSecurityConfigurationInput {
+        /** The name of the security configuration. **/
+        Name: XmlString;
+        /** The security configuration details in JSON format. **/
+        SecurityConfiguration: String;
+    }
+    export interface CreateSecurityConfigurationOutput {
+        /** The name of the security configuration. **/
+        Name: XmlString;
+        /** The date and time the security configuration was created. **/
+        CreationDateTime: Date;
+    }
+    export interface DeleteSecurityConfigurationInput {
+        /** The name of the security configuration. **/
+        Name: XmlString;
+    }
+    export interface DeleteSecurityConfigurationOutput {
+    }
     export interface DescribeClusterInput {
         /** The identifier of the cluster to describe. **/
         ClusterId: ClusterId;
@@ -579,6 +633,18 @@ Configurations
     export interface DescribeJobFlowsOutput {
         /** A list of job flows matching the parameters supplied. **/
         JobFlows?: JobFlowDetailList;
+    }
+    export interface DescribeSecurityConfigurationInput {
+        /** The name of the security configuration. **/
+        Name: XmlString;
+    }
+    export interface DescribeSecurityConfigurationOutput {
+        /** The name of the security configuration. **/
+        Name?: XmlString;
+        /** The security configuration details in JSON format. **/
+        SecurityConfiguration?: String;
+        /** The date and time the security configuration was created **/
+        CreationDateTime?: Date;
     }
     export interface DescribeStepInput {
         /** The identifier of the cluster with steps to describe. **/
@@ -1021,13 +1087,13 @@ error. **/
     export interface ListBootstrapActionsInput {
         /** The cluster identifier for the bootstrap actions to list . **/
         ClusterId: ClusterId;
-        /** The pagination token that indicates the next set of results to retrieve . **/
+        /** The pagination token that indicates the next set of results to retrieve. **/
         Marker?: Marker;
     }
     export interface ListBootstrapActionsOutput {
         /** The bootstrap actions associated with the cluster . **/
         BootstrapActions?: CommandList;
-        /** The pagination token that indicates the next set of results to retrieve . **/
+        /** The pagination token that indicates the next set of results to retrieve. **/
         Marker?: Marker;
     }
     export interface ListClustersInput {
@@ -1075,6 +1141,18 @@ request. **/
         /** The list of instances for the cluster and given filters. **/
         Instances?: InstanceList;
         /** The pagination token that indicates the next set of results to retrieve. **/
+        Marker?: Marker;
+    }
+    export interface ListSecurityConfigurationsInput {
+        /** The pagination token that indicates the set of results to retrieve. **/
+        Marker?: Marker;
+    }
+    export interface ListSecurityConfigurationsOutput {
+        /** The creation date and time, and name, of each security configuration. **/
+        SecurityConfigurations?: SecurityConfigurationList;
+        /** A pagination token that indicates the next set of results to retrieve. Include
+the marker in the next ListSecurityConfiguration call to retrieve the next page
+of results, if required. **/
         Marker?: Marker;
     }
     export interface ListStepsInput {
@@ -1223,17 +1301,22 @@ resources on your behalf. **/
         /** A list of tags to associate with a cluster and propagate to Amazon EC2
 instances. **/
         Tags?: TagList;
+        /** The name of a security configuration to apply to the cluster. **/
+        SecurityConfiguration?: XmlString;
     }
     export interface RunJobFlowOutput {
         /** An unique identifier for the job flow. **/
         JobFlowId?: XmlStringMaxLen256;
     }
     export interface ScriptBootstrapActionConfig {
-        /** Location of the script to run during a bootstrap action. Can be either a
-location in Amazon S3 or on a local file system. **/
         Path: XmlString;
-        /** A list of command line arguments to pass to the bootstrap action script. **/
         Args?: XmlStringList;
+    }
+    export interface SecurityConfigurationSummary {
+        /** The name of the security configuration. **/
+        Name?: XmlString;
+        /** The date and time the security configuration was created. **/
+        CreationDateTime?: Date;
     }
     export interface SetTerminationProtectionInput {
         /** A list of strings that uniquely identify the job flows to protect. This

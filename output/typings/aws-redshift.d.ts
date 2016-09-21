@@ -14,15 +14,17 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: query
    *
-   * Amazon Redshift OverviewThis is an interface reference for Amazon Redshift. It
-contains documentation for one of the programming or command line interfaces you
-can use to manage Amazon Redshift clusters. Note that Amazon Redshift is
-asynchronous, which means that some interfaces may require techniques, such as
-polling or asynchronous callback handlers, to determine when a command has been
-applied. In this reference, the parameter descriptions indicate whether a change
-is applied immediately, on the next instance reboot, or during the next
-maintenance window. For a summary of the Amazon Redshift cluster management
-interfaces, go to Using the Amazon Redshift Management Interfaces
+   * Amazon RedshiftOverview
+
+This is an interface reference for Amazon Redshift. It contains documentation
+for one of the programming or command line interfaces you can use to manage
+Amazon Redshift clusters. Note that Amazon Redshift is asynchronous, which means
+that some interfaces may require techniques, such as polling or asynchronous
+callback handlers, to determine when a command has been applied. In this
+reference, the parameter descriptions indicate whether a change is applied
+immediately, on the next instance reboot, or during the next maintenance window.
+For a summary of the Amazon Redshift cluster management interfaces, go to Using
+the Amazon Redshift Management Interfaces
 [http://docs.aws.amazon.com/redshift/latest/mgmt/using-aws-sdk.html] .
 
 Amazon Redshift manages all the work of setting up, operating, and scaling a
@@ -31,8 +33,8 @@ and applying patches and upgrades to the Amazon Redshift engine. You can focus
 on using your data to acquire new insights for your business and customers.
 
 If you are a first-time user of Amazon Redshift, we recommend that you begin by
-reading the The Amazon Redshift Getting Started Guide
-[http://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html]
+reading the Amazon Redshift Getting Started Guide
+[http://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html] .
 
 If you are a database developer, the Amazon Redshift Database Developer Guide
 [http://docs.aws.amazon.com/redshift/latest/dg/welcome.html] explains how to
@@ -111,12 +113,12 @@ the Amazon Redshift Cluster Management Guide .
      */
     copyClusterSnapshot(params: Redshift.CopyClusterSnapshotMessage, callback?: (err: Redshift.ClusterSnapshotAlreadyExistsFault|Redshift.ClusterSnapshotNotFoundFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.ClusterSnapshotQuotaExceededFault|any, data: Redshift.CopyClusterSnapshotResult|any) => void): Request<Redshift.CopyClusterSnapshotResult|any,Redshift.ClusterSnapshotAlreadyExistsFault|Redshift.ClusterSnapshotNotFoundFault|Redshift.InvalidClusterSnapshotStateFault|Redshift.ClusterSnapshotQuotaExceededFault|any>;
     /**
-     * Creates a new cluster. To create the cluster in virtual private cloud (VPC), you
-must provide cluster subnet group name. If you don&#x27;t provide a cluster subnet
-group name or the cluster security group parameter, Amazon Redshift creates a
-non-VPC cluster, it associates the default cluster security group with the
-cluster. For more information about managing clusters, go to Amazon Redshift
-Clusters
+     * Creates a new cluster.
+
+To create the cluster in Virtual Private Cloud (VPC), you must provide a cluster
+subnet group name. The cluster subnet group identifies the subnets of your VPC
+that Amazon Redshift uses when creating the cluster. For more information about
+managing clusters, go to Amazon Redshift Clusters
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html] in
 the Amazon Redshift Cluster Management Guide .
      *
@@ -344,8 +346,9 @@ the Amazon Redshift Cluster Management Guide .
      */
     deleteCluster(params: Redshift.DeleteClusterMessage, callback?: (err: Redshift.ClusterNotFoundFault|Redshift.InvalidClusterStateFault|Redshift.ClusterSnapshotAlreadyExistsFault|Redshift.ClusterSnapshotQuotaExceededFault|any, data: Redshift.DeleteClusterResult|any) => void): Request<Redshift.DeleteClusterResult|any,Redshift.ClusterNotFoundFault|Redshift.InvalidClusterStateFault|Redshift.ClusterSnapshotAlreadyExistsFault|Redshift.ClusterSnapshotQuotaExceededFault|any>;
     /**
-     * Deletes a specified Amazon Redshift parameter group. You cannot delete a
-parameter group if it is associated with a cluster.
+     * Deletes a specified Amazon Redshift parameter group.
+
+You cannot delete a parameter group if it is associated with a cluster.
      *
      * @error InvalidClusterParameterGroupStateFault   
      * @error ClusterParameterGroupNotFoundFault   
@@ -355,8 +358,10 @@ parameter group if it is associated with a cluster.
      * Deletes an Amazon Redshift security group.
 
 You cannot delete a security group that is associated with any clusters. You
-cannot delete the default security group.For information about managing security
-groups, go to Amazon Redshift Cluster Security Groups
+cannot delete the default security group.
+
+For information about managing security groups, go to Amazon Redshift Cluster
+Security Groups
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html] 
 in the Amazon Redshift Cluster Management Guide .
      *
@@ -535,7 +540,7 @@ call this operation even before creating any clusters to learn more about the
 Amazon Redshift versions. For more information about managing clusters, go to 
 Amazon Redshift Clusters
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html] in
-the Amazon Redshift Cluster Management Guide
+the Amazon Redshift Cluster Management Guide .
      *
      */
     describeClusterVersions(params: Redshift.DescribeClusterVersionsMessage, callback?: (err: any, data: Redshift.ClusterVersionsMessage|any) => void): Request<Redshift.ClusterVersionsMessage|any,any>;
@@ -649,7 +654,7 @@ CPU and price. With the cost involved you might want to obtain a list of cluster
 options in the specific region and specify values when creating a cluster. For
 more information about managing clusters, go to Amazon Redshift Clusters
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html] in
-the Amazon Redshift Cluster Management Guide
+the Amazon Redshift Cluster Management Guide .
      *
      */
     describeOrderableClusterOptions(params: Redshift.DescribeOrderableClusterOptionsMessage, callback?: (err: any, data: Redshift.OrderableClusterOptionsMessage|any) => void): Request<Redshift.OrderableClusterOptionsMessage|any,any>;
@@ -720,14 +725,20 @@ the table specified by TableRestoreRequestId .
 specifying an ARN, or you can return all tags for a given type of resource, such
 as clusters, snapshots, and so on.
 
-The following are limitations for DescribeTags : &amp;#42; You cannot specify an ARN and
-   a resource-type value together in the same request.
+The following are limitations for DescribeTags :
+
+ &amp;#42; You cannot specify an ARN and a resource-type value together in the same
+   request.
+   
+   
  * You cannot use the MaxRecords and Marker parameters together with the ARN
    parameter.
+   
+   
  * The MaxRecords parameter can be a range from 10 to 50 results to return in a
    request.
-
-
+   
+   
 
 If you specify both tag keys and tag values in the same request, Amazon Redshift
 returns all resources that match any combination of the specified keys and
@@ -905,7 +916,7 @@ rebooting . A cluster event is created when the reboot is completed. Any pending
 cluster modifications (see ModifyCluster ) are applied at this reboot. For more
 information about managing clusters, go to Amazon Redshift Clusters
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html] in
-the Amazon Redshift Cluster Management Guide
+the Amazon Redshift Cluster Management Guide .
      *
      * @error InvalidClusterStateFault   
      * @error ClusterNotFoundFault   
@@ -1195,31 +1206,63 @@ snapshot. **/
         ClusterIdentifier?: String;
         /** The node type for the nodes in the cluster. **/
         NodeType?: String;
-        /** The current state of the cluster. Possible values are: &amp;#42; available
+        /** The current state of the cluster. Possible values are the following:
+
+ &amp;#42; available
+   
+   
  * creating
+   
+   
  * deleting
+   
+   
  * final-snapshot
+   
+   
  * hardware-failure
+   
+   
  * incompatible-hsm
+   
+   
  * incompatible-network
+   
+   
  * incompatible-parameters
+   
+   
  * incompatible-restore
+   
+   
  * modifying
+   
+   
  * rebooting
+   
+   
  * renaming
+   
+   
  * resizing
+   
+   
  * rotating-keys
+   
+   
  * storage-full
+   
+   
  * updating-hsm **/
         ClusterStatus?: String;
         /** The status of a modify operation, if any, initiated for the cluster. **/
         ModifyStatus?: String;
         /** The master user name for the cluster. This name is used to connect to the
-database that is specified in DBName . **/
+database that is specified in the DBName parameter. **/
         MasterUsername?: String;
         /** The name of the initial database that was created when the cluster was created.
 This same name is returned for the life of the cluster. If an initial database
-was not specified, a database named &quot;dev&quot; was created by default. **/
+was not specified, a database named dev dev was created by default. **/
         DBName?: String;
         /** The connection endpoint. **/
         Endpoint?: Endpoint;
@@ -1231,12 +1274,13 @@ was not specified, a database named &quot;dev&quot; was created by default. **/
 security group is represented by an element that contains 
 ClusterSecurityGroup.Name and ClusterSecurityGroup.Status subelements.
 
-Cluster security groups are used when the cluster is not created in a VPC.
-Clusters that are created in a VPC use VPC security groups, which are listed by
-the VpcSecurityGroups parameter. **/
+Cluster security groups are used when the cluster is not created in an Amazon
+Virtual Private Cloud (VPC). Clusters that are created in a VPC use VPC security
+groups, which are listed by the VpcSecurityGroups parameter. **/
         ClusterSecurityGroups?: ClusterSecurityGroupMembershipList;
-        /** A list of Virtual Private Cloud (VPC) security groups that are associated with
-the cluster. This parameter is returned only if the cluster is in a VPC. **/
+        /** A list of Amazon Virtual Private Cloud (Amazon VPC) security groups that are
+associated with the cluster. This parameter is returned only if the cluster is
+in a VPC. **/
         VpcSecurityGroups?: VpcSecurityGroupMembershipList;
         /** The list of cluster parameter groups that are associated with this cluster. Each
 parameter group in the list is returned with its status. **/
@@ -1248,36 +1292,40 @@ is valid only when the cluster is in a VPC. **/
         VpcId?: String;
         /** The name of the Availability Zone in which the cluster is located. **/
         AvailabilityZone?: String;
-        /** The weekly time range (in UTC) during which system maintenance can occur. **/
+        /** The weekly time range, in Universal Coordinated Time (UTC), during which system
+maintenance can occur. **/
         PreferredMaintenanceWindow?: String;
-        /** If present, changes to the cluster are pending. Specific pending changes are
-identified by subelements. **/
+        /** A value that, if present, indicates that changes to the cluster are pending.
+Specific pending changes are identified by subelements. **/
         PendingModifiedValues?: PendingModifiedValues;
         /** The version ID of the Amazon Redshift engine that is running on the cluster. **/
         ClusterVersion?: String;
-        /** If true , major version upgrades will be applied automatically to the cluster
-during the maintenance window. **/
+        /** A Boolean value that, if true , indicates that major version upgrades will be
+applied automatically to the cluster during the maintenance window. **/
         AllowVersionUpgrade?: Boolean;
         /** The number of compute nodes in the cluster. **/
         NumberOfNodes?: Integer;
-        /** If true , the cluster can be accessed from a public network. **/
+        /** A Boolean value that, if true , indicates that the cluster can be accessed from
+a public network. **/
         PubliclyAccessible?: Boolean;
-        /** If true , data in the cluster is encrypted at rest. **/
+        /** A Boolean value that, if true , indicates that data in the cluster is encrypted
+at rest. **/
         Encrypted?: Boolean;
-        /** Describes the status of a cluster restore action. Returns null if the cluster
-was not created by restoring a snapshot. **/
+        /** A value that describes the status of a cluster restore action. This parameter
+returns null if the cluster was not created by restoring a snapshot. **/
         RestoreStatus?: RestoreStatus;
-        /** Reports whether the Amazon Redshift cluster has finished applying any HSM
-settings changes specified in a modify cluster command.
+        /** A value that reports whether the Amazon Redshift cluster has finished applying
+any hardware security module (HSM) settings changes specified in a modify
+cluster command.
 
 Values: active, applying **/
         HsmStatus?: HsmStatus;
-        /** Returns the destination region and retention period that are configured for
-cross-region snapshot copy. **/
+        /** A value that returns the destination region and retention period that are
+configured for cross-region snapshot copy. **/
         ClusterSnapshotCopyStatus?: ClusterSnapshotCopyStatus;
         /** The public key for the cluster. **/
         ClusterPublicKey?: String;
-        /** The nodes in a cluster. **/
+        /** The nodes in the cluster. **/
         ClusterNodes?: ClusterNodesList;
         /** The status of the elastic IP (EIP) address. **/
         ElasticIpStatus?: ElasticIpStatus;
@@ -1285,9 +1333,19 @@ cross-region snapshot copy. **/
         ClusterRevisionNumber?: String;
         /** The list of tags for the cluster. **/
         Tags?: TagList;
-        /** The AWS Key Management Service (KMS) key ID of the encryption key used to
+        /** The AWS Key Management Service (AWS KMS) key ID of the encryption key used to
 encrypt data in the cluster. **/
         KmsKeyId?: String;
+        /** An option that specifies whether to create the cluster with enhanced VPC routing
+enabled. To create a cluster that uses enhanced VPC routing, the cluster must be
+in a VPC. For more information, see Enhanced VPC Routing
+[http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html] in
+the Amazon Redshift Cluster Management Guide.
+
+If this option is true , enhanced VPC routing is enabled.
+
+Default: false **/
+        EnhancedVpcRouting?: Boolean;
         /** A list of AWS Identity and Access Management (IAM) roles that can be used by the
 cluster to access other AWS services. **/
         IamRoles?: ClusterIamRoleList;
@@ -1295,14 +1353,20 @@ cluster to access other AWS services. **/
     export interface ClusterAlreadyExistsFault {
     }
     export interface ClusterIamRole {
-        /** The Amazon Resource Name (ARN) of the IAM role. For example, 
+        /** The Amazon Resource Name (ARN) of the IAM role, for example, 
 arn:aws:iam::123456789012:role/RedshiftCopyUnload . **/
         IamRoleArn?: String;
-        /** Describes the status of the IAM role&#x27;s association with an Amazon Redshift
-cluster.
+        /** A value that describes the status of the IAM role&#x27;s association with an Amazon
+Redshift cluster.
 
-The following are possible statuses and descriptions. &amp;#42; in-sync : The role is available for use by the cluster.
+The following are possible statuses and descriptions.
+
+ &amp;#42; in-sync : The role is available for use by the cluster.
+   
+   
  * adding : The role is in the process of being associated with the cluster.
+   
+   
  * removing : The role is in the process of being disassociated with the
    cluster. **/
         ApplyStatus?: String;
@@ -1384,16 +1448,30 @@ parameter group. **/
 the database, waiting for a cluster reboot, or encountered an error when being
 applied.
 
-The following are possible statuses and descriptions. &amp;#42; in-sync : The parameter value is in sync with the database.
+The following are possible statuses and descriptions.
+
+ &amp;#42; in-sync : The parameter value is in sync with the database.
+   
+   
  * pending-reboot : The parameter value will be applied after the cluster
    reboots.
+   
+   
  * applying : The parameter value is being applied to the database.
+   
+   
  * invalid-parameter : Cannot apply the parameter value because it has an
    invalid value or syntax.
+   
+   
  * apply-deferred : The parameter contains static property changes. The changes
    are deferred until the cluster reboots.
+   
+   
  * apply-error : Cannot connect to the cluster. The parameter change will be
    applied after the cluster reboots.
+   
+   
  * unknown-error : Cannot apply the parameter change right now. The change will
    be applied after the cluster reboots. **/
         ParameterApplyStatus?: String;
@@ -1536,9 +1614,17 @@ Constraints:
 Constraints:
 
  &amp;#42; Cannot be null, empty, or blank.
+   
+   
  * Must contain from 1 to 255 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
  * Must be unique for the AWS account that is making the request. **/
         TargetSnapshotIdentifier: String;
     }
@@ -1561,7 +1647,11 @@ Default: dev
 Constraints:
 
  &amp;#42; Must contain 1 to 64 alphanumeric characters.
+   
+   
  * Must contain only lowercase letters.
+   
+   
  * Cannot be a word that is reserved by the service. A list of reserved words
    can be found in Reserved Words
    [http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html] in the
@@ -1574,17 +1664,31 @@ identifier also appears in the Amazon Redshift console.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * Alphabetic characters must be lowercase.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
  * Must be unique for all clusters within an AWS account.
+   
+   
 
 Example: myexamplecluster **/
         ClusterIdentifier: String;
-        /** The type of the cluster. When cluster type is specified as &amp;#42; single-node , the NumberOfNodes parameter is not required.
+        /** The type of the cluster. When cluster type is specified as
+
+ &amp;#42; single-node , the NumberOfNodes parameter is not required.
+   
+   
  * multi-node , the NumberOfNodes parameter is required.
-
-
+   
+   
 
 Valid Values: multi-node | single-node
 
@@ -1604,7 +1708,11 @@ being created.
 Constraints:
 
  &amp;#42; Must be 1 - 128 alphanumeric characters.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot be a reserved word. A list of reserved words can be found in Reserved
    Words [http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html] in
    the Amazon Redshift Database Developer Guide. **/
@@ -1615,9 +1723,17 @@ being created.
 Constraints:
 
  &amp;#42; Must be between 8 and 64 characters in length.
+   
+   
  * Must contain at least one uppercase letter.
+   
+   
  * Must contain at least one lowercase letter.
+   
+   
  * Must contain one number.
+   
+   
  * Can be any printable ASCII character (ASCII code 33 to 126) except &#x27; (single
    quote), &quot; (double quote), \, /, @, or space. **/
         MasterUserPassword: String;
@@ -1673,7 +1789,11 @@ Groups
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens. **/
         ClusterParameterGroupName?: String;
         /** The number of days that automated snapshots are retained. If the value is 0,
@@ -1753,6 +1873,16 @@ in the Amazon Redshift Cluster Management Guide. **/
         /** The AWS Key Management Service (KMS) key ID of the encryption key that you want
 to use to encrypt data in the cluster. **/
         KmsKeyId?: String;
+        /** An option that specifies whether to create the cluster with enhanced VPC routing
+enabled. To create a cluster that uses enhanced VPC routing, the cluster must be
+in a VPC. For more information, see Enhanced VPC Routing
+[http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html] in
+the Amazon Redshift Cluster Management Guide.
+
+If this option is true , enhanced VPC routing is enabled.
+
+Default: false **/
+        EnhancedVpcRouting?: BooleanOptional;
         /** Reserved. **/
         AdditionalInfo?: String;
         /** A list of AWS Identity and Access Management (IAM) roles that can be used by the
@@ -1760,7 +1890,7 @@ cluster to access other AWS services. You must supply the IAM roles in their
 Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single
 request.
 
-A cluster can have up to 10 IAM roles associated at any time. **/
+A cluster can have up to 10 IAM roles associated with it at any time. **/
         IamRoles?: IamRoleArnList;
     }
     export interface CreateClusterParameterGroupMessage {
@@ -1769,9 +1899,17 @@ A cluster can have up to 10 IAM roles associated at any time. **/
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
  * Must be unique withing your AWS account.
+   
+   
 
 This value is stored as a lower-case string. **/
         ParameterGroupName: String;
@@ -1803,8 +1941,14 @@ string.
 Constraints:
 
  &amp;#42; Must contain no more than 255 alphanumeric characters or hyphens.
+   
+   
  * Must not be &quot;Default&quot;.
+   
+   
  * Must be unique for all security groups that are created by your AWS account.
+   
+   
 
 Example: examplesecuritygroup **/
         ClusterSecurityGroupName: String;
@@ -1823,9 +1967,17 @@ must be unique for all snapshots within the AWS account.
 Constraints:
 
  &amp;#42; Cannot be null, empty, or blank
+   
+   
  * Must contain from 1 to 255 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens
+   
+   
 
 Example: my-snapshot-id **/
         SnapshotIdentifier: String;
@@ -1844,8 +1996,14 @@ string.
 Constraints:
 
  &amp;#42; Must contain no more than 255 alphanumeric characters or hyphens.
+   
+   
  * Must not be &quot;Default&quot;.
+   
+   
  * Must be unique for all subnet groups that are created by your AWS account.
+   
+   
 
 Example: examplesubnetgroup **/
         ClusterSubnetGroupName: String;
@@ -1866,8 +2024,14 @@ request. **/
 Constraints:
 
  &amp;#42; Cannot be null, empty, or blank.
+   
+   
  * Must contain from 1 to 255 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens. **/
         SubscriptionName: String;
         /** The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the
@@ -1950,9 +2114,17 @@ the AWS account.
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * Alphabetic characters must be lowercase.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
  * Must be unique for all clusters within an AWS account. **/
         SnapshotCopyGrantName: String;
         /** The unique identifier of the customer master key (CMK) to which to grant Amazon
@@ -1995,8 +2167,14 @@ records have been retrieved for the request. **/
 Constraints:
 
  &amp;#42; Must contain lowercase characters.
+   
+   
  * Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens. **/
         ClusterIdentifier: String;
         /** Determines whether a final snapshot of the cluster is created before Amazon
@@ -2004,7 +2182,9 @@ Redshift deletes the cluster. If true , a final cluster snapshot is not created.
 If false , a final cluster snapshot is created before the cluster is deleted.
 
 The FinalClusterSnapshotIdentifier parameter must be specified if 
-SkipFinalClusterSnapshot is false .Default: false **/
+SkipFinalClusterSnapshot is false .
+
+Default: false **/
         SkipFinalClusterSnapshot?: Boolean;
         /** The identifier of the final snapshot that is to be created immediately before
 deleting the cluster. If this parameter is provided, SkipFinalClusterSnapshot 
@@ -2013,7 +2193,11 @@ must be false .
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens. **/
         FinalClusterSnapshotIdentifier?: String;
     }
@@ -2023,6 +2207,8 @@ Constraints:
 Constraints:
 
  &amp;#42; Must be the name of an existing cluster parameter group.
+   
+   
  * Cannot delete a default cluster parameter group. **/
         ParameterGroupName: String;
     }
@@ -2284,7 +2470,11 @@ Example: 1.0 **/
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         ClusterParameterGroupFamily?: String;
         /** The maximum number of response records to return in each call. If the number of
@@ -2401,10 +2591,16 @@ Constraints:
 If SourceIdentifier is supplied, SourceType must also be provided.
 
  &amp;#42; Specify a cluster identifier when SourceType is cluster .
+   
+   
  * Specify a cluster security group name when SourceType is 
    cluster-security-group .
+   
+   
  * Specify a cluster parameter group name when SourceType is 
    cluster-parameter-group .
+   
+   
  * Specify a cluster snapshot identifier when SourceType is cluster-snapshot . **/
         SourceIdentifier?: String;
         /** The event source to retrieve events for. If no value is specified, all events
@@ -2415,10 +2611,16 @@ Constraints:
 If SourceType is supplied, SourceIdentifier must also be provided.
 
  &amp;#42; Specify cluster when SourceIdentifier is a cluster identifier.
+   
+   
  * Specify cluster-security-group when SourceIdentifier is a cluster security
    group name.
+   
+   
  * Specify cluster-parameter-group when SourceIdentifier is a cluster parameter
    group name.
+   
+   
  * Specify cluster-snapshot when SourceIdentifier is a cluster snapshot
    identifier. **/
         SourceType?: SourceType;
@@ -2662,28 +2864,38 @@ beyond the marker, up to the value specified by the MaxRecords parameter. **/
         /** The Amazon Resource Name (ARN) for which you want to describe the tag or tags.
 For example, arn:aws:redshift:us-east-1:123456789:cluster:t1 . **/
         ResourceName?: String;
-        /** The type of resource with which you want to view tags. Valid resource types are: &amp;#42; 
-   Cluster
- * 
-   CIDR/IP
- * 
-   EC2 security group
- * 
-   Snapshot
- * 
-   Cluster security group
- * 
-   Subnet group
- * 
-   HSM connection
- * 
-   HSM certificate
- * 
-   Parameter group
- * 
-   Snapshot copy grant
+        /** The type of resource with which you want to view tags. Valid resource types are:
 
-
+ &amp;#42; Cluster
+   
+   
+ * CIDR/IP
+   
+   
+ * EC2 security group
+   
+   
+ * Snapshot
+   
+   
+ * Cluster security group
+   
+   
+ * Subnet group
+   
+   
+ * HSM connection
+   
+   
+ * HSM certificate
+   
+   
+ * Parameter group
+   
+   
+ * Snapshot copy grant
+   
+   
 
 For more information about Amazon Redshift resource types and constructing ARNs,
 go to Constructing an Amazon Redshift Amazon Resource Name (ARN)
@@ -2758,6 +2970,8 @@ Example: examplecluster **/
 Constraints:
 
  &amp;#42; Must be in the same region as the cluster
+   
+   
  * The cluster must have read bucket and put object permissions **/
         BucketName: String;
         /** The prefix applied to the log file names.
@@ -2765,17 +2979,24 @@ Constraints:
 Constraints:
 
  &amp;#42; Cannot exceed 512 characters
+   
+   
  * Cannot contain spaces( ), double quotes (&quot;), single quotes (&#x27;), a backslash
-   (\), or control characters. The hexadecimal codes for invalid characters are: * 
-      x00 to x20
-    * 
-      x22
-    * 
-      x27
-    * 
-      x5c
-    * 
-      x7f or larger **/
+   (\), or control characters. The hexadecimal codes for invalid characters are:
+   
+    * x00 to x20
+      
+      
+    * x22
+      
+      
+    * x27
+      
+      
+    * x5c
+      
+      
+    * x7f or larger **/
         S3KeyPrefix?: String;
     }
     export interface EnableSnapshotCopyMessage {
@@ -2868,6 +3089,8 @@ notification subscription. **/
 Constraints:
 
  &amp;#42; Can be one of the following: active | no-permission | topic-not-exist
+   
+   
  * The status &quot;no-permission&quot; indicates that Amazon Redshift no longer has
    permission to post to the Amazon SNS topic. The status &quot;topic-not-exist&quot;
    indicates that the topic was deleted after the subscription was created. **/
@@ -3059,12 +3282,12 @@ Values: active, applying **/
         /** The unique identifier of the cluster for which you want to associate or
 disassociate IAM roles. **/
         ClusterIdentifier: String;
-        /** Zero or more IAM roles (in their ARN format) to associate with the cluster. You
-can associate up to 10 IAM roles with a single cluster in a single request. **/
+        /** Zero or more IAM roles to associate with the cluster. The roles must be in their
+Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a
+single cluster in a single request. **/
         AddIamRoles?: IamRoleArnList;
-        /** Zero or more IAM roles (in their ARN format) to disassociate from the cluster.
-You can disassociate up to 10 IAM roles from a single cluster in a single
-request. **/
+        /** Zero or more IAM roles in ARN format to disassociate from the cluster. You can
+disassociate up to 10 IAM roles from a single cluster in a single request. **/
         RemoveIamRoles?: IamRoleArnList;
     }
     export interface ModifyClusterIamRolesResult {
@@ -3121,7 +3344,11 @@ groups to apply, will be revoked from the cluster.
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters or hyphens
+   
+   
  * First character must be a letter
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens **/
         ClusterSecurityGroups?: ClusterSecurityGroupNameList;
         /** A list of virtual private cloud (VPC) security groups to be associated with the
@@ -3130,18 +3357,27 @@ cluster. **/
         /** The new password for the cluster master user. This change is asynchronously
 applied as soon as possible. Between the time of the request and the completion
 of the request, the MasterUserPassword element exists in the 
-PendingModifiedValues element of the operation response. Operations never return
-the password, so this operation provides a way to regain access to the master
-user account for a cluster if the password is lost.
+PendingModifiedValues element of the operation response.
+
+Operations never return the password, so this operation provides a way to regain
+access to the master user account for a cluster if the password is lost.
 
 Default: Uses existing setting.
 
 Constraints:
 
  &amp;#42; Must be between 8 and 64 characters in length.
+   
+   
  * Must contain at least one uppercase letter.
+   
+   
  * Must contain at least one lowercase letter.
+   
+   
  * Must contain one number.
+   
+   
  * Can be any printable ASCII character (ASCII code 33 to 126) except &#x27; (single
    quote), &quot; (double quote), \, /, @, or space. **/
         MasterUserPassword?: String;
@@ -3211,10 +3447,20 @@ Amazon Redshift cluster can use to retrieve and store keys in an HSM. **/
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * Alphabetic characters must be lowercase.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
  * Must be unique for all clusters within an AWS account.
+   
+   
 
 Example: examplecluster **/
         NewClusterIdentifier?: String;
@@ -3229,6 +3475,16 @@ EC2-VPC, go to Supported Platforms to Launch Your Cluster
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms] 
 in the Amazon Redshift Cluster Management Guide. **/
         ElasticIp?: String;
+        /** An option that specifies whether to create the cluster with enhanced VPC routing
+enabled. To create a cluster that uses enhanced VPC routing, the cluster must be
+in a VPC. For more information, see Enhanced VPC Routing
+[http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html] in
+the Amazon Redshift Cluster Management Guide.
+
+If this option is true , enhanced VPC routing is enabled.
+
+Default: false **/
+        EnhancedVpcRouting?: BooleanOptional;
     }
     export interface ModifyClusterParameterGroupMessage {
         /** The name of the parameter group to be modified. **/
@@ -3390,6 +3646,16 @@ operational implications that prevent them from being changed. **/
         /** The pending or in-progress change of the ability to connect to the cluster from
 the public network. **/
         PubliclyAccessible?: BooleanOptional;
+        /** An option that specifies whether to create the cluster with enhanced VPC routing
+enabled. To create a cluster that uses enhanced VPC routing, the cluster must be
+in a VPC. For more information, see Enhanced VPC Routing
+[http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html] in
+the Amazon Redshift Cluster Management Guide.
+
+If this option is true , enhanced VPC routing is enabled.
+
+Default: false **/
+        EnhancedVpcRouting?: BooleanOptional;
     }
     export interface PurchaseReservedNodeOfferingMessage {
         /** The unique identifier of the reserved node offering you want to purchase. **/
@@ -3442,7 +3708,11 @@ Possible Values:
 
  &amp;#42; pending-payment-This reserved node has recently been purchased, and the sale
    has been approved, but payment has not yet been confirmed.
+   
+   
  * active-This reserved node is owned by the caller and is available for use.
+   
+   
  * payment-failed-Payment failed for the purchase attempt. **/
         State?: String;
         /** The anticipated utilization of the reserved node, as defined in the reserved
@@ -3575,9 +3845,17 @@ complete, this value will be 0. **/
 Constraints:
 
  &amp;#42; Must contain from 1 to 63 alphanumeric characters or hyphens.
+   
+   
  * Alphabetic characters must be lowercase.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens.
+   
+   
  * Must be unique for all clusters within an AWS account. **/
         ClusterIdentifier: String;
         /** The name of the snapshot from which to create the new cluster. This parameter
@@ -3635,7 +3913,11 @@ Groups
 Constraints:
 
  &amp;#42; Must be 1 to 255 alphanumeric characters or hyphens.
+   
+   
  * First character must be a letter.
+   
+   
  * Cannot end with a hyphen or contain two consecutive hyphens. **/
         ClusterParameterGroupName?: String;
         /** A list of security groups to be associated with this cluster.
@@ -3690,6 +3972,16 @@ Nodes
 [http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes] 
 in the Amazon Redshift Cluster Management Guide **/
         NodeType?: String;
+        /** An option that specifies whether to create the cluster with enhanced VPC routing
+enabled. To create a cluster that uses enhanced VPC routing, the cluster must be
+in a VPC. For more information, see Enhanced VPC Routing
+[http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html] in
+the Amazon Redshift Cluster Management Guide.
+
+If this option is true , enhanced VPC routing is enabled.
+
+Default: false **/
+        EnhancedVpcRouting?: BooleanOptional;
         /** Reserved. **/
         AdditionalInfo?: String;
         /** A list of AWS Identity and Access Management (IAM) roles that can be used by the
@@ -3805,13 +4097,16 @@ Constraints: Must be the name of valid cluster that has encryption enabled. **/
         /** The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a
 copy of the cluster data as of this exact time. **/
         SnapshotCreateTime?: TStamp;
-        /** The snapshot status. The value of the status depends on the API operation used. &amp;#42; 
-   CreateClusterSnapshot and CopyClusterSnapshot returns status as &quot;creating&quot;.
- * 
-   DescribeClusterSnapshots returns status as &quot;creating&quot;, &quot;available&quot;, &quot;final
+        /** The snapshot status. The value of the status depends on the API operation used.
+
+ &amp;#42; CreateClusterSnapshot and CopyClusterSnapshot returns status as &quot;creating&quot;.
+   
+   
+ * DescribeClusterSnapshots returns status as &quot;creating&quot;, &quot;available&quot;, &quot;final
    snapshot&quot;, or &quot;failed&quot;.
- * 
-   DeleteClusterSnapshot returns status as &quot;deleted&quot;. **/
+   
+   
+ * DeleteClusterSnapshot returns status as &quot;deleted&quot;. **/
         Status?: String;
         /** The port that the cluster is listening on. **/
         Port?: Integer;
@@ -3873,6 +4168,16 @@ amount of time it took a completed backup to finish. **/
         Tags?: TagList;
         /** The list of node types that this cluster snapshot is able to restore into. **/
         RestorableNodeTypes?: RestorableNodeTypeList;
+        /** An option that specifies whether to create the cluster with enhanced VPC routing
+enabled. To create a cluster that uses enhanced VPC routing, the cluster must be
+in a VPC. For more information, see Enhanced VPC Routing
+[http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html] in
+the Amazon Redshift Cluster Management Guide.
+
+If this option is true , enhanced VPC routing is enabled.
+
+Default: false **/
+        EnhancedVpcRouting?: Boolean;
     }
     export interface SnapshotCopyAlreadyDisabledFault {
     }
@@ -3997,26 +4302,35 @@ request. **/
         /** The Amazon Resource Name (ARN) with which the tag is associated. For example, 
 arn:aws:redshift:us-east-1:123456789:cluster:t1 . **/
         ResourceName?: String;
-        /** The type of resource with which the tag is associated. Valid resource types are: &amp;#42; 
-   Cluster
- * 
-   CIDR/IP
- * 
-   EC2 security group
- * 
-   Snapshot
- * 
-   Cluster security group
- * 
-   Subnet group
- * 
-   HSM connection
- * 
-   HSM certificate
- * 
-   Parameter group
+        /** The type of resource with which the tag is associated. Valid resource types are:
 
-
+ &amp;#42; Cluster
+   
+   
+ * CIDR/IP
+   
+   
+ * EC2 security group
+   
+   
+ * Snapshot
+   
+   
+ * Cluster security group
+   
+   
+ * Subnet group
+   
+   
+ * HSM connection
+   
+   
+ * HSM certificate
+   
+   
+ * Parameter group
+   
+   
 
 For more information about Amazon Redshift resource types and constructing ARNs,
 go to Constructing an Amazon Redshift Amazon Resource Name (ARN)
