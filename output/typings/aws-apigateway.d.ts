@@ -973,6 +973,8 @@ with a specified API key.
     
     export type NullableInteger = number;
     
+    export type Op = string;
+    
     export type PathToMapOfMethodSnapshot = {[key:string]: MapOfMethodSnapshot};
     
     export type ProviderARN = string;
@@ -988,8 +990,6 @@ with a specified API key.
     export type Timestamp = number;
     
     export type UnauthorizedCacheControlHeaderStrategy = string;
-    
-    export type op = string;
 
     export interface Account {
         /** The ARN of an Amazon CloudWatch role for the current Account . **/
@@ -1751,7 +1751,11 @@ Swagger definition JSON files are supported. **/
         body: Blob;
     }
     export interface Integration {
-        /** Specifies the integration&#x27;s type. The valid value is HTTP , AWS , or MOCK . **/
+        /** Specifies the integration&#x27;s type. The valid value is HTTP for integrating with
+an HTTP back end, AWS for any AWS service endpoints, MOCK for testing without
+actually invoking the back end, HTTP_PROXY for integrating with the HTTP proxy
+integration, or AWS_PROXY for integrating with the Lambda proxy integration
+type. **/
         type?: IntegrationType;
         /** Specifies the integration&#x27;s HTTP method type. **/
         httpMethod?: String;
@@ -2041,7 +2045,7 @@ be &quot;add&quot;, &quot;remove&quot;, or &quot;replace&quot;. Not all valid op
 given resource. Support of the operations depends on specific operational
 contexts. Attempts to apply an unsupported operation on a resource will return
 an error message. **/
-        op?: op;
+        op?: Op;
         /** The op operation&#x27;s target, as identified by a JSON Pointer
 [https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08] value that
 references a location within the targeted resource. For example, if the target
@@ -2302,9 +2306,7 @@ Identifier (URI) of a call to Amazon API Gateway. **/
         /** A map that defines the method settings for a Stage resource. Keys (designated as 
 /{method_setting_key below) are method paths defined as 
 {resource_path}/{http_method} for an individual method override, or /\&amp;#42;/\* for
-overriding all methods in the stage. Any forward slash (&quot;/&quot;) characters in the 
-resource_path part must be encoded as &quot;~1&quot; as in, for example, 
-~1resource~1sub-resource/GET . **/
+overriding all methods in the stage. **/
         methodSettings?: MapOfMethodSettings;
         /** A map that defines the stage variables for a Stage resource. Variable names can
 have alphanumeric and underscore characters, and the values must match 

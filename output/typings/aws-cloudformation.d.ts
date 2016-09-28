@@ -173,6 +173,8 @@ PhysicalResourceId in the same request.
     /**
      * Returns the description for the specified stack; if no stack name was specified,
 then it returns the description for all the stacks created.
+
+If the stack does not exist, an AmazonCloudFormationException is returned.
      *
      */
     describeStacks(params: CloudFormation.DescribeStacksInput, callback?: (err: any, data: CloudFormation.DescribeStacksOutput|any) => void): Request<CloudFormation.DescribeStacksOutput|any,any>;
@@ -287,7 +289,10 @@ monitoring the progress of the update, see Updating a Stack
      */
     updateStack(params: CloudFormation.UpdateStackInput, callback?: (err: CloudFormation.InsufficientCapabilitiesException|any, data: CloudFormation.UpdateStackOutput|any) => void): Request<CloudFormation.UpdateStackOutput|any,CloudFormation.InsufficientCapabilitiesException|any>;
     /**
-     * Validates a specified template.
+     * Validates a specified template. AWS CloudFormation first checks if the template
+is valid JSON. If it isn&#x27;t, AWS CloudFormation checks if the template is valid
+YAML. If both these checks fail, AWS CloudFormation returns a template
+validation error.
      *
      */
     validateTemplate(params: CloudFormation.ValidateTemplateInput, callback?: (err: any, data: CloudFormation.ValidateTemplateOutput|any) => void): Request<CloudFormation.ValidateTemplateOutput|any,any>;
@@ -410,6 +415,8 @@ monitoring the progress of the update, see Updating a Stack
     
     export type RetainResources = LogicalResourceId[];
     
+    export type RoleARN = string;
+    
     export type Scope = ResourceAttribute[];
     
     export type StackEvents = StackEvent[];
@@ -518,6 +525,19 @@ the FAILED state, AWS CloudFormation shows the error message. **/
     export interface ContinueUpdateRollbackInput {
         /** The name or the unique ID of the stack that you want to continue rolling back. **/
         StackName: StackNameOrId;
+        /** The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
+role that AWS CloudFormation assumes to roll back the stack. AWS CloudFormation
+uses the role&#x27;s credentials to make calls on your behalf. AWS CloudFormation
+always uses this role for all future operations on the stack. As long as users
+have permission to operate on the stack, AWS CloudFormation uses this role even
+if the users don&#x27;t have permission to pass it. Ensure that the role grants least
+privilege.
+
+If you don&#x27;t specify a value, AWS CloudFormation uses the role that was
+previously associated with the stack. If no role is available, AWS
+CloudFormation uses a temporary session that is generated from your user
+credentials. **/
+        RoleARN?: RoleARN;
     }
     export interface ContinueUpdateRollbackOutput {
     }
@@ -595,6 +615,19 @@ more information, see Controlling Access with AWS Identity and Access Management
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html] 
 in the AWS CloudFormation User Guide. **/
         ResourceTypes?: ResourceTypes;
+        /** The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
+role that AWS CloudFormation assumes when executing the change set. AWS
+CloudFormation uses the role&#x27;s credentials to make calls on your behalf. AWS
+CloudFormation always uses this role for all future operations on the stack. As
+long as users have permission to operate on the stack, AWS CloudFormation uses
+this role even if the users don&#x27;t have permission to pass it. Ensure that the
+role grants least privilege.
+
+If you don&#x27;t specify a value, AWS CloudFormation uses the role that was
+previously associated with the stack. If no role is available, AWS
+CloudFormation uses a temporary session that is generated from your user
+credentials. **/
+        RoleARN?: RoleARN;
         /** The Amazon Resource Names (ARNs) of Amazon Simple Notification Service (Amazon
 SNS) topics that AWS CloudFormation associates with the stack. To remove all
 associated notification topics, specify an empty list. **/
@@ -715,6 +748,19 @@ information, see Controlling Access with AWS Identity and Access Management
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html] 
 . **/
         ResourceTypes?: ResourceTypes;
+        /** The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
+role that AWS CloudFormation assumes to create the stack. AWS CloudFormation
+uses the role&#x27;s credentials to make calls on your behalf. AWS CloudFormation
+always uses this role for all future operations on the stack. As long as users
+have permission to operate on the stack, AWS CloudFormation uses this role even
+if the users don&#x27;t have permission to pass it. Ensure that the role grants least
+privilege.
+
+If you don&#x27;t specify a value, AWS CloudFormation uses the role that was
+previously associated with the stack. If no role is available, AWS
+CloudFormation uses a temporary session that is generated from your user
+credentials. **/
+        RoleARN?: RoleARN;
         /** Determines what action will be taken if stack creation fails. This must be one
 of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either OnFailure or 
 DisableRollback , but not both.
@@ -724,13 +770,13 @@ Default: ROLLBACK **/
         /** Structure containing the stack policy body. For more information, go to Prevent
 Updates to Stack Resources
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html] 
-in the AWS CloudFormation User Guide. You can specify either the StackPolicyBody 
-or the StackPolicyURL parameter, but not both. **/
+in the AWS CloudFormation User Guide . You can specify either the 
+StackPolicyBody or the StackPolicyURL parameter, but not both. **/
         StackPolicyBody?: StackPolicyBody;
         /** Location of a file containing the stack policy. The URL must point to a policy
-(max size: 16KB) located in an S3 bucket in the same region as the stack. You
-can specify either the StackPolicyBody or the StackPolicyURL parameter, but not
-both. **/
+(maximum size: 16 KB) located in an S3 bucket in the same region as the stack.
+You can specify either the StackPolicyBody or the StackPolicyURL parameter, but
+not both. **/
         StackPolicyURL?: StackPolicyURL;
         /** Key-value pairs to associate with this stack. AWS CloudFormation also propagates
 these tags to the resources created in the stack. A maximum number of 10 tags
@@ -761,6 +807,15 @@ CloudFormation deletes the stack but does not delete the retained resources.
 Retaining resources is useful when you cannot delete a resource, such as a
 non-empty S3 bucket, but you want to delete the stack. **/
         RetainResources?: RetainResources;
+        /** The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
+role that AWS CloudFormation assumes to delete the stack. AWS CloudFormation
+uses the role&#x27;s credentials to make calls on your behalf.
+
+If you don&#x27;t specify a value, AWS CloudFormation uses the role that was
+previously associated with the stack. If no role is available, AWS
+CloudFormation uses a temporary session that is generated from your user
+credentials. **/
+        RoleARN?: RoleARN;
     }
     export interface DescribeAccountLimitsInput {
         /** A string that identifies the next page of limits that you want to retrieve. **/
@@ -1007,7 +1062,10 @@ Default: There is no default value. **/
         /** Structure containing the template body. (For more information, go to Template
 Anatomy
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html] 
-in the AWS CloudFormation User Guide.) **/
+in the AWS CloudFormation User Guide.)
+
+AWS CloudFormation returns the same template that was used when the stack was
+created. **/
         TemplateBody?: TemplateBody;
     }
     export interface GetTemplateSummaryInput {
@@ -1334,6 +1392,10 @@ stack has been updated at least once. **/
         Capabilities?: Capabilities;
         /** A list of output structures. **/
         Outputs?: Outputs;
+        /** The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
+role that is associated with the stack. During a stack operation, AWS
+CloudFormation uses this role&#x27;s credentials to make calls on your behalf. **/
+        RoleARN?: RoleARN;
         /** A list of Tag s that specify information about the stack. **/
         Tags?: Tags;
     }
@@ -1407,8 +1469,8 @@ in the AWS CloudFormation User Guide.) **/
         ResourceStatusReason?: ResourceStatusReason;
         /** User defined description associated with the resource. **/
         Description?: Description;
-        /** The JSON format content of the Metadata attribute declared for the resource. For
-more information, see Metadata Attribute
+        /** The content of the Metadata attribute declared for the resource. For more
+information, see Metadata Attribute
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html] 
 in the AWS CloudFormation User Guide. **/
         Metadata?: Metadata;
@@ -1560,6 +1622,19 @@ information, see Controlling Access with AWS Identity and Access Management
 [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html] 
 . **/
         ResourceTypes?: ResourceTypes;
+        /** The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
+role that AWS CloudFormation assumes to update the stack. AWS CloudFormation
+uses the role&#x27;s credentials to make calls on your behalf. AWS CloudFormation
+always uses this role for all future operations on the stack. As long as users
+have permission to operate on the stack, AWS CloudFormation uses this role even
+if the users don&#x27;t have permission to pass it. Ensure that the role grants least
+privilege.
+
+If you don&#x27;t specify a value, AWS CloudFormation uses the role that was
+previously associated with the stack. If no role is available, AWS
+CloudFormation uses a temporary session that is generated from your user
+credentials. **/
+        RoleARN?: RoleARN;
         /** Structure containing a new stack policy body. You can specify either the 
 StackPolicyBody or the StackPolicyURL parameter, but not both.
 

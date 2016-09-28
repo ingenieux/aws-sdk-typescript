@@ -839,14 +839,14 @@ for Amazon S3 is used. **/
         type: BlockerType;
     }
     export interface CreateCustomActionTypeInput {
-        /** The category of the custom action, such as a source action or a build action.
+        /** The category of the custom action, such as a build action or a test action.
 
-Although Source is listed as a valid value, it is not currently functional. This
-value is reserved for future use. **/
+Although Source and Approval are listed as valid values, they are not currently
+functional. These values are reserved for future use. **/
         category: ActionCategory;
         /** The provider of the service used in the custom action, such as AWS CodeDeploy. **/
         provider: ActionProvider;
-        /** The version number of the custom action. **/
+        /** The version identifier of the custom action. **/
         version: Version;
         settings?: ActionTypeSettings;
         /** The configuration properties for the custom action.
