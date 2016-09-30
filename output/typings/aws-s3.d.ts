@@ -710,6 +710,8 @@ parts storage.
     
     export type Parts = Part[];
     
+    export type PartsCount = number;
+    
     export type Payer = string;
     
     export type Permission = string;
@@ -1434,6 +1436,8 @@ encryption key that was used for the object. **/
         StorageClass?: StorageClass;
         RequestCharged?: RequestCharged;
         ReplicationStatus?: ReplicationStatus;
+        /** The count of parts this object has. **/
+        PartsCount?: PartsCount;
     }
     export interface GetObjectRequest {
         Bucket: BucketName;
@@ -1481,6 +1485,10 @@ Amazon S3 uses this header for a message integrity check to ensure the
 encryption key was transmitted without error. **/
         SSECustomerKeyMD5?: SSECustomerKeyMD5;
         RequestPayer?: RequestPayer;
+        /** Part number of the object being read. This is a positive integer between 1 and
+10,000. Effectively performs a &#x27;ranged&#x27; GET request for the part specified.
+Useful for downloading just a part of an object. **/
+        PartNumber?: PartNumber;
     }
     export interface GetObjectTorrentOutput {
         Body?: Body;
@@ -1574,6 +1582,8 @@ encryption key that was used for the object. **/
         StorageClass?: StorageClass;
         RequestCharged?: RequestCharged;
         ReplicationStatus?: ReplicationStatus;
+        /** The count of parts this object has. **/
+        PartsCount?: PartsCount;
     }
     export interface HeadObjectRequest {
         Bucket: BucketName;
@@ -1609,6 +1619,11 @@ Amazon S3 uses this header for a message integrity check to ensure the
 encryption key was transmitted without error. **/
         SSECustomerKeyMD5?: SSECustomerKeyMD5;
         RequestPayer?: RequestPayer;
+        /** Part number of the object being read. This is a positive integer between 1 and
+10,000. Effectively performs a &#x27;ranged&#x27; HEAD request for the part specified.
+Useful querying about the size of the part and the number of parts in this
+object. **/
+        PartNumber?: PartNumber;
     }
     export interface IndexDocument {
         /** A suffix that is appended to a request that is for a directory on the website
@@ -1790,6 +1805,7 @@ contain fewer keys but will never contain more. **/
         MaxKeys?: MaxKeys;
         /** Limits the response to keys that begin with the specified prefix. **/
         Prefix?: Prefix;
+        RequestPayer?: RequestPayer;
     }
     export interface ListObjectsV2Output {
         /** A flag that indicates whether or not Amazon S3 returned all of the results that
@@ -1848,6 +1864,7 @@ field with each key in the result then set the fetch owner field to true **/
         /** StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts
 listing after this specified key. StartAfter can be any key in the bucket **/
         StartAfter?: StartAfter;
+        RequestPayer?: RequestPayer;
     }
     export interface ListPartsOutput {
         /** Date when multipart upload will become eligible for abort operation by

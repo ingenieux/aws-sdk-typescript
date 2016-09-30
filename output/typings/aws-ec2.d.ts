@@ -8,7 +8,7 @@
 declare module "aws-sdk" {
 
  /**
-   * apiVersion: 2016-04-01
+   * apiVersion: 2016-09-15
    * endpointPrefix: ec2
    * serviceAbbreviation: Amazon EC2
    * signatureVersion: v4
@@ -23,6 +23,12 @@ develop and deploy applications faster.
   export class EC2 extends Service {
     constructor(options?: any);
     endpoint: Endpoint;
+    /**
+     * Purchases Convertible Reserved Instance offerings described in the 
+GetReservedInstancesExchangeQuote call.
+     *
+     */
+    acceptReservedInstancesExchangeQuote(params: EC2.AcceptReservedInstancesExchangeQuoteRequest, callback?: (err: any, data: EC2.AcceptReservedInstancesExchangeQuoteResult|any) => void): Request<EC2.AcceptReservedInstancesExchangeQuoteResult|any,any>;
     /**
      * Accept a VPC peering connection request. To accept a request, the VPC peering
 connection must be in the pending-acceptance state, and you must be the owner of
@@ -581,22 +587,22 @@ in the Amazon Elastic Compute Cloud User Guide .
      */
     createPlacementGroup(params: EC2.CreatePlacementGroupRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
-     * Creates a listing for Amazon EC2 Reserved Instances to be sold in the Reserved
-Instance Marketplace. You can submit one Reserved Instance listing at a time. To
-get a list of your Reserved Instances, you can use the DescribeReservedInstances 
-operation.
+     * Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the
+Reserved Instance Marketplace. You can submit one Standard Reserved Instance
+listing at a time. To get a list of your Standard Reserved Instances, you can
+use the DescribeReservedInstances operation.
 
-The Reserved Instance Marketplace matches sellers who want to resell Reserved
-Instance capacity that they no longer need with buyers who want to purchase
-additional capacity. Reserved Instances bought and sold through the Reserved
-Instance Marketplace work like any other Reserved Instances.
+The Reserved Instance Marketplace matches sellers who want to resell Standard
+Reserved Instance capacity that they no longer need with buyers who want to
+purchase additional capacity. Reserved Instances bought and sold through the
+Reserved Instance Marketplace work like any other Reserved Instances.
 
-To sell your Reserved Instances, you must first register as a seller in the
-Reserved Instance Marketplace. After completing the registration process, you
-can create a Reserved Instance Marketplace listing of some or all of your
-Reserved Instances, and specify the upfront price to receive for them. Your
-Reserved Instance listings then become available for purchase. To view the
-details of your Reserved Instance listing, you can use the 
+To sell your Standard Reserved Instances, you must first register as a seller in
+the Reserved Instance Marketplace. After completing the registration process,
+you can create a Reserved Instance Marketplace listing of some or all of your
+Standard Reserved Instances, and specify the upfront price to receive for them.
+Your Standard Reserved Instance listings then become available for purchase. To
+view the details of your Standard Reserved Instance listing, you can use the 
 DescribeReservedInstancesListings operation.
 
 For more information, see Reserved Instance Marketplace
@@ -1618,6 +1624,9 @@ recorded event.
     describeSpotFleetRequestHistory(params: EC2.DescribeSpotFleetRequestHistoryRequest, callback?: (err: any, data: EC2.DescribeSpotFleetRequestHistoryResponse|any) => void): Request<EC2.DescribeSpotFleetRequestHistoryResponse|any,any>;
     /**
      * Describes your Spot fleet requests.
+
+Spot fleet requests are deleted 48 hours after they are canceled and their
+instances are terminated.
      *
      */
     describeSpotFleetRequests(params: EC2.DescribeSpotFleetRequestsRequest, callback?: (err: any, data: EC2.DescribeSpotFleetRequestsResponse|any) => void): Request<EC2.DescribeSpotFleetRequestsResponse|any,any>;
@@ -1635,6 +1644,9 @@ examining the response. If the status of the Spot instance is fulfilled , the
 instance ID appears in the response and contains the identifier of the instance.
 Alternatively, you can use DescribeInstances with a filter to look for instances
 where the instance lifecycle is spot .
+
+Spot instance requests are deleted 4 hours after they are canceled and their
+instances are terminated.
      *
      */
     describeSpotInstanceRequests(params: EC2.DescribeSpotInstanceRequestsRequest, callback?: (err: any, data: EC2.DescribeSpotInstanceRequestsResult|any) => void): Request<EC2.DescribeSpotInstanceRequestsResult|any,any>;
@@ -1998,6 +2010,13 @@ generated password.
      */
     getPasswordData(params: EC2.GetPasswordDataRequest, callback?: (err: any, data: EC2.GetPasswordDataResult|any) => void): Request<EC2.GetPasswordDataResult|any,any>;
     /**
+     * Returns details about the values and term of your specified Convertible Reserved
+Instances. When an offering ID is specified it returns information about whether
+the exchange is valid and can be performed.
+     *
+     */
+    getReservedInstancesExchangeQuote(params: EC2.GetReservedInstancesExchangeQuoteRequest, callback?: (err: any, data: EC2.GetReservedInstancesExchangeQuoteResult|any) => void): Request<EC2.GetReservedInstancesExchangeQuoteResult|any,any>;
+    /**
      * Import single or multi-volume disk images or EBS snapshots into an Amazon
 Machine Image (AMI). For more information, see Importing a VM as an Image Using
 VM Import/Export
@@ -2156,9 +2175,9 @@ attribute at a time.
     modifyNetworkInterfaceAttribute(params: EC2.ModifyNetworkInterfaceAttributeRequest, callback?: (err: any, data: any) => void): Request<any,any>;
     /**
      * Modifies the Availability Zone, instance count, instance type, or network
-platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved
-Instances to be modified must be identical, except for Availability Zone,
-network platform, and instance type.
+platform (EC2-Classic or EC2-VPC) of your Standard Reserved Instances. The
+Reserved Instances to be modified must be identical, except for Availability
+Zone, network platform, and instance type.
 
 For more information, see Modifying Reserved Instances
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html] in the
@@ -2293,9 +2312,7 @@ and charged to your account.
     purchaseHostReservation(params: EC2.PurchaseHostReservationRequest, callback?: (err: any, data: EC2.PurchaseHostReservationResult|any) => void): Request<EC2.PurchaseHostReservationResult|any,any>;
     /**
      * Purchases a Reserved Instance for use with your account. With Reserved
-Instances, you obtain a capacity reservation for a certain instance
-configuration over a specified period of time and pay a lower hourly rate
-compared to On-Demand instance pricing.
+Instances, you pay a lower hourly rate compared to On-Demand instance pricing.
 
 Use DescribeReservedInstancesOfferings to get a list of Reserved Instance
 offerings that match your specifications. After you&#x27;ve purchased a Reserved
@@ -2717,6 +2734,9 @@ in the Amazon Elastic Compute Cloud User Guide .
      * Shuts down one or more instances. This operation is idempotent; if you terminate
 an instance more than once, each call succeeds.
 
+If you specify multiple instances and the request fails (for example, because of
+a single incorrect instance ID), none of the instances are terminated.
+
 Terminated instances remain visible after termination (for approximately one
 hour).
 
@@ -3041,6 +3061,8 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type OccurrenceDaySet = Integer[];
     
+    export type OfferingClassType = string;
+    
     export type OfferingTypeValues = string;
     
     export type OperationType = string;
@@ -3120,6 +3142,10 @@ the Amazon Elastic Compute Cloud User Guide .
     export type ReservationList = Reservation[];
     
     export type ReservationState = string;
+    
+    export type ReservedInstanceIdSet = String[];
+    
+    export type ReservedInstanceReservationValueSet = ReservedInstanceReservationValue[];
     
     export type ReservedInstanceState = string;
     
@@ -3237,6 +3263,10 @@ the Amazon Elastic Compute Cloud User Guide .
     
     export type TagList = Tag[];
     
+    export type TargetConfigurationRequestSet = TargetConfigurationRequest[];
+    
+    export type TargetReservationValueSet = TargetReservationValue[];
+    
     export type TelemetryStatus = string;
     
     export type Tenancy = string;
@@ -3322,7 +3352,26 @@ the Amazon Elastic Compute Cloud User Guide .
     export type VpnStaticRouteSource = string;
     
     export type ZoneNameStringList = String[];
+    
+    export type scope = string;
 
+    export interface AcceptReservedInstancesExchangeQuoteRequest {
+        /** Checks whether you have the required permissions for the action, without
+actually making the request, and provides an error response. If you have the
+required permissions, the error response is DryRunOperation . Otherwise, it is 
+UnauthorizedOperation . **/
+        DryRun?: Boolean;
+        /** The IDs of the Convertible Reserved Instances that you want to exchange for
+other Convertible Reserved Instances of the same or higher value. **/
+        ReservedInstanceIds: ReservedInstanceIdSet;
+        /** The configurations of the Convertible Reserved Instance offerings you are
+purchasing in this exchange. **/
+        TargetConfigurations?: TargetConfigurationRequestSet;
+    }
+    export interface AcceptReservedInstancesExchangeQuoteResult {
+        /** The ID of the successful exchange. **/
+        ExchangeId?: String;
+    }
     export interface AcceptVpcPeeringConnectionRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
@@ -4264,15 +4313,15 @@ Constraints: Up to 255 ASCII characters **/
         Strategy: PlacementStrategy;
     }
     export interface CreateReservedInstancesListingRequest {
-        /** The ID of the active Reserved Instance. **/
+        /** The ID of the active Standard Reserved Instance. **/
         ReservedInstancesId: String;
         /** The number of instances that are a part of a Reserved Instance account to be
 listed in the Reserved Instance Marketplace. This number should be less than or
 equal to the instance count associated with the Reserved Instance ID specified
 in this call. **/
         InstanceCount: Integer;
-        /** A list specifying the price of the Reserved Instance for each month remaining in
-the Reserved Instance term. **/
+        /** A list specifying the price of the Standard Reserved Instance for each month
+remaining in the Reserved Instance term. **/
         PriceSchedules: PriceScheduleSpecificationList;
         /** Unique, case-sensitive identifier you provide to ensure idempotency of your
 listings. This helps avoid duplicate listings. For more information, see 
@@ -4282,7 +4331,7 @@ Ensuring Idempotency
         ClientToken: String;
     }
     export interface CreateReservedInstancesListingResult {
-        /** Information about the Reserved Instance listing. **/
+        /** Information about the Standard Reserved Instance listing. **/
         ReservedInstancesListings?: ReservedInstancesListingList;
     }
     export interface CreateRouteRequest {
@@ -5049,8 +5098,6 @@ actually making the request, and provides an error response. If you have the
 required permissions, the error response is DryRunOperation . Otherwise, it is 
 UnauthorizedOperation . **/
         DryRun?: Boolean;
-        /** One or more filters. **/
-        Filters?: FilterList;
         /** One or more conversion task IDs. **/
         ConversionTaskIds?: ConversionIdStringList;
     }
@@ -6539,6 +6586,9 @@ Amazon Elastic Compute Cloud User Guide . **/
  * reserved-instances-offering-id - The Reserved Instances offering ID.
    
    
+ * scope - The scope of the Reserved Instance ( Availability Zone or Region ).
+   
+   
  * usage-price - The usage price of the Reserved Instance, per hour (for
    example, 0.84). **/
         Filters?: FilterList;
@@ -6574,6 +6624,8 @@ Default: 94608000 (3 years) **/
 
 Default: 20 **/
         MaxInstanceCount?: Integer;
+        /** The offering class of the Reserved Instance. Can be standard or convertible . **/
+        OfferingClass?: OfferingClassType;
     }
     export interface DescribeReservedInstancesOfferingsResult {
         /** A list of Reserved Instances offerings. **/
@@ -6612,6 +6664,9 @@ specified. **/
    
    
  * instance-type - The instance type that is covered by the reservation.
+   
+   
+ * scope - The scope of the Reserved Instance ( Region or Availability Zone ).
    
    
  * product-description - The Reserved Instance product platform description.
@@ -6659,6 +6714,8 @@ specified. **/
 2011-11-01 API version, you only have access to the Medium Utilization Reserved
 Instance offering type. **/
         OfferingType?: OfferingTypeValues;
+        /** Describes whether the Reserved Instance is Standard or Convertible. **/
+        OfferingClass?: OfferingClassType;
     }
     export interface DescribeReservedInstancesResult {
         /** A list of Reserved Instances. **/
@@ -8506,6 +8563,36 @@ UnauthorizedOperation . **/
         /** The password of the instance. **/
         PasswordData?: String;
     }
+    export interface GetReservedInstancesExchangeQuoteRequest {
+        /** Checks whether you have the required permissions for the action, without
+actually making the request, and provides an error response. If you have the
+required permissions, the error response is DryRunOperation . Otherwise, it is 
+UnauthorizedOperation . **/
+        DryRun?: Boolean;
+        /** The ID/s of the Convertible Reserved Instances you want to exchange. **/
+        ReservedInstanceIds: ReservedInstanceIdSet;
+        /** The configuration requirements of the Convertible Reserved Instances you want in
+exchange for your current Convertible Reserved Instances. **/
+        TargetConfigurations?: TargetConfigurationRequestSet;
+    }
+    export interface GetReservedInstancesExchangeQuoteResult {
+        /** The configuration of your Convertible Reserved Instances. **/
+        ReservedInstanceValueSet?: ReservedInstanceReservationValueSet;
+        ReservedInstanceValueRollup?: ReservationValue;
+        /** The values of the target Convertible Reserved Instances. **/
+        TargetConfigurationValueSet?: TargetReservationValueSet;
+        TargetConfigurationValueRollup?: ReservationValue;
+        /** The total true upfront charge for the exchange. **/
+        PaymentDue?: String;
+        /** The currency of the transaction. **/
+        CurrencyCode?: String;
+        /** The new end date of the reservation term. **/
+        OutputReservedInstancesWillExpireAt?: DateTime;
+        /** If true , the exchange is valid. If false , the exchange cannot be performed. **/
+        IsValidExchange?: Boolean;
+        /** Describes the reason why the exchange can not be completed. **/
+        ValidationFailureReason?: String;
+    }
     export interface GroupIdentifier {
         /** The name of the security group. **/
         GroupName?: String;
@@ -9235,7 +9322,8 @@ creating a network interface when launching an instance. **/
 interface when launching an instance. **/
         Description?: String;
         /** The private IP address of the network interface. Applies only if creating a
-network interface when launching an instance. **/
+network interface when launching an instance. You cannot specify this option if
+you&#x27;re launching more than one instance in a RunInstances request. **/
         PrivateIpAddress?: String;
         /** The IDs of the security groups for the network interface. Applies only if
 creating a network interface when launching an instance. **/
@@ -9245,10 +9333,13 @@ can specify true only if creating a new network interface when launching an
 instance. **/
         DeleteOnTermination?: Boolean;
         /** One or more private IP addresses to assign to the network interface. Only one
-private IP address can be designated as primary. **/
+private IP address can be designated as primary. You cannot specify this option
+if you&#x27;re launching more than one instance in a RunInstances request. **/
         PrivateIpAddresses?: PrivateIpAddressSpecificationList;
         /** The number of secondary private IP addresses. You can&#x27;t specify this option and
-specify more than one private IP address using the private IP addresses option. **/
+specify more than one private IP address using the private IP addresses option.
+You cannot specify this option if you&#x27;re launching more than one instance in a 
+RunInstances request. **/
         SecondaryPrivateIpAddressCount?: Integer;
         /** Indicates whether to assign a public IP address to an instance you launch in a
 VPC. The public IP address can only be assigned to a network interface for eth0,
@@ -10653,6 +10744,15 @@ AWS Management Console or Auto Scaling). **/
         /** One or more instances. **/
         Instances?: InstanceList;
     }
+    export interface ReservationValue {
+        /** The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice &amp;#42;
+number of hours remaining). **/
+        RemainingTotalValue?: String;
+        /** The remaining upfront cost of the reservation. **/
+        RemainingUpfrontValue?: String;
+        /** The hourly rate of the reservation. **/
+        HourlyPrice?: String;
+    }
     export interface ReservedInstanceLimitPrice {
         /** Used for Reserved Instance Marketplace offerings. Specifies the limit price on
 the total order (instanceCount &amp;#42; price). **/
@@ -10660,6 +10760,12 @@ the total order (instanceCount &amp;#42; price). **/
         /** The currency in which the limitPrice amount is specified. At this time, the only
 supported currency is USD . **/
         CurrencyCode?: CurrencyCodeValues;
+    }
+    export interface ReservedInstanceReservationValue {
+        /** The ID of the Convertible Reserved Instance that you are exchanging. **/
+        ReservedInstanceId?: String;
+        /** The total value of the Convertible Reserved Instance that you are exchanging. **/
+        ReservationValue?: ReservationValue;
     }
     export interface ReservedInstances {
         /** The ID of the Reserved Instance. **/
@@ -10695,6 +10801,10 @@ currency codes. At this time, the only supported currency is USD . **/
         OfferingType?: OfferingTypeValues;
         /** The recurring charge tag assigned to the resource. **/
         RecurringCharges?: RecurringChargesList;
+        /** The offering class of the Reserved Instance. **/
+        OfferingClass?: OfferingClassType;
+        /** The scope of the Reserved Instance. **/
+        Scope?: scope;
     }
     export interface ReservedInstancesConfiguration {
         /** The Availability Zone for the modified Reserved Instances. **/
@@ -10706,6 +10816,8 @@ EC2-Classic or EC2-VPC. **/
         InstanceCount?: Integer;
         /** The instance type for the modified Reserved Instances. **/
         InstanceType?: InstanceType;
+        /** Whether the Reserved Instance is standard or convertible . **/
+        Scope?: scope;
     }
     export interface ReservedInstancesId {
         /** The ID of the Reserved Instance. **/
@@ -10770,7 +10882,8 @@ modification request. **/
         TargetConfiguration?: ReservedInstancesConfiguration;
     }
     export interface ReservedInstancesOffering {
-        /** The ID of the Reserved Instance offering. **/
+        /** The ID of the Reserved Instance offering. This is the offering ID used in 
+GetReservedInstancesExchangeQuote to confirm that an exchange can be made. **/
         ReservedInstancesOfferingId?: String;
         /** The instance type on which the Reserved Instance can be used. **/
         InstanceType?: InstanceType;
@@ -10800,6 +10913,13 @@ this is true . **/
         Marketplace?: Boolean;
         /** The pricing details of the Reserved Instance offering. **/
         PricingDetails?: PricingDetailsList;
+        /** If convertible it can be exchanged for Reserved Instances of the same or higher
+monetary value, with different configurations. If standard , it is not possible
+to perform an exchange. **/
+        OfferingClass?: OfferingClassType;
+        /** Whether the Reserved Instance is applied to instances in a region or an
+Availability Zone. **/
+        Scope?: scope;
     }
     export interface ResetImageAttributeRequest {
         /** Checks whether you have the required permissions for the action, without
@@ -11107,6 +11227,9 @@ range of the subnet.
 Only one private IP address can be designated as primary. Therefore, you can&#x27;t
 specify this parameter if PrivateIpAddresses.n.Primary is set to true and 
 PrivateIpAddresses.n.PrivateIpAddress is set to an IP address.
+
+You cannot specify this option if you&#x27;re launching more than one instance in the
+request.
 
 Default: We select an IP address from the IP address range of the subnet. **/
         PrivateIpAddress?: String;
@@ -11933,13 +12056,41 @@ characters. **/
         /** The tag value. **/
         Value?: String;
     }
+    export interface TargetConfiguration {
+        /** The ID of the Convertible Reserved Instance offering. **/
+        OfferingId?: String;
+        /** The number of instances the Convertible Reserved Instance offering can be
+applied to. This parameter is reserved and cannot be specified in a request **/
+        InstanceCount?: Integer;
+    }
+    export interface TargetConfigurationRequest {
+        /** The Convertible Reserved Instance offering ID. If this isn&#x27;t included in the
+request, the response lists your current Convertible Reserved Instance/s and
+their value/s. **/
+        OfferingId: String;
+        /** The number of instances the Covertible Reserved Instance offering can be applied
+to. This parameter is reserved and cannot be specified in a request **/
+        InstanceCount?: Integer;
+    }
+    export interface TargetReservationValue {
+        /** The configuration of the Convertible Reserved Instances that make up the
+exchange. **/
+        TargetConfiguration?: TargetConfiguration;
+        /** The total value of the Convertible Reserved Instances that make up the exchange.
+This is the sum of the list value, remaining upfront price, and additional
+upfront cost of the exchange. **/
+        ReservationValue?: ReservationValue;
+    }
     export interface TerminateInstancesRequest {
         /** Checks whether you have the required permissions for the action, without
 actually making the request, and provides an error response. If you have the
 required permissions, the error response is DryRunOperation . Otherwise, it is 
 UnauthorizedOperation . **/
         DryRun?: Boolean;
-        /** One or more instance IDs. **/
+        /** One or more instance IDs.
+
+Constraints: Up to 1000 instance IDs. We recommend breaking up this request into
+smaller batches. **/
         InstanceIds: InstanceIdStringList;
     }
     export interface TerminateInstancesResult {
@@ -11967,10 +12118,10 @@ UnauthorizedOperation . **/
         InstanceMonitorings?: InstanceMonitoringList;
     }
     export interface UnsuccessfulItem {
-        /** The ID of the resource. **/
-        ResourceId?: String;
         /** Information about the error. **/
         Error: UnsuccessfulItemError;
+        /** The ID of the resource. **/
+        ResourceId?: String;
     }
     export interface UnsuccessfulItemError {
         /** The error code. **/
