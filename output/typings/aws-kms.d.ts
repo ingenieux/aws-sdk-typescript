@@ -555,8 +555,9 @@ key material into that CMK, but you cannot import different key material.
      *
      * @error DependencyTimeoutException   
      * @error KMSInternalException   
+     * @error InvalidMarkerException   
      */
-    listKeys(params: KMS.ListKeysRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.KMSInternalException|any, data: KMS.ListKeysResponse|any) => void): Request<KMS.ListKeysResponse|any,KMS.DependencyTimeoutException|KMS.KMSInternalException|any>;
+    listKeys(params: KMS.ListKeysRequest, callback?: (err: KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.InvalidMarkerException|any, data: KMS.ListKeysResponse|any) => void): Request<KMS.ListKeysResponse|any,KMS.DependencyTimeoutException|KMS.KMSInternalException|KMS.InvalidMarkerException|any>;
     /**
      * Returns a list of all grants for which the grant&#x27;s RetiringPrincipal matches the
 one specified.

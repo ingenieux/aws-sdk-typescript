@@ -1805,6 +1805,9 @@ contain fewer keys but will never contain more. **/
         MaxKeys?: MaxKeys;
         /** Limits the response to keys that begin with the specified prefix. **/
         Prefix?: Prefix;
+        /** Confirms that the requester knows that she or he will be charged for the list
+objects request. Bucket owners need not specify this parameter in their
+requests. **/
         RequestPayer?: RequestPayer;
     }
     export interface ListObjectsV2Output {
@@ -1864,6 +1867,9 @@ field with each key in the result then set the fetch owner field to true **/
         /** StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts
 listing after this specified key. StartAfter can be any key in the bucket **/
         StartAfter?: StartAfter;
+        /** Confirms that the requester knows that she or he will be charged for the list
+objects request in V2 style. Bucket owners need not specify this parameter in
+their requests. **/
         RequestPayer?: RequestPayer;
     }
     export interface ListPartsOutput {

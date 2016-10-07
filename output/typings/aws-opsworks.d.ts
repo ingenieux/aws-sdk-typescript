@@ -1618,7 +1618,7 @@ parameter description. **/
         DefaultSubnetId?: String;
         /** A string that contains user-defined, custom JSON. It is used to override the
 corresponding default stack configuration JSON values. The string should be in
-the following format and must escape characters such as &#x27;&quot;&#x27;:
+the following format:
 
 &quot;{\&quot;key1\&quot;: \&quot;value1\&quot;, \&quot;key2\&quot;: \&quot;value2\&quot;,...}&quot;
 
@@ -1843,7 +1843,7 @@ associated arguments. **/
         Comment?: String;
         /** A string that contains user-defined, custom JSON. It is used to override the
 corresponding default stack configuration JSON values. The string should be in
-the following format and must escape characters such as &#x27;&quot;&#x27;:
+the following format:
 
 &quot;{\&quot;key1\&quot;: \&quot;value1\&quot;, \&quot;key2\&quot;: \&quot;value2\&quot;,...}&quot;
 
@@ -2218,7 +2218,7 @@ parameter description. **/
         DefaultSubnetId?: String;
         /** A string that contains user-defined, custom JSON. It can be used to override the
 corresponding default stack configuration attribute values or to pass data to
-recipes. The string should be in the following escape characters such as &#x27;&quot;&#x27;:
+recipes. The string should be in the following format:
 
 &quot;{\&quot;key1\&quot;: \&quot;value1\&quot;, \&quot;key2\&quot;: \&quot;value2\&quot;,...}&quot;
 
@@ -2313,7 +2313,7 @@ performing actions such as DescribeStacks . **/
         StackId?: String;
     }
     export interface CreateUserProfileRequest {
-        /** The user&#x27;s IAM ARN. **/
+        /** The user&#x27;s IAM ARN; this can also be a federated user&#x27;s ARN. **/
         IamUserArn: String;
         /** The user&#x27;s SSH user name. The allowable characters are [a-z], [A-Z], [0-9], &#x27;-&#x27;,
 and &#x27;_&#x27;. If the specified name includes other punctuation marks, AWS OpsWorks
@@ -2362,7 +2362,7 @@ For more information, see Setting an IAM User&#x27;s Public SSH Key
         StackId: String;
     }
     export interface DeleteUserProfileRequest {
-        /** The user&#x27;s IAM ARN. **/
+        /** The user&#x27;s IAM ARN. This can also be a federated user&#x27;s ARN. **/
         IamUserArn: String;
     }
     export interface Deployment {
@@ -2395,8 +2395,7 @@ For more information, see Setting an IAM User&#x27;s Public SSH Key
         Status?: String;
         /** A string that contains user-defined custom JSON. It can be used to override the
 corresponding default stack configuration attribute values for stack or to pass
-data to recipes. The string should be in the following format and must escape
-characters such as &#x27;&quot;&#x27;:
+data to recipes. The string should be in the following format:
 
 &quot;{\&quot;key1\&quot;: \&quot;value1\&quot;, \&quot;key2\&quot;: \&quot;value2\&quot;,...}&quot;
 
@@ -2658,7 +2657,8 @@ configuration. **/
         UserProfile?: SelfUserProfile;
     }
     export interface DescribePermissionsRequest {
-        /** The user&#x27;s IAM ARN. For more information about IAM ARNs, see Using Identifiers
+        /** The user&#x27;s IAM ARN. This can also be a federated user&#x27;s ARN. For more
+information about IAM ARNs, see Using Identifiers
 [http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html] . **/
         IamUserArn?: String;
         /** The stack ID. **/
@@ -2759,7 +2759,7 @@ configuration for the specified instances. **/
         TimeBasedAutoScalingConfigurations?: TimeBasedAutoScalingConfigurations;
     }
     export interface DescribeUserProfilesRequest {
-        /** An array of IAM user ARNs that identify the users to be described. **/
+        /** An array of IAM or federated user ARNs that identify the users to be described. **/
         IamUserArns?: Strings;
     }
     export interface DescribeUserProfilesResult {
@@ -3388,7 +3388,7 @@ OpsWorks stops a specified number of instances. **/
     export interface SetPermissionRequest {
         /** The stack ID. **/
         StackId: String;
-        /** The user&#x27;s IAM ARN. **/
+        /** The user&#x27;s IAM ARN. This can also be a federated user&#x27;s ARN. **/
         IamUserArn: String;
         /** The user is allowed to use SSH to communicate with the instance. **/
         AllowSsh?: Boolean;
@@ -3517,8 +3517,7 @@ Endpoints [http://docs.aws.amazon.com/general/latest/gr/rande.html] . **/
         /** A JSON object that contains user-defined attributes to be added to the stack
 configuration and deployment attributes. You can use custom JSON to override the
 corresponding default stack configuration attribute values or to pass data to
-recipes. The string should be in the following format and must escape characters
-such as &#x27;&quot;&#x27;:
+recipes. The string should be in the following format:
 
 &quot;{\&quot;key1\&quot;: \&quot;value1\&quot;, \&quot;key2\&quot;: \&quot;value2\&quot;,...}&quot;
 
@@ -3682,7 +3681,8 @@ time-based instances. **/
         AutoScalingType?: AutoScalingType;
         /** The instance host name. **/
         Hostname?: String;
-        /** The instance&#x27;s operating system, which must be set to one of the following.
+        /** The instance&#x27;s operating system, which must be set to one of the following. You
+cannot update an instance that is using a custom AMI.
 
  &amp;#42; A supported Linux operating system: An Amazon Linux version, such as Amazon
    Linux 2016.03 , Amazon Linux 2015.09 , or Amazon Linux 2015.03 .
@@ -3704,9 +3704,6 @@ time-based instances. **/
    Windows Server 2012 R2 with SQL Server Web .
    
    
- * A custom AMI: Custom .
-   
-   
 
 For more information on the supported operating systems, see AWS OpsWorks
 Operating Systems
@@ -3726,11 +3723,10 @@ AMIs
 You can specify a different Linux operating system for the updated stack, but
 you cannot change from Linux to Windows or Windows to Linux. **/
         Os?: String;
-        /** A custom AMI ID to be used to create the instance. The AMI must be based on one
-of the supported operating systems. For more information, see Instances
-[http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html]
-
-If you specify a custom AMI, you must set Os to Custom . **/
+        /** The ID of the AMI that was used to create the instance. The value of this
+parameter must be the same AMI ID that the instance is already using. You cannot
+apply a new AMI to an instance by running UpdateInstance. UpdateInstance does
+not work on instances that are using custom AMIs. **/
         AmiId?: String;
         /** The instance&#x27;s Amazon EC2 key name. **/
         SshKeyName?: String;
@@ -3947,8 +3943,7 @@ parameter description. **/
         DefaultSubnetId?: String;
         /** A string that contains user-defined, custom JSON. It can be used to override the
 corresponding default stack configuration JSON values or to pass data to
-recipes. The string should be in the following format and escape characters such
-as &#x27;&quot;&#x27;:
+recipes. The string should be in the following format:
 
 &quot;{\&quot;key1\&quot;: \&quot;value1\&quot;, \&quot;key2\&quot;: \&quot;value2\&quot;,...}&quot;
 
@@ -4037,7 +4032,7 @@ which overrides the stack&#x27;s default setting. **/
         AgentVersion?: String;
     }
     export interface UpdateUserProfileRequest {
-        /** The user IAM ARN. **/
+        /** The user IAM ARN. This can also be a federated user&#x27;s ARN. **/
         IamUserArn: String;
         /** The user&#x27;s SSH user name. The allowable characters are [a-z], [A-Z], [0-9], &#x27;-&#x27;,
 and &#x27;_&#x27;. If the specified name includes other punctuation marks, AWS OpsWorks

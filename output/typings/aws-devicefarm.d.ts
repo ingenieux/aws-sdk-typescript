@@ -319,7 +319,7 @@ believe that you should be able to invoke this operation.
      */
     listRemoteAccessSessions(params: DeviceFarm.ListRemoteAccessSessionsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListRemoteAccessSessionsResult|any) => void): Request<DeviceFarm.ListRemoteAccessSessionsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
-     * Gets information about runs.
+     * Gets information about runs, given an AWS Device Farm project ARN.
      *
      * @error ArgumentException   
      * @error NotFoundException   
@@ -328,7 +328,7 @@ believe that you should be able to invoke this operation.
      */
     listRuns(params: DeviceFarm.ListRunsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListRunsResult|any) => void): Request<DeviceFarm.ListRunsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
-     * Gets information about samples.
+     * Gets information about samples, given an AWS Device Farm project ARN
      *
      * @error ArgumentException   
      * @error NotFoundException   
@@ -364,7 +364,7 @@ believe that you should be able to invoke this operation.
      */
     listUniqueProblems(params: DeviceFarm.ListUniqueProblemsRequest, callback?: (err: DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any, data: DeviceFarm.ListUniqueProblemsResult|any) => void): Request<DeviceFarm.ListUniqueProblemsResult|any,DeviceFarm.ArgumentException|DeviceFarm.NotFoundException|DeviceFarm.LimitExceededException|DeviceFarm.ServiceAccountException|any>;
     /**
-     * Gets information about uploads.
+     * Gets information about uploads, given an AWS Device Farm project ARN.
      *
      * @error ArgumentException   
      * @error NotFoundException   
@@ -745,7 +745,10 @@ a remote access session is sent. **/
     export interface CreateUploadRequest {
         /** The ARN of the project for the upload. **/
         projectArn: AmazonResourceName;
-        /** The upload&#x27;s file name. The name should not contain the &#x27;/&#x27; character. **/
+        /** The upload&#x27;s file name. The name should not contain the &#x27;/&#x27; character. If
+uploading an iOS app, the file name needs to end with the .ipa extension. If
+uploading an Android app, the file name needs to end with the .apk extension.
+For all others, the file name must end with the .zip file extension. **/
         name: Name;
         /** The upload&#x27;s upload type.
 
@@ -1239,7 +1242,11 @@ Allowed values include:
 Allowed values include:
 
  &amp;#42; FILE: The artifacts are files.
+   
+   
  * LOG: The artifacts are logs.
+   
+   
  * SCREENSHOT: The artifacts are screenshots. **/
         type: ArtifactCategory;
         /** An identifier that was returned from the previous call to this operation, which
@@ -1280,7 +1287,7 @@ operation to return the next set of items in the list. **/
         nextToken?: PaginationToken;
     }
     export interface ListDevicesRequest {
-        /** The device types&#x27; ARNs. **/
+        /** The Amazon Resource Name (ARN) of the project. **/
         arn?: AmazonResourceName;
         /** An identifier that was returned from the previous call to this operation, which
 can be used to return the next set of items in the list. **/
@@ -1335,7 +1342,9 @@ can be used to return the next set of items in the list. **/
         nextToken?: PaginationToken;
     }
     export interface ListProjectsRequest {
-        /** The projects&#x27; ARNs. **/
+        /** Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device Farm
+returns a list of all projects for the AWS account. You can also specify a
+project ARN. **/
         arn?: AmazonResourceName;
         /** An identifier that was returned from the previous call to this operation, which
 can be used to return the next set of items in the list. **/
@@ -1366,7 +1375,7 @@ can be used to return the next set of items in the list. **/
         nextToken?: PaginationToken;
     }
     export interface ListRunsRequest {
-        /** The runs&#x27; ARNs. **/
+        /** The Amazon Resource Name (ARN) of the project for which you want to list runs. **/
         arn: AmazonResourceName;
         /** An identifier that was returned from the previous call to this operation, which
 can be used to return the next set of items in the list. **/
@@ -1381,7 +1390,8 @@ operation to return the next set of items in the list. **/
         nextToken?: PaginationToken;
     }
     export interface ListSamplesRequest {
-        /** The samples&#x27; ARNs. **/
+        /** The Amazon Resource Name (ARN) of the project for which you want to list
+samples. **/
         arn: AmazonResourceName;
         /** An identifier that was returned from the previous call to this operation, which
 can be used to return the next set of items in the list. **/
@@ -1463,7 +1473,8 @@ operation to return the next set of items in the list. **/
         nextToken?: PaginationToken;
     }
     export interface ListUploadsRequest {
-        /** The uploads&#x27; ARNs. **/
+        /** The Amazon Resource Name (ARN) of the project for which you want to list
+uploads. **/
         arn: AmazonResourceName;
         /** An identifier that was returned from the previous call to this operation, which
 can be used to return the next set of items in the list. **/
@@ -1861,7 +1872,7 @@ Allowed values include:
         /** The total number of completed jobs. **/
         completedJobs?: Integer;
         /** Specifies the billing method for a test run: metered or unmetered . If the
-parameter is not specified, the default value is unmetered . **/
+parameter is not specified, the default value is metered . **/
         billingMethod?: BillingMethod;
         /** Represents the total (metered or unmetered) minutes used by the test run. **/
         deviceMinutes?: DeviceMinutes;
@@ -1948,7 +1959,7 @@ iOS. **/
         /** A list of auxiliary apps for the run. **/
         auxiliaryApps?: AmazonResourceNames;
         /** Specifies the billing method for a test run: metered or unmetered . If the
-parameter is not specified, the default value is unmetered . **/
+parameter is not specified, the default value is metered . **/
         billingMethod?: BillingMethod;
     }
     export interface ScheduleRunRequest {

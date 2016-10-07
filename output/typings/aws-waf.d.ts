@@ -35,12 +35,20 @@ To create and configure a ByteMatchSet , perform the following steps:
 
  1. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of a CreateByteMatchSet request.
+    
+    
  2. Submit a CreateByteMatchSet request.
+    
+    
  3. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of an UpdateByteMatchSet request.
+    
+    
  4. Submit an UpdateByteMatchSet request to specify the part of the request that
     you want AWS WAF to inspect (for example, the header or the URI) and the
     value that you want AWS WAF to watch for.
+    
+    
 
 For more information about how to use the AWS WAF API to allow or block HTTP
 requests, see the AWS WAF Developer Guide
@@ -66,11 +74,19 @@ To create and configure an IPSet , perform the following steps:
 
  1. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of a CreateIPSet request.
+    
+    
  2. Submit a CreateIPSet request.
+    
+    
  3. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of an UpdateIPSet request.
+    
+    
  4. Submit an UpdateIPSet request to specify the IP addresses that you want AWS
     WAF to watch for.
+    
+    
 
 For more information about how to use the AWS WAF API to allow or block HTTP
 requests, see the AWS WAF Developer Guide
@@ -92,7 +108,11 @@ specifications to be allowed or blocked. For example, suppose you add the
 following to a Rule :
 
  &amp;#42; An IPSet that matches the IP address 192.0.2.44/32
+   
+   
  * A ByteMatchSet that matches BadBot in the User-Agent header
+   
+   
 
 You then add the Rule to a WebACL and specify that you want to blocks requests
 that satisfy the Rule . For a request to be blocked, it must come from the IP
@@ -104,15 +124,27 @@ To create and configure a Rule , perform the following steps:
  1. Create and update the predicates that you want to include in the Rule . For
     more information, see CreateByteMatchSet , CreateIPSet , and 
     CreateSqlInjectionMatchSet .
+    
+    
  2. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of a CreateRule request.
+    
+    
  3. Submit a CreateRule request.
+    
+    
  4. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of an UpdateRule request.
+    
+    
  5. Submit an UpdateRule request to specify the predicates that you want to
     include in the Rule .
+    
+    
  6. Create and update a WebACL that contains the Rule . For more information,
     see CreateWebACL .
+    
+    
 
 For more information about how to use the AWS WAF API to allow or block HTTP
 requests, see the AWS WAF Developer Guide
@@ -137,12 +169,20 @@ To create and configure a SizeConstraintSet , perform the following steps:
 
  1. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of a CreateSizeConstraintSet request.
+    
+    
  2. Submit a CreateSizeConstraintSet request.
+    
+    
  3. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of an UpdateSizeConstraintSet request.
+    
+    
  4. Submit an UpdateSizeConstraintSet request to specify the part of the request
     that you want AWS WAF to inspect (for example, the header or the URI) and
     the value that you want AWS WAF to watch for.
+    
+    
 
 For more information about how to use the AWS WAF API to allow or block HTTP
 requests, see the AWS WAF Developer Guide
@@ -166,11 +206,19 @@ To create and configure a SqlInjectionMatchSet , perform the following steps:
 
  1. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of a CreateSqlInjectionMatchSet request.
+    
+    
  2. Submit a CreateSqlInjectionMatchSet request.
+    
+    
  3. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of an UpdateSqlInjectionMatchSet request.
+    
+    
  4. Submit an UpdateSqlInjectionMatchSet request to specify the parts of web
     requests in which you want to allow, block, or count malicious SQL code.
+    
+    
 
 For more information about how to use the AWS WAF API to allow or block HTTP
 requests, see the AWS WAF Developer Guide
@@ -199,16 +247,28 @@ To create and configure a WebACL , perform the following steps:
     want to include in Rules . For more information, see CreateByteMatchSet , 
     UpdateByteMatchSet , CreateIPSet , UpdateIPSet , CreateSqlInjectionMatchSet 
     , and UpdateSqlInjectionMatchSet .
+    
+    
  2. Create and update the Rules that you want to include in the WebACL . For
     more information, see CreateRule and UpdateRule .
+    
+    
  3. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of a CreateWebACL request.
+    
+    
  4. Submit a CreateWebACL request.
+    
+    
  5. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of an UpdateWebACL request.
+    
+    
  6. Submit an UpdateWebACL request to specify the Rules that you want to include
     in the WebACL , to specify the default action, and to associate the WebACL 
     with a CloudFront distribution.
+    
+    
 
 For more information about how to use the AWS WAF API, see the AWS WAF Developer
 Guide [http://docs.aws.amazon.com/waf/latest/developerguide/] .
@@ -230,11 +290,19 @@ To create and configure an XssMatchSet , perform the following steps:
 
  1. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of a CreateXssMatchSet request.
+    
+    
  2. Submit a CreateXssMatchSet request.
+    
+    
  3. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of an UpdateXssMatchSet request.
+    
+    
  4. Submit an UpdateXssMatchSet request to specify the parts of web requests in
     which you want to allow, block, or count cross-site scripting attacks.
+    
+    
 
 For more information about how to use the AWS WAF API to allow or block HTTP
 requests, see the AWS WAF Developer Guide
@@ -259,8 +327,12 @@ To permanently delete a ByteMatchSet , perform the following steps:
 
  1. Update the ByteMatchSet to remove filters, if any. For more information, see 
     UpdateByteMatchSet .
+    
+    
  2. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of a DeleteByteMatchSet request.
+    
+    
  3. Submit a DeleteByteMatchSet request.
      *
      * @error WAFInternalErrorException   
@@ -281,8 +353,12 @@ To permanently delete an IPSet from AWS WAF, perform the following steps:
 
  1. Update the IPSet to remove IP address ranges, if any. For more information,
     see UpdateIPSet .
+    
+    
  2. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of a DeleteIPSet request.
+    
+    
  3. Submit a DeleteIPSet request.
      *
      * @error WAFStaleDataException   
@@ -304,8 +380,12 @@ To permanently delete a Rule from AWS WAF, perform the following steps:
 
  1. Update the Rule to remove predicates, if any. For more information, see 
     UpdateRule .
+    
+    
  2. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of a DeleteRule request.
+    
+    
  3. Submit a DeleteRule request.
      *
      * @error WAFStaleDataException   
@@ -327,8 +407,12 @@ To permanently delete a SizeConstraintSet , perform the following steps:
 
  1. Update the SizeConstraintSet to remove filters, if any. For more
     information, see UpdateSizeConstraintSet .
+    
+    
  2. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of a DeleteSizeConstraintSet request.
+    
+    
  3. Submit a DeleteSizeConstraintSet request.
      *
      * @error WAFStaleDataException   
@@ -351,8 +435,12 @@ steps:
 
  1. Update the SqlInjectionMatchSet to remove filters, if any. For more
     information, see UpdateSqlInjectionMatchSet .
+    
+    
  2. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of a DeleteSqlInjectionMatchSet request.
+    
+    
  3. Submit a DeleteSqlInjectionMatchSet request.
      *
      * @error WAFInternalErrorException   
@@ -371,8 +459,12 @@ To delete a WebACL , perform the following steps:
 
  1. Update the WebACL to remove Rules , if any. For more information, see 
     UpdateWebACL .
+    
+    
  2. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of a DeleteWebACL request.
+    
+    
  3. Submit a DeleteWebACL request.
      *
      * @error WAFStaleDataException   
@@ -393,8 +485,12 @@ To permanently delete an XssMatchSet from AWS WAF, perform the following steps:
 
  1. Update the XssMatchSet to remove filters, if any. For more information, see 
     UpdateXssMatchSet .
+    
+    
  2. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of a DeleteXssMatchSet request.
+    
+    
  3. Submit a DeleteXssMatchSet request.
      *
      * @error WAFInternalErrorException   
@@ -440,8 +536,12 @@ ChangeTokenStatus is one of the following values:
  &amp;#42; PROVISIONED : You requested the change token by calling GetChangeToken , but
    you haven&#x27;t used it yet in a call to create, update, or delete an AWS WAF
    object.
+   
+   
  * PENDING : AWS WAF is propagating the create, update, or delete request to all
    AWS WAF servers.
+   
+   
  * IN_SYNC : Propagation is complete.
      *
      * @error WAFNonexistentItemException   
@@ -570,15 +670,25 @@ ByteMatchTuple object, you specify the following values:
  &amp;#42; Whether to insert or delete the object from the array. If you want to change
    a ByteMatchSetUpdate object, you delete the existing object and add a new
    one.
+   
+   
  * The part of a web request that you want AWS WAF to inspect, such as a query
    string or the value of the User-Agent header.
+   
+   
  * The bytes (typically a string that corresponds with ASCII characters) that
    you want AWS WAF to look for. For more information, including how you specify
    the values for the AWS WAF API and the AWS CLI or SDKs, see TargetString in
    the ByteMatchTuple data type.
+   
+   
  * Where to look, such as at the beginning or the end of a query string.
+   
+   
  * Whether to perform any conversions on the request, such as converting it to
    lowercase, before inspecting it for the specified string.
+   
+   
 
 For example, you can add a ByteMatchSetUpdate object that matches web requests
 in which User-Agent headers contain the string BadBot . You can then configure
@@ -587,11 +697,17 @@ AWS WAF to block those requests.
 To create and configure a ByteMatchSet , perform the following steps:
 
  1. Create a ByteMatchSet. For more information, see CreateByteMatchSet .
+    
+    
  2. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of an UpdateByteMatchSet request.
+    
+    
  3. Submit an UpdateByteMatchSet request to specify the part of the request that
     you want AWS WAF to inspect (for example, the header or the URI) and the
     value that you want AWS WAF to watch for.
+    
+    
 
 For more information about how to use the AWS WAF API to allow or block HTTP
 requests, see the AWS WAF Developer Guide
@@ -613,14 +729,36 @@ IPSetDescriptor object, you specify the following values:
 
  &amp;#42; Whether to insert or delete the object from the array. If you want to change
    an IPSetDescriptor object, you delete the existing object and add a new one.
- * The IP address version, IPv4 .
+   
+   
+ * The IP address version, IPv4 or IPv6 .
+   
+   
  * The IP address in CIDR notation, for example, 192.0.2.0/24 (for the range of
    IP addresses from 192.0.2.0 to 192.0.2.255 ) or 192.0.2.44/32 (for the
    individual IP address 192.0.2.44 ).
+   
+   
 
-AWS WAF supports /8, /16, /24, and /32 IP address ranges. For more information
-about CIDR notation, see the Wikipedia entry Classless Inter-Domain Routing
+AWS WAF supports /8, /16, /24, and /32 IP address ranges for IPv4, and /24, /32,
+/48, /56, /64 and /128 for IPv6. For more information about CIDR notation, see
+the Wikipedia entry Classless Inter-Domain Routing
 [https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing] .
+
+IPv6 addresses can be represented using any of the following formats:
+
+ * 1111:0000:0000:0000:0000:0000:0000:0111/128
+   
+   
+ * 1111:0:0:0:0:0:0:0111/128
+   
+   
+ * 1111::0111/128
+   
+   
+ * 1111::111/128
+   
+   
 
 You use an IPSet to specify which web requests you want to allow or block based
 on the IP addresses that the requests originated from. For example, if you&#x27;re
@@ -631,10 +769,16 @@ addresses, and then configure AWS WAF to block the requests.
 To create and configure an IPSet , perform the following steps:
 
  1. Submit a CreateIPSet request.
+    
+    
  2. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of an UpdateIPSet request.
+    
+    
  3. Submit an UpdateIPSet request to specify the IP addresses that you want AWS
     WAF to watch for.
+    
+    
 
 When you update an IPSet , you specify the IP addresses that you want to add
 and/or the IP addresses that you want to delete. If you want to change an IP
@@ -664,7 +808,11 @@ allowed, blocked, or counted. For example, suppose you add the following to a
 Rule :
 
  &amp;#42; A ByteMatchSet that matches the value BadBot in the User-Agent header
+   
+   
  * An IPSet that matches the IP address 192.0.2.44
+   
+   
 
 You then add the Rule to a WebACL and specify that you want to block requests
 that satisfy the Rule . For a request to be blocked, the User-Agent header in
@@ -674,11 +822,21 @@ the IP address 192.0.2.44.
 To create and configure a Rule , perform the following steps:
 
  1. Create and update the predicates that you want to include in the Rule .
+    
+    
  2. Create the Rule . See CreateRule .
+    
+    
  3. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of an UpdateRule request.
+    
+    
  4. Submit an UpdateRule request to add predicates to the Rule .
+    
+    
  5. Create and update a WebACL that contains the Rule . See CreateWebACL .
+    
+    
 
 If you want to replace one ByteMatchSet or IPSet with another, you delete the
 existing one and add the new one.
@@ -705,17 +863,27 @@ each SizeConstraint object, you specify the following values:
  &amp;#42; Whether to insert or delete the object from the array. If you want to change
    a SizeConstraintSetUpdate object, you delete the existing object and add a
    new one.
+   
+   
  * The part of a web request that you want AWS WAF to evaluate, such as the
    length of a query string or the length of the User-Agent header.
+   
+   
  * Whether to perform any transformations on the request, such as converting it
    to lowercase, before checking its length. Note that transformations of the
    request body are not supported because the AWS resource forwards only the
    first 8192 bytes of your request to AWS WAF.
+   
+   
  * A ComparisonOperator used for evaluating the selected part of the request
    against the specified Size , such as equals, greater than, less than, and so
    on.
+   
+   
  * The length, in bytes, that you want AWS WAF to watch for in selected part of
    the request. The length is computed after applying the transformation.
+   
+   
 
 For example, you can add a SizeConstraintSetUpdate object that matches web
 requests in which the length of the User-Agent header is greater than 100 bytes.
@@ -725,11 +893,17 @@ To create and configure a SizeConstraintSet , perform the following steps:
 
  1. Create a SizeConstraintSet. For more information, see 
     CreateSizeConstraintSet .
+    
+    
  2. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of an UpdateSizeConstraintSet request.
+    
+    
  3. Submit an UpdateSizeConstraintSet request to specify the part of the request
     that you want AWS WAF to inspect (for example, the header or the URI) and
     the value that you want AWS WAF to watch for.
+    
+    
 
 For more information about how to use the AWS WAF API to allow or block HTTP
 requests, see the AWS WAF Developer Guide
@@ -754,10 +928,16 @@ following values:
  &amp;#42; Action : Whether to insert the object into or delete the object from the
    array. To change a SqlInjectionMatchTuple , you delete the existing object
    and add a new one.
+   
+   
  * FieldToMatch : The part of web requests that you want AWS WAF to inspect and,
    if you want AWS WAF to inspect a header, the name of the header.
+   
+   
  * TextTransformation : Which text transformation, if any, to perform on the web
    request before inspecting the request for snippets of malicious SQL code.
+   
+   
 
 You use SqlInjectionMatchSet objects to specify which CloudFront requests you
 want to allow, block, or count. For example, if you&#x27;re receiving requests that
@@ -768,10 +948,16 @@ and then configure AWS WAF to block the requests.
 To create and configure a SqlInjectionMatchSet , perform the following steps:
 
  1. Submit a CreateSqlInjectionMatchSet request.
+    
+    
  2. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of an UpdateIPSet request.
+    
+    
  3. Submit an UpdateSqlInjectionMatchSet request to specify the parts of web
     requests that you want AWS WAF to inspect for snippets of SQL code.
+    
+    
 
 For more information about how to use the AWS WAF API to allow or block HTTP
 requests, see the AWS WAF Developer Guide
@@ -795,10 +981,16 @@ specify the following values:
  &amp;#42; A default action for the WebACL , either ALLOW or BLOCK . AWS WAF performs
    the default action if a request doesn&#x27;t match the criteria in any of the 
    Rules in a WebACL .
+   
+   
  * The Rules that you want to add and/or delete. If you want to replace one Rule 
    with another, you delete the existing Rule and add the new one.
+   
+   
  * For each Rule , whether you want AWS WAF to allow requests, block requests,
    or count requests that match the conditions in the Rule .
+   
+   
  * The order in which you want AWS WAF to evaluate the Rules in a WebACL . If
    you add more than one Rule to a WebACL , AWS WAF evaluates each request
    against the Rules in order based on the value of Priority . (The Rule that
@@ -807,7 +999,11 @@ specify the following values:
    AWS WAF immediately takes the corresponding action, allow or block, and
    doesn&#x27;t evaluate the request against the remaining Rules in the WebACL , if
    any.
+   
+   
  * The CloudFront distribution that you want to associate with the WebACL .
+   
+   
 
 To create and configure a WebACL , perform the following steps:
 
@@ -815,14 +1011,24 @@ To create and configure a WebACL , perform the following steps:
     more information, see CreateByteMatchSet , UpdateByteMatchSet , CreateIPSet 
     , UpdateIPSet , CreateSqlInjectionMatchSet , and UpdateSqlInjectionMatchSet 
     .
+    
+    
  2. Create and update the Rules that you want to include in the WebACL . For
     more information, see CreateRule and UpdateRule .
+    
+    
  3. Create a WebACL . See CreateWebACL .
+    
+    
  4. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of an UpdateWebACL request.
+    
+    
  5. Submit an UpdateWebACL request to specify the Rules that you want to include
     in the WebACL , to specify the default action, and to associate the WebACL 
     with a CloudFront distribution.
+    
+    
 
 For more information about how to use the AWS WAF API to allow or block HTTP
 requests, see the AWS WAF Developer Guide
@@ -846,10 +1052,16 @@ XssMatchTuple object, you specify the following values:
  &amp;#42; Action : Whether to insert the object into or delete the object from the
    array. To change a XssMatchTuple , you delete the existing object and add a
    new one.
+   
+   
  * FieldToMatch : The part of web requests that you want AWS WAF to inspect and,
    if you want AWS WAF to inspect a header, the name of the header.
+   
+   
  * TextTransformation : Which text transformation, if any, to perform on the web
    request before inspecting the request for cross-site scripting attacks.
+   
+   
 
 You use XssMatchSet objects to specify which CloudFront requests you want to
 allow, block, or count. For example, if you&#x27;re receiving requests that contain
@@ -860,10 +1072,16 @@ configure AWS WAF to block the requests.
 To create and configure an XssMatchSet , perform the following steps:
 
  1. Submit a CreateXssMatchSet request.
+    
+    
  2. Use GetChangeToken to get the change token that you provide in the 
     ChangeToken parameter of an UpdateIPSet request.
+    
+    
  3. Submit an UpdateXssMatchSet request to specify the parts of web requests
     that you want AWS WAF to inspect for cross-site scripting attacks.
+    
+    
 
 For more information about how to use the AWS WAF API to allow or block HTTP
 requests, see the AWS WAF Developer Guide
@@ -1021,7 +1239,11 @@ RuleId is returned by CreateRule and by ListRules . **/
 the conditions in the Rule . Valid values for Action include the following:
 
  &amp;#42; ALLOW : CloudFront responds with the requested object.
+   
+   
  * BLOCK : CloudFront responds with an HTTP 403 (Forbidden) status code.
+   
+   
  * COUNT : AWS WAF increments a counter of requests that match the conditions in
    the rule and then continues to inspect the web request based on the remaining
    rules in the web ACL. **/
@@ -1077,13 +1299,21 @@ Valid values depend on the values that you specified for FieldToMatch :
  &amp;#42; HEADER : The value that you want AWS WAF to search for in the request header
    that you specified in FieldToMatch , for example, the value of the User-Agent 
    or Referer header.
+   
+   
  * METHOD : The HTTP method, which indicates the type of operation specified in
    the request. CloudFront supports the following methods: DELETE , GET , HEAD , 
    OPTIONS , PATCH , POST , and PUT .
+   
+   
  * QUERY_STRING : The value that you want AWS WAF to search for in the query
    string, which is the part of a URL that appears after a ? character.
+   
+   
  * URI : The value that you want AWS WAF to search for in the part of a URL that
    identifies a resource, for example, /images/daily-ad.jpg .
+   
+   
  * BODY : The part of a request that contains any additional data that you want
    to send to your web server as the HTTP request body, such as data from a
    form. The request body immediately follows the request headers. Note that
@@ -1091,6 +1321,8 @@ Valid values depend on the values that you specified for FieldToMatch :
    inspection. To allow or block requests based on the length of the body, you
    can create a size constraint set. For more information, see 
    CreateSizeConstraintSet .
+   
+   
 
 If TargetString includes alphabetic characters A-Z and a-z, note that the value
 is case sensitive.
@@ -1122,10 +1354,20 @@ commandline command and using unusual formatting to disguise some or all of the
 command, use this option to perform the following transformations:
 
  &amp;#42; Delete the following characters: \ &quot; &#x27; ^
+   
+   
  * Delete spaces before the following characters: / (
+   
+   
  * Replace the following characters with a space: , ;
+   
+   
  * Replace multiple spaces with one space
+   
+   
  * Convert uppercase letters (A-Z) to lowercase (a-z)
+   
+   
 
 COMPRESS_WHITE_SPACE
 
@@ -1133,11 +1375,23 @@ Use this option to replace the following characters with a space character
 (decimal 32):
 
  * \f, formfeed, decimal 12
+   
+   
  * \t, tab, decimal 9
+   
+   
  * \n, newline, decimal 10
+   
+   
  * \r, carriage return, decimal 13
+   
+   
  * \v, vertical tab, decimal 11
+   
+   
  * non-breaking space, decimal 160
+   
+   
 
 COMPRESS_WHITE_SPACE also replaces multiple spaces with one space.
 
@@ -1147,13 +1401,25 @@ Use this option to replace HTML-encoded characters with unencoded characters.
 HTML_ENTITY_DECODE performs the following operations:
 
  * Replaces (ampersand)quot; with &quot;
+   
+   
  * Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
+   
+   
  * Replaces (ampersand)lt; with a &quot;less than&quot; symbol
- * Replaces (ampersand)gt; with
+   
+   
+ * Replaces (ampersand)gt; with &gt;
+   
+   
  * Replaces characters that are represented in hexadecimal format, 
    (ampersand)#xhhhh; , with the corresponding characters
+   
+   
  * Replaces characters that are represented in decimal format, (ampersand)#nnnn; 
    , with the corresponding characters
+   
+   
 
 LOWERCASE
 
@@ -1185,15 +1451,23 @@ the following:
 
  &amp;#42; TargetString exactly matches the value of the specified part of the web
    request, such as the value of a header.
+   
+   
  * TargetString is at the beginning of the specified part of the web request and
    is followed by a character other than an alphanumeric character or underscore
    (_), for example, BadBot; .
+   
+   
  * TargetString is at the end of the specified part of the web request and is
    preceded by a character other than an alphanumeric character or underscore
    (_), for example, ;BadBot .
+   
+   
  * TargetString is in the middle of the specified part of the web request and is
    preceded and followed by characters other than alphanumeric characters or
    underscore (_), for example, -BadBot; .
+   
+   
 
 EXACTLY
 
@@ -1428,13 +1702,21 @@ string. Parts of a request that you can search include the following:
  &amp;#42; HEADER : A specified request header, for example, the value of the User-Agent 
    or Referer header. If you choose HEADER for the type, specify the name of the
    header in Data .
+   
+   
  * METHOD : The HTTP method, which indicated the type of operation that the
    request is asking the origin to perform. Amazon CloudFront supports the
    following methods: DELETE , GET , HEAD , OPTIONS , PATCH , POST , and PUT .
+   
+   
  * QUERY_STRING : A query string, which is the part of a URL that appears after
    a ? character, if any.
+   
+   
  * URI : The part of a web request that identifies a resource, for example, 
    /images/daily-ad.jpg .
+   
+   
  * BODY : The part of a request that contains any additional data that you want
    to send to your web server as the HTTP request body, such as data from a
    form. The request body immediately follows the request headers. Note that
@@ -1460,9 +1742,13 @@ returned by CreateByteMatchSet and by ListByteMatchSets . **/
 request. For more information, see the following topics:
 
  &amp;#42; ByteMatchSet : Contains ByteMatchSetId , ByteMatchTuples , and Name
+   
+   
  * ByteMatchTuples : Contains an array of ByteMatchTuple objects. Each 
    ByteMatchTuple object contains FieldToMatch , PositionalConstraint , 
    TargetString , and TextTransformation
+   
+   
  * FieldToMatch : Contains Data and Type **/
         ByteMatchSet?: ByteMatchSet;
     }
@@ -1492,6 +1778,8 @@ CreateIPSet and by ListIPSets . **/
 information, see the following topics:
 
  &amp;#42; IPSet : Contains IPSetDescriptors , IPSetId , and Name
+   
+   
  * IPSetDescriptors : Contains an array of IPSetDescriptor objects. Each 
    IPSetDescriptor object contains Type and Value **/
         IPSet?: IPSet;
@@ -1506,6 +1794,8 @@ and by ListRules . **/
 information, see the following topics:
 
  &amp;#42; Rule : Contains MetricName , Name , an array of Predicate objects, and RuleId
+   
+   
  * Predicate : Each Predicate object contains DataId , Negated , and Type **/
         Rule?: Rule;
     }
@@ -1517,6 +1807,8 @@ sample of requests. **/
 
  &amp;#42; The RuleId of the Rule for which you want GetSampledRequests to return a
    sample of requests.
+   
+   
  * Default_Action , which causes GetSampledRequests to return a sample of the
    requests that didn&#x27;t match any of the rules in the specified WebACL . **/
         RuleId: ResourceId;
@@ -1556,9 +1848,13 @@ ListSizeConstraintSets . **/
 GetSizeConstraintSet request. For more information, see the following topics:
 
  &amp;#42; SizeConstraintSet : Contains SizeConstraintSetId , SizeConstraints , and Name
+   
+   
  * SizeConstraints : Contains an array of SizeConstraint objects. Each 
    SizeConstraint object contains FieldToMatch , TextTransformation , 
    ComparisonOperator , and Size
+   
+   
  * FieldToMatch : Contains Data and Type **/
         SizeConstraintSet?: SizeConstraintSet;
     }
@@ -1574,8 +1870,12 @@ GetSqlInjectionMatchSet request. For more information, see the following topics:
 
  &amp;#42; SqlInjectionMatchSet : Contains Name , SqlInjectionMatchSetId , and an array
    of SqlInjectionMatchTuple objects
+   
+   
  * SqlInjectionMatchTuple : Each SqlInjectionMatchTuple object contains 
    FieldToMatch and TextTransformation
+   
+   
  * FieldToMatch : Contains Data and Type **/
         SqlInjectionMatchSet?: SqlInjectionMatchSet;
     }
@@ -1590,9 +1890,15 @@ more information, see the following topics:
 
  &amp;#42; WebACL : Contains DefaultAction , MetricName , Name , an array of Rule 
    objects, and WebACLId
+   
+   
  * DefaultAction (Data type is WafAction ): Contains Type
+   
+   
  * Rules : Contains an array of ActivatedRule objects, which contain Action , 
    Priority , and RuleId
+   
+   
  * Action : Contains Type **/
         WebACL?: WebACL;
     }
@@ -1607,8 +1913,12 @@ request. For more information, see the following topics:
 
  &amp;#42; XssMatchSet : Contains Name , XssMatchSetId , and an array of XssMatchTuple 
    objects
+   
+   
  * XssMatchTuple : Each XssMatchTuple object contains FieldToMatch and 
    TextTransformation
+   
+   
  * FieldToMatch : Contains Data and Type **/
         XssMatchSet?: XssMatchSet;
     }
@@ -1625,6 +1935,8 @@ in CloudFront access logs:
 
  &amp;#42; c-ip , if the viewer did not use an HTTP proxy or a load balancer to send the
    request
+   
+   
  * x-forwarded-for , if the viewer did use an HTTP proxy or a load balancer to
    send the request **/
         ClientIP?: IPString;
@@ -1655,32 +1967,48 @@ IPSetId is returned by CreateIPSet and by ListIPSets . **/
         /** A friendly name or description of the IPSet . You can&#x27;t change the name of an 
 IPSet after you create it. **/
         Name?: ResourceName;
-        /** The IP address type ( IPV4 ) and the IP address range (in CIDR notation) that
-web requests originate from. If the WebACL is associated with a CloudFront
+        /** The IP address type ( IPV4 or IPV6 ) and the IP address range (in CIDR notation)
+that web requests originate from. If the WebACL is associated with a CloudFront
 distribution, this is the value of one of the following fields in CloudFront
 access logs:
 
  &amp;#42; c-ip , if the viewer did not use an HTTP proxy or a load balancer to send the
    request
+   
+   
  * x-forwarded-for , if the viewer did use an HTTP proxy or a load balancer to
    send the request **/
         IPSetDescriptors: IPSetDescriptors;
     }
     export interface IPSetDescriptor {
-        /** Specify IPV4 . **/
+        /** Specify IPV4 or IPV6 . **/
         Type: IPSetDescriptorType;
         /** Specify an IPv4 address by using CIDR notation. For example:
 
  &amp;#42; To configure AWS WAF to allow, block, or count requests that originated from
    the IP address 192.0.2.44, specify 192.0.2.44/32 .
+   
+   
  * To configure AWS WAF to allow, block, or count requests that originated from
    IP addresses from 192.0.2.0 to 192.0.2.255, specify 192.0.2.0/24 .
-
-AWS WAF supports only /8, /16, /24, and /32 IP addresses.
+   
+   
 
 For more information about CIDR notation, see the Wikipedia entry Classless
 Inter-Domain Routing
-[https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing] . **/
+[https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing] .
+
+Specify an IPv6 address by using CIDR notation. For example:
+
+ * To configure AWS WAF to allow, block, or count requests that originated from
+   the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify 
+   1111:0000:0000:0000:0000:0000:0000:0111/128 .
+   
+   
+ * To configure AWS WAF to allow, block, or count requests that originated from
+   IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to
+   1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify 
+   1111:0000:0000:0000:0000:0000:0000:0000/64 . **/
         Value: IPSetDescriptorValue;
     }
     export interface IPSetSummary {
@@ -1694,8 +2022,8 @@ IPSet after you create it. **/
     export interface IPSetUpdate {
         /** Specifies whether to insert or delete an IP address with UpdateIPSet . **/
         Action: ChangeAction;
-        /** The IP address type ( IPV4 ) and the IP address range (in CIDR notation) that
-web requests originate from. **/
+        /** The IP address type ( IPV4 or IPV6 ) and the IP address range (in CIDR notation)
+that web requests originate from. **/
         IPSetDescriptor: IPSetDescriptor;
     }
     export interface ListByteMatchSetsRequest {
@@ -1709,7 +2037,7 @@ response to get information about another batch of ByteMatchSets . **/
 this request. If you have more ByteMatchSets objects than the number you specify
 for Limit , the response includes a NextMarker value that you can use to get
 another batch of ByteMatchSet objects. **/
-        Limit: PaginationLimit;
+        Limit?: PaginationLimit;
     }
     export interface ListByteMatchSetsResponse {
         /** If you have more ByteMatchSet objects than the number that you specified for 
@@ -1731,7 +2059,7 @@ information about another batch of ByteMatchSets . **/
 request. If you have more IPSet objects than the number you specify for Limit ,
 the response includes a NextMarker value that you can use to get another batch
 of IPSet objects. **/
-        Limit: PaginationLimit;
+        Limit?: PaginationLimit;
     }
     export interface ListIPSetsResponse {
         /** If you have more IPSet objects than the number that you specified for Limit in
@@ -1752,7 +2080,7 @@ about another batch of Rules . **/
         /** Specifies the number of Rules that you want AWS WAF to return for this request.
 If you have more Rules than the number that you specify for Limit , the response
 includes a NextMarker value that you can use to get another batch of Rules . **/
-        Limit: PaginationLimit;
+        Limit?: PaginationLimit;
     }
     export interface ListRulesResponse {
         /** If you have more Rules than the number that you specified for Limit in the
@@ -1774,7 +2102,7 @@ previous response to get information about another batch of SizeConstraintSets .
 return for this request. If you have more SizeConstraintSets objects than the
 number you specify for Limit , the response includes a NextMarker value that you
 can use to get another batch of SizeConstraintSet objects. **/
-        Limit: PaginationLimit;
+        Limit?: PaginationLimit;
     }
     export interface ListSizeConstraintSetsResponse {
         /** If you have more SizeConstraintSet objects than the number that you specified
@@ -1798,7 +2126,7 @@ SqlInjectionMatchSets . **/
 return for this request. If you have more SqlInjectionMatchSet objects than the
 number you specify for Limit , the response includes a NextMarker value that you
 can use to get another batch of Rules . **/
-        Limit: PaginationLimit;
+        Limit?: PaginationLimit;
     }
     export interface ListSqlInjectionMatchSetsResponse {
         /** If you have more SqlInjectionMatchSet objects than the number that you specified
@@ -1821,7 +2149,7 @@ previous response to get information about another batch of WebACL objects. **/
 request. If you have more WebACL objects than the number that you specify for 
 Limit , the response includes a NextMarker value that you can use to get another
 batch of WebACL objects. **/
-        Limit: PaginationLimit;
+        Limit?: PaginationLimit;
     }
     export interface ListWebACLsResponse {
         /** If you have more WebACL objects than the number that you specified for Limit in
@@ -1843,7 +2171,7 @@ response to get information about another batch of XssMatchSets . **/
 this request. If you have more XssMatchSet objects than the number you specify
 for Limit , the response includes a NextMarker value that you can use to get
 another batch of Rules . **/
-        Limit: PaginationLimit;
+        Limit?: PaginationLimit;
     }
     export interface ListXssMatchSetsResponse {
         /** If you have more XssMatchSet objects than the number that you specified for 
@@ -1944,10 +2272,20 @@ line command and using unusual formatting to disguise some or all of the
 command, use this option to perform the following transformations:
 
  &amp;#42; Delete the following characters: \ &quot; &#x27; ^
+   
+   
  * Delete spaces before the following characters: / (
+   
+   
  * Replace the following characters with a space: , ;
+   
+   
  * Replace multiple spaces with one space
+   
+   
  * Convert uppercase letters (A-Z) to lowercase (a-z)
+   
+   
 
 COMPRESS_WHITE_SPACE
 
@@ -1955,11 +2293,23 @@ Use this option to replace the following characters with a space character
 (decimal 32):
 
  * \f, formfeed, decimal 12
+   
+   
  * \t, tab, decimal 9
+   
+   
  * \n, newline, decimal 10
+   
+   
  * \r, carriage return, decimal 13
+   
+   
  * \v, vertical tab, decimal 11
+   
+   
  * non-breaking space, decimal 160
+   
+   
 
 COMPRESS_WHITE_SPACE also replaces multiple spaces with one space.
 
@@ -1969,13 +2319,25 @@ Use this option to replace HTML-encoded characters with unencoded characters.
 HTML_ENTITY_DECODE performs the following operations:
 
  * Replaces (ampersand)quot; with &quot;
+   
+   
  * Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
+   
+   
  * Replaces (ampersand)lt; with a &quot;less than&quot; symbol
- * Replaces (ampersand)gt; with
+   
+   
+ * Replaces (ampersand)gt; with &gt;
+   
+   
  * Replaces characters that are represented in hexadecimal format, 
    (ampersand)#xhhhh; , with the corresponding characters
+   
+   
  * Replaces characters that are represented in decimal format, (ampersand)#nnnn; 
    , with the corresponding characters
+   
+   
 
 LOWERCASE
 
@@ -2109,10 +2471,20 @@ commandline command and using unusual formatting to disguise some or all of the
 command, use this option to perform the following transformations:
 
  &amp;#42; Delete the following characters: \ &quot; &#x27; ^
+   
+   
  * Delete spaces before the following characters: / (
+   
+   
  * Replace the following characters with a space: , ;
+   
+   
  * Replace multiple spaces with one space
+   
+   
  * Convert uppercase letters (A-Z) to lowercase (a-z)
+   
+   
 
 COMPRESS_WHITE_SPACE
 
@@ -2120,11 +2492,23 @@ Use this option to replace the following characters with a space character
 (decimal 32):
 
  * \f, formfeed, decimal 12
+   
+   
  * \t, tab, decimal 9
+   
+   
  * \n, newline, decimal 10
+   
+   
  * \r, carriage return, decimal 13
+   
+   
  * \v, vertical tab, decimal 11
+   
+   
  * non-breaking space, decimal 160
+   
+   
 
 COMPRESS_WHITE_SPACE also replaces multiple spaces with one space.
 
@@ -2134,13 +2518,25 @@ Use this option to replace HTML-encoded characters with unencoded characters.
 HTML_ENTITY_DECODE performs the following operations:
 
  * Replaces (ampersand)quot; with &quot;
+   
+   
  * Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
+   
+   
  * Replaces (ampersand)lt; with a &quot;less than&quot; symbol
- * Replaces (ampersand)gt; with
+   
+   
+ * Replaces (ampersand)gt; with &gt;
+   
+   
  * Replaces characters that are represented in hexadecimal format, 
    (ampersand)#xhhhh; , with the corresponding characters
+   
+   
  * Replaces characters that are represented in decimal format, (ampersand)#nnnn; 
    , with the corresponding characters
+   
+   
 
 LOWERCASE
 
@@ -2175,8 +2571,12 @@ is returned by CreateByteMatchSet and by ListByteMatchSets . **/
 from a ByteMatchSet . For more information, see the applicable data types:
 
  &amp;#42; ByteMatchSetUpdate : Contains Action and ByteMatchTuple
+   
+   
  * ByteMatchTuple : Contains FieldToMatch , PositionalConstraint , TargetString 
    , and TextTransformation
+   
+   
  * FieldToMatch : Contains Data and Type **/
         Updates: ByteMatchSetUpdates;
     }
@@ -2196,6 +2596,8 @@ CreateIPSet and by ListIPSets . **/
 IPSet . For more information, see the applicable data types:
 
  &amp;#42; IPSetUpdate : Contains Action and IPSetDescriptor
+   
+   
  * IPSetDescriptor : Contains Type and Value **/
         Updates: IPSetUpdates;
     }
@@ -2215,7 +2617,11 @@ and by ListRules . **/
 Rule . For more information, see the applicable data types:
 
  &amp;#42; RuleUpdate : Contains Action and Predicate
+   
+   
  * Predicate : Contains DataId , Negated , and Type
+   
+   
  * FieldToMatch : Contains Data and Type **/
         Updates: RuleUpdates;
     }
@@ -2237,8 +2643,12 @@ delete from a SizeConstraintSet . For more information, see the applicable data
 types:
 
  &amp;#42; SizeConstraintSetUpdate : Contains Action and SizeConstraint
+   
+   
  * SizeConstraint : Contains FieldToMatch , TextTransformation , 
    ComparisonOperator , and Size
+   
+   
  * FieldToMatch : Contains Data and Type **/
         Updates: SizeConstraintSetUpdates;
     }
@@ -2260,7 +2670,11 @@ delete from a SqlInjectionMatchSet . For more information, see the applicable
 data types:
 
  &amp;#42; SqlInjectionMatchSetUpdate : Contains Action and SqlInjectionMatchTuple
+   
+   
  * SqlInjectionMatchTuple : Contains FieldToMatch and TextTransformation
+   
+   
  * FieldToMatch : Contains Data and Type **/
         Updates: SqlInjectionMatchSetUpdates;
     }
@@ -2282,7 +2696,11 @@ An array of WebACLUpdate objects that you want to insert into or delete from a
 WebACL . For more information, see the applicable data types:
 
  &amp;#42; WebACLUpdate : Contains Action and ActivatedRule
+   
+   
  * ActivatedRule : Contains Action , Priority , and RuleId
+   
+   
  * WafAction : Contains Type **/
         Updates?: WebACLUpdates;
         DefaultAction?: WafAction;
@@ -2303,7 +2721,11 @@ returned by CreateXssMatchSet and by ListXssMatchSets . **/
 from a XssMatchSet . For more information, see the applicable data types:
 
  &amp;#42; XssMatchSetUpdate : Contains Action and XssMatchTuple
+   
+   
  * XssMatchTuple : Contains FieldToMatch and TextTransformation
+   
+   
  * FieldToMatch : Contains Data and Type **/
         Updates: XssMatchSetUpdates;
     }
@@ -2352,7 +2774,11 @@ see GetChangeTokenStatus . **/
 a Rule . Valid settings include the following:
 
  &amp;#42; ALLOW : AWS WAF allows requests
+   
+   
  * BLOCK : AWS WAF blocks requests
+   
+   
  * COUNT : AWS WAF increments a counter of the requests that match all of the
    conditions in the rule. AWS WAF then continues to inspect the web request
    based on the remaining rules in the web ACL. You can&#x27;t specify COUNT for the
@@ -2443,10 +2869,20 @@ commandline command and using unusual formatting to disguise some or all of the
 command, use this option to perform the following transformations:
 
  &amp;#42; Delete the following characters: \ &quot; &#x27; ^
+   
+   
  * Delete spaces before the following characters: / (
+   
+   
  * Replace the following characters with a space: , ;
+   
+   
  * Replace multiple spaces with one space
+   
+   
  * Convert uppercase letters (A-Z) to lowercase (a-z)
+   
+   
 
 COMPRESS_WHITE_SPACE
 
@@ -2454,11 +2890,23 @@ Use this option to replace the following characters with a space character
 (decimal 32):
 
  * \f, formfeed, decimal 12
+   
+   
  * \t, tab, decimal 9
+   
+   
  * \n, newline, decimal 10
+   
+   
  * \r, carriage return, decimal 13
+   
+   
  * \v, vertical tab, decimal 11
+   
+   
  * non-breaking space, decimal 160
+   
+   
 
 COMPRESS_WHITE_SPACE also replaces multiple spaces with one space.
 
@@ -2468,13 +2916,25 @@ Use this option to replace HTML-encoded characters with unencoded characters.
 HTML_ENTITY_DECODE performs the following operations:
 
  * Replaces (ampersand)quot; with &quot;
+   
+   
  * Replaces (ampersand)nbsp; with a non-breaking space, decimal 160
+   
+   
  * Replaces (ampersand)lt; with a &quot;less than&quot; symbol
- * Replaces (ampersand)gt; with
+   
+   
+ * Replaces (ampersand)gt; with &gt;
+   
+   
  * Replaces characters that are represented in hexadecimal format, 
    (ampersand)#xhhhh; , with the corresponding characters
+   
+   
  * Replaces characters that are represented in decimal format, (ampersand)#nnnn; 
    , with the corresponding characters
+   
+   
 
 LOWERCASE
 

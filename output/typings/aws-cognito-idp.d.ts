@@ -14,14 +14,14 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * You can create a user pool in Amazon Cognito Identity to manage directories and
-users. You can authenticate a user to obtain tokens related to user identity and
-access policies.
+   * Using the Amazon Cognito Your User Pools API, you can create a user pool to
+manage directories and users. You can authenticate a user to obtain tokens
+related to user identity and access policies.
 
-This API reference provides information about user pools in Amazon Cognito
-Identity.
+This API reference provides information about user pools in Amazon Cognito Your
+User Pools.
 
-For more information, see Amazon Cognito [https://aws.amazon.com/cognito/] .
+For more information, see the Amazon Cognito Documentation.
    *
    */
   export class CognitoIdentityServiceProvider extends Service {
@@ -55,6 +55,33 @@ on any user.
      * @error InternalErrorException   
      */
     adminConfirmSignUp(params: CognitoIdentityServiceProvider.AdminConfirmSignUpRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.TooManyFailedAttemptsException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.LimitExceededException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.AdminConfirmSignUpResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminConfirmSignUpResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.TooManyFailedAttemptsException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.LimitExceededException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.InternalErrorException|any>;
+    /**
+     * Creates a new user in the specified user pool and sends a welcome message via
+email or phone (SMS). This message is based on a template that you configured in
+your call to CreateUserPool or UpdateUserPool. This template includes your
+custom sign-up instructions and placeholders for user name and temporary
+password.
+
+Requires developer credentials.
+     *
+     * @error ResourceNotFoundException   
+     * @error InvalidParameterException   
+     * @error UserNotFoundException   
+     * @error UsernameExistsException   
+     * @error InvalidPasswordException   
+     * @error CodeDeliveryFailureException   
+     * @error UnexpectedLambdaException   
+     * @error UserLambdaValidationException   
+     * @error InvalidLambdaResponseException   
+     * @error PreconditionNotMetException   
+     * @error InvalidSmsRoleAccessPolicyException   
+     * @error InvalidSmsRoleTrustRelationshipException   
+     * @error TooManyRequestsException   
+     * @error NotAuthorizedException   
+     * @error UnsupportedUserStateException   
+     * @error InternalErrorException   
+     */
+    adminCreateUser(params: CognitoIdentityServiceProvider.AdminCreateUserRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UsernameExistsException|CognitoIdentityServiceProvider.InvalidPasswordException|CognitoIdentityServiceProvider.CodeDeliveryFailureException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.PreconditionNotMetException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UnsupportedUserStateException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.AdminCreateUserResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminCreateUserResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UsernameExistsException|CognitoIdentityServiceProvider.InvalidPasswordException|CognitoIdentityServiceProvider.CodeDeliveryFailureException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.PreconditionNotMetException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.UnsupportedUserStateException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Deletes a user as an administrator. Works on any user.
      *
@@ -200,6 +227,7 @@ a message to the end user with the code to change their password.
      * @error CodeMismatchException   
      * @error ExpiredCodeException   
      * @error UnexpectedLambdaException   
+     * @error InvalidPasswordException   
      * @error UserLambdaValidationException   
      * @error InvalidLambdaResponseException   
      * @error TooManyRequestsException   
@@ -213,7 +241,7 @@ a message to the end user with the code to change their password.
      * @error UserNotFoundException   
      * @error UserNotConfirmedException   
      */
-    adminRespondToAuthChallenge(params: CognitoIdentityServiceProvider.AdminRespondToAuthChallengeRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.CodeMismatchException|CognitoIdentityServiceProvider.ExpiredCodeException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.InternalErrorException|CognitoIdentityServiceProvider.MFAMethodNotFoundException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.AliasExistsException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|any, data: CognitoIdentityServiceProvider.AdminRespondToAuthChallengeResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminRespondToAuthChallengeResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.CodeMismatchException|CognitoIdentityServiceProvider.ExpiredCodeException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.InternalErrorException|CognitoIdentityServiceProvider.MFAMethodNotFoundException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.AliasExistsException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|any>;
+    adminRespondToAuthChallenge(params: CognitoIdentityServiceProvider.AdminRespondToAuthChallengeRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.CodeMismatchException|CognitoIdentityServiceProvider.ExpiredCodeException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.InvalidPasswordException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.InternalErrorException|CognitoIdentityServiceProvider.MFAMethodNotFoundException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.AliasExistsException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|any, data: CognitoIdentityServiceProvider.AdminRespondToAuthChallengeResponse|any) => void): Request<CognitoIdentityServiceProvider.AdminRespondToAuthChallengeResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.CodeMismatchException|CognitoIdentityServiceProvider.ExpiredCodeException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.InvalidPasswordException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.InternalErrorException|CognitoIdentityServiceProvider.MFAMethodNotFoundException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.AliasExistsException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|any>;
     /**
      * Sets all the user settings for a specified user name. Works on any user.
      *
@@ -552,9 +580,11 @@ import job.
      * @error InvalidParameterException   
      * @error NotAuthorizedException   
      * @error TooManyRequestsException   
+     * @error PasswordResetRequiredException   
+     * @error UserNotConfirmedException   
      * @error InternalErrorException   
      */
-    globalSignOut(params: CognitoIdentityServiceProvider.GlobalSignOutRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.GlobalSignOutResponse|any) => void): Request<CognitoIdentityServiceProvider.GlobalSignOutResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InternalErrorException|any>;
+    globalSignOut(params: CognitoIdentityServiceProvider.GlobalSignOutRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotConfirmedException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.GlobalSignOutResponse|any) => void): Request<CognitoIdentityServiceProvider.GlobalSignOutResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotConfirmedException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Initiates the authentication flow.
      *
@@ -655,6 +685,7 @@ in the user pool.
      * @error ExpiredCodeException   
      * @error UnexpectedLambdaException   
      * @error UserLambdaValidationException   
+     * @error InvalidPasswordException   
      * @error InvalidLambdaResponseException   
      * @error TooManyRequestsException   
      * @error InvalidUserPoolConfigurationException   
@@ -667,7 +698,7 @@ in the user pool.
      * @error AliasExistsException   
      * @error InternalErrorException   
      */
-    respondToAuthChallenge(params: CognitoIdentityServiceProvider.RespondToAuthChallengeRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.CodeMismatchException|CognitoIdentityServiceProvider.ExpiredCodeException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.MFAMethodNotFoundException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.AliasExistsException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.RespondToAuthChallengeResponse|any) => void): Request<CognitoIdentityServiceProvider.RespondToAuthChallengeResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.CodeMismatchException|CognitoIdentityServiceProvider.ExpiredCodeException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.MFAMethodNotFoundException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.AliasExistsException|CognitoIdentityServiceProvider.InternalErrorException|any>;
+    respondToAuthChallenge(params: CognitoIdentityServiceProvider.RespondToAuthChallengeRequest, callback?: (err: CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.CodeMismatchException|CognitoIdentityServiceProvider.ExpiredCodeException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidPasswordException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.MFAMethodNotFoundException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.AliasExistsException|CognitoIdentityServiceProvider.InternalErrorException|any, data: CognitoIdentityServiceProvider.RespondToAuthChallengeResponse|any) => void): Request<CognitoIdentityServiceProvider.RespondToAuthChallengeResponse|any,CognitoIdentityServiceProvider.ResourceNotFoundException|CognitoIdentityServiceProvider.InvalidParameterException|CognitoIdentityServiceProvider.NotAuthorizedException|CognitoIdentityServiceProvider.CodeMismatchException|CognitoIdentityServiceProvider.ExpiredCodeException|CognitoIdentityServiceProvider.UnexpectedLambdaException|CognitoIdentityServiceProvider.UserLambdaValidationException|CognitoIdentityServiceProvider.InvalidPasswordException|CognitoIdentityServiceProvider.InvalidLambdaResponseException|CognitoIdentityServiceProvider.TooManyRequestsException|CognitoIdentityServiceProvider.InvalidUserPoolConfigurationException|CognitoIdentityServiceProvider.MFAMethodNotFoundException|CognitoIdentityServiceProvider.PasswordResetRequiredException|CognitoIdentityServiceProvider.UserNotFoundException|CognitoIdentityServiceProvider.UserNotConfirmedException|CognitoIdentityServiceProvider.InvalidSmsRoleAccessPolicyException|CognitoIdentityServiceProvider.InvalidSmsRoleTrustRelationshipException|CognitoIdentityServiceProvider.AliasExistsException|CognitoIdentityServiceProvider.InternalErrorException|any>;
     /**
      * Sets the user settings like multi-factor authentication (MFA). If MFA is to be
 removed for a particular attribute pass the attribute with code delivery as
@@ -808,6 +839,8 @@ policy.
 
   export module CognitoIdentityServiceProvider {
     
+    export type AdminCreateUserUnusedAccountValidityDaysType = number;
+    
     export type AliasAttributeType = string;
     
     export type AliasAttributesListType = AliasAttributeType[];
@@ -860,6 +893,8 @@ policy.
     
     export type DateType = number;
     
+    export type DeliveryMediumListType = DeliveryMediumType[];
+    
     export type DeliveryMediumType = string;
     
     export type DeviceKeyType = string;
@@ -891,6 +926,8 @@ policy.
     export type LongType = number;
     
     export type MFAOptionListType = MFAOptionType[];
+    
+    export type MessageActionType = string;
     
     export type MessageType = string;
     
@@ -976,6 +1013,102 @@ policy.
     }
     export interface AdminConfirmSignUpResponse {
     }
+    export interface AdminCreateUserConfigType {
+        /** Set to True if only the administrator is allowed to create user profiles. Set to
+False if users can sign themselves up via an app. **/
+        AllowAdminCreateUserOnly?: BooleanType;
+        /** The user account expiration limit, in days, after which the account is no longer
+usable. To reset the account after that time limit, you must call
+AdminCreateUser again, specifying &quot;RESEND&quot; for the MessageAction parameter. **/
+        UnusedAccountValidityDays?: AdminCreateUserUnusedAccountValidityDaysType;
+        /** The message template to be used for the welcome message to new users. **/
+        InviteMessageTemplate?: MessageTemplateType;
+    }
+    export interface AdminCreateUserRequest {
+        /** The user pool ID for the user pool where the user will be created. **/
+        UserPoolId: UserPoolIdType;
+        /** The username for the user. Must be unique within the user pool. Must be a UTF-8
+string between 1 and 128 characters. After the user is created, the username
+cannot be changed. **/
+        Username: UsernameType;
+        /** An array of name-value pairs that contain user attributes and attribute values
+to be set for the user to be created. You can create a user without specifying
+any attributes other than Username. However, any attributes that you specify as
+required (in CreateUserPool or in the Attributes tab of the console) must be
+supplied either by you (in your call to AdminCreateUser) or by the user (when he
+or she signs up in response to your welcome message).
+
+To send a message inviting the user to sign up, you must specify the user&#x27;s
+email address or phone number. This can be done in your call to AdminCreateUser
+or in the Users tab of the Amazon Cognito console for managing your user pools.
+
+In your call to AdminCreateUser, you can set the email_verified attribute to
+True, and you can set the phone_number_verified attribute to True. (You cannot
+do this by calling other operations such as AdminUpdateUserAttributes.)
+
+ &amp;#42; email : The email address of the user to whom the message that contains the
+   code and username will be sent. Required if the email_verified attribute is
+   set to True, or if &quot;EMAIL&quot; is specified in the DesiredDeliveryMediums
+   parameter.
+   
+   
+ * phone_number : The phone number of the user to whom the message that contains
+   the code and username will be sent. Required if the phone_number_verified
+   attribute is set to True, or if &quot;SMS&quot; is specified in the
+   DesiredDeliveryMediums parameter. **/
+        UserAttributes?: AttributeListType;
+        /** The user&#x27;s validation data. This is an array of name-value pairs that contain
+user attributes and attribute values that you can use for custom validation,
+such as restricting the types of user accounts that can be registered. For
+example, you might choose to allow or disallow user sign-up based on the user&#x27;s
+domain.
+
+To configure custom validation, you must create a Pre Sign-up Lambda trigger for
+the user pool as described in the Amazon Cognito Developer Guide. The Lambda
+trigger receives the validation data and uses it in the validation process.
+
+The user&#x27;s validation data is not persisted. **/
+        ValidationData?: AttributeListType;
+        /** The user&#x27;s temporary password. This password must conform to the password policy
+that you specified when you created the user pool.
+
+The temporary password is valid only once. To complete the Admin Create User
+flow, the user must enter the temporary password in the sign-in page along with
+a new password to be used in all future sign-ins.
+
+This parameter is not required. If you do not specify a value, Amazon Cognito
+generates one for you.
+
+The temporary password can only be used until the user account expiration limit
+that you specified when you created the user pool. To reset the account after
+that time limit, you must call AdminCreateUser again, specifying &quot;RESEND&quot; for
+the MessageAction parameter. **/
+        TemporaryPassword?: PasswordType;
+        /** This parameter is only used if the phone_number_verified or email_verified
+attribute is set to True. Otherwise, it is ignored.
+
+If this parameter is set to True and the phone number or email address specified
+in the UserAttributes parameter already exists as an alias with a different
+user, the API call will migrate the alias from the previous user to the newly
+created user. The previous user will no longer be able to log in using that
+alias.
+
+If this parameter is set to False, the API throws an AliasExistsException error
+if the alias already exists. The default value is False. **/
+        ForceAliasCreation?: ForceAliasCreation;
+        /** Set to &quot;RESEND&quot; to resend the invitation message to a user that already exists
+and reset the expiration limit on the user&#x27;s account. Set to &quot;SUPPRESS&quot; to
+suppress sending the message. Only one value can be specified. **/
+        MessageAction?: MessageActionType;
+        /** Specify &quot;EMAIL&quot; if email will be used to send the welcome message. Specify &quot;SMS&quot;
+if the phone number will be used. The default value is &quot;SMS&quot;. More than one
+value can be specified. **/
+        DesiredDeliveryMediums?: DeliveryMediumListType;
+    }
+    export interface AdminCreateUserResponse {
+        /** The user returned in the request to create a new user. **/
+        User?: UserType;
+    }
     export interface AdminDeleteUserAttributesRequest {
         /** The user pool ID for the user pool where you want to delete user attributes. **/
         UserPoolId: UserPoolIdType;
@@ -1049,9 +1182,17 @@ user. **/
         /** The user status. Can be one of the following:
 
  &amp;#42; UNCONFIRMED - User has been created but not confirmed.
+   
+   
  * CONFIRMED - User has been confirmed.
+   
+   
  * ARCHIVED - User is no longer active.
+   
+   
  * COMPROMISED - User is disabled due to a potential security threat.
+   
+   
  * UNKNOWN - User status is not known. **/
         UserStatus?: UserStatusType;
         /** Specifies the options for MFA (e.g., email or phone number). **/
@@ -1135,7 +1276,7 @@ such as MFA options. **/
     export interface AdminSetUserSettingsResponse {
     }
     export interface AdminUpdateDeviceStatusRequest {
-        /** The user pool ID **/
+        /** The user pool ID&gt; **/
         UserPoolId: UserPoolIdType;
         /** The user name. **/
         Username: UsernameType;
@@ -1330,6 +1471,8 @@ phone_number , email , or preferred_username . **/
         EmailConfiguration?: EmailConfigurationType;
         /** The SMS configuration. **/
         SmsConfiguration?: SmsConfigurationType;
+        /** The configuration for AdminCreateUser requests. **/
+        AdminCreateUserConfig?: AdminCreateUserConfigType;
     }
     export interface CreateUserPoolResponse {
         /** A container for the user pool details. **/
@@ -1588,8 +1731,8 @@ invalid. **/
         UserPoolId: UserPoolIdType;
         /** The maximum number of import jobs you want the request to return. **/
         MaxResults: PoolQueryLimitType;
-        /** An identifier that was returned from the previous call to this operation, which
-can be used to return the next set of import jobs in the list. **/
+        /** An identifier that was returned from the previous call to ListUserImportJobs,
+which can be used to return the next set of import jobs in the list. **/
         PaginationToken?: PaginationKeyType;
     }
     export interface ListUserImportJobsResponse {
@@ -1661,6 +1804,14 @@ exception. **/
         DeliveryMedium?: DeliveryMediumType;
         /** The attribute name of the MFA option type. **/
         AttributeName?: AttributeNameType;
+    }
+    export interface MessageTemplateType {
+        /** The message template for SMS messages. **/
+        SMSMessage?: SmsVerificationMessageType;
+        /** The message template for email messages. **/
+        EmailMessage?: EmailVerificationMessageType;
+        /** The subject line for email messages. **/
+        EmailSubject?: EmailVerificationSubjectType;
     }
     export interface NewDeviceMetadataType {
         /** The device key. **/
@@ -1835,6 +1986,10 @@ exception. **/
 Lambda exception. **/
         message?: MessageType;
     }
+    export interface UnsupportedUserStateException {
+        /** The message returned when the user is in an unsupported state. **/
+        message?: MessageType;
+    }
     export interface UpdateDeviceStatusRequest {
         /** The access token. **/
         AccessToken: TokenModelType;
@@ -1893,7 +2048,7 @@ makes a request to update user pools. **/
         SmsVerificationMessage?: SmsVerificationMessageType;
         /** The contents of the email verification message. **/
         EmailVerificationMessage?: EmailVerificationMessageType;
-        /** The subject of the email verfication message **/
+        /** The subject of the email verfication message. **/
         EmailVerificationSubject?: EmailVerificationSubjectType;
         /** The contents of the SMS authentication message. **/
         SmsAuthenticationMessage?: SmsVerificationMessageType;
@@ -1901,8 +2056,12 @@ makes a request to update user pools. **/
 
  &amp;#42; OFF - MFA tokens are not required and cannot be specified during user
    registration.
+   
+   
  * ON - MFA tokens are required for all user registrations. You can only specify
    required when you are initially creating a user pool.
+   
+   
  * OPTIONAL - Users have the option when registering to create an MFA token. **/
         MfaConfiguration?: UserPoolMfaType;
         /** Device configuration. **/
@@ -1911,6 +2070,8 @@ makes a request to update user pools. **/
         EmailConfiguration?: EmailConfigurationType;
         /** SMS configuration. **/
         SmsConfiguration?: SmsConfigurationType;
+        /** The configuration for AdminCreateUser requests. **/
+        AdminCreateUserConfig?: AdminCreateUserConfigType;
     }
     export interface UpdateUserPoolResponse {
     }
@@ -1936,14 +2097,28 @@ makes a request to update user pools. **/
         /** The status of the user import job. One of the following:
 
  &amp;#42; Created - The job was created but not started.
+   
+   
  * Pending - A transition state. You have started the job, but it has not begun
    importing users yet.
+   
+   
  * InProgress - The job has started, and users are being imported.
+   
+   
  * Stopping - You have stopped the job, but the job has not stopped importing
    users yet.
+   
+   
  * Stopped - You have stopped the job, and the job has stopped importing users.
+   
+   
  * Succeeded - The job has completed successfully.
+   
+   
  * Failed - The job has stopped due to an error.
+   
+   
  * Expired - You created a job, but did not start the job within 24-48 hours.
    All data associated with the job was deleted, and the job cannot be started. **/
         Status?: UserImportJobStatusType;
@@ -2055,8 +2230,12 @@ client. **/
 
  &amp;#42; OFF - MFA tokens are not required and cannot be specified during user
    registration.
+   
+   
  * ON - MFA tokens are required for all user registrations. You can only specify
    required when you are initially creating a user pool.
+   
+   
  * OPTIONAL - Users have the option when registering to create an MFA token. **/
         MfaConfiguration?: UserPoolMfaType;
         /** The device configuration. **/
@@ -2071,6 +2250,8 @@ client. **/
         SmsConfigurationFailure?: StringType;
         /** The reason why the email configuration cannot send the messages to your users. **/
         EmailConfigurationFailure?: StringType;
+        /** The configuration for AdminCreateUser requests. **/
+        AdminCreateUserConfig?: AdminCreateUserConfigType;
     }
     export interface UserType {
         /** The user name of the user you wish to describe. **/
@@ -2086,11 +2267,21 @@ client. **/
         /** The user status. Can be one of the following:
 
  &amp;#42; UNCONFIRMED - User has been created but not confirmed.
+   
+   
  * CONFIRMED - User has been confirmed.
+   
+   
  * ARCHIVED - User is no longer active.
+   
+   
  * COMPROMISED - User is disabled due to a potential security threat.
+   
+   
  * UNKNOWN - User status is not known. **/
         UserStatus?: UserStatusType;
+        /** The MFA options for the user. **/
+        MFAOptions?: MFAOptionListType;
     }
     export interface UsernameExistsException {
         /** The message returned when Amazon Cognito throws a user name exists exception. **/
