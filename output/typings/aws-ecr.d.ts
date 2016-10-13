@@ -102,6 +102,21 @@ use the force option to delete it.
      */
     deleteRepositoryPolicy(params: ECR.DeleteRepositoryPolicyRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.RepositoryPolicyNotFoundException|any, data: ECR.DeleteRepositoryPolicyResponse|any) => void): Request<ECR.DeleteRepositoryPolicyResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.RepositoryPolicyNotFoundException|any>;
     /**
+     * Returns metadata about the images in a repository, including image size and
+creation date.
+
+Beginning with Docker version 1.9, the Docker client compresses image layers
+before pushing them to a V2 Docker registry. The output of the docker images 
+command shows the uncompressed image size, so it may return a larger image size
+than the image sizes returned by DescribeImages .
+     *
+     * @error ServerException   
+     * @error InvalidParameterException   
+     * @error RepositoryNotFoundException   
+     * @error ImageNotFoundException   
+     */
+    describeImages(params: ECR.DescribeImagesRequest, callback?: (err: ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.ImageNotFoundException|any, data: ECR.DescribeImagesResponse|any) => void): Request<ECR.DescribeImagesResponse|any,ECR.ServerException|ECR.InvalidParameterException|ECR.RepositoryNotFoundException|ECR.ImageNotFoundException|any>;
+    /**
      * Describes image repositories in a registry.
      *
      * @error ServerException   
@@ -223,6 +238,8 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
     
     export type BatchedOperationLayerDigestList = BatchedOperationLayerDigest[];
     
+    export type CreationTimestamp = number;
+    
     export type ExceptionMessage = string;
     
     export type ExpirationTimestamp = number;
@@ -230,6 +247,8 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
     export type ForceFlag = boolean;
     
     export type GetAuthorizationTokenRegistryIdList = RegistryId[];
+    
+    export type ImageDetailList = ImageDetail[];
     
     export type ImageDigest = string;
     
@@ -245,7 +264,11 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
     
     export type ImageManifest = string;
     
+    export type ImageSizeInBytes = number;
+    
     export type ImageTag = string;
+    
+    export type ImageTagList = ImageTag[];
     
     export type LayerAvailability = string;
     
@@ -272,6 +295,8 @@ general use by customers. Use the docker CLI to pull, tag, and push images.
     export type PartSize = number;
     
     export type ProxyEndpoint = string;
+    
+    export type PushTimestamp = number;
     
     export type RegistryId = string;
     
@@ -380,6 +405,7 @@ the repository into a category (such as project-a/nginx-web-app ). **/
         repositoryName: RepositoryName;
     }
     export interface CreateRepositoryResponse {
+        /** The repository that was created. **/
         repository?: Repository;
     }
     export interface DeleteRepositoryPolicyRequest {
@@ -409,7 +435,48 @@ delete. If you do not specify a registry, the default registry is assumed. **/
         force?: ForceFlag;
     }
     export interface DeleteRepositoryResponse {
+        /** The repository that was deleted. **/
         repository?: Repository;
+    }
+    export interface DescribeImagesFilter {
+        /** The tag status with which to filter your DescribeImages results. You can filter
+results based on whether they are TAGGED or UNTAGGED . **/
+        tagStatus?: TagStatus;
+    }
+    export interface DescribeImagesRequest {
+        /** The AWS account ID associated with the registry that contains the repository in
+which to list images. If you do not specify a registry, the default registry is
+assumed. **/
+        registryId?: RegistryId;
+        /** A list of repositories to describe. If this parameter is omitted, then all
+repositories in a registry are described. **/
+        repositoryName: RepositoryName;
+        /** The list of image IDs for the requested repository. **/
+        imageIds?: ImageIdentifierList;
+        /** The nextToken value returned from a previous paginated DescribeImages request
+where maxResults was used and the results exceeded the value of that parameter.
+Pagination continues from the end of the previous results that returned the 
+nextToken value. This value is null when there are no more results to return. **/
+        nextToken?: NextToken;
+        /** The maximum number of repository results returned by DescribeImages in paginated
+output. When this parameter is used, DescribeImages only returns maxResults 
+results in a single page along with a nextToken response element. The remaining
+results of the initial request can be seen by sending another DescribeImages 
+request with the returned nextToken value. This value can be between 1 and 100.
+If this parameter is not used, then DescribeImages returns up to 100 results and
+a nextToken value, if applicable. **/
+        maxResults?: MaxResults;
+        /** The filter key and value with which to filter your DescribeImages results. **/
+        filter?: DescribeImagesFilter;
+    }
+    export interface DescribeImagesResponse {
+        /** A list of ImageDetail objects that contain data about the image. **/
+        imageDetails?: ImageDetailList;
+        /** The nextToken value to include in a future DescribeImages request. When the
+results of a DescribeImages request exceed maxResults , this value can be used
+to retrieve the next page of results. This value is null when there are no more
+results to return. **/
+        nextToken?: NextToken;
     }
     export interface DescribeRepositoriesRequest {
         /** The AWS account ID associated with the registry that contains the repositories
@@ -505,6 +572,26 @@ you do not specify a registry, the default registry is assumed. **/
         /** The error message associated with the exception. **/
         message?: ExceptionMessage;
     }
+    export interface ImageDetail {
+        /** The AWS account ID associated with the registry to which this image belongs. **/
+        registryId?: RegistryId;
+        /** The name of the repository to which this image belongs. **/
+        repositoryName?: RepositoryName;
+        /** The sha256 digest of the image manifest. **/
+        imageDigest?: ImageDigest;
+        /** The list of tags associated with this image. **/
+        imageTags?: ImageTagList;
+        /** The size, in bytes, of the image in the repository.
+
+Beginning with Docker version 1.9, the Docker client compresses image layers
+before pushing them to a V2 Docker registry. The output of the docker images 
+command shows the uncompressed image size, so it may return a larger image size
+than the image sizes returned by DescribeImages . **/
+        imageSizeInBytes?: ImageSizeInBytes;
+        /** The date and time, expressed in standard JavaScript date format, at which the
+current image was pushed to the repository. **/
+        imagePushedAt?: PushTimestamp;
+    }
     export interface ImageFailure {
         /** The image ID associated with the failure. **/
         imageId?: ImageIdentifier;
@@ -518,6 +605,9 @@ you do not specify a registry, the default registry is assumed. **/
         imageDigest?: ImageDigest;
         /** The tag used for the image. **/
         imageTag?: ImageTag;
+    }
+    export interface ImageNotFoundException {
+        message?: ExceptionMessage;
     }
     export interface InitiateLayerUploadRequest {
         /** The AWS account ID associated with the registry that you intend to upload layers
@@ -658,6 +748,9 @@ repository name. For example, arn:aws:ecr:region:012345678910:repository/test . 
         /** The URI for the repository. You can use this URI for Docker push and pull 
 operations. **/
         repositoryUri?: Url;
+        /** The date and time, in JavaScript date/time format, when the repository was
+created. **/
+        createdAt?: CreationTimestamp;
     }
     export interface RepositoryAlreadyExistsException {
         /** The error message associated with the exception. **/

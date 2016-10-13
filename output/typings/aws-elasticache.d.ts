@@ -17,8 +17,8 @@ declare module "aws-sdk" {
    * Amazon ElastiCacheAmazon ElastiCache is a web service that makes it easier to
 set up, operate, and scale a distributed cache in the cloud.
 
-With ElastiCache, customers gain all of the benefits of a high-performance,
-in-memory cache with far less of the administrative burden of launching and
+With ElastiCache, customers get all of the benefits of a high-performance,
+in-memory cache with less of the administrative burden involved in launching and
 managing a distributed cache. The service makes setup, scaling, and cluster
 failure handling much simpler than in a self-managed cache deployment.
 
@@ -31,10 +31,9 @@ can receive alarms if a part of their cache runs hot.
     constructor(options?: any);
     endpoint: Endpoint;
     /**
-     * The AddTagsToResource action adds up to 10 cost allocation tags to the named
-resource. A cost allocation tag is a key-value pair where the key and value are
-case-sensitive. Cost allocation tags can be used to categorize and track your
-AWS costs.
+     * Adds up to 10 cost allocation tags to the named resource. A cost allocation tag
+is a key-value pair where the key and value are case-sensitive. You can use cost
+allocation tags to categorize and track your AWS costs.
 
 When you apply tags to your ElastiCache resources, AWS generates a cost
 allocation report as a comma-separated value (CSV) file with your usage and
@@ -52,9 +51,9 @@ the ElastiCache User Guide .
      */
     addTagsToResource(params: ElastiCache.AddTagsToResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidARNFault|any, data: ElastiCache.TagListMessage|any) => void): Request<ElastiCache.TagListMessage|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidARNFault|any>;
     /**
-     * The AuthorizeCacheSecurityGroupIngress action allows network ingress to a cache
-security group. Applications using ElastiCache must be running on Amazon EC2,
-and Amazon EC2 security groups are used as the authorization mechanism.
+     * Allows network ingress to a cache security group. Applications using ElastiCache
+must be running on Amazon EC2, and Amazon EC2 security groups are used as the
+authorization mechanism.
 
 You cannot authorize ingress from an Amazon EC2 security group in one region to
 an ElastiCache cluster in another region.
@@ -67,23 +66,85 @@ an ElastiCache cluster in another region.
      */
     authorizeCacheSecurityGroupIngress(params: ElastiCache.AuthorizeCacheSecurityGroupIngressMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.AuthorizationAlreadyExistsFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.AuthorizeCacheSecurityGroupIngressResult|any) => void): Request<ElastiCache.AuthorizeCacheSecurityGroupIngressResult|any,ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.AuthorizationAlreadyExistsFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The CopySnapshot action makes a copy of an existing snapshot.
+     * Makes a copy of an existing snapshot.
 
-Users or groups that have permissions to use the CopySnapshot API can create
-their own Amazon S3 buckets and copy snapshots to it. To control access to your
-snapshots, use an IAM policy to control who has the ability to use the 
-CopySnapshot API. For more information about using IAM to control the use of
-ElastiCache APIs, see Exporting Snapshots
-[http://docs.aws.amazon.com/ElastiCache/latest/Snapshots.Exporting.html] and 
-Authentication &amp; Access Control
-[http://docs.aws.amazon.com/ElastiCache/latest/IAM.html] .
+This operation is valid for Redis only.
 
-Erorr Message:
+Users or groups that have permissions to use the CopySnapshot operation can
+create their own Amazon S3 buckets and copy snapshots to it. To control access
+to your snapshots, use an IAM policy to control who has the ability to use the 
+CopySnapshot operation. For more information about using IAM to control the use
+of ElastiCache operations, see Exporting Snapshots
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html] 
+and Authentication &amp; Access Control
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/IAM.html] .
 
- &amp;#42; Error Message: The authenticated user does not have sufficient permissions to
+You could receive the following error messages.
+
+Error Messages
+
+ &amp;#42; Error Message: The S3 bucket %s is outside of the region.
+   
+   Solution: Create an Amazon S3 bucket in the same region as your snapshot. For
+   more information, see Step 1: Create an Amazon S3 Bucket
+   [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html#Snapshots.Exporting.CreateBucket] 
+   in the ElastiCache User Guide.
+   
+   
+ * Error Message: The S3 bucket %s does not exist.
+   
+   Solution: Create an Amazon S3 bucket in the same region as your snapshot. For
+   more information, see Step 1: Create an Amazon S3 Bucket
+   [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html#Snapshots.Exporting.CreateBucket] 
+   in the ElastiCache User Guide.
+   
+   
+ * Error Message: The S3 bucket %s is not owned by the authenticated user.
+   
+   Solution: Create an Amazon S3 bucket in the same region as your snapshot. For
+   more information, see Step 1: Create an Amazon S3 Bucket
+   [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html#Snapshots.Exporting.CreateBucket] 
+   in the ElastiCache User Guide.
+   
+   
+ * Error Message: The authenticated user does not have sufficient permissions to
    perform the desired activity.
    
    Solution: Contact your system administrator to get the needed permissions.
+   
+   
+ * Error Message: The S3 bucket %s already contains an object with key %s.
+   
+   Solution: Give the TargetSnapshotName a new and unique value. If exporting a
+   snapshot, you could alternatively create a new Amazon S3 bucket and use this
+   same value for TargetSnapshotName .
+   
+   
+ * Error Message: ElastiCache has not been granted READ permissions %s on the S3
+   Bucket.
+   
+   Solution: Add List and Read permissions on the bucket. For more information,
+   see Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket
+   [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html#Snapshots.Exporting.GrantAccess] 
+   in the ElastiCache User Guide.
+   
+   
+ * Error Message: ElastiCache has not been granted WRITE permissions %s on the
+   S3 Bucket.
+   
+   Solution: Add Upload/Delete permissions on the bucket. For more information,
+   see Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket
+   [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html#Snapshots.Exporting.GrantAccess] 
+   in the ElastiCache User Guide.
+   
+   
+ * Error Message: ElastiCache has not been granted READ_ACP permissions %s on
+   the S3 Bucket.
+   
+   Solution: Add View Permissions on the bucket. For more information, see Step
+   2: Grant ElastiCache Access to Your Amazon S3 Bucket
+   [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html#Snapshots.Exporting.GrantAccess] 
+   in the ElastiCache User Guide.
      *
      * @error SnapshotAlreadyExistsFault   
      * @error SnapshotNotFoundFault   
@@ -94,9 +155,11 @@ Erorr Message:
      */
     copySnapshot(params: ElastiCache.CopySnapshotMessage, callback?: (err: ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CopySnapshotResult|any) => void): Request<ElastiCache.CopySnapshotResult|any,ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The CreateCacheCluster action creates a cache cluster. All nodes in the cache
-cluster run the same protocol-compliant cache engine software, either Memcached
-or Redis.
+     * Creates a cache cluster. All nodes in the cache cluster run the same
+protocol-compliant cache engine software, either Memcached or Redis.
+
+Due to current limitations on Redis (cluster mode disabled), this operation or
+parameter is not supported on Redis (cluster mode enabled) replication groups.
      *
      * @error ReplicationGroupNotFoundFault   
      * @error InvalidReplicationGroupStateFault   
@@ -115,9 +178,8 @@ or Redis.
      */
     createCacheCluster(params: ElastiCache.CreateCacheClusterMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.CacheClusterAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheClusterResult|any) => void): Request<ElastiCache.CreateCacheClusterResult|any,ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.CacheClusterAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The CreateCacheParameterGroup action creates a new cache parameter group. A
-cache parameter group is a collection of parameters that you apply to all of the
-nodes in a cache cluster.
+     * Creates a new cache parameter group. A cache parameter group is a collection of
+parameters that you apply to all of the nodes in a cache cluster.
      *
      * @error CacheParameterGroupQuotaExceededFault   
      * @error CacheParameterGroupAlreadyExistsFault   
@@ -127,13 +189,13 @@ nodes in a cache cluster.
      */
     createCacheParameterGroup(params: ElastiCache.CreateCacheParameterGroupMessage, callback?: (err: ElastiCache.CacheParameterGroupQuotaExceededFault|ElastiCache.CacheParameterGroupAlreadyExistsFault|ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheParameterGroupResult|any) => void): Request<ElastiCache.CreateCacheParameterGroupResult|any,ElastiCache.CacheParameterGroupQuotaExceededFault|ElastiCache.CacheParameterGroupAlreadyExistsFault|ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The CreateCacheSecurityGroup action creates a new cache security group. Use a
-cache security group to control access to one or more cache clusters.
+     * Creates a new cache security group. Use a cache security group to control access
+to one or more cache clusters.
 
 Cache security groups are only used when you are creating a cache cluster
-outside of an Amazon Virtual Private Cloud (VPC). If you are creating a cache
-cluster inside of a VPC, use a cache subnet group instead. For more information,
-see CreateCacheSubnetGroup
+outside of an Amazon Virtual Private Cloud (Amazon VPC). If you are creating a
+cache cluster inside of a VPC, use a cache subnet group instead. For more
+information, see CreateCacheSubnetGroup
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html] 
 .
      *
@@ -144,10 +206,10 @@ see CreateCacheSubnetGroup
      */
     createCacheSecurityGroup(params: ElastiCache.CreateCacheSecurityGroupMessage, callback?: (err: ElastiCache.CacheSecurityGroupAlreadyExistsFault|ElastiCache.CacheSecurityGroupQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateCacheSecurityGroupResult|any) => void): Request<ElastiCache.CreateCacheSecurityGroupResult|any,ElastiCache.CacheSecurityGroupAlreadyExistsFault|ElastiCache.CacheSecurityGroupQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The CreateCacheSubnetGroup action creates a new cache subnet group.
+     * Creates a new cache subnet group.
 
 Use this parameter only when you are creating a cluster in an Amazon Virtual
-Private Cloud (VPC).
+Private Cloud (Amazon VPC).
      *
      * @error CacheSubnetGroupAlreadyExistsFault   
      * @error CacheSubnetGroupQuotaExceededFault   
@@ -156,17 +218,26 @@ Private Cloud (VPC).
      */
     createCacheSubnetGroup(params: ElastiCache.CreateCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupAlreadyExistsFault|ElastiCache.CacheSubnetGroupQuotaExceededFault|ElastiCache.CacheSubnetQuotaExceededFault|ElastiCache.InvalidSubnet|any, data: ElastiCache.CreateCacheSubnetGroupResult|any) => void): Request<ElastiCache.CreateCacheSubnetGroupResult|any,ElastiCache.CacheSubnetGroupAlreadyExistsFault|ElastiCache.CacheSubnetGroupQuotaExceededFault|ElastiCache.CacheSubnetQuotaExceededFault|ElastiCache.InvalidSubnet|any>;
     /**
-     * The CreateReplicationGroup action creates a replication group. A replication
-group is a collection of cache clusters, where one of the cache clusters is a
-read/write primary and the others are read-only replicas. Writes to the primary
-are automatically propagated to the replicas.
+     * Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled)
+replication group.
 
-When you create a replication group, you must specify an existing cache cluster
-that is in the primary role. When the replication group has been successfully
-created, you can add one or more read replica replicas to it, up to a total of
-five read replicas.
+A Redis (cluster mode disabled) replication group is a collection of cache
+clusters, where one of the cache clusters is a read/write primary and the others
+are read-only replicas. Writes to the primary are asynchronously propagated to
+the replicas.
 
-This action is valid only for Redis.
+A Redis (cluster mode enabled) replication group is a collection of 1 to 15 node
+groups (shards). Each node group (shard) has one read/write primary node and up
+to 5 read-only replica nodes. Writes to the primary are asynchronously
+propagated to the replicas. Redis (cluster mode enabled) replication groups
+partition the data across node groups (shards).
+
+When a Redis (cluster mode disabled) replication group has been successfully
+created, you can add one or more read replicas to it, up to a total of 5 read
+replicas. You cannot alter a Redis (cluster mode enabled) replication group once
+it has been created.
+
+This operation is valid for Redis only.
      *
      * @error CacheClusterNotFoundFault   
      * @error InvalidCacheClusterStateFault   
@@ -180,32 +251,42 @@ This action is valid only for Redis.
      * @error CacheParameterGroupNotFoundFault   
      * @error InvalidVPCNetworkStateFault   
      * @error TagQuotaPerResourceExceeded   
+     * @error NodeGroupsPerReplicationGroupQuotaExceededFault   
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
-    createReplicationGroup(params: ElastiCache.CreateReplicationGroupMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.ReplicationGroupAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateReplicationGroupResult|any) => void): Request<ElastiCache.CreateReplicationGroupResult|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.ReplicationGroupAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
+    createReplicationGroup(params: ElastiCache.CreateReplicationGroupMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.ReplicationGroupAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.NodeGroupsPerReplicationGroupQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CreateReplicationGroupResult|any) => void): Request<ElastiCache.CreateReplicationGroupResult|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.ReplicationGroupAlreadyExistsFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.ClusterQuotaForCustomerExceededFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.TagQuotaPerResourceExceeded|ElastiCache.NodeGroupsPerReplicationGroupQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The CreateSnapshot action creates a copy of an entire cache cluster at a
-specific moment in time.
+     * Creates a copy of an entire cache cluster or replication group at a specific
+moment in time.
+
+This operation is valid for Redis only.
      *
      * @error SnapshotAlreadyExistsFault   
      * @error CacheClusterNotFoundFault   
+     * @error ReplicationGroupNotFoundFault   
      * @error InvalidCacheClusterStateFault   
+     * @error InvalidReplicationGroupStateFault   
      * @error SnapshotQuotaExceededFault   
      * @error SnapshotFeatureNotSupportedFault   
      * @error InvalidParameterCombinationException   
      * @error InvalidParameterValueException   
      */
-    createSnapshot(params: ElastiCache.CreateSnapshotMessage, callback?: (err: ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any, data: ElastiCache.CreateSnapshotResult|any) => void): Request<ElastiCache.CreateSnapshotResult|any,ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any>;
+    createSnapshot(params: ElastiCache.CreateSnapshotMessage, callback?: (err: ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any, data: ElastiCache.CreateSnapshotResult|any) => void): Request<ElastiCache.CreateSnapshotResult|any,ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any>;
     /**
-     * The DeleteCacheCluster action deletes a previously provisioned cache cluster. 
-DeleteCacheCluster deletes all associated cache nodes, node endpoints and the
-cache cluster itself. When you receive a successful response from this action,
-Amazon ElastiCache immediately begins deleting the cache cluster; you cannot
-cancel or revert this action.
+     * Deletes a previously provisioned cache cluster. DeleteCacheCluster deletes all
+associated cache nodes, node endpoints and the cache cluster itself. When you
+receive a successful response from this operation, Amazon ElastiCache
+immediately begins deleting the cache cluster; you cannot cancel or revert this
+operation.
 
-This API cannot be used to delete a cache cluster that is the last read replica
-of a replication group that has Multi-AZ mode enabled.
+This operation cannot be used to delete a cache cluster that is the last read
+replica of a replication group or node group (shard) that has Multi-AZ mode
+enabled or a cache cluster from a Redis (cluster mode enabled) replication
+group.
+
+Due to current limitations on Redis (cluster mode disabled), this operation or
+parameter is not supported on Redis (cluster mode enabled) replication groups.
      *
      * @error CacheClusterNotFoundFault   
      * @error InvalidCacheClusterStateFault   
@@ -217,9 +298,8 @@ of a replication group that has Multi-AZ mode enabled.
      */
     deleteCacheCluster(params: ElastiCache.DeleteCacheClusterMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteCacheClusterResult|any) => void): Request<ElastiCache.DeleteCacheClusterResult|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The DeleteCacheParameterGroup action deletes the specified cache parameter
-group. You cannot delete a cache parameter group if it is associated with any
-cache clusters.
+     * Deletes the specified cache parameter group. You cannot delete a cache parameter
+group if it is associated with any cache clusters.
      *
      * @error InvalidCacheParameterGroupStateFault   
      * @error CacheParameterGroupNotFoundFault   
@@ -228,7 +308,7 @@ cache clusters.
      */
     deleteCacheParameterGroup(params: ElastiCache.DeleteCacheParameterGroupMessage, callback?: (err: ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: any) => void): Request<any,ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The DeleteCacheSecurityGroup action deletes a cache security group.
+     * Deletes a cache security group.
 
 You cannot delete a cache security group if it is associated with any cache
 clusters.
@@ -240,7 +320,7 @@ clusters.
      */
     deleteCacheSecurityGroup(params: ElastiCache.DeleteCacheSecurityGroupMessage, callback?: (err: ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: any) => void): Request<any,ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The DeleteCacheSubnetGroup action deletes a cache subnet group.
+     * Deletes a cache subnet group.
 
 You cannot delete a cache subnet group if it is associated with any cache
 clusters.
@@ -250,14 +330,17 @@ clusters.
      */
     deleteCacheSubnetGroup(params: ElastiCache.DeleteCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupInUse|ElastiCache.CacheSubnetGroupNotFoundFault|any, data: any) => void): Request<any,ElastiCache.CacheSubnetGroupInUse|ElastiCache.CacheSubnetGroupNotFoundFault|any>;
     /**
-     * The DeleteReplicationGroup action deletes an existing replication group. By
-default, this action deletes the entire replication group, including the primary
-cluster and all of the read replicas. You can optionally delete only the read
-replicas, while retaining the primary cluster.
+     * Deletes an existing replication group. By default, this operation deletes the
+entire replication group, including the primary/primaries and all of the read
+replicas. If the replication group has only one primary, you can optionally
+delete only the read replicas, while retaining the primary by setting 
+RetainPrimaryCluster=true .
 
-When you receive a successful response from this action, Amazon ElastiCache
+When you receive a successful response from this operation, Amazon ElastiCache
 immediately begins deleting the selected resources; you cannot cancel or revert
-this action.
+this operation.
+
+This operation is valid for Redis only.
      *
      * @error ReplicationGroupNotFoundFault   
      * @error InvalidReplicationGroupStateFault   
@@ -269,9 +352,11 @@ this action.
      */
     deleteReplicationGroup(params: ElastiCache.DeleteReplicationGroupMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteReplicationGroupResult|any) => void): Request<ElastiCache.DeleteReplicationGroupResult|any,ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.SnapshotAlreadyExistsFault|ElastiCache.SnapshotFeatureNotSupportedFault|ElastiCache.SnapshotQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The DeleteSnapshot action deletes an existing snapshot. When you receive a
-successful response from this action, ElastiCache immediately begins deleting
-the snapshot; you cannot cancel or revert this action.
+     * Deletes an existing snapshot. When you receive a successful response from this
+operation, ElastiCache immediately begins deleting the snapshot; you cannot
+cancel or revert this operation.
+
+This operation is valid for Redis only.
      *
      * @error SnapshotNotFoundFault   
      * @error InvalidSnapshotStateFault   
@@ -280,25 +365,25 @@ the snapshot; you cannot cancel or revert this action.
      */
     deleteSnapshot(params: ElastiCache.DeleteSnapshotMessage, callback?: (err: ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DeleteSnapshotResult|any) => void): Request<ElastiCache.DeleteSnapshotResult|any,ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidSnapshotStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The DescribeCacheClusters action returns information about all provisioned cache
-clusters if no cache cluster identifier is specified, or about a specific cache
-cluster if a cache cluster identifier is supplied.
+     * Returns information about all provisioned cache clusters if no cache cluster
+identifier is specified, or about a specific cache cluster if a cache cluster
+identifier is supplied.
 
-By default, abbreviated information about the cache clusters(s) will be
-returned. You can use the optional ShowDetails flag to retrieve detailed
-information about the cache nodes associated with the cache clusters. These
-details include the DNS address and port for the cache node endpoint.
+By default, abbreviated information about the cache clusters are returned. You
+can use the optional ShowDetails flag to retrieve detailed information about the
+cache nodes associated with the cache clusters. These details include the DNS
+address and port for the cache node endpoint.
 
-If the cluster is in the CREATING state, only cluster level information will be
+If the cluster is in the CREATING state, only cluster-level information is
 displayed until all of the nodes are successfully provisioned.
 
-If the cluster is in the DELETING state, only cluster level information will be
+If the cluster is in the DELETING state, only cluster-level information is
 displayed.
 
 If cache nodes are currently being added to the cache cluster, node endpoint
-information and creation time for the additional nodes will not be displayed
-until they are completely provisioned. When the cache cluster state is available 
-, the cluster is ready for use.
+information and creation time for the additional nodes are not displayed until
+they are completely provisioned. When the cache cluster state is available , the
+cluster is ready for use.
 
 If cache nodes are currently being removed from the cache cluster, no endpoint
 information for the removed nodes is displayed.
@@ -309,15 +394,13 @@ information for the removed nodes is displayed.
      */
     describeCacheClusters(params: ElastiCache.DescribeCacheClustersMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheClusterMessage|any) => void): Request<ElastiCache.CacheClusterMessage|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The DescribeCacheEngineVersions action returns a list of the available cache
-engines and their versions.
+     * Returns a list of the available cache engines and their versions.
      *
      */
     describeCacheEngineVersions(params: ElastiCache.DescribeCacheEngineVersionsMessage, callback?: (err: any, data: ElastiCache.CacheEngineVersionMessage|any) => void): Request<ElastiCache.CacheEngineVersionMessage|any,any>;
     /**
-     * The DescribeCacheParameterGroups action returns a list of cache parameter group
-descriptions. If a cache parameter group name is specified, the list will
-contain only the descriptions for that group.
+     * Returns a list of cache parameter group descriptions. If a cache parameter group
+name is specified, the list contains only the descriptions for that group.
      *
      * @error CacheParameterGroupNotFoundFault   
      * @error InvalidParameterValueException   
@@ -325,8 +408,7 @@ contain only the descriptions for that group.
      */
     describeCacheParameterGroups(params: ElastiCache.DescribeCacheParameterGroupsMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupsMessage|any) => void): Request<ElastiCache.CacheParameterGroupsMessage|any,ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The DescribeCacheParameters action returns the detailed parameter list for a
-particular cache parameter group.
+     * Returns the detailed parameter list for a particular cache parameter group.
      *
      * @error CacheParameterGroupNotFoundFault   
      * @error InvalidParameterValueException   
@@ -334,9 +416,8 @@ particular cache parameter group.
      */
     describeCacheParameters(params: ElastiCache.DescribeCacheParametersMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupDetails|any) => void): Request<ElastiCache.CacheParameterGroupDetails|any,ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The DescribeCacheSecurityGroups action returns a list of cache security group
-descriptions. If a cache security group name is specified, the list will contain
-only the description of that group.
+     * Returns a list of cache security group descriptions. If a cache security group
+name is specified, the list contains only the description of that group.
      *
      * @error CacheSecurityGroupNotFoundFault   
      * @error InvalidParameterValueException   
@@ -344,26 +425,25 @@ only the description of that group.
      */
     describeCacheSecurityGroups(params: ElastiCache.DescribeCacheSecurityGroupsMessage, callback?: (err: ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheSecurityGroupMessage|any) => void): Request<ElastiCache.CacheSecurityGroupMessage|any,ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The DescribeCacheSubnetGroups action returns a list of cache subnet group
-descriptions. If a subnet group name is specified, the list will contain only
-the description of that group.
+     * Returns a list of cache subnet group descriptions. If a subnet group name is
+specified, the list contains only the description of that group.
      *
      * @error CacheSubnetGroupNotFoundFault   
      */
     describeCacheSubnetGroups(params: ElastiCache.DescribeCacheSubnetGroupsMessage, callback?: (err: ElastiCache.CacheSubnetGroupNotFoundFault|any, data: ElastiCache.CacheSubnetGroupMessage|any) => void): Request<ElastiCache.CacheSubnetGroupMessage|any,ElastiCache.CacheSubnetGroupNotFoundFault|any>;
     /**
-     * The DescribeEngineDefaultParameters action returns the default engine and system
-parameter information for the specified cache engine.
+     * Returns the default engine and system parameter information for the specified
+cache engine.
      *
      * @error InvalidParameterValueException   
      * @error InvalidParameterCombinationException   
      */
     describeEngineDefaultParameters(params: ElastiCache.DescribeEngineDefaultParametersMessage, callback?: (err: ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DescribeEngineDefaultParametersResult|any) => void): Request<ElastiCache.DescribeEngineDefaultParametersResult|any,ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The DescribeEvents action returns events related to cache clusters, cache
-security groups, and cache parameter groups. You can obtain events specific to a
-particular cache cluster, cache security group, or cache parameter group by
-providing the name as a parameter.
+     * Returns events related to cache clusters, cache security groups, and cache
+parameter groups. You can obtain events specific to a particular cache cluster,
+cache security group, or cache parameter group by providing the name as a
+parameter.
 
 By default, only the events occurring within the last hour are returned;
 however, you can retrieve up to 14 days&#x27; worth of events if necessary.
@@ -373,9 +453,11 @@ however, you can retrieve up to 14 days&#x27; worth of events if necessary.
      */
     describeEvents(params: ElastiCache.DescribeEventsMessage, callback?: (err: ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.EventsMessage|any) => void): Request<ElastiCache.EventsMessage|any,ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The DescribeReplicationGroups action returns information about a particular
-replication group. If no identifier is specified, DescribeReplicationGroups 
-returns information about all replication groups.
+     * Returns information about a particular replication group. If no identifier is
+specified, DescribeReplicationGroups returns information about all replication
+groups.
+
+This operation is valid for Redis only.
      *
      * @error ReplicationGroupNotFoundFault   
      * @error InvalidParameterValueException   
@@ -383,8 +465,8 @@ returns information about all replication groups.
      */
     describeReplicationGroups(params: ElastiCache.DescribeReplicationGroupsMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReplicationGroupMessage|any) => void): Request<ElastiCache.ReplicationGroupMessage|any,ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The DescribeReservedCacheNodes action returns information about reserved cache
-nodes for this account, or about a specified reserved cache node.
+     * Returns information about reserved cache nodes for this account, or about a
+specified reserved cache node.
      *
      * @error ReservedCacheNodeNotFoundFault   
      * @error InvalidParameterValueException   
@@ -392,8 +474,7 @@ nodes for this account, or about a specified reserved cache node.
      */
     describeReservedCacheNodes(params: ElastiCache.DescribeReservedCacheNodesMessage, callback?: (err: ElastiCache.ReservedCacheNodeNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReservedCacheNodeMessage|any) => void): Request<ElastiCache.ReservedCacheNodeMessage|any,ElastiCache.ReservedCacheNodeNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The DescribeReservedCacheNodesOfferings action lists available reserved cache
-node offerings.
+     * Lists available reserved cache node offerings.
      *
      * @error ReservedCacheNodesOfferingNotFoundFault   
      * @error InvalidParameterValueException   
@@ -401,10 +482,12 @@ node offerings.
      */
     describeReservedCacheNodesOfferings(params: ElastiCache.DescribeReservedCacheNodesOfferingsMessage, callback?: (err: ElastiCache.ReservedCacheNodesOfferingNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ReservedCacheNodesOfferingMessage|any) => void): Request<ElastiCache.ReservedCacheNodesOfferingMessage|any,ElastiCache.ReservedCacheNodesOfferingNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The DescribeSnapshots action returns information about cache cluster snapshots.
-By default, DescribeSnapshots lists all of your snapshots; it can optionally
+     * Returns information about cache cluster or replication group snapshots. By
+default, DescribeSnapshots lists all of your snapshots; it can optionally
 describe a single snapshot, or just the snapshots associated with a particular
 cache cluster.
+
+This operation is valid for Redis only.
      *
      * @error CacheClusterNotFoundFault   
      * @error SnapshotNotFoundFault   
@@ -413,13 +496,12 @@ cache cluster.
      */
     describeSnapshots(params: ElastiCache.DescribeSnapshotsMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.DescribeSnapshotsListMessage|any) => void): Request<ElastiCache.DescribeSnapshotsListMessage|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The ListAllowedNodeTypeModifications action lists all available node types that
-you can scale your Redis cluster&#x27;s or replication group&#x27;s current node type up
-to.
+     * Lists all available node types that you can scale your Redis cluster&#x27;s or
+replication group&#x27;s current node type up to.
 
-When you use the ModifyCacheCluster or ModifyReplicationGroup APIs to scale up
-your cluster or replication group, the value of the CacheNodeType parameter must
-be one of the node types returned by this action.
+When you use the ModifyCacheCluster or ModifyReplicationGroup operations to
+scale up your cluster or replication group, the value of the CacheNodeType 
+parameter must be one of the node types returned by this operation.
      *
      * @error CacheClusterNotFoundFault   
      * @error ReplicationGroupNotFoundFault   
@@ -428,10 +510,10 @@ be one of the node types returned by this action.
      */
     listAllowedNodeTypeModifications(params: ElastiCache.ListAllowedNodeTypeModificationsMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any, data: ElastiCache.AllowedNodeTypeModificationsMessage|any) => void): Request<ElastiCache.AllowedNodeTypeModificationsMessage|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidParameterCombinationException|ElastiCache.InvalidParameterValueException|any>;
     /**
-     * The ListTagsForResource action lists all cost allocation tags currently on the
-named resource. A cost allocation tag is a key-value pair where the key is
-case-sensitive and the value is optional. Cost allocation tags can be used to
-categorize and track your AWS costs.
+     * Lists all cost allocation tags currently on the named resource. A cost
+allocation tag is a key-value pair where the key is case-sensitive and the value
+is optional. You can use cost allocation tags to categorize and track your AWS
+costs.
 
 You can have a maximum of 10 cost allocation tags on an ElastiCache resource.
 For more information, see Using Cost Allocation Tags in Amazon ElastiCache
@@ -444,9 +526,9 @@ For more information, see Using Cost Allocation Tags in Amazon ElastiCache
      */
     listTagsForResource(params: ElastiCache.ListTagsForResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|any, data: ElastiCache.TagListMessage|any) => void): Request<ElastiCache.TagListMessage|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|any>;
     /**
-     * The ModifyCacheCluster action modifies the settings for a cache cluster. You can
-use this action to change one or more cluster configuration parameters by
-specifying the parameters and the new values.
+     * Modifies the settings for a cache cluster. You can use this operation to change
+one or more cluster configuration parameters by specifying the parameters and
+the new values.
      *
      * @error InvalidCacheClusterStateFault   
      * @error InvalidCacheSecurityGroupStateFault   
@@ -462,9 +544,9 @@ specifying the parameters and the new values.
      */
     modifyCacheCluster(params: ElastiCache.ModifyCacheClusterMessage, callback?: (err: ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ModifyCacheClusterResult|any) => void): Request<ElastiCache.ModifyCacheClusterResult|any,ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The ModifyCacheParameterGroup action modifies the parameters of a cache
-parameter group. You can modify up to 20 parameters in a single request by
-submitting a list parameter name and value pairs.
+     * Modifies the parameters of a cache parameter group. You can modify up to 20
+parameters in a single request by submitting a list parameter name and value
+pairs.
      *
      * @error CacheParameterGroupNotFoundFault   
      * @error InvalidCacheParameterGroupStateFault   
@@ -473,7 +555,7 @@ submitting a list parameter name and value pairs.
      */
     modifyCacheParameterGroup(params: ElastiCache.ModifyCacheParameterGroupMessage, callback?: (err: ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupNameMessage|any) => void): Request<ElastiCache.CacheParameterGroupNameMessage|any,ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The ModifyCacheSubnetGroup action modifies an existing cache subnet group.
+     * Modifies an existing cache subnet group.
      *
      * @error CacheSubnetGroupNotFoundFault   
      * @error CacheSubnetQuotaExceededFault   
@@ -482,7 +564,12 @@ submitting a list parameter name and value pairs.
      */
     modifyCacheSubnetGroup(params: ElastiCache.ModifyCacheSubnetGroupMessage, callback?: (err: ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.CacheSubnetQuotaExceededFault|ElastiCache.SubnetInUse|ElastiCache.InvalidSubnet|any, data: ElastiCache.ModifyCacheSubnetGroupResult|any) => void): Request<ElastiCache.ModifyCacheSubnetGroupResult|any,ElastiCache.CacheSubnetGroupNotFoundFault|ElastiCache.CacheSubnetQuotaExceededFault|ElastiCache.SubnetInUse|ElastiCache.InvalidSubnet|any>;
     /**
-     * The ModifyReplicationGroup action modifies the settings for a replication group.
+     * Modifies the settings for a replication group.
+
+Due to current limitations on Redis (cluster mode disabled), this operation or
+parameter is not supported on Redis (cluster mode enabled) replication groups.
+
+This operation is valid for Redis only.
      *
      * @error ReplicationGroupNotFoundFault   
      * @error InvalidReplicationGroupStateFault   
@@ -500,8 +587,7 @@ submitting a list parameter name and value pairs.
      */
     modifyReplicationGroup(params: ElastiCache.ModifyReplicationGroupMessage, callback?: (err: ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.ModifyReplicationGroupResult|any) => void): Request<ElastiCache.ModifyReplicationGroupResult|any,ElastiCache.ReplicationGroupNotFoundFault|ElastiCache.InvalidReplicationGroupStateFault|ElastiCache.InvalidCacheClusterStateFault|ElastiCache.InvalidCacheSecurityGroupStateFault|ElastiCache.InsufficientCacheClusterCapacityFault|ElastiCache.CacheClusterNotFoundFault|ElastiCache.NodeQuotaForClusterExceededFault|ElastiCache.NodeQuotaForCustomerExceededFault|ElastiCache.CacheSecurityGroupNotFoundFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidVPCNetworkStateFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The PurchaseReservedCacheNodesOffering action allows you to purchase a reserved
-cache node offering.
+     * Allows you to purchase a reserved cache node offering.
      *
      * @error ReservedCacheNodesOfferingNotFoundFault   
      * @error ReservedCacheNodeAlreadyExistsFault   
@@ -511,11 +597,11 @@ cache node offering.
      */
     purchaseReservedCacheNodesOffering(params: ElastiCache.PurchaseReservedCacheNodesOfferingMessage, callback?: (err: ElastiCache.ReservedCacheNodesOfferingNotFoundFault|ElastiCache.ReservedCacheNodeAlreadyExistsFault|ElastiCache.ReservedCacheNodeQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.PurchaseReservedCacheNodesOfferingResult|any) => void): Request<ElastiCache.PurchaseReservedCacheNodesOfferingResult|any,ElastiCache.ReservedCacheNodesOfferingNotFoundFault|ElastiCache.ReservedCacheNodeAlreadyExistsFault|ElastiCache.ReservedCacheNodeQuotaExceededFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The RebootCacheCluster action reboots some, or all, of the cache nodes within a
-provisioned cache cluster. This API will apply any modified cache parameter
-groups to the cache cluster. The reboot action takes place as soon as possible,
-and results in a momentary outage to the cache cluster. During the reboot, the
-cache cluster status is set to REBOOTING.
+     * Reboots some, or all, of the cache nodes within a provisioned cache cluster.
+This operation applies any modified cache parameter groups to the cache cluster.
+The reboot operation takes place as soon as possible, and results in a momentary
+outage to the cache cluster. During the reboot, the cache cluster status is set
+to REBOOTING.
 
 The reboot causes the contents of the cache (for each cache node being rebooted)
 to be lost.
@@ -527,8 +613,7 @@ When the reboot is complete, a cache cluster event is created.
      */
     rebootCacheCluster(params: ElastiCache.RebootCacheClusterMessage, callback?: (err: ElastiCache.InvalidCacheClusterStateFault|ElastiCache.CacheClusterNotFoundFault|any, data: ElastiCache.RebootCacheClusterResult|any) => void): Request<ElastiCache.RebootCacheClusterResult|any,ElastiCache.InvalidCacheClusterStateFault|ElastiCache.CacheClusterNotFoundFault|any>;
     /**
-     * The RemoveTagsFromResource action removes the tags identified by the TagKeys 
-list from the named resource.
+     * Removes the tags identified by the TagKeys list from the named resource.
      *
      * @error CacheClusterNotFoundFault   
      * @error SnapshotNotFoundFault   
@@ -537,10 +622,10 @@ list from the named resource.
      */
     removeTagsFromResource(params: ElastiCache.RemoveTagsFromResourceMessage, callback?: (err: ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|ElastiCache.TagNotFoundFault|any, data: ElastiCache.TagListMessage|any) => void): Request<ElastiCache.TagListMessage|any,ElastiCache.CacheClusterNotFoundFault|ElastiCache.SnapshotNotFoundFault|ElastiCache.InvalidARNFault|ElastiCache.TagNotFoundFault|any>;
     /**
-     * The ResetCacheParameterGroup action modifies the parameters of a cache parameter
-group to the engine or system default value. You can reset specific parameters
-by submitting a list of parameter names. To reset the entire cache parameter
-group, specify the ResetAllParameters and CacheParameterGroupName parameters.
+     * Modifies the parameters of a cache parameter group to the engine or system
+default value. You can reset specific parameters by submitting a list of
+parameter names. To reset the entire cache parameter group, specify the 
+ResetAllParameters and CacheParameterGroupName parameters.
      *
      * @error InvalidCacheParameterGroupStateFault   
      * @error CacheParameterGroupNotFoundFault   
@@ -549,9 +634,8 @@ group, specify the ResetAllParameters and CacheParameterGroupName parameters.
      */
     resetCacheParameterGroup(params: ElastiCache.ResetCacheParameterGroupMessage, callback?: (err: ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any, data: ElastiCache.CacheParameterGroupNameMessage|any) => void): Request<ElastiCache.CacheParameterGroupNameMessage|any,ElastiCache.InvalidCacheParameterGroupStateFault|ElastiCache.CacheParameterGroupNotFoundFault|ElastiCache.InvalidParameterValueException|ElastiCache.InvalidParameterCombinationException|any>;
     /**
-     * The RevokeCacheSecurityGroupIngress action revokes ingress from a cache security
-group. Use this action to disallow access from an Amazon EC2 security group that
-had been previously authorized.
+     * Revokes ingress from a cache security group. Use this operation to disallow
+access from an Amazon EC2 security group that had been previously authorized.
      *
      * @error CacheSecurityGroupNotFoundFault   
      * @error AuthorizationNotFoundFault   
@@ -615,6 +699,8 @@ had been previously authorized.
     
     export type KeyList = String[];
     
+    export type NodeGroupConfigurationList = NodeGroupConfiguration[];
+    
     export type NodeGroupList = NodeGroup[];
     
     export type NodeGroupMemberList = NodeGroupMember[];
@@ -664,8 +750,8 @@ had been previously authorized.
 added, for example arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster or 
 arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot .
 
-For more information on ARNs, go to Amazon Resource Names (ARNs) and AWS Service
-Namespaces
+For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
+Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
         ResourceName: String;
         /** A list of cost allocation tags to be added to this resource. A tag is a
@@ -673,12 +759,6 @@ key-value pair. A tag key must be accompanied by a tag value. **/
         Tags: TagList;
     }
     export interface AllowedNodeTypeModificationsMessage {
-        /** A string list, each element of which specifies a cache node type which you can
-use to scale your cache cluster or replication group.
-
-When scaling up a Redis cluster or replication group using ModifyCacheCluster or 
-ModifyReplicationGroup , use a value from this list for the CacheNodeType 
-parameter. **/
         ScaleUpModifications?: NodeTypeList;
     }
     export interface AuthorizationAlreadyExistsFault {
@@ -686,7 +766,7 @@ parameter. **/
     export interface AuthorizationNotFoundFault {
     }
     export interface AuthorizeCacheSecurityGroupIngressMessage {
-        /** The cache security group which will allow network ingress. **/
+        /** The cache security group that allows network ingress. **/
         CacheSecurityGroupName: String;
         /** The Amazon EC2 security group to be authorized for ingress to the cache security
 group. **/
@@ -718,7 +798,9 @@ Valid node types are as follows:
  &amp;#42; General purpose:
    
     * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge , 
+      cache.m4.large , cache.m4.xlarge , cache.m4.2xlarge , cache.m4.4xlarge , 
+      cache.m4.10xlarge
       
       
     * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
@@ -744,24 +826,25 @@ Valid node types are as follows:
 
 Notes:
 
- * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).
    
    
- * Redis backup/restore is not supported for t2 instances.
+ * Redis backup/restore is not supported for Redis (cluster mode disabled) T1
+   and T2 instances. Backup/restore is supported on Redis (cluster mode enabled)
+   T2 instances.
    
    
- * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+ * Redis Append-only files (AOF) functionality is not supported for T1 or T2
    instances.
    
    
 
-For a complete listing of cache node types and specifications, see Amazon
-ElastiCache Product Features and Details
-[http://aws.amazon.com/elasticache/details] and Cache Node Type-Specific
-Parameters for Memcached
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific] 
+For a complete listing of node types and specifications, see Amazon ElastiCache
+Product Features and Details [http://aws.amazon.com/elasticache/details] and
+either Cache Node Type-Specific Parameters for Memcached
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific] 
 or Cache Node Type-Specific Parameters for Redis
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific] 
 . **/
         CacheNodeType?: String;
         /** The name of the cache engine ( memcached or redis ) to be used for this cache
@@ -783,10 +866,11 @@ Memcached, this value must be between 1 and 20. **/
         PreferredAvailabilityZone?: String;
         /** The date and time when the cache cluster was created. **/
         CacheClusterCreateTime?: TStamp;
-        /** Specifies the weekly time range during which maintenance on the cache cluster is
+        /** Specifies the weekly time range during which maintenance on the cluster is
 performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
-Clock UTC). The minimum maintenance window is a 60 minute period. Valid values
-for ddd are:
+Clock UTC). The minimum maintenance window is a 60 minute period.
+
+Valid values for ddd are:
 
  &amp;#42; sun
    
@@ -810,7 +894,7 @@ for ddd are:
    
    
 
-Example: sun:05:00-sun:09:00 **/
+Example: sun:23:00-mon:01:30 **/
         PreferredMaintenanceWindow?: String;
         PendingModifiedValues?: PendingModifiedValues;
         NotificationConfiguration?: NotificationConfiguration;
@@ -829,15 +913,15 @@ sub-elements. **/
         /** The replication group to which this cache cluster belongs. If this field is
 empty, the cache cluster is not associated with any replication group. **/
         ReplicationGroupId?: String;
-        /** The number of days for which ElastiCache will retain automatic cache cluster
+        /** The number of days for which ElastiCache retains automatic cache cluster
 snapshots before deleting them. For example, if you set SnapshotRetentionLimit 
-to 5, then a snapshot that was taken today will be retained for 5 days before
-being deleted.
+to 5, a snapshot that was taken today is retained for 5 days before being
+deleted.
 
 If the value of SnapshotRetentionLimit is set to zero (0), backups are turned
 off. **/
         SnapshotRetentionLimit?: IntegerOptional;
-        /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
+        /** The daily time range (in UTC) during which ElastiCache begins taking a daily
 snapshot of your cache cluster.
 
 Example: 05:00-09:00 **/
@@ -859,7 +943,9 @@ about one cache cluster. **/
         Engine?: String;
         /** The version number of the cache engine. **/
         EngineVersion?: String;
-        /** The name of the cache parameter group family associated with this cache engine. **/
+        /** The name of the cache parameter group family associated with this cache engine.
+
+Valid values are: memcached1.4 | redis2.6 | redis2.8 | redis3.2 **/
         CacheParameterGroupFamily?: String;
         /** The description of the cache engine. **/
         CacheEngineDescription?: String;
@@ -887,8 +973,7 @@ used in a customer&#x27;s AWS account. **/
         /** The status of the parameter group applied to this cache node. **/
         ParameterGroupStatus?: String;
         /** The ID of the primary node to which this read replica node is synchronized. If
-this field is empty, then this node is not associated with a primary cache
-cluster. **/
+this field is empty, this node is not associated with a primary cache cluster. **/
         SourceCacheNodeId?: String;
         /** The Availability Zone where this node was created and now resides. **/
         CustomerAvailabilityZone?: String;
@@ -912,10 +997,9 @@ being changed. **/
         MinimumEngineVersion?: String;
         /** A list of cache node types and their corresponding values for this parameter. **/
         CacheNodeTypeSpecificValues?: CacheNodeTypeSpecificValueList;
-        /** ChangeType indicates whether a change to the parameter will be applied
-immediately or requires a reboot for the change to be applied. You can force a
-reboot or wait until the next maintenance window&#x27;s reboot. For more information,
-see Rebooting a Cluster
+        /** Indicates whether a change to the parameter is applied immediately or requires a
+reboot for the change to be applied. You can force a reboot or wait until the
+next maintenance window&#x27;s reboot. For more information, see Rebooting a Cluster
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Rebooting.html] 
 . **/
         ChangeType?: ChangeType;
@@ -930,7 +1014,9 @@ see Rebooting a Cluster
         /** The name of the cache parameter group. **/
         CacheParameterGroupName?: String;
         /** The name of the cache parameter group family that this cache parameter group is
-compatible with. **/
+compatible with.
+
+Valid values are: memcached1.4 | redis2.6 | redis2.8 | redis3.2 **/
         CacheParameterGroupFamily?: String;
         /** The description for this cache parameter group. **/
         Description?: String;
@@ -1036,80 +1122,16 @@ information about one group. **/
         SourceSnapshotName: String;
         /** A name for the snapshot copy. ElastiCache does not permit overwriting a
 snapshot, therefore this name must be unique within its context - ElastiCache or
-an Amazon S3 bucket if exporting.
-
-Error Message
-
- &amp;#42; Error Message: The S3 bucket %s already contains an object with key %s.
-   
-   Solution: Give the TargetSnapshotName a new and unique value. If exporting a
-   snapshot, you could alternatively create a new Amazon S3 bucket and use this
-   same value for TargetSnapshotName . **/
+an Amazon S3 bucket if exporting. **/
         TargetSnapshotName: String;
-        /** The Amazon S3 bucket to which the snapshot will be exported. This parameter is
-used only when exporting a snapshot for external access.
+        /** The Amazon S3 bucket to which the snapshot is exported. This parameter is used
+only when exporting a snapshot for external access.
 
 When using this parameter to export a snapshot, be sure Amazon ElastiCache has
 the needed permissions to this S3 bucket. For more information, see Step 2:
 Grant ElastiCache Access to Your Amazon S3 Bucket
-[http://docs.aws.amazon.com/AmazonElastiCache/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html#Snapshots.Exporting.GrantAccess] 
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html#Snapshots.Exporting.GrantAccess] 
 in the Amazon ElastiCache User Guide .
-
-Error Messages:
-
-You could receive one of the following error messages.
-
-Erorr Messages
-
- &amp;#42; Error Message: ElastiCache has not been granted READ permissions %s on the S3
-   Bucket.
-   
-   Solution: Add List and Read permissions on the bucket.
-   
-   
- * Error Message: ElastiCache has not been granted WRITE permissions %s on the
-   S3 Bucket.
-   
-   Solution: Add Upload/Delete permissions on the bucket.
-   
-   
- * Error Message: ElastiCache has not been granted READ_ACP permissions %s on
-   the S3 Bucket.
-   
-   Solution: Add View Permissions permissions on the bucket.
-   
-   
- * Error Message: The S3 bucket %s is outside of the region.
-   
-   Solution: Before exporting your snapshot, create a new Amazon S3 bucket in
-   the same region as your snapshot. For more information, see Step 1: Create an
-   Amazon S3 Bucket
-   [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html#Snapshots.Exporting.CreateBucket] 
-   .
-   
-   
- * Error Message: The S3 bucket %s does not exist.
-   
-   Solution: Create an Amazon S3 bucket in the same region as your snapshot. For
-   more information, see Step 1: Create an Amazon S3 Bucket
-   [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html#Snapshots.Exporting.CreateBucket] 
-   .
-   
-   
- * Error Message: The S3 bucket %s is not owned by the authenticated user.
-   
-   Solution: Create an Amazon S3 bucket in the same region as your snapshot. For
-   more information, see Step 1: Create an Amazon S3 Bucket
-   [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html#Snapshots.Exporting.CreateBucket] 
-   .
-   
-   
- * Error Message: The authenticated user does not have sufficient permissions to
-   perform the desired activity.
-   
-   Solution: Contact your system administrator to get the needed permissions.
-   
-   
 
 For more information, see Exporting a Snapshot
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html] 
@@ -1120,7 +1142,8 @@ in the Amazon ElastiCache User Guide . **/
         Snapshot?: Snapshot;
     }
     export interface CreateCacheClusterMessage {
-        /** The node group identifier. This parameter is stored as a lowercase string.
+        /** The node group (shard) identifier. This parameter is stored as a lowercase
+string.
 
 Constraints:
 
@@ -1132,18 +1155,21 @@ Constraints:
    
  * A name cannot end with a hyphen or contain two consecutive hyphens. **/
         CacheClusterId: String;
-        /** The ID of the replication group to which this cache cluster should belong. If
-this parameter is specified, the cache cluster will be added to the specified
-replication group as a read replica; otherwise, the cache cluster will be a
+        /** Due to current limitations on Redis (cluster mode disabled), this operation or
+parameter is not supported on Redis (cluster mode enabled) replication groups.
+
+The ID of the replication group to which this cache cluster should belong. If
+this parameter is specified, the cache cluster is added to the specified
+replication group as a read replica; otherwise, the cache cluster is a
 standalone primary that is not part of any replication group.
 
-If the specified replication group is Multi-AZ enabled and the availability zone
-is not specified, the cache cluster will be created in availability zones that
-provide the best spread of read replicas across availability zones.
+If the specified replication group is Multi-AZ enabled and the Availability Zone
+is not specified, the cache cluster is created in Availability Zones that
+provide the best spread of read replicas across Availability Zones.
 
 This parameter is only valid if the Engine parameter is redis . **/
         ReplicationGroupId?: String;
-        /** Specifies whether the nodes in this Memcached node group are created in a single
+        /** Specifies whether the nodes in this Memcached cluster are created in a single
 Availability Zone or created across multiple Availability Zones in the cluster&#x27;s
 region.
 
@@ -1152,7 +1178,7 @@ This parameter is only supported for Memcached cache clusters.
 If the AZMode and PreferredAvailabilityZones are not specified, ElastiCache
 assumes single-az mode. **/
         AZMode?: AZMode;
-        /** The EC2 Availability Zone in which the cache cluster will be created.
+        /** The EC2 Availability Zone in which the cache cluster is created.
 
 All nodes belonging to this Memcached cache cluster are placed in the preferred
 Availability Zone. If you want to create your nodes across multiple Availability
@@ -1160,8 +1186,8 @@ Zones, use PreferredAvailabilityZones .
 
 Default: System chosen Availability Zone. **/
         PreferredAvailabilityZone?: String;
-        /** A list of the Availability Zones in which cache nodes will be created. The order
-of the zones in the list is not important.
+        /** A list of the Availability Zones in which cache nodes are created. The order of
+the zones in the list is not important.
 
 This option is only supported on Memcached.
 
@@ -1175,15 +1201,9 @@ If you want all the nodes in the same Availability Zone, use
 PreferredAvailabilityZone instead, or repeat the Availability Zone multiple
 times in the list.
 
-Default: System chosen Availability Zones.
-
-Example: One Memcached node in each of three different Availability Zones: 
-PreferredAvailabilityZones.member.1=us-west-2a&amp;amp;PreferredAvailabilityZones.member.2=us-west-2b&amp;amp;PreferredAvailabilityZones.member.3=us-west-2c
-
-Example: All three Memcached nodes in one Availability Zone: 
-PreferredAvailabilityZones.member.1=us-west-2a&amp;amp;PreferredAvailabilityZones.member.2=us-west-2a&amp;amp;PreferredAvailabilityZones.member.3=us-west-2a **/
+Default: System chosen Availability Zones. **/
         PreferredAvailabilityZones?: PreferredAvailabilityZoneList;
-        /** The initial number of cache nodes that the cache cluster will have.
+        /** The initial number of cache nodes that the cache cluster has.
 
 For clusters running Redis, this value must be 1. For clusters running
 Memcached, this value must be between 1 and 20.
@@ -1193,14 +1213,16 @@ ElastiCache Limit Increase Request form at
 http://aws.amazon.com/contact-us/elasticache-node-limit-request/
 [http://aws.amazon.com/contact-us/elasticache-node-limit-request/] . **/
         NumCacheNodes?: IntegerOptional;
-        /** The compute and memory capacity of the nodes in the node group.
+        /** The compute and memory capacity of the nodes in the node group (shard).
 
 Valid node types are as follows:
 
  &amp;#42; General purpose:
    
     * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge , 
+      cache.m4.large , cache.m4.xlarge , cache.m4.2xlarge , cache.m4.4xlarge , 
+      cache.m4.10xlarge
       
       
     * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
@@ -1226,35 +1248,34 @@ Valid node types are as follows:
 
 Notes:
 
- * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).
    
    
- * Redis backup/restore is not supported for t2 instances.
+ * Redis backup/restore is not supported for Redis (cluster mode disabled) T1
+   and T2 instances. Backup/restore is supported on Redis (cluster mode enabled)
+   T2 instances.
    
    
- * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+ * Redis Append-only files (AOF) functionality is not supported for T1 or T2
    instances.
    
    
 
-For a complete listing of cache node types and specifications, see Amazon
-ElastiCache Product Features and Details
-[http://aws.amazon.com/elasticache/details] and Cache Node Type-Specific
-Parameters for Memcached
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific] 
+For a complete listing of node types and specifications, see Amazon ElastiCache
+Product Features and Details [http://aws.amazon.com/elasticache/details] and
+either Cache Node Type-Specific Parameters for Memcached
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific] 
 or Cache Node Type-Specific Parameters for Redis
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific] 
 . **/
         CacheNodeType?: String;
         /** The name of the cache engine to be used for this cache cluster.
 
-Valid values for this parameter are:
-
-memcached | redis **/
+Valid values for this parameter are: memcached | redis **/
         Engine?: String;
         /** The version number of the cache engine to be used for this cache cluster. To
-view the supported cache engine versions, use the DescribeCacheEngineVersions 
-action.
+view the supported cache engine versions, use the DescribeCacheEngineVersions
+operation.
 
 Important: You can upgrade to a newer engine version (see Selecting a Cache
 Engine and Version
@@ -1265,37 +1286,45 @@ replication group and create it anew with the earlier engine version. **/
         EngineVersion?: String;
         /** The name of the parameter group to associate with this cache cluster. If this
 argument is omitted, the default parameter group for the specified engine is
-used. **/
+used. You cannot use any parameter group which has cluster-enabled=&#x27;yes&#x27; when
+creating a cluster. **/
         CacheParameterGroupName?: String;
         /** The name of the subnet group to be used for the cache cluster.
 
 Use this parameter only when you are creating a cache cluster in an Amazon
-Virtual Private Cloud (VPC). **/
+Virtual Private Cloud (Amazon VPC).
+
+If you&#x27;re going to launch your cluster in an Amazon VPC, you need to create a
+subnet group before you start creating a cluster. For more information, see 
+Subnets and Subnet Groups
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SubnetGroups.html] 
+. **/
         CacheSubnetGroupName?: String;
         /** A list of security group names to associate with this cache cluster.
 
 Use this parameter only when you are creating a cache cluster outside of an
-Amazon Virtual Private Cloud (VPC). **/
+Amazon Virtual Private Cloud (Amazon VPC). **/
         CacheSecurityGroupNames?: CacheSecurityGroupNameList;
         /** One or more VPC security groups associated with the cache cluster.
 
 Use this parameter only when you are creating a cache cluster in an Amazon
-Virtual Private Cloud (VPC). **/
+Virtual Private Cloud (Amazon VPC). **/
         SecurityGroupIds?: SecurityGroupIdsList;
         /** A list of cost allocation tags to be added to this resource. A tag is a
 key-value pair. A tag key must be accompanied by a tag value. **/
         Tags?: TagList;
         /** A single-element string list containing an Amazon Resource Name (ARN) that
 uniquely identifies a Redis RDB snapshot file stored in Amazon S3. The snapshot
-file will be used to populate the node group. The Amazon S3 object name in the
-ARN cannot contain any commas.
+file is used to populate the node group (shard). The Amazon S3 object name in
+the ARN cannot contain any commas.
 
 This parameter is only valid if the Engine parameter is redis .
 
 Example of an Amazon S3 ARN: arn:aws:s3:::my_bucket/snapshot1.rdb **/
         SnapshotArns?: SnapshotArnsList;
-        /** The name of a snapshot from which to restore data into the new node group. The
-snapshot status changes to restoring while the new node group is being created.
+        /** The name of a Redis snapshot from which to restore data into the new node group
+(shard). The snapshot status changes to restoring while the new node group
+(shard) is being created.
 
 This parameter is only valid if the Engine parameter is redis . **/
         SnapshotName?: String;
@@ -1303,6 +1332,12 @@ This parameter is only valid if the Engine parameter is redis . **/
 performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
 Clock UTC). The minimum maintenance window is a 60 minute period. Valid values
 for ddd are:
+
+Specifies the weekly time range during which maintenance on the cluster is
+performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
+Clock UTC). The minimum maintenance window is a 60 minute period.
+
+Valid values for ddd are:
 
  &amp;#42; sun
    
@@ -1326,32 +1361,32 @@ for ddd are:
    
    
 
-Example: sun:05:00-sun:09:00 **/
+Example: sun:23:00-mon:01:30 **/
         PreferredMaintenanceWindow?: String;
-        /** The port number on which each of the cache nodes will accept connections. **/
+        /** The port number on which each of the cache nodes accepts connections. **/
         Port?: IntegerOptional;
         /** The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS)
-topic to which notifications will be sent.
+topic to which notifications are sent.
 
 The Amazon SNS topic owner must be the same as the cache cluster owner. **/
         NotificationTopicArn?: String;
         /** This parameter is currently disabled. **/
         AutoMinorVersionUpgrade?: BooleanOptional;
-        /** The number of days for which ElastiCache will retain automatic snapshots before
-deleting them. For example, if you set SnapshotRetentionLimit to 5, then a
-snapshot that was taken today will be retained for 5 days before being deleted.
+        /** The number of days for which ElastiCache retains automatic snapshots before
+deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot
+taken today is retained for 5 days before being deleted.
 
 This parameter is only valid if the Engine parameter is redis .
 
 Default: 0 (i.e., automatic backups are disabled for this cache cluster). **/
         SnapshotRetentionLimit?: IntegerOptional;
-        /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
-snapshot of your node group.
+        /** The daily time range (in UTC) during which ElastiCache begins taking a daily
+snapshot of your node group (shard).
 
 Example: 05:00-09:00
 
-If you do not specify this parameter, then ElastiCache will automatically choose
-an appropriate time range.
+If you do not specify this parameter, ElastiCache automatically chooses an
+appropriate time range.
 
 Note: This parameter is only valid if the Engine parameter is redis . **/
         SnapshotWindow?: String;
@@ -1362,10 +1397,10 @@ Note: This parameter is only valid if the Engine parameter is redis . **/
     export interface CreateCacheParameterGroupMessage {
         /** A user-specified name for the cache parameter group. **/
         CacheParameterGroupName: String;
-        /** The name of the cache parameter group family the cache parameter group can be
-used with.
+        /** The name of the cache parameter group family that the cache parameter group can
+be used with.
 
-Valid values are: memcached1.4 | redis2.6 | redis2.8 **/
+Valid values are: memcached1.4 | redis2.6 | redis2.8 | redis3.2 **/
         CacheParameterGroupFamily: String;
         /** A user-specified description for the cache parameter group. **/
         Description: String;
@@ -1418,17 +1453,21 @@ Constraints:
         ReplicationGroupId: String;
         /** A user-created description for the replication group. **/
         ReplicationGroupDescription: String;
-        /** The identifier of the cache cluster that will serve as the primary for this
+        /** The identifier of the cache cluster that serves as the primary for this
 replication group. This cache cluster must already exist and have a status of 
 available .
 
-This parameter is not required if NumCacheClusters is specified. **/
+This parameter is not required if NumCacheClusters , NumNodeGroups , or 
+ReplicasPerNodeGroup is specified. **/
         PrimaryClusterId?: String;
-        /** Specifies whether a read-only replica will be automatically promoted to
-read/write primary if the existing primary fails.
+        /** Specifies whether a read-only replica is automatically promoted to read/write
+primary if the existing primary fails.
 
 If true , Multi-AZ is enabled for this replication group. If false , Multi-AZ is
 disabled for this replication group.
+
+AutomaticFailoverEnabled must be enabled for Redis (cluster mode enabled)
+replication groups.
 
 Default: false
 
@@ -1437,44 +1476,66 @@ ElastiCache Multi-AZ replication groups is not supported on:
  &amp;#42; Redis versions earlier than 2.8.6.
    
    
- * T1 and T2 cache node types. **/
+ * Redis (cluster mode disabled): T1 and T2 node types.
+   
+   Redis (cluster mode enabled): T2 node types. **/
         AutomaticFailoverEnabled?: BooleanOptional;
-        /** The number of cache clusters this replication group will initially have.
+        /** The number of clusters this replication group initially has.
+
+This parameter is not used if there is more than one node group (shard). You
+should use ReplicasPerNodeGroup instead.
 
 If Multi-AZ is enabled , the value of this parameter must be at least 2.
 
 The maximum permitted value for NumCacheClusters is 6 (primary plus 5 replicas).
-If you need to exceed this limit, please fill out the ElastiCache Limit Increase
-Request form at http://aws.amazon.com/contact-us/elasticache-node-limit-request
-[http://aws.amazon.com/contact-us/elasticache-node-limit-request] . **/
+If you need to exceed this limit, fill out the ElastiCache Limit Increase
+Request form at http://aws.amazon.com/contact-us/elasticache-node-limit-request/
+[http://aws.amazon.com/contact-us/elasticache-node-limit-request/] . **/
         NumCacheClusters?: IntegerOptional;
-        /** A list of EC2 availability zones in which the replication group&#x27;s cache clusters
-will be created. The order of the availability zones in the list is not
-important.
+        /** A list of EC2 Availability Zones in which the replication group&#x27;s cache clusters
+are created. The order of the Availability Zones in the list is the order in
+which clusters are allocated. The primary cluster is created in the first AZ in
+the list.
+
+This parameter is not used if there is more than one node group (shard). You
+should use NodeGroupConfiguration instead.
 
 If you are creating your replication group in an Amazon VPC (recommended), you
-can only locate cache clusters in availability zones associated with the subnets
+can only locate cache clusters in Availability Zones associated with the subnets
 in the selected subnet group.
 
-The number of availability zones listed must equal the value of NumCacheClusters 
+The number of Availability Zones listed must equal the value of NumCacheClusters 
 .
 
-Default: system chosen availability zones.
-
-Example: One Redis cache cluster in each of three availability zones.
-
-PreferredAvailabilityZones.member.1=us-west-2a
-PreferredAvailabilityZones.member.2=us-west-2c
-PreferredAvailabilityZones.member.3=us-west-2c **/
+Default: system chosen Availability Zones. **/
         PreferredCacheClusterAZs?: AvailabilityZonesList;
-        /** The compute and memory capacity of the nodes in the node group.
+        /** An optional parameter that specifies the number of node groups (shards) for this
+Redis (cluster mode enabled) replication group. For Redis (cluster mode
+disabled) either omit this parameter or set it to 1.
+
+Default: 1 **/
+        NumNodeGroups?: IntegerOptional;
+        /** An optional parameter that specifies the number of replica nodes in each node
+group (shard). Valid values are 0 to 5. **/
+        ReplicasPerNodeGroup?: IntegerOptional;
+        /** A list of node group (shard) configuration options. Each node group (shard)
+configuration has the following: Slots, PrimaryAvailabilityZone,
+ReplicaAvailabilityZones, ReplicaCount.
+
+If you&#x27;re creating a Redis (cluster mode disabled) or a Redis (cluster mode
+enabled) replication group, you can use this parameter to configure one node
+group (shard) or you can omit this parameter. **/
+        NodeGroupConfiguration?: NodeGroupConfigurationList;
+        /** The compute and memory capacity of the nodes in the node group (shard).
 
 Valid node types are as follows:
 
  &amp;#42; General purpose:
    
     * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge , 
+      cache.m4.large , cache.m4.xlarge , cache.m4.2xlarge , cache.m4.4xlarge , 
+      cache.m4.10xlarge
       
       
     * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
@@ -1500,34 +1561,33 @@ Valid node types are as follows:
 
 Notes:
 
- * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).
    
    
- * Redis backup/restore is not supported for t2 instances.
+ * Redis backup/restore is not supported for Redis (cluster mode disabled) T1
+   and T2 instances. Backup/restore is supported on Redis (cluster mode enabled)
+   T2 instances.
    
    
- * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+ * Redis Append-only files (AOF) functionality is not supported for T1 or T2
    instances.
    
    
 
-For a complete listing of cache node types and specifications, see Amazon
-ElastiCache Product Features and Details
-[http://aws.amazon.com/elasticache/details] and Cache Node Type-Specific
-Parameters for Memcached
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific] 
+For a complete listing of node types and specifications, see Amazon ElastiCache
+Product Features and Details [http://aws.amazon.com/elasticache/details] and
+either Cache Node Type-Specific Parameters for Memcached
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific] 
 or Cache Node Type-Specific Parameters for Redis
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific] 
 . **/
         CacheNodeType?: String;
         /** The name of the cache engine to be used for the cache clusters in this
-replication group.
-
-Default: redis **/
+replication group. **/
         Engine?: String;
         /** The version number of the cache engine to be used for the cache clusters in this
 replication group. To view the supported cache engine versions, use the 
-DescribeCacheEngineVersions action.
+DescribeCacheEngineVersions operation.
 
 Important: You can upgrade to a newer engine version (see Selecting a Cache
 Engine and Version
@@ -1539,31 +1599,50 @@ engine version. **/
         EngineVersion?: String;
         /** The name of the parameter group to associate with this replication group. If
 this argument is omitted, the default cache parameter group for the specified
-engine is used. **/
+engine is used.
+
+If you are running Redis version 3.2.4 or later, only one node group (shard),
+and want to use a default parameter group, we recommend that you specify the
+parameter group by name.
+
+ &amp;#42; To create a Redis (cluster mode disabled) replication group, use 
+   CacheParameterGroupName=default.redis3.2 .
+   
+   
+ * To create a Redis (cluster mode enabled) replication group, use 
+   CacheParameterGroupName=default.redis3.2.cluster.on . **/
         CacheParameterGroupName?: String;
-        /** The name of the cache subnet group to be used for the replication group. **/
+        /** The name of the cache subnet group to be used for the replication group.
+
+If you&#x27;re going to launch your cluster in an Amazon VPC, you need to create a
+subnet group before you start creating a cluster. For more information, see 
+Subnets and Subnet Groups
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SubnetGroups.html] 
+. **/
         CacheSubnetGroupName?: String;
         /** A list of cache security group names to associate with this replication group. **/
         CacheSecurityGroupNames?: CacheSecurityGroupNameList;
         /** One or more Amazon VPC security groups associated with this replication group.
 
 Use this parameter only when you are creating a replication group in an Amazon
-Virtual Private Cloud (VPC). **/
+Virtual Private Cloud (Amazon VPC). **/
         SecurityGroupIds?: SecurityGroupIdsList;
         /** A list of cost allocation tags to be added to this resource. A tag is a
 key-value pair. A tag key must be accompanied by a tag value. **/
         Tags?: TagList;
-        /** A single-element string list containing an Amazon Resource Name (ARN) that
-uniquely identifies a Redis RDB snapshot file stored in Amazon S3. The snapshot
-file will be used to populate the node group. The Amazon S3 object name in the
-ARN cannot contain any commas.
+        /** A list of Amazon Resource Names (ARN) that uniquely identify the Redis RDB
+snapshot files stored in Amazon S3. The snapshot files are used to populate the
+replication group. The Amazon S3 object name in the ARN cannot contain any
+commas. The list must match the number of node groups (shards) in the
+replication group, which means you cannot repartition.
 
 This parameter is only valid if the Engine parameter is redis .
 
 Example of an Amazon S3 ARN: arn:aws:s3:::my_bucket/snapshot1.rdb **/
         SnapshotArns?: SnapshotArnsList;
-        /** The name of a snapshot from which to restore data into the new node group. The
-snapshot status changes to restoring while the new node group is being created.
+        /** The name of a snapshot from which to restore data into the new replication
+group. The snapshot status changes to restoring while the new replication group
+is being created.
 
 This parameter is only valid if the Engine parameter is redis . **/
         SnapshotName?: String;
@@ -1571,6 +1650,12 @@ This parameter is only valid if the Engine parameter is redis . **/
 performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
 Clock UTC). The minimum maintenance window is a 60 minute period. Valid values
 for ddd are:
+
+Specifies the weekly time range during which maintenance on the cluster is
+performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
+Clock UTC). The minimum maintenance window is a 60 minute period.
+
+Valid values for ddd are:
 
  &amp;#42; sun
    
@@ -1594,33 +1679,33 @@ for ddd are:
    
    
 
-Example: sun:05:00-sun:09:00 **/
+Example: sun:23:00-mon:01:30 **/
         PreferredMaintenanceWindow?: String;
-        /** The port number on which each member of the replication group will accept
+        /** The port number on which each member of the replication group accepts
 connections. **/
         Port?: IntegerOptional;
         /** The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS)
-topic to which notifications will be sent.
+topic to which notifications are sent.
 
 The Amazon SNS topic owner must be the same as the cache cluster owner. **/
         NotificationTopicArn?: String;
         /** This parameter is currently disabled. **/
         AutoMinorVersionUpgrade?: BooleanOptional;
-        /** The number of days for which ElastiCache will retain automatic snapshots before
-deleting them. For example, if you set SnapshotRetentionLimit to 5, then a
-snapshot that was taken today will be retained for 5 days before being deleted.
+        /** The number of days for which ElastiCache retains automatic snapshots before
+deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot
+that was taken today is retained for 5 days before being deleted.
 
 This parameter is only valid if the Engine parameter is redis .
 
 Default: 0 (i.e., automatic backups are disabled for this cache cluster). **/
         SnapshotRetentionLimit?: IntegerOptional;
-        /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
-snapshot of your node group.
+        /** The daily time range (in UTC) during which ElastiCache begins taking a daily
+snapshot of your node group (shard).
 
 Example: 05:00-09:00
 
-If you do not specify this parameter, then ElastiCache will automatically choose
-an appropriate time range.
+If you do not specify this parameter, ElastiCache automatically chooses an
+appropriate time range.
 
 This parameter is only valid if the Engine parameter is redis . **/
         SnapshotWindow?: String;
@@ -1629,9 +1714,12 @@ This parameter is only valid if the Engine parameter is redis . **/
         ReplicationGroup?: ReplicationGroup;
     }
     export interface CreateSnapshotMessage {
-        /** The identifier of an existing cache cluster. The snapshot will be created from
-this cache cluster. **/
-        CacheClusterId: String;
+        /** The identifier of an existing replication group. The snapshot is created from
+this replication group. **/
+        ReplicationGroupId?: String;
+        /** The identifier of an existing cache cluster. The snapshot is created from this
+cache cluster. **/
+        CacheClusterId?: String;
         /** A name for the snapshot being created. **/
         SnapshotName: String;
     }
@@ -1673,13 +1761,13 @@ Constraints: Must contain no more than 255 alphanumeric characters or hyphens. *
         /** The identifier for the cluster to be deleted. This parameter is not case
 sensitive. **/
         ReplicationGroupId: String;
-        /** If set to true , all of the read replicas will be deleted, but the primary node
-will be retained. **/
+        /** If set to true , all of the read replicas are deleted, but the primary node is
+retained. **/
         RetainPrimaryCluster?: BooleanOptional;
-        /** The name of a final node group snapshot. ElastiCache creates the snapshot from
-the primary node in the cluster, rather than one of the replicas; this is to
-ensure that it captures the freshest data. After the final snapshot is taken,
-the cluster is immediately deleted. **/
+        /** The name of a final node group (shard) snapshot. ElastiCache creates the
+snapshot from the primary node in the cluster, rather than one of the replicas;
+this is to ensure that it captures the freshest data. After the final snapshot
+is taken, the replication group is immediately deleted. **/
         FinalSnapshotIdentifier?: String;
     }
     export interface DeleteReplicationGroupResult {
@@ -1706,7 +1794,7 @@ Default: 100
 Constraints: minimum 20; maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional marker returned from a prior request. Use this marker for pagination
-of results from this action. If this parameter is specified, the response
+of results from this operation. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
         Marker?: String;
@@ -1722,6 +1810,8 @@ retrieve information about the individual cache nodes. **/
 Example: 1.4.14 **/
         EngineVersion?: String;
         /** The name of a specific cache parameter group family to return details for.
+
+Valid values are: memcached1.4 | redis2.6 | redis2.8 | redis3.2
 
 Constraints:
 
@@ -1742,7 +1832,7 @@ Default: 100
 Constraints: minimum 20; maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional marker returned from a prior request. Use this marker for pagination
-of results from this action. If this parameter is specified, the response
+of results from this operation. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
         Marker?: String;
@@ -1762,7 +1852,7 @@ Default: 100
 Constraints: minimum 20; maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional marker returned from a prior request. Use this marker for pagination
-of results from this action. If this parameter is specified, the response
+of results from this operation. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
         Marker?: String;
@@ -1774,7 +1864,7 @@ includes only records beyond the marker, up to the value specified by MaxRecords
 
 Valid values: user | system | engine-default **/
         Source?: String;
-        /** The maximum number of brecords to include in the response. If more records exist
+        /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
 that the remaining results can be retrieved.
 
@@ -1783,7 +1873,7 @@ Default: 100
 Constraints: minimum 20; maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional marker returned from a prior request. Use this marker for pagination
-of results from this action. If this parameter is specified, the response
+of results from this operation. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
         Marker?: String;
@@ -1800,7 +1890,7 @@ Default: 100
 Constraints: minimum 20; maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional marker returned from a prior request. Use this marker for pagination
-of results from this action. If this parameter is specified, the response
+of results from this operation. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
         Marker?: String;
@@ -1817,14 +1907,15 @@ Default: 100
 Constraints: minimum 20; maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional marker returned from a prior request. Use this marker for pagination
-of results from this action. If this parameter is specified, the response
+of results from this operation. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
         Marker?: String;
     }
     export interface DescribeEngineDefaultParametersMessage {
-        /** The name of the cache parameter group family. Valid values are: memcached1.4 | 
-redis2.6 | redis2.8 **/
+        /** The name of the cache parameter group family.
+
+Valid values are: memcached1.4 | redis2.6 | redis2.8 | redis3.2 **/
         CacheParameterGroupFamily: String;
         /** The maximum number of records to include in the response. If more records exist
 than the specified MaxRecords value, a marker is included in the response so
@@ -1835,7 +1926,7 @@ Default: 100
 Constraints: minimum 20; maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional marker returned from a prior request. Use this marker for pagination
-of results from this action. If this parameter is specified, the response
+of results from this operation. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
         Marker?: String;
@@ -1844,14 +1935,11 @@ includes only records beyond the marker, up to the value specified by MaxRecords
         EngineDefaults?: EngineDefaults;
     }
     export interface DescribeEventsMessage {
-        /** The identifier of the event source for which events will be returned. If not
-specified, then all sources are included in the response. **/
+        /** The identifier of the event source for which events are returned. If not
+specified, all sources are included in the response. **/
         SourceIdentifier?: String;
         /** The event source to retrieve events for. If no value is specified, all events
-are returned.
-
-Valid values are: cache-cluster | cache-parameter-group | cache-security-group | 
-cache-subnet-group **/
+are returned. **/
         SourceType?: SourceType;
         /** The beginning of the time interval to retrieve events for, specified in ISO 8601
 format. **/
@@ -1870,7 +1958,7 @@ Default: 100
 Constraints: minimum 20; maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional marker returned from a prior request. Use this marker for pagination
-of results from this action. If this parameter is specified, the response
+of results from this operation. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
         Marker?: String;
@@ -1891,7 +1979,7 @@ Default: 100
 Constraints: minimum 20; maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional marker returned from a prior request. Use this marker for pagination
-of results from this action. If this parameter is specified, the response
+of results from this operation. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
         Marker?: String;
@@ -1911,7 +1999,9 @@ Valid node types are as follows:
  &amp;#42; General purpose:
    
     * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge , 
+      cache.m4.large , cache.m4.xlarge , cache.m4.2xlarge , cache.m4.4xlarge , 
+      cache.m4.10xlarge
       
       
     * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
@@ -1937,24 +2027,25 @@ Valid node types are as follows:
 
 Notes:
 
- * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).
    
    
- * Redis backup/restore is not supported for t2 instances.
+ * Redis backup/restore is not supported for Redis (cluster mode disabled) T1
+   and T2 instances. Backup/restore is supported on Redis (cluster mode enabled)
+   T2 instances.
    
    
- * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+ * Redis Append-only files (AOF) functionality is not supported for T1 or T2
    instances.
    
    
 
-For a complete listing of cache node types and specifications, see Amazon
-ElastiCache Product Features and Details
-[http://aws.amazon.com/elasticache/details] and Cache Node Type-Specific
-Parameters for Memcached
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific] 
+For a complete listing of node types and specifications, see Amazon ElastiCache
+Product Features and Details [http://aws.amazon.com/elasticache/details] and
+either Cache Node Type-Specific Parameters for Memcached
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific] 
 or Cache Node Type-Specific Parameters for Redis
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific] 
 . **/
         CacheNodeType?: String;
         /** The duration filter value, specified in years or seconds. Use this parameter to
@@ -1979,7 +2070,7 @@ Default: 100
 Constraints: minimum 20; maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional marker returned from a prior request. Use this marker for pagination
-of results from this action. If this parameter is specified, the response
+of results from this operation. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
         Marker?: String;
@@ -1998,7 +2089,9 @@ Valid node types are as follows:
  &amp;#42; General purpose:
    
     * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge , 
+      cache.m4.large , cache.m4.xlarge , cache.m4.2xlarge , cache.m4.4xlarge , 
+      cache.m4.10xlarge
       
       
     * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
@@ -2024,24 +2117,25 @@ Valid node types are as follows:
 
 Notes:
 
- * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).
    
    
- * Redis backup/restore is not supported for t2 instances.
+ * Redis backup/restore is not supported for Redis (cluster mode disabled) T1
+   and T2 instances. Backup/restore is supported on Redis (cluster mode enabled)
+   T2 instances.
    
    
- * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+ * Redis Append-only files (AOF) functionality is not supported for T1 or T2
    instances.
    
    
 
-For a complete listing of cache node types and specifications, see Amazon
-ElastiCache Product Features and Details
-[http://aws.amazon.com/elasticache/details] and Cache Node Type-Specific
-Parameters for Memcached
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific] 
+For a complete listing of node types and specifications, see Amazon ElastiCache
+Product Features and Details [http://aws.amazon.com/elasticache/details] and
+either Cache Node Type-Specific Parameters for Memcached
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific] 
 or Cache Node Type-Specific Parameters for Redis
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific] 
 . **/
         CacheNodeType?: String;
         /** Duration filter value, specified in years or seconds. Use this parameter to show
@@ -2066,14 +2160,14 @@ Default: 100
 Constraints: minimum 20; maximum 100. **/
         MaxRecords?: IntegerOptional;
         /** An optional marker returned from a prior request. Use this marker for pagination
-of results from this action. If this parameter is specified, the response
+of results from this operation. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
         Marker?: String;
     }
     export interface DescribeSnapshotsListMessage {
         /** An optional marker returned from a prior request. Use this marker for pagination
-of results from this action. If this parameter is specified, the response
+of results from this operation. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
         Marker?: String;
@@ -2082,11 +2176,14 @@ one snapshot. **/
         Snapshots?: SnapshotList;
     }
     export interface DescribeSnapshotsMessage {
+        /** A user-supplied replication group identifier. If this parameter is specified,
+only snapshots associated with that specific replication group are described. **/
+        ReplicationGroupId?: String;
         /** A user-supplied cluster identifier. If this parameter is specified, only
-snapshots associated with that specific cache cluster will be described. **/
+snapshots associated with that specific cache cluster are described. **/
         CacheClusterId?: String;
         /** A user-supplied name of the snapshot. If this parameter is specified, only this
-snapshot will be described. **/
+snapshot are described. **/
         SnapshotName?: String;
         /** If set to system , the output shows snapshots that were automatically created by
 ElastiCache. If set to user the output shows snapshots that were manually
@@ -2094,7 +2191,7 @@ created. If omitted, the output shows both automatically and manually created
 snapshots. **/
         SnapshotSource?: String;
         /** An optional marker returned from a prior request. Use this marker for pagination
-of results from this action. If this parameter is specified, the response
+of results from this operation. If this parameter is specified, the response
 includes only records beyond the marker, up to the value specified by MaxRecords 
 . **/
         Marker?: String;
@@ -2106,6 +2203,9 @@ Default: 50
 
 Constraints: minimum 20; maximum 50. **/
         MaxRecords?: IntegerOptional;
+        /** A boolean value which if true, the node group (shard) configuration is included
+in the snapshot description. **/
+        ShowNodeGroupConfig?: BooleanOptional;
     }
     export interface EC2SecurityGroup {
         /** The status of the Amazon EC2 security group. **/
@@ -2123,7 +2223,9 @@ Constraints: minimum 20; maximum 50. **/
     }
     export interface EngineDefaults {
         /** Specifies the name of the cache parameter group family to which the engine
-default parameters apply. **/
+default parameters apply.
+
+Valid values are: memcached1.4 | redis2.6 | redis2.8 | redis3.2 **/
         CacheParameterGroupFamily?: String;
         /** Provides an identifier to allow retrieval of paginated results. **/
         Marker?: String;
@@ -2182,7 +2284,7 @@ one event. **/
     export interface ListAllowedNodeTypeModificationsMessage {
         /** The name of the cache cluster you want to scale up to a larger node instanced
 type. ElastiCache uses the cluster id to identify the current node type of this
-cluster and from that to to create a list of node types you can scale up to.
+cluster and from that to create a list of node types you can scale up to.
 
 You must provide a value for either the CacheClusterId or the ReplicationGroupId 
 . **/
@@ -2201,8 +2303,8 @@ You must provide a value for either the CacheClusterId or the ReplicationGroupId
 tags, for example arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster or 
 arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot .
 
-For more information on ARNs, go to Amazon Resource Names (ARNs) and AWS Service
-Namespaces
+For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
+Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
         ResourceName: String;
     }
@@ -2211,10 +2313,10 @@ Namespaces
         CacheClusterId: String;
         /** The number of cache nodes that the cache cluster should have. If the value for 
 NumCacheNodes is greater than the sum of the number of current cache nodes and
-the number of cache nodes pending creation (which may be zero), then more nodes
-will be added. If the value is less than the number of existing cache nodes,
-then nodes will be removed. If the value is equal to the number of current cache
-nodes, then any pending add or remove requests are canceled.
+the number of cache nodes pending creation (which may be zero), more nodes are
+added. If the value is less than the number of existing cache nodes, nodes are
+removed. If the value is equal to the number of current cache nodes, any pending
+add or remove requests are canceled.
 
 If you are removing cache nodes, you must use the CacheNodeIdsToRemove parameter
 to provide the IDs of the specific cache nodes to remove.
@@ -2223,23 +2325,23 @@ For clusters running Redis, this value must be 1. For clusters running
 Memcached, this value must be between 1 and 20.
 
 Adding or removing Memcached cache nodes can be applied immediately or as a
-pending action. See ApplyImmediately .
+pending operation (see ApplyImmediately ).
 
-A pending action to modify the number of cache nodes in a cluster during its
+A pending operation to modify the number of cache nodes in a cluster during its
 maintenance window, whether by adding or removing nodes in accordance with the
 scale out architecture, is not queued. The customer&#x27;s latest request to add or
-remove nodes to the cluster overrides any previous pending actions to modify the
-number of cache nodes in the cluster. For example, a request to remove 2 nodes
-would override a previous pending action to remove 3 nodes. Similarly, a request
-to add 2 nodes would override a previous pending action to remove 3 nodes and
-vice versa. As Memcached cache nodes may now be provisioned in different
-Availability Zones with flexible cache node placement, a request to add nodes
-does not automatically override a previous pending action to add nodes. The
-customer can modify the previous pending action to add more nodes or explicitly
-cancel the pending request and retry the new request. To cancel pending actions
-to modify the number of cache nodes in a cluster, use the ModifyCacheCluster 
-request and set NumCacheNodes equal to the number of cache nodes currently in
-the cache cluster. **/
+remove nodes to the cluster overrides any previous pending operations to modify
+the number of cache nodes in the cluster. For example, a request to remove 2
+nodes would override a previous pending operation to remove 3 nodes. Similarly,
+a request to add 2 nodes would override a previous pending operation to remove 3
+nodes and vice versa. As Memcached cache nodes may now be provisioned in
+different Availability Zones with flexible cache node placement, a request to
+add nodes does not automatically override a previous pending operation to add
+nodes. The customer can modify the previous pending operation to add more nodes
+or explicitly cancel the pending request and retry the new request. To cancel
+pending operations to modify the number of cache nodes in a cluster, use the 
+ModifyCacheCluster request and set NumCacheNodes equal to the number of cache
+nodes currently in the cache cluster. **/
         NumCacheNodes?: IntegerOptional;
         /** A list of cache node IDs to be removed. A node ID is a numeric identifier (0001,
 0002, etc.). This parameter is only valid when NumCacheNodes is less than the
@@ -2263,15 +2365,14 @@ You cannot specify single-az if the Memcached cache cluster already has cache
 nodes in different Availability Zones. If cross-az is specified, existing
 Memcached nodes remain in their current Availability Zone.
 
-Only newly created nodes will be located in different Availability Zones. For
+Only newly created nodes are located in different Availability Zones. For
 instructions on how to move existing Memcached nodes to different Availability
 Zones, see the Availability Zone Considerations section of Cache Node
 Considerations for Memcached
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html] 
 . **/
         AZMode?: AZMode;
-        /** The list of Availability Zones where the new Memcached cache nodes will be
-created.
+        /** The list of Availability Zones where the new Memcached cache nodes are created.
 
 This parameter is only valid when NumCacheNodes in the request is greater than
 the sum of the number of active cache nodes and the number of cache nodes
@@ -2292,8 +2393,8 @@ Scenarios:
    2) + 1) and optionally specify an Availability Zone for the new node.
    
    
- * Scenario 3: You want to cancel all pending actions. Specify NumCacheNodes=3 
-   to cancel all pending actions.
+ * Scenario 3: You want to cancel all pending operations. Specify 
+   NumCacheNodes=3 to cancel all pending operations.
    
    
 
@@ -2362,22 +2463,13 @@ Impact of new add/remove requests upon pending requests
       
       Important: If the new create request is Apply Immediately - Yes , all
       creates are performed immediately. If the new create request is Apply
-      Immediately - No , all creates are pending.
-      
-      
-   
-   
-
-Example:
-
-
-NewAvailabilityZones.member.1=us-west-2a&amp;amp;NewAvailabilityZones.member.2=us-west-2b&amp;amp;NewAvailabilityZones.member.3=us-west-2c **/
+      Immediately - No , all creates are pending. **/
         NewAvailabilityZones?: PreferredAvailabilityZoneList;
         /** A list of cache security group names to authorize on this cache cluster. This
 change is asynchronously applied as soon as possible.
 
-This parameter can be used only with clusters that are created outside of an
-Amazon Virtual Private Cloud (VPC).
+You can use this parameter only with clusters that are created outside of an
+Amazon Virtual Private Cloud (Amazon VPC).
 
 Constraints: Must contain no more than 255 alphanumeric characters. Must not be
 &quot;Default&quot;. **/
@@ -2385,12 +2477,13 @@ Constraints: Must contain no more than 255 alphanumeric characters. Must not be
         /** Specifies the VPC Security Groups associated with the cache cluster.
 
 This parameter can be used only with clusters that are created in an Amazon
-Virtual Private Cloud (VPC). **/
+Virtual Private Cloud (Amazon VPC). **/
         SecurityGroupIds?: SecurityGroupIdsList;
-        /** Specifies the weekly time range during which maintenance on the cache cluster is
+        /** Specifies the weekly time range during which maintenance on the cluster is
 performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
-Clock UTC). The minimum maintenance window is a 60 minute period. Valid values
-for ddd are:
+Clock UTC). The minimum maintenance window is a 60 minute period.
+
+Valid values for ddd are:
 
  &amp;#42; sun
    
@@ -2414,10 +2507,10 @@ for ddd are:
    
    
 
-Example: sun:05:00-sun:09:00 **/
+Example: sun:23:00-mon:01:30 **/
         PreferredMaintenanceWindow?: String;
         /** The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications
-will be sent.
+are sent.
 
 The Amazon SNS topic owner must be same as the cache cluster owner. **/
         NotificationTopicArn?: String;
@@ -2434,7 +2527,7 @@ Valid values: active | inactive **/
 pending modifications to be applied, asynchronously and as soon as possible,
 regardless of the PreferredMaintenanceWindow setting for the cache cluster.
 
-If false , then changes to the cache cluster are applied on the next maintenance
+If false , changes to the cache cluster are applied on the next maintenance
 reboot, or the next failure reboot, whichever occurs first.
 
 If you perform a ModifyCacheCluster before a pending modification is applied,
@@ -2455,20 +2548,18 @@ anew with the earlier engine version. **/
         EngineVersion?: String;
         /** This parameter is currently disabled. **/
         AutoMinorVersionUpgrade?: BooleanOptional;
-        /** The number of days for which ElastiCache will retain automatic cache cluster
+        /** The number of days for which ElastiCache retains automatic cache cluster
 snapshots before deleting them. For example, if you set SnapshotRetentionLimit 
-to 5, then a snapshot that was taken today will be retained for 5 days before
-being deleted.
+to 5, a snapshot that was taken today is retained for 5 days before being
+deleted.
 
 If the value of SnapshotRetentionLimit is set to zero (0), backups are turned
 off. **/
         SnapshotRetentionLimit?: IntegerOptional;
-        /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
+        /** The daily time range (in UTC) during which ElastiCache begins taking a daily
 snapshot of your cache cluster. **/
         SnapshotWindow?: String;
-        /** A valid cache node type that you want to scale this cache cluster to. The value
-of this parameter must be one of the ScaleUpModifications values returned by the 
-ListAllowedCacheNodeTypeModification action. **/
+        /** A valid cache node type that you want to scale this cache cluster up to. **/
         CacheNodeType?: String;
     }
     export interface ModifyCacheClusterResult {
@@ -2489,7 +2580,7 @@ Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
 
 Example: mysubnetgroup **/
         CacheSubnetGroupName: String;
-        /** A description for the cache subnet group. **/
+        /** A description of the cache subnet group. **/
         CacheSubnetGroupDescription?: String;
         /** The EC2 subnet IDs for the cache subnet group. **/
         SubnetIds?: SubnetIdentifierList;
@@ -2502,15 +2593,17 @@ Example: mysubnetgroup **/
         ReplicationGroupId: String;
         /** A description for the replication group. Maximum length is 255 characters. **/
         ReplicationGroupDescription?: String;
-        /** If this parameter is specified, ElastiCache will promote the specified cluster
-in the specified replication group to the primary role. The nodes of all other
-clusters in the replication group will be read replicas. **/
+        /** For replication groups with a single primary, if this parameter is specified,
+ElastiCache promotes the specified cluster in the specified replication group to
+the primary role. The nodes of all other clusters in the replication group are
+read replicas. **/
         PrimaryClusterId?: String;
-        /** The cache cluster ID that will be used as the daily snapshot source for the
-replication group. **/
+        /** The cache cluster ID that is used as the daily snapshot source for the
+replication group. This parameter cannot be set for Redis (cluster mode enabled)
+replication groups. **/
         SnapshottingClusterId?: String;
-        /** Whether a read replica will be automatically promoted to read/write primary if
-the existing primary encounters a failure.
+        /** Determines whether a read replica is automatically promoted to read/write
+primary if the existing primary encounters a failure.
 
 Valid values: true | false
 
@@ -2519,27 +2612,30 @@ ElastiCache Multi-AZ replication groups are not supported on:
  &amp;#42; Redis versions earlier than 2.8.6.
    
    
- * T1 and T2 cache node types. **/
+ * Redis (cluster mode disabled):T1 and T2 cache node types.
+   
+   Redis (cluster mode enabled): T1 node types. **/
         AutomaticFailoverEnabled?: BooleanOptional;
         /** A list of cache security group names to authorize for the clusters in this
 replication group. This change is asynchronously applied as soon as possible.
 
 This parameter can be used only with replication group containing cache clusters
-running outside of an Amazon Virtual Private Cloud (VPC).
+running outside of an Amazon Virtual Private Cloud (Amazon VPC).
 
-Constraints: Must contain no more than 255 alphanumeric characters. Must not be
-&quot;Default&quot;. **/
+Constraints: Must contain no more than 255 alphanumeric characters. Must not be 
+Default . **/
         CacheSecurityGroupNames?: CacheSecurityGroupNameList;
         /** Specifies the VPC Security Groups associated with the cache clusters in the
 replication group.
 
 This parameter can be used only with replication group containing cache clusters
-running in an Amazon Virtual Private Cloud (VPC). **/
+running in an Amazon Virtual Private Cloud (Amazon VPC). **/
         SecurityGroupIds?: SecurityGroupIdsList;
-        /** Specifies the weekly time range during which maintenance on the cache cluster is
+        /** Specifies the weekly time range during which maintenance on the cluster is
 performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
-Clock UTC). The minimum maintenance window is a 60 minute period. Valid values
-for ddd are:
+Clock UTC). The minimum maintenance window is a 60 minute period.
+
+Valid values for ddd are:
 
  &amp;#42; sun
    
@@ -2563,10 +2659,10 @@ for ddd are:
    
    
 
-Example: sun:05:00-sun:09:00 **/
+Example: sun:23:00-mon:01:30 **/
         PreferredMaintenanceWindow?: String;
         /** The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications
-will be sent.
+are sent.
 
 The Amazon SNS topic owner must be same as the replication group owner. **/
         NotificationTopicArn?: String;
@@ -2584,8 +2680,8 @@ Valid values: active | inactive **/
 pending modifications to be applied, asynchronously and as soon as possible,
 regardless of the PreferredMaintenanceWindow setting for the replication group.
 
-If false , then changes to the nodes in the replication group are applied on the
-next maintenance reboot, or the next failure reboot, whichever occurs first.
+If false , changes to the nodes in the replication group are applied on the next
+maintenance reboot, or the next failure reboot, whichever occurs first.
 
 Valid values: true | false
 
@@ -2603,39 +2699,59 @@ create it anew with the earlier engine version. **/
         EngineVersion?: String;
         /** This parameter is currently disabled. **/
         AutoMinorVersionUpgrade?: BooleanOptional;
-        /** The number of days for which ElastiCache will retain automatic node group
+        /** The number of days for which ElastiCache retains automatic node group (shard)
 snapshots before deleting them. For example, if you set SnapshotRetentionLimit 
-to 5, then a snapshot that was taken today will be retained for 5 days before
-being deleted.
+to 5, a snapshot that was taken today is retained for 5 days before being
+deleted.
 
 Important If the value of SnapshotRetentionLimit is set to zero (0), backups are
 turned off. **/
         SnapshotRetentionLimit?: IntegerOptional;
-        /** The daily time range (in UTC) during which ElastiCache will begin taking a daily
-snapshot of the node group specified by SnapshottingClusterId .
+        /** The daily time range (in UTC) during which ElastiCache begins taking a daily
+snapshot of the node group (shard) specified by SnapshottingClusterId .
 
 Example: 05:00-09:00
 
-If you do not specify this parameter, then ElastiCache will automatically choose
-an appropriate time range. **/
+If you do not specify this parameter, ElastiCache automatically chooses an
+appropriate time range. **/
         SnapshotWindow?: String;
-        /** A valid cache node type that you want to scale this replication group to. The
-value of this parameter must be one of the ScaleUpModifications values returned
-by the ListAllowedCacheNodeTypeModification action. **/
+        /** A valid cache node type that you want to scale this replication group to. **/
         CacheNodeType?: String;
     }
     export interface ModifyReplicationGroupResult {
         ReplicationGroup?: ReplicationGroup;
     }
     export interface NodeGroup {
-        /** The identifier for the node group. A replication group contains only one node
-group; therefore, the node group ID is 0001. **/
+        /** The identifier for the node group (shard). A Redis (cluster mode disabled)
+replication group contains only 1 node group; therefore, the node group ID is
+0001. A Redis (cluster mode enabled) replication group contains 1 to 15 node
+groups numbered 0001 to 0015. **/
         NodeGroupId?: String;
         /** The current state of this replication group - creating , available , etc. **/
         Status?: String;
+        /** The endpoint of the primary node in this node group (shard). **/
         PrimaryEndpoint?: Endpoint;
-        /** A list containing information about individual nodes within the node group. **/
+        /** The keyspace for this node group (shard). **/
+        Slots?: String;
+        /** A list containing information about individual nodes within the node group
+(shard). **/
         NodeGroupMembers?: NodeGroupMemberList;
+    }
+    export interface NodeGroupConfiguration {
+        /** A string that specifies the keyspaces as a series of comma separated values.
+Keyspaces are 0 to 16,383. The string is in the format startkey-endkey .
+
+Example: &quot;0-3999&quot; **/
+        Slots?: String;
+        /** The number of read replica nodes in this node group (shard). **/
+        ReplicaCount?: IntegerOptional;
+        /** The Availability Zone where the primary node of this node group (shard) is
+launched. **/
+        PrimaryAvailabilityZone?: String;
+        /** A list of Availability Zones to be used for the read replicas. The number of
+Availability Zones in this list must match the value of ReplicaCount or 
+ReplicasPerNodeGroup if not specified. **/
+        ReplicaAvailabilityZones?: AvailabilityZonesList;
     }
     export interface NodeGroupMember {
         /** The ID of the cache cluster to which the node belongs. **/
@@ -2649,13 +2765,21 @@ group; therefore, the node group ID is 0001. **/
         /** The role that is currently assigned to the node - primary or replica . **/
         CurrentRole?: String;
     }
+    export interface NodeGroupsPerReplicationGroupQuotaExceededFault {
+    }
     export interface NodeQuotaForClusterExceededFault {
     }
     export interface NodeQuotaForCustomerExceededFault {
     }
     export interface NodeSnapshot {
+        /** A unique identifier for the source cache cluster. **/
+        CacheClusterId?: String;
+        /** A unique identifier for the source node group (shard). **/
+        NodeGroupId?: String;
         /** The cache node identifier for the node in the source cache cluster. **/
         CacheNodeId?: String;
+        /** The configuration for the source node group (shard). **/
+        NodeGroupConfiguration?: NodeGroupConfiguration;
         /** The size of the cache on the source cache node. **/
         CacheSize?: String;
         /** The date and time when the cache node was created in the source cache cluster. **/
@@ -2689,10 +2813,9 @@ being changed. **/
         IsModifiable?: Boolean;
         /** The earliest cache engine version to which the parameter can apply. **/
         MinimumEngineVersion?: String;
-        /** ChangeType indicates whether a change to the parameter will be applied
-immediately or requires a reboot for the change to be applied. You can force a
-reboot or wait until the next maintenance window&#x27;s reboot. For more information,
-see Rebooting a Cluster
+        /** Indicates whether a change to the parameter is applied immediately or requires a
+reboot for the change to be applied. You can force a reboot or wait until the
+next maintenance window&#x27;s reboot. For more information, see Rebooting a Cluster
 [http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Rebooting.html] 
 . **/
         ChangeType?: ChangeType;
@@ -2712,10 +2835,9 @@ Memcached, this value must be between 1 and 20. **/
         /** A list of cache node IDs that are being removed (or will be removed) from the
 cache cluster. A node ID is a numeric identifier (0001, 0002, etc.). **/
         CacheNodeIdsToRemove?: CacheNodeIdsList;
-        /** The new cache engine version that the cache cluster will run. **/
+        /** The new cache engine version that the cache cluster runs. **/
         EngineVersion?: String;
-        /** The cache node type that this cache cluster or replication group will be scaled
-to. **/
+        /** The cache node type that this cache cluster or replication group is scaled to. **/
         CacheNodeType?: String;
     }
     export interface PurchaseReservedCacheNodesOfferingMessage {
@@ -2761,13 +2883,11 @@ IDs. **/
 removed, for example arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster 
 or arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot .
 
-For more information on ARNs, go to Amazon Resource Names (ARNs) and AWS Service
-Namespaces
+For more information about ARNs, see Amazon Resource Names (ARNs) and AWS
+Service Namespaces
 [http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
         ResourceName: String;
-        /** A list of TagKeys identifying the tags you want removed from the named resource.
-For example, TagKeys.member.1=Region removes the cost allocation tag with the
-key name Region from the resource named by the ResourceName parameter. **/
+        /** A list of TagKeys identifying the tags you want removed from the named resource. **/
         TagKeys: KeyList;
     }
     export interface ReplicationGroup {
@@ -2794,8 +2914,31 @@ ElastiCache Multi-AZ replication groups are not supported on:
  &amp;#42; Redis versions earlier than 2.8.6.
    
    
- * T1 and T2 cache node types. **/
+ * Redis (cluster mode disabled):T1 and T2 cache node types.
+   
+   Redis (cluster mode enabled): T1 node types. **/
         AutomaticFailover?: AutomaticFailoverStatus;
+        /** The configuration endpoint for this replicaiton group. Use the configuration
+endpoint to connect to this replication group. **/
+        ConfigurationEndpoint?: Endpoint;
+        /** The number of days for which ElastiCache retains automatic cache cluster
+snapshots before deleting them. For example, if you set SnapshotRetentionLimit 
+to 5, a snapshot that was taken today is retained for 5 days before being
+deleted.
+
+If the value of SnapshotRetentionLimit is set to zero (0), backups are turned
+off. **/
+        SnapshotRetentionLimit?: IntegerOptional;
+        /** The daily time range (in UTC) during which ElastiCache begins taking a daily
+snapshot of your node group (shard).
+
+Example: 05:00-09:00
+
+If you do not specify this parameter, ElastiCache automatically chooses an
+appropriate time range.
+
+Note: This parameter is only valid if the Engine parameter is redis . **/
+        SnapshotWindow?: String;
     }
     export interface ReplicationGroupAlreadyExistsFault {
     }
@@ -2809,17 +2952,19 @@ information about one replication group. **/
     export interface ReplicationGroupNotFoundFault {
     }
     export interface ReplicationGroupPendingModifiedValues {
-        /** The primary cluster ID which will be applied immediately (if --apply-immediately 
-was specified), or during the next maintenance window. **/
+        /** The primary cluster ID that is applied immediately (if --apply-immediately was
+specified), or during the next maintenance window. **/
         PrimaryClusterId?: String;
-        /** Indicates the status of Multi-AZ for this replication group.
+        /** Indicates the status of Multi-AZ for this Redis replication group.
 
 ElastiCache Multi-AZ replication groups are not supported on:
 
  &amp;#42; Redis versions earlier than 2.8.6.
    
    
- * T1 and T2 cache node types. **/
+ * Redis (cluster mode disabled):T1 and T2 cache node types.
+   
+   Redis (cluster mode enabled): T1 node types. **/
         AutomaticFailoverStatus?: PendingAutomaticFailoverStatus;
     }
     export interface ReservedCacheNode {
@@ -2834,7 +2979,9 @@ Valid node types are as follows:
  &amp;#42; General purpose:
    
     * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge , 
+      cache.m4.large , cache.m4.xlarge , cache.m4.2xlarge , cache.m4.4xlarge , 
+      cache.m4.10xlarge
       
       
     * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
@@ -2860,24 +3007,25 @@ Valid node types are as follows:
 
 Notes:
 
- * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).
    
    
- * Redis backup/restore is not supported for t2 instances.
+ * Redis backup/restore is not supported for Redis (cluster mode disabled) T1
+   and T2 instances. Backup/restore is supported on Redis (cluster mode enabled)
+   T2 instances.
    
    
- * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+ * Redis Append-only files (AOF) functionality is not supported for T1 or T2
    instances.
    
    
 
-For a complete listing of cache node types and specifications, see Amazon
-ElastiCache Product Features and Details
-[http://aws.amazon.com/elasticache/details] and Cache Node Type-Specific
-Parameters for Memcached
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific] 
+For a complete listing of node types and specifications, see Amazon ElastiCache
+Product Features and Details [http://aws.amazon.com/elasticache/details] and
+either Cache Node Type-Specific Parameters for Memcached
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific] 
 or Cache Node Type-Specific Parameters for Redis
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific] 
 . **/
         CacheNodeType?: String;
         /** The time the reservation started. **/
@@ -2922,7 +3070,9 @@ Valid node types are as follows:
  &amp;#42; General purpose:
    
     * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge , 
+      cache.m4.large , cache.m4.xlarge , cache.m4.2xlarge , cache.m4.4xlarge , 
+      cache.m4.10xlarge
       
       
     * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
@@ -2948,24 +3098,25 @@ Valid node types are as follows:
 
 Notes:
 
- * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).
    
    
- * Redis backup/restore is not supported for t2 instances.
+ * Redis backup/restore is not supported for Redis (cluster mode disabled) T1
+   and T2 instances. Backup/restore is supported on Redis (cluster mode enabled)
+   T2 instances.
    
    
- * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+ * Redis Append-only files (AOF) functionality is not supported for T1 or T2
    instances.
    
    
 
-For a complete listing of cache node types and specifications, see Amazon
-ElastiCache Product Features and Details
-[http://aws.amazon.com/elasticache/details] and Cache Node Type-Specific
-Parameters for Memcached
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific] 
+For a complete listing of node types and specifications, see Amazon ElastiCache
+Product Features and Details [http://aws.amazon.com/elasticache/details] and
+either Cache Node Type-Specific Parameters for Memcached
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific] 
 or Cache Node Type-Specific Parameters for Redis
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific] 
 . **/
         CacheNodeType?: String;
         /** The duration of the offering. in seconds. **/
@@ -2993,13 +3144,14 @@ detailed information about one offering. **/
     export interface ResetCacheParameterGroupMessage {
         /** The name of the cache parameter group to reset. **/
         CacheParameterGroupName: String;
-        /** If true , all parameters in the cache parameter group will be reset to their
-default values. If false , only the parameters listed by ParameterNameValues are
-reset to their default values.
+        /** If true , all parameters in the cache parameter group are reset to their default
+values. If false , only the parameters listed by ParameterNameValues are reset
+to their default values.
 
 Valid values: true | false **/
         ResetAllParameters?: Boolean;
         /** An array of parameter names to reset to their default values. If 
+ResetAllParameters is true , do not use ParameterNameValues . If 
 ResetAllParameters is false , you must specify the name of at least one
 parameter to reset. **/
         ParameterNameValues?: ParameterNameValueList;
@@ -3026,9 +3178,13 @@ a cache cluster are modified. **/
         Status?: String;
     }
     export interface Snapshot {
-        /** The name of a snapshot. For an automatic snapshot, the name is system-generated;
-for a manual snapshot, this is the user-provided name. **/
+        /** The name of a snapshot. For an automatic snapshot, the name is system-generated.
+For a manual snapshot, this is the user-provided name. **/
         SnapshotName?: String;
+        /** The unique identifier of the source replication group. **/
+        ReplicationGroupId?: String;
+        /** A description of the source replication group. **/
+        ReplicationGroupDescription?: String;
         /** The user-supplied identifier of the source cache cluster. **/
         CacheClusterId?: String;
         /** The status of the snapshot. Valid values: creating | available | restoring | 
@@ -3045,7 +3201,9 @@ Valid node types are as follows:
  &amp;#42; General purpose:
    
     * Current generation: cache.t2.micro , cache.t2.small , cache.t2.medium , 
-      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge
+      cache.m3.medium , cache.m3.large , cache.m3.xlarge , cache.m3.2xlarge , 
+      cache.m4.large , cache.m4.xlarge , cache.m4.2xlarge , cache.m4.4xlarge , 
+      cache.m4.10xlarge
       
       
     * Previous generation: cache.t1.micro , cache.m1.small , cache.m1.medium , 
@@ -3071,24 +3229,25 @@ Valid node types are as follows:
 
 Notes:
 
- * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).
+ * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).
    
    
- * Redis backup/restore is not supported for t2 instances.
+ * Redis backup/restore is not supported for Redis (cluster mode disabled) T1
+   and T2 instances. Backup/restore is supported on Redis (cluster mode enabled)
+   T2 instances.
    
    
- * Redis Append-only files (AOF) functionality is not supported for t1 or t2
+ * Redis Append-only files (AOF) functionality is not supported for T1 or T2
    instances.
    
    
 
-For a complete listing of cache node types and specifications, see Amazon
-ElastiCache Product Features and Details
-[http://aws.amazon.com/elasticache/details] and Cache Node Type-Specific
-Parameters for Memcached
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific] 
+For a complete listing of node types and specifications, see Amazon ElastiCache
+Product Features and Details [http://aws.amazon.com/elasticache/details] and
+either Cache Node Type-Specific Parameters for Memcached
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific] 
 or Cache Node Type-Specific Parameters for Redis
-[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific] 
+[http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific] 
 . **/
         CacheNodeType?: String;
         /** The name of the cache engine ( memcached or redis ) used by the source cache
@@ -3106,10 +3265,11 @@ Memcached, this value must be between 1 and 20. **/
         PreferredAvailabilityZone?: String;
         /** The date and time when the source cache cluster was created. **/
         CacheClusterCreateTime?: TStamp;
-        /** Specifies the weekly time range during which maintenance on the cache cluster is
+        /** Specifies the weekly time range during which maintenance on the cluster is
 performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
-Clock UTC). The minimum maintenance window is a 60 minute period. Valid values
-for ddd are:
+Clock UTC). The minimum maintenance window is a 60 minute period.
+
+Valid values for ddd are:
 
  &amp;#42; sun
    
@@ -3133,7 +3293,7 @@ for ddd are:
    
    
 
-Example: sun:05:00-sun:09:00 **/
+Example: sun:23:00-mon:01:30 **/
         PreferredMaintenanceWindow?: String;
         /** The Amazon Resource Name (ARN) for the topic used by the source cache cluster
 for publishing notifications. **/
@@ -3149,13 +3309,13 @@ for the source cache cluster. **/
         VpcId?: String;
         /** This parameter is currently disabled. **/
         AutoMinorVersionUpgrade?: Boolean;
-        /** For an automatic snapshot, the number of days for which ElastiCache will retain
-the snapshot before deleting it.
+        /** For an automatic snapshot, the number of days for which ElastiCache retains the
+snapshot before deleting it.
 
 For manual snapshots, this field reflects the SnapshotRetentionLimit for the
 source cache cluster when the snapshot was created. This field is otherwise
 ignored: Manual snapshots do not expire, and can only be deleted using the 
-DeleteSnapshot action.
+DeleteSnapshot operation.
 
 Important If the value of SnapshotRetentionLimit is set to zero (0), backups are
 turned off. **/
@@ -3163,6 +3323,21 @@ turned off. **/
         /** The daily time range during which ElastiCache takes daily snapshots of the
 source cache cluster. **/
         SnapshotWindow?: String;
+        /** The number of node groups (shards) in this snapshot. When restoring from a
+snapshot, the number of node groups (shards) in the snapshot and in the restored
+replication group must be the same. **/
+        NumNodeGroups?: IntegerOptional;
+        /** Indicates the status of Multi-AZ for the source replication group.
+
+ElastiCache Multi-AZ replication groups are not supported on:
+
+ &amp;#42; Redis versions earlier than 2.8.6.
+   
+   
+ * Redis (cluster mode disabled):T1 and T2 cache node types.
+   
+   Redis (cluster mode enabled): T1 node types. **/
+        AutomaticFailover?: AutomaticFailoverStatus;
         /** A list of the cache nodes in the source cache cluster. **/
         NodeSnapshots?: NodeSnapshotList;
     }
