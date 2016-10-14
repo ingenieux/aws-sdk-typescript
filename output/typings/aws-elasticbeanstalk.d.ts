@@ -25,7 +25,7 @@ http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl
 [http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl] 
 . To install the Software Development Kits (SDKs), Integrated Development
 Environment (IDE) Toolkits, and command line tools that enable you to access the
-API, go to Tools for Amazon Web Services [https://aws.amazon.com/tools/] .
+API, go to Tools for Amazon Web Services [http://aws.amazon.com/tools/] .
 
 Endpoints
 
@@ -101,7 +101,11 @@ the same configuration settings.
 Related Topics
 
  &amp;#42; DescribeConfigurationOptions
+   
+   
  * DescribeConfigurationSettings
+   
+   
  * ListAvailableSolutionStacks
      *
      * @error InsufficientPrivilegesException   
@@ -337,7 +341,9 @@ unchanged. To clear properties, specify an empty string.
 configuration option values.
 
 If a property (for example, ApplicationName ) is not provided, its value remains
-unchanged. To clear such properties, specify an empty string.Related Topics
+unchanged. To clear such properties, specify an empty string.
+
+Related Topics
 
  &amp;#42; DescribeConfigurationOptions
      *
@@ -578,6 +584,12 @@ associated with the selection of option values.
     
     export type SolutionStackName = string;
     
+    export type SourceLocation = string;
+    
+    export type SourceRepository = string;
+    
+    export type SourceType = string;
+    
     export type String = string;
     
     export type TagKey = string;
@@ -668,6 +680,7 @@ last 10 seconds. Latencies are in seconds with one milisecond resolution. **/
         Description?: Description;
         /** A label uniquely identifying the version for the associated application. **/
         VersionLabel?: VersionLabel;
+        SourceBuildInformation?: SourceBuildInformation;
         /** The location where the source bundle is located for this version. **/
         SourceBundle?: S3Location;
         /** The creation date of the application version. **/
@@ -684,6 +697,9 @@ last 10 seconds. Latencies are in seconds with one milisecond resolution. **/
     export interface ApplicationVersionDescriptionsMessage {
         /** List of ApplicationVersionDescription objects sorted by order of creation. **/
         ApplicationVersions?: ApplicationVersionDescriptionList;
+        /** For a paginated request, the token that you can pass in a subsequent request to
+get the next page. **/
+        NextToken?: Token;
     }
     export interface ApplyEnvironmentManagedActionRequest {
         /** The name of the target environment. **/
@@ -738,6 +754,8 @@ seconds. **/
         /** Indicates if the specified CNAME is available:
 
  &amp;#42; true : The CNAME is available.
+   
+   
  * false : The CNAME is not available. **/
         Available?: CnameAvailability;
         /** The fully qualified CNAME to reserve when CreateEnvironment is called with the
@@ -771,9 +789,13 @@ option changes:
 
  &amp;#42; NoInterruption : There is no interruption to the environment or application
    availability.
+   
+   
  * RestartEnvironment : The environment is entirely restarted, all AWS resources
    are deleted and recreated, and the environment is unavailable during the
    process.
+   
+   
  * RestartApplicationServer : The environment is available the entire time.
    However, a short application outage occurs when the application servers on
    the running Amazon EC2 instances are restarted. **/
@@ -786,6 +808,8 @@ option changes:
    
    
  * false : This configuration was not defined by the user.
+   
+   
 
 Constraint: You can remove only UserDefined options from a configuration.
 
@@ -797,9 +821,15 @@ allowable to select one or more than one of the possible values:
  &amp;#42; Scalar : Values for this option are a single selection from the possible
    values, or an unformatted string, or numeric value governed by the 
    MIN/MAX/Regex constraints.
+   
+   
  * List : Values for this option are multiple selections from the possible
    values.
+   
+   
  * Boolean : Values for this option are either true or false .
+   
+   
  * Json : Values for this option are a JSON representation of a ConfigDocument . **/
         ValueType?: ConfigurationOptionValueType;
         /** If specified, values for the configuration option are selected from this list. **/
@@ -849,10 +879,16 @@ DeploymentStatus parameter indicates the deployment status of this configuration
 set:
 
  &amp;#42; null : This configuration is not associated with a running environment.
+   
+   
  * pending : This is a draft configuration that is not deployed to the
    associated environment but is in the process of deploying.
+   
+   
  * deployed : This is the configuration that is currently deployed to the
    associated running environment.
+   
+   
  * failed : This is a draft configuration that failed to successfully deploy. **/
         DeploymentStatus?: ConfigurationDeploymentStatus;
         /** The date (in UTC time) when this configuration set was created. **/
@@ -891,6 +927,7 @@ returns an InvalidParameterValue error. **/
         VersionLabel: VersionLabel;
         /** Describes this version. **/
         Description?: Description;
+        SourceBuildInformation?: SourceBuildInformation;
         /** The Amazon S3 bucket and key that identify the location of the source bundle for
 this version.
 
@@ -908,8 +945,12 @@ does not already exist:
 
  &amp;#42; true : Automatically creates the specified application for this release if it
    does not already exist.
+   
+   
  * false : Throws an InvalidParameterValue if the specified application for this
    release does not already exist.
+   
+   
 
 Default: false
 
@@ -1055,8 +1096,12 @@ application. **/
 
  &amp;#42; true : An attempt is made to delete the associated Amazon S3 source bundle
    specified at time of creation.
+   
+   
  * false : No action is taken on the Amazon S3 source bundle specified at time
    of creation.
+   
+   
 
 Valid Values: true | false **/
         DeleteSourceBundle?: DeleteSourceBundle;
@@ -1082,7 +1127,11 @@ source code or change instance configuration settings. **/
         /** The status of the deployment:
 
  &amp;#42; In Progress : The deployment is in progress.
+   
+   
  * Deployed : The deployment succeeded.
+   
+   
  * Failed : The deployment failed. **/
         Status?: String;
         /** For in-progress deployments, the time that the deloyment started.
@@ -1097,6 +1146,10 @@ include ones that are associated with the specified application. **/
         /** If specified, restricts the returned descriptions to only include ones that have
 the specified version labels. **/
         VersionLabels?: VersionLabelsList;
+        /** Specify a maximum number of application versions to paginate in the request. **/
+        MaxRecords?: MaxRecords;
+        /** Specify a next token to retrieve the next page in a paginated request. **/
+        NextToken?: Token;
     }
     export interface DescribeApplicationsMessage {
         /** If specified, AWS Elastic Beanstalk restricts the returned descriptions to only
@@ -1327,11 +1380,19 @@ single-instance environments, the IP address of the instance. **/
         /** The current operational status of the environment:
 
  &amp;#42; Launching : Environment is in the process of initial deployment.
+   
+   
  * Updating : Environment is in the process of updating its configuration
    settings or application version.
+   
+   
  * Ready : Environment is available to have an action performed on it, such as
    update or terminate.
+   
+   
  * Terminating : Environment is in the shut-down process.
+   
+   
  * Terminated : Environment is not running. **/
         Status?: EnvironmentStatus;
         /** Indicates if there is an in-progress environment configuration update or
@@ -1346,12 +1407,20 @@ the failure levels for a running environment:
 
  &amp;#42; Red : Indicates the environment is not responsive. Occurs when three or more
    consecutive failures occur for an environment.
+   
+   
  * Yellow : Indicates that something is wrong. Occurs when two consecutive
    failures occur for an environment.
+   
+   
  * Green : Indicates the environment is healthy and fully functional.
+   
+   
  * Grey : Default health for a new environment. The environment is not fully
    launched and health checks have not started or health checks are suspended
    during an UpdateEnvironment or RestartEnvironement request.
+   
+   
 
 Default: Grey **/
         Health?: EnvironmentHealth;
@@ -1704,6 +1773,11 @@ status. **/
         /** The permitted file types allowed for a solution stack. **/
         PermittedFileTypes?: SolutionStackFileTypeList;
     }
+    export interface SourceBuildInformation {
+        SourceType: SourceType;
+        SourceRepository: SourceRepository;
+        SourceLocation: SourceLocation;
+    }
     export interface SourceBundleDeletionException {
     }
     export interface SourceConfiguration {
@@ -1784,8 +1858,12 @@ environment is terminated:
 
  &amp;#42; true : The specified environment as well as the associated AWS resources,
    such as Auto Scaling group and LoadBalancer, are terminated.
+   
+   
  * false : AWS Elastic Beanstalk resource management is removed from the
    environment, but the AWS resources continue to operate.
+   
+   
 
 For more information, see the AWS Elastic Beanstalk User Guide.
 [http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/]
@@ -1933,6 +2011,8 @@ Condition: You cannot specify both this and a configuration template name. **/
 
  &amp;#42; error : This message indicates that this is not a valid setting for an
    option.
+   
+   
  * warning : This message is providing information you should take into account. **/
         Severity?: ValidationSeverity;
         /**  **/

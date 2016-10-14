@@ -21,95 +21,197 @@ deployment of game servers, and handles infrastructure scaling and session
 management.
 
 This reference describes the low-level service API for GameLift. You can call
-this API directly or use the AWS SDK [https://aws.amazon.com/tools/#sdk] for
-your preferred language. The AWS SDK includes a set of high-level GameLift
-actions multiplayer game sessions. Alternatively, you can use the AWS
-command-line interface [https://aws.amazon.com/cli/] (CLI) tool, which includes
-commands for GameLift. For administrative actions, you can also use the Amazon
-GameLift console.
+this API directly or use the AWS SDK [http://aws.amazon.com/tools/#sdk] for your
+preferred language. The AWS SDK includes a set of high-level GameLift actions
+multiplayer game sessions. Alternatively, you can use the AWS command-line
+interface [http://aws.amazon.com/cli/] (CLI) tool, which includes commands for
+GameLift. For administrative actions, you can also use the Amazon GameLift
+console.
 
 More Resources
 
  &amp;#42; Amazon GameLift Developer Guide
    [http://docs.aws.amazon.com/gamelift/latest/developerguide/] : Learn more
    about GameLift features and how to use them
+   
+   
  * Lumberyard and GameLift Tutorials
    [https://gamedev.amazon.com/forums/tutorials] : Get started fast with
    walkthroughs and sample projects
- * GameDev Blog [https://aws.amazon.com/blogs/gamedev/] : Stay up to date with
+   
+   
+ * GameDev Blog [http://aws.amazon.com/blogs/gamedev/] : Stay up to date with
    new features and techniques
+   
+   
  * GameDev Forums
    [https://gamedev.amazon.com/forums/spaces/123/gamelift-discussion.html] :
    Connect with the GameDev community
+   
+   
 
 Manage Games and Players Through GameLift
 
 Call these actions from your game clients and/or services to create and manage
 multiplayer game sessions and player sessions.
 
- * Game sessions * CreateGameSession
+ * Game sessions:
+   
+    * CreateGameSession
+      
+      
     * DescribeGameSessions
+      
+      
     * DescribeGameSessionDetails
+      
+      
     * UpdateGameSession
+      
+      
     * SearchGameSessions
+      
+      
    
    
- * Player sessions * CreatePlayerSession
+ * Player sessions:
+   
+    * CreatePlayerSession
+      
+      
     * CreatePlayerSessions
+      
+      
     * DescribePlayerSessions
+      
+      
    
    
- * Other actions: * GetGameSessionLogUrl
+ * Other actions:
+   
+    * GetGameSessionLogUrl
+      
+      
    
    
 
 Set Up and Manage Game Servers
 
 Use these administrative actions to configure GameLift to host your game
-servers. When setting up GameLift, you&#x27;ll need to (1) configure a build for your
-game and upload build files, and (2) set up one or more fleets to host game
+servers. When setting up GameLift, you will need to (1) configure a build for
+your game and upload build files, and (2) set up one or more fleets to host game
 sessions. Once you&#x27;ve created and activated a fleet, you can assign aliases to
 it, scale capacity, track performance and utilization, etc.
 
- * Manage your builds: * ListBuilds
+ * Game builds:
+   
+    * ListBuilds
+      
+      
     * CreateBuild
+      
+      
     * DescribeBuild
+      
+      
     * UpdateBuild
+      
+      
     * DeleteBuild
+      
+      
     * RequestUploadCredentials
+      
+      
    
    
- * Manage your fleets: * ListFleets
+ * Fleets:
+   
+    * ListFleets
+      
+      
     * CreateFleet
-    * Describe fleets: * DescribeFleetAttributes
+      
+      
+    * Describe fleets:
+      
+       * DescribeFleetAttributes
+         
+         
        * DescribeFleetCapacity
+         
+         
        * DescribeFleetPortSettings
+         
+         
        * DescribeFleetUtilization
+         
+         
        * DescribeEC2InstanceLimits
+         
+         
        * DescribeFleetEvents
+         
+         
        * DescribeRuntimeConfiguration
+         
+         
       
       
-    * Update fleets: * UpdateFleetAttributes
+    * Update fleets:
+      
+       * UpdateFleetAttributes
+         
+         
        * UpdateFleetCapacity
+         
+         
        * UpdateFleetPortSettings
+         
+         
        * UpdateRuntimeConfiguration
+         
+         
       
       
     * DeleteFleet
+      
+      
    
    
- * Manage fleet aliases: * ListAliases
+ * Manage fleet aliases:
+   
+    * ListAliases
+      
+      
     * CreateAlias
+      
+      
     * DescribeAlias
+      
+      
     * UpdateAlias
+      
+      
     * DeleteAlias
+      
+      
     * ResolveAlias
+      
+      
    
    
- * Manage autoscaling: * PutScalingPolicy
+ * Manage autoscaling:
+   
+    * PutScalingPolicy
+      
+      
     * DescribeScalingPolicies
+      
+      
     * DeleteScalingPolicy
+      
+      
    
    
 
@@ -135,17 +237,11 @@ description. If successful, a new alias record is returned, including an alias
 ID, which you can reference when creating a game session. To reassign the alias
 to another fleet ID, call UpdateAlias .
      *
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error ConflictException The requested operation would cause a conflict with the current state of a
-service resource associated with the request. Resolve the conflict before
-retrying this request.  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error LimitExceededException The requested operation would cause the resource to exceed the allowed service
-limit. Resolve the issue before retrying.  
+     * @error UnauthorizedException   
+     * @error InvalidRequestException   
+     * @error ConflictException   
+     * @error InternalServiceException   
+     * @error LimitExceededException   
      */
     createAlias(params: GameLift.CreateAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.ConflictException|GameLift.InternalServiceException|GameLift.LimitExceededException|any, data: GameLift.CreateAliasOutput|any) => void): Request<GameLift.CreateAliasOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.ConflictException|GameLift.InternalServiceException|GameLift.LimitExceededException|any>;
     /**
@@ -169,15 +265,10 @@ not visible to players). If successful, this action returns the newly created
 build record along with the Amazon S3 storage location and AWS account
 credentials. Use the location and credentials to upload your game build.
      *
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error ConflictException The requested operation would cause a conflict with the current state of a
-service resource associated with the request. Resolve the conflict before
-retrying this request.  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
+     * @error UnauthorizedException   
+     * @error InvalidRequestException   
+     * @error ConflictException   
+     * @error InternalServiceException   
      */
     createBuild(params: GameLift.CreateBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.ConflictException|GameLift.InternalServiceException|any, data: GameLift.CreateBuildOutput|any) => void): Request<GameLift.CreateBuildOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.ConflictException|GameLift.InternalServiceException|any>;
     /**
@@ -185,7 +276,7 @@ period.
 Compute Cloud (Amazon EC2) instances, each of which can run multiple server
 processes to host game sessions. You configure a fleet to create instances with
 certain hardware specifications (see Amazon EC2 Instance Types
-[https://aws.amazon.com/ec2/instance-types/] for more information), and deploy a
+[http://aws.amazon.com/ec2/instance-types/] for more information), and deploy a
 specified game build to each instance. A newly created fleet passes through
 several statuses; once it reaches the ACTIVE status, it can begin hosting game
 sessions.
@@ -202,42 +293,51 @@ tasks:
 
  &amp;#42; Creates a fleet record and sets the status to NEW (followed by other statuses
    as the fleet is activated).
+   
+   
  * Sets the fleet&#x27;s capacity to 1 &quot;desired&quot;, which causes GameLift to start one
    new EC2 instance.
+   
+   
  * Starts launching server processes on the instance. If the fleet is configured
    to run multiple server processes per instance, GameLift staggers each launch
    by a few seconds.
+   
+   
  * Begins writing events to the fleet event log, which can be accessed in the
    GameLift console.
+   
+   
  * Sets the fleet&#x27;s status to ACTIVE once one server process in the fleet is
    ready to host a game session.
+   
+   
 
 After a fleet is created, use the following actions to change fleet properties
 and configuration:
 
  * UpdateFleetAttributes -- Update fleet metadata, including name and
    description.
+   
+   
  * UpdateFleetCapacity -- Increase or decrease the number of instances you want
    the fleet to maintain.
+   
+   
  * UpdateFleetPortSettings -- Change the IP address and port ranges that allow
    access to incoming traffic.
+   
+   
  * UpdateRuntimeConfiguration -- Change how server processes are launched in the
    fleet, including launch path, launch parameters, and the number of concurrent
    processes.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error ConflictException The requested operation would cause a conflict with the current state of a
-service resource associated with the request. Resolve the conflict before
-retrying this request.  
-     * @error LimitExceededException The requested operation would cause the resource to exceed the allowed service
-limit. Resolve the issue before retrying.  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
+     * @error InternalServiceException   
+     * @error NotFoundException   
+     * @error ConflictException   
+     * @error LimitExceededException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
      */
     createFleet(params: GameLift.CreateFleetInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.ConflictException|GameLift.LimitExceededException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.CreateFleetOutput|any) => void): Request<GameLift.CreateFleetOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.ConflictException|GameLift.LimitExceededException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
@@ -254,30 +354,18 @@ address. By default, newly created game sessions are set to accept adding any
 new players to the game session. Use UpdateGameSession to change the creation
 policy.
      *
-     * @error ConflictException The requested operation would cause a conflict with the current state of a
-service resource associated with the request. Resolve the conflict before
-retrying this request.  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidFleetStatusException The requested operation would cause a conflict with the current state of a
-resource associated with the request and/or the fleet. Resolve the conflict
-before retrying.  
-     * @error TerminalRoutingStrategyException The service is unable to resolve the routing for a particular alias because it
-has a terminal RoutingStrategy associated with it. The message returned in this
-exception is the message defined in the routing strategy itself. Such requests
-should only be retried if the routing strategy for the specified alias is
-modified.  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error FleetCapacityExceededException The specified fleet has no available instances to fulfill a request to create a
-new game session. Such requests should only be retried once the fleet capacity
-has been increased.  
+     * @error ConflictException   
+     * @error InternalServiceException   
+     * @error UnauthorizedException   
+     * @error InvalidFleetStatusException   
+     * @error TerminalRoutingStrategyException   
+     * @error InvalidRequestException   
+     * @error NotFoundException   
+     * @error FleetCapacityExceededException   
+     * @error LimitExceededException   
+     * @error IdempotentParameterMismatchException   
      */
-    createGameSession(params: GameLift.CreateGameSessionInput, callback?: (err: GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidFleetStatusException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.FleetCapacityExceededException|any, data: GameLift.CreateGameSessionOutput|any) => void): Request<GameLift.CreateGameSessionOutput|any,GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidFleetStatusException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.FleetCapacityExceededException|any>;
+    createGameSession(params: GameLift.CreateGameSessionInput, callback?: (err: GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidFleetStatusException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.FleetCapacityExceededException|GameLift.LimitExceededException|GameLift.IdempotentParameterMismatchException|any, data: GameLift.CreateGameSessionOutput|any) => void): Request<GameLift.CreateGameSessionOutput|any,GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidFleetStatusException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.FleetCapacityExceededException|GameLift.LimitExceededException|GameLift.IdempotentParameterMismatchException|any>;
     /**
      * Adds a player to a game session and creates a player session record. A game
 session must be in an ACTIVE status, have a creation policy of ALLOW_ALL , and
@@ -287,24 +375,13 @@ To create a player session, specify a game session ID and player ID. If
 successful, the player is added to the game session and a new PlayerSession 
 object is returned.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidGameSessionStatusException The requested operation would cause a conflict with the current state of a
-resource associated with the request and/or the game instance. Clients should
-not retry such requests without resolving the conflict.  
-     * @error GameSessionFullException The game instance is currently full and cannot allow the requested player(s) to
-join. This exception occurs in response to a CreatePlayerSession request.  
-     * @error TerminalRoutingStrategyException The service is unable to resolve the routing for a particular alias because it
-has a terminal RoutingStrategy associated with it. The message returned in this
-exception is the message defined in the routing strategy itself. Such requests
-should only be retried if the routing strategy for the specified alias is
-modified.  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
+     * @error InternalServiceException   
+     * @error UnauthorizedException   
+     * @error InvalidGameSessionStatusException   
+     * @error GameSessionFullException   
+     * @error TerminalRoutingStrategyException   
+     * @error InvalidRequestException   
+     * @error NotFoundException   
      */
     createPlayerSession(params: GameLift.CreatePlayerSessionInput, callback?: (err: GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any, data: GameLift.CreatePlayerSessionOutput|any) => void): Request<GameLift.CreatePlayerSessionOutput|any,GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any>;
     /**
@@ -318,24 +395,13 @@ To create player sessions, specify a game session ID and a list of player IDs.
 If successful, the players are added to the game session and a set of new 
 PlayerSession objects is returned.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidGameSessionStatusException The requested operation would cause a conflict with the current state of a
-resource associated with the request and/or the game instance. Clients should
-not retry such requests without resolving the conflict.  
-     * @error GameSessionFullException The game instance is currently full and cannot allow the requested player(s) to
-join. This exception occurs in response to a CreatePlayerSession request.  
-     * @error TerminalRoutingStrategyException The service is unable to resolve the routing for a particular alias because it
-has a terminal RoutingStrategy associated with it. The message returned in this
-exception is the message defined in the routing strategy itself. Such requests
-should only be retried if the routing strategy for the specified alias is
-modified.  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
+     * @error InternalServiceException   
+     * @error UnauthorizedException   
+     * @error InvalidGameSessionStatusException   
+     * @error GameSessionFullException   
+     * @error TerminalRoutingStrategyException   
+     * @error InvalidRequestException   
+     * @error NotFoundException   
      */
     createPlayerSessions(params: GameLift.CreatePlayerSessionsInput, callback?: (err: GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any, data: GameLift.CreatePlayerSessionsOutput|any) => void): Request<GameLift.CreatePlayerSessionsOutput|any,GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.GameSessionFullException|GameLift.TerminalRoutingStrategyException|GameLift.InvalidRequestException|GameLift.NotFoundException|any>;
     /**
@@ -343,14 +409,10 @@ should not retry such requests
 attempting to access a server process using the deleted alias receive an error.
 To delete an alias, specify the alias ID to be deleted.
      *
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error InvalidRequestException   
+     * @error InternalServiceException   
      */
     deleteAlias(params: GameLift.DeleteAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any, data: any) => void): Request<any,GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any>;
     /**
@@ -361,14 +423,10 @@ To delete a build, specify its ID. Deleting a build does not affect the status
 of any active fleets using the build, but you can no longer create new fleets
 with the deleted build.
      *
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error InternalServiceException   
+     * @error InvalidRequestException   
      */
     deleteBuild(params: GameLift.DeleteBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidRequestException|any, data: any) => void): Request<any,GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidRequestException|any>;
     /**
@@ -378,17 +436,11 @@ fleet&#x27;s desired capacity to zero. See UpdateFleetCapacity .
 This action removes the fleet&#x27;s resources and the fleet record. Once a fleet is
 deleted, you can no longer use that fleet.
      *
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error InvalidFleetStatusException The requested operation would cause a conflict with the current state of a
-resource associated with the request and/or the fleet. Resolve the conflict
-before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
+     * @error NotFoundException   
+     * @error InternalServiceException   
+     * @error InvalidFleetStatusException   
+     * @error UnauthorizedException   
+     * @error InvalidRequestException   
      */
     deleteFleet(params: GameLift.DeleteFleetInput, callback?: (err: GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidFleetStatusException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any, data: any) => void): Request<any,GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidFleetStatusException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any>;
     /**
@@ -396,60 +448,49 @@ invalid parameters before retrying.
 in force and removes all record of it. To delete a scaling policy, specify both
 the scaling policy name and the fleet ID it is associated with.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
+     * @error InternalServiceException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
+     * @error NotFoundException   
      */
     deleteScalingPolicy(params: GameLift.DeleteScalingPolicyInput, callback?: (err: GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any, data: any) => void): Request<any,GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any>;
     /**
      * Retrieves properties for a specified alias. To get the alias, specify an alias
 ID. If successful, an Alias object is returned.
      *
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
+     * @error UnauthorizedException   
+     * @error InvalidRequestException   
+     * @error NotFoundException   
+     * @error InternalServiceException   
      */
     describeAlias(params: GameLift.DescribeAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.DescribeAliasOutput|any) => void): Request<GameLift.DescribeAliasOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
     /**
      * Retrieves properties for a build. To get a build record, specify a build ID. If
 successful, an object containing the build properties is returned.
      *
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
+     * @error UnauthorizedException   
+     * @error InvalidRequestException   
+     * @error NotFoundException   
+     * @error InternalServiceException   
      */
     describeBuild(params: GameLift.DescribeBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.DescribeBuildOutput|any) => void): Request<GameLift.DescribeBuildOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
     /**
      * Retrieves the following information for the specified EC2 instance type:
 
  &amp;#42; maximum number of instances allowed per AWS account (service limit)
+   
+   
  * current usage level for the AWS account
+   
+   
 
 Service limits vary depending on region. Available regions for GameLift can be
 found in the AWS Management Console for GameLift (see the drop-down list in the
 upper right corner).
      *
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
+     * @error InvalidRequestException   
+     * @error InternalServiceException   
+     * @error UnauthorizedException   
      */
     describeEC2InstanceLimits(params: GameLift.DescribeEC2InstanceLimitsInput, callback?: (err: GameLift.InvalidRequestException|GameLift.InternalServiceException|GameLift.UnauthorizedException|any, data: GameLift.DescribeEC2InstanceLimitsOutput|any) => void): Request<GameLift.DescribeEC2InstanceLimitsOutput|any,GameLift.InvalidRequestException|GameLift.InternalServiceException|GameLift.UnauthorizedException|any>;
     /**
@@ -465,14 +506,10 @@ Some API actions may limit the number of fleet IDs allowed in one request. If a
 request exceeds this limit, the request fails and the error message includes the
 maximum allowed.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
+     * @error InternalServiceException   
+     * @error NotFoundException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
      */
     describeFleetAttributes(params: GameLift.DescribeFleetAttributesInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetAttributesOutput|any) => void): Request<GameLift.DescribeFleetAttributesOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
@@ -489,14 +526,10 @@ Some API actions may limit the number of fleet IDs allowed in one request. If a
 request exceeds this limit, the request fails and the error message includes the
 maximum allowed.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
+     * @error InternalServiceException   
+     * @error NotFoundException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
      */
     describeFleetCapacity(params: GameLift.DescribeFleetCapacityInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetCapacityOutput|any) => void): Request<GameLift.DescribeFleetCapacityOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
@@ -505,14 +538,10 @@ range to limit the result set. Use the pagination parameters to retrieve results
 as a set of sequential pages. If successful, a collection of event log entries
 matching the request are returned.
      *
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
+     * @error NotFoundException   
+     * @error InternalServiceException   
+     * @error UnauthorizedException   
+     * @error InvalidRequestException   
      */
     describeFleetEvents(params: GameLift.DescribeFleetEventsInput, callback?: (err: GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any, data: GameLift.DescribeFleetEventsOutput|any) => void): Request<GameLift.DescribeFleetEventsOutput|any,GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any>;
     /**
@@ -523,14 +552,10 @@ permissions, specify a fleet ID. If successful, a collection of IpPermission
 objects is returned for the requested fleet ID. If the requested fleet has been
 deleted, the result set is empty.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
+     * @error InternalServiceException   
+     * @error NotFoundException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
      */
     describeFleetPortSettings(params: GameLift.DescribeFleetPortSettingsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetPortSettingsOutput|any) => void): Request<GameLift.DescribeFleetPortSettingsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
@@ -545,14 +570,10 @@ Some API actions may limit the number of fleet IDs allowed in one request. If a
 request exceeds this limit, the request fails and the error message includes the
 maximum allowed.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
+     * @error InternalServiceException   
+     * @error NotFoundException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
      */
     describeFleetUtilization(params: GameLift.DescribeFleetUtilizationInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribeFleetUtilizationOutput|any) => void): Request<GameLift.DescribeFleetUtilizationOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
@@ -568,26 +589,21 @@ Use the pagination parameters to retrieve results as a set of sequential pages.
 If successful, a GameSessionDetail object is returned for each session matching
 the request.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error TerminalRoutingStrategyException The service is unable to resolve the routing for a particular alias because it
-has a terminal RoutingStrategy associated with it. The message returned in this
-exception is the message defined in the routing strategy itself. Such requests
-should only be retried if the routing strategy for the specified alias is
-modified.  
+     * @error InternalServiceException   
+     * @error NotFoundException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
+     * @error TerminalRoutingStrategyException   
      */
     describeGameSessionDetails(params: GameLift.DescribeGameSessionDetailsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any, data: GameLift.DescribeGameSessionDetailsOutput|any) => void): Request<GameLift.DescribeGameSessionDetailsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any>;
     /**
-     * Retrieves properties for one or more game sessions. This action can be used in
-several ways: (1) provide a GameSessionId to request properties for a specific
-game session; (2) provide a FleetId or an AliasId to request properties for all
-game sessions running on a fleet.
+     * Retrieves a set of one or more game sessions and properties. This action can be
+used in several ways: (1) provide a GameSessionId to request properties for a
+specific game session; (2) provide a FleetId or an AliasId to request properties
+for all game sessions running on a fleet. You can also use SearchGameSessions ,
+which allows you to retrieve all game sessions or filter on certain criteria,
+but only returns game sessions with a status of ACTIVE. If you need to retrieve
+the protection policy for each game session, use DescribeGameSessionDetails .
 
 To get game session record(s), specify just one of the following: game session
 ID, fleet ID, or alias ID. You can filter this request by game session status.
@@ -595,21 +611,27 @@ Use the pagination parameters to retrieve results as a set of sequential pages.
 If successful, a GameSession object is returned for each session matching the
 request.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error TerminalRoutingStrategyException The service is unable to resolve the routing for a particular alias because it
-has a terminal RoutingStrategy associated with it. The message returned in this
-exception is the message defined in the routing strategy itself. Such requests
-should only be retried if the routing strategy for the specified alias is
-modified.  
+     * @error InternalServiceException   
+     * @error NotFoundException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
+     * @error TerminalRoutingStrategyException   
      */
     describeGameSessions(params: GameLift.DescribeGameSessionsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any, data: GameLift.DescribeGameSessionsOutput|any) => void): Request<GameLift.DescribeGameSessionsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any>;
+    /**
+     * Retrieves information about instances in a fleet.
+
+To get information on a specific instance, specify both a fleet ID and instance
+ID. To get information for all instances in a fleet, specify a fleet ID only.
+Use the pagination parameters to retrieve results as a set of sequential pages.
+If successful, an Instance object is returned for each result.
+     *
+     * @error UnauthorizedException   
+     * @error InvalidRequestException   
+     * @error NotFoundException   
+     * @error InternalServiceException   
+     */
+    describeInstances(params: GameLift.DescribeInstancesInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.DescribeInstancesOutput|any) => void): Request<GameLift.DescribeInstancesOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
     /**
      * Retrieves properties for one or more player sessions. This action can be used in
 several ways: (1) provide a PlayerSessionId parameter to request properties for
@@ -624,14 +646,10 @@ player session status. Use the pagination parameters to retrieve results as a
 set of sequential pages. If successful, a PlayerSession object is returned for
 each session matching the request.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
+     * @error InternalServiceException   
+     * @error NotFoundException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
      */
     describePlayerSessions(params: GameLift.DescribePlayerSessionsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.DescribePlayerSessionsOutput|any) => void): Request<GameLift.DescribePlayerSessionsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
@@ -639,14 +657,10 @@ invalid parameters before retrying.
 configuration tells GameLift how to launch server processes on instances in the
 fleet.
      *
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error InternalServiceException   
+     * @error InvalidRequestException   
      */
     describeRuntimeConfiguration(params: GameLift.DescribeRuntimeConfigurationInput, callback?: (err: GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidRequestException|any, data: GameLift.DescribeRuntimeConfigurationOutput|any) => void): Request<GameLift.DescribeRuntimeConfigurationOutput|any,GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidRequestException|any>;
     /**
@@ -657,14 +671,10 @@ request by policy status, such as to retrieve only active scaling policies. Use
 the pagination parameters to retrieve results as a set of sequential pages. If
 successful, set of ScalingPolicy objects is returned for the fleet.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
+     * @error InternalServiceException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
+     * @error NotFoundException   
      */
     describeScalingPolicies(params: GameLift.DescribeScalingPoliciesInput, callback?: (err: GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any, data: GameLift.DescribeScalingPoliciesOutput|any) => void): Request<GameLift.DescribeScalingPoliciesOutput|any,GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any>;
     /**
@@ -676,14 +686,10 @@ See the AWS Service Limits
 [http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift] 
 page for maximum log file sizes. Log files that exceed this limit are not saved.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
+     * @error InternalServiceException   
+     * @error NotFoundException   
+     * @error UnauthorizedException   
+     * @error InvalidRequestException   
      */
     getGameSessionLogUrl(params: GameLift.GetGameSessionLogUrlInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any, data: GameLift.GetGameSessionLogUrlOutput|any) => void): Request<GameLift.GetGameSessionLogUrlOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.UnauthorizedException|GameLift.InvalidRequestException|any>;
     /**
@@ -693,12 +699,9 @@ parameters to retrieve results in sequential pages.
 
 Aliases are not listed in any particular order.
      *
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
+     * @error UnauthorizedException   
+     * @error InvalidRequestException   
+     * @error InternalServiceException   
      */
     listAliases(params: GameLift.ListAliasesInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any, data: GameLift.ListAliasesOutput|any) => void): Request<GameLift.ListAliasesOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any>;
     /**
@@ -709,12 +712,9 @@ sequential pages.
 
 Build records are not listed in any particular order.
      *
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
+     * @error UnauthorizedException   
+     * @error InvalidRequestException   
+     * @error InternalServiceException   
      */
     listBuilds(params: GameLift.ListBuildsInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any, data: GameLift.ListBuildsOutput|any) => void): Request<GameLift.ListBuildsOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.InternalServiceException|any>;
     /**
@@ -724,14 +724,10 @@ sequential pages.
 
 Fleet records are not listed in any particular order.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
+     * @error InternalServiceException   
+     * @error NotFoundException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
      */
     listFleets(params: GameLift.ListFleetsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.ListFleetsOutput|any) => void): Request<GameLift.ListFleetsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
@@ -758,14 +754,10 @@ fleet ID, and set the rule values. All parameters for this action are required.
 If successful, the policy name is returned. Scaling policies cannot be suspended
 or made inactive. To stop enforcing a scaling policy, call DeleteScalingPolicy .
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
+     * @error InternalServiceException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
+     * @error NotFoundException   
      */
     putScalingPolicy(params: GameLift.PutScalingPolicyInput, callback?: (err: GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any, data: GameLift.PutScalingPolicyOutput|any) => void): Request<GameLift.PutScalingPolicyOutput|any,GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.NotFoundException|any>;
     /**
@@ -783,60 +775,62 @@ limited lifespan. You can get fresh credentials and use them to re-upload game
 files until the status of that build changes to READY . Once this happens, you
 must create a brand new build.
      *
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
+     * @error UnauthorizedException   
+     * @error InvalidRequestException   
+     * @error NotFoundException   
+     * @error InternalServiceException   
      */
     requestUploadCredentials(params: GameLift.RequestUploadCredentialsInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.RequestUploadCredentialsOutput|any) => void): Request<GameLift.RequestUploadCredentialsOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
     /**
      * Retrieves the fleet ID that a specified alias is currently pointing to.
      *
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error TerminalRoutingStrategyException The service is unable to resolve the routing for a particular alias because it
-has a terminal RoutingStrategy associated with it. The message returned in this
-exception is the message defined in the routing strategy itself. Such requests
-should only be retried if the routing strategy for the specified alias is
-modified.  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
+     * @error UnauthorizedException   
+     * @error InvalidRequestException   
+     * @error NotFoundException   
+     * @error TerminalRoutingStrategyException   
+     * @error InternalServiceException   
      */
     resolveAlias(params: GameLift.ResolveAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.TerminalRoutingStrategyException|GameLift.InternalServiceException|any, data: GameLift.ResolveAliasOutput|any) => void): Request<GameLift.ResolveAliasOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.TerminalRoutingStrategyException|GameLift.InternalServiceException|any>;
     /**
-     * Retrieves a list of game sessions in a fleet that match a set of search criteria
-and sorts them in a specified order. Currently game session searches are limited
-to a single fleet. Search results include only game sessions that are in ACTIVE
-status.
+     * Retrieves a set of game sessions that match a set of search criteria and sorts
+them in a specified order. Currently a game session search is limited to a
+single fleet. Search results include only game sessions that are in ACTIVE
+status. If you need to retrieve game sessions with a status other than active,
+use DescribeGameSessions . If you need to retrieve the protection policy for
+each game session, use DescribeGameSessionDetails .
 
 You can search or sort by the following game session attributes:
 
  &amp;#42; gameSessionId -- ID value assigned to a game session. This unique value is
    returned in a GameSession object when a new game session is created.
+   
+   
  * gameSessionName -- Name assigned to a game session. This value is set when
    requesting a new game session with CreateGameSession or updating with 
    UpdateGameSession . Game session names do not need to be unique to a game
    session.
+   
+   
  * creationTimeMillis -- Value indicating when a game session was created. It is
    expressed in Unix time as milliseconds.
+   
+   
  * playerSessionCount -- Number of players currently connected to a game
    session. This value changes rapidly as players join the session or drop out.
+   
+   
  * maximumSessions -- Maximum number of player sessions allowed for a game
    session. This value is set when requesting a new game session with 
    CreateGameSession or updating with UpdateGameSession .
+   
+   
  * hasAvailablePlayerSessions -- Boolean value indicating whether or not a game
    session has reached its maximum number of players. When searching with this
    attribute, the search value must be true or false . It is highly recommended
    that all search requests include this filter attribute to optimize search
    performance and return only sessions that players can join.
+   
+   
 
 To search or sort, specify either a fleet ID or an alias ID, and provide a
 search filter expression, a sort expression, or both. Use the pagination
@@ -848,19 +842,11 @@ quickly as players join sessions and others drop out. Results should be
 considered a snapshot in time. Be sure to refresh search results often, and
 handle sessions that fill up before a player can join.
      *
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error TerminalRoutingStrategyException The service is unable to resolve the routing for a particular alias because it
-has a terminal RoutingStrategy associated with it. The message returned in this
-exception is the message defined in the routing strategy itself. Such requests
-should only be retried if the routing strategy for the specified alias is
-modified.  
+     * @error InternalServiceException   
+     * @error NotFoundException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
+     * @error TerminalRoutingStrategyException   
      */
     searchGameSessions(params: GameLift.SearchGameSessionsInput, callback?: (err: GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any, data: GameLift.SearchGameSessionsOutput|any) => void): Request<GameLift.SearchGameSessionsOutput|any,GameLift.InternalServiceException|GameLift.NotFoundException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|GameLift.TerminalRoutingStrategyException|any>;
     /**
@@ -869,14 +855,10 @@ be updated and provide the information to be changed. To reassign an alias to
 another fleet, provide an updated routing strategy. If successful, the updated
 alias record is returned.
      *
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
+     * @error UnauthorizedException   
+     * @error InvalidRequestException   
+     * @error NotFoundException   
+     * @error InternalServiceException   
      */
     updateAlias(params: GameLift.UpdateAliasInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.UpdateAliasOutput|any) => void): Request<GameLift.UpdateAliasOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
     /**
@@ -884,14 +866,10 @@ period.
 update the metadata, specify the build ID to update and provide the new values.
 If successful, a build object containing the updated metadata is returned.
      *
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
+     * @error UnauthorizedException   
+     * @error InvalidRequestException   
+     * @error NotFoundException   
+     * @error InternalServiceException   
      */
     updateBuild(params: GameLift.UpdateBuildInput, callback?: (err: GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any, data: GameLift.UpdateBuildOutput|any) => void): Request<GameLift.UpdateBuildOutput|any,GameLift.UnauthorizedException|GameLift.InvalidRequestException|GameLift.NotFoundException|GameLift.InternalServiceException|any>;
     /**
@@ -899,22 +877,13 @@ period.
 metadata, specify the fleet ID and the property values you want to change. If
 successful, the fleet ID for the updated fleet is returned.
      *
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error ConflictException The requested operation would cause a conflict with the current state of a
-service resource associated with the request. Resolve the conflict before
-retrying this request.  
-     * @error InvalidFleetStatusException The requested operation would cause a conflict with the current state of a
-resource associated with the request and/or the fleet. Resolve the conflict
-before retrying.  
-     * @error LimitExceededException The requested operation would cause the resource to exceed the allowed service
-limit. Resolve the issue before retrying.  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
+     * @error NotFoundException   
+     * @error ConflictException   
+     * @error InvalidFleetStatusException   
+     * @error LimitExceededException   
+     * @error InternalServiceException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
      */
     updateFleetAttributes(params: GameLift.UpdateFleetAttributesInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.InvalidFleetStatusException|GameLift.LimitExceededException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.UpdateFleetAttributesOutput|any) => void): Request<GameLift.UpdateFleetAttributesOutput|any,GameLift.NotFoundException|GameLift.ConflictException|GameLift.InvalidFleetStatusException|GameLift.LimitExceededException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
@@ -936,22 +905,13 @@ count. You can view a fleet&#x27;s current capacity information by calling
 DescribeFleetCapacity . If the desired instance count is higher than the
 instance type&#x27;s limit, the &quot;Limit Exceeded&quot; exception occurs.
      *
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error ConflictException The requested operation would cause a conflict with the current state of a
-service resource associated with the request. Resolve the conflict before
-retrying this request.  
-     * @error LimitExceededException The requested operation would cause the resource to exceed the allowed service
-limit. Resolve the issue before retrying.  
-     * @error InvalidFleetStatusException The requested operation would cause a conflict with the current state of a
-resource associated with the request and/or the fleet. Resolve the conflict
-before retrying.  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
+     * @error NotFoundException   
+     * @error ConflictException   
+     * @error LimitExceededException   
+     * @error InvalidFleetStatusException   
+     * @error InternalServiceException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
      */
     updateFleetCapacity(params: GameLift.UpdateFleetCapacityInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.LimitExceededException|GameLift.InvalidFleetStatusException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.UpdateFleetCapacityOutput|any) => void): Request<GameLift.UpdateFleetCapacityOutput|any,GameLift.NotFoundException|GameLift.ConflictException|GameLift.LimitExceededException|GameLift.InvalidFleetStatusException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
@@ -962,22 +922,13 @@ remove in InboundPermissionRevocations . Permissions to be removed must match
 existing fleet permissions. If successful, the fleet ID for the updated fleet is
 returned.
      *
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error ConflictException The requested operation would cause a conflict with the current state of a
-service resource associated with the request. Resolve the conflict before
-retrying this request.  
-     * @error InvalidFleetStatusException The requested operation would cause a conflict with the current state of a
-resource associated with the request and/or the fleet. Resolve the conflict
-before retrying.  
-     * @error LimitExceededException The requested operation would cause the resource to exceed the allowed service
-limit. Resolve the issue before retrying.  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
+     * @error NotFoundException   
+     * @error ConflictException   
+     * @error InvalidFleetStatusException   
+     * @error LimitExceededException   
+     * @error InternalServiceException   
+     * @error InvalidRequestException   
+     * @error UnauthorizedException   
      */
     updateFleetPortSettings(params: GameLift.UpdateFleetPortSettingsInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.InvalidFleetStatusException|GameLift.LimitExceededException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any, data: GameLift.UpdateFleetPortSettingsOutput|any) => void): Request<GameLift.UpdateFleetPortSettingsOutput|any,GameLift.NotFoundException|GameLift.ConflictException|GameLift.InvalidFleetStatusException|GameLift.LimitExceededException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.UnauthorizedException|any>;
     /**
@@ -988,20 +939,12 @@ policy, which controls whether or not new players can join the session. To
 update a game session, specify the game session ID and the values you want to
 change. If successful, an updated GameSession object is returned.
      *
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error ConflictException The requested operation would cause a conflict with the current state of a
-service resource associated with the request. Resolve the conflict before
-retrying this request.  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error InvalidGameSessionStatusException The requested operation would cause a conflict with the current state of a
-resource associated with the request and/or the game instance. Clients should
-not retry such requests without resolving the conflict.  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
+     * @error NotFoundException   
+     * @error ConflictException   
+     * @error InternalServiceException   
+     * @error UnauthorizedException   
+     * @error InvalidGameSessionStatusException   
+     * @error InvalidRequestException   
      */
     updateGameSession(params: GameLift.UpdateGameSessionInput, callback?: (err: GameLift.NotFoundException|GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.InvalidRequestException|any, data: GameLift.UpdateGameSessionOutput|any) => void): Request<GameLift.UpdateGameSessionOutput|any,GameLift.NotFoundException|GameLift.ConflictException|GameLift.InternalServiceException|GameLift.UnauthorizedException|GameLift.InvalidGameSessionStatusException|GameLift.InvalidRequestException|any>;
     /**
@@ -1022,17 +965,11 @@ to fit the current runtime configuration. As a result, the runtime configuration
 changes are applied gradually as existing processes shut down and new processes
 are launched in GameLift&#x27;s normal process recycling activity.
      *
-     * @error UnauthorizedException The client failed authentication. Clients should not retry such requests  
-     * @error NotFoundException A service resource associated with the request could not be found. Clients
-should not retry such requests  
-     * @error InternalServiceException The service encountered an unrecoverable internal failure while processing the
-request. Clients can retry such requests, either immediately or after a back-off
-period.  
-     * @error InvalidRequestException One or more parameters specified as part of the request are invalid. Correct the
-invalid parameters before retrying.  
-     * @error InvalidFleetStatusException The requested operation would cause a conflict with the current state of a
-resource associated with the request and/or the fleet. Resolve the conflict
-before retrying.  
+     * @error UnauthorizedException   
+     * @error NotFoundException   
+     * @error InternalServiceException   
+     * @error InvalidRequestException   
+     * @error InvalidFleetStatusException   
      */
     updateRuntimeConfiguration(params: GameLift.UpdateRuntimeConfigurationInput, callback?: (err: GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.InvalidFleetStatusException|any, data: GameLift.UpdateRuntimeConfigurationOutput|any) => void): Request<GameLift.UpdateRuntimeConfigurationOutput|any,GameLift.UnauthorizedException|GameLift.NotFoundException|GameLift.InternalServiceException|GameLift.InvalidRequestException|GameLift.InvalidFleetStatusException|any>;
 
@@ -1043,6 +980,8 @@ before retrying.
     export type AliasId = string;
     
     export type AliasList = Alias[];
+    
+    export type ArnStringModel = string;
     
     export type BuildId = string;
     
@@ -1084,11 +1023,17 @@ before retrying.
     
     export type GameSessionDetailList = GameSessionDetail[];
     
-    export type GameSessionId = string;
-    
     export type GameSessionList = GameSession[];
     
     export type GameSessionStatus = string;
+    
+    export type IdStringModel = string;
+    
+    export type InstanceId = string;
+    
+    export type InstanceList = Instance[];
+    
+    export type InstanceStatus = string;
     
     export type Integer = number;
     
@@ -1099,6 +1044,8 @@ before retrying.
     export type IpProtocol = string;
     
     export type MetricName = string;
+    
+    export type NonBlankAndLengthConstraintString = string;
     
     export type NonBlankString = string;
     
@@ -1147,7 +1094,7 @@ before retrying.
         AliasId?: AliasId;
         /** Descriptive label associated with an alias. Alias names do not need to be
 unique. **/
-        Name?: FreeText;
+        Name?: NonBlankAndLengthConstraintString;
         /** Human-readable description of an alias. **/
         Description?: FreeText;
         RoutingStrategy?: RoutingStrategy;
@@ -1182,8 +1129,12 @@ Possible build statuses include the following:
  &amp;#42; INITIALIZED – A new build has been defined, but no files have been uploaded.
    You cannot create fleets for builds that are in this status. When a build is
    successfully created, the build status is set to this value.
+   
+   
  * READY – The game build has been successfully uploaded. You can now create new
    fleets for this build.
+   
+   
  * FAILED – The game build upload failed. You cannot create new fleets for this
    build. **/
         Status?: BuildStatus;
@@ -1203,7 +1154,7 @@ expressed in Unix time as milliseconds (ex: &quot;1469498468.057&quot;. **/
     export interface CreateAliasInput {
         /** Descriptive label associated with an alias. Alias names do not need to be
 unique. **/
-        Name: NonZeroAndMaxString;
+        Name: NonBlankAndLengthConstraintString;
         /** Human-readable description of an alias. **/
         Description?: NonZeroAndMaxString;
         /** Object specifying the fleet and routing type to use for the alias. **/
@@ -1266,7 +1217,7 @@ to access stored logs. **/
 instance type determines the computing resources of each instance in the fleet,
 including CPU, memory, storage, and networking capacity. GameLift supports the
 following EC2 instance types. See Amazon EC2 Instance Types
-[https://aws.amazon.com/ec2/instance-types/] for detailed descriptions. **/
+[http://aws.amazon.com/ec2/instance-types/] for detailed descriptions. **/
         EC2InstanceType: EC2InstanceType;
         /** Range of IP addresses and port settings that permit inbound traffic to access
 server processes running on the fleet. If no inbound permissions are set,
@@ -1281,6 +1232,8 @@ will only affect sessions created after the policy change. You can also set
 protection for individual instances using UpdateGameSession .
 
  &amp;#42; NoProtection – The game session can be terminated during a scale-down event.
+   
+   
  * FullProtection – If the game session is in an ACTIVE status, it cannot be
    terminated during a scale-down event. **/
         NewGameSessionProtectionPolicy?: ProtectionPolicy;
@@ -1296,6 +1249,9 @@ replaces the parameters ServerLaunchPath and ServerLaunchParameters ; requests
 that contain values for these parameters instead of a runtime configuration will
 continue to work.) **/
         RuntimeConfiguration?: RuntimeConfiguration;
+        /** Policy that limits the number of game sessions an individual player can create
+over a span of time for this fleet. **/
+        ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy;
     }
     export interface CreateFleetOutput {
         /** Properties for the newly created fleet. **/
@@ -1317,15 +1273,30 @@ be unique. **/
         /** Set of properties used to administer a game session. These properties are passed
 to the server process hosting it. **/
         GameProperties?: GamePropertyList;
+        /** Player ID identifying the person or entity creating the game session. This ID is
+used to enforce a resource protection policy (if one exists) that limits the
+number of concurrent active game sessions one player can have. **/
+        CreatorId?: NonZeroAndMaxString;
+        /** Custom string to include in the game session ID, with a maximum length of 48
+characters. If this parameter is set, GameLift creates a game session ID in the
+following format: &quot;arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet
+ID&gt;/&lt;custom ID string&gt;&quot;. For example, this full game session ID:
+&quot;arn:aws:gamelift:us-west-2::gamesession/fleet-2ec2aae5-c2c7-43ca-b19d-8249fe5fddf2/my-game-session&quot;
+includes the custom ID string &quot;my-game-session&quot;. If this parameter is not set,
+GameLift creates a game session ID in the same format with an auto-generated ID
+string. **/
+        GameSessionId?: IdStringModel;
     }
     export interface CreateGameSessionOutput {
         /** Object containing the newly created game session record. **/
         GameSession?: GameSession;
     }
     export interface CreatePlayerSessionInput {
-        /** Unique identifier for a game session. Specify the game session you want to add a
-player to. **/
-        GameSessionId: GameSessionId;
+        /** Unique identifier for the game session to add a player to. Game session ID
+format is as follows: &quot;arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet
+ID&gt;/&lt;ID string&gt;&quot;. The value of &lt;ID string&gt; is either a custom ID string (if one
+was specified when the game session was created) an auto-generated string. **/
+        GameSessionId: ArnStringModel;
         /** Unique identifier for the player to be added. **/
         PlayerId: NonZeroAndMaxString;
     }
@@ -1334,8 +1305,11 @@ player to. **/
         PlayerSession?: PlayerSession;
     }
     export interface CreatePlayerSessionsInput {
-        /** Unique identifier for a game session. **/
-        GameSessionId: GameSessionId;
+        /** Unique identifier for the game session to add players to. Game session ID format
+is as follows: &quot;arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet ID&gt;/&lt;ID
+string&gt;&quot;. The value of &lt;ID string&gt; is either a custom ID string (if one was
+specified when the game session was created) an auto-generated string. **/
+        GameSessionId: ArnStringModel;
         /** List of unique identifiers for the players to be added. **/
         PlayerIds: PlayerIdList;
     }
@@ -1383,7 +1357,7 @@ be unique. **/
 instance type determines the computing resources of each instance in the fleet,
 including CPU, memory, storage, and networking capacity. GameLift supports the
 following EC2 instance types. See Amazon EC2 Instance Types
-[https://aws.amazon.com/ec2/instance-types/] for detailed descriptions. Leave
+[http://aws.amazon.com/ec2/instance-types/] for detailed descriptions. Leave
 this parameter blank to retrieve limits for all types. **/
         EC2InstanceType?: EC2InstanceType;
     }
@@ -1410,10 +1384,7 @@ request specifies one or a list of fleet IDs. **/
         /** Collection of objects containing attribute metadata for each requested fleet ID. **/
         FleetAttributes?: FleetAttributesList;
         /** Token indicating where to resume retrieving results on the next call to this
-action. If no token is returned, these results represent the end of the list.
-
-If a request has a limit that exactly matches the number of remaining results, a
-token is returned even though there are no more results to retrieve. **/
+action. If no token is returned, these results represent the end of the list. **/
         NextToken?: NonZeroAndMaxString;
     }
     export interface DescribeFleetCapacityInput {
@@ -1435,10 +1406,7 @@ request specifies one or a list of fleet IDs. **/
 ID. Leave this parameter empty to retrieve capacity information for all fleets. **/
         FleetCapacity?: FleetCapacityList;
         /** Token indicating where to resume retrieving results on the next call to this
-action. If no token is returned, these results represent the end of the list.
-
-If a request has a limit that exactly matches the number of remaining results, a
-token is returned even though there are no more results to retrieve. **/
+action. If no token is returned, these results represent the end of the list. **/
         NextToken?: NonZeroAndMaxString;
     }
     export interface DescribeFleetEventsInput {
@@ -1465,10 +1433,7 @@ the result set, do not specify a value. **/
         /** Collection of objects containing event log entries for the specified fleet. **/
         Events?: EventList;
         /** Token indicating where to resume retrieving results on the next call to this
-action. If no token is returned, these results represent the end of the list.
-
-If a request has a limit that exactly matches the number of remaining results, a
-token is returned even though there are no more results to retrieve. **/
+action. If no token is returned, these results represent the end of the list. **/
         NextToken?: NonZeroAndMaxString;
     }
     export interface DescribeFleetPortSettingsInput {
@@ -1498,19 +1463,18 @@ request specifies one or a list of fleet IDs. **/
 fleet ID. **/
         FleetUtilization?: FleetUtilizationList;
         /** Token indicating where to resume retrieving results on the next call to this
-action. If no token is returned, these results represent the end of the list.
-
-If a request has a limit that exactly matches the number of remaining results, a
-token is returned even though there are no more results to retrieve. **/
+action. If no token is returned, these results represent the end of the list. **/
         NextToken?: NonZeroAndMaxString;
     }
     export interface DescribeGameSessionDetailsInput {
         /** Unique identifier for a fleet. Specify a fleet to retrieve information on all
 game sessions active on the fleet. **/
         FleetId?: FleetId;
-        /** Unique identifier for a game session. Specify the game session to retrieve
-information on. **/
-        GameSessionId?: GameSessionId;
+        /** Unique identifier for the game session to retrieve information on. Game session
+ID format is as follows: &quot;arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet
+ID&gt;/&lt;ID string&gt;&quot;. The value of &lt;ID string&gt; is either a custom ID string (if one
+was specified when the game session was created) an auto-generated string. **/
+        GameSessionId?: ArnStringModel;
         /** Unique identifier for a fleet alias. Specify an alias to retrieve information on
 all game sessions active on the fleet. **/
         AliasId?: AliasId;
@@ -1530,19 +1494,18 @@ the result set, do not specify a value. **/
 policy currently in force for each session matching the request. **/
         GameSessionDetails?: GameSessionDetailList;
         /** Token indicating where to resume retrieving results on the next call to this
-action. If no token is returned, these results represent the end of the list.
-
-If a request has a limit that exactly matches the number of remaining results, a
-token is returned even though there are no more results to retrieve. **/
+action. If no token is returned, these results represent the end of the list. **/
         NextToken?: NonZeroAndMaxString;
     }
     export interface DescribeGameSessionsInput {
         /** Unique identifier for a fleet. Specify a fleet to retrieve information on all
 game sessions active on the fleet. **/
         FleetId?: FleetId;
-        /** Unique identifier for a game session. Specify the game session to retrieve
-information on. **/
-        GameSessionId?: GameSessionId;
+        /** Unique identifier for the game session to retrieve information on. Game session
+ID format is as follows: &quot;arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet
+ID&gt;/&lt;ID string&gt;&quot;. The value of &lt;ID string&gt; is either a custom ID string (if one
+was specified when the game session was created) an auto-generated string. **/
+        GameSessionId?: ArnStringModel;
         /** Unique identifier for a fleet alias. Specify an alias to retrieve information on
 all game sessions active on the fleet. **/
         AliasId?: AliasId;
@@ -1563,15 +1526,37 @@ the result set, do not specify a value. **/
 matching the request. **/
         GameSessions?: GameSessionList;
         /** Token indicating where to resume retrieving results on the next call to this
-action. If no token is returned, these results represent the end of the list.
-
-If a request has a limit that exactly matches the number of remaining results, a
-token is returned even though there are no more results to retrieve. **/
+action. If no token is returned, these results represent the end of the list. **/
+        NextToken?: NonZeroAndMaxString;
+    }
+    export interface DescribeInstancesInput {
+        /** Unique identifier for a fleet. Specify the fleet to retrieve instance
+information for. **/
+        FleetId: FleetId;
+        /** Unique identifier for an instance. Specify an instance to retrieve information
+for or leave blank to get information on all instances in the fleet. **/
+        InstanceId?: InstanceId;
+        /** Maximum number of results to return. Use this parameter with NextToken to get
+results as a set of sequential pages. **/
+        Limit?: PositiveInteger;
+        /** Token indicating the start of the next sequential page of results. Use the token
+that is returned with a previous call to this action. To specify the start of
+the result set, do not specify a value. **/
+        NextToken?: NonZeroAndMaxString;
+    }
+    export interface DescribeInstancesOutput {
+        /** Collection of objects containing properties for each instance returned. **/
+        Instances?: InstanceList;
+        /** Token indicating where to resume retrieving results on the next call to this
+action. If no token is returned, these results represent the end of the list. **/
         NextToken?: NonZeroAndMaxString;
     }
     export interface DescribePlayerSessionsInput {
-        /** Unique identifier for a game session. **/
-        GameSessionId?: GameSessionId;
+        /** Unique identifier for the game session to get player sessions for.Game session
+ID format is as follows: &quot;arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet
+ID&gt;/&lt;ID string&gt;&quot;. The value of &lt;ID string&gt; is either a custom ID string (if one
+was specified when the game session was created) an auto-generated string. **/
+        GameSessionId?: ArnStringModel;
         /** Unique identifier for a player. **/
         PlayerId?: NonZeroAndMaxString;
         /** Unique identifier for a player session. **/
@@ -1582,9 +1567,15 @@ Possible player session statuses include the following:
 
  &amp;#42; RESERVED – The player session request has been received, but the player has
    not yet connected to the server process and/or been validated.
+   
+   
  * ACTIVE – The player has been validated by the server process and is currently
    connected.
+   
+   
  * COMPLETED – The player connection has been dropped.
+   
+   
  * TIMEDOUT – A player session request was received, but the player did not
    connect and/or was not validated within the time-out limit (60 seconds). **/
         PlayerSessionStatusFilter?: NonZeroAndMaxString;
@@ -1603,10 +1594,7 @@ this parameter is ignored. **/
 the request. **/
         PlayerSessions?: PlayerSessionList;
         /** Token indicating where to resume retrieving results on the next call to this
-action. If no token is returned, these results represent the end of the list.
-
-If a request has a limit that exactly matches the number of remaining results, a
-token is returned even though there are no more results to retrieve. **/
+action. If no token is returned, these results represent the end of the list. **/
         NextToken?: NonZeroAndMaxString;
     }
     export interface DescribeRuntimeConfigurationInput {
@@ -1626,11 +1614,23 @@ for. **/
 when in an ACTIVE status.
 
  &amp;#42; ACTIVE – The scaling policy is currently in force.
+   
+   
  * UPDATEREQUESTED – A request to update the scaling policy has been received.
+   
+   
  * UPDATING – A change is being made to the scaling policy.
+   
+   
  * DELETEREQUESTED – A request to delete the scaling policy has been received.
+   
+   
  * DELETING – The scaling policy is being deleted.
+   
+   
  * DELETED – The scaling policy has been deleted.
+   
+   
  * ERROR – An error occurred in creating the policy. It should be removed and
    recreated. **/
         StatusFilter?: ScalingStatusType;
@@ -1646,10 +1646,7 @@ the result set, do not specify a value. **/
         /** Collection of objects containing the scaling policies matching the request. **/
         ScalingPolicies?: ScalingPolicyList;
         /** Token indicating where to resume retrieving results on the next call to this
-action. If no token is returned, these results represent the end of the list.
-
-If a request has a limit that exactly matches the number of remaining results, a
-token is returned even though there are no more results to retrieve. **/
+action. If no token is returned, these results represent the end of the list. **/
         NextToken?: NonZeroAndMaxString;
     }
     export interface EC2InstanceCounts {
@@ -1675,7 +1672,7 @@ terminated. **/
 instance type determines the computing resources of each instance in the fleet,
 including CPU, memory, storage, and networking capacity. GameLift supports the
 following EC2 instance types. See Amazon EC2 Instance Types
-[https://aws.amazon.com/ec2/instance-types/] for detailed descriptions. **/
+[http://aws.amazon.com/ec2/instance-types/] for detailed descriptions. **/
         EC2InstanceType?: EC2InstanceType;
         /** Number of instances of the specified type that are currently in use by this AWS
 account. **/
@@ -1714,13 +1711,23 @@ expressed in Unix time as milliseconds (ex: &quot;1469498468.057&quot;. **/
 Possible fleet statuses include the following:
 
  &amp;#42; NEW – A new fleet has been defined and desired instances is set to 1.
+   
+   
  * DOWNLOADING/VALIDATING/BUILDING/ACTIVATING – GameLift is setting up the new
    fleet, creating new instances with the game build and starting server
    processes.
+   
+   
  * ACTIVE – Hosts can now accept game sessions.
+   
+   
  * ERROR – An error occurred when downloading, validating, building, or
    activating the fleet.
+   
+   
  * DELETING – Hosts are responding to a delete fleet request.
+   
+   
  * TERMINATED – The fleet no longer exists. **/
         Status?: FleetStatus;
         /** Unique identifier for a build. **/
@@ -1747,12 +1754,17 @@ to access stored logs. **/
 fleet.
 
  &amp;#42; NoProtection – The game session can be terminated during a scale-down event.
+   
+   
  * FullProtection – If the game session is in an ACTIVE status, it cannot be
    terminated during a scale-down event. **/
         NewGameSessionProtectionPolicy?: ProtectionPolicy;
         /** Operating system of the fleet&#x27;s computing resources. A fleet&#x27;s operating system
 depends on the OS specified for the build that is deployed on this fleet. **/
         OperatingSystem?: OperatingSystem;
+        /** Fleet policy to limit the number of game sessions an individual player can
+create over a span of time. **/
+        ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy;
     }
     export interface FleetCapacity {
         /** Unique identifier for a fleet. **/
@@ -1761,7 +1773,7 @@ depends on the OS specified for the build that is deployed on this fleet. **/
 instance type determines the computing resources of each instance in the fleet,
 including CPU, memory, storage, and networking capacity. GameLift supports the
 following EC2 instance types. See Amazon EC2 Instance Types
-[https://aws.amazon.com/ec2/instance-types/] for detailed descriptions. **/
+[http://aws.amazon.com/ec2/instance-types/] for detailed descriptions. **/
         InstanceType?: EC2InstanceType;
         /** Current status of fleet capacity. **/
         InstanceCounts?: EC2InstanceCounts;
@@ -1786,12 +1798,17 @@ instances in the fleet. **/
         MaximumPlayerSessionCount?: WholeNumber;
     }
     export interface GameProperty {
+        /** TBD **/
         Key: GamePropertyKey;
+        /** TBD **/
         Value: GamePropertyValue;
     }
     export interface GameSession {
-        /** Unique identifier for a game session. **/
-        GameSessionId?: GameSessionId;
+        /** Unique identifier for a game session. Game session ID format is as follows:
+&quot;arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet ID&gt;/&lt;ID string&gt;&quot;. The value
+of &lt;ID string&gt; is either a custom ID string (if one was specified when the game
+session was created) an auto-generated string. **/
+        GameSessionId?: NonZeroAndMaxString;
         /** Descriptive label associated with a game session. Session names do not need to
 be unique. **/
         Name?: NonZeroAndMaxString;
@@ -1820,12 +1837,18 @@ app needs both the IP address and port number. **/
         Port?: PortNumber;
         /** Indicates whether or not the game session is accepting new players. **/
         PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy;
+        /** Player ID of the person or entity that created the game session. This ID is used
+to enforce a resource protection policy (if one exists) that limits the number
+of concurrent active game sessions one player can have. **/
+        CreatorId?: NonZeroAndMaxString;
     }
     export interface GameSessionDetail {
         GameSession?: GameSession;
         /** Current status of protection for the game session.
 
  &amp;#42; NoProtection – The game session can be terminated during a scale-down event.
+   
+   
  * FullProtection – If the game session is in an ACTIVE status, it cannot be
    terminated during a scale-down event. **/
         ProtectionPolicy?: ProtectionPolicy;
@@ -1834,13 +1857,49 @@ app needs both the IP address and port number. **/
         Message?: NonEmptyString;
     }
     export interface GetGameSessionLogUrlInput {
-        /** Unique identifier for a game session. Specify the game session you want to get
-logs for. **/
-        GameSessionId: GameSessionId;
+        /** Unique identifier for the game session to get logs for. Game session ID format
+is as follows: &quot;arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet ID&gt;/&lt;ID
+string&gt;&quot;. The value of &lt;ID string&gt; is either a custom ID string (if one was
+specified when the game session was created) an auto-generated string. **/
+        GameSessionId: ArnStringModel;
     }
     export interface GetGameSessionLogUrlOutput {
         /** Location of the requested game session logs, available for download. **/
         PreSignedUrl?: NonZeroAndMaxString;
+    }
+    export interface IdempotentParameterMismatchException {
+        Message?: NonEmptyString;
+    }
+    export interface Instance {
+        /** Unique identifier for the fleet that the instance belongs to. **/
+        FleetId?: FleetId;
+        /** Unique identifier for the instance. **/
+        InstanceId?: InstanceId;
+        /** IP address assigned to the instance. **/
+        IpAddress?: IpAddress;
+        /** Operating system being used on this instance. **/
+        OperatingSystem?: OperatingSystem;
+        /** EC2 instance type that defines the computing resources of this instance. **/
+        Type?: EC2InstanceType;
+        /** Current status of the instance. Possible statuses include the following:
+
+ &amp;#42; PENDING – The instance is in the process of being created and launching
+   server processes as defined in the fleet&#x27;s runtime configuration.
+   
+   
+ * ACTIVE – The instance has been successfully created and at least one server
+   process has successfully launched and reported back to GameLift that it is
+   ready to host a game session. The instance is now considered ready to host
+   game sessions.
+   
+   
+ * TERMINATING – The instance is in the process of shutting down. This may
+   happen to reduce capacity during a scaling down event or to recycle resources
+   in the event of a problem. **/
+        Status?: InstanceStatus;
+        /** Time stamp indicating when this data object was created. Format is a number
+expressed in Unix time as milliseconds (ex: &quot;1469498468.057&quot;). **/
+        CreationTime?: Timestamp;
     }
     export interface InternalServiceException {
         Message?: NonEmptyString;
@@ -1878,6 +1937,8 @@ Possible routing types include the following:
 
  &amp;#42; SIMPLE – The alias resolves to one specific fleet. Use this type when routing
    to active fleets.
+   
+   
  * TERMINAL – The alias does not resolve to a fleet but instead can be used to
    display a message to the user. A terminal alias throws a
    TerminalRoutingStrategyException with the RoutingStrategy message embedded. **/
@@ -1897,10 +1958,7 @@ the result set, do not specify a value. **/
         /** Collection of alias records that match the list request. **/
         Aliases?: AliasList;
         /** Token indicating where to resume retrieving results on the next call to this
-action. If no token is returned, these results represent the end of the list.
-
-If a request has a limit that exactly matches the number of remaining results, a
-token is returned even though there are no more results to retrieve. **/
+action. If no token is returned, these results represent the end of the list. **/
         NextToken?: NonEmptyString;
     }
     export interface ListBuildsInput {
@@ -1912,8 +1970,12 @@ Possible build statuses include the following:
  &amp;#42; INITIALIZED – A new build has been defined, but no files have been uploaded.
    You cannot create fleets for builds that are in this status. When a build is
    successfully created, the build status is set to this value.
+   
+   
  * READY – The game build has been successfully uploaded. You can now create new
    fleets for this build.
+   
+   
  * FAILED – The game build upload failed. You cannot create new fleets for this
    build. **/
         Status?: BuildStatus;
@@ -1929,10 +1991,7 @@ the result set, do not specify a value. **/
         /** Collection of build records that match the request. **/
         Builds?: BuildList;
         /** Token indicating where to resume retrieving results on the next call to this
-action. If no token is returned, these results represent the end of the list.
-
-If a request has a limit that exactly matches the number of remaining results, a
-token is returned even though there are no more results to retrieve. **/
+action. If no token is returned, these results represent the end of the list. **/
         NextToken?: NonEmptyString;
     }
     export interface ListFleetsInput {
@@ -1954,10 +2013,7 @@ information about all returned fleets by passing this result set to a call to
 DescribeFleetAttributes , DescribeFleetCapacity , and DescribeFleetUtilization . **/
         FleetIds?: FleetIdList;
         /** Token indicating where to resume retrieving results on the next call to this
-action. If no token is returned, these results represent the end of the list.
-
-If a request has a limit that exactly matches the number of remaining results, a
-token is returned even though there are no more results to retrieve. **/
+action. If no token is returned, these results represent the end of the list. **/
         NextToken?: NonZeroAndMaxString;
     }
     export interface NotFoundException {
@@ -1968,8 +2024,8 @@ token is returned even though there are no more results to retrieve. **/
         PlayerSessionId?: PlayerSessionId;
         /** Unique identifier for a player. **/
         PlayerId?: NonZeroAndMaxString;
-        /** Unique identifier for a game session. **/
-        GameSessionId?: GameSessionId;
+        /** Unique identifier for the game session that the player session is connected to. **/
+        GameSessionId?: NonZeroAndMaxString;
         /** Unique identifier for a fleet. **/
         FleetId?: FleetId;
         /** Time stamp indicating when this data object was created. Format is a number
@@ -1984,9 +2040,15 @@ Possible player session statuses include the following:
 
  &amp;#42; RESERVED – The player session request has been received, but the player has
    not yet connected to the server process and/or been validated.
+   
+   
  * ACTIVE – The player has been validated by the server process and is currently
    connected.
+   
+   
  * COMPLETED – The player connection has been dropped.
+   
+   
  * TIMEDOUT – A player session request was received, but the player did not
    connect and/or was not validated within the time-out limit (60 seconds). **/
         Status?: PlayerSessionStatus;
@@ -2010,7 +2072,11 @@ be unique. A fleet can have only one scaling policy with the same name. **/
  &amp;#42; ChangeInCapacity – add (or subtract) the scaling adjustment value from the
    current instance count. Positive values scale up while negative values scale
    down.
+   
+   
  * ExactCapacity – set the instance count to the scaling adjustment value.
+   
+   
  * PercentChangeInCapacity – increase or reduce the current instance count by
    the scaling adjustment, read as a percentage. Positive values scale up while
    negative values scale down; for example, a value of &quot;-10&quot; scales the fleet
@@ -2029,16 +2095,26 @@ adjustment.
 
  &amp;#42; ActivatingGameSessions – number of game sessions in the process of being
    created (game session status = ACTIVATING ).
+   
+   
  * ActiveGameSessions – number of game sessions currently running (game session
    status = ACTIVE ).
+   
+   
  * CurrentPlayerSessions – number of active or reserved player sessions (player
    session status = ACTIVE or RESERVED ).
+   
+   
  * AvailablePlayerSessions – number of player session slots currently available
    in active game sessions across the fleet, calculated by subtracting a game
    session&#x27;s current player session count from its maximum player session count.
    This number includes game sessions that are not currently accepting players
    (game session PlayerSessionCreationPolicy = DENY_ALL ).
+   
+   
  * ActiveInstances – number of instances currently running a game session.
+   
+   
  * IdleInstances – number of instances not currently running a game session. **/
         MetricName: MetricName;
     }
@@ -2067,6 +2143,13 @@ were issued for. **/
         /** Fleet ID associated with the requested alias. **/
         FleetId?: FleetId;
     }
+    export interface ResourceCreationLimitPolicy {
+        /** Maximum number of game sessions an individual can create during the policy
+period. **/
+        NewGameSessionsPerCreator?: WholeNumber;
+        /** Time span used to evaluate the resource creation limit policy. **/
+        PolicyPeriodInMinutes?: WholeNumber;
+    }
     export interface RoutingStrategy {
         /** Type of routing strategy.
 
@@ -2074,6 +2157,8 @@ Possible routing types include the following:
 
  &amp;#42; SIMPLE – The alias resolves to one specific fleet. Use this type when routing
    to active fleets.
+   
+   
  * TERMINAL – The alias does not resolve to a fleet but instead can be used to
    display a message to the user. A terminal alias throws a
    TerminalRoutingStrategyException with the RoutingStrategy message embedded. **/
@@ -2107,11 +2192,23 @@ be unique. **/
 in an ACTIVE status.
 
  &amp;#42; ACTIVE – The scaling policy is currently in force.
+   
+   
  * UPDATE_REQUESTED – A request to update the scaling policy has been received.
+   
+   
  * UPDATING – A change is being made to the scaling policy.
+   
+   
  * DELETE_REQUESTED – A request to delete the scaling policy has been received.
+   
+   
  * DELETING – The scaling policy is being deleted.
+   
+   
  * DELETED – The scaling policy has been deleted.
+   
+   
  * ERROR – An error occurred in creating the policy. It should be removed and
    recreated. **/
         Status?: ScalingStatusType;
@@ -2122,7 +2219,11 @@ in an ACTIVE status.
  &amp;#42; ChangeInCapacity – add (or subtract) the scaling adjustment value from the
    current instance count. Positive values scale up while negative values scale
    down.
+   
+   
  * ExactCapacity – set the instance count to the scaling adjustment value.
+   
+   
  * PercentChangeInCapacity – increase or reduce the current instance count by
    the scaling adjustment, read as a percentage. Positive values scale up while
    negative values scale down. **/
@@ -2138,16 +2239,26 @@ a scaling event is triggered. **/
 
  &amp;#42; ActivatingGameSessions – number of game sessions in the process of being
    created (game session status = ACTIVATING ).
+   
+   
  * ActiveGameSessions – number of game sessions currently running (game session
    status = ACTIVE ).
+   
+   
  * CurrentPlayerSessions – number of active or reserved player sessions (player
    session status = ACTIVE or RESERVED ).
+   
+   
  * AvailablePlayerSessions – number of player session slots currently available
    in active game sessions across the fleet, calculated by subtracting a game
    session&#x27;s current player session count from its maximum player session count.
    This number does include game sessions that are not currently accepting
    players (game session PlayerSessionCreationPolicy = DENY_ALL ).
+   
+   
  * ActiveInstances – number of instances currently running a game session.
+   
+   
  * IdleInstances – number of instances not currently running a game session. **/
         MetricName?: MetricName;
     }
@@ -2168,14 +2279,19 @@ consists of the following:
  &amp;#42; Operand -- Name of a game session attribute. Valid values are gameSessionName 
    , gameSessionId , creationTimeMillis , playerSessionCount , maximumSessions , 
    hasAvailablePlayerSessions .
- * Comparator -- Valid comparators are: = , &amp;lt;&amp;gt; , &amp;lt; , &amp;gt; , &amp;lt;= , 
-   &amp;gt;= .
+   
+   
+ * Comparator -- Valid comparators are: = , &lt;&gt; , &lt; , &gt; , &lt;= , &gt;= .
+   
+   
  * Value -- Value to be searched for. Values can be numbers, boolean values
    (true/false) or strings. String values are case sensitive, enclosed in single
    quotes. Special characters must be escaped. Boolean and string values can
-   only be used with the comparators = and &amp;lt;&amp;gt; . For example, the following
+   only be used with the comparators = and &lt;&gt; . For example, the following
    filter expression searches on gameSessionName : &quot; FilterExpression&quot;:
    &quot;gameSessionName = &#x27;Matt\\&#x27;s Awesome Game 1&#x27;&quot; .
+   
+   
 
 To chain multiple conditions in a single expression, use the logical keywords 
 AND , OR , and NOT and parentheses as needed. For example: x AND y AND NOT z , 
@@ -2184,14 +2300,24 @@ NOT (x OR y) .
 Session search evaluates conditions from left to right using the following
 precedence rules:
 
- 1. = , &amp;lt;&amp;gt; , &amp;lt; , &amp;gt; , &amp;lt;= , &amp;gt;=
+ 1. = , &lt;&gt; , &lt; , &gt; , &lt;= , &gt;=
+    
+    
  2. Parentheses
+    
+    
  3. NOT
+    
+    
  4. AND
+    
+    
  5. OR
+    
+    
 
 For example, this filter expression retrieves game sessions hosting at least ten
-players that have an open player slot: &quot;maximumSessions&amp;gt;=10 AND
+players that have an open player slot: &quot;maximumSessions&gt;=10 AND
 hasAvailablePlayerSessions=true&quot; . **/
         FilterExpression?: NonZeroAndMaxString;
         /** Instructions on how to sort the search results. If no sort expression is
@@ -2201,7 +2327,11 @@ consists of the following elements:
  &amp;#42; Operand -- Name of a game session attribute. Valid values are gameSessionName 
    , gameSessionId , creationTimeMillis , playerSessionCount , maximumSessions , 
    hasAvailablePlayerSessions .
+   
+   
  * Order -- Valid sort orders are ASC (ascending) and DESC (descending).
+   
+   
 
 For example, this sort expression returns the oldest active sessions first: 
 &quot;SortExpression&quot;: &quot;creationTimeMillis ASC&quot; . Results with a null value for the
@@ -2221,10 +2351,7 @@ the result set, do not specify a value. **/
 matching the request. **/
         GameSessions?: GameSessionList;
         /** Token indicating where to resume retrieving results on the next call to this
-action. If no token is returned, these results represent the end of the list.
-
-If a request has a limit that exactly matches the number of remaining results, a
-token is returned even though there are no more results to retrieve. **/
+action. If no token is returned, these results represent the end of the list. **/
         NextToken?: NonZeroAndMaxString;
     }
     export interface ServerProcess {
@@ -2250,7 +2377,7 @@ instance. **/
         AliasId: AliasId;
         /** Descriptive label associated with an alias. Alias names do not need to be
 unique. **/
-        Name?: NonZeroAndMaxString;
+        Name?: NonBlankAndLengthConstraintString;
         /** Human-readable description of an alias. **/
         Description?: NonZeroAndMaxString;
         /** Object specifying the fleet and routing type to use for the alias. **/
@@ -2285,9 +2412,14 @@ fleet. Instances that already exist are not affected. You can set protection for
 individual instances using UpdateGameSession .
 
  &amp;#42; NoProtection – The game session can be terminated during a scale-down event.
+   
+   
  * FullProtection – If the game session is in an ACTIVE status, it cannot be
    terminated during a scale-down event. **/
         NewGameSessionProtectionPolicy?: ProtectionPolicy;
+        /** Policy that limits the number of game sessions an individual player can create
+over a span of time. **/
+        ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy;
     }
     export interface UpdateFleetAttributesOutput {
         /** Unique identifier for the updated fleet. **/
@@ -2320,9 +2452,11 @@ individual instances using UpdateGameSession .
         FleetId?: FleetId;
     }
     export interface UpdateGameSessionInput {
-        /** Unique identifier for a game session. Specify the game session you want to
-update. **/
-        GameSessionId: GameSessionId;
+        /** Unique identifier for the game session to update. Game session ID format is as
+follows: &quot;arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet ID&gt;/&lt;ID string&gt;&quot;.
+The value of &lt;ID string&gt; is either a custom ID string (if one was specified when
+the game session was created) an auto-generated string. **/
+        GameSessionId: ArnStringModel;
         /** Maximum number of players that can be simultaneously connected to the game
 session. **/
         MaximumPlayerSessionCount?: WholeNumber;
@@ -2334,6 +2468,8 @@ be unique. **/
         /** Game session protection policy to apply to this game session only.
 
  &amp;#42; NoProtection – The game session can be terminated during a scale-down event.
+   
+   
  * FullProtection – If the game session is in an ACTIVE status, it cannot be
    terminated during a scale-down event. **/
         ProtectionPolicy?: ProtectionPolicy;

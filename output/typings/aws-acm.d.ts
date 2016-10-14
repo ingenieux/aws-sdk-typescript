@@ -14,15 +14,12 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: json
    *
-   * AWS Certificate ManagerWelcome to the AWS Certificate Manager (ACM) Command
-Reference. This guide provides descriptions, syntax, and usage examples for each
-ACM command. You can use AWS Certificate Manager to request ACM Certificates for
-your AWS-based websites and applications. For general information about using
-ACM and for more information about using the console, see the AWS Certificate
-Manager User Guide
-[http://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html] . For more
-information about using the ACM API, see the AWS Certificate Manager API
-Reference [http://docs.aws.amazon.com/acm/latest/APIReference/Welcome.html] .
+   * AWS Certificate ManagerWelcome to the AWS Certificate Manager (ACM) API
+documentation.
+
+You can use ACM to manage SSL/TLS certificates for your AWS-based websites and
+applications. For general information about using ACM, see the AWS Certificate
+Manager User Guide [http://docs.aws.amazon.com/acm/latest/userguide/] .
    *
    */
   export class ACM extends Service {
@@ -98,6 +95,43 @@ Amazon CloudFront.
      */
     getCertificate(params: ACM.GetCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.RequestInProgressException|ACM.InvalidArnException|any, data: ACM.GetCertificateResponse|any) => void): Request<ACM.GetCertificateResponse|any,ACM.ResourceNotFoundException|ACM.RequestInProgressException|ACM.InvalidArnException|any>;
     /**
+     * Imports an SSL/TLS certificate into AWS Certificate Manager (ACM) to use with 
+ACM&#x27;s integrated AWS services
+[http://docs.aws.amazon.com/acm/latest/userguide/acm-services.html] .
+
+ACM does not provide managed renewal
+[http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html] for
+certificates that you import.
+
+For more information about importing certificates into ACM, including the
+differences between certificates that you import and those that ACM provides,
+see Importing Certificates
+[http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html] in the 
+AWS Certificate Manager User Guide .
+
+To import a certificate, you must provide the certificate and the matching
+private key. When the certificate is not self-signed, you must also provide a
+certificate chain. You can omit the certificate chain when importing a
+self-signed certificate.
+
+The certificate, private key, and certificate chain must be PEM-encoded. For
+more information about converting these items to PEM format, see Importing
+Certificates Troubleshooting
+[http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html#import-certificate-troubleshooting] 
+in the AWS Certificate Manager User Guide .
+
+To import a new certificate, omit the CertificateArn field. Include this field
+only when you want to replace a previously imported certificate.
+
+This operation returns the Amazon Resource Name (ARN)
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] of
+the imported certificate.
+     *
+     * @error ResourceNotFoundException   
+     * @error LimitExceededException   
+     */
+    importCertificate(params: ACM.ImportCertificateRequest, callback?: (err: ACM.ResourceNotFoundException|ACM.LimitExceededException|any, data: ACM.ImportCertificateResponse|any) => void): Request<ACM.ImportCertificateResponse|any,ACM.ResourceNotFoundException|ACM.LimitExceededException|any>;
+    /**
      * Retrieves a list of ACM Certificates and the domain name for each. You can
 optionally filter the list to return only the certificates that match the
 specified status.
@@ -137,7 +171,7 @@ using other names. For each domain name you specify, email is sent to the domain
 owner to request approval to issue the certificate. After receiving approval
 from the domain owner, the ACM Certificate is issued. For more information, see
 the AWS Certificate Manager User Guide
-[http://docs.aws.amazon.com/acm/latest/userguide/overview.html] .
+[http://docs.aws.amazon.com/acm/latest/userguide/] .
      *
      * @error LimitExceededException   
      * @error InvalidDomainValidationOptionsException   
@@ -169,13 +203,19 @@ validation mail, you must request a new certificate.
     
     export type CertificateBody = string;
     
+    export type CertificateBodyBlob = any;
+    
     export type CertificateChain = string;
+    
+    export type CertificateChainBlob = any;
     
     export type CertificateStatus = string;
     
     export type CertificateStatuses = CertificateStatus[];
     
     export type CertificateSummaryList = CertificateSummary[];
+    
+    export type CertificateType = string;
     
     export type DomainList = DomainNameString[];
     
@@ -196,6 +236,8 @@ validation mail, you must request a new certificate.
     export type MaxItems = number;
     
     export type NextToken = string;
+    
+    export type PrivateKeyBlob = any;
     
     export type RevocationReason = string;
     
@@ -227,31 +269,37 @@ Service Namespaces
     export interface CertificateDetail {
         /** The Amazon Resource Name (ARN) of the certificate. For more information about
 ARNs, see Amazon Resource Names (ARNs) and AWS Service Namespaces
-[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] . **/
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] in
+the AWS General Reference . **/
         CertificateArn?: Arn;
-        /** The fully qualified domain name (FQDN) for the certificate, such as
-www.example.com or example.com. **/
+        /** The fully qualified domain name for the certificate, such as www.example.com or
+example.com. **/
         DomainName?: DomainNameString;
-        /** One or more domain names (subject alternative names) included in the certificate
-request. After the certificate is issued, this list includes the domain names
-bound to the public key contained in the certificate. The subject alternative
-names include the canonical domain name (CN) of the certificate and additional
-domain names that can be used to connect to the website. **/
+        /** One or more domain names (subject alternative names) included in the
+certificate. This list contains the domain names that are bound to the public
+key that is contained in the certificate. The subject alternative names include
+the canonical domain name (CN) of the certificate and additional domain names
+that can be used to connect to the website. **/
         SubjectAlternativeNames?: DomainList;
         /** Contains information about the email address or addresses used for domain
-validation. **/
+validation. This field exists only when the certificate type is AMAZON_ISSUED . **/
         DomainValidationOptions?: DomainValidationList;
         /** The serial number of the certificate. **/
         Serial?: String;
-        /** The X.500 distinguished name of the entity associated with the public key
-contained in the certificate. **/
+        /** The name of the entity that is associated with the public key contained in the
+certificate. **/
         Subject?: String;
-        /** The X.500 distinguished name of the CA that issued and signed the certificate. **/
+        /** The name of the certificate authority that issued and signed the certificate. **/
         Issuer?: String;
-        /** The time at which the certificate was requested. **/
+        /** The time at which the certificate was requested. This value exists only when the
+certificate type is AMAZON_ISSUED . **/
         CreatedAt?: TStamp;
-        /** The time at which the certificate was issued. **/
+        /** The time at which the certificate was issued. This value exists only when the
+certificate type is AMAZON_ISSUED . **/
         IssuedAt?: TStamp;
+        /** The date and time at which the certificate was imported. This value exists only
+when the certificate type is IMPORTED . **/
+        ImportedAt?: TStamp;
         /** The status of the certificate. **/
         Status?: CertificateStatus;
         /** The time at which the certificate was revoked. This value exists only when the
@@ -264,21 +312,29 @@ certificate status is REVOKED . **/
         NotBefore?: TStamp;
         /** The time after which the certificate is not valid. **/
         NotAfter?: TStamp;
-        /** The algorithm used to generate the key pair (the public and private key).
-Currently the only supported value is RSA_2048 . **/
+        /** The algorithm that was used to generate the key pair (the public and private
+key). **/
         KeyAlgorithm?: KeyAlgorithm;
-        /** The algorithm used to generate a signature. Currently the only supported value
-is SHA256WITHRSA . **/
+        /** The algorithm that was used to sign the certificate. **/
         SignatureAlgorithm?: String;
-        /** A list of ARNs for the resources that are using the certificate. An ACM
-Certificate can be used by multiple AWS resources. **/
+        /** A list of ARNs for the AWS resources that are using the certificate. A
+certificate can be used by multiple AWS resources. **/
         InUseBy?: InUseList;
         /** The reason the certificate request failed. This value exists only when the
-structure&#x27;s Status is FAILED . For more information, see Certificate Request
+certificate status is FAILED . For more information, see Certificate Request
 Failed
 [http://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed] 
 in the AWS Certificate Manager User Guide . **/
         FailureReason?: FailureReason;
+        /** The source of the certificate. For certificates provided by ACM, this value is 
+AMAZON_ISSUED . For certificates that you imported with ImportCertificate , this
+value is IMPORTED . ACM does not provide managed renewal
+[http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html] for imported
+certificates. For more information about the differences between certificates
+that you import and those that ACM provides, see Importing Certificates
+[http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html] in the 
+AWS Certificate Manager User Guide . **/
+        Type?: CertificateType;
     }
     export interface CertificateSummary {
         /** Amazon Resource Name (ARN) of the certificate. This is of the form:
@@ -371,6 +427,42 @@ input. **/
         /** The certificate chain that contains the root certificate issued by the
 certificate authority (CA). **/
         CertificateChain?: CertificateChain;
+    }
+    export interface ImportCertificateRequest {
+        /** The Amazon Resource Name (ARN)
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] of
+an imported certificate to replace. To import a new certificate, omit this
+field. **/
+        CertificateArn?: Arn;
+        /** The certificate to import. It must meet the following requirements:
+
+ &amp;#42; Must be PEM-encoded.
+   
+   
+ * Must contain a 1024-bit or 2048-bit RSA public key.
+   
+   
+ * Must be valid at the time of import. You cannot import a certificate before
+   its validity period begins (the certificate&#x27;s NotBefore date) or after it
+   expires (the certificate&#x27;s NotAfter date). **/
+        Certificate: CertificateBodyBlob;
+        /** The private key that matches the public key in the certificate. It must meet the
+following requirements:
+
+ &amp;#42; Must be PEM-encoded.
+   
+   
+ * Must be unencrypted. You cannot import a private key that is protected by a
+   password or passphrase. **/
+        PrivateKey: PrivateKeyBlob;
+        /** The certificate chain. It must be PEM-encoded. **/
+        CertificateChain?: CertificateChainBlob;
+    }
+    export interface ImportCertificateResponse {
+        /** The Amazon Resource Name (ARN)
+[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html] of
+the imported certificate. **/
+        CertificateArn?: Arn;
     }
     export interface InvalidArnException {
         message?: String;
