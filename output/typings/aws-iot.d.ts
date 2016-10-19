@@ -1021,6 +1021,10 @@ than the version specified with the --version parameter.
     export interface Action {
         /** Write to a DynamoDB table. **/
         dynamoDB?: DynamoDBAction;
+        /** Write to a DynamoDB table. This is a new version of the DynamoDB action. It
+allows you to write each attribute in an MQTT message payload into a separate
+DynamoDB column. **/
+        dynamoDBv2?: DynamoDBv2Action;
         /** Invoke a Lambda function. **/
         lambda?: LambdaAction;
         /** Publish to an Amazon SNS topic. **/
@@ -1443,6 +1447,19 @@ following: INSERT , UPDATE , or DELETE . **/
         /** The action payload. This name can be customized. **/
         payloadField?: PayloadField;
     }
+    export interface DynamoDBv2Action {
+        /** The ARN of the IAM role that grants access to the DynamoDB table. **/
+        roleArn?: AwsArn;
+        /** Specifies the DynamoDB table to which the message data will be written. For
+example:
+
+{ &quot;dynamoDBv2&quot;: { &quot;roleArn&quot;: &quot;aws:iam:12341251:my-role&quot; &quot;putItem&quot;: {
+&quot;tableName&quot;: &quot;my-table&quot; } } }
+
+Each attribute in the message payload will be written to a separate column in
+the DynamoDB database. **/
+        putItem?: PutItemInput;
+    }
     export interface ElasticsearchAction {
         /** The IAM role ARN that has access to Elasticsearch. **/
         roleArn: AwsArn;
@@ -1796,6 +1813,10 @@ results. **/
         isDefaultVersion?: IsDefaultVersion;
         /** The date and time the policy was created. **/
         createDate?: DateType;
+    }
+    export interface PutItemInput {
+        /** The table where the message data will be written **/
+        tableName: TableName;
     }
     export interface RegisterCACertificateRequest {
         /** The CA certificate. **/

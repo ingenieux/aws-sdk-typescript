@@ -650,7 +650,7 @@ element maps to corresponding columns in the in-application stream that is being
 created.
 
 Also used to describe the format of the reference data source. **/
-        InputSchema?: SourceSchema;
+        InputSchema: SourceSchema;
     }
     export interface InputConfiguration {
         /** Input source ID. You can get this ID by calling the DescribeApplication 
@@ -1025,6 +1025,7 @@ Kinesis Analytics to start reading. **/
     }
     export interface UnableToDetectSchemaException {
         message?: ErrorMessage;
+        RawInputRecords?: RawInputRecords;
     }
     export interface UpdateApplicationRequest {
         /** Name of the Kinesis Analytics application to update. **/
