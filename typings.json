@@ -19,6 +19,7 @@
     "output/typings/aws-apigateway.d.ts",
     "output/typings/aws-application-autoscaling.d.ts",
     "output/typings/aws-autoscaling.d.ts",
+    "output/typings/aws-budgets.d.ts",
     "output/typings/aws-cloudformation.d.ts",
     "output/typings/aws-cloudfront.d.ts",
     "output/typings/aws-cloudhsm.d.ts",

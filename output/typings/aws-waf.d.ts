@@ -731,7 +731,7 @@ IPSetDescriptor object, you specify the following values:
    an IPSetDescriptor object, you delete the existing object and add a new one.
    
    
- * The IP address version, IPv4 or IPv6 .
+ * The IP address version, IPv4 .
    
    
  * The IP address in CIDR notation, for example, 192.0.2.0/24 (for the range of
@@ -740,25 +740,9 @@ IPSetDescriptor object, you specify the following values:
    
    
 
-AWS WAF supports /8, /16, /24, and /32 IP address ranges for IPv4, and /24, /32,
-/48, /56, /64 and /128 for IPv6. For more information about CIDR notation, see
-the Wikipedia entry Classless Inter-Domain Routing
+AWS WAF supports /8, /16, /24, and /32 IP address ranges. For more information
+about CIDR notation, see the Wikipedia entry Classless Inter-Domain Routing
 [https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing] .
-
-IPv6 addresses can be represented using any of the following formats:
-
- * 1111:0000:0000:0000:0000:0000:0000:0111/128
-   
-   
- * 1111:0:0:0:0:0:0:0111/128
-   
-   
- * 1111::0111/128
-   
-   
- * 1111::111/128
-   
-   
 
 You use an IPSet to specify which web requests you want to allow or block based
 on the IP addresses that the requests originated from. For example, if you&#x27;re
@@ -1967,8 +1951,8 @@ IPSetId is returned by CreateIPSet and by ListIPSets . **/
         /** A friendly name or description of the IPSet . You can&#x27;t change the name of an 
 IPSet after you create it. **/
         Name?: ResourceName;
-        /** The IP address type ( IPV4 or IPV6 ) and the IP address range (in CIDR notation)
-that web requests originate from. If the WebACL is associated with a CloudFront
+        /** The IP address type ( IPV4 ) and the IP address range (in CIDR notation) that
+web requests originate from. If the WebACL is associated with a CloudFront
 distribution, this is the value of one of the following fields in CloudFront
 access logs:
 
@@ -1981,7 +1965,7 @@ access logs:
         IPSetDescriptors: IPSetDescriptors;
     }
     export interface IPSetDescriptor {
-        /** Specify IPV4 or IPV6 . **/
+        /** Specify IPV4 . **/
         Type: IPSetDescriptorType;
         /** Specify an IPv4 address by using CIDR notation. For example:
 
@@ -1994,21 +1978,11 @@ access logs:
    
    
 
+AWS WAF supports only /8, /16, /24, and /32 IP addresses.
+
 For more information about CIDR notation, see the Wikipedia entry Classless
 Inter-Domain Routing
-[https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing] .
-
-Specify an IPv6 address by using CIDR notation. For example:
-
- * To configure AWS WAF to allow, block, or count requests that originated from
-   the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify 
-   1111:0000:0000:0000:0000:0000:0000:0111/128 .
-   
-   
- * To configure AWS WAF to allow, block, or count requests that originated from
-   IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to
-   1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify 
-   1111:0000:0000:0000:0000:0000:0000:0000/64 . **/
+[https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing] . **/
         Value: IPSetDescriptorValue;
     }
     export interface IPSetSummary {
@@ -2022,8 +1996,8 @@ IPSet after you create it. **/
     export interface IPSetUpdate {
         /** Specifies whether to insert or delete an IP address with UpdateIPSet . **/
         Action: ChangeAction;
-        /** The IP address type ( IPV4 or IPV6 ) and the IP address range (in CIDR notation)
-that web requests originate from. **/
+        /** The IP address type ( IPV4 ) and the IP address range (in CIDR notation) that
+web requests originate from. **/
         IPSetDescriptor: IPSetDescriptor;
     }
     export interface ListByteMatchSetsRequest {
