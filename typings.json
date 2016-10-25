@@ -80,6 +80,7 @@
     "output/typings/aws-sdb.d.ts",
     "output/typings/aws-sdk.d.ts",
     "output/typings/aws-servicecatalog.d.ts",
+    "output/typings/aws-sms.d.ts",
     "output/typings/aws-snowball.d.ts",
     "output/typings/aws-sns.d.ts",
     "output/typings/aws-sqs.d.ts",
