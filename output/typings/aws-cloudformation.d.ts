@@ -14,11 +14,12 @@ declare module "aws-sdk" {
    * signatureVersion: v4
    * protocol: query
    *
-   * AWS CloudFormationAWS CloudFormation enables you to create and manage AWS
-infrastructure deployments predictably and repeatedly. AWS CloudFormation helps
-you leverage AWS products such as Amazon EC2, EBS, Amazon SNS, ELB, and Auto
-Scaling to build highly-reliable, highly scalable, cost effective applications
-without worrying about creating and configuring the underlying AWS
+   * AWS CloudFormationAWS CloudFormation allows you to create and manage AWS
+infrastructure deployments predictably and repeatedly. You can use AWS
+CloudFormation to leverage AWS products, such as Amazon Elastic Compute Cloud,
+Amazon Elastic Block Store, Amazon Simple Notification Service, Elastic Load
+Balancing, and Auto Scaling to build highly-reliable, highly scalable,
+cost-effective applications without creating or configuring the underlying AWS
 infrastructure.
 
 With AWS CloudFormation, you declare all of your resources and dependencies in a
@@ -26,8 +27,8 @@ template file. The template defines a collection of resources as a single unit
 called a stack. AWS CloudFormation creates and deletes all member resources of
 the stack together and manages all dependencies between the resources for you.
 
-For more information about this product, go to the CloudFormation Product Page
-[http://aws.amazon.com/cloudformation/] .
+For more information about AWS CloudFormation, see the AWS CloudFormation
+Product Page [http://aws.amazon.com/cloudformation/] .
 
 Amazon CloudFormation makes use of other AWS products. If you need additional
 technical information about a specific AWS product, you can find the product&#x27;s
@@ -66,10 +67,10 @@ attempts to roll back to it, causing the update rollback to fail.
     continueUpdateRollback(params: CloudFormation.ContinueUpdateRollbackInput, callback?: (err: any, data: CloudFormation.ContinueUpdateRollbackOutput|any) => void): Request<CloudFormation.ContinueUpdateRollbackOutput|any,any>;
     /**
      * Creates a list of changes for a stack. AWS CloudFormation generates the change
-set by comparing the stack&#x27;s information with the information that you submit. A
-change set can help you understand which resources AWS CloudFormation will
-change and how it will change them before you update your stack. Change sets
-allow you to check before you make a change so that you don&#x27;t delete or replace
+set by comparing the template&#x27;s information with the information that you
+submit. A change set can help you understand which resources AWS CloudFormation
+will change, and how it will change them, before you update your stack. Change
+sets allow you to check before making a change to avoid deleting or replacing
 critical resources.
 
 AWS CloudFormation doesn&#x27;t make any changes to the stack when you create a
@@ -241,6 +242,19 @@ CREATE_PENDING state.
      */
     listChangeSets(params: CloudFormation.ListChangeSetsInput, callback?: (err: any, data: CloudFormation.ListChangeSetsOutput|any) => void): Request<CloudFormation.ListChangeSetsOutput|any,any>;
     /**
+     * Lists all exported output values in the account and region in which you call
+this action. Use this action to see the exported output values that you can
+import into other stacks. To import values, use the Fn::ImportValue
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html] 
+function.
+
+For more information, see AWS CloudFormation Export Stack Output Values
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html] 
+.
+     *
+     */
+    listExports(params: CloudFormation.ListExportsInput, callback?: (err: any, data: CloudFormation.ListExportsOutput|any) => void): Request<CloudFormation.ListExportsOutput|any,any>;
+    /**
      * Returns descriptions of all resources of the specified stack.
 
 For deleted stacks, ListStackResources returns resource information for up to 90
@@ -329,6 +343,8 @@ validation error.
     
     export type ChangeSetSummaries = ChangeSetSummary[];
     
+    export type ChangeSetType = string;
+    
     export type ChangeSource = string;
     
     export type ChangeType = string;
@@ -350,6 +366,12 @@ validation error.
     export type EventId = string;
     
     export type ExecutionStatus = string;
+    
+    export type ExportName = string;
+    
+    export type ExportValue = string;
+    
+    export type Exports = Export[];
     
     export type LastUpdatedTime = number;
     
@@ -409,9 +431,13 @@ validation error.
     
     export type ResourceStatusReason = string;
     
+    export type ResourceToSkip = string;
+    
     export type ResourceType = string;
     
     export type ResourceTypes = ResourceType[];
+    
+    export type ResourcesToSkip = ResourceToSkip[];
     
     export type RetainResources = LogicalResourceId[];
     
@@ -449,6 +475,8 @@ validation error.
     
     export type Stacks = Stack[];
     
+    export type StageList = TemplateStage[];
+    
     export type TagKey = string;
     
     export type TagValue = string;
@@ -461,11 +489,17 @@ validation error.
     
     export type TemplateParameters = TemplateParameter[];
     
+    export type TemplateStage = string;
+    
     export type TemplateURL = string;
     
     export type TimeoutMinutes = number;
     
     export type Timestamp = number;
+    
+    export type TransformName = string;
+    
+    export type TransformsList = TransformName[];
     
     export type Url = string;
     
@@ -523,7 +557,11 @@ the FAILED state, AWS CloudFormation shows the error message. **/
         Description?: Description;
     }
     export interface ContinueUpdateRollbackInput {
-        /** The name or the unique ID of the stack that you want to continue rolling back. **/
+        /** The name or the unique ID of the stack that you want to continue rolling back.
+
+Don&#x27;t specify the name of a nested stack (a stack that was created by using the 
+AWS::CloudFormation::Stack resource). Instead, use this operation on the parent
+stack (the stack that contains the AWS::CloudFormation::Stack resource). **/
         StackName: StackNameOrId;
         /** The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
 role that AWS CloudFormation assumes to roll back the stack. AWS CloudFormation
@@ -538,6 +576,33 @@ previously associated with the stack. If no role is available, AWS
 CloudFormation uses a temporary session that is generated from your user
 credentials. **/
         RoleARN?: RoleARN;
+        /** A list of the logical IDs of the resources that AWS CloudFormation skips during
+the continue update rollback operation. You can specify only resources that are
+in the UPDATE_FAILED state because a rollback failed. You can&#x27;t specify
+resources that are in the UPDATE_FAILED state for other reasons, for example,
+because an update was canceled. To check why a resource update failed, use the 
+DescribeStackResources action, and view the resource status reason.
+
+Specify this property to skip rolling back resources that AWS CloudFormation
+can&#x27;t successfully roll back. We recommend that you troubleshoot
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed] 
+resources before skipping them. AWS CloudFormation sets the status of the
+specified resources to UPDATE_COMPLETE and continues to roll back the stack.
+After the rollback is complete, the state of the skipped resources will be
+inconsistent with the state of the resources in the stack template. Before
+performing another stack update, you must update the stack or resources to be
+consistent with each other. If you don&#x27;t, subsequent stack updates might fail,
+and the stack will become unrecoverable.
+
+Specify the minimum number of resources required to successfully roll back your
+stack. For example, a failed resource update might cause dependent resources to
+fail. In this case, it might not be necessary to skip the dependent resources.
+
+To specify resources in a nested stack, use the following format: 
+NestedStackName.ResourceLogicalID . You can specify a nested stack resource (the
+logical ID of an AWS::CloudFormation::Stack resource) only if it&#x27;s in one of the
+following states: DELETE_IN_PROGRESS , DELETE_COMPLETE , or DELETE_FAILED . **/
+        ResourcesToSkip?: ResourcesToSkip;
     }
     export interface ContinueUpdateRollbackOutput {
     }
@@ -650,10 +715,21 @@ them. **/
         ClientToken?: ClientToken;
         /** A description to help you identify this change set. **/
         Description?: Description;
+        /** The type of change set operation. Valid values are CREATE and UPDATE :
+
+ &amp;#42; CREATE - Specify for a change set for a stack that does not yet exist. The
+   stack has an expected unique ID, but no template or resources. It can include
+   multiple change sets.
+   
+   
+ * UPDATE - Specify for a change set for an existing stack. **/
+        ChangeSetType?: ChangeSetType;
     }
     export interface CreateChangeSetOutput {
         /** The Amazon Resource Name (ARN) of the change set. **/
         Id?: ChangeSetId;
+        /** The unique ID of the stack. **/
+        StackId?: StackId;
     }
     export interface CreateStackInput {
         /** The name that is associated with the stack. The name must be unique in the
@@ -1031,6 +1107,17 @@ that is associated with the change set you want to execute. **/
     }
     export interface ExecuteChangeSetOutput {
     }
+    export interface Export {
+        /** The stack that contains the exported output name and value. **/
+        ExportingStackId?: StackId;
+        /** The name of exported output value. Use this name and the Fn::ImportValue 
+function to import the associated value into other stacks. The name is defined
+in the Export field in the associated stack&#x27;s Outputs section. **/
+        Name?: ExportName;
+        /** The value of the exported output, such as a resource physical ID. This value is
+defined in the Export field in the associated stack&#x27;s Outputs section. **/
+        Value?: ExportValue;
+    }
     export interface GetStackPolicyInput {
         /** The name or unique stack ID that is associated with the stack whose policy you
 want to get. **/
@@ -1056,7 +1143,20 @@ always interchangeable:
    
 
 Default: There is no default value. **/
-        StackName: StackName;
+        StackName?: StackName;
+        /** Returns the template for a change set using the Amazon Resource Name (ARN) or
+name of the change set. If you specify a name, you must also specify the 
+StackName . **/
+        ChangeSetName?: ChangeSetNameOrId;
+        /** The stage of the template that is returned. Valid values are Original and 
+Processed :
+
+ &amp;#42; Original - Use to return the specified pre-transform template.
+   
+   
+ * Processed - Use to return the template after all transforms have been
+   processed. **/
+        TemplateStage?: TemplateStage;
     }
     export interface GetTemplateOutput {
         /** Structure containing the template body. (For more information, go to Template
@@ -1067,6 +1167,11 @@ in the AWS CloudFormation User Guide.)
 AWS CloudFormation returns the same template that was used when the stack was
 created. **/
         TemplateBody?: TemplateBody;
+        /** The available template type. For stacks, both the Original and Processed 
+template types are always available. For change sets, the Original template is
+always available. After the transforms are processed, the Processed template
+becomes available. **/
+        StagesAvailable?: StageList;
     }
     export interface GetTemplateSummaryInput {
         /** Structure containing the template body with a minimum length of 1 byte and a
@@ -1122,6 +1227,8 @@ template. **/
         Version?: Version;
         /** The value that is defined for the Metadata property of the template. **/
         Metadata?: Metadata;
+        /** A list of the transforms that have been declared in the template. **/
+        DeclaredTransforms?: TransformsList;
     }
     export interface InsufficientCapabilitiesException {
     }
@@ -1143,6 +1250,18 @@ change set for the specified stack. **/
         Summaries?: ChangeSetSummaries;
         /** If the output exceeds 1 MB, a string that identifies the next page of change
 sets. If there is no additional page, this value is null. **/
+        NextToken?: NextToken;
+    }
+    export interface ListExportsInput {
+        /** A string (provided by the ListExports response output) that identifies the next
+page of exported output values that you asked to retrieve. **/
+        NextToken?: NextToken;
+    }
+    export interface ListExportsOutput {
+        /** The output for the ListExports action. **/
+        Exports?: Exports;
+        /** If the output exceeds 100 exported output values, a string that identifies the
+next page of exports. If there is no additional page, this value is null. **/
         NextToken?: NextToken;
     }
     export interface ListStackResourcesInput {
@@ -1364,6 +1483,8 @@ causes AWS CloudFormation to immediately fail the stack creation or update. **/
         StackId?: StackId;
         /** The name associated with the stack. **/
         StackName: StackName;
+        /** The unique ID of the change set. **/
+        ChangeSetId?: ChangeSetId;
         /** A user-defined description associated with the stack. **/
         Description?: Description;
         /** A list of Parameter structures. **/
@@ -1705,6 +1826,8 @@ Templates
         /** The list of resources that generated the values in the Capabilities response
 element. **/
         CapabilitiesReason?: CapabilitiesReason;
+        /** A list of the transforms that have been declared in the template. **/
+        DeclaredTransforms?: TransformsList;
     }
   }
 }

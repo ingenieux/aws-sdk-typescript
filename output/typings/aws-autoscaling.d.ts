@@ -37,7 +37,7 @@ attached to your Auto Scaling group, the instances are also registered with the
 target groups.
 
 For more information, see Attach EC2 Instances to Your Auto Scaling Group
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-instance-asg.html] 
 in the Auto Scaling User Guide .
      *
      * @error ResourceContentionFault   
@@ -51,7 +51,7 @@ DescribeLoadBalancerTargetGroups . To detach the target group from the Auto
 Scaling group, use DetachLoadBalancerTargetGroups .
 
 For more information, see Attach a Load Balancer to Your Auto Scaling Group
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-load-balancer-asg.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-load-balancer-asg.html] 
 in the Auto Scaling User Guide .
      *
      * @error ResourceContentionFault   
@@ -68,7 +68,7 @@ DescribeLoadBalancers . To detach the load balancer from the Auto Scaling group,
 use DetachLoadBalancers .
 
 For more information, see Attach a Load Balancer to Your Auto Scaling Group
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-load-balancer-asg.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-load-balancer-asg.html] 
 in the Auto Scaling User Guide .
      *
      * @error ResourceContentionFault   
@@ -104,7 +104,7 @@ Scaling group:
     
 
 For more information, see Auto Scaling Lifecycle
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html] 
 in the Auto Scaling User Guide .
      *
      * @error ResourceContentionFault   
@@ -118,7 +118,7 @@ per region, the call fails. For information about viewing and updating this
 limit, see DescribeAccountLimits .
 
 For more information, see Auto Scaling Groups
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroup.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroup.html] 
 in the Auto Scaling User Guide .
      *
      * @error AlreadyExistsFault   
@@ -134,7 +134,7 @@ If you exceed your maximum limit of launch configurations, which by default is
 limit, see DescribeAccountLimits .
 
 For more information, see Launch Configurations
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/LaunchConfiguration.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/LaunchConfiguration.html] 
 in the Auto Scaling User Guide .
      *
      * @error AlreadyExistsFault   
@@ -149,8 +149,8 @@ When you specify a tag with a key that already exists, the operation overwrites
 the previous tag definition, and you do not get an error message.
 
 For more information, see Tagging Auto Scaling Groups and Instances
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html] in
-the Auto Scaling User Guide .
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/autoscaling-tagging.html] 
+in the Auto Scaling User Guide .
      *
      * @error LimitExceededFault   
      * @error AlreadyExistsFault   
@@ -378,7 +378,7 @@ attached to the Auto Scaling group, the instances are deregistered from the
 target groups.
 
 For more information, see Detach EC2 Instances from Your Auto Scaling Group
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/detach-instance-asg.html] 
 in the Auto Scaling User Guide .
      *
      * @error ResourceContentionFault   
@@ -414,7 +414,7 @@ Note that the instances remain running.
     /**
      * Enables group metrics for the specified Auto Scaling group. For more
 information, see Monitoring Your Auto Scaling Groups and Instances
-[http://docs.aws.amazon.com/AutoScaling/latest/userguide/as-instance-monitoring.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html] 
 in the Auto Scaling User Guide .
      *
      * @error ResourceContentionFault   
@@ -424,7 +424,7 @@ in the Auto Scaling User Guide .
      * Moves the specified instances into Standby mode.
 
 For more information, see Auto Scaling Lifecycle
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html] 
 in the Auto Scaling User Guide .
      *
      * @error ResourceContentionFault   
@@ -441,7 +441,7 @@ in the Auto Scaling User Guide .
      * Moves the specified instances out of Standby mode.
 
 For more information, see Auto Scaling Lifecycle
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html] 
 in the Auto Scaling User Guide .
      *
      * @error ResourceContentionFault   
@@ -479,8 +479,8 @@ Scaling group:
     
     
 
-For more information, see Auto Scaling Lifecycle
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html] 
+For more information, see Auto Scaling Lifecycle Hooks
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html] 
 in the Auto Scaling User Guide .
 
 If you exceed your maximum limit of lifecycle hooks, which by default is 50 per
@@ -502,7 +502,7 @@ This configuration overwrites any existing configuration.
 
 For more information see Getting SNS Notifications When Your Auto Scaling Group
 Scales
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/ASGettingNotifications.html] 
 in the Auto Scaling User Guide .
      *
      * @error LimitExceededFault   
@@ -528,11 +528,11 @@ Amazon Web Services General Reference .
     /**
      * Creates or updates a scheduled scaling action for an Auto Scaling group. When
 updating a scheduled scaling action, if you leave a parameter unspecified, the
-corresponding value remains unchanged in the affected Auto Scaling group.
+corresponding value remains unchanged.
 
 For more information, see Scheduled Scaling
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html] 
-in the Auto Scaling User Guide .
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/schedule_time.html] in
+the Auto Scaling User Guide .
      *
      * @error AlreadyExistsFault   
      * @error LimitExceededFault   
@@ -570,7 +570,7 @@ Scaling group:
     
 
 For more information, see Auto Scaling Lifecycle
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html] 
 in the Auto Scaling User Guide .
      *
      * @error ResourceContentionFault   
@@ -581,7 +581,7 @@ in the Auto Scaling User Guide .
 process, for the specified Auto Scaling group.
 
 For more information, see Suspending and Resuming Auto Scaling Processes
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html] 
 in the Auto Scaling User Guide .
      *
      * @error ResourceInUseFault   
@@ -592,7 +592,7 @@ in the Auto Scaling User Guide .
      * Sets the size of the specified Auto Scaling group.
 
 For more information about desired capacity, see What Is Auto Scaling?
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/WhatIsAutoScaling.html] 
 in the Auto Scaling User Guide .
      *
      * @error ScalingActivityInProgressFault   
@@ -603,8 +603,8 @@ in the Auto Scaling User Guide .
      * Sets the health status of the specified instance.
 
 For more information, see Health Checks
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html] 
-in the Auto Scaling User Guide .
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html] in
+the Auto Scaling User Guide .
      *
      * @error ResourceContentionFault   
      */
@@ -613,7 +613,7 @@ in the Auto Scaling User Guide .
      * Updates the instance protection settings of the specified instances.
 
 For more information, see Instance Protection
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html#instance-protection] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html#instance-protection] 
 in the Auto Scaling User Guide .
      *
      * @error LimitExceededFault   
@@ -630,7 +630,7 @@ prevent other process types from functioning properly.
 To resume processes that have been suspended, use ResumeProcesses .
 
 For more information, see Suspending and Resuming Auto Scaling Processes
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html] 
 in the Auto Scaling User Guide .
      *
      * @error ResourceInUseFault   
@@ -1030,7 +1030,7 @@ additional items to return, the string is empty. **/
         AvailabilityZone: XmlStringMaxLen255;
         /** The lifecycle state for the instance. For more information, see Auto Scaling
 Lifecycle
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html] 
 in the Auto Scaling User Guide . **/
         LifecycleState: XmlStringMaxLen32;
         /** The last reported health status of this instance. &quot;Healthy&quot; means that the
@@ -1097,7 +1097,7 @@ derives its attributes from the specified instance, with the exception of the
 block device mapping.
 
 For more information, see Create an Auto Scaling Group Using an EC2 Instance
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-asg-from-instance.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html] 
 in the Auto Scaling User Guide . **/
         InstanceId?: XmlStringMaxLen19;
         /** The minimum size of the group. **/
@@ -1112,8 +1112,8 @@ equal to the maximum size of the group. **/
 another scaling activity can start. The default is 300.
 
 For more information, see Auto Scaling Cooldowns
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html] in
-the Auto Scaling User Guide . **/
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html] in the 
+Auto Scaling User Guide . **/
         DefaultCooldown?: Cooldown;
         /** One or more Availability Zones for the group. This parameter is optional if you
 specify one or more subnets. **/
@@ -1122,7 +1122,7 @@ specify one or more subnets. **/
 TargetGroupARNs instead.
 
 For more information, see Using a Load Balancer With an Auto Scaling Group
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html] 
 in the Auto Scaling User Guide . **/
         LoadBalancerNames?: LoadBalancerNames;
         /** The Amazon Resource Names (ARN) of the target groups. **/
@@ -1131,8 +1131,8 @@ in the Auto Scaling User Guide . **/
 
 By default, health checks use Amazon EC2 instance status checks to determine the
 health of an instance. For more information, see Health Checks
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html] 
-in the Auto Scaling User Guide . **/
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html] in
+the Auto Scaling User Guide . **/
         HealthCheckType?: XmlStringMaxLen32;
         /** The amount of time, in seconds, that Auto Scaling waits before checking the
 health status of an EC2 instance that has come into service. During this time,
@@ -1141,8 +1141,8 @@ any health check failures for the instance are ignored. The default is 0.
 This parameter is required if you are adding an ELB health check.
 
 For more information, see Health Checks
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html] 
-in the Auto Scaling User Guide . **/
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html] in
+the Auto Scaling User Guide . **/
         HealthCheckGracePeriod?: HealthCheckGracePeriod;
         /** The name of the placement group into which you&#x27;ll launch your instances, if any.
 For more information, see Placement Groups
@@ -1156,15 +1156,15 @@ If you specify subnets and Availability Zones with this call, ensure that the
 subnets&#x27; Availability Zones match the Availability Zones specified.
 
 For more information, see Launching Auto Scaling Instances in a VPC
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html] 
-in the Auto Scaling User Guide . **/
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html] in the 
+Auto Scaling User Guide . **/
         VPCZoneIdentifier?: XmlStringMaxLen2047;
         /** One or more termination policies used to select the instance to terminate. These
 policies are executed in the order that they are listed.
 
 For more information, see Controlling Which Instances Auto Scaling Terminates
 During Scale In
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html] 
 in the Auto Scaling User Guide . **/
         TerminationPolicies?: TerminationPolicies;
         /** Indicates whether newly launched instances are protected from termination by
@@ -1173,8 +1173,8 @@ Auto Scaling when scaling in. **/
         /** One or more tags.
 
 For more information, see Tagging Auto Scaling Groups and Instances
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html] in
-the Auto Scaling User Guide . **/
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/autoscaling-tagging.html] 
+in the Auto Scaling User Guide . **/
         Tags?: Tags;
     }
     export interface CreateLaunchConfigurationType {
@@ -1229,7 +1229,7 @@ To create a launch configuration with a block device mapping or override any
 other instance attributes, specify them as part of the same request.
 
 For more information, see Create a Launch Configuration Using an EC2 Instance
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/create-lc-with-instanceID.html] 
 in the Auto Scaling User Guide . **/
         InstanceId?: XmlStringMaxLen19;
         /** The instance type of the EC2 instance. For information about available instance
@@ -1253,7 +1253,7 @@ Scaling instances. **/
 the request. Spot Instances are launched when the price you specify exceeds the
 current Spot market price. For more information, see Launching Spot Instances in
 Your Auto Scaling Group
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/US-SpotInstances.html] 
 in the Auto Scaling User Guide . **/
         SpotPrice?: SpotPrice;
         /** The name or the Amazon Resource Name (ARN) of the instance profile associated
@@ -1263,8 +1263,7 @@ EC2 instances launched with an IAM role will automatically have AWS security
 credentials available. You can use IAM roles with Auto Scaling to automatically
 enable applications running on your EC2 instances to securely access other AWS
 resources. For more information, see Launch Auto Scaling Instances with an IAM
-Role
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html] 
+Role [http://docs.aws.amazon.com/autoscaling/latest/userguide/us-iam-role.html] 
 in the Auto Scaling User Guide . **/
         IamInstanceProfile?: XmlStringMaxLen1600;
         /** Indicates whether the instance is optimized for Amazon EBS I/O. By default, the
@@ -1278,8 +1277,8 @@ in the Amazon Elastic Compute Cloud User Guide . **/
         /** Used for groups that launch instances into a virtual private cloud (VPC).
 Specifies whether to assign a public IP address to each instance. For more
 information, see Launching Auto Scaling Instances in a VPC
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html] 
-in the Auto Scaling User Guide .
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html] in the 
+Auto Scaling User Guide .
 
 If you specify this parameter, be sure to specify at least one subnet when you
 create your group.
@@ -1301,8 +1300,8 @@ If you specify this parameter, be sure to specify at least one subnet when you
 create your group.
 
 For more information, see Launching Auto Scaling Instances in a VPC
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html] 
-in the Auto Scaling User Guide .
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html] in the 
+Auto Scaling User Guide .
 
 Valid values: default | dedicated **/
         PlacementTenancy?: XmlStringMaxLen64;
@@ -1703,8 +1702,8 @@ policy without waiting for the cooldown period to complete.
 This parameter is not supported if the policy type is StepScaling .
 
 For more information, see Auto Scaling Cooldowns
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html] in
-the Auto Scaling User Guide . **/
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html] in the 
+Auto Scaling User Guide . **/
         HonorCooldown?: HonorCooldown;
         /** The metric value to compare to BreachThreshold . This enables you to execute a
 policy of type StepScaling and determine which step adjustment to use. For
@@ -1886,7 +1885,8 @@ Auto Scaling performs the default action. You can prevent the lifecycle hook
 from timing out by calling RecordLifecycleActionHeartbeat . **/
         HeartbeatTimeout?: HeartbeatTimeout;
         /** The maximum time, in seconds, that an instance can remain in a Pending:Wait or 
-Terminating:Wait state. The default is 172800 seconds (48 hours). **/
+Terminating:Wait state. The maximum is 172800 seconds (48 hours) or 100 times 
+HeartbeatTimeout , whichever is smaller. **/
         GlobalTimeout?: GlobalTimeout;
         /** Defines the action the Auto Scaling group should take when the lifecycle hook
 timeout elapses or if an unexpected failure occurs. The valid values are 
@@ -2064,30 +2064,6 @@ an instance is in the transition state for the lifecycle hook. This target can
 be either an SQS queue or an SNS topic. If you specify an empty string, this
 overrides the current ARN.
 
-The notification messages sent to the target include the following information:
-
- &amp;#42; AutoScalingGroupName . The name of the Auto Scaling group.
-   
-   
- * AccountId . The AWS account ID.
-   
-   
- * LifecycleTransition . The lifecycle hook type.
-   
-   
- * LifecycleActionToken . The lifecycle action token.
-   
-   
- * EC2InstanceId . The EC2 instance ID.
-   
-   
- * LifecycleHookName . The name of the lifecycle hook.
-   
-   
- * NotificationMetadata . User-defined information.
-   
-   
-
 This operation uses the JSON format when sending notifications to an Amazon SQS
 queue, and an email key/value pair format when sending notifications to an
 Amazon SNS topic.
@@ -2132,7 +2108,7 @@ type is null, the value is treated as SimpleScaling . **/
 PercentChangeInCapacity .
 
 For more information, see Dynamic Scaling
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/as-scale-based-on-demand.html] 
 in the Auto Scaling User Guide . **/
         AdjustmentType: XmlStringMaxLen255;
         /** Available for backward compatibility. Use MinAdjustmentMagnitude instead. **/
@@ -2156,8 +2132,8 @@ default cooldown period for the group applies.
 This parameter is not supported unless the policy type is SimpleScaling .
 
 For more information, see Auto Scaling Cooldowns
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html] in
-the Auto Scaling User Guide . **/
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html] in the 
+Auto Scaling User Guide . **/
         Cooldown?: Cooldown;
         /** The aggregation type for the CloudWatch metrics. Valid values are Minimum , 
 Maximum , and Average . If the aggregation type is null, the value is treated as 
@@ -2188,20 +2164,17 @@ This parameter is not supported if the policy type is SimpleScaling . **/
         /** The time for this action to start, in &quot;YYYY-MM-DDThh:mm:ssZ&quot; format in UTC/GMT
 only (for example, 2014-06-01T00:00:00Z ).
 
+If you specify Recurrence and StartTime , Auto Scaling performs the action at
+this time, and then performs the action based on the specified recurrence.
+
 If you try to schedule your action in the past, Auto Scaling returns an error
-message.
-
-When StartTime and EndTime are specified with Recurrence , they form the
-boundaries of when the recurring action starts and stops. **/
+message. **/
         StartTime?: TimestampType;
-        /** The time for this action to end. **/
+        /** The time for the recurring schedule to end. Auto Scaling does not perform the
+action after this time. **/
         EndTime?: TimestampType;
-        /** The time when recurring future actions will start. Start time is specified by
-the user following the Unix cron syntax format. For more information, see Cron
-[http://en.wikipedia.org/wiki/Cron] in Wikipedia.
-
-When StartTime and EndTime are specified with Recurrence , they form the
-boundaries of when the recurring action will start and stop. **/
+        /** The recurring schedule for this action, in Unix cron syntax format. For more
+information, see Cron [http://en.wikipedia.org/wiki/Cron] in Wikipedia. **/
         Recurrence?: XmlStringMaxLen255;
         /** The minimum size for the Auto Scaling group. **/
         MinSize?: AutoScalingGroupMinSize;
@@ -2460,8 +2433,8 @@ less than or equal to the maximum size of the group. **/
 another scaling activity can start. The default is 300.
 
 For more information, see Auto Scaling Cooldowns
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html] in
-the Auto Scaling User Guide . **/
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html] in the 
+Auto Scaling User Guide . **/
         DefaultCooldown?: Cooldown;
         /** One or more Availability Zones for the group. **/
         AvailabilityZones?: AvailabilityZones;
@@ -2471,8 +2444,8 @@ the Auto Scaling User Guide . **/
 health status of an EC2 instance that has come into service. The default is 0.
 
 For more information, see Health Checks
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html] 
-in the Auto Scaling User Guide . **/
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html] in
+the Auto Scaling User Guide . **/
         HealthCheckGracePeriod?: HealthCheckGracePeriod;
         /** The name of the placement group into which you&#x27;ll launch your instances, if any.
 For more information, see Placement Groups
@@ -2486,8 +2459,8 @@ When you specify VPCZoneIdentifier with AvailabilityZones , ensure that the
 subnets&#x27; Availability Zones match the values you specify for AvailabilityZones .
 
 For more information, see Launching Auto Scaling Instances in a VPC
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html] 
-in the Auto Scaling User Guide . **/
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html] in the 
+Auto Scaling User Guide . **/
         VPCZoneIdentifier?: XmlStringMaxLen2047;
         /** A standalone termination policy or a list of termination policies used to select
 the instance to terminate. The policies are executed in the order that they are
@@ -2495,7 +2468,7 @@ listed.
 
 For more information, see Controlling Which Instances Auto Scaling Terminates
 During Scale In
-[http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html] 
+[http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html] 
 in the Auto Scaling User Guide . **/
         TerminationPolicies?: TerminationPolicies;
         /** Indicates whether newly launched instances are protected from termination by

@@ -25,23 +25,23 @@ group with a protocol and port number for connections from the load balancer to
 the targets, and with health check settings to be used when checking the health
 status of the targets.
 
-Elastic Load Balancing supports two types of load balancers: Classic load
-balancers and Application load balancers (new). A Classic load balancer makes
-routing and load balancing decisions either at the transport layer (TCP/SSL) or
-the application layer (HTTP/HTTPS), and supports either EC2-Classic or a VPC. An
-Application load balancer makes routing and load balancing decisions at the
+Elastic Load Balancing supports two types of load balancers: Classic Load
+Balancers and Application Load Balancers. A Classic Load Balancer makes routing
+and load balancing decisions either at the transport layer (TCP/SSL) or the
+application layer (HTTP/HTTPS), and supports either EC2-Classic or a VPC. An
+Application Load Balancer makes routing and load balancing decisions at the
 application layer (HTTP/HTTPS), supports path-based routing, and can route
 requests to one or more ports on each EC2 instance or container instance in your
 virtual private cloud (VPC). For more information, see the Elastic Load
 Balancing User Guide
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/] .
 
-This reference covers the 2015-12-01 API, which supports Application load
-balancers. The 2012-06-01 API supports Classic load balancers.
+This reference covers the 2015-12-01 API, which supports Application Load
+Balancers. The 2012-06-01 API supports Classic Load Balancers.
 
-To get started with an Application load balancer, complete the following tasks:
+To get started, complete the following tasks:
 
- 1. Create a load balancer using CreateLoadBalancer .
+ 1. Create an Application Load Balancer using CreateLoadBalancer .
     
     
  2. Create a target group using CreateTargetGroup .
@@ -58,7 +58,7 @@ To get started with an Application load balancer, complete the following tasks:
     
     
 
-To delete an Application load balancer and its related resources, complete the
+To delete an Application Load Balancer and its related resources, complete the
 following tasks:
 
  1. Delete the load balancer using DeleteLoadBalancer .
@@ -77,7 +77,7 @@ complete at most one time. If you repeat an operation, it succeeds.
     endpoint: Endpoint;
     /**
      * Adds the specified tags to the specified resource. You can tag your Application
-load balancers and your target groups.
+Load Balancers and your target groups.
 
 Each tag consists of a key and an optional value. If a resource already has a
 tag with the same key, AddTags updates its value.
@@ -92,7 +92,9 @@ from your resources, use RemoveTags .
      */
     addTags(params: ELBv2.AddTagsInput, callback?: (err: ELBv2.DuplicateTagKeysException|ELBv2.TooManyTagsException|ELBv2.LoadBalancerNotFoundException|ELBv2.TargetGroupNotFoundException|any, data: ELBv2.AddTagsOutput|any) => void): Request<ELBv2.AddTagsOutput|any,ELBv2.DuplicateTagKeysException|ELBv2.TooManyTagsException|ELBv2.LoadBalancerNotFoundException|ELBv2.TargetGroupNotFoundException|any>;
     /**
-     * Creates a listener for the specified Application load balancer.
+     * Creates a listener for the specified Application Load Balancer.
+
+You can create up to 10 listeners per load balancer.
 
 To update a listener, use ModifyListener . When you are finished with a
 listener, you can delete it using DeleteListener . If you are finished with both
@@ -118,7 +120,7 @@ in the Application Load Balancers Guide .
      */
     createListener(params: ELBv2.CreateListenerInput, callback?: (err: ELBv2.DuplicateListenerException|ELBv2.TooManyListenersException|ELBv2.TooManyCertificatesException|ELBv2.LoadBalancerNotFoundException|ELBv2.TargetGroupNotFoundException|ELBv2.TargetGroupAssociationLimitException|ELBv2.InvalidConfigurationRequestException|ELBv2.IncompatibleProtocolsException|ELBv2.SSLPolicyNotFoundException|ELBv2.CertificateNotFoundException|ELBv2.UnsupportedProtocolException|ELBv2.TooManyRegistrationsForTargetIdException|any, data: ELBv2.CreateListenerOutput|any) => void): Request<ELBv2.CreateListenerOutput|any,ELBv2.DuplicateListenerException|ELBv2.TooManyListenersException|ELBv2.TooManyCertificatesException|ELBv2.LoadBalancerNotFoundException|ELBv2.TargetGroupNotFoundException|ELBv2.TargetGroupAssociationLimitException|ELBv2.InvalidConfigurationRequestException|ELBv2.IncompatibleProtocolsException|ELBv2.SSLPolicyNotFoundException|ELBv2.CertificateNotFoundException|ELBv2.UnsupportedProtocolException|ELBv2.TooManyRegistrationsForTargetIdException|any>;
     /**
-     * Creates an Application load balancer.
+     * Creates an Application Load Balancer.
 
 To create listeners for your load balancer, use CreateListener . You can add
 security groups, subnets, and tags when you create your load balancer, or you
@@ -131,6 +133,10 @@ You can create up to 20 load balancers per region per account. You can request
 an increase for the number of load balancers for your account. For more
 information, see Limits for Your Application Load Balancer
 [http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html] 
+in the Application Load Balancers Guide .
+
+For more information, see Application Load Balancers
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html] 
 in the Application Load Balancers Guide .
      *
      * @error DuplicateLoadBalancerNameException   
@@ -147,10 +153,12 @@ in the Application Load Balancers Guide .
     /**
      * Creates a rule for the specified listener.
 
-A rule consists conditions and actions. Rules are evaluated in priority order,
-from the lowest value to the highest value. When the conditions for a rule are
-met, the specified actions are taken. If no rule&#x27;s conditions are met, the
-default actions for the listener are taken.
+Each rule can have one action and one condition. Rules are evaluated in priority
+order, from the lowest value to the highest value. When the condition for a rule
+is met, the specified action is taken. If no conditions are met, the default
+action for the default rule is taken. For more information, see Listener Rules
+[http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules] 
+in the Application Load Balancers Guide .
 
 To view your current rules, use DescribeRules . To update a rule, use ModifyRule 
 . To set the priorities of your rules, use SetRulePriorities . To delete a rule,
@@ -196,7 +204,7 @@ attached to using DeleteLoadBalancer .
      */
     deleteListener(params: ELBv2.DeleteListenerInput, callback?: (err: ELBv2.ListenerNotFoundException|any, data: ELBv2.DeleteListenerOutput|any) => void): Request<ELBv2.DeleteListenerOutput|any,ELBv2.ListenerNotFoundException|any>;
     /**
-     * Deletes the specified load balancer and its attached listeners.
+     * Deletes the specified Application Load Balancer and its attached listeners.
 
 You can&#x27;t delete a load balancer if deletion protection is enabled. If the load
 balancer does not exist or has already been deleted, the call succeeds.
@@ -235,22 +243,22 @@ targets are deregistered, they no longer receive traffic from the load balancer.
      */
     deregisterTargets(params: ELBv2.DeregisterTargetsInput, callback?: (err: ELBv2.TargetGroupNotFoundException|ELBv2.InvalidTargetException|any, data: ELBv2.DeregisterTargetsOutput|any) => void): Request<ELBv2.DeregisterTargetsOutput|any,ELBv2.TargetGroupNotFoundException|ELBv2.InvalidTargetException|any>;
     /**
-     * Describes the specified listeners or the listeners for the specified load
-balancer. You must specify either a load balancer or one or more listeners.
+     * Describes the specified listeners or the listeners for the specified Application
+Load Balancer. You must specify either a load balancer or one or more listeners.
      *
      * @error ListenerNotFoundException   
      * @error LoadBalancerNotFoundException   
      */
     describeListeners(params: ELBv2.DescribeListenersInput, callback?: (err: ELBv2.ListenerNotFoundException|ELBv2.LoadBalancerNotFoundException|any, data: ELBv2.DescribeListenersOutput|any) => void): Request<ELBv2.DescribeListenersOutput|any,ELBv2.ListenerNotFoundException|ELBv2.LoadBalancerNotFoundException|any>;
     /**
-     * Describes the attributes for the specified load balancer.
+     * Describes the attributes for the specified Application Load Balancer.
      *
      * @error LoadBalancerNotFoundException   
      */
     describeLoadBalancerAttributes(params: ELBv2.DescribeLoadBalancerAttributesInput, callback?: (err: ELBv2.LoadBalancerNotFoundException|any, data: ELBv2.DescribeLoadBalancerAttributesOutput|any) => void): Request<ELBv2.DescribeLoadBalancerAttributesOutput|any,ELBv2.LoadBalancerNotFoundException|any>;
     /**
-     * Describes the specified Application load balancers or all of your Application
-load balancers.
+     * Describes the specified Application Load Balancers or all of your Application
+Load Balancers.
 
 To describe the listeners for a load balancer, use DescribeListeners . To
 describe the attributes for a load balancer, use DescribeLoadBalancerAttributes 
@@ -334,7 +342,7 @@ add the security policy.
      */
     modifyListener(params: ELBv2.ModifyListenerInput, callback?: (err: ELBv2.DuplicateListenerException|ELBv2.TooManyListenersException|ELBv2.TooManyCertificatesException|ELBv2.ListenerNotFoundException|ELBv2.TargetGroupNotFoundException|ELBv2.TargetGroupAssociationLimitException|ELBv2.IncompatibleProtocolsException|ELBv2.SSLPolicyNotFoundException|ELBv2.CertificateNotFoundException|ELBv2.InvalidConfigurationRequestException|ELBv2.UnsupportedProtocolException|ELBv2.TooManyRegistrationsForTargetIdException|any, data: ELBv2.ModifyListenerOutput|any) => void): Request<ELBv2.ModifyListenerOutput|any,ELBv2.DuplicateListenerException|ELBv2.TooManyListenersException|ELBv2.TooManyCertificatesException|ELBv2.ListenerNotFoundException|ELBv2.TargetGroupNotFoundException|ELBv2.TargetGroupAssociationLimitException|ELBv2.IncompatibleProtocolsException|ELBv2.SSLPolicyNotFoundException|ELBv2.CertificateNotFoundException|ELBv2.InvalidConfigurationRequestException|ELBv2.UnsupportedProtocolException|ELBv2.TooManyRegistrationsForTargetIdException|any>;
     /**
-     * Modifies the specified attributes of the specified load balancer.
+     * Modifies the specified attributes of the specified Application Load Balancer.
 
 If any of the specified attributes can&#x27;t be modified as requested, the call
 fails. Any existing attributes that you do not modify retain their current
@@ -375,8 +383,13 @@ To monitor the health of the targets, use DescribeTargetHealth .
     /**
      * Registers the specified targets with the specified target group.
 
+By default, the load balancer routes requests to registered targets using the
+protocol and port number for the target group. Alternatively, you can override
+the port for a target when you register it.
+
 The target must be in the virtual private cloud (VPC) that you specified for the
-target group.
+target group. If the target is an EC2 instance, it can&#x27;t be in the stopped or 
+running state when you register it.
 
 To remove a target from a target group, use DeregisterTargets .
      *
@@ -636,7 +649,7 @@ default is the current predefined security policy. **/
         /** The SSL server certificate. You must provide exactly one certificate if the
 protocol is HTTPS. **/
         Certificates?: CertificateList;
-        /** The default actions for the listener. **/
+        /** The default action for the listener. **/
         DefaultActions: Actions;
     }
     export interface CreateListenerOutput {
@@ -678,12 +691,28 @@ The default is an Internet-facing load balancer. **/
     export interface CreateRuleInput {
         /** The Amazon Resource Name (ARN) of the listener. **/
         ListenerArn: ListenerArn;
-        /** The conditions. **/
+        /** A condition. Each condition has the field path-pattern and specifies one path
+pattern. A path pattern is case sensitive, can be up to 255 characters in
+length, and can contain any of the following characters:
+
+ &amp;#42; A-Z, a-z, 0-9
+   
+   
+ * _ - . $ / ~ &quot; &#x27; @ : +
+   
+   
+ * &amp; (using &amp;amp;)
+   
+   
+ * * (matches 0 or more characters)
+   
+   
+ * ? (matches exactly 1 character) **/
         Conditions: RuleConditionList;
         /** The priority for the rule. A listener can&#x27;t have multiple rules with the same
 priority. **/
         Priority: RulePriority;
-        /** The actions for the rule. **/
+        /** An action. Each action has the type forward and specifies a target group. **/
         Actions: Actions;
     }
     export interface CreateRuleOutput {
@@ -757,7 +786,8 @@ default is 200. **/
     export interface DeregisterTargetsInput {
         /** The Amazon Resource Name (ARN) of the target group. **/
         TargetGroupArn: TargetGroupArn;
-        /** The targets. **/
+        /** The targets. If you specified a port override when you registered a target, you
+must specify both the target ID and the port when you deregister it. **/
         Targets: TargetDescriptions;
     }
     export interface DeregisterTargetsOutput {
@@ -956,7 +986,7 @@ requests from clients with access to the VPC for the load balancer. **/
         /** The name of the attribute.
 
  &amp;#42; access_logs.s3.enabled - Indicates whether access logs stored in Amazon S3
-   are enabled.
+   are enabled. The value is true or false .
    
    
  * access_logs.s3.bucket - The name of the S3 bucket for the access logs. This
@@ -970,7 +1000,7 @@ requests from clients with access to the VPC for the load balancer. **/
    
    
  * deletion_protection.enabled - Indicates whether deletion protection is
-   enabled.
+   enabled. The value is true or false .
    
    
  * idle_timeout.timeout_seconds - The idle timeout value, in seconds. The valid
@@ -1079,7 +1109,9 @@ target unhealthy. **/
     export interface RegisterTargetsInput {
         /** The Amazon Resource Name (ARN) of the target group. **/
         TargetGroupArn: TargetGroupArn;
-        /** The targets. **/
+        /** The targets. The default port for a target is the port for the target group. You
+can specify a port override. If a target is already registered, you can register
+it again using a different port. **/
         Targets: TargetDescriptions;
     }
     export interface RegisterTargetsOutput {
@@ -1107,9 +1139,9 @@ target unhealthy. **/
         IsDefault?: IsDefault;
     }
     export interface RuleCondition {
-        /** The name of the field. The possible value is path-pattern . **/
+        /** The only possible value is path-pattern . **/
         Field?: ConditionFieldName;
-        /** The values for the field.
+        /** The path pattern. You can specify a single path pattern.
 
 A path pattern is case sensitive, can be up to 255 characters in length, and can
 contain any of the following characters:
@@ -1120,7 +1152,7 @@ contain any of the following characters:
  * _ - . $ / ~ &quot; &#x27; @ : +
    
    
- * &amp;amp; (using &amp;amp;amp;)
+ * &amp; (using &amp;amp;)
    
    
  * * (matches 0 or more characters)
@@ -1242,7 +1274,8 @@ target group. **/
    seconds.
    
    
- * stickiness.enabled - Indicates whether sticky sessions are enabled.
+ * stickiness.enabled - Indicates whether sticky sessions are enabled. The value
+   is true or false .
    
    
  * stickiness.type - The type of sticky sessions. The possible value is 

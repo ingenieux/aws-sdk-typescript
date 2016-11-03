@@ -44,6 +44,43 @@ This action is throttled at one request per second.
      */
     cloneReceiptRuleSet(params: SES.CloneReceiptRuleSetRequest, callback?: (err: SES.RuleSetDoesNotExistException|SES.AlreadyExistsException|SES.LimitExceededException|any, data: SES.CloneReceiptRuleSetResponse|any) => void): Request<SES.CloneReceiptRuleSetResponse|any,SES.RuleSetDoesNotExistException|SES.AlreadyExistsException|SES.LimitExceededException|any>;
     /**
+     * Creates a configuration set.
+
+Configuration sets enable you to publish email sending events. For information
+about using configuration sets, see the Amazon SES Developer Guide
+[http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html] 
+.
+
+This action is throttled at one request per second.
+     *
+     * @error ConfigurationSetAlreadyExistsException   
+     * @error InvalidConfigurationSetException   
+     * @error LimitExceededException   
+     */
+    createConfigurationSet(params: SES.CreateConfigurationSetRequest, callback?: (err: SES.ConfigurationSetAlreadyExistsException|SES.InvalidConfigurationSetException|SES.LimitExceededException|any, data: SES.CreateConfigurationSetResponse|any) => void): Request<SES.CreateConfigurationSetResponse|any,SES.ConfigurationSetAlreadyExistsException|SES.InvalidConfigurationSetException|SES.LimitExceededException|any>;
+    /**
+     * Creates a configuration set event destination.
+
+When you create or update an event destination, you must provide one, and only
+one, destination. The destination can be either Amazon CloudWatch or Amazon
+Kinesis Firehose.
+
+An event destination is the AWS service to which Amazon SES publishes the email
+sending events associated with a configuration set. For information about using
+configuration sets, see the Amazon SES Developer Guide
+[http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html] 
+.
+
+This action is throttled at one request per second.
+     *
+     * @error ConfigurationSetDoesNotExistException   
+     * @error EventDestinationAlreadyExistsException   
+     * @error InvalidCloudWatchDestinationException   
+     * @error InvalidFirehoseDestinationException   
+     * @error LimitExceededException   
+     */
+    createConfigurationSetEventDestination(params: SES.CreateConfigurationSetEventDestinationRequest, callback?: (err: SES.ConfigurationSetDoesNotExistException|SES.EventDestinationAlreadyExistsException|SES.InvalidCloudWatchDestinationException|SES.InvalidFirehoseDestinationException|SES.LimitExceededException|any, data: SES.CreateConfigurationSetEventDestinationResponse|any) => void): Request<SES.CreateConfigurationSetEventDestinationResponse|any,SES.ConfigurationSetDoesNotExistException|SES.EventDestinationAlreadyExistsException|SES.InvalidCloudWatchDestinationException|SES.InvalidFirehoseDestinationException|SES.LimitExceededException|any>;
+    /**
      * Creates a new IP address filter.
 
 For information about setting up IP address filters, see the Amazon SES
@@ -90,6 +127,34 @@ This action is throttled at one request per second.
      * @error LimitExceededException   
      */
     createReceiptRuleSet(params: SES.CreateReceiptRuleSetRequest, callback?: (err: SES.AlreadyExistsException|SES.LimitExceededException|any, data: SES.CreateReceiptRuleSetResponse|any) => void): Request<SES.CreateReceiptRuleSetResponse|any,SES.AlreadyExistsException|SES.LimitExceededException|any>;
+    /**
+     * Deletes a configuration set.
+
+Configuration sets enable you to publish email sending events. For information
+about using configuration sets, see the Amazon SES Developer Guide
+[http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html] 
+.
+
+This action is throttled at one request per second.
+     *
+     * @error ConfigurationSetDoesNotExistException   
+     */
+    deleteConfigurationSet(params: SES.DeleteConfigurationSetRequest, callback?: (err: SES.ConfigurationSetDoesNotExistException|any, data: SES.DeleteConfigurationSetResponse|any) => void): Request<SES.DeleteConfigurationSetResponse|any,SES.ConfigurationSetDoesNotExistException|any>;
+    /**
+     * Deletes a configuration set event destination.
+
+Configuration set event destinations are associated with configuration sets,
+which enable you to publish email sending events. For information about using
+configuration sets, see the Amazon SES Developer Guide
+[http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html] 
+.
+
+This action is throttled at one request per second.
+     *
+     * @error ConfigurationSetDoesNotExistException   
+     * @error EventDestinationDoesNotExistException   
+     */
+    deleteConfigurationSetEventDestination(params: SES.DeleteConfigurationSetEventDestinationRequest, callback?: (err: SES.ConfigurationSetDoesNotExistException|SES.EventDestinationDoesNotExistException|any, data: SES.DeleteConfigurationSetEventDestinationResponse|any) => void): Request<SES.DeleteConfigurationSetEventDestinationResponse|any,SES.ConfigurationSetDoesNotExistException|SES.EventDestinationDoesNotExistException|any>;
     /**
      * Deletes the specified identity (an email address or a domain) from the list of
 verified identities.
@@ -178,6 +243,19 @@ This action is throttled at one request per second.
      *
      */
     describeActiveReceiptRuleSet(params: SES.DescribeActiveReceiptRuleSetRequest, callback?: (err: any, data: SES.DescribeActiveReceiptRuleSetResponse|any) => void): Request<SES.DescribeActiveReceiptRuleSetResponse|any,any>;
+    /**
+     * Returns the details of the specified configuration set.
+
+Configuration sets enable you to publish email sending events. For information
+about using configuration sets, see the Amazon SES Developer Guide
+[http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html] 
+.
+
+This action is throttled at one request per second.
+     *
+     * @error ConfigurationSetDoesNotExistException   
+     */
+    describeConfigurationSet(params: SES.DescribeConfigurationSetRequest, callback?: (err: SES.ConfigurationSetDoesNotExistException|any, data: SES.DescribeConfigurationSetResponse|any) => void): Request<SES.DescribeConfigurationSetResponse|any,SES.ConfigurationSetDoesNotExistException|any>;
     /**
      * Returns the details of the specified receipt rule.
 
@@ -304,6 +382,19 @@ This action is throttled at one request per second.
      *
      */
     getSendStatistics(callback?: (err: any, data: SES.GetSendStatisticsResponse|any) => void): Request<SES.GetSendStatisticsResponse|any,any>;
+    /**
+     * Lists the configuration sets associated with your AWS account.
+
+Configuration sets enable you to publish email sending events. For information
+about using configuration sets, see the Amazon SES Developer Guide
+[http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html] 
+.
+
+This action is throttled at one request per second and can return up to 50
+configuration sets at a time.
+     *
+     */
+    listConfigurationSets(params: SES.ListConfigurationSetsRequest, callback?: (err: any, data: SES.ListConfigurationSetsResponse|any) => void): Request<SES.ListConfigurationSetsResponse|any,any>;
     /**
      * Returns a list containing all of the identities (email addresses and domains)
 for your AWS account, regardless of verification status.
@@ -455,8 +546,9 @@ There are several important points to know about SendEmail :
      *
      * @error MessageRejected   
      * @error MailFromDomainNotVerifiedException   
+     * @error ConfigurationSetDoesNotExistException   
      */
-    sendEmail(params: SES.SendEmailRequest, callback?: (err: SES.MessageRejected|SES.MailFromDomainNotVerifiedException|any, data: SES.SendEmailResponse|any) => void): Request<SES.SendEmailResponse|any,SES.MessageRejected|SES.MailFromDomainNotVerifiedException|any>;
+    sendEmail(params: SES.SendEmailRequest, callback?: (err: SES.MessageRejected|SES.MailFromDomainNotVerifiedException|SES.ConfigurationSetDoesNotExistException|any, data: SES.SendEmailResponse|any) => void): Request<SES.SendEmailResponse|any,SES.MessageRejected|SES.MailFromDomainNotVerifiedException|SES.ConfigurationSetDoesNotExistException|any>;
     /**
      * Sends an email message, with header and content specified by the client. The 
 SendRawEmail action is useful for sending multipart MIME emails. The raw text of
@@ -533,8 +625,9 @@ There are several important points to know about SendRawEmail :
      *
      * @error MessageRejected   
      * @error MailFromDomainNotVerifiedException   
+     * @error ConfigurationSetDoesNotExistException   
      */
-    sendRawEmail(params: SES.SendRawEmailRequest, callback?: (err: SES.MessageRejected|SES.MailFromDomainNotVerifiedException|any, data: SES.SendRawEmailResponse|any) => void): Request<SES.SendRawEmailResponse|any,SES.MessageRejected|SES.MailFromDomainNotVerifiedException|any>;
+    sendRawEmail(params: SES.SendRawEmailRequest, callback?: (err: SES.MessageRejected|SES.MailFromDomainNotVerifiedException|SES.ConfigurationSetDoesNotExistException|any, data: SES.SendRawEmailResponse|any) => void): Request<SES.SendRawEmailResponse|any,SES.MessageRejected|SES.MailFromDomainNotVerifiedException|SES.ConfigurationSetDoesNotExistException|any>;
     /**
      * Sets the specified receipt rule set as the active receipt rule set.
 
@@ -651,6 +744,28 @@ This action is throttled at one request per second.
      */
     setReceiptRulePosition(params: SES.SetReceiptRulePositionRequest, callback?: (err: SES.RuleSetDoesNotExistException|SES.RuleDoesNotExistException|any, data: SES.SetReceiptRulePositionResponse|any) => void): Request<SES.SetReceiptRulePositionResponse|any,SES.RuleSetDoesNotExistException|SES.RuleDoesNotExistException|any>;
     /**
+     * Updates the event destination of a configuration set.
+
+When you create or update an event destination, you must provide one, and only
+one, destination. The destination can be either Amazon CloudWatch or Amazon
+Kinesis Firehose.
+
+Event destinations are associated with configuration sets, which enable you to
+publish email sending events to Amazon CloudWatch or Amazon Kinesis Firehose.
+For information about using configuration sets, see the Amazon SES Developer
+Guide
+[http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html] 
+.
+
+This action is throttled at one request per second.
+     *
+     * @error ConfigurationSetDoesNotExistException   
+     * @error EventDestinationDoesNotExistException   
+     * @error InvalidCloudWatchDestinationException   
+     * @error InvalidFirehoseDestinationException   
+     */
+    updateConfigurationSetEventDestination(params: SES.UpdateConfigurationSetEventDestinationRequest, callback?: (err: SES.ConfigurationSetDoesNotExistException|SES.EventDestinationDoesNotExistException|SES.InvalidCloudWatchDestinationException|SES.InvalidFirehoseDestinationException|any, data: SES.UpdateConfigurationSetEventDestinationResponse|any) => void): Request<SES.UpdateConfigurationSetEventDestinationResponse|any,SES.ConfigurationSetDoesNotExistException|SES.EventDestinationDoesNotExistException|SES.InvalidCloudWatchDestinationException|SES.InvalidFirehoseDestinationException|any>;
+    /**
      * Updates a receipt rule.
 
 For information about managing receipt rules, see the Amazon SES Developer Guide
@@ -743,11 +858,27 @@ This action is throttled at one request per second.
     
     export type Cidr = string;
     
+    export type CloudWatchDimensionConfigurations = CloudWatchDimensionConfiguration[];
+    
+    export type ConfigurationSetAttribute = string;
+    
+    export type ConfigurationSetAttributeList = ConfigurationSetAttribute[];
+    
+    export type ConfigurationSetName = string;
+    
+    export type ConfigurationSets = ConfigurationSet[];
+    
     export type Counter = number;
     
     export type CustomMailFromStatus = string;
     
+    export type DefaultDimensionValue = string;
+    
     export type DiagnosticCode = string;
+    
+    export type DimensionName = string;
+    
+    export type DimensionValueSource = string;
     
     export type DkimAttributes = {[key:string]: IdentityDkimAttributes};
     
@@ -758,6 +889,14 @@ This action is throttled at one request per second.
     export type DsnStatus = string;
     
     export type Enabled = boolean;
+    
+    export type EventDestinationName = string;
+    
+    export type EventDestinations = EventDestination[];
+    
+    export type EventType = string;
+    
+    export type EventTypes = EventType[];
     
     export type Explanation = string;
     
@@ -794,6 +933,12 @@ This action is throttled at one request per second.
     export type MessageData = string;
     
     export type MessageId = string;
+    
+    export type MessageTagList = MessageTag[];
+    
+    export type MessageTagName = string;
+    
+    export type MessageTagValue = string;
     
     export type NextToken = string;
     
@@ -942,11 +1087,74 @@ parameter or BounceType . **/
     }
     export interface CloneReceiptRuleSetResponse {
     }
+    export interface CloudWatchDestination {
+        /** A list of dimensions upon which to categorize your emails when you publish email
+sending events to Amazon CloudWatch. **/
+        DimensionConfigurations: CloudWatchDimensionConfigurations;
+    }
+    export interface CloudWatchDimensionConfiguration {
+        /** The name of an Amazon CloudWatch dimension associated with an email sending
+metric. The name must:
+
+ &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or
+   dashes (-).
+   
+   
+ * Contain less than 256 characters. **/
+        DimensionName: DimensionName;
+        /** The place where Amazon SES finds the value of a dimension to publish to Amazon
+CloudWatch. If you want Amazon SES to use the message tags that you specify
+using an X-SES-MESSAGE-TAGS header or a parameter to the SendEmail / 
+SendRawEmail API, choose messageTag . If you want Amazon SES to use your own
+email headers, choose emailHeader . **/
+        DimensionValueSource: DimensionValueSource;
+        /** The default value of the dimension that is published to Amazon CloudWatch if you
+do not provide the value of the dimension when you send an email. The default
+value must:
+
+ &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or
+   dashes (-).
+   
+   
+ * Contain less than 256 characters. **/
+        DefaultDimensionValue: DefaultDimensionValue;
+    }
+    export interface ConfigurationSet {
+        /** The name of the configuration set. The name must:
+
+ &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or
+   dashes (-).
+   
+   
+ * Contain less than 64 characters. **/
+        Name: ConfigurationSetName;
+    }
+    export interface ConfigurationSetAlreadyExistsException {
+        ConfigurationSetName?: ConfigurationSetName;
+    }
+    export interface ConfigurationSetDoesNotExistException {
+        ConfigurationSetName?: ConfigurationSetName;
+    }
     export interface Content {
         /** The textual data of the content. **/
         Data: MessageData;
         /** The character set of the content. **/
         Charset?: Charset;
+    }
+    export interface CreateConfigurationSetEventDestinationRequest {
+        /** The name of the configuration set to which to apply the event destination. **/
+        ConfigurationSetName: ConfigurationSetName;
+        /** An object that describes the AWS service to which Amazon SES will publish the
+email sending events associated with the specified configuration set. **/
+        EventDestination: EventDestination;
+    }
+    export interface CreateConfigurationSetEventDestinationResponse {
+    }
+    export interface CreateConfigurationSetRequest {
+        /** A data structure that contains the name of the configuration set. **/
+        ConfigurationSet: ConfigurationSet;
+    }
+    export interface CreateConfigurationSetResponse {
     }
     export interface CreateReceiptFilterRequest {
         /** A data structure that describes the IP address filter to create, which consists
@@ -982,6 +1190,20 @@ domains, enabled status, scan status, and TLS policy. **/
         RuleSetName: ReceiptRuleSetName;
     }
     export interface CreateReceiptRuleSetResponse {
+    }
+    export interface DeleteConfigurationSetEventDestinationRequest {
+        /** The name of the configuration set from which to delete the event destination. **/
+        ConfigurationSetName: ConfigurationSetName;
+        /** The name of the event destination to delete. **/
+        EventDestinationName: EventDestinationName;
+    }
+    export interface DeleteConfigurationSetEventDestinationResponse {
+    }
+    export interface DeleteConfigurationSetRequest {
+        /** The name of the configuration set to delete. **/
+        ConfigurationSetName: ConfigurationSetName;
+    }
+    export interface DeleteConfigurationSetResponse {
     }
     export interface DeleteIdentityPolicyRequest {
         /** The identity that is associated with the policy that you want to delete. You can
@@ -1035,6 +1257,18 @@ the rule set name and a timestamp of when the rule set was created. **/
         /** The receipt rules that belong to the active rule set. **/
         Rules?: ReceiptRulesList;
     }
+    export interface DescribeConfigurationSetRequest {
+        /** The name of the configuration set to describe. **/
+        ConfigurationSetName: ConfigurationSetName;
+        /** A list of configuration set attributes to return. **/
+        ConfigurationSetAttributeNames?: ConfigurationSetAttributeList;
+    }
+    export interface DescribeConfigurationSetResponse {
+        /** The configuration set object associated with the specified configuration set. **/
+        ConfigurationSet?: ConfigurationSet;
+        /** A list of event destinations associated with the configuration set. **/
+        EventDestinations?: EventDestinations;
+    }
     export interface DescribeReceiptRuleRequest {
         /** The name of the receipt rule set to which the receipt rule belongs. **/
         RuleSetName: ReceiptRuleSetName;
@@ -1065,6 +1299,37 @@ the timestamp of when the rule set was created. **/
         CcAddresses?: AddressList;
         /** The BCC: field(s) of the message. **/
         BccAddresses?: AddressList;
+    }
+    export interface EventDestination {
+        /** The name of the event destination. The name must:
+
+ &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or
+   dashes (-).
+   
+   
+ * Contain less than 64 characters. **/
+        Name: EventDestinationName;
+        /** Sets whether Amazon SES publishes events to this destination when you send an
+email with the associated configuration set. Set to true to enable publishing to
+this destination; set to false to prevent publishing to this destination. The
+default value is false . **/
+        Enabled?: Enabled;
+        /** The type of email sending events to publish to the event destination. **/
+        MatchingEventTypes: EventTypes;
+        /** An object that contains the delivery stream ARN and the IAM role ARN associated
+with an Amazon Kinesis Firehose event destination. **/
+        KinesisFirehoseDestination?: KinesisFirehoseDestination;
+        /** An object that contains the names, default values, and sources of the dimensions
+associated with an Amazon CloudWatch event destination. **/
+        CloudWatchDestination?: CloudWatchDestination;
+    }
+    export interface EventDestinationAlreadyExistsException {
+        ConfigurationSetName?: ConfigurationSetName;
+        EventDestinationName?: EventDestinationName;
+    }
+    export interface EventDestinationDoesNotExistException {
+        ConfigurationSetName?: ConfigurationSetName;
+        EventDestinationName?: EventDestinationName;
     }
     export interface ExtensionField {
         /** The name of the header to add. Must be between 1 and 50 characters, inclusive,
@@ -1144,7 +1409,7 @@ maximum send rate. **/
     }
     export interface IdentityDkimAttributes {
         /** True if DKIM signing is enabled for email sent from the identity; false
-otherwise. **/
+otherwise. The default value is true. **/
         DkimEnabled: Enabled;
         /** Describes whether Amazon SES has successfully verified the DKIM DNS records
 (tokens) published in the domain name&#x27;s DNS. (This only applies to domain
@@ -1223,6 +1488,16 @@ Amazon SES will not include headers in delivery notifications. **/
         /** The verification token for a domain identity. Null for email address identities. **/
         VerificationToken?: VerificationToken;
     }
+    export interface InvalidCloudWatchDestinationException {
+        ConfigurationSetName?: ConfigurationSetName;
+        EventDestinationName?: EventDestinationName;
+    }
+    export interface InvalidConfigurationSetException {
+    }
+    export interface InvalidFirehoseDestinationException {
+        ConfigurationSetName?: ConfigurationSetName;
+        EventDestinationName?: EventDestinationName;
+    }
     export interface InvalidLambdaFunctionException {
         FunctionArn?: AmazonResourceName;
     }
@@ -1233,6 +1508,14 @@ Amazon SES will not include headers in delivery notifications. **/
     }
     export interface InvalidSnsTopicException {
         Topic?: AmazonResourceName;
+    }
+    export interface KinesisFirehoseDestination {
+        /** The ARN of the IAM role under which Amazon SES publishes email sending events to
+the Amazon Kinesis Firehose stream. **/
+        IAMRoleARN: AmazonResourceName;
+        /** The ARN of the Amazon Kinesis Firehose stream to which to publish email sending
+events. **/
+        DeliveryStreamARN: AmazonResourceName;
     }
     export interface LambdaAction {
         /** The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda
@@ -1260,6 +1543,20 @@ set. **/
         InvocationType?: InvocationType;
     }
     export interface LimitExceededException {
+    }
+    export interface ListConfigurationSetsRequest {
+        /** A token returned from a previous call to ListConfigurationSets to indicate the
+position of the configuration set in the configuration set list. **/
+        NextToken?: NextToken;
+        /** The number of configuration sets to return. **/
+        MaxItems?: MaxItems;
+    }
+    export interface ListConfigurationSetsResponse {
+        /** A list of configuration sets. **/
+        ConfigurationSets?: ConfigurationSets;
+        /** A token indicating that there are additional configuration sets available to be
+listed. Pass this token to successive calls of ListConfigurationSets . **/
+        NextToken?: NextToken;
     }
     export interface ListIdentitiesRequest {
         /** The type of the identities to list. Possible values are &quot;EmailAddress&quot; and
@@ -1335,6 +1632,24 @@ The default value is dns; inbound-smtp.[region].amazonaws.com . **/
         ExtensionFields?: ExtensionFieldList;
     }
     export interface MessageRejected {
+    }
+    export interface MessageTag {
+        /** The name of the tag. The name must:
+
+ &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or
+   dashes (-).
+   
+   
+ * Contain less than 256 characters. **/
+        Name: MessageTagName;
+        /** The value of the tag. The value must:
+
+ &amp;#42; Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or
+   dashes (-).
+   
+   
+ * Contain less than 256 characters. **/
+        Value: MessageTagValue;
     }
     export interface PutIdentityPolicyRequest {
         /** The identity to which the policy will apply. You can specify an identity by
@@ -1613,7 +1928,7 @@ about sending authorization, see the Amazon SES Developer Guide
     export interface SendDataPoint {
         /** Time of the data point. **/
         Timestamp?: Timestamp;
-        /** Number of emails that have been enqueued for sending. **/
+        /** Number of emails that have been sent. **/
         DeliveryAttempts?: Counter;
         /** Number of emails that have bounced. **/
         Bounces?: Counter;
@@ -1688,6 +2003,13 @@ Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html] 
 . **/
         ReturnPathArn?: AmazonResourceName;
+        /** A list of tags, in the form of name/value pairs, to apply to an email that you
+send using SendEmail . Tags correspond to characteristics of the email that you
+define, so that you can publish email sending events. **/
+        Tags?: MessageTagList;
+        /** The name of the configuration set to use when you send an email using SendEmail 
+. **/
+        ConfigurationSetName?: ConfigurationSetName;
     }
     export interface SendEmailResponse {
         /** The unique message identifier returned from the SendEmail action. **/
@@ -1783,6 +2105,13 @@ SendRawEmail in this guide, or see the Amazon SES Developer Guide
 [http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html] 
 . **/
         ReturnPathArn?: AmazonResourceName;
+        /** A list of tags, in the form of name/value pairs, to apply to an email that you
+send using SendRawEmail . Tags correspond to characteristics of the email that
+you define, so that you can publish email sending events. **/
+        Tags?: MessageTagList;
+        /** The name of the configuration set to use when you send an email using 
+SendRawEmail . **/
+        ConfigurationSetName?: ConfigurationSetName;
     }
     export interface SendRawEmailResponse {
         /** The unique message identifier returned from the SendRawEmail action. **/
@@ -1894,6 +2223,15 @@ arn:aws:sns:us-west-2:123456789012:MyTopic . For more information about Amazon
 SNS topics, see the Amazon SNS Developer Guide
 [http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html] . **/
         TopicArn?: AmazonResourceName;
+    }
+    export interface UpdateConfigurationSetEventDestinationRequest {
+        /** The name of the configuration set that you want to update. **/
+        ConfigurationSetName: ConfigurationSetName;
+        /** The event destination object that you want to apply to the specified
+configuration set. **/
+        EventDestination: EventDestination;
+    }
+    export interface UpdateConfigurationSetEventDestinationResponse {
     }
     export interface UpdateReceiptRuleRequest {
         /** The name of the receipt rule set to which the receipt rule belongs. **/
