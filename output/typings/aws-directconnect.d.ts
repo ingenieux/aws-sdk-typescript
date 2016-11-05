@@ -258,6 +258,13 @@ CreateInterconnect.
      */
     describeLocations(callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.Locations|any) => void): Request<DirectConnect.Locations|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
     /**
+     * Describes the tags associated with the specified Direct Connect resources.
+     *
+     * @error DirectConnectServerException   
+     * @error DirectConnectClientException   
+     */
+    describeTags(params: DirectConnect.DescribeTagsRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.DescribeTagsResponse|any) => void): Request<DirectConnect.DescribeTagsResponse|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
+    /**
      * Returns a list of virtual private gateways owned by the AWS account.
 
 You can create one or more AWS Direct Connect private virtual interfaces linking
@@ -288,6 +295,27 @@ only this particular virtual interface will be returned.
      * @error DirectConnectClientException   
      */
     describeVirtualInterfaces(params: DirectConnect.DescribeVirtualInterfacesRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.VirtualInterfaces|any) => void): Request<DirectConnect.VirtualInterfaces|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
+    /**
+     * Adds the specified tags to the specified Direct Connect resource. Each Direct
+Connect resource can have a maximum of 50 tags.
+
+Each tag consists of a key and an optional value. If a tag with the same key is
+already associated with the Direct Connect resource, this action updates its
+value.
+     *
+     * @error DuplicateTagKeysException   
+     * @error TooManyTagsException   
+     * @error DirectConnectServerException   
+     * @error DirectConnectClientException   
+     */
+    tagResource(params: DirectConnect.TagResourceRequest, callback?: (err: DirectConnect.DuplicateTagKeysException|DirectConnect.TooManyTagsException|DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.TagResourceResponse|any) => void): Request<DirectConnect.TagResourceResponse|any,DirectConnect.DuplicateTagKeysException|DirectConnect.TooManyTagsException|DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
+    /**
+     * Removes one or more tags from the specified Direct Connect resource.
+     *
+     * @error DirectConnectServerException   
+     * @error DirectConnectClientException   
+     */
+    untagResource(params: DirectConnect.UntagResourceRequest, callback?: (err: DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any, data: DirectConnect.UntagResourceResponse|any) => void): Request<DirectConnect.UntagResourceResponse|any,DirectConnect.DirectConnectServerException|DirectConnect.DirectConnectClientException|any>;
 
   }
 
@@ -343,9 +371,23 @@ only this particular virtual interface will be returned.
     
     export type Region = string;
     
+    export type ResourceArn = string;
+    
+    export type ResourceArnList = ResourceArn[];
+    
+    export type ResourceTagList = ResourceTag[];
+    
     export type RouteFilterPrefixList = RouteFilterPrefix[];
     
     export type RouterConfig = string;
+    
+    export type TagKey = string;
+    
+    export type TagKeyList = TagKey[];
+    
+    export type TagList = Tag[];
+    
+    export type TagValue = string;
     
     export type VLAN = number;
     
@@ -576,6 +618,14 @@ Default: None **/
     export interface DescribeInterconnectsRequest {
         interconnectId?: InterconnectId;
     }
+    export interface DescribeTagsRequest {
+        /** The Amazon Resource Names (ARNs) of the Direct Connect resources. **/
+        resourceArns: ResourceArnList;
+    }
+    export interface DescribeTagsResponse {
+        /** Information about the tags. **/
+        resourceTags?: ResourceTagList;
+    }
     export interface DescribeVirtualInterfacesRequest {
         connectionId?: ConnectionId;
         virtualInterfaceId?: VirtualInterfaceId;
@@ -591,6 +641,8 @@ be used once per connection. **/
     export interface DirectConnectServerException {
         /** This is an exception thrown when there is a backend issue on the server side. **/
         message?: ErrorMessage;
+    }
+    export interface DuplicateTagKeysException {
     }
     export interface Interconnect {
         interconnectId?: InterconnectId;
@@ -658,11 +710,43 @@ have multiple locations available. **/
         customerAddress: CustomerAddress;
         routeFilterPrefixes: RouteFilterPrefixList;
     }
+    export interface ResourceTag {
+        /** The Amazon Resource Name (ARN) of the Direct Connect resource. **/
+        resourceArn?: ResourceArn;
+        /** The tags. **/
+        tags?: TagList;
+    }
     export interface RouteFilterPrefix {
         /** CIDR notation for the advertised route. Multiple routes are separated by commas.
 
 Example: 10.10.10.0/24,10.10.11.0/24 **/
         cidr?: CIDR;
+    }
+    export interface Tag {
+        /** The key of the tag. **/
+        key: TagKey;
+        /** The value of the tag. **/
+        value?: TagValue;
+    }
+    export interface TagResourceRequest {
+        /** The Amazon Resource Name (ARN) of the Direct Connect resource.
+
+Example: arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-fg5678gh **/
+        resourceArn: ResourceArn;
+        /** The list of tags to add. **/
+        tags: TagList;
+    }
+    export interface TagResourceResponse {
+    }
+    export interface TooManyTagsException {
+    }
+    export interface UntagResourceRequest {
+        /** The Amazon Resource Name (ARN) of the Direct Connect resource. **/
+        resourceArn: ResourceArn;
+        /** The list of tag keys to remove. **/
+        tagKeys: TagKeyList;
+    }
+    export interface UntagResourceResponse {
     }
     export interface VirtualGateway {
         virtualGatewayId?: VirtualGatewayId;
