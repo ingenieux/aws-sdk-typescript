@@ -33,7 +33,7 @@ Product Page [http://aws.amazon.com/cloudformation/] .
 Amazon CloudFormation makes use of other AWS products. If you need additional
 technical information about a specific AWS product, you can find the product&#x27;s
 technical documentation at http://docs.aws.amazon.com/
-[http://docs.aws.amazon.com/] .
+[http://docs.aws.amazon.com/http:/docs.aws.amazon.com/] .
    *
    */
   export class CloudFormation extends Service {
@@ -249,7 +249,7 @@ import into other stacks. To import values, use the Fn::ImportValue
 function.
 
 For more information, see AWS CloudFormation Export Stack Output Values
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html] 
+[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html] 
 .
      *
      */
@@ -683,10 +683,10 @@ in the AWS CloudFormation User Guide. **/
         /** The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
 role that AWS CloudFormation assumes when executing the change set. AWS
 CloudFormation uses the role&#x27;s credentials to make calls on your behalf. AWS
-CloudFormation always uses this role for all future operations on the stack. As
-long as users have permission to operate on the stack, AWS CloudFormation uses
-this role even if the users don&#x27;t have permission to pass it. Ensure that the
-role grants least privilege.
+CloudFormation uses this role for all future operations on the stack. As long as
+users have permission to operate on the stack, AWS CloudFormation uses this role
+even if the users don&#x27;t have permission to pass it. Ensure that the role grants
+least privilege.
 
 If you don&#x27;t specify a value, AWS CloudFormation uses the role that was
 previously associated with the stack. If no role is available, AWS
@@ -715,14 +715,19 @@ them. **/
         ClientToken?: ClientToken;
         /** A description to help you identify this change set. **/
         Description?: Description;
-        /** The type of change set operation. Valid values are CREATE and UPDATE :
+        /** The type of change set operation.
 
- &amp;#42; CREATE - Specify for a change set for a stack that does not yet exist. The
-   stack has an expected unique ID, but no template or resources. It can include
-   multiple change sets.
+Valid values are CREATE and UPDATE . The default value is UPDATE .
+
+ &amp;#42; CREATE - Specify to use the change set to create a new stack. While AWS
+   CloudFormation creates the stack, the stack has the REVIEW_IN_PROGRESS
+   [http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995] 
+   status and an expected StackId , but no template or resources. Except for its 
+   StackId , the stack is completely empty until you execute the change set. You
+   can apply multiple change sets to a stack.
    
    
- * UPDATE - Specify for a change set for an existing stack. **/
+ * UPDATE - Specify to create a change set for an existing stack. **/
         ChangeSetType?: ChangeSetType;
     }
     export interface CreateChangeSetOutput {
@@ -1148,14 +1153,15 @@ Default: There is no default value. **/
 name of the change set. If you specify a name, you must also specify the 
 StackName . **/
         ChangeSetName?: ChangeSetNameOrId;
-        /** The stage of the template that is returned. Valid values are Original and 
-Processed :
+        /** The stage of the template that is returned.
 
- &amp;#42; Original - Use to return the specified pre-transform template.
+Valid values are Original and Processed . The default value is Original .
+
+ &amp;#42; Original - Use this value to return the user-submitted template.
    
    
- * Processed - Use to return the template after all transforms have been
-   processed. **/
+ * Processed - Use this value to return the template after all transforms have
+   been processed. **/
         TemplateStage?: TemplateStage;
     }
     export interface GetTemplateOutput {
@@ -1167,10 +1173,17 @@ in the AWS CloudFormation User Guide.)
 AWS CloudFormation returns the same template that was used when the stack was
 created. **/
         TemplateBody?: TemplateBody;
-        /** The available template type. For stacks, both the Original and Processed 
-template types are always available. For change sets, the Original template is
-always available. After the transforms are processed, the Processed template
-becomes available. **/
+        /** The template type.
+
+ &amp;#42; For stacks, you can use either the Original or the Processed template type.
+   
+   
+ * For change sets, you can use only the Original template type. After the
+   transforms are processed, you can use the Processed template type.
+   
+   
+
+If you create a change set for a new stack, you must select the template type. **/
         StagesAvailable?: StageList;
     }
     export interface GetTemplateSummaryInput {
@@ -1227,7 +1240,7 @@ template. **/
         Version?: Version;
         /** The value that is defined for the Metadata property of the template. **/
         Metadata?: Metadata;
-        /** A list of the transforms that have been declared in the template. **/
+        /** A list of the transforms that are declared in the template. **/
         DeclaredTransforms?: TransformsList;
     }
     export interface InsufficientCapabilitiesException {
@@ -1826,7 +1839,7 @@ Templates
         /** The list of resources that generated the values in the Capabilities response
 element. **/
         CapabilitiesReason?: CapabilitiesReason;
-        /** A list of the transforms that have been declared in the template. **/
+        /** A list of the transforms that are declared in the template. **/
         DeclaredTransforms?: TransformsList;
     }
   }
