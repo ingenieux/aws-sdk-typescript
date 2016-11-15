@@ -1217,6 +1217,7 @@ user. **/
         Session?: SessionType;
         /** The challenge parameters. **/
         ChallengeParameters?: ChallengeParametersType;
+        /** The result of the authentication response. **/
         AuthenticationResult?: AuthenticationResultType;
     }
     export interface AdminListDevicesRequest {
@@ -1262,6 +1263,7 @@ user. **/
         Session?: SessionType;
         /** The challenge parameters. **/
         ChallengeParameters?: ChallengeParametersType;
+        /** The result returned by the server in response to the authentication request. **/
         AuthenticationResult?: AuthenticationResultType;
     }
     export interface AdminSetUserSettingsRequest {
@@ -1473,6 +1475,9 @@ phone_number , email , or preferred_username . **/
         SmsConfiguration?: SmsConfigurationType;
         /** The configuration for AdminCreateUser requests. **/
         AdminCreateUserConfig?: AdminCreateUserConfigType;
+        /** An array of schema attributes for the new user pool. These attributes can be
+standard or custom attributes. **/
+        Schema?: SchemaAttributesListType;
     }
     export interface CreateUserPoolResponse {
         /** A container for the user pool details. **/
@@ -1575,11 +1580,13 @@ new device. **/
         /** A keyed-hash message authentication code (HMAC) calculated using the secret key
 of a user pool client and username plus the client ID in the message. **/
         SecretHash?: SecretHashType;
-        /** The user name of the user for whom you want to enter a code to retrieve a
-forgotten password. **/
+        /** The user name of the user for whom you want to enter a code to reset a forgotten
+password. **/
         Username: UsernameType;
     }
     export interface ForgotPasswordResponse {
+        /** The code delivery details returned by the server in response to the request to
+reset a password. **/
         CodeDeliveryDetails?: CodeDeliveryDetailsType;
     }
     export interface GetCSVHeaderRequest {
@@ -1611,8 +1618,8 @@ verification code. **/
         AttributeName: AttributeNameType;
     }
     export interface GetUserAttributeVerificationCodeResponse {
-        /** The code delivery details returned by the server response to get the user
-attribute verification code. **/
+        /** The code delivery details returned by the server in response to the request to
+get the user attribute verification code. **/
         CodeDeliveryDetails?: CodeDeliveryDetailsType;
     }
     export interface GetUserRequest {
@@ -1651,6 +1658,8 @@ user. **/
         Session?: SessionType;
         /** The challenge parameters. **/
         ChallengeParameters?: ChallengeParametersType;
+        /** The result returned by the server in response to the request to initiate
+authentication. **/
         AuthenticationResult?: AuthenticationResultType;
     }
     export interface InternalErrorException {
@@ -1865,6 +1874,8 @@ of a user pool client and username plus the client ID in the message. **/
         Username: UsernameType;
     }
     export interface ResendConfirmationCodeResponse {
+        /** The code delivery details returned by the server in response to the request to
+resend the confirmation code. **/
         CodeDeliveryDetails?: CodeDeliveryDetailsType;
     }
     export interface ResourceNotFoundException {
@@ -1889,6 +1900,8 @@ found exception. **/
         Session?: SessionType;
         /** The challenge parameters. **/
         ChallengeParameters?: ChallengeParametersType;
+        /** The result returned by the server in response to the request to respond to the
+authentication challenge. **/
         AuthenticationResult?: AuthenticationResultType;
     }
     export interface SchemaAttributeType {
@@ -1936,12 +1949,14 @@ of a user pool client and username plus the client ID in the message. **/
         /** A response from the server indicating that a user registration has been
 confirmed. **/
         UserConfirmed?: BooleanType;
+        /** The code delivery details returned by the server response to the user
+registration request. **/
         CodeDeliveryDetails?: CodeDeliveryDetailsType;
     }
     export interface SmsConfigurationType {
         /** The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS)
 caller. **/
-        SnsCallerArn?: ArnType;
+        SnsCallerArn: ArnType;
         /** The external ID. **/
         ExternalId?: StringType;
     }
